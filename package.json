@@ -31,7 +31,7 @@
   "devDependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
-    "material-kit-react": "^1.8.0",
-    "react-hook-form": "^3.28.2"
+    "react-hook-form": "^3.28.2",
+    "react-hook-form-input": "^1.0.8"
   }
 }

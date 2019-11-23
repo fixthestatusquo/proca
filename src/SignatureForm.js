@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import { Container, Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
+import {TextField,MenuItem, Radio, RadioGroup, FormControlLabel, Button} from "@material-ui/core";
 
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-
-import Button from "@material-ui/core/Button";
 import SendIcon from "@material-ui/icons/Send";
+
+import useForm from "react-hook-form";
+
+const defaultValues = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  postcode: "",
+  country: "",
+  comment: ""
+};
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -38,38 +42,53 @@ const countries = [
   }
 ];
 
-export default function SignatureForm() {
+export default function SignatureForm(props) {
   const classes = useStyles();
-  const options = { margin: "dense", variant: "filled" };
-  //variant: standard, filled, outline
+  const { register, handleSubmit, setValue, errors } = useForm({
+    mode: "onBlur",
+    defaultValues: defaultValues
+  });
+  //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
+
+  const options = {
+    margin: props.margin || "dense",
+    variant: props.variant || "filled"
+  };
+  //variant: standard, filled, outlined
   //margin: normal, dense
 
-  const [values, setValues] = React.useState({
-    email: "",
-    contry: ""
-  });
+  //const selectValue = watch("select");
+  const onSubmit = data => {
+    console.log(data);
+  };
 
-  //  const fields= {};
+  useEffect(() => {
+    //    register({ name: "email" });
+    //    register({ name: "country" });
+  }, [register]);
 
-  const handleChange = name => event => {
-    console.log(event);
-    setValues({
-      ...values,
-      [name]: event.target.value
-    });
+  const handleChange = e => {
+    //    setValue(e.target.attributes.name.nodeValue, e.target.value);
+    //    setValues(e.target.attributes.name.nodeValue, e.target.value);
+    //    console.log(values);
+    console.log(e.target);
   };
 
   return (
-    <form className={classes.container} noValidate>
+    <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
       <Container component="main" maxWidth="sm">
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           <Grid item xs={12} sm={6}>
             <TextField
               id="firstname"
+              name="firstname"
               label="First Name"
               className={classes.textField}
               placeholder="eg. Leonardo"
-              variant={options.filled}
+              inputRef={register({ required: "* is a required field" })}
+              error={!!(errors && errors.firstname)}
+              helperText={errors && errors.firstname && errors.firstname.message}
+              variant={options.variant}
               margin={options.margin}
               required
             />
@@ -77,23 +96,27 @@ export default function SignatureForm() {
           <Grid item xs={12} sm={6}>
             <TextField
               id="lastname"
+              name="lastname"
               label="Last Name"
               className={classes.textField}
-              variant={options.filled}
+              variant={options.variant}
               margin={options.margin}
+              inputRef={register}
               placeholder="eg. Da Vinci"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               id="email"
+              name="email"
               type="email"
               label="Email"
               className={classes.textField}
-              variant="filled"
-              margin="dense"
-              value={values.email}
-              onChange={handleChange("email")}
+              inputRef={register({ required: "* is a required field" })}
+              error={!!(errors && errors.email)}
+              helperText={errors && errors.email && errors.email.message}
+              variant={options.variant}
+              margin={options.margin}
               placeholder="your.email@example.org"
               required
             />
@@ -101,23 +124,24 @@ export default function SignatureForm() {
           <Grid item xs={12} sm={3}>
             <TextField
               id="postcode"
+              name="postcode"
               label="Postal Code"
+              inputRef={register}
               className={classes.textField}
-              variant="filled"
-              margin="dense"
+              variant={options.variant}
+              margin={options.margin}
             />
           </Grid>
           <Grid item xs={12} sm={9}>
             <TextField
+              select
               id="country"
               name="country"
-              select
               label="Country"
               className={classes.textField}
-              variant="filled"
-              value={values.country}
-              onChange={handleChange("country")}
-              margin="dense"
+              variant={options.variant}
+              inputRef={register}
+              margin={options.margin}
               required
             >
               {countries.map(option => (
@@ -130,33 +154,31 @@ export default function SignatureForm() {
           <Grid item xs={12}>
             <TextField
               id="comment"
+              name="comment"
               className={classes.textField}
               multiline
               rowsMax="20"
               label="Comment"
-              variant="filled"
-              margin="dense"
+              inputRef={register}
+              variant={options.variant}
+              margin={options.margin}
             />
           </Grid>
           <Grid item xs={12}>
             I agree to OrganisationName contacting me about important campaigns
           </Grid>
           <Grid item xs={12}>
-            <RadioGroup
-              aria-label="privacy consent"
-              name="privacy"
-              required
-              value={values.gdpr}
-              onChange={handleChange}
-            >
+            <RadioGroup aria-label="privacy consent" name="privacy" required>
               <FormControlLabel
                 value="opt-in"
+                inputRef={register}
                 control={<Radio color="primary" />}
                 label="Yes, keep me informed via email"
               />
 
               <FormControlLabel
                 value="opt-out"
+                inputRef={register}
                 control={<Radio />}
                 label="No, don't send me emails or keep me updated in future"
               />
@@ -172,6 +194,7 @@ export default function SignatureForm() {
               color="primary"
               variant="contained"
               fullWidth
+              type="submit"
               size="large"
               endIcon={<SendIcon />}
             >
@@ -183,8 +206,5 @@ export default function SignatureForm() {
       </Container>
     </form>
   );
-  // country
-  // GDPR
 }
 
-//export default signatureForm;
