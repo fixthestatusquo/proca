@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 
 import { Container, Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import {TextField,MenuItem, Radio, RadioGroup, FormControlLabel, Button} from "@material-ui/core";
+import {TextField, Radio, RadioGroup, FormControlLabel, Button, FormHelperText} from "@material-ui/core";
 
 import SendIcon from "@material-ui/icons/Send";
 
 import useForm from "react-hook-form";
+//import {TextField} from "react-hook-form-input";
 
 const defaultValues = {
   firstname: "",
@@ -24,10 +25,33 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
+  bigHelper: {
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(0),
+    fontSize:"1em",
+    width: "100%",
+    color:"black",
+    padding:"4px",
+    lineHeight:"inherit"
+  },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     width: "100%"
+  },
+  menu: {
+  },
+  '@global': {
+    'select:-moz-focusring': {
+      color: "transparent",
+      textShadow: "0 0 0 #000",
+    },
+    'input:valid + fieldset': {
+      borderColor: 'green',
+      borderWidth: 2,
+    },
   }
 }));
 
@@ -44,12 +68,14 @@ const countries = [
 
 export default function SignatureForm(props) {
   const classes = useStyles();
-  const { register, handleSubmit, setValue, errors } = useForm({
-    mode: "onBlur",
+  const { register, handleSubmit, setValue, errors,setError,clearError,watch } = useForm({
+//    mode: "onBlur",
+//    nativeValidation: true,
     defaultValues: defaultValues
   });
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
+  const country=watch('country');
   const options = {
     margin: props.margin || "dense",
     variant: props.variant || "filled"
@@ -64,14 +90,33 @@ export default function SignatureForm(props) {
 
   useEffect(() => {
     //    register({ name: "email" });
-    //    register({ name: "country" });
+        register({ name: "country" });
   }, [register]);
 
-  const handleChange = e => {
-    //    setValue(e.target.attributes.name.nodeValue, e.target.value);
-    //    setValues(e.target.attributes.name.nodeValue, e.target.value);
-    //    console.log(values);
+  useEffect(() => {
+    const inputs = document.querySelectorAll("input, select, textarea");
+    // todo: workaround until the feature is native react-form ?
+    inputs.forEach (input => {
+      input.oninvalid =(e) => {
+        setError(e.target.attributes.name.nodeValue, e.type, e.target.validationMessage);
+      };
+
+    });
+
+  },[register,setError]);
+
+  const selectChange = e => {
     console.log(e.target);
+    console.log(e.target.value);
+    setValue("country",e.target.value);
+  };
+  const handleBlur = e => {
+    e.target.checkValidity();
+    if (e.target.validity.valid) {
+      clearError(e.target.attributes.name.nodeValue);
+      return;
+    }
+//    setError(e.target.attributes.name.nodeValue, "aa"+e.target.attributes.name.nodeValue, e.target.validationMessage);
   };
 
   return (
@@ -85,12 +130,14 @@ export default function SignatureForm(props) {
               label="First Name"
               className={classes.textField}
               placeholder="eg. Leonardo"
-              inputRef={register({ required: "* is a required field" })}
+    autoComplete="given-name"
+              required
+              inputRef={register}
+              onBlur = {handleBlur}
               error={!!(errors && errors.firstname)}
               helperText={errors && errors.firstname && errors.firstname.message}
               variant={options.variant}
               margin={options.margin}
-              required
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -98,6 +145,7 @@ export default function SignatureForm(props) {
               id="lastname"
               name="lastname"
               label="Last Name"
+    autoComplete="family-name"
               className={classes.textField}
               variant={options.variant}
               margin={options.margin}
@@ -111,8 +159,10 @@ export default function SignatureForm(props) {
               name="email"
               type="email"
               label="Email"
+    autoComplete="email"
               className={classes.textField}
-              inputRef={register({ required: "* is a required field" })}
+              inputRef={register}
+              onBlur = {handleBlur}
               error={!!(errors && errors.email)}
               helperText={errors && errors.email && errors.email.message}
               variant={options.variant}
@@ -126,6 +176,7 @@ export default function SignatureForm(props) {
               id="postcode"
               name="postcode"
               label="Postal Code"
+    autoComplete="postal-code"
               inputRef={register}
               className={classes.textField}
               variant={options.variant}
@@ -141,13 +192,24 @@ export default function SignatureForm(props) {
               className={classes.textField}
               variant={options.variant}
               inputRef={register}
+              //value={defaultValues.country}
+              value={country}
+              onChange={selectChange}
+              InputLabelProps={{ shrink: country.length > 0 }}
+              SelectProps={{
+                native: true,
+                MenuProps: {
+                  className: classes.menu,
+                },
+              }}
               margin={options.margin}
               required
             >
+              <option key="" value="" ></option>
               {countries.map(option => (
-                <MenuItem key={option.iso} value={option.iso}>
-                  {option.name}
-                </MenuItem>
+                <option key={option.iso} value={option.iso}>
+              {option.name}
+            </option>
               ))}
             </TextField>
           </Grid>
@@ -165,7 +227,14 @@ export default function SignatureForm(props) {
             />
           </Grid>
           <Grid item xs={12}>
-            I agree to OrganisationName contacting me about important campaigns
+            <FormHelperText
+              className={classes.bigHelper}
+              error={errors && errors.privacy}
+              variant={options.variant}
+              margin={options.margin}
+            > 
+            I agree to OrganisationName contacting me about important campaigns *
+            </FormHelperText>
           </Grid>
           <Grid item xs={12}>
             <RadioGroup aria-label="privacy consent" name="privacy" required>
@@ -178,8 +247,8 @@ export default function SignatureForm(props) {
 
               <FormControlLabel
                 value="opt-out"
-                inputRef={register}
                 control={<Radio />}
+                inputRef={register({required:"Yes or No?"})}
                 label="No, don't send me emails or keep me updated in future"
               />
             </RadioGroup>

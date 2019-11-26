@@ -2,6 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 //import './App.css';
 import SignatureForm from './SignatureForm';
+const querystring = require('querystring');
 
 function App() {
   return (

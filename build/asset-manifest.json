@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/nodepetition/build/static/css/main.34de6062.chunk.css",
+    "main.js": "/nodepetition/build/static/js/main.37256b42.chunk.js",
+    "main.js.map": "/nodepetition/build/static/js/main.37256b42.chunk.js.map",
+    "runtime-main.js": "/nodepetition/build/static/js/runtime-main.2992c963.js",
+    "runtime-main.js.map": "/nodepetition/build/static/js/runtime-main.2992c963.js.map",
+    "static/js/2.ac0b7cf6.chunk.js": "/nodepetition/build/static/js/2.ac0b7cf6.chunk.js",
+    "static/js/2.ac0b7cf6.chunk.js.map": "/nodepetition/build/static/js/2.ac0b7cf6.chunk.js.map",
+    "index.html": "/nodepetition/build/index.html",
+    "precache-manifest.75852a9b52f6ce37de7e9774412722d8.js": "/nodepetition/build/precache-manifest.75852a9b52f6ce37de7e9774412722d8.js",
+    "service-worker.js": "/nodepetition/build/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/nodepetition/build/static/css/main.34de6062.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2992c963.js",
+    "static/js/2.ac0b7cf6.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.37256b42.chunk.js"
+  ]
+}
