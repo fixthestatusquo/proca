@@ -19,6 +19,7 @@ import {
 import SignatureForm from "./SignatureForm.js";
 import SendIcon from "@material-ui/icons/Send";
 import CloseIcon from "@material-ui/icons/Close";
+import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles(theme => ({
   fab: {
@@ -71,15 +72,17 @@ export default function FABAction() {
         <DialogContent></DialogContent>
       </Dialog>
       <div className={classes.fab}>
+        <Slide direction="right" onMountOnEnter unmountOnExit in="true">
         <Fab
           color="primary"
           variant="extended"
           aria-label="sign"
           onClick={handleClickOpen}
         >
+          <CreateIcon />
           Sign&nbsp;
-          <SendIcon />
         </Fab>
+    </Slide>
       </div>
     </div>
   );
