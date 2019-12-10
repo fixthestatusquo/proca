@@ -17,7 +17,6 @@ import {
 //import DialogContentText from '@material-ui/core/DialogContentText';
 
 import SignatureForm from "./SignatureForm.js";
-import SendIcon from "@material-ui/icons/Send";
 import CloseIcon from "@material-ui/icons/Close";
 import CreateIcon from "@material-ui/icons/Create";
 
@@ -72,7 +71,7 @@ export default function FABAction() {
         <DialogContent></DialogContent>
       </Dialog>
       <div className={classes.fab}>
-        <Slide direction="right" onMountOnEnter unmountOnExit in="true">
+        <Slide direction="right" mountOnEnter unmountOnExit in={true}>
         <Fab
           color="primary"
           variant="extended"
