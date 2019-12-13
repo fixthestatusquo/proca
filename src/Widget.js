@@ -11,7 +11,9 @@ let  config= {
   };
 
 
-const Button = (arg) => {
+const Button = (args) => {
+  if (args)
+    config = {...config, ...args};
         if (!document.querySelector(config.selector)) {
           let elem = document.createElement("div");
           elem.id="signature-button";
@@ -23,7 +25,15 @@ const Button = (arg) => {
 ;
 
 const Form = (args) => {
-        ReactDOM.render(<SignatureForm margin="dense" variant ="filled" />);
+  if (args)
+    config = {...config, ...args};
+        if (!document.querySelector(config.selector)) {
+          let elem = document.createElement("div");
+          elem.id="signature-form";
+          config.selector="#"+elem.id;
+          document.body.appendChild(elem);
+        }
+  ReactDOM.render(<SignatureForm margin={config.margin} variant ={config.variant} />,document.querySelector(config.selector));
 };
 
 export {config,Button,Form};
