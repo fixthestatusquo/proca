@@ -37,7 +37,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   <script>
-    if (nodepetition) {
+    if (typeof nodepetition === "object") {
       nodepetition.Button();
     } else{  
       window.addEventListener('DOMContentLoaded', function() {
