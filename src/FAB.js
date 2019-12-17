@@ -40,8 +40,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FABAction() {
-  const [open, setOpen] = useState(false);
+export default function FABAction(props) {
+  const [open, setOpen] = useState(props.dialog);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
