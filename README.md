@@ -1,6 +1,21 @@
-# NodePetition (embedPetition?
+# NodePetition (embedPetition? todo: find a name)
 
-You want to engage your members and ask them to take an online action? 
+You want to engage your members and ask them to take an online action? Well, you won't be the first organisation, and you will soon realise that they aren't any decent looking petition tool that are easy to install and configure.
+
+And this is what this tool solves.
+
+## Guiding principles and design
+- *Focussed*: this tool should do as little as possible. It doesn't have to be managing the content/layout of your campaign. You have already a prefered CMS for that, or can spin a wordpress one in no time. We provide action/petition widgets that you can embed into your site, we don't want to be yet another site you need to manage
+- *Build relationship*: We don't believe a petition is only a step in your campaign. Collecting their information so you can contact them later for more actions and campaigns
+- *Privacy*: We will always ask the people taking action to consent to their contact details being shared with your org. We will never use these contacts without their/and your consent.
+- *Sharing is caring*: We have seen how supporters can use social media to convince others to join. We see the sharing step as a key component to this tool
+- *Integrated*: with your CRM/mailing list. If your supporter consented it, it should be as simple as possible to have their contact detail into your mailing plateform. CSV download is not simple, timeconsuming and errorprone.
+- *Support coalitions*: A successful campaign will have multiple partners. We make it easy to aggregate the signature counts, we make it easy to have multiple widgets for each partner (with different consent)
+
+## Full encryption mode?
+This one I'm not sure if I like or not:
+Imagine that when you set up a new partner/campaign, they provide an encryption key (public key). We can encrypt all the signatures, store them encrypted and send them encrypted to their CRM. 
+What's the benefit? GDPR. No ghosting needed, no data processor. And it allows to work with super privacy concerned users.
 
 ## Embeded in your existing website
 
@@ -18,10 +33,11 @@ GDPR
 Benchmarked at > 1'000'000 signatures per hour on a 16 core
 
 ## Technology
-Cache as much as possible
+Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
+(or single graphql?)
 
-front-end: react (next.js? gatsby?)
-Back-end: nodejs+postgres
+front-end: react (next.js or gatsby to generate multiple widgets?)
+Back-end: nodejs+postgres? rust + sqlite
 
 
 
