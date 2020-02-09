@@ -24,8 +24,10 @@
     <title>Sign</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <noscript>You need to enable JavaScript to participate to this campaign.</noscript>
+    <div id="root">
+      <a href="" class="nodepetition_open"> Custom link</a>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -38,10 +40,11 @@
     -->
   <script>
     if (typeof nodepetition === "object") {
-      nodepetition.Button();
+      //not used on dev
+      nodepetition.Button({name:"We want a better future"});
     } else{  
       window.addEventListener('DOMContentLoaded', function() {
-        nodepetition.Button();
+        nodepetition.Button({name:"We want a better future!"});
       });
     }
   </script>

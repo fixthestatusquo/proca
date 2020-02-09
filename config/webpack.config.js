@@ -23,7 +23,6 @@ const paths = require('./paths');
 const modules = require('./modules');
 require('dotenv').config();
 const getClientEnvironment = require('./env');
-console.log(getClientEnvironment());
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
@@ -285,7 +284,7 @@ module.exports = function(webpackEnv) {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         //chunks: 'all',
-        chunks: (chunk)=> { console.log(chunk); return false},
+        chunks: (chunk)=> { return false}, // no chunky bits
         name: false,
       },
       // Keep the runtime chunk separated to enable long term caching

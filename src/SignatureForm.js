@@ -9,7 +9,7 @@ import {TextField, Radio, RadioGroup, FormControlLabel, Button, FormHelperText} 
 import SendIcon from "@material-ui/icons/Send";
 
 import useForm from "react-hook-form";
-//import {TextField} from "react-hook-form-input";
+
 
 const defaultValues = {
   firstname: "",
@@ -78,7 +78,7 @@ export default function SignatureForm(props) {
   const country=watch('country');
   const options = {
     margin: props.margin || "dense",
-    variant: props.variant || "filled"
+    variant: props.variant || "filled",
   };
   //variant: standard, filled, outlined
   //margin: normal, dense

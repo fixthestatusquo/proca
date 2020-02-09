@@ -64,7 +64,7 @@ export default function FABAction(props) {
         fullScreen={fullScreen}
       >
         <DialogTitle id="sign-dialog-title" className={classes.dialogTitle} disableTypography>
-            <h2 className="MuiTypography-root MuiTypography-h6">Sign</h2>
+            <h2 className="MuiTypography-root MuiTypography-h6">{props.name}</h2>
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </DialogTitle>
         <SignatureForm />
