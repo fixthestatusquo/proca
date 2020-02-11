@@ -10,8 +10,8 @@
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,11 +22,19 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Sign</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
     <noscript>You need to enable JavaScript to participate to this campaign.</noscript>
-    <div id="root">
+    <div id="root" class="container">
+      <div class="row">
+        <div class="col">
       <a href="" class="nodepetition_open"> Custom link</a>
+    </div>
+        <div class="col" id="signature-form">
+
+    </div>
+    </div>
     </div>
     <!--
       This HTML file is a template.
@@ -44,7 +52,8 @@
       nodepetition.Button({name:"We want a better future"});
     } else{  
       window.addEventListener('DOMContentLoaded', function() {
-        nodepetition.Button({name:"We want a better future!"});
+        //nodepetition.Button({name:"We want a better future!"});
+        nodepetition.Form({name:"We want a better future!"});
       });
     }
   </script>

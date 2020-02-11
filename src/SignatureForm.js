@@ -10,6 +10,7 @@ import SendIcon from "@material-ui/icons/Send";
 
 import useForm from "react-hook-form";
 
+import useQueries from 'react-use-queries';
 
 const defaultValues = {
   firstname: "",
@@ -41,8 +42,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(0),
     width: "100%"
   },
-  menu: {
-  },
+  '#petition-form':{ position: "relative" },
   '@global': {
     'select:-moz-focusring': {
       color: "transparent",
@@ -54,6 +54,11 @@ const useStyles = makeStyles(theme => ({
     },
   }
 }));
+
+  const queries = {
+//    '(max-width: 440px)': 'col-12',
+    '(min-width: 570px)': false
+  };
 
 const countries = [
   {
@@ -93,6 +98,8 @@ export default function SignatureForm(props) {
         register({ name: "country" });
   }, [register]);
 
+  const [[ compact= true],mediaQueryListener] = useQueries(queries);
+
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -123,7 +130,7 @@ export default function SignatureForm(props) {
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs="12" sm={compact?12:6}>
             <TextField
               id="firstname"
               name="firstname"
@@ -140,7 +147,7 @@ export default function SignatureForm(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs="12" sm={compact?12:6}>
             <TextField
               id="lastname"
               name="lastname"
@@ -171,7 +178,7 @@ export default function SignatureForm(props) {
               required
             />
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs="12" sm={compact?12:3}>
             <TextField
               id="postcode"
               name="postcode"
@@ -183,7 +190,7 @@ export default function SignatureForm(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item xs="12" sm={compact?12:9}>
             <TextField
               select
               id="country"
@@ -270,6 +277,7 @@ export default function SignatureForm(props) {
               {" "}
               Sign!
             </Button>
+        {mediaQueryListener}
           </Grid>
         </Grid>
       </Container>
