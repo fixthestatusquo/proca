@@ -12,6 +12,8 @@ import useForm from "react-hook-form";
 
 import useQueries from 'react-use-queries';
 
+import countries from './countries.json';
+
 const defaultValues = {
   firstname: "",
   lastname: "",
@@ -60,16 +62,6 @@ const useStyles = makeStyles(theme => ({
     '(min-width: 570px)': false
   };
 
-const countries = [
-  {
-    name: "Switzerland",
-    iso: "CH"
-  },
-  {
-    name: "France",
-    iso: "FR"
-  }
-];
 
 export default function SignatureForm(props) {
   const classes = useStyles();
