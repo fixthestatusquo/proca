@@ -29,7 +29,9 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
-const configFactory = require('../config/webpack.config');
+const configFile= '../config/webpack.config' +(process.env.REACT_APP_WEBPACK ? "."+process.env.REACT_APP_WEBPACK:"");
+console.log("using config file "+configFile);
+const configFactory = require(configFile);
 const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);

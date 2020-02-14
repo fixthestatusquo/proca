@@ -3,6 +3,7 @@ import React from 'react';
 //import './App.css';
 import SignatureForm from './SignatureForm';
 import FABAction from './FAB.js';
+import Wizard from './Wizard.js';
 const querystring = require('querystring');
 
 function App() {
