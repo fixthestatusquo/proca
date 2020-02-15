@@ -22,31 +22,22 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Sign</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <noscript>You need to enable JavaScript to participate to this campaign.</noscript>
+    <noscript
+      >You need to enable JavaScript to participate to this campaign.</noscript
+    >
     <div id="root" class="container">
       <div class="row">
-        <div class="col">
-          <h3>Ways of using the widget</h3>
-          <h4>How to embed?</h4>
-          <div class="btn-group" id="mode" role="group" aria-label="How to embed">
-  <button type="button" data-value="button" class="btn btn-primary">Floating Button</button>
-  <button type="button" data-value="form" class="btn btn-primary">Form</button>
-</div>
-          <h4>Form style</h4>
-          <div class="btn-group" id="variant" role="group" aria-label="Style">
-  <button type="button" data-value="standard" class="btn btn-primary">Standard</button>
-  <button type="button" data-value="filled" class="btn btn-primary">Filled</button>
-  <button type="button" data-value="outlined" class="btn btn-primary">Outlined</button>
-</div>
-
-    </div>
-        <div class="col" id="signature-form">
-
-    </div>
-    </div>
+        <div class="col"></div>
+        <div class="col" id="signature-form"></div>
+      </div>
     </div>
     <!--
       This HTML file is a template.
@@ -58,32 +49,31 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <script>
-    var params={
-    };
+    <script>
+      var params = {};
 
-    function display(){
-      var variants = ["standard","filled", "outlined"];
-      var urlParams = new URLSearchParams(window.location.search);
-      var params = {name:"We want a better future"};
-      if (urlParams.get('variant')) {
-        params.variant = urlParams.get('variant');
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var params = { name: "We want a better future" };
+        if (urlParams.get("variant")) {
+          params.variant = urlParams.get("variant");
+        }
+        if (urlParams.get("mode") === "form") {
+          nodepetition.Form(params);
+        } else {
+          nodepetition.Button(params);
+        }
       }
-      if (urlParams.get('mode') === "form") {
-        nodepetition.Form(params);
-      } else {
-        nodepetition.Button(params);
-      }
-    }
 
-    if (typeof nodepetition === "object") {
-      //not used on dev
-      display();
-    } else{  
-      window.addEventListener('DOMContentLoaded', function() {
+      if (typeof nodepetition === "object") {
+        //not used on dev
         display();
-      });
-    }
-  </script>
+      } else {
+        window.addEventListener("DOMContentLoaded", function() {
+          display();
+        });
+      }
+    </script>
   </body>
 </html>
