@@ -30,9 +30,12 @@ const {
 const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
 const configFile= '../config/webpack.config' +(process.env.REACT_APP_WEBPACK ? "."+process.env.REACT_APP_WEBPACK:"");
-console.log("using config file "+configFile);
+console.log("using config "+configFile);
+process.env.injectClient = true;
 const configFactory = require(configFile);
-const createDevServerConfig = require('../config/webpackDevServer.config');
+let createDevServerConfig = require('../config/webpackDevServer.config');
+//const configFile= '../config/webpack.config' +(process.env.REACT_APP_WEBPACK ? "."+process.env.REACT_APP_WEBPACK:"");
+
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;

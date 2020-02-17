@@ -14,7 +14,7 @@ import useQueries from 'react-use-queries';
 
 import countries from './countries.json';
 
-const defaultValues = {
+let defaultValues = {
   firstname: "",
   lastname: "",
   email: "",
@@ -65,6 +65,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignatureForm(props) {
   const classes = useStyles();
+  if (props.values) defaultValues = { ...defaultValues, ...props.values }
   const { register, handleSubmit, setValue, errors,setError,clearError,watch } = useForm({
 //    mode: "onBlur",
 //    nativeValidation: true,
@@ -122,7 +123,7 @@ export default function SignatureForm(props) {
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
-          <Grid item xs="12" sm={compact?12:6}>
+          <Grid item xs={12} sm={compact?12:6}>
             <TextField
               id="firstname"
               name="firstname"
@@ -139,7 +140,7 @@ export default function SignatureForm(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs="12" sm={compact?12:6}>
+          <Grid item xs={12} sm={compact?12:6}>
             <TextField
               id="lastname"
               name="lastname"
@@ -170,7 +171,7 @@ export default function SignatureForm(props) {
               required
             />
           </Grid>
-          <Grid item xs="12" sm={compact?12:3}>
+          <Grid item xs={12} sm={compact?12:3}>
             <TextField
               id="postcode"
               name="postcode"
@@ -182,7 +183,7 @@ export default function SignatureForm(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs="12" sm={compact?12:9}>
+          <Grid item xs={12} sm={compact?12:9}>
             <TextField
               select
               id="country"

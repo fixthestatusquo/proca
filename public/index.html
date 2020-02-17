@@ -59,6 +59,12 @@
         if (urlParams.get("variant")) {
           params.variant = urlParams.get("variant");
         }
+        params.values={};
+        [ "firstname", "lastname", "email", "postcode", "country", "comment" ].forEach( function (name) {
+          if (urlParams.get(name))
+            params.values[name] = urlParams.get(name);
+        });
+
         if (urlParams.get("mode") === "form") {
           nodepetition.Form(params);
         } else {

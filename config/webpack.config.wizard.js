@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs');
 const isWsl = require('is-wsl');
 const path = require('path');
@@ -18,9 +19,8 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const paths = require('./paths.wizard');
+const paths = require('./paths');
 const modules = require('./modules');
-require('dotenv').config();
 const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
@@ -30,8 +30,6 @@ const eslint = require('eslint');
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
-
-const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -81,7 +79,7 @@ module.exports = function(webpackEnv) {
     : isEnvDevelopment && '';
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(publicUrl);
-  console.log(publicUrl);
+
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
@@ -178,19 +176,14 @@ module.exports = function(webpackEnv) {
       // In development, it does not produce real files.
       // XAV
       // static/js/[name].js
-      libraryTarget: 'umd',
-      //library : '[name]',
-      library : ["nodepetition"],
       filename: isEnvProduction
-        ? 'static/js/[name].'+minorVersion+'.js'
+        ? 'static/js/[name].[contenthash:8].js'
         : isEnvDevelopment && 'static/js/bundle.js',
       // TODO: remove this when upgrading to webpack 5
       futureEmitAssets: true,
       // There are also additional JS chunk files if you use code splitting.
-//XAV
       chunkFilename: isEnvProduction
-        ? 'static/js/[name].'+minorVersion+'.chunk.js'
-//        ? 'static/js/[name].[contenthash:8].chunk.js'
+        ? 'static/js/[name].[contenthash:8].chunk.js'
         : isEnvDevelopment && 'static/js/[name].chunk.js',
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
@@ -282,17 +275,15 @@ module.exports = function(webpackEnv) {
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
-        //chunks: 'all',
-        chunks: (chunk)=> { return false}, // no chunky bits
+        chunks: 'all',
         name: false,
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
       // https://github.com/facebook/create-react-app/issues/5358
-      runtimeChunk:false,
-//      runtimeChunk: {
-//        name: entrypoint => `runtime-${entrypoint.name}`,
-//      },
+      runtimeChunk: {
+        name: entrypoint => `runtime-${entrypoint.name}`,
+      },
     },
     resolve: {
       // This allows you to set a fallback for where Webpack should look for modules.
@@ -593,10 +584,8 @@ module.exports = function(webpackEnv) {
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          //filename: 'static/css/[name].[contenthash:8].css',
-          //chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-          filename: 'static/css/[name].'+minorVersion+'.css',
-          chunkFilename: 'static/css/[name].'+minorVersion+'.chunk.css',
+          filename: 'static/css/[name].[contenthash:8].css',
+          chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
         }),
       // Generate an asset manifest file with the following content:
       // - "files" key: Mapping of all asset filenames to their corresponding
