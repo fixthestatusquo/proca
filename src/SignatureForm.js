@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 
 import { Container, Grid } from "@material-ui/core";
 
@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {TextField, Radio, RadioGroup, FormControlLabel, Button, FormHelperText} from "@material-ui/core";
 
 import SendIcon from "@material-ui/icons/Send";
+import DoneIcon from '@material-ui/icons/Done';
 
 import useForm from "react-hook-form";
 
@@ -67,8 +68,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignatureForm(props) {
   const classes = useStyles();
+  const [status, setStatus] = useState("default");
   if (props.values) defaultValues = { ...defaultValues, ...props.values }
-  const { register, handleSubmit, setValue, errors,setError,clearError,watch } = useForm({
+  const { register, handleSubmit, setValue, errors,setError,clearError,watch,formState } = useForm({
 //    mode: "onBlur",
 //    nativeValidation: true,
     defaultValues: defaultValues
@@ -84,18 +86,20 @@ export default function SignatureForm(props) {
   //margin: normal, dense
 
   //const selectValue = watch("select");
+  //TODO async handleSubmit(async (data) => await fetchAPI(data))
   const onSubmit = data => {
-    console.log(data);
+    console.log("submitting");
     addSignature(data)
-      .then(res=>{
-        console.log(res);
-      },
-      error=>{
-        console.log(error);
-      })
-      .then(data => {
-        console.log(data);
-      });
+    .then ((res) => {
+      return res.json();
+    }).then ((result)=> {
+      console.log(result);
+      props.nextStep? props.nextStep(result.data):setStatus("success");
+    },
+    (error)=>{
+      //TODO: I don't know the format of the error yet, so can't really know how to handle ;)
+      console.log(error);
+    });
   };
 
   useEffect(() => {
@@ -131,6 +135,17 @@ export default function SignatureForm(props) {
 //    setError(e.target.attributes.name.nodeValue, "aa"+e.target.attributes.name.nodeValue, e.target.validationMessage);
   };
 
+  if (status === "success") {
+    return (
+      <Container component="main" maxWidth="sm">
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+        <DoneIcon color="action" fontSize="large" my={4}/>
+      </Grid>
+      </Grid>
+      </Container>
+    );
+  }
   return (
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
       <Container component="main" maxWidth="sm">
@@ -175,7 +190,7 @@ export default function SignatureForm(props) {
               className={classes.textField}
               inputRef={register}
               onBlur = {handleBlur}
-              error={!!(errors && errors.email)}
+              error={!!(errors.email)}
               helperText={errors && errors.email && errors.email.message}
               variant={options.variant}
               margin={options.margin}
@@ -241,7 +256,7 @@ export default function SignatureForm(props) {
           <Grid item xs={12}>
             <FormHelperText
               className={classes.bigHelper}
-              error={errors && errors.privacy}
+              error={errors.privacy}
               variant={options.variant}
               margin={options.margin}
             > 
@@ -277,6 +292,7 @@ export default function SignatureForm(props) {
               fullWidth
               type="submit"
               size="large"
+              disabled={formState.isSubmitting}
               endIcon={<SendIcon />}
             >
               {" "}

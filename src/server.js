@@ -4,7 +4,7 @@ mutation push($signature: SignatureInput) {
 }
 `;
 
-function addSignature(data) {
+async function addSignature(data) {
   let variables = {"signature":{
     	"name": data.firstname + " " + data.lastname,
     	"email":data.email,
@@ -14,8 +14,8 @@ function addSignature(data) {
       }
     }
   };
-console.log(data);
-return fetch('https://proca-dev.herokuapp.com/api', {
+  let response=null;
+  response= await fetch(process.env.REACT_APP_API_URL, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -27,7 +27,8 @@ return fetch('https://proca-dev.herokuapp.com/api', {
     query,
     variables: variables
   })
-})
+});
+  return response;
 }
 
 export {addSignature};
