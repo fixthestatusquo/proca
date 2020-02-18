@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SignatureForm from "./SignatureForm";
 import FABAction from "./FAB.js";
+import ShareAction from "./Share.js";
+
 //const querystring = require("querystring");
 
 //console.log(querystring);
@@ -12,6 +14,19 @@ let config = {
   variant: "filled",
   selector: "#signature-form"
 };
+
+const Share = args => {
+  if (!document.querySelector(config.selector)) {
+    let elem = document.createElement("div");
+    elem.id = "signature-form";
+    config.selector = "#" + elem.id;
+    document.body.appendChild(elem);
+  }
+  ReactDOM.render(
+    <Share {...config} />,
+    document.querySelector(config.selector)
+  );
+}
 
 const Button = args => {
   if (args) config = { ...config, ...args };
@@ -55,6 +70,6 @@ const Form = args => {
   );
 };
 
-export { config, Button, Form, Dialog };
+export { config, Button, Form, Dialog, Share };
 
 //      <SignatureForm margin= "dense" variant= "filled" />
