@@ -59,22 +59,29 @@
         if (urlParams.get("variant")) {
           params.variant = urlParams.get("variant");
         }
-        params.values={};
-        [ "firstname", "lastname", "email", "postcode", "country", "comment" ].forEach( function (name) {
-          if (urlParams.get(name))
-            params.values[name] = urlParams.get(name);
+        params.values = {};
+        [
+          "firstname",
+          "lastname",
+          "email",
+          "postcode",
+          "country",
+          "comment"
+        ].forEach(function(name) {
+          if (urlParams.get(name)) params.values[name] = urlParams.get(name);
         });
 
-	switch (urlParams.get("mode")) {
-          case 'form': 
-	    nodepetition.Form(params);
-	    break;
-	  case 'share':
-	    nodepetition.Share(params);
-	  case 'button':
-	  default :
+        switch (urlParams.get("mode")) {
+          case "form":
+            nodepetition.Form(params);
+            break;
+          case "share":
+            nodepetition.Share(params);
+            break;
+          case "button":
+          default:
             nodepetition.Button(params);
-        }    
+        }
       }
 
       if (typeof nodepetition === "object") {

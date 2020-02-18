@@ -23,7 +23,7 @@ const Share = args => {
     document.body.appendChild(elem);
   }
   ReactDOM.render(
-    <Share {...config} />,
+    <ShareAction {...config} />,
     document.querySelector(config.selector)
   );
 }
