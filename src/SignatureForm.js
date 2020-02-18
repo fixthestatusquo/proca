@@ -14,6 +14,8 @@ import useQueries from 'react-use-queries';
 
 import countries from './countries.json';
 
+import {addSignature} from './server.js';
+
 let defaultValues = {
   firstname: "",
   lastname: "",
@@ -84,6 +86,16 @@ export default function SignatureForm(props) {
   //const selectValue = watch("select");
   const onSubmit = data => {
     console.log(data);
+    addSignature(data)
+      .then(res=>{
+        console.log(res);
+      },
+      error=>{
+        console.log(error);
+      })
+      .then(data => {
+        console.log(data);
+      });
   };
 
   useEffect(() => {
