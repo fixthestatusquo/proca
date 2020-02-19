@@ -8,12 +8,12 @@ import {
   Button,
   Typography,
   Card,
-  CardHeader
+  CardHeader,
+  CardActions,
+  CardContent,
+  CardMedia
+
 } from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 
 import metadataparser from "page-metadata-parser";
 import {
@@ -75,7 +75,6 @@ export default function ShareAction(props) {
   const classes = useStyles();
   const shareUrl = window.location.href;
   const metadata = metadataparser.getMetadata(window.document, window.location);
-  const wide = false;
   return (
     <Card className={classes.root}>
       <CardHeader title={metadata.title} subheader={metadata.provider} />
@@ -95,15 +94,14 @@ export default function ShareAction(props) {
         ) : null}
         {metadata.description}
       </CardContent>
-      {wide ? (
-        DisplayActions
-      ) : (
         <CardActions>
           <ActionIcon
             {...props}
             icon={EmailIcon}
             component={EmailShareButton}
             subject={props.name}
+            body={props.description}
+            separator=" "
           />
           <ActionIcon
             {...props}
@@ -137,9 +135,9 @@ export default function ShareAction(props) {
             component={LinkedinShareButton}
           />
         </CardActions>
-      )}
     </Card>
   );
+
   function DisplayActions(props) {
     return (
       <CardActions>
