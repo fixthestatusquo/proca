@@ -57,6 +57,7 @@ const Dialog = args => {
 };
 
 const Form = args => {
+  
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -64,8 +65,16 @@ const Form = args => {
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
+
+  config.nextAction=function() {
+    ReactDOM.render(
+      <ShareAction {...config}/>,
+      document.querySelector(config.selector)
+    );
+  }
+
   ReactDOM.render(
-    <SignatureForm margin={config.margin} variant={config.variant} values={config.values}/>,
+    <SignatureForm {...config}/>,
     document.querySelector(config.selector)
   );
 };

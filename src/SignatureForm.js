@@ -88,13 +88,12 @@ export default function SignatureForm(props) {
   //const selectValue = watch("select");
   //TODO async handleSubmit(async (data) => await fetchAPI(data))
   const onSubmit = data => {
-    console.log("submitting");
     addSignature(data)
     .then ((res) => {
       return res.json();
     }).then ((result)=> {
-      console.log(result);
-      props.nextStep? props.nextStep(result.data):setStatus("success");
+      setStatus("success");
+      if (props.nextAction) props.nextAction(result.data);
     },
     (error)=>{
       //TODO: I don't know the format of the error yet, so can't really know how to handle ;)
