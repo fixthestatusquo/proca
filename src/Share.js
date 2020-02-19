@@ -87,11 +87,6 @@ export default function ShareAction(props) {
         />
       ) : null}
       <CardContent>
-        {metadata.provider ? (
-          <Typography variant="body2" color="textSecondary" component="p">
-            {metadata.provider}
-          </Typography>
-        ) : null}
         {metadata.description}
       </CardContent>
         <CardActions>
