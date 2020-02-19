@@ -4,7 +4,10 @@ import { Container, Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import {TextField, Radio, RadioGroup, FormControlLabel, Button, FormHelperText} from "@material-ui/core";
+import {TextField, Radio, RadioGroup, FormControlLabel, Button, FormHelperText
+  ,Snackbar
+} from "@material-ui/core";
+import Alert from '@material-ui/lab/Alert';
 
 import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from '@material-ui/icons/Done';
@@ -134,6 +137,18 @@ export default function SignatureForm(props) {
 //    setError(e.target.attributes.name.nodeValue, "aa"+e.target.attributes.name.nodeValue, e.target.validationMessage);
   };
 
+  function Success(props){
+    if (props.display) 
+      return (
+        <Snackbar open={true} autoHideDuration={6000}>
+          <Alert severity="success">
+             Done, Thank you for your support!
+          </Alert>
+        </Snackbar>
+      );
+    return null;
+  }
+
   if (status === "success") {
     return (
       <Container component="main" maxWidth="sm">
@@ -147,6 +162,7 @@ export default function SignatureForm(props) {
   }
   return (
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
+    <Success display={status === "success"} />
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
           <Grid item xs={12} sm={compact?12:6}>
