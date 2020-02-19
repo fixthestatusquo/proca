@@ -1,4 +1,4 @@
-# NodePetition (embedPetition? todo: find a name)
+# Proca *Progressive Campaigning* 
 
 You want to engage your members and ask them to take an online action? Well, you won't be the first organisation, and you will soon realise that they aren't any decent looking petition tool that are easy to install and configure.
 
@@ -34,10 +34,10 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 core
 
 ## Technology
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
-(or single graphql?)
+graphql
 
 front-end: react (next.js or gatsby to generate multiple widgets?)
-Back-end: nodejs+postgres? rust + sqlite
+Back-end: elixir
 
 
 
