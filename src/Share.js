@@ -2,27 +2,27 @@ import React from "react";
 
 //import { Container, Grid } from "@material-ui/core";
 
-import { ButtonGroup } from "@material-ui/core";
+import { ButtonGroup, Button } from "@material-ui/core";
 
 import {
   EmailShareButton,
   FacebookShareButton,
-//  InstapaperShareButton,
-//  LineShareButton,
+  //  InstapaperShareButton,
+  //  LineShareButton,
   LinkedinShareButton,
-//  LivejournalShareButton,
-//  MailruShareButton,
-//  OKShareButton,
-//  PinterestShareButton,
-//  PocketShareButton,
+  //  LivejournalShareButton,
+  //  MailruShareButton,
+  //  OKShareButton,
+  //  PinterestShareButton,
+  //  PocketShareButton,
   RedditShareButton,
   TelegramShareButton,
-//  TumblrShareButton,
+  //  TumblrShareButton,
   TwitterShareButton,
-//  ViberShareButton,
-//  VKShareButton,
+  //  ViberShareButton,
+  //  VKShareButton,
   WhatsappShareButton,
-//  WorkplaceShareButton,
+  //  WorkplaceShareButton,
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
@@ -37,14 +37,15 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1),
-    "& > *":{
-    margin: theme.spacing(1),
+    "& > *": {
+      margin: theme.spacing(1)
     }
   },
   root: {
     display: "flex",
-    "& Button": {textAlign:"left"},
-    "& Button svg": {marginRight:"20px"},
+    "& Button": { justifyContent: "left" },
+    "& span": { justifyContent: "left",padding:"5px 10px" },
+    "& Button svg": { marginRight: "20px" },
     "& > *": {
       margin: theme.spacing(1)
     }
@@ -56,21 +57,76 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 */
 
-
 export default function ShareAction(props) {
   const classes = useStyles();
   const shareUrl = window.location.href;
   return (
     <div className={classes.root}>
-    <ButtonGroup orientation="vertical" variant="contained" color="primary" size="large" className={classes.margin}>
-    <EmailShareButton url={shareUrl} subject={props.name}>
-      <EmailIcon size={32} round />Share by Email</EmailShareButton>
-    <WhatsappShareButton url={shareUrl} title={props.name} separator=" "><WhatsappIcon size={32} round />Share on Whatsapp</WhatsappShareButton>
-    <FacebookShareButton url={shareUrl}><FacebookIcon size={32} round />Share on Facebook</FacebookShareButton>
-    <TwitterShareButton url={shareUrl} title={props.name}><TwitterIcon size={32} round />Share on Twitter</TwitterShareButton>
-    <TelegramShareButton url={shareUrl} title={props.name}><TelegramIcon size={32} round />Share on Telegram</TelegramShareButton>
-    <RedditShareButton url={shareUrl} title={props.name}><RedditIcon size={32} round />Share on Reddit</RedditShareButton>
-    <LinkedinShareButton url={shareUrl} title={props.name}><LinkedinIcon size={32} round />Share on Linkedin</LinkedinShareButton>
+      <ButtonGroup
+        fullWidth={true}
+        orientation="vertical"
+        className={classes.margin}
+      >
+        <Button
+          component={EmailShareButton}
+          url={shareUrl}
+          subject={props.name}
+          startIcon={<EmailIcon size={32} round/>}
+    variant="contained" color="primary"
+        >
+          Share by Email
+        </Button>
+        <Button
+          component={WhatsappShareButton}
+          url={shareUrl}
+          title={props.name}
+          separator=" "
+          startIcon={<WhatsappIcon size={32} round/>}
+    variant="contained" color="primary"
+        >
+          Share on Whatsapp
+        </Button>
+        <Button component={FacebookShareButton} url={shareUrl}
+          startIcon={<FacebookIcon size={32} round/>}
+    variant="contained" color="primary"
+    
+    >
+          Share on Facebook
+        </Button>
+        <Button
+          component={TwitterShareButton}
+          url={shareUrl}
+          title={props.name}
+          startIcon={<TwitterIcon size={32} round/>}
+    variant="contained" color="primary"
+        >
+          Share on Twitter
+        </Button>
+
+        <Button
+          component={TelegramShareButton}
+    variant="contained" color="primary"
+          url={shareUrl}
+          title={props.name}
+          startIcon={<TelegramIcon size={32} round/>}
+        >
+          Share on Telegram
+        </Button>
+        <Button component={RedditShareButton} url={shareUrl} title={props.name}
+    variant="contained" color="primary"
+          startIcon={<RedditIcon size={32} round/>}
+    >
+          Share on Reddit
+        </Button>
+        <Button
+    variant="contained" color="primary"
+          component={LinkedinShareButton}
+          url={shareUrl}
+          title={props.name}
+          startIcon={<LinkedinIcon size={32} round/>}
+        >
+          Share on Linkedin
+        </Button>
       </ButtonGroup>
     </div>
   );
