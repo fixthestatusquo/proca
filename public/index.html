@@ -71,7 +71,6 @@
         ].forEach(function(name) {
           if (urlParams.get(name)) params.values[name] = urlParams.get(name);
         });
-
         switch (urlParams.get("mode")) {
           case "form":
             nodepetition.Form(params);

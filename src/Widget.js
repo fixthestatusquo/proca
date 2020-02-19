@@ -16,6 +16,7 @@ let config = {
 };
 
 const Share = args => {
+  if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "signature-form";
