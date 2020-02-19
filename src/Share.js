@@ -45,7 +45,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     "& Button": { justifyContent: "left" },
     "& span": { justifyContent: "left",padding:"5px 10px" },
-    "& Button svg": { marginRight: "20px" },
     "& > *": {
       margin: theme.spacing(1)
     }
@@ -63,7 +62,6 @@ export default function ShareAction(props) {
   return (
     <div className={classes.root}>
       <ButtonGroup
-        fullWidth={true}
         orientation="vertical"
         className={classes.margin}
       >
