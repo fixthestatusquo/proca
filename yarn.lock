@@ -7261,6 +7261,11 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
+page-metadata-parser@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/page-metadata-parser/-/page-metadata-parser-1.1.4.tgz#52cea38eb6d084d1808a10abb659ee8e9233bd4d"
+  integrity sha512-TbPNw7GddbHs4c2DyYinFvh51BVsaMfdrweeylzGlg8qeuzALGxq2NF+6jbmeKc7DnU2BZRDOuWNnEjDwUSqRQ==
+
 pako@~1.0.5:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
