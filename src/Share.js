@@ -4,9 +4,8 @@ import React from "react";
 
 import {
   IconButton,
-  ButtonGroup,
-  Button,
-  Typography,
+//  ButtonGroup,
+//  Button,
   Card,
   CardHeader,
   CardActions,
@@ -76,6 +75,10 @@ export default function ShareAction(props) {
   const shareUrl = window.location.href;
   const metadata = metadataparser.getMetadata(window.document, window.location);
   return (
+<div><h3>Almost done! Take the next step.</h3>
+<p>
+Great, you’ve signed — the next step is to share far and wide to make sure everyone sees this petition.
+    </p>
     <Card className={classes.root}>
       <CardHeader title={metadata.title} subheader={metadata.provider} />
 
@@ -131,8 +134,9 @@ export default function ShareAction(props) {
           />
         </CardActions>
     </Card>
+    </div>
   );
-
+/* replaced by icons only
   function DisplayActions(props) {
     return (
       <CardActions>
@@ -212,6 +216,9 @@ export default function ShareAction(props) {
       </CardActions>
     );
   }
+
+  */
+
   function ActionIcon(props) {
     return (
       <IconButton component={props.component} url={shareUrl} title={props.name}>
