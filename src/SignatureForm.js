@@ -16,9 +16,10 @@ import useForm from "react-hook-form";
 
 import useQueries from 'react-use-queries';
 
-import countries from './countries.json';
+import countries from './data/countries.json';
 
-import {addSignature} from './server.js';
+import {addSignature} from './lib/server.js';
+import Url from './lib/urlparser.js';
 
 let defaultValues = {
   firstname: "",
@@ -28,6 +29,9 @@ let defaultValues = {
   country: "",
   comment: ""
 };
+
+console.log (Url.utm());
+defaultValues = {...defaultValues, ...Url.data()};
 
 const useStyles = makeStyles(theme => ({
   container: {

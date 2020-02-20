@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core";
 
 import metadataparser from "page-metadata-parser";
+import Emoji from "./Emoji";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -77,7 +78,8 @@ export default function ShareAction(props) {
   return (
 <div><h3>Almost done! Take the next step.</h3>
 <p>
-Great, you’ve signed — the next step is to share far and wide to make sure everyone sees this petition.
+Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share far and wide to make sure everyone sees this petition
+<Emoji symbol="🙏" label="please" />.
     </p>
     <Card className={classes.root}>
       <CardHeader title={metadata.title} subheader={metadata.provider} />
