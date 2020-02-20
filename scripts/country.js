@@ -4,7 +4,7 @@ const https = require("https");
 const fs = require('fs'); 
 
 const url = "https://restcountries.eu/rest/v2/regionalbloc/eu";
-const file="./src/countries.json";
+const file="./src/data/countries.json";
 https.get(url, res => {
   res.setEncoding("utf8");
   let body = "";
