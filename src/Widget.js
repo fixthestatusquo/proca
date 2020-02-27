@@ -81,6 +81,10 @@ const Form = args => {
 };
 
 const autoRender = () =>  {
+  if (window.nodepetition) {
+    console.log("trying to load proca multiple times");
+    return;
+  }
 try {
   if (!(document.readyState === "complete" || document.readyState === "loaded")) 
     document.addEventListener('DOMContentLoaded', autoRender);
@@ -90,9 +94,9 @@ try {
   var mode = script.getAttribute('data-mode');
   console.log(window);
   if (mode === "form") {
-    window.nodepetition.Form();
+    Form();
   } else {
-    window.nodepetition.Button();
+    Button();
   }
 } catch (e) {
   console.log(e);
