@@ -33,7 +33,7 @@ const Button = args => {
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
-    elem.id = "signature-button";
+    elem.id = "proca-button";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
@@ -62,7 +62,7 @@ const Form = args => {
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
-    elem.id = "signature-form";
+    elem.id = "proca-form";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
