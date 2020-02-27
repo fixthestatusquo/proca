@@ -30,7 +30,6 @@ let defaultValues = {
   comment: ""
 };
 
-console.log (Url.utm());
 defaultValues = {...defaultValues, ...Url.data()};
 
 const useStyles = makeStyles(theme => ({
@@ -95,10 +94,18 @@ export default function SignatureForm(props) {
   //const selectValue = watch("select");
   //TODO async handleSubmit(async (data) => await fetchAPI(data))
   const onSubmit = data => {
+    data.tracking = Url.utm();
     addSignature(data)
     .then ((res) => {
       return res.json();
     }).then ((result)=> {
+      if (result.errors) {
+        result.errors.forEach( (error) => {
+          console.log(error);
+        });
+        setStatus("error");
+        return;
+      }
       setStatus("success");
       if (props.nextAction) props.nextAction(result.data);
     },
@@ -128,8 +135,6 @@ export default function SignatureForm(props) {
   },[register,setError]);
 
   const selectChange = e => {
-    console.log(e.target);
-    console.log(e.target.value);
     setValue("country",e.target.value);
   };
   const handleBlur = e => {
@@ -140,6 +145,18 @@ export default function SignatureForm(props) {
     }
 //    setError(e.target.attributes.name.nodeValue, "aa"+e.target.attributes.name.nodeValue, e.target.validationMessage);
   };
+
+  function Error(props){
+    if (props.display) 
+      return (
+        <Snackbar open={true} autoHideDuration={6000}>
+          <Alert severity="error">
+             Sorry, we couldn't save your signature!<br/>The techies have been informed.
+          </Alert>
+        </Snackbar>
+      );
+    return null;
+  }
 
   function Success(props){
     if (props.display) 
@@ -167,6 +184,7 @@ export default function SignatureForm(props) {
   return (
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
     <Success display={status === "success"} />
+    <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
           <Grid item xs={12} sm={compact?12:6}>

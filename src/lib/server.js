@@ -1,11 +1,14 @@
 var query = `
 mutation push($action: SignatureExtraInput,
   $contact:ContactInput,
-  $privacy:ConsentInput) {
+  $privacy:ConsentInput,
+  $tracking:TrackingInput
+){
   addSignature(actionPageId: 1, 
     action: $action,
     contact:$contact,
-    privacy:$privacy
+    privacy:$privacy,
+    tracking:$tracking
   )}
 `;
 
@@ -22,10 +25,11 @@ async function addSignature(data) {
         "postcode": data.postcode || ""
       }
     },
-    privacy: {optin: (data.privacy === "opt-in")}
+    privacy: {optIn: (data.privacy === "opt-in")}
   };
-  let response=null;
-  response= await fetch(process.env.REACT_APP_API_URL, {
+  if (Object.keys(data.tracking).length) {variables.tracking=data.tracking};
+  console.log(variables);
+  const response= await fetch(process.env.REACT_APP_API_URL, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

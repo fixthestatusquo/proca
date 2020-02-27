@@ -80,6 +80,27 @@ const Form = args => {
   );
 };
 
+const autoRender = () =>  {
+try {
+  if (!(document.readyState === "complete" || document.readyState === "loaded")) 
+    document.addEventListener('DOMContentLoaded', autoRender);
+
+  var script = document.getElementById('proca');
+  if (!script) return;
+  var mode = script.getAttribute('data-mode');
+  console.log(window);
+  if (mode === "form") {
+    window.nodepetition.Form();
+  } else {
+    window.nodepetition.Button();
+  }
+} catch (e) {
+  console.log(e);
+}
+}
+
+autoRender();
+
 export { config, Button, Form, Dialog, Share };
 
 //      <SignatureForm margin= "dense" variant= "filled" />
