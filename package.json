@@ -91,7 +91,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.6.1",
-    "@material-ui/icons": "^4.5.1",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/react": "^9.4.0",
     "add": "^2.0.6",
     "enzyme": "^3.11.0",
