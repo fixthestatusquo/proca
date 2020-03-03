@@ -12,10 +12,6 @@ And this is what this tool solves.
 - *Integrated*: with your CRM/mailing list. If your supporter consented it, it should be as simple as possible to have their contact detail into your mailing plateform. CSV download is not simple, timeconsuming and errorprone.
 - *Support coalitions*: A successful campaign will have multiple partners. We make it easy to aggregate the signature counts, we make it easy to have multiple widgets for each partner (with different consent)
 
-## Full encryption mode?
-This one I'm not sure if I like or not:
-Imagine that when you set up a new partner/campaign, they provide an encryption key (public key). We can encrypt all the signatures, store them encrypted and send them encrypted to their CRM. 
-What's the benefit? GDPR. No ghosting needed, no data processor. And it allows to work with super privacy concerned users.
 
 ## Embeded in your existing website
 
@@ -24,9 +20,13 @@ There are as well the issue of introducing a new domain/subdomain (weak SEO, pot
 
 Our solution? This petition tool is as transparent as possible and embed the action into one (or several) of your existing pages).
 
+## Full encryption mode
+If the campaigner organisation provides an encryption key (based on NaCl, probably the best elliptic curve encryption solution), we store the signatures and actions *encrypted*. We will not be able to read them anymore. Even if the bad guys compromise the security of our server, they will not be able to read any personal data either, because the campaign organisation (having the key) is the only one that can
+
+This simplify GDPR and other privacy compliance: we do not store any personal data, only encrypted blobs of data that we can't read.
 
 ## Privacy
-GDPR
+We are fully GDPR compliant. As part of a mandatory element of the signature form, we do ask the signatory to consent to be contacted, and record that information.
 
 ## Performance
 
