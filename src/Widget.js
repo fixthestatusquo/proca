@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import SignatureForm from "./SignatureForm";
 import FABAction from "./FAB.js";
 import ShareAction from "./Share.js";
+import ProcaStyle from "./components/ProcaStyle.js";
 
 //const querystring = require("querystring");
 
@@ -24,7 +25,8 @@ const Share = args => {
     document.body.appendChild(elem);
   }
   ReactDOM.render(
-    <ShareAction {...config} />,
+    <ProcaStyle>
+    <ShareAction {...config} /></ProcaStyle>,
     document.querySelector(config.selector)
   );
 }
@@ -80,27 +82,36 @@ const Form = args => {
   );
 };
 
+const render = () => {
+  try {
+    var script = document.getElementById('proca');
+    if (!script) return;
+    var mode = script.getAttribute('data-mode');
+    if (mode === "form") {
+      Form();
+    } else {
+      Button();
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 const autoRender = () =>  {
-  if (window.nodepetition) {
+  if (window.proca) {
     console.log("trying to load proca multiple times");
     return;
   }
 try {
   if (!(document.readyState === "complete" || document.readyState === "loaded")) 
-    document.addEventListener('DOMContentLoaded', autoRender);
-
-  var script = document.getElementById('proca');
-  if (!script) return;
-  var mode = script.getAttribute('data-mode');
-  console.log(window);
-  if (mode === "form") {
-    Form();
-  } else {
-    Button();
+    document.addEventListener('DOMContentLoaded', render);
+  else {
+    render();
   }
-} catch (e) {
-  console.log(e);
-}
+  } catch (e) {
+    console.log(e);
+  }
+  
 }
 
 autoRender();

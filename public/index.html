@@ -83,18 +83,18 @@
         */
         switch (urlParams.get("mode")) {
           case "form":
-            nodepetition.Form(params);
+            proca.Form(params);
             break;
           case "share":
-            nodepetition.Share(params);
+            proca.Share(params);
             break;
           case "button":
           default:
-            nodepetition.Button(params);
+            proca.Button(params);
         }
       }
 
-      if (typeof nodepetition === "object") {
+      if (typeof proca === "object") {
         //not used on dev
         display();
       } else {

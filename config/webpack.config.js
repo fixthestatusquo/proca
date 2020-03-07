@@ -181,7 +181,7 @@ module.exports = function(webpackEnv) {
       // static/js/[name].js
       libraryTarget: 'umd',
       //library : '[name]',
-      library : ["nodepetition"],
+      library : ["proca"],
       filename: isEnvProduction
         ? 'static/js/[name].'+minorVersion+'.js'
         : isEnvDevelopment && 'static/js/bundle.js',
