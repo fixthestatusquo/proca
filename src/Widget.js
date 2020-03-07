@@ -100,7 +100,6 @@ const render = () => {
 const autoRender = () =>  {
   if (window.proca) {
     console.log("trying to load proca multiple times");
-    return;
   }
 try {
   if (!(document.readyState === "complete" || document.readyState === "loaded")) 
