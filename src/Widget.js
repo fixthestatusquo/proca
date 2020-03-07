@@ -40,12 +40,12 @@ const Button = args => {
     document.body.appendChild(elem);
   }
   ReactDOM.render(
-    <FABAction {...config} />,
+    <ProcaStyle><FABAction {...config} /></ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
 
-const Dialog = args => {
+const Dialog = args => { //TODO: use and document
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -54,7 +54,7 @@ const Dialog = args => {
     document.body.appendChild(elem);
   }
   ReactDOM.render(
-    <FABAction {...config} />,
+    <ProcaStyle><FABAction {...config} /></ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
@@ -71,16 +71,17 @@ const Form = args => {
 
   config.nextAction=function() {
     ReactDOM.render(
-      <ShareAction {...config}/>,
+      <ProcaStyle><ShareAction {...config}/></ProcaStyle>,
       document.querySelector(config.selector)
     );
   }
 
   ReactDOM.render(
-    <SignatureForm {...config}/>,
+    <ProcaStyle><SignatureForm {...config}/></ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
+
 
 const render = () => {
   try {
