@@ -8,7 +8,6 @@ const generateClassName = createGenerateClassName({
 });
 
 export default function ProcaStyle(props) {
-  console.log("procaStyle");
   return (
     <StylesProvider generateClassName={generateClassName}>{props.children}</StylesProvider>
   );
