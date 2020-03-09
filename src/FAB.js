@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core";
 //import DialogActions from '@material-ui/core/DialogActions';
 //import DialogContentText from '@material-ui/core/DialogContentText';
+import { useTranslation } from "react-i18next";
 
 import SignatureForm from "./SignatureForm.js";
 import CloseIcon from "@material-ui/icons/Close";
@@ -41,9 +42,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function FABAction(props) {
-  const [open, setOpen] = useState(props.dialog);
+  const [open, setOpen] = useState(props.dialog || false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const { t } = useTranslation();
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -79,7 +83,7 @@ export default function FABAction(props) {
           onClick={handleClickOpen}
         >
           <CreateIcon />
-          Sign&nbsp;
+    {t('sign')}&nbsp;
         </Fab>
     </Slide>
       </div>
