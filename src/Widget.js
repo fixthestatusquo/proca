@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./lib/i18n";
+
 import SignatureForm from "./SignatureForm";
+import Counter from "./components/Counter.js";
 import FABAction from "./FAB.js";
 import ShareAction from "./Share.js";
 import ProcaStyle from "./components/ProcaStyle.js";
@@ -26,10 +29,11 @@ const Share = args => {
   }
   ReactDOM.render(
     <ProcaStyle>
-    <ShareAction {...config} /></ProcaStyle>,
+      <ShareAction {...config} />
+    </ProcaStyle>,
     document.querySelector(config.selector)
   );
-}
+};
 
 const Button = args => {
   if (args) config = { ...config, ...args };
@@ -40,12 +44,16 @@ const Button = args => {
     document.body.appendChild(elem);
   }
   ReactDOM.render(
-    <ProcaStyle><FABAction {...config} /></ProcaStyle>,
+    <ProcaStyle>
+      <Counter actionPage='1' />
+      <FABAction {...config} />
+    </ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
 
-const Dialog = args => { //TODO: use and document
+const Dialog = args => {
+  //TODO: use and document
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -53,14 +61,16 @@ const Dialog = args => { //TODO: use and document
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
+  config.dialog = true;
   ReactDOM.render(
-    <ProcaStyle><FABAction {...config} /></ProcaStyle>,
+    <ProcaStyle>
+      <FABAction {...config} />
+    </ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
 
 const Form = args => {
-  
   if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -69,25 +79,28 @@ const Form = args => {
     document.body.appendChild(elem);
   }
 
-  config.nextAction=function() {
+  config.nextAction = function() {
     ReactDOM.render(
-      <ProcaStyle><ShareAction {...config}/></ProcaStyle>,
+      <ProcaStyle>
+        <ShareAction {...config} />
+      </ProcaStyle>,
       document.querySelector(config.selector)
     );
-  }
+  };
 
   ReactDOM.render(
-    <ProcaStyle><SignatureForm {...config}/></ProcaStyle>,
+    <ProcaStyle>
+      <SignatureForm {...config} />
+    </ProcaStyle>,
     document.querySelector(config.selector)
   );
 };
 
-
 const render = () => {
   try {
-    var script = document.getElementById('proca');
+    var script = document.getElementById("proca");
     if (!script) return;
-    var mode = script.getAttribute('data-mode');
+    var mode = script.getAttribute("data-mode");
     if (mode === "form") {
       Form();
     } else {
@@ -96,23 +109,24 @@ const render = () => {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
-const autoRender = () =>  {
+const autoRender = () => {
   if (window.proca) {
     console.log("trying to load proca multiple times");
   }
-try {
-  if (!(document.readyState === "complete" || document.readyState === "loaded")) 
-    document.addEventListener('DOMContentLoaded', render);
-  else {
-    render();
-  }
+  try {
+    if (
+      !(document.readyState === "complete" || document.readyState === "loaded")
+    )
+      document.addEventListener("DOMContentLoaded", render);
+    else {
+      render();
+    }
   } catch (e) {
     console.log(e);
   }
-  
-}
+};
 
 autoRender();
 

@@ -368,6 +368,15 @@ module.exports = function(webpackEnv) {
           include: paths.appSrc,
         },
         {
+        test: /locales/, 
+        loader: '@alienfast/i18next-loader',
+        options: {
+        basenameAsNamespace: true,
+        },
+        // options here
+        //query: { overrides: [ '../node_modules/lib/locales' ] }
+        },
+        {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
