@@ -9,6 +9,7 @@ async function getCount(actionPage) {
   }
 }}
 `;
+  let count=null;
   await fetch(process.env.REACT_APP_API_URL, {
     method: "POST",
     headers: {
@@ -26,10 +27,13 @@ async function getCount(actionPage) {
   }).then (response => {
     if (response.errors) {
       console.log(response.errors.message);
-      return null;
+      count = null;
     }
-    return response.data.actionPage.campaign.stats.signatureCount;
+    console.log(response.data.actionPage.campaign.stats.signatureCount);
+    count = response.data.actionPage.campaign.stats.signatureCount;
   });
+  return count;
+
 }
 async function addSignature(data) {
   var query = `

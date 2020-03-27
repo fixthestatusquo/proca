@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./lib/i18n";
 
 import SignatureForm from "./SignatureForm";
-import Counter from "./components/Counter.js";
 import FABAction from "./FAB.js";
 import ShareAction from "./Share.js";
 import ProcaStyle from "./components/ProcaStyle.js";
@@ -45,7 +44,6 @@ const Button = args => {
   }
   ReactDOM.render(
     <ProcaStyle>
-      <Counter actionPage='1' />
       <FABAction {...config} />
     </ProcaStyle>,
     document.querySelector(config.selector)

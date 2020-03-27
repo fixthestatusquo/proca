@@ -11,13 +11,15 @@ import {
   DialogTitle,
   useMediaQuery,
   Slide,
-  IconButton
+  IconButton,
+  Badge,
 } from "@material-ui/core";
 //import DialogActions from '@material-ui/core/DialogActions';
 //import DialogContentText from '@material-ui/core/DialogContentText';
 import { useTranslation } from "react-i18next";
 
 import SignatureForm from "./SignatureForm.js";
+import useCount from "./hooks/useCount.js";
 import CloseIcon from "@material-ui/icons/Close";
 import CreateIcon from "@material-ui/icons/Create";
 
@@ -48,6 +50,7 @@ export default function FABAction(props) {
 
   const { t } = useTranslation();
 
+  let counter = useCount(props.actionPage);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -76,7 +79,8 @@ export default function FABAction(props) {
       </Dialog>
       <div className={classes.fab}>
         <Slide direction="right" mountOnEnter unmountOnExit in={true}>
-        <Fab
+<Badge badgeContent={counter} max={9999999}  color="secondary" overlap="circle">
+    <Fab
           color="primary"
           variant="extended"
           aria-label="sign"
@@ -85,6 +89,7 @@ export default function FABAction(props) {
           <CreateIcon />
     {t('sign')}&nbsp;
         </Fab>
+</Badge>
     </Slide>
       </div>
     </div>
