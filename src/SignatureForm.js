@@ -25,6 +25,7 @@ import useQueries from 'react-use-queries';
 import countries from './data/countries.json';
 
 import {addSignature} from './lib/server.js';
+import ProgressCounter from './components/ProgressCounter.js';
 import Url from './lib/urlparser.js';
 
 let defaultValues = {
@@ -189,6 +190,7 @@ export default function SignatureForm(props) {
   }
   return (
     <form className={classes.container} onSubmit={handleSubmit(onSubmit)} method="post" url="http://localhost">
+    <ProgressCounter actionPage={props.actionPage} />
     <Success display={status === "success"} />
     <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
