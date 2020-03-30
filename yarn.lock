@@ -6344,18 +6344,7 @@ jest-resolve-dependencies@^25.2.4:
     jest-regex-util "^25.2.1"
     jest-snapshot "^25.2.4"
 
-jest-resolve@24.9.0:
-  version "24.9.0"
-  resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-24.9.0.tgz#dff04c7687af34c4dd7e524892d9cf77e5d17321"
-  integrity sha512-TaLeLVL1l08YFZAt3zaPtjiVvyy4oSA6CRe+0AFPPVX3Q/VI0giIWWoAvoS5L96vj9Dqxj4fB5p2qrHCmTU/MQ==
-  dependencies:
-    "@jest/types" "^24.9.0"
-    browser-resolve "^1.11.3"
-    chalk "^2.0.1"
-    jest-pnp-resolver "^1.2.1"
-    realpath-native "^1.1.0"
-
-jest-resolve@^25.2.3:
+jest-resolve@25.2.3, jest-resolve@^25.2.3:
   version "25.2.3"
   resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-25.2.3.tgz#ababeaf2bb948cb6d2dea8453759116da0fb7842"
   integrity sha512-1vZMsvM/DBH258PnpUNSXIgtzpYz+vCVCj9+fcy4akZl4oKbD+9hZSlfe9RIDpU0Fc28ozHQrmwX3EqFRRIHGg==
@@ -7499,8 +7488,11 @@ node-notifier@^6.0.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/dependabot/npm_and_yarn/testing-library/react-10.0.1
+=======
+>>>>>>> origin/dependabot/npm_and_yarn/jest-resolve-25.2.3
 node-releases@^1.1.29, node-releases@^1.1.52:
 =======
 node-releases@^1.1.52:
@@ -9234,6 +9226,7 @@ read-pkg@^3.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/dependabot/npm_and_yarn/case-sensitive-paths-webpack-plugin-2.3.0
 =======
 >>>>>>> origin/dependabot/npm_and_yarn/file-loader-6.0.0
@@ -9243,6 +9236,8 @@ read-pkg@^3.0.0:
 >>>>>>> origin/dependabot/npm_and_yarn/react-dev-utils-10.2.1
 =======
 >>>>>>> origin/dependabot/npm_and_yarn/testing-library/react-10.0.1
+=======
+>>>>>>> origin/dependabot/npm_and_yarn/jest-resolve-25.2.3
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
   integrity sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
@@ -10275,6 +10270,7 @@ string-width@^1.0.1:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
 =======
 string-width@^2.0.0, string-width@^2.1.1:
@@ -10282,6 +10278,9 @@ string-width@^2.0.0, string-width@^2.1.1:
 =======
 string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
 >>>>>>> origin/dependabot/npm_and_yarn/testing-library/react-10.0.1
+=======
+string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
+>>>>>>> origin/dependabot/npm_and_yarn/jest-resolve-25.2.3
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
   integrity sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
