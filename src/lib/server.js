@@ -26,8 +26,9 @@ async function getCount(actionPage) {
     return res.json();
   }).then (response => {
     if (response.errors) {
-      console.log(response.errors.message);
+      response.errors.forEach( (error) => console.log(error.message));
       count = null;
+      return;
     }
     count = response.data.actionPage.campaign.stats.signatureCount;
   });
