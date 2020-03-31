@@ -404,6 +404,7 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  "i18next-extract",
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
