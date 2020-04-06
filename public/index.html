@@ -81,7 +81,8 @@
           if (urlParams.get(name)) params.values[name] = urlParams.get(name);
         });
         */
-        params.actionPage=1;
+
+        params.actionPage= urlParams.get("actionPage") || 1;
         switch (urlParams.get("mode")) {
           case "form":
 			console.log("proca form");
