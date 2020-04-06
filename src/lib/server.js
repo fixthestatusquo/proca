@@ -35,14 +35,15 @@ async function getCount(actionPage) {
   return count;
 
 }
-async function addSignature(data) {
+async function addSignature(actionPage,data) {
   var query = `
 mutation push($action: SignatureExtraInput,
   $contact:ContactInput,
   $privacy:ConsentInput,
+  $actionPage:ID!,
   $tracking:TrackingInput
 ){
-  addSignature(actionPageId: 1, 
+  addSignature(actionPageId: $actionPage, 
     action: $action,
     contact:$contact,
     privacy:$privacy,
@@ -68,6 +69,7 @@ mutation push($action: SignatureExtraInput,
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
+  variables.actionPage = actionPage;
   const response = await fetch(process.env.REACT_APP_API_URL, {
     method: "POST",
     headers: {

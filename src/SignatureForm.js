@@ -102,7 +102,7 @@ export default function SignatureForm(props) {
   //TODO async handleSubmit(async (data) => await fetchAPI(data))
   const onSubmit = data => {
     data.tracking = Url.utm();
-    addSignature(data)
+    addSignature(props.actionPage,data)
     .then ((res) => {
       return res.json();
     }).then ((result)=> {
