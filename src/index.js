@@ -6,7 +6,7 @@ import SignatureForm from "./SignatureForm";
 import FABAction from "./FAB.js";
 import ShareAction from "./Share.js";
 import ProcaStyle from "./components/ProcaStyle.js";
-
+import 'regenerator-runtime/runtime';
 //const querystring = require("querystring");
 
 //console.log(querystring);
