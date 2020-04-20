@@ -59,7 +59,7 @@
     "i18next-xhr-backend": "^3.2.2",
     "react-hook-form": "^3.28.2",
     "react-hook-form-input": "^1.0.8",
-    "react-i18next": "^11.3.3",
+    "react-i18next": "^11.3.5",
     "react-test-renderer": "^16.12.0",
     "react-use-queries": "^1.0.0",
     "yarn": "^1.21.1"
