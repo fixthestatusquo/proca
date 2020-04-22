@@ -99,10 +99,11 @@ const render = () => {
     var script = document.getElementById("proca");
     if (!script) return;
     var mode = script.getAttribute("data-mode");
+    var actionPage = script.getAttribute("data-page");
     if (mode === "form") {
-      Form();
+      Form({actionPage:actionPage});
     } else {
-      Button();
+      Button({actionPage:actionPage});
     }
   } catch (e) {
     console.log(e);

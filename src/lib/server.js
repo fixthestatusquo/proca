@@ -1,3 +1,43 @@
+async function graphQL (operation, query, options) {
+  if (!options) options = {};
+  if (!options.apiUrl) options.apiUrl = process.env.REACT_APP_API_URL || process.env.API_URL;
+
+  let data = null;
+  let headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+  };
+  if (options.authorization) {
+//    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
+    headers.Authorization = 'Basic '+options.authorization;
+  }
+  await fetch(process.env.REACT_APP_API_URL || process.env.API_URL, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      query:query,
+      variables: options.variables,
+      operationName: operation || "missing"
+    })
+  })
+  .then (res => {
+    if (!res.ok) {
+      return {errors:[{message:res.statusText,code: "http_error",status:res.status}]};
+    }
+    return res.json();
+  }).then (response => {
+    if (response.errors) {
+      response.errors.forEach( (error) => console.log(error.message));
+      return;
+    }
+    data = response.data;
+  }).catch(error =>{
+    console.log(error);
+    return;
+  });
+  return data;
+}
+
 async function getCount(actionPage) {
   var query = 
 `query getCount($actionPage: ID!)
@@ -9,32 +49,12 @@ async function getCount(actionPage) {
   }
 }}
 `;
-  let count=null;
-  await fetch(process.env.REACT_APP_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    },
-    body: JSON.stringify({
-      query,
-      variables: { actionPage: Number(actionPage) },
-      operationName: "getCount"
-    })
-  })
-  .then (res => {
-    return res.json();
-  }).then (response => {
-    if (response.errors) {
-      response.errors.forEach( (error) => console.log(error.message));
-      count = null;
-      return;
-    }
-    count = response.data.actionPage.campaign.stats.signatureCount;
-  });
-  return count;
-
+// ah? it can be a get call api?query=query getCount($id:ID!){actionPage(id:$id){campaign{stats{signatureCount }}}}&variables={"id":1}
+ const data = await graphQL ("getCount",query,{variables:{ actionPage: Number(actionPage) }});
+ if (!data) return null;
+ return data.actionPage.campaign.stats.signatureCount;
 }
+
 async function addSignature(actionPage,data) {
   var query = `
 mutation push($action: SignatureExtraInput,
@@ -70,18 +90,9 @@ mutation push($action: SignatureExtraInput,
     variables.tracking = data.tracking;
   }
   variables.actionPage = actionPage;
-  const response = await fetch(process.env.REACT_APP_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // to prevent the prefetch OPTION, but doesn't work 'Content-Type': 'text/plain',
-      Accept: "application/json"
-    },
-    body: JSON.stringify({
-      query,
-      variables: variables
-    })
-  });
-  return response;
+ const response = await graphQL ("addSignature",query,{variables:variables });
+ if (!response) return null;
+  console.log(response);
+ return response;
 }
 export { addSignature,getCount };
