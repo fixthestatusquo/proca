@@ -100,26 +100,19 @@ export default function SignatureForm(props) {
 
   //const selectValue = watch("select");
   //TODO async handleSubmit(async (data) => await fetchAPI(data))
-  const onSubmit = data => {
+  const onSubmit = async data => {
     data.tracking = Url.utm();
-    addSignature(props.actionPage,data)
-    .then ((res) => {
-      return res.json();
-    }).then ((result)=> {
-      if (result.errors) {
-        result.errors.forEach( (error) => {
-          console.log(error);
-        });
-        setStatus("error");
-        return;
+    const result = await addSignature(props.actionPage,data);
+    console.log(result);
+    if (result.errors) {
+      result.errors.forEach( (error) => {
+        console.log(error);
+      });
+      setStatus("error");
+      return;
       }
-      setStatus("success");
-      if (props.nextAction) props.nextAction(result.data);
-    },
-    (error)=>{
-      //TODO: I don't know the format of the error yet, so can't really know how to handle ;)
-      console.log(error);
-    });
+    setStatus("success");
+    if (props.nextAction) props.nextAction(result.data);
   };
 
   useEffect(() => {
