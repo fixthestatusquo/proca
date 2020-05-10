@@ -74,7 +74,7 @@ export default function FABAction(props) {
             <h2 className="MuiTypography-root MuiTypography-h6">{props.name}</h2>
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </DialogTitle>
-        <SignatureForm />
+        <SignatureForm {...props}/>
         <DialogContent></DialogContent>
       </Dialog>
       <div className={classes.fab}>
