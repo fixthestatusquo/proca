@@ -105,7 +105,7 @@ export default function SignatureForm(props) {
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
   const country = watch("country");
-  const location = useGeoLocation();
+  const location = useGeoLocation({api:"https://country.proca.foundation"});
   if (location.country && !country) {
     setValue("country", location.country);
   }
