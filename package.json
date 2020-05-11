@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
-    "@material-ui/lab": "^4.0.0-alpha.43",
+    "@material-ui/lab": "^4.0.0-alpha.52",
     "@svgr/webpack": "5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
