@@ -33,6 +33,7 @@ import countries from "./data/countries.json";
 import { addSignature } from "./lib/server.js";
 import ProgressCounter from "./components/ProgressCounter.js";
 import Url from "./lib/urlparser.js";
+import uuid from "./lib/uuid.js";
 
 let defaultValues = {
   firstname: "",

@@ -16,6 +16,8 @@ import {
 
 import metadataparser from "page-metadata-parser";
 import Emoji from "./Emoji";
+import uuid from "./lib/uuid";
+
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -73,8 +75,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function ShareAction(props) {
   const classes = useStyles();
-  const shareUrl = window.location.href;
+
   const metadata = metadataparser.getMetadata(window.document, window.location);
+
+  const shareUrl = (component) => {
+    const url= new URL (window.location.href);
+    let params = url.searchParams;
+
+    params.set("utm_source","share");
+    params.set("utm_medium",component.render.displayName.replace("ShareButton-",''));
+    params.set("utm_campaign",uuid());
+
+    return url.toString();
+
+  };
   return (
 <div><h3>Almost done! Take the next step.</h3>
 <p>
@@ -138,92 +152,19 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
     </Card>
     </div>
   );
-/* replaced by icons only
-  function DisplayActions(props) {
-    return (
-      <CardActions>
-        <ButtonGroup orientation="vertical" className={classes.margin}>
-          <Button
-            component={EmailShareButton}
-            url={shareUrl}
-            subject={props.name}
-            startIcon={<EmailIcon size={32} round />}
-            variant="contained"
-            color="primary"
-          >
-            Share by Email
-          </Button>
-          <Button
-            component={WhatsappShareButton}
-            url={shareUrl}
-            title={props.name}
-            separator=" "
-            startIcon={<WhatsappIcon size={32} round />}
-            variant="contained"
-            color="primary"
-          >
-            Share on Whatsapp
-          </Button>
-          <Button
-            component={FacebookShareButton}
-            url={shareUrl}
-            startIcon={<FacebookIcon size={32} round />}
-            variant="contained"
-            color="primary"
-          >
-            Share on Facebook
-          </Button>
-          <Button
-            component={TwitterShareButton}
-            url={shareUrl}
-            title={props.name}
-            startIcon={<TwitterIcon size={32} round />}
-            variant="contained"
-            color="primary"
-          >
-            Share on Twitter
-          </Button>
-
-          <Button
-            component={TelegramShareButton}
-            variant="contained"
-            color="primary"
-            url={shareUrl}
-            title={props.name}
-            startIcon={<TelegramIcon size={32} round />}
-          >
-            Share on Telegram
-          </Button>
-          <Button
-            component={RedditShareButton}
-            url={shareUrl}
-            title={props.name}
-            variant="contained"
-            color="primary"
-            startIcon={<RedditIcon size={32} round />}
-          >
-            Share on Reddit
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            component={LinkedinShareButton}
-            url={shareUrl}
-            title={props.name}
-            startIcon={<LinkedinIcon size={32} round />}
-          >
-            Share on Linkedin
-          </Button>
-        </ButtonGroup>
-      </CardActions>
-    );
-  }
-
-  */
 
   function ActionIcon(props) {
+    function after (props) {
+      console.log("closing "+props.component.render.displayName);
+    }
+    function before (props) {
+      console.log("clicking "+props.component.render.displayName);
+    }
     return (
-      <IconButton component={props.component} url={shareUrl} title={props.name}>
+      <IconButton component={props.component} url={shareUrl(props.component)} title={props.name}
+        beforeOnClick={() => before(props)}
+        onShareWindowClose={() => after(props)}
+        >
         {props.icon ? props.icon({ round: true, size: 64 }) : null}
       </IconButton>
     );

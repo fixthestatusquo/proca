@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^10.1.0",
+    "base64url": "^3.0.1",
     "customize-cra": "^0.9.1",
     "customize-cra-react-refresh": "^1.0.1",
     "dotenv": "^8.2.0",
@@ -23,7 +24,8 @@
     "react-dom": "^16.13.1",
     "react-ipgeolocation": "^1.2.0",
     "react-scripts": "3.4.1",
-    "react-share": "^4.1.0"
+    "react-share": "^4.1.0",
+    "uuid": "^8.0.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

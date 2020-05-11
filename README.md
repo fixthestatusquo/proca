@@ -28,6 +28,7 @@ This simplify GDPR and other privacy compliance: we do not store any personal da
 ## Privacy
 We are fully GDPR compliant. As part of a mandatory element of the signature form, we do ask the signatory to consent to be contacted, and record that information.
 
+
 ## Performance
 
 Benchmarked at > 1'000'000 signatures per hour on a 16 core
