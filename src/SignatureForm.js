@@ -9,7 +9,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import { makeStyles } from "@material-ui/core/styles";
-import uuid from "./lib/uuid";
 
 import {
   TextField,
@@ -133,7 +132,7 @@ export default function SignatureForm(props) {
       return;
     }
     setStatus("success");
-    uuid(result.data.addSignature); // set the global uuid as signature's fingerprint
+    uuid(result.addSignature); // set the global uuid as signature's fingerprint
     if (props.nextAction) props.nextAction();
     // sends the signature's ID as fingerprint
   };

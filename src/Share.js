@@ -17,6 +17,8 @@ import {
 import metadataparser from "page-metadata-parser";
 import Emoji from "./Emoji";
 import uuid from "./lib/uuid";
+import { addAction } from "./lib/server.js";
+import Url from "./lib/urlparser.js";
 
 import {
   EmailShareButton,
@@ -75,6 +77,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function ShareAction(props) {
   const classes = useStyles();
+  const actionPage= props.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
 
   const shareUrl = (component) => {
@@ -153,12 +156,25 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
   );
 
   function ActionIcon(props) {
+    const medium = props.component.render.displayName.replace("ShareButton-",'');
+    function addShare (event) {
+      addAction(actionPage,event,{
+        uuid: uuid(),
+        payload: [{key:"medium",value:medium}],
+        tracking: Url.utm()
+      });
+    }
+
     function after (props) {
-      console.log("closing "+props.component.render.displayName);
+      addShare ("share_close");
+      console.log("closing "+medium);
     }
+
     function before (props) {
-      console.log("clicking "+props.component.render.displayName);
+      addShare ("share_click");
+      console.log("clicking "+medium);
     }
+
     return (
       <IconButton component={props.component} url={shareUrl(props.component)} title={props.name}
         beforeOnClick={() => before(props)}

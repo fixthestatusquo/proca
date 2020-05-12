@@ -94,26 +94,32 @@ async function getCount(actionPage) {
   return data.actionPage.campaign.stats.signatureCount;
 }
 
-async function addShare (actionPage, data) {
-  var query =`mutation 
-addAction($action: ActionExtraInput, $contact: ID!, $actionPage: ID!, $tracking: TrackingInput) {
-  addAction (actionPageId: $actionPage, action: $action, 
-    contactRef: $contact, tracking: $tracking)
+async function addAction (actionPage, actionType, data) {
+  var query =`mutation addAction (
+  $contact: ID!, 
+  $actionPage: ID!,
+  $actionType: String!,
+  $payload: [CustomFieldInput!],
+  $tracking: TrackingInput) 
+{
+  addAction (actionPageId: $actionPage, action: { actionType: $actionType, fields: $payload}
+    contactRef: $contact, tracking: $tracking) 
+  {fingerprint}
 }`;
   let variables = {
     actionPage: actionPage,
-    action: {
-      actionType: data.actionType,
-      fields: [
-        {key:"medium",value:data.medium},
-      }],
-    },
-    contact: data.contactRef
+    actionType:actionType,
+    payload:data.payload,
+    contact: data.uuid
   };
+
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
-  variables.actionPage = actionPage;
+  const response = await graphQL("addAction", query, {
+    variables: variables
+  });
+  return response;
 }
 
 async function addSignature(actionPage, data) {
@@ -155,4 +161,4 @@ async function addSignature(actionPage, data) {
   });
   return response;
 }
-export { addSignature, getCount };
+export { addSignature, addAction, getCount };
