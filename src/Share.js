@@ -75,7 +75,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function ShareAction(props) {
   const classes = useStyles();
-
   const metadata = metadataparser.getMetadata(window.document, window.location);
 
   const shareUrl = (component) => {

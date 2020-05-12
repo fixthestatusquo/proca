@@ -94,6 +94,28 @@ async function getCount(actionPage) {
   return data.actionPage.campaign.stats.signatureCount;
 }
 
+async function addShare (actionPage, data) {
+  var query =`mutation 
+addAction($action: ActionExtraInput, $contact: ID!, $actionPage: ID!, $tracking: TrackingInput) {
+  addAction (actionPageId: $actionPage, action: $action, 
+    contactRef: $contact, tracking: $tracking)
+}`;
+  let variables = {
+    actionPage: actionPage,
+    action: {
+      actionType: data.actionType,
+      fields: [
+        {key:"medium",value:data.medium},
+      }],
+    },
+    contact: data.contactRef
+  };
+  if (Object.keys(data.tracking).length) {
+    variables.tracking = data.tracking;
+  }
+  variables.actionPage = actionPage;
+}
+
 async function addSignature(actionPage, data) {
   var query = `mutation addSignature($action: SignatureExtraInput,
   $contact:ContactInput,

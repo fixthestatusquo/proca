@@ -78,6 +78,7 @@ const Form = args => {
   }
 
   config.nextAction = function() {
+
     ReactDOM.render(
       <ProcaStyle>
         <ShareAction {...config} />
