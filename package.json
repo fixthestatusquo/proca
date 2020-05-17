@@ -12,7 +12,7 @@
     "@svgr/webpack": "5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
-    "@testing-library/user-event": "^10.1.0",
+    "@testing-library/user-event": "^10.3.0",
     "base64url": "^3.0.1",
     "dotenv": "^8.2.0",
     "page-metadata-parser": "^1.1.4",
