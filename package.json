@@ -26,11 +26,9 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "react-app-rewired build && mv build/d/* d/",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
-    "wizard": "REACT_APP_WEBPACK=wizard node scripts/start.js",
-    "build-wizard": "REACT_APP_WEBPACK=wizard node scripts/build.js",
     "ostart": "node scripts/start.js",
     "obuild": "node scripts/build.js",
     "otest": "node scripts/test.js"
