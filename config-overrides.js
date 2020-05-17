@@ -2,6 +2,23 @@ const webpack = require('webpack');
 const { paths } = require('react-app-rewired');
 const { useBabelRc,override} = require('customize-cra')
 const { addReactRefresh } = require('customize-cra-react-refresh')
+const CompressionPlugin = require('compression-webpack-plugin')
+/* for brotli (future version) 
+  const zlib = require('zlib');
+  config.plugins.push(new CompressionPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        level: 11,
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false
+    }));
+
+*/
+
 const appPackageJson = require(paths.appPackageJson);
 const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 
@@ -9,6 +26,7 @@ const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 // potential workaround : https://gist.github.com/benedictjohannes/33f93ccd2a66b9c150460c525937a8d3
 
   const stringified = (raw) => {
+    console.log(raw);
     const d ={
     'process.widget': Object.keys(raw).reduce((env, key) => {
       env[key] = JSON.stringify(raw[key]);
@@ -27,6 +45,7 @@ module.exports = function override (config, env) {
   const widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
+  config.plugins.push(new CompressionPlugin());
 //  process.exit(1);
   config = addReactRefresh({ disableRefreshCheck: true }) (config,env);
   config.optimization.runtimeChunk = false;

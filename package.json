@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "licence": "aGPL3",
-  "resolutions": {
+  "nope.resolutions": {
     "@babel/preset-env": "^7.8.7"
   },
   "dependencies": {
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build && mv build/d/* d/",
+    "build": "react-app-rewired build && cp -r build/d/* d/",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "ostart": "node scripts/start.js",
@@ -54,6 +54,7 @@
     "@material-ui/core": "^4.9.13",
     "@material-ui/icons": "^4.9.1",
     "babel-plugin-transform-imports": "^2.0.0",
+    "compression-webpack-plugin": "^4.0.0",
     "customize-cra": "^0.9.1",
     "customize-cra-react-refresh": "^1.0.1",
     "i18next": "^19.4.4",
