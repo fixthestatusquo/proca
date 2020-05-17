@@ -99,6 +99,16 @@ const render = () => {
   try {
     var script = document.getElementById("proca");
     if (!script) return;
+console.log("AAA");
+    if (process.env.widget_mode === 'form') {
+  console.log("form mode");
+  Form({actionPage: process.env.widget_actionpage});
+  return;
+} else {
+      Button({actionPage:actionPage});
+  return;
+}
+
     var mode = script.getAttribute("data-mode");
     var actionPage = script.getAttribute("data-page");
     if (mode === "form") {
@@ -130,6 +140,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { config, Button, Form, Dialog, Share };
+export { config, Button, Form, Dialog, Share, render};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

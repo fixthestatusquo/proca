@@ -11,7 +11,7 @@ import { v4 as uuid } from 'uuid';
 let id = null;
 
 function generate() {
-  const d = new Array();
+  const d = [];
   uuid(null,d);
   id = base64url(d);
   return id;

@@ -31,12 +31,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <noscript
@@ -44,7 +38,7 @@
     >
     <div id="root" class="container">
       <div class="row">
-        <div class="col"></div>
+
         <div class="col" id="signature-form"></div>
       </div>
     </div>
@@ -85,7 +79,6 @@
         params.actionPage= urlParams.get("actionPage") || 2;
         switch (urlParams.get("mode")) {
           case "form":
-			console.log("proca form");
             proca.Form(params);
             break;
           case "share":
@@ -101,6 +94,7 @@
         //not used on dev
         display();
       } else {
+        console.log("DEV MODE");
         window.addEventListener("DOMContentLoaded", function() {
           display();
         });
