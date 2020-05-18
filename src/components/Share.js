@@ -16,9 +16,9 @@ import {
 
 import metadataparser from "page-metadata-parser";
 import Emoji from "./Emoji";
-import uuid from "./lib/uuid";
-import { addAction } from "./lib/server.js";
-import Url from "./lib/urlparser.js";
+import uuid from "../lib/uuid";
+import { addAction } from "../lib/server";
+import Url from "../lib/urlparser";
 
 import {
   EmailShareButton,

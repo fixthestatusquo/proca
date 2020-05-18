@@ -77,17 +77,8 @@
         */
 
         params.actionPage= urlParams.get("actionPage") || 2;
-        switch (urlParams.get("mode")) {
-          case "form":
-            proca.Form(params);
-            break;
-          case "share":
-            proca.Share(params);
-            break;
-          case "button":
-          default:
-            proca.Button(params);
-        }
+        params.mode = urlParams.get("mode") || "button";
+        proca.Widget(params);
       }
 
       if (typeof proca === "object") {

@@ -2,10 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
 
-import SignatureForm from "./SignatureForm";
-import FABAction from "./FAB.js";
-import ShareAction from "./Share.js";
-import ProcaStyle from "./components/ProcaStyle.js";
+import ProcaWidget from "./components/Widget.js";
 
 //const querystring = require("querystring");
 
@@ -18,104 +15,40 @@ let config = {
   selector: "#signature-form"
 };
 
-const Share = args => {
+const Widget = args => {
   if (args) config = { ...config, ...args };
-  if (!document.querySelector(config.selector)) {
-    let elem = document.createElement("div");
-    elem.id = "signature-form";
-    config.selector = "#" + elem.id;
-    document.body.appendChild(elem);
-  }
-  ReactDOM.render(
-    <ProcaStyle>
-      <ShareAction {...config} />
-    </ProcaStyle>,
-    document.querySelector(config.selector)
-  );
-};
+  //compile directives
+  if (process.widget.journey)
+    config.journey=process.widget.journey;
+  if (process.widget.lang)
+    config.lang=process.widget.lang;
+  if (process.widget.organisation)
+    config.lang=process.widget.organisation;
+  if (process.widget.actionPage)
+    config.lang=process.widget.actionPage;
 
-const Button = args => {
-  if (args) config = { ...config, ...args };
-  if (!document.querySelector(config.selector)) {
-    let elem = document.createElement("div");
-    elem.id = "proca-button";
-    config.selector = "#" + elem.id;
-    document.body.appendChild(elem);
-  }
-  ReactDOM.render(
-    <ProcaStyle>
-      <FABAction {...config} />
-    </ProcaStyle>,
-    document.querySelector(config.selector)
-  );
-};
-
-const Dialog = args => {
-  //TODO: use and document
-  if (args) config = { ...config, ...args };
-  if (!document.querySelector(config.selector)) {
-    let elem = document.createElement("div");
-    elem.id = "signature-buttonaaa";
-    config.selector = "#" + elem.id;
-    document.body.appendChild(elem);
-  }
-  config.dialog = true;
-  ReactDOM.render(
-    <ProcaStyle>
-      <FABAction {...config} />
-    </ProcaStyle>,
-    document.querySelector(config.selector)
-  );
-};
-
-const Form = args => {
-  if (args) config = { ...config, ...args };
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
-
-  config.nextAction = function() {
-
-    ReactDOM.render(
-      <ProcaStyle>
-        <ShareAction {...config} />
-      </ProcaStyle>,
-      document.querySelector(config.selector)
-    );
-  };
-
+  
   ReactDOM.render(
-    <ProcaStyle>
-      <SignatureForm {...config} />
-    </ProcaStyle>,
+    <ProcaWidget {...config} />,
     document.querySelector(config.selector)
   );
-};
+}
 
 const render = () => {
   try {
     var script = document.getElementById("proca");
     if (!script) return;
-console.log("AAA");
-    if (process.env.widget_mode === 'form') {
-  console.log("form mode");
-  Form({actionPage: process.env.widget_actionpage});
-  return;
-} else {
-      Button({actionPage:actionPage});
-  return;
-}
 
-    var mode = script.getAttribute("data-mode");
-    var actionPage = script.getAttribute("data-page");
-    if (mode === "form") {
-      Form({actionPage:actionPage});
-    } else {
-      Button({actionPage:actionPage});
-    }
+    Widget();
+
+//    var mode = script.getAttribute("data-mode");
+//    var actionPage = script.getAttribute("data-page");
   } catch (e) {
     console.log(e);
   }
@@ -140,6 +73,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { config, Button, Form, Dialog, Share, render};
+export { Widget};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

@@ -28,12 +28,12 @@ import useForm from "react-hook-form";
 import useGeoLocation from "react-ipgeolocation";
 import useQueries from "react-use-queries";
 
-import countries from "./data/countries.json";
+import countries from "../data/countries.json";
 
-import { addSignature } from "./lib/server.js";
-import ProgressCounter from "./components/ProgressCounter.js";
-import Url from "./lib/urlparser.js";
-import uuid from "./lib/uuid.js";
+import { addSignature } from "../lib/server.js";
+import ProgressCounter from "./ProgressCounter.js";
+import Url from "../lib/urlparser.js";
+import uuid from "../lib/uuid.js";
 
 let defaultValues = {
   firstname: "",

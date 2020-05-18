@@ -19,7 +19,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import SignatureForm from "./SignatureForm.js";
-import useCount from "./hooks/useCount.js";
+import useCount from "../hooks/useCount.js";
 import CloseIcon from "@material-ui/icons/Close";
 import CreateIcon from "@material-ui/icons/Create";
 
