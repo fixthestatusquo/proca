@@ -3,6 +3,5 @@ mode=form
 actionpage=2
 filename=proca.foundation
 organisation=Proca Foundation
-journey=petition,share,button,dialog,share
-#journey=share,button,dialog,share
+journey=petition,share
 #journey=petition,share,button,dialog

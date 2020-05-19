@@ -17,16 +17,16 @@ let config = {
 
 const Widget = args => {
   if (args) config = { ...config, ...args };
-  //compile directives
+  //compile directives, you can't use process.widget[step]
   if (process.widget.journey)
     config.journey=process.widget.journey;
   if (process.widget.lang)
     config.lang=process.widget.lang;
   if (process.widget.organisation)
-    config.lang=process.widget.organisation;
-  if (process.widget.actionPage)
-    config.lang=process.widget.actionPage;
-
+    config.organisation=process.widget.organisation;
+  if (process.widget.actionpage)
+    config.actionPage=process.widget.actionpage;
+  console.log(config);
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
@@ -56,7 +56,7 @@ const render = () => {
 
 const autoRender = () => {
   if (window.proca) {
-    console.log("trying to load proca multiple times");
+    console.log("rendering proca");
   }
   try {
     if (

@@ -45,13 +45,13 @@ const conditionalImport = (alias,journey) =>{
 }
 
   const stringified = (raw) => {
-    console.log(raw);
     const d ={
     'process.widget': Object.keys(raw).reduce((env, key) => {
       env[key] = JSON.stringify(raw[key]);
       return env;
     }, {})
     };
+    // not sure we need that anymore
     raw.journey.split(",").forEach(step => d['process.widget']["include_"+step]=1);
     return d;
   };
@@ -65,6 +65,7 @@ module.exports = function override (config, env) {
   let widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
   if (!widget.journey)
     widget.journey="petition,share";
+  console.log(widget);
 //  process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
