@@ -22,8 +22,7 @@ const Widget = args => {
     config.journey=process.widget.journey;
   if (process.widget.lang)
     config.lang=process.widget.lang;
-  if (process.widget.organisation)
-    config.organisation=process.widget.organisation;
+  config.organisation=process.widget.organisation || "missing organisation name";
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
   console.log(config);

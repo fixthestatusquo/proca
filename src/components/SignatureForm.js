@@ -329,7 +329,7 @@ export default function SignatureForm(props) {
               variant={options.variant}
               margin={options.margin}
             >
-              I agree to OrganisationName contacting me about important
+              I agree to {props.organisation} contacting me about important
               campaigns *
             </FormHelperText>
           </Grid>
