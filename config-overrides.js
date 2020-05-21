@@ -28,7 +28,6 @@ const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 // potential workaround : https://gist.github.com/benedictjohannes/33f93ccd2a66b9c150460c525937a8d3
 //
 const conditionalImport = (alias,journey) =>{
-//  config.resolve.alias['Conditional_Share$']= path.resolve(__dirname, 'src/components/')+'/Share.js';
 //  config.resolve.alias['Conditional_Share$']= path.resolve(__dirname, 'src/components/')+'/Disabled.js';
 
   let steps = {
@@ -78,6 +77,9 @@ module.exports = function override (config, env) {
     }
   };
   conditionalImport(config.resolve.alias,widget.journey.split(','));
+
+//  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/');
+  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/'+widget.lang.toLowerCase());
 
   if (config.mode === 'production') {
     //config.output.filename= 'static/js/[name].'+minorVersion+'.js'
