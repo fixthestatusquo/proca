@@ -1,13 +1,37 @@
 import React,{useState} from "react";
 import ProcaStyle from "./ProcaStyle.js";
-//import ReactDOM from "react-dom";
-//import "./lib/i18n";
+
+/* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
+
 import Petition from "Conditional_SignatureForm";
 import Button from "Conditional_FAB";
 import Share from "Conditional_Share";
+import Twitter from "Conditional_Twitter";
+import Dialog from "Conditional_Dialog";
+
+const allSteps = {
+  'petition': Petition,
+  'button': Button,
+  'share': Share,
+  'twitter': Twitter,
+  'dialog': Dialog,
+};
+
+// handling case of components returning multiple Components/functions
+if (!Dialog instanceof Function) {
+  allSteps.dialog = Dialog.Open;
+  allSteps.close = Dialog.Close;
+}
 
 let steps = {};
 
+console.log(process.widget.journey);
+process.widget.journey.split(",").forEach( d => { 
+  console.log("step:",d);
+  steps[d] = allSteps[d];
+});
+
+/*
 // these are compile time directives
 if (process.widget.include_petition) {
   steps['petition'] = Petition;
@@ -19,6 +43,10 @@ if (process.widget.include_share) {
   steps['share'] = Share;
 }
 
+if (process.widget.include_twitter) {
+  steps['twitter'] = Twitter;
+}
+*/
 
 let config = {
   data: {},

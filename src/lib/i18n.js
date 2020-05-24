@@ -4,7 +4,6 @@ import { initReactI18next } from "react-i18next";
 import locales from 'locales/common.json'; // locales is an alias to src/locales/{process.widget.lang} 
 const resources = {};
 resources[process.widget.lang.toLowerCase()] = {common:locales};
-console.log(resources);
 i18n
 //  .use(LanguageDetector)
   .use(initReactI18next)
@@ -14,13 +13,11 @@ i18n
     languages : process.widget.lang.toLowerCase(),
     lng: process.widget.lang.toLowerCase(),
     fallbackLng: "en",
-    debug: true,
-
+//    debug: true,
     // have a common namespace used around the full app
     ns: ["common"],
     defaultNS: "common",
 
-    keySeparator: false, // we use content as keys
 
     interpolation: {
       escapeValue: false

@@ -113,7 +113,7 @@ async function addAction (actionPage, actionType, data) {
     contact: data.uuid
   };
 
-  if (Object.keys(data.tracking).length) {
+  if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
   const response = await graphQL("addAction", query, {

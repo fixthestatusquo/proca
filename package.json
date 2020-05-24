@@ -117,6 +117,7 @@
   "babel": {
     "plugins": [
       [
+        "i18next-extract",
         "babel-plugin-import",
         {
           "libraryName": "@material-ui/core",

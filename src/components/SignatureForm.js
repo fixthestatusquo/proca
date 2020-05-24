@@ -27,6 +27,8 @@ import DoneIcon from "@material-ui/icons/Done";
 import useForm from "react-hook-form";
 import useGeoLocation from "react-ipgeolocation";
 import useQueries from "react-use-queries";
+import { useTranslation } from "react-i18next";
+
 
 import countries from "../data/countries.json";
 
@@ -87,6 +89,8 @@ const queries = {
 
 export default function SignatureForm(props) {
   const classes = useStyles();
+  const { t } = useTranslation();
+
   const [status, setStatus] = useState("default");
   if (props.values) defaultValues = { ...defaultValues, ...props.values };
   const {
@@ -123,7 +127,6 @@ export default function SignatureForm(props) {
   const onSubmit = async data => {
     data.tracking = Url.utm();
     const result = await addSignature(props.actionPage, data);
-    console.log(result);
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);
@@ -221,7 +224,7 @@ export default function SignatureForm(props) {
             <TextField
               id="firstname"
               name="firstname"
-              label="First Name"
+              label={t("First name")}
               className={classes.textField}
               placeholder="eg. Leonardo"
               autoComplete="given-name"
@@ -240,7 +243,7 @@ export default function SignatureForm(props) {
             <TextField
               id="lastname"
               name="lastname"
-              label="Last Name"
+              label={t("Last name")}
               autoComplete="family-name"
               className={classes.textField}
               variant={options.variant}
@@ -254,7 +257,7 @@ export default function SignatureForm(props) {
               id="email"
               name="email"
               type="email"
-              label="Email"
+              label={t("Email")}
               autoComplete="email"
               className={classes.textField}
               inputRef={register}
@@ -271,7 +274,7 @@ export default function SignatureForm(props) {
             <TextField
               id="postcode"
               name="postcode"
-              label="Postal Code"
+              label={t("Postal Code")}
               autoComplete="postal-code"
               inputRef={register}
               className={classes.textField}
@@ -284,7 +287,7 @@ export default function SignatureForm(props) {
               select
               id="country"
               name="country"
-              label="Country"
+              label={t("Country")}
               className={classes.textField}
               variant={options.variant}
               inputRef={register}
@@ -329,8 +332,7 @@ export default function SignatureForm(props) {
               variant={options.variant}
               margin={options.margin}
             >
-              I agree to {props.organisation} contacting me about important
-              campaigns *
+    {t("consent.intro",{name:props.organisation})} *
             </FormHelperText>
           </Grid>
           <Grid item xs={12}>
@@ -339,21 +341,17 @@ export default function SignatureForm(props) {
                 value="opt-in"
                 inputRef={register}
                 control={<Radio color="primary" />}
-                label="Yes, keep me informed via email"
-              />
+                label={t("consent.opt-in")}/>
 
               <FormControlLabel
                 value="opt-out"
                 control={<Radio />}
                 inputRef={register({ required: "Yes or No?" })}
-                label="No, don't send me emails or keep me updated in future"
-              />
+                label={t("consent.opt-out")}/>
             </RadioGroup>
           </Grid>
           <Grid item xs={12}>
-            Your personal information will be kept private and held securely. By
-            submitting information you are agreeing to the use of data and
-            cookies in accordance with our privacy policy.
+        {t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}
           </Grid>
           <Grid item xs={12}>
             <Button

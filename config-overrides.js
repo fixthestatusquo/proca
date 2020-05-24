@@ -34,6 +34,8 @@ const conditionalImport = (alias,journey) =>{
     'petition': 'SignatureForm',
     'share': 'Share',
     'button': 'FAB',
+    'twitter': 'Twitter',
+    'dialog': 'Dialog',
   };
 
   for (let [k,v] of Object.entries(steps)) {
@@ -50,6 +52,7 @@ const conditionalImport = (alias,journey) =>{
       return env;
     }, {})
     };
+//    console.log(raw);process.exit(1);
     // not sure we need that anymore
     raw.journey.split(",").forEach(step => d['process.widget']["include_"+step]=1);
     return d;

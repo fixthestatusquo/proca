@@ -23,9 +23,10 @@ const Widget = args => {
   if (process.widget.lang)
     config.lang=process.widget.lang;
   config.organisation=process.widget.organisation || "missing organisation name";
+  if (process.widget.twitter_targets)
+    config.targets={twitter_url:process.widget.twitter_targets};
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
-  console.log(config);
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";

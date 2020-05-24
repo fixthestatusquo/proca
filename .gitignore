@@ -9,10 +9,12 @@
 
 # production
 /build
+/dist
 /d 
 /config
 # misc
 .DS_Store
+.cache
 .env
 .env.local
 .env.development.local
