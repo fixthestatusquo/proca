@@ -122,24 +122,31 @@ async function addAction (actionPage, actionType, data) {
   return response;
 }
 
-async function addSignature(actionPage, data) {
-  var query = `mutation addSignature($action: SignatureExtraInput,
+async function addActionContact(actionType, actionPage, data) {
+  var query = `mutation addActionContact(
+  $action: ActionExtraInput,
   $contact:ContactInput,
   $privacy:ConsentInput,
+  $contactRef:ID,
   $actionPage:ID!,
   $tracking:TrackingInput
 ){
-  addSignature(actionPageId: $actionPage, 
+  addActionContact(
+    actionPageId: $actionPage, 
     action: $action,
+    contactRef:$contactRef,
     contact:$contact,
     privacy:$privacy,
     tracking:$tracking
-  )}
+  ){contactRef,firstName}
+  }
 `;
-
+  const expected="firstname,lastname,email,country,postcode,privacy,tracking".split(",");
   let variables = {
+    actionPage: actionPage,
     action: {
-      comment: data.comment
+      actionType: actionType,
+      fields: [] // added below
     },
     contact: {
       first_name: data.firstname,
@@ -150,15 +157,22 @@ async function addSignature(actionPage, data) {
         postcode: data.postcode || ""
       }
     },
-    privacy: { optIn: data.privacy === "opt-in" }
+    privacy: { optIn: data.privacy === "opt-in", leadOptIn: data.privacy ==="opt-in" }
   };
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
-  variables.actionPage = actionPage;
-  const response = await graphQL("addSignature", query, {
+  console.log(data);
+
+  for (let [key,value] of Object.entries(data)) {
+    if (value && !(expected.includes(key)))
+      variables.action.fields.push({key:key,value:value})
+  }
+
+  const response = await graphQL("addActionContact", query, {
     variables: variables
   });
   return response;
 }
-export { addSignature, addAction, getCount };
+
+export { addActionContact, addAction, getCount };

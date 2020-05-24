@@ -2,7 +2,7 @@ import React,{useState,useEffect,Fragment} from 'react';
 
 import TwitterList from './TwitterList';
 import Dialog from './Dialog';
-import SignatureForm from './SignatureForm';
+import Register from './Register';
 
 const Component = (props) => {
   const [profiles, setProfiles] = useState([]);
@@ -36,7 +36,7 @@ const Component = (props) => {
 
   return (
     <Fragment>
-    <Dialog dialog={dialog} actionPage={props.actionPage} content={SignatureForm} name="Let's keep in touch"/>
+    <Dialog dialog={dialog} actionPage={props.actionPage} content={Register} name="Let's keep in touch"/>
     <TwitterList profiles={profiles} actionPage={props.actionPage} actionUrl={props.actionUrl} actionText={props.actionText} done={handleDone}/>
     </Fragment>
   );

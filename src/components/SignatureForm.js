@@ -32,7 +32,7 @@ import { useTranslation } from "react-i18next";
 
 import countries from "../data/countries.json";
 
-import { addSignature } from "../lib/server.js";
+import { addActionContact } from "../lib/server.js";
 import ProgressCounter from "./ProgressCounter.js";
 import Url from "../lib/urlparser.js";
 import uuid from "../lib/uuid.js";
@@ -126,7 +126,7 @@ export default function SignatureForm(props) {
   //TODO async handleSubmit(async (data) => await fetchAPI(data))
   const onSubmit = async data => {
     data.tracking = Url.utm();
-    const result = await addSignature(props.actionPage, data);
+    const result = await addActionContact("petition",props.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);
