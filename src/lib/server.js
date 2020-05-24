@@ -104,7 +104,7 @@ async function addAction (actionPage, actionType, data) {
 {
   addAction (actionPageId: $actionPage, action: { actionType: $actionType, fields: $payload}
     contactRef: $contact, tracking: $tracking) 
-  {fingerprint}
+  {contactRef}
 }`;
   let variables = {
     actionPage: actionPage,

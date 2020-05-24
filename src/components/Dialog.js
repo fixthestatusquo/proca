@@ -33,7 +33,11 @@ function OpenDialog (props) {
 
   const handleClickOpen = () => {setOpen(true);};
 
-  const handleClose = () => {setOpen(false);};
+  const handleClose = () => {
+    setOpen(false);
+    if (props.close instanceof Function)
+      props.close()
+  };
 
   const Content = props.content;
   const classes = useStyles();
@@ -49,7 +53,7 @@ function OpenDialog (props) {
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </DialogTitle>
         <DialogContent>
-           <Content/>
+           <Content {...props}/>
         </DialogContent>
       </Dialog>
   );

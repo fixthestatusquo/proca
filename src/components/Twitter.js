@@ -36,7 +36,7 @@ const Component = (props) => {
 
   return (
     <Fragment>
-    <Dialog dialog={dialog} content={SignatureForm} name="Let's keep in touch"/>
+    <Dialog dialog={dialog} actionPage={props.actionPage} content={SignatureForm} name="Let's keep in touch"/>
     <TwitterList profiles={profiles} actionPage={props.actionPage} actionUrl={props.actionUrl} actionText={props.actionText} done={handleDone}/>
     </Fragment>
   );

@@ -59,6 +59,7 @@ export default function Render (props) {
   let journey=props.journey.split(",");
   const  [current,setCurrent] = useState(journey.shift());
   if (props) config = { ...config, ...props };
+  config.actionPage = parseInt(config.actionPage);
 /*  if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
