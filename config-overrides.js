@@ -31,7 +31,7 @@ const conditionalImport = (alias,journey) =>{
 //  config.resolve.alias['Conditional_Share$']= path.resolve(__dirname, 'src/components/')+'/Disabled.js';
 
   let steps = {
-    'petition': 'SignatureForm',
+    'petition': 'Petition',
     'share': 'Share',
     'button': 'FAB',
     'twitter': 'Twitter',

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./lib/i18n";
 
 import ProcaWidget from "./components/Widget.js";
+import ProcaAlert from "./components/Alert.js";
 
 //const querystring = require("querystring");
 
@@ -14,6 +15,20 @@ let config = {
   variant: "filled",
   selector: "#signature-form"
 };
+
+const Alert = (text,severity) => {
+  const selector = "proca_alert";
+  if (!document.querySelector('#'+selector)) {
+    let elem = document.createElement("div");
+    elem.id = selector;
+    document.body.appendChild(elem);
+  }
+
+  ReactDOM.render(
+    <ProcaAlert text={text} severity={severity}/>,
+    document.querySelector('#'+selector)
+  );
+}
 
 const Widget = args => {
   if (args) config = { ...config, ...args };
@@ -73,6 +88,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { Widget};
+export { Widget, Alert};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

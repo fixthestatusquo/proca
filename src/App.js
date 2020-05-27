@@ -4,9 +4,9 @@ import { Grid } from '@material-ui/core';
 
 //import logo from './logo.svg';
 //import './App.css';
-import SignatureForm from "./SignatureForm";
-import FABAction from "./FAB.js";
-import { Wizard } from "./Wizard.js";
+import Petition fr "./Petition";
+import FABAction from "./FAB";
+import { Wizard } from "./Wizard";
 const querystring = require("querystring");
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       </Grid>
       <Grid item>
         <FABAction />
-        <SignatureForm margin="dense" variant="filled" />
+        <Petition margin="dense" variant="filled" />
       </Grid>
     </Grid>
   );

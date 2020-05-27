@@ -3,7 +3,7 @@ import ProcaStyle from "./ProcaStyle.js";
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
-import Petition from "Conditional_SignatureForm";
+import Petition from "Conditional_Petition";
 import Button from "Conditional_FAB";
 import Share from "Conditional_Share";
 import Twitter from "Conditional_Twitter";
