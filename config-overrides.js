@@ -36,12 +36,14 @@ const conditionalImport = (alias,journey) =>{
     'button': 'FAB',
     'twitter': 'Twitter',
     'dialog': 'Dialog',
+    'register.CH': 'bespoke/Register-CH',
   };
 
   for (let [k,v] of Object.entries(steps)) {
     const Component = journey.includes(k)? v : 'Disabled';
     alias['Conditional_'+v+'$']= path.resolve(__dirname, 'src/components/')+'/'+Component+'.js';
   }
+//console.log(alias);process.exit(1);
 
 }
 

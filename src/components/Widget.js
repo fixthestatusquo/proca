@@ -9,12 +9,16 @@ import Share from "Conditional_Share";
 import Twitter from "Conditional_Twitter";
 import Dialog from "Conditional_Dialog";
 
+// bespoke
+import RegisterCH from "Conditional_bespoke/Register-CH";
+
 const allSteps = {
   'petition': Petition,
   'button': Button,
   'share': Share,
   'twitter': Twitter,
   'dialog': Dialog,
+  'register.CH': RegisterCH,
 };
 
 // handling case of components returning multiple Components/functions
