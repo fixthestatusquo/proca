@@ -289,7 +289,6 @@ export default function Register(props) {
               autoComplete="postal-code"
               required
               inputRef={register}
-              onChange={onPostCode}
               className={classes.textField}
               variant={options.variant}
               margin={options.margin}
