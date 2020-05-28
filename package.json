@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build && cp -r build/d/* d/",
+    "build": "react-app-rewired build && cp build/index.html build/d && cp -r build/d/* d/",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "ostart": "node scripts/start.js",
