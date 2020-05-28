@@ -26,7 +26,6 @@ import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
-import useGeoLocation from "react-ipgeolocation";
 import useQueries from "react-use-queries";
 import { useTranslation } from "react-i18next";
 
@@ -108,8 +107,30 @@ export default function Register(props) {
   });
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
-  const country = watch("country");
-  const location = useGeoLocation({api:"https://ch.proca.app"});
+  const postcode = watch("postcode");
+  const locality = watch("locality");
+
+  const [autoLocality, setLocality] = useState(null);
+  useEffect(() => {
+    if (postcode.length !== 4) return;
+    const api = "https://postcode-ch.proca.foundation/"+postcode;
+
+    async function fetchAPI() {
+      await fetch(api)
+      .then (res => {
+        if (!res.ok) { throw Error(res.statusText); }
+        return res.json()
+      })
+      .then(res => {console.log(res);if (res && res.name) {
+        setLocality(res.name);
+        setValue("locality", res.name);
+      }})
+      .catch(err => setError(err))
+       
+    }
+    fetchAPI();
+  },[postcode,setError,setValue]);
+
 
   const options = {
     margin: props.margin || "dense",
@@ -117,10 +138,6 @@ export default function Register(props) {
   };
   //variant: standard, filled, outlined
   //margin: normal, dense
-
-  const onPostCode = (d) => {
-    console.log(d);
-  }
 
   const onSubmit = async data => {
     data.tracking = Url.utm();
@@ -141,8 +158,8 @@ export default function Register(props) {
   };
 
   useEffect(() => {
-    register({ name: "country" });
-  }, [register]);
+    register({ name: "postcode" });
+  }, [postcode,register]);
 
   const [[compact = true], mediaQueryListener] = useQueries(queries);
 
@@ -220,7 +237,7 @@ export default function Register(props) {
               name="firstname"
               label={t("First name")}
               className={classes.textField}
-              placeholder="eg. Leonardo"
+              placeholder="eg. Albert"
               autoComplete="given-name"
               required
               inputRef={register}
@@ -243,7 +260,7 @@ export default function Register(props) {
               variant={options.variant}
               margin={options.margin}
               inputRef={register}
-              placeholder="eg. Da Vinci"
+              placeholder="eg. Einstein"
             />
           </Grid>
           <Grid item xs={12}>
@@ -270,6 +287,7 @@ export default function Register(props) {
               name="postcode"
               label={t("Postal Code")}
               autoComplete="postal-code"
+              required
               inputRef={register}
               onChange={onPostCode}
               className={classes.textField}
@@ -282,7 +300,8 @@ export default function Register(props) {
               id="locality"
               name="locality"
               label={t("Locality")}
-              autoComplete="locality"
+              autoComplete="address-level2"
+              InputLabelProps = {{shrink : autoLocality || locality || false}}
               inputRef={register}
               className={classes.textField}
               variant={options.variant}

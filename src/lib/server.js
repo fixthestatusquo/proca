@@ -124,9 +124,9 @@ async function addAction (actionPage, actionType, data) {
 
 async function addActionContact(actionType, actionPage, data) {
   var query = `mutation addActionContact(
-  $action: ActionExtraInput,
-  $contact:ContactInput,
-  $privacy:ConsentInput,
+  $action: ActionInput!,
+  $contact:ContactInput!,
+  $privacy:ConsentInput!,
   $contactRef:ID,
   $actionPage:ID!,
   $tracking:TrackingInput
