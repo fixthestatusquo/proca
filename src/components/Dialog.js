@@ -39,7 +39,6 @@ function OpenDialog (props) {
       props.close()
   };
 
-  const Content = props.content;
   const classes = useStyles();
   return (
       <Dialog
@@ -53,7 +52,7 @@ function OpenDialog (props) {
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </DialogTitle>
         <DialogContent>
-           <Content {...props}/>
+           {props.children}
         </DialogContent>
       </Dialog>
   );
@@ -64,5 +63,9 @@ function Close (props) {
   return "";
 }
 
-export default OpenDialog;
+OpenDialog.defaultProps = {
+  dialog: true
+}
+
+  export default OpenDialog;
 //export default {Open,Close};

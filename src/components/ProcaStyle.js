@@ -32,7 +32,6 @@ const theme = createMuiTheme({
   },
 });
 
-console.log (theme);
 
 export default function ProcaStyle(props) {
   return (

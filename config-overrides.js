@@ -29,22 +29,21 @@ const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 //
 const conditionalImport = (alias,journey) =>{
 //  config.resolve.alias['Conditional_Share$']= path.resolve(__dirname, 'src/components/')+'/Disabled.js';
-
+  const j = journey.flat();
   let steps = {
     'petition': 'Petition',
     'share': 'Share',
     'button': 'FAB',
     'twitter': 'Twitter',
     'dialog': 'Dialog',
+    'clickify': 'Clickify',
     'register.CH': 'bespoke/Register-CH',
   };
 
   for (let [k,v] of Object.entries(steps)) {
-    const Component = journey.includes(k)? v : 'Disabled';
+    const Component = j.includes(k)? v : 'Disabled';
     alias['Conditional_'+v+'$']= path.resolve(__dirname, 'src/components/')+'/'+Component+'.js';
   }
-//console.log(alias);process.exit(1);
-
 }
 
   const stringified = (raw) => {
@@ -54,9 +53,15 @@ const conditionalImport = (alias,journey) =>{
       return env;
     }, {})
     };
-//    console.log(raw);process.exit(1);
-    // not sure we need that anymore
-    raw.journey.split(",").forEach(step => d['process.widget']["include_"+step]=1);
+    // syntax step1,step2, step3+substep3.1+substep3.2, step4  ('+' to have substeps, like in a dialog)
+    raw.journey = raw.journey.split(',');
+    raw.journey.forEach ((d,i) => {
+      const sub= d.split('+');
+      if (sub.length === 1) return;
+      raw.journey[i]=sub;
+    });
+    d['process.widget'].journey = JSON.stringify(raw.journey);
+//    console.log(raw.journey);process.exit(1);
     return d;
   };
 
@@ -81,7 +86,7 @@ module.exports = function override (config, env) {
       default: false
     }
   };
-  conditionalImport(config.resolve.alias,widget.journey.split(','));
+  conditionalImport(config.resolve.alias,widget.journey);
 
 //  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/');
   config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/'+widget.lang.toLowerCase());

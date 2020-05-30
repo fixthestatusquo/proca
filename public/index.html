@@ -70,6 +70,7 @@ pre {background:#dede; padding: 10px}
 &lt;script id="proca" src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-form">&lt;/div>
           </pre>
+          <button class="proca-button">proca-button</button>
         </div>
 
         <div class="col" id="signature-form"></div>
@@ -93,7 +94,6 @@ pre {background:#dede; padding: 10px}
         var urlParams = new URLSearchParams(window.location.search);
         var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
         for (let d of document.getElementsByClassName("dynamic")) {
-          console.log(d);
           d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
         }
 

@@ -16,6 +16,8 @@ let config = {
   selector: "#signature-form"
 };
 
+let context= null;
+
 const Alert = (text,severity) => {
   const selector = "proca_alert";
   if (!document.querySelector('#'+selector)) {
@@ -42,17 +44,24 @@ const Widget = args => {
     config.targets={twitter_url:process.widget.twitter_targets};
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
+
+  context=React.createContext(config);
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
-  
+ 
   ReactDOM.render(
-    <ProcaWidget {...config} />,
+    <ProcaWidget {...config} context={context} />,
     document.querySelector(config.selector)
   );
+}
+
+Widget.jump = (step) => { // if step is empty, jump to next
+  console.log(config.selector);
+  ProcaWidget.action();
 }
 
 const render = () => {
@@ -88,6 +97,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { Widget, Alert};
+export { Widget, Alert, context, React, ReactDOM};
 
 //      <SignatureForm margin= "dense" variant= "filled" />
