@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Box } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -348,7 +348,7 @@ export default function Register(props) {
             </RadioGroup>
           </Grid>
           <Grid item xs={12}>
-        {t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}
+        <Box>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
           </Grid>
           <Grid item xs={12}>
             <Button

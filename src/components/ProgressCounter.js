@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import { makeStyles } from "@material-ui/core/styles";
-import { LinearProgress } from "@material-ui/core";
+import { LinearProgress, Box } from "@material-ui/core";
 import useCount from '../hooks/useCount.js';
 //3,014,823 have signed. Let’s get to 4,500,000!
 
@@ -48,10 +48,10 @@ export default function Progress(props) {
  
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root}>
     {count} have signed. Let’s get to {goal}!
     <LinearProgress variant="determinate" value={normalise(count,goal)} />
-    </div>
+    </Box>
   );
   
 }

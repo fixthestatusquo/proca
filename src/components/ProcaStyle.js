@@ -20,7 +20,25 @@ const GlobalCss = withStyles({
 */
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
+    fontSize: 14,
+  },
   overrides: {
+    MuiDialog: {
+      root: {
+        fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
+      }
+    },
+    MuiFilledInput: {
+      multiline: {
+        paddingTop: '23px!important',
+        paddingBottom: '6px!important',
+      },
+      marginDense: {
+        background:'pink'
+      }
+    },
     MuiInputBase: {
       input: {
         background: 'unset!important',
@@ -32,6 +50,9 @@ const theme = createMuiTheme({
   },
 });
 
+for (const d in theme.zIndex) {
+  theme.zIndex[d] += 10000;
+}
 
 export default function ProcaStyle(props) {
   return (
