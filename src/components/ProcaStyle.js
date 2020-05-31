@@ -41,7 +41,6 @@ const theme = createMuiTheme({
         paddingBottom: '6px!important',
       },
       marginDense: {
-        background:'pink'
       }
     },
     MuiInputBase: {
@@ -56,7 +55,7 @@ const theme = createMuiTheme({
 });
 
 for (const d in theme.zIndex) {
-  theme.zIndex[d] += 10000;
+  theme.zIndex[d] += 100000;
 }
 
 export default function ProcaStyle(props) {
