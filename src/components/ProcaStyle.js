@@ -25,6 +25,11 @@ const theme = createMuiTheme({
     fontSize: 14,
   },
   overrides: {
+    MuiContainer: {
+      root: {
+        fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`
+      }
+    },
     MuiDialog: {
       root: {
         fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
