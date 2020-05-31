@@ -47,12 +47,13 @@ async function graphQL(operation, query, options) {
   return data;
 }
 
-async function getCount(actionPage) {
+async function getCount(actionPage,actionType) {
+  
   var query = `query getCount($actionPage: ID!)
 {actionPage(id:$actionPage) {
   campaign {
     stats {
-      signatureCount
+      actionCount {actionType, count}
     }
   }
 }}
@@ -91,7 +92,12 @@ async function getCount(actionPage) {
     });
   // const data = await graphQL ("getCount",query,{variables:{ actionPage: Number(actionPage) }});
   if (!data || data.errors) return null;
-  return data.actionPage.campaign.stats.signatureCount;
+  let count=0;
+  actionType = actionType || "petition";
+  data.actionPage.campaign.stats.actionCount.forEach(d => {
+    if (d.actionType === actionType) count=d.count;
+  });
+  return count;
 }
 
 async function addAction (actionPage, actionType, data) {

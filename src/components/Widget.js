@@ -33,7 +33,7 @@ let steps = {};
 
 process.widget.journey.forEach( d => { 
   if (d instanceof Array) { // substep case
-    d.forEach ( e => steps[e] = allSteps [e])  
+    d.forEach (e => steps[e] = allSteps [e])  
     return;
   }
 
