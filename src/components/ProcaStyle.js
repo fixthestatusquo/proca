@@ -1,5 +1,8 @@
 import React from 'react';
 import { StylesProvider, createGenerateClassName, createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
+//import CssBaseline from '@material-ui/core/ScopedCssBaseline';
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+
 
 const generateClassName = createGenerateClassName({
   disableGlobal: false,
@@ -21,19 +24,16 @@ const GlobalCss = withStyles({
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
-    fontSize: 14,
+    fontFamily: 'unset!important',
+//    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
+//    fontSize: 14,
   },
   overrides: {
     MuiContainer: {
-      root: {
-//        fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`
-      }
+      root: {fontFamily: 'unset!important',}
     },
     MuiDialog: {
-      root: {
-//        fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
-      }
+      root: {fontFamily: 'unset!important',}
     },
     MuiFilledInput: {
       multiline: {
@@ -58,8 +58,11 @@ for (const d in theme.zIndex) {
   theme.zIndex[d] += 100000;
 }
 
+    //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
   return (
-    <StylesProvider generateClassName={generateClassName}><ThemeProvider theme={theme}>{props.children}</ThemeProvider></StylesProvider>
+    <StylesProvider generateClassName={generateClassName}>
+    <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+    </StylesProvider>
   );
 }

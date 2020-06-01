@@ -53,6 +53,11 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
+  notice: {
+    fontSize:'0.9rem',
+    fontWeight: 'fontWeightLight',
+    color: theme.palette.text.disabled,
+  },
   bigHelper: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -348,7 +353,7 @@ export default function Register(props) {
             </RadioGroup>
           </Grid>
           <Grid item xs={12}>
-        <Box>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
+        <Box className={classes.notice}>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
           </Grid>
           <Grid item xs={12}>
             <Button
