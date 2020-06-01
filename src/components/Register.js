@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap"
   },
   notice: {
-    fontSize:'0.9rem',
+    fontSize:theme.typography.pxToRem(13),
     fontWeight: 'fontWeightLight',
     color: theme.palette.text.disabled,
   },
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(0),
     marginTop: theme.spacing(0),
     marginBottom: theme.spacing(0),
-    fontSize: "1em",
+    fontSize: theme.typography.pxToRem(16),
     width: "100%",
     color: "black",
     padding: "4px",

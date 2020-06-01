@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { StylesProvider, createGenerateClassName, createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
-import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+//import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
 
 const generateClassName = createGenerateClassName({
@@ -25,6 +25,7 @@ const GlobalCss = withStyles({
 const theme = createMuiTheme({
   typography: {
     fontFamily: 'unset!important',
+    htmlFontSize: parseInt(window.getComputedStyle(document.getElementsByTagName('html')[0], null).getPropertyValue('font-size')), // get the actual font size
 //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
 //    fontSize: 14,
   },

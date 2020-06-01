@@ -14,6 +14,7 @@ import useCount from '../hooks/useCount.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    fontSize: theme.typography.pxToRem(18),
     width: '100%',
     '& > * + *': {
       marginTop: theme.spacing(2),
