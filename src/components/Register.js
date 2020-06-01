@@ -9,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
+import useElementWidth from '../hooks/useElementWidth';
 import { makeStyles } from "@material-ui/core/styles";
 
 import {
@@ -27,7 +28,6 @@ import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
 import useGeoLocation from "react-ipgeolocation";
-import useQueries from "react-use-queries";
 import { useTranslation } from "react-i18next";
 
 
@@ -87,14 +87,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const queries = {
-  //    '(max-width: 440px)': 'col-12',
-  "(min-width: 570px)": false
-};
 
 export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
+  
+  const width = useElementWidth ('#proca-register');
+  const [compact, setCompact] = useState(true);
+  if ((compact && width > 450) || (!compact && width <= 450))
+    setCompact (width <= 450);
 
   const [status, setStatus] = useState("default");
   if (props.values) defaultValues = { ...defaultValues, ...props.values };
@@ -148,8 +149,6 @@ export default function Register(props) {
   useEffect(() => {
     register({ name: "country" });
   }, [register]);
-
-  const [[compact = true], mediaQueryListener] = useQueries(queries);
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -214,6 +213,7 @@ export default function Register(props) {
   return (
     <form
       className={classes.container}
+      id='proca-register'
       onSubmit={handleSubmit(onSubmit)}
       method="post"
       url="http://localhost"
@@ -368,7 +368,6 @@ export default function Register(props) {
               {" "}
     {props.buttonText}
             </Button>
-            {mediaQueryListener}
           </Grid>
         </Grid>
       </Container>

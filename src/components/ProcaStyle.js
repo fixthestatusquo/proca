@@ -31,7 +31,7 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiContainer: {
-      root: {fontFamily: 'unset!important',}
+      root: {fontFamily: 'unset!important',paddingLeft:'0!important',paddingRight:'0!important'}
     },
     MuiDialog: {
       root: {fontFamily: 'unset!important',}

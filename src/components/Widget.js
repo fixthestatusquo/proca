@@ -1,5 +1,6 @@
 import React,{useState,useContext, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
+import {Slide} from '@material-ui/core';
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
@@ -99,6 +100,7 @@ const Widget = (props) => {
     let Action = steps[journey[current]];
     return (
       <ProcaStyle>
+
         <Action {...config} />
       </ProcaStyle>
     );
