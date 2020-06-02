@@ -122,6 +122,7 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
           <ActionIcon
             {...props}
             icon={WhatsappIcon}
+            title={props['share-whatsapp'] || props.share}
             component={WhatsappShareButton}
             separator=" "
           />
@@ -133,6 +134,7 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
           <ActionIcon
             {...props}
             icon={TwitterIcon}
+            title={props['share-twitter'] || props.share}
             component={TwitterShareButton}
           />
           <ActionIcon
@@ -176,7 +178,7 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
     }
 
     return (
-      <IconButton component={props.component} url={shareUrl(props.component)} title={props.name}
+      <IconButton component={props.component} url={shareUrl(props.component)} title={props.title || props.share }
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
         >

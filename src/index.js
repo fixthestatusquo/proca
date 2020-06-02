@@ -69,7 +69,8 @@ const render = () => {
     var script = document.getElementById("proca");
     if (!script) return;
 
-    Widget();
+//todo: blacklist some param?
+    Widget({...script.dataset});
 
 //    var mode = script.getAttribute("data-mode");
 //    var actionPage = script.getAttribute("data-page");
