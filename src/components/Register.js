@@ -118,7 +118,12 @@ export default function Register(props) {
   const country = watch("country");
   const location = useGeoLocation({api:"https://country.proca.foundation"});
   if (location.country && !country) {
-    setValue("country", location.country);
+    if (!countries.find (d => (d.iso === location.country))) {
+      console.log ("visitor from ",location, "but not on our list");
+      location.country = countries.find (d => (d.iso === "ZZ")) ? "ZZ" : ""; // if "other" exists, set it
+    }
+    if (location.country)
+      setValue("country", location.country);
   }
 
   const options = {

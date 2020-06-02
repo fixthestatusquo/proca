@@ -4,7 +4,7 @@
     "name": "Austria"
   },
   {
-    "iso": "BE",
+    "iso" : "BE",
     "name": "Belgium"
   },
   {
@@ -110,5 +110,9 @@
   {
     "iso": "GB",
     "name": "United Kingdom of Great Britain and Northern Ireland"
+  },
+  {
+    "iso": "ZZ",
+    "name": "Other"
   }
 ]
