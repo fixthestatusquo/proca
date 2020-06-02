@@ -78,6 +78,7 @@ const Widget = (props) => {
   })
 
   if (props) config = { ...config, ...props };
+  console.log(config);
   config.actionPage = parseInt(config.actionPage);
 
   const nextStep = () => {
@@ -92,7 +93,7 @@ const Widget = (props) => {
 
   config.nextAction = nextStep;
 
-  console.log("render Widget ",journey[current]," at depth ",depths[current]);
+//  console.log("render Widget ",journey[current]," at depth ",depths[current]);
 //const context = useContext(props.context);
 // todo: find a way to change the context
 
@@ -109,7 +110,6 @@ const Widget = (props) => {
   if (depths[current] > 0) {
     let SubAction = steps[journey[current]];
     let Action = steps[topMulti.current];
-console.log("current ", SubAction, " under ",Action);
 
     return (
       <ProcaStyle>
@@ -127,7 +127,6 @@ Widget.getSteps = () => {
 }
 
 Widget.jump = (step) => { // name of the step of true to skip to next action
-  console.log(this);
 }
 
 export default Widget;
