@@ -1,0 +1,33 @@
+{
+  "consent": {
+    "intro":"Email-Updates zu dieser Kampagne und weiteren wichtigen Kampagnen von {{name}} abonnieren",
+    "opt-in":"Ja! Sagt mir, ob diese Kampagne gewinnt und wie ich bei anderen relevanten Kampagnen mithelfen kann.",
+    "opt-out": "Nein. Ich möchte nichts über den Fortschritt dieser Kampagne",
+    "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum Datenschutz"
+  },
+"progress":"{{count}} Unterschriften. Ziel: {{goal}}",
+    "This field is required.": "This field is required.",
+    "Enter a number.": "Enter a number.",
+    "Enter a valid email address.": "Enter a valid email address.",
+    "Donations must be %(amount)s or more": "Donations must be %(amount)s or more",
+    "Amount": "Amount",
+    "First name": "Vorname",
+    "Last name": "Nachname",
+    "Email": "E-Mail",
+    "Postal Code":" Postleitzahl",
+
+    "Street": "Street",
+    "City": "City",
+    "Country": "Land",
+    "Comment": "Ihre Kommentare",
+    "Thanks!": "Thanks!",
+    "Legal": "Legal",
+    "Privacy": "Privacy",
+    "No Thanks": "No Thanks",
+    "Stay in touch": "Stay in touch",
+    "Sign now!": "Unterzeichnen",
+    "Share on Facebook": "Share on Facebook",
+    "Share on Twitter": "Share on Twitter",
+    "Email_Share button": "Email",
+    "Link_Share button": "Link"
+}

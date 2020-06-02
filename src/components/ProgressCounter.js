@@ -11,6 +11,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
 import useCount from '../hooks/useCount.js';
 //3,014,823 have signed. Let’s get to 4,500,000!
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +43,7 @@ const normalise = (value,max) => {
 };
 
 export default function Progress(props) {
+  const { t } = useTranslation();
   const count = useCount (props.actionPage);
   const classes = useStyles();
   const goal = nextStep (count);
@@ -50,7 +53,7 @@ export default function Progress(props) {
 
   return (
     <Box className={classes.root}>
-    {count} have signed. Let’s get to {goal}!
+    {t("progress",{count:count,goal:goal})}
     <LinearProgress variant="determinate" value={normalise(count,goal)} />
     </Box>
   );

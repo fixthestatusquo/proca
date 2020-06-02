@@ -5,7 +5,7 @@
     "opt-out": "No, don't send me emails or keep me updated in future",
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our privacy policy"
   },
-
+"progress":"{{count}} have signed. Let's go to {{goal}}",
     "This field is required.": "This field is required.",
     "Enter a number.": "Enter a number.",
     "Enter a valid email address.": "Enter a valid email address.",

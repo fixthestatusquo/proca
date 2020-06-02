@@ -321,7 +321,7 @@ export default function Register(props) {
               className={classes.textField}
               multiline
               rowsMax="20"
-              label="Comment"
+              label={t("Comment")}
               inputRef={register}
               variant={options.variant}
               margin={options.margin}
