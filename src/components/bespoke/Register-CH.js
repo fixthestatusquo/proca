@@ -2,14 +2,8 @@ import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 
 import { Container, Grid } from "@material-ui/core";
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-*/
 import { makeStyles } from "@material-ui/core/styles";
+import useElementWidth from '../../hooks/useElementWidth';
 
 import {
   TextField,
@@ -18,7 +12,8 @@ import {
   FormControlLabel,
   Button,
   FormHelperText,
-  Snackbar
+  Snackbar,
+  Box
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 
@@ -26,7 +21,6 @@ import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
-import useQueries from "react-use-queries";
 import { useTranslation } from "react-i18next";
 
 
@@ -51,17 +45,23 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
+  notice: {
+    fontSize:theme.typography.pxToRem(13),
+    fontWeight: 'fontWeightLight',
+    color: theme.palette.text.disabled,
+  },
   bigHelper: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     marginTop: theme.spacing(0),
     marginBottom: theme.spacing(0),
-    fontSize: "1em",
+    fontSize: theme.typography.pxToRem(16),
     width: "100%",
     color: "black",
     padding: "4px",
     lineHeight: "inherit"
   },
+
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -80,14 +80,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const queries = {
-  //    '(max-width: 440px)': 'col-12',
-  "(min-width: 570px)": false
-};
-
 export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
+
+  const width = useElementWidth ('#proca-register');
+  const [compact, setCompact] = useState(true);
+  if ((compact && width > 450) || (!compact && width <= 450))
+    setCompact (width <= 450);
 
   const [status, setStatus] = useState("default");
   if (props.values) defaultValues = { ...defaultValues, ...props.values };
@@ -161,7 +161,6 @@ export default function Register(props) {
     register({ name: "postcode" });
   }, [postcode,register]);
 
-  const [[compact = true], mediaQueryListener] = useQueries(queries);
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -225,6 +224,7 @@ export default function Register(props) {
       className={classes.container}
       onSubmit={handleSubmit(onSubmit)}
       method="post"
+      id="proca-register"
       url="http://localhost"
     >
       <Success display={status === "success"} />
@@ -333,7 +333,7 @@ export default function Register(props) {
             </RadioGroup>
           </Grid>
           <Grid item xs={12}>
-        {t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}
+    <Box className={classes.notice}>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
           </Grid>
           <Grid item xs={12}>
             <Button
@@ -348,7 +348,6 @@ export default function Register(props) {
               {" "}
     {props.buttonText}
             </Button>
-            {mediaQueryListener}
           </Grid>
         </Grid>
       </Container>
