@@ -263,7 +263,7 @@ export default function Register(props) {
               placeholder="eg. Einstein"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               id="email"
               name="email"
@@ -279,6 +279,29 @@ export default function Register(props) {
               margin={options.margin}
               placeholder="your.email@example.org"
               required
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 6}>
+            <TextField
+              InputLabelProps={{ shrink: true }}
+              id="birthdate"
+              name="birthdate"
+              label={t("Birthdate")}
+              className={classes.textField}
+              variant={options.variant}
+              margin={options.margin}
+              inputRef={register}
+              type="date"
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 12}>
+            <TextField
+              name="address"
+              label={t("Address")}
+              className={classes.textField}
+              variant={options.variant}
+              margin={options.margin}
+              inputRef={register}
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 3}>
