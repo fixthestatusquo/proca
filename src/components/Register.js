@@ -10,6 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import useElementWidth from '../hooks/useElementWidth';
+import useConfig from '../hooks/useConfig';
 import { makeStyles } from "@material-ui/core/styles";
 
 import {
@@ -90,8 +91,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function Register(props) {
   const classes = useStyles();
+  const [config] = useConfig();
   const { t } = useTranslation();
-  
+ 
   const width = useElementWidth ('#proca-register');
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
@@ -127,8 +129,8 @@ export default function Register(props) {
   }
 
   const options = {
-    margin: props.margin || "dense",
-    variant: props.variant || "filled"
+    margin: config.margin || "dense",
+    variant: config.variant || "filled"
   };
   //variant: standard, filled, outlined
   //margin: normal, dense

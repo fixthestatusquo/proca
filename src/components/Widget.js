@@ -1,5 +1,6 @@
-import React,{useState,useContext, useRef} from "react";
+import React,{useState, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
+import useConfig from "../hooks/useConfig";
 import {Slide} from '@material-ui/core';
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
@@ -78,7 +79,6 @@ const Widget = (props) => {
   })
 
   if (props) config = { ...config, ...props };
-  console.log(config);
   config.actionPage = parseInt(config.actionPage);
 
   const nextStep = () => {
@@ -94,9 +94,11 @@ const Widget = (props) => {
   config.nextAction = nextStep;
 
 //  console.log("render Widget ",journey[current]," at depth ",depths[current]);
-//const context = useContext(props.context);
-// todo: find a way to change the context
+//  console.log(Config);
+  const d  = useConfig();
 
+//const context = useContext(Config);
+// todo: find a way to change the context
   if (depths[current] === 0) {
     let Action = steps[journey[current]];
     return (

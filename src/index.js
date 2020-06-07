@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
+import {initConfig,ConfigProvider} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
@@ -45,16 +46,16 @@ const Widget = args => {
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
 
-  context=React.createContext(config);
+  initConfig(config);
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
- 
+
   ReactDOM.render(
-    <ProcaWidget {...config} context={context} />,
+    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
     document.querySelector(config.selector)
   );
 }
@@ -63,6 +64,14 @@ Widget.jump = (step) => { // if step is empty, jump to next
   console.log(config.selector);
   ProcaWidget.action();
 }
+
+const set = (key, value) => {
+  config[key] = value;
+  ReactDOM.render(
+    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
+    document.querySelector(config.selector)
+  );
+};
 
 const render = () => {
   try {
@@ -98,6 +107,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { Widget, Alert, context, React, ReactDOM};
+export { Widget, Alert, context, set, React, ReactDOM};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

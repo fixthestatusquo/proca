@@ -58,6 +58,7 @@
     "customize-cra-react-refresh": "^1.0.1",
     "i18next": "^19.4.4",
     "i18next-xhr-backend": "^3.2.2",
+    "js-yaml": "^3.14.0",
     "react-app-rewired": "^2.1.6",
     "react-hook-form": "^3.28.2",
     "react-hook-form-input": "^1.0.8",
