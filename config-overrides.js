@@ -79,7 +79,7 @@ module.exports = function override (config, env) {
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin());
-  config = addReactRefresh({ disableRefreshCheck: true }) (config,env);
+  config = addReactRefresh({ overlay: {sockIntegration: 'whm' }}) (config,env);
   config.optimization.runtimeChunk = false;
   config.optimization.splitChunks = {
     cacheGroups: {
