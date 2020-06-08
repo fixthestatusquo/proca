@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import {initConfig,ConfigProvider} from "./hooks/useConfig";
+import {ConfigProvider,setConfig} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
@@ -46,7 +46,6 @@ const Widget = args => {
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
 
-  initConfig(config);
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
     elem.id = "proca-form";
@@ -66,11 +65,12 @@ Widget.jump = (step) => { // if step is empty, jump to next
 }
 
 const set = (key, value) => {
-  config[key] = value;
-  ReactDOM.render(
-    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
-    document.querySelector(config.selector)
-  );
+  config[key] = value; // pointless?
+  setConfig (key,value);
+//  ReactDOM.render(
+//    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
+//    document.querySelector(config.selector)
+//  );
 };
 
 const render = () => {

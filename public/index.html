@@ -78,6 +78,31 @@ pre {background:#dede; padding: 10px}
 &lt;div class="proca-form">&lt;/div>
           </pre>
           <button class="proca-button">proca-button</button>
+          <div>
+            <h3>Some customisations</h3>
+<div>
+  <input type="radio" name="variant" value="filled" checked>
+  <label>Filled</label>
+  <input type="radio" name="variant" value="outlined">
+  <label>Outlined</label>
+  <input type="radio" name="variant" value="standard">
+  <label>Standard</label>
+</div>
+<script>
+(function(){
+  var radios = document.querySelectorAll('input[type=radio][name="variant"]');
+  function changeHandler(event) {
+    proca.set("variant",this.value);
+  }
+
+  radios.forEach(function(radio) {
+     radio.addEventListener('change', changeHandler);
+  });
+})();
+
+</script>
+
+          </div>
         </div>
 
         <div class="col" id="signature-form"></div>

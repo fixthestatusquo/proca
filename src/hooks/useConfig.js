@@ -1,29 +1,43 @@
-import React,{useContext,useState} from 'react';
-export let Config=null;
+// if dealing with context directly gets tiring, possibly: diegohaz/constate or jamiebuilds/unstated
+//
+import React,{useContext,useState,useEffect, useCallback} from 'react';
+export let Config=React.createContext();
 
+const id='proca-listener';
 const set = (key,value)=> {
-  console.log(key,value);
+  const event = new CustomEvent('proca-set', {detail: { key: key, value:value }});
 
-};
-
-const init = (config) => {
-  config.set = set;
-  Config = React.createContext(config);
+  document
+    .getElementById(id)
+    .dispatchEvent(event);
 };
 
 export const ConfigProvider = props => {
 
   const [config, _setConfig] = useState(props.config);
 
-  const setConfig = (k,v) => {
-  let d = config;
+  const setConfig = useCallback((k,v) => {
+    let d = Object.create(config);
     d[k]=v;
     _setConfig(d);
-  }
+  }, [config]);
+  
+
+  useEffect(() => {
+
+    const elem = document.getElementById(id);
+    elem.addEventListener('proca-set',  (e) => { 
+      
+      setConfig(e.detail.key,e.detail.value);
+    }, false);
+
+  },[setConfig]);
+
 
   return (
-    <Config.Provider value={[config, setConfig]}>
+    <Config.Provider value={{config, setConfig}}>
       {props.children}
+      <div id={id}></div>
     </Config.Provider>
   );
 };
@@ -33,6 +47,6 @@ export const useConfig = () => {
   return useContext(Config)
 };
 
-export {init as initConfig, set as setConfig};
+export {set as setConfig};
 export default useConfig;
 

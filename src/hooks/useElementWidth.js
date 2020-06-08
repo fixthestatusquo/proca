@@ -2,10 +2,10 @@ import { useLayoutEffect, useState } from 'react';
 
 function useElementSize(selector) {
   const delay = 250; // debounce delay
-  let timeout = false;
 
   const [size, setSize] = useState(0);
   useLayoutEffect(() => {
+    let timeout = false;
     const el = document.querySelector(selector);
     function updateSize() {
       if (!el) return;
@@ -20,7 +20,7 @@ function useElementSize(selector) {
     window.addEventListener('resize', debouncedUpdateSize);
     updateSize();
     return () => window.removeEventListener('resize', debouncedUpdateSize);
-  }, []);
+  }, [selector]);
   return size;
 }
 

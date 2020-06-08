@@ -91,8 +91,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Register(props) {
   const classes = useStyles();
-  const [config] = useConfig();
-  const { t } = useTranslation();
+  const {config} = useConfig();
+  const {t} = useTranslation();
  
   const width = useElementWidth ('#proca-register');
   const [compact, setCompact] = useState(true);

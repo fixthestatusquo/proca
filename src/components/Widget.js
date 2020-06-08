@@ -35,7 +35,7 @@ let steps = {};
 
 process.widget.journey.forEach( d => { 
   if (d instanceof Array) { // substep case
-    d.forEach (e => steps[e] = allSteps [e])  
+    d.forEach ( e => steps[e] = allSteps[e])  
     return;
   }
 
@@ -95,7 +95,7 @@ const Widget = (props) => {
 
 //  console.log("render Widget ",journey[current]," at depth ",depths[current]);
 //  console.log(Config);
-  const d  = useConfig();
+//  const {config}  = useConfig();
 
 //const context = useContext(Config);
 // todo: find a way to change the context
