@@ -23,6 +23,7 @@ import Url from "../lib/urlparser";
 import {
   EmailShareButton,
   FacebookShareButton,
+  FacebookMessengerShareButton,
   //  InstapaperShareButton,
   //  LineShareButton,
   LinkedinShareButton,
@@ -40,6 +41,7 @@ import {
   WhatsappShareButton,
   //  WorkplaceShareButton,
   FacebookIcon,
+  FacebookMessengerIcon,
   TwitterIcon,
   LinkedinIcon,
   TelegramIcon,
@@ -60,6 +62,10 @@ const useStyles = makeStyles(theme => ({
     "& > *": {
       margin: theme.spacing(1)
     }
+  },
+  root: {
+    "& p": {fontSize: theme.typography.pxToRem(16)},
+    "& h3": {fontSize: theme.typography.pxToRem(20)}
   },
   widroot: {
     "& Button": { justifyContent: "left" },
@@ -92,7 +98,7 @@ export default function ShareAction(props) {
 
   };
   return (
-<div><h3>Almost done! Take the next step.</h3>
+<div class={classes.root}><h3>Almost done! Take the next step.</h3>
 <p>
 Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share far and wide to make sure everyone sees this petition
 <Emoji symbol="🙏" label="please" />.
@@ -108,23 +114,20 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
         />
       ) : null}
       <CardContent>
-        {metadata.description}
+        <p>{metadata.description}</p>
       </CardContent>
         <CardActions>
-          <ActionIcon
-            {...props}
-            icon={EmailIcon}
-            component={EmailShareButton}
-            subject={props.name}
-            body={props.description}
-            separator=" "
-          />
           <ActionIcon
             {...props}
             icon={WhatsappIcon}
             title={props['share-whatsapp'] || props.share}
             component={WhatsappShareButton}
-            separator=" "
+          />
+          <ActionIcon
+            {...props}
+            icon={FacebookMessengerIcon}
+            title={props['share-whatsapp'] || props.share}
+            component={FacebookMessengerShareButton}
           />
           <ActionIcon
             {...props}
@@ -141,6 +144,14 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
             {...props}
             icon={TelegramIcon}
             component={TelegramShareButton}
+          />
+          <ActionIcon
+            {...props}
+            icon={EmailIcon}
+            component={EmailShareButton}
+            subject={props.name}
+            body={props.description}
+            separator=" "
           />
           <ActionIcon
             {...props}
@@ -182,7 +193,7 @@ Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share fa
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
         >
-        {props.icon ? props.icon({ round: true, size: 64 }) : null}
+        {props.icon ? props.icon({ round: true, size: 48 }) : null}
       </IconButton>
     );
   }
