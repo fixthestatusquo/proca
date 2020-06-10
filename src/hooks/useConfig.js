@@ -12,9 +12,21 @@ const set = (key,value)=> {
     .dispatchEvent(event);
 };
 
+const goStep = (action)=> {
+  const event = new CustomEvent('proca-go', {detail: { action: action }});
+  document.getElementById(id).dispatchEvent(event);
+};
+
+const setAfter = (action,after)=> {
+  const event = new CustomEvent('proca-after', {detail: { action: action, after: after }});
+  document.getElementById(id).dispatchEvent(event);
+};
+
 export const ConfigProvider = props => {
 
   const [config, _setConfig] = useState(props.config);
+  const go = props.go;
+  const setAfter = props.setAfter;
 
   const setConfig = useCallback((k,v) => {
     let d = Object.create(config);
@@ -24,14 +36,33 @@ export const ConfigProvider = props => {
   
 
   useEffect(() => {
-
     const elem = document.getElementById(id);
+
     elem.addEventListener('proca-set',  (e) => { 
-      
       setConfig(e.detail.key,e.detail.value);
     }, false);
 
-  },[setConfig]);
+    elem.addEventListener('proca-after',  (e) => {
+      console.log(e.detail);
+      if (!typeof e.detail.after === 'function') 
+        return console.error("After must be a function");
+
+      if (!typeof e.detail.action === 'string') 
+        return console.error("action must me a string");
+    
+      setAfter(e.detail.action,e.detail.after);
+
+    }, false);
+
+    elem.addEventListener('proca-go',  (e) => {
+      if (typeof go === 'function') {
+        go(e.detail.action);
+      } else { 
+        console.error("ain't no go fct");
+      }
+    }, false);
+
+  },[setConfig,go]);
 
 
   return (
@@ -48,5 +79,7 @@ export const useConfig = () => {
 };
 
 export {set as setConfig};
+export {goStep};
+export {setAfter as after};
 export default useConfig;
 

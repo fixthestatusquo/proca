@@ -1,7 +1,10 @@
 import React,{useState, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
-import useConfig from "../hooks/useConfig";
-import {Slide} from '@material-ui/core';
+import {ConfigProvider} from  "../hooks/useConfig";
+
+
+
+// import {Slide} from '@material-ui/core'; todo: nice slide animation
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
@@ -42,6 +45,13 @@ process.widget.journey.forEach( d => {
   steps[d] = allSteps[d];
 });
 
+const setAfter = (action, after) => {
+  if (!typeof(after) === 'function') {
+    return console.error("after must me a function");
+  }
+  steps[action].after=after;
+}
+
 /*
 // these are compile time directives
 if (process.widget.include_petition) {
@@ -81,7 +91,34 @@ const Widget = (props) => {
   if (props) config = { ...config, ...props };
   config.actionPage = parseInt(config.actionPage);
 
-  const nextStep = () => {
+  const getActions =() => {
+    return steps;
+  }
+
+  const go = (action) => {
+    if (!action) return nextStep();
+    const i = journey.indexOf(action);
+    if (i === -1) {
+      console.error("can't find '",action, "'. options: ",journey);
+      global.proca.Alert("not possible to go to '"+action+"'","error");
+      return;
+    }
+    setCurrent(i);
+
+  };
+
+  // called once an action has finished to decide what to do next. 
+  // the result is whatever the action that has finished wants to share to the journey
+  //
+  const nextStep = (result) => {
+    // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
+    if (typeof steps[journey[current]].after ==="function") {
+      if (steps[journey[current]].after(result) === false){
+        console.log("the custom 'after' returned false, we do not go to the next step");
+        return;
+      }
+    }
+
     if (current < journey.length && depths[current+1] === 1) { // we jump 2 if start of a sub (dialog + 1st substep) {
       topMulti.current = journey[current+1];
       setCurrent(current+2);
@@ -91,21 +128,14 @@ const Widget = (props) => {
       setCurrent(current+1);
   }
 
-  config.nextAction = nextStep;
-
-//  console.log("render Widget ",journey[current]," at depth ",depths[current]);
-//  console.log(Config);
-//  const {config}  = useConfig();
-
-//const context = useContext(Config);
-// todo: find a way to change the context
   if (depths[current] === 0) {
     let Action = steps[journey[current]];
     return (
+      <ConfigProvider go={go} setAfter={setAfter} actions={getActions} config={props.config}>
       <ProcaStyle>
-
-        <Action {...config} />
+        <Action {...config} done={nextStep}/>
       </ProcaStyle>
+      </ConfigProvider>
     );
   }
 
@@ -114,9 +144,11 @@ const Widget = (props) => {
     let Action = steps[topMulti.current];
 
     return (
+      <ConfigProvider go={go} actions={getActions} config={props.config}>
       <ProcaStyle>
-        <Action {...config}><SubAction {...config} /></Action>
+        <Action {...config} done={nextStep}><SubAction {...config} done={nextStep}/></Action>
       </ProcaStyle>
+      </ConfigProvider>
     );
   } else {
     throw Error ("oops, it should be a sub step");

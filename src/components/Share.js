@@ -98,7 +98,7 @@ export default function ShareAction(props) {
 
   };
   return (
-<div class={classes.root}><h3>Almost done! Take the next step.</h3>
+<div className={classes.root}><h3>Almost done! Take the next step.</h3>
 <p>
 Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share far and wide to make sure everyone sees this petition
 <Emoji symbol="🙏" label="please" />.

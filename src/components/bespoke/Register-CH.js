@@ -153,7 +153,8 @@ export default function Register(props) {
     uuid(result.addAction); // set the global uuid as signature's fingerprint
     if (props.done instanceof Function) props.done (result);
 
-    if (props.nextAction) props.nextAction();
+    if (props.done) props.done({uuid:uuid(),firstname:data.firstname, country:data.country});
+
     // sends the signature's ID as fingerprint
   };
 

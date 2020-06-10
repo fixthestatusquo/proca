@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import {ConfigProvider,setConfig} from "./hooks/useConfig";
+import {setConfig,goStep,after} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
@@ -54,7 +54,7 @@ const Widget = args => {
   }
 
   ReactDOM.render(
-    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
+    <ProcaWidget config={config} {...config} />,
     document.querySelector(config.selector)
   );
 }
@@ -64,13 +64,13 @@ Widget.jump = (step) => { // if step is empty, jump to next
   ProcaWidget.action();
 }
 
+const go = (action) => {
+  goStep(action);
+};
+
 const set = (key, value) => {
   config[key] = value; // pointless?
   setConfig (key,value);
-//  ReactDOM.render(
-//    <ConfigProvider config={config}><ProcaWidget {...config} /></ConfigProvider>,
-//    document.querySelector(config.selector)
-//  );
 };
 
 const render = () => {
@@ -107,6 +107,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { Widget, Alert, context, set, React, ReactDOM};
+export { Widget, Alert, context, set, go, after, React, ReactDOM};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

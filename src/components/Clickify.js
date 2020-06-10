@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 
 const Component = (props) => {
 
-  const click = props.nextAction || props.click;
+  const click = props.done || props.click;
   const selector = props.watchSelector
   useEffect (()=> {
     const d = document.querySelectorAll(selector);
