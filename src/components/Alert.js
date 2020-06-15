@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
-const component= (props) => {
+const Component= (props) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
@@ -18,16 +18,16 @@ const component= (props) => {
 }
 
 
-component.defaultProps = {
+Component.defaultProps = {
   severity : "info",
   autoHideDuration : 3000,
   text : "Hello"
 }
 
-component.propTypes = {
+Component.propTypes = {
   severity: PropTypes.string,
   text: PropTypes.string,
   autoHideDuration: PropTypes.number
 };
 
-export default component;
+export default Component;
