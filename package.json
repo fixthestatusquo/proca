@@ -6,6 +6,7 @@
   "nope.resolutions": {
     "@babel/preset-env": "^7.8.7"
   },
+  "main": "lib/index.js",
   "dependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
     "@material-ui/lab": "^4.0.0-alpha.54",
@@ -15,6 +16,7 @@
     "@testing-library/user-event": "^10.4.0",
     "base64url": "^3.0.1",
     "dotenv": "^8.2.0",
+    "i18next-extract": "^0.1.3",
     "page-metadata-parser": "^1.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -24,6 +26,7 @@
     "uuid": "^8.1.0"
   },
   "scripts": {
+    "prepublish": "babel src --out-dir lib",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build && cp build/index.html build/d && cp -r build/d/* d/",
     "test": "react-app-rewired test --env=jsdom",
@@ -52,6 +55,7 @@
     "@babel/helper-call-delegate": "^7.8.7",
     "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
+    "babel-plugin-import": "^1.13.0",
     "babel-plugin-transform-imports": "^2.0.0",
     "compression-webpack-plugin": "^4.0.0",
     "customize-cra": "^1.0.0",
@@ -62,6 +66,7 @@
     "react-app-rewired": "^2.1.6",
     "react-hook-form": "^3.28.2",
     "react-hook-form-input": "^1.0.8",
+    "react-hot-loader": "^4.12.21",
     "react-i18next": "^11.5.0",
     "react-test-renderer": "^16.12.0",
     "webpack-hot-middleware": "^2.25.0",
@@ -118,7 +123,6 @@
   "babel": {
     "plugins": [
       [
-        "i18next-extract",
         "babel-plugin-import",
         {
           "libraryName": "@material-ui/core",

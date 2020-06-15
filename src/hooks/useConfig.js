@@ -62,7 +62,7 @@ export const ConfigProvider = props => {
       }
     }, false);
 
-  },[setConfig,go]);
+  },[setConfig,go,setAfter]);
 
 
   return (

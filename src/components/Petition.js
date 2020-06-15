@@ -9,9 +9,9 @@ export default function SignatureForm(props) {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <React.Fragment>
       <ProgressCounter actionPage={props.actionPage} />
       <Register{...props} buttonText={t("Sign now!")}/>
-    </div>
+    </React.Fragment>
   );
 }

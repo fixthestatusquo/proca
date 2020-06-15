@@ -2,10 +2,6 @@ import React,{useState, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
 import {ConfigProvider} from  "../hooks/useConfig";
 
-
-
-// import {Slide} from '@material-ui/core'; todo: nice slide animation
-
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
 import Petition from "Conditional_Petition";
@@ -17,6 +13,8 @@ import Clickify from "Conditional_Clickify";
 
 // bespoke
 import RegisterCH from "Conditional_bespoke/Register-CH";
+
+// import Slide from '@material-ui/core/Slide'; do the sliding transition thing
 
 const allSteps = {
   'petition': Petition,
@@ -124,8 +122,12 @@ const Widget = (props) => {
       setCurrent(current+2);
       return;
     }
-    if (current < journey.length) 
+    if (current < (journey.length -1) ) {
       setCurrent(current+1);
+    } else {
+      console.error("end of the journey, no more steps");
+      setCurrent(0);
+    }
   }
 
   if (depths[current] === 0) {
@@ -146,7 +148,7 @@ const Widget = (props) => {
     return (
       <ConfigProvider go={go} actions={getActions} config={props.config}>
       <ProcaStyle>
-        <Action {...config} done={nextStep}><SubAction {...config} done={nextStep}/></Action>
+      <Action {...config} done={nextStep}><SubAction {...config} done={nextStep}/></Action>
       </ProcaStyle>
       </ConfigProvider>
     );

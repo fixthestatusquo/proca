@@ -4,20 +4,23 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
 const component= (props) => {
-  console.log(props);
+  const [open, setOpen] = React.useState(true);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
-    <Snackbar open={true} key={props.text} autoHideDuration={props.autoHideDuration}>
-       <Alert severity={props.severity}>{props.text}
-          </Alert>
-        </Snackbar>
-      );
+    <Snackbar open={open} key={props.text} onClose={handleClose} autoHideDuration={props.autoHideDuration}>
+       <Alert severity={props.severity} onClose={handleClose}>{props.text}</Alert>
+    </Snackbar>
+  );
 
 }
 
 
 component.defaultProps = {
   severity : "info",
-  autoHideDuration : 6000,
+  autoHideDuration : 3000,
   text : "Hello"
 }
 
