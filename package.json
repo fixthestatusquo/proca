@@ -51,7 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/compat-data": "^7.10.1",
+    "@babel/compat-data": "^7.10.3",
     "@babel/helper-call-delegate": "^7.8.7",
     "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
