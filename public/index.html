@@ -88,9 +88,9 @@ pre {background:#dede; padding: 10px}
   <input type="radio" name="variant" value="standard">
   <label>Standard</label>
 </div>
-<div class="proca proca-html">
-  Hi {firstname} {lastname}, your document is now ready:<br>
-  <a href="{postcardUrl}&qrcode={uuid}:{campaignId}" class="btn button">PDF to print and sign</a>
+<div class="proca proca-html" style="display:none">
+  <h2>Thank you {firstname}!</h2> <p> your document is now ready:</p>
+  <a href="{postcardUrl}" target="_blank" class="btn button">PDF to print and sign</a>
 </div>
 <script>
 (function(){

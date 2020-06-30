@@ -175,11 +175,12 @@ export default function Register(props) {
     }
     setStatus("success");
     delete data.tracking;
+    delete data.privacy;
 
+    uuid(result.contactRef); // set the global uuid as signature's fingerprint
+    data.uuid = uuid();
+    data.postcardUrl += "&qrcode="+uuid() + ":" + config.actionPage;
     setConfig('data',data);
-    console.log(config.data);
-    uuid(result.addAction); // set the global uuid as signature's fingerprint
-
     if (props.done instanceof Function) props.done({uuid:uuid(),firstname:data.firstname, country:data.country});
 
     // sends the signature's ID as fingerprint

@@ -161,7 +161,7 @@ async function addActionContact(actionType, actionPage, data) {
   ){contactRef,firstName}
   }
 `;
-  const expected="firstname,lastname,email,country,postcode,locality,region,birthdate,privacy,tracking".split(",");
+  const expected="firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
   let variables = {
     actionPage: actionPage,
     action: {
@@ -198,7 +198,8 @@ async function addActionContact(actionType, actionPage, data) {
   const response = await graphQL("addActionContact", query, {
     variables: variables
   });
-  return response;
+  console.log(response);
+  return response.addActionContact;
 }
 
 export { addActionContact, addAction, getCount,getCountByUrl };
