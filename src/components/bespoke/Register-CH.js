@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import useElementWidth from '../../hooks/useElementWidth';
 
 import {
   TextField,
@@ -24,9 +23,13 @@ import useForm from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 
+import ProgressCounter from "../ProgressCounter";
 import { addActionContact } from "../../lib/server.js";
-import Url from "../../lib/urlparser.js";
+import useElementWidth from '../../hooks/useElementWidth';
+import useConfig from '../../hooks/useConfig';
 import uuid from "../../lib/uuid.js";
+import domparser from "../../lib/domparser";
+import useCount from "../../hooks/useCount";
 
 let defaultValues = {
   firstname: "",
@@ -34,11 +37,11 @@ let defaultValues = {
   email: "",
   postcode: "",
   locality: "",
+  address: "",
   country: "CH",
   comment: ""
 };
 
-defaultValues = { ...defaultValues, ...Url.data() };
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -83,7 +86,16 @@ const useStyles = makeStyles(theme => ({
 export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
+  const {config,setConfig} = useConfig();
+  const actionUrl = config.actionUrl + domparser('campaignId',config.selector);
+  const c = useCount (null,actionUrl);
+  useEffect(() => {
+    if (!c || parseInt(c.actionPage,10) === config.actionPage) return;
+    setConfig('actionPage',parseInt(c.actionPage,10));
+  }, [c,setConfig,config.actionPage]);
+//    console.log(config);
 
+  defaultValues = { ...defaultValues, ...config.data };
   const width = useElementWidth ('#proca-register');
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
@@ -110,7 +122,8 @@ export default function Register(props) {
   const postcode = watch("postcode");
   const locality = watch("locality");
 
-  const [autoLocality, setLocality] = useState(null);
+  const [autoLocality, setLocality] = useState("");
+  const [region, setRegion] = useState("");
   useEffect(() => {
     if (postcode.length !== 4) return;
     const api = "https://postcode-ch.proca.foundation/"+postcode;
@@ -121,8 +134,9 @@ export default function Register(props) {
         if (!res.ok) { throw Error(res.statusText); }
         return res.json()
       })
-      .then(res => {console.log(res);if (res && res.name) {
+      .then(res => {if (res && res.name) {
         setLocality(res.name);
+        setRegion(res.code1);
         setValue("locality", res.name);
       }})
       .catch(err => setError(err))
@@ -133,15 +147,25 @@ export default function Register(props) {
 
 
   const options = {
-    margin: props.margin || "dense",
-    variant: props.variant || "filled"
+    margin: config.margin || "dense",
+    variant: config.variant || "filled"
   };
   //variant: standard, filled, outlined
   //margin: normal, dense
 
+
   const onSubmit = async data => {
-    data.tracking = Url.utm();
-    const result = await addActionContact("register",props.actionPage, data);
+    data.tracking = config.utm;
+    data.region=region;
+    data.country="CH";
+    data.postcardUrl="https://collect-pdf.campax.org?"
+      + "postalcode=" + data.postcode
+      + "&canton=" + data.region
+      + "&birthdate=" +data.birthdate
+      + "&address=" + data.address
+      + "&locality=" + data.locality
+//      + "&qrcode=" + result.addAction +":" + domparser('campaignId',config.selector);
+    const result = await addActionContact("register",config.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);
@@ -150,10 +174,13 @@ export default function Register(props) {
       return;
     }
     setStatus("success");
-    uuid(result.addAction); // set the global uuid as signature's fingerprint
-    if (props.done instanceof Function) props.done (result);
+    delete data.tracking;
 
-    if (props.done) props.done({uuid:uuid(),firstname:data.firstname, country:data.country});
+    setConfig('data',data);
+    console.log(config.data);
+    uuid(result.addAction); // set the global uuid as signature's fingerprint
+
+    if (props.done instanceof Function) props.done({uuid:uuid(),firstname:data.firstname, country:data.country});
 
     // sends the signature's ID as fingerprint
   };
@@ -221,6 +248,8 @@ export default function Register(props) {
     );
   }
   return (
+    <React.Fragment>
+    <ProgressCounter count={c && c.total} /> 
     <form
       className={classes.container}
       onSubmit={handleSubmit(onSubmit)}
@@ -324,7 +353,7 @@ export default function Register(props) {
               name="locality"
               label={t("Locality")}
               autoComplete="address-level2"
-              InputLabelProps = {{shrink : autoLocality || locality || false}}
+              InputLabelProps = {{shrink : autoLocality !=='' || locality !=='' || false}}
               inputRef={register}
               className={classes.textField}
               variant={options.variant}
@@ -376,6 +405,7 @@ export default function Register(props) {
         </Grid>
       </Container>
     </form>
+    </React.Fragment>
   );
 }
 

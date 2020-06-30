@@ -78,7 +78,7 @@ pre {background:#dede; padding: 10px}
 &lt;div class="proca-form">&lt;/div>
           </pre>
           <button class="proca-button">proca-button</button>
-          <div>
+          <div class="customization">
             <h3>Some customisations</h3>
 <div>
   <input type="radio" name="variant" value="filled" checked>
@@ -87,6 +87,10 @@ pre {background:#dede; padding: 10px}
   <label>Outlined</label>
   <input type="radio" name="variant" value="standard">
   <label>Standard</label>
+</div>
+<div class="proca proca-html">
+  Hi {firstname} {lastname}, your document is now ready:<br>
+  <a href="{postcardUrl}&qrcode={uuid}:{campaignId}" class="btn button">PDF to print and sign</a>
 </div>
 <script>
 (function(){
@@ -105,7 +109,7 @@ pre {background:#dede; padding: 10px}
           </div>
         </div>
 
-        <div class="col" id="signature-form"></div>
+        <div class="col" id="signature-form" data-campaign-id="51"></div>
       </div>
     </div>
     <!--

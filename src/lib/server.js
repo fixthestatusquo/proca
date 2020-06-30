@@ -103,6 +103,17 @@ async function getCount(actionPage) {
   return data.actionPage.campaign.stats.supporterCount;
 }
 
+async function getCountByUrl(url) {
+  var query = `query getCountByUrl($url:String)
+{actionPage(url:$url){id,campaign{name,title,
+  externalId,stats{supporterCount }}}}
+`;
+  const response = await graphQL("getCountByUrl", query, {variables: {"url":url}});
+  if (!response || response.errors) return null;
+  return {total:response.actionPage.campaign.stats.supporterCount,actionPage:response.actionPage.id};
+}
+
+
 async function addAction (actionPage, actionType, data) {
   var query =`mutation addAction (
   $contact: ID!, 
@@ -150,7 +161,7 @@ async function addActionContact(actionType, actionPage, data) {
   ){contactRef,firstName}
   }
 `;
-  const expected="firstname,lastname,email,country,postcode,privacy,tracking".split(",");
+  const expected="firstname,lastname,email,country,postcode,locality,region,birthdate,privacy,tracking".split(",");
   let variables = {
     actionPage: actionPage,
     action: {
@@ -168,10 +179,16 @@ async function addActionContact(actionType, actionPage, data) {
     },
     privacy: { optIn: data.privacy === "opt-in", leadOptIn: data.privacy ==="opt-in" }
   };
+  if (data.region)
+    variables.contact.address.region = data.region;
+  if (data.locality)
+    variables.contact.address.locality = data.locality;
+  if (data.birthdate)
+    variables.contact.birth_date = data.birthdate;
+
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
-  console.log(data);
 
   for (let [key,value] of Object.entries(data)) {
     if (value && !(expected.includes(key)))
@@ -184,4 +201,4 @@ async function addActionContact(actionType, actionPage, data) {
   return response;
 }
 
-export { addActionContact, addAction, getCount };
+export { addActionContact, addAction, getCount,getCountByUrl };

@@ -44,7 +44,8 @@ const normalise = (value,max) => {
 
 export default function Progress(props) {
   const { t } = useTranslation();
-  const count = useCount (props.actionPage);
+  let count = props.count;
+   count = useCount (props.actionPage) || props.count;
   const classes = useStyles();
   const goal = nextStep (count);
   if (!count)

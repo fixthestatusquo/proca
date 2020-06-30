@@ -1,6 +1,7 @@
 import React,{useState, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
 import {ConfigProvider} from  "../hooks/useConfig";
+import Url from "../lib/urlparser.js";
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
@@ -10,6 +11,7 @@ import Share from "Conditional_Share";
 import Twitter from "Conditional_Twitter";
 import Dialog from "Conditional_Dialog";
 import Clickify from "Conditional_Clickify";
+import Html from "Conditional_Html";
 
 // bespoke
 import RegisterCH from "Conditional_bespoke/Register-CH";
@@ -22,6 +24,7 @@ const allSteps = {
   'share': Share,
   'twitter': Twitter,
   'clickify': Clickify,
+  'html': Html,
   'dialog': Dialog,
   'register.CH': RegisterCH,
 };
@@ -68,12 +71,12 @@ if (process.widget.include_twitter) {
 */
 
 let config = {
-  data: {},
+  data: Url.data(),
+  utm: Url.utm(),
   margin: "dense",
   variant: "filled",
   selector: "#signature-form"
 };
-
 
 const Widget = (props) => {
   const  [current,setCurrent] = useState(0);
@@ -85,7 +88,6 @@ const Widget = (props) => {
       d.forEach( (e,i) => {depths.push(i > 0 ? 2:1)}); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
   })
-
   if (props) config = { ...config, ...props };
   config.actionPage = parseInt(config.actionPage);
 
@@ -133,7 +135,7 @@ const Widget = (props) => {
   if (depths[current] === 0) {
     let Action = steps[journey[current]];
     return (
-      <ConfigProvider go={go} setAfter={setAfter} actions={getActions} config={props.config}>
+      <ConfigProvider go={go} setAfter={setAfter} actions={getActions} config={config}>
       <ProcaStyle>
         <Action {...config} done={nextStep}/>
       </ProcaStyle>
@@ -146,7 +148,7 @@ const Widget = (props) => {
     let Action = steps[topMulti.current];
 
     return (
-      <ConfigProvider go={go} actions={getActions} config={props.config}>
+      <ConfigProvider go={go} actions={getActions} config={config}>
       <ProcaStyle>
       <Action {...config} done={nextStep}><SubAction {...config} done={nextStep}/></Action>
       </ProcaStyle>

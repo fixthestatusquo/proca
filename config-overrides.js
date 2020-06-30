@@ -37,6 +37,7 @@ const conditionalImport = (alias,journey) =>{
     'twitter': 'Twitter',
     'dialog': 'Dialog',
     'clickify': 'Clickify',
+    'html': 'Html',
     'register.CH': 'bespoke/Register-CH',
   };
 
@@ -61,7 +62,6 @@ const conditionalImport = (alias,journey) =>{
       raw.journey[i]=sub;
     });
     d['process.widget'].journey = JSON.stringify(raw.journey);
-//    console.log(raw.journey);process.exit(1);
     return d;
   };
 
@@ -75,11 +75,11 @@ module.exports = function override (config, env) {
   if (!widget.journey)
     widget.journey="petition,share";
   console.log(widget);
-//  process.exit(1);
+  //process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin());
-  config = addReactRefresh({ overlay: {sockIntegration: 'whm' }}) (config,env);
+//  config = addReactRefresh({ overlay: {sockIntegration: 'whm' }}) (config,env);
   config.optimization.runtimeChunk = false;
   config.optimization.splitChunks = {
     cacheGroups: {
@@ -111,7 +111,6 @@ module.exports = function override (config, env) {
   config.output.libraryTarget= 'umd';
   config.output.library = ["proca"];
 
-//  console.log(config);
   return config
 }
 

@@ -1,14 +1,21 @@
 import { useEffect, useState} from "react";
 
-import {getCount} from "../lib/server.js";
+import {getCount,getCountByUrl} from "../lib/server.js";
 
-export default function useCounter (actionPage) {
+export default function useCounter (actionPage,actionUrl) {
   const [count, setCount] = useState(null);
+
 
   useEffect(() => {
     let isCancelled = false;
+    let count = null;
     (async function () {
-      const count = await getCount(actionPage);
+      if (actionUrl) {
+        count = await getCountByUrl(actionUrl);
+      } else {
+        if (!actionPage || isNaN(actionPage)) return;
+        count = await getCount(actionPage);
+      }
       if (!isCancelled) 
         setCount(count);
     })();
@@ -16,7 +23,7 @@ export default function useCounter (actionPage) {
     return () => {
       isCancelled = true;
     };
-  },[actionPage]);
+  },[actionPage,actionUrl]);
 
   return count || null;
 }

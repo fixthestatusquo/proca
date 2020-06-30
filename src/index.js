@@ -11,7 +11,6 @@ import ProcaAlert from "./components/Alert.js";
 //console.log(querystring);
 
 let config = {
-  data: {},
   margin: "dense",
   variant: "filled",
   selector: "#signature-form"
@@ -45,6 +44,10 @@ const Widget = args => {
     config.targets={twitter_url:process.widget.twitter_targets};
   if (process.widget.actionpage)
     config.actionPage=process.widget.actionpage;
+  if (process.widget.actionurl)
+    config.actionUrl=process.widget.actionurl;
+
+  document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
 
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -53,8 +56,10 @@ const Widget = args => {
     document.body.appendChild(elem);
   }
 
+
+    //<ProcaWidget config={config} {...config} />,
   ReactDOM.render(
-    <ProcaWidget config={config} {...config} />,
+    <ProcaWidget {...config} />,
     document.querySelector(config.selector)
   );
 }
@@ -90,7 +95,7 @@ const render = () => {
 
 const autoRender = () => {
   if (window.proca) {
-    console.log("rendering proca");
+    console.log("Powered by proca.foundation");
   }
   try {
     if (

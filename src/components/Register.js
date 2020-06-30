@@ -35,7 +35,6 @@ import { useTranslation } from "react-i18next";
 import countries from "../data/countries.json";
 
 import { addActionContact } from "../lib/server.js";
-import Url from "../lib/urlparser.js";
 import uuid from "../lib/uuid.js";
 
 let defaultValues = {
@@ -46,8 +45,6 @@ let defaultValues = {
   country: "",
   comment: ""
 };
-
-defaultValues = { ...defaultValues, ...Url.data() };
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -91,7 +88,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Register(props) {
   const classes = useStyles();
-  const {config} = useConfig();
+  const {config,setConfig} = useConfig();
   const {t} = useTranslation();
  
   const width = useElementWidth ('#proca-register');
@@ -100,7 +97,6 @@ export default function Register(props) {
     setCompact (width <= 450);
 
   const [status, setStatus] = useState("default");
-  if (props.values) defaultValues = { ...defaultValues, ...props.values };
   const {
     register,
     handleSubmit,
@@ -113,7 +109,7 @@ export default function Register(props) {
   } = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: defaultValues
+    defaultValues: config.data
   });
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
@@ -136,8 +132,8 @@ export default function Register(props) {
   //margin: normal, dense
 
   const onSubmit = async data => {
-    data.tracking = Url.utm();
-    const result = await addActionContact("register",props.actionPage, data);
+    data.tracking = config.utm;
+    const result = await addActionContact("register",config.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);

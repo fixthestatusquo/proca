@@ -29,7 +29,7 @@ export const ConfigProvider = props => {
   const setAfter = props.setAfter;
 
   const setConfig = useCallback((k,v) => {
-    let d = Object.create(config);
+    let d = {...config}
     d[k]=v;
     _setConfig(d);
   }, [config]);

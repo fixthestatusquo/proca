@@ -28,7 +28,6 @@ const filter = (query, whitelist = null, prefix = "") => {
 
 const parse = (whitelist,prefix) => {
   const url = Url(document.location, true);
-  
   return filter(url.query,whitelist,prefix) || {};
 };
 
@@ -40,6 +39,8 @@ const data = prefix => {
     "name",
     "email",
     "postcode",
+    "address",
+    "locality",
     "country",
     "comment"
   ];
@@ -49,7 +50,6 @@ const data = prefix => {
 const config = prefix => {
   prefix = prefix || "proca_";
   const whitelist = [
-    "mode",
     "comment"
   ];
   return parse( whitelist, prefix);
