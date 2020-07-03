@@ -90,7 +90,8 @@ export default function Register(props) {
   const actionUrl = config.actionUrl + domparser('campaignId',config.selector);
   const c = useCount (null,actionUrl);
   useEffect(() => {
-    if (!c || parseInt(c.actionPage,10) === config.actionPage) return;
+    console.log(c); 
+    if (!c || c.errors || parseInt(c.actionPage,10) === config.actionPage) return;
     setConfig('actionPage',parseInt(c.actionPage,10));
   }, [c,setConfig,config.actionPage]);
 //    console.log(config);

@@ -103,6 +103,13 @@ const Widget = (props) => {
       global.proca.Alert("not possible to go to '"+action+"'","error");
       return;
     }
+    console.log(i,depths[i]);
+
+    if (depths[i] === 1) { // we jump 2 if start of a sub (dialog + 1st substep) {
+      topMulti.current = journey[i];
+      setCurrent(i+1);
+      return;
+    }
     setCurrent(i);
 
   };

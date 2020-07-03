@@ -41,7 +41,7 @@ async function graphQL(operation, query, options) {
     })
     .catch(error => {
       console.log(error);
-      data = error;
+      data = {errors:[{code:'network',message:error}]};
       return;
     });
   return data;
@@ -109,7 +109,8 @@ async function getCountByUrl(url) {
   externalId,stats{supporterCount }}}}
 `;
   const response = await graphQL("getCountByUrl", query, {variables: {"url":url}});
-  if (!response || response.errors) return null;
+  if (!response || response.errors) return response;
+  console.log (response);
   return {total:response.actionPage.campaign.stats.supporterCount,actionPage:response.actionPage.id};
 }
 
@@ -199,6 +200,7 @@ async function addActionContact(actionType, actionPage, data) {
     variables: variables
   });
   console.log(response);
+  if (response.errors) return response;
   return response.addActionContact;
 }
 

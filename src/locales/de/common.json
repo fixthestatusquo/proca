@@ -15,9 +15,11 @@
     "Last name": "Nachname",
     "Email": "E-Mail",
     "Postal Code":" Postleitzahl",
-
+    "Address":"Strasse/Nr",
     "Street": "Street",
+    "Locality":"Gemeinde",
     "City": "City",
+    "Birthdate":"Geburtstag",
     "Country": "Land",
     "Comment": "Ihre Kommentare",
     "Thanks!": "Thanks!",

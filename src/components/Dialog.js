@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 function OpenDialog (props) {
   const [open, setOpen] = useState(props.dialog || false);
+  const [title, setTitle] = useState(props.name || "");
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -35,8 +36,12 @@ function OpenDialog (props) {
 
   const handleClose = () => {
     setOpen(false);
-    if (props.close instanceof Function)
-      props.close()
+    if (props.close instanceof Function) {
+      props.close() 
+    } else {
+      if (props.done instanceof Function)
+        props.done()
+    }
   };
 
   const classes = useStyles();
@@ -48,7 +53,7 @@ function OpenDialog (props) {
         fullScreen={fullScreen}
       >
         <DialogTitle className={classes.dialogTitle} disableTypography>
-            <h2>{props.name}</h2>
+            <h2>{title}</h2>
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </DialogTitle>
         <DialogContent>
