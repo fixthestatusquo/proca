@@ -3,6 +3,9 @@
     "intro":"Email-Updates zu dieser Kampagne und weiteren wichtigen Kampagnen von {{name}} abonnieren",
     "opt-in":"Ja! Sagt mir, ob diese Kampagne gewinnt und wie ich bei anderen relevanten Kampagnen mithelfen kann.",
     "opt-out": "Nein. Ich möchte nichts über den Fortschritt dieser Kampagne",
+    "confirm":"<0>Bist du sicher?</0><1>Erfahre per Email ob wir mit dieser Kampagne Erfolg haben und wie Du Dich weiterhin für dieses Thema engagieren kannst.Per Email bleibt unsere Bewegung verbunden!
+</1><2>Du kannst Dich jederzeit wieder abmelden.</2>",
+
     "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum Datenschutz"
   },
 "progress":"{{count}} Unterschriften. Ziel: {{goal}}",

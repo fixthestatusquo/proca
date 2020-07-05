@@ -25,6 +25,8 @@
     "intro":"S'incrire pour des mises à jour couriel par {{name}}",
     "opt-in":"Oui ! Dites-moi si cette campagne gagne et comment je peux aider d'autres campagnes pertinentes.",
     "opt-out": "Non. Je ne veux pas entendre parler des progrès de cette campagne.",
+    "confirm":"<0>Etes-vous sûr ?</0><1>En sélectionnant 'Non', vous ne pourrez pas savoir si cette campagne est un succès ou si nous devons prendre d'autres mesures ensemble pour la gagner. Si vous sélectionnez 'Oui', nous vous tiendrons au courant de cette campagne et de nos autres campagnes urgentes.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
+
     "processing": "Vos données sont transmises de manière sécurisée et cryptée. Pour plus d'informations sur la protection de la vie privée voir notre politique."
   }
 

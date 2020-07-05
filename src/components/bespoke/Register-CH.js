@@ -6,13 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import {
   TextField,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
   Button,
-  FormHelperText,
   Snackbar,
-  Box
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 
@@ -30,6 +25,7 @@ import useConfig from '../../hooks/useConfig';
 import uuid from "../../lib/uuid.js";
 import domparser from "../../lib/domparser";
 import useCount from "../../hooks/useCount";
+import Consent from "../Consent";
 
 let defaultValues = {
   firstname: "",
@@ -362,34 +358,8 @@ export default function Register(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs={12}>
-            <FormHelperText
-              className={classes.bigHelper}
-              error={errors.privacy}
-              variant={options.variant}
-              margin={options.margin}
-            >
-    {t("consent.intro",{name:props.organisation})} *
-            </FormHelperText>
-          </Grid>
-          <Grid item xs={12}>
-            <RadioGroup aria-label="privacy consent" name="privacy" required>
-              <FormControlLabel
-                value="opt-in"
-                inputRef={register}
-                control={<Radio color="primary" />}
-                label={t("consent.opt-in")}/>
-
-              <FormControlLabel
-                value="opt-out"
-                control={<Radio />}
-                inputRef={register({ required: "Yes or No?" })}
-                label={t("consent.opt-out")}/>
-            </RadioGroup>
-          </Grid>
-          <Grid item xs={12}>
-    <Box className={classes.notice}>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
-          </Grid>
+    <Consent organisation={props.organisation} classes={classes} errors={errors} options={options} register={register}
+    />
           <Grid item xs={12}>
             <Button
               color="primary"
