@@ -87,7 +87,6 @@ export default function Register(props) {
   const c = useCount (null,actionUrl);
   const buttonRegister = config.buttonRegister || t("Sign");
   useEffect(() => {
-    console.log(c); 
     if (!c || c.errors || parseInt(c.actionPage,10) === config.actionPage) return;
     setConfig('actionPage',parseInt(c.actionPage,10));
   }, [c,setConfig,config.actionPage]);

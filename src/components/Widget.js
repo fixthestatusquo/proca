@@ -15,6 +15,8 @@ import Html from "Conditional_Html";
 
 // bespoke
 import RegisterCH from "Conditional_bespoke/Register-CH";
+import Download from "Conditional_bespoke/Download";
+
 
 // import Slide from '@material-ui/core/Slide'; do the sliding transition thing
 
@@ -27,6 +29,7 @@ const allSteps = {
   'html': Html,
   'dialog': Dialog,
   'register.CH': RegisterCH,
+  'download': Download,
 };
 
 // handling case of components returning multiple Components/functions

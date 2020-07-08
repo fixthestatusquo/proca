@@ -110,7 +110,6 @@ async function getCountByUrl(url) {
 `;
   const response = await graphQL("getCountByUrl", query, {variables: {"url":url}});
   if (!response || response.errors) return response;
-  console.log (response);
   return {total:response.actionPage.campaign.stats.supporterCount,actionPage:response.actionPage.id};
 }
 

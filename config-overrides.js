@@ -39,6 +39,7 @@ const conditionalImport = (alias,journey) =>{
     'clickify': 'Clickify',
     'html': 'Html',
     'register.CH': 'bespoke/Register-CH',
+    'download': 'bespoke/Download',
   };
 
   for (let [k,v] of Object.entries(steps)) {
