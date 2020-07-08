@@ -37,15 +37,6 @@ import countries from "../data/countries.json";
 import { addActionContact } from "../lib/server.js";
 import uuid from "../lib/uuid.js";
 
-let defaultValues = {
-  firstname: "",
-  lastname: "",
-  email: "",
-  postcode: "",
-  country: "",
-  comment: ""
-};
-
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -113,7 +104,7 @@ export default function Register(props) {
   });
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
-  const country = watch("country");
+  const country = watch("country") || "";
   const location = useGeoLocation({api:"https://country.proca.foundation"});
   if (location.country && !country) {
     if (!countries.find (d => (d.iso === location.country))) {
@@ -128,6 +119,8 @@ export default function Register(props) {
     margin: config.margin || "dense",
     variant: config.variant || "filled"
   };
+
+  const buttonText = config.register || t("register");
   //variant: standard, filled, outlined
   //margin: normal, dense
 
@@ -366,7 +359,7 @@ export default function Register(props) {
               endIcon={<SendIcon />}
             >
               {" "}
-    {props.buttonText}
+    {buttonText}
             </Button>
           </Grid>
         </Grid>

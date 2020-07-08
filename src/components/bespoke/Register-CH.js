@@ -85,6 +85,7 @@ export default function Register(props) {
   const {config,setConfig} = useConfig();
   const actionUrl = config.actionUrl + domparser('campaignId',config.selector);
   const c = useCount (null,actionUrl);
+  const buttonRegister = config.buttonRegister || t("Sign");
   useEffect(() => {
     console.log(c); 
     if (!c || c.errors || parseInt(c.actionPage,10) === config.actionPage) return;
@@ -371,7 +372,7 @@ export default function Register(props) {
               endIcon={<SendIcon />}
             >
               {" "}
-    {props.buttonText}
+    {buttonRegister}
             </Button>
           </Grid>
         </Grid>
