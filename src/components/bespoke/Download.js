@@ -24,7 +24,7 @@ function Download (props) {
     <Card>
     <CardContent><Typography variant="h5" gutterBottom>{t("Thank you")}</Typography>
     <p>
-    {t("Your document is now ready, we are emailing it to you too.")}
+    {t("Download explanation")}
     </p>
     </CardContent>
     <CardActions>
