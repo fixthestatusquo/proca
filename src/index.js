@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import {setConfig,goStep,after} from "./hooks/useConfig";
+import {setConfig,goStep,hook} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
@@ -15,8 +15,6 @@ let config = {
   variant: "filled",
   selector: "#signature-form"
 };
-
-let context= null;
 
 const Alert = (text,severity) => {
   const selector = "proca_alert";
@@ -56,7 +54,6 @@ const Widget = args => {
     document.body.appendChild(elem);
   }
 
-
     //<ProcaWidget config={config} {...config} />,
   ReactDOM.render(
     <ProcaWidget {...config} />,
@@ -86,8 +83,6 @@ const render = () => {
 //todo: blacklist some param?
     Widget({...script.dataset});
 
-//    var mode = script.getAttribute("data-mode");
-//    var actionPage = script.getAttribute("data-page");
   } catch (e) {
     console.log(e);
   }
@@ -112,6 +107,6 @@ const autoRender = () => {
 
 autoRender();
 
-export { Widget, Alert, context, set, go, after, React, ReactDOM};
+export { Widget, Alert, set, go, hook, React, ReactDOM};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

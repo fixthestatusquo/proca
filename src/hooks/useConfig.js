@@ -4,6 +4,7 @@ import React,{useContext,useState,useEffect, useCallback} from 'react';
 export let Config=React.createContext();
 
 const id='proca-listener';
+
 const set = (key,value)=> {
   const event = new CustomEvent('proca-set', {detail: { key: key, value:value }});
 
@@ -17,8 +18,8 @@ const goStep = (action)=> {
   document.getElementById(id).dispatchEvent(event);
 };
 
-const setAfter = (action,after)=> {
-  const event = new CustomEvent('proca-after', {detail: { action: action, after: after }});
+const setHook = (object, action, hook)=> {
+  const event = new CustomEvent('proca-hook', {detail: { object:object, action: action, hook: hook }});
   document.getElementById(id).dispatchEvent(event);
 };
 
@@ -26,7 +27,6 @@ export const ConfigProvider = props => {
 
   const [config, _setConfig] = useState(props.config);
   const go = props.go;
-  const setAfter = props.setAfter;
 
   const setConfig = useCallback((k,v) => {
     let d = {...config}
@@ -34,6 +34,14 @@ export const ConfigProvider = props => {
     _setConfig(d);
   }, [config]);
   
+  const setHook = useCallback ((object,action,hook) => {
+    let hooks = config.hook;
+    hooks[object+":"+action] = hook;
+    console.log(hooks,object,action);
+    setConfig("hook",hooks);
+    console.log(config);
+  },[config,setConfig]);
+
 
   useEffect(() => {
     const elem = document.getElementById(id);
@@ -42,15 +50,17 @@ export const ConfigProvider = props => {
       setConfig(e.detail.key,e.detail.value);
     }, false);
 
-    elem.addEventListener('proca-after',  (e) => {
-      console.log(e.detail);
-      if (!typeof e.detail.after === 'function') 
+    elem.addEventListener('proca-hook',  (e) => {
+      if (!typeof e.detail.hook === 'function') 
         return console.error("After must be a function");
 
       if (!typeof e.detail.action === 'string') 
         return console.error("action must me a string");
     
-      setAfter(e.detail.action,e.detail.after);
+      if (!typeof e.detail.object === 'string') 
+        return console.error("object must me a string");
+   
+      setHook(e.detail.object,e.detail.action,e.detail.hook);
 
     }, false);
 
@@ -62,7 +72,7 @@ export const ConfigProvider = props => {
       }
     }, false);
 
-  },[setConfig,go,setAfter]);
+  },[setConfig,go,setHook]);
 
 
   return (
@@ -80,6 +90,6 @@ export const useConfig = () => {
 
 export {set as setConfig};
 export {goStep};
-export {setAfter as after};
+export {setHook as hook};
 export default useConfig;
 

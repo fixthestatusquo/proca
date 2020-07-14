@@ -34,7 +34,7 @@ const theme = createMuiTheme({
       root: {fontFamily: 'unset!important',paddingLeft:'0!important',paddingRight:'0!important'}
     },
     MuiIconButton: {
-      root: {width: 'auto!important'}
+      root: {width: 'auto!important', minWidth:'auto!important'}
     },
     MuiDialog: {
       root: {fontFamily: 'unset!important',}

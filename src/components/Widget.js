@@ -2,9 +2,11 @@ import React,{useState, useRef} from "react";
 import ProcaStyle from "./ProcaStyle.js";
 import {ConfigProvider} from  "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
+import {getAllData} from "../lib/domparser";
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
+import Loader from "./Loader";
 import Petition from "Conditional_Petition";
 import Button from "Conditional_FAB";
 import Share from "Conditional_Share";
@@ -21,6 +23,7 @@ import Download from "Conditional_bespoke/Download";
 // import Slide from '@material-ui/core/Slide'; do the sliding transition thing
 
 const allSteps = {
+  'loader': Loader,
   'petition': Petition,
   'button': Button,
   'share': Share,
@@ -49,33 +52,11 @@ process.widget.journey.forEach( d => {
   steps[d] = allSteps[d];
 });
 
-const setAfter = (action, after) => {
-  if (!typeof(after) === 'function') {
-    return console.error("after must me a function");
-  }
-  steps[action].after=after;
-}
-
-/*
-// these are compile time directives
-if (process.widget.include_petition) {
-  steps['petition'] = Petition;
-}
-if (process.widget.include_button) {
-  steps['button'] = Button;
-}
-if (process.widget.include_share) {
-  steps['share'] = Share;
-}
-
-if (process.widget.include_twitter) {
-  steps['twitter'] = Twitter;
-}
-*/
-
 let config = {
   data: Url.data(),
   utm: Url.utm(),
+  hook: {},
+  param: {},
   margin: "dense",
   variant: "filled",
   selector: "#signature-form"
@@ -83,15 +64,26 @@ let config = {
 
 const Widget = (props) => {
   const  [current,setCurrent] = useState(0);
-  const journey=props.journey.flat();
+
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
+  const journey=props.journey.flat();
+
+  if (props.loader) {
+    config.loader = props.loader;
+    journey.unshift("loader");
+    steps["loader"] = Loader;
+    depths.push(0);
+  }
+
+
   props.journey.forEach(d=> {
     if (d instanceof Array) {
       d.forEach( (e,i) => {depths.push(i > 0 ? 2:1)}); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
   })
   if (props) config = { ...config, ...props };
+  config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage);
 
   const getActions =() => {
@@ -122,6 +114,7 @@ const Widget = (props) => {
   //
   const nextStep = (result) => {
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
+    console.log(config.hook);
     if (typeof steps[journey[current]].after ==="function") {
       if (steps[journey[current]].after(result) === false){
         console.log("the custom 'after' returned false, we do not go to the next step");
@@ -144,8 +137,12 @@ const Widget = (props) => {
 
   if (depths[current] === 0) {
     let Action = steps[journey[current]];
+    if (!Action) {
+      console.log(current,journey,steps,steps[journey[current]]);
+      return "FATAL Error, check the log";
+    }
     return (
-      <ConfigProvider go={go} setAfter={setAfter} actions={getActions} config={config}>
+      <ConfigProvider go={go} actions={getActions} config={config}>
       <ProcaStyle>
         <Action {...config} done={nextStep}/>
       </ProcaStyle>

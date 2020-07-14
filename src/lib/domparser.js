@@ -3,5 +3,9 @@ const getData = (key,selector) => {
   return dom.dataset[key];
 }
 
-export { getData};
+const getAllData= (selector) => {
+  const dom = document.querySelector(selector);
+  return dom.dataset;
+};
+export { getData, getAllData};
 export default getData;
