@@ -19,6 +19,7 @@ import Emoji from "./Emoji";
 import uuid from "../lib/uuid";
 import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";
+import { useTranslation } from "react-i18next";
 
 import {
   EmailShareButton,
@@ -85,6 +86,7 @@ export default function ShareAction(props) {
   const classes = useStyles();
   const actionPage= props.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
+  const {t} = useTranslation();
 
   const shareUrl = (component) => {
     const url= new URL (window.location.href);
@@ -98,10 +100,8 @@ export default function ShareAction(props) {
 
   };
   return (
-<div className={classes.root}><h3>Almost done! Take the next step.</h3>
-<p>
-Great, you’ve signed <Emoji symbol="👍"/>. To multiply your impact, share far and wide to make sure everyone sees this petition
-<Emoji symbol="🙏" label="please" />.
+<div className={classes.root}><h3>{t("share.title")}</h3>
+<p>{t("share.intro")}
     </p>
     <Card className={classes.root}>
       <CardHeader title={metadata.title} subheader={metadata.provider} />
