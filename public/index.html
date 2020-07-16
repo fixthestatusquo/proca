@@ -16,7 +16,7 @@
 <meta name="twitter:site" content="@eucampaign" />
 <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
 <style>
-  button {width:300px}
+button {width:300px;background-color:pink;}
   html {
     font-size:10px;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -79,6 +79,7 @@ pre {background:#dede; padding: 10px}
 &lt;div class="proca-form">&lt;/div>
           </pre>
           <button class="proca-button">proca-button</button>
+          <button class="proca-next" onClick="proca.go()">Next</button>
           <div class="customization">
             <h3>Some customisations</h3>
 <div>
@@ -110,7 +111,7 @@ pre {background:#dede; padding: 10px}
           </div>
         </div>
 
-        <div class="col" id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="51"></div>
+        <div class="col" id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="51" data-geolocate=1></div>
       </div>
     </div>
     <!--
@@ -131,7 +132,7 @@ pre {background:#dede; padding: 10px}
           list[0].description ="bozo";
           console.log(list);
         });
-        proca.set("iplocate",true);
+        proca.set("geolocate",true);
         console.log("loaded");
         proca.go(); // continue to the next step
       }

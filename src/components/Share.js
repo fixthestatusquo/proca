@@ -15,7 +15,6 @@ import {
 } from "@material-ui/core";
 
 import metadataparser from "page-metadata-parser";
-import Emoji from "./Emoji";
 import uuid from "../lib/uuid";
 import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";

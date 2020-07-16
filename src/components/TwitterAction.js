@@ -21,14 +21,6 @@ const component= function TwitterAction(profile) {
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
 
-  function urlify(text) { // WIP: to be used to add url tracking, needs to move to a lib
-    var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-    //var urlRegex = /(https?:\/\/[^\s]+)/g;
-    return text.replace(urlRegex, function(url,b,c) {
-        var url2 = (c === 'www.') ?  'https://' +url : url;
-        return url2; //TODO add the utm params codes
-    }) 
-}
   function addTweet (event,screenName) {
     addAction(profile.actionPage,event,{
         uuid: uuid(),

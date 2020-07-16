@@ -165,6 +165,12 @@ export default function Register(props) {
     const result = await addActionContact("register",config.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
+        const fields = error.message && error.message.split(":");
+        if (fields.length === 2) {
+          console.log(fields[0],{type:"manual",message:fields[1]});
+          //setError(fields[0],{type:"manual",message:fields[1]});
+          setError(fields[0],"manual",fields[1]);
+        }
         console.log(error);
       });
       setStatus("error");
@@ -291,7 +297,7 @@ export default function Register(props) {
               placeholder="eg. Einstein"
             />
           </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 6}>
+          <Grid item xs={12} sm={compact ? 12 : 6}>{errors && errors.email && errors.email.message}
             <TextField
               id="email"
               name="email"
@@ -339,6 +345,8 @@ export default function Register(props) {
               label={t("Postal Code")}
               autoComplete="postal-code"
               required
+              error={!!errors.postcode}
+              helperText={errors && errors.postcode && errors.postcode.message}
               inputRef={register}
               className={classes.textField}
               variant={options.variant}
