@@ -85,6 +85,7 @@ module.exports = function override (config, env) {
         {
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
+          if (config.mode !== 'production') return;
           fs.symlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'), './build/index.js');
 //          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'));
           fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map'));
