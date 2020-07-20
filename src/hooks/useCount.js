@@ -13,7 +13,7 @@ export default function useCounter (actionPage,actionUrl) {
       if (actionUrl) {
         count = await getCountByUrl(actionUrl);
       } else {
-        if (!actionPage || isNaN(actionPage)) return;
+        if (!actionPage || isNaN(actionPage)) return {errors:[{messsage:"invalid actionPage:"+actionPage}]};
         count = await getCount(actionPage);
       }
       if (!isCancelled) 
