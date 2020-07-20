@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const fs=require('fs');
 const { paths } = require('react-app-rewired');
 const { useBabelRc,override} = require('customize-cra')
 const { addReactRefresh } = require('customize-cra-react-refresh')
@@ -79,7 +80,20 @@ module.exports = function override (config, env) {
   //process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
-  config.plugins.push(new CompressionPlugin());
+  config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
+  config.plugins.push(
+        {
+      apply: (compiler) => {
+        compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
+          fs.symlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'), './build/index.js');
+//          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'));
+          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map'));
+          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map.gz'));
+          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.LICENSE.txt.gz'));
+        });
+      }
+    }
+  );
 //  config = addReactRefresh({ overlay: {sockIntegration: 'whm' }}) (config,env);
   config.optimization.runtimeChunk = false;
   config.optimization.splitChunks = {
@@ -94,7 +108,10 @@ module.exports = function override (config, env) {
 
   if (config.mode === 'production') {
     //config.output.filename= 'static/js/[name].'+minorVersion+'.js'
-    config.output.filename= 'd/'+widget.filename+'/index.js'
+    //config.output.filename= 'd/'+widget.filename+'/index.js';
+    config.output.filename= 'index.js';
+    config.output.path = path.resolve(__dirname,'d/'+widget.filename);
+//    fs.copySync('./public/', config.output.path);
   }
 /* to prevent loading react
   config.externals = {
@@ -111,7 +128,6 @@ module.exports = function override (config, env) {
 */
   config.output.libraryTarget= 'umd';
   config.output.library = ["proca"];
-
   return config
 }
 
