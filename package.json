@@ -60,7 +60,7 @@
     "compression-webpack-plugin": "^4.0.0",
     "customize-cra": "^1.0.0",
     "customize-cra-react-refresh": "^1.1.0",
-    "i18next": "^19.5.4",
+    "i18next": "^19.6.2",
     "i18next-xhr-backend": "^3.2.2",
     "js-yaml": "^3.14.0",
     "react-app-rewired": "^2.1.6",
