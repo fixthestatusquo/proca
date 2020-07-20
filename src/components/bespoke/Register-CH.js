@@ -251,6 +251,7 @@ export default function Register(props) {
       </Container>
     );
   }
+
   return (
     <React.Fragment>
     <ProgressCounter count={c && c.total} /> 
@@ -318,13 +319,27 @@ export default function Register(props) {
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               InputLabelProps={{ shrink: true }}
+              error={!!errors.birthdate}
+              helperText={errors && errors.birthdate && errors.birthdate.message}
               id="birthdate"
               name="birthdate"
               label={t("Birthdate")}
               className={classes.textField}
               variant={options.variant}
               margin={options.margin}
-              inputRef={register}
+              inputRef={register({validate: value =>{
+                if (!value) return;
+                const birthDate = new Date(value);
+                const now = new Date();
+                let years = now.getFullYear() - birthDate.getFullYear();
+                console.log(years);
+                if (years <= 17){ // I know, I don't test the MM-DD, I should toISOString().substr(5,5)
+                  setError("birthdate","manual",t("You need to be 18"));
+                  console.log(errors);
+                  return false;
+                }
+                return true;
+              }})}
               type="date"
             />
           </Grid>
