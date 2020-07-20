@@ -198,7 +198,6 @@ async function addActionContact(actionType, actionPage, data) {
   const response = await graphQL("addActionContact", query, {
     variables: variables
   });
-  console.log(response);
   if (response.errors) return response;
   return response.addActionContact;
 }
