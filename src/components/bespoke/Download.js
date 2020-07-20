@@ -8,6 +8,23 @@ import SaveIcon from '@material-ui/icons/SaveAlt';
 import { useTranslation } from "react-i18next";
 import useConfig from '../../hooks/useConfig';
 
+const url = (data, param) => {
+
+    let postcardUrl="https://collect-pdf.campax.org?"
+      + "postalcode=" + data.postcode
+      + "&canton=" + data.region
+      + "&birthdate=" +data.birthdate
+      + "&address=" + data.address
+      + "&locality=" + data.locality
+  ;
+  if (param.pdfUrl)
+    postcardUrl +="&pdf="+encodeURIComponent(param.pdfUrl);
+  if (param.marginTop)
+    postcardUrl +="&top="+param.marginTop;
+
+  return postcardUrl
+}
+
 function Download (props) {
   const { t } = useTranslation();
   const {config} = useConfig();
@@ -16,6 +33,7 @@ function Download (props) {
   }
 
   const handleDownload = () => {
+    console.log(config.data);
     window.open(config.data.postcardUrl, 'pdf', 'toolbar=0,status=0,width=548,height=775');
     next();
   }
@@ -36,3 +54,4 @@ function Download (props) {
 }
 
 export default Download;
+export {url};

@@ -26,6 +26,7 @@ import uuid from "../../lib/uuid.js";
 import domparser from "../../lib/domparser";
 import useCount from "../../hooks/useCount";
 import Consent from "../Consent";
+import {url as postcardUrl} from "./Download";
 
 let defaultValues = {
   firstname: "",
@@ -82,9 +83,14 @@ const useStyles = makeStyles(theme => ({
 export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
+  const [status, setStatus] = useState("default");
   const {config,setConfig} = useConfig();
   const actionUrl = config.actionUrl + domparser('campaignId',config.selector);
   const c = useCount (null,actionUrl);
+  if (status !== "error" && c && c.errors && c.errors.length >= 0)  {
+    console.log(c);
+    setStatus("error");
+  }
   const buttonRegister = config.buttonRegister || t("Sign");
   useEffect(() => {
     if (!c || c.errors || parseInt(c.actionPage,10) === config.actionPage) return;
@@ -98,7 +104,6 @@ export default function Register(props) {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact (width <= 450);
 
-  const [status, setStatus] = useState("default");
   if (props.values) defaultValues = { ...defaultValues, ...props.values };
   const {
     register,
@@ -155,19 +160,14 @@ export default function Register(props) {
     data.tracking = config.utm;
     data.region=region;
     data.country="CH";
-    data.postcardUrl="https://collect-pdf.campax.org?"
-      + "postalcode=" + data.postcode
-      + "&canton=" + data.region
-      + "&birthdate=" +data.birthdate
-      + "&address=" + data.address
-      + "&locality=" + data.locality
-//      + "&qrcode=" + result.addAction +":" + domparser('campaignId',config.selector);
+    console.log(config.param);
+    console.log("submit",data);
+    data.postcardUrl= postcardUrl(data, config.param);
     const result = await addActionContact("register",config.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
         const fields = error.message && error.message.split(":");
         if (fields.length === 2) {
-          console.log(fields[0],{type:"manual",message:fields[1]});
           //setError(fields[0],{type:"manual",message:fields[1]});
           setError(fields[0],"manual",fields[1]);
         }
