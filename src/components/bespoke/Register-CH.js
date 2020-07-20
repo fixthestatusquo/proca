@@ -216,6 +216,12 @@ export default function Register(props) {
     }
   };
 
+  function minBirthdate () {
+    let d = new Date();
+    d.setFullYear(d.getFullYear()-18);
+    return d.toISOString().substr(0,10);
+  }
+
   function Error(props) {
     if (props.display)
       return (
@@ -319,23 +325,21 @@ export default function Register(props) {
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               InputLabelProps={{ shrink: true }}
+              inputProps= {{ mmax: minBirthdate()}}
               error={!!errors.birthdate}
               helperText={errors && errors.birthdate && errors.birthdate.message}
               id="birthdate"
               name="birthdate"
               label={t("Birthdate")}
               className={classes.textField}
+              onBlur={handleBlur}
               variant={options.variant}
               margin={options.margin}
               inputRef={register({validate: value =>{
                 if (!value) return;
-                const birthDate = new Date(value);
-                const now = new Date();
-                let years = now.getFullYear() - birthDate.getFullYear();
-                console.log(years);
-                if (years <= 17){ // I know, I don't test the MM-DD, I should toISOString().substr(5,5)
-                  setError("birthdate","manual",t("You need to be 18"));
-                  console.log(errors);
+                console.log(value,minBirthdate())
+                if (value >= minBirthdate()) {
+                  setError("birthdate","manual","you need to be 18 years old");
                   return false;
                 }
                 return true;
