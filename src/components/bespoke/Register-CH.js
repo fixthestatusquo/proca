@@ -325,7 +325,7 @@ export default function Register(props) {
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               InputLabelProps={{ shrink: true }}
-              inputProps= {{ mmax: minBirthdate()}}
+              inputProps= {{ max: minBirthdate()}}
               error={!!errors.birthdate}
               helperText={errors && errors.birthdate && errors.birthdate.message}
               id="birthdate"
