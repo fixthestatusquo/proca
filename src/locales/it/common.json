@@ -19,7 +19,7 @@
     "First name": "Nome",
     "Last name": "Cognome",
     "Email": "E-mail",
-    "Postal Code": "Codice d’avviamento postale",
+    "Postal Code": "CAP",
     "Address": "Via/Nr",
     "Street": "Via",
     "Locality": "Luogo",
