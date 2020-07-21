@@ -3,11 +3,11 @@
     "intro":"Iscriviti agli gli aggiornamenti via e-mail di questa raccolta firme e ulteriori campagne importanti di {{name}}",
     "opt-in":"Sì! Ditemi se questa raccolta firme ha avuto successo e come posso aiutare per altre campagne rilevanti.",
     "opt-out": "No. Non desidero ricevere aggiornamenti sui progressi di questa raccolta firme",
-    "confirm":"<0>Sei sicuro/a?</0><1>Scopri via e-mail se abbiamo successo con questa raccolta di firme e come puoi continuare a impegnarti su questo tema - il nostro movimento rimane collegato via e-mail!</1><2> Puoi annullare l’iscrizione in qualsiasi momento.</2>",
+    "confirm":"<0>Sei sicuro/a?</0><1>Scopri via e-mail se abbiamo successo con questa raccolta firme e come puoi continuare a impegnarti su questo tema - il nostro movimento rimane collegato via e-mail!</1><2> Puoi annullare l’iscrizione in qualsiasi momento.</2>",
     "processing": "I tuoi dati vengono trasmessi in modo sicuro e criptato. Con l’inserimento dei dati accetti le nostre norme per la protezione dei dati."
   },
   "share":{"title":"Quasi finito, ora passiamo direttamente al passo successivo.",
-    "intro":"Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda  questo modello 🙏."},
+    "intro":"Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏."},
 
   "Sign":"Firmare ora",
 "progress":"{{count}} firme. Obbiettivo: {{goal}}",
