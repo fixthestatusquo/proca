@@ -1,0 +1,21 @@
+{
+  "lang":"EN",
+  "actionpage":"2",
+  "filename":"proca.foundation",
+  "organisation":"Organisation name",
+  "journey":["register","share"],
+  "register":{
+    "fields":{
+      "lastname":{"mandatory":true},
+      "firstname":{"display":false},
+      "country":{"display":true,"list":"all.json"}
+   },
+  "share": {
+    "facebook":{"display":false},
+    "twitter":{"tags":["ff","whatever"]}
+  },
+  "locales":{
+    "Sign now!": "whatever you want to overwrite"
+    }
+  }
+}
