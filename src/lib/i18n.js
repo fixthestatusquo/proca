@@ -17,7 +17,9 @@ i18n
     // have a common namespace used around the full app
     ns: ["common"],
     defaultNS: "common",
- transSupportBasicHtmlNodes: true,
+    react: {
+      transSupportBasicHtmlNodes: true
+    },
     interpolation: {
       escapeValue: false
     }

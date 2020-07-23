@@ -45,22 +45,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
-  notice: {
-    fontSize:theme.typography.pxToRem(13),
-    fontWeight: 'fontWeightLight',
-    color: theme.palette.text.disabled,
-  },
-  bigHelper: {
-    marginLeft: theme.spacing(0),
-    marginRight: theme.spacing(0),
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-    fontSize: theme.typography.pxToRem(16),
-    width: "100%",
-    color: "black",
-    padding: "4px",
-    lineHeight: "inherit"
-  },
 
   textField: {
     marginLeft: theme.spacing(0),
@@ -325,9 +309,9 @@ export default function Register(props) {
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               InputLabelProps={{ shrink: true }}
-              inputProps= {{ max: minBirthdate()}}
+              inputProps= {{ max: minBirthdate(),'data-error-message':t("you need to be 18 years old")}}
               error={!!errors.birthdate}
-              helperText={errors && errors.birthdate && errors.birthdate.message}
+              helperText={errors && errors.birthdate && t("you need to be 18 years old")}
               id="birthdate"
               name="birthdate"
               label={t("Birthdate")}
@@ -335,11 +319,11 @@ export default function Register(props) {
               onBlur={handleBlur}
               variant={options.variant}
               margin={options.margin}
-              inputRef={register({validate: value =>{
+              inputRef={register({validate: value =>{ //not useful anymore now that we have the html5 validation?
                 if (!value) return;
                 console.log(value,minBirthdate())
                 if (value >= minBirthdate()) {
-                  setError("birthdate","manual","you need to be 18 years old");
+                  setError("birthdate","manual",t("you need to be 18 years old"));
                   return false;
                 }
                 return true;
@@ -362,6 +346,8 @@ export default function Register(props) {
               id="postcode"
               name="postcode"
               label={t("Postal Code")}
+              onBlur={handleBlur}
+              inputProps= {{ pattern: "[0-9]{4}", title:"9999"}}
               autoComplete="postal-code"
               required
               error={!!errors.postcode}
@@ -385,7 +371,7 @@ export default function Register(props) {
               margin={options.margin}
             />
           </Grid>
-    <Consent organisation={props.organisation} classes={classes} errors={errors} options={options} register={register}
+    <Consent organisation={props.organisation} privacy_url={config.privacyUrl} errors={errors} options={options} register={register}
     />
           <Grid item xs={12}>
             <Button

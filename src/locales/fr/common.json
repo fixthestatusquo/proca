@@ -4,7 +4,7 @@
     "opt-in":"Oui ! Dites-moi si cette campagne a été un succès et comment je peux aider d’autres campagnes pertinentes.",
     "opt-out": "Non ! Je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne." ,
     "confirm":"<0> Est-tu sûr ?</0><1>En sélectionnant ‚Non‘, tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le ganger. Si tu sélectionne ‚Oui‘, on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
-    "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la protection de la vie privée voir notre politique."
+    "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique."
   },
   "share":{"title":"Presque terminé, passons directement à l’étape suivante.",
     "intro":"C’est formidable que tu y participe 👍.  Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏."},
@@ -46,6 +46,6 @@
     "Next" : "Suivant",
     "Download" : "Télécharger",
     "Thank you" : "Merci beaucoup !",
-    "Download explanation" : "Ton fishier PDF est maintenant prêt et nous te l’envoyons par e-mail."
-
+    "Download explanation" : "Ton fishier PDF est maintenant prêt et nous te l’envoyons par e-mail.",
+"you need to be 18 years old":"Tu dois être âgé de 18 ans"
 }

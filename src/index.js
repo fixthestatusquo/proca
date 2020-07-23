@@ -6,6 +6,9 @@ import {setConfig,goStep,hook} from "./hooks/useConfig";
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
 
+import Config from "Config"; // src/tmp.config/{actionpage}.json
+
+//console.log(Config);
 //const querystring = require("querystring");
 
 //console.log(querystring);
@@ -44,6 +47,8 @@ const Widget = args => {
     config.actionPage=process.widget.actionpage;
   if (process.widget.actionurl)
     config.actionUrl=process.widget.actionurl;
+  if (process.widget.privacy_url)
+    config.privacyUrl=process.widget.privacy_url;
 
   document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
 

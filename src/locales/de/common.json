@@ -4,7 +4,7 @@
     "opt-in":"Ja! Sagt mir, ob diese Unterschriftensammlung erfolgreich war und wie ich bei anderen relevanten Kampagnen mithelfen kann.",
     "opt-out": "Nein. Ich möchte keine Updates über den Fortschritt dieser Unterschriftensammlung erhalten",
     "confirm":"<0>Bist du sicher?</0><1>Erfahre per Email ob wir mit dieser Unterschriftensammlung Erfolg haben und wie Du Dich weiterhin für dieses Thema engagieren kannst.Per Email bleibt unsere Bewegung verbunden!</1><2> Du kannst Dich jederzeit wieder abmelden.</2>",
-    "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum Datenschutz"
+    "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>"
   },
   "share":{"title":"Fast fertig, jetzt gleich weiter zum nächsten Schritt.",
     "intro":"Super, dass Du mitmachst 👍. Um Deinen Einfluss zu vervielfachen, teile diese Unterschriftensammlung, wo es nur geht, um sicherzustellen, dass so viele Menschen wie möglich diese Vorlage sehen🙏."},
@@ -40,6 +40,7 @@
     "Next" : "Weiter",
     "Download" : "Download",
     "Thank you" : "Vielen Dank!",
-    "Download explanation" : "Dein PDF ist jetzt bereit und wir senden es gerade per E-Mail an Dich."
+    "Download explanation" : "Dein PDF ist jetzt bereit und wir senden es gerade per E-Mail an Dich.",
+"you need to be 18 years old":"Du musst 18 Jahre alt sein"
 
 }

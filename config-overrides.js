@@ -77,7 +77,19 @@ module.exports = function override (config, env) {
   if (!widget.journey)
     widget.journey="petition,share";
   console.log(widget);
-  //process.exit(1);
+  if (widget.actionpage) {
+    const wpath='./src/tmp.config/'+widget.actionpage+'.json';
+    if (!fs.existsSync(path)) {
+      //TODO: fetch from the server
+      fs.writeFileSync(wpath,JSON.stringify(widget,null,2));
+      console.log("writing config"+wpath);
+      console.log(widget);
+    }
+    config.resolve.alias['Config$']= path.resolve(__dirname, wpath);
+  } else {
+    config.resolve.alias['Config$']= path.resolve(__dirname, './src/tmp.config/null.json');
+
+  }
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
