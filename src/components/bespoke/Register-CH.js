@@ -144,6 +144,7 @@ export default function Register(props) {
     data.tracking = config.utm;
     data.region=region;
     data.country="CH";
+    data.LanguageCode = config.lang;
     console.log(config.param);
     console.log("submit",data);
     data.postcardUrl= postcardUrl(data, config.param);
