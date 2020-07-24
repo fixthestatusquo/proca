@@ -67,6 +67,7 @@ const Widget = (props) => {
 
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
+  console.log(props.journey);
   const journey=props.journey.flat();
 
 

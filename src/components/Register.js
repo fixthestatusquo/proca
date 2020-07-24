@@ -120,7 +120,8 @@ export default function Register(props) {
     variant: config.variant || "filled"
   };
 
-  const buttonText = config.register || t("register");
+  const buttonText = (config.locales && config.locales.register) || t("register");
+  console.log(buttonText);
   //variant: standard, filled, outlined
   //margin: normal, dense
 

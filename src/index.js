@@ -8,9 +8,6 @@ import ProcaAlert from "./components/Alert.js";
 
 import Config from "Config"; // src/tmp.config/{actionpage}.json
 
-//console.log(Config);
-//const querystring = require("querystring");
-
 //console.log(querystring);
 
 let config = {
@@ -33,9 +30,7 @@ const Alert = (text,severity) => {
   );
 }
 
-const Widget = args => {
-  if (args) config = { ...config, ...args };
-  //compile directives, you can't use process.widget[step]
+const getYAMLConfig = () => { // legacy mode, taking the config from config/{widget}.yaml
   if (process.widget.journey)
     config.journey=process.widget.journey;
   if (process.widget.lang)
@@ -49,6 +44,15 @@ const Widget = args => {
     config.actionUrl=process.widget.actionurl;
   if (process.widget.privacy_url)
     config.privacyUrl=process.widget.privacy_url;
+}
+
+const Widget = args => {
+  if (args) config = { ...config, ...args };
+  //compile directives, you can't use process.widget[step]
+  if (!Config) // no config in src/config/{actionID}
+    getYAMLConfig();
+  else 
+    config = { ...config, ...Config};
 
   document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
 

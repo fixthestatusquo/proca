@@ -49,6 +49,16 @@ const conditionalImport = (alias,journey) =>{
   }
 }
 
+  const string2array  = (s) => {
+    const a = s.split(',');
+    a.forEach ((d,i) => {
+      const sub= d.split('+');
+      if (sub.length === 1) return;
+      a[i]=sub;
+    });
+    return a;
+  }
+
   const stringified = (raw) => {
     const d ={
     'process.widget': Object.keys(raw).reduce((env, key) => {
@@ -57,12 +67,6 @@ const conditionalImport = (alias,journey) =>{
     }, {})
     };
     // syntax step1,step2, step3+substep3.1+substep3.2, step4  ('+' to have substeps, like in a dialog)
-    raw.journey = raw.journey.split(',');
-    raw.journey.forEach ((d,i) => {
-      const sub= d.split('+');
-      if (sub.length === 1) return;
-      raw.journey[i]=sub;
-    });
     d['process.widget'].journey = JSON.stringify(raw.journey);
     return d;
   };
@@ -76,20 +80,22 @@ module.exports = function override (config, env) {
   let widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
   if (!widget.journey)
     widget.journey="petition,share";
-  console.log(widget);
   if (widget.actionpage) {
     const wpath='./src/tmp.config/'+widget.actionpage+'.json';
-    if (!fs.existsSync(path)) {
+    if (!fs.existsSync(wpath)) {
       //TODO: fetch from the server
+      widget.journey = string2array(widget.journey);
       fs.writeFileSync(wpath,JSON.stringify(widget,null,2));
       console.log("writing config"+wpath);
-      console.log(widget);
+    } else { // oops, cases without actionpage
+      widget.journey = string2array(widget.journey);
     }
     config.resolve.alias['Config$']= path.resolve(__dirname, wpath);
   } else {
     config.resolve.alias['Config$']= path.resolve(__dirname, './src/tmp.config/null.json');
 
   }
+  console.log(widget); // process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
