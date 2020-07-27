@@ -130,7 +130,12 @@ module.exports = function override (config, env) {
     //config.output.filename= 'd/'+widget.filename+'/index.js';
     config.output.filename= 'index.js';
     config.output.path = path.resolve(__dirname,'d/'+widget.filename);
-//    fs.copySync('./public/', config.output.path);
+    config.output.publicPath = '/d/'+widget.filename +'/'; //'./';
+    // HtmlWebpackPlugin
+    //console.log(config.plugins[1].options); process.exit(1);
+    config.plugins[1].options.minify.collapseWhitespace = false;
+    config.plugins[1].options.minify.minifyCSS = false;
+    config.plugins[1].options.minify.minifyJS = false;
   }
 /* to prevent loading react
   config.externals = {
