@@ -88,7 +88,9 @@ module.exports = function override (config, env) {
       fs.writeFileSync(wpath,JSON.stringify(widget,null,2));
       console.log("writing config"+wpath);
     } else { // oops, cases without actionpage
+      const fullConfig = JSON.parse(fs.readFileSync(wpath, 'utf8'));
       widget.journey = string2array(widget.journey);
+      widget = {...widget , ...fullConfig};
     }
     config.resolve.alias['Config$']= path.resolve(__dirname, wpath);
   } else {
@@ -125,6 +127,9 @@ module.exports = function override (config, env) {
 //  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/');
   config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/'+widget.lang.toLowerCase());
 
+  if (widget.HtmlTemplate) {
+    config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.HtmlTemplate)
+  }
   if (config.mode === 'production') {
     //config.output.filename= 'static/js/[name].'+minorVersion+'.js'
     //config.output.filename= 'd/'+widget.filename+'/index.js';
@@ -132,7 +137,7 @@ module.exports = function override (config, env) {
     config.output.path = path.resolve(__dirname,'d/'+widget.filename);
     config.output.publicPath = '/d/'+widget.filename +'/'; //'./';
     // HtmlWebpackPlugin
-    //console.log(config.plugins[1].options); process.exit(1);
+    //config.plugins[1].options.template = path.resolve(__dirname,"public/"+)
     config.plugins[1].options.minify.collapseWhitespace = false;
     config.plugins[1].options.minify.minifyCSS = false;
     config.plugins[1].options.minify.minifyJS = false;

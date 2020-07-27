@@ -33,6 +33,7 @@ import { useTranslation } from "react-i18next";
 
 
 import countries from "../data/countries.json";
+import Organisation from "./Organisation";
 
 import { addActionContact } from "../lib/server.js";
 import uuid from "../lib/uuid.js";
@@ -88,6 +89,11 @@ export default function Register(props) {
     setCompact (width <= 450);
 
   const [status, setStatus] = useState("default");
+  const form = useForm({
+    //    mode: "onBlur",
+    //    nativeValidation: true,
+    defaultValues: config.data
+  });
   const {
     register,
     handleSubmit,
@@ -97,14 +103,11 @@ export default function Register(props) {
     clearError,
     watch,
     formState
-  } = useForm({
-    //    mode: "onBlur",
-    //    nativeValidation: true,
-    defaultValues: config.data
-  });
+  } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
   const country = watch("country") || "";
+  const comment = watch("comment") || "";
   const location = useGeoLocation({api:"https://country.proca.foundation"});
   if (location.country && !country) {
     if (!countries.find (d => (d.iso === location.country))) {
@@ -121,7 +124,6 @@ export default function Register(props) {
   };
 
   const buttonText = (config.locales && config.locales.register) || t("register");
-  console.log(buttonText);
   //variant: standard, filled, outlined
   //margin: normal, dense
 
@@ -168,6 +170,7 @@ export default function Register(props) {
       return;
     }
   };
+  form.handleBlur = handleBlur;
 
   function Error(props) {
     if (props.display)
@@ -216,6 +219,7 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
+    {config.component?.register?.field.organisation && <Organisation form={form} />}
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               id="firstname"
@@ -316,6 +320,7 @@ export default function Register(props) {
               multiline
               rowsMax="20"
               label={t("Comment")}
+              InputLabelProps={{ shrink: comment.length > 0 }}
               inputRef={register}
               variant={options.variant}
               margin={options.margin}

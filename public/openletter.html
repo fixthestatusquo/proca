@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    
+<meta property="og:image" content="https://placekitten.com/540/284" />
+<title>proca: Progressive Campaigning into your website in a minute</title>
+<meta name="twitter:title" content="Demo of an open letter" />
+
+<meta name="description" content="Sign the open letter too!" />
+<meta name="twitter:description" content="For a future" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eucampaign" />
+<meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+  html {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+   nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  }
+</style>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+<minimal-style style="display:none">
+  #signature-form {max-width:600px;min-width:300px}
+
+  .row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+  }
+
+.col{
+  display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    padding:0 10px;
+  flex:1;
+}
+
+pre {background:#dede; padding: 10px}
+
+</minimal-style>
+<style>
+  body {padding-top:5rem;}
+
+</style>
+
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Demo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <button class="proca-next btn btn-primary" onClick="proca.go()">Next</button>
+        </div>
+      </div>
+    </nav>
+    <noscript
+      >You need to enable JavaScript to participate to this campaign.</noscript
+    >
+    <div id="root" class="container">
+      <h2>Example for an openletter</h2>
+      <div class="row">
+        <div class="col">
+          <p>
+          This is the text of the open letter
+          </p>
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h4>To add it to your wordpress</h4>
+              <ul>
+                <li> add "proca" plugin</li>
+                <li class="dynamic"> use the shortcode [proca widget=%widget_path%]</li>
+              </ul>
+
+          <h4>To add it to your site (direct javascript)</h4>
+          <pre class="dynamic">
+&lt;script id="proca" src="https://%widget_path%">&lt;/script>
+&lt;div class="proca-form">&lt;/div>
+          </pre>
+          <button class="proca-button">proca-button</button>
+          <button class="proca-next" onClick="proca.go()">Next</button>
+          <div class="customization">
+            <h3>Some customisations</h3>
+<div>
+  <input type="radio" name="variant" value="filled" checked>
+  <label>Filled</label>
+  <input type="radio" name="variant" value="outlined">
+  <label>Outlined</label>
+  <input type="radio" name="variant" value="standard">
+  <label>Standard</label>
+</div>
+<div class="proca proca-html" style="display:none">
+  <h2>Thank you {firstname}!</h2> <p> your document is now ready:</p>
+  <a href="{postcardUrl}" target="_blank" class="btn button">PDF to print and sign</a>
+</div>
+<script>
+(function(){
+  var radios = document.querySelectorAll('input[type=radio][name="variant"]');
+  function changeHandler(event) {
+    proca.set("variant",this.value);
+  }
+
+  radios.forEach(function(radio) {
+     radio.addEventListener('change', changeHandler);
+  });
+})();
+
+</script>
+
+          </div>
+        </div>
+
+        <div clas="col"><p>Write some explanation on why to sign or whatever you want here</p>
+        <div id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="51"></div>
+        </div>
+      </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script>
+      var params = {};
+
+      function loader () {
+        proca.hook("twitter","load", function(list){
+          list[0].description ="bozo";
+          console.log(list);
+        });
+        proca.set("geolocate",true);
+        console.log("loaded");
+        proca.go(); // continue to the next step
+      }
+
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
+        for (let d of document.getElementsByClassName("dynamic")) {
+          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
+        }
+
+        var params = {aname:""};
+        if (urlParams.get("variant")) {
+          params.variant = urlParams.get("variant");
+        }
+
+        params.actionPage= urlParams.get("actionPage") || 2;
+        
+        params.loader = urlParams.get("proca_loader");
+        proca.Widget(params);
+      }
+
+      if (typeof proca === "object") {
+        //not used on dev
+        display();
+      } else {
+        console.log("DEV MODE");
+        window.addEventListener("DOMContentLoaded", function() {
+          display();
+        });
+      }
+    </script>
+  </body>
+</html>
