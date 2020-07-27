@@ -30,7 +30,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import useForm from "react-hook-form";
 import useGeoLocation from "react-ipgeolocation";
 import { useTranslation } from "react-i18next";
-
+import Consent from "./Consent";
 
 import countries from "../data/countries.json";
 import Organisation from "./Organisation";
@@ -129,7 +129,7 @@ export default function Register(props) {
 
   const onSubmit = async data => {
     data.tracking = config.utm;
-    const result = await addActionContact("register",config.actionPage, data);
+    const result = await addActionContact(config.actionType || "register",config.actionPage, data);
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);
@@ -326,34 +326,8 @@ export default function Register(props) {
               margin={options.margin}
             />
           </Grid>
-          <Grid item xs={12}>
-            <FormHelperText
-              className={classes.bigHelper}
-              error={errors.privacy}
-              variant={options.variant}
-              margin={options.margin}
-            >
-    {t("consent.intro",{name:props.organisation})} *
-            </FormHelperText>
-          </Grid>
-          <Grid item xs={12}>
-            <RadioGroup aria-label="privacy consent" name="privacy" required>
-              <FormControlLabel
-                value="opt-in"
-                inputRef={register}
-                control={<Radio color="primary" />}
-                label={t("consent.opt-in")}/>
+        <Consent organisation={props.organisation} privacy_url={config.privacyUrl} errors={errors} options={options} register={register} />
 
-              <FormControlLabel
-                value="opt-out"
-                control={<Radio />}
-                inputRef={register({ required: "Yes or No?" })}
-                label={t("consent.opt-out")}/>
-            </RadioGroup>
-          </Grid>
-          <Grid item xs={12}>
-        <Box className={classes.notice}>{t("consent.processing",{privacy_url:"https://proca.foundation/privacy"})}</Box>
-          </Grid>
           <Grid item xs={12}>
             <Button
               color="primary"
