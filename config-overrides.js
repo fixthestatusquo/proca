@@ -95,9 +95,10 @@ module.exports = function override (config, env) {
     config.resolve.alias['Config$']= path.resolve(__dirname, wpath);
   } else {
     config.resolve.alias['Config$']= path.resolve(__dirname, './src/tmp.config/null.json');
+    widget.journey = string2array(widget.journey);
 
   }
-  console.log(widget); // process.exit(1);
+  console.log(widget);//  process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));

@@ -19,6 +19,7 @@ import uuid from "../lib/uuid";
 import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";
 import { useTranslation } from "react-i18next";
+import useConfig from '../hooks/useConfig';
 
 import {
   EmailShareButton,
@@ -83,7 +84,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function ShareAction(props) {
   const classes = useStyles();
-  const actionPage= props.actionPage;
+  const {config} = useConfig();
+
+  const actionPage= config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
   const {t} = useTranslation();
 
