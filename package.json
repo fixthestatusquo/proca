@@ -11,7 +11,7 @@
     "@alienfast/i18next-loader": "^1.1.4",
     "@material-ui/lab": "^4.0.0-alpha.54",
     "@svgr/webpack": "5.4.0",
-    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.0.15",
     "base64url": "^3.0.1",
