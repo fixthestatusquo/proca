@@ -120,35 +120,32 @@ export default function ShareAction(props) {
       </CardContent>
         <CardActions>
           <ActionIcon
-            {...props}
             icon={WhatsappIcon}
             title={props['share-whatsapp'] || props.share}
+            windowWidth={715}
+            windowHeight={544}
             component={WhatsappShareButton}
           />
           <ActionIcon
-            {...props}
             icon={FacebookMessengerIcon}
             title={props['share-whatsapp'] || props.share}
+            appId="634127320642564"
             component={FacebookMessengerShareButton}
           />
           <ActionIcon
-            {...props}
             icon={FacebookIcon}
             component={FacebookShareButton}
           />
           <ActionIcon
-            {...props}
             icon={TwitterIcon}
             title={props['share-twitter'] || props.share}
             component={TwitterShareButton}
           />
           <ActionIcon
-            {...props}
             icon={TelegramIcon}
             component={TelegramShareButton}
           />
           <ActionIcon
-            {...props}
             icon={EmailIcon}
             component={EmailShareButton}
             subject={props.name}
@@ -156,12 +153,10 @@ export default function ShareAction(props) {
             separator=" "
           />
           <ActionIcon
-            {...props}
             icon={RedditIcon}
             component={RedditShareButton}
           />
           <ActionIcon
-            {...props}
             icon={LinkedinIcon}
             component={LinkedinShareButton}
           />
@@ -189,9 +184,10 @@ export default function ShareAction(props) {
       addShare ("share_click");
       console.log("clicking "+medium);
     }
-
+    let drillProps = Object. assign({}, props);
+    delete drillProps.icon;
     return (
-      <IconButton component={props.component} url={shareUrl(props.component)} title={props.title || props.share }
+      <IconButton {...drillProps} component={props.component} url={shareUrl(props.component)} title={props.title || props.share }
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
         >
