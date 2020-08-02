@@ -1,4 +1,4 @@
-import React,{useState, useRef} from "react";
+import React,{useState, useRef, useCallback} from "react";
 import ProcaStyle from "./ProcaStyle.js";
 import {ConfigProvider} from  "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
@@ -64,12 +64,16 @@ let config = {
 
 const Widget = (props) => {
   const  [current,setCurrent] = useState(0);
-
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   const journey=props.journey.flat();
 
-
+  if (current === false) { 
+    setCurrent(0);
+    return;
+  }
 
   if (props.loader) {
     config.loader = props.loader;
@@ -86,21 +90,26 @@ const Widget = (props) => {
   })
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
-  config.actionPage = parseInt(config.actionPage);
+  config.actionPage = parseInt(config.actionPage,10);
 
   const getActions =() => {
     return steps;
   }
 
   const go = (action) => {
-    if (!action) return nextStep();
-    const i = journey.indexOf(action);
+    let i=null;
+    if ((typeof action === "number") && (action <= journey.length)) {
+      i = action -1;
+      if (i === current) return forceUpdate(); //trick to force refresh
+    } else {
+      if (!action) return nextStep();
+      i = journey.indexOf(action);
+    }
     if (i === -1) {
       console.error("can't find '",action, "'. options: ",journey);
       global.proca.Alert("not possible to go to '"+action+"'","error");
       return;
     }
-    console.log(i,depths[i]);
 
     if (depths[i] === 1) { // we jump 2 if start of a sub (dialog + 1st substep) {
       topMulti.current = journey[i];
@@ -146,7 +155,7 @@ const Widget = (props) => {
     return (
       <ConfigProvider go={go} actions={getActions} config={config}>
       <ProcaStyle>
-        <Action {...config} done={nextStep}/>
+        <Action actionPage={config.actionPage} done={nextStep}/>
       </ProcaStyle>
       </ConfigProvider>
     );
