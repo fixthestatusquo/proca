@@ -1,5 +1,7 @@
-// if dealing with context directly gets tiring, possibly: diegohaz/constate or jamiebuilds/unstated
-//
+// if dealing with context directly gets tiring, possibly: 
+// diegohaz/constate or jamiebuilds/unstated or dai-shi/react-tracked zerobias/effector (multiple stores)
+// storeon/storeon (I like it, might be used to webook outside of the widget too?
+
 import React,{useContext,useState,useEffect, useCallback} from 'react';
 export let Config=React.createContext();
 
@@ -30,7 +32,14 @@ export const ConfigProvider = props => {
 
   const setConfig = useCallback((k,v) => {
     let d = {...config}
-    d[k]=v;
+    let keys=k.split(".");
+    switch (keys.length) {
+      case 1: d[k]=v;break;
+      case 2: d[keys[0]] ? d[keys[0]][keys[1]]=v: console.log("invalid key",k);break;
+      case 3: d[keys[0]] ? d[keys[0]][[keys[1][keys[1]]]]=v: console.log("invalid key",k);break;
+      default:
+        console.log("invalid key",k);
+    };
     _setConfig(d);
   }, [config]);
   
