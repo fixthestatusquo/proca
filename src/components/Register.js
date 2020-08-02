@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import { Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -9,15 +9,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import useElementWidth from '../hooks/useElementWidth';
-import useConfig from '../hooks/useConfig';
+import useElementWidth from "../hooks/useElementWidth";
+import useConfig from "../hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 
-import {
-  TextField,
-  Button,
-  Snackbar
-} from "@material-ui/core";
+import { TextField, Button, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
@@ -39,22 +35,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
-  notice: {
-    fontSize:theme.typography.pxToRem(13),
-    fontWeight: 'fontWeightLight',
-    color: theme.palette.text.disabled,
-  },
-  bigHelper: {
-    marginLeft: theme.spacing(0),
-    marginRight: theme.spacing(0),
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-    fontSize: theme.typography.pxToRem(16),
-    width: "100%",
-    color: "black",
-    padding: "4px",
-    lineHeight: "inherit"
-  },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -67,22 +47,23 @@ const useStyles = makeStyles(theme => ({
       textShadow: "0 0 0 #000"
     },
     "input:valid + fieldset": {
-      borderColor: "green",
+      borderColor: "pink",
       borderWidth: 2
     }
   }
 }));
 
-
 export default function Register(props) {
   const classes = useStyles();
-  const {config} = useConfig();
-  const {t} = useTranslation();
- 
-  const width = useElementWidth ('#proca-register');
+  const { config} = useConfig();
+//  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+
+  const { t } = useTranslation();
+
+  const width = useElementWidth("#proca-register");
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
-    setCompact (width <= 450);
+    setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
   const form = useForm({
@@ -102,16 +83,18 @@ export default function Register(props) {
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
-  const country = watch("country") || "";
-  const comment = watch("comment") || "";
-  const location = useGeoLocation({api:"https://country.proca.foundation"});
+  const fields =  watch();
+  const country = fields.country || "";
+  const comment = fields.comment || "";
+  const location = useGeoLocation({ api: "https://country.proca.foundation", country: country});
   if (location.country && !country) {
-    if (!countries.find (d => (d.iso === location.country))) {
-      console.log ("visitor from ",location, "but not on our list");
-      location.country = countries.find (d => (d.iso === "ZZ")) ? "ZZ" : ""; // if "other" exists, set it
+    if (!countries.find(d => d.iso === location.country)) {
+      console.log("visitor from ", location, "but not on our list");
+      location.country = countries.find(d => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
     }
-    if (location.country)
+    if (location.country && (country !== location.country )) {
       setValue("country", location.country);
+    }
   }
 
   const options = {
@@ -119,13 +102,18 @@ export default function Register(props) {
     variant: config.variant || "filled"
   };
 
-  const buttonText = (config.locales && config.locales.register) || t("register");
+  const buttonText =
+    (config.locales && config.locales.register) || t("register");
   //variant: standard, filled, outlined
   //margin: normal, dense
 
   const onSubmit = async data => {
     data.tracking = config.utm;
-    const result = await addActionContact(config.actionType || "register",config.actionPage, data);
+    const result = await addActionContact(
+      config.actionType || "register",
+      config.actionPage,
+      data
+    );
     if (result.errors) {
       result.errors.forEach(error => {
         console.log(error);
@@ -135,15 +123,18 @@ export default function Register(props) {
     }
     setStatus("success");
     uuid(result.addAction); // set the global uuid as signature's fingerprint
-    if (props.done) props.done({errors:result.errors,uuid:uuid(),firstname:data.firstname, country:data.country});
+    if (props.done)
+      props.done({
+        errors: result.errors,
+        uuid: uuid(),
+        firstname: data.firstname,
+        country: data.country
+      });
   };
 
   useEffect(() => {
-    register({ name: "country" });
-  }, [register]);
-
-  useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
+//    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach(input => {
       input.oninvalid = e => {
@@ -156,9 +147,6 @@ export default function Register(props) {
     });
   }, [register, setError]);
 
-  const selectChange = e => {
-    setValue("country", e.target.value);
-  };
   const handleBlur = e => {
     e.target.checkValidity();
     if (e.target.validity.valid) {
@@ -206,7 +194,7 @@ export default function Register(props) {
   return (
     <form
       className={classes.container}
-      id='proca-register'
+      id="proca-register"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
       url="http://localhost"
@@ -215,7 +203,9 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
-    {config.component?.register?.field.organisation && <Organisation form={form} />}
+          {config.component?.register?.field.organisation && (
+            <Organisation form={form} compact={compact}/>
+          )}
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               id="firstname"
@@ -255,6 +245,7 @@ export default function Register(props) {
               type="email"
               label={t("Email")}
               autoComplete="email"
+              InputLabelProps={{ shrink: fields.email?.length > 0 }}
               className={classes.textField}
               inputRef={register}
               onBlur={handleBlur}
@@ -289,7 +280,6 @@ export default function Register(props) {
               inputRef={register}
               //value={defaultValues.country}
               value={country}
-              onChange={selectChange}
               InputLabelProps={{ shrink: country.length > 0 }}
               SelectProps={{
                 native: true,
@@ -322,7 +312,13 @@ export default function Register(props) {
               margin={options.margin}
             />
           </Grid>
-        <Consent organisation={props.organisation} privacy_url={config.privacyUrl} errors={errors} options={options} register={register} />
+          <Consent
+            organisation={props.organisation}
+            privacy_url={config.privacyUrl}
+            errors={errors}
+            options={options}
+            register={register}
+          />
 
           <Grid item xs={12}>
             <Button
@@ -335,7 +331,7 @@ export default function Register(props) {
               endIcon={<SendIcon />}
             >
               {" "}
-    {buttonText}
+              {buttonText}
             </Button>
           </Grid>
         </Grid>
@@ -345,9 +341,8 @@ export default function Register(props) {
 }
 
 Register.propTypes = {
-  actionPage: PropTypes.number.isRequired,
-}
+  actionPage: PropTypes.number.isRequired
+};
 Register.defaultProps = {
-  buttonText: "Register",
-}
-
+  buttonText: "Register"
+};

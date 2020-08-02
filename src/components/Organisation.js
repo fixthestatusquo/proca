@@ -34,7 +34,7 @@ export default props => {
     name: t("Your organisation account")
   });
 
-  const compact = false;
+  const compact = props.compact;
   const { setValue, setError, watch } = props.form;
   const field = watch(["organisation","picture","comment"]);
 
