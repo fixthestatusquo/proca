@@ -184,7 +184,7 @@ export default function ShareAction(props) {
       addShare ("share_click");
       console.log("clicking "+medium);
     }
-    let drillProps = Object. assign({}, props);
+    let drillProps= Object.assign({}, props);
     delete drillProps.icon;
     return (
       <IconButton {...drillProps} component={props.component} url={shareUrl(props.component)} title={props.title || props.share }
