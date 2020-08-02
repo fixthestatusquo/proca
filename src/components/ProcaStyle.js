@@ -2,7 +2,7 @@ import React from 'react';
 import { StylesProvider, createGenerateClassName, createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
 //import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
-
+import {useConfig} from  "../hooks/useConfig";
 
 const generateClassName = createGenerateClassName({
   disableGlobal: false,
@@ -23,6 +23,9 @@ const GlobalCss = withStyles({
 */
 
 const theme = createMuiTheme({
+  palette: {
+    primary:{main: '#1976d2'}
+  },
   typography: {
     fontFamily: 'unset!important',
     htmlFontSize: parseInt(window.getComputedStyle(document.getElementsByTagName('html')[0], null).getPropertyValue('font-size')), // get the actual font size
@@ -64,6 +67,11 @@ for (const d in theme.zIndex) {
 
     //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
+  const config=useConfig().config;
+  if (config.layout?.primaryColor) 
+    theme.palette.primary.main = config.layout.primaryColor;
+  if (config.layout?.secondary) 
+    theme.palette.secondary.main = config.layout.secondaryColor;
   return (
     <StylesProvider generateClassName={generateClassName}>
     <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
