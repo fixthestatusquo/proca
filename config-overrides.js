@@ -74,12 +74,16 @@ const conditionalImport = (alias,journey) =>{
 module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
   useBabelRc();
-
-  if (!process.env.widget) 
-    process.env.widget="_default";
-  let widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
-  if (!widget.journey)
-    widget.journey="petition,share";
+  let widget = {};
+  if (!process.env.actionpage) {
+    if (!process.env.widget) 
+      process.env.widget="_default";
+    widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
+    if (!widget.journey)
+      widget.journey="petition,share";
+  } else {
+    widget = {actionpage:process.env.actionpage,journey:""};
+  }
   if (widget.actionpage) {
     const wpath='./src/tmp.config/'+widget.actionpage+'.json';
     if (!fs.existsSync(wpath)) {
@@ -98,7 +102,7 @@ module.exports = function override (config, env) {
     widget.journey = string2array(widget.journey);
 
   }
-  console.log(widget);//  process.exit(1);
+  console.log(widget); // process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
