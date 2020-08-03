@@ -4,14 +4,20 @@ import {ConfigProvider} from  "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import {getAllData} from "../lib/domparser";
 
+import { useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
+
+
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
 import Loader from "./Loader";
 import Petition from "Conditional_Petition";
-import Button from "Conditional_FAB";
+//import Button from "Conditional_FAB";
+import Button from "./FAB";
 import Share from "Conditional_Share";
 import Twitter from "Conditional_Twitter";
-import Dialog from "Conditional_Dialog";
+//import Dialog from "Conditional_Dialog";
+import Dialog from "./Dialog";
 import Clickify from "Conditional_Clickify";
 import Html from "Conditional_Html";
 
@@ -66,9 +72,23 @@ const Widget = (props) => {
   const  [current,setCurrent] = useState(0);
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
-  const journey=props.journey.flat();
+  let propsJourney = Object.assign([],props.journey);
+
+  if(isMobile) {
+    let j = Object.assign([], props.journey);
+    if (j[0] !== "dialog")
+      j.unshift("dialog");
+    propsJourney = ["button",j];
+    steps['button'] = allSteps['button'];
+    steps['dialog'] = allSteps['dialog'];  
+  }
+  let journey=propsJourney.flat();
 
   if (current === false) { 
     setCurrent(0);
@@ -83,7 +103,7 @@ const Widget = (props) => {
   }
 
 
-  props.journey.forEach(d=> {
+  propsJourney.forEach(d=> {
     if (d instanceof Array) {
       d.forEach( (e,i) => {depths.push(i > 0 ? 2:1)}); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
@@ -164,11 +184,11 @@ const Widget = (props) => {
   if (depths[current] > 0) {
     let SubAction = steps[journey[current]];
     let Action = steps[topMulti.current];
-
+console.log("render dialog",Action,SubAction);
     return (
       <ConfigProvider go={go} actions={getActions} config={config}>
       <ProcaStyle>
-      <Action {...config} done={nextStep}><SubAction {...config} done={nextStep}/></Action>
+      <Action actionPage={config.actionPage} done={nextStep}><SubAction actionPage={config.actionPage} done={nextStep}/></Action>
       </ProcaStyle>
       </ConfigProvider>
     );

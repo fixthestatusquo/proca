@@ -1,17 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 //import { Container, Grid } from "@material-ui/core";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import {
   Fab,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  useMediaQuery,
   Slide,
-  IconButton,
   Badge
 } from "@material-ui/core";
 //import DialogActions from '@material-ui/core/DialogActions';
@@ -19,7 +14,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import useCount from "../hooks/useCount.js";
-import CloseIcon from "@material-ui/icons/Close";
+//import CloseIcon from "@material-ui/icons/Close";
 import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles(theme => ({
@@ -38,12 +33,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+/*const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
+*/
 export default function FABAction(props) {
-  const theme = useTheme();
+//  const theme = useTheme();
 
   const { t } = useTranslation();
 
@@ -51,9 +46,6 @@ export default function FABAction(props) {
 
   const handleClickOpen = () => {
     props.done();
-  };
-
-  const handleClose = () => {
   };
 
   const classes = useStyles();
@@ -73,7 +65,7 @@ export default function FABAction(props) {
             onClick={handleClickOpen}
           >
             <CreateIcon />
-            {t("sign")}&nbsp;
+            {t("Sign now!")}&nbsp;
           </Fab>
         </Badge>
       </Slide>

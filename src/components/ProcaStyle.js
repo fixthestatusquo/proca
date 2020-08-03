@@ -67,7 +67,7 @@ for (const d in theme.zIndex) {
 
     //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
-  const config=useConfig().config;
+  const {config}=useConfig();
   if (config.layout?.primaryColor) 
     theme.palette.primary.main = config.layout.primaryColor;
   if (config.layout?.secondary) 
