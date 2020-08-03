@@ -4,7 +4,7 @@ import {ConfigProvider} from  "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import {getAllData} from "../lib/domparser";
 
-import { useTheme } from "@material-ui/core/styles";
+//import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 
 
@@ -73,9 +73,9 @@ const Widget = (props) => {
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+//  const theme = useTheme();
+//  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
+  const isMobile = useMediaQuery('(max-width:768px)',{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([],props.journey);
@@ -140,6 +140,15 @@ const Widget = (props) => {
 
   };
 
+  const nextTopStep = () => {
+    const next = depths.findIndex((d,i) => {return (i > current &&  d===0)});
+    if (next === -1)
+      return setCurrent(0);
+
+    console.log(next,depths[next],depths);
+    setCurrent(next);
+  }
+
   // called once an action has finished to decide what to do next. 
   // the result is whatever the action that has finished wants to share to the journey
   //
@@ -165,7 +174,6 @@ const Widget = (props) => {
       setCurrent(0);
     }
   }
-
   if (depths[current] === 0) {
     let Action = steps[journey[current]];
     if (!Action) {
@@ -188,7 +196,7 @@ console.log("render dialog",Action,SubAction);
     return (
       <ConfigProvider go={go} actions={getActions} config={config}>
       <ProcaStyle>
-      <Action actionPage={config.actionPage} done={nextStep}><SubAction actionPage={config.actionPage} done={nextStep}/></Action>
+      <Action actionPage={config.actionPage} done={nextTopStep}><SubAction actionPage={config.actionPage} done={nextStep}/></Action>
       </ProcaStyle>
       </ConfigProvider>
     );

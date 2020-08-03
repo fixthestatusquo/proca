@@ -4,11 +4,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import {
-  Fab,
-  Slide,
-  Badge
-} from "@material-ui/core";
+import { Fab, Button, Slide, Badge } from "@material-ui/core";
 //import DialogActions from '@material-ui/core/DialogActions';
 //import DialogContentText from '@material-ui/core/DialogContentText';
 import { useTranslation } from "react-i18next";
@@ -38,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 });
 */
 export default function FABAction(props) {
-//  const theme = useTheme();
+  //  const theme = useTheme();
 
   const { t } = useTranslation();
 
@@ -50,25 +46,39 @@ export default function FABAction(props) {
 
   const classes = useStyles();
   return (
-    <div className={classes.fab}>
-      <Slide direction="right" mountOnEnter unmountOnExit in={true}>
-        <Badge
-          badgeContent={counter}
-          max={9999999}
-          color="secondary"
-          overlap="circle"
-        >
-          <Fab
-            color="primary"
-            variant="extended"
-            aria-label="sign"
-            onClick={handleClickOpen}
+    <>
+      <Button
+        variant="contained"
+        fullWidth
+        type="submit"
+        size="large"
+        onClick={handleClickOpen}
+        endIcon={<CreateIcon />}
+      >
+        {" "}
+        {t("Sign now!")}
+      </Button>
+
+      <div className={classes.fab}>
+        <Slide direction="right" mountOnEnter unmountOnExit in={true}>
+          <Badge
+            badgeContent={counter}
+            max={9999999}
+            color="secondary"
+            overlap="circle"
           >
-            <CreateIcon />
-            {t("Sign now!")}&nbsp;
-          </Fab>
-        </Badge>
-      </Slide>
-    </div>
+            <Fab
+              color="primary"
+              variant="extended"
+              aria-label={t("Sign now!")}
+              onClick={handleClickOpen}
+            >
+              <CreateIcon />
+              {t("Sign now!")}&nbsp;
+            </Fab>
+          </Badge>
+        </Slide>
+      </div>
+    </>
   );
 }

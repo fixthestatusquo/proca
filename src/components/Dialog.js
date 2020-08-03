@@ -9,68 +9,69 @@ import {
   DialogContent,
   DialogTitle,
   useMediaQuery,
-  IconButton,
+  IconButton
 } from "@material-ui/core";
 //import { useTranslation } from "react-i18next";
 
 import CloseIcon from "@material-ui/icons/Close";
+import Slide from "@material-ui/core/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const useStyles = makeStyles(theme => ({
   dialogTitle: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   }
 }));
 
-
-function OpenDialog (props) {
+function OpenDialog(props) {
   const [open, setOpen] = useState(props.dialog || false);
   const [title, setTitle] = useState(props.name || "");
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  useEffect(() => setOpen(props.dialog), [props.dialog])
-
-  const handleClickOpen = () => {setOpen(true);};
+  useEffect(() => setOpen(props.dialog), [props.dialog]);
 
   const handleClose = () => {
     setOpen(false);
     if (props.close instanceof Function) {
-      props.close() 
+      props.close();
     } else {
-      if (props.done instanceof Function)
-        props.done()
+      if (props.done instanceof Function) props.done();
     }
   };
 
   const classes = useStyles();
-  return (
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="sign-dialog-title"
-        fullScreen={fullScreen}
-      >
-        <DialogTitle className={classes.dialogTitle} disableTypography>
-            <h2>{title}</h2>
-            <IconButton onClick={handleClose}><CloseIcon /></IconButton>
-        </DialogTitle>
-        <DialogContent>
-           {props.children}
-        </DialogContent>
-      </Dialog>
-  );
-}
 
-function Close (props) {
-  console.log("close dialog");
-  return "";
+  //{React.cloneElement(props.children, { setTitle: setTitle, title: title })}
+  return (
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      TransitionComponent={Transition}
+      aria-labelledby="sign-dialog-title"
+      fullScreen={fullScreen}
+    >
+      {title ? (
+        <DialogTitle className={classes.dialogTitle} disableTypography>
+          <h2>{title}</h2>
+          <IconButton onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+      ) : null}
+      <DialogContent>{props.children}</DialogContent>
+    </Dialog>
+  );
 }
 
 OpenDialog.defaultProps = {
   dialog: true
-}
+};
 
-  export default OpenDialog;
+export default OpenDialog;
 //export default {Open,Close};
