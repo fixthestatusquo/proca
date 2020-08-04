@@ -9480,10 +9480,10 @@ react-i18next@^11.7.0:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
 
-react-ipgeolocation@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-ipgeolocation/-/react-ipgeolocation-1.2.0.tgz#f05de2f8e86b7d779d2ddd7b3cde5b2e95714432"
-  integrity sha512-oWnjgl4Po16tVI2eEAfDtsw45a5qmFB0Q6KAk0Bx/2rIBtifoapMgbaUcyvWRQDiCEHsB8ow6Gqxp+6dBc0QpA==
+react-ipgeolocation@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-ipgeolocation/-/react-ipgeolocation-1.3.0.tgz#0b1f0c73db4def5b1569c298da4d41dba69900bf"
+  integrity sha512-LC2qwx3Onauq8gsCr9d942EH+GBhmVAaiWqG74hUJaIu8Ou8XZUKBoydhqgir4/0zng4w886nwGrN6Q9LYYhCw==
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.13.1"
