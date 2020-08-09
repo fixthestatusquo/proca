@@ -3,9 +3,9 @@ import {
   Box,
   Grid,
   Radio,
+  RadioGroup,
   FormHelperText,
   FormControlLabel,
-  RadioGroup,
   Collapse
 } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   label: {
     fontSize:theme.typography.pxToRem(13),
     color: theme.palette.text.primary,
+    marginBottom:theme.spacing(0)
   },
   notice: {
     fontSize:theme.typography.pxToRem(13),
