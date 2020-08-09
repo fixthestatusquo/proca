@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import {setConfig,goStep,hook} from "./hooks/useConfig";
+import {setGlobalState, setConfig,goStep,hook} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
@@ -11,8 +11,6 @@ import Config from "Config"; // src/tmp.config/{actionpage}.json
 //console.log(querystring);
 
 let config = {
-  margin: "dense",
-  variant: "filled",
   selector: "#signature-form"
 };
 
@@ -58,7 +56,7 @@ const Widget = args => {
 
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
-    elem.id = "proca-form";
+    elem.id = "proca-widget";
     config.selector = "#" + elem.id;
     document.body.appendChild(elem);
   }
@@ -78,8 +76,10 @@ const go = (action) => {
   goStep(action);
 };
 
-const set = (key, value) => {
+const set = (atom, key, value) => {
   config[key] = value; // pointless?
+  if ((atom && key && value) || ( atom && typeof key ==='object'))
+    return setGlobalState (atom,key,value);
   setConfig (key,value);
 };
 

@@ -21,6 +21,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <style>
+  aa.dark {background: #343a40}
+  aa.light {background: "transparent"}
   html {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
    nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -87,6 +89,8 @@ pre {background:#dede; padding: 10px}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layout</a>
             <div class="dropdown-menu " aria-labelledby="dropdown01">
+              <a class="dropdown-item theme" data-theme="dark" href="#">Toggle dark/light</a>
+            <div class="dropdown-divider"></div>
               <div class="color">
               <a class="dropdown-item" data-color="#2196f3" href="#">Blue</a>
               <a class="dropdown-item" data-color="#9c27b0" href="#">Purple</a>
@@ -97,7 +101,6 @@ pre {background:#dede; padding: 10px}
               <a class="dropdown-item" data-variant="filled" href="#">Filled</a>
               <a class="dropdown-item" data-variant="outlined" href="#">Outlined</a>
               <a class="dropdown-item" data-variant="standard">Standard</a>
-            </div>
             </div>
           </li>
         </ul>
@@ -121,7 +124,7 @@ pre {background:#dede; padding: 10px}
 
 </div>
           <p>
-          This is the text of the open letter, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          This is the text of the campaign, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -136,7 +139,8 @@ Massa id neque aliquam vestibulum morbi blandit. Mauris rhoncus aenean vel elit 
 </p><p>
 Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed elementum tempus egestas. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Mauris pellentesque pulvinar pellentesque habitant. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Lacus luctus accumsan tortor posuere. Nunc non blandit massa enim nec dui nunc. Interdum consectetur libero id faucibus nisl. Ac auctor augue mauris augue neque gravida in. Habitant morbi tristique senectus et. Amet consectetur adipiscing elit pellentesque habitant. Tristique sollicitudin nibh sit amet commodo nulla. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Et egestas quis ipsum suspendisse. Proin nibh nisl condimentum id. Egestas erat imperdiet sed euismod nisi.</p>
         </div>
-        <div id="action_column" class="col-md-6"><p>Write some explanation on why to sign or whatever you want here</p>
+        <div id="action_column" class="col-md-6"><p>Write some explanation on why to sign or whatever you want here
+          </p>
         <div id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="102"></div>
         </div>
       </div>
@@ -188,7 +192,10 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
       function loader () {
         proca.hook("twitter","load", function(list){
           list[0].description ="bozo";
+          console.log(list);
         });
+        proca.set("geolocate",true);
+        console.log("loaded");
         proca.go(); // continue to the next step
       }
 
@@ -200,14 +207,15 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
           d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
         }
 
-        var params = {aname:""};
-        if (urlParams.get("variant")) {
-          params.variant = urlParams.get("variant");
-        }
-
-        params.actionPage= urlParams.get("actionPage") || 2;
         
-        params.loader = urlParams.get("proca_loader");
+ //       if (urlParams.get("variant")) {
+ //         params.variant = urlParams.get("variant");
+ //       }
+
+        if (urlParams.get("actionPage")) 
+          params.actionPage= urlParams.get("actionPage");
+        
+//        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
       }
 
@@ -229,12 +237,16 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
         window.dispatchEvent(new Event('resize'));
       });
       $('.color a').click(function() {
-        proca.set("layout.primaryColor",$(this).data('color'));
-        proca.go();
-        setTimeout(function(){ proca.go(1)}, 0);
-      });
+        proca.set("layout","primaryColor",$(this).data('color')); });
       $('.variant a').click(function() {
-        proca.set("variant",$(this).data('variant'));
+        proca.set("layout","variant",$(this).data('variant'));
+      });
+      $('a.theme').click(function() {
+        var theme=$(this).data('theme');
+        $("#signature-form").removeClass().addClass("bg-"+theme);
+        
+        proca.set("layout","theme",theme);
+        $(this).data('theme', theme === "light"? "dark":"light");
       });
 });
   </script>

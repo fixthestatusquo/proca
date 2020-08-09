@@ -1,13 +1,61 @@
-// if dealing with context directly gets tiring, possibly: 
-// diegohaz/constate or jamiebuilds/unstated or dai-shi/react-tracked zerobias/effector (multiple stores)
-// storeon/storeon (I like it, might be used to webook outside of the widget too?
+// we have migrated from a single Config context to recoil and multiple atoms.
+// technically, we are migrating, but more or less done
 
 import React,{useContext,useState,useEffect, useCallback} from 'react';
+import {
+  atom,
+  useSetRecoilState,
+  useRecoilValue
+} from 'recoil';
+
+export const layoutState = atom({
+  key: 'layout', // unique ID (with respect to other atoms/selectors)
+  default: {
+    variant:"filled", // options filled, outlined, standard
+    margin:"dense",
+    primaryColor: '#1976d2',
+    secondaryColor: '#dc004e',
+    paletteType:'light',
+    backgroundColor:'tranparent',
+  } // default value (aka initial value)
+});
+
+export let configState = null;
+/*
+export const configState = atom({
+  key:'campaign',
+  default:{
+    actionPage:null,
+    name:null,
+    organisation:null,
+    lang:null,
+    journey: [],
+  } // check the json config attribute in the actionpage for example of more advanced format
+});
+*/
+
+export const initConfigState = (config) => {
+  if (configState) return false;
+  configState = atom({
+    key:'campaign',
+    default: config
+  });
+  return true;
+}
+
 export let Config=React.createContext();
 
 const id='proca-listener';
 
-const set = (key,value)=> {
+export const setGlobalState = (atom, key,value)=> {
+  const event = new CustomEvent('proca-set', {detail: { atom: atom, key: key, value:value }});
+
+  document
+    .getElementById(id)
+    .dispatchEvent(event);
+};
+
+const set = (key,value)=> { // obsolete, will soon be removed
   const event = new CustomEvent('proca-set', {detail: { key: key, value:value }});
 
   document
@@ -26,8 +74,11 @@ const setHook = (object, action, hook)=> {
 };
 
 export const ConfigProvider = props => {
-
   const [config, _setConfig] = useState(props.config);
+  const _setLayout = useSetRecoilState(layoutState);
+  const _setCampaignConfig = useSetRecoilState(configState);
+  
+
   const go = props.go;
 
   const setConfig = useCallback((k,v) => {
@@ -51,12 +102,41 @@ export const ConfigProvider = props => {
     console.log(config);
   },[config,setConfig]);
 
+  const setLayout = useCallback((key, value) => {
+     _setLayout((oldLayout)=>{
+       let d = {...oldLayout};
+       console.log(d);
+       d[key]=value;
+       return d;
+     });
+  },[_setLayout]);
+
+  const setCampaignConfig = useCallback((key, value) => {
+
+    if (typeof key === 'object') {
+      _setCampaignConfig(current => {
+        console.log(current);
+        return {...current, ...key}
+      });
+      return;
+    }
+     _setCampaignConfig(current =>{
+       let d = {...current};
+       d[key]=value;
+       return d;
+     });
+  },[_setCampaignConfig]);
+
 
   useEffect(() => {
     const elem = document.getElementById(id);
-
-    elem.addEventListener('proca-set',  (e) => { 
-      setConfig(e.detail.key,e.detail.value);
+    elem.addEventListener('proca-set',  (e) => {
+      switch (e.detail.atom) {
+        case "layout": setLayout(e.detail.key,e.detail.value); break;
+        case "campaign": setCampaignConfig(e.detail.key,e.detail.value); break;
+        default:
+          setConfig(e.detail.key,e.detail.value);
+      }
     }, false);
 
     elem.addEventListener('proca-hook',  (e) => {
@@ -81,9 +161,10 @@ export const ConfigProvider = props => {
       }
     }, false);
 
-  },[setConfig,go,setHook]);
+  },[setConfig,go,setHook,setLayout,setCampaignConfig]);
 
 
+  //setCampaignConfig(config); 
   return (
     <Config.Provider value={{config, setConfig}}>
       {props.children}
@@ -97,6 +178,9 @@ export const useConfig = () => {
   return useContext(Config)
 };
 
+export const useLayout = () => useRecoilValue(layoutState);
+export const useCampaignConfig = () => useRecoilValue(configState);
+export const useSetCampaignConfig = () => useSetRecoilState(configState);  
 export {set as setConfig};
 export {goStep};
 export {setHook as hook};

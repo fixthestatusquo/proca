@@ -13,14 +13,15 @@ import useElementWidth from "../hooks/useElementWidth";
 import useConfig from "../hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { TextField, Button, Snackbar } from "@material-ui/core";
+import {Button, Snackbar } from "@material-ui/core";
+import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
-import useGeoLocation from "react-ipgeolocation";
+import useGeoLocation from "../hooks/useGeoLocation";
 import { useTranslation } from "react-i18next";
 import Consent from "./Consent";
 
@@ -86,7 +87,7 @@ export default function Register(props) {
   const fields =  watch();
   const country = fields.country || "";
   const comment = fields.comment || "";
-  const location = useGeoLocation({ api: "https://country.proca.foundation", country: country});
+  const location = useGeoLocation({ api: "https://country.proca.foundation",country:country});
   if (location.country && !country) {
     if (!countries.find(d => d.iso === location.country)) {
       console.log("visitor from ", location, "but not on our list");
@@ -208,77 +209,50 @@ export default function Register(props) {
           )}
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
-              id="firstname"
-              name="firstname"
+              form={form}
+              name= "firstname"
               label={t("First name")}
-              className={classes.textField}
               placeholder="eg. Leonardo"
               autoComplete="given-name"
               required
-              inputRef={register}
-              onBlur={handleBlur}
-              error={!!(errors && errors.firstname)}
-              helperText={
-                errors && errors.firstname && errors.firstname.message
-              }
-              variant={options.variant}
-              margin={options.margin}
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
-              id="lastname"
+              form={form}
               name="lastname"
               label={t("Last name")}
               autoComplete="family-name"
-              className={classes.textField}
-              variant={options.variant}
-              margin={options.margin}
-              inputRef={register}
               placeholder="eg. Da Vinci"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="email"
+              form={form}
               name="email"
               type="email"
               label={t("Email")}
               autoComplete="email"
               InputLabelProps={{ shrink: fields.email?.length > 0 }}
-              className={classes.textField}
-              inputRef={register}
-              onBlur={handleBlur}
-              error={!!errors.email}
-              helperText={errors && errors.email && errors.email.message}
-              variant={options.variant}
-              margin={options.margin}
               placeholder="your.email@example.org"
               required
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 3}>
             <TextField
-              id="postcode"
+              form={form}
               name="postcode"
               label={t("Postal Code")}
               autoComplete="postal-code"
-              inputRef={register}
-              className={classes.textField}
-              variant={options.variant}
-              margin={options.margin}
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 9}>
             <TextField
               select
+              form={form}
               id="country"
               name="country"
               label={t("Country")}
-              className={classes.textField}
-              variant={options.variant}
-              inputRef={register}
-              //value={defaultValues.country}
               value={country}
               InputLabelProps={{ shrink: country.length > 0 }}
               SelectProps={{
@@ -287,7 +261,6 @@ export default function Register(props) {
                   className: classes.menu
                 }
               }}
-              margin={options.margin}
               required
             >
               <option key="" value=""></option>
@@ -300,16 +273,12 @@ export default function Register(props) {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="comment"
+              form={form}
               name="comment"
-              className={classes.textField}
               multiline
               rowsMax="20"
               label={t("Comment")}
               InputLabelProps={{ shrink: comment.length > 0 }}
-              inputRef={register}
-              variant={options.variant}
-              margin={options.margin}
             />
           </Grid>
           <Consent

@@ -11,6 +11,7 @@ import {
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
+import { useCampaignConfig } from "../hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -21,17 +22,20 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(0),
     fontSize: theme.typography.pxToRem(16),
     width: "100%",
-    color: "black",
+    color: theme.palette.text.primary,
     padding: "4px",
     lineHeight: "inherit"
   },
-
+  label: {
+    fontSize:theme.typography.pxToRem(13),
+    color: theme.palette.text.primary,
+  },
   notice: {
     fontSize:theme.typography.pxToRem(13),
     fontWeight: 'fontWeightLight',
-    color: theme.palette.text.disabled,
+    color: theme.palette.text.secondary,
     '& a' : {
-      color: theme.palette.text.disabled
+      color: theme.palette.text.secondary
     }
   }
 }));
@@ -42,6 +46,7 @@ export default props => {
   const register = props.register;
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
+  const config=useCampaignConfig();
   const classes = useStyles();
  
   const handleChange = event => {
@@ -58,7 +63,7 @@ export default props => {
           variant={options.variant}
           margin={options.margin}
         >
-          {t("consent.intro", { name: props.organisation })} *
+          {t("consent.intro", { name: config.organisation })} *
         </FormHelperText>
       </Grid>
       <Grid item xs={12}>
@@ -71,6 +76,7 @@ export default props => {
           <FormControlLabel
             value="opt-in"
             inputRef={register}
+            className ={classes.label}
             control={<Radio color="primary" />}
             label={t("consent.opt-in")}
           />
@@ -78,6 +84,7 @@ export default props => {
           <FormControlLabel
             value="opt-out"
             control={<Radio />}
+            className ={classes.label}
             inputRef={register({ required: "Yes or No?" })}
             label={t("consent.opt-out")}
           />

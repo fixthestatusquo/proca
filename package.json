@@ -23,6 +23,7 @@
     "react-ipgeolocation": "^1.3.0",
     "react-scripts": "3.4.1",
     "react-share": "^4.2.1",
+    "recoil": "^0.0.10",
     "uuid": "^8.3.0"
   },
   "scripts": {

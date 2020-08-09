@@ -6,6 +6,8 @@ const { addReactRefresh } = require('customize-cra-react-refresh')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path');
 
+//process.env.NODE_ENV="development";
+
 /* for brotli (future version) 
   const zlib = require('zlib');
   config.plugins.push(new CompressionPlugin({
@@ -73,7 +75,7 @@ const conditionalImport = (alias,journey) =>{
 
 module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
-  useBabelRc();
+//  useBabelRc();
   let widget = {};
   if (!process.env.actionpage) {
     if (!process.env.widget) 

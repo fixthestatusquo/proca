@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import useConfig from "../hooks/useConfig";
+import {useLayout} from "../hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { TextField } from "@material-ui/core";
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 export default props => {
   const { t } = useTranslation();
-  const { config } = useConfig();
+  const layout = useLayout();
   const classes = useStyles();
 
   const handleBlur = (e) => {
@@ -28,8 +28,6 @@ export default props => {
       clearError(e.target.attributes.name.nodeValue);
       return;
     }
-
-    console.log("handle blur");
   };
   const {errors, register, clearError} = props.form;
               // className={classes.textField}
@@ -45,8 +43,8 @@ export default props => {
               helperText={
                 errors && errors[props.name] && errors[props.name].message
               }
-              variant={config.variant}
-              margin={config.margin}
+              variant={layout.variant}
+              margin={layout.margin}
               {...props}
             />
 

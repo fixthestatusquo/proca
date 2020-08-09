@@ -21,6 +21,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <style>
+  aa.dark {background: #343a40}
+  aa.light {background: "transparent"}
   html {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
    nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -86,7 +88,16 @@ pre {background:#dede; padding: 10px}
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layout</a>
-            <div class="dropdown-menu variant" aria-labelledby="dropdown01">
+            <div class="dropdown-menu " aria-labelledby="dropdown01">
+              <a class="dropdown-item theme" data-theme="dark" href="#">Toggle dark/light</a>
+            <div class="dropdown-divider"></div>
+              <div class="color">
+              <a class="dropdown-item" data-color="#2196f3" href="#">Blue</a>
+              <a class="dropdown-item" data-color="#9c27b0" href="#">Purple</a>
+              <a class="dropdown-item" data-color="#4caf50">Green</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="variant">
               <a class="dropdown-item" data-variant="filled" href="#">Filled</a>
               <a class="dropdown-item" data-variant="outlined" href="#">Outlined</a>
               <a class="dropdown-item" data-variant="standard">Standard</a>
@@ -225,8 +236,17 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
         $('#action_column').removeClass().addClass($(this).data('class'));
         window.dispatchEvent(new Event('resize'));
       });
+      $('.color a').click(function() {
+        proca.set("layout","primaryColor",$(this).data('color')); });
       $('.variant a').click(function() {
-        proca.set("variant",$(this).data('variant'));
+        proca.set("layout","variant",$(this).data('variant'));
+      });
+      $('a.theme').click(function() {
+        var theme=$(this).data('theme');
+        $("#signature-form").removeClass().addClass("bg-"+theme);
+        
+        proca.set("layout","theme",theme);
+        $(this).data('theme', theme === "light"? "dark":"light");
       });
 });
   </script>
