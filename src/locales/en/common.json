@@ -1,40 +1,45 @@
 {
   "consent": {
-    "intro":"I agree to {{name}} contacting me about important campaigns",
-    "opt-in":"Yes, keep me informed via email",
+    "intro": "I agree to {{name}} contacting me about important campaigns",
+    "opt-in": "Yes, keep me informed via email",
     "opt-out": "No, don't send me emails or keep me updated in future",
-    "confirm":"<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
+    "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>"
   },
-  "share":{"title":"Almost done! Take the next step.",
-    "intro":"Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏."},
-  "Sign":"Sign Now!",
+  "share": {
+    "title": "Almost done! Take the next step.",
+    "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
+    "message": "You should sign this!",
+    "email": {
+      "subject": "You should sign this",
+      "body": "Hi, \nPlease do sign, I think you want to support it"
+    }
+  },
+  "Sign": "Sign Now!",
 
-"progress":"{{count}} have signed. Let's go to {{goal}}",
-    "This field is required.": "This field is required.",
-    "Enter a number.": "Enter a number.",
-    "Enter a valid email address.": "Enter a valid email address.",
-    "Donations must be %(amount)s or more": "Donations must be %(amount)s or more",
-    "Amount": "Amount",
-    "First name": "First name",
-    "Last name": "Last name",
-    "Email": "Email",
-    "Postal Code":"Postal Code",
+  "progress": "{{count}} have signed. Let's go to {{goal}}",
+  "This field is required.": "This field is required.",
+  "Enter a number.": "Enter a number.",
+  "Enter a valid email address.": "Enter a valid email address.",
+  "Donations must be %(amount)s or more": "Donations must be %(amount)s or more",
+  "Amount": "Amount",
+  "First name": "First name",
+  "Last name": "Last name",
+  "Email": "Email",
+  "Postal Code": "Postal Code",
 
-    "Street": "Street",
-    "City": "City",
-    "Country": "Country",
-    "Thanks!": "Thanks!",
-    "Legal": "Legal",
-    "Privacy": "Privacy",
-    "No Thanks": "No Thanks",
-    "Stay in touch": "Stay in touch",
-    "Sign Up": "Sign Up",
-    "Share on Facebook": "Share on Facebook",
-    "Share on Twitter": "Share on Twitter",
-    "Email_Share button": "Email",
-    "Link_Share button": "Link",
-    "Download explanation" : "Your document is now ready, we are emailing it to you too."
-
-
+  "Street": "Street",
+  "City": "City",
+  "Country": "Country",
+  "Thanks!": "Thanks!",
+  "Legal": "Legal",
+  "Privacy": "Privacy",
+  "No Thanks": "No Thanks",
+  "Stay in touch": "Stay in touch",
+  "Sign Up": "Sign Up",
+  "Share on Facebook": "Share on Facebook",
+  "Share on Twitter": "Share on Twitter",
+  "Email_Share button": "Email",
+  "Link_Share button": "Link",
+  "Download explanation": "Your document is now ready, we are emailing it to you too."
 }

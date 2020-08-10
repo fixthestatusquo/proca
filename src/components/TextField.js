@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {useLayout} from "../hooks/useConfig";
+import {useLayout} from '../hooks/useLayout';
 import { makeStyles } from "@material-ui/core/styles";
 
 import { TextField } from "@material-ui/core";

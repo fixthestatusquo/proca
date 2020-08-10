@@ -7,7 +7,7 @@ import ProcaWidget from "./components/Widget.js";
 import ProcaAlert from "./components/Alert.js";
 
 import Config from "Config"; // src/tmp.config/{actionpage}.json
-
+import {initDataState} from './hooks/useData';
 //console.log(querystring);
 
 let config = {
@@ -89,6 +89,7 @@ const render = () => {
     if (!script) return;
 
 //todo: blacklist some param?
+    initDataState(script.dataset);
     Widget({...script.dataset});
 
   } catch (e) {
@@ -114,7 +115,6 @@ const autoRender = () => {
 };
 
 autoRender();
-
 export { Widget, Alert, set, go, hook, React, ReactDOM};
 
 //      <SignatureForm margin= "dense" variant= "filled" />

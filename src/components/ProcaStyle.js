@@ -2,7 +2,7 @@ import React from 'react';
 import { StylesProvider, createGenerateClassName, createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
 //import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
-import {useLayout} from  "../hooks/useConfig";
+import {useLayout} from  "../hooks/useLayout";
 
 const generateClassName = createGenerateClassName({
   disableGlobal: false,
@@ -76,7 +76,6 @@ export default function ProcaStyle(props) {
   for (const d in theme.zIndex) { // force the widget on the top
     theme.zIndex[d] += 100000;
   }
-
   return (
     <StylesProvider generateClassName={generateClassName}>
     <ThemeProvider theme={theme}>{props.children}</ThemeProvider>

@@ -10,7 +10,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import useElementWidth from "../hooks/useElementWidth";
+import Url from "../lib/urlparser.js";
 import useConfig from "../hooks/useConfig";
+import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
 import {Button, Snackbar } from "@material-ui/core";
@@ -57,6 +59,7 @@ const useStyles = makeStyles(theme => ({
 export default function Register(props) {
   const classes = useStyles();
   const { config} = useConfig();
+  const [data, setData] = useData();
 //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
 
   const { t } = useTranslation();
@@ -70,7 +73,7 @@ export default function Register(props) {
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: config.data
+    defaultValues: data
   });
   const {
     register,
@@ -109,7 +112,7 @@ export default function Register(props) {
   //margin: normal, dense
 
   const onSubmit = async data => {
-    data.tracking = config.utm;
+    data.tracking = Url.utm();
     const result = await addActionContact(
       config.actionType || "register",
       config.actionPage,
@@ -123,6 +126,7 @@ export default function Register(props) {
       return;
     }
     setStatus("success");
+    setData(data);
     uuid(result.addAction); // set the global uuid as signature's fingerprint
     if (props.done)
       props.done({

@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 const useStyles = makeStyles(theme => ({
   root: {
     fontSize: theme.typography.pxToRem(18),
+    color: theme.palette.text.primary,
     width: '100%',
     '& > * + *': {
       marginTop: theme.spacing(2),

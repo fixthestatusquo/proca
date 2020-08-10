@@ -8,17 +8,9 @@ import {
   useRecoilValue
 } from 'recoil';
 
-export const layoutState = atom({
-  key: 'layout', // unique ID (with respect to other atoms/selectors)
-  default: {
-    variant:"filled", // options filled, outlined, standard
-    margin:"dense",
-    primaryColor: '#1976d2',
-    secondaryColor: '#dc004e',
-    paletteType:'light',
-    backgroundColor:'tranparent',
-  } // default value (aka initial value)
-});
+import useData from './useData';
+import {useSetLayout} from './useLayout';
+import i18next from '../lib/i18n';
 
 export let configState = null;
 /*
@@ -35,6 +27,8 @@ export const configState = atom({
 */
 
 export const initConfigState = (config) => {
+  i18next.addResourceBundle("en","common",config.locales,true,true);
+//  delete config.locales;
   if (configState) return false;
   configState = atom({
     key:'campaign',
@@ -75,8 +69,9 @@ const setHook = (object, action, hook)=> {
 
 export const ConfigProvider = props => {
   const [config, _setConfig] = useState(props.config);
-  const _setLayout = useSetRecoilState(layoutState);
+  const setLayout = useSetLayout();
   const _setCampaignConfig = useSetRecoilState(configState);
+  const [,setData] = useData();
   
 
   const go = props.go;
@@ -102,20 +97,10 @@ export const ConfigProvider = props => {
     console.log(config);
   },[config,setConfig]);
 
-  const setLayout = useCallback((key, value) => {
-     _setLayout((oldLayout)=>{
-       let d = {...oldLayout};
-       console.log(d);
-       d[key]=value;
-       return d;
-     });
-  },[_setLayout]);
-
   const setCampaignConfig = useCallback((key, value) => {
 
     if (typeof key === 'object') {
       _setCampaignConfig(current => {
-        console.log(current);
         return {...current, ...key}
       });
       return;
@@ -134,6 +119,7 @@ export const ConfigProvider = props => {
       switch (e.detail.atom) {
         case "layout": setLayout(e.detail.key,e.detail.value); break;
         case "campaign": setCampaignConfig(e.detail.key,e.detail.value); break;
+        case "data": setData(e.detail.key,e.detail.value); break;
         default:
           setConfig(e.detail.key,e.detail.value);
       }
@@ -161,7 +147,7 @@ export const ConfigProvider = props => {
       }
     }, false);
 
-  },[setConfig,go,setHook,setLayout,setCampaignConfig]);
+  },[setConfig,go,setHook,setLayout,setCampaignConfig,setData]);
 
 
   //setCampaignConfig(config); 
@@ -178,7 +164,6 @@ export const useConfig = () => {
   return useContext(Config)
 };
 
-export const useLayout = () => useRecoilValue(layoutState);
 export const useCampaignConfig = () => useRecoilValue(configState);
 export const useSetCampaignConfig = () => useSetRecoilState(configState);  
 export {set as setConfig};

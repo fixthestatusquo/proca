@@ -7,6 +7,7 @@ import { getAllData } from "../lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import {RecoilRoot} from 'recoil';
+import {initDataState} from '../hooks/useData';
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 
@@ -77,6 +78,7 @@ const Widget = props => {
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
 
+  initDataState(Url.data());
   if (isMobile) {
     let j = Object.assign([], props.journey);
     if (j[0] !== "dialog") j.unshift("dialog");

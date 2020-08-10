@@ -4,14 +4,13 @@ import React from "react";
 
 import {
   IconButton,
-//  ButtonGroup,
-//  Button,
+  //  ButtonGroup,
+  //  Button,
   Card,
   CardHeader,
   CardActions,
   CardContent,
   CardMedia
-
 } from "@material-ui/core";
 
 import metadataparser from "page-metadata-parser";
@@ -19,7 +18,7 @@ import uuid from "../lib/uuid";
 import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";
 import { useTranslation } from "react-i18next";
-import useConfig from '../hooks/useConfig';
+import useConfig from "../hooks/useConfig";
 
 import {
   EmailShareButton,
@@ -65,8 +64,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   root: {
-    "& p": {fontSize: theme.typography.pxToRem(16)},
-    "& h3": {fontSize: theme.typography.pxToRem(20)}
+    "& p": { fontSize: theme.typography.pxToRem(16) },
+    "& h3": { fontSize: theme.typography.pxToRem(20) }
   },
   widroot: {
     "& Button": { justifyContent: "left" },
@@ -84,67 +83,63 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function ShareAction(props) {
   const classes = useStyles();
-  const {config} = useConfig();
+  const { config } = useConfig();
 
-  const actionPage= config.actionPage;
+  const actionPage = config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
-  const shareUrl = (component) => {
-    const url= new URL (window.location.href);
+  const shareUrl = component => {
+    const url = new URL(window.location.href);
     let params = url.searchParams;
 
-    params.set("utm_source","share");
-    params.set("utm_medium",component.render.displayName.replace("ShareButton-",''));
-    params.set("utm_campaign",uuid());
+    params.set("utm_source", "share");
+    params.set(
+      "utm_medium",
+      component.render.displayName.replace("ShareButton-", "")
+    );
+    params.set("utm_campaign", uuid());
 
     return url.toString();
-
   };
   return (
-<div className={classes.root}><h3>{t("share.title")}</h3>
-<p>{t("share.intro")}
-    </p>
-    <Card className={classes.root}>
-      <CardHeader title={metadata.title} subheader={metadata.provider} />
+    <div className={classes.root}>
+      <h3>{t("share.title")}</h3>
+      <p>{t("share.intro")}</p>
+      <Card className={classes.root}>
+        <CardHeader title={metadata.title} subheader={metadata.provider} />
 
-      {metadata.image ? (
-        <CardMedia
-          className={classes.media}
-          image={metadata.image}
-          title={metadata.title}
-        />
-      ) : null}
-      <CardContent>
-        <p>{metadata.description}</p>
-      </CardContent>
+        {metadata.image ? (
+          <CardMedia
+            className={classes.media}
+            image={metadata.image}
+            title={metadata.title}
+          />
+        ) : null}
+        <CardContent>
+          <p>{metadata.description}</p>
+        </CardContent>
         <CardActions>
           <ActionIcon
             icon={WhatsappIcon}
-            title={props['share-whatsapp'] || props.share}
+            title={props["share-whatsapp"] || props.share}
             windowWidth={715}
             windowHeight={544}
             component={WhatsappShareButton}
           />
           <ActionIcon
             icon={FacebookMessengerIcon}
-            title={props['share-whatsapp'] || props.share}
+            title={props["share-whatsapp"] || props.share}
             appId="634127320642564"
             component={FacebookMessengerShareButton}
           />
-          <ActionIcon
-            icon={FacebookIcon}
-            component={FacebookShareButton}
-          />
+          <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
           <ActionIcon
             icon={TwitterIcon}
-            title={props['share-twitter'] || props.share}
+            title={props["share-twitter"] || props.share}
             component={TwitterShareButton}
           />
-          <ActionIcon
-            icon={TelegramIcon}
-            component={TelegramShareButton}
-          />
+          <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
           <ActionIcon
             icon={EmailIcon}
             component={EmailShareButton}
@@ -152,45 +147,46 @@ export default function ShareAction(props) {
             body={props.description}
             separator=" "
           />
-          <ActionIcon
-            icon={RedditIcon}
-            component={RedditShareButton}
-          />
-          <ActionIcon
-            icon={LinkedinIcon}
-            component={LinkedinShareButton}
-          />
+          <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
         </CardActions>
-    </Card>
+      </Card>
     </div>
   );
 
   function ActionIcon(props) {
-    const medium = props.component.render.displayName.replace("ShareButton-",'');
-    function addShare (event) {
-      addAction(actionPage,event,{
+    const medium = props.component.render.displayName.replace(
+      "ShareButton-",
+      ""
+    );
+    function addShare(event) {
+      addAction(actionPage, event, {
         uuid: uuid(),
-        payload: [{key:"medium",value:medium}],
+        payload: [{ key: "medium", value: medium }],
         tracking: Url.utm()
       });
     }
 
-    function after (props) {
-      addShare ("share_close");
-      console.log("closing "+medium);
+    function after(props) {
+      addShare("share_close");
+      console.log("closing " + medium);
     }
 
-    function before (props) {
-      addShare ("share_click");
-      console.log("clicking "+medium);
+    function before(props) {
+      addShare("share_click");
+      console.log("clicking " + medium);
     }
-    let drillProps= Object.assign({}, props);
+    let drillProps = Object.assign({}, props);
     delete drillProps.icon;
     return (
-      <IconButton {...drillProps} component={props.component} url={shareUrl(props.component)} title={props.title || props.share }
+      <IconButton
+        {...drillProps}
+        component={props.component}
+        url={shareUrl(props.component)}
+        title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
-        >
+      >
         {props.icon ? props.icon({ round: true, size: 48 }) : null}
       </IconButton>
     );
