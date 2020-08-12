@@ -12,6 +12,8 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
+import {useLayout} from "../hooks/useLayout";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -42,12 +44,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
-  const errors = props.errors;
-  const options = props.options;
-  const register = props.register;
+  const {errors, register} = props.form;
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
   const config=useCampaignConfig();
+  const layout = useLayout();
   const classes = useStyles();
  
   const handleChange = event => {
@@ -61,8 +62,8 @@ export default props => {
         <FormHelperText
           className={classes.bigHelper}
           error={errors.privacy}
-          variant={options.variant}
-          margin={options.margin}
+          variant={layout.variant}
+          margin={layout.margin}
         >
           {t("consent.intro", { name: config.organisation })} *
         </FormHelperText>

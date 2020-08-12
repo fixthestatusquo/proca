@@ -29,8 +29,8 @@ export default props => {
       return;
     }
   };
-  const {errors, register, clearError} = props.form;
-              // className={classes.textField}
+  const {errors, register, clearError, watch} = props.form;
+  const value = watch(props.name) || "";
   return (
             <TextField
               id={props.name}
@@ -38,6 +38,7 @@ export default props => {
               label={t(props.name)}
               inputRef={register}
               onBlur={handleBlur}
+              InputLabelProps={{ shrink: value.length > 0 }}
               className={classes.textField}
               error={!!(errors && errors[props.name])}
               helperText={

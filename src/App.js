@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 
 //import logo from './logo.svg';
 //import './App.css';
-import Petition fr "./Petition";
+import Petition from "./Petition";
 import FABAction from "./FAB";
 import { Wizard } from "./Wizard";
 const querystring = require("querystring");

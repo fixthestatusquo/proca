@@ -11,7 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import useElementWidth from "../hooks/useElementWidth";
 import Url from "../lib/urlparser.js";
-import useConfig from "../hooks/useConfig";
+import {useCampaignConfig} from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -49,16 +49,16 @@ const useStyles = makeStyles(theme => ({
       color: "transparent",
       textShadow: "0 0 0 #000"
     },
-    "input:valid + fieldset": {
+    "input:invalid + fieldset": {
       borderColor: "pink",
-      borderWidth: 2
+      borderWidth: 1
     }
   }
 }));
 
 export default function Register(props) {
   const classes = useStyles();
-  const { config} = useConfig();
+  const config = useCampaignConfig();
   const [data, setData] = useData();
 //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
 
@@ -76,20 +76,15 @@ export default function Register(props) {
     defaultValues: data
   });
   const {
-    register,
     handleSubmit,
     setValue,
-    errors,
     setError,
-    clearError,
     watch,
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
-  const fields =  watch();
-  const country = fields.country || "";
-  const comment = fields.comment || "";
+  const country = watch("country") || "";
   const location = useGeoLocation({ api: "https://country.proca.foundation",country:country});
   if (location.country && !country) {
     if (!countries.find(d => d.iso === location.country)) {
@@ -100,17 +95,6 @@ export default function Register(props) {
       setValue("country", location.country);
     }
   }
-
-  const options = {
-    margin: config.margin || "dense",
-    variant: config.variant || "filled"
-  };
-
-  const buttonText =
-    (config.locales && config.locales.register) || t("register");
-  //variant: standard, filled, outlined
-  //margin: normal, dense
-
   const onSubmit = async data => {
     data.tracking = Url.utm();
     const result = await addActionContact(
@@ -150,16 +134,8 @@ export default function Register(props) {
         );
       };
     });
-  }, [register, setError]);
+  }, [setError]);
 
-  const handleBlur = e => {
-    e.target.checkValidity();
-    if (e.target.validity.valid) {
-      clearError(e.target.attributes.name.nodeValue);
-      return;
-    }
-  };
-  form.handleBlur = handleBlur;
 
   function Error(props) {
     if (props.display)
@@ -237,7 +213,6 @@ export default function Register(props) {
               type="email"
               label={t("Email")}
               autoComplete="email"
-              InputLabelProps={{ shrink: fields.email?.length > 0 }}
               placeholder="your.email@example.org"
               required
             />
@@ -258,7 +233,6 @@ export default function Register(props) {
               name="country"
               label={t("Country")}
               value={country}
-              InputLabelProps={{ shrink: country.length > 0 }}
               SelectProps={{
                 native: true,
                 MenuProps: {
@@ -282,15 +256,12 @@ export default function Register(props) {
               multiline
               rowsMax="20"
               label={t("Comment")}
-              InputLabelProps={{ shrink: comment.length > 0 }}
             />
           </Grid>
           <Consent
             organisation={props.organisation}
             privacy_url={config.privacyUrl}
-            errors={errors}
-            options={options}
-            register={register}
+            form={form}
           />
 
           <Grid item xs={12}>
@@ -304,7 +275,7 @@ export default function Register(props) {
               endIcon={<SendIcon />}
             >
               {" "}
-              {buttonText}
+              {t("register")}
             </Button>
           </Grid>
         </Grid>
@@ -315,7 +286,4 @@ export default function Register(props) {
 
 Register.propTypes = {
   actionPage: PropTypes.number.isRequired
-};
-Register.defaultProps = {
-  buttonText: "Register"
 };
