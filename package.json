@@ -8,6 +8,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+  "dependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
     "@material-ui/lab": "^4.0.0-alpha.54",
     "@svgr/webpack": "5.4.0",
@@ -24,7 +25,8 @@
     "react-scripts": "3.4.1",
     "react-share": "^4.2.1",
     "recoil": "^0.0.10",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "scripts": {
     "prepublish": "babel src --out-dir lib",

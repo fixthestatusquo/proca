@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const fs=require('fs');
 const { paths } = require('react-app-rewired');
-const { useBabelRc,override} = require('customize-cra')
+const { useBabelRc,override, addBundleVisualizer} = require('customize-cra')
 const { addReactRefresh } = require('customize-cra-react-refresh')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path');
@@ -77,6 +77,8 @@ module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
 //  useBabelRc();
   let widget = {};
+  process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer();
+
   if (!process.env.actionpage) {
     if (!process.env.widget) 
       process.env.widget="_default";
@@ -115,8 +117,8 @@ module.exports = function override (config, env) {
           if (config.mode !== 'production') return;
           fs.symlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'), './build/index.js');
 //          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'));
-          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map'));
-          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map.gz'));
+//          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map'));
+//          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map.gz'));
           fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.LICENSE.txt.gz'));
         });
       }
@@ -137,7 +139,17 @@ module.exports = function override (config, env) {
   if (widget.HtmlTemplate) {
     config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.HtmlTemplate)
   }
-  if (config.mode === 'production') {
+  console.log(process.env);
+  if (process.env.NPM ==='1') {
+    config.entry= './src/components/widget.js';
+    config.output= {
+      path: path.resolve('lib'),
+      filename: 'Widget.js',
+      libraryTarget: 'commonjs2',
+    };
+    console.log(Object.keys(config));
+  }
+  if (config.mode === 'production' && process.env.NPM !=='1') {
     //config.output.filename= 'static/js/[name].'+minorVersion+'.js'
     //config.output.filename= 'd/'+widget.filename+'/index.js';
     config.output.filename= 'index.js';
