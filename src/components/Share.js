@@ -143,8 +143,8 @@ export default function ShareAction(props) {
           <ActionIcon
             icon={EmailIcon}
             component={EmailShareButton}
-            subject={props.name}
-            body={props.description}
+            subject={t("share.email.subject") || t("share.message")}
+            body={t("share.email.body") || t("share.message")}
             separator=" "
           />
           <ActionIcon icon={RedditIcon} component={RedditShareButton} />
