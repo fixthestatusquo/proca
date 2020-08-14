@@ -1,6 +1,6 @@
 {
   "name": "proca",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": false,
   "files": [
     "dist",
@@ -19,15 +19,15 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
+    "base64url": "^3.0.1",
+    "i18next": "^19.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "i18next": "^19.6.3",
+    "react-hook-form": "^3.28.2",
     "react-i18next": "^11.7.0",
     "react-share": "^4.2.1",
     "recoil": "^0.0.10",
-    "react-hook-form": "^3.28.2",
-    "uuid": "^8.3.0",
-    "base64url": "^3.0.1"
+    "uuid": "^8.3.0"
   },
   "dependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
