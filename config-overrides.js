@@ -119,7 +119,7 @@ module.exports = function override (config, env) {
 //          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js'));
 //          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map'));
 //          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.map.gz'));
-          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.LICENSE.txt.gz'));
+//          fs.unlinkSync(path.resolve(__dirname,'d/'+widget.filename+'/index.js.LICENSE.txt.gz'));
         });
       }
     }
@@ -141,13 +141,16 @@ module.exports = function override (config, env) {
   }
   console.log(process.env);
   if (process.env.NPM ==='1') {
-    config.entry= './src/components/widget.js';
+    config.entry= './src/module.js';
     config.output= {
       path: path.resolve('lib'),
-      filename: 'Widget.js',
+      filename: 'index.js',
       libraryTarget: 'commonjs2',
     };
-    console.log(Object.keys(config));
+    config.plugins[1].options.minify.collapseWhitespace = false;
+    config.plugins[1].options.minify.minifyCSS = false;
+    config.plugins[1].options.minify.minifyJS = false;
+    console.log(config.plugins); process.exit(1);
   }
   if (config.mode === 'production' && process.env.NPM !=='1') {
     //config.output.filename= 'static/js/[name].'+minorVersion+'.js'

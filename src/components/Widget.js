@@ -1,12 +1,11 @@
 import React, { useState, useRef, useCallback } from "react";
-import ProcaStyle from "./ProcaStyle.js";
-import { initConfigState, ConfigProvider} from "../hooks/useConfig";
+import ProcaRoot from './ProcaRoot';
+import { initConfigState} from "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import { getAllData } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
-import {RecoilRoot} from 'recoil';
 import {initDataState} from '../hooks/useData';
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
@@ -191,28 +190,20 @@ const Widget = props => {
         return "FATAL Error, check the log";
       }
       return (
-        <RecoilRoot>
-        <ConfigProvider go={go} actions={getActions} config={config}>
-          <ProcaStyle>
+        <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextStep} />
-          </ProcaStyle>
-        </ConfigProvider>
-        </RecoilRoot>
+        </ProcaRoot>
       );//break;
     case 1:
     case 2:
       let SubAction = steps[journey[current]];
       Action = steps[topMulti.current];
       return (
-        <RecoilRoot>
-        <ConfigProvider go={go} actions={getActions} config={config}>
-          <ProcaStyle>
+        <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextTopStep}>
               <SubAction actionPage={config.actionPage} done={nextStep} />
             </Action>
-          </ProcaStyle>
-        </ConfigProvider>
-        </RecoilRoot>
+        </ProcaRoot>
       );//break;
     default:
       throw Error("Oops, it should be a sub step");

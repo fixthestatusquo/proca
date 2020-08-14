@@ -10,6 +10,7 @@
 /coverage
 
 # production
+/src/locales/common.json
 /build
 /dist
 /d 

@@ -2,8 +2,14 @@ import i18n from "i18next";
 //import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import locales from 'locales/common.json'; // locales is an alias to src/locales/{process.widget.lang} 
-const resources = {};
-resources[process.widget.lang.toLowerCase()] = {common:locales};
+let resources = {};
+if (process.widget) {
+  resources[process.widget.lang.toLowerCase()] = {common:locales};
+} else {
+  resources = {common:locales}; // npm published, put all languages
+  process.widget = {lang:"en"};
+}
+
 i18n
 //  .use(LanguageDetector)
   .use(initReactI18next)
