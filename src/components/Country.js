@@ -1,55 +1,69 @@
 import React, {useEffect} from 'react';
-import useConfig from '../hooks/useConfig';
-import {
-  TextField,
-} from "@material-ui/core";
+//import {useCampaignConfig} from "../hooks/useConfig";
+import useData from "../hooks/useData";
+
+import TextField from "./TextField";
 import { useTranslation } from "react-i18next";
-import useForm from "react-hook-form";
 import useGeoLocation from "react-ipgeolocation";
 import { Container, Grid } from "@material-ui/core";
 
 
 import countries from "../data/countries.json";
 
+const emoji = country => {
+  const offset = 127397;
+  let emoji = '';
+
+  if (!country || country.toUpperCase() === "ZZ") return "";
+
+  country.toUpperCase().split('').forEach(char=> 
+    emoji += String.fromCodePoint(char.charCodeAt(0) + offset)
+  );
+
+  return emoji;
+}
+
+const Flag = (props) => {
+  const country = props.country?.toUpperCase();
+  const name = countries.find (d => (d.iso === country));
+    if (!name) return null;
+    const d = emoji (country);
+    return <span title={countries}>{d}</span>;
+}
+
 export default (props)  => {
-  const {config,setConfig} = useConfig();
+//  const config = useCampaignConfig();
+  const [, setData] = useData();
+
   const {t} = useTranslation();
 
   const {
     register,
     setValue,
     watch,
-  } = useForm({
-    //    mode: "onBlur",
-    //    nativeValidation: true,
-    defaultValues: config.data
-  });
+  } = props.form;
 
   const country = watch("country") || "";
   const location = useGeoLocation({api:"https://country.proca.foundation"});
-  if (location.country && !country) {
-    if (!countries.find (d => (d.iso === location.country))) {
-      console.log ("visitor from ",location, "but not on our list");
-      location.country = countries.find (d => (d.iso === "ZZ")) ? "ZZ" : ""; // if "other" exists, set it
-    }
-    if (location.country)
-      setValue("country", location.country);
-  }
+  useEffect (() => {
+    if (location.country && !country) {
+      if (!countries.find (d => (d.iso === location.country))) {
+        console.log ("visitor from ",location, "but not on our list");
+        location.country = countries.find (d => (d.iso === "ZZ")) ? "ZZ" : ""; // if "other" exists, set it
+      }
+      if (!location.country)
+        return;
 
-  useEffect(() => {
-    if (country === "" || config.country === country)
-      return; //nothing to update
-//    console.log("set country before:after",config.country,country);
-    setConfig("country",country);
-  },[country,config,setConfig]);
+      setValue("country", location.country);
+      setData("country",country);
+    }
+  },[location,country,setValue,setData]);
+
 
   useEffect(() => {
     register({ name: "country" });
   }, [register]);
 
-  const selectChange = e => {
-    setValue("country", e.target.value);
-  };
 
 return (
       <Container component="main" maxWidth="sm">
@@ -57,15 +71,9 @@ return (
           <Grid item xs={12}>
             <TextField
               select
-              id="country"
               name="country"
               label={t("Country")}
-              variant={config.variant}
-              inputRef={register}
-              //value={defaultValues.country}
-              value={country}
-              onChange={selectChange}
-              InputLabelProps={{ shrink: country.length > 0 }}
+              form={props.form}
               SelectProps={{
                 native: true,
               }}
@@ -73,7 +81,7 @@ return (
                <option key="" value=""></option>
               {countries.map(option => (
                 <option key={option.iso} value={option.iso}>
-                  {option.name}
+                {(emoji(option.iso) ? emoji(option.iso) + " ": "") + option.name}
                 </option>
               ))}
             </TextField>
@@ -84,3 +92,5 @@ return (
 );
   
 }
+
+export {emoji, Flag};
