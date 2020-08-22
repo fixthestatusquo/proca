@@ -9,7 +9,7 @@ import {
 } from 'recoil';
 
 import useData from './useData';
-import {useSetLayout} from './useLayout';
+import {init as initLayout, useSetLayout} from './useLayout';
 import i18next from '../lib/i18n';
 
 export let configState = null;
@@ -28,6 +28,7 @@ export const configState = atom({
 
 export const initConfigState = (config) => {
   i18next.addResourceBundle("en","common",config.locales,true,true);
+  initLayout (config.layout);
 //  delete config.locales;
   if (configState) return false;
   configState = atom({

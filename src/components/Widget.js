@@ -16,6 +16,7 @@ import Petition from "Conditional_Petition";
 import Button from "./FAB";
 import Share from "Conditional_Share";
 import Twitter from "Conditional_Twitter";
+import Ep from "Conditional_Ep";
 //import Dialog from "Conditional_Dialog";
 import Dialog from "./Dialog";
 import Clickify from "Conditional_Clickify";
@@ -33,6 +34,7 @@ const allSteps = {
   button: Button,
   share: Share,
   twitter: Twitter,
+  Ep: Ep,
   clickify: Clickify,
   html: Html,
   dialog: Dialog,

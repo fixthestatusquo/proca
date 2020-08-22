@@ -7,7 +7,7 @@ import {
 
 let state = null;
 
-export const init = (data) => {
+const init = (data) => {
   if (state) return false;
   const d ={
     variant:"filled", // options filled, outlined, standard
@@ -25,7 +25,7 @@ export const init = (data) => {
   return true;
 }
 
-init();
+//init(); initialised from useConfig
 
 const useLayout = () =>  useRecoilValue (state);
 
@@ -53,5 +53,5 @@ const useSetLayout = () => {
 }
 
 
-export {useSetLayout, useLayout};
+export {useSetLayout, useLayout, init};
 export default useLayout;

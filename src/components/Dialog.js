@@ -11,7 +11,7 @@ import {
   useMediaQuery,
   IconButton
 } from "@material-ui/core";
-//import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
@@ -29,8 +29,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function OpenDialog(props) {
+  const {t} = useTranslation();
   const [open, setOpen] = useState(props.dialog || false);
-  const [title, setTitle] = useState(props.name || "");
+  const title = props.name || (t("dialogTitle") === "dialogTitle" ? "": t("dialogTitle"));
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 

@@ -39,6 +39,7 @@ const conditionalImport = (alias,journey) =>{
     'button': 'FAB',
     'twitter': 'Twitter',
     'dialog': 'Dialog',
+    'Ep': 'Ep',
     'clickify': 'Clickify',
     'html': 'Html',
     'register.CH': 'bespoke/Register-CH',
