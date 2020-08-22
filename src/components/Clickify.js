@@ -7,7 +7,6 @@ const Component = (props) => {
   useEffect (()=> {
     const d = document.querySelectorAll(selector);
     d.forEach( (e) => {
-      console.log(e);
       e.onclick = (event) => {
         event.preventDefault();
         click (e);

@@ -24,7 +24,10 @@ const useStyles = makeStyles(theme => ({
   dialogTitle: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    "& h2" : {
+      margin:"0!important"
+    }
   }
 }));
 

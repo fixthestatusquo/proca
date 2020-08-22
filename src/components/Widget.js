@@ -80,7 +80,7 @@ const Widget = props => {
   let propsJourney = Object.assign([], props.journey);
 
   initDataState(Url.data());
-  if (isMobile) {
+  if (isMobile && props.journey[0] !== "clickify") {
     let j = Object.assign([], props.journey);
     if (j[0] !== "dialog") j.unshift("dialog");
     propsJourney = ["button", j];

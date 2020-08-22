@@ -44,14 +44,13 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   },
   "#petition-form": { position: "relative" },
+  "#proca-widget": { position: "relative" },
   "@global": {
     "select:-moz-focusring": {
       color: "transparent",
       textShadow: "0 0 0 #000"
     },
     "input:invalid + fieldset": {
-      borderColor: "pink",
-      borderWidth: 1
     }
   }
 }));
