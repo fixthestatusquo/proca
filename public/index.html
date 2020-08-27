@@ -43,7 +43,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 <minimal-style style="display:none">
-  #signature-form {max-width:600px;min-width:300px}
+  .proca-widget, #signature-form {max-width:600px;min-width:300px}
 
   .row{
     display: flex;
@@ -141,7 +141,7 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
         </div>
         <div id="action_column" class="col-md-6"><p>Write some explanation on why to sign or whatever you want here
           </p>
-        <div id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="102"></div>
+        <div class="proca-widget" id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="102"></div>
         </div>
       </div>
     </div>
@@ -231,6 +231,10 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
     </script>
 
   <script>
+    function procaReady () {
+      console.log("ready");
+    }
+
     jQuery(function($) {
       $('.columns a').click(function() {
         $('#action_column').removeClass().addClass($(this).data('class'));

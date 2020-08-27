@@ -7,17 +7,25 @@ import Avatar from '@material-ui/core/Avatar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import IconButton from '@material-ui/core/IconButton';
 import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import TwitterIcon from '../images/Twitter.js';
-
+import eugroups from '../data/eugroups.json';
 import {Flag} from './Country';
 import {addAction} from '../lib/server';
 import uuid from '../lib/uuid';
 
+const useStyles = makeStyles(theme => ({
+  icon : {
+    display: 'inline-block',
+    width:'20px'
+  }
+}));
 
 const component= function MepAction(profile) {
+  const classes = useStyles();
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => "https://www.europarl.europa.eu/mepphoto/"+profile.epid+".jpg";
@@ -26,7 +34,7 @@ const component= function MepAction(profile) {
     addAction(profile.actionPage,event,{
         uuid: uuid(),
 //        tracking: Url.utm(),
-        payload: [{key:"screen_name",value:screenName}]
+        payload: [{key:"Twitter",value:screenName}]
     });
   }
 
@@ -35,8 +43,8 @@ const component= function MepAction(profile) {
     let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
     if (t.indexOf("{@}") !== -1) 
-      t = t.replace("{@}", "@" + profile.screen_name);
-    else t = ".@" + profile.screen_name + " " + t;
+      t = t.replace("{@}", "@" + profile.Twitter);
+    else t = ".@" + profile.Twitter + " " + t;
 
     if (profile.actionUrl) {
       if (t.indexOf("{url}") !== -1) 
@@ -47,18 +55,17 @@ const component= function MepAction(profile) {
     var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
     var win = window.open(
       url,
-      "tweet-"+profile.screen_name,
+      "tweet-"+profile.Twitter,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
     select(true);
-    addTweet("twitter_click",profile.screen_name);
-
+    addTweet("twitter_click",profile.Twitter);
     var timer = setInterval( () => {
     if(win.closed) {
       clearInterval(timer);
+      addTweet("twitter_close",profile.Twitter);
       disable(true);
       select(false);
-      addTweet("twitter_close",profile.screen_name);
       if (profile.done instanceof Function)
         profile.done();
     }}, 1000);
@@ -72,8 +79,8 @@ const component= function MepAction(profile) {
              src={img()} />
         </ListItemAvatar>
         <ListItemText
-          primary={profile.first_name + " " + profile.last_name}
-          secondary={ <> <Flag country={profile.constituency?.country} /><span> <img src={'https://s3.eu-central-1.amazonaws.com/newshubv2/party/'+profile.eugroup+'.png'} /> {profile.constituency?.party}</span> </>}
+          primary={<><Flag className={classes.icon} country={profile.constituency?.country} /><span>{profile.first_name} {profile.last_name} </span></>}
+          secondary={ <><span className={classes.icon}> <img src={'https://www.tttp.eu/img/party/icon/'+eugroups[profile.eugroup].picture} title={eugroups[profile.eugroup].name} alt={profile.eugroup}/></span>{profile.constituency?.party}</>}
         />
                   <ListItemSecondaryAction>
                     <IconButton edge="end" aria-label="Tweet" onClick={tweet}>
@@ -86,14 +93,13 @@ const component= function MepAction(profile) {
 }
 
 //component.defaultProps = {
-//  screen_name = "eucampaign";
+//  Twitter = "eucampaign";
 //  text
 //  via
 //}
 
 // you can have actionText (text of function(profile))
 component.propTypes = {
-  Twitter: PropTypes.string.isRequired,
   image: PropTypes.string,
   url: PropTypes.string,
   actionUrl : PropTypes.string,

@@ -28,7 +28,7 @@ const Flag = (props) => {
   const name = countries.find (d => (d.iso === country));
     if (!name) return null;
     const d = emoji (country);
-    return <span title={countries}>{d}</span>;
+    return <span title={name.name}>{d}</span>;
 }
 
 export default (props)  => {

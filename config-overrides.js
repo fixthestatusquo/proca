@@ -107,7 +107,6 @@ module.exports = function override (config, env) {
     widget.journey = string2array(widget.journey);
 
   }
-  console.log(widget); // process.exit(1);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
@@ -140,7 +139,7 @@ module.exports = function override (config, env) {
   if (widget.HtmlTemplate) {
     config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.HtmlTemplate)
   }
-  console.log(process.env);
+  console.log(widget);
   if (process.env.NPM ==='1') {
     config.entry= './src/module.js';
     config.output= {

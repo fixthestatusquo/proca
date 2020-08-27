@@ -80,6 +80,7 @@ const Widget = props => {
   let propsJourney = Object.assign([], props.journey);
 
   initDataState(Url.data());
+
   if (isMobile && props.journey[0] !== "clickify") {
     let j = Object.assign([], props.journey);
     if (j[0] !== "dialog") j.unshift("dialog");
@@ -107,11 +108,18 @@ const Widget = props => {
       }); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
   });
+
   initConfigState(props);
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage, 10);
   
+  /*global procaReady*/
+  /*eslint no-undef: "error"*/
+  if (typeof procaReady === "function") {
+    procaReady();
+  }
+
   const getActions = () => {
     return steps;
   };

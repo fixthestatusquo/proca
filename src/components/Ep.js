@@ -27,6 +27,30 @@ const Component = props => {
   const {watch}=form;
   const country=watch("country");
 
+  const sortProfiles = (d,committee) => {
+    const roleWeight = {"Substitute":1,"Member":3,"Vice-Chair":5,"Chair":8};
+    const getWeight = (c) => {
+      let weight=0;
+      for (let i = 0; i < c.length; i++) {
+        if (committee.includes(c[i].name)) {
+          weight += roleWeight[c[i].role];
+        }
+      }
+      return weight;
+    };
+    d.sort( (a,b) => {
+      if (committee) {
+        const weightA = getWeight(a.committees);
+        const weightB = getWeight(b.committees);
+        // first chairs and big wigs
+        if (weightA > weightB) return false; 
+        if (weightA < weightB) return true;
+        // in case of equal weight, continue and alpha sort
+      }
+      if (a.last_name > b.last_name) return true;
+      return false;
+    });
+  };
   useEffect(() => {
     const fetchData = async url => {
       await fetch(url)
@@ -38,6 +62,19 @@ const Component = props => {
           if (config.hook && typeof config.hook["twitter:load"] === "function") {
             config.hook["twitter:load"](d);
           }
+          if (config?.component?.Ep?.filter) {
+            const committee = config.component.Ep.filter.committee;
+            const profiles = d.filter(meps => {
+              for (let i = 0; i < meps.committees.length; i++) {
+                if (committee.includes(meps.committees[i].name)) return true;
+              }
+              return false;
+            });
+            sortProfiles(profiles,committee);
+            setAllProfiles(profiles);
+            return;
+          }
+          sortProfiles(d);
           setAllProfiles(d);
         })
         .catch(error => {
@@ -48,7 +85,7 @@ const Component = props => {
       fetchData(config.component.twitter.listUrl);
     else 
       fetchData('https://www.tttp.eu/data/meps.json');
-  }, [config.component, config.hook, setAllProfiles]);
+  }, [config.component, config, setAllProfiles]);
 
   const filterProfiles = useCallback ( country => {
       //       setProfiles(allProfiles);

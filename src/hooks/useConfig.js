@@ -1,7 +1,7 @@
 // we have migrated from a single Config context to recoil and multiple atoms.
 // technically, we are migrating, but more or less done
 
-import React,{useContext,useState,useEffect, useCallback} from 'react';
+import React,{useContext,useEffect, useCallback} from 'react';
 import {
   atom,
   useSetRecoilState,
@@ -69,7 +69,7 @@ const setHook = (object, action, hook)=> {
 };
 
 export const ConfigProvider = props => {
-  const [config, _setConfig] = useState(props.config);
+//  const [config, _setConfig] = useState(props.config);
   const setLayout = useSetLayout();
   const _setCampaignConfig = useSetRecoilState(configState);
   const [,setData] = useData();
@@ -77,29 +77,7 @@ export const ConfigProvider = props => {
 
   const go = props.go;
 
-  const setConfig = useCallback((k,v) => {
-    let d = {...config}
-    let keys=k.split(".");
-    switch (keys.length) {
-      case 1: d[k]=v;break;
-      case 2: d[keys[0]] ? d[keys[0]][keys[1]]=v: console.log("invalid key",k);break;
-      case 3: d[keys[0]] ? d[keys[0]][[keys[1][keys[1]]]]=v: console.log("invalid key",k);break;
-      default:
-        console.log("invalid key",k);
-    };
-    _setConfig(d);
-  }, [config]);
-  
-  const setHook = useCallback ((object,action,hook) => {
-    let hooks = config.hook;
-    hooks[object+":"+action] = hook;
-    console.log(hooks,object,action);
-    setConfig("hook",hooks);
-    console.log(config);
-  },[config,setConfig]);
-
   const setCampaignConfig = useCallback((key, value) => {
-
     if (typeof key === 'object') {
       _setCampaignConfig(current => {
         return {...current, ...key}
@@ -108,9 +86,19 @@ export const ConfigProvider = props => {
     }
      _setCampaignConfig(current =>{
        let d = {...current};
-       d[key]=value;
+       if (typeof value === 'object') {
+         d[key]= {...d[key], ...value};
+     } else 
+         d[key]=value;
        return d;
      });
+  },[_setCampaignConfig]);
+
+  const setHook = useCallback ((object,action,hook) => {
+    const hooks = {};
+    hooks[object+":"+action] = hook;
+
+    _setCampaignConfig ("hook",hooks);
   },[_setCampaignConfig]);
 
 
@@ -122,7 +110,7 @@ export const ConfigProvider = props => {
         case "campaign": setCampaignConfig(e.detail.key,e.detail.value); break;
         case "data": setData(e.detail.key,e.detail.value); break;
         default:
-          setConfig(e.detail.key,e.detail.value);
+          console.error ("you need to specify an atom/namespace");//setConfig(e.detail.key,e.detail.value);
       }
     }, false);
 
@@ -148,15 +136,16 @@ export const ConfigProvider = props => {
       }
     }, false);
 
-  },[setConfig,go,setHook,setLayout,setCampaignConfig,setData]);
+  },[go,setHook,setLayout,setCampaignConfig,setData]);
 
 
   //setCampaignConfig(config); 
+    //<Config.Provider value={{config, setConfig}}>
   return (
-    <Config.Provider value={{config, setConfig}}>
+    <>
       {props.children}
       <div id={id}></div>
-    </Config.Provider>
+    </>
   );
 };
 
