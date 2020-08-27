@@ -1,0 +1,50 @@
+{
+  "ECR": {
+    "accronym": "ECR",
+    "name": "European Conservatives and Reformists Group",
+    "picture": "ECR.png",
+    "url": "http://www.ecrgroup.eu/"
+  },
+  "EPP": {
+    "accronym": "EPP",
+    "name": "Group of the European People's Party (Christian Democrats)",
+    "picture": "EPP.png",
+    "url": "http://www.eppgroup.eu/"
+  },
+  "GUE/NGL": {
+    "accronym": "GUE/NGL",
+    "name": "Confederal Group of the European United Left - Nordic Green Left",
+    "picture": "UL.png",
+    "url": "http://www.guengl.eu/"
+  },
+  "Greens/EFA": {
+    "accronym": "Greens/EFA",
+    "name": "Group of the Greens/European Free Alliance",
+    "picture": "GF.png",
+    "url": "http://www.greens-efa.eu/"
+  },
+  "ID": {
+    "accronym": "ID",
+    "name": "Identity and Democracy Group",
+    "picture": "ID.png",
+    "url": "https://www.facebook.com/IDgroupEP/"
+  },
+  "NA": {
+    "accronym": "NA",
+    "name": "NI Non-Attrached Members",
+    "picture": "NI.png",
+    "url": null
+  },
+  "Renew": {
+    "accronym": "Renew",
+    "name": "Renew Europe",
+    "picture": "Renew.png",
+    "url": "https://reneweuropegroup.eu"
+  },
+  "S&D": {
+    "accronym": "S&D",
+    "name": "Group of the Progressive Alliance of Socialists and Democrats in the European Parliament",
+    "picture": "S&D.png",
+    "url": "http://www.socialistsanddemocrats.eu/"
+  }
+}
