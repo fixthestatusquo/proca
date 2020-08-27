@@ -11,7 +11,7 @@ import {initDataState} from './hooks/useData';
 //console.log(querystring);
 
 let config = {
-  selector: ".proca-widget"
+  selector: ".proca-widget, #signature-form" //+, "[href='#proca_widget']"
 };
 
 const Alert = (text,severity) => {
