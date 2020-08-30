@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback,useEffect } from "react";
 import ProcaRoot from './ProcaRoot';
 import { initConfigState} from "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
@@ -21,6 +21,8 @@ import Ep from "Conditional_Ep";
 import Dialog from "./Dialog";
 import Clickify from "Conditional_Clickify";
 import Html from "Conditional_Html";
+import DonateAmount from "Conditional_DonateAmount";
+import DonateStripe from "Conditional_DonateStripe";
 
 // bespoke
 import RegisterCH from "Conditional_bespoke/Register-CH";
@@ -38,6 +40,8 @@ const allSteps = {
   clickify: Clickify,
   html: Html,
   dialog: Dialog,
+  DonateAmount: DonateAmount,
+  DonateStripe: DonateStripe,
   "register.CH": RegisterCH,
   download: Download
 };
@@ -80,6 +84,13 @@ const Widget = props => {
   let propsJourney = Object.assign([], props.journey);
 
   initDataState(Url.data());
+  useEffect(()=>{
+    /*global procaReady*/
+    /*eslint no-undef: "error"*/
+    if (typeof procaReady === "function") {
+      procaReady({});
+    }
+  },[props]);
 
   if (isMobile && props.journey[0] !== "clickify") {
     let j = Object.assign([], props.journey);
@@ -114,11 +125,6 @@ const Widget = props => {
   config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage, 10);
   
-  /*global procaReady*/
-  /*eslint no-undef: "error"*/
-  if (typeof procaReady === "function") {
-    procaReady();
-  }
 
   const getActions = () => {
     return steps;

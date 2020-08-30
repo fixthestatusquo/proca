@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-//import {useCampaignConfig} from "../hooks/useConfig";
 import useData from "../hooks/useData";
 
 import TextField from "./TextField";

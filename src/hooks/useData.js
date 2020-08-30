@@ -21,7 +21,6 @@ const useData = () => {
   const [data,_set] = useRecoilState(dataState);
 
   const setData = useCallback((key, value) => {
-
     if (typeof key === 'object') {
       _set(current => {
         return {...current, ...key}

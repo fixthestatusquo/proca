@@ -1,7 +1,8 @@
 // we have migrated from a single Config context to recoil and multiple atoms.
 // technically, we are migrating, but more or less done
 
-import React,{useContext,useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback} from 'react';
+
 import {
   atom,
   useSetRecoilState,
@@ -150,14 +151,10 @@ export const ConfigProvider = props => {
 };
 
 //export const useConfig = () => (useContext(Config));
-export const useConfig = () => {
-  return useContext(Config)
-};
-
+//useConfig should be replaced by useCampaignConfig, useData, useLayout
 export const useCampaignConfig = () => useRecoilValue(configState);
 export const useSetCampaignConfig = () => useSetRecoilState(configState);  
 export {set as setConfig};
 export {goStep};
 export {setHook as hook};
-export default useConfig;
 

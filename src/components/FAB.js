@@ -20,7 +20,9 @@ const useStyles = makeStyles(theme => ({
     right: 20,
     bottom: 20,
     left: "auto",
-    position: "fixed"
+    position: "fixed",
+    zIndex: theme.zIndex['tooltip']
+
   },
   dialogTitle: {
     display: "flex",

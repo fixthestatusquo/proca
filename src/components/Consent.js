@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     color: theme.palette.text.primary,
     padding: "4px",
-    lineHeight: "inherit"
+    lineHeight: "1.3em"
   },
   label: {
     fontSize:theme.typography.pxToRem(13),
@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
   notice: {
     fontSize:theme.typography.pxToRem(13),
     fontWeight: 'fontWeightLight',
+    lineHeight: '1.3em',
     color: theme.palette.text.secondary,
     '& a' : {
       color: theme.palette.text.secondary

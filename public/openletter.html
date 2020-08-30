@@ -231,6 +231,11 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
     </script>
 
   <script>
+    function procaReady() {
+      console.log("init");
+//      proca.set("data","lastname","bbb");
+    }
+
     jQuery(function($) {
       $('.columns a').click(function() {
         $('#action_column').removeClass().addClass($(this).data('class'));

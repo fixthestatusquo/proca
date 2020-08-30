@@ -1727,6 +1727,18 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.3.tgz#5405ee8e444ed212db44e79351f0c70a582aae25"
   integrity sha512-DetpxZw1fzPD5xUBrIAoplLChO2VB8DlL5Gg+I1IR9b2wPqYIca2WSUxL5g1vLeR4MsQq1NeWriXAVffV+U1Fw==
 
+"@stripe/react-stripe-js@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.1.2.tgz#a7f5ef5b4d7dc7fa723501b706644414cfe6dcba"
+  integrity sha512-07hu8RJXwWKGbvdvd1yt1cYvGtDB8jFX+q10f7FQuItUt9rlSo0am3WIx845iMHANiYgxyRb1PS201Yle9xxPQ==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.9.0.tgz#a4a166b5de88903573c9a7fd04f39610648f4769"
+  integrity sha512-/8+zfeRHlsEsxj0qmq9qbrnyF3fx+r97sDxfv7kqOyZFUFzC7DBwQwZlmss6XiV3ez5vz1G1QIjEW29PmLmsAw==
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -9636,10 +9648,10 @@ react-hook-form-input@^1.0.8:
   resolved "https://registry.yarnpkg.com/react-hook-form-input/-/react-hook-form-input-1.1.10.tgz#71a87d9c814176e7f127382e257bcb8de4498e22"
   integrity sha512-RkkJeQmfUDT+Wq6iVGdvNY3rLTAD7KW1utgbCIyKRpDh41lf2Z8dC57GSapAh8TMLL1s6F57CUqXBZuGHZQgxA==
 
-react-hook-form@^3.28.2:
-  version "3.29.4"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.29.4.tgz#0d4a6650d3f8035e5f4f6740258ac711e0fc3184"
-  integrity sha512-NsqXUIHPmiXcb11gY5e4kiJSc0WONXRo28JLuXBL0dJr1vk60W5IwnzBDeT0mb+V3MIjPrV0lFPKo57VnSZAPw==
+react-hook-form@3.28.2:
+  version "3.28.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.2.tgz#eade3f0d5b1fcb9a95ac34b34fb10561712ff1da"
+  integrity sha512-aNTEIC6z7yuPqgtedAX3wwnzlIJmiSkgYnVxI+s1J8Ya4ibZl9aNRHJ6U/cSptj0KSl4Re2JqihGD9OdlEeUZQ==
 
 react-hot-loader@^4.12.21:
   version "4.12.21"
