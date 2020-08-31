@@ -9665,14 +9665,11 @@ react-hook-form-input@^1.0.8:
   resolved "https://registry.yarnpkg.com/react-hook-form-input/-/react-hook-form-input-1.1.10.tgz#71a87d9c814176e7f127382e257bcb8de4498e22"
   integrity sha512-RkkJeQmfUDT+Wq6iVGdvNY3rLTAD7KW1utgbCIyKRpDh41lf2Z8dC57GSapAh8TMLL1s6F57CUqXBZuGHZQgxA==
 
-<<<<<<< HEAD
 react-hook-form@3.28.2:
   version "3.28.2"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.2.tgz#eade3f0d5b1fcb9a95ac34b34fb10561712ff1da"
   integrity sha512-aNTEIC6z7yuPqgtedAX3wwnzlIJmiSkgYnVxI+s1J8Ya4ibZl9aNRHJ6U/cSptj0KSl4Re2JqihGD9OdlEeUZQ==
 
-=======
->>>>>>> f8943adf836df6c83229353ca295fed6a837a995
 react-hot-loader@^4.12.21:
   version "4.12.21"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.21.tgz#332e830801fb33024b5a147d6b13417f491eb975"
@@ -9687,10 +9684,10 @@ react-hot-loader@^4.12.21:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-i18next@^11.7.1:
-  version "11.7.1"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.7.1.tgz#80c993bf7c4f07937ce0e5ff4e2d7d97bfe3f42f"
-  integrity sha512-K7qWaQ03Nc25BqSqdKz1iGU5inwNQnDVcen/tpiILEXyd0w/z+untrsuUy5Y3PqAkwJ7m1FACwBttSSitxDKQA==
+react-i18next@^11.7.2:
+  version "11.7.2"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.7.2.tgz#b3cb94ad3b85c25e3d4802a141139d65238b976f"
+  integrity sha512-Djj3K3hh5Tecla2CI9rLO3TZBYGMFrGilm0JY4cLofAQONCi5TK6nVmUPKoB59n1ZffgjfgJt6zlbE9aGF6Q0Q==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
