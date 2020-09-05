@@ -40,7 +40,7 @@
     "i18next-extract": "^0.1.3",
     "i18next-xhr-backend": "^3.2.2",
     "page-metadata-parser": "^1.1.4",
-    "react-hook-form": "3.28.2",
+    "react-hook-form": "3.29.4",
     "react-i18next": "^11.7.1",
     "react-ipgeolocation": "^1.3.0",
     "react-share": "^4.2.1",
