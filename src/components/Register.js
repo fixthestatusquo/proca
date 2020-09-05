@@ -84,12 +84,11 @@ export default function Register(props) {
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
-
+console.log(config);
   const country = watch("country") || "";
   //const values = getValues() || {};
   //const country = values.country || "";
   const location = useGeoLocation({ api: "https://country.proca.foundation",country:country});
-  console.log(country,location);
   if (location.country && !country) {
     if (!countries.find(d => d.iso === location.country)) {
       console.log("visitor from ", location, "but not on our list");

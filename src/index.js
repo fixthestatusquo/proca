@@ -52,6 +52,7 @@ const Widget = args => {
   else 
     config = { ...config, ...Config};
 
+  config.actionPage = config.actionPage || config.actionpage;
   document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
 
   if (!document.querySelector(config.selector)) {

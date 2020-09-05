@@ -9665,14 +9665,11 @@ react-hook-form-input@^1.0.8:
   resolved "https://registry.yarnpkg.com/react-hook-form-input/-/react-hook-form-input-1.1.10.tgz#71a87d9c814176e7f127382e257bcb8de4498e22"
   integrity sha512-RkkJeQmfUDT+Wq6iVGdvNY3rLTAD7KW1utgbCIyKRpDh41lf2Z8dC57GSapAh8TMLL1s6F57CUqXBZuGHZQgxA==
 
-<<<<<<< HEAD
 react-hook-form@3.28.2:
   version "3.28.2"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.2.tgz#eade3f0d5b1fcb9a95ac34b34fb10561712ff1da"
   integrity sha512-aNTEIC6z7yuPqgtedAX3wwnzlIJmiSkgYnVxI+s1J8Ya4ibZl9aNRHJ6U/cSptj0KSl4Re2JqihGD9OdlEeUZQ==
 
-=======
->>>>>>> f8943adf836df6c83229353ca295fed6a837a995
 react-hot-loader@^4.12.21:
   version "4.12.21"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.21.tgz#332e830801fb33024b5a147d6b13417f491eb975"
