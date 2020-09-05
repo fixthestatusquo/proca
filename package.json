@@ -75,7 +75,7 @@
     "react-test-renderer": "^16.12.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-visualizer-plugin": "^0.1.11",
-    "yarn": "^1.21.1"
+    "yarn": "^1.22.5"
   },
   "scripts": {
     "nope.prepublish": "babel src --out-dir lib",
