@@ -278,7 +278,7 @@ console.log(config);
               endIcon={<SendIcon />}
             >
               {" "}
-              {t("register")}
+              {props.buttonText || t("register")}
             </Button>
           </Grid>
         </Grid>
