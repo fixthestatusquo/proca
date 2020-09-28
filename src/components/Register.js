@@ -84,7 +84,6 @@ export default function Register(props) {
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
-console.log(config);
   const country = watch("country") || "";
   //const values = getValues() || {};
   //const country = values.country || "";

@@ -1,5 +1,9 @@
 # Proca *Progressive Campaigning* 
 
+- provide a state of the art tool
+- integrate with the campaign website so no new CMS to learn
+- work with coalition and GDPR
+- 
 You want to engage your members and ask them to take an online action? Well, you won't be the first organisation, and you will soon realise that they aren't any decent looking petition tool that are easy to install and configure.
 
 And this is what this tool solves.
