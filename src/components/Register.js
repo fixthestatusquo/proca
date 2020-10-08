@@ -23,7 +23,6 @@ import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
-import useGeoLocation from "../hooks/useGeoLocation";
 import { useTranslation } from "react-i18next";
 import Consent from "./Consent";
 
