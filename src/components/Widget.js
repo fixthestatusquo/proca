@@ -76,7 +76,7 @@ const Widget = props => {
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage, 10);
-  initConfigState(props);
+  initConfigState(config);
   
 
   const getActions = () => {
@@ -153,7 +153,7 @@ const Widget = props => {
 
   switch (depths[current]) {
     case 0:
-      Action = steps[journey[current]];
+      Action = steps[journey[current].replace("/","_")];
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
         return "FATAL Error, check the log";
@@ -165,8 +165,8 @@ const Widget = props => {
       );//break;
     case 1:
     case 2:
-      let SubAction = steps[journey[current]];
-      Action = steps[topMulti.current];
+      let SubAction = steps[journey[current].replace("/","_")];
+      Action = steps[topMulti.current.replace("/","_")];
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextTopStep}>
