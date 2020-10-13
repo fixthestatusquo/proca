@@ -62,7 +62,7 @@
     "@testing-library/user-event": "^12.1.7",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-optimize-clsx": "^2.6.1",
-    "compression-webpack-plugin": "^5.0.1",
+    "compression-webpack-plugin": "^6.0.2",
     "customize-cra": "^1.0.0",
     "customize-cra-react-refresh": "^1.1.0",
     "js-yaml": "^3.14.0",
