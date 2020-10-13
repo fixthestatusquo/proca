@@ -1,16 +1,17 @@
 {
     "consent": {
         "intro": "S’inscrire pour des mises à jour courrier par {{name}}",
-        "opt-in": "Oui ! Dites-moi si cette campagne a été un succès et comment je peux aider d’autres campagnes pertinentes.",
-        "opt-out": "Non ! Je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne.",
+        "opt-in": "Oui ! Dites-moi si cette campagne a été un succès et comment je peux aider d’autres campagnes pertinentes",
+        "opt-out": "Non ! Je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
         "confirm": "<0> Est-tu sûr ?</0><1>En sélectionnant ‚Non‘, tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le ganger. Si tu sélectionne ‚Oui‘, on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
-        "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique."
+        "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique"
     },
     "share": {
         "title": "Presque terminé, passons directement à l’étape suivante.",
-        "intro": "C’est formidable que tu y participe 👍.  Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
+        "intro": "C’est formidable que tu y participe 👍. Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
         "email": {
-            "subject": "Tu devrais signer ça !"
+            "subject": "Tu devrais signer ça !",
+            "body": "Bonjour, \n\nJe pense que tu devrais aimer, j'ai signé, tu devrais le faire !"
         },
         "message": "Tu devrais signer ça !"
     },
@@ -19,7 +20,7 @@
     "This field is required.": "Ce champ est obligatoire.",
     "Enter a number.": "Entrer un chiffre.",
     "Enter a valid email address.": "Saisir une adresse électronique valide.",
-    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de  %(amount) ou plus",
+    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount) ou plus",
     "Amount": "Montant",
     "First name": "Prénom",
     "Last name": "Nom",
@@ -42,7 +43,7 @@
     "Legal": "Juridiques",
     "Privacy": "Protection des données",
     "No Thanks": "Non merci !",
-    "Stay in touch": "Rester en contact ",
+    "Stay in touch": "Rester en contact",
     "Sign now!": "Signer maintenant ! ",
     "Share on Facebook": "Partager sur Facebook",
     "Share on Twitter": "Partager sur Twitter",
@@ -52,5 +53,6 @@
     "Download": "Télécharger",
     "Thank you": "Merci beaucoup !",
     "Download explanation": "Ton fishier PDF est maintenant prêt et nous te l’envoyons par e-mail.",
-    "you need to be 18 years old": "Tu dois être âgé de 18 ans"
+    "you need to be 18 years old": "Tu dois être âgé de 18 ans",
+    "Sign Up": "S'inscrire"
 }
