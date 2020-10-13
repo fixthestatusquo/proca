@@ -1,1 +1,8 @@
-{}
+{
+    "consent": {
+        "confirm": "<0>Jesteś pewien? </0><1>Wybierając 'Nie', nie będziesz w stanie dowiedzieć się, czy ta kampania jest udana, lub czy jest więcej działań, które musimy podjąć razem, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy informować Cię na bieżąco o tej i innych naszych pilnych kampaniach.</1><2>Możesz zrezygnować z subskrypcji w dowolnym momencie.</2>",
+        "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości.",
+        "opt-in": "Tak, informuj mnie na bieżąco za pośrednictwem poczty elektronicznej",
+        "intro": "Zgadzam się na {{name}} kontaktowanie się ze mną w sprawie ważnych kampanii"
+    }
+}
