@@ -40,7 +40,7 @@ const Component = props => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
-          if (config.component?.twitter?.countries === false) 
+          if (!config.component.twitter?.filter.includes("country")) 
             setProfiles(d);
 
         })
@@ -88,7 +88,7 @@ const Component = props => {
       >
         <Register actionPage={props.actionPage} />
       </Dialog>
-      <Country form={form} list={config.component?.twitter?.countries}/>
+    {config.component.twitter?.filter.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
