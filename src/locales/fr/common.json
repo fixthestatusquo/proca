@@ -1,16 +1,21 @@
 {
-  "consent": {
-    "intro":"S’inscrire pour des mises à jour courrier par {{name}}",
-    "opt-in":"Oui ! Dites-moi si cette campagne a été un succès et comment je peux aider d’autres campagnes pertinentes.",
-    "opt-out": "Non ! Je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne." ,
-    "confirm":"<0> Est-tu sûr ?</0><1>En sélectionnant ‚Non‘, tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le ganger. Si tu sélectionne ‚Oui‘, on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
-    "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique."
-  },
-  "share":{"title":"Presque terminé, passons directement à l’étape suivante.",
-    "intro":"C’est formidable que tu y participe 👍.  Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏."},
-
-  "Sign":"Signer maintenant",
-"progress":"{{count}} Signatures. Objectif : {{goal}}",
+    "consent": {
+        "intro": "S’inscrire pour des mises à jour courrier par {{name}}",
+        "opt-in": "Oui ! Dites-moi si cette campagne a été un succès et comment je peux aider d’autres campagnes pertinentes.",
+        "opt-out": "Non ! Je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne.",
+        "confirm": "<0> Est-tu sûr ?</0><1>En sélectionnant ‚Non‘, tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le ganger. Si tu sélectionne ‚Oui‘, on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
+        "processing": "Tes données sont transmises de manière sécurisée et cryptée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique."
+    },
+    "share": {
+        "title": "Presque terminé, passons directement à l’étape suivante.",
+        "intro": "C’est formidable que tu y participe 👍.  Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
+        "email": {
+            "subject": "Tu devrais signer ça !"
+        },
+        "message": "Tu devrais signer ça !"
+    },
+    "Sign": "Signer maintenant",
+    "progress": "{{count}} Signatures. Objectif : {{goal}}",
     "This field is required.": "Ce champ est obligatoire.",
     "Enter a number.": "Entrer un chiffre.",
     "Enter a valid email address.": "Saisir une adresse électronique valide.",
@@ -19,7 +24,7 @@
     "First name": "Prénom",
     "Last name": "Nom",
     "Email": "Adresse électronique",
-    "Postal Code":"Code postal",
+    "Postal Code": "Code postal",
     "Address": "Rue/numéro ",
     "Street": "Rue",
     "Locality": "Municipalité",
@@ -27,12 +32,12 @@
     "Birthdate": "Date de naissance",
     "Country": "Pays",
     "Comment": "Ton commentaire",
-    "Register": "S’inscrire" ,
+    "Register": "S’inscrire",
     "The post code you provided is not valid": "Le code postal due t’as fourni nest pas valide.",
     "Uh oh!": "Oups…",
-    "Sorry the page does not exist": "Désolé, cette page n’existe pas", 
-    "Sign up": "Je signe !" ,
-    "Progress": "{{count}} persons on signé. Aide-nous à atteindre {{goal}}", 
+    "Sorry the page does not exist": "Désolé, cette page n’existe pas",
+    "Sign up": "Je signe !",
+    "Progress": "{{count}} persons on signé. Aide-nous à atteindre {{goal}}",
     "Thanks!": "Merci !",
     "Legal": "Juridiques",
     "Privacy": "Protection des données",
@@ -43,9 +48,9 @@
     "Share on Twitter": "Partager sur Twitter",
     "Email_Share button": "E-mail",
     "Link_Share button": "Lien",
-    "Next" : "Suivant",
-    "Download" : "Télécharger",
-    "Thank you" : "Merci beaucoup !",
-    "Download explanation" : "Ton fishier PDF est maintenant prêt et nous te l’envoyons par e-mail.",
-"you need to be 18 years old":"Tu dois être âgé de 18 ans"
+    "Next": "Suivant",
+    "Download": "Télécharger",
+    "Thank you": "Merci beaucoup !",
+    "Download explanation": "Ton fishier PDF est maintenant prêt et nous te l’envoyons par e-mail.",
+    "you need to be 18 years old": "Tu dois être âgé de 18 ans"
 }
