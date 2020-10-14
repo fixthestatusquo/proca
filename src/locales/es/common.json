@@ -1,1 +1,43 @@
-{}
+{
+    "Download explanation": "Su documento ya está listo, se lo estamos enviando por correo electrónico también.",
+    "Link_Share button": "Enlace",
+    "Email_Share button": "Correo electrónico",
+    "Share on Twitter": "Compartir en Twitter",
+    "Share on Facebook": "Compartir en Facebook",
+    "Sign Up": "Regístrate",
+    "Stay in touch": "Manténgase en contacto",
+    "No Thanks": "No, gracias",
+    "Privacy": "Privacidad",
+    "Legal": "Legal",
+    "Thanks!": "¡Gracias!",
+    "Country": "País",
+    "City": "Ciudad",
+    "Street": "Calle",
+    "Postal Code": "Código postal",
+    "Email": "Correo electrónico",
+    "Last name": "Apellido",
+    "First name": "Nombre",
+    "Amount": "Monto",
+    "Donations must be %(amount)s or more": "Las donaciones deben ser %(s) o más",
+    "Enter a valid email address.": "Proporcione una dirección de correo electrónico válida.",
+    "Enter a number.": "Introduce un número.",
+    "This field is required.": "Este campo es necesario.",
+    "progress": "{{count}} han firmado. Vamos a {{goal}}",
+    "Sign": "¡Firme ahora!",
+    "share": {
+        "email": {
+            "body": "Hola,\nPor favor, firma, creo que quieres apoyarlo.",
+            "subject": "Deberías firmar esto"
+        },
+        "message": "¡Deberías firmar esto!",
+        "intro": "Genial, has firmado 👍. Para multiplicar su impacto, comparta a lo largo y ancho para asegurarse de que todos vean este petition🙏.",
+        "title": "¡Ya casi está! Da el siguiente paso."
+    },
+    "consent": {
+        "processing": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
+        "confirm": "<0>¿Estás seguro?</0><1>Seleccionando \"No\", no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que tomar juntos para ganarla. Si selecciona \"Sí\" le mantendremos informado sobre esta y nuestras otras campañas urgentes.",
+        "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro.",
+        "opt-in": "Sí, mantenme informado por correo electrónico",
+        "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes"
+    }
+}
