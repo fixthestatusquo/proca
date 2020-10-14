@@ -1,1 +1,60 @@
-{}
+{
+    "you need to be 18 years old": "du måste vara 18 år gammal",
+    "twitter": {
+        "actionText": "Jag skrev under. du borde också"
+    },
+    "register": "Lägg till mitt namn",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "Ditt organisationskonto",
+    "Thank you": "Tack.",
+    "Sign now!": "Logga in nu!",
+    "Next": "Nästa",
+    "Locality": "Lokalitet",
+    "Full Name": "Fullständigt namn",
+    "Download": "Hämta",
+    "Comment": "Kommentar",
+    "Birthdate": "Födelsedatum",
+    "Address": "Adress",
+    "Download explanation": "Ditt dokument är nu klart, vi skickar det också till dig via e-post.",
+    "Link_Share button": "Länk",
+    "Email_Share button": "E-post",
+    "Share on Twitter": "Dela på Twitter",
+    "Share on Facebook": "Dela på Facebook",
+    "Sign Up": "Registrera",
+    "Stay in touch": "Hålla kontakten",
+    "No Thanks": "Nej tack",
+    "Privacy": "Sekretess",
+    "Legal": "Användarvillkor",
+    "Thanks!": "Tack!",
+    "Country": "Land",
+    "City": "Stad",
+    "Street": "Gata",
+    "Postal Code": "Postnummer",
+    "Email": "E-post",
+    "Last name": "Efternamn",
+    "First name": "Förnamn",
+    "Amount": "Belopp",
+    "Donations must be %(amount)s or more": "Donationer måste vara% (belopp) s eller mer",
+    "Enter a valid email address.": "Ange en giltig e-postadress.",
+    "Enter a number.": "Ange ett nummer.",
+    "This field is required.": "Detta fält krävs.",
+    "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
+    "progress_plural": "",
+    "Sign": "Logga in nu!",
+    "share": {
+        "email": {
+            "body": "Hej,\nVänligen skriv, jag tror att du vill stödja det",
+            "subject": "Du borde underteckna detta"
+        },
+        "message": "Du borde underteckna detta!",
+        "intro": "Bra, du har undertecknat 👍. För att multiplicera din påverkan, dela långt och brett för att se till att alla ser denna framställning pet.",
+        "title": "Nästan klar! Ta nästa steg."
+    },
+    "consent": {
+        "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
+        "confirm": "<0> Är du säker? </0> <1> Genom att välja \"Nej\" kan du inte ta reda på om den här kampanjen lyckas, eller om det finns fler åtgärder vi måste vidta för att vinna den. Om du väljer \"Ja\" håller vi dig uppdaterad om detta och våra andra brådskande kampanjer. </1> <2> Du kan när som helst avsluta prenumerationen. </2>",
+        "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
+        "opt-in": "Ja, håll mig informerad via e-post",
+        "intro": "Jag godkänner att {{name}} kontaktar mig om viktiga kampanjer"
+    }
+}
