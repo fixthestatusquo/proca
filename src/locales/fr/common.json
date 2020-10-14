@@ -58,5 +58,10 @@
     "Sign Up": "S'inscrire",
     "Your organisation account": "Le compte de votre organisation",
     "Full Name": "Nom complet",
-    "Account": "Compte"
+    "Account": "Compte",
+    "twitter": {
+        "actionText": "J'ai signé. tu devrais aussi"
+    },
+    "register": "Ajouter mon nom",
+    "dialogTitle": "Tenez-moi informé de la campagne"
 }
