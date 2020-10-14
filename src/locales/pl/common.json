@@ -3,6 +3,41 @@
         "confirm": "<0>Jesteś pewien? </0><1>Wybierając 'Nie', nie będziesz w stanie dowiedzieć się, czy ta kampania jest udana, lub czy jest więcej działań, które musimy podjąć razem, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy informować Cię na bieżąco o tej i innych naszych pilnych kampaniach.</1><2>Możesz zrezygnować z subskrypcji w dowolnym momencie.</2>",
         "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości.",
         "opt-in": "Tak, informuj mnie na bieżąco za pośrednictwem poczty elektronicznej",
-        "intro": "Zgadzam się na {{name}} kontaktowanie się ze mną w sprawie ważnych kampanii"
+        "intro": "Zgadzam się na {{name}} kontaktowanie się ze mną w sprawie ważnych kampanii",
+        "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>."
+    },
+    "Download explanation": "Twój dokument jest już gotowy, wysyłamy go do Ciebie również e-mailem.",
+    "Link_Share button": "Łącze",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Udostępnij na Twitterze",
+    "Share on Facebook": "Udostępnij na Facebooku",
+    "Sign Up": "Zarejestruj",
+    "Stay in touch": "Bądźcie w kontakcie",
+    "No Thanks": "No Thanks",
+    "Privacy": "Prywatność",
+    "Legal": "Legal",
+    "Thanks!": "Dziękuję!",
+    "Country": "Kraj",
+    "City": "Miasto",
+    "Street": "Ulica",
+    "Postal Code": "Kod pocztowy",
+    "Email": "Email",
+    "Last name": "Nazwisko",
+    "First name": "Imię",
+    "Amount": "Kwota",
+    "Donations must be %(amount)s or more": "Darowizny muszą wynosić %(kwoty) lub więcej",
+    "Enter a valid email address.": "Wprowadź aktualny adres e-mail.",
+    "Enter a number.": "Podaj liczbę.",
+    "This field is required.": "To pole jest wymagane.",
+    "progress": "{{count}} podpisali. Chodźmy do {{goal}}",
+    "Sign": "Podpisz teraz!",
+    "share": {
+        "email": {
+            "body": "Cześć,\nProszę podpisać, myślę, że chcesz go poprzeć.",
+            "subject": "Powinieneś to podpisać"
+        },
+        "message": "Powinieneś to podpisać!",
+        "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, podziel się daleko i szeroko, aby upewnić się, że wszyscy widzą to petition🙏.",
+        "title": "Prawie zrobione! Zróbcie następny krok."
     }
 }
