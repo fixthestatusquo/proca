@@ -22,7 +22,7 @@
     "Enter a valid email address.": "मान्य ईमेल पता दर्ज करें।",
     "Enter a number.": "एक नंबर दर्ज करें।",
     "This field is required.": "यह सूचना आवश्यक है",
-    "progress": "[०] ने हस्ताक्षर किए। चलो [३५]",
+    "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",
     "Sign": "अभी साइन करें!",
     "share": {
         "email": {
