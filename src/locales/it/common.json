@@ -8,7 +8,12 @@
     },
     "share": {
         "title": "Quasi finito, ora passiamo direttamente al passo successivo.",
-        "intro": "Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏."
+        "intro": "Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏.",
+        "email": {
+            "body": "Ciao,\nFirmi per favore, credo che lei voglia sostenerlo",
+            "subject": "Dovresti firmare questo"
+        },
+        "message": "Dovresti firmare questo!"
     },
     "Sign": "Firma ora!",
     "progress": "{{count}} firme. Obbiettivo: {{goal}}",
@@ -42,5 +47,6 @@
     "Download": "Download",
     "Thank you": "Grazie mille!",
     "Download explanation": "Il PDF è pronto e te lo inviamo ora per e-mail.",
-    "you need to be 18 years old": "Devi avere 18 anni"
+    "you need to be 18 years old": "Devi avere 18 anni",
+    "Sign Up": "Iscrizione"
 }
