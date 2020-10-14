@@ -1,1 +1,63 @@
-{}
+{
+    "you need to be 18 years old": "trid tkun 18-il sena",
+    "twitter": {
+        "actionText": "I ffirmat. għandek ukoll"
+    },
+    "register": "Żid ismi",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
+    "Thank you": "Grazzi",
+    "Sign now!": "Iffirma issa!",
+    "Next": "Li jmiss",
+    "Locality": "Lokalità",
+    "Full Name": "Isem sħiħ",
+    "Download": "Niżżel",
+    "Comment": "Kumment",
+    "Birthdate": "Data tat-twelid",
+    "Address": "Indirizz",
+    "Account": "Kont",
+    "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna qed nibagħtulek email ukoll.",
+    "Link_Share button": "Rabta",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Aqsam fuq Twitter",
+    "Share on Facebook": "Ixxerja fuq facebook",
+    "Sign Up": "Irregistra",
+    "Stay in touch": "Ibqa 'f'kuntatt",
+    "No Thanks": "Le grazzi",
+    "Privacy": "Privatezza",
+    "Legal": "Legali",
+    "Thanks!": "Grazzi!",
+    "Country": "Pajjiż",
+    "City": "Belt",
+    "Street": "Triq",
+    "Postal Code": "Kodiċi postali",
+    "Email": "Email",
+    "Last name": "Kunjom",
+    "First name": "Isem",
+    "Amount": "Ammont",
+    "Donations must be %(amount)s or more": "Id-donazzjonijiet għandhom ikunu% (ammont) s jew aktar",
+    "Enter a valid email address.": "Daħħal indirizz tal-email validu.",
+    "Enter a number.": "Daħħal numru.",
+    "This field is required.": "Dan il-field huwa meħtieġ.",
+    "progress_0": "{{count}} iffirmaw. Ejja mmorru {{goal}}",
+    "progress_1": "",
+    "progress_2": "",
+    "progress_3": "",
+    "Sign": "Iffirma Issa!",
+    "share": {
+        "email": {
+            "body": "Hello,\nJekk jogħġbok iffirma, naħseb li trid tappoġġjaha",
+            "subject": "Għandek tiffirma dan"
+        },
+        "message": "Għandek tiffirma dan!",
+        "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
+        "title": "Kważi lest! Ħu l-pass li jmiss."
+    },
+    "consent": {
+        "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
+        "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2>",
+        "opt-out": "Le, tibgħatx email jew żommni aġġornat fil-futur",
+        "opt-in": "Iva, żommni infurmat permezz tal-email",
+        "intro": "Naqbel li {{name}} tikkuntattjani dwar kampanji importanti"
+    }
+}
