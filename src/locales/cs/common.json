@@ -1,1 +1,22 @@
-{}
+{
+    "Link_Share button": "Odkaz",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Sdílet na Twitteru",
+    "Share on Facebook": "Sdílet na Facebooku",
+    "Sign Up": "Zaregistrovat se",
+    "No Thanks": "Ne, díky",
+    "Privacy": "Soukromí",
+    "Legal": "Právní",
+    "Thanks!": "Díky!",
+    "Country": "Stát",
+    "City": "City",
+    "Street": "Ulice",
+    "Postal Code": "Poštovní směrovací číslo",
+    "Email": "Email",
+    "Last name": "Příjmení",
+    "First name": "Křestní jméno",
+    "Amount": "Částka",
+    "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
+    "Enter a number.": "Zadejte jméno.",
+    "This field is required.": "Toto pole je povinné."
+}
