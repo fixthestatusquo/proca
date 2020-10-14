@@ -41,7 +41,7 @@
     "opt-out": "No, don't send me emails or keep me updated in future",
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>"
   },
-  "dialogTitle": "dialogTitle",
+  "dialogTitle": "Keep me informed about the campaign",
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
