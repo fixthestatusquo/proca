@@ -39,5 +39,22 @@
         "message": "Powinieneś to podpisać!",
         "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, podziel się daleko i szeroko, aby upewnić się, że wszyscy widzą to petition🙏.",
         "title": "Prawie zrobione! Zróbcie następny krok."
-    }
+    },
+    "you need to be 18 years old": "musisz mieć 18 lat",
+    "twitter": {
+        "actionText": "Podpisałem. Ty też powinieneś"
+    },
+    "register": "Dodaj moje imię i nazwisko",
+    "dialogTitle": "Informuj mnie na bieżąco o kampanii",
+    "Your organisation account": "Twoje konto organizacyjne",
+    "Thank you": "Dziękuję",
+    "Sign now!": "Podpisz teraz!",
+    "Next": "Next",
+    "Locality": "Nazwany obszar",
+    "Full Name": "Pełna nazwa",
+    "Download": "Pobierz",
+    "Comment": "Komentarz",
+    "Birthdate": "Data urodzenia",
+    "Address": "Adres",
+    "Account": "Konto"
 }
