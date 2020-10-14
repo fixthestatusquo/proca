@@ -39,5 +39,22 @@
         "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro.",
         "opt-in": "Sí, mantenme informado por correo electrónico",
         "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes"
-    }
+    },
+    "you need to be 18 years old": "tienes que tener 18 años",
+    "twitter": {
+        "actionText": "Yo firmé. Tú también deberías hacerlo."
+    },
+    "register": "Añade mi nombre",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "La cuenta de su organización",
+    "Thank you": "Gracias.",
+    "Sign now!": "¡Firma ahora!",
+    "Next": "Siguiente",
+    "Locality": "Localidad",
+    "Full Name": "Nombre Completo",
+    "Download": "Actualizaciones",
+    "Comment": "Comentario",
+    "Birthdate": "Fecha de nacimiento",
+    "Address": "Dirección",
+    "Account": "Cuenta"
 }
