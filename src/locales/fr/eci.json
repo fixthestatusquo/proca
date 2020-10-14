@@ -217,8 +217,12 @@
             "document.ro.personal.id": "Format non valide. Format requis: NNNNNNNNNNNNN (N = chiffre)",
             "document.se.personal.number": "Format non valide. Format requis: AAMMJJ-NNNN ou AAAAMMJJ-NNNN ou AAMMJJNNNN ou AAAAMMJJNNNN (A = année, M = mois, J = jour, N = chiffre)",
             "document.si.personal.number": "Format non valide. Format requis: NNNNNNNNNNNNN (N = chiffre)",
-            "document.invalid": "Valeur non valide"
-        }
+            "document.invalid": "Valeur non valide",
+            "email.required": "Obligatoire"
+        },
+        "captcha-button-arialabel-image": "Utiliser le captcha image",
+        "captcha-button-arialabel-refresh": "Nouveau captcha",
+        "captcha-button-arialabel-audio": "Utiliser le captcha sonore"
     },
     "howsupport": {
         "s1.title": "Informez-vous",
