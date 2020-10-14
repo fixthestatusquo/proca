@@ -16,7 +16,8 @@
         "message": "Tu devrais signer ceci !"
     },
     "Sign": "Signer maintenant !",
-    "progress": "{{count}} Signatures. Objectif : {{goal}}",
+    "progress": "{{count}} Signature. Objectif : {{goal}}",
+    "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
     "This field is required.": "Ce champ est obligatoire.",
     "Enter a number.": "Entrer un chiffre.",
     "Enter a valid email address.": "Saisir une adresse électronique valide.",
@@ -54,5 +55,8 @@
     "Thank you": "Merci beaucoup !",
     "Download explanation": "Ton fichier PDF est maintenant prêt et nous te l’envoyons par courriel.",
     "you need to be 18 years old": "Tu dois être âgé de 18 ans",
-    "Sign Up": "S'inscrire"
+    "Sign Up": "S'inscrire",
+    "Your organisation account": "Le compte de votre organisation",
+    "Full Name": "Nom complet",
+    "Account": "Compte"
 }
