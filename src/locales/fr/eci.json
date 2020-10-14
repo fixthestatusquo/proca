@@ -1,19 +1,19 @@
 {
     "common": {
-        "page-title": "INITIATIVE CITOYENNE EUROPÉENNE – Apportez votre soutien!",
-		"head-title": {
-            "home":"Initiative citoyenne européenne",
-            "form":"Initiative citoyenne européenne - Formulaire de soutien par pays",
-            "submitted":"Initiative citoyenne européenne - Déclaration de soutien présentée",
-            "all-countries":"Initiative citoyenne européenne - Déclarations de soutien recueillies en ligne",
-            "already":"Initiative citoyenne européenne - Soutien déjà apporté",
-            "disabled":"Initiative citoyenne européenne - Initiative désactivée",
-            "privacy":"Initiative citoyenne européenne - Déclaration de confidentialité",
-            "conformity":"Initiative citoyenne européenne - Certificat de conformité",
-            "error-404":"Initiative citoyenne européenne - Page non trouvée",
-            "error-500":"Initiative citoyenne européenne - Erreur inattendue",
-            "login":"Initiative citoyenne européenne - Se connecter",
-            "not-initialized":"Initiative citoyenne européenne - Initiative non initialisée"
+        "page-title": "INITIATIVE CITOYENNE EUROPÉENNE – Apportez votre soutien !",
+        "head-title": {
+            "home": "Initiative citoyenne européenne",
+            "form": "Initiative citoyenne européenne - Formulaire de soutien par pays",
+            "submitted": "Initiative citoyenne européenne - Déclaration de soutien présentée",
+            "all-countries": "Initiative citoyenne européenne - Déclarations de soutien recueillies en ligne",
+            "already": "Initiative citoyenne européenne - Soutien déjà apporté",
+            "disabled": "Initiative citoyenne européenne - Initiative désactivée",
+            "privacy": "Initiative citoyenne européenne - Déclaration de confidentialité",
+            "conformity": "Initiative citoyenne européenne - Certificat de conformité",
+            "error-404": "Initiative citoyenne européenne - Page non trouvée",
+            "error-500": "Initiative citoyenne européenne - Erreur inattendue",
+            "login": "Initiative citoyenne européenne - Se connecter",
+            "not-initialized": "Initiative citoyenne européenne - Initiative non initialisée"
         },
         "more.info": "Afficher les infos complémentaires",
         "hide.info": "Masquer les infos complémentaires",
@@ -24,9 +24,9 @@
         "select-country": "Veuillez sélectionner votre pays",
         "select-nationality": "Veuillez sélectionner votre nationalité",
         "other-country": "Autre pays...",
-        "from": "Pays:",
+        "from": "Pays :",
         "skip-content": "Aller directement au contenu",
-        "redirect": "Vous serez redirigé(e) vers la page externe:",
+        "redirect": "Vous serez redirigé(e) vers la page externe : ",
         "country": {
             "at": "Autriche",
             "be": "Belgique",
@@ -105,7 +105,7 @@
         "goto-twitter": "Visitez notre page Twitter."
     },
     "initiative": {
-        "public.webpage": "Site internet de la présente initiative (le cas échéant):",
+        "public.webpage": "Site web de la présente initiative (le cas échéant) :",
         "register.webpage": "Adresse internet de la présente initiative dans le registre de la Commission européenne",
         "objectives": "Objectifs",
         "representative": "Personnes de contact",
@@ -234,10 +234,12 @@
         "ocs.version": "Système central de collecte en ligne",
         "privacy-title": "Voir la déclaration de confidentialité",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Voir le certificat de conformité"
+        "conformity-title": "Voir le certificat de conformité",
+        "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses",
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection_fr"
     },
     "congratulations": {
-        "title": "MERCI!",
+        "title": "MERCI !",
         "successfully-title": "Votre déclaration de soutien a été soumise",
         "Keep-your-signature": "Veuillez conserver les références ci-dessus pour toute demande ultérieure",
         "download-signature-identifier": "Télécharger l’identifiant de signature",
@@ -252,7 +254,7 @@
         "stay-informed4": "J’ai pris connaissance de la déclaration relative à la protection de la vie privée et j’accepte le traitement de mes données à caractère personnel.",
         "stay-informed-button": "Rester informé(e)",
         "stay-informed-subtitle": "",
-        "stay-informed-ok": "MERCI!",
+        "stay-informed-ok": "MERCI !",
         "stay-informed-ok-subtitle": "",
         "email": "Adresse électronique",
         "return-website-title": "Retour au site web de l’initiative citoyenne"
@@ -335,15 +337,14 @@
         "5.title": "Le pays que vous avez sélectionné comme pays de nationalité est différent de celui choisi pour apporter votre soutien par un moyen d'identification électronique",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Connexion",
-        "error":"Erreur",
-        "error-msg":"Nom d'utilisateur, mot de passe ou réponse au challenge incorrect. Veuillez vérifier et essayer de nouveau.",
-        "username":"Nom d'utilisateur",
-        "password":"Mot de passe",
-        "challenge":"Code d’authentification («challenge»)",
-        "challenge-result":"Réponse du code d’authentification",
-        "copy-text":"Copier le texte"
+    "login": {
+        "sign-in": "Connexion",
+        "error": "Erreur",
+        "error-msg": "Nom d'utilisateur, mot de passe ou réponse au challenge incorrect. Veuillez vérifier et essayer de nouveau.",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "challenge": "Code d’authentification («challenge»)",
+        "challenge-result": "Réponse du code d’authentification",
+        "copy-text": "Copier le texte"
     }
-
 }
