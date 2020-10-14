@@ -17,7 +17,7 @@
     "Email": "E-mailadres",
     "Last name": "Achternaam",
     "First name": "Voornaam",
-    "Amount": "Bedrag",
+    "Amount": "Hoeveelheid",
     "Donations must be %(amount)s or more": "Donaties moeten % (bedrag) of meer bedragen",
     "Enter a valid email address.": "Voer een geldig e-mailadres in.",
     "Enter a number.": "Voer een nummer in.",
