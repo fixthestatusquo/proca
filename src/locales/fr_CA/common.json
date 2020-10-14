@@ -1,1 +1,43 @@
-{}
+{
+    "Thanks!": "Merci!",
+    "Enter a valid email address.": "Saisir une adresse courriel valide.",
+    "Sign": "Signer maintenant!",
+    "share": {
+        "message": "Tu devrais signer ceci!",
+        "email": {
+            "body": "Bonjour,\nje pense que tu devrais aimer, j'ai signé, tu devrais le faire",
+            "subject": "Tu devrais signer ceci"
+        },
+        "intro": "C’est formidable que tu y participe 👍. Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
+        "title": "Presque terminé, passons directement à l’étape suivante."
+    },
+    "consent": {
+        "processing": "Tes données sont transmises de manière sécurisée et chiffrées. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
+        "confirm": "<0> Est-tu sûr·e?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
+        "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
+        "opt-in": "Oui, gardez-moi informé·e par courriel",
+        "intro": "S’inscrire pour des mises à jour courrier par {{name}}"
+    },
+    "Download explanation": "Ton fichier PDF est maintenant prêt et nous te l’envoyons par courriel.",
+    "Link_Share button": "Lien",
+    "Email_Share button": "Courriel",
+    "Share on Twitter": "Partager sur Twitter",
+    "Share on Facebook": "Partager sur Facebook",
+    "Sign Up": "S'inscrire",
+    "Stay in touch": "Rester en contact",
+    "No Thanks": "Non merci",
+    "Privacy": "Protection des données",
+    "Legal": "Juridiques",
+    "Country": "Pays",
+    "City": "Ville",
+    "Street": "Rue",
+    "Postal Code": "Code postal",
+    "Email": "Courriel",
+    "Last name": "Nom",
+    "First name": "Prénom",
+    "Amount": "Montant",
+    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount) ou plus",
+    "Enter a number.": "Entrer un chiffre.",
+    "This field is required.": "Ce champ est obligatoire.",
+    "progress": "{{count}} Signatures. Objectif : {{goal}}"
+}
