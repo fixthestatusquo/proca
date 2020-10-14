@@ -1,1 +1,17 @@
-{}
+{
+    "Link_Share button": "קישור",
+    "Email_Share button": "דוא״ל",
+    "Share on Facebook": "שיתוף בפייסבוק",
+    "Sign Up": "הרשמה",
+    "No Thanks": "לא, תודה",
+    "Privacy": "פרטיות",
+    "Legal": "משפטי",
+    "Country": "מדינה",
+    "City": "עיר",
+    "Street": "רחוב",
+    "Email": "דוא״ל",
+    "Last name": "שם הרשימה",
+    "Amount": "כמות",
+    "Enter a valid email address.": "נא להקליד כתובת דוא״ל תקנית.",
+    "This field is required.": "שדה זה דרוש."
+}
