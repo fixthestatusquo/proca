@@ -39,5 +39,22 @@
         "opt-out": "Ne, neposílejte mi e-maily ani mě nechte v budoucnu informovat",
         "opt-in": "Ano, informujte mě e-mailem",
         "intro": "Souhlasím, že {{name}} mě bude kontaktovat ohledně důležitých kampaní"
-    }
+    },
+    "you need to be 18 years old": "musíte mít 18 let",
+    "twitter": {
+        "actionText": "Já jsem se podepsal. měl bys také"
+    },
+    "register": "Přidejte mé jméno",
+    "dialogTitle": "Informujte mě o kampani",
+    "Your organisation account": "Váš účet organizace",
+    "Thank you": "Děkuji ti.",
+    "Sign now!": "Přihlaste se hned!",
+    "Next": "Další",
+    "Locality": "Oblast",
+    "Full Name": "Celé jméno",
+    "Download": "Stáhnout",
+    "Comment": "Komentář",
+    "Birthdate": "Datum narození",
+    "Address": "Adresa",
+    "Account": "Účet"
 }
