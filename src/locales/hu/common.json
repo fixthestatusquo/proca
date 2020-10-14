@@ -1,1 +1,61 @@
-{}
+{
+    "you need to be 18 years old": "18 évesnek kell lenned",
+    "twitter": {
+        "actionText": "Aláírtam. Neked is kellene"
+    },
+    "register": "Add hozzá a nevemet",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "A szervezeti fiók",
+    "Thank you": "Köszönöm.",
+    "Sign now!": "Jelentkezzen most!",
+    "Next": "Következő",
+    "Locality": "Dűlő, lakatlan hely",
+    "Full Name": "Teljes név",
+    "Download": "Letöltés",
+    "Comment": "Megjegyzés",
+    "Birthdate": "Születési dátum",
+    "Address": "Cím",
+    "Account": "Fiók",
+    "Download explanation": "A dokumentumod készen áll, neked is elküldjük.",
+    "Link_Share button": "Hivatkozás",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Oszd meg a Twitteren",
+    "Share on Facebook": "Megosztás a Facebookon",
+    "Sign Up": "Regisztráció",
+    "Stay in touch": "Maradj kapcsolatban",
+    "No Thanks": "Nem köszönöm",
+    "Privacy": "Adatvédelem",
+    "Legal": "Jogi feltételek",
+    "Thanks!": "Köszönjük!",
+    "Country": "Ország",
+    "City": "Település",
+    "Street": "Utca",
+    "Postal Code": "irányítószám",
+    "Email": "Email",
+    "Last name": "Családnév",
+    "First name": "Személynév",
+    "Amount": "Összeg",
+    "Donations must be %(amount)s or more": "Az adományoknak legalább% (s) s összegűeknek kell lenniük",
+    "Enter a valid email address.": "Adjon meg egy érvényes e-mail címet.",
+    "Enter a number.": "Írjon be egy számot.",
+    "This field is required.": "A mező kitöltése kötelező.",
+    "progress": "{{count}} aláírta. Menjünk a {{goal}} oldalra",
+    "progress_plural": "",
+    "Sign": "Jelentkezzen most!",
+    "share": {
+        "email": {
+            "body": "Szia,\nKérem, írja alá, azt hiszem, támogatni szeretné",
+            "subject": "Ezt alá kell írnia"
+        },
+        "message": "Ezt alá kellene írnia!",
+        "intro": "Remek, aláírtad 👍. Hatásának megsokszorozása érdekében ossza meg messzire, hogy mindenki láthassa ezt a petíciót🙏.",
+        "title": "Majdnem kész! Tegye meg a következő lépést."
+    },
+    "consent": {
+        "processing": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
+        "confirm": "<0> Biztos benne? </0> <1> A „Nem” kiválasztásával nem tudja megtudni, hogy ez a kampány sikeres-e, vagy van-e még több intézkedés, amelyet együtt kell végrehajtanunk a győzelemhez. Ha az „Igen” lehetőséget választja, folyamatosan tájékoztatunk erről és más sürgős kampányainkról. </1> <2> Bármikor leiratkozhat. </2>",
+        "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
+        "opt-in": "Igen, értesítsen e-mailben",
+        "intro": "Beleegyezem, hogy {{name}} kapcsolatba lépek velem fontos kampányokkal kapcsolatban"
+    }
+}
