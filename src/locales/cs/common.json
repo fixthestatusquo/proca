@@ -18,5 +18,26 @@
     "Amount": "Částka",
     "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
     "Enter a number.": "Zadejte jméno.",
-    "This field is required.": "Toto pole je povinné."
+    "This field is required.": "Toto pole je povinné.",
+    "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
+    "Stay in touch": "Zůstat v kontaktu",
+    "Donations must be %(amount)s or more": "Dary musí být% (částka) s nebo více",
+    "progress": "{{count}} podepsali. Pojďme na {{goal}}",
+    "Sign": "Podepsat hned!",
+    "share": {
+        "email": {
+            "body": "Ahoj,\nPodepište prosím, myslím, že to chcete podpořit",
+            "subject": "Měli byste to podepsat"
+        },
+        "message": "Měli byste to podepsat!",
+        "intro": "Skvělé, podepsali jste 👍. Chcete-li znásobit svůj dopad, sdílejte široko daleko, abyste zajistili, že tuto petici uvidí všichni🙏.",
+        "title": "Skoro hotovo! Udělejte další krok."
+    },
+    "consent": {
+        "processing": "Vaše osobní údaje budou uloženy jako soukromé a bezpečně. Odesláním informací souhlasíte s použitím dat a cookies v souladu s našimi <1> zásadami ochrany osobních údajů </1>",
+        "confirm": "<0> Jste si jisti? </0> <1> Pokud vyberete možnost „Ne“, nebudete moci zjistit, zda je tato kampaň úspěšná, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Pokud vyberete „Ano“, budeme vás informovat o této a dalších naléhavých kampaních. </1> <2> Odběr můžete kdykoli zrušit. </2>",
+        "opt-out": "Ne, neposílejte mi e-maily ani mě nechte v budoucnu informovat",
+        "opt-in": "Ano, informujte mě e-mailem",
+        "intro": "Souhlasím, že {{name}} mě bude kontaktovat ohledně důležitých kampaní"
+    }
 }
