@@ -39,5 +39,14 @@
         "message": "You should sign this!",
         "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
         "title": "Almost done! Take the next step."
-    }
+    },
+    "Thank you": "Thank you.",
+    "Sign now!": "Sign Now!",
+    "Next": "Next",
+    "Full Name": "Full name",
+    "Download": "Download",
+    "Comment": "Comment",
+    "Birthdate": "Birthdate",
+    "Address": "Address",
+    "Account": "Account"
 }
