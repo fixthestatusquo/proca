@@ -1,16 +1,17 @@
 {
-  "consent": {
-    "intro":"Iscriviti agli gli aggiornamenti via e-mail di questa raccolta firme e ulteriori campagne importanti di {{name}}",
-    "opt-in":"Sì! Ditemi se questa raccolta firme ha avuto successo e come posso aiutare per altre campagne rilevanti.",
-    "opt-out": "No. Non desidero ricevere aggiornamenti sui progressi di questa raccolta firme",
-    "confirm":"<0>Sei sicuro/a?</0><1>Scopri via e-mail se abbiamo successo con questa raccolta firme e come puoi continuare a impegnarti su questo tema - il nostro movimento rimane collegato via e-mail!</1><2> Puoi annullare l’iscrizione in qualsiasi momento.</2>",
-    "processing": "I tuoi dati vengono trasmessi in modo sicuro e criptato. Con l’inserimento dei dati accetti le nostre norme per la <1>protezione dei dati</1>."
-  },
-  "share":{"title":"Quasi finito, ora passiamo direttamente al passo successivo.",
-    "intro":"Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏."},
-
-  "Sign":"Firmare ora",
-"progress":"{{count}} firme. Obbiettivo: {{goal}}",
+    "consent": {
+        "intro": "Iscriviti agli gli aggiornamenti via e-mail di questa raccolta firme e ulteriori campagne importanti di {{name}}",
+        "opt-in": "Sì, ditemi se questa raccolta firme ha avuto successo e come posso aiutare per altre campagne rilevanti",
+        "opt-out": "No. Non desidero ricevere aggiornamenti sui progressi di questa raccolta firme",
+        "confirm": "<0>Sei sicuro/a?</0><1>Scopri via e-mail se abbiamo successo con questa raccolta firme e come puoi continuare a impegnarti su questo tema - il nostro movimento rimane collegato via e-mail!</1><2> Puoi annullare l’iscrizione in qualsiasi momento.</2>",
+        "processing": "I tuoi dati vengono trasmessi in modo sicuro e criptato. Con l’inserimento dei dati accetti le nostre norme per la <1>protezione dei dati</1>"
+    },
+    "share": {
+        "title": "Quasi finito, ora passiamo direttamente al passo successivo.",
+        "intro": "Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏."
+    },
+    "Sign": "Firma ora!",
+    "progress": "{{count}} firme. Obbiettivo: {{goal}}",
     "This field is required.": "Questo campo è obbligatorio.",
     "Enter a number.": "Inserire una cifra.",
     "Enter a valid email address.": "Inserire un indirizzo e-mail valido.",
@@ -37,10 +38,9 @@
     "Share on Twitter": "Condividere su Twitter",
     "Email_Share button": "E-mail",
     "Link_Share button": "Link",
-    "Next" : "Avanti",
-    "Download" : "Download",
-    "Thank you" : "Grazie mille!",
-    "Download explanation" : "Il PDF è pronto e te lo inviamo ora per e-mail.",
-"you need to be 18 years old":"Devi avere 18 anni"
-
+    "Next": "Avanti",
+    "Download": "Download",
+    "Thank you": "Grazie mille!",
+    "Download explanation": "Il PDF è pronto e te lo inviamo ora per e-mail.",
+    "you need to be 18 years old": "Devi avere 18 anni"
 }
