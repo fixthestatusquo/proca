@@ -8,7 +8,12 @@
     },
     "share": {
         "title": "Fast fertig, jetzt gleich weiter zum nächsten Schritt.",
-        "intro": "Super, dass Du mitmachst 👍. Um Deinen Einfluss zu vervielfachen, teile diese Unterschriftensammlung, wo es nur geht, um sicherzustellen, dass so viele Menschen wie möglich diese Vorlage sehen🙏."
+        "intro": "Super, dass Du mitmachst 👍. Um Deinen Einfluss zu vervielfachen, teile diese Unterschriftensammlung, wo es nur geht, um sicherzustellen, dass so viele Menschen wie möglich diese Vorlage sehen🙏.",
+        "email": {
+            "body": "Hallo,\nBitte unterschreiben Sie, ich glaube, Sie wollen es unterstützen",
+            "subject": "Sie sollten dies unterschreiben"
+        },
+        "message": "Sie sollten dies unterschreiben!"
     },
     "Sign": "Jetzt unterschreiben!",
     "progress": "{{count}} Unterschriften. Ziel: {{goal}}",
@@ -42,5 +47,6 @@
     "Download": "Download",
     "Thank you": "Vielen Dank!",
     "Download explanation": "Dein PDF ist jetzt bereit und wir senden es gerade per E-Mail an Dich.",
-    "you need to be 18 years old": "Du musst 18 Jahre alt sein"
+    "you need to be 18 years old": "Du musst 18 Jahre alt sein",
+    "Sign Up": "Registrieren"
 }
