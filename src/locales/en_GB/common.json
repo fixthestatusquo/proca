@@ -1,1 +1,43 @@
-{}
+{
+    "Download explanation": "Your document is now ready; we are emailing it to you too.",
+    "Sign Up": "Sign up",
+    "No Thanks": "No thanks",
+    "Postal Code": "Postal code",
+    "Last name": "Surname",
+    "First name": "Given name",
+    "consent": {
+        "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
+        "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
+        "opt-out": "No, don't send me emails or keep me updated in future",
+        "opt-in": "Yes, keep me informed via email",
+        "intro": "I agree to {{name}} contacting me about important campaigns"
+    },
+    "Link_Share button": "Link",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Share on Twitter",
+    "Share on Facebook": "Share on Facebook",
+    "Stay in touch": "Stay in touch",
+    "Privacy": "Privacy",
+    "Legal": "Legal",
+    "Thanks!": "Thanks!",
+    "Country": "Country",
+    "City": "City",
+    "Street": "Street",
+    "Email": "Email",
+    "Amount": "Amount",
+    "Donations must be %(amount)s or more": "Donations must be %(amount)s or more",
+    "Enter a valid email address.": "Enter a valid email address.",
+    "Enter a number.": "Enter a number.",
+    "This field is required.": "This field is required.",
+    "progress": "{{count}} have signed. Let's go to {{goal}}",
+    "Sign": "Sign Now!",
+    "share": {
+        "email": {
+            "body": "Hi, \nPlease do sign, I think you want to support it",
+            "subject": "You should sign this"
+        },
+        "message": "You should sign this!",
+        "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
+        "title": "Almost done! Take the next step."
+    }
+}
