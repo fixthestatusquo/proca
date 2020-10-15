@@ -1,1 +1,61 @@
-{}
+{
+    "you need to be 18 years old": "você precisa ter 18 anos de idade",
+    "twitter": {
+        "actionText": "Eu assinei. Tu também devias."
+    },
+    "register": "Acrescentar meu nome",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "A sua conta de organização",
+    "Thank you": "Obrigado.",
+    "Sign now!": "Assine agora!",
+    "Next": "Seguinte",
+    "Locality": "Localidade",
+    "Full Name": "Nome completo",
+    "Download": "Descarregar",
+    "Comment": "Comentário",
+    "Birthdate": "Data de nascimento",
+    "Address": "Endereço",
+    "Account": "Conta",
+    "Download explanation": "O seu documento está agora pronto, estamos a enviar-lho também por e-mail.",
+    "Link_Share button": "Ligação",
+    "Email_Share button": "E-mail",
+    "Share on Twitter": "Share on Twitter",
+    "Share on Facebook": "Partilhar no Facebook",
+    "Sign Up": "Criar conta",
+    "Stay in touch": "Mantenha-se em contacto",
+    "No Thanks": "Não, obrigado.",
+    "Privacy": "Privacidade",
+    "Legal": "Legal",
+    "Thanks!": "Obrigado!",
+    "Country": "País",
+    "City": "Cidade",
+    "Street": "Rua",
+    "Postal Code": "Código postal",
+    "Email": "E-mail",
+    "Last name": "Apelido",
+    "First name": "Nome",
+    "Amount": "Quantidade",
+    "Donations must be %(amount)s or more": "As doações devem ser %(montante)s ou mais",
+    "Enter a valid email address.": "Insira um endereço de &lt;i&gt;e-mail&lt;/i&gt; válido.",
+    "Enter a number.": "Digite um número.",
+    "This field is required.": "Este campo é obrigatório.",
+    "progress": "{{count}} assinaram. Vamos ao {{goal}}.",
+    "progress_plural": "",
+    "Sign": "Assine Agora!",
+    "share": {
+        "email": {
+            "body": "Hi,\nPor favor assine, acho que você quer apoiar",
+            "subject": "Você deve assinar isto"
+        },
+        "message": "Devias assinar isto!",
+        "intro": "Ótimo, você assinou 👍. Para multiplicar o seu impacto, partilhe longe e longe para que todos vejam isto petition🙏.",
+        "title": "Quase pronto! Dê o próximo passo."
+    },
+    "consent": {
+        "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>.",
+        "confirm": "<0>Tem a certeza?</0><<1>Se seleccionar 'Não', não conseguirá descobrir se esta campanha tem sucesso, ou se há mais acção que precisamos de tomar em conjunto para a ganhar. Se você selecionar 'Sim', vamos mantê-lo atualizado sobre esta e nossas outras campanhas urgentes.</1><<2> Você pode cancelar sua inscrição a qualquer momento.</2>",
+        "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro.",
+        "opt-in": "Sim, mantenha-me informado por e-mail",
+        "intro": "Eu concordo em {{name}} me contatar sobre campanhas importantes"
+    }
+}

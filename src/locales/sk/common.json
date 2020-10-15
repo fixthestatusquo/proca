@@ -1,1 +1,62 @@
-{}
+{
+    "you need to be 18 years old": "musíte mať 18 rokov",
+    "twitter": {
+        "actionText": "Podpísal som sa. mali by ste tiež"
+    },
+    "register": "Pridajte moje meno",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "Váš účet organizácie",
+    "Thank you": "Ďakujeme!",
+    "Sign now!": "Prihlásiť sa teraz!",
+    "Next": "Ďalší",
+    "Locality": "Oblasť",
+    "Full Name": "Celé meno",
+    "Download": "Stiahnuté",
+    "Comment": "Poznámka",
+    "Birthdate": "Dátum narodenia",
+    "Address": "Adresa",
+    "Account": "Účet",
+    "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
+    "Link_Share button": "Odkaz",
+    "Email_Share button": "E-mailová adresa",
+    "Share on Twitter": "Zdieľajte na Twitteri",
+    "Share on Facebook": "Zdieľať na Facebooku",
+    "Sign Up": "Zaregistrovať sa",
+    "Stay in touch": "Zostať v kontakte",
+    "No Thanks": "Nie ďakujem",
+    "Privacy": "Súkromie",
+    "Legal": "Právne informácie",
+    "Thanks!": "Vďaka!",
+    "Country": "Krajina",
+    "City": "Mestský",
+    "Street": "Ulica",
+    "Postal Code": "Poštové smerovacie číslo",
+    "Email": "E-mailová adresa",
+    "Last name": "Priezvisko",
+    "First name": "Krstné meno",
+    "Amount": "Čiastka",
+    "Donations must be %(amount)s or more": "Dary musia byť minimálne% (suma) s",
+    "Enter a valid email address.": "Zadajte platnú e-mailovú adresu.",
+    "Enter a number.": "Zadajte číslo.",
+    "This field is required.": "Toto pole je povinné.",
+    "progress_0": "{{count}} podpísali. Poďme na {{goal}}",
+    "progress_1": "",
+    "progress_2": "",
+    "Sign": "Prihlásiť sa teraz!",
+    "share": {
+        "email": {
+            "body": "Ahoj,\nProsím, podpíšte sa, myslím, že to chcete podporiť",
+            "subject": "Mali by ste to podpísať"
+        },
+        "message": "Toto by ste mali podpísať!",
+        "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
+        "title": "Skoro hotové! Urobte ďalší krok."
+    },
+    "consent": {
+        "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+        "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
+        "opt-out": "Nie, neposielajte mi e-maily ani ma nebudem informovať o ďalších udalostiach",
+        "opt-in": "Áno, informujte ma e-mailom",
+        "intro": "Súhlasím, že {{name}} ma bude kontaktovať ohľadom dôležitých kampaní"
+    }
+}

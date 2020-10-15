@@ -39,5 +39,22 @@
     "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount) ou plus",
     "Enter a number.": "Entrer un chiffre.",
     "This field is required.": "Ce champ est obligatoire.",
-    "progress": "{{count}} Signatures. Objectif : {{goal}}"
+    "progress": "{{count}} Signatures. Objectif : {{goal}}",
+    "you need to be 18 years old": "vous devez avoir 18 ans",
+    "twitter": {
+        "actionText": "J'ai signé. Vous devriez aussi"
+    },
+    "register": "Ajouter mon nom",
+    "dialogTitle": "Tenez-moi informé de la campagne",
+    "Your organisation account": "Le compte de votre organisation",
+    "Thank you": "Merci",
+    "Sign now!": "Signez maintenant !",
+    "Next": "Next",
+    "Locality": "Localité",
+    "Full Name": "Nom complet",
+    "Download": "Télécharger",
+    "Comment": "Commentaire",
+    "Birthdate": "Date de naissance",
+    "Address": "Address",
+    "Account": "Compte"
 }

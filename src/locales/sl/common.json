@@ -1,1 +1,63 @@
-{}
+{
+    "you need to be 18 years old": "moraš biti star 18 let",
+    "twitter": {
+        "actionText": "Podpisal sem. tudi vi bi morali"
+    },
+    "register": "Dodaj moje ime",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "Račun vaše organizacije",
+    "Thank you": "Hvala vam",
+    "Sign now!": "Podpiši se zdaj!",
+    "Next": "Naslednja",
+    "Locality": "Okraj",
+    "Full Name": "Polno ime",
+    "Download": "Prejem",
+    "Comment": "Komentar",
+    "Birthdate": "Rojstni datum",
+    "Address": "Naslov",
+    "Account": "Račun",
+    "Download explanation": "Vaš dokument je zdaj pripravljen, tudi vam ga pošiljamo po e-pošti.",
+    "Link_Share button": "Povezava",
+    "Email_Share button": "E-naslov",
+    "Share on Twitter": "Daj v skupno uporaba na Twitter",
+    "Share on Facebook": "Objavi na Facebooku",
+    "Sign Up": "Prijavite se",
+    "Stay in touch": "Ostati v stiku",
+    "No Thanks": "Ne hvala",
+    "Privacy": "Zasebnost",
+    "Legal": "Pravno",
+    "Thanks!": "Hvala!",
+    "Country": "Država",
+    "City": "Kraj",
+    "Street": "Naslov",
+    "Postal Code": "Poštna številka",
+    "Email": "E-naslov",
+    "Last name": "Priimek",
+    "First name": "Ime",
+    "Amount": "Znesek",
+    "Donations must be %(amount)s or more": "Donacije morajo biti% (znesek) s ali več",
+    "Enter a valid email address.": "Vnesite veljaven e-poštni naslov.",
+    "Enter a number.": "Vnesite številko.",
+    "This field is required.": "To polje je obvezno.",
+    "progress_0": "{{count}} so podpisali. Pojdimo na {{goal}}",
+    "progress_1": "",
+    "progress_2": "",
+    "progress_3": "",
+    "Sign": "Prijavite se zdaj!",
+    "share": {
+        "email": {
+            "body": "Živjo,\nProsim, podpišite, mislim, da ga želite podpreti",
+            "subject": "Moral bi to podpisati"
+        },
+        "message": "Moral bi to podpisati!",
+        "intro": "Odlično, podpisali ste 👍. Če želite povečati svoj vpliv, delite daleč naokoli, da bodo vsi videli to peticijo🙏.",
+        "title": "Skoraj končano! Naredite naslednji korak."
+    },
+    "consent": {
+        "processing": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov in piškotkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
+        "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste mogli ugotoviti, ali je ta kampanja uspešna ali moramo za njeno zmago sprejeti več ukrepov. Če izberete »Da«, vas bomo sproti obveščali o tej in drugih nujnih akcijah. </1> <2> Odjavo lahko kadar koli odjavite. </2>",
+        "opt-out": "Ne, ne pošiljajte mi e-poštnih sporočil in me ne obveščajte v prihodnosti",
+        "opt-in": "Da, obveščajte me po e-pošti",
+        "intro": "Strinjam se, da {{name}} me kontaktira glede pomembnih kampanj"
+    }
+}

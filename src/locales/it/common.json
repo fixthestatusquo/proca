@@ -48,5 +48,13 @@
     "Thank you": "Grazie mille!",
     "Download explanation": "Il PDF è pronto e te lo inviamo ora per e-mail.",
     "you need to be 18 years old": "Devi avere 18 anni",
-    "Sign Up": "Iscrizione"
+    "Sign Up": "Iscrizione",
+    "twitter": {
+        "actionText": "Ho firmato. dovresti farlo anche tu"
+    },
+    "register": "Aggiungi il mio nome",
+    "dialogTitle": "Tienimi informato sulla campagna",
+    "Your organisation account": "Il vostro conto organizzazione",
+    "Full Name": "Nome Completo",
+    "Account": "Account"
 }

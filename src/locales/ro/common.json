@@ -39,5 +39,21 @@
         "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
         "opt-in": "Da, ține-mă informat prin e-mail",
         "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante"
-    }
+    },
+    "you need to be 18 years old": "trebuie să ai 18 ani",
+    "twitter": {
+        "actionText": "Am semnat. ar trebui si tu"
+    },
+    "register": "Adaugă numele meu",
+    "dialogTitle": "Păstrați-mă la curent cu campania",
+    "Your organisation account": "Contul organizației dvs.",
+    "Thank you": "Mulțumesc",
+    "Sign now!": "Semnați acum!",
+    "Next": "Următor",
+    "Locality": "Localitate",
+    "Full Name": "Nume complet",
+    "Download": "Descarcă",
+    "Comment": "Comentariu",
+    "Birthdate": "Data nasterii",
+    "Address": "Adresa"
 }

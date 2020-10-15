@@ -39,5 +39,22 @@
         "opt-out": "Nee, stuur me geen e-mails en houd me in de toekomst niet op de hoogte...",
         "opt-in": "Ja, hou me op de hoogte via e-mail",
         "intro": "Ik ga ermee akkoord om {{name}} contact met mij op te nemen over belangrijke campagnes"
-    }
+    },
+    "you need to be 18 years old": "je moet 18 jaar oud zijn",
+    "twitter": {
+        "actionText": "Ik heb getekend. Jij moet ook"
+    },
+    "register": "Voeg mijn naam toe",
+    "dialogTitle": "Hou me op de hoogte van de campagne",
+    "Your organisation account": "Uw organisatie-account",
+    "Thank you": "Dank u wel.",
+    "Sign now!": "Teken nu!",
+    "Next": "Volgende",
+    "Locality": "Nederzetting",
+    "Full Name": "Volledige naam",
+    "Download": "Download",
+    "Comment": "Opmerking",
+    "Birthdate": "Geboortedatum",
+    "Address": "Adres",
+    "Account": "Account"
 }

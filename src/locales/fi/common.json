@@ -1,1 +1,60 @@
-{}
+{
+    "you need to be 18 years old": "sinun on oltava 18-vuotias",
+    "twitter": {
+        "actionText": "Allekirjoitin. Sinunkin pitäisi"
+    },
+    "register": "Lisää nimeni",
+    "dialogTitle": "dialogTitle",
+    "Your organisation account": "Organisaatiotilisi",
+    "Thank you": "Kiitos",
+    "Sign now!": "Kirjaudu nyt!",
+    "Next": "Seuraava",
+    "Locality": "Sijainti",
+    "Full Name": "Koko nimi",
+    "Download": "Lataa",
+    "Comment": "Huomautus",
+    "Birthdate": "Syntymäpäivä",
+    "Address": "Osoite",
+    "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle.",
+    "Link_Share button": "Linkki",
+    "Email_Share button": "Sähköposti",
+    "Share on Twitter": "Share on Twitter",
+    "Share on Facebook": "Jaa Facebookissa",
+    "Sign Up": "Rekisteröidy",
+    "Stay in touch": "Pysyä yhteydessä",
+    "No Thanks": "Ei kiitos",
+    "Privacy": "Yksityisyydensuoja",
+    "Legal": "Lakiasiat",
+    "Thanks!": "Suuret kiitokset!",
+    "Country": "Maa",
+    "City": "Kaupunki",
+    "Street": "Katu",
+    "Postal Code": "Postinumero",
+    "Email": "Sähköposti",
+    "Last name": "Sukunimi",
+    "First name": "Etunimi",
+    "Amount": "Määrä",
+    "Donations must be %(amount)s or more": "Lahjoitusten on oltava vähintään% (määrä) s",
+    "Enter a valid email address.": "Anna voimassa oleva sähköpostiosoite.",
+    "Enter a number.": "Syötä numero.",
+    "This field is required.": "Tämä kenttä on pakollinen.",
+    "progress": "{{count}} ovat allekirjoittaneet. Mennään {{goal}}",
+    "progress_plural": "",
+    "Sign": "Kirjaudu nyt!",
+    "share": {
+        "email": {
+            "body": "Moi,\nOle hyvä ja allekirjoita, mielestäni haluat tukea sitä",
+            "subject": "Sinun tulisi allekirjoittaa tämä"
+        },
+        "message": "Sinun tulisi allekirjoittaa tämä!",
+        "intro": "Hienoa, olet allekirjoittanut 👍. Jos haluat moninkertaistaa vaikutuksesi, jaa kaikkialle ja varmista, että kaikki näkevät tämän vetoomuksen🙏.",
+        "title": "Melkein valmis! Ota seuraava vaihe."
+    },
+    "consent": {
+        "processing": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
+        "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
+        "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minut ajan tasalla tulevaisuudessa",
+        "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
+        "intro": "Suostun {{name}} ottamaan minuun yhteyttä tärkeistä kampanjoista"
+    }
+}

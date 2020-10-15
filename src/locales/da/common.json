@@ -1,1 +1,60 @@
-{}
+{
+    "you need to be 18 years old": "du skal være 18 år gammel",
+    "twitter": {
+        "actionText": "Jeg underskrev. du burde også"
+    },
+    "register": "Tilføj mit navn",
+    "dialogTitle": "Hold mig informeret om kampagnen",
+    "Your organisation account": "Din organisationskonto",
+    "Thank you": "tak skal du have",
+    "Sign now!": "Tilmeld nu!",
+    "Next": "Næste",
+    "Locality": "Lokalitet",
+    "Full Name": "Fuldt navn",
+    "Download": "Download",
+    "Comment": "Kommentar",
+    "Birthdate": "Fødselsdato",
+    "Address": "Adresse",
+    "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
+    "Link_Share button": "Hyperlink",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Del på Twitter",
+    "Share on Facebook": "Del det på Facebook",
+    "Sign Up": "Tilmeld dig",
+    "Stay in touch": "Holde kontakt",
+    "No Thanks": "Nej tak",
+    "Privacy": "Privatliv",
+    "Legal": "Juridisk",
+    "Thanks!": "Tak!",
+    "Country": "Land",
+    "City": "Storby",
+    "Street": "Gade",
+    "Postal Code": "Postnummer",
+    "Email": "Email",
+    "Last name": "Efternavn",
+    "First name": "Fornavn",
+    "Amount": "Beløb",
+    "Donations must be %(amount)s or more": "Donationer skal være% (beløb) s eller mere",
+    "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
+    "Enter a number.": "Indtast et nummer.",
+    "This field is required.": "Dette felt er påkrævet",
+    "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+    "progress_plural": "",
+    "Sign": "Tilmeld nu!",
+    "share": {
+        "email": {
+            "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
+            "subject": "Du skal underskrive dette"
+        },
+        "message": "Du skal underskrive dette!",
+        "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
+        "title": "Næsten færdig! Tag det næste skridt."
+    },
+    "consent": {
+        "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+        "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
+        "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
+        "opt-in": "Ja, hold mig informeret via e-mail",
+        "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner"
+    }
+}
