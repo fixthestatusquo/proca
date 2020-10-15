@@ -17,6 +17,7 @@
     },
     "Sign": "Jetzt unterschreiben!",
     "progress": "{{count}} Unterschriften. Ziel: {{goal}}",
+    "progress_plural": "{{count}} Unterschriften. Ziel: {{goal}}",
     "This field is required.": "Dies ist ein Pflichtfeld.",
     "Enter a number.": "Eine Zahl eingeben.",
     "Enter a valid email address.": "Eine gültige E-Mail-Adresse eingeben.",
@@ -50,11 +51,11 @@
     "you need to be 18 years old": "Du musst 18 Jahre alt sein",
     "Sign Up": "Registrieren",
     "twitter": {
-        "actionText": "Ich habe unterschrieben. sollten Sie auch"
+        "actionText": "Ich habe unterschrieben. sollt Du auch"
     },
-    "register": "Meinen Namen hinzufügen",
+    "register": "Appell unterzeichnen",
     "dialogTitle": "Halten Sie mich über die Kampagne auf dem Laufenden",
-    "Your organisation account": "Ihr Organisationskonto",
-    "Full Name": "Name",
+    "Your organisation account": "Du Organisationskonto",
+    "Full Name": "Vollständiger Name",
     "Account": "Konto"
 }
