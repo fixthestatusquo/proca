@@ -13,7 +13,6 @@ const Component = props => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data,] = useData();
-
 //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [dialog, viewDialog] = useState(false);
@@ -37,7 +36,13 @@ const Component = props => {
           if (config.hook && typeof config.hook["twitter:load"] === "function") {
             config.hook["twitter:load"](d);
           }
+          d.forEach(c => {
+            if (c.country) c.country = c.country.toLowerCase();
+          });
           setAllProfiles(d);
+          if (!config.component.twitter?.filter.includes("country")) 
+            setProfiles(d);
+
         })
         .catch(error => {
           console.log(error);
@@ -79,23 +84,20 @@ const Component = props => {
         dialog={dialog}
         actionPage={props.actionPage}
         content={Register}
-        name={t("register")}
+        name={config.param.dialogTitle || t("register")}
       >
         <Register actionPage={props.actionPage} />
       </Dialog>
-      <Country form={form}/>
+    {config.component.twitter?.filter.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
         actionUrl={props.actionUrl || data.actionUrl}
-        actionText={props.actionText || t("twitter.actionText")}
+        actionText={config.param.twitterText || t("twitter.actionText")}
         done={handleDone}
       />
     </Fragment>
   );
 };
 
-Component.defaultProps = {
-  actionText: ".{@} you should check that!"
-};
 export default Component;

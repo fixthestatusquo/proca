@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    [
+      "i18next-extract",
+      {
+        "keyAsDefaultValue": ["en"],
+        "defaultNS": "common",
+        "outputPath": "src/locales/{{locale}}/{{ns}}.json"
+      }
+    ]
+    // […] your other plugins […]
+  ]
+}

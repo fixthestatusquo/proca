@@ -1,0 +1,43 @@
+{
+    "Link_Share button": "קישור",
+    "Email_Share button": "דוא״ל",
+    "Share on Facebook": "שיתוף בפייסבוק",
+    "Sign Up": "הרשמה",
+    "No Thanks": "לא, תודה",
+    "Privacy": "פרטיות",
+    "Legal": "משפטי",
+    "Country": "מדינה",
+    "City": "עיר",
+    "Street": "רחוב",
+    "Email": "דוא״ל",
+    "Last name": "שם הרשימה",
+    "Amount": "כמות",
+    "Enter a valid email address.": "נא להקליד כתובת דוא״ל תקנית.",
+    "This field is required.": "שדה זה דרוש.",
+    "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
+    "Share on Twitter": "שתף בטוויטר",
+    "Stay in touch": "תישאר בקשר",
+    "Thanks!": "תודה!",
+    "Postal Code": "מיקוד",
+    "First name": "שם פרטי",
+    "Donations must be %(amount)s or more": "התרומות חייבות להיות% (סכום) s או יותר",
+    "Enter a number.": "הזן מספר.",
+    "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
+    "Sign": "היכנס עכשיו!",
+    "share": {
+        "email": {
+            "body": "היי,\nאנא חתום, אני חושב שאתה רוצה לתמוך בזה",
+            "subject": "אתה צריך לחתום על זה"
+        },
+        "message": "אתה צריך לחתום על זה!",
+        "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
+        "title": "כמעט סיימתי! בצע את הצעד הבא."
+    },
+    "consent": {
+        "processing": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
+        "confirm": "<0> האם אתה בטוח? </ 0> <1> על ידי בחירה באפשרות 'לא', לא תוכל לגלות אם מסע פרסום זה מוצלח, או אם נצטרך לבצע פעולות נוספות יחד כדי לזכות בו. אם תבחר 'כן' אנו נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו. </ 1> <2> תוכל לבטל את הרישום בכל עת. </ 2>",
+        "opt-out": "לא, אל תשלח לי דוא\"ל או תעדכן אותי בעתיד",
+        "opt-in": "כן, עדכן אותי באמצעות דוא\"ל",
+        "intro": "אני מסכים {{name}} ליצור איתי קשר בקמפיינים חשובים"
+    }
+}

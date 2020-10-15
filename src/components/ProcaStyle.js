@@ -53,9 +53,17 @@ export default function ProcaStyle(props) {
             root: {fontFamily: 'unset!important',}
           },
           MuiFilledInput: {
+            input: {
+              paddingTop: '23px!important',
+              paddingBottom: '10px!important',
+            },
             multiline: {
               paddingTop: '23px!important',
               paddingBottom: '6px!important',
+            '& textarea': {
+              paddingTop: '0!important',
+              paddingBottom: '0!important',
+            },
             },
             marginDense: {
             }
