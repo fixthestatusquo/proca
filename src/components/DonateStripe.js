@@ -5,6 +5,7 @@ import {
     TextField as LayoutTextField,
     Grid,
     Typography,
+  Card,CardHeader,CardContent,
   Button,
   Container
 } from "@material-ui/core";
@@ -15,7 +16,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import {useLayout} from '../hooks/useLayout';
 import useElementWidth from "../hooks/useElementWidth";
-//import {useCampaignConfig} from "../hooks/useConfig";
+import {useCampaignConfig} from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
@@ -31,7 +32,13 @@ import StripeInput from "./StripeInput";
 
 const publishableKey="pk_test_51HLPbyFFsfkkXAxwgFLCJfIWJwuNvzA867Arg1lH4Woqhcq0yEWMtCwx4j2lqML9dCPK3oPH0NQyiAPux3K8JZUw00MxrWkh7u";
 
-const stripe = loadStripe(publishableKey);
+let stripe = null;
+try {
+  stripe = loadStripe(publishableKey);
+} catch(e) {
+  stripe = null;
+  console.log("not loading stripe",e);
+}
 
 const currencies = [
     {
@@ -49,10 +56,11 @@ const currencies = [
 const PaymentForm = () => {
  const layout = useLayout();
     const { t } = useTranslation();
+  const config = useCampaignConfig();
 
     const [data, setData] = useData();
   const form = useForm({
-    defaultValues: {name: data.firstname + " " + data.lastname}
+    defaultValues: {name: data.firstname + " " + data.lastname,email: data.email,postcode:data.postcode}
   });
 
   const [compact, setCompact] = useState(true);
@@ -61,7 +69,10 @@ const PaymentForm = () => {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
- 
+  const title =  data.amount 
+    ?config?.component?.DonateAmount.igive || t("I'm donating ")+data.amount+"€"
+    :config?.component?.DonateAmount.title || t("Choose your donation amount");
+
     const formValues = {};
     const dispatch = (d) => {
       console.log("dispatch",d);
@@ -97,11 +108,14 @@ const PaymentForm = () => {
   };
 
 const StripeCard = (props) =>{
+  console.log("aaa");
   //hidePostalCode=true
   return (
+
+
         <Grid item xs={12}>
             <LayoutTextField
-                name="stripe"
+                name="card"
     label=""
                   variant={layout.variant}
               margin={layout.margin}
@@ -143,12 +157,15 @@ const StripeIBAN = (props) =>{
 }
 
     return <>
+      <Card>
+        <CardHeader title={title} />
+        <CardContent>
             <Grid item xs={12} >
             <TextField
               form={form}
-              name= "Name"
+              name= "name"
               label={t("Full Name")}
-              autoComplete="given-name"
+              autoComplete="full-name"
               required
             />
 </Grid>
@@ -185,6 +202,8 @@ const StripeIBAN = (props) =>{
              Donate
             </Button>
           </Grid>
+        </CardContent>
+        </Card>
 
     </>
 

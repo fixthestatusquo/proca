@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {useCampaignConfig} from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import {useLayout} from '../hooks/useLayout';
@@ -18,6 +18,7 @@ import {
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PaypalIcon from '../images/Paypal.js';
+import usePaypal from '../lib/usePaypal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,6 @@ const DonateAmount = (props) => {
  
   const config = useCampaignConfig();
   const [data, setData] = useData();
-
   const [amount,setAmount] = useState(data.amount);
 
   const title =  amount 
@@ -46,11 +46,14 @@ const DonateAmount = (props) => {
 
   const selection= config?.component?.DonateAmount?.oneoff?.default || [3,5];
   const currency = config?.component?.DonateAmount?.currency || {"symbol":"€","code":"EUR"};
-  const chooseAmount = (e) =>{
-    setAmount(e);
-    setData("amount",e);
-    props.done();
-  }
+
+  usePaypal({currency:currency});
+const choosePaymentMethod = (m) =>{
+  console.log("choose payment",m);
+  setData("paymentMethod",m);
+////////////////  props.done();
+}
+
 
   const AmountButton= (props) => (<Button color="primary" disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>);
 
@@ -82,10 +85,12 @@ const DonateAmount = (props) => {
         </CardContent>
         <CardActions>
   <ButtonGroup variant="contained" aria-label="Select Payment method">
-  <Button color="primary" disabled={!amount} startIcon={<PaymentIcon />}>Credit Card</Button>
-  <Button disabled={!amount} startIcon={<AccountBalanceIcon />}>SEPA</Button>
-  <Button disabled={!amount} startIcon={<PaypalIcon />}>Paypal</Button>
+  <Button color="primary" disabled={!amount} startIcon={<PaymentIcon />} onClick={() => {choosePaymentMethod("creditcard")}}>Credit Card</Button>
+  <Button disabled={!amount} onClick={() => choosePaymentMethod("sepa")} startIcon={<AccountBalanceIcon/>}>SEPA</Button>
+  <Button disabled={!amount} startIcon={<PaypalIcon /> } 
+    onClick={() => choosePaymentMethod("paypal")}>Paypal</Button>
     </ButtonGroup>
+    <div id="paypal-container"></div>
         </CardActions>
       </Card>
 
