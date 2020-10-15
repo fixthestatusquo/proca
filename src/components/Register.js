@@ -23,12 +23,11 @@ import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
 import useForm from "react-hook-form";
-import useGeoLocation from "../hooks/useGeoLocation";
 import { useTranslation } from "react-i18next";
 import Consent from "./Consent";
 
-import countries from "../data/countries.json";
 import Organisation from "./Organisation";
+import Country from "./Country";
 
 import { addActionContact } from "../lib/server.js";
 import uuid from "../lib/uuid.js";
@@ -84,20 +83,7 @@ export default function Register(props) {
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
-console.log(config);
-  const country = watch("country") || "";
   //const values = getValues() || {};
-  //const country = values.country || "";
-  const location = useGeoLocation({ api: "https://country.proca.foundation",country:country});
-  if (location.country && !country) {
-    if (!countries.find(d => d.iso === location.country)) {
-      console.log("visitor from ", location, "but not on our list");
-      location.country = countries.find(d => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
-    }
-    if (location.country && (country !== location.country )) {
-      setValue("country", location.country);
-    }
-  }
   const onSubmit = async data => {
     data.tracking = Url.utm();
     const result = await addActionContact(
@@ -116,6 +102,7 @@ console.log(config);
     setData(data);
     uuid(result.addAction); // set the global uuid as signature's fingerprint
     if (props.done)
+      console.log(data);
       props.done({
         errors: result.errors,
         uuid: uuid(),
@@ -229,28 +216,7 @@ console.log(config);
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 9}>
-            <TextField
-              select
-              form={form}
-              id="country"
-              name="country"
-              label={t("Country")}
-              value={country}
-              SelectProps={{
-                native: true,
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              required
-            >
-              <option key="" value=""></option>
-              {countries.map(option => (
-                <option key={option.iso} value={option.iso}>
-                  {option.name}
-                </option>
-              ))}
-            </TextField>
+            <Country form={form} required />
           </Grid>
           <Grid item xs={12}>
             <TextField

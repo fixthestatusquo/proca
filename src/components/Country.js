@@ -4,6 +4,8 @@ import useData from "../hooks/useData";
 import TextField from "./TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
+import {useCampaignConfig} from "../hooks/useConfig";
+
 import { Container, Grid } from "@material-ui/core";
 
 
@@ -31,7 +33,7 @@ const Flag = (props) => {
 }
 
 export default (props)  => {
-//  const config = useCampaignConfig();
+  const config = useCampaignConfig();
   const [, setData] = useData();
 
   const {t} = useTranslation();
@@ -42,8 +44,10 @@ export default (props)  => {
     watch,
   } = props.form;
 
+  if (props.list === false) return null;
+
   const country = watch("country") || "";
-  const location = useGeoLocation({api:"https://country.proca.foundation"});
+  const location = useGeoLocation({api:"https://country.proca.foundation", country: config.data.country || config.component.country });
   useEffect (() => {
     if (location.country && !country) {
       if (!countries.find (d => (d.iso === location.country))) {

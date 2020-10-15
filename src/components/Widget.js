@@ -9,60 +9,12 @@ import { useMediaQuery } from "@material-ui/core";
 import {initDataState} from '../hooks/useData';
 
 /* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
-
 import Loader from "./Loader";
-import Petition from "Conditional_Petition";
-//import Button from "Conditional_FAB";
-import Button from "./FAB";
-import Share from "Conditional_Share";
-import Twitter from "Conditional_Twitter";
-import Ep from "Conditional_Ep";
-//import Dialog from "Conditional_Dialog";
-import Dialog from "./Dialog";
-import Clickify from "Conditional_Clickify";
-import Html from "Conditional_Html";
-import DonateAmount from "Conditional_DonateAmount";
-import DonateStripe from "Conditional_DonateStripe";
+//import {steps} from '../lib/componentLoader';
 
-// bespoke
-import RegisterCH from "Conditional_bespoke/Register-CH";
-import Download from "Conditional_bespoke/Download";
-
-// import Slide from '@material-ui/core/Slide'; do the sliding transition thing
-
-const allSteps = {
-  loader: Loader,
-  petition: Petition,
-  button: Button,
-  share: Share,
-  twitter: Twitter,
-  Ep: Ep,
-  clickify: Clickify,
-  html: Html,
-  dialog: Dialog,
-  DonateAmount: DonateAmount,
-  DonateStripe: DonateStripe,
-  "register.CH": RegisterCH,
-  download: Download
-};
-
-// handling case of components returning multiple Components/functions
-if (!Dialog instanceof Function) {
-  allSteps.dialog = Dialog.Open;
-  allSteps.close = Dialog.Close;
-}
-
-let steps = {};
-
-process.widget.journey.forEach(d => {
-  if (d instanceof Array) {
-    // substep case
-    d.forEach(e => (steps[e] = allSteps[e]));
-    return;
-  }
-
-  steps[d] = allSteps[d];
-});
+import {steps} from "ComponentLoader";
+import Button from './FAB';
+import Dialog from './Dialog';
 
 let config = {
   data: Url.data(),
@@ -82,7 +34,6 @@ const Widget = props => {
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
-
   initDataState(Url.data());
   useEffect(()=>{
     /*global procaReady*/
@@ -96,10 +47,12 @@ const Widget = props => {
     let j = Object.assign([], props.journey);
     if (j[0] !== "dialog") j.unshift("dialog");
     propsJourney = ["button", j];
-    steps["button"] = allSteps["button"];
-    steps["dialog"] = allSteps["dialog"];
+    steps['button']=Button;
+    steps['dialog']=Dialog;
+//    steps["button"] = allSteps["button"];
+//    steps["dialog"] = allSteps["dialog"];
   }
-  let journey = propsJourney.flat();
+  let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
   if (current === false) {
     setCurrent(0);
     return;
@@ -120,10 +73,10 @@ const Widget = props => {
     } else depths.push(0);
   });
 
-  initConfigState(props);
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage, 10);
+  initConfigState(config);
   
 
   const getActions = () => {
@@ -200,7 +153,7 @@ const Widget = props => {
 
   switch (depths[current]) {
     case 0:
-      Action = steps[journey[current]];
+      Action = steps[journey[current].replace("/","_")];
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
         return "FATAL Error, check the log";
@@ -212,8 +165,8 @@ const Widget = props => {
       );//break;
     case 1:
     case 2:
-      let SubAction = steps[journey[current]];
-      Action = steps[topMulti.current];
+      let SubAction = steps[journey[current].replace("/","_")];
+      Action = steps[topMulti.current.replace("/","_")];
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextTopStep}>
@@ -227,7 +180,8 @@ const Widget = props => {
 };
 
 Widget.getSteps = () => {
-  return allSteps;
+  console.error ("obsolete");
+//  return allSteps;
 };
 
 Widget.jump = step => {

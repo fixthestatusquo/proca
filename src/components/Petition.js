@@ -7,7 +7,6 @@ import Register from "./Register";
 
 export default function SignatureForm(props) {
   const { t } = useTranslation();
-
   return (
     <React.Fragment>
       <ProgressCounter actionPage={props.actionPage} />
