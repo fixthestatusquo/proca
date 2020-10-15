@@ -23,6 +23,7 @@
     "Enter a number.": "Voer een nummer in.",
     "This field is required.": "Dit veld is vereist.",
     "progress": "hebben getekend. Laten we naar {{goal}} gaan.",
+    "progress_plural": "",
     "Sign": "Teken nu!",
     "share": {
         "email": {
