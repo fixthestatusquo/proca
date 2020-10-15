@@ -26,7 +26,7 @@
     "react-hook-form": "^3.28.2",
     "react-i18next": "^11.7.1",
     "react-share": "^4.2.1",
-    "recoil": "^0.0.10",
+    "recoil": "^0.0.13",
     "uuid": "^8.3.0"
   },
   "dependencies": {
@@ -44,7 +44,7 @@
     "react-i18next": "^11.7.1",
     "react-ipgeolocation": "^1.4.0",
     "react-share": "^4.2.1",
-    "recoil": "^0.0.10",
+    "recoil": "^0.0.13",
     "uuid": "^8.3.0"
   },
   "devDependencies": {
