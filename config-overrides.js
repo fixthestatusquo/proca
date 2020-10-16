@@ -44,6 +44,7 @@ const conditionalImport = (alias,journey) =>{
     'DonateStripe': 'DonateStripe',
     'clickify': 'Clickify',
     'html': 'Html',
+    'register': 'Register',
     'register.CH': 'bespoke/Register-CH',
     'download': 'bespoke/Download',
   };
