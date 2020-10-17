@@ -18,7 +18,7 @@ import {
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PaypalIcon from '../images/Paypal.js';
-import usePaypal from '../lib/usePaypal';
+import usePaypal from '../hooks/usePaypal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
