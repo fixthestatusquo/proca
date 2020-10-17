@@ -8,7 +8,7 @@ const usePaypal = params => {
     setLoadState({ loading: true, loaded: false });
 
     const script = document.createElement('script');
-    script.src =  "https://paypal.com/sdk/js?currency=EUR&client-id=" + (params.clientId || "sb");
+    script.src =  "https://www.paypal.com/sdk/js?currency=EUR&client-id=" + (params.clientId || "sb");
     script.async = true;
     script.addEventListener('load', function() {
       setLoadState({ loading: false, loaded: true });
@@ -25,7 +25,7 @@ const usePaypal = params => {
         commit:true,
             onClick: function(data,actions) {
                 console.log("onClick",data);
-                return actions.reject(Error("error: onClick"));
+//                return actions.reject(Error("error: onClick"));
             },
                     onCancel: function(data,actions) {
               console.log("onCancel");

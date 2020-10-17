@@ -13,8 +13,11 @@ import {
   InputLabel,
   Input,
   InputAdornment,
+  Checkbox,
+  FormControlLabel,
   Button, ButtonGroup } from "@material-ui/core";
 
+import { useTranslation, Trans } from "react-i18next";
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PaypalIcon from '../images/Paypal.js';
@@ -32,10 +35,12 @@ const DonateAmount = (props) => {
   //const { t } = useTranslation();
   const classes = useStyles();
  const layout = useLayout();
+  const { t } = useTranslation();
  
   const config = useCampaignConfig();
   const [data, setData] = useData();
   const [amount,setAmount] = useState(data.amount);
+  const [recurring,setRecurring] = useState(data.recurring);
 
   const title =  amount 
     ?config?.component?.DonateAmount.igive || "I'm donating "+amount+"€"
@@ -54,6 +59,10 @@ const choosePaymentMethod = (m) =>{
 ////////////////  props.done();
 }
 
+const handleRecurring = (event) => {
+//  setRecurring(
+  console.log("rec",event.target.checked,event.target.name);
+};
 
   const AmountButton= (props) => (<Button color="primary" disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>);
 
@@ -72,6 +81,17 @@ const choosePaymentMethod = (m) =>{
     {selection.map( d => (<AmountButton key={d} amount={d} />))}
     </div>
         <FormControl fullWidth>
+          <FormControlLabel
+        control={
+          <Checkbox
+            checked={recurring}
+            onChange={handleRecurring}
+            name="monthly"
+            color="primary"
+          />
+        }
+        label="Monthly donations"
+      />
           <InputLabel shrink= {amount > 0} htmlFor="amount">Amount</InputLabel>
           <Input
             id="amount"
