@@ -50,7 +50,7 @@ async function graphQL(operation, query, options) {
 async function getCount(actionPage) {
   
       //actionCount {actionType, count}
-  var query = `query getCount($actionPage: ID!)
+  var query = `query getCount($actionPage: Int!)
 {actionPage(id:$actionPage) {
   campaign {
     stats {
@@ -117,7 +117,7 @@ async function getCountByUrl(url) {
 async function addAction (actionPage, actionType, data) {
   var query =`mutation addAction (
   $contact: ID!, 
-  $actionPage: ID!,
+  $actionPage: Int!,
   $actionType: String!,
   $payload: [CustomFieldInput!],
   $tracking: TrackingInput) 
@@ -148,7 +148,7 @@ async function addActionContact(actionType, actionPage, data) {
   $contact:ContactInput!,
   $privacy:ConsentInput!,
   $contactRef:ID,
-  $actionPage:ID!,
+  $actionPage:Int!,
   $tracking:TrackingInput
 ){
   addActionContact(
