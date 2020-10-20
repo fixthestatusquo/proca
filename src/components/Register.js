@@ -11,11 +11,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import useElementWidth from "../hooks/useElementWidth";
 import Url from "../lib/urlparser.js";
-import {useCampaignConfig} from "../hooks/useConfig";
+import { useCampaignConfig } from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import {Button, Snackbar } from "@material-ui/core";
+import { Button, Snackbar } from "@material-ui/core";
 import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
@@ -59,7 +59,7 @@ export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
   const [data, setData] = useData();
-//  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+  //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
 
   const { t } = useTranslation();
 
@@ -101,19 +101,18 @@ export default function Register(props) {
     setStatus("success");
     setData(data);
     uuid(result.addAction); // set the global uuid as signature's fingerprint
-    if (props.done)
-      console.log(data);
-      props.done({
-        errors: result.errors,
-        uuid: uuid(),
-        firstname: data.firstname,
-        country: data.country
-      });
+    if (props.done) console.log(data);
+    props.done({
+      errors: result.errors,
+      uuid: uuid(),
+      firstname: data.firstname,
+      country: data.country
+    });
   };
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
-//    register({ name: "country" });
+    //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach(input => {
       input.oninvalid = e => {
@@ -125,7 +124,6 @@ export default function Register(props) {
       };
     });
   }, [setError]);
-
 
   function Error(props) {
     if (props.display)
@@ -175,12 +173,12 @@ export default function Register(props) {
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
           {config.component?.register?.field.organisation && (
-            <Organisation form={form} compact={compact}/>
+            <Organisation form={form} compact={compact} />
           )}
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
               form={form}
-              name= "firstname"
+              name="firstname"
               label={t("First name")}
               placeholder="eg. Leonardo"
               autoComplete="given-name"
@@ -207,26 +205,32 @@ export default function Register(props) {
               required
             />
           </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 3}>
-            <TextField
-              form={form}
-              name="postcode"
-              label={t("Postal Code")}
-              autoComplete="postal-code"
-            />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 9}>
-            <Country form={form} required />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              form={form}
-              name="comment"
-              multiline
-              rowsMax="20"
-              label={t("Comment")}
-            />
-          </Grid>
+          {config.component?.register?.field?.postcode !== false && (
+            <Grid item xs={12} sm={compact ? 12 : 3}>
+              <TextField
+                form={form}
+                name="postcode"
+                label={t("Postal Code")}
+                autoComplete="postal-code"
+              />
+            </Grid>
+          )}
+          {config.component?.register?.field?.country !== false && (
+            <Grid item xs={12} sm={compact ? 12 : 9}>
+              <Country form={form} required />
+            </Grid>
+          )}
+          {config.component?.register?.field?.comment !== false && (
+            <Grid item xs={12}>
+              <TextField
+                form={form}
+                name="comment"
+                multiline
+                rowsMax="20"
+                label={t("Comment")}
+              />
+            </Grid>
+          )}
           <Consent
             organisation={props.organisation}
             privacy_url={config.privacyUrl}
