@@ -31,15 +31,15 @@
     "Street": "Gade",
     "Postal Code": "Postnummer",
     "Email": "Emailadresse",
-    "Last name": "Efternavn:",
+    "Last name": "Efternavn",
     "First name": "Fornavn",
     "Amount": "Beløb",
     "Donations must be %(amount)s or more": "Donationer skal være% (beløb) s eller mere",
     "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
     "Enter a number.": "Indtast et nummer.",
-    "This field is required.": "Dette felt er påkrævet",
+    "This field is required.": "Dette felt er påkrævet.",
     "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-    "progress_plural": "",
+    "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
     "Sign": "Tilmeld nu!",
     "share": {
         "email": {
@@ -56,5 +56,6 @@
         "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
         "opt-in": "Ja, hold mig informeret via e-mail",
         "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner"
-    }
+    },
+    "Account": "Konto"
 }
