@@ -1,7 +1,7 @@
 {
     "Download explanation": "Uw document is nu klaar, we mailen het u ook.",
     "Link_Share button": "Koppeling",
-    "Email_Share button": "E-mailadres",
+    "Email_Share button": "Email adres",
     "Share on Twitter": "Delen op Twitter",
     "Share on Facebook": "Delen op Facebook",
     "Sign Up": "Registreren",
@@ -23,6 +23,7 @@
     "Enter a number.": "Voer een nummer in.",
     "This field is required.": "Dit veld is vereist.",
     "progress": "hebben getekend. Laten we naar {{goal}} gaan.",
+    "progress_plural": "",
     "Sign": "Teken nu!",
     "share": {
         "email": {
