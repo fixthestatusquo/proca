@@ -56,5 +56,6 @@
         "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
         "opt-in": "Ja, håll mig informerad via e-post",
         "intro": "Jag godkänner att {{name}} kontaktar mig om viktiga kampanjer"
-    }
+    },
+    "Account": "Konto"
 }
