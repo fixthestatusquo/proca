@@ -39,15 +39,16 @@ const usePaypal = params => {
 
         onError: function(err) {
           console.log("error",err);
-        }
-      });
-/*        style: {
+        },
+        style: {
           shape: 'rect',
-          color: 'gold',
+          color: 'silver',
+          size: 'responsive',
+          height: 30,
           layout: 'vertical',
           label: 'paypal',
-        },
-*/
+        }
+      });
       button.render(params.dom || "#paypal-container");
     });
     document.body.appendChild(script);

@@ -79,7 +79,6 @@ export default function Register(props) {
     setValue,
     setError,
     watch,
-    getValues,
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });

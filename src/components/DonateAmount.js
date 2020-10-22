@@ -1,7 +1,6 @@
 import React, {useState } from "react";
 import {useCampaignConfig} from "../hooks/useConfig";
 import useData from "../hooks/useData";
-import {useLayout} from '../hooks/useLayout';
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
@@ -10,23 +9,28 @@ import {
   CardActions,
   CardContent,
   FormControl,
-  InputLabel,
-  Input,
   InputAdornment,
   Checkbox,
-  FormControlLabel,
+  FormControlLabel,FormGroup,
   Button, ButtonGroup } from "@material-ui/core";
+import TextField from "./TextField";
+import useForm from "react-hook-form";
+import useElementWidth from "../hooks/useElementWidth";
 
-import { useTranslation, Trans } from "react-i18next";
+
+
+
+import { useTranslation } from "react-i18next";
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import PaypalIcon from '../images/Paypal.js';
+//import PaypalIcon from '../images/Paypal.js';
 import usePaypal from '../hooks/usePaypal';
 
 const useStyles = makeStyles((theme) => ({
+  
   root: {
     '& > *': {
-      margin: theme.spacing(1),
+      margin: theme.spacing(0.5),
     },
   },
 }));
@@ -34,14 +38,35 @@ const useStyles = makeStyles((theme) => ({
 const DonateAmount = (props) => {
   //const { t } = useTranslation();
   const classes = useStyles();
- const layout = useLayout();
   const { t } = useTranslation();
  
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const [amount,setAmount] = useState(data.amount);
-  const [recurring,setRecurring] = useState(data.recurring);
+  const selection= config?.component?.DonateAmount?.oneoff?.default || [3,5];
+  const form = useForm({defaultValues: {amount: selection.find(selected => selected === parseFloat(data.amount)) ? null: parseFloat(data.amount)}});
+  const {setValue,watch} = form;
 
+  const [recurring,setRecurring] = useState(data.recurring);
+  const [amount,_setAmount] = useState(data.amount);
+  const [custom, showCustom] = useState(() => {
+    if (amount === null) return false;
+    const found= selection.find (selected => selected === amount);
+    return found;
+  });
+  const setAmount = amount => { 
+    amount = parseFloat(amount);
+    console.log("setAmount", amount);
+    _setAmount(amount);
+    if (custom || customAmount) {
+      showCustom(false);
+      setValue("amount",null); // reset the custom (other) amount field
+    }
+  }
+
+  const width = useElementWidth("#proca-donate");
+  const [compact, setCompact] = useState(true);
+  if ((compact && width > 450) || (!compact && width <= 450))
+    setCompact(width <= 450);
   const title =  amount 
     ?config?.component?.DonateAmount.igive || "I'm donating "+amount+"€"
     :config?.component?.DonateAmount.title || "Choose your donation amount";
@@ -49,12 +74,15 @@ const DonateAmount = (props) => {
   const subtitle = config?.component?.DonateAmount.subTitle || "The average donation is 8.60€";
   const image = config?.component?.DonateAmount.image;
 
-  const selection= config?.component?.DonateAmount?.oneoff?.default || [3,5];
+
+  const customAmount = watch("amount");
+  if (customAmount && parseFloat(customAmount) !== amount) {
+    _setAmount(parseFloat(customAmount)); 
+  }
   const currency = config?.component?.DonateAmount?.currency || {"symbol":"€","code":"EUR"};
 
   usePaypal({currency:currency});
 const choosePaymentMethod = (m) =>{
-  console.log("choose payment",m);
   setData("paymentMethod",m);
 ////////////////  props.done();
 }
@@ -64,10 +92,12 @@ const handleRecurring = (event) => {
   console.log("rec",event.target.checked,event.target.name);
 };
 
-  const AmountButton= (props) => (<Button color="primary" disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>);
+  const AmountButton= (props) => {
+    return <Button color="primary"  disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>
+  };
 
   return (
-      <Card>
+      <Card id="proca-donate">
         <CardHeader title={title} subheader={subtitle} />
 
         {image ? (
@@ -79,8 +109,10 @@ const handleRecurring = (event) => {
         <CardContent>
     <div className={classes.root}>
     {selection.map( d => (<AmountButton key={d} amount={d} />))}
+    <Button color="primary" name="other" onClick={()=> showCustom(true)}>{t("Other")}</Button>
     </div>
         <FormControl fullWidth>
+    <FormGroup>
           <FormControlLabel
         control={
           <Checkbox
@@ -92,25 +124,26 @@ const handleRecurring = (event) => {
         }
         label="Monthly donations"
       />
-          <InputLabel shrink= {amount > 0} htmlFor="amount">Amount</InputLabel>
-          <Input
-            id="amount"
-    variant={layout.variant}
-                  margin={layout.margin}
-    onChange={e => setAmount(e.target.value)}
-    value={amount || ""}
-            endAdornment={<InputAdornment position="end">€</InputAdornment>}
+    {custom &&
+          <TextField
+            form={form}
+    type="number"
+            label="Amount"
+            name="amount"
+                 InputProps ={{
+                   endAdornment:(<InputAdornment position="end">€</InputAdornment>),}}
+
           />
+    }
+    </FormGroup>
         </FormControl>
         </CardContent>
         <CardActions>
-  <ButtonGroup variant="contained" aria-label="Select Payment method">
+  <ButtonGroup variant="contained" fullWidth={compact} aria-label="Select Payment method" orientation={compact ? "vertical": "horizontal"} >
   <Button color="primary" disabled={!amount} startIcon={<PaymentIcon />} onClick={() => {choosePaymentMethod("creditcard")}}>Credit Card</Button>
   <Button disabled={!amount} onClick={() => choosePaymentMethod("sepa")} startIcon={<AccountBalanceIcon/>}>SEPA</Button>
-  <Button disabled={!amount} startIcon={<PaypalIcon /> } 
-    onClick={() => choosePaymentMethod("paypal")}>Paypal</Button>
+    <Button component='div' disabled={!amount} id="paypal-container"></Button>
     </ButtonGroup>
-    <div id="paypal-container"></div>
         </CardActions>
       </Card>
 
