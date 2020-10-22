@@ -13,7 +13,7 @@
     },
     "consent": {
         "processing": "Tes données sont transmises de manière sécurisée et chiffrées. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
-        "confirm": "<0> Est-tu sûr·e?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
+        "confirm": "<0> Es-tu sûr·e?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
         "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
         "opt-in": "Oui, gardez-moi informé·e par courriel",
         "intro": "S’inscrire pour des mises à jour courrier par {{name}}"
@@ -39,22 +39,23 @@
     "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount) ou plus",
     "Enter a number.": "Entrer un chiffre.",
     "This field is required.": "Ce champ est obligatoire.",
-    "progress": "{{count}} Signatures. Objectif : {{goal}}",
+    "progress": "{{count}} Signature. Objectif : {{goal}}",
+    "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
     "you need to be 18 years old": "vous devez avoir 18 ans",
     "twitter": {
-        "actionText": "J'ai signé. Vous devriez aussi"
+        "actionText": "J'ai signé. Tu devrais aussi"
     },
     "register": "Ajouter mon nom",
-    "dialogTitle": "Tenez-moi informé de la campagne",
+    "dialogTitle": "Tenez-moi informé·e de la campagne",
     "Your organisation account": "Le compte de votre organisation",
     "Thank you": "Merci",
-    "Sign now!": "Signez maintenant !",
-    "Next": "Next",
+    "Sign now!": "Signez maintenant!",
+    "Next": "Suivant",
     "Locality": "Localité",
     "Full Name": "Nom complet",
     "Download": "Télécharger",
     "Comment": "Commentaire",
     "Birthdate": "Date de naissance",
-    "Address": "Address",
+    "Address": "Adresse",
     "Account": "Compte"
 }

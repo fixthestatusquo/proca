@@ -29,7 +29,8 @@
     "Enter a valid email address.": "Enter a valid email address.",
     "Enter a number.": "Enter a number.",
     "This field is required.": "This field is required.",
-    "progress": "{{count}} have signed. Let's go to {{goal}}",
+    "progress": "{{count}} has signed. Let's go to {{goal}}",
+    "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
     "Sign": "Sign Now!",
     "share": {
         "email": {
@@ -40,13 +41,21 @@
         "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
         "title": "Almost done! Take the next step."
     },
-    "Thank you": "Thank you.",
-    "Sign now!": "Sign Now!",
+    "Thank you": "Thank you",
+    "Sign now!": "Sign now!",
     "Next": "Next",
     "Full Name": "Full name",
     "Download": "Download",
     "Comment": "Comment",
     "Birthdate": "Birthdate",
     "Address": "Address",
-    "Account": "Account"
+    "Account": "Account",
+    "you need to be 18 years old": "you need to be 18 years old",
+    "twitter": {
+        "actionText": "I have signed. You should too"
+    },
+    "register": "Add my name",
+    "dialogTitle": "Keep me informed about the campaign",
+    "Your organisation account": "Your organisation account",
+    "Locality": "Locality"
 }

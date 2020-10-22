@@ -22,11 +22,12 @@
     "Enter a valid email address.": "Proporcione una dirección de correo electrónico válida.",
     "Enter a number.": "Introduce un número.",
     "This field is required.": "Este campo es necesario.",
-    "progress": "{{count}} han firmado. Vamos a {{goal}}",
+    "progress": "{{count}} ha firmado. Vamos a {{goal}}",
+    "progress_plural": "{{count}} han firmado. Vamos a {{goal}}",
     "Sign": "¡Firme ahora!",
     "share": {
         "email": {
-            "body": "Hola,\nPor favor, firma, creo que quieres apoyarlo.",
+            "body": "Hola,\npor favor, firma, creo que quieres apoyarlo",
             "subject": "Deberías firmar esto"
         },
         "message": "¡Deberías firmar esto!",
@@ -35,24 +36,24 @@
     },
     "consent": {
         "processing": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
-        "confirm": "<0>¿Estás seguro?</0><1>Seleccionando \"No\", no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que tomar juntos para ganarla. Si selecciona \"Sí\" le mantendremos informado sobre esta y nuestras otras campañas urgentes.",
-        "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro.",
-        "opt-in": "Sí, mantenme informado por correo electrónico",
+        "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que tomar juntos para ganarla. Si selecciona «Sí» le mantendremos informado sobre esta y nuestras otras campañas urgentes",
+        "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
+        "opt-in": "Sí, mantenme informado/a por correo electrónico",
         "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes"
     },
     "you need to be 18 years old": "tienes que tener 18 años",
     "twitter": {
-        "actionText": "Yo firmé. Tú también deberías hacerlo."
+        "actionText": "Yo firmé. Tú también deberías hacerlo"
     },
     "register": "Añade mi nombre",
-    "dialogTitle": "dialogTitle",
+    "dialogTitle": "Mantenme informado/a sobre la campaña",
     "Your organisation account": "La cuenta de su organización",
-    "Thank you": "Gracias.",
+    "Thank you": "Gracias",
     "Sign now!": "¡Firma ahora!",
     "Next": "Siguiente",
     "Locality": "Localidad",
-    "Full Name": "Nombre Completo",
-    "Download": "Actualizaciones",
+    "Full Name": "Nombre completo",
+    "Download": "Descargar",
     "Comment": "Comentario",
     "Birthdate": "Fecha de nacimiento",
     "Address": "Dirección",
