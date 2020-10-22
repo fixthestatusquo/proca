@@ -8,7 +8,7 @@
     "Your organisation account": "Din organisationskonto",
     "Thank you": "tak skal du have",
     "Sign now!": "Tilmeld nu!",
-    "Next": "Næste",
+    "Next": "Next",
     "Locality": "Lokalitet",
     "Full Name": "Fuldt navn",
     "Download": "Download",
@@ -17,7 +17,7 @@
     "Address": "Adresse",
     "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
     "Link_Share button": "Hyperlink",
-    "Email_Share button": "Email",
+    "Email_Share button": "Emailadresse",
     "Share on Twitter": "Del på Twitter",
     "Share on Facebook": "Del det på Facebook",
     "Sign Up": "Tilmeld dig",
@@ -27,19 +27,19 @@
     "Legal": "Juridisk",
     "Thanks!": "Tak!",
     "Country": "Land",
-    "City": "Storby",
+    "City": "By",
     "Street": "Gade",
     "Postal Code": "Postnummer",
-    "Email": "Email",
+    "Email": "Emailadresse",
     "Last name": "Efternavn",
     "First name": "Fornavn",
     "Amount": "Beløb",
     "Donations must be %(amount)s or more": "Donationer skal være% (beløb) s eller mere",
     "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
     "Enter a number.": "Indtast et nummer.",
-    "This field is required.": "Dette felt er påkrævet",
+    "This field is required.": "Dette felt er påkrævet.",
     "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-    "progress_plural": "",
+    "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
     "Sign": "Tilmeld nu!",
     "share": {
         "email": {
@@ -56,5 +56,6 @@
         "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
         "opt-in": "Ja, hold mig informeret via e-mail",
         "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner"
-    }
+    },
+    "Account": "Konto"
 }

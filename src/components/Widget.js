@@ -21,6 +21,8 @@ let config = {
   utm: Url.utm(),
   hook: {},
   param: {},
+  component: {},
+  locale: {}
 };
 
 const Widget = props => {

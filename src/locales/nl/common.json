@@ -1,12 +1,12 @@
 {
     "Download explanation": "Uw document is nu klaar, we mailen het u ook.",
     "Link_Share button": "Koppeling",
-    "Email_Share button": "E-mailadres",
+    "Email_Share button": "Email adres",
     "Share on Twitter": "Delen op Twitter",
     "Share on Facebook": "Delen op Facebook",
     "Sign Up": "Registreren",
     "Stay in touch": "Blijf in contact",
-    "No Thanks": "No Thanks",
+    "No Thanks": "Nee bedankt",
     "Privacy": "Privacy",
     "Legal": "Juridisch",
     "Thanks!": "Dank u wel!",
@@ -22,21 +22,22 @@
     "Enter a valid email address.": "Voer een geldig e-mailadres in.",
     "Enter a number.": "Voer een nummer in.",
     "This field is required.": "Dit veld is vereist.",
-    "progress": "hebben getekend. Laten we naar {{goal}} gaan.",
+    "progress": "{{count}} heeft getekend. Laten we naar {{goal}} gaan",
+    "progress_plural": "{{count}} hebben getekend. Laten we naar {{goal}} gaan",
     "Sign": "Teken nu!",
     "share": {
         "email": {
-            "body": "Hoi,\nTeken alsjeblieft, ik denk dat je het wilt steunen...",
-            "subject": "U moet dit ondertekenen."
+            "body": "Hoi,\nTeken alsjeblieft, ik denk dat je het wilt steunen",
+            "subject": "U moet dit ondertekenen"
         },
         "message": "Je zou dit moeten ondertekenen!",
         "intro": "Geweldig, je hebt getekend 👍. Om je impact te vermenigvuldigen, deel je ver en breed om er zeker van te zijn dat iedereen dit ziet petition🙏.",
         "title": "Bijna klaar! Neem de volgende stap."
     },
     "consent": {
-        "processing": "Uw persoonlijke informatie wordt privé gehouden en veilig bewaard. Door informatie te verstrekken gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>.",
+        "processing": "Uw persoonlijke informatie wordt privé gehouden en veilig bewaard. Door informatie te verstrekken gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
         "confirm": "<0>Weet je het zeker? </0><1>Door 'Nee' te selecteren, kun je niet achterhalen of deze campagne succesvol is, of dat er meer actie nodig is die we samen moeten ondernemen om te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende campagnes.</1><2>U kunt zich te allen tijde uitschrijven.</2>",
-        "opt-out": "Nee, stuur me geen e-mails en houd me in de toekomst niet op de hoogte...",
+        "opt-out": "Nee, stuur me geen e-mails en houd me in de toekomst niet op de hoogte",
         "opt-in": "Ja, hou me op de hoogte via e-mail",
         "intro": "Ik ga ermee akkoord om {{name}} contact met mij op te nemen over belangrijke campagnes"
     },
@@ -47,7 +48,7 @@
     "register": "Voeg mijn naam toe",
     "dialogTitle": "Hou me op de hoogte van de campagne",
     "Your organisation account": "Uw organisatie-account",
-    "Thank you": "Dank u wel.",
+    "Thank you": "Bedankt!",
     "Sign now!": "Teken nu!",
     "Next": "Volgende",
     "Locality": "Nederzetting",
