@@ -2,13 +2,13 @@
     "consent": {
         "intro": "Iscriviti agli gli aggiornamenti via e-mail di questa raccolta firme e ulteriori campagne importanti di {{name}}",
         "opt-in": "Sì, ditemi se questa raccolta firme ha avuto successo e come posso aiutare per altre campagne rilevanti",
-        "opt-out": "No. Non desidero ricevere aggiornamenti sui progressi di questa raccolta firme",
-        "confirm": "<0>Sei sicuro/a?</0><1>Scopri via e-mail se abbiamo successo con questa raccolta firme e come puoi continuare a impegnarti su questo tema - il nostro movimento rimane collegato via e-mail!</1><2> Puoi annullare l’iscrizione in qualsiasi momento.</2>",
-        "processing": "I tuoi dati vengono trasmessi in modo sicuro e criptato. Con l’inserimento dei dati accetti le nostre norme per la <1>protezione dei dati</1>"
+        "opt-out": "No, non inviarmi email o aggiornamenti in futuro",
+        "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2>",
+        "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>"
     },
     "share": {
-        "title": "Quasi finito, ora passiamo direttamente al passo successivo.",
-        "intro": "Fantastico che partecipi 👍. Per moltiplicare la tua influenza, condividi questa raccolta firme dove puoi, per far sì che il maggior numero di persone possibile veda questo modello 🙏.",
+        "title": "Quasi fatto! Fai il passo successivo.",
+        "intro": "Bene, hai firmato.👍. Per ampliare il tuo impatto, condividi ovunque per far sì che tutti vedano questa petizione. 🙏.",
         "email": {
             "body": "Ciao,\nFirmi per favore, credo che lei voglia sostenerlo",
             "subject": "Dovresti firmare questo"
@@ -25,7 +25,7 @@
     "Amount": "Importo",
     "First name": "Nome",
     "Last name": "Cognome",
-    "Email": "E-mail",
+    "Email": "Email",
     "Postal Code": "CAP",
     "Address": "Indirizzo",
     "Street": "Via",
@@ -33,7 +33,7 @@
     "City": "Luogo",
     "Birthdate": "Data di nascita",
     "Country": "Paese",
-    "Comment": "Il tuo commento",
+    "Comment": "Commento",
     "Thanks!": "Grazie mille!",
     "Legal": "Legale",
     "Privacy": "Protezione dei dati",
