@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path');
 require = require('esm')(module /*, options*/);
 
-const {pull,file, read} = require ('./src/lib/config');
+const {fetch, file, read} = require ('./src/lib/config');
 
 //process.env.NODE_ENV="development";
 
@@ -112,7 +112,7 @@ module.exports = function override (config, env) {
   }
   widget = read(id);
 
-  pull(id).then(d =>{
+  fetch(id).then(d =>{
     console.log("d",d);
     console.log ("pulled the config");
 //  process.exit(1);

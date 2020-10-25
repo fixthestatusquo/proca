@@ -1,6 +1,6 @@
 const fs=require('fs');
 const path=require('path');
-import {link, admin, widget, request} from '@proca/api'
+import {link, admin, widget, request, basicAuth} from '@proca/api'
 
 const tmp = '../tmp.config/';
 
@@ -23,9 +23,9 @@ const backup = (actionPage) => {
   fs.renameSync (fileName,fileName + ".bck");
 }
 
-const save = (config) => {
+const save = (config,prefix = "") => {
   const id = config.actionpage; 
-  fs.writeFileSync(file(id),JSON.stringify(config,null,2));
+  fs.writeFileSync(file(id) + prefix,JSON.stringify(config,null,2));
 }
 
 const fetch = async (actionPage) =>  {
@@ -41,6 +41,7 @@ const fetch = async (actionPage) =>  {
     data.actionPage.journey = ["Petition","Share"];
   }
 
+  data.actionPage.config = JSON.parse(data.actionPage.config);
   const config = { actionpage: data.actionPage.id,
     organisation: data.actionPage.campaign.org.title,
     lang: data.actionPage.locale.toLowerCase(),
@@ -50,8 +51,9 @@ const fetch = async (actionPage) =>  {
     journey: data.actionPage.journey,
     layout:data.actionPage.config.layout || {},
     component:data.actionPage.config.component || {},
-    locale:data.actionPage.config.locale || {}
+    locales:data.actionPage.config.locales || {}
   }
+  save(config,".remote");
   return config;
 //  const ap = argv.public ? data.actionPage : data.org.actionPage
 
@@ -59,6 +61,28 @@ const fetch = async (actionPage) =>  {
 //  t = fmt.actionPage(ap, data.org)
 //  console.log(t)
 };
+
+const push = async (id) =>  {
+  const local = read (id);
+  const a = basicAuth({username: process.env.AUTH_USER, password: process.env.AUTH_PASSWORD});
+  if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
+    console.error ("need .env with AUTH_USER + AUTH_PASSWORD");
+  }
+
+  const c = link(process.env.REACT_APP_API_URL || 'https://api.proca.app/api',a);
+  console.log(local);
+  const actionPage = {
+    id: id,
+    name: local.filename,
+    locale:local.lang.toLowerCase(),
+    journey: local.journey,
+    config: JSON.stringify({layout: local.layout, component: local.component, locales: local.locales})
+  };
+  console.log(actionPage);
+  const {data, errors} = await request(c, admin.UpdateActionPageDocument, actionPage)
+  if (errors) { throw errors }
+  console.log(data);
+}
 
 const pull = async (actionPage) => {
 //  console.log("file",file(actionPage));
@@ -70,5 +94,5 @@ const pull = async (actionPage) => {
   save(config);
 };
 
-export {pull, fetch, read, file};
+export {pull, push, fetch, read, file};
 
