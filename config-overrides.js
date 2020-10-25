@@ -5,6 +5,9 @@ const { useBabelRc,override, addBundleVisualizer} = require('customize-cra')
 const { addReactRefresh } = require('customize-cra-react-refresh')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path');
+require = require('esm')(module /*, options*/);
+
+const {pull,file, read} = require ('./src/lib/config');
 
 //process.env.NODE_ENV="development";
 
@@ -100,39 +103,25 @@ module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
 //  useBabelRc();
   let widget = {};
+  let id = parseInt(process.env.actionpage,10);
   process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer();
 
-  if (!process.env.actionpage) {
-    if (!process.env.widget) 
-      process.env.widget="_default";
-    widget= require('dotenv').config({ path: './config/'+process.env.widget+'.yaml' }).parsed;
-    if (!widget.journey)
-      widget.journey="petition,share";
-  } else {
-    widget = {actionpage:process.env.actionpage,journey:""};
+  if (!id) {
+    console.error("we need an env$ actionpage=xxx yarn ");
+    process.exit (1);
   }
-  if (widget.actionpage) {
-    const wpath='./src/tmp.config/'+widget.actionpage+'.json';
-    
-    if (!fs.existsSync(wpath)) {
-      //TODO: fetch from the server
-      widget.journey = string2array(widget.journey);
-      fs.writeFileSync(wpath,JSON.stringify(widget,null,2));
-      console.log("writing config"+wpath);
-    } else { // oops, cases without actionpage
-      const fullConfig = JSON.parse(fs.readFileSync(wpath, 'utf8'));
-      widget.journey = string2array(widget.journey);
-      widget = {...widget , ...fullConfig};
-    }
-    config.resolve.alias['Config$']= path.resolve(__dirname, wpath);
-  } else {
-    config.resolve.alias['Config$']= path.resolve(__dirname, './src/tmp.config/null.json');
-    widget.journey = string2array(widget.journey);
+  widget = read(id);
 
-  }
-  console.log(widget);
+  pull(id).then(d =>{
+    console.log("d",d);
+    console.log ("pulled the config");
+//  process.exit(1);
+  })
+
+  config.resolve.alias['Config$']= file(widget.actionpage);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
   config.plugins.unshift(new webpack.DefinePlugin(stringified(widget)));
+//  console.log(stringified(widget));  process.exit(1);
   config.plugins.push(new CompressionPlugin({exclude:/\*.map$/,test:"index.js",include:"index.js"}));
   config.plugins.push(
         {
@@ -163,7 +152,6 @@ module.exports = function override (config, env) {
   if (widget.HtmlTemplate) {
     config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.HtmlTemplate)
   }
-  console.log(widget);
   if (process.env.NPM ==='1') {
     config.entry= './src/module.js';
     config.output= {
@@ -203,6 +191,7 @@ module.exports = function override (config, env) {
 */
   config.output.libraryTarget= 'umd';
   config.output.library = ["proca"];
+//  console.log(config);
   return config
 }
 
