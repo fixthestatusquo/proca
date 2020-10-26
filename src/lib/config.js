@@ -20,6 +20,8 @@ const read = (id) =>{
 
 const backup = (actionPage) => {
   const fileName = file(actionPage);
+  if (!fs.existsSync(filename)) 
+    return;
   fs.renameSync (fileName,fileName + ".bck");
 }
 
