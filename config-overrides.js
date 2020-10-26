@@ -111,7 +111,7 @@ module.exports = function override (config, env) {
     process.exit (1);
   }
   widget = read(id);
-
+  if (!widget.actionpage) widget.actionpage=widget.actionPage;
   fetch(id).then(d =>{
     console.log("d",d);
     console.log ("pulled the config");
