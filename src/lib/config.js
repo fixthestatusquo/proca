@@ -18,6 +18,25 @@ const read = (id) =>{
   }
 }
 
+const array2string  = (s) => {
+  s.forEach ((d,i) => {
+    if (typeof s[i] === 'string') return;
+    s[i]=s[i].join('+');
+  });
+  return s;
+}
+
+const string2array  = (s) => {
+  s.forEach ((d,i) => {
+  const sub= d.split('+');
+    if (sub.length === 1) return;
+    s[i]=sub;
+  });
+  return s;
+}
+
+
+
 const backup = (actionPage) => {
   const fileName = file(actionPage);
   fs.renameSync (fileName,fileName + ".bck");
@@ -48,7 +67,7 @@ const fetch = async (actionPage) =>  {
     filename: data.actionPage.name,
     org: data.actionPage.campaign.org,
     campaign: {title:data.actionPage.campaign.title},
-    journey: data.actionPage.journey,
+    journey: string2array(data.actionPage.journey),
     layout:data.actionPage.config.layout || {},
     component:data.actionPage.config.component || {},
     locales:data.actionPage.config.locales || {}
@@ -70,18 +89,17 @@ const push = async (id) =>  {
   }
 
   const c = link(process.env.REACT_APP_API_URL || 'https://api.proca.app/api',a);
-  console.log(local);
   const actionPage = {
     id: id,
     name: local.filename,
     locale:local.lang.toLowerCase(),
-    journey: local.journey,
+    journey: array2string(local.journey),
     config: JSON.stringify({layout: local.layout, component: local.component, locales: local.locales})
   };
-  console.log(actionPage);
   const {data, errors} = await request(c, admin.UpdateActionPageDocument, actionPage)
-  if (errors) { throw errors }
-  console.log(data);
+  if (errors) { console.log(actionPage); throw errors }
+  console.log(local);
+  return data;
 }
 
 const pull = async (actionPage) => {
