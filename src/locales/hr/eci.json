@@ -1,29 +1,29 @@
 {
     "common": {
         "page-title": "EUROPSKA GRAĐANSKA INICIJATIVA – Dajte joj potporu!,",
-		"head-title": {
-            "home":"Europska građanska inicijativa",
-            "form":"Europska građanska inicijativa – Obrazac izjave o potpori po zemljama",
-            "submitted":"Europska građanska inicijativa – Izjava o potpori je podnesena",
-            "all-countries":"Europska građanska inicijativa – Izjave o potpori prikupljene na internetu",
-            "already":"Europska građanska inicijativa – Inicijativa je već podržana",
-            "disabled":"Europska građanska inicijativa – Prikupljanje potpisa za inicijativu je završeno",
-            "privacy":"Europska građanska inicijativa – Izjava o zaštiti osobnih podataka",
-            "conformity":"Europska građanska inicijativa – Potvrda o usklađenosti",
-            "error-404":"Europska građanska inicijativa – Stranica nije pronađena",
-            "error-500":"Europska građanska inicijativa – Neočekivana pogreška",
-            "login":"Europska građanska inicijativa – Prijava",
-            "not-initialized":"Europska građanska inicijativa – Sadržaj inicijative nije inicijaliziran"
+        "head-title": {
+            "home": "Europska građanska inicijativa",
+            "form": "Europska građanska inicijativa – Obrazac izjave o potpori po zemljama",
+            "submitted": "Europska građanska inicijativa – Izjava o potpori je podnesena",
+            "all-countries": "Europska građanska inicijativa – Izjave o potpori prikupljene na internetu",
+            "already": "Europska građanska inicijativa – Inicijativa je već podržana",
+            "disabled": "Europska građanska inicijativa – Prikupljanje potpisa za inicijativu je završeno",
+            "privacy": "Europska građanska inicijativa – Izjava o zaštiti osobnih podataka",
+            "conformity": "Europska građanska inicijativa – Potvrda o usklađenosti",
+            "error-404": "Europska građanska inicijativa – Stranica nije pronađena",
+            "error-500": "Europska građanska inicijativa – Neočekivana pogreška",
+            "login": "Europska građanska inicijativa – Prijava",
+            "not-initialized": "Europska građanska inicijativa – Sadržaj inicijative nije inicijaliziran"
         },
         "more.info": "Prikaži dodatne informacije",
         "hide.info": "Sakrij dodatne informacije",
         "select": "Odaberi",
         "yes": "Da",
         "no": "Ne",
-        "select_language": "Odaberite jezik.",
+        "select_language": "Odaberite jezik",
         "select-country": "Odaberite zemlju",
         "select-nationality": "Odaberite državljanstvo",
-        "other-country": "Druga država...",
+        "other-country": "Druga___",
         "from": "Iz",
         "skip-content": "Preskoči na sadržaj",
         "redirect": "Bit ćete preusmjereni na vanjsku stranicu:",
@@ -55,7 +55,7 @@
             "se": "Švedska",
             "si": "Slovenija",
             "sk": "Slovačka",
-            "gb": "Ujedinjena Kraljevina"
+            "gb": "Ujedinjeno Kraljevstvo"
         },
         "nationality": {
             "at": "austrijsko",
@@ -86,7 +86,7 @@
             "si": "slovensko",
             "sk": "slovačko",
             "gb": "britansko",
-            "other": "Druga..."
+            "other": "Drugo___"
         },
         "requirements": {
             "text": "Unesite sljedeće podatke kako je propisano <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Uredbom (EU) 2019/788 o europskoj građanskoj inicijativi</a>."
@@ -101,8 +101,14 @@
         "recent.supporters": "Najnoviji potpisnici",
         "current.supporters": "Trenutačni broj potpisnika",
         "total-supporters": "Ukupni broj potpisnika",
-        "goto-facebook": "Posjetite našu stranicu na Facebooku.",
-        "goto-twitter": "Posjetite našu stranicu na Twitteru."
+        "goto-facebook": "Posjetite našu stranicu na Facebooku",
+        "goto-twitter": "Posjetite našu stranicu na Twitteru",
+        "current_supporters": "Trenutačni broj potpisnika",
+        "recent_supporters": "Nedavni potpisnici",
+        "view_allcountries": "Prikaži sve zemlje",
+        "registration_date": "Početak razdoblja prikupljanja",
+        "registration_number": "Registracijski broj",
+        "closing_date": "Kraj razdoblja prikupljanja"
     },
     "initiative": {
         "public.webpage": "Internetska stranica inicijative (ako postoji):",
@@ -110,29 +116,31 @@
         "objectives": "Ciljevi",
         "representative": "Osobe za kontakt",
         "legal-entity": "Pravna osoba",
-        "partially-registered": "Ova inicijativa samo je djelomično registrirana. Informacije o opsegu registracije inicijative možete pronaći u odgovarajućoj odluci Komisije."
+        "partially-registered": "Ova inicijativa samo je djelomično registrirana_ Informacije o opsegu registrirane inicijative možete pronaći u odgovarajućoj odluci Komisije_",
+        "register_webpage": "Web-stranica ove inicijative u registru Europske komisije",
+        "public_webpage": "Web-stranica ove inicijative (ako postoji):"
     },
     "form": {
         "title": "Podržite ovu inicijativu koju su predložili građani Europske unije",
         "country.from": "Država članica državljanstva:",
-        "support-country": "Kako biste podržali ovu građansku inicijativu, ispunite obrazac ili upotrijebite sredstvo elektroničke identifikacije",
+        "support-country": "Kako biste podržali ovu građansku inicijativu, ispunite obrazac ili koristite eOI",
         "fill-form": "Ispunite obrazac",
         "or": "ILI",
-        "eID-form": "Upotrijebite sredstvo elektroničke identifikacije priznato u vašoj zemlji",
+        "eID-form": "koristite eOI vaše zemlje",
         "support.country.selected": "Vaša zemlja državljanstva",
         "generic.error": "Ispravite pogreške u obrascu izjave o potpori.",
         "group-document": "Osobni identifikacijski dokument",
         "group-personal": "Osobni podaci",
         "group-address": "Boravište",
-        "certify-info": "Ovime potvrđujem da su informacije koje sam dostavio/dostavila u ovom obrascu točne i da dosad nisam podržao/podržala ovu inicijativu.",
-        "privacy-statement": "Pročitao/pročitala sam <a href=\"{{url}}\" target=\"_blank\" title=\"izjavu o zaštiti osobnih podataka\">izjavu o zaštiti osobnih podataka</a> i sadržaj ove <a href=\"{{urlRegister}}\" target=\"_blank\">građanske inicijative</a>.",
-        "certify-info-eID": "Ovime potvrđujem da dosad nisam podržao/podržala ovu građansku inicijativu.",
+        "certify-info": "Ovime potvrđujem da su informacije koje sam dostavio/dostavila u ovom obrascu točne i da dosad nisam podržao/podržala ovu inicijativu_",
+        "privacy-statement": "Pročitao/pročitala sam <a href=\"{{url}}\" target=\"_blank\" title=\"izjavu o zaštiti osobnih podataka\">izjavu o zaštiti osobnih podataka</a> i sadržaj ove <a href=\"{{urlRegister}}\" target=\"_blank\">građanske inicijative</a>_",
+        "certify-info-eID": "Ovime potvrđujem da dosad nisam podržao/podržala ovu građansku inicijativu_",
         "support": "Podupirem",
         "document-number": "Broj",
         "document-type": "Vrsta dokumenta",
         "other-country": "Navedite državu",
-        "captcha-image-title": "Unesite znakove sa slike",
-        "captcha-audio-download": "Poslušajte i unesite znakove koje ste čuli",
+        "captcha-image-title": "Upišite znakove sa slike",
+        "captcha-audio-download": "Poslušajte i upišite znakove koje ste čuli",
         "link-support": "Kako podržati europsku građansku inicijativu",
         "support-footer1": "Preduvjeti za podržavanje europske građanske inicijative:",
         "support-footer2": "1. morate biti građanin Europske unije (tj. državljanin jedne od država članice EU-a);",
@@ -140,7 +148,7 @@
         "support-footer4": "Dodatne informacije",
         "support-footerDE": "Njemački državljani koji borave izvan zemlje moraju o svojem trenutačnom stalnom boravištu obavijestiti nadležno njemačko diplomatsko predstavništvo.",
         "optional-validacion-desc": "Format mojeg osobnog identifikacijskog broja (broja osobnog identifikacijskog dokumenta) i/ili poštanskog broja je točan,",
-        "optional-validacion-text": "zanemari ovu pogrešku i nastavi.",
+        "optional-validacion-text": "Zanemarite ovu pogrešku i nastavite",
         "property": {
             "full.first.names": "Puna imena",
             "family.names": "Prezimena",
@@ -158,7 +166,12 @@
             "personal.number": "",
             "registration.certificate": "",
             "residence.permit": "",
-            "citizens.card": ""
+            "citizens.card": "",
+            "date_of_birth": "Datum rođenja",
+            "postal_code": "Poštanski broj",
+            "street_number": "Broj",
+            "family_names": "Prezime",
+            "full_first_names": "Ime"
         },
         "error": {
             "oct.error.propertytypemismatch": "Format nije valjan",
@@ -217,8 +230,33 @@
             "document.ro.personal.id": "Format nije valjan. Obvezni format: NNNNNNNNNNNNN (N = brojka)",
             "document.se.personal.number": "Format nije valjan. Obvezni format: GGMMDD-NNNN ili GGGGMMDD-NNNN ili GGMMDDNNNN ili GGGGMMDDNNNN (G= godina, M= mjesec, D= dan, N = brojka)",
             "document.si.personal.number": "Format nije valjan. Obvezni format: NNNNNNNNNNNNN (N = brojka)",
-            "document.invalid": "Vrijednost nije valjana."
-        }
+            "document.invalid": "Vrijednost nije valjana.",
+            "document_invalid": "Neispravna vrijednost",
+            "oct_error_sk_postalcode": "Neispravan format_ Obavezan je format: GNNNN (N = znamenka, G = može biti broj 0, 8 ili 9)",
+            "oct_error_si_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_pl_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_nl_postalcode": "Neispravan format_ Obavezan je format: GNNNLL (G = znamenka od 1 do 9, N = znamenka, L = slovo)",
+            "oct_error_lu_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_hr_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_gr_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_fi_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_ee_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_es_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_dk_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_de_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_error_cy_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_be_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_at_postalcode": "Neispravan format_ Obavezan je format: NNNN (N = znamenka)",
+            "oct_error_fr_postalcode": "Neispravan format_ Obavezan je format: NNNNN (N = znamenka)",
+            "oct_captcha_invalid": "Neispravan captcha",
+            "oct_error_invaliddateformat": "Neispravan format datuma_ Obavezan je format: dd/mm/yyyy",
+            "oct_empty_property": "Obavezno polje",
+            "oct_error_invalidsize": "Neispravan format",
+            "oct_error_propertytypemismatch": "Neispravan format"
+        },
+        "captcha-button-arialabel-refresh": "Obnovi captcha",
+        "captcha-button-arialabel-audio": "Promijeni captcha u zvuk",
+        "captcha-button-arialabel-image": "Promijeni captcha u sliku"
     },
     "howsupport": {
         "s1.title": "Saznajte više",
@@ -232,25 +270,25 @@
     },
     "footer": {
         "ocs.version": "Središnji sustav internetskog prikupljanja",
-        "privacy-title": "Prikaz izjave o zaštiti osobnih podataka",
+        "privacy-title": "Izjava o zaštiti osobnih podataka",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Prikaz potvrde o sukladnosti"
+        "conformity-title": "Potvrda o sukladnosti"
     },
     "congratulations": {
         "title": "HVALA!",
         "successfully-title": "Uspješno ste poslali izjavu o potpori",
-        "Keep-your-signature": "Sačuvajte ove podatke za potrebe eventualnih budućih upita.",
+        "Keep-your-signature": "Sačuvajte ove podatke za potrebe eventualnih budućih upita",
         "download-signature-identifier": "Preuzmite identifikator potpisa",
-        "signature-identifier": "AIdentifikator potpisa",
+        "signature-identifier": "Identifikator potpisa",
         "date-signature": "Datum potpisivanja",
         "and-make-change": "i budite dio promjene",
         "tweet-it": "Podijelite na Twitteru",
         "share-this-initiative": "Podijelite ovu inicijativu",
         "stay-informed": "Unesite svoju adresu e-pošte ako želite primati informacije:",
-        "stay-informed2": "o ovoj građanskoj inicijativi (<a href=\"https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection\" target=\"_blank\">Izjava o zaštiti osobnih podataka</a>)",
+        "stay-informed2": "O ovoj građanskoj inicijativi (<a href=\"/#/screen/privacy\" target=\"_blank\">izjava o zaštiti osobnih podataka</a>)",
         "stay-informed3": "o europskoj građanskoj inicijativi općenito (<a href=\"https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses\" target=\"_blank\">Izjava o zaštiti osobnih podataka</a>)",
         "stay-informed4": "Pročitao/la sam relevantnu izjavu o zaštiti osobnih podataka i slažem se s obradom mojih osobnih podataka.",
-        "stay-informed-button": "Želim ostati u toku",
+        "stay-informed-button": "Ostanite u toku",
         "stay-informed-subtitle": "",
         "stay-informed-ok": "HVALA!",
         "stay-informed-ok-subtitle": "",
@@ -260,14 +298,14 @@
     "feedback": {
         "your-will-help-us": "Na temelju vaših komentara moći ćemo poboljšati ovo web-mjesto.",
         "write-your-feedback": "Vaš komentar...",
-        "send-feedback": "POŠALJI KOMENTAR",
+        "send-feedback": "Pošaljite komentar",
         "share-on-facebook": "Podijelite na Facebooku",
         "tweet-it": "Podijelite na Twitteru",
         "how-experience": "Kakvo je bilo iskustvo",
         "experience-initiative": "podržavanja ove inicijative?",
         "result-ok": "Hvala na komentarima",
-        "result-error": "Pri podnošenju komentara došlo je do pogreške.",
-        "email-error": "Došlo je do pogreške pri slanju poruke e-pošte. ",
+        "result-error": "Došlo je do pogreške pri slanju vašeg komentara",
+        "email-error": "Došlo je do pogreške pri slanju vaše e-poruke",
         "experience": {
             "bad": "Loše",
             "fair": "Osrednje",
@@ -291,7 +329,7 @@
         "status_reached": "Prag je dosegnut",
         "status_bellow": "Prag nije dosegnut",
         "status_any": "Još nema izjava",
-        "progress_label": "{{percent}}% praga za ovu zemlju ({{count}} / {{threshold}})"
+        "progress_label": "{{percent}} % praga za ovu zemlju ({{count}} / {{threshold}})"
     },
     "error404": {
         "title": "Pogreška 404 – Stranica nije pronađena",
@@ -335,15 +373,14 @@
         "5.title": "Odabrana država članica državljanstva razlikuje se od države koju ste odabrali za izražavanje potpore sredstvom elektroničke identifikacije.",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Prijava",
-        "error":"Pogreška",
-        "error-msg":"Korisnicko ime, lozinka ili odgovor na test nisu tocni. Potvrdite i pokušajte ponovno.",
-        "username":"Korisnicko ime",
-        "password":"Lozinka",
-        "challenge":"Sigurnosno pitanje",
-        "challenge-result":"Rezultat",
-        "copy-text":"Kopiraj tekst"
+    "login": {
+        "sign-in": "Prijava",
+        "error": "Pogreška",
+        "error-msg": "Korisnicko ime, lozinka ili odgovor na test nisu tocni. Potvrdite i pokušajte ponovno.",
+        "username": "Korisnicko ime",
+        "password": "Lozinka",
+        "challenge": "Sigurnosno pitanje",
+        "challenge-result": "Rezultat",
+        "copy-text": "Kopiraj tekst"
     }
-
 }
