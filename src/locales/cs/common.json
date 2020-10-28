@@ -1,6 +1,6 @@
 {
     "Link_Share button": "Odkaz",
-    "Email_Share button": "Email",
+    "Email_Share button": "E-mail",
     "Share on Twitter": "Sdílet na Twitteru",
     "Share on Facebook": "Sdílet na Facebooku",
     "Sign Up": "Zaregistrovat se",
@@ -8,13 +8,13 @@
     "Privacy": "Soukromí",
     "Legal": "Právní",
     "Thanks!": "Díky!",
-    "Country": "Země",
+    "Country": "Stát",
     "City": "City",
     "Street": "Ulice",
     "Postal Code": "Poštovní směrovací číslo",
-    "Email": "Email",
+    "Email": "E-mail",
     "Last name": "Příjmení",
-    "First name": "Křestní jméno",
+    "First name": "Jméno",
     "Amount": "Částka",
     "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
     "Enter a number.": "Zadejte jméno.",
@@ -23,20 +23,20 @@
     "Stay in touch": "Zůstat v kontaktu",
     "Donations must be %(amount)s or more": "Dary musí být% (částka) s nebo více",
     "progress": "{{count}} podepsali. Pojďme na {{goal}}",
-    "Sign": "Podepsat hned!",
+    "Sign": "Podepisuji!",
     "share": {
         "email": {
             "body": "Ahoj,\nPodepište prosím, myslím, že to chcete podpořit",
             "subject": "Měli byste to podepsat"
         },
         "message": "Měli byste to podepsat!",
-        "intro": "Skvělé, podepsali jste 👍. Chcete-li znásobit svůj dopad, sdílejte široko daleko, abyste zajistili, že tuto petici uvidí všichni🙏.",
-        "title": "Skoro hotovo! Udělejte další krok."
+        "intro": "Skvělé, máte podepsáno. 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele. 🙏.",
+        "title": "Téměř hotovo! Přejděte k dalšímu kroku."
     },
     "consent": {
         "processing": "Vaše osobní údaje budou uloženy jako soukromé a bezpečně. Odesláním informací souhlasíte s použitím dat a cookies v souladu s našimi <1> zásadami ochrany osobních údajů </1>",
-        "confirm": "<0> Jste si jisti? </0> <1> Pokud vyberete možnost „Ne“, nebudete moci zjistit, zda je tato kampaň úspěšná, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Pokud vyberete „Ano“, budeme vás informovat o této a dalších naléhavých kampaních. </1> <2> Odběr můžete kdykoli zrušit. </2>",
-        "opt-out": "Ne, neposílejte mi e-maily ani mě nechte v budoucnu informovat",
+        "confirm": "<0>Jste si jistí?</0> <1> Pokud vyberete možnost „Ne“, nebudete moci zjistit, zda je tato kampaň úspěšná, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Pokud vyberete „Ano“, budeme vás informovat o této a dalších naléhavých kampaních. </1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
+        "opt-out": "Ne, nestojím o e-maily ani o další informace",
         "opt-in": "Ano, informujte mě e-mailem",
         "intro": "Souhlasím, že {{name}} mě bude kontaktovat ohledně důležitých kampaní"
     },
@@ -48,7 +48,7 @@
     "dialogTitle": "Informujte mě o kampani",
     "Your organisation account": "Váš účet organizace",
     "Thank you": "Děkuji ti",
-    "Sign now!": "Přihlaste se hned!",
+    "Sign now!": "Podepisuji!",
     "Next": "Další",
     "Locality": "Oblast",
     "Full Name": "Celé jméno",

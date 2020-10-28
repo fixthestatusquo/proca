@@ -56,7 +56,7 @@ export default props => {
     setValue(event.target.value);
   };
 
-  const link = config.privacy_url || "https://proca.foundation/privacy_policy";
+  const link = config.component?.consent.privacyPolicy || "https://proca.foundation/privacy_policy";
   return (
     <Fragment>
       <Grid item xs={12}>
