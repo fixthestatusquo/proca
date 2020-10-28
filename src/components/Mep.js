@@ -70,6 +70,7 @@ const Component = props => {
 
 
   const handleDone = d => {
+    console.log ("close");
     viewDialog(true);
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
@@ -86,7 +87,7 @@ const Component = props => {
       <Country form={form}/>
       <List>
     {profiles.map((d) =>
-      <MepAction key={d.epid} actionPage={actionPage} done={done} actionUrl={actionUrl} actionText={actionText} {...d}></MepAction>
+      <MepAction key={d.epid} actionPage={actionPage} done={handleDone} actionUrl={actionUrl} actionText={actionText} {...d}></MepAction>
     )}
   </List>
 
