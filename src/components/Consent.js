@@ -56,7 +56,9 @@ export default props => {
     setValue(event.target.value);
   };
 
-  const link = config.component?.consent.privacyPolicy || "https://proca.foundation/privacy_policy";
+  const link = config.component?.consent?.privacyPolicy || "https://proca.foundation/privacy_policy";
+  const consentProcessing = config.component?.country === false ?"consent.processing-nocookie":"consent.processing";
+  console.log(consentProcessing,link);
   return (
     <Fragment>
       <Grid item xs={12}>
@@ -83,6 +85,16 @@ export default props => {
             control={<Radio color="primary" />}
             label={t("consent.opt-in")}
           />
+    {config.component?.consent?.split &&
+          <FormControlLabel
+            value="opt-in-org"
+            inputRef={register}
+            className ={classes.label}
+            control={<Radio color="primary" />}
+            label={t("consent.opt-in-org")}
+          />
+
+    }
 
           <FormControlLabel
             value="opt-out"
@@ -104,8 +116,8 @@ export default props => {
       </Grid>
       <Grid item xs={12}>
         <Box className={classes.notice}>
-          <Trans i18nKey="consent.processing">
-            Text <a href={link}>link</a>
+          <Trans i18nKey={consentProcessing}>
+             Consent processing according to <a href={link}>privacy policy</a>
           </Trans>
         </Box>
       </Grid>
