@@ -39,7 +39,7 @@ const string2array  = (s) => {
 
 const backup = (actionPage) => {
   const fileName = file(actionPage);
-  if (!fs.existsSync(filename)) 
+  if (!fs.existsSync(fileName)) 
     return;
   fs.renameSync (fileName,fileName + ".bck");
 }
