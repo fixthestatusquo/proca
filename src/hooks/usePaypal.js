@@ -1,60 +1,103 @@
-import { useLayoutEffect, useState } from 'react';
+import React from "react";
+import { useLayoutEffect, useState } from "react";
+import PaypalIcon from "../images/Paypal.js";
+import { addAction, addActionContact } from "../lib/server.js";
+import { useCampaignConfig } from "../hooks/useConfig";
+import Url from "../lib/urlparser.js";
+import uuid from "../lib/uuid";
 
 const usePaypal = params => {
   const [loadState, setLoadState] = useState({ loading: false, loaded: false });
+  const config = useCampaignConfig();
+
+  const addClick = (event, payload) => {
+    addAction(config.actionPage, event, {
+      uuid: uuid(),
+      //        tracking: Url.utm(),
+      payload: payload
+    });
+  };
 
   useLayoutEffect(() => {
-    if (loadState.loading || loadState.loaded) return;
+    if (
+      !params.amount ||
+      params.amount === 0 ||
+      loadState.loading ||
+      loadState.loaded
+    )
+      return;
     setLoadState({ loading: true, loaded: false });
 
-    const script = document.createElement('script');
-    script.src =  "https://www.paypal.com/sdk/js?currency=EUR&client-id=" + (params.clientId || "sb");
+    const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
+      (params.clientId || "sb");
+    //TODO: merchant-id:XXX or data-partner-attribution-id
     script.async = true;
-    script.addEventListener('load', function() {
+    script.addEventListener("load", function() {
       setLoadState({ loading: false, loaded: true });
-      const paypal = window.paypal; 
+      const paypal = window.paypal;
       const button = paypal.Buttons({
-        aaacreateOrder: function(data, actions) {
-          console.log("create order",data);
+        createOrder: function(data, actions) {
+          console.log("create donation", data);
           return actions.order.create({
-            purchase_units: [{amount:{value:'1.00'}}],
-            description: 'Support',
+            purchase_units: [{ amount: { value: parseFloat(params.amount) } }],
+            description: params.campaign || "Donation"
           });
         },
         fundingSource: paypal.FUNDING.PAYPAL,
-        commit:true,
-            onClick: function(data,actions) {
-                console.log("onClick",data);
-//                return actions.reject(Error("error: onClick"));
-            },
-                    onCancel: function(data,actions) {
-              console.log("onCancel");
-            },
-        onApprove: function(data, actions) {
-          console.log("onApprove");
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+        commit: true,
+        onClick: function(data, actions) {
+          console.log("onClick", data);
+          addClick("donation_start", {
+            source: data.fundingSource,
+            amount: params.amount
           });
+          //                return actions.reject(Error("error: onClick"));
+        },
+        onCancel: function(data, actions) {
+          addClick("donation_cancel", {
+            source: "paypal",
+            amount: params.amount
+          });
+        },
+        onApprove: async function(data, actions) {
+          let d = {};
+          const details = await actions.order.capture();
+          console.log("onApprove", details);
+          data.tracking = Url.utm();
+          const result = await addActionContact(
+            "donate",
+            config.actionPage,
+            data
+          );
+          typeof params.completed === "function" && params.completed(details);
         },
 
         onError: function(err) {
-          console.log("error",err);
+          addClick("donation_error", {
+            source: "paypal",
+            amount: params.amount
+          });
+          console.log("error", err);
         },
         style: {
-          shape: 'rect',
-          color: 'silver',
-          size: 'responsive',
+          shape: "rect",
+          color: "silver",
+          size: "responsive",
           height: 30,
-          layout: 'vertical',
-          label: 'paypal',
+          layout: "vertical",
+          label: "paypal"
         }
       });
       button.render(params.dom || "#paypal-container");
     });
     document.body.appendChild(script);
-    return () => { console.log("unload");//document.body.removeChild(script); 
-    }
-  }, [loadState,params]);
+    return () => {
+      console.log("unload"); //document.body.removeChild(script);
+    };
+  }, [loadState, params]);
+  return params.amount > 0 ? "span" : PaypalIcon;
 };
 export default usePaypal;
 

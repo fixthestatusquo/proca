@@ -23,7 +23,6 @@ import useElementWidth from "../hooks/useElementWidth";
 import { useTranslation } from "react-i18next";
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-//import PaypalIcon from '../images/Paypal.js';
 import usePaypal from '../hooks/usePaypal';
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +80,7 @@ const DonateAmount = (props) => {
   }
   const currency = config?.component?.DonateAmount?.currency || {"symbol":"€","code":"EUR"};
 
-  usePaypal({currency:currency});
+  const ButonPaypal = usePaypal({currency:currency, amount: amount, recurring: recurring});
 const choosePaymentMethod = (m) =>{
   setData("paymentMethod",m);
 ////////////////  props.done();
@@ -142,7 +141,7 @@ const handleRecurring = (event) => {
   <ButtonGroup variant="contained" fullWidth={compact} aria-label="Select Payment method" orientation={compact ? "vertical": "horizontal"} >
   <Button color="primary" disabled={!amount} startIcon={<PaymentIcon />} onClick={() => {choosePaymentMethod("creditcard")}}>Credit Card</Button>
   <Button disabled={!amount} onClick={() => choosePaymentMethod("sepa")} startIcon={<AccountBalanceIcon/>}>SEPA</Button>
-    <Button component='div' disabled={!amount} id="paypal-container"></Button>
+    <Button component='div' disabled={!amount} id="paypal-container"><ButonPaypal /></Button>
     </ButtonGroup>
         </CardActions>
       </Card>

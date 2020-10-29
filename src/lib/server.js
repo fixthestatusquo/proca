@@ -133,6 +133,14 @@ async function addAction (actionPage, actionType, data) {
     contact: data.uuid
   };
 
+  if (typeof data.payload === 'object') {
+    variables.payload = [];
+    for (const [key, value] of Object.entries(data.payload)) {
+      if (value)
+        variables.payload.push({key:key, value:value.toString() });
+    }
+  }
+
   if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
