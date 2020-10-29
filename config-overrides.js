@@ -103,11 +103,14 @@ module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
 //  useBabelRc();
   let widget = {};
-  let id = parseInt(process.env.actionpage,10);
+  console.log (process,env);
+  const id=parseInt(process.env.actionpage || process.argv[2],10);
+
+  console.log(process.argv,id);
   process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer();
 
   if (!id) {
-    console.error("we need an env$ actionpage=xxx yarn ");
+    console.error("we need an env$ actionpage={id} yarn or yarn start/build {id}");
     process.exit (1);
   }
   widget = read(id);

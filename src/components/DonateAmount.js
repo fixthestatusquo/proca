@@ -67,7 +67,7 @@ const DonateAmount = (props) => {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
   const title =  amount 
-    ?config?.component?.DonateAmount.igive || "I'm donating "+amount+"€"
+    ?config?.component?.DonateAmount.igive || "I'm donating"+" " + amount+"€"
     :config?.component?.DonateAmount.title || "Choose your donation amount";
 //    "I'm donating";
   const subtitle = config?.component?.DonateAmount.subTitle || "The average donation is 8.60€";

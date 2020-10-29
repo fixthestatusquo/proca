@@ -71,7 +71,7 @@ try {
     setCompact(width <= 450);
 
   const title =  data.amount 
-    ?config?.component?.DonateAmount.igive || t("I'm donating ")+data.amount+"€"
+    ?config?.component?.DonateAmount.igive || t("I'm donating")+" "+data.amount+"€"
     :config?.component?.DonateAmount.title || t("Choose your donation amount");
 
     const formValues = {};
