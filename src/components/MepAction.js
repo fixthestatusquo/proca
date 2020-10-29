@@ -61,6 +61,7 @@ const component= function MepAction(profile) {
     select(true);
     addTweet("twitter_click",profile.Twitter);
     var timer = setInterval( () => {
+    console.log(win.closed);
     if(win.closed) {
       clearInterval(timer);
       addTweet("twitter_close",profile.Twitter);
@@ -68,7 +69,7 @@ const component= function MepAction(profile) {
       select(false);
       if (profile.done instanceof Function)
         profile.done();
-    }}, 1000);
+    }}, 2000);
 
   };
 
