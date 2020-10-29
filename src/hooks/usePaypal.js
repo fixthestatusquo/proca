@@ -62,16 +62,31 @@ const usePaypal = params => {
           });
         },
         onApprove: async function(data, actions) {
-          let d = {};
-          const details = await actions.order.capture();
-          console.log("onApprove", details);
-          data.tracking = Url.utm();
+          const don = await actions.order.capture();
+          console.log("onApprove", don);
+          let d= {
+            uuid: uuid(false),
+            firstname: don.payer?.name?.given_name,
+            lastname: don.payer?.name?.surname,
+            email: don.payer?.email_address,
+            phone: don.payer?.phone?.phone_number?.national_number,
+            country: don.payer?.address?.country_code,
+            postcode: don.payer?.address?.postal_code,
+            donation_id: don.id,
+            status: don.status,
+          };
+          if (don.purchase_units?.length && don.purchase_units[0].amount) {
+            d.amount= don.purchase_units[0].amount.value;
+            d.currency= don.purchase_units[0].amount.currency_code;
+          }
+          d.tracking = Url.utm();
+          console.log(d);
           const result = await addActionContact(
             "donate",
             config.actionPage,
-            data
+            d
           );
-          typeof params.completed === "function" && params.completed(details);
+          typeof params.completed === "function" && params.completed(d);
         },
 
         onError: function(err) {
