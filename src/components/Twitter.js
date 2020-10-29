@@ -88,7 +88,7 @@ const Component = props => {
       >
         <Register actionPage={props.actionPage} />
       </Dialog>
-    {config.component.twitter?.filter.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
+    {config.component.twitter?.filter?.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}

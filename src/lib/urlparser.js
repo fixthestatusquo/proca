@@ -34,6 +34,7 @@ const parse = (whitelist,prefix) => {
 const data = prefix => {
   prefix = prefix || "proca_";
   const whitelist = [
+    "amount",
     "firstname",
     "lastname",
     "name",

@@ -137,6 +137,14 @@ async function addAction (actionPage, actionType, data) {
     contact: data.uuid
   };
 
+  if (typeof data.payload === 'object') {
+    variables.payload = [];
+    for (const [key, value] of Object.entries(data.payload)) {
+      if (value)
+        variables.payload.push({key:key, value:value.toString() });
+    }
+  }
+
   if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
@@ -165,7 +173,7 @@ async function addActionContact(actionType, actionPage, data) {
   ){contactRef,firstName}
   }
 `;
-  const expected="firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
+  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
   let variables = {
     actionPage: actionPage,
     action: {
@@ -183,6 +191,8 @@ async function addActionContact(actionType, actionPage, data) {
     },
     privacy: { optIn: data.privacy === "opt-in", leadOptIn: data.privacy ==="opt-in" }
   };
+  if (data.uuid) 
+    variables.contactRef = data.uuid;
   if (data.region)
     variables.contact.address.region = data.region;
   if (data.locality)

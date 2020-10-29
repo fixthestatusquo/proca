@@ -170,7 +170,6 @@ export default function ShareAction(props) {
 
     function after(props) {
       addShare("share_close");
-      console.log("closing " + medium);
     }
 
     function before(props) {
