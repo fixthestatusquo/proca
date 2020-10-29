@@ -47,8 +47,8 @@ async function graphQL(operation, query, options) {
   return data;
 }
 
-async function getCount(actionPage) {
-  
+async function getCount(actionPage,options) {
+  let url = null;
       //actionCount {actionType, count}
   var query = `query getCount($actionPage: Int!)
 {actionPage(id:$actionPage) {
@@ -60,12 +60,16 @@ async function getCount(actionPage) {
 }}
 `;
   query = query.replace(/(\n)/gm, "").replace(/\s\s+/g, " ");
-  const url =
-    (process.env.REACT_APP_API_URL || process.env.API_URL) +
-    "?query=" +
-    encodeURIComponent(query) +
-    "&variables=" +
-    encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
+  if (options?.apiUrl) {
+    url = options.apiUrl;
+  } else {
+    url =
+      process.env.REACT_APP_API_URL || process.env.API_URL +
+      "?query=" +
+      encodeURIComponent(query) +
+      "&variables=" +
+      encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
+  }
   var data = null;
   await fetch(url)
     .then(res => {
