@@ -1,0 +1,62 @@
+{
+    "Country": "Zemlja",
+    "consent": {
+        "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
+        "opt-in": "Da, želim primati obavijesti putem e-maila",
+        "processing": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1>",
+        "intro": "Slažem se, da me {{name}} kontaktira o važnim kampanjama",
+        "confirm": "<0>Sigurno?</0><1>Odabirom „Ne” nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2>"
+    },
+    "progress_0": "Broj potpisa: {{count}}. Cilj je {{goal}}",
+    "progress_1": "Broj potpisa: {{count}}. Cilj je {{goal}}",
+    "progress_2": "Broj potpisa: {{count}}. Cilj je {{goal}}",
+    "Thank you": "Hvala",
+    "share": {
+        "email": {
+            "subject": "Ovo se isplati potpisati",
+            "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati"
+        },
+        "intro": "Sjajno, potpisali ste 👍. Za povećanje vašeg utjecaja, podijelite ovu peticiju nadaleko i naširoko 🙏.",
+        "title": "Skoro gotovo! Poduzmite sljedeći korak.",
+        "message": "Ovo se isplati potpisati!"
+    },
+    "Donations must be %(amount)s or more": "Iznos donacije mora biti %(amount)s ili više",
+    "This field is required.": "Ovo je obavezno polje.",
+    "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
+    "Locality": "Lokalitet",
+    "Download explanation": "Vaš je dokument sada spreman, šaljemo vam ga putem e-maila.",
+    "Last name": "Prezime",
+    "Download": "Preuzimanje",
+    "City": "Grad",
+    "Your organisation account": "Račun vaše organizacije",
+    "twitter": {
+        "actionText": "Ja sam potpisao/potpisala. Potpišite i vi"
+    },
+    "you need to be 18 years old": "morate biti punoljetni (18 godina)",
+    "Birthdate": "Datum rođenja",
+    "Legal": "Pravo",
+    "Amount": "Iznos",
+    "No Thanks": "Ne hvala",
+    "Full Name": "Puno ime",
+    "Share on Facebook": "Dijeli na Facebooku",
+    "register": "Dodaj moje ime",
+    "Comment": "Komentar",
+    "Email_Share button": "E-mail",
+    "Share on Twitter": "Dijeli na Twitteru",
+    "Sign Up": "Registracija",
+    "Next": "Dalje",
+    "Link_Share button": "Poveznica",
+    "dialogTitle": "Želim primati obavijesti o napretku kampanje",
+    "Sign now!": "Potpišite sada!",
+    "Stay in touch": "Ostanite u kontaktu",
+    "Account": "Račun",
+    "First name": "Ime",
+    "Street": "Ulica",
+    "Privacy": "Privatnost",
+    "Enter a number.": "Upišite broj.",
+    "Thanks!": "Hvala!",
+    "Address": "Adresa",
+    "Sign": "Potpišite sada!",
+    "Postal Code": "Poštanski broj",
+    "Email": "E-mail"
+}
