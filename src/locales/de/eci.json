@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "EUROPÄISCHE BÜRGERINITIATIVE – Sie wollen eine Initiative unterstützen?",
-		"head-title": {
-            "home":"Europäische Bürgerinitiative",
-            "form":"Europäische Bürgerinitiative - Formulare",
-            "submitted":"Europäische Bürgerinitiative - Unterstützungsbekundung eingereicht",
-            "all-countries":"Europäische Bürgerinitiative - Online-Unterschriften",
-            "already":"Europäische Bürgerinitiative - Bereits unterstützt",
-            "disabled":"Europäische Bürgerinitiative - Initiative deaktiviert",
-            "privacy":"Europäische Bürgerinitiative - Datenschutzerklärung",
-            "conformity":"Europäische Bürgerinitiative - Konformitätszertifikat",
-            "error-404":"Europäische Bürgerinitiative - Seite nicht gefunden",
-            "error-500":"Europäische Bürgerinitiative - Unerwarteter Fehler",
-            "login":"Europäische Bürgerinitiative - Anmelden",
-            "not-initialized":"Europäische Bürgerinitiative - Initiative nicht initialisiert"
+        "head-title": {
+            "home": "Europäische Bürgerinitiative",
+            "form": "Europäische Bürgerinitiative - Formulare",
+            "submitted": "Europäische Bürgerinitiative - Unterstützungsbekundung eingereicht",
+            "all-countries": "Europäische Bürgerinitiative - Online-Unterschriften",
+            "already": "Europäische Bürgerinitiative - Bereits unterstützt",
+            "disabled": "Europäische Bürgerinitiative - Initiative deaktiviert",
+            "privacy": "Europäische Bürgerinitiative - Datenschutzerklärung",
+            "conformity": "Europäische Bürgerinitiative - Konformitätszertifikat",
+            "error-404": "Europäische Bürgerinitiative - Seite nicht gefunden",
+            "error-500": "Europäische Bürgerinitiative - Unerwarteter Fehler",
+            "login": "Europäische Bürgerinitiative - Anmelden",
+            "not-initialized": "Europäische Bürgerinitiative - Initiative nicht initialisiert"
         },
         "more.info": "Mehr Info anzeigen",
         "hide.info": "Info verbergen",
@@ -26,7 +26,7 @@
         "other-country": "Anderes Land...",
         "from": "Aus",
         "skip-content": "Direkt zum Inhalt",
-        "redirect": "Sie werden auf die folgende externe Seite weitergeleitet:",
+        "redirect": "Sie werden auf die folgende externe Seite weitergeleitet: ",
         "country": {
             "at": "Österreich",
             "be": "Belgien",
@@ -101,8 +101,8 @@
         "recent.supporters": "Neueste Unterzeichner",
         "current.supporters": "Aktuelle Zahl der Unterzeichner",
         "total-supporters": "Gesamtzahl der Unterzeichner",
-        "goto-facebook": "Besuchen Sie unsere Facebook-Seite.",
-        "goto-twitter": "Besuchen Sie unsere Twitter-Seite."
+        "goto-facebook": "Besuchen Sie unsere Facebook-Seite",
+        "goto-twitter": "Besuchen Sie unsere Twitter-Seite"
     },
     "initiative": {
         "public.webpage": "Webpräsenz dieser Initiative (falls vorhanden):",
@@ -113,14 +113,14 @@
         "partially-registered": "Die Initiative wurde nur teilweise registriert. Näheres über den Umfang der Registrierung erfahren Sie im Beschluss der Kommission."
     },
     "form": {
-        "title": "Unterstützen Sie diese Initiative von Bürgerinnen und Bürgern der EU!",
+        "title": "Unterstützen Sie diese Initiative von Bürgerinnen und Bürgern der EU",
         "country.from": "Ihr Herkunftsland:",
         "support-country": "Füllen Sie das Formular aus oder geben Sie Ihre eID an, um diese Bürgerinitiative zu unterstützen",
         "fill-form": "Formular ausfüllen",
         "or": "ODER",
         "eID-form": "eID angeben",
         "support.country.selected": "Herkunftsland",
-        "generic.error": "Bitte korrigieren Sie die Fehler im Formular für die Unterstützungsbekundung.",
+        "generic.error": "Bitte korrigieren Sie die Fehler im Formular für die Unterstützungsbekundung",
         "group-document": "Persönliches Ausweispapier",
         "group-personal": "Informationen zur Person",
         "group-address": "Wohnsitz",
@@ -139,8 +139,8 @@
         "support-footer3": "2. Sie müssen alt genug sein, um an den Wahlen zum Europäischen Parlament teilzunehmen oder – in einigen Ländern – das 16. Lebensjahr vollendet haben.",
         "support-footer4": "Mehr dazu",
         "support-footerDE": "Wenn Sie Ihren festen Wohnsitz außerhalb Deutschlands haben, müssen Sie diesen bei der diplomatischen Vertretung Deutschlands in dem betreffenden Land gemeldet haben.",
-        "optional-validacion-desc": "Das Format meiner persönlichen Identifikationsnummer/der Nummer eines persönlichen Ausweispapiers und die Postleitzahl sind korrekt.",
-        "optional-validacion-text": "Bitte diesen Fehler ignorieren und fortfahren.",
+        "optional-validacion-desc": "Das Format meiner persönlichen Identifikationsnummer/Nummer meines Personalausweises und/oder die Postleitzahl sind korrekt.",
+        "optional-validacion-text": "Ignorieren Sie diesen Fehler und fahren Sie fort",
         "property": {
             "full.first.names": "Vollständige Vornamen",
             "family.names": "Familiennamen",
@@ -234,7 +234,7 @@
         "ocs.version": "Zentrales Online-Sammelsystem",
         "privacy-title": "Datenschutzerklärung anzeigen",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Konformitätszertifikat anzeigen"
+        "conformity-title": "Konformitätszertifikat anzeigen"
     },
     "congratulations": {
         "title": "VIELEN DANK!",
@@ -335,15 +335,14 @@
         "5.title": "Das Herkunftsland stimmt nicht mit dem für die eID gewählten Land überein",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Anmelden",
-        "error":"Ansicht",
-        "error-msg":"Benutzername, Passwort oder Antwort auf die Sicherheitsfrage falsch. Bitte versuchen Sie es erneut.",
-        "username":"Benutzername",
-        "password":"Passwort",
-        "challenge":"Aufforderung",
-        "challenge-result":"Antwort",
-        "copy-text":"Text kopieren"
+    "login": {
+        "sign-in": "Anmelden",
+        "error": "Ansicht",
+        "error-msg": "Benutzername, Passwort oder Antwort auf die Sicherheitsfrage falsch. Bitte versuchen Sie es erneut.",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "challenge": "Aufforderung",
+        "challenge-result": "Antwort",
+        "copy-text": "Text kopieren"
     }
-
 }
