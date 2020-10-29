@@ -33,13 +33,6 @@ import StripeInput from "./StripeInput";
 const publishableKey="pk_test_51HLPbyFFsfkkXAxwgFLCJfIWJwuNvzA867Arg1lH4Woqhcq0yEWMtCwx4j2lqML9dCPK3oPH0NQyiAPux3K8JZUw00MxrWkh7u";
 
 let stripe = null;
-try {
-  stripe = loadStripe(publishableKey);
-} catch(e) {
-  stripe = null;
-  console.log("not loading stripe",e);
-}
-
 const currencies = [
     {
         "symbol": "€",
@@ -58,9 +51,17 @@ const PaymentForm = () => {
     const { t } = useTranslation();
   const config = useCampaignConfig();
 
+try {
+  stripe = loadStripe(publishableKey);
+} catch(e) {
+  stripe = null;
+  console.log("not loading stripe",e);
+}
+
+
     const [data, setData] = useData();
   const form = useForm({
-    defaultValues: {name: data.firstname + " " + data.lastname,email: data.email,postcode:data.postcode}
+    defaultValues: {name: (data.firstname ? data.firstname + " ": "") + (data.lastname ? data.lastname:""),email: data.email,postcode:data.postcode}
   });
 
   const [compact, setCompact] = useState(true);

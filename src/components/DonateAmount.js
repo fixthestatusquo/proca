@@ -83,6 +83,7 @@ const DonateAmount = (props) => {
   const ButonPaypal = usePaypal({currency:currency, amount: amount, recurring: recurring});
 const choosePaymentMethod = (m) =>{
   setData("paymentMethod",m);
+  props.done();
 ////////////////  props.done();
 }
 
