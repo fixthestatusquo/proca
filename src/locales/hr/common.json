@@ -4,8 +4,11 @@
         "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
         "opt-in": "Da, želim primati obavijesti putem e-maila",
         "processing": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1>",
-        "intro": "Slažem se, da me {{name}} kontaktira o važnim kampanjama",
-        "confirm": "<0>Sigurno?</0><1>Odabirom „Ne” nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2>"
+        "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {campaign}",
+        "confirm": "<0>Sigurno?</0><1>Odabirom „Ne” nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2>",
+        "processing-nocookie": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka u skladu s našim <1>pravilima o privatnosti</1>",
+        "opt-in-both": "Da, želim da me {{partner}} i {{org}} obavještavaju putem e-maila",
+        "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila"
     },
     "progress_0": "Broj potpisa: {{count}}. Cilj je {{goal}}",
     "progress_1": "Broj potpisa: {{count}}. Cilj je {{goal}}",
@@ -58,5 +61,9 @@
     "Address": "Adresa",
     "Sign": "Potpišite sada!",
     "Postal Code": "Poštanski broj",
-    "Email": "E-mail"
+    "Email": "E-mail",
+    "Other": "Drugo",
+    "I'm donating ": "Doniram ",
+    "I'm donating": "Doniram",
+    "Choose your donation amount": "Odaberite iznos donacije"
 }
