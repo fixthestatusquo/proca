@@ -57,7 +57,6 @@ const fetch = async (actionPage) =>  {
 
   const {data, errors} = await request(c, widget.GetActionPageDocument, {id:actionPage})
   if (errors) throw errors
-
   if (data.actionPage.journey.length === 0){
     data.actionPage.journey = ["Petition","Share"];
   }
@@ -67,7 +66,7 @@ const fetch = async (actionPage) =>  {
     organisation: data.actionPage.campaign.org.title,
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
-    org: data.actionPage.campaign.org,
+    lead: data.actionPage.campaign.org,
     campaign: {title:data.actionPage.campaign.title},
     journey: string2array(data.actionPage.journey),
     layout:data.actionPage.config.layout || {},

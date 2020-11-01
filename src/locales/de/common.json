@@ -4,6 +4,7 @@
         "opt-in": "Ja, sagt mir, ob diese Unterschriftensammlung erfolgreich war und wie ich bei anderen relevanten Kampagnen mithelfen kann",
         "opt-out": "Nein. Ich möchte keine Updates über den Fortschritt dieser Unterschriftensammlung erhalten",
         "confirm": "<0>Bist du sicher?</0><1>Erfahre per E-Mail ob wir mit dieser Unterschriftensammlung Erfolg haben und wie du dich weiterhin für dieses Thema engagieren kannst. Per E-Mail bleibt unsere Bewegung verbunden!</1><2> Du kannst dich jederzeit wieder abmelden.</2>",
+        "processing-nocookie": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
         "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>"
     },
     "share": {

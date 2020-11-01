@@ -3,6 +3,7 @@ import {
   Box,
   Grid,
   Radio,
+  Button,
   RadioGroup,
   FormHelperText,
   FormControlLabel,
@@ -58,7 +59,7 @@ export default props => {
 
   const link = config.component?.consent?.privacyPolicy || "https://proca.foundation/privacy_policy";
   const consentProcessing = config.component?.country === false ?"consent.processing-nocookie":"consent.processing";
-  console.log(consentProcessing,link);
+  console.log(config);
   return (
     <Fragment>
       <Grid item xs={12}>
@@ -68,7 +69,7 @@ export default props => {
           variant={layout.variant}
           margin={layout.margin}
         >
-          {t("consent.intro", { name: config.organisation })} *
+          {t("consent.intro", { name: config.organisation, campaign:config.campaign.title })} *
         </FormHelperText>
       </Grid>
       <Grid item xs={12}>
@@ -78,22 +79,32 @@ export default props => {
           onChange={handleChange}
           required
         >
+    {(!config.component?.consent?.split) &&
           <FormControlLabel
             value="opt-in"
             inputRef={register}
             className ={classes.label}
             control={<Radio color="primary" />}
-            label={t("consent.opt-in")}
+            label={t("consent.opt-in",{partner:config.organisation})}
           />
+    }
     {config.component?.consent?.split &&
+      <>
           <FormControlLabel
             value="opt-in-org"
             inputRef={register}
             className ={classes.label}
             control={<Radio color="primary" />}
-            label={t("consent.opt-in-org")}
+            label={t("consent.opt-in",{partner:config.organisation})}
           />
-
+          <FormControlLabel
+            value="opt-in-both"
+            inputRef={register}
+            className ={classes.label}
+            control={<Radio color="primary" />}
+            label={t("consent.opt-in-both",{lead:config.lead.title, partner: config.organisation})}
+          />
+      </>
     }
 
           <FormControlLabel
@@ -110,6 +121,7 @@ export default props => {
                 <span>explanation</span>
                 <b>unsubscribe at any time</b>
               </Trans>
+              <Button variant="contained" >{t("consent.opt-in")}</Button>
             </Alert>
           </Collapse>
         </RadioGroup>
