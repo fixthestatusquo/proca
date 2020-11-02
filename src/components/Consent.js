@@ -59,7 +59,6 @@ export default props => {
 
   const link = config.component?.consent?.privacyPolicy || "https://proca.foundation/privacy_policy";
   const consentProcessing = config.component?.country === false ?"consent.processing-nocookie":"consent.processing";
-  console.log(config);
   return (
     <Fragment>
       <Grid item xs={12}>

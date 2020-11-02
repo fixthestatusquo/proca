@@ -64,7 +64,7 @@ async function getCount(actionPage,options) {
     url = options.apiUrl;
   } else {
     url =
-      process.env.REACT_APP_API_URL || process.env.API_URL +
+      (process.env.REACT_APP_API_URL || process.env.API_URL ) +
       "?query=" +
       encodeURIComponent(query) +
       "&variables=" +

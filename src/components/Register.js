@@ -49,8 +49,6 @@ const useStyles = makeStyles(theme => ({
       textShadow: "0 0 0 #000"
     },
     "input:invalid + fieldset": {
-      borderColor: "pink",
-      borderWidth: 1
     }
   }
 }));
@@ -76,9 +74,7 @@ export default function Register(props) {
   });
   const {
     handleSubmit,
-    setValue,
     setError,
-    watch,
     formState
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
