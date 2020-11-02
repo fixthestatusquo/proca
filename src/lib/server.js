@@ -1,11 +1,12 @@
-import {link, request, widget} from '@proca/api';
+import {createHttpLink} from "apollo-link-http";
+import {request, widget} from '@proca/api';
 
 async function graphQL(query, variables, options) {
   if (!options) options = {};
 
-  const host = options.apiUrl || process.env.REACT_APP_API_URL || process.env.API_URL;
+  const uri = options.apiUrl || process.env.REACT_APP_API_URL || process.env.API_URL;
 
-  const api = link(host);
+  const api = createHttpLink({uri});
 
   const res = await request(api, query, variables);
 
