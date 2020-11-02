@@ -23,7 +23,7 @@
         "select_language": "Veuillez sélectionner une langue",
         "select-country": "Veuillez sélectionner votre pays",
         "select-nationality": "Veuillez sélectionner votre nationalité",
-        "other-country": "Autre pays...",
+        "other-country": "Autre pays…",
         "from": "Pays :",
         "skip-content": "Aller directement au contenu",
         "redirect": "Vous serez redirigé(e) vers la page externe : ",
@@ -86,7 +86,7 @@
             "si": "Slovène",
             "sk": "Slovaque",
             "gb": "Britannique",
-            "other": "Autre..."
+            "other": "Autre…"
         },
         "requirements": {
             "text": "Veuillez fournir les données suivantes, conformément au <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">règlement (UE) 2019/788 relatif à l’initiative citoyenne européenne</a>."
@@ -222,7 +222,8 @@
         },
         "captcha-button-arialabel-image": "Utiliser le captcha image",
         "captcha-button-arialabel-refresh": "Nouveau captcha",
-        "captcha-button-arialabel-audio": "Utiliser le captcha sonore"
+        "captcha-button-arialabel-audio": "Utiliser le captcha sonore",
+        "support_country_selected": "Pays"
     },
     "howsupport": {
         "s1.title": "Informez-vous",
@@ -302,11 +303,11 @@
     "error404": {
         "title": "Erreur 404: page non trouvée",
         "subtitle": "Désolé, cette page n’existe pas.",
-        "info": "Nous avons un problème de serveur interne. Merci de réessayer plus tard."
+        "info": "La page que vous essayez d'afficher n'existe pas, veuillez vérifier si le lien est correct."
     },
     "error500": {
         "title": "Erreur 500: erreur inopinée",
-        "subtitle": "Désolé, un problème est survenu...",
+        "subtitle": "Désolé, un problème est survenu…",
         "info": "Nous avons un problème de serveur interne. Merci de réessayer plus tard. ",
         "ref": "Référence de l’erreur:"
     },
