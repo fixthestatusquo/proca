@@ -1,5 +1,6 @@
 #!/usr/bin/env babel-node
 
+import "cross-fetch/polyfill"
 import {pull} from '../src/lib/config';
 
 (async () => {

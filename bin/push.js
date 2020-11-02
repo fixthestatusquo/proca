@@ -1,6 +1,8 @@
 #!/usr/bin/env babel-node
+
 require('dotenv').config();
 
+import "cross-fetch/polyfill"
 import {push} from '../src/lib/config';
 
 (async () => {

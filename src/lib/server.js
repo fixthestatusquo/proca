@@ -1,219 +1,139 @@
-async function graphQL(operation, query, options) {
-  if (!options) options = {};
-  if (!options.apiUrl)
-    options.apiUrl = process.env.REACT_APP_API_URL || process.env.API_URL;
+import {link, request, widget} from '@proca/api';
 
-  let data = null;
-  let headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json"
-  };
-  if (options.authorization) {
-    //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
-    headers.Authorization = "Basic " + options.authorization;
-  }
-  await fetch(process.env.REACT_APP_API_URL || process.env.API_URL, {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify({
-      query: query,
-      variables: options.variables,
-      operationName: operation || ""
-    })
-  })
-    .then(res => {
-      if (!res.ok) {
-        return {
-          errors: [
-            { message: res.statusText, code: "http_error", status: res.status }
-          ]
-        };
-      }
-      return res.json();
-    })
-    .then(response => {
-      if (response.errors) {
-        response.errors.forEach(error => console.log(error.message));
-        data = response;
-        return;
-      }
-      data = response.data;
-    })
-    .catch(error => {
-      console.log(error);
-      data = {errors:[{code:'network',message:error}]};
-      return;
-    });
-  return data;
+async function graphQL(query, variables, options) {
+  if (!options) options = {};
+
+  const host = options.apiUrl || process.env.REACT_APP_API_URL || process.env.API_URL;
+
+  const api = link(host);
+
+  const res = await request(api, query, variables);
+
+  return res;
 }
 
-async function getCount(actionPage,options) {
-  let url = null;
-      //actionCount {actionType, count}
-  var query = `query getCount($actionPage: Int!)
-{actionPage(id:$actionPage) {
-  campaign {
-    stats {
-      supporterCount
-    }
-  }
-}}
-`;
-  query = query.replace(/(\n)/gm, "").replace(/\s\s+/g, " ");
-  if (options?.apiUrl) {
-    url = options.apiUrl;
-  } else {
-    url =
-      process.env.REACT_APP_API_URL || process.env.API_URL +
-      "?query=" +
-      encodeURIComponent(query) +
-      "&variables=" +
-      encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
-  }
-  var data = null;
-  await fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        return {
-          errors: [
-            { message: res.statusText, code: "http_error", status: res.status }
-          ]
-        };
-      }
-      return res.json();
-    })
-    .then(response => {
-      if (response.errors) {
-        response.errors.forEach(error => console.log(error.message));
-        data = response;
-        return;
-      }
-      data = response.data;
-    })
-    .catch(error => {
-      console.log(error);
-      data = { errors: [error], code: "http_error" };
-      return;
-    });
-  // const data = await graphQL ("getCount",query,{variables:{ actionPage: Number(actionPage) }});
-  if (!data || data.errors) return null;
-/*  let count=0;
-  actionType = actionType || "petition";
-  data.actionPage.campaign.stats.actionCount.forEach(d => {
-    if (d.actionType === actionType) count=d.count;
-  });
-  return count;
-  */
+
+  // await fetch(process.env.REACT_APP_API_URL || process.env.API_URL, {
+  //   method: "POST",
+  //   headers: headers,
+  //   body: JSON.stringify({
+  //     query: query,
+  //     variables: options.variables,
+  //     operationName: operation || ""
+  //   })
+  // })
+  //   .then(res => {
+  //     if (!res.ok) {
+  //       return {
+  //         errors: [
+  //           { message: res.statusText, code: "http_error", status: res.status }
+  //         ]
+  //       };
+  //     }
+  //     return res.json();
+  //   })
+  //   .then(response => {
+  //     if (response.errors) {
+  //       response.errors.forEach(error => console.log(error.message));
+  //       data = response;
+  //       return;
+  //     }
+  //     data = response.data;
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //     data = {errors:[{code:'network',message:error}]};
+  //     return;
+  //   });
+  // return data;
+
+
+async function getCount(actionPage, options) {
+  const {data, errors} = await graphQL(widget.GetStatsDocument, {id: actionPage})
+  if (errors) return {errors};
   return data.actionPage.campaign.stats.supporterCount;
 }
 
 async function getCountByUrl(url) {
-  var query = `query getCountByUrl($url:String)
-{actionPage(url:$url){id,campaign{name,title,
-  externalId,stats{supporterCount }}}}
-`;
-  const response = await graphQL("getCountByUrl", query, {variables: {"url":url}});
-  if (!response || response.errors) return response;
-  return {total:response.actionPage.campaign.stats.supporterCount,actionPage:response.actionPage.id};
+  const name = url.replace("https://", '').replace("http://", ''); // replace legacy url with name
+  const {data, errors} = await graphQL(widget.GetStatsDocument, {name})
+
+  if (errors) return {errors};
+  return {
+    total: data.actionPage.campaign.stats.supporterCount,
+    actionPage: data.actionPage.id
+  };
 }
 
 
-async function addAction (actionPage, actionType, data) {
-  var query =`mutation addAction (
-  $contact: ID!, 
-  $actionPage: Int!,
-  $actionType: String!,
-  $payload: [CustomFieldInput!],
-  $tracking: TrackingInput) 
-{
-  addAction (actionPageId: $actionPage, action: { actionType: $actionType, fields: $payload}
-    contactRef: $contact, tracking: $tracking) 
-  {contactRef}
-}`;
+async function addAction (actionPage, actionType, params) {
   let variables = {
-    actionPage: actionPage,
-    actionType:actionType,
-    payload:data.payload,
-    contact: data.uuid
+    id: actionPage,
+    actionType: actionType,
+    fields: params.payload || [],
+    contactRef: params.uuid
   };
 
-  if (typeof data.payload === 'object') {
+  if (typeof params.fields === 'object') {
     variables.payload = [];
-    for (const [key, value] of Object.entries(data.payload)) {
+    for (const [key, value] of Object.entries(params.payload)) {
       if (value)
-        variables.payload.push({key:key, value:value.toString() });
+        variables.payload.push({key: key, value: value.toString() });
     }
   }
 
-  if (data.tracking && Object.keys(data.tracking).length) {
-    variables.tracking = data.tracking;
+  if (params.tracking && Object.keys(params.tracking).length) {
+    variables.tracking = params.tracking;
   }
-  const response = await graphQL("addAction", query, {
-    variables: variables
-  });
-  return response;
+  const {data, errors} = await graphQL(widget.AddActionDocument, variables)
+  return data.addActionContact || {errors};
 }
 
-async function addActionContact(actionType, actionPage, data) {
-  var query = `mutation addActionContact(
-  $action: ActionInput!,
-  $contact:ContactInput!,
-  $privacy:ConsentInput!,
-  $contactRef:ID,
-  $actionPage:Int!,
-  $tracking:TrackingInput
-){
-  addActionContact(
-    actionPageId: $actionPage, 
-    action: $action,
-    contactRef:$contactRef,
-    contact:$contact,
-    privacy:$privacy,
-    tracking:$tracking
-  ){contactRef,firstName}
-  }
-`;
-  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
+async function addActionContact(actionType, actionPage, params) {
+  const contactFields = [
+    'address',   'birthdate',
+    'country',   'email',
+    'firstname', 'lastname',
+    'locality',  'postcode',
+    'privacy',   'region',
+    'tracking',  'uuid'
+  ]
+
   let variables = {
-    actionPage: actionPage,
-    action: {
-      actionType: actionType,
-      fields: [] // added below
-    },
-    contact: {
-      first_name: data.firstname,
-      last_name: data.lastname,
-      email: data.email,
+    id: actionPage,
+    actionType: actionType,
+    fields: [], // added below
+    contact: { 
+      firstName: params.firstname,
+      lastName: params.lastname,
+      email: params.email,
       address: {
-        country: data.country || "",
-        postcode: data.postcode || ""
+        country: params.country || "",
+        postcode: params.postcode || ""
       }
     },
-    privacy: { optIn: data.privacy === "opt-in", leadOptIn: data.privacy ==="opt-in" }
+    privacy: { optIn: params.privacy === "opt-in", leadOptIn: params.privacy ==="opt-in" }
   };
-  if (data.uuid) 
-    variables.contactRef = data.uuid;
-  if (data.region)
-    variables.contact.address.region = data.region;
-  if (data.locality)
-    variables.contact.address.locality = data.locality;
-  if (data.birthdate)
-    variables.contact.birth_date = data.birthdate;
+  if (params.uuid) 
+    variables.contactRef = params.uuid;
+  if (params.region)
+    variables.contact.address.region = params.region;
+  if (params.locality)
+    variables.contact.address.locality = params.locality;
+  if (params.birthdate)
+    variables.contact.birth_date = params.birthdate;
 
-  if (Object.keys(data.tracking).length) {
-    variables.tracking = data.tracking;
+  if (Object.keys(params.tracking).length) {
+    variables.tracking = params.tracking;
   }
 
-  for (let [key,value] of Object.entries(data)) {
-    if (value && !(expected.includes(key)))
-      variables.action.fields.push({key:key,value:value})
+  for (let [key,value] of Object.entries(params)) {
+    if (value && !(contactFields.includes(key)))
+      variables.action.fields.push({key, value})
   }
 
-  const response = await graphQL("addActionContact", query, {
-    variables: variables
-  });
-  if (response.errors) return response;
-  return response.addActionContact;
+  const {data, errors} = await graphQL(widget.AddActionContactDocument, variables);
+  return data.addActionContact || {errors};
 }
 
 export { addActionContact, addAction, getCount,getCountByUrl };

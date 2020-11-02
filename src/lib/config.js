@@ -89,7 +89,7 @@ const push = async (id) =>  {
     console.error ("need .env with AUTH_USER + AUTH_PASSWORD");
   }
 
-  const c = link(process.env.REACT_APP_API_URL || 'https://api.proca.app/api',a);
+  const c = link(process.env.REACT_APP_API_URL || 'https://api.proca.app/api', a);
   const actionPage = {
     id: id,
     name: local.filename,

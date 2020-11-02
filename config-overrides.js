@@ -4,8 +4,10 @@ const { paths } = require('react-app-rewired');
 const { useBabelRc,override, addBundleVisualizer} = require('customize-cra')
 const { addReactRefresh } = require('customize-cra-react-refresh')
 const CompressionPlugin = require('compression-webpack-plugin')
+const Visualizer = require('webpack-visualizer-plugin');
 const path = require('path');
 require = require('esm')(module /*, options*/);
+require("cross-fetch/polyfill");
 
 const {fetch, file, read} = require ('./src/lib/config');
 
@@ -140,8 +142,10 @@ module.exports = function override (config, env) {
       }
     }
   );
+  config.plugins.push(new Visualizer({filename: './statistics.html'}));
 //  config = addReactRefresh({ overlay: {sockIntegration: 'whm' }}) (config,env);
   config.optimization.runtimeChunk = false;
+  config.optimization.usedExports = true;
   config.optimization.splitChunks = {
     cacheGroups: {
       default: false
