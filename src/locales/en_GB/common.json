@@ -6,11 +6,13 @@
     "Last name": "Surname",
     "First name": "Given name",
     "consent": {
-        "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
+        "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2><3>Yes</3>",
         "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
         "opt-out": "No, don't send me emails or keep me updated in future",
-        "opt-in": "Yes, keep me informed via email",
-        "intro": "I agree to {{name}} contacting me about important campaigns"
+        "opt-in": "Yes, I want {{partner}} to keep me informed via email",
+        "intro": "Find out more about our campaigns, actions and {{campaign}} progress",
+        "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
+        "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email"
     },
     "Link_Share button": "Link",
     "Email_Share button": "Email",
@@ -25,7 +27,7 @@
     "Street": "Street",
     "Email": "Email",
     "Amount": "Amount",
-    "Donations must be %(amount)s or more": "Donations must be %(amount)s or more",
+    "Donations must be %(amount)s or more": "Donations must be {{amount}}'s or more",
     "Enter a valid email address.": "Enter a valid email address.",
     "Enter a number.": "Enter a number.",
     "This field is required.": "This field is required.",
@@ -57,5 +59,9 @@
     "register": "Add my name",
     "dialogTitle": "Keep me informed about the campaign",
     "Your organisation account": "Your organisation account",
-    "Locality": "Locality"
+    "Locality": "Locality",
+    "Other": "Other",
+    "I'm donating ": "I'm donating ",
+    "I'm donating": "I'm donating",
+    "Choose your donation amount": "Choose your donation amount"
 }
