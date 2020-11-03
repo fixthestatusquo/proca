@@ -53,6 +53,10 @@ export default props => {
   const layout = useLayout();
   const classes = useStyles();
  
+  const optin = event => {
+    setValue("opt-in");
+  };
+
   const handleChange = event => {
     setValue(event.target.value);
   };
@@ -81,6 +85,7 @@ export default props => {
     {(!config.component?.consent?.split) &&
           <FormControlLabel
             value="opt-in"
+            checked ={value==="opt-in"}
             inputRef={register}
             className ={classes.label}
             control={<Radio color="primary" />}
@@ -90,9 +95,10 @@ export default props => {
     {config.component?.consent?.split &&
       <>
           <FormControlLabel
-            value="opt-in-org"
+            value="opt-in"
             inputRef={register}
             className ={classes.label}
+            checked ={value==="opt-in"}
             control={<Radio color="primary" />}
             label={t("consent.opt-in",{partner:config.organisation})}
           />
@@ -108,6 +114,7 @@ export default props => {
 
           <FormControlLabel
             value="opt-out"
+            checked ={value==="opt-out"}
             control={<Radio />}
             className ={classes.label}
             inputRef={register({ required: "Yes or No?" })}
@@ -120,7 +127,7 @@ export default props => {
                 <span>explanation</span>
                 <b>unsubscribe at any time</b>
               </Trans>
-              <Button variant="contained" >{t("consent.opt-in")}</Button>
+              <Button variant="contained" onClick={optin}>{t("consent.opt-in")}</Button>
             </Alert>
           </Collapse>
         </RadioGroup>

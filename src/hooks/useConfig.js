@@ -28,7 +28,7 @@ export const configState = atom({
 */
 
 export const initConfigState = (config) => {
-  i18next.addResourceBundle("en","common",config.locales,true,true);
+  i18next.addResourceBundle(config.lang,"common",config.locales,true,true);
   initLayout (config.layout);
 //  delete config.locales;
   if (configState) return false;
