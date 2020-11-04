@@ -1,10 +1,12 @@
 {
     "consent": {
-        "intro": "S’inscrire pour des mises à jour courrier par {{name}}",
-        "opt-in": "Oui, gardez-moi informé·e par courriel",
+        "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
+        "opt-in": "Oui, je souhaite que {{partner}} me garde informé·e par courriel",
         "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
         "confirm": "<0> Es-tu sûr·e ?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
-        "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique"
+        "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
+        "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
+        "opt-in-both": "Oui, je souhaite que {{partner}} et que {{lead}} me gardent informé.e par courriel"
     },
     "share": {
         "title": "Presque terminé, passons directement à l’étape suivante.",
@@ -21,7 +23,7 @@
     "This field is required.": "Ce champ est obligatoire.",
     "Enter a number.": "Entrer un chiffre.",
     "Enter a valid email address.": "Saisir une adresse électronique valide.",
-    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount)",
+    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de {{amount}} ou plus",
     "Amount": "Montant",
     "First name": "Prénom",
     "Last name": "Nom",
@@ -63,5 +65,9 @@
         "actionText": "J'ai signé. Tu devrais aussi"
     },
     "register": "Ajouter mon nom",
-    "dialogTitle": "Tenez-moi informé·e de la campagne"
+    "dialogTitle": "Tenez-moi informé·e de la campagne",
+    "Other": "Autres",
+    "I'm donating ": "Je fais un don ",
+    "I'm donating": "Je fais un don",
+    "Choose your donation amount": "Choisis le montant de ton don"
 }
