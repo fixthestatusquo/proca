@@ -13,10 +13,12 @@
     },
     "consent": {
         "processing": "Tes données sont transmises de manière sécurisée et chiffrées. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
-        "confirm": "<0> Es-tu sûr·e?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2>",
+        "confirm": "<0> Es-tu sûr·e?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2><3>Oui</3>",
         "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
-        "opt-in": "Oui, gardez-moi informé·e par courriel",
-        "intro": "S’inscrire pour des mises à jour courrier par {{name}}"
+        "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
+        "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
+        "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
+        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me gardent informé·e par courriel"
     },
     "Download explanation": "Ton fichier PDF est maintenant prêt et nous te l’envoyons par courriel.",
     "Link_Share button": "Lien",
@@ -36,7 +38,7 @@
     "Last name": "Nom",
     "First name": "Prénom",
     "Amount": "Montant",
-    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de %(amount) ou plus",
+    "Donations must be %(amount)s or more": "Le montant minimum pour un don est de {{amount}} ou plus",
     "Enter a number.": "Entrer un chiffre.",
     "This field is required.": "Ce champ est obligatoire.",
     "progress": "{{count}} Signature. Objectif : {{goal}}",
@@ -57,5 +59,9 @@
     "Comment": "Commentaire",
     "Birthdate": "Date de naissance",
     "Address": "Adresse",
-    "Account": "Compte"
+    "Account": "Compte",
+    "Other": "Autres",
+    "I'm donating ": "Je fais un don ",
+    "I'm donating": "Je fais un don",
+    "Choose your donation amount": "Choisis le montant de ton don"
 }
