@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import IconButton from '@material-ui/core/IconButton';
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
@@ -20,7 +21,8 @@ const component= function TwitterAction(profile) {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
-
+  const { t } = useTranslation();
+ 
   function addTweet (event,screenName) {
     addAction(profile.actionPage,event,{
         uuid: uuid(),
@@ -31,16 +33,16 @@ const component= function TwitterAction(profile) {
 
 
   const mail=(e) => {
-    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
+    let s = typeof profile.subject == "function" ? profile.subject(profile): t("email.subject");
 
     if (profile.actionUrl) {
-      if (t.indexOf("{url}") !== -1) 
-        t = t.replace("{url}", profile.actionUrl);
-      else t = t+ " " + profile.actionUrl;
+      if (s.indexOf("{url}") !== -1) 
+        s = s.replace("{url}", profile.actionUrl);
+      else s = s+ " " + profile.actionUrl;
     }
 
-    const body ="";
-    var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(t)+"&body="+encodeURIComponent(body);
+    const body =t("email.body");
+    var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(s)+"&body="+encodeURIComponent(body);
     var win = window.open(
       url,
       "mailto-"+profile.screen_name,
@@ -54,7 +56,7 @@ const component= function TwitterAction(profile) {
       clearInterval(timer);
       disable(true);
       select(false);
-      addTweet("emai_close",profile.screen_name);
+      addTweet("email_close",profile.screen_name);
       if (profile.done instanceof Function)
         profile.done();
     }}, 1000);

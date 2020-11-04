@@ -4,13 +4,8 @@ set -e
 
 read -N 1024 CONFIG || true 
 
-NAME=$(echo $CONFIG | jq -r .filename)
+ID=$(echo $CONFIG | jq -r .actionpage)
 
-FILENAME=src/tmp.config/${NAME}.json
-mkdir -p $(dirname $FILENAME)
-echo $CONFIG > src/tmp.config/${NAME}.json
-
-echo "Will build $NAME"
-
-actionpage="${NAME}" yarn build
+yarn pull $ID
+yarn build $ID
 

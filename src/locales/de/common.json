@@ -1,11 +1,12 @@
 {
     "consent": {
-        "intro": "Email-Updates zu dieser Unterschriftensammlung und weiteren wichtigen Kampagnen von {{name}} abonnieren",
-        "opt-in": "Ja, sagt mir, ob diese Unterschriftensammlung erfolgreich war und wie ich bei anderen relevanten Kampagnen mithelfen kann",
+        "intro": "Erfahre mehr über unsere Kampagnen, Aktionen und Fortschritte in {{campaign}}",
+        "opt-in": "Ja, ich möchte, dass mich {{partner}} per E-Mail auf dem Laufenden hält",
         "opt-out": "Nein. Ich möchte keine Updates über den Fortschritt dieser Unterschriftensammlung erhalten",
-        "confirm": "<0>Bist du sicher?</0><1>Erfahre per E-Mail ob wir mit dieser Unterschriftensammlung Erfolg haben und wie du dich weiterhin für dieses Thema engagieren kannst. Per E-Mail bleibt unsere Bewegung verbunden!</1><2> Du kannst dich jederzeit wieder abmelden.</2>",
+        "confirm": "<0>Bist du sicher?</0><1>Mit der Auswahl „Nein“ kannst du nicht herausfinden, ob diese Kampagne erfolgreich ist oder ob wir noch weitere gemeinsame Maßnahmen ergreifen müssen, um sie zu gewinnen. Mit der Auswahl „Ja“ werden wir dich über diese und unsere anderen dringenden Kampagnen auf dem Laufenden halten.</1><2>Du kannst dich jederzeit abmelden.</2><3>Ja</3>",
         "processing-nocookie": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
-        "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>"
+        "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
+        "opt-in-both": "Ja, ich möchte, dass mich {{partner}} und {{lead}} per E-Mail auf dem Laufenden halten"
     },
     "share": {
         "title": "Fast fertig, jetzt gleich weiter zum nächsten Schritt.",
@@ -22,7 +23,7 @@
     "This field is required.": "Dies ist ein Pflichtfeld.",
     "Enter a number.": "Eine Zahl eingeben.",
     "Enter a valid email address.": "Eine gültige E-Mail-Adresse eingeben.",
-    "Donations must be %(amount)s or more": "Der minimale Spendenbetrag ist %(amount) oder höher",
+    "Donations must be %(amount)s or more": "Der minimale Spendenbetrag ist {{amount}} oder höher",
     "Amount": "Betrag",
     "First name": "Vorname",
     "Last name": "Nachname",
@@ -58,5 +59,9 @@
     "dialogTitle": "Halten Sie mich über die Kampagne auf dem Laufenden",
     "Your organisation account": "Dein Organisationskonto",
     "Full Name": "Vollständiger Name",
-    "Account": "Konto"
+    "Account": "Konto",
+    "Other": "Sonstiges",
+    "I'm donating ": "Ich spende ",
+    "I'm donating": "Ich spende",
+    "Choose your donation amount": "Wähle deinen Spendenbetrag"
 }

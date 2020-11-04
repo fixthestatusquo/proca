@@ -2,40 +2,40 @@
     "Country": "Zemlja",
     "consent": {
         "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
-        "opt-in": "Da, želim primati obavijesti putem e-maila",
+        "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
         "processing": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1>",
-        "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {campaign}",
-        "confirm": "<0>Sigurno?</0><1>Odabirom „Ne” nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2>",
+        "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
+        "confirm": "<0>Sigurno?</0><1>Ako odaberete „Ne”, nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj kao i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2><3>Da</3>",
         "processing-nocookie": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka u skladu s našim <1>pravilima o privatnosti</1>",
-        "opt-in-both": "Da, želim da me {{partner}} i {{org}} obavještavaju putem e-maila",
+        "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
         "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila"
     },
-    "progress_0": "Broj potpisa: {{count}}. Cilj je {{goal}}",
-    "progress_1": "Broj potpisa: {{count}}. Cilj je {{goal}}",
-    "progress_2": "Broj potpisa: {{count}}. Cilj je {{goal}}",
+    "progress_0": "{{count}} potpis. Pomogni nam doseći cilj od {{goal}}",
+    "progress_1": "{{count}} potpisa. Pomogni nam doseći cilj od {{goal}}",
+    "progress_2": "{{count}} potpisa. Pomogni nam doseći cilj od {{goal}}",
     "Thank you": "Hvala",
     "share": {
         "email": {
             "subject": "Ovo se isplati potpisati",
             "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati"
         },
-        "intro": "Sjajno, potpisali ste 👍. Za povećanje vašeg utjecaja, podijelite ovu peticiju nadaleko i naširoko 🙏.",
+        "intro": "Sjajno, potpisali ste 👍. Za povećanje utjecaja, podijelite ovu peticiju nadaleko i naširoko 🙏.",
         "title": "Skoro gotovo! Poduzmite sljedeći korak.",
         "message": "Ovo se isplati potpisati!"
     },
-    "Donations must be %(amount)s or more": "Iznos donacije mora biti %(amount)s ili više",
+    "Donations must be %(amount)s or more": "Najmanji iznos donacije je {{amount}}",
     "This field is required.": "Ovo je obavezno polje.",
     "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
     "Locality": "Lokalitet",
-    "Download explanation": "Vaš je dokument sada spreman, šaljemo vam ga putem e-maila.",
+    "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila.",
     "Last name": "Prezime",
     "Download": "Preuzimanje",
     "City": "Grad",
     "Your organisation account": "Račun vaše organizacije",
     "twitter": {
-        "actionText": "Ja sam potpisao/potpisala. Potpišite i vi"
+        "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
     },
-    "you need to be 18 years old": "morate biti punoljetni (18 godina)",
+    "you need to be 18 years old": "morate imati 18 godina",
     "Birthdate": "Datum rođenja",
     "Legal": "Pravo",
     "Amount": "Iznos",
@@ -63,7 +63,7 @@
     "Postal Code": "Poštanski broj",
     "Email": "E-mail",
     "Other": "Drugo",
-    "I'm donating ": "Doniram ",
-    "I'm donating": "Doniram",
+    "I'm donating ": "Ja doniram ",
+    "I'm donating": "Ja doniram",
     "Choose your donation amount": "Odaberite iznos donacije"
 }
