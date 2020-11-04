@@ -83,28 +83,29 @@ const Component = props => {
   const send=(e) => {
     const profile=profiles[0];
     let cc="";
-    let t = typeof profile.actionText == "function" ? profile.actionText(profile): (config.param.twitterText || t("twitter.actionText"));
+    let s = typeof profile.subject == "function" ? profile.subject(profile): t("email.subject");
+
+    if (profile.actionUrl) {
+      if (s.indexOf("{url}") !== -1)
+        s = s.replace("{url}", profile.actionUrl);
+      else s = s+ " " + profile.actionUrl;
+    }
+
+    const body =t("email.body");
+
     for(var i = 1; i < profiles.length; i++){
       if (profiles[i].email)
         cc += profiles[i].email + ";";
     }
-    console.log(cc);
-    if (profile.actionUrl) {
-      if (t.indexOf("{url}") !== -1)
-        t = t.replace("{url}", profile.actionUrl);
-      else t = t+ " " + profile.actionUrl;
-    }
 
-    const body ="";
-    var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(t)+"&cc="+cc+"&body="+encodeURIComponent(body);
+    var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(s)+"&cc="+cc+"&body="+encodeURIComponent(body);
     var win = window.open(
       url,
       "mailto-"+profile.screen_name,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
-
-    window.proca.go();
-
+    
+    props.done();
   };
 
   const handleDone = d => {
