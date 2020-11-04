@@ -1,6 +1,6 @@
 {
     "common": {
-        "page-title": "INITIATIVE CITOYENNE EUROPÉENNE – Apportez votre soutien !",
+        "page-title": "INITIATIVE CITOYENNE EUROPÉENNE – Apportez votre soutien !",
         "head-title": {
             "home": "Initiative citoyenne européenne",
             "form": "Initiative citoyenne européenne - Formulaire de soutien par pays",
@@ -126,7 +126,7 @@
         "group-address": "Résidence",
         "certify-info": "Je certifie par la présente que les informations que j’ai fournies dans le présent formulaire sont exactes et que je n’ai pas encore apporté mon soutien à la présente initiative.",
         "privacy-statement": "J’ai pris connaissance de la <a href=\"{{url}}\" target=\"_blank\" title=\"déclaration de confidentialité\">déclaration de confidentialité</a> et du contenu de <a href=\"{{urlRegister}}\" target=\"_blank\">cette initiative citoyenne</a>.",
-        "certify-info-eID": "Je certifie par la présente que je n'ai pas encore apporté mon soutien à la présente initiative citoyenne.",
+        "certify-info-eID": "Je certifie par la présente que je n’ai pas encore apporté mon soutien à la présente initiative citoyenne.",
         "support": "Soutenir",
         "document-number": "Numéro",
         "document-type": "Type de document",
@@ -183,40 +183,40 @@
             "oct.error.pl.postalcode": "Format non valide. Format requis : NNNNN (N = chiffre)",
             "oct.error.si.postalcode": "Format non valide. Format requis : NNNN (N = chiffre)",
             "oct.error.sk.postalcode": "#TBT# Invalid format. Format required : GNNNN (N = digit, G = digit can be number 0, 8 or 9)",
-            "email": "Adresse électronique non valide",
+            "email": "Adresse courriel invalide",
             "email.checkbox.1": "Vous devez cocher au moins une de ces deux cases",
             "email.checkbox.2": "Case obligatoire",
-            "document.at.passport": "Format non valide. Format requis : LNNNNNNN (L = lettre; N = chiffre)",
+            "document.at.passport": "Format non valide. Format requis : LNNNNNNN (L = lettre ; N = chiffre)",
             "document.at.id.card": "Format non valide. Format requis : NNNNNNNN (N = chiffre)",
-            "document.be.national.id.number": "Format non valide. Format requis : AA.MM.JJ-NNN.NN (AA= année, MM = mois, JJ = jour; N = chiffre)",
+            "document.be.national.id.number": "Format non valide. Format requis : AA.MM.JJ-NNN.NN (AA= année, MM = mois, JJ = jour ; N = chiffre)",
             "document.bg.personal.number": "Format non valide. Format requis : NNNNNNNNNN (N = chiffre)",
             "document.cy.id.card": "Format non valide. Format requis : 1 à 10 chiffres",
             "document.cy.passport": "Format non valide. Format requis : [B,C,E,J]NNNNNN, [D,S][P]NNNNNNN ou [K]NNNNNNNN (N = chiffre)",
             "document.cz.passport": "Format non valide. Format requis : NNNNNNN ou NNNNNNNN (N = chiffre)",
-            "document.cz.id.card": "Format non valide. Format requis : NNNNNNNNN ou NNNNNNLLNN ou NNNNNNLL ou LLNNNNNN (N = chiffre; L = lettre)",
+            "document.cz.id.card": "Format non valide. Format requis : NNNNNNNNN ou NNNNNNLLNN ou NNNNNNLL ou LLNNNNNN (N = chiffre ; L = lettre)",
             "document.ee.personal.number": "Format non valide. Format requis : NNNNNNNNNNN (N = chiffre)",
-            "document.es.id.card": "Format non valide. Format requis : NNNNNNNNL (N = chiffre; L = lettre)",
+            "document.es.id.card": "Format non valide. Format requis : NNNNNNNNL (N = chiffre ; L = lettre)",
             "document.es.passport": "Format non valide. Format requis : LLLNNNNNN (L = lettre ; N = chiffre)",
-            "document.fr.passport": "Format non valide. Format requis: NNLLNNNNN (N = chiffre; L = lettre)",
-            "document.fr.id.card": "Format non valide. Format requis: AAAAAAA ou AAAAAAAAAAAA (A = lettre ou chiffre)",
-            "document.hu.id.card": "Format non valide. Format requis: NNNNNNLL ou  LLLLLNNNNNN ou LLNNNNNN ou 2 LLLLNNNNNN (N = chiffre; L = lettre)",
-            "document.hu.passport": "Format non valide. Format requis: LLNNNNNN ou LLNNNNNNN (L = lettre; N = chiffre)",
-            "document.hu.personal.number": "Format non valide. Format requis: NNNNNNNNNNN (N = chiffre)",
-            "document.hr.personal.id": "Format non valide. Format requis: NNNNNNNNNNN (N = chiffre)",
-            "document.it.passport": "Format non valide. Format requis: LLNNNNNNN ou LNNNNNN ou  NNNNNNL (N = chiffre; L = lettre)",
-            "document.it.id.card": "Format non valide. Format requis: LLNNNNNNN, NNNNNNNLL, LLNNNNNN, LLNNNNNNNN ou LLNNNNNLL (N = chiffre; L = lettre)",
-            "document.lt.personal.number": "Format non valide. Format requis: GAAMMJJNNNN (G = chiffre entre 1 et 6; AA = année, MM = mois, JJ = jour; N = chiffre)",
-            "document.lv.personal.id": "Format non valide. Format requis: NNNNNNNNNNN (N = chiffre)",
-            "document.mt.id.card": "Format non valide. Format requis: NNNNNNNL (N = chiffre; L = lettre)",
-            "document.pt.id.card": "Format non valide. Format requis: N, NN, NNN, NNNN, NNNNN, NNNNNN, NNNNNNN, NNNNNNNN (N = chiffre)",
-            "document.pt.passport": "Format non valide. Format requis: LNNNNNN, LLNNNNNN (N = chiffre; L = lettre)",
-            "document.pt.citizens.card": "Format non valide. Format requis: NNNNNNNNNLLN (N = chiffre; L = lettre)",
-            "document.pl.national.id.number": "#TBT# Invalid format. Format required: YYXXDDNNNNN (YY= years, XX = digit between: 01-12 or 21-32 or 41-52 or 61-77 or 81-92, DD = day; N = digit)",
-            "document.ro.id.card": "Format non valide. Format requis: LLNNNNNN (N = chiffre; L = lettre)",
-            "document.ro.passport": "Format non valide. Format requis: NNNNNNNN ou NNNNNNNNN (N = chiffre)",
-            "document.ro.personal.id": "Format non valide. Format requis: NNNNNNNNNNNNN (N = chiffre)",
-            "document.se.personal.number": "Format non valide. Format requis: AAMMJJ-NNNN ou AAAAMMJJ-NNNN ou AAMMJJNNNN ou AAAAMMJJNNNN (A = année, M = mois, J = jour, N = chiffre)",
-            "document.si.personal.number": "Format non valide. Format requis: NNNNNNNNNNNNN (N = chiffre)",
+            "document.fr.passport": "Format non valide. Format requis : NNLLNNNNN (N = chiffre ; L = lettre)",
+            "document.fr.id.card": "Format non valide. Format requis : AAAAAAA ou AAAAAAAAAAAA (A = lettre ou chiffre)",
+            "document.hu.id.card": "Format non valide. Format requis : NNNNNNLL ou  LLLLLNNNNNN ou LLNNNNNN ou 2 LLLLNNNNNN (N = chiffre ; L = lettre)",
+            "document.hu.passport": "Format non valide. Format requis : LLNNNNNN ou LLNNNNNNN (L = lettre ; N = chiffre)",
+            "document.hu.personal.number": "Format non valide. Format requis : NNNNNNNNNNN (N = chiffre)",
+            "document.hr.personal.id": "Format non valide. Format requis : NNNNNNNNNNN (N = chiffre)",
+            "document.it.passport": "Format non valide. Format requis : LLNNNNNNN ou LNNNNNN ou  NNNNNNL (N = chiffre ; L = lettre)",
+            "document.it.id.card": "Format non valide. Format requis : LLNNNNNNN, NNNNNNNLL, LLNNNNNN, LLNNNNNNNN ou LLNNNNNLL (N = chiffre ; L = lettre)",
+            "document.lt.personal.number": "Format non valide. Format requis : GAAMMJJNNNN (G = chiffre entre 1 et 6 ; AA = année, MM = mois, JJ = jour ; N = chiffre)",
+            "document.lv.personal.id": "Format non valide. Format requis : NNNNNNNNNNN (N = chiffre)",
+            "document.mt.id.card": "Format non valide. Format requis : NNNNNNNL (N = chiffre ; L = lettre)",
+            "document.pt.id.card": "Format non valide. Format requis : N, NN, NNN, NNNN, NNNNN, NNNNNN, NNNNNNN, NNNNNNNN (N = chiffre)",
+            "document.pt.passport": "Format non valide. Format requis : LNNNNNN, LLNNNNNN (N = chiffre ; L = lettre)",
+            "document.pt.citizens.card": "Format non valide. Format requis : NNNNNNNNNLLN (N = chiffre ; L = lettre)",
+            "document.pl.national.id.number": "Format invalide. Format requis : YYXXDDNNNNN (YY = années, XX = chiffre entre : 01-12 ou 21-32 ou 41-52 ou 61-77 ou 81-92, JJ = jour ; N = chiffre)",
+            "document.ro.id.card": "Format non valide. Format requis : LLNNNNNN (N = chiffre ; L = lettre)",
+            "document.ro.passport": "Format non valide. Format requis : NNNNNNNN ou NNNNNNNNN (N = chiffre)",
+            "document.ro.personal.id": "Format non valide. Format requis : NNNNNNNNNNNNN (N = chiffre)",
+            "document.se.personal.number": "Format non valide. Format requis : AAMMJJ-NNNN ou AAAAMMJJ-NNNN ou AAMMJJNNNN ou AAAAMMJJNNNN (A = année, M = mois, J = jour, N = chiffre)",
+            "document.si.personal.number": "Format non valide. Format requis : NNNNNNNNNNNNN (N = chiffre)",
             "document.invalid": "Valeur non valide",
             "email.required": "Obligatoire"
         },
@@ -232,16 +232,16 @@
         "s2.text": "à une initiative citoyenne européenne",
         "s2.link": "https://europa.eu/citizens-initiative/faq_fr#Soutenir-une-initiative",
         "s3.title": "Que se passe-t-il",
-        "s3.text": "ensuite?",
+        "s3.text": "ensuite ?",
         "support-by-title": "Comment souscrire à une initiative citoyenne européenne"
     },
     "footer": {
         "ocs.version": "Système central de collecte en ligne",
         "privacy-title": "Voir la déclaration de confidentialité",
-        "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
+        "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_fr#Signatories-personal-data-1",
         "conformity-title": "Voir le certificat de conformité",
         "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses",
-        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection_fr"
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection"
     },
     "congratulations": {
         "title": "MERCI !",
@@ -265,13 +265,13 @@
         "return-website-title": "Retour au site web de l’initiative citoyenne"
     },
     "feedback": {
-        "your-will-help-us": "Vos commentaires nous aideront à améliorer ce site.",
-        "write-your-feedback": "Indiquez votre commentaire...",
-        "send-feedback": "ENVOYER LE COMMENTAIRE",
+        "your-will-help-us": "Vos remarques nous aideront à améliorer ce site.",
+        "write-your-feedback": "Indiquez vos remarques…",
+        "send-feedback": "Envoyer les remarques",
         "share-on-facebook": "Partager sur Facebook",
         "tweet-it": "Partager sur Twitter",
         "how-experience": "Comment avez-vous trouvé",
-        "experience-initiative": "le système de soutien à l'initiative?",
+        "experience-initiative": "le système de soutien à l’initiative ?",
         "result-ok": "Merci pour vos observations",
         "result-error": "Erreur lors de l’envoi de vos observations",
         "email-error": "Une erreur s’est produite lors de l’envoi de votre adresse électronique",
@@ -301,15 +301,15 @@
         "progress_label": "{{percent}}% du seuil pour ce pays ({{count}} / {{threshold}})"
     },
     "error404": {
-        "title": "Erreur 404: page non trouvée",
+        "title": "Erreur 404 : page non trouvée",
         "subtitle": "Désolé, cette page n’existe pas.",
         "info": "La page que vous essayez d'afficher n'existe pas, veuillez vérifier si le lien est correct."
     },
     "error500": {
-        "title": "Erreur 500: erreur inopinée",
+        "title": "Erreur 500 · Erreur inattendue",
         "subtitle": "Désolé, un problème est survenu…",
         "info": "Nous avons un problème de serveur interne. Merci de réessayer plus tard. ",
-        "ref": "Référence de l’erreur:"
+        "ref": "Référence de l’erreur :"
     },
     "systemNotInitialized": {
         "title": "Le contenu de l’initiative n’a pas été initialisé",
@@ -318,7 +318,7 @@
     },
     "privacy": {
         "title": "Déclaration de confidentialité",
-        "info": "#TBT# Conformément au règlement (UE) 2018/1725 et au règlement (UE) 2016/679 (règlement général sur la protection des données), vos données à caractère personnel transmises par l'intermédiaire du présent formulaire ne seront utilisées qu'aux fins de soutien de l'initiative et communiquées qu'aux autorités nationales compétentes aux fins de vérification et de certification. Vous avez le droit de demander à la Commission européenne et au représentant du groupe d'organisateurs de cette initiative ou, le cas échéant, à l'entité juridique créée par celui-ci, l'accès à vos données à caractère personnel, la rectification ou l'effacement de ces données et la limitation de leur traitement. Vos données seront conservées par la Commission européenne pendant une période maximale d'un mois à compter de la présentation de l'initiative à la Commission européenne, ou vingt et un mois après le début de la période de collecte, la date la plus proche étant retenue. Elles peuvent être conservées au-delà de ces limites en cas de procédures judiciaires ou administratives, au maximum un mois après la date de clôture de ces procédures. Sans préjudice de tout autre recours administratif ou judiciaire, vous avez le droit de déposer une plainte à tout moment auprès d'une autorité de protection des données, en particulier dans l'État membre dans lequel se trouve votre résidence habituelle, votre lieu de travail ou le lieu où la violation aurait été commise, si vous considérez que vos données ont été traitées illégalement. La Commission européenne et le représentant du groupe d'organisateurs de l'initiative ou, le cas échéant, l'entité juridique créée par celui-ci sont les responsables conjoints du traitement au sens du règlement (UE) 2018/1725 et du règlement général sur la protection des données et peuvent être contactés à l'aide des coordonnées figurant dans le présent formulaire. Les coordonnées du délégué à la protection des données du groupe d'organisateurs, le cas échéant, sont disponibles à l'adresse internet de cette initiative dans le registre de la Commission européenne, comme indiqué au point 4 du présent formulaire. Les coordonnées du délégué à la protection des données de la Commission européenne, de l'autorité nationale compétente qui recevra et traitera les données à caractère personnel, du Contrôleur européen de la protection des données et des autorités nationales de protection des données peuvent être consultées sur: <a href=\"https://ec.europa.eu/citizens-initiative/public/data-protection?lg=fr\" title=\"Go to Data protection\" target=\"_blank\">https://ec.europa.eu/citizens-initiative/public/data-protection?lg=fr"
+        "info": "#TBT# Conformément au règlement (UE) 2018/1725 et au règlement (UE) 2016/679 (règlement général sur la protection des données), vos données à caractère personnel transmises par l'intermédiaire du présent formulaire ne seront utilisées qu'aux fins de soutien de l'initiative et communiquées qu'aux autorités nationales compétentes aux fins de vérification et de certification. Vous avez le droit de demander à la Commission européenne et au représentant du groupe d'organisateurs de cette initiative ou, le cas échéant, à l'entité juridique créée par celui-ci, l'accès à vos données à caractère personnel, la rectification ou l'effacement de ces données et la limitation de leur traitement. Vos données seront conservées par la Commission européenne pendant une période maximale d'un mois à compter de la présentation de l'initiative à la Commission européenne, ou vingt et un mois après le début de la période de collecte, la date la plus proche étant retenue. Elles peuvent être conservées au-delà de ces limites en cas de procédures judiciaires ou administratives, au maximum un mois après la date de clôture de ces procédures. Sans préjudice de tout autre recours administratif ou judiciaire, vous avez le droit de déposer une plainte à tout moment auprès d'une autorité de protection des données, en particulier dans l'État membre dans lequel se trouve votre résidence habituelle, votre lieu de travail ou le lieu où la violation aurait été commise, si vous considérez que vos données ont été traitées illégalement. La Commission européenne et le représentant du groupe d'organisateurs de l'initiative ou, le cas échéant, l'entité juridique créée par celui-ci sont les responsables conjoints du traitement au sens du règlement (UE) 2018/1725 et du règlement général sur la protection des données et peuvent être contactés à l'aide des coordonnées figurant dans le présent formulaire. Les coordonnées du délégué à la protection des données du groupe d'organisateurs, le cas échéant, sont disponibles à l'adresse internet de cette initiative dans le registre de la Commission européenne, comme indiqué au point 4 du présent formulaire. Les coordonnées du délégué à la protection des données de la Commission européenne, de l'autorité nationale compétente qui recevra et traitera les données à caractère personnel, du Contrôleur européen de la protection des données et des autorités nationales de protection des données peuvent être consultées sur : <a href=\"https://ec.europa.eu/citizens-initiative/public/data-protection\" title=\"Go to Data protection\" target=\"_blank\">https://ec.europa.eu/citizens-initiative/public/data-protection</a>."
     },
     "disabled": {
         "title": "La collecte de déclarations de soutien à cette initiative a été désactivée",
@@ -326,12 +326,12 @@
     },
     "signed": {
         "title": "Vous soutenez déjà cette initiative.",
-        "subtitle": "Vous ne pouvez pas la soutenir une nouvelle fois."
+        "subtitle": "Vous ne pouvez pas la soutenir encore une fois."
     },
     "info": {
         "0.title": "",
         "0.subtitle": "",
-        "1.title": "Désolé! Vous n’avez pas l’âge requis pour soutenir une initiative.",
+        "1.title": "Désolé ! Vous n’avez pas l’âge requis pour soutenir une initiative.",
         "1.subtitle": "Pour soutenir une initiative citoyenne européenne, vous devez être en âge de voter aux élections du Parlement européen ou, pour certaines nationalités, avoir 16 ans.",
         "2.title": "Données incohérentes reçues",
         "2.subtitle": "",
@@ -345,10 +345,10 @@
     "login": {
         "sign-in": "Connexion",
         "error": "Erreur",
-        "error-msg": "Nom d'utilisateur, mot de passe ou réponse au challenge incorrect. Veuillez vérifier et essayer de nouveau.",
+        "error-msg": "Nom d’utilisateur, mot de passe ou réponse au défi incorrect. Veuillez vérifier et réessayer.",
         "username": "Nom d'utilisateur",
         "password": "Mot de passe",
-        "challenge": "Code d’authentification («challenge»)",
+        "challenge": "Code d’authentification",
         "challenge-result": "Réponse du code d’authentification",
         "copy-text": "Copier le texte"
     }
