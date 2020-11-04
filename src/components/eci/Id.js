@@ -10,7 +10,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import TextField from "../TextField";
 import { useTranslation } from "react-i18next";
-
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
 
@@ -18,41 +17,43 @@ export default function Register(props) {
 
   const compact = props.compact;
   const form = props.form;
+  const {
+    register,
+    setValue,
+    watch,
+  } = props.form;
+
+  const country = watch("nationality") || "";
+  console.log(Object.entries(props.ids)[0]);
 
   return (
       <Container component="main" maxWidth="sm">
-        <h4>{t("eci:form.group-personal")}</h4>
+        <h4>{t("eci:form.group-document")}</h4>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={compact ? 12 : 6}>
+         {(Object.entries(props.ids).length >1) && <TextField
+              select
+              name="document_type"
+              label={t("eci:form.document-type")}
+              form={props.form}
+              SelectProps={{
+                native: true,
+              }}
+  >
+              {Object.entries(props.ids).map(id => (
+                <option key={id[0]} value={id[0]}>
+                {id[0]}
+                </option>
+              ))}
+            </TextField>}
+
             <TextField
               form={form}
-              name="firstname"
-              label={t("eci:form.property.full_first_names")}
-              placeholder="eg. Leonardo"
-              autoComplete="given-name"
+              name="number"
+              label={Object.entries(props.ids).length === 1 ? Object.entries(props.ids)[0][0] : t("eci:form.document-number")}
               required
             />
           </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 6}>
-            <TextField
-              form={form}
-              name="lastname"
-              label={t("eci:form.property.family_names")}
-              autoComplete="family-name"
-              placeholder="eg. Da Vinci"
-              required
-            />
-          </Grid>
-    {props.birthdate && <Grid item xs={12}>
-            <TextField
-              form={form}
-              name="birthdate"
-              type="date"
-              label={t("eci:form.property.date_of_birth")}
-              required
-            />
-          </Grid>
-       }
         </Grid>
       </Container>
   );

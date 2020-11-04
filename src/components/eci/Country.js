@@ -46,8 +46,8 @@ export default (props)  => {
 
   if (props.list === false) return null;
 
-  const country = watch("country") || "";
-  const location = useGeoLocation({api:"https://country.proca.foundation", country: config.data.country || config.component.country });
+  const country = watch("nationality") || "";
+  const location = useGeoLocation({api:"https://country.proca.foundation", country: config.data.nationality || config.component.country });
   useEffect (() => {
     if (location.country && !country) {
       if (!countries.find (d => (d.iso === location.country))) {
@@ -57,14 +57,14 @@ export default (props)  => {
       if (!location.country)
         return;
 
-      setValue("country", location.country);
-      setData("country",country);
+      setValue("nationality", location.country);
+      setData("nationality",country);
     }
   },[location,country,setValue,setData]);
 
 
   useEffect(() => {
-    register({ name: "country" });
+    register({ name: "nationality" });
   }, [register]);
 
 
@@ -74,7 +74,7 @@ return (
           <Grid item xs={12}>
             <TextField
               select
-              name="country"
+              name="nationality"
               label={t("eci:form.support_country_selected")}
               form={props.form}
               SelectProps={{

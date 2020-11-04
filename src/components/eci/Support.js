@@ -4,8 +4,13 @@ import { useTranslation } from "react-i18next";
 import useForm from "react-hook-form";
 
 import eciLocale from '../../locales/en/eci';
+import documents from "../../data/document_number_formats.json";
+
 import Country from './Country';
 import General from './General';
+import Address from './Address';
+import Consent from './Consent';
+import Id from './Id';
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -31,7 +36,7 @@ const removeDotKey = (obj) => {
 
 removeDotKey(eciLocale);
 i18n.addResourceBundle ('en','eci',eciLocale);
-const countries = eciLocale.common.country;
+//const countries = eciLocale.common.country;
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -45,6 +50,8 @@ export default (props) => {
 
   const width = useElementWidth("#proca-register");
   const [compact, setCompact] = useState(true);
+  const [require, setRequire] = useState(false);
+  const [acceptableIds, setIds] = useState({});
 
   const { t } = useTranslation();
 //  const config = useCampaignConfig();
@@ -58,8 +65,20 @@ export default (props) => {
   const {
     handleSubmit,
     setError,
-    formState
+    formState,
+    watch
   } = form;
+  
+  const nationality = watch("nationality") || "";
+  useEffect (() => {
+    if (nationality ) {
+      const ids = documents[nationality.toLowerCase()];
+      setIds (documents[nationality.toLowerCase()]);
+      setRequire (Object.keys(ids).length ? "id" : "address");
+    }
+  }, [nationality,documents]);
+
+    console.log(nationality,require, acceptableIds);
 
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
@@ -93,6 +112,10 @@ export default (props) => {
       url="http://localhost"
   >
     <Country form={form} countries={eciLocale.common.country} />
-    <General form={form} compact={compact} />
+    <div dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
+    <General form={form} birthdate={require === "address"} compact={compact} />
+    {require === "address" && <Address form={form} compact={compact} />}
+    {require === "id" && <Id form={form} compact={compact} ids={acceptableIds}/>}
+    <Consent form={form} />
     </form>;
 }
