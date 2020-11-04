@@ -9,6 +9,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import TextField from "../TextField";
+import documentType from "../../data//document_types_name.json";
+
 import { useTranslation } from "react-i18next";
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -24,7 +26,7 @@ export default function Register(props) {
   } = props.form;
 
   const country = watch("nationality") || "";
-  console.log(Object.entries(props.ids)[0]);
+  console.log(country.toLowerCase()+"."+Object.entries(props.ids)[0][0]);
 
   return (
       <Container component="main" maxWidth="sm">
@@ -42,7 +44,7 @@ export default function Register(props) {
   >
               {Object.entries(props.ids).map(id => (
                 <option key={id[0]} value={id[0]}>
-                {id[0]}
+                {documentType[country.toLowerCase()+"." +id[0]]}
                 </option>
               ))}
             </TextField>}
@@ -50,7 +52,7 @@ export default function Register(props) {
             <TextField
               form={form}
               name="number"
-              label={Object.entries(props.ids).length === 1 ? Object.entries(props.ids)[0][0] : t("eci:form.document-number")}
+              label={Object.entries(props.ids).length === 1 ? documentType[country.toLowerCase()+"."+Object.entries(props.ids)[0][0]] : t("eci:form.document-number")}
               required
             />
           </Grid>

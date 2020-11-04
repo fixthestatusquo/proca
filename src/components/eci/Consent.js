@@ -19,10 +19,13 @@ export default function Register(props) {
   const compact = props.compact;
   const form = props.form;
   const [certify,setCertify]= useState (false);
+  const [privacy,setPrivacy]= useState (false);
+
   const handleChange = e =>{
     console.log(e);
     setCertify(true);
   }
+
   return (
       <Container component="main" maxWidth="sm">
         <Grid container spacing={1}>
@@ -30,6 +33,12 @@ export default function Register(props) {
               <FormControlLabel
             control={<Checkbox color="primary" checked={certify} onChange={handleChange} name="certify" />}
             label={t("eci:form.certify-info")}
+          />
+          </Grid>
+          <Grid item xs={12}>
+              <FormControlLabel
+            control={<Checkbox color="primary" checked={privacy} onChange={handleChange} name="privacy" />}
+            label={t("eci:form.privacy-statement")}
           />
           </Grid>
         </Grid>
