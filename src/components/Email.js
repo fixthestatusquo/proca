@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import List from '@material-ui/core/List';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 import TwitterAction from './TwitterAction';
 import EmailAction from './EmailAction';
@@ -118,18 +116,18 @@ const Component = props => {
 
       <Dialog
         dialog={dialog}
-        actionPage={props.actionPage}
+        actionPage={config.actionPage}
         content={Register}
         name={config.param.dialogTitle || t("register")}
       >
-        <Register actionPage={props.actionPage} />
+        <Register actionPage={config.actionPage} />
       </Dialog>
     {config.component.twitter?.filter?.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
       <List>
     {profiles.map((d) =>
-      <Action key={d.id} actionPage={props.actionPage} done={props.done} actionUrl={props.actionUrl || data.actionUrl} actionText={config.param.twitterText || t("twitter.actionText")} {...d}></Action>
+      <Action key={d.id} actionPage={config.actionPage} done={props.done} actionUrl={props.actionUrl || data.actionUrl} actionText={config.param.twitterText || t("twitter.actionText")} {...d}></Action>
     )}
-        <Register actionPage={props.actionPage} done={send}/>
+        <Register done={send}/>
   </List>
     </Fragment>
   );

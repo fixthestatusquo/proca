@@ -252,6 +252,3 @@ export default function Register(props) {
   );
 }
 
-Register.propTypes = {
-  actionPage: PropTypes.number.isRequired
-};
