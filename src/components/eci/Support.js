@@ -42,7 +42,16 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap"
-  }     
+  },
+  notice: {
+    fontSize:theme.typography.pxToRem(13),
+    fontWeight: 'fontWeightLight',
+    lineHeight: '1.3em',
+    color: theme.palette.text.secondary,
+    '& a' : {
+      color: theme.palette.text.secondary
+    }
+  }
 }));
 
 export default (props) => {
@@ -112,7 +121,7 @@ export default (props) => {
       url="http://localhost"
   >
     <Country form={form} countries={eciLocale.common.country} />
-    <div dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
+    <div className={classes.notice} dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
     <General form={form} birthdate={require === "address"} compact={compact} />
     {require === "address" && <Address form={form} compact={compact} />}
     {require === "id" && <Id form={form} compact={compact} ids={acceptableIds}/>}

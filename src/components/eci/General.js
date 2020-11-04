@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Typography, FormLabel } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -21,7 +21,7 @@ export default function Register(props) {
 
   return (
       <Container component="main" maxWidth="sm">
-        <h4>{t("eci:form.group-personal")}</h4>
+        <Typography variant="legend" color="textSecondary" gutterTop component="legend">{t("eci:form.group-personal")}</Typography>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField

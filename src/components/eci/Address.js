@@ -1,13 +1,6 @@
 import React from "react";
 
-import { Container, Grid } from "@material-ui/core";
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-*/
+import { Typography, Container, Grid } from "@material-ui/core";
 import TextField from "../TextField";
 import Country from "../Country";
 import { useTranslation } from "react-i18next";
@@ -22,7 +15,7 @@ export default function Register(props) {
 
   return (
       <Container component="main" maxWidth="sm">
-        <h4>{t("eci:form.group-address")}</h4>
+        <Typography variant="legend" color="textSecondary" gutterTop component="legend">{t("eci:form.group-address")}</Typography>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <TextField
@@ -33,7 +26,7 @@ export default function Register(props) {
               required
             />
           </Grid>
-          <Grid item xs={12} sm= {compact ? 4 : 8}>
+          <Grid item xs={12} sm= {compact ? 12 : 3}>
             <TextField
               form={form}
               name="postcode"
@@ -41,7 +34,7 @@ export default function Register(props) {
               required
             />
           </Grid>
-          <Grid item xs={12} sm= {compact ? 8 : 4}>
+          <Grid item xs={12} sm= {compact ? 12 : 9}>
             <TextField
               form={form}
               name="city"
