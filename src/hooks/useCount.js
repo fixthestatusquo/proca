@@ -1,5 +1,6 @@
 import { useEffect} from "react";
 import {getCount,getCountByUrl} from "../lib/server.js";
+import { useCampaignConfig } from "../hooks/useConfig";
 
 import {
   atom,useRecoilState
@@ -12,7 +13,7 @@ const CountState = atom ({key:'actionCount',
 
 export default function useCounter (actionPage,actionUrl) {
   const [count, setCount] = useRecoilState(CountState);
-
+  const config = useCampaignConfig();
   useEffect(() => {
     let isCancelled = false;
     let c = null;
@@ -21,8 +22,11 @@ export default function useCounter (actionPage,actionUrl) {
       if (actionUrl) {
         c = await getCountByUrl(actionUrl);
       } else {
-        if (!actionPage || isNaN(actionPage)) return {errors:[{messsage:"invalid actionPage:"+actionPage}]};
-        c = await getCount(actionPage);
+        let options = {};
+        if (!actionPage || isNaN(actionPage)) return {errors:[{message:"invalid actionPage:"+actionPage}]};
+        if (config.component?.useCount?.apiUrl)
+          options.apiUrl = config.component.useCount.apiUrl;
+        c = await getCount(actionPage,options);
       }
       if (!isCancelled) 
         setCount(c);
