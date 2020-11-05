@@ -22,7 +22,7 @@
     "progress_plural": "{{count}} firma. Obbiettivo: {{goal}}",
     "This field is required.": "Questo campo è obbligatorio.",
     "Enter a number.": "Inserire una cifra.",
-    "Enter a valid email address.": "Inserisci un indirizzo e-mail valido.",
+    "Enter a valid email address.": "Inserisci un indirizzo di email valido.",
     "Donations must be %(amount)s or more": "L’importo minimo della donazione è {{amount}} o superiore",
     "Amount": "Importo",
     "First name": "Nome",
