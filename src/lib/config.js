@@ -63,7 +63,7 @@ const fetch = async (actionPage) =>  {
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
   const config = { actionpage: data.actionPage.id,
-    organisation: data.actionPage.campaign.org.title,
+    organisation: data.actionPage.org.title,
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,
