@@ -101,8 +101,7 @@ const Component = props => {
     var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(s)+"&cc="+cc+"&body="+encodeURIComponent(body);
     var win = window.open(
       url,
-      "mailto-"+profile.screen_name,
-      "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
+      "_blank"
     );
     
     props.done();

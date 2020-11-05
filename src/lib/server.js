@@ -173,6 +173,11 @@ async function addActionContact(actionType, actionPage, data) {
   ){contactRef,firstName}
   }
 `;
+  const privacy = {
+    optIn : data.privacy === "opt-in" || data.privacy === "opt-in-both",
+    leadOptIn: data.privacy === "opt-in-both" || data.privacy == "opt-in-lead"
+  };
+
   const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
   let variables = {
     actionPage: actionPage,
@@ -189,7 +194,7 @@ async function addActionContact(actionType, actionPage, data) {
         postcode: data.postcode || ""
       }
     },
-    privacy: { optIn: data.privacy === "opt-in", leadOptIn: data.privacy ==="opt-in" }
+    privacy: privacy
   };
   if (data.uuid) 
     variables.contactRef = data.uuid;

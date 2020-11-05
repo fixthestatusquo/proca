@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import IconButton from '@material-ui/core/IconButton';
 import PropTypes from "prop-types";
+import {useCampaignConfig} from '../hooks/useConfig';
 import { useTranslation } from "react-i18next";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
@@ -22,6 +23,7 @@ const component= function TwitterAction(profile) {
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
   const { t } = useTranslation();
+  const config = useCampaignConfig();
  
   function addTweet (event,screenName) {
     addAction(profile.actionPage,event,{
@@ -45,8 +47,7 @@ const component= function TwitterAction(profile) {
     var url = "mailto:"+profile.email+"?subject="+ encodeURIComponent(s)+"&body="+encodeURIComponent(body);
     var win = window.open(
       url,
-      "mailto-"+profile.screen_name,
-      "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
+      "_blank"
     );
     select(true);
     addTweet("email_click",profile.screen_name);
@@ -64,7 +65,7 @@ const component= function TwitterAction(profile) {
   };
 
   return (
-      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={true} onClick={mail} divider={true}>
+      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={true} onClick={config.component?.email?.split===true ? mail : null} divider={true}>
         <ListItemAvatar>
           <Avatar 
              src={img()} />
@@ -73,11 +74,12 @@ const component= function TwitterAction(profile) {
           primary={profile.name}
           secondary={profile.description}
         />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="Tweet" onClick={mail}>
+    {config.component?.email?.split===true &&              <ListItemSecondaryAction>
+     <IconButton edge="end" aria-label="Tweet" onClick={mail}>
                       <EmailIcon />
                     </IconButton>
                   </ListItemSecondaryAction>
+    }
       </ListItem>
   );
 }
