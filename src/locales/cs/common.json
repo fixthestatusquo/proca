@@ -38,7 +38,7 @@
         "confirm": "<0>Jste si jistí?</0> <1> Pokud vyberete možnost „Ne“, nebudete moci zjistit, zda je tato kampaň úspěšná, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Pokud vyberete „Ano“, budeme vás informovat o této a dalších naléhavých kampaních. </1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
         "opt-out": "Ne, nestojím o e-maily ani o další informace",
         "opt-in": "Ano, informujte mě e-mailem",
-        "intro": "Souhlasím, že {{name}} mě bude kontaktovat ohledně důležitých kampaní"
+        "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní"
     },
     "you need to be 18 years old": "musíte mít 18 let",
     "twitter": {
