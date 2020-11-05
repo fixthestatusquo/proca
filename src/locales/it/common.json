@@ -1,12 +1,12 @@
 {
     "consent": {
         "intro": "Ulteriori informazioni sulle nostre campagne, azioni e i progressi di {{campaign}}",
-        "opt-in": "Sì, voglio che {{partner}} mi tenga informato/a tramite e-mail",
+        "opt-in": "Sì, acconsento alla ricezione di email per ricevere aggiornamenti da parte del {{partner}}",
         "opt-out": "No, non inviarmi e-mail o aggiornamenti in futuro",
         "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2><3>Sì</3>",
         "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>",
         "processing-nocookie": "Le tue informazioni personali saranno mantenute private e custodite in modo sicuro. Inviando le informazioni, acconsenti all'uso dei dati in conformità con la nostra <1>informativa sulla privacy</1>",
-        "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi tengano informato/a tramite e-mail"
+        "opt-in-both": "Sì, acconsento alla ricezione di aggiornamenti via email da parte del {{partner}} e da {{lead}}"
     },
     "share": {
         "title": "Quasi fatto! Fai il passo successivo.",
@@ -22,7 +22,7 @@
     "progress_plural": "{{count}} firma. Obbiettivo: {{goal}}",
     "This field is required.": "Questo campo è obbligatorio.",
     "Enter a number.": "Inserire una cifra.",
-    "Enter a valid email address.": "Inserisci un indirizzo e-mail valido.",
+    "Enter a valid email address.": "Inserisci un indirizzo di email valido.",
     "Donations must be %(amount)s or more": "L’importo minimo della donazione è {{amount}} o superiore",
     "Amount": "Importo",
     "First name": "Nome",

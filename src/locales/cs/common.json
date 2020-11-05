@@ -22,7 +22,9 @@
     "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
     "Stay in touch": "Zůstat v kontaktu",
     "Donations must be %(amount)s or more": "Dary musí být% (částka) s nebo více",
-    "progress": "{{count}} podepsali. Pojďme na {{goal}}",
+    "progress_0": "{{count}} podepsali. Pojďme na {{goal}}",
+    "progress_1": "Už {{count}} lidé podepsali. Vzhůru ke {{goal}}!",
+    "progress_2": "Už {{count}} lidé podepsali. Vzhůru ke {{goal}}!",
     "Sign": "Podepisuji!",
     "share": {
         "email": {
@@ -30,15 +32,17 @@
             "subject": "Měli byste to podepsat"
         },
         "message": "Měli byste to podepsat!",
-        "intro": "Skvělé, máte podepsáno. 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele. 🙏.",
+        "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
         "title": "Téměř hotovo! Přejděte k dalšímu kroku."
     },
     "consent": {
-        "processing": "Vaše osobní údaje budou uloženy jako soukromé a bezpečně. Odesláním informací souhlasíte s použitím dat a cookies v souladu s našimi <1> zásadami ochrany osobních údajů </1>",
-        "confirm": "<0>Jste si jistí?</0> <1> Pokud vyberete možnost „Ne“, nebudete moci zjistit, zda je tato kampaň úspěšná, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Pokud vyberete „Ano“, budeme vás informovat o této a dalších naléhavých kampaních. </1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
+        "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
+        "confirm": "<0>Jste si jistí?</0> <1> Zaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jak kampaň dopadla, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Zaškrtnutí možnosti “Ano” vám umožní zapojit se do budoucna do bitev, které je potřeba vyhrát.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
         "opt-out": "Ne, nestojím o e-maily ani o další informace",
-        "opt-in": "Ano, informujte mě e-mailem",
-        "intro": "Souhlasím, že {{name}} mě bude kontaktovat ohledně důležitých kampaní"
+        "opt-in": "Souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
+        "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
+        "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte.",
+        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly e-mailem"
     },
     "you need to be 18 years old": "musíte mít 18 let",
     "twitter": {
