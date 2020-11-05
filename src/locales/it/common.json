@@ -1,16 +1,18 @@
 {
     "consent": {
-        "intro": "Iscriviti agli gli aggiornamenti via e-mail di questa raccolta firme e ulteriori campagne importanti di {{name}}",
-        "opt-in": "Sì, ditemi se questa raccolta firme ha avuto successo e come posso aiutare per altre campagne rilevanti",
-        "opt-out": "No, non inviarmi email o aggiornamenti in futuro",
-        "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2>",
-        "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>"
+        "intro": "Ulteriori informazioni sulle nostre campagne, azioni e i progressi di {{campaign}}",
+        "opt-in": "Sì, voglio che {{partner}} mi tenga informato/a tramite e-mail",
+        "opt-out": "No, non inviarmi e-mail o aggiornamenti in futuro",
+        "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2><3>Sì</3>",
+        "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>",
+        "processing-nocookie": "Le tue informazioni personali saranno mantenute private e custodite in modo sicuro. Inviando le informazioni, acconsenti all'uso dei dati in conformità con la nostra <1>informativa sulla privacy</1>",
+        "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi tengano informato/a tramite e-mail"
     },
     "share": {
         "title": "Quasi fatto! Fai il passo successivo.",
         "intro": "Bene, hai firmato.👍. Per ampliare il tuo impatto, condividi ovunque per far sì che tutti vedano questa petizione. 🙏.",
         "email": {
-            "body": "Ciao,\nFirmi per favore, credo che lei voglia sostenerlo",
+            "body": "Ciao,\nfirmi per favore, credo che tu voglia sostenerlo",
             "subject": "Dovresti firmare questo"
         },
         "message": "Dovresti firmare questo!"
@@ -20,12 +22,12 @@
     "progress_plural": "{{count}} firma. Obbiettivo: {{goal}}",
     "This field is required.": "Questo campo è obbligatorio.",
     "Enter a number.": "Inserire una cifra.",
-    "Enter a valid email address.": "Inserire un indirizzo e-mail valido.",
-    "Donations must be %(amount)s or more": "L’importo minimo della donazione è %(amount) o superiore",
+    "Enter a valid email address.": "Inserisci un indirizzo e-mail valido.",
+    "Donations must be %(amount)s or more": "L’importo minimo della donazione è {{amount}} o superiore",
     "Amount": "Importo",
     "First name": "Nome",
     "Last name": "Cognome",
-    "Email": "Email",
+    "Email": "E-mail",
     "Postal Code": "CAP",
     "Address": "Indirizzo",
     "Street": "Via",
@@ -57,5 +59,9 @@
     "dialogTitle": "Tienimi informato/a sulla campagna",
     "Your organisation account": "Il tuo account organizzazione",
     "Full Name": "Nome completo",
-    "Account": "Account"
+    "Account": "Account",
+    "Other": "Altro",
+    "I'm donating ": "Sto donando ",
+    "I'm donating": "Sto donando",
+    "Choose your donation amount": "Scegli l'importo della tua donazione"
 }
