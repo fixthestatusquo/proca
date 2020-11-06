@@ -95,8 +95,7 @@ export default function Register(props) {
     setStatus("success");
     setData(data);
     uuid(result.addAction); // set the global uuid as signature's fingerprint
-    if (props.done) console.log(data);
-    props.done({
+    props.done && props.done({
       errors: result.errors,
       uuid: uuid(),
       firstname: data.firstname,
@@ -206,6 +205,7 @@ export default function Register(props) {
                 name="postcode"
                 label={t("Postal Code")}
                 autoComplete="postal-code"
+                required={config.component?.register?.field?.postcode?.required}
               />
             </Grid>
           )}

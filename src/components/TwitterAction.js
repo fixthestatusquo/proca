@@ -42,9 +42,8 @@ const component= function TwitterAction(profile) {
         t = t.replace("{url}", profile.actionUrl);
       else t = t+ " " + profile.actionUrl;
     }
-
-    var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
-    var win = window.open(
+    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
+    let win = window.open(
       url,
       "tweet-"+profile.screen_name,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
@@ -53,14 +52,16 @@ const component= function TwitterAction(profile) {
     addTweet("twitter_click",profile.screen_name);
 
     var timer = setInterval( () => {
-    if(win.closed) {
+      if(!win) return; // window popup blocked?
+    const closed= win.closed ;
+    if(closed) {
       clearInterval(timer);
       disable(true);
       select(false);
       addTweet("twitter_close",profile.screen_name);
       if (profile.done instanceof Function)
         profile.done();
-    }}, 1000);
+    }}, 10000);
 
   };
 

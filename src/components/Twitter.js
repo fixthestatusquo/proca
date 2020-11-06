@@ -84,9 +84,10 @@ const Component = props => {
         dialog={dialog}
         actionPage={props.actionPage}
         content={Register}
-        name={config.param.dialogTitle || t("register")}
+        buttonText = {config.param.register}
+        name={config.param.dialogTitle || t("dialogTitle")}
       >
-        <Register actionPage={props.actionPage} />
+        <Register actionPage={props.actionPage} done={props.done}/>
       </Dialog>
     {config.component.twitter?.filter?.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
       <TwitterList
