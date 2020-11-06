@@ -19,7 +19,7 @@
     },
     "Sign": "Firma ora!",
     "progress": "{{count}} firma. Obbiettivo: {{goal}}",
-    "progress_plural": "{{count}} persone hanno firmato. Dai saliamo fino a {{goal}}",
+    "progress_plural": "{{count}} firma. Obbiettivo: {{goal}}",
     "This field is required.": "Si prega di compilare questo campo.",
     "Enter a number.": "Inserire una cifra.",
     "Enter a valid email address.": "Inserisci un indirizzo di email valido.",
