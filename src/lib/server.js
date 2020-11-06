@@ -12,7 +12,7 @@ async function graphQL(operation, query, options) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
-  await fetch(process.env.REACT_APP_API_URL || process.env.API_URL, {
+  await fetch((process.env.REACT_APP_API_URL || process.env.API_URL )+"?id="+options.variables.actionPage, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
@@ -175,7 +175,7 @@ async function addActionContact(actionType, actionPage, data) {
 `;
   const privacy = {
     optIn : data.privacy === "opt-in" || data.privacy === "opt-in-both",
-    leadOptIn: data.privacy === "opt-in-both" || data.privacy == "opt-in-lead"
+    leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead"
   };
 
   const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");

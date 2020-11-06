@@ -14,6 +14,7 @@ const CountState = atom ({key:'actionCount',
 export default function useCounter (actionPage,actionUrl) {
   const [count, setCount] = useRecoilState(CountState);
   const config = useCampaignConfig();
+  const apiUrl = config.component?.useCount?.apiUrl || null;
   useEffect(() => {
     let isCancelled = false;
     let c = null;
@@ -24,8 +25,8 @@ export default function useCounter (actionPage,actionUrl) {
       } else {
         let options = {};
         if (!actionPage || isNaN(actionPage)) return {errors:[{message:"invalid actionPage:"+actionPage}]};
-        if (config.component?.useCount?.apiUrl)
-          options.apiUrl = config.component.useCount.apiUrl;
+        if (apiUrl)
+          options.apiUrl = apiUrl;
         c = await getCount(actionPage,options);
       }
       if (!isCancelled) 
@@ -35,7 +36,7 @@ export default function useCounter (actionPage,actionUrl) {
     return () => {
       isCancelled = true;
     };
-  },[actionPage,actionUrl,count,setCount]);
+  },[actionPage,actionUrl,count,apiUrl,setCount]);
 
   return count || null;
 }

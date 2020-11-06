@@ -36,7 +36,6 @@ const Widget = props => {
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
-  console.log("widget ",props.selector);
   var data = Url.data();
   document.querySelectorAll(props.selector).forEach (dom => {
     data = {...dom.dataset, ...data};

@@ -1,12 +1,5 @@
 import React from "react";
 
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-*/
 import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
 import useCount from '../hooks/useCount.js';
@@ -17,7 +10,8 @@ import { useTranslation } from "react-i18next";
 const useStyles = makeStyles(theme => ({
   root: {
     fontSize: theme.typography.pxToRem(18),
-    color: theme.palette.text.primary,
+    color: theme.palette.text.secondary,
+    background:theme.palette.background.default,
     width: '100%',
     '& > * + *': {
       marginTop: theme.spacing(2),
@@ -58,6 +52,7 @@ export default function Progress(props) {
     {t("progress",{count:count,goal:goal})}
     <LinearProgress variant="determinate" value={normalise(count,goal)} />
     </Box>
+
   );
   
 }
