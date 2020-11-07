@@ -39,12 +39,12 @@ export default function Register(props) {
   const [certify, setCertify] = useState(false);
   const [privacy, setPrivacy] = useState(false);
 
-  const handleCertify = (e) => {
-    setCertify(true);
+  const handleCertify = (event) => {
+    setCertify(event.target.checked);
   };
 
-  const handlePrivacy = (e) => {
-    setPrivacy(true);
+  const handlePrivacy = (event) => {
+    setPrivacy(event.target.checked);
   };
 
   return (

@@ -1,6 +1,6 @@
 import i18n from '../../lib/i18n';
 import React,{useState, useEffect} from 'react';
-import { Button, Grid, Snackbar } from "@material-ui/core";
+import { Button, Grid, Snackbar, Box } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation } from "react-i18next";
@@ -190,6 +190,10 @@ export default (props) => {
               {props.buttonText || t("register")}
             </Button>
           </Grid>
-
-    </form>;
+<Box className={classes.notice} m={1}>
+    <div>{t("eci:form.support-footer1")}</div>
+    <div>{t("eci:form.support-footer2")}</div>
+    <div>{t("eci:form.support-footer3")}</div>
+    </Box>
+    </form>
 }
