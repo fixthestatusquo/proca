@@ -17,6 +17,9 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   /* Styles applied to the root element. */
   root: {
+    marginTop: theme.spacing(1),
+  },
+  check: {
     display: "inline-flex",
     alignItems: "center",
     cursor: "pointer",
@@ -25,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     WebkitTapHighlightColor: "transparent",
     marginLeft: -11,
     marginRight: 16, // used for row presentation of radio/checkbox
-  },
+    "& span": { fontSize: theme.typography.pxToRem(13) },
+  }
 }));
 
 export default function Register(props) {
@@ -51,8 +55,8 @@ export default function Register(props) {
     <Container component="main" maxWidth="sm">
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <FormGroup>
-            <FormLabel className={classes.root} placement="end">
+          <FormGroup className={classes.root}>
+            <FormLabel className={classes.check} placement="end">
               <Checkbox
                 color="primary"
                 checked={certify}
@@ -61,7 +65,7 @@ export default function Register(props) {
               />
               <span>{t("eci:form.certify-info")}</span>
             </FormLabel>
-            <FormLabel className={classes.root} placement="end">
+            <FormLabel className={classes.check} placement="end">
               <Checkbox
                 color="primary"
                 checked={privacy}

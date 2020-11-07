@@ -15,6 +15,7 @@ import General from './General';
 import Address from './Address';
 import Consent from './Consent';
 import Id from './Id';
+import Details from './Details';
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -22,6 +23,7 @@ import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import ReactDOM from "react-dom";
 
 //import Address from './Address';
 //import Id from './Id';
@@ -87,15 +89,16 @@ export default (props) => {
     formState,
     watch
   } = form;
-  
+ 
+
   const nationality = watch("nationality") || "";
   useEffect (() => {
-    if (nationality ) {
+    if (nationality && nationality !== "ZZ") {
       const ids = documents[nationality.toLowerCase()];
       setIds (documents[nationality.toLowerCase()]);
       setRequire (Object.keys(ids).length ? "id" : "address");
     }
-  }, [nationality,documents]);
+  }, [nationality]);
 
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
@@ -121,6 +124,14 @@ export default (props) => {
 
     return false;
   }
+
+  useEffect(() => {
+//    ReactDOM.createPortal(<Details eci={config.component.eci} />,document.querySelector(".eci-more"));
+    const title = document.querySelectorAll(".eci-title");
+    title.forEach( d => d.innerHTML = t("eci.title"));
+    const desc = document.querySelectorAll(".eci-description");
+    desc.forEach( d => d.innerHTML = t("eci.description"));
+  },[t]);
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");

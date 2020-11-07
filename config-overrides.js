@@ -152,8 +152,8 @@ module.exports = function override (config, env) {
 //  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/');
   config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/'+widget.lang.toLowerCase());
 
-  if (widget.HtmlTemplate) {
-    config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.HtmlTemplate)
+  if (widget.layout.HtmlTemplate) {
+    config.plugins[1].options.template = path.resolve(__dirname,"public/"+widget.layout.HtmlTemplate)
   }
   if (process.env.NPM ==='1') {
     config.entry= './src/module.js';

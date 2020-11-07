@@ -15,7 +15,7 @@ export default function Register(props) {
 
   return (
       <Container component="main" maxWidth="sm">
-        <Typography variant="legend" color="textSecondary" gutterTop component="legend">{t("eci:form.group-address")}</Typography>
+        <Typography variant="subtitle1" component="legend">{t("eci:form.group-address")}</Typography>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <TextField

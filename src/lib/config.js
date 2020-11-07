@@ -44,9 +44,9 @@ const backup = (actionPage) => {
   fs.renameSync (fileName,fileName + ".bck");
 }
 
-const save = (config,prefix = "") => {
+const save = (config,suffix = "") => {
   const id = config.actionpage; 
-  fs.writeFileSync(file(id) + prefix,JSON.stringify(config,null,2));
+  fs.writeFileSync(file(id) + suffix,JSON.stringify(config,null,2));
 }
 
 const fetch = async (actionPage) =>  {
@@ -111,7 +111,8 @@ const pull = async (actionPage) => {
     backup(actionPage);
   }
   save(config);
+  return config;
 };
 
-export {pull, push, fetch, read, file};
+export {pull, push, fetch, read, file, save};
 

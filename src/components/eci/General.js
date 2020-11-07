@@ -21,7 +21,7 @@ export default function Register(props) {
 
   return (
       <Container component="main" maxWidth="sm">
-        <Typography variant="legend" color="textSecondary" gutterTop component="legend">{t("eci:form.group-personal")}</Typography>
+        <Typography variant="subtitle1" component="legend">{t("eci:form.group-personal")}</Typography>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <TextField
@@ -46,6 +46,7 @@ export default function Register(props) {
     {props.birthdate && <Grid item xs={12}>
             <TextField
               form={form}
+              InputLabelProps = {{shrink : true}}
               name="birthdate"
               type="date"
               label={t("eci:form.property.date_of_birth")}
