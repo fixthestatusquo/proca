@@ -12,13 +12,14 @@ async function graphQL(operation, query, options) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
-  await fetch((process.env.REACT_APP_API_URL || process.env.API_URL )+"?id="+options.variables.actionPage, {
+  await fetch(options.apiUrl+"?id="+options.variables.actionPage, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
       query: query,
       variables: options.variables,
-      operationName: operation || ""
+      operationName: operation || "",
+      extensions: options.extensions
     })
   })
     .then(res => {
@@ -221,4 +222,4 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
-export { addActionContact, addAction, getCount,getCountByUrl };
+export { addActionContact, addAction, getCount,getCountByUrl, graphQL };

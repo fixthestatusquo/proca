@@ -34,6 +34,7 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
+    "@hcaptcha/react-hcaptcha": "^0.2.1",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
     "base64url": "^3.0.1",

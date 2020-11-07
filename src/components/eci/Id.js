@@ -26,7 +26,6 @@ export default function Register(props) {
   } = props.form;
 
   const country = watch("nationality") || "";
-  console.log(country.toLowerCase()+"."+Object.entries(props.ids)[0][0]);
 
   return (
       <Container component="main" maxWidth="sm">

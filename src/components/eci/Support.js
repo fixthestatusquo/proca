@@ -1,10 +1,14 @@
 import i18n from '../../lib/i18n';
 import React,{useState, useEffect} from 'react';
+import { Button, Grid, Snackbar } from "@material-ui/core";
+import SendIcon from "@material-ui/icons/Send";
+
 import { useTranslation } from "react-i18next";
 import useForm from "react-hook-form";
 
 import eciLocale from '../../locales/en/eci';
 import documents from "../../data/document_number_formats.json";
+import { addSupport } from "../../lib/eci/server.js";
 
 import Country from './Country';
 import General from './General';
@@ -13,7 +17,11 @@ import Consent from './Consent';
 import Id from './Id';
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
+import { useCampaignConfig } from "../../hooks/useConfig";
+import Alert from "@material-ui/lab/Alert";
+
 import { makeStyles } from "@material-ui/core/styles";
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 //import Address from './Address';
 //import Id from './Id';
@@ -58,12 +66,14 @@ export default (props) => {
   const classes = useStyles();
 
   const width = useElementWidth("#proca-register");
+  const [token, setToken] = useState('dummy');
   const [compact, setCompact] = useState(true);
   const [require, setRequire] = useState(false);
   const [acceptableIds, setIds] = useState({});
+  const [status, setStatus] = useState("default");
 
   const { t } = useTranslation();
-//  const config = useCampaignConfig();
+  const config = useCampaignConfig();
   const [data, setData] = useData();
 
 
@@ -87,14 +97,28 @@ export default (props) => {
     }
   }, [nationality,documents]);
 
-    console.log(nationality,require, acceptableIds);
-
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
   const onSubmit = async data => {
     console.log(data);
+    data.tracking = {};
 //    data.tracking = Url.utm();
+
+    const result = await addSupport(
+      config.actionType || "support", //todo: introduce a test action 
+      config.component.eci.actionpage,
+      data,
+      {"captcha":token}
+    );
+    if (result.errors) {
+      result.errors.forEach(error => {
+        console.log(error);
+      });
+      setStatus("error");
+      return;
+    }
+
     return false;
   }
 
@@ -113,6 +137,26 @@ export default (props) => {
     });
   }, [setError]);
 
+  const handleVerificationSuccess = (token) => {
+    console.log(token);
+    setToken(token);
+  }
+
+
+  function Error(props) {
+    if (props.display)
+      return (
+        <Snackbar open={true} autoHideDuration={6000}>
+          <Alert severity="error">
+            Sorry, we couldn't save your signature!
+            <br />
+            The techies have been informed.
+          </Alert>
+        </Snackbar>
+      );
+    return null;
+  }
+
   return <form
       className={classes.container}
       id="proca-register"
@@ -120,11 +164,32 @@ export default (props) => {
       method="post"
       url="http://localhost"
   >
+      <Error display={status === "error"} />
+
     <Country form={form} countries={eciLocale.common.country} />
     <div className={classes.notice} dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
     <General form={form} birthdate={require === "address"} compact={compact} />
     {require === "address" && <Address form={form} compact={compact} />}
     {require === "id" && <Id form={form} compact={compact} ids={acceptableIds}/>}
     <Consent form={form} />
+        <HCaptcha
+      sitekey="aa0f1887-8dc5-4895-a8ac-fd5537984ca3"
+      onVerify={token => handleVerificationSuccess(token)}
+    />
+              <Grid item xs={12}>
+            <Button
+              color="primary"
+              variant="contained"
+              fullWidth
+              type="submit"
+              size="large"
+              disabled={formState.isSubmitting}
+              endIcon={<SendIcon />}
+            >
+              {" "}
+              {props.buttonText || t("register")}
+            </Button>
+          </Grid>
+
     </form>;
 }
