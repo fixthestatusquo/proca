@@ -63,13 +63,14 @@ export default props => {
 
   const link = config.component?.consent?.privacyPolicy || "https://proca.foundation/privacy_policy";
   const consentProcessing = config.component?.country === false ?"consent.processing-nocookie":"consent.processing";
+  console.log(errors);
   return (
     <Fragment>
       <Grid item xs={12}>
         <FormHelperText
           className={classes.bigHelper}
-          error={errors.privacy}
           variant={layout.variant}
+          error={errors.privacy}
           margin={layout.margin}
         >
           {t("consent.intro", { name: config.organisation, campaign:config.campaign.title })} *
@@ -88,7 +89,7 @@ export default props => {
             checked ={value==="opt-in"}
             inputRef={register}
             className ={classes.label}
-            control={<Radio color="primary" />}
+            control={<Radio color="primary" required/>}
             label={t("consent.opt-in",{partner:config.organisation})}
           />
     }
@@ -99,7 +100,7 @@ export default props => {
             inputRef={register}
             className ={classes.label}
             checked ={value==="opt-in"}
-            control={<Radio color="primary" />}
+            control={<Radio color="primary" required  />}
             label={t("consent.opt-in",{partner:config.organisation})}
           />
           <FormControlLabel
