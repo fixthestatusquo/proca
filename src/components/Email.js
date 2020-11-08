@@ -106,11 +106,6 @@ const Component = props => {
     
   };
 
-  const handleDone = d => {
-//no popup    viewDialog(true);
-    console.log("done");
-    //props.done();
-  };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   return (
     <Fragment>
@@ -128,7 +123,7 @@ const Component = props => {
     {profiles.map((d) =>
       <Action key={d.id} actionPage={config.actionPage} done={props.done} actionUrl={props.actionUrl || data.actionUrl} actionText={config.param.twitterText || t("twitter.actionText")} {...d}></Action>
     )}
-        <Register done={handleDone} onClick={send}/>
+        <Register done={prop.done} onClick={send}/>
   </List>
     </Fragment>
   );

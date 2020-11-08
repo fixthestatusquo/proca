@@ -19,6 +19,11 @@ export default function Target (props) {
     setValue(newValue);
   };
 
+  const done = () => {
+    console.log(done);
+    setValue("twitter");
+  };
+
   return (
     <>
   <Paper square>
@@ -37,7 +42,7 @@ export default function Target (props) {
     </AppBar>
     <Box p={1}>
     {value==="email" &&
-      <Email done={props.done}/>
+      <Email done={done}/>
     }
     {value==="twitter" &&
       <Twitter done={props.done}/>

@@ -63,14 +63,13 @@ export default props => {
 
   const link = config.component?.consent?.privacyPolicy || "https://proca.foundation/privacy_policy";
   const consentProcessing = config.component?.country === false ?"consent.processing-nocookie":"consent.processing";
-  console.log(errors);
   return (
     <Fragment>
       <Grid item xs={12}>
         <FormHelperText
           className={classes.bigHelper}
           variant={layout.variant}
-          error={errors.privacy}
+          error={typeof errors.privacy === "object"}
           margin={layout.margin}
         >
           {t("consent.intro", { name: config.organisation, campaign:config.campaign.title })} *
