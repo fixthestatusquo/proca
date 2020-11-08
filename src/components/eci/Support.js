@@ -1,5 +1,5 @@
 import i18n from '../../lib/i18n';
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useLayoutEffect} from 'react';
 import { Button, Grid, Snackbar, Box } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
@@ -125,13 +125,17 @@ export default (props) => {
     return false;
   }
 
-  useEffect(() => {
-//    ReactDOM.createPortal(<Details eci={config.component.eci} />,document.querySelector(".eci-more"));
+  const details=config.component.eci;
+  useLayoutEffect(() => {
+//  useEffect(() => {
+    
+    //ReactDOM.createPortal(<Details eci={config.component.eci} />,document.querySelector(".eci-more"));
+    ReactDOM.render(<Details eci={details} />,document.querySelector(".eci-more"));
     const title = document.querySelectorAll(".eci-title");
     title.forEach( d => d.innerHTML = t("eci.title"));
     const desc = document.querySelectorAll(".eci-description");
     desc.forEach( d => d.innerHTML = t("eci.description"));
-  },[t]);
+  },[t,details]);
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");

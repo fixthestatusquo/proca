@@ -26,11 +26,11 @@ export default props => {
   const handleBlur = (e) => {
     e.target.checkValidity();
     if (e.target.validity.valid) {
-      clearError(e.target.attributes.name.nodeValue);
+      clearErrors(e.target.attributes.name.nodeValue);
       return;
     }
   };
-  const {errors, register, clearError, watch} = props.form;
+  const {errors, register, clearErrors, watch} = props.form;
   const value = watch(props.name) || "";
   return (
             <TextField

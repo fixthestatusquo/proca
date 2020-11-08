@@ -92,7 +92,7 @@ export default function Register(props) {
     setValue,
     errors,
     setError,
-    clearError,
+    clearErrors,
     watch,
     formState
   } = form; 
@@ -189,7 +189,7 @@ export default function Register(props) {
   const handleBlur = e => {
     e.target.checkValidity();
     if (e.target.validity.valid) {
-      clearError(e.target.attributes.name.nodeValue);
+      clearErrors(e.target.attributes.name.nodeValue);
       return;
     }
   };

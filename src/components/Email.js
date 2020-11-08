@@ -11,7 +11,7 @@ import useData from "../hooks/useData";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
 import {useCampaignConfig} from "../hooks/useConfig";
-import useForm from "react-hook-form";
+import {useForm} from "react-hook-form";
 
 const Component = props => {
   const config = useCampaignConfig();
@@ -104,11 +104,12 @@ const Component = props => {
       "_blank"
     );
     
-    props.done();
   };
 
   const handleDone = d => {
 //no popup    viewDialog(true);
+    console.log("done");
+    //props.done();
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   return (
@@ -127,7 +128,7 @@ const Component = props => {
     {profiles.map((d) =>
       <Action key={d.id} actionPage={config.actionPage} done={props.done} actionUrl={props.actionUrl || data.actionUrl} actionText={config.param.twitterText || t("twitter.actionText")} {...d}></Action>
     )}
-        <Register done={send}/>
+        <Register done={handleDone} onClick={send}/>
   </List>
     </Fragment>
   );

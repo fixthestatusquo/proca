@@ -37,10 +37,10 @@ export default function Target (props) {
     </AppBar>
     <Box p={1}>
     {value==="email" &&
-      <Email />
+      <Email done={props.done}/>
     }
     {value==="twitter" &&
-      <Twitter />
+      <Twitter done={props.done}/>
     }
     </Box>
   </Paper>

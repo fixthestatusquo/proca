@@ -21,7 +21,7 @@ import Alert from "@material-ui/lab/Alert";
 import SendIcon from "@material-ui/icons/Send";
 import DoneIcon from "@material-ui/icons/Done";
 
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Consent from "./Consent";
 
@@ -72,6 +72,7 @@ export default function Register(props) {
     defaultValues: data
   });
   const {
+    trigger,
     handleSubmit,
     setError,
     formState
@@ -102,6 +103,11 @@ export default function Register(props) {
       country: data.country
     });
   };
+
+  const handleClick = async event => {
+    const result= await trigger();
+    if (result) props.done();
+  }
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -237,6 +243,7 @@ export default function Register(props) {
               variant="contained"
               fullWidth
               type="submit"
+              onClick={handleClick}
               size="large"
               disabled={formState.isSubmitting}
               endIcon={<SendIcon />}
