@@ -60,9 +60,10 @@ const utm = () => {
   const whitelist = ["source", "medium", "campaign", "content"];
   const utm= parse( whitelist, "utm_");
   if ( 0 === Object.keys(utm).length && document.referrer) {
+    u = new URL(document.referrer);
     utm.medium= "website";
     utm.source= "referrer";
-    utm.campaign= document.referrer;
+    utm.campaign= u.hostname+u.pathname;
   }
   return utm;
 };
