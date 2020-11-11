@@ -106,7 +106,11 @@ export default function Register(props) {
 
   const handleClick = async event => {
     const result= await trigger();
-    if (result) props.done();
+    if (result) {
+      handleSubmit(onSubmit);
+      props.onClick();
+//      props.done();
+    }
   }
 
   useEffect(() => {
@@ -220,6 +224,15 @@ export default function Register(props) {
               <Country form={form} required />
             </Grid>
           )}
+          {config.component?.register?.field?.phone === true && (
+            <Grid item xs={12}>
+              <TextField
+                form={form}
+                name="phone"
+                label={t("Phone")}
+              />
+            </Grid>
+          )}
           {config.component?.register?.field?.comment !== false && (
             <Grid item xs={12}>
               <TextField
@@ -243,7 +256,7 @@ export default function Register(props) {
               variant="contained"
               fullWidth
               type="submit"
-              onClick={handleClick}
+              onClick={props.onClick && handleClick}
               size="large"
               disabled={formState.isSubmitting}
               endIcon={<SendIcon />}
