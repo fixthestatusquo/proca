@@ -18,8 +18,8 @@
         "message": "Dovresti firmare questo!"
     },
     "Sign": "Firma ora!",
-    "progress": "{{count}} firma. Obbiettivo: {{goal}}",
-    "progress_plural": "{{count}} firma. Obbiettivo: {{goal}}",
+    "progress": "{{count}} firme. Obiettivo: {{goal}}",
+    "progress_plural": "{{count}} firme. Arriviamo a: {{goal}}",
     "This field is required.": "Si prega di compilare questo campo.",
     "Enter a number.": "Inserire una cifra.",
     "Enter a valid email address.": "Inserisci un indirizzo di email valido.",
