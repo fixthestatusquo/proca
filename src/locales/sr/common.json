@@ -29,20 +29,20 @@
     "share": {
         "email": {
             "body": "Здраво,\nМолим вас потпишите, мислим да желите да га подржите",
-            "subject": "Требао би ово потписати"
+            "subject": "Potpiši za borbu protiv biometrijskog nadzora"
         },
-        "message": "Требао би ово потписати!",
+        "message": "Potpiši za borbu protiv biometrijskog nadzora!",
         "intro": "Odlično, potpisali ste 👍. Podelite peticiju kako bi je videlo što više ljudi 🙏.",
         "title": "Još malo i gotovo! Sledeći korak."
     },
     "consent": {
         "processing": "Ваши лични подаци ће бити приватни и безбедни. Слањем информација пристајете на употребу података и колачића у складу са нашом <1> политиком приватности </1>",
-        "confirm": "<0> Da li ste sigurni? </0> <1> Ako izaberete \"Ne\", nećete moći da saznate da li je kampanja uspešna i da li je potrebno još zajedničkih napora da bi uspela. Ako izaberete \"Da\", obaveštavaćemo vas o ovoj i drugim bitnim kampanjama. </1> <2> Možete se odjaviti u svakom trenutku.</2><3>Da</3>",
-        "opt-out": "Ne, ne šaljite mi mejlove i nemojte me obaveštavati ubuduće",
-        "opt-in": "Da, dajem pristanak da me {{partner}} informiše putem email-a",
+        "confirm": "<0> Da li ste sigurni? </0> <1> Ako izaberete \"Ne\", nećete moći da saznate da li je kampanja uspešna i da li je potrebno još zajedničkih napora da bi uspela. Ako izaberete \"Da\", obaveštavaćemo vas o ovoj i drugim bitnim kampanjama. </1> <2> Možete se odjaviti u svakom trenutku.</2>",
+        "opt-out": "Ne šaljite mi mejlove i nemojte me obaveštavati ubuduće",
+        "opt-in": "Dajem pristanak da me {{partner}} informiše putem email-a",
         "intro": "Пристајем {{name}} да ме контактира у вези са важним кампањама",
-        "processing-nocookie": "Vaši podaci će biti čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
-        "opt-in-both": "Da, dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a"
+        "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
+        "opt-in-both": "Dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a"
     },
     "you need to be 18 years old": "треба да имате 18 година",
     "twitter": {
