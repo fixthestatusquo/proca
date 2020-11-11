@@ -43,9 +43,10 @@ async function addSupport(actionType, actionPage, data, options) {
         documentType:data.documentType
       },
       address: {
-        street: data.street || "",
+        street_number: data.address ? "?":"",
+        street: data.address || "",
         country: data.country || "",
-        locality: data.locality || "",
+        locality: data.city || "",
         postcode: data.postcode || ""
       }
     },

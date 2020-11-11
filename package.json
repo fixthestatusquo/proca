@@ -48,6 +48,7 @@
     "react-i18next": "^11.7.3",
     "react-ipgeolocation": "^1.4.0",
     "react-share": "^4.2.1",
+    "react-useportal": "^1.0.13",
     "recoil": "^0.0.13",
     "uuid": "^8.3.0"
   },
@@ -83,7 +84,7 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "i18n-extract": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
+    "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "nope.prepublish": "babel src --out-dir lib",
     "prepublishOnly": "node src/locales/index.js && rm -r dist/* && babel src --out-dir dist --copy-files",
     "start": "react-app-rewired start",

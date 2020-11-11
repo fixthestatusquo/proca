@@ -37,7 +37,6 @@ function OpenDialog(props) {
   const title = props.name || (t("dialogTitle") === "dialogTitle" ? "": t("dialogTitle"));
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   useEffect(() => setOpen(props.dialog), [props.dialog]);
 
   const handleClose = () => {

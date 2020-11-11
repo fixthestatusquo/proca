@@ -162,6 +162,7 @@ const Widget = props => {
       Action = steps[journey[current].replace("/","_")];
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
+//        global.proca.Alert("Configuration error, check console.log","error");
         return "FATAL Error, check the log";
       }
       return (

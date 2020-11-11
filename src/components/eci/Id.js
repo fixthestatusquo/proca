@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -17,15 +17,24 @@ export default function Register(props) {
 
   const { t } = useTranslation();
 
-  const compact = props.compact;
   const form = props.form;
   const {
-    register,
     setValue,
-    watch,
+    watch
   } = props.form;
 
   const country = watch("nationality") || "";
+  useEffect (() => {
+    if (!country) {
+      return;
+    }
+
+    if (Object.entries(props.ids).length === 1) {
+      const docType= documentType[country.toLowerCase()+"."+Object.entries(props.ids)[0][0]];
+      setValue("documentType", docType);
+//      setData("document_type",docType);
+    }
+  },[country,setValue]);
 
   return (
       <Container component="main" maxWidth="sm">
@@ -34,7 +43,7 @@ export default function Register(props) {
           <Grid item xs={12}>
          {(Object.entries(props.ids).length >1) && <TextField
               select
-              name="document_type"
+              name="documentType"
               label={t("eci:form.document-type")}
               form={props.form}
               SelectProps={{
@@ -50,7 +59,7 @@ export default function Register(props) {
 
             <TextField
               form={form}
-              name="number"
+              name="documentNumber"
               label={Object.entries(props.ids).length === 1 ? documentType[country.toLowerCase()+"."+Object.entries(props.ids)[0][0]] : t("eci:form.document-number")}
               required
             />

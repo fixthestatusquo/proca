@@ -20,9 +20,9 @@ export default function Register(props) {
           <Grid item xs={12}>
             <TextField
               form={form}
-              name="lastname"
+              name="address"
               label={t("eci:form.property.street")}
-              placeholder="eg. Da Vinci"
+              placeholder="42 via Europa"
               required
             />
           </Grid>
