@@ -33,7 +33,7 @@ const minorVersion = appPackageJson.version.split(".").slice(0,2).join("-");
 //paths.appIndexJs = paths.appIndexJs.replace('index.js','Widget.js'); // NOT WORKING, modified index.js
 // potential workaround : https://gist.github.com/benedictjohannes/33f93ccd2a66b9c150460c525937a8d3
 //
-const conditionalImport = (alias,journey) =>{
+const conditionalImport = (id,alias,journey) =>{
 //  config.resolve.alias['Conditional_Share$']= path.resolve(__dirname, 'src/components/')+'/Disabled.js';
   const j = journey.flat();
   let steps = {
@@ -72,8 +72,8 @@ const conditionalImport = (alias,journey) =>{
 
   script += "export {steps as allSteps}\n";
   script += "export {steps}\n";
-  const wpathLoad='./src/tmp.config/'+process.env.actionpage+'.load.js';
-  alias['ComponentLoader$']= path.resolve(__dirname, 'src/tmp.config/')+'/'+process.env.actionpage+'.load.js';
+  const wpathLoad='./src/tmp.config/'+id+'.load.js';
+  alias['ComponentLoader$']= path.resolve(__dirname, 'src/tmp.config/')+'/'+id+'.load.js';
   fs.writeFileSync(wpathLoad,script);
 }
 
@@ -103,10 +103,8 @@ module.exports = function override (config, env) {
 // todo: add babel +                  "i18next-extract",
 //  useBabelRc();
   let widget = {};
-  console.log (process,env);
   const id=parseInt(process.env.actionpage || process.argv[2],10);
 
-  console.log(process.argv,id);
   process.env.BUNDLE_VISUALIZE == 1 && addBundleVisualizer();
 
   if (!id) {
@@ -119,7 +117,9 @@ module.exports = function override (config, env) {
     console.log("d",d);
     console.log ("pulled the config");
 //  process.exit(1);
-  })
+  }).catch(d => {
+    console.log("error fetching action", widget.actionpage);
+  });
 
   config.resolve.alias['Config$']= file(widget.actionpage);
   // doesn't work addWebpackPlugin(new webpack.DefinePlugin(stringified(w.parsed)));
@@ -147,7 +147,7 @@ module.exports = function override (config, env) {
       default: false
     }
   };
-  conditionalImport(config.resolve.alias,widget.journey);
+  conditionalImport(widget.actionpage, config.resolve.alias,widget.journey);
 
 //  config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/');
   config.resolve.alias['locales']= path.resolve(__dirname, 'src/locales/'+widget.lang.toLowerCase());
