@@ -13,6 +13,9 @@ import { useTranslation } from "react-i18next";
 import {useCampaignConfig} from "../hooks/useConfig";
 import {useForm} from "react-hook-form";
 
+import uuid from '../lib/uuid';
+import {addAction} from '../lib/server';
+
 const Component = props => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
@@ -103,6 +106,17 @@ const Component = props => {
       url,
       "_blank"
     );
+    var timer = setInterval( () => {
+    if(win.closed) {
+      addAction(config.actionPage,"email_close",{
+        uuid: uuid(),
+//        tracking: Url.utm(),
+        payload: []
+    });
+
+      clearInterval(timer);
+    }}, 1000);
+    
     
   };
 
@@ -118,13 +132,13 @@ const Component = props => {
       >
         <Register actionPage={config.actionPage} />
       </Dialog>
-    {config.component.twitter?.filter?.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
-      <List>
+    {config.component.email?.filter?.includes("country") && <Country form={form} list={config.component?.twitter?.countries}/> }
+    {config.component.email?.showTo !== false  && <List>
     {profiles.map((d) =>
       <Action key={d.id} actionPage={config.actionPage} done={props.done} actionUrl={props.actionUrl || data.actionUrl} actionText={config.param.twitterText || t("twitter.actionText")} {...d}></Action>
     )}
-        <Register done={prop.done} onClick={send}/>
-  </List>
+  </List>}
+        <Register done={props.done} onClick={send}/>
     </Fragment>
   );
 };
