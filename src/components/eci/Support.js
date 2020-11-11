@@ -4,7 +4,7 @@ import { Button, Grid, Snackbar, Box } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation } from "react-i18next";
-import useForm from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import eciLocale from '../../locales/en/eci';
 import documents from "../../data/document_number_formats.json";
@@ -23,7 +23,7 @@ import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import ReactDOM from "react-dom";
+import usePortal from 'react-useportal'
 
 //import Address from './Address';
 //import Id from './Id';
@@ -76,7 +76,12 @@ export default (props) => {
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [data, setData] = useData();
+  const [data] = useData();
+
+  const { Portal } = usePortal({
+    bindTo: document && document.querySelector(".eci-more")
+  })
+
 
 
   const form = useForm({
@@ -125,20 +130,20 @@ export default (props) => {
     return false;
   }
 
-  const details=config.component.eci;
   useLayoutEffect(() => {
 //  useEffect(() => {
-    
-    //ReactDOM.createPortal(<Details eci={config.component.eci} />,document.querySelector(".eci-more"));
-    ReactDOM.render(<Details eci={details} />,document.querySelector(".eci-more"));
+//    const more = React.useRef(document.querySelector(".eci-more"));
+//    ReactDOM.createPortal(<Details eci={config.component.eci} />,more);
+//    ReactDOM.hydrate(<Details eci={details} />,document.querySelector(".eci-more"));
     const title = document.querySelectorAll(".eci-title");
-    title.forEach( d => d.innerHTML = t("eci.title"));
+    title.forEach( d => d.innerHTML = t("eci:title"));
     const desc = document.querySelectorAll(".eci-description");
-    desc.forEach( d => d.innerHTML = t("eci.description"));
-  },[t,details]);
+    desc.forEach( d => d.innerHTML = t("eci:description"));
+  },[t]);
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
+    console.log(inputs,nationality);
     //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach(input => {
@@ -150,7 +155,7 @@ export default (props) => {
         );
       };
     });
-  }, [setError]);
+  }, [setError,nationality]);
 
   const handleVerificationSuccess = (token) => {
     console.log(token);
@@ -180,7 +185,7 @@ export default (props) => {
       url="http://localhost"
   >
       <Error display={status === "error"} />
-
+    <Portal><Details eci={config.component.eci} /></Portal>
     <Country form={form} countries={eciLocale.common.country} />
     <div className={classes.notice} dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
     <General form={form} birthdate={require === "address"} compact={compact} />

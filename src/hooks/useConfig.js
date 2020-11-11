@@ -28,9 +28,18 @@ export const configState = atom({
 */
 
 export const initConfigState = (config) => {
+  Object.keys(config.locales).map (k => {
+    if (k.charAt(k.length-1) === ":") {
+      const ns = k.slice(0, -1);
+      console.log("namespace "+ns,config.locales[k]);
+
+      i18next.addResourceBundle(config.lang,ns,config.locales[k],true,true);
+      delete config.locales[k];
+    }
+  });
   i18next.addResourceBundle(config.lang,"common",config.locales,true,true);
   initLayout (config.layout);
-//  delete config.locales;
+  delete config.locales;
   if (configState) return false;
   configState = atom({
     key:'campaign',
