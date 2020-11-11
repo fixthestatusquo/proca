@@ -23,6 +23,7 @@
     "Enter a number.": "एक नंबर दर्ज करें।",
     "This field is required.": "यह सूचना आवश्यक है",
     "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",
+    "progress_plural": "",
     "Sign": "अभी साइन करें!",
     "share": {
         "email": {

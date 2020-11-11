@@ -18,14 +18,14 @@
     "Amount": "Částka",
     "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
     "Enter a number.": "Zadejte jméno.",
-    "This field is required.": "Toto pole je povinné.",
+    "This field is required.": "Vyplňte prosím toto pole.",
     "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
     "Stay in touch": "Zůstat v kontaktu",
     "Donations must be %(amount)s or more": "Dary musí být% (částka) s nebo více",
     "progress_0": "{{count}} podepsali. Pojďme na {{goal}}",
-    "progress_1": "Už {{count}} lidé podepsali. Vzhůru ke {{goal}}!",
-    "progress_2": "Už {{count}} lidé podepsali. Vzhůru ke {{goal}}!",
-    "Sign": "Podepisuji!",
+    "progress_1": "Už máme {{count}} podpisů. Blížíme se k {{goal}}!",
+    "progress_2": "Už máme {{count}} podpisů. Blížíme se k {{goal}}!",
+    "Sign": "Chci podepsat!",
     "share": {
         "email": {
             "body": "Ahoj,\nPodepište prosím, myslím, že to chcete podpořit",
@@ -37,12 +37,12 @@
     },
     "consent": {
         "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
-        "confirm": "<0>Jste si jistí?</0> <1> Zaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jak kampaň dopadla, nebo zda je třeba podniknout další kroky, abychom ji vyhráli. Zaškrtnutí možnosti “Ano” vám umožní zapojit se do budoucna do bitev, které je potřeba vyhrát.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
-        "opt-out": "Ne, nestojím o e-maily ani o další informace",
-        "opt-in": "Souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
+        "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
+        "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
+        "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
         "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
         "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte.",
-        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly e-mailem"
+        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu"
     },
     "you need to be 18 years old": "musíte mít 18 let",
     "twitter": {
@@ -52,7 +52,7 @@
     "dialogTitle": "Informujte mě o kampani",
     "Your organisation account": "Váš účet organizace",
     "Thank you": "Děkuji ti",
-    "Sign now!": "Podepisuji!",
+    "Sign now!": "Chci podepsat!",
     "Next": "Další",
     "Locality": "Oblast",
     "Full Name": "Celé jméno",
