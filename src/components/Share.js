@@ -91,6 +91,9 @@ export default function ShareAction(props) {
   const { t } = useTranslation();
 
   const shareUrl = component => {
+    if (config?.component?.share?.utm === false)
+      return window.location.href;
+
     const url = new URL(window.location.href);
     let params = url.searchParams;
 
