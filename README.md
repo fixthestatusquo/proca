@@ -41,12 +41,22 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 core
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
 graphql
 
-front-end: react (next.js or gatsby to generate multiple widgets?)
+front-end: react
 Back-end: elixir
 
-Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
+# Setup and 3 min intro
+
+- git clone this repository
+- yarn (or npm to install the dependencies)
+- cp .env.example .env and put your login + pwd
+- yarn pull 42  (the action page id as seen in the backend)
+- edit src/tmp.config/42.json, adjust the steps, configure the components, change the color, whatever)
+- yarn start: runs a local server with the widget
+- yarn build: generates the widget under d/{actionpage.NAME of the widget}
+- yarn push: save the local config (under src/tmp.config) to the server
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) 
 
+Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
 
