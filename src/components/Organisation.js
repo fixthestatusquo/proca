@@ -41,7 +41,7 @@ export default props => {
   //variant={options.variant}
   //margin={options.margin}
   const handleBlur = e => {
-    props.form.handleBlur(e);
+    props.form.handleBlur && props.form.handleBlur(e);
     if (!e.target.value) return;
     const api =
       "https://twitter-proxy.tttp.workers.dev/?screen_name=" + e.target.value;
