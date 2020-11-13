@@ -2,12 +2,14 @@
   "Account": "Account",
   "Address": "Address",
   "Amount": "Amount",
+  "Monthly donations": "Monthly donations",
   "Birthdate": "Birthdate",
   "Choose your donation amount": "Choose your donation amount",
+  "The average donation is {{amount}}": "The average donation is {{amount}}",
   "City": "City",
   "Comment": "Comment",
   "Country": "Country",
-  "Donations must be %(amount)s or more": "Donations must be {{amount}}'s or more",
+  "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too.",
   "Email": "Email",
@@ -49,6 +51,10 @@
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
   },
   "dialogTitle": "Keep me informed about the campaign",
+  "email": {
+    "body": "body",
+    "subject": "subject"
+  },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
