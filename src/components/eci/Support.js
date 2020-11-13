@@ -136,9 +136,9 @@ export default (props) => {
 //    ReactDOM.createPortal(<Details eci={config.component.eci} />,more);
 //    ReactDOM.hydrate(<Details eci={details} />,document.querySelector(".eci-more"));
     const title = document.querySelectorAll(".eci-title");
-    title.forEach( d => d.innerHTML = t("eci:title"));
+    title.forEach( d => d.innerHTML = t("campaign:title"));
     const desc = document.querySelectorAll(".eci-description");
-    desc.forEach( d => d.innerHTML = t("eci:description"));
+    desc.forEach( d => d.innerHTML = t("campaign:description"));
   },[t]);
 
   useEffect(() => {
@@ -177,6 +177,7 @@ export default (props) => {
     return null;
   }
 
+  // todo, convert the OCS text into something that can use Trans
   return <form
       className={classes.container}
       id="proca-register"

@@ -45,6 +45,7 @@ export default function Register(props) {
     setPrivacy(event.target.checked);
   };
 
+  // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
   return (
     <Container component="main" maxWidth="sm">
       <Grid container spacing={1}>
