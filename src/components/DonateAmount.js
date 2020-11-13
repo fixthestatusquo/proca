@@ -14,7 +14,7 @@ import {
   FormControlLabel,FormGroup,
   Button, ButtonGroup } from "@material-ui/core";
 import TextField from "./TextField";
-import useForm from "react-hook-form";
+import {useForm} from "react-hook-form";
 import useElementWidth from "../hooks/useElementWidth";
 
 
@@ -68,9 +68,10 @@ const DonateAmount = (props) => {
     setCompact(width <= 450);
   const title =  amount 
     ?config?.component?.DonateAmount.igive || "I'm donating"+" " + amount+"€"
-    :config?.component?.DonateAmount.title || "Choose your donation amount";
+    :config?.component?.DonateAmount.title || t("Choose your donation amount");
 //    "I'm donating";
-  const subtitle = config?.component?.DonateAmount.subTitle || "The average donation is 8.60€";
+  // todo: not hardcoded, and useIntl.NumberFormat
+  const subtitle = config?.component?.DonateAmount.subTitle || t("The average donation is {{amount}}",{amount:"8.60€"});
   const image = config?.component?.DonateAmount.image;
 
 
@@ -79,7 +80,7 @@ const DonateAmount = (props) => {
     _setAmount(parseFloat(customAmount)); 
   }
   const currency = config?.component?.DonateAmount?.currency || {"symbol":"€","code":"EUR"};
-
+console.log("amount",amount);
   const ButonPaypal = usePaypal({currency:currency, amount: amount, recurring: recurring});
 const choosePaymentMethod = (m) =>{
   setData("paymentMethod",m);
@@ -93,7 +94,7 @@ const handleRecurring = (event) => {
 };
 
   const AmountButton= (props) => {
-    return <Button color="primary"  disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>
+    return <Button color="primary"  disabled={amount===props.amount} disableElevation={amount===props.amount} variant="contained" onClick={() => setAmount(props.amount)}>{props.amount}&nbsp;{currency.symbol}</Button>
   };
 
   return (
@@ -122,7 +123,7 @@ const handleRecurring = (event) => {
             color="primary"
           />
         }
-        label="Monthly donations"
+        label={t("Monthly donations")}
       />
     {custom &&
           <TextField

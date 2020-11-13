@@ -28,14 +28,7 @@ const usePaypal = params => {
       return;
     setLoadState({ loading: true, loaded: false });
 
-    const script = document.createElement("script");
-    script.src =
-      "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
-      (params.clientId || "sb");
-    //TODO: merchant-id:XXX or data-partner-attribution-id
-    script.async = true;
-    script.addEventListener("load", function() {
-      setLoadState({ loading: false, loaded: true });
+    const renderButton = () => {
       const paypal = window.paypal;
       const button = paypal.Buttons({
         createOrder: function(data, actions) {
@@ -106,6 +99,17 @@ const usePaypal = params => {
         }
       });
       button.render(params.dom || "#paypal-container");
+    };
+
+    const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
+      (params.clientId || "sb");
+    //TODO: merchant-id:XXX or data-partner-attribution-id
+    script.async = true;
+    script.addEventListener("load", function() {
+      setLoadState({ loading: false, loaded: true });
+      renderButton();
     });
     document.body.appendChild(script);
     return () => {
