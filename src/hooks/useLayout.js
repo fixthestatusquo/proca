@@ -1,4 +1,8 @@
 import {
+  useMediaQuery
+} from "@material-ui/core";
+
+import {
   atom,
   useSetRecoilState,
   useRecoilValue
@@ -52,6 +56,9 @@ const useSetLayout = () => {
   return set;
 }
 
+const useIsMobile = () => {
+  return useMediaQuery("(max-width:768px)", { noSsr: true });
+}
 
-export {useSetLayout, useLayout, init};
+export {useSetLayout, useLayout, init, useIsMobile};
 export default useLayout;

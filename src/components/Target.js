@@ -20,7 +20,6 @@ export default function Target (props) {
   };
 
   const done = () => {
-    console.log(done);
     setValue("twitter");
   };
 

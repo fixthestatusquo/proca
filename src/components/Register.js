@@ -75,7 +75,8 @@ export default function Register(props) {
     trigger,
     handleSubmit,
     setError,
-    formState
+    formState,
+    getValues
   } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
@@ -107,8 +108,9 @@ export default function Register(props) {
   const handleClick = async event => {
     const result= await trigger();
     if (result) {
-      handleSubmit(onSubmit);
-      props.onClick();
+      handleSubmit(onSubmit)(); // do not await it, it will open a warning 'firefox prevented this page to open a pop up window...
+      props.onClick(getValues()); // how to get the data updated?
+
 //      props.done();
     }
   }
