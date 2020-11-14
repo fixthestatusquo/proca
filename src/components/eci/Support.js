@@ -83,7 +83,6 @@ export default (props) => {
   })
 
 
-
   const form = useForm({
     defaultValues: data
   });
@@ -91,25 +90,31 @@ export default (props) => {
   const {
     handleSubmit,
     setError,
+    clearErrors,
     formState,
     watch
   } = form;
  
 
-  const nationality = watch("nationality") || "";
+  const nationality = watch("nationality") ||  "";
   useEffect (() => {
     if (nationality && nationality !== "ZZ") {
       const ids = documents[nationality.toLowerCase()];
       setIds (documents[nationality.toLowerCase()]);
+      clearErrors("documentNumber");
       setRequire (Object.keys(ids).length ? "id" : "address");
     }
-  }, [nationality]);
+  }, [nationality,clearErrors]);
 
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
   const onSubmit = async data => {
+    if (Object.keys(acceptableIds).length === 1) {
+      data.documentType = Object.entries(acceptableIds)[0][0];
+    }
     console.log(data);
+
     data.tracking = {};
 //    data.tracking = Url.utm();
 
@@ -119,13 +124,26 @@ export default (props) => {
       data,
       {"captcha":token}
     );
+
     if (result.errors) {
-      result.errors.forEach(error => {
-        console.log(error);
-      });
-      setStatus("error");
+      let handled=false;
+      console.log(result.errors.fields, data);
+      if (result.errors.fields) {
+        result.errors.fields.forEach( field => {
+          if (field.name in data) {
+            const msg = "eci:form.error.document_"+data.nationality.toLowerCase()+"_"+data.documentType.replace(/\./g, "_");
+            setError(field.name,{type:"server",message:t(msg)});
+            handled = true;
+          }
+        });
+      }
+      !handled && setStatus("error");
       return;
     }
+
+    props.done && props.done({
+      firstname: data.firstname
+    });
 
     return false;
   }
@@ -143,15 +161,14 @@ export default (props) => {
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
-    console.log(inputs,nationality);
     //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach(input => {
       input.oninvalid = e => {
         setError(
-          e.target.attributes.name.nodeValue,
-          e.type,
-          e.target.validationMessage
+          e.target.attributes.name.nodeValue,{
+            type:e.type,
+          message:e.target.validationMessage}
         );
       };
     });

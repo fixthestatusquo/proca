@@ -33,7 +33,7 @@ export const initConfigState = (config) => {
       const ns = k.slice(0, -1);
       i18next.addResourceBundle(config.lang,ns,config.locales[k],true,true);
       delete config.locales[k];
-    }
+    } return true;
   });
   i18next.addResourceBundle(config.lang,"common",config.locales,true,true);
   initLayout (config.layout);

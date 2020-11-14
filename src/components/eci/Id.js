@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -19,22 +19,11 @@ export default function Register(props) {
 
   const form = props.form;
   const {
-    setValue,
-    watch
+    watch,
   } = props.form;
 
   const country = watch("nationality") || "";
-  useEffect (() => {
-    if (!country) {
-      return;
-    }
 
-    if (Object.entries(props.ids).length === 1) {
-      const docType= documentType[country.toLowerCase()+"."+Object.entries(props.ids)[0][0]];
-      setValue("documentType", docType);
-//      setData("document_type",docType);
-    }
-  },[country,setValue]);
 
   return (
       <Container component="main" maxWidth="sm">
