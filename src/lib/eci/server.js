@@ -2,7 +2,6 @@ import {graphQL} from '../server';
 
 
 async function addSupport(actionType, actionPage, data, options) {
-  console.log(options);
   var query = `mutation addSupport(
   $action: ActionInput!,
   $contact:ContactInput!,
@@ -66,13 +65,16 @@ async function addSupport(actionType, actionPage, data, options) {
       variables.action.fields.push({key:key,value:value})
   }
 
+
   const response = await graphQL("addSupport", query, {
     variables: variables,
     extensions: {captcha: options.captcha || "dummy"},
     apiUrl: "https://eci.fixthestatusquo.org/api"
   });
-  if (response.errors) return response;
-  return response.addSupport;
+      if (response.errors) {
+        return response;
+      }
+  return response.addActionContact;
 }
 
 export { addSupport};
