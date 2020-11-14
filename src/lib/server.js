@@ -34,7 +34,12 @@ async function graphQL(operation, query, options) {
     })
     .then(response => {
       if (response.errors) {
-        response.errors.forEach(error => console.log(error.message));
+        response.errors.fields = [];
+        response.errors.forEach( error => {
+          const field = error.path && error.path.slice(-1)[0];
+          response.errors.fields.push({name:field, message: error.message});
+
+        });
         data = response;
         return;
       }

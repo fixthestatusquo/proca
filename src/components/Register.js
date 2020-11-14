@@ -88,10 +88,17 @@ export default function Register(props) {
       data
     );
     if (result.errors) {
-      result.errors.forEach(error => {
-        console.log(error);
-      });
-      setStatus("error");
+      let handled=false;
+      console.log(result.errors.fields, data);
+      if (result.errors.fields) {
+        result.errors.fields.forEach( field => {
+          if (field.name in data) {
+            setError(field.name,{type:"server",message:field.message});
+            handled = true;
+          }
+        });
+      }
+      !handled && setStatus("error");
       return;
     }
     setStatus("success");
@@ -122,9 +129,10 @@ export default function Register(props) {
     inputs.forEach(input => {
       input.oninvalid = e => {
         setError(
-          e.target.attributes.name.nodeValue,
-          e.type,
-          e.target.validationMessage
+          e.target.attributes.name.nodeValue,{
+            type:e.type,
+            message:e.target.validationMessage
+          }
         );
       };
     });
@@ -206,8 +214,8 @@ export default function Register(props) {
               type="email"
               label={t("Email")}
               autoComplete="email"
-              placeholder="your.email@example.org"
               required
+              placeholder="your.email@example.org"
             />
           </Grid>
           {config.component?.register?.field?.postcode !== false && (
