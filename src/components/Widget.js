@@ -8,10 +8,8 @@ import { getAllData } from "../lib/domparser";
 import { useMediaQuery } from "@material-ui/core";
 import {initDataState} from '../hooks/useData';
 
-/* warning, magic trick ahead: in the webpack config-overwrite, we set Conditional_XX either as the real component, or a dummy empty one if the step isn't part of the journey */
 import Loader from "./Loader";
-//import {steps} from '../lib/componentLoader';
-
+// warning, magic trick ahead: in the webpack config-overwrite, we set ComponentLoader as src/tmp.config/{id}.load.js 
 import {steps} from "ComponentLoader";
 import Button from './FAB';
 import Dialog from './Dialog';
@@ -159,7 +157,7 @@ const Widget = props => {
 
   switch (depths[current]) {
     case 0:
-      Action = steps[journey[current].replace("/","_")];
+      Action = steps[journey[current]]; 
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
 //        global.proca.Alert("Configuration error, check console.log","error");
@@ -172,8 +170,8 @@ const Widget = props => {
       );//break;
     case 1:
     case 2:
-      let SubAction = steps[journey[current].replace("/","_")];
-      Action = steps[topMulti.current.replace("/","_")];
+      let SubAction = steps[journey[current]];//.replace("/","_")];
+      Action = steps[topMulti.current];// .replace("/","_")];
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextTopStep}>

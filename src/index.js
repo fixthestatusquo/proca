@@ -53,6 +53,8 @@ const Widget = args => {
     config = { ...config, ...Config};
 
   config.actionPage = config.actionPage || config.actionpage;
+  config.journey.forEach( (d,i) => {config.journey[i] = d.replace("/","_");});
+  console.log(config.journey);
   document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
 
   if (!document.querySelector(config.selector)) {
