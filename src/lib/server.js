@@ -34,10 +34,12 @@ async function graphQL(operation, query, options) {
     })
     .then(response => {
       if (response.errors) {
+        const toCamel = s => (s.replace(/([_][a-z])/ig, $1 => ($1.toUpperCase().replace('_', ''))));
+
         response.errors.fields = [];
         response.errors.forEach( error => {
           const field = error.path && error.path.slice(-1)[0];
-          response.errors.fields.push({name:field, message: error.message});
+          response.errors.fields.push({name:toCamel(field), message: error.message});
 
         });
         data = response;
