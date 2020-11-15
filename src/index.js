@@ -28,29 +28,9 @@ const Alert = (text,severity) => {
   );
 }
 
-const getYAMLConfig = () => { // legacy mode, taking the config from config/{widget}.yaml
-  if (process.widget.journey)
-    config.journey=process.widget.journey;
-  if (process.widget.lang)
-    config.lang=process.widget.lang;
-  config.organisation=process.widget.organisation || "missing organisation name";
-  if (process.widget.twitter_targets)
-    config.targets={twitter_url:process.widget.twitter_targets};
-  if (process.widget.actionpage)
-    config.actionPage=process.widget.actionpage;
-  if (process.widget.actionurl)
-    config.actionUrl=process.widget.actionurl;
-  if (process.widget.privacy_url)
-    config.privacyUrl=process.widget.privacy_url;
-}
-
 const Widget = args => {
   if (args) config = { ...config, ...args };
-  //compile directives, you can't use process.widget[step]
-  if (!Config) // no config in src/config/{actionID}
-    getYAMLConfig();
-  else 
-    config = { ...config, ...Config};
+  config = { ...config, ...Config};
 
   config.actionPage = config.actionPage || config.actionpage;
   config.journey.forEach( (d,i) => {config.journey[i] = d.replace("/","_");});
@@ -91,6 +71,7 @@ const render = () => {
     if (!script) return;
 
 //todo: blacklist some param?
+
     initDataState(script.dataset);
     Widget({...script.dataset});
 
