@@ -71,6 +71,7 @@ const fetch = async (actionPage) =>  {
     journey: string2array(data.actionPage.journey),
     layout:data.actionPage.config.layout || {},
     component:data.actionPage.config.component || {},
+    portal:data.actionPage.config.portal || {},
     locales:data.actionPage.config.locales || {}
   }
   save(config,".remote");
@@ -95,7 +96,7 @@ const push = async (id) =>  {
     name: local.filename,
     locale:local.lang.toLowerCase(),
     journey: array2string(local.journey),
-    config: JSON.stringify({layout: local.layout, component: local.component, locales: local.locales})
+    config: JSON.stringify({layout: local.layout, component: local.component, locales: local.locales, portal: local.portal})
   };
   const {data, errors} = await request(c, admin.UpdateActionPageDocument, actionPage)
   if (errors) { console.log(actionPage); throw errors }

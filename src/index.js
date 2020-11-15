@@ -4,6 +4,7 @@ import "./lib/i18n";
 import {setGlobalState, setConfig,goStep,hook} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
+import Portals from "./components/Portals.js";
 import ProcaAlert from "./components/Alert.js";
 
 import Config from "Config"; // src/tmp.config/{actionpage}.json
@@ -28,13 +29,24 @@ const Alert = (text,severity) => {
   );
 }
 
+const initPortals = portals => {
+  portals.forEach( (d,i) => {
+    if (typeof d === "string") {
+      portals[i] = d.replace("/","_");
+      return;
+    }
+    portals[i].component=d.component.replace("/","_");
+  });
+}
+
 const Widget = args => {
   if (args) config = { ...config, ...args };
   config = { ...config, ...Config};
 
   config.actionPage = config.actionPage || config.actionpage;
   config.journey.forEach( (d,i) => {config.journey[i] = d.replace("/","_");});
-  document.querySelectorAll('.proca').forEach( (dom)=> dom.style.display="none");
+
+  config.portal && initPortals (config.portal);
 
   if (!document.querySelector(config.selector)) {
     let elem = document.createElement("div");
@@ -44,10 +56,13 @@ const Widget = args => {
   }
 
     //<ProcaWidget config={config} {...config} />,
-  ReactDOM.render(
-    <ProcaWidget {...config} />,
+  ReactDOM.render(<>
+    <ProcaWidget {...config} />
+    <Portals portals={config.portal}/>
+    </>,
     document.querySelector(config.selector)
   );
+
 }
 
 Widget.jump = (step) => { // if step is empty, jump to next

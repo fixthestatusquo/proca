@@ -153,10 +153,10 @@ export default (props) => {
 //    const more = React.useRef(document.querySelector(".eci-more"));
 //    ReactDOM.createPortal(<Details eci={config.component.eci} />,more);
 //    ReactDOM.hydrate(<Details eci={details} />,document.querySelector(".eci-more"));
-    const title = document.querySelectorAll(".eci-title");
-    title.forEach( d => d.innerHTML = t("campaign:title"));
-    const desc = document.querySelectorAll(".eci-description");
-    desc.forEach( d => d.innerHTML = t("campaign:description"));
+//    const title = document.querySelectorAll(".eci-title");
+//    title.forEach( d => d.innerHTML = t("campaign:title"));
+//    const desc = document.querySelectorAll(".eci-description");
+//    desc.forEach( d => d.innerHTML = t("campaign:description"));
   },[t]);
 
   useEffect(() => {
