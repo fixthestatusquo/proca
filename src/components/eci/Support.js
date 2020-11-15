@@ -72,7 +72,7 @@ export default (props) => {
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const config = useCampaignConfig();
   const [data] = useData();
 
@@ -108,8 +108,6 @@ export default (props) => {
     if (Object.keys(acceptableIds).length === 1) {
       data.documentType = Object.entries(acceptableIds)[0][0];
     }
-    console.log(data);
-
     data.tracking = {};
 //    data.tracking = Url.utm();
 
@@ -126,8 +124,25 @@ export default (props) => {
       if (result.errors.fields) {
         result.errors.fields.forEach( field => {
           if (field.name in data) {
-            const msg = "eci:form.error.document_"+data.nationality.toLowerCase()+"_"+data.documentType.replace(/\./g, "_");
-            setError(field.name,{type:"server",message:t(msg)});
+            switch (field.name) {
+              case "birthDate": {
+                const msg ="eci:form.error.oct_error_invalidrange";
+                setError(field.name,{type:"server",message:t(msg)});
+                break;
+              }
+              case "documentNumber": {
+                const msg = "eci:form.error.document_"+data.nationality.toLowerCase()+"_"+data.documentType.replace(/\./g, "_");
+                setError(field.name,{type:"server",message:t(msg)});
+                break;
+              }
+              case "postcode": {
+                const msg ="eci:form.error.oct_error_"+data.country.toLowerCase()+"_postalcode";
+                  setError(field.name,{type:"server",message:i18n.exists(msg) ? t(msg):t("eci:form.error.oct_error_invalidsize")});
+                break;
+              }
+              default:
+              setError(field.name,{type:"server",message:field.message});
+            }
             handled = true;
           }
         });

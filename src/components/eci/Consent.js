@@ -57,6 +57,7 @@ export default function Register(props) {
                 checked={certify}
                 onChange={handleCertify}
                 name="certify"
+                required
               />
               <span>{t("eci:form.certify-info")}</span>
             </FormLabel>
@@ -66,6 +67,7 @@ export default function Register(props) {
                 checked={privacy}
                 onChange={handlePrivacy}
                 name="privacy"
+                required
               />
               <span
                 dangerouslySetInnerHTML={{

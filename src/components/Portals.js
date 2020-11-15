@@ -7,8 +7,8 @@ import {portals} from "ComponentLoader";
 const Portalify = (props) => {
   let r = [];
   const Portal = portals[props.component];
-  document.querySelectorAll(props.selector).forEach(dom => {
-    r.push(ReactDOM.createPortal(<Portal {...props}/>,dom));
+  document.querySelectorAll(props.selector).forEach((dom,i) => {
+    r.push(ReactDOM.createPortal(<Portal {...props} key={props.selector+i}/>,dom));
     dom.innerHTML="";
   });
   return r;
@@ -16,11 +16,11 @@ const Portalify = (props) => {
 
 const Portals = (props) => {
   let r = [];
-  props.portals.forEach (p => {
+  props.portals.forEach ((p,i) => {
     if (typeof p === "string") 
       r.push(React.createElement(portals[p],p));
     else
-      r.push(<Portalify {...p} />);
+      r.push(<Portalify {...p} key={"portal"+i}/>);
   });
   return r;
 //  return <Portalify selector='.eci-title' component='eci_Display'/>;

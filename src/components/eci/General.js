@@ -47,7 +47,7 @@ export default function Register(props) {
             <TextField
               form={form}
               InputLabelProps = {{shrink : true}}
-              name="birthdate"
+              name="birthDate"
               type="date"
               label={t("eci:form.property.date_of_birth")}
               required

@@ -35,7 +35,7 @@ async function addSupport(actionType, actionPage, data, options) {
     contact: {
       first_name: data.firstname,
       last_name: data.lastname,
-      birthDate: data.birthdate,
+      birthDate: data.birthDate,
       nationality: {
         country:data.nationality,
         documentNumber:data.documentNumber,
