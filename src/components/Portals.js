@@ -16,7 +16,8 @@ const Portalify = (props) => {
 
 const Portals = (props) => {
   let r = [];
-  props.portals.forEach ((p,i) => {
+  
+  props.portals && props.portals.forEach ((p,i) => {
     if (typeof p === "string") 
       r.push(React.createElement(portals[p],p));
     else
