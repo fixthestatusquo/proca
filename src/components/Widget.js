@@ -166,6 +166,7 @@ const Widget = props => {
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
             <Action actionPage={config.actionPage} done={nextStep} />
+            {props.children}
         </ProcaRoot>
       );//break;
     case 1:
@@ -177,6 +178,7 @@ const Widget = props => {
             <Action actionPage={config.actionPage} done={nextTopStep}>
               <SubAction actionPage={config.actionPage} done={nextStep} />
             </Action>
+            {props.children}
         </ProcaRoot>
       );//break;
     default:

@@ -1,0 +1,30 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+import {portals} from "ComponentLoader";
+
+
+const Portalify = (props) => {
+  let r = [];
+  const Portal = portals[props.component];
+  document.querySelectorAll(props.selector).forEach(dom => {
+    r.push(ReactDOM.createPortal(<Portal {...props}/>,dom));
+    dom.innerHTML="";
+  });
+  return r;
+}
+
+const Portals = (props) => {
+  let r = [];
+  props.portals.forEach (p => {
+    if (typeof p === "string") 
+      r.push(React.createElement(portals[p],p));
+    else
+      r.push(<Portalify {...p} />);
+  });
+  return r;
+//  return <Portalify selector='.eci-title' component='eci_Display'/>;
+};
+
+export default Portals;
+

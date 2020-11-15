@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 
 import { Button } from "@material-ui/core";
-//import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Dialog from '../Dialog';
+import {useCampaignConfig} from '../../hooks/useConfig';
 
 export default function Details (props) {
   const [open, setOpen] =useState(false);
-//  const { t } = useTranslation();
-  const button = React.useRef(null);
-// lots of weirdness to prevent the portal to re-instance. TODO: fix
+  const config = useCampaignConfig();
+  const eci = config.component.eci;
+  const { t } = useTranslation();
+  console.log(eci);
   const handleClick= (e) => {
     setOpen(true);
   };
-  React.useEffect(()=>{
-    if (button.current) 
-      button.current.onclick =handleClick;
-     
-  });
 
-    //<Dialog open={open}>More</Dialog>
   return <>
-    {open && <Dialog>aaa</Dialog>}
-    <Button ref={button}>More</Button>
+    <Dialog dialog={open}>
+      {eci.registrationDate}<br/>
+      {eci.registrationNumber}<br/>
+      {eci.organisers.map( (o,i) =>{
+
+        return o.familyName? o.firstName + " " + o.familyName + "  ": o.firstName;
+      })}
+    </Dialog>
+    <Button onClick={handleClick}>More</Button>
   </>;
 };

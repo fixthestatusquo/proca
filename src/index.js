@@ -56,10 +56,10 @@ const Widget = args => {
   }
 
     //<ProcaWidget config={config} {...config} />,
-  ReactDOM.render(<>
-    <ProcaWidget {...config} />
+  ReactDOM.render(
+    <ProcaWidget {...config}>
     <Portals portals={config.portal}/>
-    </>,
+    </ProcaWidget>,
     document.querySelector(config.selector)
   );
 

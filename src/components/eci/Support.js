@@ -15,7 +15,6 @@ import General from './General';
 import Address from './Address';
 import Consent from './Consent';
 import Id from './Id';
-import Details from './Details';
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -23,7 +22,6 @@ import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import usePortal from 'react-useportal'
 
 //import Address from './Address';
 //import Id from './Id';
@@ -78,9 +76,6 @@ export default (props) => {
   const config = useCampaignConfig();
   const [data] = useData();
 
-  const { Portal } = usePortal({
-    bindTo: document && document.querySelector(".eci-more")
-  })
 
 
   const form = useForm({
@@ -148,17 +143,6 @@ export default (props) => {
     return false;
   }
 
-  useLayoutEffect(() => {
-//  useEffect(() => {
-//    const more = React.useRef(document.querySelector(".eci-more"));
-//    ReactDOM.createPortal(<Details eci={config.component.eci} />,more);
-//    ReactDOM.hydrate(<Details eci={details} />,document.querySelector(".eci-more"));
-//    const title = document.querySelectorAll(".eci-title");
-//    title.forEach( d => d.innerHTML = t("campaign:title"));
-//    const desc = document.querySelectorAll(".eci-description");
-//    desc.forEach( d => d.innerHTML = t("campaign:description"));
-  },[t]);
-
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     //    register({ name: "country" });
@@ -203,7 +187,6 @@ export default (props) => {
       url="http://localhost"
   >
       <Error display={status === "error"} />
-    <Portal><Details eci={config.component.eci} /></Portal>
     <Country form={form} countries={eciLocale.common.country} />
     <div className={classes.notice} dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
     <General form={form} birthdate={require === "address"} compact={compact} />
