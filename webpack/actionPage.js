@@ -27,7 +27,11 @@ module.exports = (defaultCode) => {
   })
 
   const code = createCode(config)
-  console.log('code:', code)
+
+  if (process.env['SHOW_ACTIONPAGE_CODE']) {
+    console.debug(`===== The code generated for actionPage.js:`)
+    console.debug(code)
+  }
 
   return code
 }
