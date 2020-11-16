@@ -59,7 +59,7 @@ const config = prefix => {
 };
 
 const socialiseReferrer = (domain,utm) => { // this isn't exhaustive, nor meant to be
-  if (domain.endWith('facebook.com')) {
+  if (domain.endsWith('facebook.com')) {
     utm.source="social";
     utm.medium="facebook";
     return true;
