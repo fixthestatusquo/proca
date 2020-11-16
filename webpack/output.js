@@ -42,12 +42,6 @@ function widgetBuildConfig(webpack, config) {
     webpack.output.path = path.resolve(__dirname, '../d/'+config.filename)
     webpack.output.publicPath = '/d/'+config.filename +'/'
 
-<<<<<<< HEAD
-  webpack.output.filename = 'index.js'
-  webpack.output.path = path.resolve(__dirname, '../d/'+config.filename)
-  webpack.output.publicPath = '/d/'+config.filename +'/'
-  // override index.html template
-=======
     webpack.plugins.push({
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
@@ -60,9 +54,7 @@ function widgetBuildConfig(webpack, config) {
     })
   }
 
-
   // override index.html template with layout.HtmlTemplate in config
->>>>>>> 21ff02c3a4a87e1b027193496615500125736100
   if (config.layout && config.layout.HtmlTemplate) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
