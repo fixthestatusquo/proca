@@ -34,8 +34,6 @@ const parse = (whitelist,prefix) => {
 const data = prefix => {
   prefix = prefix || "proca_";
   const whitelist = [
-    "test",
-    "go",
     "amount",
     "firstname",
     "lastname",
@@ -49,6 +47,11 @@ const data = prefix => {
   ];
   return parse( whitelist, prefix);
 };
+
+const isTest = ()=> {
+  const r = parse (['test'],'proca_');
+  return 'test' in r;
+}
 
 const config = prefix => {
   prefix = prefix || "proca_";
@@ -67,6 +70,7 @@ const socialiseReferrer = (domain,utm) => { // this isn't exhaustive, nor meant 
   if (domain === "twitter.com" || domain === "t.co") {
     utm.source="social";
     utm.medium="twitter";
+    return true;
   }
   if (domain === "youtu.be" || domain === "youtube.com") {
     utm.source="social";
@@ -89,5 +93,5 @@ const utm = () => {
   return utm;
 };
 
-export { utm, data, config };
+export { utm, data, config, isTest };
 export default {utm:utm, data:data, config:config};
