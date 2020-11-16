@@ -56,8 +56,8 @@ function createCode(config) {
     return `import ${n} from './components/${s}'`
   }).join("\n") + nl + nl
 
-  src += `export const steps = {${steps.map(componentFilenameToModulename).join(',')}}` + nl + nl
-  src += `export const portals = {${portals.map(componentFilenameToModulename).join(',')}}` + nl + nl
+  src += `export const steps = {${steps.filter(unique).map(componentFilenameToModulename).join(',')}}` + nl + nl
+  src += `export const portals = {${portals.filter(unique).map(componentFilenameToModulename).join(',')}}` + nl + nl
   src += `export const config = ${JSON.stringify(config, null, 2)}`+ nl
 
   return src
@@ -73,4 +73,8 @@ function stepToFilename(step) {
 
 function componentFilenameToModulename(compPath) {
   return compPath.replace('/', '_')
+}
+
+function unique(value, index, self) {
+  return self.indexOf(value) === index;
 }
