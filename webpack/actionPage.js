@@ -27,6 +27,7 @@ module.exports = (defaultCode) => {
   })
 
   const code = createCode(config)
+  console.log('code:', code)
 
   return code
 }
@@ -36,7 +37,7 @@ function createCode(config) {
   const steps = config.journey.flat().map(stepToFilename) // XXX journey is flat array in the backend
   let portals = []
 
-  if (config.portals) {
+  if (config.portal) {
     config.portal.forEach((p) => {
       let c = p.component ? p.component : p
       c = stepToFilename(c)

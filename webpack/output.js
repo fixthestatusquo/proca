@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = (webpack) => {
   if (process.env['BUILD_PACKAGE'] && process.env['NPM']) {
     packageBuildConfig(webpack)
-  } else if (webpack.mode === 'production') {
+  } else {
     const config = getConfigOverride({filename: '_example'})
     widgetBuildConfig(webpack, config)
   }
@@ -17,6 +17,7 @@ module.exports = (webpack) => {
 
   optimizationConfig(webpack)
   compressionConfig(webpack)
+
 
   return webpack
 }
@@ -35,12 +36,26 @@ function packageBuildConfig(webpack) {
 }
 
 function widgetBuildConfig(webpack, config) {
+  // with yarn build, put the output in dedicated widget directory 
+  if (webpack.mode === 'production') {
+    webpack.output.filename = 'index.js'
+    webpack.output.path = path.resolve(__dirname, '../d/'+config.filename)
+    webpack.output.publicPath = '/d/'+config.filename +'/'
 
-  webpack.output.filename = 'index.js'
-  webpack.output.path = path.resolve(__dirname, '../d/'+config.filename)
-  webpack.output.publicPath = '/d/'+config.filename +'/'
+    webpack.plugins.push({
+      apply: (compiler) => {
+        compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
+          fs.symlinkSync(
+            path.resolve(__dirname,'../d/'+config.filename+'/index.js'),
+            path.resolve(__dirname, '../build/index.js')
+          )
+        })
+      }
+    })
+  }
 
-  // override index.html template
+
+  // override index.html template with layout.HtmlTemplate in config
   if (config.layout && config.layout.HtmlTemplate) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
@@ -56,17 +71,6 @@ function widgetBuildConfig(webpack, config) {
    *
    * ENOENT: no such file or directory, open '/home/marcin/Projects/widget/build/index.js'
    */ 
-  webpack.plugins.push({
-    apply: (compiler) => {
-      compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
-        fs.symlinkSync(
-          path.resolve(__dirname,'../d/'+config.filename+'/index.js'),
-          path.resolve(__dirname, '../build/index.js')
-        )
-      })
-    }
-  })
-  
 }
  
 // XXX - add doc what does it do
