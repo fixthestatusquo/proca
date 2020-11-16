@@ -6,7 +6,7 @@ import SendIcon from "@material-ui/icons/Send";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 
-import eciLocale from '../../locales/en/eci';
+import eciLocale from 'locales/eci';
 import documents from "../../data/document_number_formats.json";
 import { addSupport } from "../../lib/eci/server.js";
 
@@ -29,21 +29,20 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 
 const removeDotKey = (obj) => {
-    Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach(key => {
 
     if (typeof obj[key] === 'object') {
-            removeDotKey(obj[key])
-        }
+      removeDotKey(obj[key])
+    }
     if (key.includes(".")) {
       obj[key.replace(/\./g,"_")] = obj[key];
       delete obj[key];
 
     }
-    })
+  })
+  return obj
 }
 
-removeDotKey(eciLocale);
-i18n.addResourceBundle ('en','eci',eciLocale);
 //const countries = eciLocale.common.country;
 
 const useStyles = makeStyles(theme => ({
@@ -72,7 +71,9 @@ export default (props) => {
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
 
-  const { t, i18n } = useTranslation();
+  const { t, eciI18n } = useTranslation('common', {
+    i18n: i18n.addResourceBundle('en', 'eci', removeDotKey(eciLocale))
+  });
   const config = useCampaignConfig();
   const [data] = useData();
 
