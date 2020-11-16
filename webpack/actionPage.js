@@ -38,10 +38,19 @@ module.exports = (defaultCode) => {
 
 function createCode(config) {
   const nl = "\n"
-  const steps = config.journey.flat().map(stepToFilename) // XXX journey is flat array in the backend
+  let steps = []
   let portals = []
 
+  if (config.journey) {
+    if (!(config.journey instanceof Array))
+      throw new Error(`config.journey should be an array!, is: ${config.journey}`)
+
+    steps = config.journey.flat().map(stepToFilename) // XXX journey is flat array in the backend
+  }
+
   if (config.portal) {
+    if (!(config.portal instanceof Array))
+      throw new Error(`config.portal should be an array!, is: ${config.portal}`)
     config.portal.forEach((p) => {
       let c = p.component ? p.component : p
       c = stepToFilename(c)
