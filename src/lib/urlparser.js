@@ -34,6 +34,8 @@ const parse = (whitelist,prefix) => {
 const data = prefix => {
   prefix = prefix || "proca_";
   const whitelist = [
+    "test",
+    "go",
     "amount",
     "firstname",
     "lastname",
@@ -56,6 +58,23 @@ const config = prefix => {
   return parse( whitelist, prefix);
 };
 
+const socialiseReferrer (domain,utm) { // this isn't exhaustive, nor meant to be
+  if (domain.endWith('facebook.com') {
+    utm.source="social";
+    utm.medium="facebook";
+    return true;
+  }
+  if (domain === "twitter.com" || domain === "t.co") {
+    utm.source="social";
+    utm.medium="twitter";
+  }
+  if (domain === "youtu.be" || domain === "youtube.com") {
+    utm.source="social";
+    utm.medium="youtube";
+  }
+  return false;
+}
+
 const utm = () => {
   const whitelist = ["source", "medium", "campaign", "content"];
   const utm= parse( whitelist, "utm_");
@@ -65,6 +84,7 @@ const utm = () => {
     utm.medium= "website";
     utm.source= "referrer";
     utm.campaign= u.hostname+u.pathname;
+    socialiseReferrer(u.hostname,utm);
   }
   return utm;
 };
