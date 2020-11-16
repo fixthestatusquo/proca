@@ -39,7 +39,6 @@ function widgetBuildConfig(webpack, config) {
   webpack.output.filename = 'index.js'
   webpack.output.path = path.resolve(__dirname, '../d/'+config.filename)
   webpack.output.publicPath = '/d/'+config.filename +'/'
-
   // override index.html template
   if (config.layout && config.layout.HtmlTemplate) {
     for (const plug of webpack.plugins) {
