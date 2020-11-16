@@ -18,7 +18,6 @@ function readConfigOverride() {
     apId = parseInt(apId)
     if (Number.isNaN(apId))
       throw new Error("Please provide action page id (number in actionpage env var or as argument)")
-    console.info(`Use config from config/${apId}.json`)
     const fn = path.resolve(__dirname, `../config/${apId}.json`)
     try {
       return fs.readFileSync(fn)
