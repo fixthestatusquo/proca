@@ -58,8 +58,8 @@ const config = prefix => {
   return parse( whitelist, prefix);
 };
 
-const socialiseReferrer (domain,utm) { // this isn't exhaustive, nor meant to be
-  if (domain.endWith('facebook.com') {
+const socialiseReferrer = (domain,utm) => { // this isn't exhaustive, nor meant to be
+  if (domain.endWith('facebook.com')) {
     utm.source="social";
     utm.medium="facebook";
     return true;
