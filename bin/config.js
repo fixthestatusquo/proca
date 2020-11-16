@@ -1,8 +1,10 @@
 const fs=require('fs');
 const path=require('path');
-import {link, admin, widget, request, basicAuth} from '@proca/api'
+const {link, admin, widget, request, basicAuth}  = require('@proca/api');
+require('cross-fetch/polyfill');
 
-const tmp = '../tmp.config/';
+
+const tmp = '../config/';
 
 
 const file = (id) => {
@@ -115,5 +117,5 @@ const pull = async (actionPage) => {
   return config;
 };
 
-export {pull, push, fetch, read, file, save};
+module.exports = {pull, push, fetch, read, file, save};
 

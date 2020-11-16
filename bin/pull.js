@@ -1,6 +1,6 @@
 #!/usr/bin/env babel-node
 
-import {pull} from '../src/lib/config';
+const {pull} = require('./config');
 
 (async () => {
   const argv = process.argv.slice(2);

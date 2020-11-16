@@ -7,7 +7,7 @@ import ProcaWidget from "./components/Widget.js";
 import Portals from "./components/Portals.js";
 import ProcaAlert from "./components/Alert.js";
 
-import Config from "Config"; // src/tmp.config/{actionpage}.json
+import {config as Config} from "./actionPage"
 import {initDataState} from './hooks/useData';
 //console.log(querystring);
 

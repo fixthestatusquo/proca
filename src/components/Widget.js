@@ -10,7 +10,7 @@ import {initDataState} from '../hooks/useData';
 
 import Loader from "./Loader";
 // warning, magic trick ahead: in the webpack config-overwrite, we set ComponentLoader as src/tmp.config/{id}.load.js 
-import {steps} from "ComponentLoader";
+import {steps} from "../actionPage";
 import Button from './FAB';
 import Dialog from './Dialog';
 
