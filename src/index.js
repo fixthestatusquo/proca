@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
+import {isTest} from "./lib/urlparser";
 import {setGlobalState, setConfig,goStep,hook} from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
@@ -58,6 +59,7 @@ const Widget = args => {
     //<ProcaWidget config={config} {...config} />,
   ReactDOM.render(
     <ProcaWidget {...config}>
+    {isTest() && <ProcaAlert text="TEST MODE" severity="warning" />}
     <Portals portals={config.portal}/>
     </ProcaWidget>,
     document.querySelector(config.selector)

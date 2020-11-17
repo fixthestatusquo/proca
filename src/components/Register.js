@@ -83,7 +83,7 @@ export default function Register(props) {
   const onSubmit = async data => {
     data.tracking = Url.utm();
     const result = await addActionContact(
-      config.actionType || "register",
+      config.test ? "test" : config.actionType || "register",
       config.actionPage,
       data
     );
