@@ -7,7 +7,7 @@ const useIsMobile = () => { // there is another useIsMobile, based on the screen
   useEffect (()=>{
     const im = /(iphone|ipod|ipad|android)/gi.test( UA ) || ( navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1 ); // iPadOS
     setMobile(im);
-  });
+  },[UA]);
 
   return isMobile;
 }

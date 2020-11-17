@@ -31,12 +31,11 @@ const Widget = props => {
   let Action = null;
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
-  let isMobile = useIsMobile(); 
-  if (config.component.widget?.mobileVersion === false) 
-    isMobile = false;
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
+  let isMobile = useIsMobile(); 
+
   var data = Url.data();
   document.querySelectorAll(props.selector).forEach (dom => {
     data = {...dom.dataset, ...data};
@@ -49,6 +48,13 @@ const Widget = props => {
       procaReady({});
     }
   },[props]);
+
+  if (props) config = { ...config, ...props };
+  config.param = getAllData(config.selector);
+  config.actionPage = parseInt(config.actionPage, 10);
+  initConfigState(config);
+  if (config.component.widget?.mobileVersion===false)
+    isMobile = false;
 
   if (isMobile && (props.journey[0] !== "clickify" && props.journey[0] !== "button")) {
     let j = Object.assign([], props.journey);
@@ -80,10 +86,6 @@ const Widget = props => {
     } else depths.push(0);
   });
 
-  if (props) config = { ...config, ...props };
-  config.param = getAllData(config.selector);
-  config.actionPage = parseInt(config.actionPage, 10);
-  initConfigState(config);
   
 
   const getActions = () => {

@@ -2,6 +2,8 @@ import {
   useMediaQuery
 } from "@material-ui/core";
 
+import {useState, useEffect} from 'react';
+
 import {
   atom,
   useSetRecoilState,
@@ -57,7 +59,8 @@ const useSetLayout = () => {
 }
 
 const useIsMobile = () => { // there is another useIsMobile, based on the userAgent at src/hooks/useDevice
-  return useMediaQuery("(max-width:768px)", { noSsr: true });
+  const mobile = useMediaQuery("(max-width:768px)", { noSsr: true });
+  return mobile;
 }
 
 export {useSetLayout, useLayout, init, useIsMobile};
