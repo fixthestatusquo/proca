@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 //import { Container, Grid } from "@material-ui/core";
 
@@ -47,7 +48,20 @@ export default function FABAction(props) {
   };
 
   const classes = useStyles();
-  return (
+  
+  const createDom = id => {
+    let el = document.getElementById(id);
+    if (!el) {
+      const el = document.createElement("div");
+      el.id = id;
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+
+  const dom = createDom ('proca-fab');
+  
+  return dom && ReactDOM.createPortal(
     <>
       <Button
         variant="contained"
@@ -82,5 +96,5 @@ export default function FABAction(props) {
         </Slide>
       </div>
     </>
-  );
+  ,dom);
 }

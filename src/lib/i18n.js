@@ -3,7 +3,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import {config} from "../actionPage";
 import locales from 'locales/common.json'; // locales is an alias to src/locales/{process.widget.lang} 
-console.log(config,locales);
 let resources = {};
 
 resources[config.lang.toLowerCase()] = {common:locales};

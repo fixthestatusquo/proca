@@ -15,6 +15,10 @@ export default function useCounter (actionPage,actionUrl) {
   const [count, setCount] = useRecoilState(CountState);
   const config = useCampaignConfig();
   const apiUrl = config.component?.useCount?.apiUrl || null;
+
+  if (!(actionPage && actionUrl))
+    actionPage=config.actionPage;
+
   useEffect(() => {
     let isCancelled = false;
     let c = null;
