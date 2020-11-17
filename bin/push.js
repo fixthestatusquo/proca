@@ -1,7 +1,7 @@
 #!/usr/bin/env babel-node
 require('dotenv').config();
 
-import {push} from '../src/lib/config';
+const {push} = require('./config');
 
 (async () => {
   const argv = process.argv.slice(2);

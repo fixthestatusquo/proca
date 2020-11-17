@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {portals} from "ComponentLoader";
+import {portals} from "../actionPage";
 
 
 const Portalify = (props) => {

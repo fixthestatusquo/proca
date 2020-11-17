@@ -1,6 +1,6 @@
 #!/usr/bin/env babel-node
 
-import {fetch} from '../src/lib/config';
+const {fetch} = require('./config.js');
 
 (async () => {
   const argv = process.argv.slice(2);

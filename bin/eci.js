@@ -2,7 +2,7 @@
 
 const fs=require('fs');
 const path=require('path');
-import {pull, read, save, file} from '../src/lib/config.js';
+const {pull, read, save, file} = require('./config.js');
 
 const readEci = (eci) =>{
   try {
