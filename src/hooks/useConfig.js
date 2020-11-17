@@ -28,14 +28,16 @@ export const configState = atom({
 */
 
 export const initConfigState = (config) => {
-  Object.keys(config.locales).map (k => {
-    if (k.charAt(k.length-1) === ":") {
-      const ns = k.slice(0, -1);
-      i18next.addResourceBundle(config.lang,ns,config.locales[k],true,true);
-      delete config.locales[k];
-    } return true;
-  });
-  i18next.addResourceBundle(config.lang,"common",config.locales,true,true);
+  if (config.locales) {
+    Object.keys(config.locales).map (k => {
+      if (k.charAt(k.length-1) === ":") {
+        const ns = k.slice(0, -1);
+        i18next.addResourceBundle(config.lang,ns,config.locales[k],true,true);
+        delete config.locales[k];
+      } return true;
+    });
+    i18next.addResourceBundle(config.lang,"common",config.locales,true,true);
+  }
   initLayout (config.layout);
   delete config.locales;
   if (configState) return false;
