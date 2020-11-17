@@ -56,7 +56,7 @@ const useSetLayout = () => {
   return set;
 }
 
-const useIsMobile = () => {
+const useIsMobile = () => { // there is another useIsMobile, based on the userAgent at src/hooks/useDevice
   return useMediaQuery("(max-width:768px)", { noSsr: true });
 }
 

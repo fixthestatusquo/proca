@@ -8,7 +8,7 @@ import EmailAction from "./EmailAction";
 import Dialog from "./Dialog";
 import Country from "./Country";
 import useData from "../hooks/useData";
-import {useIsMobile} from "../hooks/useLayout";
+import {useIsMobile} from "../hooks/useDevice";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";

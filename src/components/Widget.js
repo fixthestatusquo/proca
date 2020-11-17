@@ -5,7 +5,8 @@ import Url from "../lib/urlparser.js";
 import { getAllData } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
+import {useIsMobile} from "../hooks/useLayout";
+
 import {initDataState} from '../hooks/useData';
 
 import Loader from "./Loader";
@@ -30,7 +31,9 @@ const Widget = props => {
   let Action = null;
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
-  const isMobile = useMediaQuery("(max-width:768px)", { noSsr: true });
+  let isMobile = useIsMobile(); 
+  if (config.component.widget?.mobileVersion === false) 
+    isMobile = false;
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
