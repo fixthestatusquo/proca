@@ -48,6 +48,11 @@ const data = prefix => {
   return parse( whitelist, prefix);
 };
 
+const isTest = ()=> {
+  const r = parse (['test'],'proca_');
+  return 'test' in r;
+}
+
 const config = prefix => {
   prefix = prefix || "proca_";
   const whitelist = [
@@ -55,6 +60,24 @@ const config = prefix => {
   ];
   return parse( whitelist, prefix);
 };
+
+const socialiseReferrer = (domain,utm) => { // this isn't exhaustive, nor meant to be
+  if (domain.endsWith('facebook.com')) {
+    utm.source="social";
+    utm.medium="facebook";
+    return true;
+  }
+  if (domain === "twitter.com" || domain === "t.co") {
+    utm.source="social";
+    utm.medium="twitter";
+    return true;
+  }
+  if (domain === "youtu.be" || domain === "youtube.com") {
+    utm.source="social";
+    utm.medium="youtube";
+  }
+  return false;
+}
 
 const utm = () => {
   const whitelist = ["source", "medium", "campaign", "content"];
@@ -65,9 +88,10 @@ const utm = () => {
     utm.medium= "website";
     utm.source= "referrer";
     utm.campaign= u.hostname+u.pathname;
+    socialiseReferrer(u.hostname,utm);
   }
   return utm;
 };
 
-export { utm, data, config };
+export { utm, data, config, isTest };
 export default {utm:utm, data:data, config:config};

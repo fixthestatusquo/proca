@@ -1,24 +1,24 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {useLayout} from '../hooks/useLayout';
+import { useLayout } from "../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { TextField } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
-    height:"auto!important",
-    width: "100%"
-  }
+    height: "auto!important",
+    width: "100%",
+  },
 }));
 
-export default props => {
+export default (props) => {
   const { t } = useTranslation();
   const layout = useLayout();
   const classes = useStyles();
@@ -30,25 +30,22 @@ export default props => {
       return;
     }
   };
-  const {errors, register, clearErrors, watch} = props.form;
+  const { errors, register, clearErrors, watch } = props.form;
   const value = watch(props.name) || "";
   return (
-            <TextField
-              id={props.name}
-              name={props.name}
-              label={t(props.name)}
-              inputRef={register}
-              onBlur={handleBlur}
-              InputLabelProps={{ shrink: value.length > 0 }}
-              className={classes.textField}
-              error={!!(errors && errors[props.name])}
-              helperText={
-                errors && errors[props.name] && errors[props.name].message
-              }
-              variant={layout.variant}
-              margin={layout.margin}
-              {...props}
-            />
-
+    <TextField
+      id={props.name}
+      name={props.name}
+      label={t(props.name)}
+      inputRef={register}
+      onBlur={handleBlur}
+      InputLabelProps={{ shrink: value.length > 0 }}
+      className={classes.textField}
+      error={!!(errors && errors[props.name])}
+      helperText={errors && errors[props.name] && errors[props.name].message}
+      variant={layout.variant}
+      margin={layout.margin}
+      {...props}
+    />
   );
 };
