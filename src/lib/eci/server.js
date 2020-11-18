@@ -25,7 +25,7 @@ async function addSupport(actionType, actionPage, data, options) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead"
   };
 
-  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
+//  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
   let variables = {
     actionPage: actionPage,
     action: {
@@ -60,10 +60,11 @@ async function addSupport(actionType, actionPage, data, options) {
     variables.tracking = data.tracking;
   }
 
-  for (let [key,value] of Object.entries(data)) {
-    if (value && !(expected.includes(key)))
-      variables.action.fields.push({key:key,value:value})
-  }
+// no custom values for ECI signatures
+//  for (let [key,value] of Object.entries(data)) {
+//    if (value && !(expected.includes(key)))
+//      variables.action.fields.push({key:key,value:value})
+//  }
 
 
   const response = await graphQL("addSupport", query, {

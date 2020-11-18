@@ -1,5 +1,5 @@
 import i18n from '../../lib/i18n';
-import React,{useState, useEffect, useLayoutEffect} from 'react';
+import React,{useState, useEffect} from 'react';
 import { Button, Grid, Snackbar, Box } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
@@ -71,7 +71,7 @@ export default (props) => {
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
 
-  const { t, eciI18n } = useTranslation('common', {
+  const { t } = useTranslation('common', {
     i18n: i18n.addResourceBundle('en', 'eci', removeDotKey(eciLocale))
   });
   const config = useCampaignConfig();
@@ -142,8 +142,10 @@ export default (props) => {
                 break;
               }
               default:
-              setError(field.name,{type:"server",message:field.message});
+                setError(field.name,{type:"server",message:field.message});
             }
+          } else if (field.name.toLowerCase() in data) {
+            setError(field.name.toLowerCase(),{type:"server",message:field.message});
             handled = true;
           }
         });
@@ -175,7 +177,6 @@ export default (props) => {
   }, [setError,nationality]);
 
   const handleVerificationSuccess = (token) => {
-    console.log(token);
     setToken(token);
   }
 
@@ -211,6 +212,7 @@ export default (props) => {
     <Consent form={form} />
         <HCaptcha
       sitekey="aa0f1887-8dc5-4895-a8ac-fd5537984ca3"
+      languageOverride={config.lang}
       onVerify={token => handleVerificationSuccess(token)}
     />
               <Grid item xs={12}>

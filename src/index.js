@@ -45,7 +45,10 @@ const Widget = args => {
   config = { ...config, ...Config};
 
   config.actionPage = config.actionPage || config.actionpage;
-  config.journey.forEach( (d,i) => {config.journey[i] = d.replace("/","_");});
+  config.journey.forEach( (d,i) => {
+      if (typeof d !=='string') return;
+      config.journey[i] = d.replace("/","_");}
+    );
 
   config.portal && initPortals (config.portal);
 

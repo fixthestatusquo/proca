@@ -29,5 +29,5 @@
 "si.personal.number": "Enotna matična številka občana",
 "hr.personal.id": "Osobni identifikacijski broj",
 "ee.personal.number": "ISIKUKOOD",
-"be.national.id.number": "Numéro de Registre national / Rijksregisternummer / Nummer des Nationalregisters"
+"be.national.id.number": {"fr":"Numéro de Registre national","nl":"Rijksregisternummer", "de":"Nummer des Nationalregisters"}
 }

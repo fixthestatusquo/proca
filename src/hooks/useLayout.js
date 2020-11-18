@@ -2,7 +2,6 @@ import {
   useMediaQuery
 } from "@material-ui/core";
 
-import {useEffect} from 'react';
 
 import {
   atom,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Container, Grid } from "@material-ui/core";
 
@@ -33,17 +33,13 @@ export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const form = props.form;
-  const [certify, setCertify] = useState(false);
-  const [privacy, setPrivacy] = useState(false);
+   const { errors, register, setValue } = props.form;
 
-  const handleCertify = (event) => {
-    setCertify(event.target.checked);
+
+  const handleCheck = (event) => {
+    setValue(event.target.name,event.target.checked, { shouldValidate: true });
   };
 
-  const handlePrivacy = (event) => {
-    setPrivacy(event.target.checked);
-  };
 
   // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
   return (
@@ -51,21 +47,21 @@ export default function Register(props) {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <FormGroup className={classes.root}>
-            <FormLabel className={classes.check} placement="end">
+            <FormLabel className={classes.check} placement="end" error={!!(errors && errors.certify)} >
               <Checkbox
+          inputRef={register}
                 color="primary"
-                checked={certify}
-                onChange={handleCertify}
+                onChange={handleCheck}
                 name="certify"
                 required
               />
               <span>{t("eci:form.certify-info")}</span>
             </FormLabel>
-            <FormLabel className={classes.check} placement="end">
+            <FormLabel className={classes.check} placement="end" error={!!(errors && errors.privacy)}>
               <Checkbox
+          inputRef={register}
+                onChange={handleCheck}
                 color="primary"
-                checked={privacy}
-                onChange={handlePrivacy}
                 name="privacy"
                 required
               />

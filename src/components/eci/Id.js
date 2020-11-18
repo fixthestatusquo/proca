@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const form = props.form;
   const {
@@ -24,13 +24,23 @@ export default function Register(props) {
 
   const country = watch("nationality") || "";
 
+  const id = Object.keys(props.ids).length; // number of different ids accepted
 
+  const label = () => {
+    if (id > 1) return null;
+    const type = documentType[country.toLowerCase()+"."+Object.keys(props.ids)[0]];
+    if (typeof type === "string") 
+      return type;
+    // belgium case with the id type has different names based on the language)
+    return type[i18n.language] ? type[i18n.language] : type['fr'];//fr is the first language on their list
+
+  };
   return (
       <Container component="main" maxWidth="sm">
         <Typography variant="subtitle1" component="legend">{t("eci:form.group-document")}</Typography>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-         {(Object.entries(props.ids).length >1) && <TextField
+         {(id >1) && <TextField
               select
               name="documentType"
               label={t("eci:form.document-type")}
@@ -49,7 +59,7 @@ export default function Register(props) {
             <TextField
               form={form}
               name="documentNumber"
-              label={Object.entries(props.ids).length === 1 ? documentType[country.toLowerCase()+"."+Object.entries(props.ids)[0][0]] : t("eci:form.document-number")}
+              label={label() || t("eci:form.document-number")}
               required
             />
           </Grid>

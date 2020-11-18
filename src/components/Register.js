@@ -95,6 +95,9 @@ export default function Register(props) {
           if (field.name in data) {
             setError(field.name,{type:"server",message:field.message});
             handled = true;
+          } else if (field.name.toLowerCase() in data) {
+            setError(field.name.toLowerCase(),{type:"server",message:field.message});
+            handled = true;
           }
         });
       }
