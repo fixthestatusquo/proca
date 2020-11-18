@@ -73,7 +73,7 @@ const fetch = async (actionPage) =>  {
     journey: string2array(data.actionPage.journey),
     layout:data.actionPage.config.layout || {},
     component:data.actionPage.config.component || {},
-    portal:data.actionPage.config.portal || {},
+    portal:data.actionPage.config.portal || [],
     locales:data.actionPage.config.locales || {}
   }
   save(config,".remote");
