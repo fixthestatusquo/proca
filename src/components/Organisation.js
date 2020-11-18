@@ -64,7 +64,7 @@ export default props => {
           setProfile(res);
           setValue("url", res.url);
           const domain = new URL(res.url).hostname;
-          domain && setValue("email","@"+domain);
+          domain && setValue("email","@"+domain.replace("www.",""));
           setValue("followers_count", res.followers_count);
           setValue("organisation", res.name);
           setValue("picture", res.profile_image_url_https);
