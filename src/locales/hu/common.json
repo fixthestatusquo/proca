@@ -53,9 +53,23 @@
     },
     "consent": {
         "processing": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-        "confirm": "<0> Biztos benne? </0> <1> A „Nem” kiválasztásával nem tudja megtudni, hogy ez a kampány sikeres-e, vagy van-e még több intézkedés, amelyet együtt kell végrehajtanunk a győzelemhez. Ha az „Igen” lehetőséget választja, folyamatosan tájékoztatunk erről és más sürgős kampányainkról. </1> <2> Bármikor leiratkozhat. </2>",
+        "confirm": "<0> Biztos benne? </0> <1> A „Nem” kiválasztásával nem tudja megtudni, hogy ez a kampány sikeres-e, vagy van-e még több intézkedés, amelyet együtt kell végrehajtanunk a győzelemhez. Ha az „Igen” lehetőséget választja, folyamatosan tájékoztatjuk Önt erről és más sürgős kampányainkról. </1> <2> Bármikor leiratkozhat. </2> <3> Igen </3>",
         "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
-        "opt-in": "Igen, értesítsen e-mailben",
-        "intro": "Beleegyezem, hogy {{name}} kapcsolatba lépek velem fontos kampányokkal kapcsolatban"
-    }
+        "opt-in": "Igen, azt akarom, hogy {{partner}} e-mailben tájékoztasson",
+        "intro": "Tudjon meg többet kampányainkról, cselekvéseinkről és {{campaign}} előrehaladásáról",
+        "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
+        "opt-in-both": "Igen, azt akarom, hogy {{partner}} és {{lead}} folyamatosan értesítsenek e-mailben"
+    },
+    "email": {
+        "subject": "subject",
+        "body": "test"
+    },
+    "Donations must be {{amount}} or more": "Az adományoknak legalább {{amount}} -nak kell lenniük",
+    "The average donation is {{amount}}": "Az átlagos adomány {{amount}}",
+    "Monthly donations": "Havi adományok",
+    "Phone": "Telefon",
+    "Other": "Egyéb",
+    "I'm donating ": "Adakozom ",
+    "I'm donating": "Adakozom",
+    "Choose your donation amount": "Válassza ki az adomány összegét"
 }
