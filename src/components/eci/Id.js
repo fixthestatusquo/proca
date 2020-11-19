@@ -17,27 +17,27 @@ export default function Register(props) {
 
   const { t, i18n } = useTranslation();
 
-
-
-    const country = props.country;
+  const country = props.country;
 
   const id = Object.keys(props.ids).length; // number of different ids accepted
 
   const label = () => {
     if (id > 1) return null;
-    const type = documentType[country.toLowerCase()+"."+Object.keys(props.ids)[0]];
-    if (typeof type === "string" || !type) 
-      return type;
+    const type =
+      documentType[country.toLowerCase() + "." + Object.keys(props.ids)[0]];
+    if (typeof type === "string" || !type) return type;
     // belgium case with the id type has different names based on the language)
-    return type[i18n.language] ? type[i18n.language] : type['fr'];//fr is the first language on their list
-
+    return type[i18n.language] ? type[i18n.language] : type["fr"]; //fr is the first language on their list
   };
   return (
-      <Container component="main" maxWidth="sm">
-        <Typography variant="subtitle1" component="legend">{t("eci:form.group-document")}</Typography>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-         {(id >1) && <TextField
+    <Container component="main" maxWidth="sm">
+      <Typography variant="subtitle1" component="legend">
+        {t("eci:form.group-document")}
+      </Typography>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          {id > 1 && (
+            <TextField
               select
               name="documentType"
               label={t("eci:form.document-type")}
@@ -45,23 +45,23 @@ export default function Register(props) {
               SelectProps={{
                 native: true,
               }}
-  >
-              {Object.entries(props.ids).map(id => (
+            >
+              {Object.entries(props.ids).map((id) => (
                 <option key={id[0]} value={id[0]}>
-                {documentType[country.toLowerCase()+"." +id[0]]}
+                  {documentType[country.toLowerCase() + "." + id[0]]}
                 </option>
               ))}
-            </TextField>}
+            </TextField>
+          )}
 
-            <TextField
-              form={props.form}
-              name="documentNumber"
-              label={label() || t("eci:form.document-number")}
-              required
-            />
-          </Grid>
+          <TextField
+            form={props.form}
+            name="documentNumber"
+            label={label() || t("eci:form.document-number")}
+            required
+          />
         </Grid>
-      </Container>
+      </Grid>
+    </Container>
   );
 }
-
