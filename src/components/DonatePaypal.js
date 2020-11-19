@@ -1,18 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import usePaypal from "../hooks/usePaypal";
+import useData from "../hooks/useData";
+import { useCampaignConfig } from "../hooks/useConfig";
 
 const PaypalButton = (props) => {
+  const [data] = useData();
+  const config = useCampaignConfig();
+
+  const currency = config?.component?.DonateAmount?.currency || {
+    symbol: "€",
+    code: "EUR",
+  };
+
   const ButonPaypal = usePaypal({
-    currency: props.currency || "EUR",
-    amount: props.amount,
-    recurring: props.recurring,
+    currency: currency,
+    amount: data.amount,
   });
-  console.log(props);
 
   return (
-    <Button component="div" disabled={!amount} id="paypal-container">
+    <div id="paypal-container">
       <ButonPaypal />
-    </Button>
+    </div>
   );
 };
 
