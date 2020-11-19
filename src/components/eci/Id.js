@@ -22,14 +22,14 @@ export default function Register(props) {
     watch,
   } = props.form;
 
-  const country = watch("nationality") || "";
+  const country = props.country;
 
   const id = Object.keys(props.ids).length; // number of different ids accepted
 
   const label = () => {
     if (id > 1) return null;
     const type = documentType[country.toLowerCase()+"."+Object.keys(props.ids)[0]];
-    if (typeof type === "string") 
+    if (typeof type === "string" || !type) 
       return type;
     // belgium case with the id type has different names based on the language)
     return type[i18n.language] ? type[i18n.language] : type['fr'];//fr is the first language on their list

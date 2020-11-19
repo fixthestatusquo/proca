@@ -208,7 +208,7 @@ export default (props) => {
     <div className={classes.notice} dangerouslySetInnerHTML={{__html: t("eci:common.requirements.text",{url:"https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788"})}} />
     <General form={form} birthdate={require === "address"} compact={compact} />
     {require === "address" && <Address form={form} compact={compact} />}
-    {require === "id" && <Id form={form} compact={compact} ids={acceptableIds}/>}
+    {require === "id" && <Id form={form} compact={compact} ids={acceptableIds} country={nationality}/>}
     <Consent form={form} />
         <HCaptcha
       sitekey="aa0f1887-8dc5-4895-a8ac-fd5537984ca3"
