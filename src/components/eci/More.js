@@ -8,12 +8,15 @@ import Details from './Details';
 export default function More (props) {
   const [open, setOpen] =useState(false);
   const { t } = useTranslation();
-  const handleClick= (e) => {
+  const handleClick= () => {
     setOpen(true);
+  };
+  const handleClose= () => {
+    setOpen(false);
   };
 
   return <>
-    <Dialog dialog={open} name={t("eci:common.head-title.home")}>
+    <Dialog dialog={open} close={handleClose} name={t("eci:common.head-title.home")}>
       <Details />
     </Dialog>
     <Button onClick={handleClick}>{t("eci:common.more_info")}</Button>

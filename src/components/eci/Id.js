@@ -17,12 +17,9 @@ export default function Register(props) {
 
   const { t, i18n } = useTranslation();
 
-  const form = props.form;
-  const {
-    watch,
-  } = props.form;
 
-  const country = props.country;
+
+    const country = props.country;
 
   const id = Object.keys(props.ids).length; // number of different ids accepted
 
@@ -57,7 +54,7 @@ export default function Register(props) {
             </TextField>}
 
             <TextField
-              form={form}
+              form={props.form}
               name="documentNumber"
               label={label() || t("eci:form.document-number")}
               required
