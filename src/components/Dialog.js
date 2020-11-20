@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogTitle,
   useMediaQuery,
-  IconButton
+  IconButton,
 } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
@@ -20,27 +20,28 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   dialogTitle: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    "& h2" : {
-      margin:"0!important"
-    }
-  }
+    "& h2": {
+      margin: "0!important",
+    },
+  },
 }));
 
 function OpenDialog(props) {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [open, setOpen] = useState(props.dialog || false);
-  const title = props.name || (t("dialogTitle") === "dialogTitle" ? "": t("dialogTitle"));
+  const title =
+    props.name || (t("dialogTitle") === "dialogTitle" ? "" : t("dialogTitle"));
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   useEffect(() => setOpen(props.dialog), [props.dialog]);
 
   const handleClose = () => {
-    setOpen(false);
+    //    setOpen(false);
     if (props.close instanceof Function) {
       props.close();
     } else {
@@ -48,8 +49,8 @@ function OpenDialog(props) {
     }
   };
 
+  console.log("in dialog", open, props.dialog);
   const classes = useStyles();
-
   //{React.cloneElement(props.children, { setTitle: setTitle, title: title })}
   return (
     <Dialog
@@ -73,7 +74,7 @@ function OpenDialog(props) {
 }
 
 OpenDialog.defaultProps = {
-  dialog: true
+  dialog: true,
 };
 
 export default OpenDialog;

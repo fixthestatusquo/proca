@@ -24,8 +24,9 @@ const Portals = (props) => {
 
   props.portals &&
     props.portals.forEach((p, i) => {
-      if (typeof p === "string") r.push(React.createElement(portals[p], p));
-      else r.push(<Portalify {...p} key={"portal" + i} />);
+      if (typeof p === "string") {
+        r.push(React.createElement(portals[p], { name: p, key: "portal" + i }));
+      } else r.push(<Portalify {...p} key={"portal" + i} />);
     });
   return r;
   //  return <Portalify selector='.eci-title' component='eci_Display'/>;

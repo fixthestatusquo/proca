@@ -1,19 +1,20 @@
-import React, { useState, useRef, useCallback,useEffect } from "react";
-import ProcaRoot from './ProcaRoot';
-import { initConfigState} from "../hooks/useConfig";
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import ProcaRoot from "./ProcaRoot";
+import { initConfigState } from "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import { getAllData } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
-import {useIsMobile} from "../hooks/useLayout";
+import { useIsMobile } from "../hooks/useLayout";
 
-import {initDataState} from '../hooks/useData';
+import { initDataState } from "../hooks/useData";
 
 import Loader from "./Loader";
-// warning, magic trick ahead: in the webpack config-overwrite, we set ComponentLoader as src/tmp.config/{id}.load.js 
-import {steps} from "../actionPage";
-import Button from './FAB';
-import Dialog from './Dialog';
+// warning, magic trick ahead: in the webpack config-overwrite, we set ComponentLoader as src/tmp.config/{id}.load.js
+import { steps } from "../actionPage";
+import Button from "./FAB";
+import Dialog from "./Dialog";
+import Alert from "./Alert";
 
 let config = {
   data: Url.data(),
@@ -21,64 +22,69 @@ let config = {
   hook: {},
   param: {},
   component: {},
-  locale: {}
+  locale: {},
 };
 
-const Widget = props => {
-  const [current, setCurrent] = useState(0);
+const Widget = (props) => {
+  const [current, setCurrent] = useState(null);
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
   let Action = null;
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
-  let topMulti = useRef(); // latest Action level 0 rendered
+  let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
-  let isMobile = useIsMobile(); 
+  let isMobile = useIsMobile();
 
   var data = Url.data();
-  document.querySelectorAll(props.selector).forEach (dom => {
-    data = {...dom.dataset, ...data};
+  document.querySelectorAll(props.selector).forEach((dom) => {
+    data = { ...dom.dataset, ...data };
   });
   initDataState(data);
-  useEffect(()=>{
+  useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
       procaReady({});
     }
-  },[props]);
+  }, [props]);
 
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
   config.actionPage = parseInt(config.actionPage, 10);
   initConfigState(config);
-  if (config.component.widget?.mobileVersion===false)
-    isMobile = false;
+  if (config.component.widget?.mobileVersion === false) isMobile = false;
 
-  if (isMobile && (props.journey[0] !== "clickify" && props.journey[0] !== "button")) {
+  if (
+    isMobile &&
+    props.journey[0] !== "clickify" &&
+    props.journey[0] !== "button"
+  ) {
     let j = Object.assign([], props.journey);
     if (j[0] !== "dialog") j.unshift("dialog");
     propsJourney = ["button", j];
-    steps['button']=Button;
-    steps['dialog']=Dialog;
-//    steps["button"] = allSteps["button"];
-//    steps["dialog"] = allSteps["dialog"];
+    steps["button"] = Button;
+    steps["dialog"] = Dialog;
+    //    steps["button"] = allSteps["button"];
+    //    steps["dialog"] = allSteps["dialog"];
   }
   let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
   if (current === false) {
+    // obsolete?
     setCurrent(0);
     return;
   }
 
   if (props.loader) {
+    //obsolete, to be removed
     config.loader = props.loader;
     journey.unshift("loader");
     steps["loader"] = Loader;
     depths.push(0);
   }
 
-  propsJourney.forEach(d => {
+  propsJourney.forEach((d) => {
     if (d instanceof Array) {
       d.forEach((e, i) => {
         depths.push(i > 0 ? 2 : 1);
@@ -86,13 +92,11 @@ const Widget = props => {
     } else depths.push(0);
   });
 
-  
-
   const getActions = () => {
     return steps;
   };
 
-  const go = action => {
+  const go = (action) => {
     let i = null;
     if (typeof action === "number" && action <= journey.length) {
       i = action - 1;
@@ -120,7 +124,13 @@ const Widget = props => {
     const next = depths.findIndex((d, i) => {
       return i > current && d === 0;
     });
-    if (next === -1) return setCurrent(0);
+    console.log("next top step", next);
+
+    if (next === -1) {
+      if (config.component.widget.autoStart === false) return setCurrent(null);
+
+      return setCurrent(0);
+    }
 
     setCurrent(next);
   };
@@ -128,7 +138,7 @@ const Widget = props => {
   // called once an action has finished to decide what to do next.
   // the result is whatever the action that has finished wants to share to the journey
   //
-  const nextStep = result => {
+  const nextStep = (result) => {
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
     if (typeof steps[journey[current]].after === "function") {
@@ -154,49 +164,73 @@ const Widget = props => {
     }
   };
 
+  if (current === null) {
+    // first time we load
+    if (config.component.widget.autoStart === false)
+      return (
+        <ProcaRoot go={go} actions={getActions} config={config}>
+          {props.children}
+        </ProcaRoot>
+      );
+    go(1);
+    return null;
+  }
   if (current >= journey.length) {
     console.log("journey went off track, reset to the first step");
     setCurrent(0); // might happen if the journey is dynamically modified, eg FAB on isMobile-> return to wide screen
     return;
   }
-
   switch (depths[current]) {
     case 0:
-      Action = steps[journey[current]]; 
+      Action = steps[journey[current]];
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
-//        global.proca.Alert("Configuration error, check console.log","error");
-        return "FATAL Error, check the log";
+        return (
+          <>
+            <Alert severity="error">Configuration problem</Alert>
+            <div>FATAL Error, check the log</div>
+          </>
+        );
       }
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
-            <Action actionPage={config.actionPage} done={nextStep} />
-            {props.children}
+          <Action actionPage={config.actionPage} done={nextStep} />
+          {props.children}
         </ProcaRoot>
-      );//break;
+      ); //break;
     case 1:
     case 2:
-      let SubAction = steps[journey[current]];//.replace("/","_")];
-      Action = steps[topMulti.current];// .replace("/","_")];
+      let SubAction = steps[journey[current]];
+      let Action = steps[topMulti.current];
+      if (!Action || !SubAction)
+        return (
+          <Alert severity="error">
+            can't find Action {topMulti.current} or SubAction {journey[current]}
+          </Alert>
+        );
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
-            <Action actionPage={config.actionPage} done={nextTopStep}>
-              <SubAction actionPage={config.actionPage} done={nextStep} />
-            </Action>
-            {props.children}
+          <Action
+            actionPage={config.actionPage}
+            done={nextTopStep}
+            dialog={true}
+          >
+            <SubAction actionPage={config.actionPage} done={nextStep} />
+          </Action>
+          {props.children}
         </ProcaRoot>
-      );//break;
+      ); //break;
     default:
       throw Error("Oops, it should be a sub step");
   }
 };
 
 Widget.getSteps = () => {
-  console.error ("obsolete");
-//  return allSteps;
+  console.error("obsolete");
+  //  return allSteps;
 };
 
-Widget.jump = step => {
+Widget.jump = (step) => {
   // name of the step of true to skip to next action
 };
 

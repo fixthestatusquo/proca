@@ -1,27 +1,25 @@
-import {useEffect} from 'react';
+import { useEffect } from "react";
 
 const Component = (props) => {
-
   const click = props.done || props.click;
-  const selector = props.watchSelector
-  useEffect (()=> {
+  const selector = props.watchSelector;
+  useEffect(() => {
     const d = document.querySelectorAll(selector);
-    d.forEach( (e) => {
+    d.forEach((e) => {
       e.onclick = (event) => {
         event.preventDefault();
-        click (e);
-      }
+        window.proca.go(1);
+        //click (e);
+      };
     });
-
-  },[click,selector]);
+  }, [click, selector]);
 
   return null;
-
 };
 
 Component.defaultProps = {
-  watchSelector: "[href='#proca_dialog'],.proca-button",
-  click: (e) => (alert("default action, needs to overwrite"))
-}
+  watchSelector: "[href='#proca-dialog'],.proca-button",
+  click: (e) => alert("default action, needs to overwrite"),
+};
 
 export default Component;
