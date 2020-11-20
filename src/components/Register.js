@@ -31,25 +31,24 @@ import Country from "./Country";
 import { addActionContact } from "../lib/server.js";
 import uuid from "../lib/uuid.js";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
-    width: "100%"
+    width: "100%",
   },
   "#petition-form": { position: "relative" },
   "@global": {
     "select:-moz-focusring": {
       color: "transparent",
-      textShadow: "0 0 0 #000"
+      textShadow: "0 0 0 #000",
     },
-    "input:invalid + fieldset": {
-    }
-  }
+    "input:invalid + fieldset": {},
+  },
 }));
 
 export default function Register(props) {
@@ -69,34 +68,33 @@ export default function Register(props) {
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: data
+    defaultValues: data,
   });
-  const {
-    trigger,
-    handleSubmit,
-    setError,
-    formState,
-    getValues
-  } = form;
+  const { trigger, handleSubmit, setError, formState, getValues } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     data.tracking = Url.utm();
     const result = await addActionContact(
-      config.test ? "test" : config.actionType || "register",
+      config.test
+        ? "test"
+        : config.component?.register?.actionType || "register",
       config.actionPage,
       data
     );
     if (result.errors) {
-      let handled=false;
+      let handled = false;
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
-        result.errors.fields.forEach( field => {
+        result.errors.fields.forEach((field) => {
           if (field.name in data) {
-            setError(field.name,{type:"server",message:field.message});
+            setError(field.name, { type: "server", message: field.message });
             handled = true;
           } else if (field.name.toLowerCase() in data) {
-            setError(field.name.toLowerCase(),{type:"server",message:field.message});
+            setError(field.name.toLowerCase(), {
+              type: "server",
+              message: field.message,
+            });
             handled = true;
           }
         });
@@ -107,36 +105,35 @@ export default function Register(props) {
     setStatus("success");
     setData(data);
     uuid(result.addAction); // set the global uuid as signature's fingerprint
-    props.done && props.done({
-      errors: result.errors,
-      uuid: uuid(),
-      firstname: data.firstname,
-      country: data.country
-    });
+    props.done &&
+      props.done({
+        errors: result.errors,
+        uuid: uuid(),
+        firstname: data.firstname,
+        country: data.country,
+      });
   };
 
-  const handleClick = async event => {
-    const result= await trigger();
+  const handleClick = async (event) => {
+    const result = await trigger();
     if (result) {
       handleSubmit(onSubmit)(); // do not await it, it will open a warning 'firefox prevented this page to open a pop up window...
       props.onClick(getValues()); // how to get the data updated?
 
-//      props.done();
+      //      props.done();
     }
-  }
+  };
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
-    inputs.forEach(input => {
-      input.oninvalid = e => {
-        setError(
-          e.target.attributes.name.nodeValue,{
-            type:e.type,
-            message:e.target.validationMessage
-          }
-        );
+    inputs.forEach((input) => {
+      input.oninvalid = (e) => {
+        setError(e.target.attributes.name.nodeValue, {
+          type: e.type,
+          message: e.target.validationMessage,
+        });
       };
     });
   }, [setError]);
@@ -145,9 +142,7 @@ export default function Register(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
-          <Alert severity="error">
-        {t("Sorry, we couldn't save")}
-          </Alert>
+          <Alert severity="error">{t("Sorry, we couldn't save")}</Alert>
         </Snackbar>
       );
     return null;
@@ -237,11 +232,7 @@ export default function Register(props) {
           )}
           {config.component?.register?.field?.phone === true && (
             <Grid item xs={12}>
-              <TextField
-                form={form}
-                name="phone"
-                label={t("Phone")}
-              />
+              <TextField form={form} name="phone" label={t("Phone")} />
             </Grid>
           )}
           {config.component?.register?.field?.comment !== false && (
@@ -281,4 +272,3 @@ export default function Register(props) {
     </form>
   );
 }
-

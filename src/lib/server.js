@@ -6,59 +6,99 @@ async function graphQL(operation, query, options) {
   let data = null;
   let headers = {
     "Content-Type": "application/json",
-    Accept: "application/json"
+    Accept: "application/json",
   };
   if (options.authorization) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
-  await fetch(options.apiUrl+"?id="+options.variables.actionPage, {
+  await fetch(options.apiUrl + "?id=" + options.variables.actionPage, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
       query: query,
       variables: options.variables,
       operationName: operation || "",
-      extensions: options.extensions
-    })
+      extensions: options.extensions,
+    }),
   })
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         return {
           errors: [
-            { message: res.statusText, code: "http_error", status: res.status }
-          ]
+            { message: res.statusText, code: "http_error", status: res.status },
+          ],
         };
       }
       return res.json();
     })
-    .then(response => {
+    .then((response) => {
       if (response.errors) {
-        const toCamel = s => (s.replace(/([_][a-z])/ig, $1 => ($1.toUpperCase().replace('_', ''))));
+        const toCamel = (s) =>
+          s.replace(/([_][a-z])/gi, ($1) => $1.toUpperCase().replace("_", ""));
 
         response.errors.fields = [];
-        response.errors.forEach( error => {
+        response.errors.forEach((error) => {
           const field = error.path && error.path.slice(-1)[0];
           if (!field) return;
-          response.errors.fields.push({name:toCamel(field), message: error.message});
-
+          response.errors.fields.push({
+            name: toCamel(field),
+            message: error.message,
+          });
         });
         data = response;
         return;
       }
       data = response.data;
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
-      data = {errors:[{code:'network',message:error}]};
+      data = { errors: [{ code: "network", message: error }] };
       return;
     });
   return data;
 }
 
-async function getCount(actionPage,options) {
+async function getLatest(actionPage, actionType, options) {
+  var query = `query getLatest($actionPage:Int!,$actionType:String!) {
+  actionPage(id:$actionPage) {
+    campaign {
+      actions(actionType:$actionType) {
+        list {
+          actionType,
+          fields {
+            key, value
+          }
+        }
+      }
+    }
+  }
+}`;
+  let variables = {
+    actionPage: actionPage,
+    actionType: actionType || "openletter",
+  };
+  const response = await graphQL("getLatest", query, {
+    variables: variables,
+  });
+  if (response.errors) return response;
+  const l = response.actionPage.campaign.actions.list || [];
+  let result = [];
+  l.forEach((d) => {
+    const org = {};
+    d.fields.forEach((f) => {
+      org[f.key] = f.value;
+    });
+    result.push(org);
+  });
+  return result.filter(
+    (v, i, a) => a.findIndex((t) => t.twitter === v.twitter) === i
+  );
+}
+
+async function getCount(actionPage, options) {
   let url = null;
-      //actionCount {actionType, count}
+  //actionCount {actionType, count}
   var query = `query getCount($actionPage: Int!)
 {actionPage(id:$actionPage) {
   campaign {
@@ -73,7 +113,7 @@ async function getCount(actionPage,options) {
     url = options.apiUrl;
   } else {
     url =
-      (process.env.REACT_APP_API_URL || process.env.API_URL ) +
+      (process.env.REACT_APP_API_URL || process.env.API_URL) +
       "?query=" +
       encodeURIComponent(query) +
       "&variables=" +
@@ -81,32 +121,32 @@ async function getCount(actionPage,options) {
   }
   var data = null;
   await fetch(url)
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         return {
           errors: [
-            { message: res.statusText, code: "http_error", status: res.status }
-          ]
+            { message: res.statusText, code: "http_error", status: res.status },
+          ],
         };
       }
       return res.json();
     })
-    .then(response => {
+    .then((response) => {
       if (response.errors) {
-        response.errors.forEach(error => console.log(error.message));
+        response.errors.forEach((error) => console.log(error.message));
         data = response;
         return;
       }
       data = response.data;
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       data = { errors: [error], code: "http_error" };
       return;
     });
   // const data = await graphQL ("getCount",query,{variables:{ actionPage: Number(actionPage) }});
   if (!data || data.errors) return null;
-/*  let count=0;
+  /*  let count=0;
   actionType = actionType || "petition";
   data.actionPage.campaign.stats.actionCount.forEach(d => {
     if (d.actionType === actionType) count=d.count;
@@ -121,14 +161,18 @@ async function getCountByUrl(url) {
 {actionPage(url:$url){id,campaign{name,title,
   externalId,stats{supporterCount }}}}
 `;
-  const response = await graphQL("getCountByUrl", query, {variables: {"url":url}});
+  const response = await graphQL("getCountByUrl", query, {
+    variables: { url: url },
+  });
   if (!response || response.errors) return response;
-  return {total:response.actionPage.campaign.stats.supporterCount,actionPage:response.actionPage.id};
+  return {
+    total: response.actionPage.campaign.stats.supporterCount,
+    actionPage: response.actionPage.id,
+  };
 }
 
-
-async function addAction (actionPage, actionType, data) {
-  var query =`mutation addAction (
+async function addAction(actionPage, actionType, data) {
+  var query = `mutation addAction (
   $contact: ID!, 
   $actionPage: Int!,
   $actionType: String!,
@@ -141,16 +185,15 @@ async function addAction (actionPage, actionType, data) {
 }`;
   let variables = {
     actionPage: actionPage,
-    actionType:actionType,
-    payload:data.payload,
-    contact: data.uuid
+    actionType: actionType,
+    payload: data.payload,
+    contact: data.uuid,
   };
 
-  if (typeof data.payload === 'object') {
+  if (typeof data.payload === "object") {
     variables.payload = [];
     for (const [key, value] of Object.entries(data.payload)) {
-      if (value)
-        variables.payload.push({key:key, value:value.toString() });
+      if (value) variables.payload.push({ key: key, value: value.toString() });
     }
   }
 
@@ -158,7 +201,7 @@ async function addAction (actionPage, actionType, data) {
     variables.tracking = data.tracking;
   }
   const response = await graphQL("addAction", query, {
-    variables: variables
+    variables: variables,
   });
   return response;
 }
@@ -183,16 +226,18 @@ async function addActionContact(actionType, actionPage, data) {
   }
 `;
   const privacy = {
-    optIn : data.privacy === "opt-in" || data.privacy === "opt-in-both",
-    leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead"
+    optIn: data.privacy === "opt-in" || data.privacy === "opt-in-both",
+    leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
+  const expected = "uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
+    ","
+  );
   let variables = {
     actionPage: actionPage,
     action: {
       actionType: actionType,
-      fields: [] // added below
+      fields: [], // added below
     },
     contact: {
       first_name: data.firstname,
@@ -200,34 +245,37 @@ async function addActionContact(actionType, actionPage, data) {
       email: data.email,
       address: {
         country: data.country || "",
-        postcode: data.postcode || ""
-      }
+        postcode: data.postcode || "",
+      },
     },
-    privacy: privacy
+    privacy: privacy,
   };
-  if (data.uuid) 
-    variables.contactRef = data.uuid;
-  if (data.region)
-    variables.contact.address.region = data.region;
-  if (data.locality)
-    variables.contact.address.locality = data.locality;
-  if (data.birthdate)
-    variables.contact.birth_date = data.birthdate;
+  if (data.uuid) variables.contactRef = data.uuid;
+  if (data.region) variables.contact.address.region = data.region;
+  if (data.locality) variables.contact.address.locality = data.locality;
+  if (data.birthdate) variables.contact.birth_date = data.birthdate;
 
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
 
-  for (let [key,value] of Object.entries(data)) {
-    if (value && !(expected.includes(key)))
-      variables.action.fields.push({key:key,value:value})
+  for (let [key, value] of Object.entries(data)) {
+    if (value && !expected.includes(key))
+      variables.action.fields.push({ key: key, value: value });
   }
 
   const response = await graphQL("addActionContact", query, {
-    variables: variables
+    variables: variables,
   });
   if (response.errors) return response;
   return response.addActionContact;
 }
 
-export { addActionContact, addAction, getCount,getCountByUrl, graphQL };
+export {
+  addActionContact,
+  addAction,
+  getCount,
+  getCountByUrl,
+  getLatest,
+  graphQL,
+};
