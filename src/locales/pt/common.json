@@ -53,9 +53,23 @@
     },
     "consent": {
         "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-        "confirm": "<0>Tem a certeza?</0><<1>Se seleccionar 'Não', não conseguirá descobrir se esta campanha tem sucesso, ou se há mais acção que precisamos de tomar em conjunto para a ganhar. Se você selecionar 'Sim', vamos mantê-lo atualizado sobre esta e nossas outras campanhas urgentes.</1><<2> Você pode cancelar sua inscrição a qualquer momento.</2>",
+        "confirm": "<0>Tem a certeza?</0><<1>Se seleccionar 'Não', não conseguirá descobrir se esta campanha tem sucesso, ou se há mais acção que precisamos de tomar em conjunto para a ganhar. Se você selecionar 'Sim', nós o manteremos atualizado sobre esta e nossas outras campanhas urgentes.</1><<2> Você pode cancelar sua inscrição a qualquer momento.</2><<<3>Sim</3>",
         "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro",
-        "opt-in": "Sim, mantenha-me informado por e-mail",
-        "intro": "Eu concordo em {{name}} me contatar sobre campanhas importantes"
-    }
+        "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",
+        "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
+        "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
+        "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail"
+    },
+    "email": {
+        "subject": "assunto",
+        "body": "corpo"
+    },
+    "Donations must be {{amount}} or more": "As doações devem ser de {{amount}} ou mais",
+    "The average donation is {{amount}}": "A doação média é {{amount}}.",
+    "Monthly donations": "Doações mensais",
+    "Phone": "Telefone",
+    "Other": "Outro",
+    "I'm donating ": "Eu estou a doar ",
+    "I'm donating": "Eu estou a doar",
+    "Choose your donation amount": "Escolha o valor da sua doação"
 }

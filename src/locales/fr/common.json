@@ -24,8 +24,8 @@
     "Enter a number.": "Entrer un chiffre.",
     "Enter a valid email address.": "Saisir une adresse électronique valide.",
     "Donations must be {{amount}} or more": "Le montant minimum pour un don est de {{amount}} ou plus",
-  "The average donation is {{amount}}": "Le montant moyen est {{amount}}",
-  "Monthly donations": "Donations mensuelle",
+    "The average donation is {{amount}}": "Le montant moyen est {{amount}}",
+    "Monthly donations": "Donations mensuelle",
     "Amount": "Montant",
     "First name": "Prénom",
     "Last name": "Nom",
@@ -72,5 +72,9 @@
     "Other": "Autres",
     "I'm donating ": "Je fais un don ",
     "I'm donating": "Je fais un don",
-    "Choose your donation amount": "Choisis le montant de ton don"
+    "Choose your donation amount": "Choisis le montant de ton don",
+    "email": {
+        "subject": "sujet",
+        "body": "corps du message"
+    }
 }
