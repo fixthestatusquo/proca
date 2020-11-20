@@ -29,7 +29,6 @@ const Widget = (props) => {
   const [current, setCurrent] = useState(null);
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  let Action = null;
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
@@ -127,7 +126,7 @@ const Widget = (props) => {
     console.log("next top step", next);
 
     if (next === -1) {
-      if (config.component.widget.autoStart === false) return setCurrent(null);
+      if (config.component.widget?.autoStart === false) return setCurrent(null);
 
       return setCurrent(0);
     }
@@ -166,7 +165,7 @@ const Widget = (props) => {
 
   if (current === null) {
     // first time we load
-    if (config.component.widget.autoStart === false)
+    if (config.component.widget?.autoStart === false)
       return (
         <ProcaRoot go={go} actions={getActions} config={config}>
           {props.children}
@@ -182,7 +181,7 @@ const Widget = (props) => {
   }
   switch (depths[current]) {
     case 0:
-      Action = steps[journey[current]];
+      let Action = steps[journey[current]];
       if (!Action) {
         console.log(current, journey, steps, steps[journey[current]]);
         return (
@@ -201,7 +200,7 @@ const Widget = (props) => {
     case 1:
     case 2:
       let SubAction = steps[journey[current]];
-      let Action = steps[topMulti.current];
+      Action = steps[topMulti.current];
       if (!Action || !SubAction)
         return (
           <Alert severity="error">
