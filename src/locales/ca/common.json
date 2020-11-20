@@ -1,1 +1,74 @@
-{}
+{
+    "you need to be 18 years old": "cal tenir 18 anys",
+    "twitter": {
+        "actionText": "He signat. tu també ho hauries de fer"
+    },
+    "share": {
+        "title": "Quasi fet! Feu el següent pas.",
+        "message": "Hauríeu de signar això.",
+        "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
+        "email": {
+            "subject": "Hauríeu de signar això",
+            "body": "Hola,\nSi us plau, signeu, crec que voleu donar-hi suport"
+        }
+    },
+    "register": "Afegeix el meu nom",
+    "progress": "{{count}} han signat. Anem a {{goal}}",
+    "progress_plural": "",
+    "email": {
+        "subject": "assumpte",
+        "body": "cos"
+    },
+    "dialogTitle": "Mantingueu-me informat de la campanya",
+    "consent": {
+        "processing-nocookie": "La vostra informació personal es mantindrà privada i es mantindrà de forma segura. En enviar informació, accepteu l’ús de dades d’acord amb la nostra <1> política de privadesa </1>",
+        "processing": "La vostra informació personal es mantindrà privada i es mantindrà de forma segura. En enviar informació, accepteu l’ús de dades i cookies d’acord amb la nostra <1> política de privadesa </1>",
+        "opt-out": "No, no m’enviïs correus electrònics ni m’actualitzis en el futur",
+        "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informats per correu electrònic",
+        "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
+        "intro": "Obteniu més informació sobre les nostres campanyes, accions i {{campaign}} progrés",
+        "confirm": "<0> Esteu segur? </0> <1> Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per guanyar-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i les nostres campanyes urgents. </1> <2> Podeu cancel·lar la subscripció en qualsevol moment. </2> <3> Sí </3>"
+    },
+    "Your organisation account": "El vostre compte d'organització",
+    "This field is required.": "Aquest camp és necessari.",
+    "Thanks!": "Gràcies!",
+    "Thank you": "Gràcies",
+    "Street": "Carrer",
+    "Stay in touch": "Mantenir-se en contacte",
+    "Sign now!": "Inicieu la sessió ara!",
+    "Sign Up": "Crea un compte",
+    "Sign": "Inicieu la sessió ara",
+    "Share on Twitter": "Compartir al Twitter",
+    "Share on Facebook": "Comparteix-ho al Facebook",
+    "Privacy": "Privadesa",
+    "Postal Code": "Codi postal",
+    "Phone": "Telèfon",
+    "Other": "Altres",
+    "No Thanks": "No gràcies",
+    "Next": "Següent",
+    "Locality": "Assentament",
+    "Link_Share button": "Enllaç",
+    "Legal": "Informació legal",
+    "Last name": "Cognoms",
+    "I'm donating ": "Estic donant ",
+    "I'm donating": "Estic donant",
+    "Full Name": "Nom complet",
+    "First name": "Nom",
+    "Enter a valid email address.": "Introduïu una adreça electrònica vàlida.",
+    "Enter a number.": "Introduïu un número.",
+    "Email_Share button": "Adreça electrònica",
+    "Email": "Adreça electrònica",
+    "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
+    "Download": "Baixa",
+    "Donations must be {{amount}} or more": "Les donacions han de ser {{amount}} o més",
+    "Country": "País",
+    "Comment": "Comentari",
+    "City": "Ciutat",
+    "The average donation is {{amount}}": "La donació mitjana és de {{amount}}",
+    "Choose your donation amount": "Trieu l'import de la vostra donació",
+    "Birthdate": "Data de naixement",
+    "Monthly donations": "Donacions mensuals",
+    "Amount": "Quantitat",
+    "Address": "Adreça",
+    "Account": "Compte"
+}
