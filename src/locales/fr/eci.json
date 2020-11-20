@@ -158,7 +158,8 @@
             "personal.number": "",
             "registration.certificate": "",
             "residence.permit": "",
-            "citizens.card": ""
+            "citizens.card": "",
+            "date_of_birth": ""
         },
         "error": {
             "oct.error.propertytypemismatch": "Format non valide",
