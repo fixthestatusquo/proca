@@ -40,7 +40,7 @@
   "Thank you": "Thank you",
   "Thanks!": "Thanks!",
   "This field is required.": "This field is required.",
-  "Your organisation account": "Your organisation account",
+  "organisation": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2><3>Yes</3>",
     "intro": "Find out more about our campaigns, actions and {{campaign}} progress",

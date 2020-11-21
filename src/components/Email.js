@@ -8,7 +8,7 @@ import EmailAction from "./EmailAction";
 import Dialog from "./Dialog";
 import Country from "./Country";
 import useData from "../hooks/useData";
-import {useIsMobile} from "../hooks/useDevice";
+import { useIsMobile } from "../hooks/useDevice";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
@@ -99,10 +99,8 @@ const Component = (props) => {
         message.to +
         "&su=" +
         message.subject +
-        "&cc=" +
-        message.cc +
-        "&bcc=" +
-        message.bcc +
+        (message.cc ? "&cc=" + message.cc : "") +
+        (message.bcc ? "&bcc=" + message.bcc : "") +
         "&body=" +
         message.body
       );
@@ -110,6 +108,7 @@ const Component = (props) => {
 
     const profile = profiles[0];
     let cc = "";
+    const bcc = config.component.email?.bcc;
     let s =
       typeof profile.subject == "function"
         ? profile.subject(profile)
@@ -127,21 +126,23 @@ const Component = (props) => {
     }
     cc = cc.slice(0, -1); // removes the last ";" it trips some mail clients
 
-    const url = !isMobile && data.email.includes("@gmail")
-      ? hrefGmail({
-          to: profile.email,
-          subject: encodeURIComponent(s),
-          cc: cc,
-          body: encodeURIComponent(body),
-        })
-      : "mailto:" +
-        profile.email +
-        "?subject=" +
-        encodeURIComponent(s) +
-        "&cc=" +
-        cc +
-        "&body=" +
-        encodeURIComponent(body);
+    const url =
+      !isMobile && data.email.includes("@gmail")
+        ? hrefGmail({
+            to: profile.email,
+            subject: encodeURIComponent(s),
+            cc: cc,
+            bcc: bcc,
+            body: encodeURIComponent(body),
+          })
+        : "mailto:" +
+          profile.email +
+          "?subject=" +
+          encodeURIComponent(s) +
+          (cc ? "&cc=" + cc : "") +
+          (bcc ? "&bcc=" + bcc : "") +
+          "&body=" +
+          encodeURIComponent(body);
 
     var win = window.open(url, "_blank");
     var timer = setInterval(() => {

@@ -23,7 +23,7 @@ const ListSignature = (props) => {
   }, [actionPage]);
 
   return (
-    <List>
+    <List dense={true} disablePadding={true}>
       {list.map((k) => (
         <ListItem alignItems="flex-start" divider={false} key={k.twitter}>
           <ListItemAvatar>
