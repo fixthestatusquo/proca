@@ -49,7 +49,6 @@ function OpenDialog(props) {
     }
   };
 
-  console.log("in dialog", open, props.dialog);
   const classes = useStyles();
   //{React.cloneElement(props.children, { setTitle: setTitle, title: title })}
   return (
