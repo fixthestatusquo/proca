@@ -73,5 +73,6 @@
     "Phone": "Telefon",
     "Donations must be {{amount}} or more": "Iznos donacije mora biti {{amount}}'s ili više",
     "The average donation is {{amount}}": "Prosječna donacija iznosi {{amount}}",
-    "Monthly donations": "Mjesečne donacije"
+    "Monthly donations": "Mjesečne donacije",
+    "organisation": "Račun vaše organizacije"
 }
