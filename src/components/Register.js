@@ -14,7 +14,7 @@ import { useCampaignConfig } from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Button, Snackbar } from "@material-ui/core";
+import { Box, Button, Snackbar } from "@material-ui/core";
 import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
@@ -180,94 +180,98 @@ export default function Register(props) {
       <Success display={status === "success"} />
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
-        <Grid container spacing={1}>
-          {config.component?.register?.field.organisation && (
-            <Organisation form={form} compact={compact} />
-          )}
-          <Grid item xs={12} sm={compact ? 12 : 6}>
-            <TextField
-              form={form}
-              name="firstname"
-              label={t("First name")}
-              placeholder="eg. Leonardo"
-              autoComplete="given-name"
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 6}>
-            <TextField
-              form={form}
-              name="lastname"
-              label={t("Last name")}
-              autoComplete="family-name"
-              placeholder="eg. Da Vinci"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              form={form}
-              name="email"
-              type="email"
-              label={t("Email")}
-              autoComplete="email"
-              required
-              placeholder="your.email@example.org"
-            />
-          </Grid>
-          {config.component?.register?.field?.postcode !== false && (
-            <Grid item xs={12} sm={compact ? 12 : 3}>
+        <Box marginBottom={1}>
+          <Grid container spacing={1}>
+            {config.component?.register?.field.organisation && (
+              <Organisation form={form} compact={compact} />
+            )}
+            <Grid item xs={12} sm={compact ? 12 : 6}>
               <TextField
                 form={form}
-                name="postcode"
-                label={t("Postal Code")}
-                autoComplete="postal-code"
-                required={config.component?.register?.field?.postcode?.required}
+                name="firstname"
+                label={t("First name")}
+                placeholder="eg. Leonardo"
+                autoComplete="given-name"
+                required
               />
             </Grid>
-          )}
-          {config.component?.register?.field?.country !== false && (
-            <Grid item xs={12} sm={compact ? 12 : 9}>
-              <Country form={form} required />
+            <Grid item xs={12} sm={compact ? 12 : 6}>
+              <TextField
+                form={form}
+                name="lastname"
+                label={t("Last name")}
+                autoComplete="family-name"
+                placeholder="eg. Da Vinci"
+              />
             </Grid>
-          )}
-          {config.component?.register?.field?.phone === true && (
-            <Grid item xs={12}>
-              <TextField form={form} name="phone" label={t("Phone")} />
-            </Grid>
-          )}
-          {config.component?.register?.field?.comment !== false && (
             <Grid item xs={12}>
               <TextField
                 form={form}
-                name="comment"
-                multiline
-                rowsMax="20"
-                label={t("Comment")}
+                name="email"
+                type="email"
+                label={t("Email")}
+                autoComplete="email"
+                required
+                placeholder="your.email@example.org"
               />
             </Grid>
-          )}
-          <Consent
-            organisation={props.organisation}
-            privacy_url={config.privacyUrl}
-            form={form}
-          />
+            {config.component?.register?.field?.postcode !== false && (
+              <Grid item xs={12} sm={compact ? 12 : 3}>
+                <TextField
+                  form={form}
+                  name="postcode"
+                  label={t("Postal Code")}
+                  autoComplete="postal-code"
+                  required={
+                    config.component?.register?.field?.postcode?.required
+                  }
+                />
+              </Grid>
+            )}
+            {config.component?.register?.field?.country !== false && (
+              <Grid item xs={12} sm={compact ? 12 : 9}>
+                <Country form={form} required />
+              </Grid>
+            )}
+            {config.component?.register?.field?.phone === true && (
+              <Grid item xs={12}>
+                <TextField form={form} name="phone" label={t("Phone")} />
+              </Grid>
+            )}
+            {config.component?.register?.field?.comment !== false && (
+              <Grid item xs={12}>
+                <TextField
+                  form={form}
+                  name="comment"
+                  multiline
+                  rowsMax="20"
+                  label={t("Comment")}
+                />
+              </Grid>
+            )}
+            <Consent
+              organisation={props.organisation}
+              privacy_url={config.privacyUrl}
+              form={form}
+            />
 
-          <Grid item xs={12}>
-            <Button
-              color="primary"
-              variant="contained"
-              fullWidth
-              type="submit"
-              onClick={props.onClick && handleClick}
-              size="large"
-              disabled={formState.isSubmitting}
-              endIcon={<SendIcon />}
-            >
-              {" "}
-              {props.buttonText || t("register")}
-            </Button>
+            <Grid item xs={12}>
+              <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                onClick={props.onClick && handleClick}
+                size="large"
+                disabled={formState.isSubmitting}
+                endIcon={<SendIcon />}
+              >
+                {" "}
+                {props.buttonText || t("register")}
+              </Button>
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Container>
     </form>
   );

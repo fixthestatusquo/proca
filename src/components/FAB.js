@@ -1,20 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-//import { Container, Grid } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Fab, Button, Slide, Badge } from "@material-ui/core";
-//import DialogActions from '@material-ui/core/DialogActions';
-//import DialogContentText from '@material-ui/core/DialogContentText';
+import { Fab, Slide, Badge } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import useCount from "../hooks/useCount.js";
-//import CloseIcon from "@material-ui/icons/Close";
 import CreateIcon from "@material-ui/icons/Create";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   fab: {
     margin: 0,
     top: "auto",
@@ -22,14 +17,13 @@ const useStyles = makeStyles(theme => ({
     bottom: 20,
     left: "auto",
     position: "fixed",
-    zIndex: theme.zIndex['tooltip']
-
+    zIndex: theme.zIndex["tooltip"],
   },
   dialogTitle: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
 /*const Transition = React.forwardRef(function Transition(props, ref) {
@@ -48,8 +42,8 @@ export default function FABAction(props) {
   };
 
   const classes = useStyles();
-  
-  const createDom = id => {
+
+  const createDom = (id) => {
     let el = document.getElementById(id);
     if (!el) {
       const el = document.createElement("div");
@@ -57,44 +51,36 @@ export default function FABAction(props) {
       document.body.appendChild(el);
     }
     return el;
-  }
+  };
 
-  const dom = createDom ('proca-fab');
-  
-  return dom && ReactDOM.createPortal(
-    <>
-      <Button
-        variant="contained"
-        fullWidth
-        type="submit"
-        size="large"
-        onClick={handleClickOpen}
-        endIcon={<CreateIcon />}
-      >
-        {" "}
-        {t("Sign now!")}
-      </Button>
+  const dom = createDom("proca-fab");
 
-      <div className={classes.fab}>
-        <Slide direction="right" mountOnEnter unmountOnExit in={true}>
-          <Badge
-            badgeContent={counter}
-            max={9999999}
-            color="secondary"
-            overlap="circle"
-          >
-            <Fab
-              color="primary"
-              variant="extended"
-              aria-label={t("Sign now!")}
-              onClick={handleClickOpen}
+  return (
+    dom &&
+    ReactDOM.createPortal(
+      <>
+        <div className={classes.fab}>
+          <Slide direction="right" mountOnEnter unmountOnExit in={true}>
+            <Badge
+              badgeContent={counter}
+              max={9999999}
+              color="secondary"
+              overlap="circle"
             >
-              <CreateIcon />
-              {t("Sign now!")}&nbsp;
-            </Fab>
-          </Badge>
-        </Slide>
-      </div>
-    </>
-  ,dom);
+              <Fab
+                color="primary"
+                variant="extended"
+                aria-label={t("Sign now!")}
+                onClick={handleClickOpen}
+              >
+                <CreateIcon />
+                {t("Sign now!")}&nbsp;
+              </Fab>
+            </Badge>
+          </Slide>
+        </div>
+      </>,
+      dom
+    )
+  );
 }

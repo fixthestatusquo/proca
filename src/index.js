@@ -52,19 +52,25 @@ const Widget = (args) => {
 
   config.portal && initPortals(config.portal);
 
-  if (!document.querySelector(config.selector)) {
-    let elem = document.createElement("div");
-    elem.id = "proca-widget";
-    config.selector = "#" + elem.id;
-    document.body.appendChild(elem);
+  let dom = document.querySelector(config.selector);
+  let frag = document.createDocumentFragment();
+  if (!dom) {
+    dom = document.createElement("div");
+    dom.id = "proca-widget";
+    config.selector = "#" + dom.id;
+    document.body.appendChild(dom);
+  } else {
+    Array.from(dom.childNodes).forEach((d) => {
+      frag.appendChild(d);
+    });
   }
   if (isTest()) config.test = isTest();
 
   //<ProcaWidget config={config} {...config} />,
   ReactDOM.render(
-    <ProcaWidget {...config}>
+    <ProcaWidget {...config} container={frag}>
       {isTest() && <ProcaAlert text="TEST MODE" severity="warning" />}
-      <Portals portals={config.portal} />
+      <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
     document.querySelector(config.selector)
   );

@@ -15,6 +15,7 @@ import { steps } from "../actionPage";
 import Button from "./FAB";
 import Dialog from "./Dialog";
 import Alert from "./Alert";
+import TwoColumns from "./TwoColumns";
 
 let config = {
   data: Url.data(),
@@ -123,7 +124,6 @@ const Widget = (props) => {
     const next = depths.findIndex((d, i) => {
       return i > current && d === 0;
     });
-    console.log("next top step", next);
 
     if (next === -1) {
       if (config.component.widget?.autoStart === false) return setCurrent(null);
@@ -163,14 +163,59 @@ const Widget = (props) => {
     }
   };
 
+  const CurrentAction = (props) => {
+    let Action = null;
+
+    switch (depths[current]) {
+      case 0:
+        Action = steps[journey[current]];
+        if (!Action) {
+          console.log(current, journey, steps, steps[journey[current]]);
+          return (
+            <>
+              <Alert severity="error">Configuration problem</Alert>
+              <div>FATAL Error, check the log</div>
+            </>
+          );
+        }
+        return (
+          <>
+            <Action actionPage={config.actionPage} done={nextStep} />
+            {props.children}
+          </>
+        ); //break;
+      case 1:
+      case 2:
+        let SubAction = steps[journey[current]];
+        Action = steps[topMulti.current];
+        if (!Action || !SubAction)
+          return (
+            <Alert severity="error">
+              can't find Action {topMulti.current} or SubAction{" "}
+              {journey[current]}
+            </Alert>
+          );
+        return (
+          <>
+            <Action
+              actionPage={config.actionPage}
+              done={nextTopStep}
+              dialog={true}
+            >
+              <SubAction actionPage={config.actionPage} done={nextStep} />
+            </Action>
+            {props.children}
+          </>
+        ); //break;
+      default:
+        throw Error("Oops, it should be a sub step");
+    }
+  };
+
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart === false)
-      return (
-        <ProcaRoot go={go} actions={getActions} config={config}>
-          {props.children}
-        </ProcaRoot>
-      );
+      return <>{props.children}</>;
     go(1);
     return null;
   }
@@ -179,49 +224,13 @@ const Widget = (props) => {
     setCurrent(0); // might happen if the journey is dynamically modified, eg FAB on isMobile-> return to wide screen
     return;
   }
-  switch (depths[current]) {
-    case 0:
-      let Action = steps[journey[current]];
-      if (!Action) {
-        console.log(current, journey, steps, steps[journey[current]]);
-        return (
-          <>
-            <Alert severity="error">Configuration problem</Alert>
-            <div>FATAL Error, check the log</div>
-          </>
-        );
-      }
-      return (
-        <ProcaRoot go={go} actions={getActions} config={config}>
-          <Action actionPage={config.actionPage} done={nextStep} />
-          {props.children}
-        </ProcaRoot>
-      ); //break;
-    case 1:
-    case 2:
-      let SubAction = steps[journey[current]];
-      Action = steps[topMulti.current];
-      if (!Action || !SubAction)
-        return (
-          <Alert severity="error">
-            can't find Action {topMulti.current} or SubAction {journey[current]}
-          </Alert>
-        );
-      return (
-        <ProcaRoot go={go} actions={getActions} config={config}>
-          <Action
-            actionPage={config.actionPage}
-            done={nextTopStep}
-            dialog={true}
-          >
-            <SubAction actionPage={config.actionPage} done={nextStep} />
-          </Action>
-          {props.children}
-        </ProcaRoot>
-      ); //break;
-    default:
-      throw Error("Oops, it should be a sub step");
-  }
+  return (
+    <ProcaRoot go={go} actions={getActions} config={config}>
+      <TwoColumns dom={props.container} width={isMobile ? 0 : null}>
+        <CurrentAction />
+      </TwoColumns>
+    </ProcaRoot>
+  );
 };
 
 Widget.getSteps = () => {
