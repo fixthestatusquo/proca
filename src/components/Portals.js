@@ -23,6 +23,7 @@ const Portalify = (props) => {
     );
     dom.innerHTML = "";
   });
+
   props.dom &&
     props.dom.querySelectorAll(props.selector).forEach((dom, i) => {
       r.push(
@@ -39,7 +40,6 @@ const Portalify = (props) => {
 
 const Portals = (props) => {
   let r = [];
-
   props.portals &&
     props.portals.forEach((p, i) => {
       if (typeof p === "string") {
