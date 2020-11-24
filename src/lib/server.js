@@ -63,9 +63,9 @@ async function getLatest(actionPage, actionType, options) {
   var query = `query getLatest($actionPage:Int!,$actionType:String!) {
   actionPage(id:$actionPage) {
     campaign {
-      actions(actionType:$actionType) {
+      actions(actionType:$actionType, limit: 100) {
         list {
-          actionType,
+          actionId,
           fields {
             key, value
           }
@@ -85,7 +85,7 @@ async function getLatest(actionPage, actionType, options) {
   const l = response.actionPage.campaign.actions.list || [];
   let result = [];
   l.forEach((d) => {
-    const org = {};
+    const org = { id: d.actionId };
     d.fields.forEach((f) => {
       org[f.key] = f.value;
     });
