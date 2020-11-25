@@ -19,6 +19,7 @@ import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
+import ProcaIcon from './ProcaIcon';
 import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
@@ -264,7 +265,7 @@ export default function Register(props) {
                 onClick={props.onClick && handleClick}
                 size="large"
                 disabled={formState.isSubmitting}
-                endIcon={<SendIcon />}
+                endIcon={<ProcaIcon />}
               >
                 {" "}
                 {props.buttonText || t("register")}
