@@ -33,6 +33,7 @@ const ListSignature = (props) => {
             secondary=<a
               id={k.id}
               target="_blank"
+              rel="noopener noreferrer"
               href={"https://twitter.com/" + k.twitter}
             >
               {k.twitter}

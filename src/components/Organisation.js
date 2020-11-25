@@ -60,6 +60,12 @@ export default (props) => {
             setError(field, "api", res.message.errors[0].message);
             return;
           }
+          res.name = res.name
+            .replace(
+              /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
+              ""
+            ) // no emoji
+            .replace(/#\w\w+\s?/g, ""); // no hashtag
           setProfile(res);
           if (res.url) {
             setValue("url", res.url);
@@ -67,9 +73,11 @@ export default (props) => {
             domain && setValue("email", "@" + domain.replace("www.", ""));
           }
           setValue("followers_count", res.followers_count);
+
           setValue("organisation", res.name);
           setValue("picture", res.profile_image_url_https);
           setValue("comment", res.description);
+          setValue("twitter", res.screen_name);
         })
         .catch((err) => {
           console.log(err);
