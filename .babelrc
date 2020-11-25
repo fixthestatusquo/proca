@@ -9,7 +9,7 @@
         "defaultNS": "common",
         "outputPath": "src/locales/{{locale}}/{{ns}}.json"
       }
-    ]
-    // […] your other plugins […]
+    ],
+    "@babel/plugin-transform-react-jsx"
   ]
 }
