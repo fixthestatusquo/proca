@@ -70,9 +70,10 @@ function createCode(config) {
     return `import ${n} from './components/${s}'`
   }).join("\n") + nl + nl
 
+  src += `export {default as  config} from "@config/${config.actionpage}.json"`+ nl
+
   src += `export const steps = {${steps.filter(unique).map(componentFilenameToModulename).join(',')}}` + nl + nl
   src += `export const portals = {${portals.filter(unique).map(componentFilenameToModulename).join(',')}}` + nl + nl
-  src += `export const config = ${JSON.stringify(config, null, 2)}`+ nl
 
   return src
 }

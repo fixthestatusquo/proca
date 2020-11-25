@@ -11,6 +11,7 @@ module.exports = webpack => {
   })
 
   webpack.resolve.alias['locales'] = path.resolve(__dirname, '../src/locales/' + config.lang.toLowerCase())
+  webpack.resolve.alias['@config'] = path.resolve(__dirname, '../config')
 
   return webpack
 }
