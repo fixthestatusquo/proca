@@ -61,9 +61,11 @@ export default (props) => {
             return;
           }
           setProfile(res);
-          setValue("url", res.url);
-          const domain = new URL(res.url).hostname;
-          domain && setValue("email", "@" + domain.replace("www.", ""));
+          if (res.url) {
+            setValue("url", res.url);
+            const domain = new URL(res.url).hostname;
+            domain && setValue("email", "@" + domain.replace("www.", ""));
+          }
           setValue("followers_count", res.followers_count);
           setValue("organisation", res.name);
           setValue("picture", res.profile_image_url_https);
@@ -113,10 +115,9 @@ export default (props) => {
       </Grid>
       {profile.id ? (
         <>
-          <Grid item xs={12} sm={compact ? 12 : 4}>
+          <Grid item xs={12} sm={compact ? 12 : 12}>
             <TextField name="organisation" required form={props.form} />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 8}>
+            <input type="hidden" ref={props.form.register} name="comment" />
             <input type="hidden" ref={props.form.register} name="picture" />
             <input type="hidden" ref={props.form.register} name="url" />
             <input

@@ -226,9 +226,13 @@ const Widget = (props) => {
   }
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
-      <TwoColumns dom={props.container} width={isMobile ? 0 : null}>
+      <TwoColumns
+        dom={props.container}
+        width={isMobile || config.component.widget?.forceWidth ? 0 : null}
+      >
         <CurrentAction />
       </TwoColumns>
+      {props.children}
     </ProcaRoot>
   );
 };

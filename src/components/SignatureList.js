@@ -24,7 +24,7 @@ const ListSignature = (props) => {
   return (
     <List dense={true} disablePadding={true}>
       {list.map((k) => (
-        <ListItem alignItems="flex-start" divider={false} key={k.twitter}>
+        <ListItem alignItems="flex-start" divider={false} key={k.id}>
           <ListItemAvatar>
             <Avatar src={k.picture} />
           </ListItemAvatar>
