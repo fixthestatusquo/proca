@@ -214,11 +214,9 @@ const Widget = (props) => {
 
   if (current === null) {
     // first time we load
-    if (config.component.widget?.autoStart === false) {
-      //      return <>{props.children}</>;
-    } else {
+    if (config.component.widget?.autoStart !== false) {
       go(1);
-      return null;
+      //      return null;
     }
   }
   if (current >= journey.length) {
@@ -226,6 +224,7 @@ const Widget = (props) => {
     setCurrent(0); // might happen if the journey is dynamically modified, eg FAB on isMobile-> return to wide screen
     return;
   }
+  console.log(current);
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
@@ -233,7 +232,7 @@ const Widget = (props) => {
         hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
-        {current && <CurrentAction />}
+        {Number.isInteger(current) && <CurrentAction />}
       </TwoColumns>
       {props.children}
     </ProcaRoot>
