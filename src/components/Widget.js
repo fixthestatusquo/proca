@@ -214,10 +214,12 @@ const Widget = (props) => {
 
   if (current === null) {
     // first time we load
-    if (config.component.widget?.autoStart === false)
-      return <>{props.children}</>;
-    go(1);
-    return null;
+    if (config.component.widget?.autoStart === false) {
+      //      return <>{props.children}</>;
+    } else {
+      go(1);
+      return null;
+    }
   }
   if (current >= journey.length) {
     console.log("journey went off track, reset to the first step");
@@ -228,9 +230,10 @@ const Widget = (props) => {
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
         dom={props.container}
+        hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
-        <CurrentAction />
+        {current && <CurrentAction />}
       </TwoColumns>
       {props.children}
     </ProcaRoot>
