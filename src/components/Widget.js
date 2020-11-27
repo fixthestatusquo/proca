@@ -214,11 +214,8 @@ const Widget = (props) => {
 
   if (current === null) {
     // first time we load
-    if (config.component.widget?.autoStart === false) {
-      //      return <>{props.children}</>;
-    } else {
+    if (config.component.widget?.autoStart !== false) {
       go(1);
-      return null;
     }
   }
   if (current >= journey.length) {
@@ -233,7 +230,7 @@ const Widget = (props) => {
         hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
-        {current && <CurrentAction />}
+        {Number.isInteger(current) && <CurrentAction />}
       </TwoColumns>
       {props.children}
     </ProcaRoot>

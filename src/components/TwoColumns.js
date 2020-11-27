@@ -21,7 +21,8 @@ const TwoColumns = (props) => {
     content && content.appendChild(dom.cloneNode(true));
   }, [dom]);
 
-  if (!dom || dom.childNodes.length === 0) return <>{props.children}</>;
+  if (!dom || dom.childNodes.length === 0 || props.hidden)
+    return <>{props.children}</>;
 
   if (
     dom.childNodes.length < 2 &&

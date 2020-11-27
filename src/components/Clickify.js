@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-
 const Component = (props) => {
+  //  config.component.widget?.mobileVersion;
+
   const click = props.done || props.click;
   const selector = props.watchSelector;
   useEffect(() => {
