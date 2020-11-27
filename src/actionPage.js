@@ -4,7 +4,10 @@
 
 const steps = {}
 const portals = {}
-const config = {}
+const config = {
+  lang: "en",
+  journey: ["Petition", "Share"]
+}
 export {steps, portals, config}
 
 
