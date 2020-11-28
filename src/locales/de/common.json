@@ -63,5 +63,14 @@
     "Other": "Sonstiges",
     "I'm donating ": "Ich spende ",
     "I'm donating": "Ich spende",
-    "Choose your donation amount": "Wähle deinen Spendenbetrag"
+    "Choose your donation amount": "Wähle deinen Spendenbetrag",
+    "email": {
+        "subject": "Betreff",
+        "body": "Inhalt"
+    },
+    "organisation": "Konto deiner Organisation",
+    "Phone": "Telefonnummer",
+    "Donations must be {{amount}} or more": "Spenden müssen {{amount}}'s oder mehr betragen",
+    "The average donation is {{amount}}": "Die durchschnittliche Spende beträgt {{amount}}",
+    "Monthly donations": "Monatliche Spenden"
 }
