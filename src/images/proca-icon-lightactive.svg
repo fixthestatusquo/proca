@@ -5,9 +5,9 @@ cx="16" cy="16" r="16"
   <linearGradient
     id="a"
     gradientUnits="userSpaceOnUse"
-    x1="3"
+    x1="5"
     y1="28"
-    x2="14"
+    x2="17"
     y2="16"
   >
     <stop offset="0" stop-color="#ff5c39" />
