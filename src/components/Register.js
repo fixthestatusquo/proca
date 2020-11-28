@@ -19,7 +19,8 @@ import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
-import ProcaIcon from './ProcaIcon';
+import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
@@ -42,6 +43,14 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(0),
     width: "100%",
   },
+  act: {
+    "&:hover": {
+      "& .flame": { fill: "url(#a)" },
+      "& .arrow": { fill: "#fff" },
+      "& circle": { fill: "#ff5c39", fillOpacity: 1 },
+    },
+  },
+
   "#petition-form": { position: "relative" },
   "@global": {
     "select:-moz-focusring": {
@@ -260,12 +269,17 @@ export default function Register(props) {
               <Button
                 color="primary"
                 variant="contained"
+                className={classes.act}
                 fullWidth
                 type="submit"
                 onClick={props.onClick && handleClick}
                 size="large"
                 disabled={formState.isSubmitting}
-                endIcon={<ProcaIcon />}
+                endIcon={
+                  <SvgIcon>
+                    <ProcaIcon />
+                  </SvgIcon>
+                }
               >
                 {" "}
                 {props.buttonText || t("register")}
