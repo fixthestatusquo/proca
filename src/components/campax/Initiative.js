@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { TextField, Button, Snackbar } from "@material-ui/core";
+import { TextField as MUITextField, Button, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
@@ -13,15 +13,16 @@ import DoneIcon from "@material-ui/icons/Done";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import TextField from "../TextField";
 import ProgressCounter from "../ProgressCounter";
 import { addActionContact } from "../../lib/server.js";
 import useElementWidth from "../../hooks/useElementWidth";
-import { useCampaignConfig, setConfig } from "../../hooks/useConfig";
+import { useConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 
 import uuid from "../../lib/uuid.js";
 import domparser from "../../lib/domparser";
-import useCount from "../../hooks/useCount";
+import { useInitFromUrl } from "../../hooks/useCount";
 import Consent from "../Consent";
 import { url as postcardUrl } from "./Download";
 
@@ -63,24 +64,29 @@ const useStyles = makeStyles((theme) => ({
 export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
-  const [status, setStatus] = useState("default");
-  const config = useCampaignConfig();
+  const [status, setStatus] = useState("init");
+  const [config, setCampaignConfig] = useConfig();
   const [data, setData] = useData();
-
   const actionUrl =
     config.component.initiative.prefixActionPage +
     domparser("campaignId", config.selector);
-  const c = useCount(null, actionUrl);
+  const [c, actionPage] = useInitFromUrl(actionUrl);
   if (status !== "error" && c && c.errors && c.errors.length >= 0) {
     console.log(c);
     setStatus("error");
   }
   const buttonRegister = config.buttonRegister || t("Sign");
   useEffect(() => {
-    if (!c || c.errors || parseInt(c.actionPage, 10) === config.actionPage)
-      return;
-    setConfig("actionPage", parseInt(c.actionPage, 10));
-  }, [c, config.actionPage]);
+    if (!c || c.errors || !c.actionPage) return;
+    setCampaignConfig((config) => {
+      let d = JSON.parse(JSON.stringify(config));
+
+      d.actionpage = actionPage;
+      d.actionPage = actionPage;
+      setStatus("default");
+      return d;
+    });
+  }, [c, actionPage, setCampaignConfig, setStatus]);
   //    console.log(config);
 
   defaultValues = { ...defaultValues, ...config.data };
@@ -131,7 +137,9 @@ export default function Register(props) {
             setValue("locality", res.name);
           }
         })
-        .catch((err) => setError(err));
+        .catch((err) => {
+          setError("postcode", { type: "network", message: err.toString() });
+        });
     }
     fetchAPI();
   }, [postcode, setError, setValue]);
@@ -172,7 +180,6 @@ export default function Register(props) {
     data.uuid = uuid();
     data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionPage;
     setData(data);
-    setConfig("data", data);
     if (props.done instanceof Function)
       props.done({
         uuid: uuid(),
@@ -212,6 +219,7 @@ export default function Register(props) {
   function minBirthdate() {
     let d = new Date();
     d.setFullYear(d.getFullYear() - 18);
+    d.actionpage = c && parseInt(c.actionPage, 10);
     return d.toISOString().substr(0, 10);
   }
 
@@ -251,10 +259,12 @@ export default function Register(props) {
     );
   }
 
-  console.log(c);
   return (
     <React.Fragment>
-      <ProgressCounter actionPage={config.actionPage} count={c && c.total} />
+      <ProgressCounter
+        actionPage={status !== "init" && config.actionPage}
+        count={c && c.total}
+      />
       <form
         className={classes.container}
         onSubmit={handleSubmit(onSubmit)}
@@ -273,44 +283,33 @@ export default function Register(props) {
                 label={t("First name")}
                 placeholder="eg. Albert"
                 autoComplete="given-name"
-                autoComplete="given-name"
                 required
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <TextField
-                id="lastname"
+                form={form}
                 name="lastname"
                 label={t("Last name")}
                 autoComplete="family-name"
                 className={classes.textField}
-                variant={options.variant}
-                margin={options.margin}
-                inputRef={register}
                 placeholder="eg. Einstein"
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
               {errors && errors.email && errors.email.message}
               <TextField
-                id="email"
+                form={form}
                 name="email"
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
-                className={classes.textField}
-                inputRef={register}
-                onBlur={handleBlur}
-                error={!!errors.email}
-                helperText={errors && errors.email && errors.email.message}
-                variant={options.variant}
-                margin={options.margin}
                 placeholder="your.email@example.org"
                 required
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
-              <TextField
+              <MUITextField
                 InputLabelProps={{ shrink: true }}
                 inputProps={{
                   max: minBirthdate(),
@@ -347,17 +346,10 @@ export default function Register(props) {
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 12}>
-              <TextField
-                name="address"
-                label={t("Address")}
-                className={classes.textField}
-                variant={options.variant}
-                margin={options.margin}
-                inputRef={register}
-              />
+              <TextField form={form} name="address" label={t("Address")} />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 3}>
-              <TextField
+              <MUITextField
                 id="postcode"
                 name="postcode"
                 label={t("Postal Code")}
@@ -377,17 +369,13 @@ export default function Register(props) {
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 9}>
               <TextField
-                id="locality"
+                form={form}
                 name="locality"
                 label={t("Locality")}
                 autoComplete="address-level2"
                 InputLabelProps={{
                   shrink: autoLocality !== "" || locality !== "" || false,
                 }}
-                inputRef={register}
-                className={classes.textField}
-                variant={options.variant}
-                margin={options.margin}
               />
             </Grid>
             <Consent
