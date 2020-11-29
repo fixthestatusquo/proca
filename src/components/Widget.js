@@ -224,7 +224,6 @@ const Widget = (props) => {
     setCurrent(0); // might happen if the journey is dynamically modified, eg FAB on isMobile-> return to wide screen
     return;
   }
-  console.log(current);
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
