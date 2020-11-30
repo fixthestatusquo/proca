@@ -133,7 +133,10 @@ export default function Register(props) {
           }
         })
         .catch((err) => {
-          setError("postcode", { type: "network", message: err.toString() });
+          setError("postcode", {
+            type: "network",
+            message: (err && err.toString()) || "Network error",
+          });
         });
     }
     fetchAPI();
