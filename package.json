@@ -43,7 +43,7 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
+    "@babel/cli": "^7.12.8",
     "@babel/node": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@proca/api": "^0.1.10",
