@@ -87,7 +87,6 @@ export default function Register(props) {
       return d;
     });
   }, [c, actionPage, setCampaignConfig, setStatus]);
-  //    console.log(config);
 
   defaultValues = { ...defaultValues, ...config.data };
   const width = useElementWidth("#proca-register");
@@ -95,11 +94,8 @@ export default function Register(props) {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
-  if (props.values) defaultValues = { ...defaultValues, ...props.values };
   const form = useForm({
-    //    mode: "onBlur",
-    //    nativeValidation: true,
-    defaultValues: defaultValues,
+    defaultValues: { ...defaultValues, ...data },
   });
   const {
     register,
@@ -111,7 +107,6 @@ export default function Register(props) {
     watch,
     formState,
   } = form;
-  //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
   const postcode = watch("postcode");
   const locality = watch("locality");
