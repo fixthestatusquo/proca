@@ -18,7 +18,7 @@
   "dependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
     "@hcaptcha/react-hcaptcha": "^0.2.1",
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@stripe/react-stripe-js": "^1.1.2",
