@@ -259,10 +259,7 @@ export default function Register(props) {
 
   return (
     <React.Fragment>
-      <ProgressCounter
-        actionPage={status !== "init" && config.actionPage}
-        count={c && c.total}
-      />
+      <ProgressCounter actionPage={null} count={c && c.total} />
       <form
         className={classes.container}
         onSubmit={handleSubmit(onSubmit)}
@@ -295,7 +292,6 @@ export default function Register(props) {
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
-              {errors && errors.email && errors.email.message}
               <TextField
                 form={form}
                 name="email"

@@ -37,17 +37,20 @@ export default function useCounter(actionPage) {
   const config = useCampaignConfig();
   const apiUrl = config.component?.useCount?.apiUrl || null;
 
-  if (!actionPage) actionPage = config.actionPage;
+  if (!actionPage && actionPage !== false) actionPage = config.actionPage;
 
+  if ((actionPage = 2)) actionPage = false; // TODO: find the source of the ghost fetch
   useEffect(() => {
     let isCancelled = false;
     let c = null;
+    if (!actionPage) return; // disabling the fetch
     (async function () {
       if (count !== null) return;
       let options = {};
       if (!actionPage || isNaN(actionPage))
         return { errors: [{ message: "invalid actionPage:" + actionPage }] };
       if (apiUrl) options.apiUrl = apiUrl;
+      console.log(actionPage, options);
       c = await getCount(actionPage, options);
       if (!isCancelled) setCount(c);
     })();
