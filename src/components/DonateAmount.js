@@ -26,6 +26,7 @@ import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import usePaypal from "../hooks/usePaypal";
 
 const useStyles = makeStyles((theme) => ({
+  amount: { width: "5em" },
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
@@ -116,6 +117,7 @@ const DonateAmount = (props) => {
         disabled={amount === props.amount}
         disableElevation={amount === props.amount}
         variant="contained"
+        className={classes.amount}
         onClick={() => setAmount(props.amount)}
       >
         {props.amount}&nbsp;{currency.symbol}
