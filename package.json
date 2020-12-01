@@ -53,7 +53,6 @@
     "compression-webpack-plugin": "^6.0.2",
     "cross-fetch": "^3.0.6",
     "dotenv": "^8.2.0",
-    "eslint": "^7.14.0",
     "prettier": "^2.2.1",
     "webpack-bundle-analyzer": "^4.1.0"
   },
