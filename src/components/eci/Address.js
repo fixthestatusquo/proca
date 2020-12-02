@@ -14,38 +14,42 @@ export default function Register(props) {
   const form = props.form;
 
   return (
-      <Container component="main" maxWidth="sm">
-        <Typography variant="subtitle1" component="legend">{t("eci:form.group-address")}</Typography>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <TextField
-              form={form}
-              name="address"
-              label={t("eci:form.property.street")}
-              placeholder="42 via Europa"
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm= {compact ? 12 : 3}>
-            <TextField
-              form={form}
-              name="postcode"
-              label={t("eci:form.property.postal_code")}
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm= {compact ? 12 : 9}>
-            <TextField
-              form={form}
-              name="city"
-              label={t("eci:form.property.city")}
-              required
-            />
-          </Grid>
-           <Country form={form} />
-         
+    <Container component="main" maxWidth="sm">
+      <Typography variant="subtitle1" component="legend">
+        {t("eci:form.group-address")}
+      </Typography>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <TextField
+            form={form}
+            name="address"
+            label={
+              t("eci:form.property.street_number") +
+              " & " +
+              t("eci:form.property.street")
+            }
+            placeholder="42 via Europa"
+            required
+          />
         </Grid>
-      </Container>
+        <Grid item xs={12} sm={compact ? 12 : 3}>
+          <TextField
+            form={form}
+            name="postcode"
+            label={t("eci:form.property.postal_code")}
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={compact ? 12 : 9}>
+          <TextField
+            form={form}
+            name="city"
+            label={t("eci:form.property.city")}
+            required
+          />
+        </Grid>
+        <Country form={form} />
+      </Grid>
+    </Container>
   );
 }
-
