@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: -11,
     marginRight: 16, // used for row presentation of radio/checkbox
     "& span": { fontSize: theme.typography.pxToRem(13) },
-  }
+  },
 }));
 
 export default function Register(props) {
@@ -33,13 +33,16 @@ export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
 
-   const { errors, register, setValue } = props.form;
-
+  const { errors, register, setValue } = props.form;
 
   const handleCheck = (event) => {
-    setValue(event.target.name,event.target.checked, { shouldValidate: true });
+    setValue(event.target.name, event.target.checked, { shouldValidate: true });
   };
 
+  const openPopup = (event) => {
+    event.preventDefault();
+    console.log(event.target.href);
+  };
 
   // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
   return (
@@ -47,9 +50,13 @@ export default function Register(props) {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <FormGroup className={classes.root}>
-            <FormLabel className={classes.check} placement="end" error={!!(errors && errors.certify)} >
+            <FormLabel
+              className={classes.check}
+              placement="end"
+              error={!!(errors && errors.certify)}
+            >
               <Checkbox
-          inputRef={register}
+                inputRef={register}
                 color="primary"
                 onChange={handleCheck}
                 name="certify"
@@ -57,17 +64,25 @@ export default function Register(props) {
               />
               <span>{t("eci:form.certify-info")}</span>
             </FormLabel>
-            <FormLabel className={classes.check} placement="end" error={!!(errors && errors.privacy)}>
+            <FormLabel
+              className={classes.check}
+              placement="end"
+              error={!!(errors && errors.privacy)}
+            >
               <Checkbox
-          inputRef={register}
+                inputRef={register}
                 onChange={handleCheck}
                 color="primary"
                 name="privacy"
                 required
               />
               <span
+                onClick={openPopup}
                 dangerouslySetInnerHTML={{
-                  __html: t("eci:form.privacy-statement"),
+                  __html: t("eci:form.privacy-statement", {
+                    url: "#privacy",
+                    urlRegister: "#content",
+                  }),
                 }}
               />
             </FormLabel>
