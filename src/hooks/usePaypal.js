@@ -101,7 +101,7 @@ const usePaypal = (params) => {
     const script = document.createElement("script");
     script.src =
       "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
-      (config.test ? "sb" : config.component.paypal.clientId || "sb");
+      (config.test ? "sb" : config.component.paypal?.clientId || "sb");
     //TODO: merchant-id:XXX or data-partner-attribution-id
     script.async = true;
     script.addEventListener("load", function () {

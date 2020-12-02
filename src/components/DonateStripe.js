@@ -1,28 +1,31 @@
-import React,{useState} from 'react';
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import {
-    TextField as LayoutTextField,
-    Grid,
-    Typography,
-  Card,CardHeader,CardContent,
+  TextField as LayoutTextField,
+  Grid,
+  Typography,
+  Card,
+  CardHeader,
+  CardContent,
   Button,
-  Container
+  Container,
 } from "@material-ui/core";
 import TextField from "./TextField";
 
 //import Autocomplete from '@material-ui/lab/Autocomplete';
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 
-import {useLayout} from '../hooks/useLayout';
+import { useLayout } from "../hooks/useLayout";
 import useElementWidth from "../hooks/useElementWidth";
-import {useCampaignConfig} from "../hooks/useConfig";
+import { useCampaignConfig } from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
-import LockIcon from '@material-ui/icons/Lock';
+import LockIcon from "@material-ui/icons/Lock";
 
 import {
+  useStripe,
   Elements,
   useElements,
   CardElement,
@@ -30,61 +33,58 @@ import {
 } from "@stripe/react-stripe-js";
 import StripeInput from "./StripeInput";
 
-const publishableKey="pk_test_51HLPbyFFsfkkXAxwgFLCJfIWJwuNvzA867Arg1lH4Woqhcq0yEWMtCwx4j2lqML9dCPK3oPH0NQyiAPux3K8JZUw00MxrWkh7u";
+const publishableKey =
+  "pk_test_51HLPbyFFsfkkXAxwgFLCJfIWJwuNvzA867Arg1lH4Woqhcq0yEWMtCwx4j2lqML9dCPK3oPH0NQyiAPux3K8JZUw00MxrWkh7u";
 
-let stripe = null;
 const currencies = [
-    {
-        "symbol": "€",
-        "name": "Euro",
-        "symbol_native": "د.إ.‏",
-        "decimal_digits": 2,
-        "rounding": 0,
-        "code": "EUR",
-        "name_plural": "Euros"
-    }
+  {
+    symbol: "€",
+    name: "Euro",
+    symbol_native: "د.إ.‏",
+    decimal_digits: 2,
+    rounding: 0,
+    code: "EUR",
+    name_plural: "Euros",
+  },
 ];
 
-
-const PaymentForm = () => {
- const layout = useLayout();
-    const { t } = useTranslation();
+const PaymentForm = (props) => {
+  const layout = useLayout();
+  const { t } = useTranslation();
   const config = useCampaignConfig();
 
-try {
-  stripe = loadStripe(publishableKey);
-} catch(e) {
-  stripe = null;
-  console.log("not loading stripe",e);
-}
-
-
-    const [data, setData] = useData();
+  const [data, setData] = useData();
   const form = useForm({
-    defaultValues: {name: (data.firstname ? data.firstname + " ": "") + (data.lastname ? data.lastname:""),email: data.email,postcode:data.postcode}
+    defaultValues: {
+      name:
+        (data.firstname ? data.firstname + " " : "") +
+        (data.lastname ? data.lastname : ""),
+      email: data.email,
+      postcode: data.postcode,
+    },
   });
 
   const [compact, setCompact] = useState(true);
-    const width = useElementWidth("#proca-donate");
+  const width = useElementWidth("#proca-donate");
 
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
+  const title = data.amount
+    ? config?.component?.DonateAmount.igive ||
+      t("I'm donating") + " " + data.amount + "€"
+    : config?.component?.DonateAmount.title || t("Choose your donation amount");
 
-  const title =  data.amount 
-    ?config?.component?.DonateAmount.igive || t("I'm donating")+" "+data.amount+"€"
-    :config?.component?.DonateAmount.title || t("Choose your donation amount");
-
-    const formValues = {};
-    const dispatch = (d) => {
-      console.log("dispatch",d);
-    }
+  const formValues = {};
+  const dispatch = (d) => {
+    console.log("dispatch", d);
+  };
   const elements = useElements();
 
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
 
-    if (!stripe || !elements) {
+    if (!props.stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
       // form submission until Stripe.js has loaded.
       return;
@@ -96,81 +96,79 @@ try {
     const cardElement = elements.getElement(CardElement);
 
     // Use your card Element with other Stripe.js APIs
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
+    const { error, paymentMethod } = await props.stripe.createPaymentMethod({
+      type: "card",
       card: cardElement,
     });
 
     if (error) {
-      console.log('[error]', error);
+      console.log("[error]", error);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
+      console.log("[PaymentMethod]", paymentMethod);
     }
   };
 
-const StripeCard = (props) =>{
-  console.log("aaa");
-  //hidePostalCode=true
+  const StripeCard = (props) => {
+    //hidePostalCode=true
+    console.log("draw card", props.stripe);
+    return (
+      <Grid item xs={12}>
+        <LayoutTextField
+          name="card"
+          label=""
+          variant={layout.variant}
+          margin={layout.margin}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          InputProps={{
+            inputComponent: StripeInput,
+            inputProps: {
+              component: CardElement,
+              stripe: props.stripe,
+            },
+          }}
+        />
+      </Grid>
+    );
+  };
+  const StripeIBAN = (props) => {
+    //  supportedCountries: ['SEPA'],
+    return (
+      <Grid item xs={12}>
+        <LayoutTextField
+          name="IBAN"
+          label=""
+          variant={layout.variant}
+          margin={layout.margin}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          InputProps={{
+            inputComponent: StripeInput,
+            inputProps: {
+              component: IbanElement,
+              stripe: props.stripe,
+            },
+          }}
+        />
+      </Grid>
+    );
+  };
+
   return (
-
-
-        <Grid item xs={12}>
-            <LayoutTextField
-                name="card"
-    label=""
-                  variant={layout.variant}
-              margin={layout.margin}
-
-                fullWidth
-                InputLabelProps={{ shrink: true }}
-                InputProps={{
-                    inputComponent: StripeInput,
-                    inputProps: {
-                        component: CardElement
-                    },
-                }}
-            />
-        </Grid>
-  );
-}
-const StripeIBAN = (props) =>{
-//  supportedCountries: ['SEPA'],
-  return (
-        <Grid item xs={12}>
-            <LayoutTextField
-                name="IBAN"
-    label=""
-                  variant={layout.variant}
-              margin={layout.margin}
-
-                fullWidth
-                InputLabelProps={{ shrink: true }}
-                InputProps={{
-                    inputComponent: StripeInput,
-                    inputProps: {
-                        component: IbanElement,
-
-                    },
-                }}
-            />
-        </Grid>
-  );
-}
-
-    return <>
+    <>
       <Card>
         <CardHeader title={title} />
         <CardContent>
-            <Grid item xs={12} >
+          <Grid item xs={12}>
             <TextField
               form={form}
-              name= "name"
+              name="name"
               label={t("Full Name")}
               autoComplete="full-name"
               required
             />
-</Grid>
-          <Grid item xs={12} sm={compact? 12:9}>
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 9}>
             <TextField
               form={form}
               name="email"
@@ -190,8 +188,8 @@ const StripeIBAN = (props) =>{
             />
           </Grid>
 
-  <StripeCard />
-            <Grid item xs={12}>
+          <StripeCard stripe={props.stripe} />
+          <Grid item xs={12}>
             <Button
               color="primary"
               variant="contained"
@@ -200,26 +198,42 @@ const StripeIBAN = (props) =>{
               size="large"
               startIcon={<LockIcon />}
             >
-             Donate
+              Donate
             </Button>
           </Grid>
         </CardContent>
-        </Card>
-
+      </Card>
     </>
-
-}
+  );
+};
 
 const PaymentFormWrapper = (props) => {
-return (
-          <Container component="main" maxWidth="sm" id="proca-donate">
-        <Grid container spacing={1}>
-    <Elements stripe={stripe}>
-  <PaymentForm {...props} />
-  </Elements>
-        </Grid>
-      </Container>
-)}
+  const [loadState, setLoadState] = useState({ loading: false, loaded: false });
+  const [stripe, setStripe] = useState(null);
+
+  useEffect(() => {
+    (async function () {
+      if (stripe) return;
+      const s = await loadStripe(publishableKey);
+      setStripe(s);
+      console.log("stripe loaded");
+    })();
+
+    return () => {
+      console.log("cancel stripe");
+    };
+  }, [stripe, setStripe, publishableKey]);
+
+  console.log(stripe);
+  return (
+    <Container component="main" id="proca-donate">
+      <Grid container spacing={1}>
+        <Elements stripe={stripe}>
+          <PaymentForm stripe={stripe} {...props} />
+        </Elements>
+      </Grid>
+    </Container>
+  );
+};
 
 export default PaymentFormWrapper;
-

@@ -60,11 +60,13 @@ const DonateAmount = (props) => {
   });
   const customAmount = watch("amount");
   if (customAmount && parseFloat(customAmount) !== amount) {
+    setData("amount", parseFloat(amount));
     _setAmount(parseFloat(customAmount));
   }
   const setAmount = (amount) => {
     amount = parseFloat(amount);
     _setAmount(amount);
+    setData("amount", amount);
     if (custom || customAmount) {
       showCustom(false);
       setValue("amount", null); // reset the custom (other) amount field
