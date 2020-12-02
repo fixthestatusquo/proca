@@ -18,7 +18,6 @@ import { Box, Button, Snackbar } from "@material-ui/core";
 import TextField from "./TextField";
 import Alert from "@material-ui/lab/Alert";
 
-import SendIcon from "@material-ui/icons/Send";
 import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
@@ -47,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       "& .flame": { fill: "url(#a)" },
       "& .arrow": { fill: "#fff" },
-      "& circle": { fill: "#ff5c39", fillOpacity: 1 },
+      "& nope.circle": { fill: "#ff5c39", fillOpacity: 1 },
     },
   },
 
