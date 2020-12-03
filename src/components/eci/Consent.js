@@ -8,6 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { useTranslation } from "react-i18next";
 
 import { makeStyles } from "@material-ui/core/styles";
+import EciDialog from "./Popup";
 
 const useStyles = makeStyles((theme) => ({
   /* Styles applied to the root element. */
@@ -37,11 +38,6 @@ export default function Register(props) {
 
   const handleCheck = (event) => {
     setValue(event.target.name, event.target.checked, { shouldValidate: true });
-  };
-
-  const openPopup = (event) => {
-    event.preventDefault();
-    console.log(event.target.href);
   };
 
   // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
@@ -76,15 +72,7 @@ export default function Register(props) {
                 name="privacy"
                 required
               />
-              <span
-                onClick={openPopup}
-                dangerouslySetInnerHTML={{
-                  __html: t("eci:form.privacy-statement", {
-                    url: "#privacy",
-                    urlRegister: "#content",
-                  }),
-                }}
-              />
+              <EciDialog />
             </FormLabel>
           </FormGroup>
         </Grid>
