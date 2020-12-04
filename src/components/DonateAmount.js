@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCampaignConfig } from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -27,6 +27,21 @@ import usePaypal from "../hooks/usePaypal";
 
 const useStyles = makeStyles((theme) => ({
   amount: { width: "5em" },
+  number: {
+    "& input": {
+      "&[type=number]": {
+        "-moz-appearance": "textfield",
+      },
+      "&::-webkit-outer-spin-button": {
+        "-webkit-appearance": "none",
+        margin: 0,
+      },
+      "&::-webkit-inner-spin-button": {
+        "-webkit-appearance": "none",
+        margin: 0,
+      },
+    },
+  },
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
@@ -41,7 +56,7 @@ const DonateAmount = (props) => {
 
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const selection = config?.component?.DonateAmount?.oneoff?.default || [3, 5];
+  const selection = config?.component?.donation?.oneoff?.default || [3, 5];
   const form = useForm({
     defaultValues: {
       amount: selection.find((selected) => selected === parseFloat(data.amount))
@@ -53,6 +68,7 @@ const DonateAmount = (props) => {
 
   const [recurring, setRecurring] = useState(data.recurring);
   const [amount, _setAmount] = useState(data.amount);
+  const [updating, setUpdating] = useState(false);
   const [custom, showCustom] = useState(() => {
     if (amount === null) return false;
     const found = selection.find((selected) => selected === amount);
@@ -63,8 +79,10 @@ const DonateAmount = (props) => {
     setData("amount", parseFloat(amount));
     _setAmount(parseFloat(customAmount));
   }
+
   const setAmount = (amount) => {
     amount = parseFloat(amount);
+    setUpdating(true);
     _setAmount(amount);
     setData("amount", amount);
     if (custom || customAmount) {
@@ -73,29 +91,32 @@ const DonateAmount = (props) => {
     }
   };
 
-  if (data.amount && amount !== parseFloat(data.amount)) {
-    setAmount(data.amount);
-  }
+  useEffect(() => {
+    if (!updating && data.amount && amount !== parseFloat(data.amount)) {
+      setAmount(data.amount);
+    }
+  });
 
   const width = useElementWidth("#proca-donate");
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
-  const title = amount
-    ? config?.component?.DonateAmount.igive ||
-      "I'm donating" + " " + amount + "€"
-    : config?.component?.DonateAmount.title || t("Choose your donation amount");
-  //    "I'm donating";
-  // todo: not hardcoded, and useIntl.NumberFormat
-  const subtitle =
-    config?.component?.DonateAmount.subTitle ||
-    t("The average donation is {{amount}}", { amount: "8.60€" });
-  const image = config?.component?.DonateAmount.image;
-
-  const currency = config?.component?.DonateAmount?.currency || {
+  const currency = config?.component?.donation.currency || {
     symbol: "€",
     code: "EUR",
   };
+  const title = amount
+    ? config?.component?.donation.igive ||
+      "I'm donating" + " " + amount.toString() + currency.symbol
+    : config?.component?.donation.title || t("Choose your donation amount");
+  //    "I'm donating";
+
+  // todo: not hardcoded, and useIntl.NumberFormat
+  const subtitle =
+    config?.component?.donation.subTitle ||
+    t("The average donation is {{amount}}", { amount: "8.60" });
+  const image = config?.component?.donation.image;
+
   const ButonPaypal = usePaypal({
     currency: currency,
     amount: amount,
@@ -112,6 +133,12 @@ const DonateAmount = (props) => {
     console.log("rec", event.target.checked, event.target.name);
   };
 
+  const handleClick = (event, amount) => {
+    setAmount(amount);
+    if (config.component.donation.external?.url)
+      window.open(config.component.donation.external.url + amount, "_blank");
+  };
+
   const AmountButton = (props) => {
     return (
       <Button
@@ -120,7 +147,7 @@ const DonateAmount = (props) => {
         disableElevation={amount === props.amount}
         variant="contained"
         className={classes.amount}
-        onClick={() => setAmount(props.amount)}
+        onClick={(e) => handleClick(e, props.amount)}
       >
         {props.amount}&nbsp;{currency.symbol}
       </Button>
@@ -143,26 +170,31 @@ const DonateAmount = (props) => {
         </div>
         <FormControl fullWidth>
           <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={recurring}
-                  onChange={handleRecurring}
-                  name="monthly"
-                  color="primary"
-                />
-              }
-              label={t("Monthly donations")}
-            />
+            {config.component.donation?.monthly !== false && (
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={recurring}
+                    onChange={handleRecurring}
+                    name="monthly"
+                    color="primary"
+                  />
+                }
+                label={t("Monthly donations")}
+              />
+            )}
             {custom && (
               <TextField
                 form={form}
                 type="number"
                 label="Amount"
                 name="amount"
+                className={classes.number}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end">€</InputAdornment>
+                    <InputAdornment position="end">
+                      {currency.symbol}
+                    </InputAdornment>
                   ),
                 }}
               />
@@ -170,35 +202,37 @@ const DonateAmount = (props) => {
           </FormGroup>
         </FormControl>
       </CardContent>
-      <CardActions>
-        <ButtonGroup
-          variant="contained"
-          fullWidth={compact}
-          aria-label="Select Payment method"
-          orientation={compact ? "vertical" : "horizontal"}
-        >
-          <Button
-            color="primary"
-            disabled={!amount}
-            startIcon={<PaymentIcon />}
-            onClick={() => {
-              choosePaymentMethod("creditcard");
-            }}
+      {!config.component.donation.external && (
+        <CardActions>
+          <ButtonGroup
+            variant="contained"
+            fullWidth={compact}
+            aria-label="Select Payment method"
+            orientation={compact ? "vertical" : "horizontal"}
           >
-            Credit Card
-          </Button>
-          <Button
-            disabled={!amount}
-            onClick={() => choosePaymentMethod("sepa")}
-            startIcon={<AccountBalanceIcon />}
-          >
-            SEPA
-          </Button>
-          <Button component="div" disabled={!amount} id="paypal-container">
-            <ButonPaypal />
-          </Button>
-        </ButtonGroup>
-      </CardActions>
+            <Button
+              color="primary"
+              disabled={!amount}
+              startIcon={<PaymentIcon />}
+              onClick={() => {
+                choosePaymentMethod("creditcard");
+              }}
+            >
+              Credit Card
+            </Button>
+            <Button
+              disabled={!amount}
+              onClick={() => choosePaymentMethod("sepa")}
+              startIcon={<AccountBalanceIcon />}
+            >
+              SEPA
+            </Button>
+            <Button component="div" disabled={!amount} id="paypal-container">
+              <ButonPaypal />
+            </Button>
+          </ButtonGroup>
+        </CardActions>
+      )}
     </Card>
   );
 };

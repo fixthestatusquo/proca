@@ -99,9 +99,10 @@ const usePaypal = (params) => {
 
     setLoadState({ loading: true, loaded: false });
     const script = document.createElement("script");
+    if (!config.component.donation?.paypal?.clientId) return;
     script.src =
       "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
-      (config.test ? "sb" : config.component.paypal?.clientId || "sb");
+      (config.test ? "sb" : config.component.donation.paypal.clientId || "sb");
     //TODO: merchant-id:XXX or data-partner-attribution-id
     script.async = true;
     script.addEventListener("load", function () {
