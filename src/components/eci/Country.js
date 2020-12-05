@@ -8,8 +8,6 @@ import { useCampaignConfig } from "../../hooks/useConfig";
 
 import { Container, Grid } from "@material-ui/core";
 
-import countries from "../../data/countries.json";
-
 const emoji = (country) => {
   const offset = 127397;
   let emoji = "";
@@ -28,7 +26,7 @@ const emoji = (country) => {
 
 const Flag = (props) => {
   const country = props.country?.toUpperCase();
-  const name = countries.find((d) => d.iso === country);
+  const name = props.countries.find((d) => d.iso === country);
   if (!name) return null;
   const d = emoji(country);
   return <span title={name.name}>{d}</span>;
@@ -39,6 +37,13 @@ export default (props) => {
   const [, setData] = useData();
 
   const { t } = useTranslation();
+
+  let countries = [];
+  for (const [iso, name] of Object.entries(
+    t("eci:common.country", { returnObjects: true })
+  )) {
+    countries.push({ iso: iso.toUpperCase(), name: name });
+  }
 
   const { register, setValue, watch } = props.form;
 
