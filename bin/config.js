@@ -64,7 +64,8 @@ const fetch = async (actionPage) =>  {
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
-  const config = { actionpage: data.actionPage.id,
+  const config = {
+    actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
@@ -74,7 +75,8 @@ const fetch = async (actionPage) =>  {
     layout:data.actionPage.config.layout || {},
     component:data.actionPage.config.component || {},
     portal:data.actionPage.config.portal || [],
-    locales:data.actionPage.config.locales || {}
+    locales:data.actionPage.config.locales || {},
+    template:data.template || false
   }
   save(config,".remote");
   return config;
@@ -87,6 +89,7 @@ const fetch = async (actionPage) =>  {
 
 const push = async (id) =>  {
   const local = read (id);
+  console.log(local)
   const a = basicAuth({username: process.env.AUTH_USER, password: process.env.AUTH_PASSWORD});
   if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
     console.error ("need .env with AUTH_USER + AUTH_PASSWORD");
@@ -98,7 +101,13 @@ const push = async (id) =>  {
     name: local.filename,
     locale:local.lang.toLowerCase(),
     journey: array2string(local.journey),
-    config: JSON.stringify({layout: local.layout, component: local.component, locales: local.locales, portal: local.portal})
+    config: JSON.stringify({
+      layout: local.layout,
+      component: local.component,
+      locales: local.locales,
+      portal: local.portal,
+      template: local.template
+    })
   };
   const {data, errors} = await request(c, admin.UpdateActionPageDocument, actionPage)
   if (errors) { console.log(actionPage); throw errors }
