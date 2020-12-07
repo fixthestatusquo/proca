@@ -43,7 +43,6 @@ const initPortals = (portals) => {
 const Widget = (args) => {
   if (args) config = { ...config, ...args };
   config = { ...config, ...Config };
-
   config.actionPage = config.actionPage || config.actionpage;
   config.journey.forEach((d, i) => {
     if (typeof d !== "string") return;
@@ -98,7 +97,6 @@ const render = () => {
     if (!script) return;
 
     //todo: blacklist some param?
-
     initDataState(script.dataset);
     Widget({ ...script.dataset });
   } catch (e) {
@@ -112,10 +110,11 @@ const autoRender = () => {
   }
   try {
     if (
-      !(document.readyState === "complete" || document.readyState === "loaded")
-    )
+      document.readyState === "loading"
+      //!(document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive")
+    ) {
       document.addEventListener("DOMContentLoaded", render);
-    else {
+    } else {
       render();
     }
   } catch (e) {

@@ -65,7 +65,7 @@ export default (props) => {
       setValue("nationality", location.country);
       setData("nationality", country);
     }
-  }, [location, country, setValue, setData]);
+  }, [location, country, countries, setValue, setData]);
 
   useEffect(() => {
     register({ name: "nationality" });

@@ -85,7 +85,12 @@ const set = (key, value) => {
 
 const goStep = (action) => {
   const event = new CustomEvent("proca-go", { detail: { action: action } });
-  document.getElementById(id).dispatchEvent(event);
+  if (document.getElementById(id))
+    document.getElementById(id).dispatchEvent(event);
+  else {
+    console.log("timeout", action);
+    setTimeout(goStep, 20000, action);
+  }
 };
 
 const setHook = (object, action, hook) => {

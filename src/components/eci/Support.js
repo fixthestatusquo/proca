@@ -238,7 +238,7 @@ export default (props) => {
             )}
             <Consent form={form} />
             <HCaptcha
-              sitekey="aa0f1887-8dc5-4895-a8ac-fd5537984ca3"
+              sitekey={config.component.eci.hcaptcha}
               languageOverride={config.lang}
               onVerify={(token) => handleVerificationSuccess(token)}
             />

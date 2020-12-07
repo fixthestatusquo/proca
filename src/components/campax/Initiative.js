@@ -77,16 +77,14 @@ export default function Register(props) {
   }
   const buttonRegister = config.buttonRegister || t("Sign");
   useEffect(() => {
-    if (!c || c.errors || !c.actionPage) return;
+    if (!actionPage || actionPage === config.actionPage) return;
     setCampaignConfig((config) => {
       let d = JSON.parse(JSON.stringify(config));
-
       d.actionpage = actionPage;
-      d.actionPage = actionPage;
       setStatus("default");
       return d;
     });
-  }, [c, actionPage, setCampaignConfig, setStatus]);
+  }, [actionPage, setCampaignConfig, setStatus]);
 
   defaultValues = { ...defaultValues, ...config.data };
   const width = useElementWidth("#proca-register");
@@ -154,8 +152,7 @@ export default function Register(props) {
     data.region = region;
     data.country = "CH";
     data.LanguageCode = config.lang;
-    console.log(config.param);
-    console.log("submit", data);
+    console.log("submit", config, data);
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionPage, data);
     if (result.errors) {
@@ -178,13 +175,7 @@ export default function Register(props) {
     data.uuid = uuid();
     data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionPage;
     setData(data);
-    if (props.done instanceof Function)
-      props.done({
-        uuid: uuid(),
-        firstname: data.firstname,
-        country: data.country,
-      });
-
+    if (props.done instanceof Function) props.done(data);
     // sends the signature's ID as fingerprint
   };
 
