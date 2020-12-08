@@ -84,7 +84,7 @@ export default function Register(props) {
       setStatus("default");
       return d;
     });
-  }, [actionPage, setCampaignConfig, setStatus]);
+  }, [actionPage, setCampaignConfig, setStatus, config.actionPage]);
 
   defaultValues = { ...defaultValues, ...config.data };
   const width = useElementWidth("#proca-register");
@@ -154,7 +154,7 @@ export default function Register(props) {
     data.LanguageCode = config.lang;
     console.log("submit", config, data);
     data.postcardUrl = postcardUrl(data, config.param);
-    const result = await addActionContact("register", config.actionPage, data);
+    const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
       result.errors.forEach((error) => {
         const fields = error.message && error.message.split(":");

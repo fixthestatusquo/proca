@@ -37,13 +37,13 @@ export default function useCounter(actionPage) {
   const config = useCampaignConfig();
   const apiUrl = config.component?.useCount?.apiUrl || null;
 
-  if (!actionPage && actionPage !== false) actionPage = config.actionPage;
+  if (!actionPage && actionPage !== false && !config.template)
+    actionPage = config.actionPage;
 
-  if ((actionPage = 2)) actionPage = false; // TODO: find the source of the ghost fetch
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    if (!actionPage) return; // disabling the fetch
+    if (!actionPage || config.template) return; // disabling the fetch
     (async function () {
       if (count !== null) return;
       let options = {};
@@ -58,7 +58,7 @@ export default function useCounter(actionPage) {
     return () => {
       isCancelled = true;
     };
-  }, [actionPage, count, apiUrl, setCount]);
+  }, [actionPage, count, apiUrl, setCount, config.template]);
 
   return count || null;
 }

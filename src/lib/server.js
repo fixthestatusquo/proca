@@ -12,16 +12,22 @@ async function graphQL(operation, query, options) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
-  await fetch(options.apiUrl + "?id=" + options.variables.actionPage, {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify({
-      query: query,
-      variables: options.variables,
-      operationName: operation || "",
-      extensions: options.extensions,
-    }),
-  })
+  await fetch(
+    options.apiUrl +
+      (options.variables.actionPage
+        ? "?id=" + options.variables.actionPage
+        : ""),
+    {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+        query: query,
+        variables: options.variables,
+        operationName: operation || "",
+        extensions: options.extensions,
+      }),
+    }
+  )
     .then((res) => {
       if (!res.ok) {
         return {
