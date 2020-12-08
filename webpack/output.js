@@ -81,8 +81,9 @@ function widgetBuildConfig(webpack, config) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
-        console.log(plug.options.template);
-        plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
+        console.log(plug.options);
+        if (plug.filename === "index.html")
+          plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
       }
     }
   }
@@ -107,14 +108,15 @@ function optimizationConfig(webpack) {
 }
 
 function iframeConfig(webpack) {
+  const publicDir = path.resolve(__dirname, "../public");
   webpack.plugins.push(
-    new CompressionPlugin({
-      exclude: /\*.map$/,
-      test: "index.js",
-      include: "index.js",
+    new HtmlWebpackPlugin({
+      filename: "iframe.html",
+      template: `${publicDir}/iframe.html`,
     })
   );
 }
+
 function compressionConfig(webpack) {
   webpack.plugins.push(
     new CompressionPlugin({
