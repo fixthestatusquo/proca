@@ -1687,10 +1687,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@proca/api@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.1.10.tgz#b1cae30ba6445facdf853a389664f97f5161e306"
-  integrity sha512-pGD+glL4b5uN0SOZfeEIVhL5vgZHkD1OJ+QJ3roPFiL5s+TzT1CDsDL1yDAivqV4F97X1rJg6WXbD2sKkrXSGw==
+"@proca/api@^0.2.0-beta.1":
+  version "0.2.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.0-beta.1.tgz#3a13b2bf42faa1fd235eea585602a76423f92ebe"
+  integrity sha512-w5BSFftC2+YiXOOiFXTm/v/BST6DOMMp+bJM9mOp29h6SVjQjCv+WZKB8d2XeD0PXfbo9ts1dm7F8wi0elatsg==
   dependencies:
     "@absinthe/socket-apollo-link" "^0.2.1"
     apollo-link "^1.2.14"

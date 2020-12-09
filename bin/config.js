@@ -95,23 +95,25 @@ const push = async (id) => {
     console.error("need .env with AUTH_USER + AUTH_PASSWORD");
   }
 
-  const c = link(
-    process.env.REACT_APP_API_URL || "https://api.proca.app/api",
-    a
-  );
+  let url = process.env.REACT_APP_API_URL || "https://api.proca.app/api"
+
+  const c = link(url, a);
   const actionPage = {
     id: id,
-    name: local.filename,
-    locale: local.lang.toLowerCase(),
-    journey: array2string(local.journey),
-    config: JSON.stringify({
-      layout: local.layout,
-      component: local.component,
-      locales: local.locales,
-      portal: local.portal,
-      template: local.template,
-    }),
+    actionPage: {
+      name: local.filename,
+      locale: local.lang.toLowerCase(),
+      journey: array2string(local.journey),
+      config: JSON.stringify({
+        layout: local.layout,
+        component: local.component,
+        locales: local.locales,
+        portal: local.portal,
+        template: local.template
+      })
+    }
   };
+
   const { data, errors } = await request(
     c,
     admin.UpdateActionPageDocument,
