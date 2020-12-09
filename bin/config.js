@@ -96,7 +96,6 @@ const push = async (id) => {
   }
 
   let url = process.env.REACT_APP_API_URL || "https://api.proca.app/api"
-  if (url.endsWith("/api")) url = url.substring(0, url.length - 4)
 
   const c = link(url, a);
   const actionPage = {
