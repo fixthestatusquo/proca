@@ -8,15 +8,21 @@ const EciPopup = (props) => {
 
   const openPopup = (event) => {
     event.preventDefault();
-    //setPopup(event.target.href.split('#')[1]);
     switch (event.target.href.split("#")[1]) {
       case "privacy":
-        setPopup(t("eci:privacy.info"));
+        setPopup(
+          <div
+            dangerouslySetInnerHTML={{
+              __html: t("eci:privacy.info"),
+            }}
+          />
+        );
+
         break;
       case "content":
         setPopup(
           <>
-            <h3>{t("campaign:title")}</h3>
+            <h3>{t("eci:common.head-title.home")}</h3>
             <div>{t("campaign:description")}</div>
           </>
         );
@@ -45,7 +51,7 @@ const EciPopup = (props) => {
       <Dialog
         dialog={popup !== false}
         close={handleClose}
-        name={t("eci:common.head-title.home")}
+        name={t("campaign:title")}
       >
         {popup}
       </Dialog>
