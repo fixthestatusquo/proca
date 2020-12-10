@@ -18,7 +18,8 @@ export default function Details(props) {
     r[1] +
     "/" +
     r[2] +
-    "_en";
+    "_" +
+    config.lang;
   console.log(eci);
 
   return (
