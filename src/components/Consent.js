@@ -68,21 +68,24 @@ export default (props) => {
     config.component?.country === false
       ? "consent.processing-nocookie"
       : "consent.processing";
+  const consentIntro =
+    config.component?.consent?.intro === false
+      ? null
+      : t("consent.intro", {
+          name: config.organisation,
+          campaign: config.campaign.title,
+        });
   return (
     <Fragment>
       <Grid item xs={12}>
-        {!!config.component?.consent?.intro && (
+        {consentIntro && (
           <FormHelperText
             className={classes.bigHelper}
             variant={layout.variant}
             error={typeof errors.privacy === "object"}
             margin={layout.margin}
           >
-            {t("consent.intro", {
-              name: config.organisation,
-              campaign: config.campaign.title,
-            })}{" "}
-            *
+            {consentIntro} *
           </FormHelperText>
         )}
       </Grid>

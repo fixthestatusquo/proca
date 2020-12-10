@@ -13,12 +13,9 @@ export default function Register(props) {
   const compact = props.compact;
   const form = props.form;
 
-  const { register, setValue, watch, setError } = props.form;
+  const { setValue, watch, setError } = props.form;
 
   const { postcode, city, country } = watch(["postcode", "city", "country"]);
-
-  const [autoLocality, setLocality] = useState("");
-  const [region, setRegion] = useState("");
 
   useEffect(() => {
     const geocountries = ["DE", "FR"];

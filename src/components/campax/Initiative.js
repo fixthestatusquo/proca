@@ -131,10 +131,13 @@ export default function Register(props) {
           }
         })
         .catch((err) => {
+          // no error for now
+          /*
           setError("postcode", {
             type: "network",
             message: (err && err.toString()) || "Network error",
           });
+          */
         });
     }
     fetchAPI();
@@ -152,6 +155,13 @@ export default function Register(props) {
     data.region = region;
     data.country = "CH";
     data.LanguageCode = config.lang;
+
+    data.birthdate = formatDate(data.birthdate);
+    if (data.birthdate === false) {
+      setError("birthdate", "manual", t("invalid date. format: DD.MM.YYYY"));
+      return;
+    }
+
     console.log("submit", config, data);
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
@@ -159,8 +169,7 @@ export default function Register(props) {
       result.errors.forEach((error) => {
         const fields = error.message && error.message.split(":");
         if (fields.length === 2) {
-          //setError(fields[0],{type:"manual",message:fields[1]});
-          setError(fields[0], "manual", fields[1]);
+          setError(fields[0], { type: "manual", message: fields[1] });
         }
         console.log(error);
       });
@@ -188,11 +197,10 @@ export default function Register(props) {
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
       input.oninvalid = (e) => {
-        setError(
-          e.target.attributes.name.nodeValue,
-          e.type,
-          e.target.validationMessage
-        );
+        setError(e.target.attributes.name.nodeValue, {
+          type: e.type,
+          message: e.target.validationMessage,
+        });
       };
     });
   }, [register, setError]);
@@ -205,6 +213,19 @@ export default function Register(props) {
     }
   };
 
+  function formatDate(date) {
+    if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(date)) return date;
+    if (date.length > 0) {
+      console.log(date, date.length);
+      if (date.length !== 10) {
+        return false;
+      }
+
+      const dmj = date.split(/ |\.|\//);
+      if (dmj.length !== 3) return false;
+      return dmj[2] + "-" + dmj[1] + "-" + dmj[0];
+    }
+  }
   function minBirthdate() {
     let d = new Date();
     d.setFullYear(d.getFullYear() - 18);
@@ -248,6 +269,7 @@ export default function Register(props) {
     );
   }
 
+  console.log(errors);
   return (
     <React.Fragment>
       <ProgressCounter actionPage={null} count={c && c.total} />
@@ -302,7 +324,7 @@ export default function Register(props) {
                 }}
                 error={!!errors.birthdate}
                 helperText={
-                  errors && errors.birthdate && t("you need to be 18 years old")
+                  errors && errors.birthdate && errors.birthdate.message
                 }
                 id="birthdate"
                 name="birthdate"
@@ -315,13 +337,21 @@ export default function Register(props) {
                   validate: (value) => {
                     //not useful anymore now that we have the html5 validation?
                     if (!value) return;
-                    console.log(value, minBirthdate());
+                    console.log(value);
+                    value = formatDate(value);
+                    if (value === false) {
+                      setError("birthdate", {
+                        type: "manual",
+                        message: t("invalid date. format: DD.MM.YYYY"),
+                      });
+                      return false;
+                    }
+
                     if (value >= minBirthdate()) {
-                      setError(
-                        "birthdate",
-                        "manual",
-                        t("you need to be 18 years old")
-                      );
+                      setError("birthdate", {
+                        type: "manual",
+                        message: t("you need to be 18 years old"),
+                      });
                       return false;
                     }
                     return true;
