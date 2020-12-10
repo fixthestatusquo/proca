@@ -1,8 +1,10 @@
 #!/usr/bin/env babel-node
 
 const fs = require("fs");
+const lo = require("lodash");
 const path = require("path");
-const { pull, read, save, file } = require("./config.js");
+const { pull, read, save, file, apiLink, actionPageFromLocalConfig } = require("./config.js");
+const api = require('@proca/api');
 
 const readEci = (eci) => {
   try {
@@ -15,29 +17,75 @@ const readEci = (eci) => {
 
 const getLocale = (code, languages) => {
   const locale = languages.find((d) => d.code === code);
-  console.log(locale);
   return locale;
+};
+
+const makeLocalAP = (mainAP, locale, eci) => {
+  const page = lo.cloneDeep(mainAP);
+  // modify locale:
+  page.lang = locale;
+
+  // modify page name:
+  const filenameparts = page.filename.split(/\//);
+  filenameparts.pop();
+  filenameparts.push(locale);
+  page.filename = filenameparts.join('/');
+
+  // modify eci component config
+  page.component.eci.organisers = eci.organisers.organiser;
+  page.component.eci.registrationDate = eci.registrationDate;
+  page.locales["campaign:"] = getLocale(
+    page.lang.toLowerCase(),
+    eci.languages.language
+  );
+
+  return page;
 };
 
 (async () => {
   const argv = process.argv.slice(2);
   const id = parseInt(process.env.actionpage || argv[0]);
-  if (!id) throw "need actionpage={id} or fetch {id}";
-  try {
-    //      const d = await pull(parseInt(id,10));
-    const d = read(parseInt(id, 10));
-    const eciid = d.component.eci.registrationNumber;
-    const eci = readEci(eciid);
-    d.component.eci.organisers = eci.organisers.organiser;
-    d.component.eci.registrationDate = eci.registrationDate;
-    d.locales["campaign:"] = getLocale(
-      d.lang.toLowerCase(),
-      eci.languages.language
-    );
-    console.log(d);
-    save(d);
-  } catch (e) {
-    console.error(e);
-    // Deal with the fact the chain failed
+  if (!id) throw "provide master page id as env var actionpage={id} or eci.js {id}";
+
+  const mainConfig = read(parseInt(id, 10));
+  const eciid = mainConfig.component.eci.registrationNumber;
+  const eci = readEci(eciid);
+
+  const pages = {};
+  eci.languages.language.forEach((ll) => {
+    pages[ll.code] = makeLocalAP(mainConfig, ll.code, eci);
+  });
+
+  const link = apiLink();
+  try{
+    const mainAP = await api.request(link, api.widget.GetActionPageDocument, {id: id});
+    if (mainAP.errors)
+      throw new Error(`I cannot fetch AP data from server ap=${id} errors=${errors[0].message}`);
+    const campaignName = mainAP.data.actionPage.campaign.name;
+    const orgName = mainAP.data.actionPage.org.name;
+
+    const upsertEciVars = {
+      org: orgName,
+      campaign: {
+        name: campaignName,
+        actionPages: Object.values(pages).map(p => actionPageFromLocalConfig(null, p).actionPage)
+      }
+    };
+    // console.log(JSON.stringify(upsertEciVars, null, 2));
+
+    const upsert = await api.request(link, api.admin.UpsertCampaignDocument, upsertEciVars);
+    if (upsert.errors) throw upsert.errors;
+    console.log(`ECI campaign id ${upsert.data.upsertCampaign.id} updated. To see pages for Your org run:`);
+    console.log(`proca-cli -o ${orgName} pages`);
+  }catch (e) {
+    if (e.result && e.result.errors) {
+      console.error(e.result.errors);
+    } else if (e[0]) {
+      console.error(e[0]);
+    } else {
+      console.error(e);
+    }
+    return;
   }
+
 })();

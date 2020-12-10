@@ -84,9 +84,7 @@ const fetch = async (actionPage) => {
   //  console.log(t)
 };
 
-const push = async (id) => {
-  const local = read(id);
-  console.log(local);
+const apiLink = () => {
   const a = basicAuth({
     username: process.env.AUTH_USER,
     password: process.env.AUTH_PASSWORD,
@@ -94,11 +92,14 @@ const push = async (id) => {
   if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
     console.error("need .env with AUTH_USER + AUTH_PASSWORD");
   }
-
-  let url = process.env.REACT_APP_API_URL || "https://api.proca.app/api"
-
+  let url = process.env.REACT_APP_API_URL || "https://api.proca.app/api";
   const c = link(url, a);
-  const actionPage = {
+  return c;
+};
+
+
+const actionPageFromLocalConfig = (id, local) => {
+  return {
     id: id,
     actionPage: {
       name: local.filename,
@@ -113,6 +114,13 @@ const push = async (id) => {
       })
     }
   };
+};
+
+const push = async (id) => {
+  const local = read(id);
+  console.log(local);
+  const c = apiLink();
+  const actionPage = actionPageFromLocalConfig(id, local);
 
   const { data, errors } = await request(
     c,
@@ -138,4 +146,4 @@ const pull = async (actionPage) => {
   return config;
 };
 
-module.exports = { pull, push, fetch, read, file, save };
+module.exports = { pull, push, fetch, read, file, save, apiLink, actionPageFromLocalConfig };
