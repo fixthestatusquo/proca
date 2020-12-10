@@ -69,44 +69,7 @@ pre {background:#dede; padding: 10px}
   </head>
   <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Demo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Design of your page</a>
-            <div class="dropdown-menu columns" aria-labelledby="dropdown02">
-              <a class="dropdown-item" data-class="col-md" href="#">two equal columns</a>
-              <a class="dropdown-item" data-class="col-md-4" href="#">large content column</a>
-              <a class="dropdown-item" disabled>Floating action</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layout</a>
-            <div class="dropdown-menu " aria-labelledby="dropdown01">
-              <a class="dropdown-item theme" data-theme="dark" href="#">Toggle dark/light</a>
-            <div class="dropdown-divider"></div>
-              <div class="color">
-              <a class="dropdown-item" data-color="#2196f3" href="#">Blue</a>
-              <a class="dropdown-item" data-color="#9c27b0" href="#">Purple</a>
-              <a class="dropdown-item" data-color="#4caf50">Green</a>
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="variant">
-              <a class="dropdown-item" data-variant="filled" href="#">Filled</a>
-              <a class="dropdown-item" data-variant="outlined" href="#">Outlined</a>
-              <a class="dropdown-item" data-variant="standard">Standard</a>
-            </div>
-          </li>
-        </ul>
-        <div class="form-inline my-2 my-lg-0">
-          <button class="proca-next btn btn-primary" data-toggle="modal" data-target="#code">Widget code</button>
-          <button class="proca-next btn btn-secondary" onClick="proca.go()">Next</button>
-        </div>
-      </div>
+      <a class="navbar-brand eci-title" href="#">ECI</a>
     </nav>
     <noscript
       >You need to enable JavaScript to participate to this campaign.</noscript
@@ -115,11 +78,13 @@ pre {background:#dede; padding: 10px}
            <h2 class="eci-title">...</h2>
       <div class="row">
         <div class="col">
-          <div class="proca-widget" id="signature-form" >
           <div class="alert alert-info" role="alert">
            <h3 class="eci-title">...</h3>
            <div class="eci-description"></div>
 <div class="eci-more"></div>
+          </div>
+        <div class="col">
+          <div class="proca-widget" id="signature-form" >
           </div>
             
 
@@ -171,47 +136,7 @@ pre {background:#dede; padding: 10px}
     <script>
       var params = {};
 
-      function loader () {
-        proca.hook("twitter","load", function(list){
-          list[0].description ="bozo";
-          console.log(list);
-        });
-        proca.set("geolocate",true);
-        console.log("loaded");
-        proca.go(); // continue to the next step
-      }
 
-      function display() {
-        var variants = ["standard", "filled", "outlined"];
-        var urlParams = new URLSearchParams(window.location.search);
-        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
-        var widget_shortcode = window.location.pathname.replace("/index.html","").replace("/d/","");
-        for (let d of document.getElementsByClassName("dynamic")) {
-          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
-          d.innerHTML = d.innerHTML.replace("%widget_shortcode%",widget_shortcode);
-        }
-
-        
- //       if (urlParams.get("variant")) {
- //         params.variant = urlParams.get("variant");
- //       }
-
-        if (urlParams.get("actionPage")) 
-          params.actionPage= urlParams.get("actionPage");
-        
-//        params.loader = urlParams.get("proca_loader");
-        proca.Widget(params);
-      }
-
-      if (typeof proca === "object") {
-        //not used on dev
-        display();
-      } else {
-        console.log("DEV MODE");
-        window.addEventListener("DOMContentLoaded", function() {
-          display();
-        });
-      }
     </script>
 
   <script>

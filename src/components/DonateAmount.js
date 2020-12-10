@@ -112,10 +112,11 @@ const DonateAmount = (props) => {
   //    "I'm donating";
 
   // todo: not hardcoded, and useIntl.NumberFormat
-  const subtitle =
-    config?.component?.donation.subTitle ||
-    t("The average donation is {{amount}}", { amount: "8.60" });
-  const image = config?.component?.donation.image;
+  const average = config.component.donation.oneoff.average;
+  const subtitle = average
+    ? t("The average donation is {{amount}}", { amount: average })
+    : config.component.donation.subTitle;
+  const image = config.component.donation.image;
 
   const ButonPaypal = usePaypal({
     currency: currency,

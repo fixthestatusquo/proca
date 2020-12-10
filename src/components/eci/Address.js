@@ -48,7 +48,7 @@ export default function Register(props) {
             required
           />
         </Grid>
-        <Country form={form} />
+        <Country form={form} countries={props.countries} />
       </Grid>
     </Container>
   );

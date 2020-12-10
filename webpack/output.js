@@ -4,6 +4,7 @@ const cp = require("child_process");
 const fs = require("graceful-fs");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const GenerateJsonPlugin = require("generate-json-webpack-plugin");
 
 module.exports = (webpack) => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
@@ -19,7 +20,7 @@ module.exports = (webpack) => {
   optimizationConfig(webpack);
   compressionConfig(webpack);
   iframeConfig(webpack);
-
+  oembedConfig(webpack);
   return webpack;
 };
 
@@ -81,13 +82,11 @@ function widgetBuildConfig(webpack, config) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
-        console.log(plug.options);
-        if (plug.filename === "index.html")
+        if (plug.options.filename === "index.html")
           plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
       }
     }
   }
-
   /* So this is maybe for this error to disappear?
    * Webpack is doing something really silly here:
    * File sizes after gzip:
@@ -117,6 +116,23 @@ function iframeConfig(webpack) {
   );
 }
 
+function oembedConfig(webpack) {
+  const publicDir = webpack.output.path;
+  webpack.plugins.push(
+    new GenerateJsonPlugin("oembed.json", {
+      version: "1.0",
+      type: "rich",
+
+      provider_name: "Fix the Status Quo",
+      provider_url: "https://www.fixthestatusquo.org",
+
+      html: `<iframe src="https://widget.proca.foundation${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
+      width: 700,
+      height: 825,
+      cache_age: 3600,
+    })
+  );
+}
 function compressionConfig(webpack) {
   webpack.plugins.push(
     new CompressionPlugin({

@@ -1,40 +1,75 @@
-import React  from "react";
+import React from "react";
 
 import { useTranslation } from "react-i18next";
-import {useCampaignConfig} from '../../hooks/useConfig';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import { useCampaignConfig } from "../../hooks/useConfig";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItemText from "@material-ui/core/ListItemText";
 //import Divider from '@material-ui/core/Divider';
 
-export default function Details (props) {
+export default function Details(props) {
   const config = useCampaignConfig();
   const eci = config.component.eci;
   const { t } = useTranslation();
+  const r = /REQ.ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
+  eci.registrationUrl =
+    "https://europa.eu/citizens-initiative/initiatives/details/" +
+    r[1] +
+    "/" +
+    r[2] +
+    "_en";
   console.log(eci);
 
-  return <>
-    <h4>{t("eci:form.title")}</h4>
-          <List component="nav">
+  return (
+    <>
+      <h4>{t("eci:form.title")}</h4>
+      <List component="nav">
         <ListItem>
-          <ListItemText secondary={eci.registrationDate} primary={t("eci:header.registration_date")}/>
-    </ListItem>
+          <ListItemText
+            secondary={eci.registrationDate}
+            primary={t("eci:header.registration_date")}
+          />
+        </ListItem>
         <ListItem>
-          <ListItemText secondary={eci.registrationNumber} primary={t("eci:header.registration_number")}/>
-    </ListItem>
+          <ListItemText
+            secondary={eci.registrationNumber}
+            primary={t("eci:header.registration_number")}
+          />
+        </ListItem>
+        <ListItem
+          button
+          component="a"
+          target="_blank"
+          href={eci.apiUrl + "/d/certification.pdf"}
+        >
+          <ListItemText
+            secondary={eci.apiUrl + "/certification.pdf"}
+            primary={t("eci:footer.conformity-title")}
+          />
+        </ListItem>
+        <ListItem
+          button
+          component="a"
+          target="_blank"
+          href={eci.registrationUrl}
+        >
+          <ListItemText
+            secondary={eci.registrationUrl}
+            primary={t("eci:initiative.register_webpage")}
+          />
+        </ListItem>
         <ListItem>
-          <ListItemText secondary={eci.registrationNumber} primary={t("eci:footer.conformity-title")}/>
-    </ListItem>
-        <ListItem>
-          <ListItemText secondary={eci.registrationNumber} primary={t("eci:initiative.register_webpage")}/>
-    </ListItem>
-    <ListItem>
-    <ListItemText primary={t("eci:initiative.representative")} secondary=
-      {eci.organisers.map( (o,i) =>{
-        return o.familyName? o.firstName + " " + o.familyName + "  ": o.firstName;
-      })}
-    /></ListItem>
-    </List>
-  </>;
-};
+          <ListItemText
+            primary={t("eci:initiative.representative")}
+            secondary={eci.organisers.map((o, i) => {
+              return o.familyName
+                ? o.firstName + " " + o.familyName + "  "
+                : o.firstName;
+            })}
+          />
+        </ListItem>
+      </List>
+    </>
+  );
+}

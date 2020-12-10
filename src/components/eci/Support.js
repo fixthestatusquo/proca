@@ -1,12 +1,12 @@
 import i18n from "../../lib/i18n";
+
 import React, { useState, useEffect } from "react";
 import { Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
-import { useTranslation } from "react-i18next";
+import { useTranslation, countries } from "./hooks/useEciTranslation";
 import { useForm } from "react-hook-form";
 
-import eciLocale from "locales/eci";
 import documents from "../../data/document_number_formats.json";
 import { addSupport } from "../../lib/eci/server.js";
 
@@ -22,22 +22,6 @@ import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-
-//import Address from './Address';
-//import Id from './Id';
-
-const removeDotKey = (obj) => {
-  Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] === "object") {
-      removeDotKey(obj[key]);
-    }
-    if (key.includes(".")) {
-      obj[key.replace(/\./g, "_")] = obj[key];
-      delete obj[key];
-    }
-  });
-  return obj;
-};
 
 //const countries = eciLocale.common.country;
 
@@ -67,10 +51,8 @@ export default (props) => {
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
 
-  const { t } = useTranslation("common", {
-    i18n: i18n.addResourceBundle("en", "eci", removeDotKey(eciLocale)),
-  });
   const config = useCampaignConfig();
+  const { t } = useTranslation(config.lang);
   const [data] = useData();
 
   const form = useForm({
@@ -212,9 +194,8 @@ export default (props) => {
             url="http://localhost"
           >
             <Error display={status === "error"} />
-            <Country form={form} countries={eciLocale.common.country} />
             <Box
-              className={classes.notice}
+              variant="subtitle1"
               dangerouslySetInnerHTML={{
                 __html: t("eci:common.requirements.text", {
                   url:
@@ -222,12 +203,15 @@ export default (props) => {
                 }),
               }}
             />
+            <Country form={form} countries={countries} />
             <General
               form={form}
               birthdate={require === "address"}
               compact={compact}
             />
-            {require === "address" && <Address form={form} compact={compact} />}
+            {require === "address" && (
+              <Address form={form} compact={compact} countries={countries} />
+            )}
             {require === "id" && (
               <Id
                 form={form}

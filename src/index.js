@@ -16,6 +16,8 @@ let config = {
   selector: ".proca-widget, #signature-form, #proca-form", //+, "[href='#proca_widget']"
 };
 
+let rendered = false;
+
 const Alert = (text, severity) => {
   const selector = "proca_alert";
   if (!document.querySelector("#" + selector)) {
@@ -41,6 +43,7 @@ const initPortals = (portals) => {
 };
 
 const Widget = (args) => {
+  if (rendered) return;
   if (args) config = { ...config, ...args };
   config = { ...config, ...Config };
   config.actionPage = config.actionPage || config.actionpage;
@@ -66,6 +69,7 @@ const Widget = (args) => {
   if (isTest()) config.test = isTest();
 
   //<ProcaWidget config={config} {...config} />,
+  rendered = true;
   ReactDOM.render(
     <ProcaWidget {...config} container={frag}>
       {isTest() && <ProcaAlert text="TEST MODE" severity="warning" />}
@@ -94,7 +98,9 @@ const set = (atom, key, value) => {
 const render = () => {
   try {
     var script = document.getElementById("proca");
-    if (!script) return;
+    if (!script) {
+      script = {};
+    } //return; I have no clue why it happens
 
     //todo: blacklist some param?
     initDataState(script.dataset);

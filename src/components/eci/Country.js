@@ -38,12 +38,10 @@ export default (props) => {
 
   const { t } = useTranslation();
 
-  let countries = [];
-  for (const [iso, name] of Object.entries(
-    t("eci:common.country", { returnObjects: true })
-  )) {
-    countries.push({ iso: iso.toUpperCase(), name: name });
-  }
+  const countries = Object.keys(props.countries).map((iso) => ({
+    iso: iso.toUpperCase(),
+    name: props.countries[iso],
+  }));
 
   const { register, setValue, watch } = props.form;
 
