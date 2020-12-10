@@ -18,7 +18,6 @@ const removeDotKey = (obj) => {
 };
 
 const useEciTranslation = (locale) => {
-  console.log(i18n.language);
   return useTranslation("common", {
     i18n: i18n.addResourceBundle(
       locale || i18n.language,

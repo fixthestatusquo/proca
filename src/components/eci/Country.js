@@ -50,7 +50,7 @@ export default (props) => {
   const country = watch("nationality") || "";
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country: config.data.nationality || config.component.country,
+    country: config.data.country || config.component.country,
   });
   useEffect(() => {
     if (location.country && !country) {

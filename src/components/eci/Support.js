@@ -186,66 +186,74 @@ export default (props) => {
     <Container component="main" maxWidth="sm">
       <Box marginBottom={1}>
         <Grid container spacing={1}>
-          <form
-            className={classes.container}
-            id="proca-register"
-            onSubmit={handleSubmit(onSubmit)}
-            method="post"
-            url="http://localhost"
-          >
-            <Error display={status === "error"} />
-            <Box
-              variant="subtitle1"
-              dangerouslySetInnerHTML={{
-                __html: t("eci:common.requirements.text", {
-                  url:
-                    "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
-                }),
-              }}
-            />
-            <Country form={form} countries={countries} />
-            <General
-              form={form}
-              birthdate={require === "address"}
-              compact={compact}
-            />
-            {require === "address" && (
-              <Address form={form} compact={compact} countries={countries} />
-            )}
-            {require === "id" && (
-              <Id
-                form={form}
-                compact={compact}
-                ids={acceptableIds}
-                country={nationality}
+          <Grid item xs={12}>
+            <form
+              className={classes.container}
+              id="proca-register"
+              onSubmit={handleSubmit(onSubmit)}
+              method="post"
+              url="http://localhost"
+            >
+              <Error display={status === "error"} />
+
+              <Box
+                variant="subtitle1"
+                dangerouslySetInnerHTML={{
+                  __html: t("eci:common.requirements.text", {
+                    url:
+                      "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
+                  }),
+                }}
               />
-            )}
-            <Consent form={form} />
-            <HCaptcha
-              sitekey={config.component.eci.hcaptcha}
-              languageOverride={config.lang}
-              onVerify={(token) => handleVerificationSuccess(token)}
-            />
-            <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-                size="large"
-                disabled={formState.isSubmitting}
-                endIcon={<SendIcon />}
-              >
-                {" "}
-                {t("eci:form.support")}
-              </Button>
-            </Grid>
-            <Box className={classes.notice} m={1}>
-              <div>{t("eci:form.support-footer1")}</div>
-              <div>{t("eci:form.support-footer2")}</div>
-              <div>{t("eci:form.support-footer3")}</div>
-            </Box>
-          </form>
+              <Country form={form} countries={countries} />
+              <General
+                form={form}
+                birthdate={require === "address"}
+                compact={compact}
+              />
+              {require === "address" && (
+                <Address form={form} compact={compact} countries={countries} />
+              )}
+              {require === "id" && (
+                <Id
+                  form={form}
+                  compact={compact}
+                  ids={acceptableIds}
+                  country={nationality}
+                />
+              )}
+              <Grid item xs={12} sm={compact ? 12 : 8}>
+                <Consent form={form} />
+              </Grid>
+              <Grid item xs={12} sm={compact ? 12 : 4}>
+                <HCaptcha
+                  sitekey={config.component.eci.hcaptcha}
+                  languageOverride={config.lang}
+                  size="compact"
+                  onVerify={(token) => handleVerificationSuccess(token)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  fullWidth
+                  type="submit"
+                  size="large"
+                  disabled={formState.isSubmitting}
+                  endIcon={<SendIcon />}
+                >
+                  {" "}
+                  {t("eci:form.support")}
+                </Button>
+              </Grid>
+              <Box className={classes.notice} m={1}>
+                <div>{t("eci:form.support-footer1")}</div>
+                <div>{t("eci:form.support-footer2")}</div>
+                <div>{t("eci:form.support-footer3")}</div>
+              </Box>
+            </form>
+          </Grid>
         </Grid>
       </Box>
     </Container>

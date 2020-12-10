@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 import TextField from "../TextField";
@@ -12,6 +12,46 @@ export default function Register(props) {
 
   const compact = props.compact;
   const form = props.form;
+
+  const { register, setValue, watch, setError } = props.form;
+
+  const { postcode, city, country } = watch(["postcode", "city", "country"]);
+
+  const [autoLocality, setLocality] = useState("");
+  const [region, setRegion] = useState("");
+
+  useEffect(() => {
+    const geocountries = ["DE", "FR"];
+    if (!geocountries.includes(country)) {
+      return;
+    }
+    if (postcode.length !== 5) return;
+    const api = "https://" + country + ".proca.app/" + postcode;
+
+    async function fetchAPI() {
+      await fetch(api)
+        .then((res) => {
+          if (!res.ok) {
+            throw Error(res.statusText);
+          }
+          return res.json();
+        })
+        .then((res) => {
+          if (res && res.name) {
+            setLocality(res.name);
+            setValue("city", res.name);
+          }
+        })
+        .catch((err) => {
+          // for now, let's not flag as an error if we don't find the postcode
+          /* setError("postcode", {
+            type: "network",
+            message: (err && err.toString()) || "Network error",
+          }); */
+        });
+    }
+    fetchAPI();
+  }, [postcode, setError, setValue, country]);
 
   return (
     <Container component="main" maxWidth="sm">
@@ -35,6 +75,7 @@ export default function Register(props) {
         <Grid item xs={12} sm={compact ? 12 : 3}>
           <TextField
             form={form}
+            autoComplete="postal-code"
             name="postcode"
             label={t("eci:form.property.postal_code")}
             required
