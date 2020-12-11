@@ -1694,10 +1694,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@proca/api@^0.2.0-beta.1":
-  version "0.2.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.0-beta.1.tgz#3a13b2bf42faa1fd235eea585602a76423f92ebe"
-  integrity sha512-w5BSFftC2+YiXOOiFXTm/v/BST6DOMMp+bJM9mOp29h6SVjQjCv+WZKB8d2XeD0PXfbo9ts1dm7F8wi0elatsg==
+"@proca/api@0.2.0-beta.3":
+  version "0.2.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.0-beta.3.tgz#ae6714d41fbc74edf251e7cc2d621237e9535732"
+  integrity sha512-YJsnZqz1L/4MNEuu7Ep2VYB4W0YihngxROWo7rQlWf/LqWVVooKL19yUIlqQ57mKoztgBLzVUoqcqy0nPiHWEA==
   dependencies:
     "@absinthe/socket-apollo-link" "^0.2.1"
     apollo-link "^1.2.14"
