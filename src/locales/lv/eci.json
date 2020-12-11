@@ -54,8 +54,7 @@
             "ro": "Rumānija",
             "se": "Zviedrija",
             "si": "Slovēnija",
-            "sk": "Slovākija",
-            "gb": "Apvienotā Karaliste"
+            "sk": "Slovākija"
         },
         "nationality": {
             "at": "Austrijas",
@@ -85,7 +84,6 @@
             "se": "Zviedrijas",
             "si": "Slovēnijas",
             "sk": "Slovākijas",
-            "gb": "Apvienotās Karalistes",
             "other": "Citi..."
         },
         "requirements": {

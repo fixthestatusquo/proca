@@ -54,8 +54,7 @@
             "ro": "Rumänien",
             "se": "Schweden",
             "si": "Slowenien",
-            "sk": "Slowakei",
-            "gb": "Vereinigtes Königreich"
+            "sk": "Slowakei"
         },
         "nationality": {
             "at": "Österreichisch",
@@ -85,7 +84,6 @@
             "se": "Schwedisch",
             "si": "Slowenisch",
             "sk": "Slowakisch",
-            "gb": "Britisch",
             "other": "Sonstige..."
         },
         "requirements": {

@@ -54,8 +54,7 @@
             "ro": "Romania",
             "se": "Ruotsi",
             "si": "Slovenia",
-            "sk": "Slovakia",
-            "gb": "Vhdistynyt kuningaskunta"
+            "sk": "Slovakia"
         },
         "nationality": {
             "at": "Itävalta",
@@ -85,7 +84,6 @@
             "se": "Ruotsi",
             "si": "Slovenia",
             "sk": "Slovakia",
-            "gb": "Vhdistynyt kuningaskunta",
             "other": "Muut..."
         },
         "requirements": {

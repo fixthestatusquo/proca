@@ -54,8 +54,7 @@
             "ro": "Roemenië",
             "se": "Zweden",
             "si": "Slovenië",
-            "sk": "Slowakije",
-            "gb": "Verenigd Koninkrijk"
+            "sk": "Slowakije"
         },
         "nationality": {
             "at": "Oostenrijks",
@@ -85,7 +84,6 @@
             "se": "Zweeds",
             "si": "Sloveens",
             "sk": "Slowaaks",
-            "gb": "Brits",
             "other": "andere..."
         },
         "requirements": {

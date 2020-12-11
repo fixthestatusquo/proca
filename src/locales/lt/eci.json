@@ -54,8 +54,7 @@
             "ro": "Rumunija",
             "se": "Švedija",
             "si": "Slovėnija",
-            "sk": "Slovakija",
-            "gb": "Jungtinė Karalystė"
+            "sk": "Slovakija"
         },
         "nationality": {
             "at": "Austrijos",
@@ -85,7 +84,6 @@
             "se": "Švedijos",
             "si": "Slovėnijos",
             "sk": "Slovakijos",
-            "gb": "Jungtinės Karalystės",
             "other": "Kiti..."
         },
         "requirements": {

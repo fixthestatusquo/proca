@@ -54,8 +54,7 @@
             "ro": "Ir-Rumanija",
             "se": "L-Isvezja",
             "si": "Is-Slovenja",
-            "sk": "Is-Slovakja",
-            "gb": "Ir-Renju Unit"
+            "sk": "Is-Slovakja"
         },
         "nationality": {
             "at": "Awsrijakk",
@@ -85,7 +84,6 @@
             "se": "Svediż",
             "si": "Sloven",
             "sk": "Slovakk",
-            "gb": "Britanniku",
             "other": "oħrajn..."
         },
         "requirements": {

@@ -54,8 +54,7 @@
             "ro": "an Rómáin",
             "se": "an tSualainn",
             "si": "an tSlóivéin",
-            "sk": "an tSlóvaic",
-            "gb": "an Ríocht Aontaithe"
+            "sk": "an tSlóvaic"
         },
         "nationality": {
             "at": "Ostarach",
@@ -85,7 +84,6 @@
             "se": "Sualannach",
             "si": "Slóivéanach",
             "sk": "Slóvacach",
-            "gb": "Briotanach",
             "other": "eile..."
         },
         "requirements": {

@@ -54,8 +54,7 @@
             "ro": "Románia",
             "se": "Svédország",
             "si": "Szlovénia",
-            "sk": "Szlovákia",
-            "gb": "Egyesült Királyság"
+            "sk": "Szlovákia"
         },
         "nationality": {
             "at": "osztrák",
@@ -85,7 +84,6 @@
             "se": "svéd",
             "si": "szlovén",
             "sk": "szlovák",
-            "gb": "egyesült királysági",
             "other": "Egyéb..."
         },
         "requirements": {

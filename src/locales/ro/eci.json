@@ -54,8 +54,7 @@
             "ro": "România",
             "se": "Suedia",
             "si": "Slovenia",
-            "sk": "Slovacia",
-            "gb": "Regatul Unit"
+            "sk": "Slovacia"
         },
         "nationality": {
             "at": "austriacă",
@@ -85,7 +84,6 @@
             "se": "suedeză",
             "si": "slovenă",
             "sk": "slovacă",
-            "gb": "britanică",
             "other": "altele..."
         },
         "requirements": {

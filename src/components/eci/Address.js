@@ -35,7 +35,6 @@ export default function Register(props) {
         })
         .then((res) => {
           if (res && res.name) {
-            setLocality(res.name);
             setValue("city", res.name);
           }
         })
