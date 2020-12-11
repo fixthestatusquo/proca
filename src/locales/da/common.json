@@ -55,7 +55,22 @@
         "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
         "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
         "opt-in": "Ja, hold mig informeret via e-mail",
-        "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner"
+        "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
+        "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+        "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail"
     },
-    "Account": "Konto"
+    "Account": "Konto",
+    "organisation": "Din organisationskonto",
+    "email": {
+        "subject": "emne",
+        "body": "krop"
+    },
+    "Donations must be {{amount}} or more": "Donationer skal være {{amount}} eller mere",
+    "The average donation is {{amount}}": "Den gennemsnitlige donation er {{amount}}",
+    "Monthly donations": "Månedlige donationer",
+    "Phone": "Telefon",
+    "Other": "Andre",
+    "I'm donating ": "Jeg donerer ",
+    "I'm donating": "Jeg donerer",
+    "Choose your donation amount": "Vælg dit donationsbeløb"
 }

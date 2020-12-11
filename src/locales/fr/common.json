@@ -76,5 +76,6 @@
     "email": {
         "subject": "sujet",
         "body": "corps du message"
-    }
+    },
+    "organisation": "Le compte de votre organisation"
 }

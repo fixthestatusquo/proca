@@ -60,5 +60,18 @@
     "Comment": "Komentar",
     "Birthdate": "Датум рођења",
     "Address": "Адреса",
-    "Account": "Налог"
+    "Account": "Налог",
+    "organisation": "Налог ваше организације",
+    "email": {
+        "subject": "тема",
+        "body": "тело"
+    },
+    "Donations must be {{amount}} or more": "Донације морају бити {{amount}} или више",
+    "The average donation is {{amount}}": "Просечна донација је {{amount}}",
+    "Monthly donations": "Месечне донације",
+    "Phone": "Телефон",
+    "Other": "Ostalo",
+    "I'm donating ": "Донирам ",
+    "I'm donating": "Донирам",
+    "Choose your donation amount": "Изаберите износ донације"
 }

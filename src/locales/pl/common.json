@@ -4,7 +4,9 @@
         "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości.",
         "opt-in": "Tak, informuj mnie na bieżąco za pośrednictwem poczty elektronicznej",
         "intro": "Zgadzam się na {{name}} kontaktowanie się ze mną w sprawie ważnych kampanii",
-        "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>."
+        "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
+        "processing-nocookie": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
+        "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco pocztą elektroniczną"
     },
     "Download explanation": "Twój dokument jest już gotowy, wysyłamy go do Ciebie również e-mailem.",
     "Link_Share button": "Łącze",
@@ -58,5 +60,18 @@
     "Comment": "Komentarz",
     "Birthdate": "Data urodzenia",
     "Address": "Adres",
-    "Account": "Konto"
+    "Account": "Konto",
+    "organisation": "Twoje konto organizacyjne",
+    "email": {
+        "subject": "temat",
+        "body": "Organ"
+    },
+    "Donations must be {{amount}} or more": "Darowizny muszą być {{amount}} lub więcej",
+    "The average donation is {{amount}}": "Średnia darowizna wynosi {{amount}}",
+    "Monthly donations": "Miesięczne darowizny",
+    "Phone": "Telefon",
+    "Other": "Inne",
+    "I'm donating ": "Oddaję ",
+    "I'm donating": "Oddaję",
+    "Choose your donation amount": "Wybierz kwotę darowizny"
 }

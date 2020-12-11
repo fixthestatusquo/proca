@@ -56,6 +56,21 @@
         "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
         "opt-out": "Ei, ärge saatke mulle e-kirju ega hoidke mind tulevikus kursis",
         "opt-in": "Jah, hoia mind e-posti teel kursis",
-        "intro": "Nõustun {{name}} minuga oluliste kampaaniate osas ühendust võtma"
-    }
+        "intro": "Nõustun {{name}} minuga oluliste kampaaniate osas ühendust võtma",
+        "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+        "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis"
+    },
+    "organisation": "Teie organisatsiooni konto",
+    "email": {
+        "subject": "teema",
+        "body": "keha"
+    },
+    "Donations must be {{amount}} or more": "Annetused peavad olema vähemalt {{amount}}",
+    "The average donation is {{amount}}": "Keskmine annetus on {{amount}}",
+    "Monthly donations": "Igakuised annetused",
+    "Phone": "Telefon",
+    "Other": "Teine",
+    "I'm donating ": "Annetan ",
+    "I'm donating": "Annetan",
+    "Choose your donation amount": "Valige annetuse summa"
 }

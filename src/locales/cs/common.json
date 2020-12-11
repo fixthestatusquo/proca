@@ -60,5 +60,18 @@
     "Comment": "Komentář",
     "Birthdate": "Datum narození",
     "Address": "Adresa",
-    "Account": "Účet"
+    "Account": "Účet",
+    "organisation": "Váš účet organizace",
+    "email": {
+        "subject": "předmět",
+        "body": "tělo"
+    },
+    "Donations must be {{amount}} or more": "Dary musí být {{amount}} nebo více",
+    "The average donation is {{amount}}": "Průměrný dar je {{amount}}",
+    "Monthly donations": "Měsíční dary",
+    "Phone": "Telefón",
+    "Other": "Ostatní",
+    "I'm donating ": "Daruji ",
+    "I'm donating": "Daruji",
+    "Choose your donation amount": "Vyberte si částku daru"
 }
