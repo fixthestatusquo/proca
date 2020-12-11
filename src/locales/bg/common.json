@@ -13,7 +13,7 @@
         }
     },
     "register": "Добавете името ми",
-    "progress": "{{count}} са подписали. Нека да отидем на {{goal}}",
+    "progress": "{{count}} са подписали. Да отидем на {{goal}}",
     "progress_plural": "",
     "email": {
         "subject": "тема",
