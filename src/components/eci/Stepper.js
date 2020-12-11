@@ -15,58 +15,55 @@ import Support from "./Support";
 import Share from "../Share";
 
 export default function Target(props) {
-  const [value, setValue] = useState("email");
+  const [value, setValue] = useState("register");
 
-  const [activeStep, setStep] = useState(0);
-
+  const step = (s) => ["register", "eci", "share"].indexOf(s);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const doneEmail = () => {
-    setStep(1);
     setValue("eci");
   };
 
   const doneEci = () => {
-    setStep(2);
     setValue("share");
   };
-  const handleStep = (step) => () => {
-    setStep(step);
+  const handleStep = (s) => () => {
+    setValue(s);
   };
 
-  const iconColor = (step) => {
-    return step === activeStep ? "primary" : "disabled";
+  const iconColor = (s) => {
+    return value === s ? "primary" : "disabled";
   };
 
   return (
     <>
-      <Stepper nonLinear activeStep={activeStep}>
+      <Stepper nonLinear activeStep={step(value)}>
         <Step key="register">
-          <StepButton onClick={handleStep(0)}>Join</StepButton>
+          <StepButton onClick={handleStep("register")}>Join</StepButton>
         </Step>
         <Step key="eci">
           <StepButton
-            onClick={handleStep(1)}
-            icon={<EciIcon color={iconColor(1)} />}
+            onClick={handleStep("eci")}
+            icon={<EciIcon color={iconColor("eci")} />}
           >
             Official Support
           </StepButton>
         </Step>
         <Step key="share">
           <StepButton
-            onClick={handleStep(2)}
-            icon={<ShareIcon color={iconColor(2)} />}
+            onClick={handleStep("share")}
+            icon={<ShareIcon color={iconColor("share")} />}
           >
             Share
           </StepButton>
         </Step>
       </Stepper>
       <Box p={1}>
-        {activeStep === 0 && <Email done={doneEmail} />}
-        {activeStep === 1 && <Support done={doneEci} />}
-        {activeStep === 2 && <Share done={props.done} />}
+        {value === "register" && <Email done={doneEmail} />}
+        {value === "eci" && <Support done={doneEci} />}
+        {value === "share" && <Share done={props.done} />}
       </Box>
     </>
   );
