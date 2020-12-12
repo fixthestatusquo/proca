@@ -48,7 +48,7 @@ export default function Target(props) {
             onClick={handleStep("eci")}
             icon={<EciIcon color={iconColor("eci")} />}
           >
-            Official Support
+            Sign the ECI
           </StepButton>
         </Step>
         <Step key="share">
