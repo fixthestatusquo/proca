@@ -64,7 +64,7 @@
         "subject": "subiect",
         "body": "corp"
     },
-    "Donations must be {{amount}} or more": "Donațiile trebuie să fie {{amount}} sau mai multe",
+    "Donations must be {{amount}} or more": "Donațiile trebuie să fie {{amount}} sau mai mare",
     "The average donation is {{amount}}": "Donația medie este de {{amount}}",
     "Monthly donations": "Donatii lunare",
     "Phone": "Telefon",
