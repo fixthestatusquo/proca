@@ -69,7 +69,7 @@ async function getLatest(actionPage, actionType, options) {
   var query = `query getLatest($actionPage:Int!,$actionType:String!) {
   actionPage(id:$actionPage) {
     campaign {
-      actions(actionType:$actionType, limit: 100) {
+      actions(actionType:$actionType, limit: 10000) {
         list {
           actionId,
           fields {
