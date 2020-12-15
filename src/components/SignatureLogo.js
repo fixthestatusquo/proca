@@ -15,8 +15,13 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     large: {
+      backgroundColor: "transparent",
       width: 73,
       height: 73,
+      "& img": {
+        maxWidth: 73,
+        maxHeight: 73,
+      },
     },
   })
 );
