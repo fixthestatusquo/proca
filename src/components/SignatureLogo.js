@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
 const ListSignature = (props) => {
   const [list, setList] = useState([]);
   const classes = useStyles();
@@ -34,48 +35,28 @@ const ListSignature = (props) => {
     let isCancelled = false;
     let c = null;
     (async function () {
-      c = await getLatest(actionPage, "openletter");
-      if (!isCancelled) setList(c);
+      c = await getLatest(actionPage, "openletter", isCancelled);
+      if (!isCancelled) {
+        setList(c);
+      }
     })();
     return () => {
       isCancelled = true;
     };
   }, [actionPage]);
 
-  const tweet = (screen_name) => {
-    const url = "https://twitter.com/" + screen_name;
-    window.open(
-      url,
-      "tweet-" + screen_name,
-      "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
-    );
-  };
-  const visit = (url) => {
-    if (!url) return;
-    window.open(url, "_blank");
-  };
-
   const GridList = (props) => {
     return <div className={classes.root}>{props.children}</div>;
   };
 
-  const GridListTile = (props) => {
-    return <div>{props.children}</div>;
-  };
   return (
     <GridList cellHeight="73" cols="5">
       {list
         .filter((k) => k.organisation)
         .sort((a, b) => +a.followers_count < +b.followers_count)
-        .map((k) => (
-          <GridListTile
-            alignItems="flex-start"
-            divider={false}
-            key={k.id}
-            button={true}
-            onClick={() => visit(k.url)}
-          >
-            <Avatar variant="rounded" className={classes.large}>
+        .map((k) => {
+          return (
+            <Avatar key={k.twitter} variant="rounded" className={classes.large}>
               <a
                 href={
                   k.url ||
@@ -89,8 +70,8 @@ const ListSignature = (props) => {
                 />
               </a>
             </Avatar>
-          </GridListTile>
-        ))}
+          );
+        })}
     </GridList>
   );
 };

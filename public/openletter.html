@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#000000" />
     
 <meta property="og:image" content="https://placekitten.com/540/284" />
-<title>proca: Progressive Campaigning into your website in a minute</title>
-<meta name="twitter:title" content="Demo of a Campaign" />
+<title>OpenLetter</title>
+<meta name="twitter:title" content="Demo of an open letter" />
 
 <meta name="description" content="Sign the initiative too!" />
 <meta name="twitter:description" content="For a future" />
@@ -20,6 +20,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<style media="print">
+nav {display:none!important;}
+div#signature-form {display:none;}
+div.proca-table {display:block}
+table {display:block!important}
+</style>
 <style>
   aa.dark {background: #343a40}
   aa.light {background: "transparent"}
@@ -42,18 +48,18 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-<minimal-style style="display:none">
-  #signature-form {max-width:600px;min-width:300px}
+<style>
 
-  .row{
+  .mrow{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width:100%;
   }
 
-.col{
+.mcol{
   display: flex;
+  min-width: 250px!important;
     flex-direction: column;
     flex-basis: 100%;
     padding:0 10px;
@@ -62,7 +68,7 @@
 
 pre {background:#dede; padding: 10px}
 
-</minimal-style>
+</style>
 <style>
   body {padding-top:5rem;}
 
@@ -114,58 +120,21 @@ pre {background:#dede; padding: 10px}
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
-      <h2>Open letter to Lorem ipsum to free dolor sit amet</h2>
       <div class="row">
-        <div class="col">
-          <div class="alert alert-info" role="alert">
-            <h3>  This is an example, but your can test signing </h3>
-
-</div>
-<div class="proca-logo">
-</div>
-<div class="proca-signature">
-</div>
-
-
+        <div class="col mcol">
+      <h2>Open letter</h2>
+<div class="proca-logo"></div>
+          </div>
+          <div class="row">
+          <div id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="102">
+          </div>
         </div>
-        <div id="action_column" class="col-md-6"><p>For now, the signature is only open to organisations.<br>
-          Enter the <b>twitter account of your organisation</b>.<br>
-          Your personal informations will not be published but only used to communicate with you</p>
-        <div id="signature-form" data-dialog-title="Want to be informed on our next actions?" data-twitter-text="Do the test" data-campaign-id="102"></div>
         </div>
-      </div>
-    </div>
-
-    <div class="modal" id="code" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">How to add the widget on your site?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <h4>If you use wordpress</h4>
-              <ul>
-                <li> add "proca" plugin</li>
-                <li class="dynamic"> use the shortcode [proca widget=%widget_path%]</li>
-              </ul>
-
-          <h4>Any other (Javascript)</h4>
-          <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">&lt;/div>
-          </pre>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+<div class="proca-table" >
 </div>
+      </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
