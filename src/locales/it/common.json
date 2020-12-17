@@ -1,6 +1,6 @@
 {
     "consent": {
-        "intro": "Desideri ricevere ulteriori informazioni sulle nostre campagne, azioni e sul progresso di \"\"{{campaign}}\"?",
+        "intro": "Desideri ricevere ulteriori informazioni sulle nostre campagne, azioni ed il progresso di {{campaign}}",
         "opt-in": "Sì, acconsento alla ricezione di email di aggiornamento da parte di {{partner}}",
         "opt-out": "No, non desidero ricevere e-mail di aggiornamenti in futuro",
         "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2><3>Sì</3>",
@@ -69,8 +69,8 @@
         "subject": "Oggetto",
         "body": "corpo"
     },
-    "Donations must be {{amount}} or more": "Le donazioni devono essere di {{amount}} o più",
-    "The average donation is {{amount}}": "La donazione media è di {{amount}}.",
+    "Donations must be {{amount}} or more": "Le donazioni devono essere di {{amount}} o piu",
+    "The average donation is {{amount}}": "La donazione media è di {{amount}}",
     "Monthly donations": "Donazioni mensili",
     "Phone": "Telefono"
 }
