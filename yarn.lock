@@ -1382,10 +1382,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hcaptcha/react-hcaptcha@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@hcaptcha/react-hcaptcha/-/react-hcaptcha-0.2.1.tgz#af0ec7646f33f4141f3381878a772b6790ad8155"
-  integrity sha512-2YiUrUvwFys1UVjplTx2sNiOqN7RJE0krhGmQo7yrhV5ULuLy4XRdOLEXESSDlMCDQPKcMx4cGkXjtoTljjXcQ==
+"@hcaptcha/react-hcaptcha@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@hcaptcha/react-hcaptcha/-/react-hcaptcha-0.2.2.tgz#84e475e4147877053fc5a2e40fd1434f10aaa49f"
+  integrity sha512-tAi0IPLvQCEwQVU238AWbdRiPRc+F195nyfptS2E6qI87k+2vadjjxekseLlQfRgMFmZXxMcFuRYgo5r54yRJw==
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
