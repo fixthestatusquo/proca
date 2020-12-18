@@ -38,7 +38,7 @@
     "react-ipgeolocation": "^1.4.0",
     "react-scripts": "^3.4.3",
     "react-share": "^4.2.1",
-    "recoil": "^0.0.13",
+    "recoil": "^0.1.2",
     "uuid": "^8.3.0"
   },
   "devDependencies": {
