@@ -1350,6 +1350,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
+"@graphql-typed-document-node/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
+  integrity sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1694,12 +1699,13 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@proca/api@0.2.0-beta.3":
-  version "0.2.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.0-beta.3.tgz#ae6714d41fbc74edf251e7cc2d621237e9535732"
-  integrity sha512-YJsnZqz1L/4MNEuu7Ep2VYB4W0YihngxROWo7rQlWf/LqWVVooKL19yUIlqQ57mKoztgBLzVUoqcqy0nPiHWEA==
+"@proca/api@0.2.0-beta.5":
+  version "0.2.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.0-beta.5.tgz#c52548df32157feaa4b2a9be9db610151109a6b0"
+  integrity sha512-spYJ7pQ0ZtmDN5DSlBXDwm4M+WdtiH/yEXMGZrKS15Pu7JACsaj1blH/Z0NZAZEdy3mkrlqb0fILZjEaxVQtNQ==
   dependencies:
     "@absinthe/socket-apollo-link" "^0.2.1"
+    "@graphql-typed-document-node/core" "^3.1.0"
     apollo-link "^1.2.14"
     apollo-link-http "^1.5.17"
     js-base64 "^3.5.2"
