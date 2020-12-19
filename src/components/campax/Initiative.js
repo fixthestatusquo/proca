@@ -182,6 +182,8 @@ export default function Register(props) {
 
     uuid(result.contactRef); // set the global uuid as signature's fingerprint
     data.uuid = uuid();
+    if (!config.actionPage)
+      throw new Error(`Attempt to create QRCode with actionPage id = ${config.actionPage}`)
     data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionPage;
     setData(data);
     if (props.done instanceof Function) props.done(data);
