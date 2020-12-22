@@ -66,6 +66,7 @@ const Widget = (props) => {
     propsJourney = ["button", j];
     steps["button"] = Button;
     steps["dialog"] = Dialog;
+    topMulti = Dialog;
     //    steps["button"] = allSteps["button"];
     //    steps["dialog"] = allSteps["dialog"];
   }
@@ -166,6 +167,7 @@ const Widget = (props) => {
   const CurrentAction = (props) => {
     let Action = null;
 
+    console.log(current, depths[current], journey[current], topMulti.current);
     switch (depths[current]) {
       case 0:
         Action = steps[journey[current]];
@@ -188,13 +190,16 @@ const Widget = (props) => {
       case 2:
         let SubAction = steps[journey[current]];
         Action = steps[topMulti.current];
-        if (!Action || !SubAction)
+        console.log(Action, SubAction);
+        console.log(steps, journey[current], topMulti.current);
+        if (!Action || !SubAction) {
           return (
             <Alert severity="error">
               can't find Action {topMulti.current} or SubAction{" "}
               {journey[current]}
             </Alert>
           );
+        }
         return (
           <>
             <Action
