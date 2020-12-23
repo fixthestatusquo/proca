@@ -81,6 +81,7 @@ export default function Register(props) {
     setCampaignConfig((config) => {
       let d = JSON.parse(JSON.stringify(config));
       d.actionpage = actionPage;
+      d.actionPage = actionPage;
       setStatus("default");
       return d;
     });
