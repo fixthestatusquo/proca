@@ -139,6 +139,7 @@ const Widget = (props) => {
   // the result is whatever the action that has finished wants to share to the journey
   //
   const nextStep = (result) => {
+    console.log("next step");
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
     if (typeof steps[journey[current]].after === "function") {
@@ -167,7 +168,6 @@ const Widget = (props) => {
   const CurrentAction = (props) => {
     let Action = null;
 
-    console.log(current, depths[current], journey[current], topMulti.current);
     switch (depths[current]) {
       case 0:
         Action = steps[journey[current]];
