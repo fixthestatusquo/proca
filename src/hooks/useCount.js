@@ -50,7 +50,6 @@ export default function useCounter(actionPage) {
       if (!actionPage || isNaN(actionPage))
         return { errors: [{ message: "invalid actionPage:" + actionPage }] };
       if (apiUrl) options.apiUrl = apiUrl;
-      console.log(actionPage, options);
       c = await getCount(actionPage, options);
       if (!isCancelled) setCount(c);
     })();
