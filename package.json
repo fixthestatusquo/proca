@@ -34,7 +34,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.12.2",
-    "react-i18next": "^11.7.4",
+    "react-i18next": "^11.8.4",
     "react-ipgeolocation": "^1.4.0",
     "react-scripts": "^3.4.3",
     "react-share": "^4.2.1",
