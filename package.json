@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
-    "@babel/node": "^7.12.1",
+    "@babel/node": "^7.12.10",
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@proca/api": "0.2.0-beta.5",
     "@rescripts/cli": "0.0.14",
