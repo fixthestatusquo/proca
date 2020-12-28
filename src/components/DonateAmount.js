@@ -154,6 +154,7 @@ const DonateAmount = (props) => {
       </Button>
     );
   };
+  //<div>I'll generously add $0.41 to cover the transaction fees so you can keep 100% of my donation.</div>
 
   return (
     <Card id="proca-donate">
