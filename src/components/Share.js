@@ -147,14 +147,18 @@ export default function ShareAction(props) {
             component={TwitterShareButton}
           />
           <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
-          <ActionIcon
-            icon={EmailIcon}
-            component={EmailShareButton}
-            subject={t("share.email.subject") || t("share.message")}
-            body={t("share.email.body") || t("share.message")}
-            separator=" "
-          />
-          <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          {!!config.component?.share?.email && (
+            <ActionIcon
+              icon={EmailIcon}
+              component={EmailShareButton}
+              subject={t("share.email.subject") || t("share.message")}
+              body={t("share.email.body") || t("share.message")}
+              separator=" "
+            />
+          )}
+          {!!config.component?.share?.reddit && (
+            <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          )}
           <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
         </CardActions>
         {config.component.share.next && (
@@ -172,7 +176,7 @@ export default function ShareAction(props) {
     function addShare(event) {
       addAction(actionPage, event, {
         uuid: uuid(),
-        payload: [{ key: "medium", value: medium }],
+        payload: { key: "medium", value: medium },
         tracking: Url.utm(),
       });
     }
