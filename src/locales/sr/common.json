@@ -46,7 +46,8 @@
     },
     "you need to be 18 years old": "треба да имате 18 година",
     "twitter": {
-        "actionText": "Потписао сам. и ти би требао такође"
+        "actionText": "Потписао сам. и ти би требао такође",
+        "actionUrl": "ацтионУрл"
     },
     "register": "Додај моје име",
     "dialogTitle": "Potpiši peticiju za zabranu biometrijskog nadzora",
@@ -73,5 +74,9 @@
     "Other": "Ostalo",
     "I'm donating ": "Донирам ",
     "I'm donating": "Донирам",
-    "Choose your donation amount": "Изаберите износ донације"
+    "Choose your donation amount": "Изаберите износ донације",
+    "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
+    "Sign the ECI": "Потпишите ЕЦИ",
+    "Share": "Deli",
+    "Join": "Придружи се"
 }
