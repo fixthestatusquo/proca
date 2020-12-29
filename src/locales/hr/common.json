@@ -33,7 +33,8 @@
     "City": "Grad",
     "Your organisation account": "Račun vaše organizacije",
     "twitter": {
-        "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
+        "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
+        "actionUrl": "actionUrl"
     },
     "you need to be 18 years old": "morate imati 18 godina",
     "Birthdate": "Datum rođenja",
@@ -74,5 +75,9 @@
     "Donations must be {{amount}} or more": "Iznos donacije mora biti {{amount}}'s ili više",
     "The average donation is {{amount}}": "Prosječna donacija iznosi {{amount}}",
     "Monthly donations": "Mjesečne donacije",
-    "organisation": "Račun vaše organizacije"
+    "organisation": "Račun vaše organizacije",
+    "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
+    "Sign the ECI": "Potpišite ECI",
+    "Share": "Dijeli",
+    "Join": "Pridruži se"
 }
