@@ -46,7 +46,8 @@
     },
     "you need to be 18 years old": "musíte mít 18 let",
     "twitter": {
-        "actionText": "Já jsem se podepsal. měl bys také"
+        "actionText": "Já jsem se podepsal. měl bys také",
+        "actionUrl": "actionUrl"
     },
     "register": "Přidejte mé jméno",
     "dialogTitle": "Informujte mě o kampani",
@@ -73,5 +74,9 @@
     "Other": "Ostatní",
     "I'm donating ": "Daruji ",
     "I'm donating": "Daruji",
-    "Choose your donation amount": "Vyberte si částku daru"
+    "Choose your donation amount": "Vyberte si částku daru",
+    "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
+    "Sign the ECI": "Podepište ECI",
+    "Share": "Sdílet",
+    "Join": "Přidat se"
 }
