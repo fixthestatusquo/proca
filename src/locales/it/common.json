@@ -53,7 +53,8 @@
     "you need to be 18 years old": "Devi avere 18 anni",
     "Sign Up": "Iscrizione",
     "twitter": {
-        "actionText": "Ho firmato. Dovresti farlo anche tu"
+        "actionText": "Ho firmato. Dovresti farlo anche tu",
+        "actionUrl": "actionUrl"
     },
     "register": "Aggiungi il mio nome",
     "dialogTitle": "Tienimi informato/a sulla campagna",
@@ -72,5 +73,9 @@
     "Donations must be {{amount}} or more": "Le donazioni devono essere di {{amount}} o piu",
     "The average donation is {{amount}}": "La donazione media è di {{amount}}",
     "Monthly donations": "Donazioni mensili",
-    "Phone": "Telefono"
+    "Phone": "Telefono",
+    "Sorry, we couldn't save": "Mi dispiace, non abbiamo potuto salvare",
+    "Sign the ECI": "Firma l'ECI",
+    "Share": "Condividi",
+    "Join": "Unisciti"
 }
