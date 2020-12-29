@@ -53,7 +53,8 @@
     "you need to be 18 years old": "Du musst 18 Jahre alt sein",
     "Sign Up": "Registrieren",
     "twitter": {
-        "actionText": "Ich habe unterschrieben. sollt Du auch"
+        "actionText": "Ich habe unterschrieben. sollt Du auch",
+        "actionUrl": "actionUrl"
     },
     "register": "Appell unterzeichnen",
     "dialogTitle": "Halten Sie mich über die Kampagne auf dem Laufenden",
@@ -72,5 +73,9 @@
     "Phone": "Telefonnummer",
     "Donations must be {{amount}} or more": "Spenden müssen {{amount}}'s oder mehr betragen",
     "The average donation is {{amount}}": "Die durchschnittliche Spende beträgt {{amount}}",
-    "Monthly donations": "Monatliche Spenden"
+    "Monthly donations": "Monatliche Spenden",
+    "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
+    "Sign the ECI": "Unterschreiben Sie die ECI",
+    "Share": "Teilen",
+    "Join": "Betreten"
 }
