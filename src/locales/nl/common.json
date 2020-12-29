@@ -45,7 +45,8 @@
     },
     "you need to be 18 years old": "je moet 18 jaar oud zijn",
     "twitter": {
-        "actionText": "Ik heb getekend. Jij moet ook"
+        "actionText": "Ik heb getekend. Jij moet ook",
+        "actionUrl": "actieUrl"
     },
     "register": "Voeg mijn naam toe",
     "dialogTitle": "Hou me op de hoogte van de campagne",
@@ -72,5 +73,9 @@
     "Other": "Anders",
     "I'm donating ": "Ik doneer... ",
     "I'm donating": "Ik doneer...",
-    "Choose your donation amount": "Kies uw donatiebedrag"
+    "Choose your donation amount": "Kies uw donatiebedrag",
+    "Sorry, we couldn't save": "Sorry, we konden het niet redden.",
+    "Sign the ECI": "Teken de ECI",
+    "Share": "Share",
+    "Join": "Deelnemen"
 }
