@@ -65,7 +65,8 @@
     "Full Name": "Nom complet",
     "Account": "Compte",
     "twitter": {
-        "actionText": "J'ai signé. Tu devrais aussi"
+        "actionText": "J'ai signé. Tu devrais aussi",
+        "actionUrl": "actionUrl"
     },
     "register": "Ajouter mon nom",
     "dialogTitle": "Tenez-moi informé·e de la campagne",
@@ -77,5 +78,9 @@
         "subject": "sujet",
         "body": "corps du message"
     },
-    "organisation": "Le compte de votre organisation"
+    "organisation": "Le compte de votre organisation",
+    "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
+    "Sign the ECI": "Signer l'ICE",
+    "Share": "Partager",
+    "Join": "Rejoindre"
 }
