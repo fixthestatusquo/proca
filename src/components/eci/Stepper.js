@@ -13,9 +13,11 @@ import ShareIcon from "@material-ui/icons/Share";
 import Email from "./Email";
 import Support from "./Support";
 import Share from "../Share";
+import { useTranslation } from "react-i18next";
 
 export default function Target(props) {
   const [value, setValue] = useState("register");
+  const { t } = useTranslation();
 
   const step = (s) => ["register", "eci", "share"].indexOf(s);
   const handleChange = (event, newValue) => {
@@ -41,14 +43,14 @@ export default function Target(props) {
     <>
       <Stepper nonLinear activeStep={step(value)}>
         <Step key="register">
-          <StepButton onClick={handleStep("register")}>Join</StepButton>
+          <StepButton onClick={handleStep("register")}>{t("Join")}</StepButton>
         </Step>
         <Step key="eci">
           <StepButton
             onClick={handleStep("eci")}
             icon={<EciIcon color={iconColor("eci")} />}
           >
-            Sign the ECI
+            {t("Sign the ECI")}
           </StepButton>
         </Step>
         <Step key="share">
@@ -56,7 +58,7 @@ export default function Target(props) {
             onClick={handleStep("share")}
             icon={<ShareIcon color={iconColor("share")} />}
           >
-            Share
+            {t("Share")}
           </StepButton>
         </Step>
       </Stepper>

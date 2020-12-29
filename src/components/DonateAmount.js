@@ -136,8 +136,27 @@ const DonateAmount = (props) => {
 
   const handleClick = (event, amount) => {
     setAmount(amount);
-    if (config.component.donation.external?.url)
-      window.open(config.component.donation.external.url + amount, "_blank");
+    if (config.component.donation.external?.url) {
+      const fieldmap = {
+        firstname: "contact_forename",
+        lastname: "contact_surname",
+        locality: "contact_place",
+        address: "contact_street",
+        postcode: "contact_postcode",
+        email: "contact_email",
+      };
+      console.log({ ...config.data, ...data });
+      const params = Object.entries({ ...config.data, ...data }).reduce(
+        (p, d) => {
+          p += "&" + fieldmap[d.key] + "=" + encodeURIComponent(d.value);
+        },
+        ""
+      );
+      window.open(
+        config.component.donation.external.url + amount + params,
+        "_blank"
+      );
+    }
   };
 
   const AmountButton = (props) => {

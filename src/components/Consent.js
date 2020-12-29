@@ -153,7 +153,7 @@ export default (props) => {
       </Grid>
       <Grid item xs={12}>
         <Box className={classes.notice}>
-          <Trans i18nKey={consentProcessing}>
+          <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
             Consent processing according to <a href={link}>privacy policy</a>
           </Trans>
         </Box>

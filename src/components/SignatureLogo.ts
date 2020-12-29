@@ -4,7 +4,7 @@ import { getLatest } from "../lib/server.js";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       display: "grid",

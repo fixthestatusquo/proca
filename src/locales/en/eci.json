@@ -46,6 +46,7 @@
     },
     "hide.info": "Hide more info",
     "more.info": "Show more info",
+    "more_info": "more_info",
     "nationality": {
       "at": "Austrian",
       "be": "Belgian",
@@ -220,7 +221,9 @@
       "oct.error.pl.postalcode": "Invalid format. Format required: NNNNN (N = digit)",
       "oct.error.propertytypemismatch": "Invalid format",
       "oct.error.si.postalcode": "Invalid format. Format required: NNNN (N = digit)",
-      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)"
+      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)",
+      "oct_error_invalidrange": "oct_error_invalidrange",
+      "oct_error_invalidsize": "oct_error_invalidsize"
     },
     "fill-form": "Fill in the form",
     "generic.error": "Please correct the errors in the statement of support form",
@@ -254,7 +257,8 @@
       "registration.certificate": "",
       "residence.permit": "",
       "street": "Street",
-      "street.number": "Number"
+      "street.number": "Number",
+      "street_number": "street_number"
     },
     "support": "Support",
     "support-country": "Support this citizens’ initiative by filling in the form or using an eID",
@@ -275,6 +279,8 @@
     "recent.supporters": "Recent signatories",
     "registration.date": "Start of the collection period",
     "registration.number": "Registration number",
+    "registration_date": "registration_date",
+    "registration_number": "registration_number",
     "supporters": "Signatories",
     "total-supporters": "Total number of signatories",
     "view.allcountries": "View all countries"
@@ -309,6 +315,7 @@
     "partially-registered": "Only a part(s) of this initiative has(ve) been registered. Please read the Commission Decision for the scope of the registered initiative.",
     "public.webpage": "Website of this initiative (if any):",
     "register.webpage": "Web address of this initiative in the European Commission's register",
+    "register_webpage": "register_webpage",
     "representative": "Contact persons"
   },
   "login": {
