@@ -45,7 +45,8 @@
     },
     "you need to be 18 years old": "आपको 18 वर्ष का होना चाहिए",
     "twitter": {
-        "actionText": "मैंने हस्ताक्षर किए। तुम भी"
+        "actionText": "मैंने हस्ताक्षर किए। तुम भी",
+        "actionUrl": "actionUrl"
     },
     "register": "मेरा नाम जोड़ें",
     "dialogTitle": "मुझे अभियान के बारे में सूचित रखें",
@@ -72,5 +73,9 @@
     "I'm donating ": "मैं दान कर रहा हूं ",
     "I'm donating": "मैं दान कर रहा हूं",
     "Choose your donation amount": "अपनी दान राशि चुनें",
-    "Account": "खाता"
+    "Account": "खाता",
+    "Sorry, we couldn't save": "क्षमा करें, हम नहीं बचा सके",
+    "Sign the ECI": "ईसीआई पर हस्ताक्षर करें",
+    "Share": "साझा करें",
+    "Join": "हिस्सा बनें"
 }
