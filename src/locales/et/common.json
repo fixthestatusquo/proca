@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "peate olema 18-aastane",
     "twitter": {
-        "actionText": "Kirjutasin alla. sa peaksid ka"
+        "actionText": "Kirjutasin alla. sa peaksid ka",
+        "actionUrl": "actionUrl"
     },
     "register": "Lisage minu nimi",
     "dialogTitle": "Hoidke mind kampaaniaga kursis",
@@ -72,5 +73,9 @@
     "Other": "Teine",
     "I'm donating ": "Annetan ",
     "I'm donating": "Annetan",
-    "Choose your donation amount": "Valige annetuse summa"
+    "Choose your donation amount": "Valige annetuse summa",
+    "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
+    "Sign the ECI": "Allkirjastage ECI",
+    "Share": "Jaga",
+    "Join": "Ühine"
 }
