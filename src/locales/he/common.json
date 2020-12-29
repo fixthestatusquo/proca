@@ -44,7 +44,8 @@
     },
     "you need to be 18 years old": "אתה צריך להיות בן 18",
     "twitter": {
-        "actionText": "נרשמתי. גם אתה צריך"
+        "actionText": "נרשמתי. גם אתה צריך",
+        "actionUrl": "actionUrl"
     },
     "register": "הוסף את שמי",
     "dialogTitle": "עדכן אותי לגבי הקמפיין",
@@ -71,5 +72,9 @@
     "Other": "אחר",
     "I'm donating ": "אני תורם ",
     "I'm donating": "אני תורם",
-    "Choose your donation amount": "בחר את סכום התרומה שלך"
+    "Choose your donation amount": "בחר את סכום התרומה שלך",
+    "Sorry, we couldn't save": "מצטערים, לא הצלחנו לשמור",
+    "Sign the ECI": "חתמו על ה- ECI",
+    "Share": "שיתוף",
+    "Join": "הצטרפות"
 }
