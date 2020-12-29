@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "πρέπει να είστε 18 ετών",
     "twitter": {
-        "actionText": "Υπέγραψα. θα πρέπει επίσης"
+        "actionText": "Υπέγραψα. θα πρέπει επίσης",
+        "actionUrl": "actionUrl"
     },
     "register": "Προσθέστε το όνομά μου",
     "dialogTitle": "Ενημερώστε με για την εκστρατεία",
@@ -72,5 +73,9 @@
     "Other": "Άλλο",
     "I'm donating ": "Δωρίζω ",
     "I'm donating": "Δωρίζω",
-    "Choose your donation amount": "Επιλέξτε το ποσό της δωρεάς σας"
+    "Choose your donation amount": "Επιλέξτε το ποσό της δωρεάς σας",
+    "Sorry, we couldn't save": "Δυστυχώς, δεν ήταν δυνατή η αποθήκευση",
+    "Sign the ECI": "Υπογράψτε το ECI",
+    "Share": "Διαμοιρασμός",
+    "Join": "Συμμετοχή"
 }
