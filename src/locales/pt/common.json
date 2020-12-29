@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "você precisa ter 18 anos de idade",
     "twitter": {
-        "actionText": "Eu assinei. Tu também devias"
+        "actionText": "Eu assinei. Tu também devias",
+        "actionUrl": "actionUrl"
     },
     "register": "Acrescentar meu nome",
     "dialogTitle": "Mantenha-me informado sobre a campanha",
@@ -72,5 +73,9 @@
     "I'm donating ": "Eu estou a doar ",
     "I'm donating": "Eu estou a doar",
     "Choose your donation amount": "Escolha o valor da sua doação",
-    "organisation": "A sua conta de organização"
+    "organisation": "A sua conta de organização",
+    "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
+    "Sign the ECI": "Assine o ECI",
+    "Share": "Partilhar",
+    "Join": "Entrar"
 }
