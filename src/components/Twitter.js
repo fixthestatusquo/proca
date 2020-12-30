@@ -107,7 +107,11 @@ const Component = (props) => {
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
-        actionUrl={props.actionUrl || data?.actionUrl || t("twitter.actionUrl")}
+        actionUrl={
+          props.actionUrl ||
+          data?.actionUrl ||
+          t("twitter.actionUrl") /* i18next-extract-disable-line */
+        }
         actionText={config.param.twitterText || t("twitter.actionText")}
         done={handleDone}
       />
