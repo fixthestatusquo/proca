@@ -46,7 +46,8 @@
     },
     "you need to be 18 years old": "musisz mieć 18 lat",
     "twitter": {
-        "actionText": "Podpisałem. Ty też powinieneś"
+        "actionText": "Podpisałem. Ty też powinieneś",
+        "actionUrl": "actionUrl"
     },
     "register": "Dodaj moje imię i nazwisko",
     "dialogTitle": "Informuj mnie na bieżąco o kampanii",
@@ -73,5 +74,9 @@
     "Other": "Inne",
     "I'm donating ": "Oddaję ",
     "I'm donating": "Oddaję",
-    "Choose your donation amount": "Wybierz kwotę darowizny"
+    "Choose your donation amount": "Wybierz kwotę darowizny",
+    "Sorry, we couldn't save": "Przepraszam, nie mogliśmy uratować",
+    "Sign the ECI": "Podpisanie EIK",
+    "Share": "Udostępnij",
+    "Join": "Dołącz"
 }
