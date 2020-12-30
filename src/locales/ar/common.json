@@ -44,7 +44,8 @@
     },
     "you need to be 18 years old": "يجب أن يكون عمرك 18 عامًا",
     "twitter": {
-        "actionText": "وقعت. يجب عليك أنت أيضا"
+        "actionText": "وقعت. يجب عليك أنت أيضا",
+        "actionUrl": "العمل"
     },
     "register": "أضف اسمي",
     "dialogTitle": "ابقني على اطلاع حول الحملة",
@@ -71,5 +72,9 @@
     "Phone": "الهاتف",
     "Other": "آخر",
     "I'm donating ": "أنا أتبرع ",
-    "I'm donating": "أنا أتبرع"
+    "I'm donating": "أنا أتبرع",
+    "Sorry, we couldn't save": "عذرا ، لم نتمكن من الحفظ",
+    "Sign the ECI": "قم بالتوقيع على ECI",
+    "Share": "مشاركة",
+    "Join": "الإلتحاق بالغرفة"
 }

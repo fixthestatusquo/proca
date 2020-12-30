@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "moraš biti star 18 let",
     "twitter": {
-        "actionText": "Podpisal sem. tudi vi bi morali"
+        "actionText": "Podpisal sem. tudi vi bi morali",
+        "actionUrl": "actionUrl"
     },
     "register": "Dodaj moje ime",
     "dialogTitle": "Obveščajte me o kampanji",
@@ -74,5 +75,9 @@
     "Other": "Drugo",
     "I'm donating ": "Doniram ",
     "I'm donating": "Doniram",
-    "Choose your donation amount": "Izberite znesek donacije"
+    "Choose your donation amount": "Izberite znesek donacije",
+    "Sorry, we couldn't save": "Žal nismo mogli shraniti",
+    "Sign the ECI": "Podpiši ECI",
+    "Share": "Skupna raba",
+    "Join": "Pridruži se"
 }

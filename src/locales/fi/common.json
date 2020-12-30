@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "sinun on oltava 18-vuotias",
     "twitter": {
-        "actionText": "Allekirjoitin. Sinunkin pitäisi"
+        "actionText": "Allekirjoitin. Sinunkin pitäisi",
+        "actionUrl": "actionUrl"
     },
     "register": "Lisää nimeni",
     "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
@@ -72,5 +73,9 @@
     "Other": "Muu",
     "I'm donating ": "Lahjoitan ",
     "I'm donating": "Lahjoitan",
-    "Choose your donation amount": "Valitse lahjoitussumma"
+    "Choose your donation amount": "Valitse lahjoitussumma",
+    "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
+    "Sign the ECI": "Allekirjoita ECI",
+    "Share": "Jaa",
+    "Join": "Liity"
 }

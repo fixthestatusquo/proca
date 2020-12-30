@@ -45,7 +45,8 @@
     "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
     "you need to be 18 years old": "vous devez avoir 18 ans",
     "twitter": {
-        "actionText": "J'ai signé. Tu devrais aussi"
+        "actionText": "J'ai signé. Tu devrais aussi",
+        "actionUrl": "actionUrl"
     },
     "register": "Ajouter mon nom",
     "dialogTitle": "Tenez-moi informé·e de la campagne",
@@ -72,5 +73,9 @@
     "Donations must be {{amount}} or more": "Les dons doivent être de {{amount}} ou plus",
     "The average donation is {{amount}}": "Le don moyen est de {{amount}}.",
     "Monthly donations": "Dons mensuels",
-    "Phone": "Phone"
+    "Phone": "Phone",
+    "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
+    "Sign the ECI": "Signer l'ICE",
+    "Share": "Partager",
+    "Join": "Rejoignez"
 }

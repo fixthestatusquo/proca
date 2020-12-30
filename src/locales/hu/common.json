@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "18 évesnek kell lenned",
     "twitter": {
-        "actionText": "Aláírtam. Neked is kellene"
+        "actionText": "Aláírtam. Neked is kellene",
+        "actionUrl": "actionUrl"
     },
     "register": "Add hozzá a nevemet",
     "dialogTitle": "Tájékoztasson a kampányról",
@@ -72,5 +73,9 @@
     "I'm donating ": "Adakozom ",
     "I'm donating": "Adakozom",
     "Choose your donation amount": "Válassza ki az adomány összegét",
-    "organisation": "A szervezeti fiók"
+    "organisation": "A szervezeti fiók",
+    "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
+    "Sign the ECI": "Aláírja az ECI-t",
+    "Share": "Megosztás",
+    "Join": "Csatlakozás"
 }

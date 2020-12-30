@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "musíte mať 18 rokov",
     "twitter": {
-        "actionText": "Podpísal som sa. mali by ste tiež"
+        "actionText": "Podpísal som sa. mali by ste tiež",
+        "actionUrl": "actionUrl"
     },
     "register": "Pridajte moje meno",
     "dialogTitle": "Informujte ma o kampani",
@@ -73,5 +74,9 @@
     "Other": "Ostatné",
     "I'm donating ": "Darujem ",
     "I'm donating": "Darujem",
-    "Choose your donation amount": "Vyberte si sumu daru"
+    "Choose your donation amount": "Vyberte si sumu daru",
+    "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
+    "Sign the ECI": "Podpíšte ECI",
+    "Share": "Zdieľať",
+    "Join": "Pridať sa"
 }

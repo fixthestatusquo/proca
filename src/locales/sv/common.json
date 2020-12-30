@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "du måste vara 18 år gammal",
     "twitter": {
-        "actionText": "Jag skrev under. du borde också"
+        "actionText": "Jag skrev under. du borde också",
+        "actionUrl": "actionUrl"
     },
     "register": "Lägg till mitt namn",
     "dialogTitle": "Håll mig informerad om kampanjen",
@@ -72,5 +73,9 @@
     "Other": "Övrigt",
     "I'm donating ": "Jag donerar ",
     "I'm donating": "Jag donerar",
-    "Choose your donation amount": "Välj ditt donationsbelopp"
+    "Choose your donation amount": "Välj ditt donationsbelopp",
+    "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
+    "Sign the ECI": "Underteckna ECI",
+    "Share": "Dela",
+    "Join": "Gå med"
 }

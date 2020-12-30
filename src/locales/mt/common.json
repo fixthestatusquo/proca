@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "trid tkun 18-il sena",
     "twitter": {
-        "actionText": "I ffirmat. għandek ukoll"
+        "actionText": "I ffirmat. għandek ukoll",
+        "actionUrl": "actionUrl"
     },
     "share": {
         "title": "Kważi lest! Ħu l-pass li jmiss.",
@@ -72,5 +73,10 @@
     "Monthly donations": "Donazzjonijiet ta ’kull xahar",
     "Amount": "Ammont",
     "Address": "Indirizz",
-    "Account": "Kont"
+    "Account": "Kont",
+    "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
+    "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
+    "Sign the ECI": "Iffirma l-ECI",
+    "Share": "Aqsam",
+    "Join": "Jingħaqdu"
 }

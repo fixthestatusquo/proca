@@ -44,7 +44,8 @@
     },
     "you need to be 18 years old": "trebuie să ai 18 ani",
     "twitter": {
-        "actionText": "Am semnat. ar trebui si tu"
+        "actionText": "Am semnat. ar trebui si tu",
+        "actionUrl": "actionUrl"
     },
     "register": "Adaugă numele meu",
     "dialogTitle": "Păstrați-mă la curent cu campania",
@@ -71,5 +72,9 @@
     "Other": "Altele",
     "I'm donating ": "Donez ",
     "I'm donating": "Donez",
-    "Choose your donation amount": "Alegeți suma donației dvs."
+    "Choose your donation amount": "Alegeți suma donației dvs",
+    "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
+    "Sign the ECI": "Semnați ECI",
+    "Share": "Distribuie",
+    "Join": "Alăturați-vă"
 }

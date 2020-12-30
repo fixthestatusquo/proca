@@ -67,5 +67,8 @@
     "email": {
         "subject": "Subject"
     },
-    "Phone": "Phone"
+    "Phone": "Phone",
+    "Share": "Share",
+    "Join": "Join",
+    "organisation": "Your organisation account"
 }

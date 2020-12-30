@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "трябва да сте на 18 години",
     "twitter": {
-        "actionText": "Подписах. Вие също трябва да"
+        "actionText": "Подписах. Вие също трябва да",
+        "actionUrl": "actionUrl"
     },
     "share": {
         "title": "Почти свърших! Направете следващата стъпка.",
@@ -70,5 +71,10 @@
     "Monthly donations": "Месечни дарения",
     "Amount": "Сума",
     "Address": "Адрес",
-    "Account": "Акаунт"
+    "Account": "Акаунт",
+    "Your organisation account": "Вашият акаунт на организацията",
+    "Sorry, we couldn't save": "За съжаление не можахме да запазим",
+    "Sign the ECI": "Подпишете ECI",
+    "Share": "Споделяне",
+    "Join": "Присъединяване"
 }
