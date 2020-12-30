@@ -2,7 +2,7 @@
     "you need to be 18 years old": "тебе должно быть 18 лет",
     "twitter": {
         "actionText": "Я подписал. Ты тоже должен",
-        "actionUrl": "действиеUrl"
+        "actionUrl": "actionUrl"
     },
     "share": {
         "title": "Почти готово! Сделай следующий шаг.",
@@ -73,9 +73,9 @@
     "Amount": "Сумма",
     "Address": "Адрес",
     "Account": "Учётная запись",
-    "Your organisation account": "Ваш организационный аккаунт",
-    "Sorry, we couldn't save": "Простите, мы не смогли спасти",
-    "Sign the ECI": "Подпишите ЕКИП",
+    "Your organisation account": "Аккаунт вашей организации",
+    "Sorry, we couldn't save": "Простите, мы не смогли записать",
+    "Sign the ECI": "Подпишите ЕГИ",
     "Share": "Поделиться",
     "Join": "Присоединиться"
 }
