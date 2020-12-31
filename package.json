@@ -39,7 +39,7 @@
     "react-scripts": "^3.4.3",
     "react-share": "^4.2.1",
     "recoil": "^0.1.2",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
