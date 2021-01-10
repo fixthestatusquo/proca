@@ -78,5 +78,6 @@
     "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
     "Sign the ECI": "Iffirma l-ECI",
     "Share": "Aqsam",
-    "Join": "Jingħaqdu"
+    "Join": "Jingħaqdu",
+    "The average donation is {{amount}} {{currency}}": "Id-donazzjoni medja hija {{amount}} {{currency}}"
 }
