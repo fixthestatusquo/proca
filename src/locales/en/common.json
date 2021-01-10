@@ -43,6 +43,7 @@
   "Thank you": "Thank you",
   "Thanks!": "Thanks!",
   "The average donation is {{amount}}": "The average donation is {{amount}}",
+  "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
   "This field is required.": "This field is required.",
   "Your organisation account": "Your organisation account",
   "consent": {
