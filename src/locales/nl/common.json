@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Sorry, we konden het niet redden.",
     "Sign the ECI": "Teken de ECI",
     "Share": "Share",
-    "Join": "Deelnemen"
+    "Join": "Deelnemen",
+    "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}"
 }
