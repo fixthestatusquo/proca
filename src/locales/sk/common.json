@@ -78,5 +78,6 @@
     "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
     "Sign the ECI": "Podpíšte ECI",
     "Share": "Zdieľať",
-    "Join": "Pridať sa"
+    "Join": "Pridať sa",
+    "The average donation is {{amount}} {{currency}}": "Priemerný dar je {{amount}} {{currency}}"
 }
