@@ -76,5 +76,6 @@
     "Sorry, we couldn't save": "عذرا ، لم نتمكن من الحفظ",
     "Sign the ECI": "قم بالتوقيع على ECI",
     "Share": "مشاركة",
-    "Join": "الإلتحاق بالغرفة"
+    "Join": "الإلتحاق بالغرفة",
+    "The average donation is {{amount}} {{currency}}": "متوسط التبرع هو {{amount}} {{currency}}"
 }
