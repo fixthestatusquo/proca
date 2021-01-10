@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
     "Sign the ECI": "Underskriv ECI",
     "Share": "Del",
-    "Join": "Meld dig ind"
+    "Join": "Meld dig ind",
+    "The average donation is {{amount}} {{currency}}": "Den gennemsnitlige donation er {{amount}} {{currency}}"
 }
