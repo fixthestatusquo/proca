@@ -76,5 +76,6 @@
     "Sorry, we couldn't save": "מצטערים, לא הצלחנו לשמור",
     "Sign the ECI": "חתמו על ה- ECI",
     "Share": "שיתוף",
-    "Join": "הצטרפות"
+    "Join": "הצטרפות",
+    "The average donation is {{amount}} {{currency}}": "התרומה הממוצעת היא {{amount}} {{currency}}"
 }
