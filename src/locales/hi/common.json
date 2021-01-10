@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "क्षमा करें, हम नहीं बचा सके",
     "Sign the ECI": "ईसीआई पर हस्ताक्षर करें",
     "Share": "साझा करें",
-    "Join": "हिस्सा बनें"
+    "Join": "हिस्सा बनें",
+    "The average donation is {{amount}} {{currency}}": "औसत दान {{amount}} {{currency}} है"
 }
