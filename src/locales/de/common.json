@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Entschuldigung, wir konnten nicht speichern",
     "Sign the ECI": "EBI unterschreiben",
     "Share": "Teilen",
-    "Join": "Beitreten"
+    "Join": "Beitreten",
+    "The average donation is {{amount}} {{currency}}": "Die durchschnittliche Spende beträgt {{amount}} {{currency}}"
 }
