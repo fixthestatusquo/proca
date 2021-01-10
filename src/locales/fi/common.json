@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
     "Sign the ECI": "Allekirjoita ECI",
     "Share": "Jaa",
-    "Join": "Liity"
+    "Join": "Liity",
+    "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}"
 }
