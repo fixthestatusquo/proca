@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
     "Sign the ECI": "Aláírja az ECI-t",
     "Share": "Megosztás",
-    "Join": "Csatlakozás"
+    "Join": "Csatlakozás",
+    "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}"
 }
