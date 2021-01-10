@@ -15,6 +15,7 @@ import {
   FormGroup,
   Button,
   ButtonGroup,
+  Typography,
 } from "@material-ui/core";
 import TextField from "./TextField";
 import { useForm } from "react-hook-form";
@@ -114,7 +115,10 @@ const DonateAmount = (props) => {
   // todo: not hardcoded, and useIntl.NumberFormat
   const average = config.component.donation.oneoff.average;
   const subtitle = average
-    ? t("The average donation is {{amount}}", { amount: average })
+    ? t("The average donation is {{amount}} {{currency}}", {
+        amount: average,
+        currency: currency.code,
+      })
     : config.component.donation.subTitle;
   const image = config.component.donation.image;
 
@@ -148,10 +152,13 @@ const DonateAmount = (props) => {
       console.log({ ...config.data, ...data });
       const params = Object.entries({ ...config.data, ...data }).reduce(
         (p, d) => {
-          p += "&" + fieldmap[d.key] + "=" + encodeURIComponent(d.value);
+          console.log(d, fieldmap[d[0]], p);
+          p += "&" + fieldmap[d[0]] + "=" + encodeURIComponent(d[1]);
+          return p;
         },
         ""
       );
+      console.log(params);
       window.open(
         config.component.donation.external.url + amount + params,
         "_blank"
@@ -181,6 +188,9 @@ const DonateAmount = (props) => {
 
       {image ? <CardMedia image={image} title={title} /> : null}
       <CardContent>
+        <Typography color="textSecondary">
+          {t("campaign:donation.intro", { campaign: config.campaign.title })}
+        </Typography>
         <div className={classes.root}>
           {selection.map((d) => (
             <AmountButton key={d} amount={d} />
@@ -208,7 +218,7 @@ const DonateAmount = (props) => {
               <TextField
                 form={form}
                 type="number"
-                label="Amount"
+                label={t("Amount")}
                 name="amount"
                 className={classes.number}
                 InputProps={{
