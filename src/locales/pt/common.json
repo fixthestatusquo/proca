@@ -78,5 +78,6 @@
     "Sign the ECI": "Assine o ECI",
     "Share": "Partilhar",
     "Join": "Entrar",
-    "The average donation is {{amount}} {{currency}}": "A doação média é {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "A doação média é {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Estou doando {{amount}}"
 }
