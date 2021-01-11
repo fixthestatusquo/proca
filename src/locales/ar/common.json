@@ -77,5 +77,6 @@
     "Sign the ECI": "قم بالتوقيع على ECI",
     "Share": "مشاركة",
     "Join": "الإلتحاق بالغرفة",
-    "The average donation is {{amount}} {{currency}}": "متوسط التبرع هو {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "متوسط التبرع هو {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "أنا أتبرع {{amount}}"
 }
