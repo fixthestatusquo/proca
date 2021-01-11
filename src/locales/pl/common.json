@@ -78,5 +78,6 @@
     "Sorry, we couldn't save": "Przepraszam, nie mogliśmy uratować",
     "Sign the ECI": "Podpisanie EIK",
     "Share": "Udostępnij",
-    "Join": "Dołącz"
+    "Join": "Dołącz",
+    "The average donation is {{amount}} {{currency}}": "Średnia darowizna to {{amount}} {{currency}}"
 }

@@ -82,5 +82,6 @@
     "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
     "Sign the ECI": "Signer l'ICE",
     "Share": "Partager",
-    "Join": "Rejoindre"
+    "Join": "Rejoindre",
+    "The average donation is {{amount}} {{currency}}": "Le don moyen est de {{amount}} {{currency}}"
 }

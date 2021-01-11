@@ -76,5 +76,6 @@
     "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
     "Sign the ECI": "Semnați ECI",
     "Share": "Distribuie",
-    "Join": "Alăturați-vă"
+    "Join": "Alăturați-vă",
+    "The average donation is {{amount}} {{currency}}": "Donația medie este de {{amount}} {{currency}}"
 }

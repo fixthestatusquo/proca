@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Lo siento, no pudimos salvar",
     "Sign the ECI": "Firme la ECI",
     "Share": "Compartir",
-    "Join": "Unirse"
+    "Join": "Unirse",
+    "The average donation is {{amount}} {{currency}}": "La donación promedio es {{amount}} {{currency}}"
 }

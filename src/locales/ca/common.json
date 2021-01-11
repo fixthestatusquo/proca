@@ -76,5 +76,6 @@
     "Sorry, we couldn't save": "No hem pogut desar",
     "Sign the ECI": "Signa l’ECI",
     "Share": "Comparteix",
-    "Join": "Unir-se al grup"
+    "Join": "Unir-se al grup",
+    "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}"
 }

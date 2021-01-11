@@ -76,5 +76,6 @@
     "Sorry, we couldn't save": "За съжаление не можахме да запазим",
     "Sign the ECI": "Подпишете ECI",
     "Share": "Споделяне",
-    "Join": "Присъединяване"
+    "Join": "Присъединяване",
+    "The average donation is {{amount}} {{currency}}": "Средното дарение е {{amount}} {{currency}}"
 }

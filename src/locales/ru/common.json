@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Простите, мы не смогли записать",
     "Sign the ECI": "Подпишите ЕГИ",
     "Share": "Поделиться",
-    "Join": "Присоединиться"
+    "Join": "Присоединиться",
+    "The average donation is {{amount}} {{currency}}": "Среднее пожертвование составляет {{amount}} {{currency}}"
 }

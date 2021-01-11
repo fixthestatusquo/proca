@@ -77,5 +77,6 @@
     "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
     "Sign the ECI": "Allkirjastage ECI",
     "Share": "Jaga",
-    "Join": "Ühine"
+    "Join": "Ühine",
+    "The average donation is {{amount}} {{currency}}": "Keskmine annetus on {{amount}} {{currency}}"
 }
