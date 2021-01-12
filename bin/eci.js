@@ -75,7 +75,6 @@ const makeLocalAP = (mainAP, locale, eci) => {
   const mainConfig = read(parseInt(id, 10));
   const eciid = mainConfig.component.eci.registrationNumber;
   const eci = readEci(eciid);
-
   const pages = {};
   eci.languages.language.forEach((ll) => {
     pages[ll.code] = makeLocalAP(mainConfig, ll.code, eci);

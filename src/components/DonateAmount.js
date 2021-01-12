@@ -108,7 +108,9 @@ const DonateAmount = (props) => {
   };
   const title = amount
     ? config?.component?.donation.igive ||
-      "I'm donating" + " " + amount.toString() + currency.symbol
+      t("I'm donating {{amount}}", {
+        amount: amount.toString() + currency.symbol,
+      })
     : config?.component?.donation.title || t("Choose your donation amount");
   //    "I'm donating";
 
@@ -152,6 +154,7 @@ const DonateAmount = (props) => {
       console.log({ ...config.data, ...data });
       const params = Object.entries({ ...config.data, ...data }).reduce(
         (p, d) => {
+          if (!fieldmap[d[0]]) return "";
           console.log(d, fieldmap[d[0]], p);
           p += "&" + fieldmap[d[0]] + "=" + encodeURIComponent(d[1]);
           return p;
