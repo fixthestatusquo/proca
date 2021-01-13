@@ -78,5 +78,6 @@
     "Sign the ECI": "ईसीआई पर हस्ताक्षर करें",
     "Share": "साझा करें",
     "Join": "हिस्सा बनें",
-    "The average donation is {{amount}} {{currency}}": "औसत दान {{amount}} {{currency}} है"
+    "The average donation is {{amount}} {{currency}}": "औसत दान {{amount}} {{currency}} है",
+    "I'm donating {{amount}}": "मैं दान कर रहा हूँ [१३]"
 }

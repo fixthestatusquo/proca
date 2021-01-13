@@ -79,5 +79,6 @@
     "Sign the ECI": "Iffirma l-ECI",
     "Share": "Aqsam",
     "Join": "Jingħaqdu",
-    "The average donation is {{amount}} {{currency}}": "Id-donazzjoni medja hija {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Id-donazzjoni medja hija {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Qed nagħti donazzjoni {{amount}}"
 }

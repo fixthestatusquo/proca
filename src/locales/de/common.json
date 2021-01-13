@@ -78,5 +78,6 @@
     "Sign the ECI": "EBI unterschreiben",
     "Share": "Teilen",
     "Join": "Beitreten",
-    "The average donation is {{amount}} {{currency}}": "Die durchschnittliche Spende beträgt {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Die durchschnittliche Spende beträgt {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Ich spende {{amount}}"
 }

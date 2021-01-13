@@ -78,5 +78,6 @@
     "Sign the ECI": "Teken de ECI",
     "Share": "Share",
     "Join": "Deelnemen",
-    "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Ik doneer {{amount}}"
 }

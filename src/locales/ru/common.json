@@ -78,5 +78,6 @@
     "Sign the ECI": "Подпишите ЕГИ",
     "Share": "Поделиться",
     "Join": "Присоединиться",
-    "The average donation is {{amount}} {{currency}}": "Среднее пожертвование составляет {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Среднее пожертвование составляет {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Я жертвую {{amount}}"
 }

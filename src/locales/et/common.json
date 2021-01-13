@@ -78,5 +78,6 @@
     "Sign the ECI": "Allkirjastage ECI",
     "Share": "Jaga",
     "Join": "Ühine",
-    "The average donation is {{amount}} {{currency}}": "Keskmine annetus on {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Keskmine annetus on {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Annetan {{amount}}"
 }

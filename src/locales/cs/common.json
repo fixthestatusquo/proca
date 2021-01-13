@@ -79,5 +79,6 @@
     "Sign the ECI": "Podepište ECI",
     "Share": "Sdílet",
     "Join": "Přidat se",
-    "The average donation is {{amount}} {{currency}}": "Průměrný dar je {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Průměrný dar je {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Daruji {{amount}}"
 }
