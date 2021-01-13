@@ -36,7 +36,7 @@ export default (props) => {
     <TextField
       id={props.name}
       name={props.name}
-      label={t(props.name)}
+      label={/* i18next-extract-disable-line */ t(props.name)}
       inputRef={register}
       onBlur={handleBlur}
       InputLabelProps={{ shrink: value.length > 0 }}

@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "πρέπει να είστε 18 ετών",
     "twitter": {
-        "actionText": "Υπέγραψα. θα πρέπει επίσης"
+        "actionText": "Υπέγραψα. θα πρέπει επίσης",
+        "actionUrl": "actionUrl"
     },
     "register": "Προσθέστε το όνομά μου",
     "dialogTitle": "Ενημερώστε με για την εκστρατεία",
@@ -59,5 +60,23 @@
         "processing-nocookie": "Οι προσωπικές σας πληροφορίες θα παραμείνουν ιδιωτικές και θα διατηρηθούν ασφαλείς. Υποβάλλοντας τις πληροφορίες συμφωνείτε με τη χρήση των δεδομένων αυτών σύμφωνα με την <1> πολιτική απορρήτου </1> μας",
         "opt-in-both": "Ναι, συμφωνώ η {{partner}} και η {{lead}} να με ενημερώνει μέσω email"
     },
-    "Account": "Λογαριασμός"
+    "Account": "Λογαριασμός",
+    "organisation": "Ο λογαριασμός του οργανισμού σας",
+    "email": {
+        "subject": "θέμα",
+        "body": "σώμα"
+    },
+    "Donations must be {{amount}} or more": "Οι δωρεές πρέπει να είναι {{amount}} ή περισσότερες",
+    "The average donation is {{amount}}": "Η μέση δωρεά είναι {{amount}}",
+    "Monthly donations": "Μηνιαίες δωρεές",
+    "Phone": "Phone",
+    "Other": "Άλλο",
+    "I'm donating ": "Δωρίζω ",
+    "I'm donating": "Δωρίζω",
+    "Choose your donation amount": "Επιλέξτε το ποσό της δωρεάς σας",
+    "Sorry, we couldn't save": "Δυστυχώς, δεν ήταν δυνατή η αποθήκευση",
+    "Sign the ECI": "Υπογράψτε το ECI",
+    "Share": "Διαμοιρασμός",
+    "Join": "Συμμετοχή",
+    "The average donation is {{amount}} {{currency}}": "Η μέση δωρεά είναι {{amount}} {{currency}}"
 }

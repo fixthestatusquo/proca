@@ -5,12 +5,12 @@ import React from "react";
 import {
   IconButton,
   //  ButtonGroup,
-  //  Button,
+  Button,
   Card,
   CardHeader,
   CardActions,
   CardContent,
-  CardMedia
+  CardMedia,
 } from "@material-ui/core";
 
 import metadataparser from "page-metadata-parser";
@@ -47,33 +47,33 @@ import {
   TelegramIcon,
   WhatsappIcon,
   RedditIcon,
-  EmailIcon
+  EmailIcon,
 } from "react-share";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
-    paddingTop: "52.5%" // FB ratio
+    paddingTop: "52.5%", // FB ratio
   },
   aamargin: {
     margin: theme.spacing(1),
     "& > *": {
-      margin: theme.spacing(1)
-    }
+      margin: theme.spacing(1),
+    },
   },
   root: {
     "& p": { fontSize: theme.typography.pxToRem(16) },
-    "& h3": { fontSize: theme.typography.pxToRem(20) }
+    "& h3": { fontSize: theme.typography.pxToRem(20) },
   },
   widroot: {
     "& Button": { justifyContent: "left" },
     "& span": { justifyContent: "left", padding: "5px 10px" },
     "& > *": {
-      margin: theme.spacing(1)
-    }
-  }
+      margin: theme.spacing(1),
+    },
+  },
 }));
 /*
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -90,9 +90,8 @@ export default function ShareAction(props) {
   const metadata = metadataparser.getMetadata(window.document, window.location);
   const { t } = useTranslation();
 
-  const shareUrl = component => {
-    if (config?.component?.share?.utm === false)
-      return window.location.href;
+  const shareUrl = (component) => {
+    if (config?.component?.share?.utm === false) return window.location.href;
 
     const url = new URL(window.location.href);
     let params = url.searchParams;
@@ -106,6 +105,10 @@ export default function ShareAction(props) {
 
     return url.toString();
   };
+  const next = () => {
+    if (props.done instanceof Function) props.done();
+  };
+
   return (
     <div className={classes.root}>
       <h3>{t("share.title")}</h3>
@@ -144,16 +147,23 @@ export default function ShareAction(props) {
             component={TwitterShareButton}
           />
           <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
-          <ActionIcon
-            icon={EmailIcon}
-            component={EmailShareButton}
-            subject={t("share.email.subject") || t("share.message")}
-            body={t("share.email.body") || t("share.message")}
-            separator=" "
-          />
-          <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          {!!config.component?.share?.email && (
+            <ActionIcon
+              icon={EmailIcon}
+              component={EmailShareButton}
+              subject={t("share.email.subject") || t("share.message")}
+              body={t("share.email.body") || t("share.message")}
+              separator=" "
+            />
+          )}
+          {!!config.component?.share?.reddit && (
+            <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          )}
           <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
         </CardActions>
+        {config.component.share.next && (
+          <Button onClick={next}>{t("Next")}</Button>
+        )}
       </Card>
     </div>
   );
@@ -166,8 +176,8 @@ export default function ShareAction(props) {
     function addShare(event) {
       addAction(actionPage, event, {
         uuid: uuid(),
-        payload: [{ key: "medium", value: medium }],
-        tracking: Url.utm()
+        payload: { key: "medium", value: medium },
+        tracking: Url.utm(),
       });
     }
 

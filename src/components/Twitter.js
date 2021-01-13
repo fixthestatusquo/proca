@@ -13,6 +13,7 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data] = useData();
+  console.log(data);
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [dialog, viewDialog] = useState(false);
@@ -106,7 +107,11 @@ const Component = (props) => {
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
-        actionUrl={props.actionUrl || data.actionUrl}
+        actionUrl={
+          props.actionUrl ||
+          data?.actionUrl ||
+          t("twitter.actionUrl") /* i18next-extract-disable-line */
+        }
         actionText={config.param.twitterText || t("twitter.actionText")}
         done={handleDone}
       />

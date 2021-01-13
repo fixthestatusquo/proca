@@ -81,6 +81,7 @@ export default function Register(props) {
     setCampaignConfig((config) => {
       let d = JSON.parse(JSON.stringify(config));
       d.actionpage = actionPage;
+      d.actionPage = actionPage;
       setStatus("default");
       return d;
     });
@@ -182,7 +183,13 @@ export default function Register(props) {
 
     uuid(result.contactRef); // set the global uuid as signature's fingerprint
     data.uuid = uuid();
-    data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionPage;
+    if (!config.actionpage) {
+      setStatus("error");
+      console.log(
+        `Attempt to create QRCode with actionPage id = ${config.actionpage}`
+      );
+    }
+    data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionpage;
     setData(data);
     if (props.done instanceof Function) props.done(data);
     // sends the signature's ID as fingerprint
@@ -269,7 +276,6 @@ export default function Register(props) {
     );
   }
 
-  console.log(errors);
   return (
     <React.Fragment>
       <ProgressCounter actionPage={null} count={c && c.total} />

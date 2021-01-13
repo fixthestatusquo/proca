@@ -1,8 +1,8 @@
 {
     "consent": {
-        "intro": "Ulteriori informazioni sulle nostre campagne, azioni e i progressi di {{campaign}}",
-        "opt-in": "Sì, acconsento alla ricezione di email per ricevere aggiornamenti da parte del {{partner}}",
-        "opt-out": "No, non inviarmi e-mail o aggiornamenti in futuro",
+        "intro": "Desideri ricevere ulteriori informazioni sulle nostre campagne, azioni ed il progresso di {{campaign}}",
+        "opt-in": "Sì, acconsento alla ricezione di email di aggiornamento da parte di {{partner}}",
+        "opt-out": "No, non desidero ricevere e-mail di aggiornamenti in futuro",
         "confirm": "<0>Vuoi cambiare idea?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2><3>Sì</3>",
         "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>",
         "processing-nocookie": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati in conformità con la nostra <1>informativa sulla privacy</1>",
@@ -53,7 +53,8 @@
     "you need to be 18 years old": "Devi avere 18 anni",
     "Sign Up": "Iscrizione",
     "twitter": {
-        "actionText": "Ho firmato. Dovresti farlo anche tu"
+        "actionText": "Ho firmato. Dovresti farlo anche tu",
+        "actionUrl": "actionUrl"
     },
     "register": "Aggiungi il mio nome",
     "dialogTitle": "Tienimi informato/a sulla campagna",
@@ -63,5 +64,20 @@
     "Other": "Altro",
     "I'm donating ": "Sto donando ",
     "I'm donating": "Sto donando",
-    "Choose your donation amount": "Scegli l'importo della tua donazione"
+    "Choose your donation amount": "Scegli l'importo della tua donazione",
+    "organisation": "Profilo della vostra organizzazione",
+    "email": {
+        "subject": "Oggetto",
+        "body": "corpo"
+    },
+    "Donations must be {{amount}} or more": "Le donazioni devono essere di {{amount}} o piu",
+    "The average donation is {{amount}}": "La donazione media è di {{amount}}",
+    "Monthly donations": "Donazioni mensili",
+    "Phone": "Telefono",
+    "Sorry, we couldn't save": "Ci dispiace, non abbiamo potuto salvare",
+    "Sign the ECI": "Firma l'ECI",
+    "Share": "Condividi",
+    "Join": "Unisciti a noi",
+    "The average donation is {{amount}} {{currency}}": "La donazione media è {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Sto donando {{amount}}"
 }

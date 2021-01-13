@@ -63,5 +63,12 @@
     "Other": "Other",
     "I'm donating ": "I'm donating ",
     "I'm donating": "I'm donating",
-    "Choose your donation amount": "Choose your donation amount"
+    "Choose your donation amount": "Choose your donation amount",
+    "email": {
+        "subject": "Subject"
+    },
+    "Phone": "Phone",
+    "Share": "Share",
+    "Join": "Join",
+    "organisation": "Your organisation account"
 }

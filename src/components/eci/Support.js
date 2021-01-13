@@ -106,7 +106,10 @@ export default (props) => {
                   data.nationality.toLowerCase() +
                   "_" +
                   data.documentType.replace(/\./g, "_");
-                setError(field.name, { type: "server", message: t(msg) });
+                setError(field.name, {
+                  type: "server",
+                  message: /* i18next-extract-disable-line */ t(msg),
+                });
                 break;
               }
               case "postcode": {
@@ -117,7 +120,7 @@ export default (props) => {
                 setError(field.name, {
                   type: "server",
                   message: i18n.exists(msg)
-                    ? t(msg)
+                    ? /* i18next-extract-disable-line */ t(msg)
                     : t("eci:form.error.oct_error_invalidsize"),
                 });
                 break;

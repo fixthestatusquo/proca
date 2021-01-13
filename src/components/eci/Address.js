@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 import TextField from "../TextField";
@@ -15,7 +15,7 @@ export default function Register(props) {
 
   const { setValue, watch, setError } = props.form;
 
-  const { postcode, city, country } = watch(["postcode", "city", "country"]);
+  const { postcode, country } = watch(["postcode", "country"]);
 
   useEffect(() => {
     const geocountries = ["DE", "FR"];
@@ -35,7 +35,6 @@ export default function Register(props) {
         })
         .then((res) => {
           if (res && res.name) {
-            setLocality(res.name);
             setValue("city", res.name);
           }
         })

@@ -39,11 +39,14 @@
         "confirm": "<0>Weet je het zeker? </0><1>Door 'Nee' te selecteren, kun je niet achterhalen of deze campagne succesvol is, of dat er meer actie nodig is die we samen moeten ondernemen om te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende campagnes.</1><2>U kunt zich te allen tijde uitschrijven.</2>",
         "opt-out": "Nee, stuur me geen e-mails en houd me in de toekomst niet op de hoogte",
         "opt-in": "Ja, hou me op de hoogte via e-mail",
-        "intro": "Ik ga ermee akkoord om {{name}} contact met mij op te nemen over belangrijke campagnes"
+        "intro": "Ik ga ermee akkoord om {{name}} contact met mij op te nemen over belangrijke campagnes",
+        "processing-nocookie": "Uw persoonlijke informatie wordt privé gehouden en veilig bewaard. Door informatie te verstrekken gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
+        "opt-in-both": "Ja, ik wil {{partner}} en {{lead}} op de hoogte houden via e-mail."
     },
     "you need to be 18 years old": "je moet 18 jaar oud zijn",
     "twitter": {
-        "actionText": "Ik heb getekend. Jij moet ook"
+        "actionText": "Ik heb getekend. Jij moet ook",
+        "actionUrl": "actieUrl"
     },
     "register": "Voeg mijn naam toe",
     "dialogTitle": "Hou me op de hoogte van de campagne",
@@ -57,5 +60,23 @@
     "Comment": "Opmerking",
     "Birthdate": "Geboortedatum",
     "Address": "Adres",
-    "Account": "Account"
+    "Account": "Account",
+    "organisation": "Uw organisatie-account",
+    "email": {
+        "subject": "onderwerp",
+        "body": "Romp"
+    },
+    "Donations must be {{amount}} or more": "Donaties moeten {{amount}}'s of meer zijn",
+    "The average donation is {{amount}}": "De gemiddelde donatie is {{amount}}",
+    "Monthly donations": "Maandelijkse donaties",
+    "Phone": "Telefoon",
+    "Other": "Anders",
+    "I'm donating ": "Ik doneer... ",
+    "I'm donating": "Ik doneer...",
+    "Choose your donation amount": "Kies uw donatiebedrag",
+    "Sorry, we couldn't save": "Sorry, we konden het niet redden.",
+    "Sign the ECI": "Teken de ECI",
+    "Share": "Share",
+    "Join": "Deelnemen",
+    "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}"
 }

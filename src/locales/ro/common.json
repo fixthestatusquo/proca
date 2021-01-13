@@ -38,11 +38,14 @@
         "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
         "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
         "opt-in": "Da, ține-mă informat prin e-mail",
-        "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante"
+        "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
+        "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
+        "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail"
     },
     "you need to be 18 years old": "trebuie să ai 18 ani",
     "twitter": {
-        "actionText": "Am semnat. ar trebui si tu"
+        "actionText": "Am semnat. ar trebui si tu",
+        "actionUrl": "actionUrl"
     },
     "register": "Adaugă numele meu",
     "dialogTitle": "Păstrați-mă la curent cu campania",
@@ -56,5 +59,23 @@
     "Comment": "Comentariu",
     "Birthdate": "Data nasterii",
     "Address": "Adresa",
-    "Account": "Cont"
+    "Account": "Cont",
+    "organisation": "Contul organizației dvs.",
+    "email": {
+        "subject": "subiect",
+        "body": "corp"
+    },
+    "Donations must be {{amount}} or more": "Donațiile trebuie să fie {{amount}} sau mai mare",
+    "The average donation is {{amount}}": "Donația medie este de {{amount}}",
+    "Monthly donations": "Donatii lunare",
+    "Phone": "Telefon",
+    "Other": "Altele",
+    "I'm donating ": "Donez ",
+    "I'm donating": "Donez",
+    "Choose your donation amount": "Alegeți suma donației dvs",
+    "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
+    "Sign the ECI": "Semnați ECI",
+    "Share": "Distribuie",
+    "Join": "Alăturați-vă",
+    "The average donation is {{amount}} {{currency}}": "Donația medie este de {{amount}} {{currency}}"
 }

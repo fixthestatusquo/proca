@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "musíte mať 18 rokov",
     "twitter": {
-        "actionText": "Podpísal som sa. mali by ste tiež"
+        "actionText": "Podpísal som sa. mali by ste tiež",
+        "actionUrl": "actionUrl"
     },
     "register": "Pridajte moje meno",
     "dialogTitle": "Informujte ma o kampani",
@@ -57,6 +58,26 @@
         "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
         "opt-out": "Nie, neposielajte mi e-maily ani ma nebudem informovať o ďalších udalostiach",
         "opt-in": "Áno, informujte ma e-mailom",
-        "intro": "Súhlasím, že {{name}} ma bude kontaktovať ohľadom dôležitých kampaní"
-    }
+        "intro": "Súhlasím, že {{name}} ma bude kontaktovať ohľadom dôležitých kampaní",
+        "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+        "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom"
+    },
+    "organisation": "Váš účet organizácie",
+    "email": {
+        "subject": "predmet",
+        "body": "telo"
+    },
+    "Donations must be {{amount}} or more": "Dary musia byť {{amount}} alebo viac",
+    "The average donation is {{amount}}": "Priemerný dar je {{amount}}",
+    "Monthly donations": "Mesačné dary",
+    "Phone": "Telefón",
+    "Other": "Ostatné",
+    "I'm donating ": "Darujem ",
+    "I'm donating": "Darujem",
+    "Choose your donation amount": "Vyberte si sumu daru",
+    "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
+    "Sign the ECI": "Podpíšte ECI",
+    "Share": "Zdieľať",
+    "Join": "Pridať sa",
+    "The average donation is {{amount}} {{currency}}": "Priemerný dar je {{amount}} {{currency}}"
 }

@@ -43,7 +43,8 @@ export default (props) => {
     props.form.handleBlur && props.form.handleBlur(e);
     if (!e.target.value) return;
     const api =
-      "https://twitter-proxy.tttp.workers.dev/?screen_name=" + e.target.value;
+      "https://twitter-proxy.tttp.workers.dev/?screen_name=" +
+      e.target.value.replace("https://twitter.com/", "");
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
     const field = e.target.attributes.name.nodeValue;
     async function fetchAPI() {

@@ -66,6 +66,7 @@ const Widget = (props) => {
     propsJourney = ["button", j];
     steps["button"] = Button;
     steps["dialog"] = Dialog;
+    topMulti = Dialog;
     //    steps["button"] = allSteps["button"];
     //    steps["dialog"] = allSteps["dialog"];
   }
@@ -138,6 +139,7 @@ const Widget = (props) => {
   // the result is whatever the action that has finished wants to share to the journey
   //
   const nextStep = (result) => {
+    console.log("next step");
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
     if (typeof steps[journey[current]].after === "function") {
@@ -188,13 +190,16 @@ const Widget = (props) => {
       case 2:
         let SubAction = steps[journey[current]];
         Action = steps[topMulti.current];
-        if (!Action || !SubAction)
+        console.log(Action, SubAction);
+        console.log(steps, journey[current], topMulti.current);
+        if (!Action || !SubAction) {
           return (
             <Alert severity="error">
               can't find Action {topMulti.current} or SubAction{" "}
               {journey[current]}
             </Alert>
           );
+        }
         return (
           <>
             <Action

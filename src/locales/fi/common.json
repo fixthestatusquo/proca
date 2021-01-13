@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "sinun on oltava 18-vuotias",
     "twitter": {
-        "actionText": "Allekirjoitin. Sinunkin pitäisi"
+        "actionText": "Allekirjoitin. Sinunkin pitäisi",
+        "actionUrl": "actionUrl"
     },
     "register": "Lisää nimeni",
     "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
@@ -55,7 +56,27 @@
         "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
         "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minut ajan tasalla tulevaisuudessa",
         "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
-        "intro": "Suostun {{name}} ottamaan minuun yhteyttä tärkeistä kampanjoista"
+        "intro": "Suostun {{name}} ottamaan minuun yhteyttä tärkeistä kampanjoista",
+        "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
+        "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse"
     },
-    "Account": "Tili"
+    "Account": "Tili",
+    "organisation": "Organisaatiotilisi",
+    "email": {
+        "subject": "aihe",
+        "body": "runko"
+    },
+    "Donations must be {{amount}} or more": "Lahjoitusten on oltava vähintään {{amount}}",
+    "The average donation is {{amount}}": "Keskimääräinen lahjoitus on {{amount}}",
+    "Monthly donations": "Kuukausittaiset lahjoitukset",
+    "Phone": "Puhelin",
+    "Other": "Muu",
+    "I'm donating ": "Lahjoitan ",
+    "I'm donating": "Lahjoitan",
+    "Choose your donation amount": "Valitse lahjoitussumma",
+    "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
+    "Sign the ECI": "Allekirjoita ECI",
+    "Share": "Jaa",
+    "Join": "Liity",
+    "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}"
 }

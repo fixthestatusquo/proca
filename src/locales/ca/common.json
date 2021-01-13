@@ -1,7 +1,8 @@
 {
     "you need to be 18 years old": "Ha de ser major d'edat",
     "twitter": {
-        "actionText": "He signat. Tu també ho hauries de fer"
+        "actionText": "He signat. Tu també ho hauries de fer",
+        "actionUrl": "actionUrl"
     },
     "share": {
         "title": "Gairebé ho té! Doneu el següent pas.",
@@ -71,5 +72,10 @@
     "Amount": "Quantitat",
     "Address": "Adreça",
     "Account": "Compte",
-    "organisation": "El compte de la teva organització"
+    "organisation": "El compte de la teva organització",
+    "Sorry, we couldn't save": "No hem pogut desar",
+    "Sign the ECI": "Signa l’ECI",
+    "Share": "Comparteix",
+    "Join": "Unir-se al grup",
+    "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}"
 }

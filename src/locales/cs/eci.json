@@ -54,8 +54,7 @@
             "sk": "Slovensko",
             "si": "Slovinsko",
             "es": "Španělsko",
-            "se": "Švédsko",
-            "gb": "Spojené království"
+            "se": "Švédsko"
         },
         "nationality": {
             "at": "rakouská",
@@ -85,7 +84,6 @@
             "se": "švédská",
             "si": "slovinská",
             "sk": "slovenská",
-            "gb": "britská",
             "other": "jiná..."
         },
         "requirements": {

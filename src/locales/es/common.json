@@ -39,11 +39,14 @@
         "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que tomar juntos para ganarla. Si selecciona «Sí» le mantendremos informado sobre esta y nuestras otras campañas urgentes",
         "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
         "opt-in": "Sí, mantenme informado/a por correo electrónico",
-        "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes"
+        "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes",
+        "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
+        "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico"
     },
     "you need to be 18 years old": "tienes que tener 18 años",
     "twitter": {
-        "actionText": "Yo firmé. Tú también deberías hacerlo"
+        "actionText": "Yo firmé. Tú también deberías hacerlo",
+        "actionUrl": "actionUrl"
     },
     "register": "Añade mi nombre",
     "dialogTitle": "Mantenme informado/a sobre la campaña",
@@ -57,5 +60,23 @@
     "Comment": "Comentario",
     "Birthdate": "Fecha de nacimiento",
     "Address": "Dirección",
-    "Account": "Cuenta"
+    "Account": "Cuenta",
+    "organisation": "La cuenta de su organización",
+    "email": {
+        "subject": "asunto",
+        "body": "cuerpo"
+    },
+    "Donations must be {{amount}} or more": "Las donaciones deben ser de {{amount}} o más",
+    "The average donation is {{amount}}": "El promedio de donación es de {{amount}}",
+    "Monthly donations": "Donaciones mensuales",
+    "Phone": "Teléfono",
+    "Other": "Otros",
+    "I'm donating ": "Voy a donar ",
+    "I'm donating": "Voy a donar",
+    "Choose your donation amount": "Elija la cantidad de su donación",
+    "Sorry, we couldn't save": "Lo siento, no pudimos salvar",
+    "Sign the ECI": "Firme la ECI",
+    "Share": "Compartir",
+    "Join": "Unirse",
+    "The average donation is {{amount}} {{currency}}": "La donación promedio es {{amount}} {{currency}}"
 }

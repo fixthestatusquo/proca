@@ -54,8 +54,7 @@
             "ro": "Rumeenia",
             "se": "Rootsi",
             "si": "Sloveenia",
-            "sk": "Slovakkia",
-            "gb": "Ühendkuningriik"
+            "sk": "Slovakkia"
         },
         "nationality": {
             "at": "Austria",
@@ -85,7 +84,6 @@
             "se": "Rootsi",
             "si": "Sloveenia",
             "sk": "Slovakkia",
-            "gb": "Ühendkuningriik",
             "other": "Muud..."
         },
         "requirements": {
