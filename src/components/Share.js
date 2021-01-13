@@ -161,7 +161,7 @@ export default function ShareAction(props) {
           )}
           <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
         </CardActions>
-        {config.component.share.next && (
+        {config.component.share?.next && (
           <Button onClick={next}>{t("Next")}</Button>
         )}
       </Card>
