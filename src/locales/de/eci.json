@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "EUROPÄISCHE BÜRGERINITIATIVE – Sie wollen eine Initiative unterstützen?",
-		"head-title": {
-            "home":"Europäische Bürgerinitiative",
-            "form":"Europäische Bürgerinitiative - Formulare",
-            "submitted":"Europäische Bürgerinitiative - Unterstützungsbekundung eingereicht",
-            "all-countries":"Europäische Bürgerinitiative - Online-Unterschriften",
-            "already":"Europäische Bürgerinitiative - Bereits unterstützt",
-            "disabled":"Europäische Bürgerinitiative - Initiative deaktiviert",
-            "privacy":"Europäische Bürgerinitiative - Datenschutzerklärung",
-            "conformity":"Europäische Bürgerinitiative - Konformitätszertifikat",
-            "error-404":"Europäische Bürgerinitiative - Seite nicht gefunden",
-            "error-500":"Europäische Bürgerinitiative - Unerwarteter Fehler",
-            "login":"Europäische Bürgerinitiative - Anmelden",
-            "not-initialized":"Europäische Bürgerinitiative - Initiative nicht initialisiert"
+        "head-title": {
+            "home": "Europäische Bürgerinitiative",
+            "form": "Europäische Bürgerinitiative - Formulare",
+            "submitted": "Europäische Bürgerinitiative - Unterstützungsbekundung eingereicht",
+            "all-countries": "Europäische Bürgerinitiative - Online-Unterschriften",
+            "already": "Europäische Bürgerinitiative - Bereits unterstützt",
+            "disabled": "Europäische Bürgerinitiative - Initiative deaktiviert",
+            "privacy": "Europäische Bürgerinitiative - Datenschutzerklärung",
+            "conformity": "Europäische Bürgerinitiative - Konformitätszertifikat",
+            "error-404": "Europäische Bürgerinitiative - Seite nicht gefunden",
+            "error-500": "Europäische Bürgerinitiative - Unerwarteter Fehler",
+            "login": "Europäische Bürgerinitiative - Anmelden",
+            "not-initialized": "Europäische Bürgerinitiative - Initiative nicht initialisiert"
         },
         "more.info": "Mehr Info anzeigen",
         "hide.info": "Info verbergen",
@@ -23,10 +23,10 @@
         "select_language": "Bitte Sprache auswählen",
         "select-country": "Bitte Land auswählen",
         "select-nationality": "Bitte Staatsangehörigkeit auswählen",
-        "other-country": "Anderes Land...",
+        "other-country": "Anderes Land …",
         "from": "Aus",
         "skip-content": "Direkt zum Inhalt",
-        "redirect": "Sie werden auf die folgende externe Seite weitergeleitet:",
+        "redirect": "Sie werden auf die folgende externe Seite weitergeleitet: ",
         "country": {
             "at": "Österreich",
             "be": "Belgien",
@@ -54,7 +54,8 @@
             "ro": "Rumänien",
             "se": "Schweden",
             "si": "Slowenien",
-            "sk": "Slowakei"
+            "sk": "Slowakei",
+            "gb": "Vereinigtes Königreich"
         },
         "nationality": {
             "at": "Österreichisch",
@@ -84,10 +85,11 @@
             "se": "Schwedisch",
             "si": "Slowenisch",
             "sk": "Slowakisch",
-            "other": "Sonstige..."
+            "gb": "Britisch",
+            "other": "Sonstige …"
         },
         "requirements": {
-            "text": "Bitte machen Sie gemäß der <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Verordnung (EU) 2019/788 über die Europäische Bürgerinitiative folgende Angaben</a>."
+            "text": "Bitte machen Sie gemäß der <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Verordnung (EU) 2019/788 über die Europäische Bürgerinitiative folgende Angaben.</a>"
         }
     },
     "header": {
@@ -99,8 +101,8 @@
         "recent.supporters": "Neueste Unterzeichner",
         "current.supporters": "Aktuelle Zahl der Unterzeichner",
         "total-supporters": "Gesamtzahl der Unterzeichner",
-        "goto-facebook": "Besuchen Sie unsere Facebook-Seite.",
-        "goto-twitter": "Besuchen Sie unsere Twitter-Seite."
+        "goto-facebook": "Besuchen Sie unsere Facebook-Seite",
+        "goto-twitter": "Besuchen Sie unsere Twitter-Seite"
     },
     "initiative": {
         "public.webpage": "Webpräsenz dieser Initiative (falls vorhanden):",
@@ -108,22 +110,22 @@
         "objectives": "Ziele",
         "representative": "Kontaktpersonen",
         "legal-entity": "Rechtsperson",
-        "partially-registered": "Die Initiative wurde nur teilweise registriert. Näheres über den Umfang der Registrierung erfahren Sie im Beschluss der Kommission."
+        "partially-registered": "Die Initiative wurde nur teilweise registriert. Näheres über den Umfang der Registrierung steht im Beschluss der Kommission."
     },
     "form": {
-        "title": "Unterstützen Sie diese Initiative von Bürgerinnen und Bürgern der EU!",
+        "title": "Unterstützen Sie diese Initiative von Bürgerinnen und Bürgern der EU",
         "country.from": "Ihr Herkunftsland:",
         "support-country": "Füllen Sie das Formular aus oder geben Sie Ihre eID an, um diese Bürgerinitiative zu unterstützen",
         "fill-form": "Formular ausfüllen",
         "or": "ODER",
         "eID-form": "eID angeben",
         "support.country.selected": "Herkunftsland",
-        "generic.error": "Bitte korrigieren Sie die Fehler im Formular für die Unterstützungsbekundung.",
+        "generic.error": "Bitte korrigieren Sie die Fehler im Formular für die Unterstützungsbekundung",
         "group-document": "Persönliches Ausweispapier",
         "group-personal": "Informationen zur Person",
         "group-address": "Wohnsitz",
-        "certify-info": "Hiermit bestätige ich, dass die in diesem Formular gemachten Angaben zutreffend sind und ich diese Initiative bisher noch nicht unterstützt habe.",
-        "privacy-statement": "Ich habe die <a href=\"{{url}}\" target=\"_blank\" title=\"Datenschutzerklärung\">Datenschutzerklärung</a> und den Inhalt <a href=\"{{urlRegister}}\" target=\"_blank\">dieser Bürgerinitiative</a> zur Kenntnis genommen.",
+        "certify-info": "Hiermit bestätige ich, dass die Informationen, die ich in diesem Formular angegeben habe, korrekt sind und dass ich diese Initiative noch nicht unterstützt habe.",
+        "privacy-statement": "Ich habe die <a href=\"{{url}}\" target=\"_blank\" title=\"Read the privacy statement\">Datenschutzerklärung</a> und den Inhalt dieser <a href=\"{{urlRegister}}\" target=\"_blank\">Bürgerinitiative</a> gelesen.",
         "certify-info-eID": "Hiermit bestätige ich, dass ich diese Bürgerinitiative bisher noch nicht unterstützt habe.",
         "support": "Unterstützen",
         "document-number": "Nummer",
@@ -137,8 +139,8 @@
         "support-footer3": "2. Sie müssen alt genug sein, um an den Wahlen zum Europäischen Parlament teilzunehmen oder – in einigen Ländern – das 16. Lebensjahr vollendet haben.",
         "support-footer4": "Mehr dazu",
         "support-footerDE": "Wenn Sie Ihren festen Wohnsitz außerhalb Deutschlands haben, müssen Sie diesen bei der diplomatischen Vertretung Deutschlands in dem betreffenden Land gemeldet haben.",
-        "optional-validacion-desc": "Das Format meiner persönlichen Identifikationsnummer/der Nummer eines persönlichen Ausweispapiers und die Postleitzahl sind korrekt.",
-        "optional-validacion-text": "Bitte diesen Fehler ignorieren und fortfahren.",
+        "optional-validacion-desc": "Das Format meiner persönlichen Identifikationsnummer/Nummer meines Personalausweises und/oder die Postleitzahl sind korrekt",
+        "optional-validacion-text": "Ignorieren Sie diesen Fehler und fahren Sie fort",
         "property": {
             "full.first.names": "Vollständige Vornamen",
             "family.names": "Familiennamen",
@@ -180,7 +182,7 @@
             "oct.error.nl.postalcode": "Ungültiges Format. Zulässiges Format: GNNNLL (G = Ziffer zwischen 1 und 9, N = Ziffer, L = Buchstabe)",
             "oct.error.pl.postalcode": "Ungültiges Format. Zulässiges Format: NNNNN (N = Ziffer)",
             "oct.error.si.postalcode": "Ungültiges Format. Zulässiges Format: NNNN (N = Ziffer)",
-            "oct.error.sk.postalcode": "#TBT# Invalid format. Format required: GNNNN (N = digit, G = digit can be number  0, 8 or 9)",
+            "oct.error.sk.postalcode": "Ungültiges Format. Erforderliches Format: GNNNN (N = Ziffer, G = Ziffer kann Nummer 0, 8 oder 9 sein)",
             "email": "Ungültige E-Mail-Adresse",
             "email.checkbox.1": "Sie müssen mindestens eines dieser beiden Kästchen ankreuzen",
             "email.checkbox.2": "Sie müssen das Kästchen ankreuzen",
@@ -215,8 +217,12 @@
             "document.ro.personal.id": "Ungültiges Format. Zulässiges Format: NNNNNNNNNNNNN (N = Ziffer)",
             "document.se.personal.number": "Ungültiges Format. Zulässiges Format: JJMMTT-NNNN oder JJJJMMTT-NNNN oder JJMMTTNNNN oder JJJJMMTTNNNN (J= Jahr, M= Monat, T= day, N = Ziffer)",
             "document.si.personal.number": "Ungültiges Format. Zulässiges Format: NNNNNNNNNNNNN (N = Ziffer)",
-            "document.invalid": "Ungültiger Wert"
-        }
+            "document.invalid": "Ungültiger Wert",
+            "email.required": "Kontrollkästchen erforderlich"
+        },
+        "captcha-button-arialabel-refresh": "CAPTCHA aktualisieren",
+        "captcha-button-arialabel-image": "Bild-CAPTCHA nutzen",
+        "captcha-button-arialabel-audio": "Audio-CAPTCHA nutzen"
     },
     "howsupport": {
         "s1.title": "Informieren",
@@ -225,28 +231,30 @@
         "s2.text": "Sie eine Europäische Bürgerinitiative",
         "s2.link": "https://europa.eu/citizens-initiative/fragen-und-antworten_de#Eine-Initiative-unterstutzen",
         "s3.title": "Wie",
-        "s3.text": "geht‘s weiter?",
+        "s3.text": "geht’s weiter?",
         "support-by-title": "So unterstützen Sie eine Europäische Bürgerinitiative"
     },
     "footer": {
         "ocs.version": "Zentrales Online-Sammelsystem",
         "privacy-title": "Datenschutzerklärung anzeigen",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Konformitätszertifikat anzeigen"
+        "conformity-title": "Konformitätszertifikat anzeigen",
+        "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses",
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection"
     },
     "congratulations": {
         "title": "VIELEN DANK!",
-        "successfully-title": "Ihre Unterstützungsbekundung ist eingegangen!",
+        "successfully-title": "Ihre Unterstützungsbekundung ist eingegangen",
         "Keep-your-signature": "Bitte bewahren Sie diese Angaben für spätere Anfragen auf",
         "download-signature-identifier": "Kennung herunterladen",
         "signature-identifier": "Kennung",
         "date-signature": "Datum der Unterschrift",
-        "and-make-change": "und bewirken Sie etwas!",
+        "and-make-change": "und bewirken Sie etwas",
         "tweet-it": "Twittern",
         "share-this-initiative": "Teilen Sie diese Initiative",
         "stay-informed": "Bitte nennen Sie uns Ihre E-Mail-Adresse, wenn Sie auf dem Laufenden gehalten werden möchten:",
         "stay-informed2": "über diese Bürgerinitiative (<a href=\"https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection\" target=\"_blank\">Datenschutzerklärung</a>)",
-        "stay-informed3": "über die Europäische Bürgerinitiative im Allgemeinen (<a href=\"https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses\" target=\"_blank\">Datenschutzerklärung</a>)",
+        "stay-informed3": "Über die Europäische Bürgerinitiative im Allgemeinen (<a href=\"https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses\" target=\"_blank\">Datenschutzerklärung</a>)",
         "stay-informed4": "Ich habe die betreffende Datenschutzerklärung gelesen und stimme der Verarbeitung meiner personenbezogenen Daten zu.",
         "stay-informed-button": "Auf dem Laufenden bleiben",
         "stay-informed-subtitle": "",
@@ -257,14 +265,14 @@
     },
     "feedback": {
         "your-will-help-us": "Ihre Rückmeldung wird uns helfen, diese Website zu verbessern.",
-        "write-your-feedback": "Schreiben Sie Ihre Rückmeldung...",
-        "send-feedback": "RÜCKMELDUNG VERSENDEN",
+        "write-your-feedback": "Schreiben Sie Ihre Rückmeldung …",
+        "send-feedback": "Rückmeldung versenden",
         "share-on-facebook": "Auf Facebook teilen",
         "tweet-it": "Auf Twitter teilen",
         "how-experience": "Wie fanden Sie‘s",
         "experience-initiative": "diese Initiative zu unterstützen?",
-        "result-ok": "Vielen Dank für Ihre Anmerkungen!",
-        "result-error": "Bei der Einreichung Ihrer Anmerkungen ist ein Fehler aufgetreten.",
+        "result-ok": "Vielen Dank für Ihre Anmerkungen",
+        "result-error": "Bei der Einreichung Ihrer Anmerkungen ist ein Fehler aufgetreten",
         "email-error": "Beim Versenden Ihrer E-Mail ist ein Fehler aufgetreten",
         "experience": {
             "bad": "Schlecht",
@@ -298,8 +306,8 @@
     },
     "error500": {
         "title": "Error 500 – Unerwarteter Fehler",
-        "subtitle": "Es ist ein Fehler aufgetreten. Wir bitten um Entschuldigung.",
-        "info": "Es gibt ein internes Server-Problem. Bitte versuchen Sie es später erneut.",
+        "subtitle": "Entschuldigung, es ist ein Fehler aufgetreten …",
+        "info": "Es gibt ein internes Server-Problem. Bitte versuchen Sie es später erneut. ",
         "ref": "Fehlercode:"
     },
     "systemNotInitialized": {
@@ -312,8 +320,8 @@
         "info": "#TBT# Gemäß der Verordnung (EU) 2018/1725 und der Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung) werden Ihre personenbezogenen Daten in diesem Formular nur für die Unterstützung der Initiative verwendet und den zuständigen nationalen Behörden für die Zwecke der Überprüfung und Bescheinigung zur Verfügung gestellt. Sie haben das Recht, von der Europäischen Kommission und von der Organisatorengruppe der Initiative oder gegebenenfalls der von der Gruppe geschaffenen juristischen Person Zugang zu Ihren personenbezogenen Daten, deren Berichtigung, Löschung und die Einschränkung ihrer Verarbeitung zu verlangen. Ihre Daten werden von der Kommission für eine maximale Speicherfrist von einem Monat nach Einreichung der Initiative bei der Kommission oder 21 Monaten nach Beginn des Erfassungszeitraums gespeichert, je nachdem, welcher Zeitpunkt früher liegt. Im Fall von rechtlichen oder verwaltungstechnischen Verfahren können die Daten über diese Fristen hinaus für einen Zeitraum von höchstens einem Monat nach Abschluss der jeweiligen Verfahren gespeichert werden. Unbeschadet jedes anderweitigen verwaltungstechnischen oder gerichtlichen Rechtsbehelfs haben Sie das Recht, jederzeit Beschwerde bei dem Europäischen Datenschutzbeauftragten oder bei einer Datenschutzbehörde, insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthalts, Ihres Arbeitsorts oder des Orts des mutmaßlichen Verstoßes zu erheben, wenn Sie meinen, dass Ihre Daten unrechtmäßig verarbeitet worden sind. Die Europäische Kommission und der Vertreter der Organisatorengruppe der Initiative oder gegebenenfalls die von der Gruppe geschaffene juristische Person sind die für die Datenverarbeitung gemeinsam Verantwortlichen im Sinne der Verordnung (EU) 2018/1725 und der Datenschutz-Grundverordnung und können anhand der Angaben in diesem Formular kontaktiert werden. Die Kontaktdaten des Datenschutzbeauftragten der Organisatorengruppe (sofern vorhanden) sind über die Internetadresse dieser Initiative im Register der Europäischen Kommission, angegeben in Nummer 4 dieses Formulars, abrufbar. Die Kontaktdaten des Datenschutzbeauftragten der Europäischen Kommission, der nationalen Behörde, die Ihre personenbezogenen Daten annimmt und bearbeitet, des Europäischen Datenschutzbeauftragten und der nationalen Datenschutzbehörden sind abrufbar unter: <a href=\"https://ec.europa.eu/citizens-initiative/public/data-protection?lg=de\" title=\"Go to Data protection\" target=\"_blank\">https://ec.europa.eu/citizens-initiative/public/data-protection?de</a>."
     },
     "disabled": {
-        "title": "Die Sammlung von Unterstützungsbekundungen für diese Initiative wurde deaktiviert.",
-        "subtitle": "Wir sammeln derzeit keine Unterstützungsbekundungen für diese Initiative."
+        "title": "Die Sammlung von Unterstützungsbekundungen für diese Initiative wurde deaktiviert",
+        "subtitle": "Wir sammeln derzeit keine Unterstützungsbekundungen für diese Initiative"
     },
     "signed": {
         "title": "Sie haben diese Initiative bereits unterstützt.",
@@ -333,15 +341,14 @@
         "5.title": "Das Herkunftsland stimmt nicht mit dem für die eID gewählten Land überein",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Anmelden",
-        "error":"Ansicht",
-        "error-msg":"Benutzername, Passwort oder Antwort auf die Sicherheitsfrage falsch. Bitte versuchen Sie es erneut.",
-        "username":"Benutzername",
-        "password":"Passwort",
-        "challenge":"Aufforderung",
-        "challenge-result":"Antwort",
-        "copy-text":"Text kopieren"
+    "login": {
+        "sign-in": "Anmelden",
+        "error": "Ansicht",
+        "error-msg": "Benutzername, Passwort oder Antwort auf die Sicherheitsfrage falsch. Bitte versuchen Sie es erneut.",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "challenge": "Aufforderung",
+        "challenge-result": "Antwort",
+        "copy-text": "Text kopieren"
     }
-
 }

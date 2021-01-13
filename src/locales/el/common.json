@@ -78,5 +78,6 @@
     "Sign the ECI": "Υπογράψτε το ECI",
     "Share": "Διαμοιρασμός",
     "Join": "Συμμετοχή",
-    "The average donation is {{amount}} {{currency}}": "Η μέση δωρεά είναι {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Η μέση δωρεά είναι {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Δωρίζω {{amount}}"
 }

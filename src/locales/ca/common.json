@@ -77,5 +77,6 @@
     "Sign the ECI": "Signa l’ECI",
     "Share": "Comparteix",
     "Join": "Unir-se al grup",
-    "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Estic donant {{amount}}"
 }

@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "INIZIATIVA DEI CITTADINI EUROPEI - Dai il tuo sostegno!",
-		"head-title": {
-            "home":"Iniziativa dei cittadini europei",
-            "form":"Iniziativa dei cittadini europei - Dichiarazioni di sostegno: moduli per i singoli paesi",
-            "submitted":"Iniziativa dei cittadini europei - Dichiarazione di sostegno presentata",
-            "all-countries":"Iniziativa dei cittadini europei - Dichiarazioni di sostegno raccolte online",
-            "already":"Iniziativa dei cittadini europei - Sostegno già dichiarato in precedenza",
-            "disabled":"Iniziativa dei cittadini europei - Iniziativa disattivata",
-            "privacy":"Iniziativa dei cittadini europei - Dichiarazione di riservatezza",
-            "conformity":"Iniziativa dei cittadini europei - Certificato di conformità",
-            "error-404":"Iniziativa dei cittadini europei -  Pagina non trovata",
-            "error-500":"Iniziativa dei cittadini europei - Errore imprevisto",
-            "login":"Iniziativa dei cittadini europei - Accedi",
-            "not-initialized":"Iniziativa dei cittadini europei - Iniziativa non inizializzata"
+        "head-title": {
+            "home": "Iniziativa dei cittadini europei",
+            "form": "Iniziativa dei cittadini europei - Dichiarazioni di sostegno: moduli per i singoli paesi",
+            "submitted": "Iniziativa dei cittadini europei - Dichiarazione di sostegno presentata",
+            "all-countries": "Iniziativa dei cittadini europei - Dichiarazioni di sostegno raccolte online",
+            "already": "Iniziativa dei cittadini europei - Sostegno già dichiarato in precedenza",
+            "disabled": "Iniziativa dei cittadini europei - Iniziativa disattivata",
+            "privacy": "Iniziativa dei cittadini europei - Dichiarazione di riservatezza",
+            "conformity": "Iniziativa dei cittadini europei - Certificato di conformità",
+            "error-404": "Iniziativa dei cittadini europei -  Pagina non trovata",
+            "error-500": "Iniziativa dei cittadini europei - Errore imprevisto",
+            "login": "Iniziativa dei cittadini europei - Accedi",
+            "not-initialized": "Iniziativa dei cittadini europei - Iniziativa non inizializzata"
         },
         "more.info": "Mostra maggiori informazioni",
         "hide.info": "Nascondi maggiori informazioni",
@@ -23,7 +23,7 @@
         "select_language": "Selezionare la lingua",
         "select-country": "Seleziona paese",
         "select-nationality": "Seleziona nazionalità",
-        "other-country": "Altro paese...",
+        "other-country": "Altro paese…",
         "from": "Paese:",
         "skip-content": "Passa direttamente al contenuto",
         "redirect": "Sarai reindirizzato alla pagina esterna:",
@@ -54,7 +54,8 @@
             "ro": "Romania",
             "se": "Svezia",
             "si": "Slovenia",
-            "sk": "Slovacchia"
+            "sk": "Slovacchia",
+            "gb": "Regno Unito"
         },
         "nationality": {
             "at": "austriaca",
@@ -84,10 +85,11 @@
             "se": "svedese",
             "si": "slovena",
             "sk": "slovacca",
-            "other": "Altro..."
+            "gb": "britannica",
+            "other": "Altro…"
         },
         "requirements": {
-            "text": "Fornire i seguenti dati, come previsto dal <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">regolamento (UE) 2019/788 riguardante l'iniziativa dei cittadini europei</a>."
+            "text": "Fornisci i seguenti dati, come previsto dal <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">regolamento (UE) 2019/788 riguardante l'iniziativa dei cittadini europei.</a>"
         }
     },
     "header": {
@@ -215,8 +217,12 @@
             "document.ro.personal.id": "Formato non valido. Formato richiesto: NNNNNNNNNNNNN (N = numero)",
             "document.se.personal.number": "Formato non valido. Formato richiesto: AAMMGG-NNNN o AAAAMMGG-NNNN o AAMMGGNNNN o AAAAMMGGNNNN (A = anno, M = mese, G = giorno, N = numero)",
             "document.si.personal.number": "Formato non valido. Formato richiesto: NNNNNNNNNNNNN (N = numero)",
-            "document.invalid": "Valore non valido"
-        }
+            "document.invalid": "Valore non valido",
+            "email.required": "Casella di controllo richiesta"
+        },
+        "captcha-button-arialabel-refresh": "Aggiorna CAPTCHA",
+        "captcha-button-arialabel-image": "Usa il CAPTCHA visuale",
+        "captcha-button-arialabel-audio": "Usa il CAPTCHA audio"
     },
     "howsupport": {
         "s1.title": "Informati",
@@ -231,8 +237,10 @@
     "footer": {
         "ocs.version": "Sistema centrale di raccolta elettronica",
         "privacy-title": "Visualizza l'informativa sulla privacy",
-        "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Visualizza il certificato di conformità"
+        "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_it#Signatories-personal-data-1",
+        "conformity-title": "Visualizza il certificato di conformità",
+        "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses",
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection"
     },
     "congratulations": {
         "title": "GRAZIE!",
@@ -257,8 +265,8 @@
     },
     "feedback": {
         "your-will-help-us": "I tuoi commenti ci aiuteranno a migliorare il sito.",
-        "write-your-feedback": "Scrivi i tuoi commenti...",
-        "send-feedback": "INVIA COMMENTI",
+        "write-your-feedback": "Scrivi i tuoi commenti…",
+        "send-feedback": "Invia commenti",
         "share-on-facebook": "Condividi su Facebook",
         "tweet-it": "Condividi su Twitter",
         "how-experience": "Come valuti l'esperienza",
@@ -293,13 +301,13 @@
     },
     "error404": {
         "title": "Errore 404 – Pagina non trovata",
-        "subtitle": "Spiacenti, la pagina non esiste",
-        "info": "Si è verificato un problema interno con il server. Riprovare più tardi."
+        "subtitle": "Spiacenti, la pagina non esiste.",
+        "info": "Si è verificato un problema interno con il server. Riprova più tardi."
     },
     "error500": {
         "title": "Errore 500 – Errore imprevisto",
         "subtitle": "Spiacenti, si è verificato un errore…",
-        "info": "Si è verificato un problema interno con il server. Riprovare più tardi.",
+        "info": "Si è verificato un problema interno con il server. Riprovare più tardi. ",
         "ref": "Riferimento dell'errore:"
     },
     "systemNotInitialized": {
@@ -333,15 +341,14 @@
         "5.title": "Il paese selezionato come quello di cittadinanza è diverso dal paese corrispondente all'identificazione elettronica.",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Accedi",
-        "error":"Errore",
-        "error-msg":"Nome utente, password o risposta di controllo non corretti. Verificare e riprovare.",
-        "username":"Nome utente",
-        "password":"Password",
-        "challenge":"Verifica",
-        "challenge-result":"Risultato della verifica",
-        "copy-text":"Copia testo"
+    "login": {
+        "sign-in": "Accedi",
+        "error": "Errore",
+        "error-msg": "Nome utente, password o risposta di controllo non corretti. Verificare e riprovare.",
+        "username": "Nome utente",
+        "password": "Password",
+        "challenge": "Verifica",
+        "challenge-result": "Risultato della verifica",
+        "copy-text": "Copia testo"
     }
-
 }

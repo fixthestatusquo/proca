@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "Europeiskt medborgarinitiativ – ge ditt stöd!",
-		"head-title": {
-            "home":"Europeiska medborgarinitiativet",
-            "form":"Europeiska medborgarinitiativet – Landsspecifikt stödformulär",
-            "submitted":"Europeiska medborgarinitiativet – Stödförklaring inskickad",
-            "all-countries":"Europeiska medborgarinitiativet – Nätunderskrifter",
-            "already":"Europeiska medborgarinitiativet – Redan påskrivet",
-            "disabled":"Europeiska medborgarinitiativet – Namninsamling avaktiverad",
-            "privacy":"Europeiska medborgarinitiativet – Skydd av personuppgifter",
-            "conformity":"Europeiska medborgarinitiativet – Intyg om systemet",
-            "error-404":"Europeiska medborgarinitiativet – Sidan hittades inte",
-            "error-500":"Europeiska medborgarinitiativet – Oväntat fel",
-            "login":"Europeiska medborgarinitiativet – Logga in",
-            "not-initialized":"Europeiska medborgarinitiativet – Initiativet inte initierat"
+        "head-title": {
+            "home": "Europeiska medborgarinitiativet",
+            "form": "Europeiska medborgarinitiativet – Landsspecifikt stödformulär",
+            "submitted": "Europeiska medborgarinitiativet – Stödförklaring inskickad",
+            "all-countries": "Europeiska medborgarinitiativet – Nätunderskrifter",
+            "already": "Europeiska medborgarinitiativet – Redan påskrivet",
+            "disabled": "Europeiska medborgarinitiativet – Namninsamling avaktiverad",
+            "privacy": "Europeiska medborgarinitiativet – Skydd av personuppgifter",
+            "conformity": "Europeiska medborgarinitiativet – Intyg om systemet",
+            "error-404": "Europeiska medborgarinitiativet – Sidan hittades inte",
+            "error-500": "Europeiska medborgarinitiativet – Oväntat fel",
+            "login": "Europeiska medborgarinitiativet – Logga in",
+            "not-initialized": "Europeiska medborgarinitiativet – Initiativet inte initierat"
         },
         "more.info": "Visa mer",
         "hide.info": "Visa mindre",
@@ -54,7 +54,8 @@
             "ro": "Rumänien",
             "se": "Sverige",
             "si": "Slovenien",
-            "sk": "Slovakien"
+            "sk": "Slovakien",
+            "gb": "Storbritannien"
         },
         "nationality": {
             "at": "Österrikisk",
@@ -84,6 +85,7 @@
             "se": "Svensk",
             "si": "Slovensk",
             "sk": "Slovakisk",
+            "gb": "Brittisk",
             "other": "Övrigt..."
         },
         "requirements": {
@@ -217,7 +219,9 @@
             "document.se.personal.number": "Fel format. Använd följande format: ååMMDD-NNNN eller ååååMMDD-NNNN eller ååMMDDNNNN eller ååååMMDDNNNN (å= år, M= månad, D= dag, N = siffra)",
             "document.si.personal.number": "Fel format. Använd följande format: NNNNNNNNNNNNN (N = siffra)",
             "document.invalid": "Ogiltigt värde"
-        }
+        },
+        "captcha-button-arialabel-audio": "Ändra captcha till ljud",
+        "captcha-button-arialabel-image": "Ändra captcha till bild"
     },
     "howsupport": {
         "s1.title": "Läs mer",
@@ -233,7 +237,9 @@
         "ocs.version": "EU:s centrala namninsamlingssystem",
         "privacy-title": "Skydd av personuppgifter",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Intyg om systemet"
+        "conformity-title": "Intyg om systemet",
+        "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses",
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection"
     },
     "congratulations": {
         "title": "TACK!",
@@ -334,15 +340,14 @@
         "5.title": "Du har angett olika länder för medborgarskap och e-legitimation.",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Logga in",
-        "error":"Fel",
-        "error-msg":"Fel användarnamn, lösenord eller säkerhetskod. Kontrollera uppgifterna och försök igen.",
-        "username":"Användarnamn",
-        "password":"Lösenord",
-        "challenge":"Kontrollkod",
-        "challenge-result":"Kontrollsvar",
-        "copy-text":"Kopiera text"
+    "login": {
+        "sign-in": "Logga in",
+        "error": "Fel",
+        "error-msg": "Fel användarnamn, lösenord eller säkerhetskod. Kontrollera uppgifterna och försök igen.",
+        "username": "Användarnamn",
+        "password": "Lösenord",
+        "challenge": "Kontrollkod",
+        "challenge-result": "Kontrollsvar",
+        "copy-text": "Kopiera text"
     }
-
 }

@@ -77,5 +77,6 @@
     "Sign the ECI": "Semnați ECI",
     "Share": "Distribuie",
     "Join": "Alăturați-vă",
-    "The average donation is {{amount}} {{currency}}": "Donația medie este de {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Donația medie este de {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Donez {{amount}}"
 }

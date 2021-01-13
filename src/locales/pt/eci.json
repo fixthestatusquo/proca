@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "INICIATIVA DE CIDADANIA EUROPEIA – Dê o seu apoio!",
-		"head-title": {
-            "home":"Iniciativa de Cidadania Europeia",
-            "form":"Iniciativa de Cidadania Europeia – Formulários de apoio por país",
-            "submitted":"Iniciativa de Cidadania Europeia – Formulário de apoio enviado",
-            "all-countries":"Iniciativa de Cidadania Europeia – Formulários de apoio recolhidos em linha",
-            "already":"Iniciativa de Cidadania Europeia – Já apoiada",
-            "disabled":"Iniciativa de Cidadania Europeia – Recolha desativada",
-            "privacy":"Iniciativa de Cidadania Europeia – Declaração de confidencialidade",
-            "conformity":"Iniciativa de Cidadania Europeia – Certificado de conformidade",
-            "error-404":"Iniciativa de Cidadania Europeia – Página não encontrada",
-            "error-500":"Iniciativa de Cidadania Europeia – Erro inesperado",
-            "login":"Iniciativa de Cidadania Europeia – Iniciar sessão",
-            "not-initialized":"Iniciativa de Cidadania Europeia – Conteúdo da iniciativa não inicializado"
+        "head-title": {
+            "home": "Iniciativa de Cidadania Europeia",
+            "form": "Iniciativa de Cidadania Europeia – Formulários de apoio por país",
+            "submitted": "Iniciativa de Cidadania Europeia – Formulário de apoio enviado",
+            "all-countries": "Iniciativa de Cidadania Europeia – Formulários de apoio recolhidos em linha",
+            "already": "Iniciativa de Cidadania Europeia – Já apoiada",
+            "disabled": "Iniciativa de Cidadania Europeia – Recolha desativada",
+            "privacy": "Iniciativa de Cidadania Europeia – Declaração de confidencialidade",
+            "conformity": "Iniciativa de Cidadania Europeia – Certificado de conformidade",
+            "error-404": "Iniciativa de Cidadania Europeia – Página não encontrada",
+            "error-500": "Iniciativa de Cidadania Europeia – Erro inesperado",
+            "login": "Iniciativa de Cidadania Europeia – Iniciar sessão",
+            "not-initialized": "Iniciativa de Cidadania Europeia – Conteúdo da iniciativa não inicializado"
         },
         "more.info": "Mostrar mais informações",
         "hide.info": "Ocultar mais informações",
@@ -54,7 +54,8 @@
             "ro": "Roménia",
             "se": "Suécia",
             "si": "Eslovénia",
-            "sk": "Eslováquia"
+            "sk": "Eslováquia",
+            "gb": "Reino Unido"
         },
         "nationality": {
             "at": "austríaca",
@@ -84,6 +85,7 @@
             "se": "sueca",
             "si": "eslovena",
             "sk": "eslovaca",
+            "gb": "britânica",
             "other": "outros..."
         },
         "requirements": {
@@ -232,7 +234,7 @@
         "ocs.version": "Sistema central de recolha por via eletrónica",
         "privacy-title": "Visualizar a declaração de privacidade",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title":"Visualizar o certificado de conformidade"
+        "conformity-title": "Visualizar o certificado de conformidade"
     },
     "congratulations": {
         "title": "OBRIGADO!",
@@ -333,15 +335,14 @@
         "5.title": "O país que selecionou como país de nacionalidade é diferente do país que selecionou para a subscrição com a identificação eletrónica",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Iniciar sessão",
-        "error":"Erro",
-        "error-msg":"Nome de utilizador, senha ou resposta ao teste de segurança incorreto/a(s). Verifique esses dados e tente novamente.",
-        "username":"Nome de utilizador",
-        "password":"Senha",
-        "challenge":"Teste de segurança",
-        "challenge-result":"Resultado do teste de segurança",
-        "copy-text":"Copiar texto"
+    "login": {
+        "sign-in": "Iniciar sessão",
+        "error": "Erro",
+        "error-msg": "Nome de utilizador, palavra-passe ou resposta ao teste de segurança incorreto/a(s). Verifique esses dados e tente novamente.",
+        "username": "Nome de utilizador",
+        "password": "Palavra-passe",
+        "challenge": "Teste de segurança",
+        "challenge-result": "Resultado do teste de segurança",
+        "copy-text": "Copiar texto"
     }
-
 }

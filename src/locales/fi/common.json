@@ -78,5 +78,6 @@
     "Sign the ECI": "Allekirjoita ECI",
     "Share": "Jaa",
     "Join": "Liity",
-    "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Lahjoitan {{amount}}"
 }

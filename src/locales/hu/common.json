@@ -78,5 +78,6 @@
     "Sign the ECI": "Aláírja az ECI-t",
     "Share": "Megosztás",
     "Join": "Csatlakozás",
-    "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Adományozok {{amount}}"
 }

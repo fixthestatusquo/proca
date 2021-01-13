@@ -78,5 +78,6 @@
     "Sign the ECI": "Underteckna ECI",
     "Share": "Dela",
     "Join": "Gå med",
-    "The average donation is {{amount}} {{currency}}": "Den genomsnittliga donationen är {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Den genomsnittliga donationen är {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Jag donerar {{amount}}"
 }

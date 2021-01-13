@@ -79,5 +79,6 @@
     "Sign the ECI": "Потпишите ЕЦИ",
     "Share": "Deli",
     "Join": "Придружи се",
-    "The average donation is {{amount}} {{currency}}": "Просечна донација је {{amount}} {{currency}}"
+    "The average donation is {{amount}} {{currency}}": "Просечна донација је {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Донирам {{amount}}"
 }
