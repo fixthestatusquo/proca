@@ -66,7 +66,7 @@ async function addSupport(actionType, actionPage, data, options) {
   const response = await graphQL("addSupport", query, {
     variables: variables,
     extensions: { captcha: options.captcha || "dummy" },
-    apiUrl: "https://eci.fixthestatusquo.org/api",
+    apiUrl: options.apiUrl, // "https://eci.fixthestatusquo.org/api",
   });
   if (response.errors) {
     return response;
