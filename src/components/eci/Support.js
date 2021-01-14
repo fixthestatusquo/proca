@@ -82,10 +82,10 @@ export default (props) => {
     //    data.tracking = Url.utm();
 
     const result = await addSupport(
-      config.actionType || "support", //todo: introduce a test action
-      config.component.eci.actionpage,
+      config.test ? "test" : "support",
+      +config.component.eci.actionpage,
       data,
-      { captcha: token }
+      { captcha: token, apiUrl: config.component.eci.apiUrl }
     );
 
     if (result.errors) {
