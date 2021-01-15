@@ -168,7 +168,7 @@ export default function ShareAction(props) {
         {config.component.share?.next && (
           <Button
             endIcon={<SkipNextIcon />}
-            fullWidth
+            className={classes.next}
             variant="contained"
             color="primary"
             onClick={next}
