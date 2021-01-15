@@ -19,6 +19,7 @@ import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import {
   EmailShareButton,
@@ -66,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& p": { fontSize: theme.typography.pxToRem(16) },
     "& h3": { fontSize: theme.typography.pxToRem(20) },
+  },
+  next: {
+    margin: theme.spacing(1),
   },
   widroot: {
     "& Button": { justifyContent: "left" },
@@ -162,7 +166,15 @@ export default function ShareAction(props) {
           <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
         </CardActions>
         {config.component.share?.next && (
-          <Button onClick={next}>{t("Next")}</Button>
+          <Button
+            endIcon={<SkipNextIcon />}
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={next}
+          >
+            {t("Next")}
+          </Button>
         )}
       </Card>
     </div>
