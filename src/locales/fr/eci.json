@@ -90,7 +90,8 @@
         },
         "requirements": {
             "text": "Veuillez fournir les données suivantes, conformément au <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">règlement (UE) 2019/788 relatif à l’initiative citoyenne européenne</a>."
-        }
+        },
+        "more_info": "Plus d'informations"
     },
     "header": {
         "closing.date": "Fin de la période de collecte",
@@ -102,7 +103,9 @@
         "current.supporters": "Nombre actuel de signataires",
         "total-supporters": "Nombre total de signataires",
         "goto-facebook": "Visitez notre page Facebook",
-        "goto-twitter": "Visitez notre page Twitter"
+        "goto-twitter": "Visitez notre page Twitter",
+        "registration_number": "Numéro d'enregistrement",
+        "registration_date": "Date d'enregistrement"
     },
     "initiative": {
         "public.webpage": "Site web de la présente initiative (le cas échéant) :",
@@ -110,7 +113,8 @@
         "objectives": "Objectifs",
         "representative": "Personnes de contact",
         "legal-entity": "Entité juridique",
-        "partially-registered": "Seule(s) une/des partie(s) de cette initiative a/ont été enregistrée(s). Veuillez lire la décision de la Commission pour connaître la portée de l’enregistrement de l’initiative."
+        "partially-registered": "Seule(s) une/des partie(s) de cette initiative a/ont été enregistrée(s). Veuillez lire la décision de la Commission pour connaître la portée de l’enregistrement de l’initiative.",
+        "register_webpage": "Site internet"
     },
     "form": {
         "title": "Soutenir cette initiative proposée par des citoyens de l’Union européenne",
@@ -159,7 +163,11 @@
             "registration.certificate": "",
             "residence.permit": "",
             "citizens.card": "",
-            "date_of_birth": ""
+            "date_of_birth": "date de naissance",
+            "street_number": "numéro de rue",
+            "postal_code": "code postal",
+            "full_first_names": "Prénoms complets",
+            "family_names": "noms de famille"
         },
         "error": {
             "oct.error.propertytypemismatch": "Format non valide",
@@ -352,5 +360,6 @@
         "challenge": "Code d’authentification",
         "challenge-result": "Réponse du code d’authentification",
         "copy-text": "Copier le texte"
-    }
+    },
+    "Skip and go directly to signing the initiative in step 2": "Passer directement à la signature de l'initiative à l'étape 2"
 }
