@@ -14,6 +14,7 @@ import Email from "./Email";
 import Support from "./Support";
 import Share from "../Share";
 import { useTranslation } from "react-i18next";
+import { useIsMobile } from "../../hooks/useLayout";
 
 export default function Target(props) {
   const [value, setValue] = useState("register");
@@ -41,7 +42,11 @@ export default function Target(props) {
 
   return (
     <>
-      <Stepper nonLinear activeStep={step(value)}>
+      <Stepper
+        nonLinear
+        alternativeLabel={useIsMobile()}
+        activeStep={step(value)}
+      >
         <Step key="register">
           <StepButton onClick={handleStep("register")}>{t("Join")}</StepButton>
         </Step>
