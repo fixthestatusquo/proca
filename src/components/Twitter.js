@@ -13,11 +13,10 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data] = useData();
-  console.log(data);
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [dialog, viewDialog] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -25,6 +24,9 @@ const Component = (props) => {
   });
   const { watch } = form;
   const country = watch("country");
+  let actionUrl = props.actionUrl || data?.actionUrl;
+  if (!actionUrl && i18n.exists("twitter.actionUrl"))
+    actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -89,6 +91,7 @@ const Component = (props) => {
     viewDialog(false);
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
+  //
   return (
     <Fragment>
       <Dialog
@@ -107,11 +110,7 @@ const Component = (props) => {
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
-        actionUrl={
-          props.actionUrl ||
-          data?.actionUrl ||
-          t("twitter.actionUrl") /* i18next-extract-disable-line */
-        }
+        actionUrl={actionUrl}
         actionText={config.param.twitterText || t("twitter.actionText")}
         done={handleDone}
       />
