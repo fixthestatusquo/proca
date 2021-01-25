@@ -227,7 +227,9 @@
             "document.se.personal.number": "Format non valide. Format requis : AAMMJJ-NNNN ou AAAAMMJJ-NNNN ou AAMMJJNNNN ou AAAAMMJJNNNN (A = année, M = mois, J = jour, N = chiffre)",
             "document.si.personal.number": "Format non valide. Format requis : NNNNNNNNNNNNN (N = chiffre)",
             "document.invalid": "Valeur non valide",
-            "email.required": "Obligatoire"
+            "email.required": "Obligatoire",
+            "oct_error_invalidrange": "erreur d'oct : longueur invalide",
+            "oct_error_invalidsize": "erreur d'oct : taille invalide"
         },
         "captcha-button-arialabel-image": "Utiliser le captcha image",
         "captcha-button-arialabel-refresh": "Nouveau captcha",
