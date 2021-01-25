@@ -90,7 +90,8 @@
         },
         "requirements": {
             "text": "Bitte machen Sie gemäß der <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Verordnung (EU) 2019/788 über die Europäische Bürgerinitiative folgende Angaben.</a>"
-        }
+        },
+        "more_info": "weitere Information"
     },
     "header": {
         "closing.date": "Ende der Sammlung",
@@ -102,7 +103,9 @@
         "current.supporters": "Aktuelle Zahl der Unterzeichner",
         "total-supporters": "Gesamtzahl der Unterzeichner",
         "goto-facebook": "Besuchen Sie unsere Facebook-Seite",
-        "goto-twitter": "Besuchen Sie unsere Twitter-Seite"
+        "goto-twitter": "Besuchen Sie unsere Twitter-Seite",
+        "registration_number": "registration_number",
+        "registration_date": "registration_date"
     },
     "initiative": {
         "public.webpage": "Webpräsenz dieser Initiative (falls vorhanden):",
@@ -110,7 +113,8 @@
         "objectives": "Ziele",
         "representative": "Kontaktpersonen",
         "legal-entity": "Rechtsperson",
-        "partially-registered": "Die Initiative wurde nur teilweise registriert. Näheres über den Umfang der Registrierung steht im Beschluss der Kommission."
+        "partially-registered": "Die Initiative wurde nur teilweise registriert. Näheres über den Umfang der Registrierung steht im Beschluss der Kommission.",
+        "register_webpage": "register_webpage"
     },
     "form": {
         "title": "Unterstützen Sie diese Initiative von Bürgerinnen und Bürgern der EU",
@@ -158,7 +162,12 @@
             "personal.number": "",
             "registration.certificate": "",
             "residence.permit": "",
-            "citizens.card": ""
+            "citizens.card": "",
+            "street_number": "street_number",
+            "postal_code": "postal_code",
+            "full_first_names": "full_first_names",
+            "family_names": "family_names",
+            "date_of_birth": "date_of_birth"
         },
         "error": {
             "oct.error.propertytypemismatch": "Ungültiges Format",
@@ -211,18 +220,21 @@
             "document.pt.id.card": "Ungültiges Format. Zulässiges Format: N, NN, NNN, NNNN, NNNNN, NNNNNN, NNNNNNN, NNNNNNNN (N = Ziffer)",
             "document.pt.passport": "Ungültiges Format. Zulässiges Format: LNNNNNN, LLNNNNNN (N = Ziffer; L = Buchstabe)",
             "document.pt.citizens.card": "Ungültiges Format. Zulässiges Format: NNNNNNNNNLLN (N = Ziffer; L = Buchstabe)",
-            "document.pl.national.id.number": "Invalid format. Format required: YYXXDDNNNNN (YY= years, XX = digit between: 01-12 or 21-32 or 41-52 or 61-77 or 81-92, DD = day; N = digit)",
+            "document.pl.national.id.number": "Ungülltiges Format. Benötigtes Format: JJXXTTNNNNN (JJ= Jahr, XX = Zahl zwischen: 01-12 oder 21-32 oder 41-52 oder 61-77 oder 81-92, TT = Tag; N = Zahl)",
             "document.ro.id.card": "Ungültiges Format. Zulässiges Format: LLNNNNNN (N = Ziffer; L = Buchstabe)",
             "document.ro.passport": "Ungültiges Format. Zulässiges Format: NNNNNNNN oder NNNNNNNNN (N = Ziffer)",
             "document.ro.personal.id": "Ungültiges Format. Zulässiges Format: NNNNNNNNNNNNN (N = Ziffer)",
             "document.se.personal.number": "Ungültiges Format. Zulässiges Format: JJMMTT-NNNN oder JJJJMMTT-NNNN oder JJMMTTNNNN oder JJJJMMTTNNNN (J= Jahr, M= Monat, T= day, N = Ziffer)",
             "document.si.personal.number": "Ungültiges Format. Zulässiges Format: NNNNNNNNNNNNN (N = Ziffer)",
             "document.invalid": "Ungültiger Wert",
-            "email.required": "Kontrollkästchen erforderlich"
+            "email.required": "Kontrollkästchen erforderlich",
+            "oct_error_invalidsize": "oct_error_invalidsize",
+            "oct_error_invalidrange": "oct_error_invalidrange"
         },
         "captcha-button-arialabel-refresh": "CAPTCHA aktualisieren",
         "captcha-button-arialabel-image": "Bild-CAPTCHA nutzen",
-        "captcha-button-arialabel-audio": "Audio-CAPTCHA nutzen"
+        "captcha-button-arialabel-audio": "Audio-CAPTCHA nutzen",
+        "support_country_selected": "support_country_selected"
     },
     "howsupport": {
         "s1.title": "Informieren",
