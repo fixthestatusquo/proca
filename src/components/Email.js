@@ -145,6 +145,7 @@ const Component = (props) => {
           encodeURIComponent(body);
 
     var win = window.open(url, "_blank");
+    //TODO: display fallback using  Clipboard.writeText()
     var timer = setInterval(() => {
       if (!win) {
         addAction(config.actionPage, "email_blocked", { uuid: uuid() });

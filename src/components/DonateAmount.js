@@ -57,7 +57,7 @@ const DonateAmount = (props) => {
 
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const selection = config?.component?.donation?.oneoff?.default || [3, 5];
+  const selection = config?.component?.DonateAmount?.oneoff?.default || [3, 5];
   const form = useForm({
     defaultValues: {
       amount: selection.find((selected) => selected === parseFloat(data.amount))
