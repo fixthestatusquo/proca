@@ -64,7 +64,7 @@
     "fetch": "bin/fetch.js",
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "nope.prepublish": "babel src --out-dir lib",
-    "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./node-babel.config.js --out-dir dist --copy-files",
+    "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
     "pull": "bin/pull.js",
     "push": "bin/push.js",
     "start": "rescripts start",
