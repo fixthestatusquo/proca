@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useCampaignConfig } from "../hooks/useConfig";
-import useData from "../hooks/useData";
+import { useCampaignConfig } from "../../hooks/useConfig";
+import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Card,
+  Container,
+  Grid,
   CardMedia,
   CardHeader,
   CardActions,
@@ -17,14 +18,14 @@ import {
   ButtonGroup,
   Typography,
 } from "@material-ui/core";
-import TextField from "./TextField";
+import TextField from "../TextField";
 import { useForm } from "react-hook-form";
-import useElementWidth from "../hooks/useElementWidth";
+import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import PaymentIcon from "@material-ui/icons/Payment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import usePaypal from "../hooks/usePaypal";
+import usePaypal from "../../hooks/usePaypal";
 
 const useStyles = makeStyles((theme) => ({
   amount: { width: "5em" },
@@ -57,7 +58,10 @@ const DonateAmount = (props) => {
 
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const selection = config?.component?.DonateAmount?.oneoff?.default || [3, 5];
+  const selection = config?.component?.donation.amount?.oneoff?.default || [
+    3,
+    5,
+  ];
   const form = useForm({
     defaultValues: {
       amount: selection.find((selected) => selected === parseFloat(data.amount))
@@ -102,7 +106,7 @@ const DonateAmount = (props) => {
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
-  const currency = config?.component?.donation.currency || {
+  const currency = config?.component.donation?.currency || {
     symbol: "€",
     code: "EUR",
   };
@@ -111,18 +115,17 @@ const DonateAmount = (props) => {
       t("I'm donating {{amount}}", {
         amount: amount.toString() + currency.symbol,
       })
-    : config?.component?.donation.title || t("Choose your donation amount");
+    : config?.component.donation?.title || t("Choose your donation amount");
   //    "I'm donating";
 
-  // todo: not hardcoded, and useIntl.NumberFormat
-  const average = config.component.donation.oneoff.average;
+  const average = config.component.donation?.amount?.oneoff?.average;
   const subtitle = average
     ? t("The average donation is {{amount}} {{currency}}", {
         amount: average,
         currency: currency.code,
       })
-    : config.component.donation.subTitle;
-  const image = config.component.donation.image;
+    : config.component.donation?.subTitle;
+  const image = config.component.donation?.image;
 
   const ButonPaypal = usePaypal({
     currency: currency,
@@ -151,7 +154,6 @@ const DonateAmount = (props) => {
         postcode: "contact_postcode",
         email: "contact_email",
       };
-      console.log({ ...config.data, ...data });
       const params = Object.entries({ ...config.data, ...data }).reduce(
         (p, d) => {
           if (!fieldmap[d[0]]) return "";
@@ -161,7 +163,6 @@ const DonateAmount = (props) => {
         },
         ""
       );
-      console.log(params);
       window.open(
         config.component.donation.external.url + amount + params,
         "_blank"
@@ -186,88 +187,97 @@ const DonateAmount = (props) => {
   //<div>I'll generously add $0.41 to cover the transaction fees so you can keep 100% of my donation.</div>
 
   return (
-    <Card id="proca-donate">
-      <CardHeader title={title} subheader={subtitle} />
+    <Container id="proca-donate">
+      <Grid container spacing={1}>
+        <CardHeader title={title} subheader={subtitle} />
 
-      {image ? <CardMedia image={image} title={title} /> : null}
-      <CardContent>
-        <Typography color="textSecondary">
-          {t("campaign:donation.intro", { campaign: config.campaign.title })}
-        </Typography>
-        <div className={classes.root}>
-          {selection.map((d) => (
-            <AmountButton key={d} amount={d} />
-          ))}
-          <Button color="primary" name="other" onClick={() => showCustom(true)}>
-            {t("Other")}
-          </Button>
-        </div>
-        <FormControl fullWidth>
-          <FormGroup>
-            {config.component.donation?.monthly !== false && (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={recurring}
-                    onChange={handleRecurring}
-                    name="monthly"
-                    color="primary"
-                  />
-                }
-                label={t("Monthly donations")}
-              />
-            )}
-            {custom && (
-              <TextField
-                form={form}
-                type="number"
-                label={t("Amount")}
-                name="amount"
-                className={classes.number}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      {currency.symbol}
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            )}
-          </FormGroup>
-        </FormControl>
-      </CardContent>
-      {!config.component.donation.external && (
-        <CardActions>
-          <ButtonGroup
-            variant="contained"
-            fullWidth={compact}
-            aria-label="Select Payment method"
-            orientation={compact ? "vertical" : "horizontal"}
-          >
+        {image ? <CardMedia image={image} title={title} /> : null}
+        <CardContent>
+          <Typography color="textSecondary">
+            {t("campaign:donation.intro", {
+              defaultValue: "",
+              campaign: config.campaign.title,
+            })}
+          </Typography>
+          <div className={classes.root}>
+            {selection.map((d) => (
+              <AmountButton key={d} amount={d} />
+            ))}
             <Button
               color="primary"
-              disabled={!amount}
-              startIcon={<PaymentIcon />}
-              onClick={() => {
-                choosePaymentMethod("creditcard");
-              }}
+              name="other"
+              onClick={() => showCustom(true)}
             >
-              Credit Card
+              {t("Other")}
             </Button>
-            <Button
-              disabled={!amount}
-              onClick={() => choosePaymentMethod("sepa")}
-              startIcon={<AccountBalanceIcon />}
+          </div>
+          <FormControl fullWidth>
+            <FormGroup>
+              {config.component.donation?.monthly !== false && (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={recurring}
+                      onChange={handleRecurring}
+                      name="monthly"
+                      color="primary"
+                    />
+                  }
+                  label={t("Monthly donations")}
+                />
+              )}
+              {custom && (
+                <TextField
+                  form={form}
+                  type="number"
+                  label={t("Amount")}
+                  name="amount"
+                  className={classes.number}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        {currency.symbol}
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              )}
+            </FormGroup>
+          </FormControl>
+        </CardContent>
+        {!config.component.donation.external && (
+          <CardActions>
+            <ButtonGroup
+              variant="contained"
+              fullWidth={compact}
+              aria-label="Select Payment method"
+              orientation={compact ? "vertical" : "horizontal"}
             >
-              SEPA
-            </Button>
-            <Button component="div" disabled={!amount} id="paypal-container">
-              <ButonPaypal />
-            </Button>
-          </ButtonGroup>
-        </CardActions>
-      )}
-    </Card>
+              <Button
+                color="primary"
+                disabled={!amount}
+                startIcon={<PaymentIcon />}
+                onClick={() => {
+                  choosePaymentMethod("creditcard");
+                }}
+              >
+                Credit Card
+              </Button>
+              <Button
+                disabled={!amount}
+                onClick={() => choosePaymentMethod("sepa")}
+                startIcon={<AccountBalanceIcon />}
+              >
+                SEPA
+              </Button>
+              <Button component="div" disabled={!amount} id="paypal-container">
+                <ButonPaypal />
+              </Button>
+            </ButtonGroup>
+          </CardActions>
+        )}
+      </Grid>
+    </Container>
   );
 };
 export default DonateAmount;

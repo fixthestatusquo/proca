@@ -1,3 +1,11 @@
+## Stripe integration
+
+the component StripeInput.js provides a stripe card component wrapped into material-ui
+
+### One off
+
+ 
+### Recurring
 
 For recurring donations, create a product
 create a 1 euro product

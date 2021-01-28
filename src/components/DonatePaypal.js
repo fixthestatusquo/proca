@@ -7,7 +7,7 @@ const PaypalButton = (props) => {
   const [data] = useData();
   const config = useCampaignConfig();
 
-  const currency = config?.component?.DonateAmount?.currency || {
+  const currency = config?.component?.donate?.currency || {
     symbol: "€",
     code: "EUR",
   };

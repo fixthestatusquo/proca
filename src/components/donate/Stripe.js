@@ -10,16 +10,17 @@ import {
   CardContent,
   Button,
   Container,
+  Box,
 } from "@material-ui/core";
-import TextField from "./TextField";
+import TextField from "../TextField";
 
 //import Autocomplete from '@material-ui/lab/Autocomplete';
 import { loadStripe } from "@stripe/stripe-js";
 
-import { useLayout } from "../hooks/useLayout";
-import useElementWidth from "../hooks/useElementWidth";
-import { useCampaignConfig } from "../hooks/useConfig";
-import useData from "../hooks/useData";
+import { useLayout } from "../../hooks/useLayout";
+import useElementWidth from "../../hooks/useElementWidth";
+import { useCampaignConfig } from "../../hooks/useConfig";
+import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
@@ -40,7 +41,6 @@ const currencies = [
   {
     symbol: "€",
     name: "Euro",
-    symbol_native: "د.إ.‏",
     decimal_digits: 2,
     rounding: 0,
     code: "EUR",
@@ -70,7 +70,7 @@ const PaymentForm = (props) => {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
   const title = data.amount
-    ? config?.component?.DonateAmount.igive ||
+    ? config?.component?.donation.igive ||
       t("I'm donating") + " " + data.amount + "€"
     : config?.component?.DonateAmount.title || t("Choose your donation amount");
 
@@ -108,6 +108,9 @@ const PaymentForm = (props) => {
     }
   };
 
+  const CustomCardElement = (props) => (
+    <CardElement {...props} options={{ style: { hidePostalCode: true } }} />
+  );
   const StripeCard = (props) => {
     //hidePostalCode=true
     console.log("draw card", props.stripe);
@@ -123,7 +126,7 @@ const PaymentForm = (props) => {
           InputProps={{
             inputComponent: StripeInput,
             inputProps: {
-              component: CardElement,
+              component: CustomCardElement,
               stripe: props.stripe,
             },
           }}
@@ -156,53 +159,54 @@ const PaymentForm = (props) => {
 
   return (
     <>
-      <Card>
-        <CardHeader title={title} />
-        <CardContent>
-          <Grid item xs={12}>
-            <TextField
-              form={form}
-              name="name"
-              label={t("Full Name")}
-              autoComplete="full-name"
-              required
-            />
+      <Container component="main" maxWidth="sm">
+        <Box marginBottom={1}>
+          <Grid container spacing={1}>
+            - <CardHeader title={title} />
+            <Grid item xs={12}>
+              <TextField
+                form={form}
+                name="name"
+                label={t("Full Name")}
+                autoComplete="full-name"
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={compact ? 12 : 8}>
+              <TextField
+                form={form}
+                name="email"
+                type="email"
+                label={t("Email")}
+                autoComplete="email"
+                placeholder="your.email@example.org"
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={compact ? 12 : 4}>
+              <TextField
+                form={form}
+                name="postcode"
+                label={t("Postal Code")}
+                autoComplete="postal-code"
+              />
+            </Grid>
+            <StripeCard stripe={props.stripe} />
+            <Grid item xs={12}>
+              <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                size="large"
+                startIcon={<LockIcon />}
+              >
+                Donate
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 9}>
-            <TextField
-              form={form}
-              name="email"
-              type="email"
-              label={t("Email")}
-              autoComplete="email"
-              placeholder="your.email@example.org"
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 3}>
-            <TextField
-              form={form}
-              name="postcode"
-              label={t("Postal Code")}
-              autoComplete="postal-code"
-            />
-          </Grid>
-
-          <StripeCard stripe={props.stripe} />
-          <Grid item xs={12}>
-            <Button
-              color="primary"
-              variant="contained"
-              fullWidth
-              type="submit"
-              size="large"
-              startIcon={<LockIcon />}
-            >
-              Donate
-            </Button>
-          </Grid>
-        </CardContent>
-      </Card>
+        </Box>
+      </Container>
     </>
   );
 };
@@ -224,7 +228,6 @@ const PaymentFormWrapper = (props) => {
     };
   }, [stripe, setStripe, publishableKey]);
 
-  console.log(stripe);
   return (
     <Container component="main" id="proca-donate">
       <Grid container spacing={1}>

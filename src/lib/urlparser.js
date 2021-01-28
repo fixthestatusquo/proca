@@ -19,19 +19,25 @@ const filter = (query, whitelist = null, prefix = "") => {
   let r = {};
   Object.keys(query)
     .filter(
-      key =>
+      (key) =>
         key.startsWith(prefix) && whitelist.includes(key.substr(prefix.length))
     )
-    .forEach(k => (r[k.substr(prefix.length)] = query[k]));
+    .forEach((k) => (r[k.substr(prefix.length)] = query[k]));
   return r;
 };
 
-const parse = (whitelist,prefix) => {
+const parse = (whitelist, prefix) => {
   const url = Url(document.location, true);
-  return filter(url.query,whitelist,prefix) || {};
+  return filter(url.query, whitelist, prefix) || {};
 };
 
-const data = prefix => {
+const step = (prefix) => {
+  const s = parse(["go"], prefix || "proca_");
+  console.log(s);
+  return s.go || null;
+};
+
+const data = (prefix) => {
   prefix = prefix || "proca_";
   const whitelist = [
     "amount",
@@ -43,55 +49,54 @@ const data = prefix => {
     "address",
     "locality",
     "country",
-    "comment"
+    "comment",
   ];
-  return parse( whitelist, prefix);
+  return parse(whitelist, prefix);
 };
 
-const isTest = ()=> {
-  const r = parse (['test'],'proca_');
-  return 'test' in r;
-}
+const isTest = () => {
+  const r = parse(["test"], "proca_");
+  return "test" in r;
+};
 
-const config = prefix => {
+const config = (prefix) => {
   prefix = prefix || "proca_";
-  const whitelist = [
-    "comment"
-  ];
-  return parse( whitelist, prefix);
+  const whitelist = ["comment"];
+  return parse(whitelist, prefix);
 };
 
-const socialiseReferrer = (domain,utm) => { // this isn't exhaustive, nor meant to be
-  if (domain.endsWith('facebook.com')) {
-    utm.source="social";
-    utm.medium="facebook";
+const socialiseReferrer = (domain, utm) => {
+  // this isn't exhaustive, nor meant to be
+  if (domain.endsWith("facebook.com")) {
+    utm.source = "social";
+    utm.medium = "facebook";
     return true;
   }
   if (domain === "twitter.com" || domain === "t.co") {
-    utm.source="social";
-    utm.medium="twitter";
+    utm.source = "social";
+    utm.medium = "twitter";
     return true;
   }
   if (domain === "youtu.be" || domain === "youtube.com") {
-    utm.source="social";
-    utm.medium="youtube";
+    utm.source = "social";
+    utm.medium = "youtube";
   }
   return false;
-}
+};
 
 const utm = () => {
   const whitelist = ["source", "medium", "campaign", "content"];
-  const utm= parse( whitelist, "utm_");
+  const utm = parse(whitelist, "utm_");
 
-  if ( 0 === Object.keys(utm).length && document.referrer) {
+  if (0 === Object.keys(utm).length && document.referrer) {
     const u = new URL(document.referrer);
-    utm.medium= "website";
-    utm.source= "referrer";
-    utm.campaign= u.hostname+u.pathname;
-    socialiseReferrer(u.hostname,utm);
+    utm.medium = "website";
+    utm.source = "referrer";
+    utm.campaign = u.hostname + u.pathname;
+    socialiseReferrer(u.hostname, utm);
   }
   return utm;
 };
 
-export { utm, data, config, isTest };
-export default {utm:utm, data:data, config:config};
+export { utm, data, step, config, isTest };
+export default { utm: utm, data: data, config: config };

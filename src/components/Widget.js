@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import ProcaRoot from "./ProcaRoot";
 import { initConfigState } from "../hooks/useConfig";
-import Url from "../lib/urlparser.js";
+import Url, { step as paramStep } from "../lib/urlparser.js";
 import { getAllData } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
@@ -220,7 +220,9 @@ const Widget = (props) => {
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
-      go(1);
+      if (isMobile || !paramStep()) go(1);
+      else go(paramStep());
+
       //      return null;
     }
   }
