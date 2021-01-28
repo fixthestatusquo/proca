@@ -1,12 +1,12 @@
 {
   "name": "@proca/widget",
-  "version": "0.9.0-beta.0",
+  "version": "0.9.0-beta.1",
   "private": false,
   "files": [
     "dist",
     "README.md"
   ],
-  "main": "lib/module.js",
+  "main": "dist/module.js",
   "licence": "aGPL3",
   "nope.resolutions": {
     "@babel/preset-env": "^7.8.7"
