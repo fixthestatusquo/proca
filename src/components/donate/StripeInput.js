@@ -1,8 +1,9 @@
 import React, { useRef, useImperativeHandle } from "react";
 
-const StripeInput = ({ component: Component, inputRef, ...props }) => {
+const StripeInput = (props) => {
   const elementRef = useRef();
-  useImperativeHandle(inputRef, () => ({
+
+  useImperativeHandle(props.inputRef, () => ({
     focus: () => elementRef.current.focus,
   }));
   if (!props.stripe) {
@@ -10,7 +11,8 @@ const StripeInput = ({ component: Component, inputRef, ...props }) => {
     return null;
   }
 
-  console.log(props.stripe);
+  const Component = props.component;
+  console.log("drawing");
   return (
     <Component
       stripe={props.stripe}

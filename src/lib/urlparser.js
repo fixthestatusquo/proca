@@ -33,7 +33,6 @@ const parse = (whitelist, prefix) => {
 
 const step = (prefix) => {
   const s = parse(["go"], prefix || "proca_");
-  console.log(s);
   return s.go || null;
 };
 
