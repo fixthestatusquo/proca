@@ -6,17 +6,18 @@ module.exports = function (api) {
     const presets = [ ['@babel/preset-env', { modules: false }], "@babel/preset-react" ];
     const plugins = [ 
       //"macros",
-    'optimize-clsx',
-    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    // 'optimize-clsx',
+    //['@babel/plugin-proposal-class-properties', { loose: true }],
     // ['@babel/plugin-transform-runtime'],
     // for IE 11 support
-    '@babel/plugin-transform-object-assign',
-    '@babel/plugin-proposal-optional-chaining',
-    '@babel/plugin-proposal-nullish-coalescing-operator',
+    // '@babel/plugin-transform-object-assign',
+    // '@babel/plugin-proposal-optional-chaining',
+    // '@babel/plugin-proposal-nullish-coalescing-operator',
       ["module-resolver",
       {
+        "root": "src",
         "alias": {
-          "locales/common.json": "./src/locales/common.json"
+          "locales": "./src/locales"
         }
       }]
 //      "@babel/plugin-transform-react-jsx",
