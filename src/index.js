@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import { isTest } from "./lib/urlparser";
+import { isTest, data } from "./lib/urlparser";
 import { setGlobalState, setConfig, goStep, hook } from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
@@ -102,8 +102,8 @@ const render = () => {
       script = {};
     } //return; I have no clue why it happens
 
-    //todo: blacklist some param?
-    initDataState(script.dataset);
+    //we take the data from the url
+    initDataState(data());
     Widget({ ...script.dataset });
   } catch (e) {
     console.log(e);
