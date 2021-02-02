@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useIsMobile = () => {
   // there is another useIsMobile, based on the screen width at src/hooks/useLayout

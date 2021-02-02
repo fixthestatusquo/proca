@@ -107,7 +107,7 @@ const Component = (props) => {
     };
 
     const profile = profiles[0];
-    let cc = "";
+    let to = [];
     const bcc = config.component.email?.bcc;
     let s =
       typeof profile.subject == "function"
@@ -121,25 +121,24 @@ const Component = (props) => {
 
     const body = t("email.body");
 
-    for (var i = 1; i < profiles.length; i++) {
-      if (profiles[i].email) cc += profiles[i].email + ";";
+    for (var i = 0; i < profiles.length; i++) {
+      if (profiles[i].email) to.push(profiles[i].email);
     }
-    cc = cc.slice(0, -1); // removes the last ";" it trips some mail clients
+    to = to.join(";");
 
     const url =
       !isMobile && data.email.includes("@gmail")
         ? hrefGmail({
-            to: profile.email,
+            to: to,
             subject: encodeURIComponent(s),
-            cc: cc,
             bcc: bcc,
             body: encodeURIComponent(body),
           })
         : "mailto:" +
-          profile.email +
+          to +
           "?subject=" +
           encodeURIComponent(s) +
-          (cc ? "&cc=" + cc : "") +
+          //          (cc ? "&cc=" + cc : "") +
           (bcc ? "&bcc=" + bcc : "") +
           "&body=" +
           encodeURIComponent(body);

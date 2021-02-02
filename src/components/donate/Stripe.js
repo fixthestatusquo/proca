@@ -71,6 +71,7 @@ const PaymentForm = (props) => {
   const config = useCampaignConfig();
 
   const [data, setData] = useData();
+  console.log(config.param);
   const form = useForm({
     defaultValues: {
       name:
