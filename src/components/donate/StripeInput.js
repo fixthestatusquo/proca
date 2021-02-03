@@ -2,6 +2,7 @@ import React, { useRef, useImperativeHandle } from "react";
 
 const StripeInput = (props) => {
   const elementRef = useRef();
+  const Component = props.component;
 
   useImperativeHandle(props.inputRef, () => ({
     focus: () => elementRef.current.focus,
@@ -11,12 +12,11 @@ const StripeInput = (props) => {
     return null;
   }
 
-  const Component = props.component;
   console.log("drawing");
   return (
     <Component
       stripe={props.stripe}
-      supportedCountries={["FR"]}
+      //supportedCountries={["FR"]}
       onReady={(element) => (elementRef.current = element)}
       {...props}
     />

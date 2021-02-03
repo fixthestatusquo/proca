@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useForm, Controller } from "react-hook-form";
-
 import {
   TextField as LayoutTextField,
   Grid,
@@ -19,6 +18,7 @@ import {
 //import Autocomplete from '@material-ui/lab/Autocomplete';
 import { loadStripe } from "@stripe/stripe-js";
 
+import { paymentIntent } from "../../lib/stripe";
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
 import useElementWidth from "../../hooks/useElementWidth";
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const publishableKey =
-  "pk_test_51HLPbyFFsfkkXAxwgFLCJfIWJwuNvzA867Arg1lH4Woqhcq0yEWMtCwx4j2lqML9dCPK3oPH0NQyiAPux3K8JZUw00MxrWkh7u";
+  "pk_test_51Guc6WDbl4kpFgIpVuOJBdinbbf4RA0Ggksy0udRSoOkQFv3Mvcs6troBKK7Fqg3G8eQ51atSWG2mSrZ7nXAu1hS00r4SBF3NL";
 const stripe = loadStripe(publishableKey);
 
 const currencies = [
@@ -69,9 +69,10 @@ const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const [data, setData] = useData();
-  console.log(config.param);
   const form = useForm({
     defaultValues: {
       name:
@@ -101,8 +102,18 @@ const PaymentForm = (props) => {
   const classes = useStyles();
   const stripe = useStripe();
 
-  const onSubmit = async (event, data) => {
+  if (!data.currency) {
+    const currency = config?.component.donation?.currency || {
+      symbol: "€",
+      code: "EUR",
+    };
+    setData("currency", currency);
+  }
+
+  const onSubmit = async (event, d) => {
     event.preventDefault();
+    const values = form.getValues();
+    console.log(values);
     if (!props.stripe || !elements) {
       console.error("Stripe not loaded");
       // Stripe.js has not loaded yet. Make sure to disable
@@ -115,18 +126,47 @@ const PaymentForm = (props) => {
     // each type of element.
     const cardElement = elements.getElement(CardElement);
 
-    console.log("aaaa", props.stripe, stripe);
     // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
+      billing_details: {
+        name: values.name,
+        address: { country: data.country, postal_code: values.postcode },
+        email: values.email,
+      },
     });
-    console.log("bbb", data);
 
     if (error) {
-      console.log("[error]", error);
+      console.log("[error]", error); // TODO: log properly
+      return;
+    }
+
+    const pi = await paymentIntent({
+      amount: data.amount,
+      currency: data.currency.code,
+      confirm: true,
+      payment_method: paymentMethod,
+    });
+    console.log("pi", pi);
+    const result = await stripe.confirmCardPayment(pi.secret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: values.name,
+          address: { country: data.country, postal_code: values.postcode },
+          email: values.email,
+        },
+        country: data.country,
+      },
+    });
+    console.log(result);
+    if (result.error) {
+      setError(result.error.message);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      // The payment succeeded!
+      //  orderComplete(result.paymentIntent.id);
+      setSuccess("👍");
     }
     return false;
   };
@@ -135,7 +175,6 @@ const PaymentForm = (props) => {
     <CardElement {...props} options={{ hidePostalCode: true }} />
   );
   const StripeCard = (props) => {
-    console.log("stripeCard", stripe);
     return (
       <Grid item xs={12}>
         <LayoutTextField

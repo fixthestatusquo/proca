@@ -110,6 +110,7 @@ const DonateAmount = (props) => {
     symbol: "€",
     code: "EUR",
   };
+  setData("currency", currency);
   const title = amount
     ? config?.component?.donation.igive ||
       t("I'm donating {{amount}}", {
