@@ -78,55 +78,49 @@ pre {background:#dede; padding: 10px}
            <h2 class="eci-name">...</h2>
       <div class="row">
         <div class="col">
-          <div class="proca-widget" id="signature-form" >
           <div class="alert alert-info" role="alert">
            <h3 class="eci-title">...</h3>
            <div class="eci-description"></div>
 <div class="eci-more"></div>
           </div>
-
+</div>
+        <div class="col">
+          <div class="proca-widget" id="signature-form" >
           </div>
             
 
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-        <h2>Are you working for this organisation?</h2>
-        <p>
-        Adding this widget on your website is simple!
-        </p>
-          <p>
-          We recommend that you run the widget on your website’s homepage. However, if you prefer, you can run it on a specific campaign or other relevant page. For the final version, it's better to have a memorable url, as it will hopefully be widely shared.</p>
-          <p>
-          You simply need to copy paste in your website editor, for instance wordpress 
-          </p>
-
-          <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">
-  &lt;h3 class="eci-title">...&lt;/h3>
-  &lt;div class="eci-description">&lt;/div>
-  &lt;div class="eci-more">&lt;/div>
-&lt;/div>
-          </pre>
-
-          <p><i>You can put the first line wherever you want, the other lines has to be where you want the form to be displayed</i></p>
-          ◦<p>
-          Please do <b>NOT</b> test the widget on a live page – we don’t want people trying to sign before we go live!
-          <br>
-          In order to be compliant with the EU Regulation, you must put the title, text and "more" button, these are the elements with eci-title, eci-description and eci-more classes. 
-          <br>
-          We recommend that you put them in two columns, and that's what the code above does – but it is ultimately up to you.<br>
-          One block (composed of the eci-title, eci-description and eci-more classes) will be the official text of our ECI, which will be displayed in the language that you have chosen for your widget. Legally, this official text <b>must</b> be displayed alongside the signing part of the widget. You are free to use different layouts, for instance here we use "h3" for the title of the ECI, and you can put other elements for styling differently (in the example above, we put the eci text on a blue background), as long as all the 3 elements (title, text and "more" are displayed. 
-          <br>
-          The other div with the class proca-widget can be empty, and will contain signing section, which first gives people an option to be kept updated on progress, secondly the ECI signing itself (this information is never seen by us or any campaign partners), and thirdly the opportunity to share. <br>
-          you can see an example of the widget and the steps above.
-        </div>
-      </div>
-      </div>
     </div>
 
+    <div class="modal" id="code" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">How to add the widget on your site?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h4>If you use wordpress</h4>
+              <ul>
+                <li> add "proca" plugin</li>
+                <li class="dynamic"> use the shortcode [proca widget=%widget_shortcode%]</li>
+              </ul>
+
+          <h4>Any other (Javascript)</h4>
+          <pre class="dynamic">
+&lt;script id="proca" src="https://%widget_path%">&lt;/script>
+&lt;div class="proca-widget">&lt;/div>
+          </pre>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
     <!--
@@ -150,18 +144,7 @@ pre {background:#dede; padding: 10px}
       console.log("ready");
     }
 
-      function display() {
-        var variants = ["standard", "filled", "outlined"];
-        var urlParams = new URLSearchParams(window.location.search);
-        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
-        var widget_shortcode = window.location.pathname.replace("/index.html","").replace("/d/","");
-        for (let d of document.getElementsByClassName("dynamic")) {
-          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
-        }
-      }
-
     jQuery(function($) {
-     display();
       $('.columns a').click(function() {
         $('#action_column').removeClass().addClass($(this).data('class'));
         window.dispatchEvent(new Event('resize'));
