@@ -118,8 +118,8 @@ export default function ShareAction(props) {
       <h3>{t("share.title")}</h3>
       <p>{t("share.intro")}</p>
       <Card className={classes.root}>
+        {config.component.share?.top && <Actions {...props} />}
         <CardHeader title={metadata.title} subheader={metadata.provider} />
-
         {metadata.image ? (
           <CardMedia
             className={classes.media}
@@ -129,42 +129,8 @@ export default function ShareAction(props) {
         ) : null}
         <CardContent>
           <p>{metadata.description}</p>
+          {!config.component.share?.top && <Actions {...props} />}
         </CardContent>
-        <CardActions>
-          <ActionIcon
-            icon={WhatsappIcon}
-            title={props["share-whatsapp"] || props.share}
-            windowWidth={715}
-            windowHeight={544}
-            component={WhatsappShareButton}
-          />
-          <ActionIcon
-            icon={FacebookMessengerIcon}
-            title={props["share-whatsapp"] || props.share}
-            appId="634127320642564"
-            component={FacebookMessengerShareButton}
-          />
-          <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
-          <ActionIcon
-            icon={TwitterIcon}
-            title={props["share-twitter"] || props.share}
-            component={TwitterShareButton}
-          />
-          <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
-          {!!config.component?.share?.email && (
-            <ActionIcon
-              icon={EmailIcon}
-              component={EmailShareButton}
-              subject={t("share.email.subject") || t("share.message")}
-              body={t("share.email.body") || t("share.message")}
-              separator=" "
-            />
-          )}
-          {!!config.component?.share?.reddit && (
-            <ActionIcon icon={RedditIcon} component={RedditShareButton} />
-          )}
-          <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
-        </CardActions>
         {config.component.share?.next && (
           <Button
             endIcon={<SkipNextIcon />}
@@ -179,6 +145,46 @@ export default function ShareAction(props) {
       </Card>
     </div>
   );
+
+  function Actions(props) {
+    return (
+      <CardActions>
+        <ActionIcon
+          icon={WhatsappIcon}
+          title={props["share-whatsapp"] || props.share}
+          windowWidth={715}
+          windowHeight={544}
+          component={WhatsappShareButton}
+        />
+        <ActionIcon
+          icon={FacebookMessengerIcon}
+          title={props["share-whatsapp"] || props.share}
+          appId="634127320642564"
+          component={FacebookMessengerShareButton}
+        />
+        <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
+        <ActionIcon
+          icon={TwitterIcon}
+          title={props["share-twitter"] || props.share}
+          component={TwitterShareButton}
+        />
+        <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
+        {!!config.component?.share?.email && (
+          <ActionIcon
+            icon={EmailIcon}
+            component={EmailShareButton}
+            subject={t("share.email.subject") || t("share.message")}
+            body={t("share.email.body") || t("share.message")}
+            separator=" "
+          />
+        )}
+        {!!config.component?.share?.reddit && (
+          <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+        )}
+        <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
+      </CardActions>
+    );
+  }
 
   function ActionIcon(props) {
     const medium = props.component.render.displayName.replace(
