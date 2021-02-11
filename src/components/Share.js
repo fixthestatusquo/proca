@@ -88,7 +88,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function ShareAction(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
-  //const [data, setData] = useData();
 
   const actionPage = config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
@@ -99,7 +98,6 @@ export default function ShareAction(props) {
 
     const url = new URL(window.location.href);
     let params = url.searchParams;
-
     params.set("utm_source", "share");
     params.set(
       "utm_medium",
@@ -147,25 +145,28 @@ export default function ShareAction(props) {
   );
 
   function Actions(props) {
+    const shareText = (key) => {
+      return config.param.locales[key] || config.param.locales["share"];
+    };
     return (
       <CardActions>
         <ActionIcon
           icon={WhatsappIcon}
-          title={props["share-whatsapp"] || props.share}
+          title={shareText("share-whatsapp")}
           windowWidth={715}
           windowHeight={544}
           component={WhatsappShareButton}
         />
         <ActionIcon
           icon={FacebookMessengerIcon}
-          title={props["share-whatsapp"] || props.share}
+          title={shareText("share-fbmessenger")}
           appId="634127320642564"
           component={FacebookMessengerShareButton}
         />
         <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
         <ActionIcon
           icon={TwitterIcon}
-          title={props["share-twitter"] || props.share}
+          title={shareText("share-twitter")}
           component={TwitterShareButton}
         />
         <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
@@ -173,8 +174,8 @@ export default function ShareAction(props) {
           <ActionIcon
             icon={EmailIcon}
             component={EmailShareButton}
-            subject={t("share.email.subject") || t("share.message")}
-            body={t("share.email.body") || t("share.message")}
+            subject={shareText("share-subject")}
+            body={shareText("share-body")}
             separator=" "
           />
         )}

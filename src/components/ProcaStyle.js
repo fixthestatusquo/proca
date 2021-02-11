@@ -5,6 +5,7 @@ import {
   createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core";
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
 //import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 import { useLayout } from "../hooks/useLayout";
@@ -27,6 +28,20 @@ const GlobalCss = withStyles({
 })(() => null);
 */
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    "@global": {
+      ".proca-text": {
+        display: "none",
+      },
+    },
+  })
+);
+
+const GlobalStyles = () => {
+  useStyles();
+  return null;
+};
 //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
   const layout = useLayout();
@@ -100,6 +115,7 @@ export default function ProcaStyle(props) {
   }
   return (
     <StylesProvider generateClassName={generateClassName}>
+      <GlobalStyles />
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
     </StylesProvider>
   );

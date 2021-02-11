@@ -134,18 +134,51 @@ pre {background:#dede; padding: 10px}
           </p>
 
         </div>
+      <div class="row">
+        <div class="col">
+          <p class="proca-text share">I signed, you should sign too!</p>
+      <p class="proca-text share-twitter">I signed the #campaign, you should too!</p>
+          <p class="proca-text share-whatsapp">Hi, sign that!</p>
+          <p class="proca-text consent-into"></p>
+          <p class="proca-text">Bla</p>
+        <h2>Are you working for this organisation?</h2>
+        <p>
+        Adding this widget on your website is simple!
+        </p>
+          <p>
+          We recommend that you run the widget on your website’s homepage. However, if you prefer, you can run it on a specific campaign or other relevant page. For the final version, it's better to have a memorable url, as it will hopefully be widely shared.</p>
+          <p>
+          You simply need to copy paste in your website editor, for instance wordpress 
+          </p>
 
-<div class="proca-signature">signatures</div>
-          <a href="#proca-dialog">Quam</a> pellentesque nec nam aliquam sem et. Molestie nunc non blandit massa enim nec dui. Diam ut venenatis tellus in metus vulputate eu scelerisque. Quis ipsum suspendisse ultrices gravida dictum fusce ut. Commodo viverra maecenas accumsan lacus vel. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Eu volutpat odio facilisis mauris. Diam in arcu cursus euismod. Viverra nam libero justo laoreet sit amet cursus sit. Adipiscing elit duis tristique sollicitudin nibh sit. Cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo. Laoreet suspendisse interdum consectetur libero.
-</p><p>
+          <h3>Just the action tool</h3>
+          This is the most flexible solution, you can have a full width form, or manage your layout exactly the way your want.
+          <pre class="dynamic">
+&lt;script id="proca" src="https://%widget_path%">&lt;/script>
+&lt;div class="proca-widget">
+&lt;/div>
+          </pre>
 
-Scelerisque viverra mauris in aliquam. Magna fringilla urna porttitor rhoncus dolor. Vestibulum lectus mauris ultrices eros in cursus turpis massa. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Scelerisque in dictum non consectetur a erat nam at lectus. Tempor orci dapibus ultrices in iaculis nunc. Massa ultricies mi quis hendrerit dolor magna. Lectus mauris ultrices eros in. Viverra tellus in hac habitasse. Est ultricies integer quis auctor elit. Lacus luctus accumsan tortor posuere ac ut. Elementum pulvinar etiam non quam lacus suspendisse. Sodales ut etiam sit amet nisl purus. Morbi non arcu risus quis varius quam quisque id. Risus nec feugiat in fermentum posuere urna. Tempor commodo ullamcorper a lacus vestibulum sed arcu.
-</p><p>
+          <h3>Action tool and campaign text (two columns)</h3>
+          If you want a little help and have something in two columns (like the example above), it's almost the same, but you put the text you want on the left hand column as the content of the widget
+          <pre class="dynamic">
+&lt;script id="proca" src="https://%widget_path%">&lt;/script>
+&lt;div class="proca-widget">
+  Put here the title and text of the campaign<br>
+&lt;/div>
+          </pre>
 
-Massa id neque aliquam vestibulum morbi blandit. Mauris rhoncus aenean vel elit scelerisque mauris. Dignissim suspendisse in est ante. Tempor orci eu lobortis elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Aliquet enim tortor at auctor urna nunc id cursus metus. Id volutpat lacus laoreet non curabitur gravida arcu. Malesuada fames ac turpis egestas sed tempus urna. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Id velit ut tortor pretium viverra suspendisse. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Semper quis lectus nulla at volutpat. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem.
-</p><p>
-Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed elementum tempus egestas. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Mauris pellentesque pulvinar pellentesque habitant. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Lacus luctus accumsan tortor posuere. Nunc non blandit massa enim nec dui nunc. Interdum consectetur libero id faucibus nisl. Ac auctor augue mauris augue neque gravida in. Habitant morbi tristique senectus et. Amet consectetur adipiscing elit pellentesque habitant. Tristique sollicitudin nibh sit amet commodo nulla. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Et egestas quis ipsum suspendisse. Proin nibh nisl condimentum id. Egestas erat imperdiet sed euismod nisi.</p>
+          <p><i>You can put the first line wherever you want, the other lines has to be where you want the form to be displayed</i></p>
+          ◦<p>
+          Please do <b>NOT</b> test the widget on a live page – we don’t want people trying to sign before we go live!
+          <br>
+          you can see an example of the widget and the steps above.
+        </div>
       </div>
+      </div>
+    </div>
+
+
     </div>
 
     <div class="modal" id="code" tabindex="-1" role="dialog">
@@ -158,13 +191,8 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
         </button>
       </div>
       <div class="modal-body">
-          <h4>If you use wordpress</h4>
-              <ul>
-                <li> add "proca" plugin</li>
-                <li class="dynamic"> use the shortcode [proca widget=%widget_shortcode%]</li>
-              </ul>
 
-          <h4>Any other (Javascript)</h4>
+          <h4>Any page (Javascript)</h4>
           <pre class="dynamic">
 &lt;script id="proca" src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">&lt;/div>
