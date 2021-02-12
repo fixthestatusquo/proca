@@ -36,7 +36,6 @@ const EciPopup = (props) => {
     setPopup(false);
   };
 
-  const content = t("eci:privacy.info");
   return (
     <>
       <span

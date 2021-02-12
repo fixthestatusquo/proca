@@ -59,17 +59,28 @@ export default (props) => {
     defaultValues: data,
   });
 
-  const { handleSubmit, setError, clearErrors, formState, watch } = form;
+  const {
+    handleSubmit,
+    setError,
+    clearErrors,
+    formState,
+    watch,
+    setValue,
+  } = form;
 
-  const nationality = watch("nationality") || "";
+  const { nationality, country } = watch(["nationality", "country"]) || "";
   useEffect(() => {
     if (nationality && nationality !== "ZZ") {
       const ids = documents[nationality.toLowerCase()];
       setIds(documents[nationality.toLowerCase()]);
       clearErrors("documentNumber");
       setRequire(Object.keys(ids).length ? "id" : "address");
+      if (!country && require === "address") {
+        console.log(country, nationality);
+        setValue("country", nationality);
+      }
     }
-  }, [nationality, clearErrors]);
+  }, [country, nationality, setValue, clearErrors]);
 
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
@@ -208,14 +219,20 @@ export default (props) => {
                   }),
                 }}
               />
-              <Country form={form} countries={countries} />
+              <Country form={form} countries={countries} name="nationality" />
               <General
                 form={form}
                 birthdate={require === "address"}
                 compact={compact}
               />
               {require === "address" && (
-                <Address form={form} compact={compact} countries={countries} />
+                <Address
+                  form={form}
+                  compact={compact}
+                  country={nationality}
+                  countries={countries}
+                  geocountries={config.component.eci.geocountries}
+                />
               )}
               {require === "id" && (
                 <Id

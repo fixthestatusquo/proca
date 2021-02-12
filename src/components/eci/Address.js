@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 import TextField from "../TextField";
-import Country from "../Country";
+import Country from "../Country"; // the country component is for address, different than the country for nationality
 import { useTranslation } from "react-i18next";
 
 export default function Register(props) {
@@ -17,8 +17,9 @@ export default function Register(props) {
 
   const { postcode, country } = watch(["postcode", "country"]);
 
+  const geocountries = props.geocountries || ["DE", "FR"];
+
   useEffect(() => {
-    const geocountries = ["DE", "FR"];
     if (!geocountries.includes(country)) {
       return;
     }
@@ -47,7 +48,7 @@ export default function Register(props) {
         });
     }
     fetchAPI();
-  }, [postcode, setError, setValue, country]);
+  }, [postcode, setError, setValue, country, geocountries]);
 
   return (
     <Container component="main" maxWidth="sm">
@@ -85,7 +86,12 @@ export default function Register(props) {
             required
           />
         </Grid>
-        <Country form={form} countries={props.countries} />
+        <Country
+          form={form}
+          name="country"
+          countries={props.countries}
+          country={props.country}
+        />
       </Grid>
     </Container>
   );

@@ -9,7 +9,6 @@ const getAllData = (selector) => {
   );
   const dom = document.querySelector(selector);
   const texts = document.getElementsByClassName("proca-text");
-  console.log(texts);
   let locales = {};
   for (const t of texts) {
     for (const c of t.classList) {

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { Stepper, Step, StepButton } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
 
-import EmailIcon from "@material-ui/icons/FavoriteBorder";
 import EciIcon from "@material-ui/icons/HowToVote";
 import ShareIcon from "@material-ui/icons/Share";
 
@@ -21,9 +16,6 @@ export default function Target(props) {
   const { t } = useTranslation();
 
   const step = (s) => ["register", "eci", "share"].indexOf(s);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const doneEmail = () => {
     setValue("eci");

@@ -5,6 +5,7 @@
 1) convert the xml file downloaded from the EC portal into a json
 
     cat config/REQ.ECI\(2021\)000001.xml | iconv -f utf16 -t utf8 | xq . > config/REQ.ECI\(2021\)000001.json
+vim :%s%"@%"%g
 
     Decide that one AP is your "master copy" on which you work. It can be one of
     the ECI pages, eg. english one.
@@ -45,6 +46,7 @@ const readEci = (eci) => {
 
 const getLocale = (code, languages) => {
   const locale = languages.find((d) => d.code === code);
+  locale.name = locale.title;
   return locale;
 };
 
@@ -61,7 +63,12 @@ const makeLocalAP = (mainAP, locale, eci) => {
 
   // modify eci component config
   page.component.eci.organisers = eci.organisers.organiser;
-  page.component.eci.registrationDate = eci.registrationDate;
+  page.component.eci.registrationDate =
+    eci.startOfTheCollectionPeriod || eci.registrationDate;
+  page.component.eci.registrationDate = page.component.eci.registrationDate.substring(
+    0,
+    10
+  );
   page.locales["campaign:"] = getLocale(
     page.lang.toLowerCase(),
     eci.languages.language
@@ -79,6 +86,7 @@ const makeLocalAP = (mainAP, locale, eci) => {
   const mainConfig = read(parseInt(id, 10));
   const eciid = mainConfig.component.eci.registrationNumber;
   const eci = readEci(eciid);
+  console.log(eci);
   const pages = {};
   eci.languages.language.forEach((ll) => {
     pages[ll.code] = makeLocalAP(mainConfig, ll.code, eci);
