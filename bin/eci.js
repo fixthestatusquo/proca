@@ -2,6 +2,10 @@
 /*
  * Usage:
 
+1) convert the xml file downloaded from the EC portal into a json
+
+    cat config/REQ.ECI\(2021\)000001.xml | iconv -f utf16 -t utf8 | xq . > config/REQ.ECI\(2021\)000001.json
+
     Decide that one AP is your "master copy" on which you work. It can be one of
     the ECI pages, eg. english one.
     yarn pull PAGEID to have its config in config/
