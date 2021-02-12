@@ -75,8 +75,7 @@ export default (props) => {
       setIds(documents[nationality.toLowerCase()]);
       clearErrors("documentNumber");
       setRequire(Object.keys(ids).length ? "id" : "address");
-      if (!country && require === "address") {
-        console.log(country, nationality);
+      if (!country && Object.keys(ids).length === 0) {
         setValue("country", nationality);
       }
     }

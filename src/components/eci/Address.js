@@ -23,7 +23,7 @@ export default function Register(props) {
     if (!geocountries.includes(country)) {
       return;
     }
-    if (postcode.length !== 5) return;
+    if (!postcode || postcode.length !== 5) return;
     const api = "https://" + country + ".proca.app/" + postcode;
 
     async function fetchAPI() {
