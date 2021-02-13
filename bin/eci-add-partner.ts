@@ -1,6 +1,7 @@
 import "cross-fetch/polyfill";
 import {request, admin, types} from '@proca/api';
 import {apiLink} from './config';
+require("dotenv").config();
 
 const api = apiLink();
 
