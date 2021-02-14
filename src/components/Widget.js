@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from "react";
 import ProcaRoot from "./ProcaRoot";
 import { initConfigState } from "../hooks/useConfig";
 import Url, { step as paramStep } from "../lib/urlparser.js";
-import { getAllData } from "../lib/domparser";
+import { getAllData, getOverwriteLocales } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "../hooks/useLayout";
@@ -52,6 +52,7 @@ const Widget = (props) => {
 
   if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
+  config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.actionPage = parseInt(config.actionPage, 10);
   initConfigState(config);
   if (config.component.widget?.mobileVersion === false) isMobile = false;
