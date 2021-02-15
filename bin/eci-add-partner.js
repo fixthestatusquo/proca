@@ -61,34 +61,39 @@ var checkError = function (errors) {
 var pickName = function (fromName, partner) {
     var parts = fromName.split('/');
     parts.unshift(partner);
-    return parts.join('/');
+    return parts.join('/').toLowerCase();
 };
 var copy = function (fn, org, tn) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, errors, data, path, _b, errors_1, data_1;
-    var _c;
-    return __generator(this, function (_d) {
-        switch (_d.label) {
+    var _a, errors, data, path, _b, errors_1, data_1, fromConfig, existing;
+    var _c, _d;
+    return __generator(this, function (_e) {
+        switch (_e.label) {
             case 0: return [4 /*yield*/, api_1.request(api, api_1.admin.CopyActionPageDocument, { fromName: fn, toName: tn, toOrg: org })];
             case 1:
-                _a = _d.sent(), errors = _a.errors, data = _a.data;
-                if (!errors) return [3 /*break*/, 4];
+                _a = _e.sent(), errors = _a.errors, data = _a.data;
+                if (!errors) return [3 /*break*/, 5];
                 path = errors[0].path;
-                if (!lodash_1.isEqual(path, ["copyActionPage", "name"])) return [3 /*break*/, 3];
-                return [4 /*yield*/, api_1.request(api, api_1.admin.GetActionPageDocument, { org: org, name: tn })];
+                if (!lodash_1.isEqual(path, ["copyActionPage", "name"])) return [3 /*break*/, 4];
+                return [4 /*yield*/, api_1.request(api, api_1.widget.GetActionPageDocument, { name: fn })];
             case 2:
-                _b = _d.sent(), errors_1 = _b.errors, data_1 = _b.data;
+                _b = _e.sent(), errors_1 = _b.errors, data_1 = _b.data;
                 checkError(errors_1);
-                if ((_c = data_1 === null || data_1 === void 0 ? void 0 : data_1.org) === null || _c === void 0 ? void 0 : _c.actionPage) {
-                    return [2 /*return*/, __assign(__assign({}, data_1.org.actionPage), { config: JSON.parse(data_1.org.actionPage.config) })];
+                fromConfig = data_1.actionPage.config;
+                return [4 /*yield*/, api_1.request(api, api_1.admin.GetActionPageDocument, { org: org, name: tn })];
+            case 3:
+                existing = _e.sent();
+                checkError(existing.errors);
+                if ((_d = (_c = existing.data) === null || _c === void 0 ? void 0 : _c.org) === null || _d === void 0 ? void 0 : _d.actionPage) {
+                    return [2 /*return*/, __assign(__assign({}, existing.data.org.actionPage), { config: JSON.parse(fromConfig) })];
                 }
                 else {
                     throw new Error("didn't fetch page data for " + org + " " + tn + "}");
                 }
-                return [3 /*break*/, 4];
-            case 3:
-                checkError(errors);
-                _d.label = 4;
+                return [3 /*break*/, 5];
             case 4:
+                checkError(errors);
+                _e.label = 5;
+            case 5:
                 if (data && data.copyActionPage) {
                     //console.log("copied page config type", typeof data.copyActionPage.config);
                     return [2 /*return*/, __assign(__assign({}, data.copyActionPage), { config: JSON.parse(data.copyActionPage.config) })];
@@ -144,6 +149,7 @@ var addPartner = function (genericPage, partnerOrg) { return __awaiter(void 0, v
                 return [4 /*yield*/, getOrg(partnerOrg)];
             case 2:
                 org = _c.sent();
+                console.log('copy:', newAp);
                 cfg = newAp.config;
                 if (!cfg || !cfg.component || !cfg.component.consent || !cfg.layout) {
                     console.error('this config does not have component.consent or layout', cfg);

@@ -1,5 +1,5 @@
 import "cross-fetch/polyfill";
-import {request, admin, types} from '@proca/api';
+import {request, admin, widget, types} from '@proca/api';
 import {apiLink} from './config';
 import {isEqual} from 'lodash';
 require("dotenv").config();
@@ -15,7 +15,7 @@ const checkError = (errors : any) => {
 const pickName = (fromName, partner) => {
   const parts = fromName.split('/');
   parts.unshift(partner);
-  return parts.join('/');
+  return parts.join('/').toLowerCase();
 }
 
 const copy = async (fn:string, org:string, tn:string) => {
@@ -24,13 +24,16 @@ const copy = async (fn:string, org:string, tn:string) => {
 
     const [{path}] = errors; 
 
-    if (isEqual(path,  ["copyActionPage","name"])) {
-       // page exists, lets just fetch it
-       const {errors, data} = await request(api, admin.GetActionPageDocument, {org: org, name: tn});
-       checkError(errors);
-       if (data?.org?.actionPage) {
-        return {...data.org.actionPage, config: JSON.parse(data.org.actionPage.config)};
-       } else {
+    if (isEqual(path, ["copyActionPage", "name"])) {
+      // page exists, lets just fetch it
+      let { errors, data } = await request(api, widget.GetActionPageDocument, { name: fn });
+      checkError(errors);
+      const fromConfig = data.actionPage.config
+      const existing = await request(api, admin.GetActionPageDocument, { org: org, name: tn });
+      checkError(existing.errors);
+      if (existing.data?.org?.actionPage) {
+        return { ...existing.data.org.actionPage, config: JSON.parse(fromConfig )};
+      } else {
         throw new Error(`didn't fetch page data for ${org} ${tn}}`);
        }
     } else {
@@ -67,6 +70,7 @@ const updateConfig = async (apId :number, cfg:any) => {
 const addPartner = async (genericPage:string, partnerOrg:string) => {
   const newAp = await copy(genericPage, partnerOrg, pickName(genericPage, partnerOrg) );
   const org : admin.DashOrgOverview['org'] = await getOrg(partnerOrg);
+  console.log('copy:',newAp);
 
   // overwrite data in new AP
   let cfg = newAp.config;
