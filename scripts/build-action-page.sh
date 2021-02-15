@@ -5,10 +5,10 @@
 set -u
 set -e
 
-read -N 2048 CONFIG || true 
+read -N 100000 CONFIG || true 
 
-ID=$(echo $CONFIG | jq -r .actionpage)
-CAMPAIGN_NAME=$(echo $CONFIG | jq -r .campaign.name)
+ID=$(echo "$CONFIG" | jq -r .actionpage)
+CAMPAIGN_NAME=$(echo "$CONFIG" | jq -r .campaign.name)
 
 if [ -n "$CAMPAIGN" -a ! "$CAMPAIGN_NAME"="$CAMPAIGN" ]; then
   echo "Not $CAMPAIGN, skipping"
