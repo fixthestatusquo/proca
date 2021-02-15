@@ -1,6 +1,7 @@
 import "cross-fetch/polyfill";
 import {request, admin, types} from '@proca/api';
 import {apiLink} from './config';
+import {isEqual} from 'lodash';
 require("dotenv").config();
 
 const api = apiLink();
@@ -19,7 +20,23 @@ const pickName = (fromName, partner) => {
 
 const copy = async (fn:string, org:string, tn:string) => {
   const {errors, data} = await request(api, admin.CopyActionPageDocument, {fromName: fn, toName: tn, toOrg:org});
-  checkError(errors);
+  if (errors) {
+
+    const [{path}] = errors; 
+
+    if (isEqual(path,  ["copyActionPage","name"])) {
+       // page exists, lets just fetch it
+       const {errors, data} = await request(api, admin.GetActionPageDocument, {org: org, name: tn});
+       checkError(errors);
+       if (data?.org?.actionPage) {
+        return {...data.org.actionPage, config: JSON.parse(data.org.actionPage.config)};
+       } else {
+        throw new Error(`didn't fetch page data for ${org} ${tn}}`);
+       }
+    } else {
+      checkError(errors);
+    }
+  }
   if (data && data.copyActionPage) {
     //console.log("copied page config type", typeof data.copyActionPage.config);
     return {...data.copyActionPage, config: JSON.parse(data.copyActionPage.config)};
@@ -48,7 +65,7 @@ const updateConfig = async (apId :number, cfg:any) => {
 }
 
 const addPartner = async (genericPage:string, partnerOrg:string) => {
-   const newAp = await copy(genericPage, partnerOrg, pickName(genericPage, partnerOrg) );
+  const newAp = await copy(genericPage, partnerOrg, pickName(genericPage, partnerOrg) );
   const org : admin.DashOrgOverview['org'] = await getOrg(partnerOrg);
 
   // overwrite data in new AP
