@@ -35,7 +35,7 @@ We are fully GDPR compliant. As part of a mandatory element of the signature for
 
 ## Performance
 
-Benchmarked at > 1'000'000 signatures per hour on a 16 cores
+Benchmarked at > 1'000'000 signatures per hour on a 16 cores.
 
 ## Technology
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
