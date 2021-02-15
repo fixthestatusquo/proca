@@ -84,5 +84,6 @@
     "Share": "Partager",
     "Join": "Rejoindre",
     "The average donation is {{amount}} {{currency}}": "Le don moyen est de {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Je fais un don {{amount}}"
+    "I'm donating {{amount}}": "Je fais un don {{amount}}",
+    "Stay informed": "Rester informé(e)"
 }
