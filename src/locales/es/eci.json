@@ -1,19 +1,19 @@
 {
     "common": {
         "page-title": "INICIATIVA CIUDADANA EUROPEA: ¡Dale tu apoyo!",
-		"head-title": {
-            "home":"Iniciativa Ciudadana Europea",
-            "form":"Iniciativa Ciudadana Europea – Formulario nacional de apoyo",
-            "submitted":"Iniciativa Ciudadana Europea – Declaración de apoyo enviada",
-            "all-countries":"Iniciativa Ciudadana Europea – Declaraciones de apoyo recogidas en línea ",
-            "already":"Iniciativa Ciudadana Europea – Iniciativa ya apoyada",
-            "disabled":"Iniciativa Ciudadana Europea – Iniciativa deshabilitada",
-            "privacy":"Iniciativa Ciudadana Europea – Declaración de confidencialidad",
-            "conformity":"Iniciativa Ciudadana Europea – Certificado de conformidad",
-            "error-404":"Iniciativa Ciudadana Europea – Página no encontrada",
-            "error-500":"Iniciativa Ciudadana Europea – Error inesperado",
-            "login":"Iniciativa Ciudadana Europea – Iniciar sesión",
-            "not-initialized":"Iniciativa Ciudadana Europea – Iniciativa no inicializada"
+        "head-title": {
+            "home": "Iniciativa Ciudadana Europea",
+            "form": "Iniciativa Ciudadana Europea – Formulario nacional de apoyo",
+            "submitted": "Iniciativa Ciudadana Europea – Declaración de apoyo enviada",
+            "all-countries": "Iniciativa Ciudadana Europea – Declaraciones de apoyo recogidas en línea ",
+            "already": "Iniciativa Ciudadana Europea – Iniciativa ya apoyada",
+            "disabled": "Iniciativa Ciudadana Europea – Iniciativa deshabilitada",
+            "privacy": "Iniciativa Ciudadana Europea – Declaración de confidencialidad",
+            "conformity": "Iniciativa Ciudadana Europea – Certificado de conformidad",
+            "error-404": "Iniciativa Ciudadana Europea – Página no encontrada",
+            "error-500": "Iniciativa Ciudadana Europea – Error inesperado",
+            "login": "Iniciativa Ciudadana Europea – Iniciar sesión",
+            "not-initialized": "Iniciativa Ciudadana Europea – Iniciativa no inicializada"
         },
         "more.info": "Mostrar más información",
         "hide.info": "Ocultar más información,",
@@ -232,7 +232,9 @@
         "ocs.version": "Sistema central de recogida en línea",
         "privacy-title": "Ver la declaración de confidencialidad",
         "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-        "conformity-title": "Ver el certificado de conformidad"
+        "conformity-title": "Ver el certificado de conformidad",
+        "privacy-link3": "https://europa.eu/citizens-initiative/privacy-policy-concerning-eci-newsletter-subscribers-email-addresses_es",
+        "privacy-link2": "https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-email-addresses-collected-through-central-online-collection_es"
     },
     "congratulations": {
         "title": "¡Muchas Gracias!",
@@ -333,15 +335,15 @@
         "5.title": "El país seleccionado como país de nacionalidad es distinto del país seleccionado para el apoyo mediante identificación electrónica",
         "5.subtitle": ""
     },
-    "login":{
-        "sign-in":"Iniciar sesión",
-        "error":"Error",
-        "error-msg":"Nombre de usuario, contraseña o respuesta de seguridad incorrectos. Compruébelo e inténtelo de nuevo.",
-        "username":"Nombre de usuario",
-        "password":"Contraseña",
-        "challenge":"Comprobación",
-        "challenge-result":"Resultado de la comprobación",
-        "copy-text":"Copiar texto"
-    }
-
+    "login": {
+        "sign-in": "Iniciar sesión",
+        "error": "Error",
+        "error-msg": "Nombre de usuario, contraseña o respuesta de seguridad incorrectos. Compruébelo e inténtelo de nuevo.",
+        "username": "Nombre de usuario",
+        "password": "Contraseña",
+        "challenge": "Comprobación",
+        "challenge-result": "Resultado de la comprobación",
+        "copy-text": "Copiar texto"
+    },
+    "Skip and go directly to signing the initiative in step 2": "Omitir e ir directamente a firmar la iniciativa en el paso 2"
 }
