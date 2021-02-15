@@ -178,6 +178,7 @@ export default function Register(props) {
       </Container>
     );
   }
+  console.log(props.buttonText, config.component.register?.button);
   return (
     <form
       className={classes.container}
@@ -281,7 +282,8 @@ export default function Register(props) {
                 }
               >
                 {" "}
-                {props.buttonText || t("register")}
+                {props.buttonText ||
+                  t(config.component.register?.button || "register")}
               </Button>
             </Grid>
           </Grid>
