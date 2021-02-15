@@ -79,5 +79,6 @@
     "Share": "Megosztás",
     "Join": "Csatlakozás",
     "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Adományozok {{amount}}"
+    "I'm donating {{amount}}": "Adományozok {{amount}}",
+    "Stay informed": "Tájékoztatás kérése"
 }
