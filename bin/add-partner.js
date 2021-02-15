@@ -2,8 +2,9 @@ require("cross-fetch/polyfill");
 require("dotenv").config();
 
 const { request, admin, widget, types } = require("@proca/api");
-const api = require("./config").apiLink();
+const { pull, apiLink } = require("./config");
 const isEqual = require("lodash").isEqual;
+const api = apiLink();
 
 const checkError = (errors) => {
   if (errors) {
@@ -72,7 +73,6 @@ const getOrg = async (org) => {
   const { errors, data } = await request(api, admin.DashOrgOverviewDocument, {
     org,
   });
-  checkError(errors);
   if (data && data.org) {
     return { ...data.org, config: JSON.parse(data.org.config) };
   }
@@ -92,13 +92,33 @@ const updateConfig = async (apId, cfg) => {
   }
 };
 
+const addOrg = async (partnerOrg) => {
+  const { errors, data } = await request(api, admin.AddOrgDocument, {
+    org: { name: partnerOrg, title: partnerOrg },
+  });
+  checkError(errors);
+  console.log("created new org", partnerOrg, id);
+  return {
+    id: data.addOrg.id,
+    config: { component: {} },
+    name: partnerOrg,
+    title: partnerOrg,
+  };
+};
+
 const addPartner = async (genericPage, partnerOrg) => {
+  let org = await getOrg(partnerOrg);
+
+  if (!org) {
+    console.log("creating org", partnerOrg);
+    org = await addOrg(partnerOrg);
+  }
+
   const newAp = await copy(
     genericPage,
     partnerOrg,
     pickName(genericPage, partnerOrg)
   );
-  const org = await getOrg(partnerOrg);
   console.log("copy:", newAp);
 
   // overwrite data in new AP
@@ -123,6 +143,12 @@ const addPartner = async (genericPage, partnerOrg) => {
   // something else?
 
   await updateConfig(newAp.id, cfg);
+  try {
+    console.log("fetching config/", newAp.id);
+    const d = await pull(parseInt(newAp.id, 10));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // console.log('argv', process.argv);
