@@ -114,6 +114,8 @@ const makeLocalAP = (mainAP, locale, eci) => {
       },
     };
     // console.log(JSON.stringify(upsertEciVars, null, 2));
+    console.log(`Will UPSERT these pages to campaign ${campaignName}: ${upsertEciVars.campaign.actionPages.map(({name})=>name).join(', ')}`);
+    console.log(`The pages are not stored in ./config; you must yarn pull them if you need a local copy.`);
 
     const upsert = await api.request(
       link,
