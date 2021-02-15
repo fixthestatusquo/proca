@@ -78,5 +78,6 @@
     "Share": "Споделяне",
     "Join": "Присъединяване",
     "The average donation is {{amount}} {{currency}}": "Средното дарение е {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Дарявам {{amount}}"
+    "I'm donating {{amount}}": "Дарявам {{amount}}",
+    "Stay informed": "Бъдете информирани"
 }
