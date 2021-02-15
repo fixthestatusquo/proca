@@ -79,5 +79,6 @@
     "Share": "Jaa",
     "Join": "Liity",
     "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Lahjoitan {{amount}}"
+    "I'm donating {{amount}}": "Lahjoitan {{amount}}",
+    "Stay informed": "Liity jakelulistalle"
 }
