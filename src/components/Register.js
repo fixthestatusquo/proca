@@ -178,7 +178,6 @@ export default function Register(props) {
       </Container>
     );
   }
-  console.log(props.buttonText, config.component.register?.button);
   return (
     <form
       className={classes.container}
