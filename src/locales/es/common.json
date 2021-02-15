@@ -79,5 +79,6 @@
     "Share": "Compartir",
     "Join": "Unirse",
     "The average donation is {{amount}} {{currency}}": "La donación promedio es {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Estoy donando {{amount}}"
+    "I'm donating {{amount}}": "Estoy donando {{amount}}",
+    "Stay informed": "Seguir recibiendo información"
 }
