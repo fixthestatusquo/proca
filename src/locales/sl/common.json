@@ -55,12 +55,12 @@
         "title": "Skoraj končano! Naredite naslednji korak."
     },
     "consent": {
-        "processing": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov in piškotkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
+        "processing": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
         "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste mogli ugotoviti, ali je ta kampanja uspešna ali moramo za njeno zmago sprejeti več ukrepov. Če izberete »Da«, vas bomo sproti obveščali o tej in drugih nujnih akcijah. </1> <2> Odjavo lahko kadar koli odjavite. </2>",
         "opt-out": "Ne, ne pošiljajte mi e-poštnih sporočil in me ne obveščajte v prihodnosti",
         "opt-in": "Da, obveščajte me po e-pošti",
         "intro": "Strinjam se, da {{name}} me kontaktira glede pomembnih kampanj",
-        "processing-nocookie": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov in piškotkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
+        "processing-nocookie": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
         "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti"
     },
     "organisation": "Račun vaše organizacije",
@@ -81,5 +81,6 @@
     "Share": "Skupna raba",
     "Join": "Pridruži se",
     "The average donation is {{amount}} {{currency}}": "Povprečna donacija je {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Doniram {{amount}}"
+    "I'm donating {{amount}}": "Doniram {{amount}}",
+    "Stay informed": "Želim spremljati novosti"
 }
