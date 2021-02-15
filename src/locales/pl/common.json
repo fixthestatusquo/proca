@@ -80,5 +80,6 @@
     "Share": "Udostępnij",
     "Join": "Dołącz",
     "The average donation is {{amount}} {{currency}}": "Średnia darowizna to {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Przekazuję {{amount}}"
+    "I'm donating {{amount}}": "Przekazuję {{amount}}",
+    "Stay informed": "Chcę otrzymywać informacje"
 }
