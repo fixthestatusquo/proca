@@ -179,7 +179,16 @@ var CaptchaScript = function CaptchaScript(hl, reCaptchaCompat) {
 
   var script = document.createElement("script");
   script.src =
-    "https://sign.reclaimyourface.eu/d/hcaptcha.js?render=explicit&onload=hcaptchaOnLoad";
+    "https://sign.reclaimyourface.eu/d/hcaptcha.js?render=explicit&onload=hcaptchaOnLoad&" +
+    "host=https://sign.reclaimyourface.eu" +
+    "&endpoint=https://captcha.reclaimyourface.eu" +
+    "&assethost=https://assets.reclaimyourface.eu" +
+    "&imghost=https://imgs.reclaimyourface.eu";
+  /*    "&endpoint=https://captcha.proca.foundation"+
+      "&assethost=https://assets.proca.foundation"+
+      "&imghost=https://imgs.proca.foundation";
+      */
+
   script.async = true;
 
   if (hl) {
