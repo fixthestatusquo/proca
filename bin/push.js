@@ -1,17 +1,17 @@
-#!/usr/bin/env babel-node
-require('dotenv').config();
+#!/usr/bin/env node
+require("dotenv").config();
 
-const {push} = require('./config');
+const { push } = require("./config");
 
 (async () => {
   const argv = process.argv.slice(2);
-  const id=parseInt(process.env.actionpage || argv[0]);
-  if (!id) throw ("need actionpage={id} or push {id}");
+  const id = parseInt(process.env.actionpage || argv[0]);
+  if (!id) throw "need actionpage={id} or push {id}";
   try {
-      const d = await push(parseInt(id,10));
-      console.log(d);
+    const d = await push(parseInt(id, 10));
+    console.log(d);
   } catch (e) {
     console.error(e);
-        // Deal with the fact the chain failed
+    // Deal with the fact the chain failed
   }
 })();
