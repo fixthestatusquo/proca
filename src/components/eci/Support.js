@@ -21,7 +21,8 @@ import { useCampaignConfig } from "../../hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+//import HCaptcha from "@hcaptcha/react-hcaptcha";
+import HCaptcha from "../../../vendor/hcaptcha.js";
 
 //const countries = eciLocale.common.country;
 
