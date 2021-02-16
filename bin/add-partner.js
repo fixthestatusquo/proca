@@ -98,7 +98,7 @@ const addOrg = async (partnerOrg) => {
     org: { name: partnerOrg, title: partnerOrg },
   });
   checkError(errors);
-  console.log("created new org", partnerOrg, id);
+  console.log("created new org", partnerOrg, data.addOrg.id);
   return {
     id: data.addOrg.id,
     config: { component: {} },

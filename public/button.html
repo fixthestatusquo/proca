@@ -117,25 +117,20 @@ pre {background:#dede; padding: 10px}
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
-      <h2>Campaign to Lorem ipsum to free dolor sit amet</h2>
-      <div class="proca-widget" id="signature-form" nodata-dialog-title="Want to be informed on our next actions?" nodata-twitter-text="Do the test">
+      <h2>Campaign <span class="proca-title"></span></h2>
 
           <div class="alert alert-info" role="alert">
             <h3>  This is an example, but your can test signing </h3>
             
-            For a real one, the signature form will be directly embedded into your website, with your design and url.
-            <br>
-
           <p class="proca-description">
           This is the text of the campaign, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           </div>
 
-          <p class="proca-description">
-          Lorem ipsum dolor <span class="proca-counter"></span> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p class="">
+          You can put a button the style you want <a href="#proca-dialog" class="btn btn-primary">SIGN</a><br> 
           </p>
 
-        </div>
       <div class="row">
         <div class="col">
           <p class="proca-text share">I signed, you should sign too!</p>
@@ -147,29 +142,16 @@ pre {background:#dede; padding: 10px}
           <p>
           You simply need to copy paste in your website editor, for instance wordpress. The specific instructions depends of your website, check with your webmaster or search how to add "raw html" + your CMS.
           </p>
-          <div class="row">
-            <div class="col">
-          <h4>Just the action tool</h4>
-          This is the most flexible solution, you can have a full width form, or manage your layout exactly the way your want.
+              Put this line somehwere in your page
           <pre class="dynamic">
 &lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">
-&lt;/div>
           </pre>
-            </div>
-            <div class="col">
-          <h4>Action tool and campaign text (two columns)</h4>
-          If you want a little help and have something in two columns (like the example above), it's almost the same, but you put the text you want on the left hand column as the content of the widget
-          <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">
-  Put here the title and text of the campaign<br>
-&lt;/div>
-          </pre>
+          <p> and link (styled as a button) with the "url" (href) #proca-dialog. The specifics depend on your theme</p>
+          <pre>&lt;a href="#proca-dialog" class="btn">SIGN NOW&lt;/a></pre>
+            </p>
 
             </div>
             </div>
-          <p><i>You can put the first line wherever you want, the other lines has to be where you want the form to be displayed</i></p>
           <div>
           ◦<p>
           Please do <b>NOT</b> test the widget on a live page – we don’t want people trying to sign before we go live!
