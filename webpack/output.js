@@ -78,12 +78,14 @@ function widgetBuildConfig(webpack, config) {
   }
 
   // override index.html template with layout.HtmlTemplate in config
+  // doc: https://github.com/jantimon/html-webpack-plugin#options
   if (config.layout && config.layout.HtmlTemplate) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
         if (plug.options.filename === "index.html")
           plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
+          plug.options.title = `${config.organisation} - ${config.campaign.title} (${config.filename} action page)`;
       }
     }
   }
