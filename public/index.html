@@ -8,11 +8,11 @@
     <link rel="alternate" type="application/json+oembed" href="https://widget.proca.foundation/d/demo/petition/oembed.json" title="Embed JSON">
 
 <meta property="og:image" content="https://placekitten.com/540/284" />
-<title><%= htmlWebpackPlugin.options.title %></title>
-<meta name="twitter:title" content="Demo of a Campaign" />
+<title><%= campaign %> widget for <%= organisation %></title>
+<meta name="twitter:title" content="Demo of <%= campaign %>" />
 
-<meta name="description" content="Sign the initiative too!" />
-<meta name="twitter:description" content="For a future" />
+<meta name="description" content="Sign the initiative with <%= organisation %>!" />
+<meta name="twitter:description" content="Sign the initiative with <%= organisation %>" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@eucampaign" />
 <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
@@ -117,7 +117,7 @@ pre {background:#dede; padding: 10px}
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
-      <h2>Campaign to Lorem ipsum to free dolor sit amet</h2>
+      <h2>Campaign <%= campaign %></h2>
       <div class="proca-widget" id="signature-form" nodata-dialog-title="Want to be informed on our next actions?" nodata-twitter-text="Do the test">
 
           <div class="alert alert-info" role="alert">
