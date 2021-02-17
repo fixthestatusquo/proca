@@ -3,6 +3,7 @@ import Register from "../Register";
 import { Button } from "@material-ui/core";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import { useTranslation } from "react-i18next";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();
@@ -18,9 +19,14 @@ const RegisterEmail = (props) => {
       </div>
 
       <Register {...props} consent-intro={false} />
-      {/*<Button fullWidth onClick={props.done}>
-        {t("eci:Skip and go directly to signing the initiative in step 2")}
-      </Button>*/}
+      <Button
+        endIcon={<SkipNextIcon />}
+        fullWidth
+        variant="contained"
+        onClick={props.done}
+      >
+        {t("No Thanks")}
+      </Button>
     </>
   );
 };
