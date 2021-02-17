@@ -37,7 +37,7 @@ export const addMissingCountries = (countries) => {
     return a;  
   }, alreadyHave);
 
-  const all = countries.filter(({iso}) => iso != "ZZ");
+  const all = countries.filter(({iso}) => iso !== "ZZ");
 
   for (const [code, label] of Object.entries(allCountries)) {
     if (! (code in alreadyHave)) {
@@ -68,7 +68,7 @@ export default (props) => {
   }
 
   if (props.other) {
-    countries = useMemo(() => addMissingCountries(countries), [props.countries]);
+    countries = useMemo(() => addMissingCountries(countries));
   }
 
   const { t } = useTranslation();

@@ -40,13 +40,13 @@ export default (props) => {
 
   const { t } = useTranslation();
 
-  const countries = Object.keys(props.countries).map((iso) => ({
+  let countries = Object.keys(props.countries).map((iso) => ({
     iso: iso.toUpperCase(),
     name: props.countries[iso],
   }));
 
   if (props.other) {
-    countries = useMemo(() => addMissingCountries(countries), [props.countries]);
+    countries = useMemo(() => addMissingCountries(countries));
   }
 
   const { register, setValue, watch } = props.form;
