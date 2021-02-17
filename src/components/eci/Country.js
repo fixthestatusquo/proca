@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import useData from "../../hooks/useData";
 
 import TextField from "../TextField";
@@ -7,6 +7,8 @@ import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
 import { Container, Grid } from "@material-ui/core";
+import {addMissingCountries} from '../Country';
+
 
 const emoji = (country) => {
   const offset = 127397;
@@ -42,6 +44,10 @@ export default (props) => {
     iso: iso.toUpperCase(),
     name: props.countries[iso],
   }));
+
+  if (props.other) {
+    countries = useMemo(() => addMissingCountries(countries), [props.countries]);
+  }
 
   const { register, setValue, watch } = props.form;
 

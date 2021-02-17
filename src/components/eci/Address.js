@@ -91,6 +91,7 @@ export default function Register(props) {
           name="country"
           countries={props.countries}
           country={props.country}
+          other={true}
         />
       </Grid>
     </Container>

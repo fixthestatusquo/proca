@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import useData from "../hooks/useData";
 
 import TextField from "./TextField";
@@ -8,7 +8,9 @@ import { useCampaignConfig } from "../hooks/useConfig";
 
 import { Container, Grid } from "@material-ui/core";
 
+import {allCountries} from '../lib/i18n';
 import countriesJson from "../data/countries.json";
+// import {allCountries} from '../lib/i18n'; and use instead XXX
 let countries = [];
 
 const emoji = (country) => {
@@ -26,6 +28,24 @@ const emoji = (country) => {
 
   return emoji;
 };
+
+export const addMissingCountries = (countries) => {
+  const alreadyHave = {};
+
+  countries.reduce((a, c) => { 
+    a[c.iso] = true; 
+    return a;  
+  }, alreadyHave);
+
+  const all = countries.filter(({iso}) => iso != "ZZ");
+
+  for (const [code, label] of Object.entries(allCountries)) {
+    if (! (code in alreadyHave)) {
+      all.push({iso: code, name: label});
+    }
+  }
+  return all;
+}
 
 const Flag = (props) => {
   const country = props.country?.toUpperCase();
@@ -45,6 +65,10 @@ export default (props) => {
     }));
   } else {
     countries = countriesJson;
+  }
+
+  if (props.other) {
+    countries = useMemo(() => addMissingCountries(countries), [props.countries]);
   }
 
   const { t } = useTranslation();
