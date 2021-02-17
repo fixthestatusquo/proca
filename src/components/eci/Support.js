@@ -94,7 +94,17 @@ export default (props) => {
     }
     //data.tracking = {};
     data.tracking = Url.utm();
-    data.birthDate = formatDate(data.birthDate);
+    if (data.birthDate) {
+      data.birthDate = formatDate(data.birthDate);
+      if (data.birthDate === false) {
+        setError("birthDate", {
+          type: "format",
+          message: t("eci:form.error.oct_error_invaliddateformat"),
+        });
+        return;
+      }
+    }
+
     const result = await addSupport(
       config.test ? "test" : "support",
       +config.component.eci.actionpage,
@@ -104,7 +114,6 @@ export default (props) => {
 
     if (result.errors) {
       let handled = false;
-      setErrorDetails(errorMessages(result.errors));
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
@@ -155,7 +164,9 @@ export default (props) => {
           }
         });
       }
-      !handled && setStatus("error");
+      !handled &&
+        setErrorDetails(errorMessages(result.errors)) &&
+        setStatus("error");
       return;
     }
 
