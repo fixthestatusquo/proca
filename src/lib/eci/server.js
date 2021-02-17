@@ -73,5 +73,10 @@ async function addSupport(actionType, actionPage, data, options) {
   }
   return response.addActionContact;
 }
+const errorMessages = (errors) => {
+  return errors
+    .map(({message}) => message)
+    .join(', ');
+    };
 
-export { addSupport };
+export { addSupport , errorMessages};

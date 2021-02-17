@@ -8,7 +8,7 @@ import { useTranslation, countries } from "./hooks/useEciTranslation";
 import { useForm } from "react-hook-form";
 
 import documents from "../../data/document_number_formats.json";
-import { addSupport } from "../../lib/eci/server.js";
+import { addSupport, errorMessages } from "../../lib/eci/server.js";
 
 import Country from "./Country";
 import General from "./General";
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default (props) => {
   const classes = useStyles();
 
@@ -51,6 +52,7 @@ export default (props) => {
   const [require, setRequire] = useState(false);
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
+  const [errorDetails, setErrorDetails] = useState("");
 
   const config = useCampaignConfig();
   const { t } = useTranslation(config.lang);
@@ -101,6 +103,7 @@ export default (props) => {
 
     if (result.errors) {
       let handled = false;
+      setErrorDetails(errorMessages(result.errors));
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
@@ -188,7 +191,7 @@ export default (props) => {
           <Alert severity="error">
             Sorry, we couldn't save your signature!
             <br />
-            The techies have been informed.
+            Details: {errorDetails}
           </Alert>
         </Snackbar>
       );

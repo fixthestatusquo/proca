@@ -277,6 +277,12 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
+const errorMessages = (errors) => {
+  return errors
+    .map(({message}) => message)
+    .join(', ');
+};
+
 export {
   addActionContact,
   addAction,
@@ -284,4 +290,7 @@ export {
   getCountByUrl,
   getLatest,
   graphQL,
+  errorMessages
 };
+
+
