@@ -4,8 +4,9 @@ import { initReactI18next } from "react-i18next";
 import {config} from "../actionPage";
 import locales from 'locales/common.json'; // locales is an alias to src/locales/{process.widget.lang} 
 import isoCountries from 'i18n-iso-countries';
+import isoCountriesLang from '@i18n-iso-countries/lang'; // alias to just used locales
 
-isoCountries.registerLocale(require(`i18n-iso-countries/langs/${config.lang.toLowerCase()}.json`));
+isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
 export const allCountries = isoCountries.getNames(config.lang.toLowerCase(), {select: "official"});
