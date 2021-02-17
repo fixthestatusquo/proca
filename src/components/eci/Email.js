@@ -18,9 +18,9 @@ const RegisterEmail = (props) => {
       </div>
 
       <Register {...props} consent-intro={false} />
-      <Button fullWidth onClick={props.done}>
+      {/*<Button fullWidth onClick={props.done}>
         {t("eci:Skip and go directly to signing the initiative in step 2")}
-      </Button>
+      </Button>*/}
     </>
   );
 };
