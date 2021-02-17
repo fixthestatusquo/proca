@@ -1,4 +1,6 @@
 import i18n from "../../lib/i18n";
+import Url from "../../lib/urlparser";
+import { formatDate } from "../../lib/date";
 
 import React, { useState, useEffect } from "react";
 import { Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
@@ -41,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 
 export default (props) => {
   const classes = useStyles();
@@ -91,9 +92,9 @@ export default (props) => {
     if (Object.keys(acceptableIds).length === 1) {
       data.documentType = Object.entries(acceptableIds)[0][0];
     }
-    data.tracking = {};
-    //    data.tracking = Url.utm();
-
+    //data.tracking = {};
+    data.tracking = Url.utm();
+    data.birthDate = formatDate(data.birthDate);
     const result = await addSupport(
       config.test ? "test" : "support",
       +config.component.eci.actionpage,
