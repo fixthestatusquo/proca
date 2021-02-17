@@ -38,7 +38,9 @@ export default function Target(props) {
   return (
     <>
       {submitted && (
-        <Alert>{t("eci:congratulations.successfully-title")}</Alert>
+        <Alert severity="success">
+          {t("eci:congratulations.successfully-title")}
+        </Alert>
       )}
       <Stepper
         nonLinear
