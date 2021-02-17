@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Stepper, Step, StepButton } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-
 import EciIcon from "@material-ui/icons/HowToVote";
 import ShareIcon from "@material-ui/icons/Share";
 
 import Email from "./Email";
 import Support from "./Support";
 import Share from "../Share";
-import { useTranslation } from "react-i18next";
+import Alert from "../Alert";
+import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "../../hooks/useLayout";
 
 export default function Target(props) {
   const [value, setValue] = useState("eci");
+  const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
 
   const step = (s) => ["eci", "register", "share"].indexOf(s);
@@ -22,7 +23,9 @@ export default function Target(props) {
   };
 
   const doneEci = () => {
-    setValue("email");
+    console.log("eci saved");
+    setSubmitted(true);
+    setValue("register");
   };
   const handleStep = (s) => () => {
     setValue(s);
@@ -34,6 +37,9 @@ export default function Target(props) {
 
   return (
     <>
+      {submitted && (
+        <Alert>{t("eci:congratulations.successfully-title")}</Alert>
+      )}
       <Stepper
         nonLinear
         alternativeLabel={useIsMobile()}
