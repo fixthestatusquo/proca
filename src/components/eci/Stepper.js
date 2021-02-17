@@ -12,17 +12,17 @@ import { useTranslation } from "react-i18next";
 import { useIsMobile } from "../../hooks/useLayout";
 
 export default function Target(props) {
-  const [value, setValue] = useState("register");
+  const [value, setValue] = useState("eci");
   const { t } = useTranslation();
 
-  const step = (s) => ["register", "eci", "share"].indexOf(s);
+  const step = (s) => ["eci", "register", "share"].indexOf(s);
 
   const doneEmail = () => {
-    setValue("eci");
+    setValue("share");
   };
 
   const doneEci = () => {
-    setValue("share");
+    setValue("email");
   };
   const handleStep = (s) => () => {
     setValue(s);
