@@ -39,9 +39,6 @@ export default function Target(props) {
         alternativeLabel={useIsMobile()}
         activeStep={step(value)}
       >
-        <Step key="register">
-          <StepButton onClick={handleStep("register")}>{t("Join")}</StepButton>
-        </Step>
         <Step key="eci">
           <StepButton
             onClick={handleStep("eci")}
@@ -49,6 +46,9 @@ export default function Target(props) {
           >
             {t("Sign the ECI")}
           </StepButton>
+        </Step>
+        <Step key="register">
+          <StepButton onClick={handleStep("register")}>{t("Join")}</StepButton>
         </Step>
         <Step key="share">
           <StepButton
