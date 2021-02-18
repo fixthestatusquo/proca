@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //import { Container, Grid } from "@material-ui/core";
+import { useCampaignConfig } from "../hooks/useConfig";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
@@ -33,9 +34,12 @@ const useStyles = makeStyles((theme) => ({
 
 function OpenDialog(props) {
   const { t } = useTranslation();
+  const config = useCampaignConfig();
   const [open, setOpen] = useState(props.dialog || false);
   const title =
-    props.name || (t("dialogTitle") === "dialogTitle" ? "" : t("dialogTitle"));
+    props.name ||
+    config.param.locales["dialog-title"] ||
+    config.campaign?.title;
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   useEffect(() => setOpen(props.dialog), [props.dialog]);

@@ -26,7 +26,7 @@ const getOverwriteLocales = (allowed = "register,share_title,share_intro") => {
 
 const getAllData = (
   selector,
-  allowed = "share,share-twitter,share-whatsapp,share-subject,share-body"
+  allowed = "share,share-twitter,share-whatsapp,share-subject,share-body,dialog-title"
 ) => {
   allowed = allowed.split(",");
   const dom = document.querySelector(selector);
