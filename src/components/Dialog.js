@@ -12,7 +12,6 @@ import {
   useMediaQuery,
   IconButton,
 } from "@material-ui/core";
-import { useTranslation } from "react-i18next";
 
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
@@ -33,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function OpenDialog(props) {
-  const { t } = useTranslation();
   const config = useCampaignConfig();
   const [open, setOpen] = useState(props.dialog || false);
   const title =

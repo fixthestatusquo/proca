@@ -138,11 +138,10 @@ pre {background:#dede; padding: 10px}
         </div>
       <div class="row">
         <div class="col">
-          <p class="proca-text share">I signed, you should sign too!</p>
-      <p class="proca-text share-twitter">I signed the #campaign, you should too!</p>
-          <p class="proca-text share-whatsapp">Hi, sign that!</p>
-          <p class="proca-text consent-into"></p>
-          <p class="proca-text">Bla</p>
+          <p class="proca-text share">I signed <%= campaign %>, you should sign too!</p>
+          <p class="proca-text share-twitter">I signed #<%=campaign %>, you should too!</p>
+          <p class="proca-text ddd-share-whatsapp">Hi, sign that!</p>
+          <p class="proca-text ddd-consent-into"></p>
         <h2>How to embed this into your website?</h2>
           <p>
           You simply need to copy paste in your website editor, for instance wordpress. The specific instructions depends of your website, check with your webmaster or search how to add "raw html" + your CMS.
@@ -163,7 +162,8 @@ pre {background:#dede; padding: 10px}
           <pre class="dynamic">
 &lt;script id="proca" src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">
-  Put here the title and text of the campaign<br>
+&lt;div class="proca-description">&lt;/div>
+  Put here the title and text of the campaign
 &lt;/div>
           </pre>
 
