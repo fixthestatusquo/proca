@@ -116,9 +116,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   try {
     org = await getOrg(partnerOrg);
   } catch {
-    console.log(org);
-  }
-  if (!org) {
+    // it's fine, we'll
     console.log("creating org", partnerOrg);
     org = await addOrg(partnerOrg);
   }
