@@ -36,7 +36,7 @@
     "react-hook-form": "^6.15.1",
     "react-i18next": "^11.8.7",
     "react-ipgeolocation": "^1.4.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.2",
     "react-share": "^4.2.1",
     "recoil": "^0.1.2",
     "uuid": "^8.3.2"
