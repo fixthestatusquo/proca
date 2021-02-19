@@ -133,10 +133,10 @@ const addPartner = async (genericPage, partnerOrg) => {
     throw new Error(`ad config for AP ${newAp.id}`);
   }
   //split consent
-  cfg.component.consent.split = true;
+  cfg.component.consent.split = false;
   // priv policy
-  if (org.config.privacy && org.config.privacy.policyUrl)
-    cfg.component.consent.privacyPolicy = org.config.privacy.policyUrl;
+  cfg.component.consent.privacyPolicy =
+    (org.config.privacy && org.config.privacy.policyUrl) || "";
 
   // color
   if (org.config.brand && org.config.brand.primaryColor)
