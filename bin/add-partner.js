@@ -30,6 +30,7 @@ const copy = async (fn, org, tn) => {
 
     if (isEqual(path, ["copyActionPage", "name"])) {
       // page exists, lets just fetch it
+      console.log(`page ${tn} exists, I'll fetch and updated it instead`)
       let { errors, data } = await request(api, widget.GetActionPageDocument, {
         name: fn,
       });
@@ -38,7 +39,7 @@ const copy = async (fn, org, tn) => {
       console.log({ org: org, name: fn });
       const existing = await request(api, admin.GetActionPageDocument, {
         org: org,
-        name: fn,
+        name: tn,
       });
       if (
         existing.errors &&
@@ -74,6 +75,7 @@ const getOrg = async (org) => {
   const { errors, data } = await request(api, admin.DashOrgOverviewDocument, {
     org,
   });
+  checkError(errors);
   if (data && data.org) {
     return { ...data.org, config: JSON.parse(data.org.config) };
   }
@@ -97,7 +99,8 @@ const addOrg = async (partnerOrg) => {
   const { errors, data } = await request(api, admin.AddOrgDocument, {
     org: { name: partnerOrg, title: partnerOrg },
   });
-  checkError(errors);
+  if (errors && errors[0].path.splice(-1)[0] != "name")  // ignore error if org already exists
+    checkError(errors);
   console.log("created new org", partnerOrg, data.addOrg.id);
   return {
     id: data.addOrg.id,
@@ -158,5 +161,5 @@ const [_node, script, page, partner] = process.argv;
 if (!page || !partner) {
   console.error(`${script} page partner`);
 } else {
-  addPartner(page, partner);
+  addPartner(page, partner).catch(e => console.error(e));
 }
