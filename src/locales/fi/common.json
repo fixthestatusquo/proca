@@ -41,22 +41,22 @@
     "This field is required.": "Tämä kenttä on pakollinen.",
     "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
     "progress_plural": "{{count}} ovat allekirjoittaneet. Tavoite: {{goal}}",
-    "Sign": "Kirjaudu nyt!",
+    "Sign": "Allekirjoita!",
     "share": {
         "email": {
             "body": "Moi,\nOle hyvä ja allekirjoita, mielestäni haluat tukea sitä",
             "subject": "Sinun tulisi allekirjoittaa tämä"
         },
         "message": "Sinun tulisi allekirjoittaa tämä!",
-        "intro": "Hienoa, olet allekirjoittanut 👍. Jos haluat moninkertaistaa vaikutuksesi, jaa kaikkialle ja varmista, että kaikki näkevät tämän vetoomuksen🙏.",
-        "title": "Melkein valmis! Ota seuraava vaihe."
+        "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
+        "title": "Melkein valmista! Ota seuraava askel."
     },
     "consent": {
-        "processing": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
+        "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
         "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
-        "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minut ajan tasalla tulevaisuudessa",
+        "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minua ajan tasalla tulevaisuudessa",
         "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
-        "intro": "Suostun {{name}} ottamaan minuun yhteyttä tärkeistä kampanjoista",
+        "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
         "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
         "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse"
     },
