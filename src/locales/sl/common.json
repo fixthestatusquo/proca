@@ -8,7 +8,7 @@
     "dialogTitle": "Obveščajte me o kampanji",
     "Your organisation account": "Račun vaše organizacije",
     "Thank you": "Hvala vam",
-    "Sign now!": "Podpiši se zdaj!",
+    "Sign now!": "Podpišite peticijo!",
     "Next": "Naslednja",
     "Locality": "Okraj",
     "Full Name": "Polno ime",
@@ -40,7 +40,7 @@
     "Enter a valid email address.": "Vnesite veljaven e-poštni naslov.",
     "Enter a number.": "Vnesite številko.",
     "This field is required.": "To polje je obvezno.",
-    "progress_0": "{{count}} so podpisali. Pojdimo na {{goal}}",
+    "progress_0": "{{count}} oseb je že podpisalo peticijo. Pojdimo na {{goal}}!",
     "progress_1": "",
     "progress_2": "",
     "progress_3": "",
@@ -51,16 +51,16 @@
             "subject": "Moral bi to podpisati"
         },
         "message": "Moral bi to podpisati!",
-        "intro": "Odlično, podpisali ste 👍. Če želite povečati svoj vpliv, delite daleč naokoli, da bodo vsi videli to peticijo🙏.",
-        "title": "Skoraj končano! Naredite naslednji korak."
+        "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
+        "title": "Skoraj končano!"
     },
     "consent": {
-        "processing": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
+        "processing": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
         "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste mogli ugotoviti, ali je ta kampanja uspešna ali moramo za njeno zmago sprejeti več ukrepov. Če izberete »Da«, vas bomo sproti obveščali o tej in drugih nujnih akcijah. </1> <2> Odjavo lahko kadar koli odjavite. </2>",
-        "opt-out": "Ne, ne pošiljajte mi e-poštnih sporočil in me ne obveščajte v prihodnosti",
+        "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
         "opt-in": "Da, obveščajte me po e-pošti",
-        "intro": "Strinjam se, da {{name}} me kontaktira glede pomembnih kampanj",
-        "processing-nocookie": "Vaši osebni podatki bodo zasebni in varni. S predložitvijo informacij se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>",
+        "intro": "Strinjam se, da me {{name}} obvešča glede svojih kampanj na področju trajnostnega razvoja",
+        "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
         "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti"
     },
     "organisation": "Račun vaše organizacije",
