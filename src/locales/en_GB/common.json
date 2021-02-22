@@ -6,7 +6,7 @@
     "Last name": "Surname",
     "First name": "Given name",
     "consent": {
-        "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2><3>Yes</3>",
+        "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
         "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
         "opt-out": "No, don't send me emails or keep me updated in future",
         "opt-in": "Yes, I want {{partner}} to keep me informed via email",
@@ -65,10 +65,19 @@
     "I'm donating": "I'm donating",
     "Choose your donation amount": "Choose your donation amount",
     "email": {
-        "subject": "Subject"
+        "subject": "subject",
+        "body": "body"
     },
     "Phone": "Phone",
     "Share": "Share",
     "Join": "Join",
-    "organisation": "Your organisation account"
+    "organisation": "Your organisation account",
+    "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
+    "The average donation is {{amount}}": "The average donation is {{amount}}",
+    "Stay informed": "Stay informed",
+    "Sorry, we couldn't save": "Sorry, we couldn't save",
+    "Monthly donations": "Monthly donations",
+    "Sign the ECI": "Sign the ECI",
+    "I'm donating {{amount}}": "I'm donating {{amount}}",
+    "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more"
 }
