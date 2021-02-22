@@ -40,8 +40,8 @@
     "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
     "Enter a number.": "Sisestage number.",
     "This field is required.": "See väli on kohustuslik.",
-    "progress": "{{count}} on alla kirjutanud. Läheme {{goal}}",
-    "progress_plural": "",
+    "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+    "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
     "Sign": "Logi kohe alla!",
     "share": {
         "email": {
