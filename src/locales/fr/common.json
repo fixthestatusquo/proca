@@ -1,16 +1,16 @@
 {
     "consent": {
         "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
-        "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
-        "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
-        "confirm": "<0> Es-tu sûr·e ?</0><1>En sélectionnant « Non », tu ne sauras pas si cette campagne est un succès ou si nous devons prendre d’autre mesures ensemble pour le gagner. Si tu sélectionne « Oui », on te tiendras au courant de cette campagne et de nos autres campagnes urgentes. </1></2> Tu peux te désabonner à tout moment.</2><3>Oui</3>",
+        "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
+        "opt-out": "Non, je ne souhaite pas recevoir d'information sur les suites de cette campagne",
+        "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
         "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
         "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
-        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me gardent informé·e par courriel"
+        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel"
     },
     "share": {
-        "title": "Presque terminé, une dernière chose.",
-        "intro": "C’est formidable que tu y participe 👍. Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
+        "title": "C'est presque terminé. Ultime suggestion :",
+        "intro": "'Merci pour votre participation 👍. Pour faire connaître cette campagne, merci de nous aider à la faire connaître afin de rendre possible la participation du plus de personnes possibles 🙏. Notamment via les réseaux sociaux.",
         "email": {
             "subject": "Tu devrais signer ceci",
             "body": "Bonjour,\nje pense que tu devrais aimer, j'ai signé, tu devrais le faire"
@@ -85,5 +85,5 @@
     "Join": "Rejoindre",
     "The average donation is {{amount}} {{currency}}": "Le don moyen est de {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Je fais un don {{amount}}",
-    "Stay informed": "Rester informé(e)"
+    "Stay informed": "Rester informé·e"
 }
