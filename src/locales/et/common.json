@@ -33,31 +33,31 @@
     "Street": "Tänav",
     "Postal Code": "Sihtnumber",
     "Email": "E-posti aadress",
-    "Last name": "Perekonna nimi",
+    "Last name": "Perekonnanimi",
     "First name": "Eesnimi",
     "Amount": "Summa",
     "Donations must be %(amount)s or more": "Annetused peavad olema% (summa) s või rohkem",
     "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
     "Enter a number.": "Sisestage number.",
     "This field is required.": "See väli on kohustuslik.",
-    "progress": "{{count}} on alla kirjutanud. Läheme {{goal}}",
-    "progress_plural": "",
-    "Sign": "Logi kohe alla!",
+    "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+    "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+    "Sign": "Lisa allkiri",
     "share": {
         "email": {
             "body": "Tere,\nPalun kirjutage alla, arvan, et soovite seda toetada",
             "subject": "Peaksite sellele alla kirjutama"
         },
         "message": "Peaksite sellele alla kirjutama!",
-        "intro": "Suurepärane, olete alla kirjutanud 👍. Mõju mitmekordistamiseks jagage kaugelt ja laialt, et kõik näeksid seda petitsiooni sees.",
-        "title": "Peaaegu valmis! Tehke järgmine samm."
+        "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
+        "title": "Peaaegu valmis. Üks samm veel!"
     },
     "consent": {
         "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
         "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
-        "opt-out": "Ei, ärge saatke mulle e-kirju ega hoidke mind tulevikus kursis",
+        "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
         "opt-in": "Jah, hoia mind e-posti teel kursis",
-        "intro": "Nõustun {{name}} minuga oluliste kampaaniate osas ühendust võtma",
+        "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
         "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
         "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis"
     },

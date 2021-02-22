@@ -40,7 +40,7 @@
     "Enter a number.": "Syötä numero.",
     "This field is required.": "Tämä kenttä on pakollinen.",
     "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
-    "progress_plural": "{{count}} ovat allekirjoittaneet. Tavoite: {{goal}}",
+    "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
     "Sign": "Allekirjoita!",
     "share": {
         "email": {
