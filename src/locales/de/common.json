@@ -1,9 +1,9 @@
 {
     "consent": {
-        "intro": "Erfahre mehr über unsere Kampagnen, Aktionen und Fortschritte in {{campaign}}",
+        "intro": "Halten Sie mich über diese Petition und ähnliche Kampagnen und Aktionen auf dem Laufenden.",
         "opt-in": "Ja, ich möchte, dass mich {{partner}} per E-Mail auf dem Laufenden hält",
-        "opt-out": "Nein. Ich möchte keine Updates über den Fortschritt dieser Unterschriftensammlung erhalten",
-        "confirm": "<0>Bist du sicher?</0><1>Mit der Auswahl „Nein“ kannst du nicht herausfinden, ob diese Kampagne erfolgreich ist oder ob wir noch weitere gemeinsame Maßnahmen ergreifen müssen, um sie zu gewinnen. Mit der Auswahl „Ja“ werden wir dich über diese und unsere anderen dringenden Kampagnen auf dem Laufenden halten.</1><2>Du kannst dich jederzeit abmelden.</2><3>Ja</3>",
+        "opt-out": "Nein. Ich möchte keine weiteren Informationen erhalten",
+        "confirm": "<0>Bist du sicher?</0><1>Mit der Auswahl „Nein“ kannst du nicht herausfinden, ob diese Kampagne erfolgreich ist oder ob wir noch weitere gemeinsame Maßnahmen ergreifen müssen, um sie zu gewinnen. Mit der Auswahl „Ja“ werden wir dich über diese und unsere anderen dringenden Kampagnen auf dem Laufenden halten.</1><2>Du kannst dich jederzeit abmelden.</2>",
         "processing-nocookie": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
         "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
         "opt-in-both": "Ja, ich möchte, dass mich {{partner}} und {{lead}} per E-Mail auf dem Laufenden halten"
