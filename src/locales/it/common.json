@@ -12,7 +12,7 @@
         "title": "Quasi fatto! Fai il passo successivo.",
         "intro": "Bene, hai firmato.👍. Per ampliare il tuo impatto, condividi ovunque per far sì che tutti vedano questa petizione. 🙏.",
         "email": {
-            "body": "Ciao,\nfirmi per favore, credo che tu voglia sostenerlo",
+            "body": "Ciao,\nfirma per favore, credo che tu voglia sostenerlo",
             "subject": "Dovresti firmare questo"
         },
         "message": "Dovresti firmare questo!"
@@ -31,8 +31,8 @@
     "Postal Code": "CAP",
     "Address": "Indirizzo",
     "Street": "Via",
-    "Locality": "Luogo",
-    "City": "Luogo",
+    "Locality": "Località",
+    "City": "Città",
     "Birthdate": "Data di nascita",
     "Country": "Paese",
     "Comment": "Commento",
@@ -46,10 +46,10 @@
     "Share on Twitter": "Condividere su Twitter",
     "Email_Share button": "Email",
     "Link_Share button": "Link",
-    "Next": "Avanti",
+    "Next": "Prossimo",
     "Download": "Scarica",
     "Thank you": "Grazie",
-    "Download explanation": "Il PDF è pronto e te lo inviamo ora per e-mail.",
+    "Download explanation": "Il tuo documento è pronto, te lo inviamo per e-mail.",
     "you need to be 18 years old": "Devi avere 18 anni",
     "Sign Up": "Iscrizione",
     "twitter": {
