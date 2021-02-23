@@ -56,7 +56,7 @@
     },
     "consent": {
         "processing": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
-        "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste mogli ugotoviti, ali je ta kampanja uspešna ali moramo za njeno zmago sprejeti več ukrepov. Če izberete »Da«, vas bomo sproti obveščali o tej in drugih nujnih akcijah. </1> <2> Odjavo lahko kadar koli odjavite. </2>",
+        "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste seznanjeni z uspešnostjo te kampanje. Če izberete »Da«, vas bomo sproti obveščali o tej in o drugih kampanjah. </1> <2> Od prejemanja obvestil se lahko kadar koli odjavite. </2>",
         "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
         "opt-in": "Da, obveščajte me po e-pošti",
         "intro": "Strinjam se, da me {{name}} obvešča glede svojih kampanj na področju trajnostnega razvoja",
