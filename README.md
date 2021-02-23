@@ -50,10 +50,10 @@ Back-end: elixir
 - yarn (or npm to install the dependencies)
 - cp .env.example .env and put your login + pwd
 - yarn pull 42  (the action page id as seen in the backend)
-- edit src/tmp.config/42.json, adjust the steps, configure the components, change the color, whatever)
+- edit config/42.json, adjust the steps, configure the components, change the color, whatever)
 - yarn start: runs a local server with the widget
 - yarn build: generates the widget under d/{actionpage.NAME of the widget}
-- yarn push: save the local config (under src/tmp.config) to the server
+- yarn push: save the local config (under config) to the server
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) 
 
