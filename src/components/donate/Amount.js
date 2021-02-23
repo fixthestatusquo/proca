@@ -80,6 +80,10 @@ const DonateAmount = (props) => {
     return found;
   });
   const customAmount = watch("amount");
+  const currency = config?.component.donation?.currency || {
+    symbol: "€",
+    code: "EUR",
+  };
   if (customAmount && parseFloat(customAmount) !== amount) {
     setData("amount", parseFloat(amount));
     _setAmount(parseFloat(customAmount));
@@ -90,6 +94,7 @@ const DonateAmount = (props) => {
     setUpdating(true);
     _setAmount(amount);
     setData("amount", amount);
+    setData("currency", currency);
     if (custom || customAmount) {
       showCustom(false);
       setValue("amount", null); // reset the custom (other) amount field
@@ -100,17 +105,14 @@ const DonateAmount = (props) => {
     if (!updating && data.amount && amount !== parseFloat(data.amount)) {
       setAmount(data.amount);
     }
-  });
+  }, []);
 
   const width = useElementWidth("#proca-donate");
   const [compact, setCompact] = useState(true);
-  if ((compact && width > 450) || (!compact && width <= 450))
+  if ((compact && width > 450) || (!compact && width <= 450)) {
+    console.log("width");
     setCompact(width <= 450);
-  const currency = config?.component.donation?.currency || {
-    symbol: "€",
-    code: "EUR",
-  };
-  setData("currency", currency);
+  }
   const title = amount
     ? config?.component?.donation.igive ||
       t("I'm donating {{amount}}", {
