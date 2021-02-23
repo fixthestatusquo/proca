@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   Grid,
+  Box,
   CardMedia,
   CardHeader,
   CardActions,
@@ -23,9 +24,7 @@ import { useForm } from "react-hook-form";
 import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
-import PaymentIcon from "@material-ui/icons/Payment";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import usePaypal from "../../hooks/usePaypal";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
   amount: { width: "5em" },
@@ -130,11 +129,6 @@ const DonateAmount = (props) => {
     : config.component.donation?.subTitle;
   const image = config.component.donation?.image;
 
-  const ButonPaypal = usePaypal({
-    currency: currency,
-    amount: amount,
-    recurring: recurring,
-  });
   const choosePaymentMethod = (m) => {
     setData("paymentMethod", m);
     props.done();
@@ -177,6 +171,7 @@ const DonateAmount = (props) => {
     return (
       <Button
         color="primary"
+        size="large"
         disabled={amount === props.amount}
         disableElevation={amount === props.amount}
         variant="contained"
@@ -249,35 +244,20 @@ const DonateAmount = (props) => {
           </FormControl>
         </CardContent>
         {!config.component.donation.external && (
-          <CardActions>
-            <ButtonGroup
-              variant="contained"
-              fullWidth={compact}
-              aria-label="Select Payment method"
-              orientation={compact ? "vertical" : "horizontal"}
-            >
+          <Box margin={2}>
+            <ButtonGroup fullWidth>
               <Button
+                endIcon={<SkipNextIcon />}
+                fullWidth
+                disabled={!amount}
+                variant="contained"
+                onClick={props.done}
                 color="primary"
-                disabled={!amount}
-                startIcon={<PaymentIcon />}
-                onClick={() => {
-                  choosePaymentMethod("creditcard");
-                }}
               >
-                Credit Card
-              </Button>
-              <Button
-                disabled={!amount}
-                onClick={() => choosePaymentMethod("sepa")}
-                startIcon={<AccountBalanceIcon />}
-              >
-                SEPA
-              </Button>
-              <Button component="div" disabled={!amount} id="paypal-container">
-                <ButonPaypal />
+                {t("Next")}
               </Button>
             </ButtonGroup>
-          </CardActions>
+          </Box>
         )}
       </Grid>
     </Container>

@@ -142,7 +142,9 @@ const addPartner = async (genericPage, partnerOrg) => {
   cfg.component.consent.split = false;
   // priv policy
   cfg.component.consent.privacyPolicy =
-    (org.config.privacy && org.config.privacy.policyUrl) || "";
+    (org.config.privacy && org.config.privacy.policyUrl) ||
+    cfg.component.consent.privacyPolicy ||
+    "";
 
   // color
   if (org.config.brand && org.config.brand.primaryColor)
