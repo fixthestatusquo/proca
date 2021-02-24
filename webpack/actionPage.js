@@ -50,7 +50,9 @@ function createCode(config) {
         `config.journey should be an array!, is: ${config.journey}`
       );
 
-    steps = config.journey.flat().map(stepToFilename); // XXX journey is flat array in the backend
+    steps = config.journey
+      .reduce((acc, val) => acc.concat(val), [])
+      .map(stepToFilename); // XXX journey is flat array in the backend
   }
 
   if (config.portal) {
