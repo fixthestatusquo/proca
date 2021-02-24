@@ -29,8 +29,6 @@
         "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu acceptes nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
         "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
         "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel"
-        "processing-nocookie": "Vos informations personnelles seront conservées en toute confidentialité et en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
-        "processing": "Vos informations personnelles seront conservées en toute confidentialité et en toute sécurité. En soumettant des informations, vous acceptez l'utilisation de données et de cookies conformément à notre <1>politique de confidentialité</1>",
     },
     "Your organisation account": "Le compte de votre organisation",
     "This field is required.": "Ce champ est obligatoire.",
