@@ -25,7 +25,6 @@ const getOverwriteLocales = (
       }
     }
   }
-  console.log(locales);
   return locales;
 };
 
