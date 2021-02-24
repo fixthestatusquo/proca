@@ -165,7 +165,7 @@ const PaymentForm = (props) => {
       setError(result.error.message);
     } else {
       // The payment succeeded!
-      //  orderComplete(result.paymentIntent.id);
+      orderComplete(result.paymentIntent.id);
       setSuccess("👍");
     }
     return false;

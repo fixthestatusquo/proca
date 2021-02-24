@@ -3,8 +3,11 @@ const getData = (key, selector) => {
   return dom.dataset[key];
 };
 
-const getOverwriteLocales = (allowed = "register,share_title,share_intro") => {
+const getOverwriteLocales = (
+  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-in"
+) => {
   allowed = allowed.split(",");
+  const converting = { "sign-now": "Sign now!" }; // dealing with keys that aren't classes
   const texts = document.getElementsByClassName("proca-text");
   let locales = {};
   for (const t of texts) {
@@ -17,10 +20,12 @@ const getOverwriteLocales = (allowed = "register,share_title,share_intro") => {
           locales[key[0]][key[1]] = t.textContent;
         } else {
           locales[c] = t.textContent;
+          if (converting[c]) locales[converting[c]] = t.textContent;
         }
       }
     }
   }
+  console.log(locales);
   return locales;
 };
 

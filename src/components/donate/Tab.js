@@ -25,8 +25,14 @@ export default function Target(props) {
   //                startIcon={<AccountBalanceIcon />}
   //                <ButonPaypal />
 
+  const done = (d) => {
+    console.log(d);
+    setSubmitted(true);
+    props.done(d);
+  };
   return (
     <>
+      {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
       <Paper square>
         <AppBar position="static" color="default">
           <Tabs
@@ -59,9 +65,9 @@ export default function Target(props) {
           </Tabs>
         </AppBar>
         <Box p={1}>
-          {value === "stripe" && <Stripe done={props.done} />}
-          {value === "sepa" && <Sepa done={props.done} />}
-          {value === "paypal" && <Paypal done={props.done} />}
+          {value === "stripe" && <Stripe done={done} />}
+          {value === "sepa" && <Sepa done={done} />}
+          {value === "paypal" && <Paypal done={done} />}
         </Box>
       </Paper>
     </>

@@ -75,7 +75,6 @@ const getOrg = async (org) => {
   const { errors, data } = await request(api, admin.DashOrgOverviewDocument, {
     org,
   });
-  checkError(errors);
   if (data && data.org) {
     return { ...data.org, config: JSON.parse(data.org.config) };
   }
@@ -115,8 +114,8 @@ const addPartner = async (genericPage, partnerOrg) => {
   let org = null;
   try {
     org = await getOrg(partnerOrg);
-  } catch {
-    // it's fine, we'll
+  } catch (e) {
+    console.log(e);
     console.log("creating org", partnerOrg);
     org = await addOrg(partnerOrg);
   }
