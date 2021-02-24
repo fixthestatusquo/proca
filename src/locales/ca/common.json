@@ -31,7 +31,7 @@
         "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>"
     },
     "Your organisation account": "El vostre compte d'organització",
-    "This field is required.": "Aquest camp és necessari.",
+    "This field is required.": "Aquest camp és obligatori.",
     "Thanks!": "Gràcies!",
     "Thank you": "Gràcies",
     "Street": "Carrer",
@@ -74,10 +74,10 @@
     "Account": "Compte",
     "organisation": "El compte de la teva organització",
     "Sorry, we couldn't save": "No hem pogut desar",
-    "Sign the ECI": "Signa l’ECI",
+    "Sign the ECI": "Signar l’ECI",
     "Share": "Comparteix",
-    "Join": "Unir-se al grup",
+    "Join": "Unir-s'hi",
     "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Estic donant {{amount}}",
+    "I'm donating {{amount}}": "Dono {{amount}}",
     "Stay informed": "Mantingueu-vos informat"
 }
