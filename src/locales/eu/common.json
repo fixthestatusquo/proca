@@ -26,7 +26,7 @@
         "processing": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz, gure <1> pribatutasun politika </1> ren arabera datuak eta cookieak erabiltzea onartzen duzu",
         "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
         "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
-        "opt-in": "Bai, nahi dut {{partner}} posta elektroniko bidez informatuta egotea",
+        "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
         "intro": "Lortu informazio gehiago gure kanpainei, ekintzei eta {{campaign}} aurrerapenei buruz",
         "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>"
     },
@@ -74,7 +74,7 @@
     "Country": "Herrialdea",
     "Comment": "Iruzkina utzi",
     "City": "Herria",
-    "Choose your donation amount": "Aukeratu zure dohaintzaren zenbatekoa",
+    "Choose your donation amount": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere.",
     "Birthdate": "Urtebetetze data",
     "Amount": "Kopurua",
     "Address": "Helbidea",
