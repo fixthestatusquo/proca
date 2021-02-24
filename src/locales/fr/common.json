@@ -3,13 +3,13 @@
         "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
         "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
         "opt-out": "Non, je ne souhaite pas recevoir d'information sur les suites de cette campagne",
-        "confirm": "<0> Êtes-vous sûr·e ?</0><1> En choisissant \"Non\", vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous vous tiendrons informé.e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Tu peux te désabonner à tout moment.</2>",
+        "confirm": "<0> Êtes-vous sûr·e ?</0><1> En choisissant \"Non\", vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous vous tiendrons informé.e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
         "processing": "Vos données sont transmises de manière sécurisée et chiffrée. Avec votre contribution vous acceptez nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
         "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
         "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel"
     },
     "share": {
-        "title": "C'est presque terminé. Ultime suggestion :",
+        "title": "C'est presque terminé. Ultime suggestion:",
         "intro": "Merci pour votre participation 👍. Pour faire connaître cette campagne, merci de nous aider à la faire connaître afin de rendre possible la participation du plus de personnes possibles 🙏. Notamment via les réseaux sociaux.",
         "email": {
             "subject": "Tu devrais signer ceci",
