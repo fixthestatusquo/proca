@@ -68,7 +68,7 @@
     "Enter a number.": "Entrez un numéro.",
     "Email_Share button": "Courriel :",
     "Email": "Courriel :",
-    "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par e-mail.",
+    "Download explanation": "Ton document est maintenant prêt, nous te l'envoyons également par e-mail.",
     "Download": "Télécharger",
     "Donations must be {{amount}} or more": "Les dons doivent être de {{amount}} ou plus",
     "Country": "Pays",
@@ -78,5 +78,5 @@
     "Birthdate": "Date de naissance",
     "Amount": "Montant",
     "Address": "Address",
-    "Account": "Créez votre compte"
+    "Account": "Crée ton compte"
 }
