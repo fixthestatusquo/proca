@@ -8,7 +8,7 @@
     "dialogTitle": "Tájékoztasson a kampányról",
     "Your organisation account": "A szervezeti fiók",
     "Thank you": "Köszönjük",
-    "Sign now!": "Jelentkezzen most!",
+    "Sign now!": "Aláírom!",
     "Next": "Következő",
     "Locality": "Dűlő, lakatlan hely",
     "Full Name": "Teljes név",
@@ -42,24 +42,24 @@
     "This field is required.": "A mező kitöltése kötelező.",
     "progress": "{{count}} aláírta. Menjünk a {{goal}} oldalra",
     "progress_plural": "",
-    "Sign": "Jelentkezzen most!",
+    "Sign": "Aláírom!",
     "share": {
         "email": {
             "body": "Szia,\nKérem, írja alá, azt hiszem, támogatni szeretné",
             "subject": "Ezt alá kell írnia"
         },
         "message": "Ezt alá kellene írnia!",
-        "intro": "Remek, aláírtad 👍. Hatásának megsokszorozása érdekében ossza meg messzire, hogy mindenki láthassa ezt a petíciót🙏.",
-        "title": "Majdnem kész! Tegye meg a következő lépést."
+        "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
+        "title": "Majdnem készen is vagyunk!"
     },
     "consent": {
-        "processing": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-        "confirm": "<0> Biztos benne? </0> <1> A „Nem” kiválasztásával nem tudja megtudni, hogy ez a kampány sikeres-e, vagy van-e még több intézkedés, amelyet együtt kell végrehajtanunk a győzelemhez. Ha az „Igen” lehetőséget választja, folyamatosan tájékoztatjuk Önt erről és más sürgős kampányainkról. </1> <2> Bármikor leiratkozhat. </2> <3> Igen </3>",
+        "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
+        "confirm": "<0>Biztos vagy benne?</0> <1> A „Nem” kiválasztásával nem fogsz értesülni róla, hogy a kampány sikeres-e, vagy lesznek-e egyéb akcióink a témában, amihez csatlakozhatsz. Ha az “Igen” lehetőséget választod, akkor folyamatosan tájékoztatunk majd erről a kampányról, és egyéb, jövőbeni kampányainkról is. </1> <2>Ezekről a levelekről bármikor leiratkozhatsz.</2>",
         "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
-        "opt-in": "Igen, azt akarom, hogy {{partner}} e-mailben tájékoztasson",
+        "opt-in": "Igen, szeretném, hogy a {{partner}} e-mailben értesítéseket küldjön Nekem",
         "intro": "Tudjon meg többet kampányainkról, cselekvéseinkről és {{campaign}} előrehaladásáról",
         "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-        "opt-in-both": "Igen, azt akarom, hogy {{partner}} és {{lead}} folyamatosan értesítsenek e-mailben"
+        "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem"
     },
     "email": {
         "subject": "subject",
