@@ -6,7 +6,7 @@
     },
     "share": {
         "title": "Gairebé ho té! Doneu el següent pas.",
-        "message": "Hauríeu de signar això.",
+        "message": "Hauríeu de signar això!",
         "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
         "email": {
             "subject": "Hauríeu de signar això",
@@ -14,7 +14,7 @@
         }
     },
     "register": "Afegeix el meu nom",
-    "progress": "{{count}} han signat.  Volem arribar a {{goal}}",
+    "progress": "{{count}} han signat. Volem arribar a {{goal}}",
     "progress_plural": "",
     "email": {
         "subject": "assumpte",
@@ -22,9 +22,9 @@
     },
     "dialogTitle": "Mantingueu-me informat de la campanya",
     "consent": {
-        "processing-nocookie": "La seva informació personal es mantindrà privada i segura. En enviar informació, accepta l’ús de dades i galetes d’acord amb la nostra <1>política de privadesa</1>",
-        "processing": "La seva informació personal es mantindrà privada i segura. En enviar informació, accepta l’ús de dades i galetes d’acord amb la nostra <1>política de privadesa</1>",
-        "opt-out": "No, no m’enviïs correus electrònics ni m’informis en el futur",
+        "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
+        "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
+        "opt-out": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere",
         "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
         "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
         "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
@@ -77,7 +77,7 @@
     "Sign the ECI": "Signar l’ECI",
     "Share": "Comparteix",
     "Join": "Unir-s'hi",
-    "The average donation is {{amount}} {{currency}}": "La donació mitjana és de {{amount}} {{currency}}",
+    "The average donation is {{amount}} {{currency}}": "El donatiu mitjà és de {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Dono {{amount}}",
     "Stay informed": "Mantingueu-vos informat"
 }
