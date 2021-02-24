@@ -3,10 +3,10 @@
     "consent": {
         "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
         "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
-        "processing": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1>",
+        "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
         "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
-        "confirm": "<0>Sigurno?</0><1>Ako odaberete „Ne”, nećete moći saznati je li ova kampanja uspješna, niti jesu li potrebne daljnje zajedničke radnje da bismo pobijedili. Ako odaberete „Da”, obavještavat ćemo vas o ovoj kao i o našim drugim hitnim kampanjama.</1><2>Možete se odjaviti u bilo kojem trenutku.</2><3>Da</3>",
-        "processing-nocookie": "Vaši osobni podaci bit će privatni i sigurni. Slanjem podataka pristajete na upotrebu podataka u skladu s našim <1>pravilima o privatnosti</1>",
+        "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
+        "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
         "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
         "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila"
     },
@@ -19,8 +19,8 @@
             "subject": "Ovo se isplati potpisati",
             "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati"
         },
-        "intro": "Sjajno, potpisali ste 👍. Za povećanje utjecaja, podijelite ovu peticiju nadaleko i naširoko 🙏.",
-        "title": "Skoro gotovo! Poduzmite sljedeći korak.",
+        "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
+        "title": "Skoro pa gotovo! Napravi sljedeći korak.",
         "message": "Ovo se isplati potpisati!"
     },
     "Donations must be %(amount)s or more": "Najmanji iznos donacije je {{amount}}",
