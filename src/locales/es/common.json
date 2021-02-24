@@ -39,7 +39,7 @@
         "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que tomar juntos para ganarla. Si selecciona «Sí» le mantendremos informado sobre esta y nuestras otras campañas urgentes",
         "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
         "opt-in": "Sí, mantenme informado/a por correo electrónico",
-        "intro": "Estoy de acuerdo en {{name}} contactarme sobre campañas importantes",
+        "intro": "Estoy de acuerdo en que {{name}} contacte conmigo para informarme sobre campañas importantes",
         "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
         "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico"
     },
