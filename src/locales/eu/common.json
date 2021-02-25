@@ -23,11 +23,11 @@
     "dialogTitle": "Jarrai nazazu kanpainaren berri",
     "consent": {
         "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
-        "processing": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz, gure <1> pribatutasun politika </1> ren arabera datuak eta cookieak erabiltzea onartzen duzu",
+        "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
         "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
         "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
         "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
-        "intro": "Lortu informazio gehiago gure kanpainei, ekintzei eta {{campaign}} aurrerapenei buruz",
+        "intro": "Ados nago Merkataritza eta Inbertsio Itunen kontrako Kanpaina nirekin harremanetan jartzearekin, kanpaina garrantzitsuei buruzko informazioa helarazteko.",
         "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>"
     },
     "Your organisation account": "Zure erakundearen kontua",
@@ -48,7 +48,7 @@
     "Share on Facebook": "Partekatu Facebook-en",
     "Share": "Partekatu",
     "Privacy": "Pribatutasuna",
-    "Postal Code": "posta kodea",
+    "Postal Code": "Posta kodea",
     "Phone": "Telefonoa",
     "Other": "Beste bat",
     "No Thanks": "Ez eskerrik asko",
