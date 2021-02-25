@@ -78,6 +78,7 @@ const getOrg = async (org) => {
   if (data && data.org) {
     return { ...data.org, config: JSON.parse(data.org.config) };
   }
+  throw new Error(errors);
 };
 
 const updateConfig = async (apId, cfg) => {
@@ -119,7 +120,7 @@ const addPartner = async (genericPage, partnerOrg) => {
     console.log("creating org", partnerOrg);
     org = await addOrg(partnerOrg);
   }
-
+  console.log(org);
   const newAp = await copy(
     genericPage,
     partnerOrg,
