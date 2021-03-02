@@ -45,30 +45,26 @@ const Component = (props) => {
           return res.json();
         })
         .then((d) => {
-          if (
-            config.hook &&
-            typeof config.hook["twitter:load"] === "function"
-          ) {
-            config.hook["twitter:load"](d);
+          if (config.hook && typeof config.hook["email:load"] === "function") {
+            config.hook["email:load"](d);
           }
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
-          if (!config.component.twitter?.filter.includes("country"))
+          if (!config.component.email?.filter?.includes("country"))
             setProfiles(d);
         })
         .catch((error) => {
           console.log(error);
         });
     };
-    if (config.component?.twitter?.listUrl)
-      fetchData(config.component.twitter.listUrl);
+    if (config.component?.email?.listUrl)
+      fetchData(config.component.email.listUrl);
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterProfiles = useCallback(
     (country) => {
-      //       setProfiles(allProfiles);
       if (!country) return;
       country = country.toLowerCase();
       const d = allProfiles.filter((d) => {
@@ -83,13 +79,7 @@ const Component = (props) => {
   );
 
   useEffect(() => {
-    //    setFilter({country:config.country});
     filterProfiles(country);
-    /*    if (typeof config.hook["twitter:load"] === "function") {
-      let d = allProfiles;
-      config.hook["twitter:load"](d);
-      setProfiles(d);
-    }*/
   }, [country, filterProfiles]);
 
   const send = (data) => {
@@ -106,7 +96,7 @@ const Component = (props) => {
       );
     };
 
-    const profile = profiles[0];
+    const profile = profiles[0] || { subject: null };
     let to = [];
     const bcc = config.component.email?.bcc;
     let s =
