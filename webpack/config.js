@@ -1,42 +1,52 @@
-const envVar = 'actionpage'
-const fs = require('graceful-fs')
-const path = require('path')
+const envVar = "actionpage";
+const fs = require("graceful-fs");
+const path = require("path");
 
 function getConfigOverride(defaultConfig) {
-  const config = readConfigOverride()
+  const config = readConfigOverride();
   if (config) {
-    return parseConfig(config)
+    return parseConfig(config);
   } else {
-    return defaultConfig
+    return defaultConfig;
   }
 }
 
+function configFolder() {
+  return process.env.REACT_APP_CONFIG_FOLDER
+    ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+    : "../config/";
+}
 function readConfigOverride() {
-  let apId = process.env[envVar] || process.argv[2]
+  let apId = process.env[envVar] || process.argv[2];
 
   if (apId) {
-    apId = parseInt(apId)
+    apId = parseInt(apId);
     if (Number.isNaN(apId))
-      throw new Error("Please provide action page id (number in actionpage env var or as argument)")
-    const fn = path.resolve(__dirname, `../config/${apId}.json`)
+      throw new Error(
+        "Please provide action page id (number in actionpage env var or as argument)"
+      );
+    const fn = path.resolve(__dirname, configFolder() + apId + ".json");
     try {
-      return fs.readFileSync(fn)
+      return fs.readFileSync(fn);
     } catch (e) {
-      console.error(`Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`, e.message)
-      throw e
+      console.error(
+        `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
+        e.message
+      );
+      throw e;
     }
   } else {
-    return null
+    return null;
   }
 }
 
 function parseConfig(config) {
   try {
-    return JSON.parse(config)
+    return JSON.parse(config);
   } catch (e) {
-    console.error(`Cannot parse action page config: `, e.message)
-    throw e
+    console.error(`Cannot parse action page config: `, e.message);
+    throw e;
   }
 }
 
-module.exports = {getConfigOverride}
+module.exports = { getConfigOverride, configFolder };

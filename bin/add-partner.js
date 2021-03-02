@@ -78,6 +78,7 @@ const getOrg = async (org) => {
   if (data && data.org) {
     return { ...data.org, config: JSON.parse(data.org.config) };
   }
+  console.log(errors, data);
   throw new Error(errors);
 };
 

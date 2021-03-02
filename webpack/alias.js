@@ -1,18 +1,22 @@
 /**
-  * Add aliases to webpack config.
-  * locales -> src/locales/XX where XX is lang from config or 'en'
-  */ 
-const path = require("path")
-const {getConfigOverride} = require('./config')
+ * Add aliases to webpack config.
+ * locales -> src/locales/XX where XX is lang from config or 'en'
+ */
+const path = require("path");
+const { getConfigOverride, configFolder } = require("./config");
 
-module.exports = webpack => {
+module.exports = (webpack) => {
   const config = getConfigOverride({
-    lang: "en"
-  })
+    lang: "en",
+  });
 
-  webpack.resolve.alias['locales'] = path.resolve(__dirname, '../src/locales/' + config.lang.toLowerCase())
-  webpack.resolve.alias['@config'] = path.resolve(__dirname, '../config')
-  webpack.resolve.alias['@i18n-iso-countries/lang'] = 'i18n-iso-countries/langs/' + config.lang.toLowerCase() + '.json'
+  webpack.resolve.alias["locales"] = path.resolve(
+    __dirname,
+    "../src/locales/" + config.lang.toLowerCase()
+  );
+  webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
+  webpack.resolve.alias["@i18n-iso-countries/lang"] =
+    "i18n-iso-countries/langs/" + config.lang.toLowerCase() + ".json";
 
-  return webpack
-}
+  return webpack;
+};

@@ -3,7 +3,9 @@ const path = require("path");
 const { link, admin, widget, request, basicAuth } = require("@proca/api");
 require("cross-fetch/polyfill");
 
-const tmp = "../config/";
+const tmp = process.env.REACT_APP_CONFIG_FOLDER
+  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+  : "../config/";
 
 const file = (id) => {
   return path.resolve(__dirname, tmp + id + ".json");
@@ -43,6 +45,7 @@ const backup = (actionPage) => {
 
 const save = (config, suffix = "") => {
   const id = config.actionpage;
+  console.log(file(id) + suffix);
   fs.writeFileSync(file(id) + suffix, JSON.stringify(config, null, 2));
 };
 
@@ -97,7 +100,6 @@ const apiLink = () => {
   return c;
 };
 
-
 const actionPageFromLocalConfig = (id, local) => {
   return {
     id: id,
@@ -110,9 +112,9 @@ const actionPageFromLocalConfig = (id, local) => {
         component: local.component,
         locales: local.locales,
         portal: local.portal,
-        template: local.template
-      })
-    }
+        template: local.template,
+      }),
+    },
   };
 };
 
@@ -146,4 +148,13 @@ const pull = async (actionPage) => {
   return config;
 };
 
-module.exports = { pull, push, fetch, read, file, save, apiLink, actionPageFromLocalConfig };
+module.exports = {
+  pull,
+  push,
+  fetch,
+  read,
+  file,
+  save,
+  apiLink,
+  actionPageFromLocalConfig,
+};
