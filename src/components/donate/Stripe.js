@@ -27,6 +27,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
+import { addActionContact } from "../../lib/server.js";
 
 import {
   useStripe,
@@ -142,6 +143,17 @@ const PaymentForm = (props) => {
       return;
     }
 
+    const orderComplete = async (paymentIntent) => {
+      console.log(paymentIntent);
+      // TODO: cleanup what information needs to be saved
+      const result = await addActionContact("donate", config.actionPage, {
+        ...data,
+        ...paymentIntent,
+      });
+      console.log(result);
+      props.done(paymentIntent);
+    };
+
     const pi = await paymentIntent({
       amount: data.amount,
       currency: data.currency.code,
@@ -165,8 +177,9 @@ const PaymentForm = (props) => {
       setError(result.error.message);
     } else {
       // The payment succeeded!
-      orderComplete(result.paymentIntent.id);
+      orderComplete(result.paymentIntent);
       setSuccess("👍");
+      return true;
     }
     return false;
   };

@@ -1,7 +1,10 @@
 async function graphQL(operation, query, options) {
   if (!options) options = {};
   if (!options.apiUrl)
-    options.apiUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'https://api.proca.app/api';
+    options.apiUrl =
+      process.env.REACT_APP_API_URL ||
+      process.env.API_URL ||
+      "https://api.proca.app/api";
 
   let data = null;
   let headers = {
@@ -119,7 +122,9 @@ async function getCount(actionPage, options) {
     url = options.apiUrl;
   } else {
     url =
-      (process.env.REACT_APP_API_URL || process.env.API_URL || 'https://api.proca.app/api') +
+      (process.env.REACT_APP_API_URL ||
+        process.env.API_URL ||
+        "https://api.proca.app/api") +
       "?query=" +
       encodeURIComponent(query) +
       "&variables=" +
@@ -261,13 +266,13 @@ async function addActionContact(actionType, actionPage, data) {
   if (data.locality) variables.contact.address.locality = data.locality;
   if (data.birthdate) variables.contact.birth_date = data.birthdate;
 
-  if (Object.keys(data.tracking).length) {
+  if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
 
   for (let [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
-      variables.action.fields.push({ key: key, value: value });
+      variables.action.fields.push({ key: key, value: value.toString() });
   }
 
   const response = await graphQL("addActionContact", query, {
@@ -278,9 +283,7 @@ async function addActionContact(actionType, actionPage, data) {
 }
 
 const errorMessages = (errors) => {
-  return errors
-    .map(({message}) => message)
-    .join(', ');
+  return errors.map(({ message }) => message).join(", ");
 };
 
 export {
@@ -290,7 +293,5 @@ export {
   getCountByUrl,
   getLatest,
   graphQL,
-  errorMessages
+  errorMessages,
 };
-
-

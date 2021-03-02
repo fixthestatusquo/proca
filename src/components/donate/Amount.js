@@ -244,7 +244,7 @@ const DonateAmount = (props) => {
           </FormControl>
         </CardContent>
         {!config.component.donation.external && (
-          <Box margin={2} fullWidth>
+          <Box margin={2}>
             <ButtonGroup fullWidth>
               <Button
                 endIcon={<SkipNextIcon />}

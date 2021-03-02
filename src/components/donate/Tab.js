@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
+import Alert from "@material-ui/lab/Alert";
+import { useTranslation } from "react-i18next";
 
 import ShareIcon from "@material-ui/icons/Share";
 import PaymentIcon from "@material-ui/icons/Payment";
@@ -15,7 +17,9 @@ import Sepa from "./Sepa";
 import Paypal from "./Paypal";
 
 export default function Target(props) {
-  const [value, setValue] = React.useState("stripe");
+  const [value, setValue] = useState("stripe");
+  const [submitted, setSubmitted] = useState(false);
+  const { t } = useTranslation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,6 +34,7 @@ export default function Target(props) {
     setSubmitted(true);
     props.done(d);
   };
+
   return (
     <>
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
