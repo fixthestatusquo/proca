@@ -91,7 +91,7 @@ const PaymentForm = (props) => {
     setCompact(width <= 450);
   const title = data.amount
     ? config?.component?.donation.igive ||
-      t("I'm donating") + " " + data.amount + "€"
+      t("I'm donating") + " " + data.amount + data.currency?.symbol
     : config?.component?.Donate?.amount?.title ||
       t("Choose your donation amount");
 
@@ -104,6 +104,7 @@ const PaymentForm = (props) => {
   const stripe = useStripe();
 
   if (!data.currency) {
+    // TODO: not needed anymore
     const currency = config?.component.donation?.currency || {
       symbol: "€",
       code: "EUR",
@@ -237,7 +238,7 @@ const PaymentForm = (props) => {
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={1}>
-            - <CardHeader title={title} />
+            <CardHeader title={title} />
             <Grid item xs={12}>
               <Controller
                 control={control}
@@ -316,7 +317,7 @@ const PaymentForm = (props) => {
                 size="large"
                 startIcon={<LockIcon />}
               >
-                Donate
+                {t("Donate")}
               </Button>
             </Grid>
           </Grid>

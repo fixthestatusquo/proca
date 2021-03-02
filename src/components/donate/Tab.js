@@ -7,7 +7,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Alert from "@material-ui/lab/Alert";
 import { useTranslation } from "react-i18next";
 
-import ShareIcon from "@material-ui/icons/Share";
 import PaymentIcon from "@material-ui/icons/Payment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaypalIcon from "../../images/Paypal.js";
