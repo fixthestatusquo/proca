@@ -5,7 +5,6 @@ import List from "@material-ui/core/List";
 import TwitterAction from "./TwitterAction";
 import EmailAction from "./EmailAction";
 
-import Dialog from "./Dialog";
 import Country from "./Country";
 import useData from "../hooks/useData";
 import { useIsMobile } from "../hooks/useDevice";
@@ -20,12 +19,10 @@ import { addAction } from "../lib/server";
 const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
-  const [action, setAction] = useState("email");
-  const Action = action === "twitter" ? TwitterAction : EmailAction;
+  const Action = EmailAction;
   const [data] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
-  const [dialog, viewDialog] = useState(false);
   const isMobile = useIsMobile();
 
   const { t } = useTranslation();
@@ -98,6 +95,7 @@ const Component = (props) => {
 
     const profile = profiles[0] || { subject: null };
     let to = [];
+    let cc = null;
     const bcc = config.component.email?.bcc;
     let s =
       typeof profile.subject == "function"
@@ -116,11 +114,22 @@ const Component = (props) => {
     }
     to = to.join(";");
 
+    if (config.component.email?.cc === true) {
+      cc = to;
+      to = null;
+    }
+    if (
+      config.component.email?.to &&
+      typeof config.component.email.to === "string"
+    ) {
+      to = config.component.email.to;
+    }
     const url =
       !isMobile && data.email.includes("@gmail")
         ? hrefGmail({
             to: to,
             subject: encodeURIComponent(s),
+            cc: cc,
             bcc: bcc,
             body: encodeURIComponent(body),
           })
@@ -128,7 +137,7 @@ const Component = (props) => {
           to +
           "?subject=" +
           encodeURIComponent(s) +
-          //          (cc ? "&cc=" + cc : "") +
+          (cc ? "&cc=" + cc : "") +
           (bcc ? "&bcc=" + bcc : "") +
           "&body=" +
           encodeURIComponent(body);
@@ -148,6 +157,7 @@ const Component = (props) => {
           payload: [],
         });
         clearInterval(timer);
+        props.done();
       }
     }, 1000);
   };
@@ -155,14 +165,6 @@ const Component = (props) => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   return (
     <Fragment>
-      <Dialog
-        dialog={dialog}
-        actionPage={config.actionPage}
-        content={Register}
-        name={config.param.dialogTitle || t("register")}
-      >
-        <Register actionPage={config.actionPage} />
-      </Dialog>
       {config.component.email?.filter?.includes("country") && (
         <Country form={form} list={config.component?.twitter?.countries} />
       )}
