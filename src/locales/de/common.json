@@ -1,6 +1,6 @@
 {
     "consent": {
-        "intro": "Halten Sie mich über diese Petition und ähnliche Kampagnen und Aktionen auf dem Laufenden.",
+        "intro": "Halten Sie mich über {{campaign}} und ähnliche Kampagnen und Aktionen auf dem Laufenden",
         "opt-in": "Ja, ich möchte, dass mich {{partner}} per E-Mail auf dem Laufenden hält",
         "opt-out": "Nein. Ich möchte keine weiteren Informationen erhalten",
         "confirm": "<0>Bist du sicher?</0><1>Mit der Auswahl „Nein“ kannst du nicht herausfinden, ob diese Kampagne erfolgreich ist oder ob wir noch weitere gemeinsame Maßnahmen ergreifen müssen, um sie zu gewinnen. Mit der Auswahl „Ja“ werden wir dich über diese und unsere anderen dringenden Kampagnen auf dem Laufenden halten.</1><2>Du kannst dich jederzeit abmelden.</2>",
