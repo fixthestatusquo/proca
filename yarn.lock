@@ -1728,10 +1728,10 @@
   dependencies:
     ramda "^0.26.0"
 
-"@stripe/react-stripe-js@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.2.2.tgz#efbb1230f3e1d4726ed6e80637b081aa82a4d63e"
-  integrity sha512-ziIdXSl4zRo8Pgq9TlnGPRVAe6Fjh/vkVqFr6eWS/ylr7vUE4zHFTE3rlo7Ys+fGM5WFcC+nFbXsPBCh1iG/6w==
+"@stripe/react-stripe-js@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.4.0.tgz#a67e72202297fc409dc2c8c4f3fb98e0b61fa06d"
+  integrity sha512-Pz5QmG8PgJ3pi8gOWxlngk+ns63p2L1Ds192fn55ykZNRKfGz3G6sfssUVThHn/NAt2Hp1eCEsy/hvlKnXJI6g==
   dependencies:
     prop-types "^15.7.2"
 
