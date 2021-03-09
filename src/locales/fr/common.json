@@ -1,6 +1,6 @@
 {
     "consent": {
-        "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
+        "intro": "En savoir plus sur nos campagnes, nos actions et la progression de {{campaign}}",
         "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
         "opt-out": "Non, je ne souhaite pas recevoir d'information sur les suites de cette campagne",
         "confirm": "<0> Êtes-vous sûr·e ?</0><1> En choisissant \"Non\", vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous vous tiendrons informé.e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
