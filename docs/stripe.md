@@ -1,12 +1,18 @@
 ## Stripe integration
+###  .env config:
+REACT_APP_DONATION_URL=https://proca-donate.herokuapp.com
+REACT_APP_STRIPE_PUBLIC=pk_test_dffgdfgdfg
 
 the component StripeInput.js provides a stripe card component wrapped into material-ui
 
 ### One off
 
+
+using proca-donate
  
 ### Recurring
 
+TO COMPLETE::::
 For recurring donations, create a product
 create a 1 euro product
 

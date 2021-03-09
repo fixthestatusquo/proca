@@ -51,8 +51,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const publishableKey =
-  "pk_test_51Guc6WDbl4kpFgIpVuOJBdinbbf4RA0Ggksy0udRSoOkQFv3Mvcs6troBKK7Fqg3G8eQ51atSWG2mSrZ7nXAu1hS00r4SBF3NL";
+const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+
+console.assert(
+  typeof publishableKey !== "undefined",
+  "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
+);
+
 const stripe = loadStripe(publishableKey);
 
 const currencies = [
