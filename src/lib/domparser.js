@@ -4,7 +4,7 @@ const getData = (key, selector) => {
 };
 
 const getOverwriteLocales = (
-  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-in"
+  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-in,email_subject,email_body,twitter-actionText"
 ) => {
   allowed = allowed.split(",");
   const converting = { "sign-now": "Sign now!" }; // dealing with keys that aren't classes

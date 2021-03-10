@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import List from "@material-ui/core/List";
 
-import TwitterAction from "./TwitterAction";
 import EmailAction from "./EmailAction";
 
 import Country from "./Country";

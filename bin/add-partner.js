@@ -131,7 +131,7 @@ const addPartner = async (genericPage, partnerOrg) => {
 
   // overwrite data in new AP
   let cfg = newAp.config;
-  if ("consent" in cfg.component) {
+  if (cfg.component && "consent" in cfg.component) {
     cfg.component.consent = {};
   }
 

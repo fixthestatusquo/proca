@@ -6,9 +6,7 @@ import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "../hooks/useConfig";
 
-import { Container, Grid } from "@material-ui/core";
-
-import {allCountries} from '../lib/i18n';
+import { allCountries } from "../lib/i18n";
 import countriesJson from "../data/countries.json";
 // import {allCountries} from '../lib/i18n'; and use instead XXX
 let countries = [];
@@ -32,20 +30,20 @@ const emoji = (country) => {
 export const addMissingCountries = (countries) => {
   const alreadyHave = {};
 
-  countries.reduce((a, c) => { 
-    a[c.iso] = true; 
-    return a;  
+  countries.reduce((a, c) => {
+    a[c.iso] = true;
+    return a;
   }, alreadyHave);
 
-  const all = countries.filter(({iso}) => iso !== "ZZ");
+  const all = countries.filter(({ iso }) => iso !== "ZZ");
 
   for (const [code, label] of Object.entries(allCountries)) {
-    if (! (code in alreadyHave)) {
-      all.push({iso: code, name: label});
+    if (!(code in alreadyHave)) {
+      all.push({ iso: code, name: label });
     }
   }
   return all;
-}
+};
 
 const Flag = (props) => {
   const country = props.country?.toUpperCase();
@@ -100,29 +98,22 @@ export default (props) => {
   }, [register]);
 
   return (
-    <Container component="main" maxWidth="sm">
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <TextField
-            select
-            name="country"
-            label={t("Country")}
-            form={props.form}
-            SelectProps={{
-              native: true,
-            }}
-          >
-            <option key="" value=""></option>
-            {countries.map((option) => (
-              <option key={option.iso} value={option.iso}>
-                {(emoji(option.iso) ? emoji(option.iso) + " " : "") +
-                  option.name}
-              </option>
-            ))}
-          </TextField>
-        </Grid>
-      </Grid>
-    </Container>
+    <TextField
+      select
+      name="country"
+      label={t("Country")}
+      form={props.form}
+      SelectProps={{
+        native: true,
+      }}
+    >
+      <option key="" value=""></option>
+      {countries.map((option) => (
+        <option key={option.iso} value={option.iso}>
+          {(emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+        </option>
+      ))}
+    </TextField>
   );
 };
 
