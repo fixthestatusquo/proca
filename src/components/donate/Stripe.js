@@ -52,10 +52,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-
 console.assert(
-  typeof publishableKey !== "undefined",
-  "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
+    typeof publishableKey !== "undefined",
+    "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
 );
 
 const stripe = loadStripe(publishableKey);
@@ -96,9 +95,9 @@ const PaymentForm = (props) => {
     setCompact(width <= 450);
   const title = data.amount
     ? config?.component?.donation.igive ||
-      t("I'm donating") + " " + data.amount + data.currency?.symbol
+    t("I'm donating") + " " + data.amount + "€"
     : config?.component?.Donate?.amount?.title ||
-      t("Choose your donation amount");
+    t("Choose your donation amount");
 
   const formValues = {};
   const dispatch = (d) => {
