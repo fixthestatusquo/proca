@@ -31,6 +31,7 @@ import documents from "../../data/document_number_formats.json";
 import Country from "../Country";
 import Id from "../eci/Id";
 import Address from "../eci/Address";
+import General from "../eci/General";
 
 import { addActionContact } from "../../lib/server.js";
 import uuid from "../../lib/uuid.js";
@@ -167,29 +168,15 @@ export default function Register(props) {
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={1}>
-            <Id
-              form={form}
-              compact={compact}
-              ids={acceptableIds}
-              country="it"
-            />
-            <Grid item xs={12} sm={compact ? 12 : 6}>
+            <General form={form} birthdate={true} compact={compact} />
+
+            <Grid item xs={12}>
               <TextField
                 form={form}
-                name="firstname"
-                label={t("First name")}
-                placeholder="eg. Leonardo"
-                autoComplete="given-name"
+                name="birthplace"
+                label={t("Place of birth")}
+                placeholder="eg. Roma"
                 required
-              />
-            </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 6}>
-              <TextField
-                form={form}
-                name="lastname"
-                label={t("Last name")}
-                autoComplete="family-name"
-                placeholder="eg. Da Vinci"
               />
             </Grid>
             <Grid item xs={12}>
@@ -203,6 +190,12 @@ export default function Register(props) {
                 placeholder="your.email@example.org"
               />
             </Grid>
+            <Id
+              form={form}
+              compact={compact}
+              ids={acceptableIds}
+              country="it"
+            />
             <Address form={form} compact={compact} countries={[]} />
 
             <Consent
