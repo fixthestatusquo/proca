@@ -9,8 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import TextField from "../TextField";
-import documentType from "../../data//document_types_name.json";
-
+import documentType from "../../data/document_types_name.json";
 import { useTranslation } from "react-i18next";
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
