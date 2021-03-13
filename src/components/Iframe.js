@@ -28,6 +28,7 @@ const Iframe = (props) => {
       style={{ border: "none" }}
       width={config.component.iframe.width}
       height={config.component.iframe.height}
+      title="proca"
       src={url}
     >
       In iframe
