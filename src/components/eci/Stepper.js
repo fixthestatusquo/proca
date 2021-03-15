@@ -51,6 +51,8 @@ export default function Target(props) {
         return <Email done={doneEmail} />;
       case "share":
         return <Share done={props.done} />;
+      default:
+        return <div>DEFAULT</div>;
     }
   };
 
@@ -86,6 +88,8 @@ export default function Target(props) {
             </StepButton>
           </Step>
         );
+      default:
+        return <div>DEFAULT</div>;
     }
     return "MISSING STEP " + step;
   };
