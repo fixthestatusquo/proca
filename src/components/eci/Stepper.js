@@ -11,6 +11,7 @@ import Alert from "../Alert";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "../../hooks/useLayout";
+import SwipeableViews from "react-swipeable-views";
 
 export default function Target(props) {
   const [submitted, setSubmitted] = useState(false);
@@ -40,6 +41,17 @@ export default function Target(props) {
 
   const iconColor = (s) => {
     return value === s ? "primary" : "disabled";
+  };
+
+  const StepsComponent = (step) => {
+    switch (step) {
+      case "eci":
+        return <Support done={doneEci} />;
+      case "register":
+        return <Email done={doneEmail} />;
+      case "share":
+        return <Share done={props.done} />;
+    }
   };
 
   const Steps = (step) => {
@@ -93,9 +105,9 @@ export default function Target(props) {
         {steps.map((s) => Steps(s))}
       </Stepper>
       <Box p={1}>
-        {value === "register" && <Email done={doneEmail} />}
-        {value === "eci" && <Support done={doneEci} />}
-        {value === "share" && <Share done={props.done} />}
+        <SwipeableViews index={step(value)} slideStyle={{ overflow: "none" }}>
+          {steps.map((s) => StepsComponent(s))}
+        </SwipeableViews>
       </Box>
     </>
   );
