@@ -91,7 +91,6 @@ export default function Target(props) {
       default:
         return <div>DEFAULT</div>;
     }
-    return "MISSING STEP " + step;
   };
 
   return (
