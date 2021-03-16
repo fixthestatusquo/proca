@@ -193,6 +193,7 @@ export default function ShareAction(props) {
       ""
     );
     function addShare(event) {
+      if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
       addAction(actionPage, event, {
         uuid: uuid(),
         payload: { key: "medium", value: medium },
