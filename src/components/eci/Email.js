@@ -4,12 +4,18 @@ import { Button } from "@material-ui/core";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import Alert from "@material-ui/lab/Alert";
 
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   return (
     <>
+      {props.submitted && (
+        <Alert severity="success">
+          {t("eci:congratulations.successfully-title")}
+        </Alert>
+      )}
       <div>
         {" "}
         {t("consent.intro", {

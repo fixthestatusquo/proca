@@ -24,9 +24,11 @@ export default function Target(props) {
       : ["eci", "register", "share"];
 
   const [value, setValue] = useState(steps[0]);
+  const [crumbbread, setCrumbbread] = useState(null); // result of the last step
   const step = (s) => steps.indexOf(s);
 
-  const doneEmail = () => {
+  const doneEmail = (result) => {
+    setCrumbbread(result);
     setValue(steps[step("register") + 1]);
   };
 
@@ -46,11 +48,11 @@ export default function Target(props) {
   const StepsComponent = (step) => {
     switch (step) {
       case "eci":
-        return <Support done={doneEci} />;
+        return <Support done={doneEci} {...crumbbread} />;
       case "register":
-        return <Email done={doneEmail} />;
+        return <Email done={doneEmail} {...crumbbread} submitted={submitted} />;
       case "share":
-        return <Share done={props.done} />;
+        return <Share done={props.done} {...crumbbread} />;
       default:
         return <div>DEFAULT</div>;
     }
