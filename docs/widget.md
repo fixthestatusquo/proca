@@ -23,6 +23,8 @@ can be configured via the dom: <span class="proca-text {key of the locale}">New 
 
 should we have a proca.set('locale')?
 
+## init
+if existing procaInit() function is called BEFORE anything else, if you want to alter anything before it's displayed
 
 ## the journey
 

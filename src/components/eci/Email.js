@@ -12,7 +12,7 @@ const RegisterEmail = (props) => {
   return (
     <>
       {props.submitted && (
-        <Alert severity="success">
+        <Alert className="eci-success" severity="success">
           {t("eci:congratulations.successfully-title")}
         </Alert>
       )}
