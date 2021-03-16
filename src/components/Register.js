@@ -113,7 +113,9 @@ export default function Register(props) {
     }
     setStatus("success");
     setData(data);
-    uuid(result.contactRef); // set the global uuid as signature's fingerprint
+    if (!config.component.share?.anonymous) {
+      uuid(result.contactRef); // set the global uuid as signature's fingerprint
+    }
     props.done &&
       props.done({
         errors: result.errors,

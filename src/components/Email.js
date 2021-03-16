@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 import List from "@material-ui/core/List";
 
 import EmailAction from "./EmailAction";
+import ProgressCounter from "./ProgressCounter";
 
 import Country from "./Country";
 import useData from "../hooks/useData";
@@ -164,6 +165,9 @@ const Component = (props) => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   return (
     <Fragment>
+      {config.component.email.progress && (
+        <ProgressCounter actionPage={props.actionPage} />
+      )}
       {config.component.email?.filter?.includes("country") && (
         <Country form={form} list={config.component?.twitter?.countries} />
       )}
