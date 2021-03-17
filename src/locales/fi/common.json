@@ -80,5 +80,7 @@
     "Join": "Liity",
     "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Lahjoitan {{amount}}",
-    "Stay informed": "Liity jakelulistalle"
+    "Stay informed": "Liity jakelulistalle",
+    "Place of birth": "Syntymäpaikka",
+    "Donate": "Lahjoita"
 }
