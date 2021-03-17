@@ -222,9 +222,7 @@
       "oct.error.pl.postalcode": "Invalid format. Format required: NNNNN (N = digit)",
       "oct.error.propertytypemismatch": "Invalid format",
       "oct.error.si.postalcode": "Invalid format. Format required: NNNN (N = digit)",
-      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)",
-      "oct_error_invalidrange": "oct_error_invalidrange",
-      "oct_error_invalidsize": "oct_error_invalidsize"
+      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)"
     },
     "fill-form": "Fill in the form",
     "generic.error": "Please correct the errors in the statement of support form",

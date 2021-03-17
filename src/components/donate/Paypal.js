@@ -4,16 +4,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
-import {
-  Grid,
-  Typography,
-  Card,
-  CardHeader,
-  CardContent,
-  Button,
-  Container,
-  Box,
-} from "@material-ui/core";
+import { Grid, CardHeader, Container, Box } from "@material-ui/core";
 
 const Paypal = (props) => {
   const [data, setData] = useData();
