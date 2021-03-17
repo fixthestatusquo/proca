@@ -79,5 +79,7 @@
     "Birthdate": "Gimimo data",
     "Amount": "Suma",
     "Address": "Adresas",
-    "Account": "Paskyra"
+    "Account": "Paskyra",
+    "Place of birth": "Gimimo vieta",
+    "Donate": "Paaukoti"
 }
