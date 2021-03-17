@@ -80,5 +80,7 @@
     "Join": "Gå med",
     "The average donation is {{amount}} {{currency}}": "Den genomsnittliga donationen är {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Jag donerar {{amount}}",
-    "Stay informed": "Håll dig uppdaterad"
+    "Stay informed": "Håll dig uppdaterad",
+    "Place of birth": "Födelseort",
+    "Donate": "Donera"
 }
