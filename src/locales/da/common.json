@@ -80,5 +80,7 @@
     "Join": "Meld dig ind",
     "The average donation is {{amount}} {{currency}}": "Den gennemsnitlige donation er {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Jeg donerer {{amount}}",
-    "Stay informed": "Hold dig opdateret"
+    "Stay informed": "Hold dig opdateret",
+    "Place of birth": "Fødselssted",
+    "Donate": "Donér"
 }
