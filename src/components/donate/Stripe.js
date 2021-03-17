@@ -12,7 +12,6 @@ import {
 //import TextField from "../TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
-//import Autocomplete from '@material-ui/lab/Autocomplete';
 import { loadStripe } from "@stripe/stripe-js";
 
 import { paymentIntent } from "../../lib/stripe";
@@ -33,6 +32,8 @@ import {
   CardElement,
 } from "@stripe/react-stripe-js";
 import StripeInput from "./StripeInput";
+
+import Country from "../Country";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -81,6 +82,7 @@ const PaymentForm = (props) => {
       lastname: data.lastname,
       email: data.email,
       postcode: data.postcode,
+      country: data.country,
     },
   });
   const { control, errors, clearErrors } = form;
@@ -130,7 +132,7 @@ const PaymentForm = (props) => {
       card: cardElement,
       billing_details: {
         name: values.firstname + " " + values.lastname,
-        address: { country: data.country, postal_code: values.postcode },
+        address: { country: values.country, postal_code: values.postcode },
         email: values.email,
       },
     });
@@ -163,10 +165,9 @@ const PaymentForm = (props) => {
         card: cardElement,
         billing_details: {
           name: values.name,
-          address: { country: data.country, postal_code: values.postcode },
+          address: { country: values.country, postal_code: values.postcode },
           email: values.email,
         },
-        country: data.country,
       },
     });
 
@@ -259,7 +260,7 @@ const PaymentForm = (props) => {
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 8}>
+            <Grid item xs={12}>
               <Controller
                 control={control}
                 name="email"
@@ -298,6 +299,20 @@ const PaymentForm = (props) => {
                     }
                     variant={layout.variant}
                     margin={layout.margin}
+                    onChange={onChange}
+                    value={value}
+                  />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12} sm={compact ? 12 : 8}>
+              <Controller
+                control={control}
+                name="country"
+                render={({ onChange, value }) => (
+                  <Country
+                    form={form}
+                    required
                     onChange={onChange}
                     value={value}
                   />
