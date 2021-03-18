@@ -35,14 +35,14 @@ export const addMissingCountries = (countries) => {
     return a;
   }, alreadyHave);
 
-  const all = countries.filter(({ iso }) => iso !== "ZZ");
-
+  let others = [];
   for (const [code, label] of Object.entries(allCountries)) {
     if (!(code in alreadyHave)) {
-      all.push({ iso: code, name: label });
+      others.push({ iso: code, name: label });
     }
   }
-  return all;
+  others.sort((a, b) => (a.name > b.name ? 1 : -1));
+  return countries.filter(({ iso }) => iso !== "ZZ").concat(others);
 };
 
 const Flag = (props) => {
@@ -65,8 +65,10 @@ export default (props) => {
     countries = countriesJson;
   }
 
+  countries.sort((a, b) => (a.name > b.name ? 1 : -1));
   if (props.other) {
-    countries = useMemo(() => addMissingCountries(countries));
+    // no idea why we have useMemo here
+    countries = useMemo(() => addMissingCountries(countries), [countries]);
   }
 
   const { t } = useTranslation();
