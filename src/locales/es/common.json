@@ -17,14 +17,14 @@
     "Email": "Correo electrónico",
     "Last name": "Apellidos",
     "First name": "Nombre",
-    "Amount": "Cantidad",
+    "Amount": "Monto",
     "Donations must be %(amount)s or more": "Las donaciones deben ser %(s) o más",
-    "Enter a valid email address.": "Proporciona una dirección de correo electrónico válida.",
+    "Enter a valid email address.": "Proporcione una dirección de correo electrónico válida.",
     "Enter a number.": "Introduce un número.",
     "This field is required.": "Este campo es necesario.",
     "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
     "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
-    "Sign": "¡Firma ahora!",
+    "Sign": "¡Firmar ahora!",
     "share": {
         "email": {
             "body": "Hola,\npor favor, firma, creo que querrás apoyarlo",
@@ -73,12 +73,14 @@
     "Other": "Otros",
     "I'm donating ": "Voy a donar ",
     "I'm donating": "Voy a donar",
-    "Choose your donation amount": "Elija la cantidad de su donación",
-    "Sorry, we couldn't save": "Lo siento, no pudimos salvar",
+    "Choose your donation amount": "Elija el monto de su donación",
+    "Sorry, we couldn't save": "No se ha podido guardar",
     "Sign the ECI": "Firme la ECI",
     "Share": "Compartir",
     "Join": "Unirse",
     "The average donation is {{amount}} {{currency}}": "La donación promedio es {{amount}} {{currency}}",
-    "I'm donating {{amount}}": "Estoy donando {{amount}}",
-    "Stay informed": "Seguir recibiendo información"
+    "I'm donating {{amount}}": "Donaré {{amount}}",
+    "Stay informed": "Mantenerse al tanto",
+    "Place of birth": "Lugar de nacimiento",
+    "Donate": "Donar"
 }

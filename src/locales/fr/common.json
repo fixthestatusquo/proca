@@ -85,5 +85,7 @@
     "Join": "Rejoindre",
     "The average donation is {{amount}} {{currency}}": "Le don moyen est de {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Je fais un don de {{amount}}",
-    "Stay informed": "Rester informé·e"
+    "Stay informed": "Rester informé·e",
+    "Place of birth": "Lieu de naissance",
+    "Donate": "Faire un don"
 }

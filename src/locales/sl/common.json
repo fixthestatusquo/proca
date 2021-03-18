@@ -82,5 +82,7 @@
     "Join": "Pridruži se",
     "The average donation is {{amount}} {{currency}}": "Povprečna donacija je {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Doniram {{amount}}",
-    "Stay informed": "Ostanite obveščeni"
+    "Stay informed": "Ostanite obveščeni",
+    "Place of birth": "Kraj rojstva",
+    "Donate": "Donacija"
 }

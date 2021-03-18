@@ -80,5 +80,7 @@
     "Join": "Csatlakozás",
     "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Adományozok {{amount}}",
-    "Stay informed": "Tájékoztatás kérése"
+    "Stay informed": "Tájékoztatás kérése",
+    "Place of birth": "Születési hely",
+    "Donate": "Adományozás"
 }
