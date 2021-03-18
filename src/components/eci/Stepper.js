@@ -13,7 +13,7 @@ import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "../../hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
 
-export default function Target(props) {
+export default function StepperEci(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
   const config = useCampaignConfig();
@@ -48,11 +48,18 @@ export default function Target(props) {
   const StepsComponent = (step) => {
     switch (step) {
       case "eci":
-        return <Support done={doneEci} {...crumbbread} />;
+        return <Support key={step} done={doneEci} {...crumbbread} />;
       case "register":
-        return <Email done={doneEmail} {...crumbbread} submitted={submitted} />;
+        return (
+          <Email
+            key={step}
+            done={doneEmail}
+            {...crumbbread}
+            submitted={submitted}
+          />
+        );
       case "share":
-        return <Share done={props.done} {...crumbbread} />;
+        return <Share key={step} done={props.done} {...crumbbread} />;
       default:
         return <div>DEFAULT</div>;
     }
