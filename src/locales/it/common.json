@@ -3,22 +3,22 @@
         "intro": "Desideri ricevere ulteriori informazioni sulle nostre campagne, azioni ed il progresso di {{campaign}}",
         "opt-in": "Sì, acconsento alla ricezione di email di aggiornamento da parte di {{partner}}",
         "opt-out": "No, non desidero ricevere e-mail di aggiornamenti in futuro",
-        "confirm": "<0>Sei sicuro?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2>",
+        "confirm": "<0>Sei sicuro?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, o se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2>",
         "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>",
         "processing-nocookie": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati in conformità con la nostra <1>informativa sulla privacy</1>",
-        "opt-in-both": "Sì, acconsento alla ricezione di aggiornamenti via email da parte dei {{partner}} e da {{lead}}"
+        "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi mantengano informato via email"
     },
     "share": {
         "title": "Quasi fatto! Fai il passo successivo.",
         "intro": "Bene, hai firmato.👍. Per ampliare il tuo impatto, condividi ovunque per far sì che tutti vedano questa petizione. 🙏.",
         "email": {
-            "body": "Ciao,\nfirmi per favore, credo che tu voglia supportarlo",
+            "body": "Ciao,\nfirma per favore, credo che tu voglia sostenerlo",
             "subject": "Dovresti firmare questo"
         },
         "message": "Dovresti firmare questo!"
     },
     "Sign": "Firma ora!",
-    "progress": "{{count}} firme. Obiettivo: {{goal}}",
+    "progress": "{{count}} ha firmato. Arriviamo a: {{goal}}",
     "progress_plural": "{{count}} hanno firmato. Arriviamo a: {{goal}}",
     "This field is required.": "Si prega di compilare questo campo.",
     "Enter a number.": "Inserire una cifra.",
@@ -49,7 +49,7 @@
     "Next": "Prossimo",
     "Download": "Scarica",
     "Thank you": "Grazie",
-    "Download explanation": "Il tuo documento è pronto, te lo inviamo per e-mail.",
+    "Download explanation": "Il tuo documento è pronto, te lo inviamo anche per e-mail.",
     "you need to be 18 years old": "Devi avere 18 anni",
     "Sign Up": "Iscrizione",
     "twitter": {
