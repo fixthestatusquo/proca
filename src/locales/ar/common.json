@@ -79,5 +79,7 @@
     "Join": "الإلتحاق بالغرفة",
     "The average donation is {{amount}} {{currency}}": "متوسط التبرع هو {{amount}} {{currency}}",
     "I'm donating {{amount}}": "أنا أتبرع {{amount}}",
-    "Stay informed": "البقاء على علم"
+    "Stay informed": "البقاء على علم",
+    "Place of birth": "مكان الميلاد",
+    "Donate": "التبرع"
 }

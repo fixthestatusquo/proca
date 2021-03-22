@@ -80,5 +80,7 @@
     "Join": "Присоединиться",
     "The average donation is {{amount}} {{currency}}": "Среднее пожертвование составляет {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Я делаю пожертвование {{amount}}",
-    "Stay informed": "Будьте в курсе"
+    "Stay informed": "Будьте в курсе",
+    "Place of birth": "Мсто рождения",
+    "Donate": "Пожертвовать"
 }

@@ -78,5 +78,7 @@
     "Birthdate": "Urtebetetze data",
     "Amount": "Kopurua",
     "Address": "Helbidea",
-    "Account": "Kontua"
+    "Account": "Kontua",
+    "Place of birth": "Jaioterria",
+    "Donate": "Egin dohaintza"
 }

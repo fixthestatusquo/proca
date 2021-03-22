@@ -80,5 +80,7 @@
     "Join": "Ühine",
     "The average donation is {{amount}} {{currency}}": "Keskmine annetus on {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Annetan {{amount}}",
-    "Stay informed": "Olge kursis"
+    "Stay informed": "Olge kursis",
+    "Place of birth": "Sünnikoht",
+    "Donate": "Anneta"
 }

@@ -80,5 +80,7 @@
     "Join": "Συμμετοχή",
     "The average donation is {{amount}} {{currency}}": "Η μέση δωρεά είναι {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Δωρίζω {{amount}}",
-    "Stay informed": "Συνεχής ενημέρωση"
+    "Stay informed": "Συνεχής ενημέρωση",
+    "Place of birth": "Τόπος γέννησης",
+    "Donate": "Δωρίστε"
 }

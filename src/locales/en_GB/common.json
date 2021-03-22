@@ -79,5 +79,6 @@
     "Monthly donations": "Monthly donations",
     "Sign the ECI": "Sign the ECI",
     "I'm donating {{amount}}": "I'm donating {{amount}}",
-    "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more"
+    "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
+    "Donate": "Donate"
 }

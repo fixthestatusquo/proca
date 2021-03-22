@@ -81,5 +81,7 @@
     "Join": "Jingħaqdu",
     "The average donation is {{amount}} {{currency}}": "Id-donazzjoni medja hija {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Qed nagħti donazzjoni {{amount}}",
-    "Stay informed": "Ibqa’ infurmat"
+    "Stay informed": "Ibqa’ infurmat",
+    "Place of birth": "Post tat-twelid",
+    "Donate": "Donazzjoni"
 }

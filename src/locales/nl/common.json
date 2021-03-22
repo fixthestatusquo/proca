@@ -80,5 +80,7 @@
     "Join": "Deelnemen",
     "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Ik doneer {{amount}}",
-    "Stay informed": "Hou mij op de hoogte"
+    "Stay informed": "Hou mij op de hoogte",
+    "Place of birth": "Geboorteplaats",
+    "Donate": "Doneren"
 }
