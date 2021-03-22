@@ -56,8 +56,21 @@ const Component = (props) => {
           console.log(error);
         });
     };
-    if (config.component?.email?.listUrl)
+    if (config.component?.email?.listUrl) {
       fetchData(config.component.email.listUrl);
+    } else {
+      const emails =
+        typeof config.component.email.to === "string"
+          ? config.component.email.to?.split(",")
+          : [];
+      let to = [];
+      emails.map((d) => {
+        to.push({ email: d.trim() });
+      });
+      console.log(to);
+      setAllProfiles(to);
+      setProfiles(to);
+    }
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterProfiles = useCallback(
