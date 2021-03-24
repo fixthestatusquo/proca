@@ -13,6 +13,7 @@ import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
+import { formatDate } from "../../lib/date";
 
 import { Box, Button, Snackbar } from "@material-ui/core";
 import TextField from "../TextField";
@@ -23,6 +24,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
+import i18n from "../../lib/i18n";
 import { useTranslation } from "../eci/hooks/useEciTranslation";
 
 import Consent from "../Consent";
@@ -33,8 +35,9 @@ import Id from "../eci/Id";
 import Address from "../eci/Address";
 import General from "../eci/General";
 
-import { addActionContact } from "../../lib/server.js";
+import { addSupport, errorMessages } from "./lib/server.js";
 import uuid from "../../lib/uuid.js";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -69,6 +72,8 @@ export default function Register(props) {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+  const [token, setToken] = useState("dummy");
+  const [errorDetails, setErrorDetails] = useState("");
 
   const { t } = useTranslation();
 
@@ -85,21 +90,72 @@ export default function Register(props) {
   });
   const { trigger, watch, handleSubmit, setError, formState, getValues } = form;
 
+  const handleVerificationSuccess = (token) => {
+    setToken(token);
+  };
   const onSubmit = async (data) => {
     data.tracking = Url.utm();
-    const result = await addActionContact(
+    if (data.birthDate) {
+      data.birthDate = formatDate(data.birthDate);
+      if (data.birthDate === false) {
+        setError("birthDate", {
+          type: "format",
+          message: t("eci:form.error.oct_error_invaliddateformat"),
+        });
+        return;
+      }
+    }
+
+    const result = await addSupport(
       config.test ? "test" : config.component?.register?.actionType || "sign",
       config.actionPage,
-      data
+      data,
+      { captcha: token }
     );
+
     if (result.errors) {
       let handled = false;
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
-            setError(field.name, { type: "server", message: field.message });
-            handled = true;
+            switch (field.name) {
+              case "birthDate": {
+                const msg = "eci:form.error.oct_error_invalidrange";
+                setError(field.name, { type: "server", message: t(msg) });
+                break;
+              }
+              case "documentNumber": {
+                const msg =
+                  "eci:form.error.document_" +
+                  data.nationality.toLowerCase() +
+                  "_" +
+                  data.documentType.replace(/\./g, "_");
+                setError(field.name, {
+                  type: "server",
+                  message: /* i18next-extract-disable-line */ t(msg),
+                });
+                break;
+              }
+              case "postcode": {
+                const msg =
+                  "eci:form.error.oct_error_" +
+                  data.country.toLowerCase() +
+                  "_postalcode";
+                setError(field.name, {
+                  type: "server",
+                  message: i18n.exists(msg)
+                    ? /* i18next-extract-disable-line */ t(msg)
+                    : t("eci:form.error.oct_error_invalidsize"),
+                });
+                break;
+              }
+              default:
+                setError(field.name, {
+                  type: "server",
+                  message: field.message,
+                });
+            }
           } else if (field.name.toLowerCase() in data) {
             setError(field.name.toLowerCase(), {
               type: "server",
@@ -109,26 +165,29 @@ export default function Register(props) {
           }
         });
       }
-      !handled && setStatus("error");
+      !handled &&
+        setErrorDetails(errorMessages(result.errors)) &&
+        setStatus("error");
       return;
     }
-    setStatus("success");
-    setData(data);
-    uuid(result.contactRef); // set the global uuid as signature's fingerprint
+
     props.done &&
       props.done({
-        errors: result.errors,
-        uuid: uuid(),
         firstname: data.firstname,
-        country: data.country,
       });
+
+    return false;
   };
 
   function Error(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
-          <Alert severity="error">{t("Sorry, we couldn't save")}</Alert>
+          <Alert severity="error">
+            {t("Sorry, we couldn't save")}
+            <br />
+            Details: {errorDetails}
+          </Alert>
         </Snackbar>
       );
     return null;
@@ -204,6 +263,14 @@ export default function Register(props) {
               form={form}
             />
 
+            <Grid item xs={12} sm={compact ? 12 : 4}>
+              <HCaptcha
+                sitekey={config.component.register.hcaptcha}
+                languageOverride={config.lang}
+                size="compact"
+                onVerify={(token) => handleVerificationSuccess(token)}
+              />
+            </Grid>
             <Grid item xs={12}>
               <Button
                 color="primary"
