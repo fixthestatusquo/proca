@@ -241,7 +241,7 @@ async function addActionContact(actionType, actionPage, data) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  const expected = "uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
+  const expected = "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
     ","
   );
   let variables = {
@@ -251,9 +251,10 @@ async function addActionContact(actionType, actionPage, data) {
       fields: [], // added below
     },
     contact: {
-      first_name: data.firstname,
-      last_name: data.lastname,
+      firstName: data.firstname,
+      lastName: data.lastname,
       email: data.email,
+      phone: data.phone,
       address: {
         country: data.country || "",
         postcode: data.postcode || "",
@@ -264,7 +265,7 @@ async function addActionContact(actionType, actionPage, data) {
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.region) variables.contact.address.region = data.region;
   if (data.locality) variables.contact.address.locality = data.locality;
-  if (data.birthdate) variables.contact.birth_date = data.birthdate;
+  if (data.birthdate) variables.contact.birthDate = data.birthdate;
 
   if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
