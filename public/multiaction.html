@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    
+<meta property="og:image" content="https://placekitten.com/540/284" />
+<title>OpenLetter</title>
+<meta name="twitter:title" content="Demo of a multi-action" />
+
+<meta name="description" content="Sign the initiative too!" />
+<meta name="twitter:description" content="For a future" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eucampaign" />
+<meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style media="print">
+nav {display:none!important;}
+div#signature-form {display:none;}
+div.proca-table {display:block}
+table {display:block!important}
+</style>
+<style>
+  aa.dark {background: #343a40}
+  aa.light {background: "transparent"}
+  html {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+   nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  }
+</style>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+<style>
+
+  .mrow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+  }
+
+.mcol{
+  display: flex;
+  min-width: 250px!important;
+    flex-direction: column;
+    flex-basis: 100%;
+    padding:0 10px;
+  flex:1;
+}
+
+pre {background:#dede; padding: 10px}
+
+</style>
+<style>
+  body {padding-top:5rem;}
+
+</style>
+
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Demo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Design of your page</a>
+            <div class="dropdown-menu columns" aria-labelledby="dropdown02">
+              <a class="dropdown-item" data-class="col-md" href="#">two equal columns</a>
+              <a class="dropdown-item" data-class="col-md-4" href="#">large content column</a>
+              <a class="dropdown-item" disabled>Floating action</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layout</a>
+            <div class="dropdown-menu " aria-labelledby="dropdown01">
+              <a class="dropdown-item theme" data-theme="dark" href="#">Toggle dark/light</a>
+            <div class="dropdown-divider"></div>
+              <div class="color">
+              <a class="dropdown-item" data-color="#2196f3" href="#">Blue</a>
+              <a class="dropdown-item" data-color="#9c27b0" href="#">Purple</a>
+              <a class="dropdown-item" data-color="#4caf50">Green</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="variant">
+              <a class="dropdown-item" data-variant="filled" href="#">Filled</a>
+              <a class="dropdown-item" data-variant="outlined" href="#">Outlined</a>
+              <a class="dropdown-item" data-variant="standard">Standard</a>
+            </div>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <button class="proca-next btn btn-primary" data-toggle="modal" data-target="#code">Widget code</button>
+          <button class="proca-next btn btn-secondary" onClick="proca.go()">Next</button>
+        </div>
+      </div>
+    </nav>
+    <noscript
+      >You need to enable JavaScript to participate to this campaign.</noscript
+    >
+    <div id="root" class="container">
+      <div class="row">
+        <div class="col mcol">
+      <h2>Open letter</h2>
+<div class="proca-secondary"></div>
+          </div>
+          <div class="row">
+          <div class="proca-widget">
+          </div>
+        </div>
+        </div>
+<div class="proca-table" >
+</div>
+      </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script>
+      var params = {};
+
+      function loader () {
+        proca.hook("twitter","load", function(list){
+          list[0].description ="bozo";
+          console.log(list);
+        });
+        proca.set("geolocate",true);
+        console.log("loaded");
+        proca.go(); // continue to the next step
+      }
+
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
+        for (let d of document.getElementsByClassName("dynamic")) {
+          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
+        }
+
+        var params = {aname:""};
+        if (urlParams.get("variant")) {
+          params.variant = urlParams.get("variant");
+        }
+
+        params.actionPage= urlParams.get("actionPage") || 2;
+        
+        params.loader = urlParams.get("proca_loader");
+        proca.Widget(params);
+      }
+
+      if (typeof proca === "object") {
+        //not used on dev
+        display();
+      } else {
+        console.log("DEV MODE");
+        window.addEventListener("DOMContentLoaded", function() {
+          display();
+        });
+      }
+    </script>
+
+  <script>
+    function procaReady() {
+      console.log("init");
+//      proca.set("data","lastname","bbb");
+    }
+
+    jQuery(function($) {
+      $('.columns a').click(function() {
+        $('#action_column').removeClass().addClass($(this).data('class'));
+        window.dispatchEvent(new Event('resize'));
+      });
+      $('.color a').click(function() {
+        proca.set("layout","primaryColor",$(this).data('color')); });
+      $('.variant a').click(function() {
+        proca.set("layout","variant",$(this).data('variant'));
+      });
+      $('a.theme').click(function() {
+        var theme=$(this).data('theme');
+        $("#signature-form").removeClass().addClass("bg-"+theme);
+        
+        proca.set("layout","theme",theme);
+        $(this).data('theme', theme === "light"? "dark":"light");
+      });
+});
+  </script>
+  </body>
+</html>
