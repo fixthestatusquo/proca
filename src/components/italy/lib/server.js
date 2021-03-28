@@ -28,7 +28,10 @@ async function addSupport(actionType, actionPage, data, options) {
     actionPage: actionPage,
     action: {
       actionType: actionType,
-      fields: [{ key: "birthPlace", value: data.birthplace }],
+      fields: [
+        { key: "birthPlace", value: data.birthplace },
+        { key: "authority", value: data.authority },
+      ],
     },
     contact: {
       firstName: data.firstname,
@@ -48,7 +51,7 @@ async function addSupport(actionType, actionPage, data, options) {
         postcode: data.postcode || "",
       },
     },
-    privacy: privacy,
+    privacy: data.contentPrivacy,
   };
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;

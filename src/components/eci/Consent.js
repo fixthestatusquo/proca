@@ -69,7 +69,7 @@ export default function Register(props) {
                 inputRef={register}
                 onChange={handleCheck}
                 color="primary"
-                name="privacy"
+                name="contentPrivacy"
                 required
               />
               <EciDialog />

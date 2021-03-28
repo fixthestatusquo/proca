@@ -19,7 +19,6 @@ export default function Register(props) {
   const country = props.country;
 
   const id = Object.keys(props.ids).length; // number of different ids accepted
-
   const label = () => {
     if (id > 1) return null;
     const type =

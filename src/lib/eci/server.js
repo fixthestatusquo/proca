@@ -48,7 +48,7 @@ async function addSupport(actionType, actionPage, data, options) {
         postcode: data.postcode || "",
       },
     },
-    privacy: privacy,
+    privacy: data.contentPrivacy,
   };
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;
@@ -74,9 +74,7 @@ async function addSupport(actionType, actionPage, data, options) {
   return response.addActionContact;
 }
 const errorMessages = (errors) => {
-  return errors
-    .map(({message}) => message)
-    .join(', ');
-    };
+  return errors.map(({ message }) => message).join(", ");
+};
 
-export { addSupport , errorMessages};
+export { addSupport, errorMessages };

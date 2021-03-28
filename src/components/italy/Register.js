@@ -27,7 +27,8 @@ import { useForm } from "react-hook-form";
 import i18n from "../../lib/i18n";
 import { useTranslation } from "../eci/hooks/useEciTranslation";
 
-import Consent from "../Consent";
+import Consent from "../eci/Consent";
+import EmailConsent from "../Consent";
 import documents from "../../data/document_number_formats.json";
 
 import Country from "../Country";
@@ -82,6 +83,7 @@ export default function Register(props) {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
   const acceptableIds = documents["it"];
+  acceptableIds["driving.licence"] = "it";
   const [status, setStatus] = useState("default");
   const form = useForm({
     //    mode: "onBlur",
@@ -226,7 +228,7 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
-          <Grid container spacing={1}>
+          <Grid container spacing={0}>
             <General form={form} birthdate={true} compact={compact} />
 
             <Grid item xs={12}>
@@ -245,7 +247,6 @@ export default function Register(props) {
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
-                required
                 placeholder="your.email@example.org"
               />
             </Grid>
@@ -255,14 +256,17 @@ export default function Register(props) {
               ids={acceptableIds}
               country="it"
             />
+            <Grid item xs={12}>
+              <TextField
+                form={form}
+                name="authority"
+                label="Autorità di rilascio"
+              />
+            </Grid>
             <Address form={form} compact={compact} countries={[]} />
-
-            <Consent
-              organisation={props.organisation}
-              privacy_url={config.privacyUrl}
-              form={form}
-            />
-
+            <Grid item xs={12} sm={compact ? 12 : 8}>
+              <Consent form={form} />
+            </Grid>
             <Grid item xs={12} sm={compact ? 12 : 4}>
               <HCaptcha
                 sitekey={config.component.register.hcaptcha}
@@ -271,6 +275,12 @@ export default function Register(props) {
                 onVerify={(token) => handleVerificationSuccess(token)}
               />
             </Grid>
+            <EmailConsent
+              organisation={props.organisation}
+              privacy_url={config.privacyUrl}
+              form={form}
+            />
+
             <Grid item xs={12}>
               <Button
                 color="primary"
