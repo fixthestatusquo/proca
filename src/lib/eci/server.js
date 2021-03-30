@@ -20,8 +20,11 @@ async function addSupport(actionType, actionPage, data, options) {
   }
 `;
   const privacy = {
-    optIn: data.privacy === "opt-in" || data.privacy === "opt-in-both",
-    leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
+    optIn:
+      data.contentPrivacy === "opt-in" || data.contentPrivacy === "opt-in-both",
+    leadOptIn:
+      data.contentPrivacy === "opt-in-both" ||
+      data.contentPrivacy === "opt-in-lead",
   };
 
   //  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
@@ -48,7 +51,7 @@ async function addSupport(actionType, actionPage, data, options) {
         postcode: data.postcode || "",
       },
     },
-    privacy: data.contentPrivacy,
+    privacy: privacy,
   };
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;
