@@ -54,7 +54,7 @@ async function addSupport(actionType, actionPage, data, options) {
   };
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;
-  if (data.email) variables.email = data.email;
+  if (data.email) variables.contact.email = data.email;
 
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;

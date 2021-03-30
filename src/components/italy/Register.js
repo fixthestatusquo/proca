@@ -129,9 +129,7 @@ export default function Register(props) {
               }
               case "documentNumber": {
                 const msg =
-                  "eci:form.error.document_" +
-                  data.nationality.toLowerCase() +
-                  "_" +
+                  "eci:form.error.document_it_" +
                   data.documentType.replace(/\./g, "_");
                 setError(field.name, {
                   type: "server",
@@ -261,6 +259,7 @@ export default function Register(props) {
                 form={form}
                 name="authority"
                 label="Autorità di rilascio"
+                required
               />
             </Grid>
             <Address form={form} compact={compact} countries={[]} />
