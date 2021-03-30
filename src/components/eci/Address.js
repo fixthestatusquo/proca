@@ -13,7 +13,7 @@ export default function Register(props) {
   const compact = props.compact;
   const form = props.form;
 
-  const { setValue, watch, setError } = props.form;
+  const { setValue, watch } = props.form;
 
   const { postcode, country } = watch(["postcode", "country"]);
 

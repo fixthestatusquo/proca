@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -31,13 +31,13 @@ import Consent from "../eci/Consent";
 import EmailConsent from "../Consent";
 import documents from "../../data/document_number_formats.json";
 
-import Country from "../Country";
+//import Country from "../Country";
 import Id from "../eci/Id";
 import Address from "../eci/Address";
 import General from "../eci/General";
 
 import { addSupport, errorMessages } from "./lib/server.js";
-import uuid from "../../lib/uuid.js";
+//import uuid from "../../lib/uuid.js";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
-  const [data, setData] = useData();
+  const [data] = useData();
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const [token, setToken] = useState("dummy");
   const [errorDetails, setErrorDetails] = useState("");
@@ -177,7 +177,7 @@ export default function Register(props) {
       props.done({
         firstname: data.firstname,
       });
-
+    //    setData (data);
     return false;
   };
 
