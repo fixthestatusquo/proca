@@ -27,7 +27,7 @@ import { useForm } from "react-hook-form";
 import i18n from "../../lib/i18n";
 import { useTranslation } from "../eci/hooks/useEciTranslation";
 
-import Consent from "../eci/Consent";
+import Consent from "./Consent";
 import EmailConsent from "../Consent";
 import documents from "../../data/document_number_formats.json";
 

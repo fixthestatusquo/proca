@@ -48,7 +48,7 @@ export default function Register(props) {
         });
     }
     fetchAPI();
-    //}, [postcode, setError, setValue, country, geocountries]);
+    //}, [postcode, setError, setValue, country, geocountries]); can't put geocountries otherwise it loops
   }, [postcode, country, setValue]);
 
   return (
