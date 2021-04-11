@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-*/
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -35,6 +28,7 @@ import documents from "../../data/document_number_formats.json";
 import Id from "../eci/Id";
 import Address from "../eci/Address";
 import General from "../eci/General";
+import ProgressCounter from "../ProgressCounter";
 
 import { addSupport, errorMessages } from "./lib/server.js";
 //import uuid from "../../lib/uuid.js";
@@ -222,6 +216,7 @@ export default function Register(props) {
       method="post"
       url="http://localhost"
     >
+      <ProgressCounter actionPage={props.actionPage} />
       <Success display={status === "success"} />
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
