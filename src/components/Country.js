@@ -27,7 +27,7 @@ const emoji = (country) => {
   return emoji;
 };
 
-export const addMissingCountries = (countries) => {
+export const addMissingCountries = (countries, compare) => {
   const alreadyHave = {};
 
   countries.reduce((a, c) => {
@@ -41,7 +41,7 @@ export const addMissingCountries = (countries) => {
       others.push({ iso: code, name: label });
     }
   }
-  others.sort((a, b) => (a.name > b.name ? 1 : -1));
+  others.sort((a, b) => compare(a.name, b.name));
   return countries.filter(({ iso }) => iso !== "ZZ").concat(others);
 };
 
@@ -64,11 +64,14 @@ export default (props) => {
   } else {
     countries = countriesJson;
   }
+  const compare = new Intl.Collator(config.lang.toLowerCase()).compare;
+  countries.sort((a, b) => compare(a.name, b.name));
 
-  countries.sort((a, b) => (a.name > b.name ? 1 : -1));
   if (props.other) {
     // no idea why we have useMemo here
-    countries = useMemo(() => addMissingCountries(countries), [countries]);
+    countries = useMemo(() => addMissingCountries(countries, compare), [
+      countries,
+    ]);
   }
 
   const { t } = useTranslation();

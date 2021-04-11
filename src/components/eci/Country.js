@@ -44,7 +44,8 @@ export default (props) => {
     name: props.countries[iso],
   }));
 
-  countries.sort((a, b) => (a.name > b.name ? 1 : -1));
+  const compare = new Intl.Collator(config.lang.toLowerCase()).compare;
+  countries.sort((a, b) => compare(a.name, b.name));
 
   if (props.other) {
     countries = useMemo(() => addMissingCountries(countries), [countries]);
