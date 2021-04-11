@@ -1,8 +1,10 @@
 import React from "react";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 const T = (props) => {
-  return <Trans i18nKey={props.message}></Trans>;
+  const { t } = useTranslation();
+  const tbr = (key) => t(key).replace(/\n/g, "<br />");
+  return <Trans t={tbr} i18nKey={props.message}></Trans>;
   //return /* i18next-extract-disable-line */ t(props.message);
 };
 
