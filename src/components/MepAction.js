@@ -74,7 +74,7 @@ const component = function MepAction(profile) {
         select(false);
         if (profile.done instanceof Function) profile.done();
       }
-    }, 2000);
+    }, 10000);
   };
 
   return (
