@@ -75,6 +75,16 @@ export default (props) => {
           name: config.organisation,
           campaign: config.campaign.title,
         });
+
+  const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
+
+  console.log(
+    "confirm",
+    confirmOptOut,
+    config.component.consent,
+    config.component.consent?.confirm
+  );
+
   return (
     <Fragment>
       <Grid item xs={12}>
@@ -137,18 +147,20 @@ export default (props) => {
             inputRef={register({ required: "Yes or No?" })}
             label={t("consent.opt-out")}
           />
-          <Collapse in={value === "opt-out"}>
-            <Alert severity="warning">
-              <Trans i18nKey="consent.confirm">
-                <AlertTitle>Sure?</AlertTitle>
-                <span>explanation</span>
-                <b>unsubscribe at any time</b>
-              </Trans>
-              <Button variant="contained" onClick={optin}>
-                {t("consent.opt-in")}
-              </Button>
-            </Alert>
-          </Collapse>
+          {confirmOptOut && (
+            <Collapse in={value === "opt-out"}>
+              <Alert severity="warning">
+                <Trans i18nKey="consent.confirm">
+                  <AlertTitle>Sure?</AlertTitle>
+                  <span>explanation</span>
+                  <b>unsubscribe at any time</b>
+                </Trans>
+                <Button variant="contained" onClick={optin}>
+                  {t("consent.opt-in")}
+                </Button>
+              </Alert>
+            </Collapse>
+          )}
         </RadioGroup>
       </Grid>
       <Grid item xs={12}>
