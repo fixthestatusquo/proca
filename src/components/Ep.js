@@ -133,7 +133,8 @@ const Component = (props) => {
         actionPage={props.actionPage}
         close={handleClose}
         content={Register}
-        name={t("register")}
+        buttonText={t("register")}
+        name={config.param.dialogTitle || t("dialogTitle")}
       >
         <Register actionPage={props.actionPage} />
       </Dialog>

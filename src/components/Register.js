@@ -25,6 +25,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Consent from "./Consent";
+import ImplicitConsent from "./ImplicitConsent";
 
 import Organisation from "./Organisation";
 import Country from "./Country";
@@ -84,6 +85,8 @@ export default function Register(props) {
   //const values = getValues() || {};
   const onSubmit = async (data) => {
     data.tracking = Url.utm();
+    if (config.component.consent?.implicit) data.privacy = "opt-in";
+
     const result = await addActionContact(
       config.test
         ? "test"
@@ -180,6 +183,11 @@ export default function Register(props) {
       </Container>
     );
   }
+
+  const ConsentBlock = config.component.consent?.implicit
+    ? ImplicitConsent
+    : Consent;
+
   return (
     <form
       className={classes.container}
@@ -260,7 +268,7 @@ export default function Register(props) {
                 />
               </Grid>
             )}
-            <Consent
+            <ConsentBlock
               organisation={props.organisation}
               privacy_url={config.privacyUrl}
               form={form}
