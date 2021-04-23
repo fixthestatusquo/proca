@@ -1691,10 +1691,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha512-3NsZsJIA/22P3QUyrEDNA2D133H4j224twJrdipXN38dpnIOzAbUDtOwkcJ5pXmn75w7LSQDjA4tO9dm1XlqlA==
 
-"@proca/api@0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@proca/api/-/api-0.2.3.tgz#7ece44bc08c7aaee654b031ac258272f6085bfd8"
-  integrity sha512-i6ZtRcTdWgRbgvTv7AWPhKbF0+sDwUVGdOPJosAWezriUHkFHlHV58qGgUqyu/kFwDK6OxseCHeQgVHW8ErFJg==
+"@proca/api@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@proca/api/-/api-2.3.0.tgz#5c8fb91004a5e0a50c3d11d3c411f45c8e42b672"
+  integrity sha512-xhRnaxs50fs4EMY3ZmC3CLKBtoeIVt8BU480ZbEhmdtK+rJv2YiQIAjm7mp5o5GDvReRcAnksr+psVanBE2gsQ==
   dependencies:
     "@absinthe/socket-apollo-link" "^0.2.1"
     "@graphql-typed-document-node/core" "^3.1.0"
