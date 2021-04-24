@@ -47,7 +47,7 @@
     "@babel/cli": "^7.13.14",
     "@babel/node": "^7.13.13",
     "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@proca/api": "0.2.3",
+    "@proca/api": "2.3.0",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
     "babel-plugin-i18next-extract": "^0.8.3",
