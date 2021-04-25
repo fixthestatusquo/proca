@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -22,7 +22,25 @@ const Iframe = (props) => {
   if (param.length > 0) url += "&" + param.join("&");
   if (config.component.iframe.hash)
     url = url + "#" + config.component.iframe.hash;
-  console.log(url);
+  const iframeOrigin = new URL(url).origin;
+
+  const done = props.done;
+
+  useEffect(() => {
+    window.addEventListener(
+      "message",
+      (event) => {
+        if (event.origin !== iframeOrigin) return;
+        document.getElementsByClassName("proca-widget")[0].scrollIntoView();
+        if (
+          config.component.iframe.successMessage &&
+          event.data === config.component.iframe.successMessage
+        )
+          props.done();
+      },
+      false
+    );
+  }, [done, config.component.iframe.successMessage, iframeOrigin]);
   return (
     <iframe
       style={{ border: "none" }}

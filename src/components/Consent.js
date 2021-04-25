@@ -78,13 +78,6 @@ export default (props) => {
 
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
 
-  console.log(
-    "confirm",
-    confirmOptOut,
-    config.component.consent,
-    config.component.consent?.confirm
-  );
-
   return (
     <Fragment>
       <Grid item xs={12}>
