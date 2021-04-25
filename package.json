@@ -22,9 +22,9 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@stripe/react-stripe-js": "^1.4.0",
     "@stripe/stripe-js": "^1.13.2",
-    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^13.1.1",
+    "@testing-library/user-event": "^13.1.5",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^6.7.0",
     "i18next": "^20.2.1",
@@ -34,7 +34,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.5",
-    "react-i18next": "^11.8.12",
+    "react-i18next": "^11.8.13",
     "react-ipgeolocation": "^1.4.0",
     "react-scripts": "^3.4.3",
     "react-share": "^4.4.0",
@@ -47,7 +47,7 @@
     "@babel/cli": "^7.13.14",
     "@babel/node": "^7.13.13",
     "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@proca/api": "0.2.3",
+    "@proca/api": "2.3.0",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
     "babel-plugin-i18next-extract": "^0.8.3",
@@ -58,7 +58,7 @@
     "generate-json-webpack-plugin": "^1.0.0",
     "prettier": "^2.2.1",
     "typescript": "^4.2.4",
-    "webpack-bundle-analyzer": "^4.4.0"
+    "webpack-bundle-analyzer": "^4.4.1"
   },
   "scripts": {
     "build": "rescripts build",
