@@ -12,6 +12,7 @@ import useData from "../hooks/useData";
 const Iframe = (props) => {
   const config = useCampaignConfig();
   const [data] = useData();
+  if (data.country) data.country = data.country.toLowerCase();
   let url = config.component.iframe.url;
   var param = [];
   "firstname,lastname,country,postcode".split(",").forEach((k) => {
@@ -38,7 +39,7 @@ const Iframe = (props) => {
           config.component.iframe.successMessage &&
           event.data === config.component.iframe.successMessage
         )
-          props.done();
+          done();
       },
       false
     );

@@ -32,6 +32,7 @@ import Country from "./Country";
 
 import { addActionContact } from "../lib/server.js";
 import uuid from "../lib/uuid.js";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     width: "100%",
+  },
+  next: {
+    width: "100%",
+    marginTop: "10px",
   },
   act: {
     "&:hover": {
@@ -294,6 +299,16 @@ export default function Register(props) {
                 {props.buttonText ||
                   t(config.component.register?.button || "register")}
               </Button>
+              {config.component.register?.next && (
+                <Button
+                  endIcon={<SkipNextIcon />}
+                  className={classes.next}
+                  variant="contained"
+                  onClick={props.done}
+                >
+                  {t("Next")}
+                </Button>
+              )}
             </Grid>
           </Grid>
         </Box>
