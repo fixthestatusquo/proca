@@ -31,7 +31,9 @@ const Iframe = (props) => {
       "message",
       (event) => {
         if (event.origin !== iframeOrigin) return;
-        document.getElementsByClassName("proca-widget")[0].scrollIntoView();
+        document
+          .getElementsByClassName("proca-widget")[0]
+          .scrollIntoView({ behavior: "smooth", block: "start" });
         if (
           config.component.iframe.successMessage &&
           event.data === config.component.iframe.successMessage
