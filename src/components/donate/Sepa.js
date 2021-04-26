@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 import { addActionContact } from "../../lib/server.js";
+import IBAN from "iban";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -45,7 +46,14 @@ export default function Register(props) {
   const form = useForm({
     defaultValues: data,
   });
-  const { trigger, handleSubmit, setError, formState, getValues } = form;
+  const {
+    register,
+    trigger,
+    handleSubmit,
+    setError,
+    formState,
+    getValues,
+  } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const onSubmit = async (data) => {
@@ -83,6 +91,10 @@ export default function Register(props) {
         uuid: result.contactRef,
         firstname: data.firstname,
       });
+  };
+
+  const validateIBAN = (d) => {
+    return IBAN.isValid(d) || t("invalid IBAN");
   };
 
   return (
@@ -137,7 +149,13 @@ export default function Register(props) {
             )}
 
             <Grid item xs={12}>
-              <TextField form={form} name="IBAN" fullWidth required />
+              <TextField
+                form={form}
+                name="IBAN"
+                fullWidth
+                required
+                register={{ validate: validateIBAN }}
+              />
             </Grid>
             <Grid item xs={12}>
               <Button
