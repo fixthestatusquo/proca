@@ -70,7 +70,6 @@ export default (props) => {
   if (props.other) {
     // no idea why we have useMemo here
     countries = useMemo(() => addMissingCountries(countries, compare), [
-      countries,
       compare,
     ]);
   }

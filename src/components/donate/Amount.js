@@ -8,7 +8,6 @@ import {
   Box,
   CardMedia,
   CardHeader,
-  CardActions,
   CardContent,
   FormControl,
   InputAdornment,

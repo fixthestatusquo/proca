@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-import { Box, Button, Snackbar } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -10,8 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import LockIcon from "@material-ui/icons/Lock";
 
 import TextField from "../TextField";
-
-import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -46,14 +44,7 @@ export default function Register(props) {
   const form = useForm({
     defaultValues: data,
   });
-  const {
-    register,
-    trigger,
-    handleSubmit,
-    setError,
-    formState,
-    getValues,
-  } = form;
+  const { handleSubmit, setError } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const onSubmit = async (data) => {
