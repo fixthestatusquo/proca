@@ -1,0 +1,36 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: friday
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-hook-form
+    versions:
+    - 7.0.0
+    - 7.0.4
+    - 7.2.3
+  - dependency-name: "@babel/node"
+    versions:
+    - 7.12.13
+    - 7.12.17
+    - 7.13.0
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 12.7.1
+    - 12.7.2
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: typescript
+    versions:
+    - 4.1.5
+  - dependency-name: "@stripe/react-stripe-js"
+    versions:
+    - 1.2.2
+  - dependency-name: "@material-ui/core"
+    versions:
+    - 4.11.3
