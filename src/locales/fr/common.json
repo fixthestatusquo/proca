@@ -65,8 +65,7 @@
     "Full Name": "Nom complet",
     "Account": "Compte",
     "twitter": {
-        "actionText": "J'ai signé. Tu devrais aussi",
-        "actionUrl": "actionUrl"
+        "actionText": "J'ai signé. Tu devrais aussi"
     },
     "register": "Ajouter mon nom",
     "dialogTitle": "Tenez-moi informé·e de la campagne",
