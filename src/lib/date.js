@@ -6,16 +6,14 @@ const formatDate = (d) => {
       return false;
     }
 
-    //    const dmj = d./^\d{1,2}[\/-\.]\d{1,2}[\/-\.]\d{4}$/
-
-    const dmj = d.split(/ |\.|\//);
+    const dmj = d.split(/ |[\.\/-]|\//);
     if (dmj.length !== 3) return false;
     return dmj[2] + "-" + dmj[1] + "-" + dmj[0];
   }
 };
 
 const isDate = (date) => {
-  return /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.test(date);
+  return /^(\d{1,2})[\.\/-](\d{1,2})[\.\/-](\d{4})$/.test(date);
 };
 
 export { formatDate, isDate };
