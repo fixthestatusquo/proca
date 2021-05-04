@@ -54,7 +54,7 @@
     },
     "consent": {
         "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-        "confirm": "<0>Tem a certeza?</0><<1>Se seleccionar 'Não', não conseguirá descobrir se esta campanha tem sucesso, ou se há mais acção que precisamos de tomar em conjunto para a ganhar. Se você selecionar 'Sim', nós o manteremos atualizado sobre esta e nossas outras campanhas urgentes.</1><<2> Você pode cancelar sua inscrição a qualquer momento.</2><<<3>Sim</3>",
+        "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
         "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro",
         "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",
         "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
@@ -78,9 +78,9 @@
     "Sign the ECI": "Assine o ECI",
     "Share": "Partilhar",
     "Join": "Entrar",
-    "The average donation is {{amount}} {{currency}}": "A doação média é {{montante}} {{moeda}}",
-    "I'm donating {{amount}}": "Estou a doar {{montante}}",
-    "Stay informed": "Mantenha-se informado",
+    "The average donation is {{amount}} {{currency}}": "A doação média é {{amount}} {{currency}}",
+    "I'm donating {{amount}}": "Estou a doar {{amount}}",
+    "Stay informed": "Fique informado",
     "Place of birth": "Local de nascimento",
     "Donate": "Doar"
 }
