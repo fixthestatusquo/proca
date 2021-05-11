@@ -36,8 +36,21 @@ the main way of changing the configuration is changing the json configuration in
 
 ### in javascript
 
-things like the layout can changed via a proca.set (for instance the layout)
-**todo**: document
+_check the [documentation on the widget too](./widget.md)_
+
+if present on the page, the function procaReady () is called during the initialisation of the widget. 
+
+Putting calls to change the layout there is best because it prevents the widget to be displayed with the old layout first and then with the one you want.
+
+
+    function procaReady () {
+      proca.set ("layout", "primaryColor",'#cafebebe')
+      proca.set("layout","style", 'filled') // one of ["standard", "filled", "outlined"]
+      proca.set("layout","theme","light") // one of ["dark","light"]);
+
+    }
+
+
 
 ### in html
 some things like the button text or the share messages can be set in the html
@@ -52,6 +65,11 @@ class: proca-text proca-xxx
 ### via the url get params
 
 
+# Other 
+
+## proca_init
+
+## messages
 
 # configuration file main sections
 
