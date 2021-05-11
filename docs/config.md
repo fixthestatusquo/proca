@@ -117,6 +117,10 @@ to collect the consent of being contacted
 - config.component.donation.igive 
 - config.component.Donate.amount.title 
 
+in .env:
+
+REACT_APP_DONATION_URL
+REACT_APP_STRIPE_PUBLIC_KEY
 
 
 
