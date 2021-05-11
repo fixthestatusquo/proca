@@ -46,7 +46,9 @@ it can also be set from the url as a get param ?proca_go=Petition
 
 ## layout
 
-- primaryColor: #rgb it will set the color for the button, progress bar and wherever material-ui is using the primary color ;)
+- primaryColor: #rgb it will set the color for the buttons, progress bar and wherever material-ui is using the primary color ;)
+- secondaryColor: not sure how it works/where it is used, never changed the default
+- theme: "standard", "filled", "outlined". Check the material-ui doc for examples 
 - HtmlTemplate: "eci.html" it's for the "demo" page, it takes as a template the file public/{HtmlTemplate}.html
 
 ## component
