@@ -142,7 +142,7 @@ display the number of signatures into the page into the dom class="proca-counter
 
 display the title of the campaign into the dom class="eci-title"
 
-   {
+    {
       "component": "T",
       "message": "campaign:name",
       "selector": ".eci-title"
