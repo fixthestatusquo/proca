@@ -44,6 +44,14 @@ or to any step with
 
 it can also be set from the url as a get param ?proca_go=Petition
 
+## test
+
+if true (or set from the url as a get param ?proca_test
+
+- display a message snackbar "test"
+- store the actions as "test" instead of the normal "petition" or "register" or "donate"
+- use the test config when relevant (eg for the payment providers)
+
 ## layout
 
 - primaryColor: #rgb it will set the color for the buttons, progress bar and wherever material-ui is using the primary color ;)
@@ -87,13 +95,32 @@ to collect the consent of being contacted
 - config.component.consent.split: if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
 
 
-## Share
+### Share
 
 - config.component.share.anonymous: boolean. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?
 - config.component.share.top: boolean. Are the share button above or below image+text shared (taken from meta data)
 - config.component.share.email: boolean. Enable the share by email. Brocken now (on some config)
 - config.component.share.reddit: boolean: Enable share on reddit
 
+### Donate
+
+** bit of a mess, changing to component.donation only soon
+
+- config.component.donate.field.phone: boolean, asking for phone number
+- config.component.donation.amount.oneoff.average: if set, displays it as "on average, folks give xxx"
+- config.component.donation.amount.oneoff.default: [3,5,10,50] amount displayed as default options (in buttons)
+- config.component.donation.external.url: if set, the donation is done on an extrnal payment provider (the widget only lets choose the amount)
+- config.component.donation.monthly: boolean, recurring donation available
+- config.component.donation.currency: {symbol: "€", code: "EUR"} symbol is used for display, code for the payment providers
+- config.component.donation.subTitle
+- config.component.donation.image
+- config.component.donation.igive 
+- config.component.Donate.amount.title 
+
+
+
+
+### Donate Sepa
 
 
 
