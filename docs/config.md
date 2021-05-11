@@ -44,10 +44,9 @@ Putting calls to change the layout there is best because it prevents the widget 
 
 
     function procaReady () {
-      proca.set ("layout", "primaryColor",'#cafebebe')
-      proca.set("layout","style", 'filled') // one of ["standard", "filled", "outlined"]
+      proca.set("layout", "primaryColor",'#cafebebe')
+      proca.set("layout","variant", 'filled') // one of ["standard", "filled", "outlined"]
       proca.set("layout","theme","light") // one of ["dark","light"]);
-
     }
 
 
@@ -55,10 +54,16 @@ Putting calls to change the layout there is best because it prevents the widget 
 ### in html
 some things like the button text or the share messages can be set in the html
 
-class: proca-text proca-xxx
+you need to put two classes "proca-text" (to tell proca it contains a text you want to use). _tip: all these will be hidden after the widget loads_
 
-**todo**: document
+and the name of the element you want to override
 
+sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-in,email_subject,email_body,twitter_actionText,
+share,share-twitter,share-whatsapp,share-subject,share-body,dialog-title
+
+so for instance, if you want to change the share message on whatsapp: 
+
+    <span class='proca-text share-whatsapp'>Hey, I signed this petition and I thought you would be interested to sign it too!</span>
 
 
 
