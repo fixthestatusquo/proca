@@ -92,9 +92,9 @@ const PaymentForm = (props) => {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
   const title = data.amount
-    ? config?.component?.donation.igive ||
+    ? config.component?.donation.igive ||
       t("I'm donating") + " " + data.amount + data.currency?.symbol
-    : config?.component?.Donate?.amount?.title ||
+    : config.component?.Donate?.amount?.title ||
       t("Choose your donation amount");
 
   const elements = useElements();
@@ -103,7 +103,7 @@ const PaymentForm = (props) => {
 
   if (!data.currency) {
     // TODO: not needed anymore
-    const currency = config?.component.donation?.currency || {
+    const currency = config.component.donation?.currency || {
       symbol: "€",
       code: "EUR",
     };
@@ -228,7 +228,9 @@ const PaymentForm = (props) => {
                     required
                     error={!!(errors && errors["firstname"])}
                     helperText={
-                      errors && errors["firstname"] && errors["firstname"].message
+                      errors &&
+                      errors["firstname"] &&
+                      errors["firstname"].message
                     }
                     variant={layout.variant}
                     margin={layout.margin}

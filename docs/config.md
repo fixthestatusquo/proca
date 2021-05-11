@@ -24,6 +24,34 @@ and build the widget
     yarn build 42
 You can edit them, run 
 
+## ways of changing the configuration
+
+### using the UI
+
+for the "simplier" changes, use the admin interface at dash.proca.app (for the hosted version)
+
+### changing the configuration file
+
+the main way of changing the configuration is changing the json configuration into thhe config folder and building the widget
+
+### in javascript
+
+things like the layout can changed via a proca.set (for instance the layout)
+**todo**: document
+
+### in html
+some things like the button text or the share messages can be set in the html
+
+class: proca-text proca-xxx
+
+**todo**: document
+
+
+
+
+### via the url get params
+
+
 
 # configuration file main sections
 
@@ -119,8 +147,8 @@ to collect the consent of being contacted
 
 in .env:
 
-REACT_APP_DONATION_URL
-REACT_APP_STRIPE_PUBLIC_KEY
+- REACT_APP_DONATION_URL
+- REACT_APP_STRIPE_PUBLIC_KEY
 
 
 
