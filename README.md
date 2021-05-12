@@ -55,6 +55,8 @@ Back-end: elixir
 - yarn build: generates the widget under d/{actionpage.NAME of the widget}
 - yarn push: save the local config (under config) to the server
 
+You can find more information in this [config documentation](./docs/config.md)
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) 
 
 Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
