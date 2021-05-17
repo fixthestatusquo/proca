@@ -116,7 +116,7 @@ const addOrg = async (partnerOrg) => {
 
 const addPartner = async (genericPage, partnerOrg) => {
   const joinResult = await request(api, admin.JoinOrgDocument, {orgName: partnerOrg});
-  if (joinResult.errors) consol.error(`Could not join ${partnerOrg} as superuser`, errors)
+  if (joinResult.errors) console.error(`Could not join ${partnerOrg} as superuser`, errors)
 
   let org = null;
   try {
