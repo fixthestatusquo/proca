@@ -14,6 +14,7 @@ const checkError = (errors) => {
 };
 
 const pickName = (fromName, partner) => {
+  fromName = fromName.replace(/[.]/g, '')
   const parts = fromName.split("/");
   parts.unshift(partner);
   return parts.join("/").toLowerCase();
@@ -30,7 +31,8 @@ const copy = async (fn, org, tn) => {
 
     if (isEqual(path, ["copyActionPage", "name"])) {
       // page exists, lets just fetch it
-      console.log(`page ${tn} exists, I'll fetch and updated it instead`);
+      console.log(`page ${tn} exists, I'll fetch and updated it instead.`);
+
       let { errors, data } = await request(api, widget.GetActionPageDocument, {
         name: fn,
       });
@@ -113,6 +115,9 @@ const addOrg = async (partnerOrg) => {
 };
 
 const addPartner = async (genericPage, partnerOrg) => {
+  const joinResult = await request(api, admin.JoinOrgDocument, {orgName: partnerOrg});
+  if (joinResult.errors) consol.error(`Could not join ${partnerOrg} as superuser`, errors)
+
   let org = null;
   try {
     org = await getOrg(partnerOrg);
@@ -122,6 +127,8 @@ const addPartner = async (genericPage, partnerOrg) => {
     org = await addOrg(partnerOrg);
   }
   console.log(org);
+
+
   const newAp = await copy(
     genericPage,
     partnerOrg,
