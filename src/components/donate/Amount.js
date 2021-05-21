@@ -26,6 +26,12 @@ import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
+  recurring_choice: {
+    flexGrow: 1,
+  },
+  recurring: {
+
+  },
   amount: { width: "5em" },
   number: {
     "& input": {
@@ -113,18 +119,18 @@ const DonateAmount = (props) => {
   }
   const title = amount
     ? config?.component?.donation.igive ||
-      t("I'm donating {{amount}}", {
-        amount: amount.toString() + currency.symbol,
-      })
+    t("I'm donating {{amount}}", {
+      amount: amount.toString() + currency.symbol,
+    })
     : config?.component.donation?.title || t("Choose your donation amount");
   //    "I'm donating";
 
   const average = config.component.donation?.amount?.oneoff?.average;
   const subtitle = average
     ? t("The average donation is {{amount}} {{currency}}", {
-        amount: average,
-        currency: currency.code,
-      })
+      amount: average,
+      currency: currency.code,
+    })
     : config.component.donation?.subTitle;
   const image = config.component.donation?.image;
 
@@ -135,7 +141,6 @@ const DonateAmount = (props) => {
   };
 
   const handleRecurring = (event) => {
-    //  setRecurring(
     console.log("rec", event.target.checked, event.target.name);
   };
 
@@ -181,68 +186,91 @@ const DonateAmount = (props) => {
       </Button>
     );
   };
+
+  const RecurringButton = (props) => {
+    return (
+      <Button item key={props.key}
+        color="secondary"
+        size="large"
+        disabled={props.recurring}
+        disableElevation={props.recurring}
+        variant="contained"
+        onChange={handleRecurring}
+      >
+        {t(props.label)}
+      </Button>
+    )
+  };
+
   //<div>I'll generously add $0.41 to cover the transaction fees so you can keep 100% of my donation.</div>
 
   return (
     <Container id="proca-donate">
-      <Grid container spacing={1}>
-        <CardHeader title={title} subheader={subtitle} />
 
-        {image ? <CardMedia image={image} title={title} /> : null}
-        <CardContent>
-          <Typography color="textSecondary">
-            {t("campaign:donation.intro", {
-              defaultValue: "",
-              campaign: config.campaign.title,
-            })}
-          </Typography>
-          <div className={classes.root}>
-            {selection.map((d) => (
-              <AmountButton key={d} amount={d} />
-            ))}
-            <Button
-              color="primary"
-              name="other"
-              onClick={() => showCustom(true)}
-            >
-              {t("Other")}
-            </Button>
-          </div>
-          <FormControl fullWidth>
-            <FormGroup>
-              {config.component.donation?.monthly !== false && (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={recurring}
-                      onChange={handleRecurring}
-                      name="monthly"
-                      color="primary"
-                    />
-                  }
-                  label={t("Monthly donations")}
-                />
-              )}
-              {custom && (
-                <TextField
-                  form={form}
-                  type="number"
-                  label={t("Amount")}
-                  name="amount"
-                  className={classes.number}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {currency.symbol}
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              )}
-            </FormGroup>
-          </FormControl>
-        </CardContent>
-        {!config.component.donation.external && (
+      <CardHeader title={title} subheader={subtitle} />
+      {image ? <CardMedia image={image} title={title} /> : null}
+      <CardContent>
+        <Typography color="textSecondary">
+          {t("campaign:donation.intro", {
+            defaultValue: "",
+            campaign: config.campaign.title,
+          })}
+        </Typography>
+        <Grid container spacing={2} xs={12}>
+          {config.component.donation?.monthly !== false && (
+            <Grid item>
+              <Grid container>
+                <Grid className={classes.recurring_choice} container
+                  direction="row"
+                  justify="center"
+                  spacing={3}>
+                  <Grid item><RecurringButton key="1" value="on" label="Monthly" /></Grid>
+                  <Grid item>
+                    <RecurringButton key="2" value="" label="Just once" />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          )}
+          <Grid item>
+            <Grid className={classes.root}>
+              {selection.map((d) => (
+                <AmountButton key={d} amount={d} />
+              ))}
+              <Button
+                color="primary"
+                name="other"
+                onClick={() => showCustom(true)}
+              >
+                {t("Other")}
+              </Button>
+            </Grid>
+            <FormControl fullWidth>
+              <FormGroup>
+
+                {custom && (
+                  <TextField
+                    form={form}
+                    type="number"
+                    label={t("Amount")}
+                    name="amount"
+                    className={classes.number}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          {currency.symbol}
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                )}
+              </FormGroup>
+            </FormControl>
+          </Grid>
+        </Grid>
+      </CardContent>
+      {
+        !config.component.donation.external && (
           <Box margin={2}>
             <ButtonGroup fullWidth>
               <Button
@@ -257,9 +285,9 @@ const DonateAmount = (props) => {
               </Button>
             </ButtonGroup>
           </Box>
-        )}
-      </Grid>
-    </Container>
+        )
+      }
+    </Container >
   );
 };
 export default DonateAmount;

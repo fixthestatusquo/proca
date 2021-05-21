@@ -21,13 +21,9 @@ module.exports = (webpack) => {
   compressionConfig(webpack);
   iframeConfig(webpack);
   oembedConfig(webpack);
+
   console.log(
-    `building https://widget.proca.foundation${webpack.output.publicPath}index.html`
-  );
-  console.log(
-    "to publish:\n rsync -avz d/" +
-      webpack.output.publicPath.split("/")[2] +
-      " kundera:/var/www/act.tttp/d/"
+    "Build directory: " + webpack.output.publicPath.split("/")[2]
   );
   return webpack;
 };
@@ -58,9 +54,9 @@ function saveVersion(config) {
 }
 
 function cleanUp(config) {
-  fs.unlinkSync(
-    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
-  );
+  // fs.unlinkSync(
+  //   path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
+  // );
   //needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
 }
 
