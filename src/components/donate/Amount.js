@@ -27,12 +27,17 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
   recurring_choice: {
-    flexGrow: 1,
+    width: "100%"
   },
   recurring: {
-
+    margin: theme.spacing(1),
+    flex: 1
   },
-  amount: { width: "5em" },
+  amount: {
+    width: "5em",
+    flex: "1 1 auto",
+    flexWrap: "wrap"
+  },
   number: {
     "& input": {
       "&[type=number]": {
@@ -51,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
+      flexWrap: "wrap"
     },
   },
 }));
@@ -189,7 +195,8 @@ const DonateAmount = (props) => {
 
   const RecurringButton = (props) => {
     return (
-      <Button item key={props.key}
+      <Button key={props.key}
+        className={classes.recurring}
         color="secondary"
         size="large"
         disabled={props.recurring}
@@ -206,36 +213,29 @@ const DonateAmount = (props) => {
 
   return (
     <Container id="proca-donate">
+      <Grid container spacing={1}>
+        <CardHeader title={title} subheader={subtitle} />
 
-      <CardHeader title={title} subheader={subtitle} />
-      {image ? <CardMedia image={image} title={title} /> : null}
-      <CardContent>
-        <Typography color="textSecondary">
-          {t("campaign:donation.intro", {
-            defaultValue: "",
-            campaign: config.campaign.title,
-          })}
-        </Typography>
-        <Grid container spacing={2} xs={12}>
+        {image ? <CardMedia image={image} title={title} /> : null}
+        <CardContent>
+          <Typography color="textSecondary">
+            {t("campaign:donation.intro", {
+              defaultValue: "",
+              campaign: config.campaign.title,
+            })}
+          </Typography>
           {config.component.donation?.monthly !== false && (
-            <Grid item>
-              <Grid container>
-                <Grid className={classes.recurring_choice} container
-                  direction="row"
-                  justify="center"
-                  spacing={3}>
-                  <Grid item><RecurringButton key="1" value="on" label="Monthly" /></Grid>
-                  <Grid item>
-                    <RecurringButton key="2" value="" label="Just once" />
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
+            <div>
+              <ButtonGroup className={classes.recurring_choice}>
+                <RecurringButton key="recurring" value="on" label="Monthly" className={classes.recurringLeft} />
+                <RecurringButton key="oneoff" value="" label="Just once" className={classes.recurringRight} />
+              </ButtonGroup>
+            </div>
           )}
-          <Grid item>
-            <Grid className={classes.root}>
+          <div className={classes.root}>
+            <Grid container spacing={1}>
               {selection.map((d) => (
-                <AmountButton key={d} amount={d} />
+                <Grid item><AmountButton key={d} amount={d} /></Grid>
               ))}
               <Button
                 color="primary"
@@ -245,49 +245,49 @@ const DonateAmount = (props) => {
                 {t("Other")}
               </Button>
             </Grid>
-            <FormControl fullWidth>
-              <FormGroup>
+          </div>
+          <FormControl fullWidth>
+            <FormGroup>
 
-                {custom && (
-                  <TextField
-                    form={form}
-                    type="number"
-                    label={t("Amount")}
-                    name="amount"
-                    className={classes.number}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          {currency.symbol}
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                )}
-              </FormGroup>
-            </FormControl>
-          </Grid>
-        </Grid>
-      </CardContent>
-      {
-        !config.component.donation.external && (
-          <Box margin={2}>
-            <ButtonGroup fullWidth>
-              <Button
-                endIcon={<SkipNextIcon />}
-                fullWidth
-                disabled={!amount}
-                variant="contained"
-                onClick={props.done}
-                color="primary"
-              >
-                {t("Next")}
-              </Button>
-            </ButtonGroup>
-          </Box>
-        )
-      }
-    </Container >
+              {custom && (
+                <TextField
+                  form={form}
+                  type="number"
+                  label={t("Amount")}
+                  name="amount"
+                  className={classes.number}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        {currency.symbol}
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              )}
+            </FormGroup>
+          </FormControl>
+
+          {!config.component.donation.external && (
+            <Box margin={2}>
+              <ButtonGroup fullWidth>
+                <Button
+                  endIcon={<SkipNextIcon />}
+                  fullWidth
+                  disabled={!amount}
+                  variant="contained"
+                  onClick={props.done}
+                  color="primary"
+                >
+                  {t("Next")}
+                </Button>
+              </ButtonGroup>
+            </Box>
+          )}
+        </CardContent>
+
+      </Grid>
+    </Container>
   );
 };
 export default DonateAmount;
