@@ -24,6 +24,7 @@ import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
 import { addActionContact } from "../../lib/server.js";
+import ChangeAmount from "./ChangeAmount";
 
 import {
   useStripe,
@@ -335,6 +336,7 @@ const PaymentForm = (props) => {
               </Button>
             </Grid>
           </Grid>
+          <ChangeAmount />
         </Box>
       </Container>
     </form>

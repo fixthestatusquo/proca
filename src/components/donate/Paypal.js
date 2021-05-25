@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
 import { Grid, CardHeader, Container, Box } from "@material-ui/core";
+import ChangeAmount from "./ChangeAmount";
 
 const Paypal = (props) => {
   const [data, setData] = useData();
@@ -38,6 +39,7 @@ const Paypal = (props) => {
             </div>
           </Grid>
         </Grid>
+        <ChangeAmount />
       </Box>
     </Container>
   );

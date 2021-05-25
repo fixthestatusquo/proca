@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -10,11 +10,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import LockIcon from "@material-ui/icons/Lock";
 
 import TextField from "../TextField";
+import Alert from "@material-ui/lab/Alert";
+import ChangeAmount from "./ChangeAmount";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { addActionContact } from "../../lib/server.js";
+import { addActionContact, errorMessages } from "../../lib/server.js";
 import IBAN from "iban";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,11 +38,26 @@ export default function Register(props) {
   const { t } = useTranslation();
 
   const width = useElementWidth("#proca-sepa");
+  const [status, setStatus] = useState("default");
+  const [errorDetails, setErrorDetails] = useState("");
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
-  const [status, setStatus] = useState("default");
+  function Error(props) {
+    if (props.display)
+      return (
+        <Snackbar open={true} autoHideDuration={6000}>
+          <Alert severity="error">
+            {t("Sorry, we couldn't save")}
+            <br />
+            Details: {errorDetails}
+          </Alert>
+        </Snackbar>
+      );
+    return null;
+  }
+
   const form = useForm({
     defaultValues: data,
   });
@@ -71,7 +88,9 @@ export default function Register(props) {
           }
         });
       }
-      !handled && setStatus("error");
+      !handled &&
+        setStatus("error") &&
+        setErrorDetails(errorMessages(result.errors));
       return;
     }
     setStatus("success");
@@ -96,11 +115,13 @@ export default function Register(props) {
       method="post"
       url="http://localhost"
     >
+      <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <h3>
             {t("I'm donating") + " " + data.amount + data.currency?.symbol}
           </h3>
+
           <Grid container spacing={1}>
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <TextField
@@ -159,6 +180,7 @@ export default function Register(props) {
               >
                 {t("Donate")}
               </Button>
+              <ChangeAmount />
             </Grid>
           </Grid>
         </Box>
