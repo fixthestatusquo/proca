@@ -90,8 +90,9 @@ const PaymentForm = (props) => {
   const [compact, setCompact] = useState(true);
   const width = useElementWidth("#proca-donate");
 
-  if ((compact && width > 450) || (!compact && width <= 450))
-    setCompact(width <= 450);
+  if ((compact && width > 440) || (!compact && width <= 440))
+    setCompact(width <= 440);
+
   const title = data.amount
     ? config.component?.donation.igive ||
       t("I'm donating") + " " + data.amount + data.currency?.symbol

@@ -41,8 +41,8 @@ export default function Register(props) {
   const [status, setStatus] = useState("default");
   const [errorDetails, setErrorDetails] = useState("");
   const [compact, setCompact] = useState(true);
-  if ((compact && width > 450) || (!compact && width <= 450))
-    setCompact(width <= 450);
+  if ((compact && width > 440) || (!compact && width <= 440))
+    setCompact(width <= 440);
 
   function Error(props) {
     if (props.display)
