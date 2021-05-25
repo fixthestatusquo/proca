@@ -86,5 +86,6 @@
     "Place of birth": "Miejsce urodzenia",
     "Donate": "Dotacja",
     "invalid IBAN": "nieważny IBAN",
-    "Change amount": "Kwota zmiany"
+    "Change amount": "Kwota zmiany",
+    "Donate {{amount}}{{currency}}": "Darowizna {{amount}}{{currency}}"
 }
