@@ -41,7 +41,8 @@
         "opt-in": "Ja, hou me op de hoogte via e-mail",
         "intro": "Ik ga ermee akkoord om {{name}} contact met mij op te nemen over belangrijke campagnes",
         "processing-nocookie": "Uw persoonlijke informatie wordt privé gehouden en veilig bewaard. Door informatie te verstrekken gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
-        "opt-in-both": "Ja, ik wil {{partner}} en {{lead}} op de hoogte houden via e-mail."
+        "opt-in-both": "Ja, ik wil {{partner}} en {{lead}} op de hoogte houden via e-mail.",
+        "implicit": "Verstuur dit formulier om emails te ontvangen van {{name}}"
     },
     "you need to be 18 years old": "je moet 18 jaar oud zijn",
     "twitter": {
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Ik doneer {{amount}}",
     "Stay informed": "Hou mij op de hoogte",
     "Place of birth": "Geboorteplaats",
-    "Donate": "Doneren"
+    "Donate": "Doneren",
+    "invalid IBAN": "ongeldig IBAN",
+    "Change amount": "Verander bedrag"
 }
