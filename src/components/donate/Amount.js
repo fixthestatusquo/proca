@@ -57,8 +57,7 @@ const DonateAmount = (props) => {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   const selection = config?.component?.donation.amount?.oneoff?.default || [
-    3,
-    5,
+    3, 5,
   ];
   const form = useForm({
     defaultValues: {
@@ -135,7 +134,7 @@ const DonateAmount = (props) => {
   };
 
   const handleRecurring = (event) => {
-    //  setRecurring(
+    setData("recurring", "monthly");
     console.log("rec", event.target.checked, event.target.name);
   };
 

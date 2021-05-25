@@ -10,15 +10,23 @@ import { useTranslation } from "react-i18next";
 import PaymentIcon from "@material-ui/icons/Payment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaypalIcon from "../../images/Paypal.js";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Stripe from "./Stripe";
 import Sepa from "./Sepa";
 import Paypal from "./Paypal";
 
+const useStyles = makeStyles((theme) => ({
+  tabRoot: {
+    minWidth: 10,
+  },
+}));
+
 export default function Target(props) {
   const [value, setValue] = useState("stripe");
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
+  const classes = useStyles();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -40,15 +48,15 @@ export default function Target(props) {
       <Paper square>
         <AppBar position="static" color="default">
           <Tabs
-            variant="scollable"
+            variant="fullWidth"
             value={value}
             indicatorColor="primary"
             textColor="primary"
-            scrollButton="auto"
             onChange={handleChange}
             aria-label="disabled tabs example"
           >
             <Tab
+              classes={{ root: classes.tabRoot }}
               value="stripe"
               label="Card"
               aria-label="Stripe"
@@ -56,11 +64,13 @@ export default function Target(props) {
             />
             <Tab
               value="sepa"
+              classes={{ root: classes.tabRoot }}
               label="Sepa"
               aria-label="Sepa"
               icon={<AccountBalanceIcon />}
             />
             <Tab
+              classes={{ root: classes.tabRoot }}
               value="paypal"
               label="Paypal"
               aria-label="Paypal"
