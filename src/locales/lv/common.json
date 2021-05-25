@@ -29,7 +29,8 @@
         "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
         "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu pa e-pastu",
         "intro": "Uzziniet vairāk par mūsu kampaņām, darbībām un {{campaign}} progresu",
-        "confirm": "<0> Vai esat pārliecināts? </0> <1> Atlasot “Nē”, jūs nevarēsiet uzzināt, vai šī kampaņa ir veiksmīga vai vai mums ir jāveic vēl kāda darbība, lai to uzvarētu. Ja atlasīsit Jā, mēs informēsim jūs par šo un citām steidzamajām kampaņām. </1> <2> Abonementu varat anulēt jebkurā laikā. </2>"
+        "confirm": "<0> Vai esat pārliecināts? </0> <1> Atlasot “Nē”, jūs nevarēsiet uzzināt, vai šī kampaņa ir veiksmīga vai vai mums ir jāveic vēl kāda darbība, lai to uzvarētu. Ja atlasīsit Jā, mēs informēsim jūs par šo un citām steidzamajām kampaņām. </1> <2> Abonementu varat anulēt jebkurā laikā. </2>",
+        "implicit": "Nosūtiet šo veidlapu, lai saņemtu e-pastus no {{name}}"
     },
     "Your organisation account": "Jūsu organizācijas konts",
     "This field is required.": "Šis lauks ir obligāts.",
@@ -81,5 +82,7 @@
     "Address": "Adrese",
     "Account": "Konts",
     "Place of birth": "Dzimšanas vieta",
-    "Donate": "Ziedot"
+    "Donate": "Ziedot",
+    "invalid IBAN": "nederīgs IBAN",
+    "Change amount": "Izmaiņas summa"
 }
