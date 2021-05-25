@@ -86,5 +86,6 @@
     "Place of birth": "Áit bhreithe",
     "Donate": "Deonaigh",
     "invalid IBAN": "IBAN neamhbhailí",
-    "Change amount": "Athraigh méid"
+    "Change amount": "Athraigh méid",
+    "Donate {{amount}}{{currency}}": "Deonaigh {{amount}} {{currency}}"
 }
