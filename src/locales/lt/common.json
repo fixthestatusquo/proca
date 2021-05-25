@@ -84,5 +84,6 @@
     "Place of birth": "Gimimo vieta",
     "Donate": "Paaukoti",
     "invalid IBAN": "negaliojantis IBAN",
-    "Change amount": "Pakeisti sumą"
+    "Change amount": "Pakeisti sumą",
+    "Donate {{amount}}{{currency}}": "Paaukoti {{amount}}{{currency}}"
 }
