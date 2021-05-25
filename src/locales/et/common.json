@@ -59,7 +59,8 @@
         "opt-in": "Jah, hoia mind e-posti teel kursis",
         "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
         "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-        "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis"
+        "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
+        "implicit": "Esitage see vorm, et saada e-kirju {{name}}"
     },
     "organisation": "Teie organisatsiooni konto",
     "email": {
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Annetan {{amount}}",
     "Stay informed": "Olge kursis",
     "Place of birth": "Sünnikoht",
-    "Donate": "Anneta"
+    "Donate": "Anneta",
+    "invalid IBAN": "kehtetu IBAN",
+    "Change amount": "Muuda summa"
 }
