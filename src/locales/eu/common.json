@@ -83,5 +83,6 @@
     "Place of birth": "Jaioterria",
     "Donate": "Egin dohaintza",
     "invalid IBAN": "IBAN baliogabea",
-    "Change amount": "Aldatu zenbatekoa"
+    "Change amount": "Aldatu zenbatekoa",
+    "Donate {{amount}}{{currency}}": "Eman {{amount}} {{currency}}"
 }
