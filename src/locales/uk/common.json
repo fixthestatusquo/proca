@@ -83,5 +83,6 @@
     "Address": "Адреса",
     "Account": "Обліковий запис",
     "invalid IBAN": "недійсний IBAN",
-    "Change amount": "Змінити суму"
+    "Change amount": "Змінити суму",
+    "Donate {{amount}}{{currency}}": "Пожертвувати {{amount}} {{currency}}"
 }
