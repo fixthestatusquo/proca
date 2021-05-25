@@ -59,7 +59,8 @@
         "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",
         "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
         "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-        "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail"
+        "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail",
+        "implicit": "Submeta este formulário para receber e-mails de {{name}}"
     },
     "email": {
         "subject": "assunto",
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Estou a doar {{amount}}",
     "Stay informed": "Fique informado",
     "Place of birth": "Local de nascimento",
-    "Donate": "Doar"
+    "Donate": "Doar",
+    "invalid IBAN": "IBAN inválido",
+    "Change amount": "Modificar montante"
 }
