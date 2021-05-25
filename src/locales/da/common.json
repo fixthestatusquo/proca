@@ -58,7 +58,8 @@
         "opt-in": "Ja, hold mig informeret via e-mail",
         "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
         "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-        "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail"
+        "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
+        "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}"
     },
     "Account": "Konto",
     "organisation": "Din organisationskonto",
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Jeg donerer {{amount}}",
     "Stay informed": "Hold dig opdateret",
     "Place of birth": "Fødselssted",
-    "Donate": "Donér"
+    "Donate": "Donér",
+    "invalid IBAN": "ugyldigt IBAN",
+    "Change amount": "Ændringsbeløb"
 }
