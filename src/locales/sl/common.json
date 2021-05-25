@@ -61,7 +61,8 @@
         "opt-in": "Da, obveščajte me po e-pošti",
         "intro": "Strinjam se, da me {{name}} obvešča glede svojih kampanj na področju trajnostnega razvoja",
         "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
-        "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti"
+        "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti",
+        "implicit": "Pošljite ta obrazec za prejemanje e-poštnih sporočil od {{name}}"
     },
     "organisation": "Račun vaše organizacije",
     "email": {
@@ -84,5 +85,7 @@
     "I'm donating {{amount}}": "Doniram {{amount}}",
     "Stay informed": "Ostanite obveščeni",
     "Place of birth": "Kraj rojstva",
-    "Donate": "Donacija"
+    "Donate": "Donacija",
+    "invalid IBAN": "neveljaven IBAN",
+    "Change amount": "Znesek spremembe"
 }

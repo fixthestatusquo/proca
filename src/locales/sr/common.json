@@ -42,7 +42,8 @@
         "opt-in": "Dajem pristanak da me {{partner}} informiše putem email-a",
         "intro": "Пристајем {{name}} да ме контактира у вези са важним кампањама",
         "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
-        "opt-in-both": "Dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a"
+        "opt-in-both": "Dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a",
+        "implicit": "Пошаљите овај образац да бисте добијали е-поруке од {{name}}"
     },
     "you need to be 18 years old": "треба да имате 18 година",
     "twitter": {
@@ -83,5 +84,7 @@
     "I'm donating {{amount}}": "Донирам {{amount}}",
     "Stay informed": "Будите информисани",
     "Place of birth": "Место рођења",
-    "Donate": "Приложи"
+    "Donate": "Приложи",
+    "invalid IBAN": "неважећи ИБАН",
+    "Change amount": "Промените износ"
 }

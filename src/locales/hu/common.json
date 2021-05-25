@@ -59,7 +59,8 @@
         "opt-in": "Igen, szeretném, hogy a {{partner}} e-mailben értesítéseket küldjön Nekem",
         "intro": "Tudj meg többet kampányainkról, akcióinkról és a futó {{campaign}} kampány előrehaladásáról",
         "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-        "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem"
+        "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem",
+        "implicit": "Küldje el ezt az űrlapot, hogy e-maileket kapjon {{name}}"
     },
     "email": {
         "subject": "subject",
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Adományozok {{amount}}",
     "Stay informed": "Tájékoztatás kérése",
     "Place of birth": "Születési hely",
-    "Donate": "Adományozás"
+    "Donate": "Adományozás",
+    "invalid IBAN": "érvénytelen IBAN",
+    "Change amount": "Változás összege"
 }

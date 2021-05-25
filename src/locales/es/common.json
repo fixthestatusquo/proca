@@ -38,10 +38,11 @@
         "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
         "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que realizar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes nuestras",
         "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
-        "opt-in": "Sí, mantenme informado/a por correo electrónico",
-        "intro": "Estoy de acuerdo que {{name}} me contacte acerca de campañas importantes",
+        "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
+        "intro": "Estoy de acuerdo que {{campaign}} me contacte acerca de campañas importantes",
         "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
-        "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico"
+        "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
+        "implicit": "Envíe este formulario para recibir correos electrónicos de {{name}}"
     },
     "you need to be 18 years old": "debes ser mayor de edad",
     "twitter": {
@@ -67,7 +68,7 @@
         "body": "cuerpo"
     },
     "Donations must be {{amount}} or more": "Las donaciones deben ser de {{amount}} o más",
-    "The average donation is {{amount}}": "El promedio de donación es de {{amount}}",
+    "The average donation is {{amount}}": "La donación promedio es de {{amount}}",
     "Monthly donations": "Donaciones mensuales",
     "Phone": "Teléfono",
     "Other": "Otros",
@@ -78,9 +79,11 @@
     "Sign the ECI": "Firme la ECI",
     "Share": "Compartir",
     "Join": "Unirse",
-    "The average donation is {{amount}} {{currency}}": "La donación promedio es {{amount}} {{currency}}",
+    "The average donation is {{amount}} {{currency}}": "La donación promedio es  {{amount}} {{currency}}",
     "I'm donating {{amount}}": "Donaré {{amount}}",
     "Stay informed": "Mantenerse al tanto",
     "Place of birth": "Lugar de nacimiento",
-    "Donate": "Donar"
+    "Donate": "Donar",
+    "invalid IBAN": "IBAN inválido",
+    "Change amount": "Cambiar la cantidad"
 }

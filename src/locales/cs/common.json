@@ -42,7 +42,8 @@
         "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
         "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
         "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte.",
-        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu"
+        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
+        "implicit": "Odesláním tohoto formuláře získáte e-maily od {{name}}"
     },
     "you need to be 18 years old": "musíte mít 18 let",
     "twitter": {
@@ -83,5 +84,7 @@
     "I'm donating {{amount}}": "Daruji {{amount}}",
     "Stay informed": "Chci být nadále v obraze",
     "Place of birth": "Místo narození",
-    "Donate": "Darovat"
+    "Donate": "Darovat",
+    "invalid IBAN": "neplatný IBAN",
+    "Change amount": "Částka změny"
 }
