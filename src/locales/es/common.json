@@ -41,7 +41,8 @@
         "opt-in": "Sí, mantenme informado/a por correo electrónico",
         "intro": "Obtenga más información sobre nuestras campañas, acciones y el progreso de la {{Campaña}",
         "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
-        "opt-in-both": "Sí, quiero que el {{Compañero}} y el {{lider}} me mantengan informado por correo electrónico"
+        "opt-in-both": "Sí, quiero que el {{Compañero}} y el {{lider}} me mantengan informado por correo electrónico",
+        "implicit": "Envíe este formulario para recibir correos electrónicos de {{name}}"
     },
     "you need to be 18 years old": "debes ser mayor de edad",
     "twitter": {
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Donaré {{amount}}",
     "Stay informed": "Mantenerse al tanto",
     "Place of birth": "Lugar de nacimiento",
-    "Donate": "Donar"
+    "Donate": "Donar",
+    "invalid IBAN": "IBAN inválido",
+    "Change amount": "Cambiar la cantidad"
 }
