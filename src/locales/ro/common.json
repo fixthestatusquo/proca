@@ -84,5 +84,6 @@
     "Place of birth": "Locul nasterii",
     "Donate": "Donaţi",
     "invalid IBAN": "IBAN invalid",
-    "Change amount": "Suma de modificare"
+    "Change amount": "Suma de modificare",
+    "Donate {{amount}}{{currency}}": "Donează {{amount}}{{currency}}"
 }
