@@ -8,7 +8,8 @@
         "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
         "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
         "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
-        "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila"
+        "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila",
+        "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}"
     },
     "progress_0": "{{count}} potpis. Pomogni nam doseći cilj od {{goal}}",
     "progress_1": "{{count}} potpisa. Pomogni nam doseći cilj od {{goal}}",
@@ -84,5 +85,7 @@
     "I'm donating {{amount}}": "Doniram {{amount}}",
     "Stay informed": "Ostanite u toku",
     "Place of birth": "Mjesto rođenja",
-    "Donate": "Doniraj"
+    "Donate": "Doniraj",
+    "invalid IBAN": "nevažeći IBAN",
+    "Change amount": "Promijeni iznos"
 }
