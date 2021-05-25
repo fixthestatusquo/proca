@@ -29,7 +29,8 @@
         "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
         "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
         "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
-        "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>"
+        "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
+        "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}"
     },
     "Your organisation account": "Jūsų organizacijos paskyra",
     "This field is required.": "Šis laukas yra būtinas",
@@ -81,5 +82,7 @@
     "Address": "Adresas",
     "Account": "Paskyra",
     "Place of birth": "Gimimo vieta",
-    "Donate": "Paaukoti"
+    "Donate": "Paaukoti",
+    "invalid IBAN": "negaliojantis IBAN",
+    "Change amount": "Pakeisti sumą"
 }
