@@ -58,7 +58,8 @@
         "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
         "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
         "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
-        "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse"
+        "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse",
+        "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}"
     },
     "Account": "Tili",
     "organisation": "Organisaatiotilisi",
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Lahjoitan {{amount}}",
     "Stay informed": "Liity jakelulistalle",
     "Place of birth": "Syntymäpaikka",
-    "Donate": "Lahjoita"
+    "Donate": "Lahjoita",
+    "invalid IBAN": "virheellinen IBAN",
+    "Change amount": "Muutosmäärä"
 }

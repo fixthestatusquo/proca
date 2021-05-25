@@ -6,7 +6,8 @@
         "confirm": "<0>Sei sicuro?</0><1>Selezionando 'No', non sarà possibile scoprire se questa campagna ha ottenuto risultati, o se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se si seleziona 'Sì', vi terremo aggiornati su questo e su tutte le altre nostre campagne urgenti.</1><2> È possibile annullare l'iscrizione in qualsiasi momento.</2>",
         "processing": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati e cookie in conformità con <1>la nostra informativa sulla privacy</1>",
         "processing-nocookie": "I vostri dati personali saranno privati e conservati in modo sicuro. Inviando le vostre informazioni acconsentite all'utilizzo dei dati in conformità con la nostra <1>informativa sulla privacy</1>",
-        "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi mantengano informato via email"
+        "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi mantengano informato via email",
+        "implicit": "Invia questo modulo per ricevere email da {{name}}"
     },
     "share": {
         "title": "Quasi fatto! Fai il passo successivo.",
@@ -81,5 +82,7 @@
     "I'm donating {{amount}}": "Sto donando {{amount}}",
     "Stay informed": "Restare informati",
     "Place of birth": "Luogo di nascita",
-    "Donate": "Dona"
+    "Donate": "Dona",
+    "invalid IBAN": "IBAN non valido",
+    "Change amount": "Cambiare l'importo"
 }

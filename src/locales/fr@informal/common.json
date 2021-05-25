@@ -28,7 +28,8 @@
         "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
         "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu acceptes nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
         "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
-        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel"
+        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel",
+        "implicit": "Envoyez ce formulaire pour recevoir des e-mails de {{name}}"
     },
     "Your organisation account": "Le compte de votre organisation",
     "This field is required.": "Ce champ est obligatoire.",
@@ -80,5 +81,7 @@
     "Address": "Address",
     "Account": "Crée ton compte",
     "Place of birth": "Lieu de naissance",
-    "Donate": "Faire un don"
+    "Donate": "Faire un don",
+    "invalid IBAN": "IBAN invalide",
+    "Change amount": "Changer le montant"
 }

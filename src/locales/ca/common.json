@@ -28,7 +28,8 @@
         "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
         "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
         "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
-        "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>"
+        "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>",
+        "implicit": "Envieu aquest formulari per rebre correus electrònics de {{name}}"
     },
     "Your organisation account": "El vostre compte d'organització",
     "This field is required.": "Aquest camp és obligatori.",
@@ -81,5 +82,7 @@
     "I'm donating {{amount}}": "Dono {{amount}}",
     "Stay informed": "Mantingueu-vos informat",
     "Place of birth": "Lloc de naixement",
-    "Donate": "Donar"
+    "Donate": "Donar",
+    "invalid IBAN": "IBAN no vàlid",
+    "Change amount": "Canvia l'import"
 }

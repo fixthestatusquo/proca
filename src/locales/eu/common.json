@@ -28,7 +28,8 @@
         "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
         "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
         "intro": "Ados nago Merkataritza eta Inbertsio Itunen kontrako Kanpaina nirekin harremanetan jartzearekin, kanpaina garrantzitsuei buruzko informazioa helarazteko.",
-        "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>"
+        "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
+        "implicit": "Bidali inprimaki hau {{name}} -ren mezu elektronikoak jasotzeko."
     },
     "Your organisation account": "Zure erakundearen kontua",
     "This field is required.": "Eremu hau beharrezkoa da",
@@ -80,5 +81,7 @@
     "Address": "Helbidea",
     "Account": "Kontua",
     "Place of birth": "Jaioterria",
-    "Donate": "Egin dohaintza"
+    "Donate": "Egin dohaintza",
+    "invalid IBAN": "IBAN baliogabea",
+    "Change amount": "Aldatu zenbatekoa"
 }

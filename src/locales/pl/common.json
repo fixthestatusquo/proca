@@ -5,8 +5,9 @@
         "opt-in": "Tak, informuj mnie na bieżąco za pośrednictwem poczty elektronicznej",
         "intro": "Zgadzam się na {{name}} kontaktowanie się ze mną w sprawie ważnych kampanii",
         "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
-        "processing-nocookie": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
-        "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco pocztą elektroniczną"
+        "processing-nocookie": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
+        "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowali mnie na bieżąco pocztą elektroniczną",
+        "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}."
     },
     "Download explanation": "Twój dokument jest już gotowy, wysyłamy go do Ciebie również e-mailem.",
     "Link_Share button": "Łącze",
@@ -83,5 +84,7 @@
     "I'm donating {{amount}}": "Przekazuję {{amount}}",
     "Stay informed": "Chcę otrzymywać informacje",
     "Place of birth": "Miejsce urodzenia",
-    "Donate": "Dotacja"
+    "Donate": "Dotacja",
+    "invalid IBAN": "nieważny IBAN",
+    "Change amount": "Kwota zmiany"
 }

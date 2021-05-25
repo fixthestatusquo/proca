@@ -40,7 +40,8 @@
         "opt-in": "Da, ține-mă informat prin e-mail",
         "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
         "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-        "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail"
+        "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
+        "implicit": "Trimiteți acest formular pentru a primi e-mailuri de la {{name}}"
     },
     "you need to be 18 years old": "trebuie să ai 18 ani",
     "twitter": {
@@ -81,5 +82,7 @@
     "I'm donating {{amount}}": "Donez {{amount}}",
     "Stay informed": "Fiți la curent",
     "Place of birth": "Locul nasterii",
-    "Donate": "Donaţi"
+    "Donate": "Donaţi",
+    "invalid IBAN": "IBAN invalid",
+    "Change amount": "Suma de modificare"
 }

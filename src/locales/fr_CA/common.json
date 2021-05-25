@@ -18,7 +18,8 @@
         "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
         "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
         "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
-        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me gardent informé·e par courriel"
+        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me gardent informé·e par courriel",
+        "implicit": "Soumettez ce formulaire pour recevoir les e-mails de {{name}}."
     },
     "Download explanation": "Ton fichier PDF est maintenant prêt et nous te l’envoyons par courriel.",
     "Link_Share button": "Lien",
@@ -82,5 +83,7 @@
     "I'm donating {{amount}}": "Je fais un don {{amount}}",
     "Stay informed": "Restez informé",
     "Place of birth": "Lieu de naissance",
-    "Donate": "Faire un don"
+    "Donate": "Faire un don",
+    "invalid IBAN": "IBAN non valide",
+    "Change amount": "Montant du changement"
 }
