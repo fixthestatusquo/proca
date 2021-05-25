@@ -3,6 +3,7 @@
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birthdate",
+  "Change amount": "Change amount",
   "Choose your donation amount": "Choose your donation amount",
   "City": "City",
   "Comment": "Comment",
@@ -51,6 +52,7 @@
   "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
+    "implicit": "Submit this form to receive emails from {{name}}",
     "intro": "Find out more about our campaigns, actions and {{campaign}} progress",
     "opt-in": "Yes, I want {{partner}} to keep me informed via email",
     "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email",
@@ -63,6 +65,7 @@
     "body": "body",
     "subject": "subject"
   },
+  "invalid IBAN": "invalid IBAN",
   "organisation": "Your organisation account",
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
