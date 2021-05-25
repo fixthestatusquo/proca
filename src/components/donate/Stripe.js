@@ -333,7 +333,10 @@ const PaymentForm = (props) => {
                 size="large"
                 startIcon={<LockIcon />}
               >
-                {t("Donate")}
+                {t("Donate {{amount}}{{currency}}", {
+                  amount: data.amount,
+                  currency: data.currency.symbol,
+                })}
               </Button>
             </Grid>
           </Grid>

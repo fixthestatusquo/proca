@@ -9,6 +9,7 @@
   "Comment": "Comment",
   "Country": "Country",
   "Donate": "Donate",
+  "Donate {{amount}}{{currency}}": "Donate {{amount}}{{currency}}",
   "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too.",
