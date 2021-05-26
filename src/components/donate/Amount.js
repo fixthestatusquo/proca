@@ -134,8 +134,9 @@ const DonateAmount = (props) => {
   };
 
   const handleRecurring = (event) => {
-    setData("recurring", "monthly");
-    console.log("rec", event.target.checked, event.target.name);
+    setRecurring(event.target.checked ? "monthly" : null);
+    setData("recurring", event.target.checked ? "monthly" : null);
+    console.log("rec", event.target.checked ? "monthly" : null);
   };
 
   const handleClick = (event, amount) => {
