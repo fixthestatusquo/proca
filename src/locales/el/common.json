@@ -86,5 +86,8 @@
     "Donate": "Δωρίστε",
     "invalid IBAN": "άκυρο IBAN",
     "Change amount": "Αλλαγή ποσού",
-    "Donate {{amount}}{{currency}}": "Δωρεά {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Δωρεά {{amount}}{{currency}}",
+    "yearly": "ετήσια",
+    "weekly": "εβδομαδιαίως",
+    "monthly": "μηνιαίως"
 }
