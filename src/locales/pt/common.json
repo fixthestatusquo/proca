@@ -86,5 +86,8 @@
     "Donate": "Doar",
     "invalid IBAN": "IBAN inválido",
     "Change amount": "Modificar montante",
-    "Donate {{amount}}{{currency}}": "Doar {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Doar {{amount}}{{currency}}",
+    "yearly": "anualmente",
+    "weekly": "semanalmente",
+    "monthly": "mensalmente"
 }
