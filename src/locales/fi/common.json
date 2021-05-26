@@ -85,5 +85,6 @@
     "Place of birth": "Syntymäpaikka",
     "Donate": "Lahjoita",
     "invalid IBAN": "virheellinen IBAN",
-    "Change amount": "Muutosmäärä"
+    "Change amount": "Muutosmäärä",
+    "Donate {{amount}}{{currency}}": "Lahjoittaa {{amount}}{{currency}}"
 }

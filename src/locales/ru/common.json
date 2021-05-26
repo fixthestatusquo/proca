@@ -85,5 +85,6 @@
     "Place of birth": "Место рождения",
     "Donate": "Пожертвовать",
     "invalid IBAN": "недействительный IBAN",
-    "Change amount": "Сумма изменений"
+    "Change amount": "Сумма изменений",
+    "Donate {{amount}}{{currency}}": "Пожертвовать {{amount}}{{currency}}"
 }

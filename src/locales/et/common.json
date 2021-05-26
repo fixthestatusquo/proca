@@ -85,5 +85,6 @@
     "Place of birth": "Sünnikoht",
     "Donate": "Anneta",
     "invalid IBAN": "kehtetu IBAN",
-    "Change amount": "Muuda summa"
+    "Change amount": "Muuda summa",
+    "Donate {{amount}}{{currency}}": "Annetada {{amount}}{{currency}}"
 }

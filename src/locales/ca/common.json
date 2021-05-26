@@ -84,5 +84,6 @@
     "Place of birth": "Lloc de naixement",
     "Donate": "Donar",
     "invalid IBAN": "IBAN no vàlid",
-    "Change amount": "Canvia l'import"
+    "Change amount": "Canvia l'import",
+    "Donate {{amount}}{{currency}}": "Fes una donació {{amount}} {{currency}}"
 }
