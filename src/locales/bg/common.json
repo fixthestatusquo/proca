@@ -85,5 +85,8 @@
     "Donate": "Дарете",
     "invalid IBAN": "невалиден IBAN",
     "Change amount": "Размер на промяната",
-    "Donate {{amount}}{{currency}}": "Дари {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Дари {{amount}}{{currency}}",
+    "yearly": "годишно",
+    "weekly": "седмично",
+    "monthly": "месечно"
 }
