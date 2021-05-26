@@ -86,5 +86,6 @@
     "Place of birth": "Post tat-twelid",
     "Donate": "Donazzjoni",
     "invalid IBAN": "IBAN invalidu",
-    "Change amount": "Ibdel l-ammont"
+    "Change amount": "Ibdel l-ammont",
+    "Donate {{amount}}{{currency}}": "Donazzjoni {{amount}} {{currency}}"
 }

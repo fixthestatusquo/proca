@@ -85,5 +85,6 @@
     "Place of birth": "जन्म स्थान",
     "Donate": "दान करें",
     "invalid IBAN": "अमान्य IBAN",
-    "Change amount": "राशि बदलें"
+    "Change amount": "राशि बदलें",
+    "Donate {{amount}}{{currency}}": "दान करें {{amount}}{{currency}}"
 }

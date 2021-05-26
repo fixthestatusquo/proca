@@ -84,5 +84,6 @@
     "Place of birth": "مكان الميلاد",
     "Donate": "التبرع",
     "invalid IBAN": "IBAN غير صالح",
-    "Change amount": "تغيير المبلغ"
+    "Change amount": "تغيير المبلغ",
+    "Donate {{amount}}{{currency}}": "تبرع {{amount}} {{currency}}"
 }

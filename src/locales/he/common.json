@@ -84,5 +84,6 @@
     "Place of birth": "מקום לידה",
     "Donate": "תרומה",
     "invalid IBAN": "IBAN לא חוקי",
-    "Change amount": "שנה סכום"
+    "Change amount": "שנה סכום",
+    "Donate {{amount}}{{currency}}": "תרום {{amount}} {{currency}}"
 }

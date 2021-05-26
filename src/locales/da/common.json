@@ -85,5 +85,6 @@
     "Place of birth": "Fødselssted",
     "Donate": "Donér",
     "invalid IBAN": "ugyldigt IBAN",
-    "Change amount": "Ændringsbeløb"
+    "Change amount": "Ændringsbeløb",
+    "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}"
 }

@@ -87,5 +87,6 @@
     "Place of birth": "Mjesto rođenja",
     "Donate": "Doniraj",
     "invalid IBAN": "nevažeći IBAN",
-    "Change amount": "Promijeni iznos"
+    "Change amount": "Promijeni iznos",
+    "Donate {{amount}}{{currency}}": "Donirajte {{amount}} {{currency}}"
 }

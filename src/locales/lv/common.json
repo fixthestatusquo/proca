@@ -84,5 +84,6 @@
     "Place of birth": "Dzimšanas vieta",
     "Donate": "Ziedot",
     "invalid IBAN": "nederīgs IBAN",
-    "Change amount": "Izmaiņas summa"
+    "Change amount": "Izmaiņas summa",
+    "Donate {{amount}}{{currency}}": "Ziedot {{amount}}{{currency}}"
 }

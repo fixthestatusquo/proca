@@ -85,5 +85,6 @@
     "Place of birth": "Τόπος γέννησης",
     "Donate": "Δωρίστε",
     "invalid IBAN": "άκυρο IBAN",
-    "Change amount": "Αλλαγή ποσού"
+    "Change amount": "Αλλαγή ποσού",
+    "Donate {{amount}}{{currency}}": "Δωρεά {{amount}}{{currency}}"
 }

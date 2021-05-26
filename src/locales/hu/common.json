@@ -85,5 +85,6 @@
     "Place of birth": "Születési hely",
     "Donate": "Adományozás",
     "invalid IBAN": "érvénytelen IBAN",
-    "Change amount": "Változás összege"
+    "Change amount": "Változás összege",
+    "Donate {{amount}}{{currency}}": "Adományozni {{amount}}{{currency}}"
 }
