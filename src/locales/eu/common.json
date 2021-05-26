@@ -84,5 +84,8 @@
     "Donate": "Egin dohaintza",
     "invalid IBAN": "IBAN baliogabea",
     "Change amount": "Aldatu zenbatekoa",
-    "Donate {{amount}}{{currency}}": "Eman {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "Eman {{amount}} {{currency}}",
+    "yearly": "urtero",
+    "weekly": "astero",
+    "monthly": "hilabetero"
 }
