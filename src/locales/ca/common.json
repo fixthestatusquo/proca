@@ -85,5 +85,8 @@
     "Donate": "Donar",
     "invalid IBAN": "IBAN no vàlid",
     "Change amount": "Canvia l'import",
-    "Donate {{amount}}{{currency}}": "Fes una donació {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "Fes una donació {{amount}} {{currency}}",
+    "yearly": "cada any",
+    "weekly": "setmanalment",
+    "monthly": "mensualment"
 }
