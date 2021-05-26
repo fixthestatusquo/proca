@@ -85,5 +85,8 @@
     "Donate": "Donaţi",
     "invalid IBAN": "IBAN invalid",
     "Change amount": "Suma de modificare",
-    "Donate {{amount}}{{currency}}": "Donează {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Donează {{amount}}{{currency}}",
+    "yearly": "anual",
+    "weekly": "săptămânal",
+    "monthly": "lunar"
 }
