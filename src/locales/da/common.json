@@ -86,5 +86,8 @@
     "Donate": "Donér",
     "invalid IBAN": "ugyldigt IBAN",
     "Change amount": "Ændringsbeløb",
-    "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}",
+    "yearly": "årligt",
+    "weekly": "ugentligt",
+    "monthly": "månedsvis"
 }
