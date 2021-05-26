@@ -87,5 +87,8 @@
     "Donate": "Donazzjoni",
     "invalid IBAN": "IBAN invalidu",
     "Change amount": "Ibdel l-ammont",
-    "Donate {{amount}}{{currency}}": "Donazzjoni {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "Donazzjoni {{amount}} {{currency}}",
+    "yearly": "kull sena",
+    "weekly": "kull ġimgħa",
+    "monthly": "kull xahar"
 }
