@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
+import FrequencyButton from "./buttons/FrequencyButton";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -11,8 +12,6 @@ import {
   CardContent,
   FormControl,
   InputAdornment,
-  Checkbox,
-  FormControlLabel,
   FormGroup,
   Button,
   ButtonGroup,
@@ -24,6 +23,8 @@ import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import useLayout from "../../hooks/useLayout";
+import AmountButton from "./buttons/AmountButton";
 
 const useStyles = makeStyles((theme) => ({
   amount: { width: "5em" },
@@ -42,146 +43,63 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  toggle: {
+    "&:disabled": {
+      backgroundColor: theme.palette.secondary.main
+    }
+  },
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
-    },
+    }
   },
 }));
 
 const DonateAmount = (props) => {
-  //const { t } = useTranslation();
   const classes = useStyles();
-  const { t } = useTranslation();
+  const layout = useLayout()
 
+  const { t } = useTranslation();
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const selection = config?.component?.donation.amount?.oneoff?.default || [
-    3, 5,
-  ];
+
+  const donateConfig = config.component.donation;
+  const amounts = donateConfig.amount?.oneoff || [3, 5, 10];
+
+  // TODO: drop form (replace TextField?)
   const form = useForm({
     defaultValues: {
-      amount: selection.find((selected) => selected === parseFloat(data.amount))
+      amount: amounts.find((selected) => selected === parseFloat(data.amount))
         ? null
         : parseFloat(data.amount),
     },
   });
-  const { setValue, watch } = form;
 
-  const [recurring, setRecurring] = useState(data.recurring);
-  const [amount, _setAmount] = useState(data.amount);
-  const [updating, setUpdating] = useState(false);
-  const [custom, showCustom] = useState(() => {
-    if (amount === null) return false;
-    const found = selection.find((selected) => selected === amount);
-    return found;
-  });
-  const customAmount = watch("amount");
-  const currency = config?.component.donation?.currency || {
-    symbol: "€",
-    code: "EUR",
-  };
-  if (customAmount && parseFloat(customAmount) !== amount) {
-    setData("amount", parseFloat(amount));
-    _setAmount(parseFloat(customAmount));
-  }
+  const currency = data.currency;
+  const amount = data.amount;
 
-  const setAmount = (amount) => {
-    amount = parseFloat(amount);
-    setUpdating(true);
-    _setAmount(amount);
-    setData("amount", amount);
-    setData("currency", currency);
-    if (custom || customAmount) {
-      showCustom(false);
-      setValue("amount", null); // reset the custom (other) amount field
-    }
-  };
-
-  useEffect(() => {
-    if (!updating && data.amount && amount !== parseFloat(data.amount)) {
-      setAmount(data.amount);
-    }
-  }, []);
-
+  const [showCustomField, toggleCustomField] = useState(false);
   const width = useElementWidth("#proca-donate");
+
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450)) {
-    console.log("width");
     setCompact(width <= 450);
   }
   const title = amount
     ? config?.component?.donation.igive ||
-      t("I'm donating {{amount}}", {
-        amount: amount.toString() + currency.symbol,
-      })
+    t("I'm donating {{amount}}", {
+      amount: amount.toString() + currency.symbol,
+    })
     : config?.component.donation?.title || t("Choose your donation amount");
-  //    "I'm donating";
 
-  const average = config.component.donation?.amount?.oneoff?.average;
+  const average = donateConfig?.amount?.oneoff?.average;
   const subtitle = average
     ? t("The average donation is {{amount}} {{currency}}", {
-        amount: average,
-        currency: currency.code,
-      })
-    : config.component.donation?.subTitle;
-  const image = config.component.donation?.image;
-
-  const choosePaymentMethod = (m) => {
-    setData("paymentMethod", m);
-    props.done();
-    ////////////////  props.done();
-  };
-
-  const handleRecurring = (event) => {
-    setRecurring(event.target.checked ? "monthly" : null);
-    setData("recurring", event.target.checked ? "monthly" : null);
-    console.log("rec", event.target.checked ? "monthly" : null);
-  };
-
-  const handleClick = (event, amount) => {
-    setAmount(amount);
-    if (config.component.donation.external?.url) {
-      const fieldmap = {
-        firstname: "contact_forename",
-        lastname: "contact_surname",
-        locality: "contact_place",
-        address: "contact_street",
-        postcode: "contact_postcode",
-        email: "contact_email",
-      };
-      const params = Object.entries({ ...config.data, ...data }).reduce(
-        (p, d) => {
-          if (!fieldmap[d[0]]) return "";
-          console.log(d, fieldmap[d[0]], p);
-          p += "&" + fieldmap[d[0]] + "=" + encodeURIComponent(d[1]);
-          return p;
-        },
-        ""
-      );
-      window.open(
-        config.component.donation.external.url + amount + params,
-        "_blank"
-      );
-    }
-  };
-
-  const AmountButton = (props) => {
-    return (
-      <Button
-        color="primary"
-        size="large"
-        disabled={amount === props.amount}
-        disableElevation={amount === props.amount}
-        variant="contained"
-        className={classes.amount}
-        onClick={(e) => handleClick(e, props.amount)}
-      >
-        {props.amount}&nbsp;{currency.symbol}
-      </Button>
-    );
-  };
-  //<div>I'll generously add $0.41 to cover the transaction fees so you can keep 100% of my donation.</div>
+      amount: average,
+      currency: currency.code,
+    })
+    : donateConfig?.subTitle;
+  const image = donateConfig?.image;
 
   return (
     <Container id="proca-donate">
@@ -196,40 +114,34 @@ const DonateAmount = (props) => {
               campaign: config.campaign.title,
             })}
           </Typography>
+          {config.component.donation?.amount?.monthly && (
+            <ButtonGroup >
+              <FrequencyButton frequency="monthly">{t("Monthly")}</FrequencyButton>
+              <FrequencyButton frequency="oneoff">{t("One-time")}</FrequencyButton>
+            </ButtonGroup>
+          )}
           <div className={classes.root}>
-            {selection.map((d) => (
-              <AmountButton key={d} amount={d} />
+            {amounts.map((d) => (
+              <AmountButton key={d} amount={d} onClick={() => toggleCustomField(false)} />
             ))}
             <Button
               color="primary"
               name="other"
-              onClick={() => showCustom(true)}
+              onClick={() => toggleCustomField(true)}
             >
               {t("Other")}
             </Button>
           </div>
           <FormControl fullWidth>
             <FormGroup>
-              {config.component.donation?.monthly !== false && (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={recurring}
-                      onChange={handleRecurring}
-                      name="monthly"
-                      color="primary"
-                    />
-                  }
-                  label={t("Monthly donations")}
-                />
-              )}
-              {custom && (
+              {showCustomField && (
                 <TextField
                   form={form}
                   type="number"
                   label={t("Amount")}
                   name="amount"
                   className={classes.number}
+                  onChange={(e) => { const a = parseFloat(e.target.value); if (a) { setData("amount", a) } }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -249,7 +161,7 @@ const DonateAmount = (props) => {
                 endIcon={<SkipNextIcon />}
                 fullWidth
                 disabled={!amount}
-                variant="contained"
+                variant={layout.variant}
                 onClick={props.done}
                 color="primary"
               >
@@ -259,7 +171,7 @@ const DonateAmount = (props) => {
           </Box>
         )}
       </Grid>
-    </Container>
+    </Container >
   );
 };
 export default DonateAmount;
