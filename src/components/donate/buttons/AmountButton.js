@@ -1,14 +1,28 @@
-import { Button } from "@material-ui/core";
+import { Button, withStyles } from "@material-ui/core";
 import useData from "../../../hooks/useData";
 import useLayout from "../../../hooks/useLayout";
 
 import React from 'react';
 
-const AmountButton = (props) => {
+const StyledButton = withStyles((theme) => (
+    {
+        root: {
+            // padding: theme.spacing(1),
+            width: "100%",
+            textAlign: "center",
+            fontSize: theme.typography.fontSize * 1.25,
+            fontWeight: theme.typography.fontWeightBold,
+            "&:disabled": {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.getContrastText(theme.palette.primary.main)
+            }
+        }
+    }
+))(Button);
 
+const AmountButton = (props) => {
     const [data, setData] = useData();
     const layout = useLayout();
-
     const amount = data.amount;
 
     const handleAmount = (e, amount) => {
@@ -21,18 +35,19 @@ const AmountButton = (props) => {
     const currency = data.currency;
 
     return (
-        <Button
+        <StyledButton
             color="primary"
             size="large"
             disabled={amount === props.amount}
             disableElevation={amount === props.amount}
             variant={layout.variant}
             onClick={(e) => handleAmount(e, props.amount)}
-            className={props.className}
+            classes={props.classes}
         >
             {props.amount}&nbsp;{currency.symbol}
-        </Button>
+        </StyledButton>
     );
 };
+
 
 export default AmountButton;

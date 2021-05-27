@@ -27,7 +27,9 @@ import useLayout from "../../hooks/useLayout";
 import AmountButton from "./buttons/AmountButton";
 
 const useStyles = makeStyles((theme) => ({
-  amount: { width: "5em" },
+  amount: {
+    width: "5em"
+  },
   number: {
     "& input": {
       "&[type=number]": {
@@ -43,16 +45,15 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  toggle: {
-    "&:disabled": {
-      backgroundColor: theme.palette.secondary.main
-    }
-  },
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
+      fontSize: theme.fontSize * 3
     }
   },
+  frequency: {
+    "marginTop": theme.spacing(2)
+  }
 }));
 
 const DonateAmount = (props) => {
@@ -114,24 +115,38 @@ const DonateAmount = (props) => {
               campaign: config.campaign.title,
             })}
           </Typography>
-          {config.component.donation?.amount?.monthly && (
-            <ButtonGroup >
-              <FrequencyButton frequency="monthly">{t("Monthly")}</FrequencyButton>
-              <FrequencyButton frequency="oneoff">{t("One-time")}</FrequencyButton>
-            </ButtonGroup>
-          )}
-          <div className={classes.root}>
+          <Grid container spacing={1}>
             {amounts.map((d) => (
-              <AmountButton key={d} amount={d} onClick={() => toggleCustomField(false)} />
+              <Grid md={3} key={d} item><AmountButton amount={d} onClick={() => toggleCustomField(false)} /></Grid>
             ))}
-            <Button
-              color="primary"
-              name="other"
-              onClick={() => toggleCustomField(true)}
-            >
-              {t("Other")}
-            </Button>
-          </div>
+            <Grid item>
+              <Button
+                color="primary"
+                name="other"
+                onClick={() => toggleCustomField(true)}
+              >
+                {t("Other")}
+              </Button>
+            </Grid>
+          </Grid>
+          {/* <Typography variant="h5" gutterBottom color="textSecondary">
+            {t("campaign:donation.frequency.intro", {
+              defaultValue: "Make it monthly?",
+            })}
+          </Typography> */}
+          {config.component.donation?.amount?.monthly && (
+            <div className={classes.frequency}>
+              <Grid container spacing={1}>
+                <Grid item sm={12} md={6}>
+                  <FrequencyButton frequency="monthly">{t("Monthly")}</FrequencyButton>
+                </Grid>
+                <Grid item sm={12} md={6}>
+                  <FrequencyButton frequency="oneoff">{t("One-time")}</FrequencyButton>
+                </Grid>
+              </Grid>
+            </div>
+          )}
+
           <FormControl fullWidth>
             <FormGroup>
               {showCustomField && (
