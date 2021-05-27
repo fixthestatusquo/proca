@@ -117,7 +117,7 @@ const DonateAmount = (props) => {
           </Typography>
           <Grid container spacing={1}>
             {amounts.map((d) => (
-              <Grid md={3} key={d} item><AmountButton amount={d} onClick={() => toggleCustomField(false)} /></Grid>
+              <Grid sm={6} md={3} key={d} item><AmountButton amount={d} onClick={() => toggleCustomField(false)} /></Grid>
             ))}
             <Grid item>
               <Button
