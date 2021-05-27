@@ -10,12 +10,13 @@ module.exports = (webpack) => {
     lang: "en",
   });
 
+  const lang = config.lang.substring(0, 2).toLowerCase();
+
   webpack.resolve.alias["locales"] = path.resolve(
     __dirname,
-    "../src/locales/" + config.lang.toLowerCase()
+    "../src/locales/" + lang
   );
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
-  const lang = config.lang.substring(0, 2).toLowerCase();
   webpack.resolve.alias["@i18n-iso-countries/lang"] =
     "i18n-iso-countries/langs/" + lang + ".json";
 
