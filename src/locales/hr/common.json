@@ -88,5 +88,8 @@
     "Donate": "Doniraj",
     "invalid IBAN": "nevažeći IBAN",
     "Change amount": "Promijeni iznos",
-    "Donate {{amount}}{{currency}}": "Donirajte {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "Donirajte {{amount}} {{currency}}",
+    "yearly": "godišnje",
+    "weekly": "tjedno",
+    "monthly": "mjesečno"
 }

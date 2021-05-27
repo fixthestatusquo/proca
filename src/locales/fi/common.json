@@ -86,5 +86,8 @@
     "Donate": "Lahjoita",
     "invalid IBAN": "virheellinen IBAN",
     "Change amount": "Muutosmäärä",
-    "Donate {{amount}}{{currency}}": "Lahjoittaa {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Lahjoittaa {{amount}}{{currency}}",
+    "yearly": "vuosittain",
+    "weekly": "Viikoittain",
+    "monthly": "kuukausittain"
 }

@@ -87,5 +87,8 @@
     "Donate": "Darovat",
     "invalid IBAN": "neplatný IBAN",
     "Change amount": "Částka změny",
-    "Donate {{amount}}{{currency}}": "Darovat {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Darovat {{amount}}{{currency}}",
+    "yearly": "každý rok",
+    "weekly": "týdně",
+    "monthly": "měsíčně"
 }

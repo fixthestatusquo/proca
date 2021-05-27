@@ -87,5 +87,8 @@
     "Donate": "Dotacja",
     "invalid IBAN": "nieważny IBAN",
     "Change amount": "Kwota zmiany",
-    "Donate {{amount}}{{currency}}": "Darowizna {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Darowizna {{amount}}{{currency}}",
+    "yearly": "co rok",
+    "weekly": "co tydzień",
+    "monthly": "co miesiąc"
 }

@@ -84,5 +84,8 @@
     "Account": "Обліковий запис",
     "invalid IBAN": "недійсний IBAN",
     "Change amount": "Змінити суму",
-    "Donate {{amount}}{{currency}}": "Пожертвувати {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "Пожертвувати {{amount}} {{currency}}",
+    "yearly": "щороку",
+    "weekly": "щотижня",
+    "monthly": "щомісяця"
 }

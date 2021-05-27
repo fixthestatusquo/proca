@@ -85,5 +85,8 @@
     "Donate": "التبرع",
     "invalid IBAN": "IBAN غير صالح",
     "Change amount": "تغيير المبلغ",
-    "Donate {{amount}}{{currency}}": "تبرع {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "تبرع {{amount}} {{currency}}",
+    "yearly": "سنوياً",
+    "weekly": "أسبوعيًّا",
+    "monthly": "شهريًّا"
 }

@@ -86,5 +86,8 @@
     "Donate": "Пожертвовать",
     "invalid IBAN": "недействительный IBAN",
     "Change amount": "Сумма изменений",
-    "Donate {{amount}}{{currency}}": "Пожертвовать {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Пожертвовать {{amount}}{{currency}}",
+    "yearly": "в год",
+    "weekly": "каждую неделю",
+    "monthly": "ежемесячно"
 }

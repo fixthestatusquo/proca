@@ -86,5 +86,8 @@
     "Donate": "दान करें",
     "invalid IBAN": "अमान्य IBAN",
     "Change amount": "राशि बदलें",
-    "Donate {{amount}}{{currency}}": "दान करें {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "दान करें {{amount}}{{currency}}",
+    "yearly": "सालाना",
+    "weekly": "साप्ताहिक",
+    "monthly": "महीने के"
 }

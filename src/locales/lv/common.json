@@ -85,5 +85,8 @@
     "Donate": "Ziedot",
     "invalid IBAN": "nederīgs IBAN",
     "Change amount": "Izmaiņas summa",
-    "Donate {{amount}}{{currency}}": "Ziedot {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Ziedot {{amount}}{{currency}}",
+    "yearly": "gada",
+    "weekly": "iknedēļas",
+    "monthly": "ikmēneša"
 }

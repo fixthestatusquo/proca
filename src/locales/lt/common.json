@@ -85,5 +85,8 @@
     "Donate": "Paaukoti",
     "invalid IBAN": "negaliojantis IBAN",
     "Change amount": "Pakeisti sumą",
-    "Donate {{amount}}{{currency}}": "Paaukoti {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Paaukoti {{amount}}{{currency}}",
+    "yearly": "kas metus",
+    "weekly": "kas savaitę",
+    "monthly": "kas mėnesį"
 }

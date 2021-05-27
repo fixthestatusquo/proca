@@ -85,5 +85,8 @@
     "Donate": "תרומה",
     "invalid IBAN": "IBAN לא חוקי",
     "Change amount": "שנה סכום",
-    "Donate {{amount}}{{currency}}": "תרום {{amount}} {{currency}}"
+    "Donate {{amount}}{{currency}}": "תרום {{amount}} {{currency}}",
+    "yearly": "בכל שנה",
+    "weekly": "שבועי",
+    "monthly": "חודשי"
 }

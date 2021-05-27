@@ -86,5 +86,8 @@
     "Donate": "Adományozás",
     "invalid IBAN": "érvénytelen IBAN",
     "Change amount": "Változás összege",
-    "Donate {{amount}}{{currency}}": "Adományozni {{amount}}{{currency}}"
+    "Donate {{amount}}{{currency}}": "Adományozni {{amount}}{{currency}}",
+    "yearly": "évente",
+    "weekly": "heti",
+    "monthly": "havi"
 }
