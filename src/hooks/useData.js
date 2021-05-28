@@ -8,7 +8,11 @@ export const initDataState = (data) => {
   if (dataState) return false;
   dataState = atom({
     key: "data",
-    default: data || {},
+    default: {
+      currency: { symbol: '€', code: 'EUR' },
+      frequency: "oneoff",
+      ...data
+    },
   });
   return true;
 };
