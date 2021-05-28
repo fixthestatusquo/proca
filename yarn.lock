@@ -9761,10 +9761,10 @@ react-event-listener@^0.6.0:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
-react-hook-form@^6.15.5:
-  version "6.15.5"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.5.tgz#c2578f9ce6a6df7b33015587d40cd880dc13e2db"
-  integrity sha512-so2jEPYKdVk1olMo+HQ9D9n1hVzaPPFO4wsjgSeZ964R7q7CHsYRbVF0PGBi83FcycA5482WHflasdwLIUVENg==
+react-hook-form@^7.6.9:
+  version "7.6.9"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.6.9.tgz#288c3d03f9d59985f8418205ea042e9be0d8545c"
+  integrity sha512-nz+btC4WFIm3zPBjw22K3t9nnJtlMMwj8slcbPYoTKlkSVA5l+q3Ai+VF0YzeRi7vbyyeGQvpyibov1xd/TV7A==
 
 react-i18next@^11.9.0:
   version "11.9.0"
