@@ -28,7 +28,7 @@ import AmountButton from "./buttons/AmountButton";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
-    width: "5em"
+    width: "5em",
   },
   number: {
     "& input": {
@@ -48,24 +48,25 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(0.5),
-      fontSize: theme.fontSize * 3
-    }
+      fontSize: theme.fontSize * 3,
+    },
   },
   frequency: {
-    "marginTop": theme.spacing(2)
-  }
+    marginTop: theme.spacing(2),
+  },
 }));
 
 const DonateAmount = (props) => {
   const classes = useStyles();
-  const layout = useLayout()
+  const layout = useLayout();
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [data, setData] = useData();
 
   const donateConfig = config.component.donation;
-  const amounts = donateConfig.amount?.oneoff || [3, 5, 10];
+  const amounts = donateConfig.amount?.oneoff?.default ||
+    donateConfig.amount?.oneoff || [3, 5, 10];
 
   // TODO: drop form (replace TextField?)
   const form = useForm({
@@ -88,17 +89,17 @@ const DonateAmount = (props) => {
   }
   const title = amount
     ? config?.component?.donation.igive ||
-    t("I'm donating {{amount}}", {
-      amount: amount.toString() + currency.symbol,
-    })
+      t("I'm donating {{amount}}", {
+        amount: amount.toString() + currency.symbol,
+      })
     : config?.component.donation?.title || t("Choose your donation amount");
 
   const average = donateConfig?.amount?.oneoff?.average;
   const subtitle = average
     ? t("The average donation is {{amount}} {{currency}}", {
-      amount: average,
-      currency: currency.code,
-    })
+        amount: average,
+        currency: currency.code,
+      })
     : donateConfig?.subTitle;
   const image = donateConfig?.image;
 
@@ -117,7 +118,12 @@ const DonateAmount = (props) => {
           </Typography>
           <Grid container spacing={1}>
             {amounts.map((d) => (
-              <Grid sm={6} md={3} key={d} item><AmountButton amount={d} onClick={() => toggleCustomField(false)} /></Grid>
+              <Grid sm={6} md={3} key={d} item>
+                <AmountButton
+                  amount={d}
+                  onClick={() => toggleCustomField(false)}
+                />
+              </Grid>
             ))}
             <Grid item>
               <Button
@@ -138,10 +144,14 @@ const DonateAmount = (props) => {
             <div className={classes.frequency}>
               <Grid container spacing={1}>
                 <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="monthly">{t("Monthly")}</FrequencyButton>
+                  <FrequencyButton frequency="monthly">
+                    {t("Monthly")}
+                  </FrequencyButton>
                 </Grid>
                 <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="oneoff">{t("One-time")}</FrequencyButton>
+                  <FrequencyButton frequency="oneoff">
+                    {t("One-time")}
+                  </FrequencyButton>
                 </Grid>
               </Grid>
             </div>
@@ -156,7 +166,12 @@ const DonateAmount = (props) => {
                   label={t("Amount")}
                   name="amount"
                   className={classes.number}
-                  onChange={(e) => { const a = parseFloat(e.target.value); if (a) { setData("amount", a) } }}
+                  onChange={(e) => {
+                    const a = parseFloat(e.target.value);
+                    if (a) {
+                      setData("amount", a);
+                    }
+                  }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -186,7 +201,7 @@ const DonateAmount = (props) => {
           </Box>
         )}
       </Grid>
-    </Container >
+    </Container>
   );
 };
 export default DonateAmount;

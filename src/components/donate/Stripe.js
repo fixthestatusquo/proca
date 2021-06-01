@@ -13,7 +13,7 @@ import {
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
 import { loadStripe } from "@stripe/stripe-js";
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from "uuid";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,9 +23,12 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
-import { addActionContact, stripeCreatePaymentIntent } from "../../lib/server.js";
+import {
+  addActionContact,
+  stripeCreatePaymentIntent,
+} from "../../lib/server.js";
 import ChangeAmount from "./ChangeAmount";
-import PaymentBox from "./PaymentBox"
+import PaymentBox from "./PaymentBox";
 
 import {
   useStripe,
@@ -76,7 +79,7 @@ const PaymentForm = (props) => {
     },
   });
 
-  setData('stripeSessionId', nanoid());
+  setData("stripeSessionId", uuidv4());
 
   const { control, errors, handleSubmit } = form;
   const [compact, setCompact] = useState(true);
@@ -87,9 +90,9 @@ const PaymentForm = (props) => {
 
   const title = data.amount
     ? config.component?.donation.igive ||
-    t("I'm donating") + " " + data.amount + data.currency?.symbol
+      t("I'm donating") + " " + data.amount + data.currency?.symbol
     : config.component?.Donate?.amount?.title ||
-    t("Choose your donation amount");
+      t("Choose your donation amount");
 
   const elements = useElements();
   const classes = useStyles();
@@ -173,7 +176,7 @@ const PaymentForm = (props) => {
     return true;
   };
 
-  const showError = (e) => { };
+  const showError = (e) => {};
 
   const CustomCardElement = (props) => (
     <CardElement {...props} options={{ hidePostalCode: true }} /> // onChange={(e) => showError(e)} />
@@ -314,10 +317,13 @@ const PaymentForm = (props) => {
                 )}
               />
             </Grid>
-            {error ?
+            {error ? (
               <Grid item xs={12}>
                 <FormHelperText error={true}>{error.message}</FormHelperText>
-              </Grid> : ''}
+              </Grid>
+            ) : (
+              ""
+            )}
             <StripeCard stripe={props.stripe} />
             <Grid item xs={12}>
               <Button
@@ -340,13 +346,11 @@ const PaymentForm = (props) => {
       </Container>
     </form>
   );
-
-
 };
 
-
 const PaymentFormWrapper = (props) => {
-  const [loadState, setLoadState] = useState({ loading: false, loaded: false }); return (
+  const [loadState, setLoadState] = useState({ loading: false, loaded: false });
+  return (
     <Container component="main" id="proca-donate">
       <Grid container>
         <Elements stripe={stripe}>
@@ -358,5 +362,3 @@ const PaymentFormWrapper = (props) => {
 };
 
 export default PaymentFormWrapper;
-
-
