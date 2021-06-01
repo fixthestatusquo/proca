@@ -1,4 +1,3 @@
-import React from "react";
 import { useLayoutEffect, useState } from "react";
 import PaypalIcon from "../images/Paypal.js";
 import { addAction, addActionContact } from "../lib/server.js";
@@ -68,7 +67,7 @@ const usePaypal = (params) => {
           }
           d.tracking = Url.utm();
           console.log(d);
-          const result = await addActionContact("donate", config.actionPage, d);
+          await addActionContact("donate", config.actionPage, d);
           typeof params.completed === "function" && params.completed(d);
         },
 
@@ -112,7 +111,8 @@ const usePaypal = (params) => {
     return () => {
       console.log("unload"); //document.body.removeChild(script);
     };
-  }, [loadState, params]);
+  }, [loadState, params]); // NOTE: React Hook useLayoutEffect has missing dependencies
+
   return params.amount > 0 ? "span" : PaypalIcon;
 };
 export default usePaypal;

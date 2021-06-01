@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField as LayoutTextField,
@@ -6,15 +6,15 @@ import {
   CardHeader,
   Button,
   Container,
-  Box,
+  FormHelperText,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
 import { loadStripe } from "@stripe/stripe-js";
+import { nanoid } from 'nanoid'
 
-import { paymentIntent } from "../../lib/stripe";
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
 import useElementWidth from "../../hooks/useElementWidth";
@@ -23,8 +23,9 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
-import { addActionContact } from "../../lib/server.js";
+import { addActionContact, stripeCreatePaymentIntent } from "../../lib/server.js";
 import ChangeAmount from "./ChangeAmount";
+import PaymentBox from "./PaymentBox"
 
 import {
   useStripe,
@@ -58,25 +59,13 @@ console.assert(
 
 const stripe = loadStripe(publishableKey);
 
-const currencies = [
-  {
-    symbol: "€",
-    name: "Euro",
-    decimal_digits: 2,
-    rounding: 0,
-    code: "EUR",
-    name_plural: "Euros",
-  },
-];
-
 const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-
   const [data, setData] = useData();
+
   const form = useForm({
     defaultValues: {
       firstname: data.firstname,
@@ -86,7 +75,10 @@ const PaymentForm = (props) => {
       country: data.country,
     },
   });
-  const { control, errors, clearErrors } = form;
+
+  setData('stripeSessionId', nanoid());
+
+  const { control, errors, handleSubmit } = form;
   const [compact, setCompact] = useState(true);
   const width = useElementWidth("#proca-donate");
 
@@ -95,9 +87,9 @@ const PaymentForm = (props) => {
 
   const title = data.amount
     ? config.component?.donation.igive ||
-      t("I'm donating") + " " + data.amount + data.currency?.symbol
+    t("I'm donating") + " " + data.amount + data.currency?.symbol
     : config.component?.Donate?.amount?.title ||
-      t("Choose your donation amount");
+    t("Choose your donation amount");
 
   const elements = useElements();
   const classes = useStyles();
@@ -112,23 +104,19 @@ const PaymentForm = (props) => {
     setData("currency", currency);
   }
 
-  const onSubmit = async (event, d) => {
+  const onError = (errors, e) => console.log(errors, e);
+  const onSubmit = async (d, event) => {
     event.preventDefault();
+
     const values = form.getValues();
 
     if (!props.stripe || !elements) {
       console.error("Stripe not loaded");
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
 
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const cardElement = elements.getElement(CardElement);
 
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
@@ -139,8 +127,10 @@ const PaymentForm = (props) => {
       },
     });
 
+    // TODO - report to the user ... =)
     if (error) {
-      console.log("[error]", error); // TODO: log properly
+      setError(error);
+      // console.debug("[error] creating payment method returned", error); // TODO: log properly
       return;
     }
 
@@ -151,18 +141,18 @@ const PaymentForm = (props) => {
         ...values,
         ...paymentIntent,
       });
-      console.log(result);
+      console.debug("proca add action contact result:", result);
       props.done(paymentIntent);
     };
 
-    const pi = await paymentIntent({
-      amount: data.amount,
-      currency: data.currency.code,
-      confirm: true,
-      payment_method: paymentMethod,
-    });
+    const { client_secret } = await stripeCreatePaymentIntent(
+      config.actionPage,
+      data.amount,
+      data.currency.code,
+      data.stripeSessionId
+    );
 
-    const result = await stripe.confirmCardPayment(pi.secret, {
+    const result = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: cardElement,
         billing_details: {
@@ -174,18 +164,19 @@ const PaymentForm = (props) => {
     });
 
     if (result.error) {
-      setError(result.error.message);
-    } else {
-      // The payment succeeded!
-      orderComplete(result.paymentIntent);
-      setSuccess("👍");
-      return true;
+      setError(result.error);
+      return false;
     }
-    return false;
+
+    orderComplete(result.paymentIntent);
+
+    return true;
   };
 
+  const showError = (e) => { };
+
   const CustomCardElement = (props) => (
-    <CardElement {...props} options={{ hidePostalCode: true }} />
+    <CardElement {...props} options={{ hidePostalCode: true }} /> // onChange={(e) => showError(e)} />
   );
   const StripeCard = (props) => {
     return (
@@ -209,15 +200,15 @@ const PaymentForm = (props) => {
     );
   };
 
-  //<form id="proca-donate" onSubmit={handleSubmit(onSubmit)}>
   return (
-    <form id="proca-donate" onSubmit={onSubmit}>
+    <form id="proca-donate" onSubmit={(e, data) => onSubmit(data, e)}>
       <Container component="main" maxWidth="sm">
-        <Box marginBottom={1}>
+        <PaymentBox>
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <CardHeader title={title} />
             </Grid>
+
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <Controller
                 control={control}
@@ -323,6 +314,10 @@ const PaymentForm = (props) => {
                 )}
               />
             </Grid>
+            {error ?
+              <Grid item xs={12}>
+                <FormHelperText error={true}>{error.message}</FormHelperText>
+              </Grid> : ''}
             <StripeCard stripe={props.stripe} />
             <Grid item xs={12}>
               <Button
@@ -341,18 +336,19 @@ const PaymentForm = (props) => {
             </Grid>
           </Grid>
           <ChangeAmount />
-        </Box>
+        </PaymentBox>
       </Container>
     </form>
   );
+
+
 };
 
-const PaymentFormWrapper = (props) => {
-  const [loadState, setLoadState] = useState({ loading: false, loaded: false });
 
-  return (
+const PaymentFormWrapper = (props) => {
+  const [loadState, setLoadState] = useState({ loading: false, loaded: false }); return (
     <Container component="main" id="proca-donate">
-      <Grid container spacing={1}>
+      <Grid container>
         <Elements stripe={stripe}>
           <PaymentForm stripe={stripe} {...props} />
         </Elements>
@@ -362,3 +358,5 @@ const PaymentFormWrapper = (props) => {
 };
 
 export default PaymentFormWrapper;
+
+

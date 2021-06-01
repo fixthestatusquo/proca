@@ -7,12 +7,12 @@ const StripeInput = (props) => {
   useImperativeHandle(props.inputRef, () => ({
     focus: () => elementRef.current.focus,
   }));
+
   if (!props.stripe) {
     console.log("waiting for stripe");
     return null;
   }
 
-  console.log("drawing");
   return (
     <Component
       stripe={props.stripe}

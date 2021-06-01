@@ -2,7 +2,6 @@ import { useData } from "../../../hooks/useData";
 import useLayout from "../../../hooks/useLayout";
 import React from 'react';
 import { Button, withStyles } from '@material-ui/core';
-import { purple } from "@material-ui/core/colors";
 
 const StyledButton = withStyles((theme) => ({
     root: {

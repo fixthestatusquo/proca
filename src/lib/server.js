@@ -17,9 +17,9 @@ async function graphQL(operation, query, options) {
   }
   await fetch(
     options.apiUrl +
-      (options.variables.actionPage
-        ? "?id=" + options.variables.actionPage
-        : ""),
+    (options.variables.actionPage
+      ? "?id=" + options.variables.actionPage
+      : ""),
     {
       method: "POST",
       headers: headers,
@@ -283,6 +283,46 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
+
+
+async function stripeCreatePaymentIntent(pageId, amount, currency, idempotencyKey, paymentMethod = ['card']) {
+  var query = `mutation stripeCreatePaymentIntent(
+    $actionPageId: Int!, 
+    $input: PaymentIntentInput!
+  ) {
+    stripeCreatePaymentIntent(
+      actionPageId: $actionPageId,
+      input: $input,
+      idempotencyKey: $idempotencyKey
+      setupFutureUse: $setupFutureUse
+    )
+  }
+  `;
+
+  let variables = {
+    "actionPageId": pageId,
+    "input": {
+      "amount": amount,
+      "currency": currency,
+      "paymentMethodTypes": paymentMethod,
+      "idempotencyKey": idempotencyKey,
+      "setupFutureUse": "off-session"
+      // "statement_descriptor": "Custom descriptor"
+    }
+  }
+  const response = await graphQL("stripeCreatePaymentIntent", query, {
+    variables: variables,
+  });
+
+  if (response.errors) return response;
+
+  const stripeResponse = JSON.parse(response.stripeCreatePaymentIntent);
+  return {
+    'client_secret': stripeResponse.client_secret,
+    'response': stripeResponse
+  }
+}
+
 const errorMessages = (errors) => {
   return errors.map(({ message }) => message).join(", ");
 };
@@ -294,5 +334,6 @@ export {
   getCountByUrl,
   getLatest,
   graphQL,
+  stripeCreatePaymentIntent,
   errorMessages,
 };

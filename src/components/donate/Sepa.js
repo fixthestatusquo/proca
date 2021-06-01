@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-import { Box, Button, Snackbar } from "@material-ui/core";
+import { Button, Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
@@ -12,6 +12,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
 import ChangeAmount from "./ChangeAmount";
+import PaymentBox from "./PaymentBox";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -117,7 +118,7 @@ export default function Register(props) {
     >
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
-        <Box marginBottom={1}>
+        <PaymentBox>
           <h3>
             {t("I'm donating") + " " + data.amount + data.currency?.symbol}
           </h3>
@@ -186,7 +187,7 @@ export default function Register(props) {
               <ChangeAmount />
             </Grid>
           </Grid>
-        </Box>
+        </PaymentBox>
       </Container>
     </form>
   );
