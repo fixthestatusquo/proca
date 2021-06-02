@@ -28,7 +28,7 @@ const FrequencyButton = (props) => {
     return (
         <StyledButton
             onClick={() => handleFrequency(props.frequency)}
-            variant={layout.variant}
+            variant={layout.button.variant}
             color="secondary"
             disabled={props.frequency === frequency}
             disableElevation={props.frequency === frequency}

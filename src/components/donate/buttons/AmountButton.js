@@ -40,7 +40,7 @@ const AmountButton = (props) => {
             size="large"
             disabled={amount === props.amount}
             disableElevation={amount === props.amount}
-            variant={layout.variant}
+            variant={layout.button.variant}
             onClick={(e) => handleAmount(e, props.amount)}
             classes={props.classes}
         >
