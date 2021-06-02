@@ -7,7 +7,7 @@
         "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
         "processing-nocookie": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
         "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowali mnie na bieżąco pocztą elektroniczną",
-        "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}."
+        "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}"
     },
     "Download explanation": "Twój dokument jest już gotowy, wysyłamy go do Ciebie również e-mailem.",
     "Link_Share button": "Łącze",
