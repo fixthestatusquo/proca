@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField as LayoutTextField,
@@ -79,8 +79,6 @@ const PaymentForm = (props) => {
     },
   });
 
-  setData("stripeSessionId", uuidv4());
-
   const { control, errors, handleSubmit } = form;
   const [compact, setCompact] = useState(true);
   const width = useElementWidth("#proca-donate");
@@ -90,9 +88,9 @@ const PaymentForm = (props) => {
 
   const title = data.amount
     ? config.component?.donation.igive ||
-      t("I'm donating") + " " + data.amount + data.currency?.symbol
+    t("I'm donating") + " " + data.amount + data.currency?.symbol
     : config.component?.Donate?.amount?.title ||
-      t("Choose your donation amount");
+    t("Choose your donation amount");
 
   const elements = useElements();
   const classes = useStyles();
@@ -107,7 +105,7 @@ const PaymentForm = (props) => {
     setData("currency", currency);
   }
 
-  const onError = (errors, e) => console.log(errors, e);
+  // const onError = (errors, e) => console.log(errors, e);
   const onSubmit = async (d, event) => {
     event.preventDefault();
 
@@ -120,23 +118,6 @@ const PaymentForm = (props) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement,
-      billing_details: {
-        name: values.firstname + " " + values.lastname,
-        address: { country: values.country, postal_code: values.postcode },
-        email: values.email,
-      },
-    });
-
-    // TODO - report to the user ... =)
-    if (error) {
-      setError(error);
-      // console.debug("[error] creating payment method returned", error); // TODO: log properly
-      return;
-    }
-
     const orderComplete = async (paymentIntent) => {
       // TODO: cleanup what information needs to be saved
       const result = await addActionContact("donate", config.actionPage, {
@@ -144,15 +125,13 @@ const PaymentForm = (props) => {
         ...values,
         ...paymentIntent,
       });
-      console.debug("proca add action contact result:", result);
       props.done(paymentIntent);
     };
 
     const { client_secret } = await stripeCreatePaymentIntent(
       config.actionPage,
       data.amount,
-      data.currency.code,
-      data.stripeSessionId
+      data.currency.code
     );
 
     const result = await stripe.confirmCardPayment(client_secret, {
@@ -167,6 +146,7 @@ const PaymentForm = (props) => {
     });
 
     if (result.error) {
+      console.log('error', result);
       setError(result.error);
       return false;
     }
@@ -176,7 +156,7 @@ const PaymentForm = (props) => {
     return true;
   };
 
-  const showError = (e) => {};
+  const showError = (e) => { };
 
   const CustomCardElement = (props) => (
     <CardElement {...props} options={{ hidePostalCode: true }} /> // onChange={(e) => showError(e)} />

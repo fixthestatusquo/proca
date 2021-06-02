@@ -30,12 +30,14 @@ const Widget = (props) => {
   const [current, setCurrent] = useState(null);
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
+
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile();
+
 
   var data = Url.data();
   document.querySelectorAll(props.selector).forEach((dom) => {
@@ -46,7 +48,7 @@ const Widget = (props) => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
-      procaReady({});
+      procaReady({}); // NOTE: should we pass config to procaReady?
     }
   }, [props]);
 
@@ -160,6 +162,13 @@ const Widget = (props) => {
     if (current < journey.length - 1) {
       setCurrent(current + 1);
     } else {
+      /*global procaJourneyCompleted*/
+      /*eslint no-undef: "error"*/
+      if (typeof procaJourneyCompleted === "function") {
+        procaJourneyCompleted({}); // NOTE: should we pass config to procaReady?
+      }
+      // TODO: what's a nicer thing to do at the end - jumping back is likely to
+      // make users think their submission didn't work.
       console.error("end of the journey, no more steps");
       setCurrent(0);
     }

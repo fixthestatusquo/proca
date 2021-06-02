@@ -1,3 +1,4 @@
+
 async function graphQL(operation, query, options) {
   if (!options) options = {};
   if (!options.apiUrl)
@@ -285,7 +286,7 @@ async function addActionContact(actionType, actionPage, data) {
 
 
 
-async function stripeCreatePaymentIntent(pageId, amount, currency, idempotencyKey, paymentMethod = ['card']) {
+async function stripeCreatePaymentIntent(pageId, amount, currency, params) {
   var query = `mutation stripeCreatePaymentIntent(
     $actionPageId: Int!, 
     $input: PaymentIntentInput!
@@ -293,8 +294,6 @@ async function stripeCreatePaymentIntent(pageId, amount, currency, idempotencyKe
     stripeCreatePaymentIntent(
       actionPageId: $actionPageId,
       input: $input,
-      idempotencyKey: $idempotencyKey
-      setupFutureUse: $setupFutureUse
     )
   }
   `;
@@ -304,12 +303,11 @@ async function stripeCreatePaymentIntent(pageId, amount, currency, idempotencyKe
     "input": {
       "amount": amount,
       "currency": currency,
-      "paymentMethodTypes": paymentMethod,
-      "idempotencyKey": idempotencyKey,
-      "setupFutureUse": "off-session"
-      // "statement_descriptor": "Custom descriptor"
+      "payment_method_types": ['card'],
+      ...params
     }
   }
+
   const response = await graphQL("stripeCreatePaymentIntent", query, {
     variables: variables,
   });
