@@ -93,5 +93,6 @@
     "Donate {{amount}}{{currency}}": "Faire un don {{amount}} {{currency}}",
     "yearly": "annuel",
     "weekly": "hebdomadaire",
-    "monthly": "mensuel"
+    "monthly": "mensuel",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nous ne pouvons pas gérer votre don pour le moment. S'il vous plait, réessayez dans quelques minutes."
 }
