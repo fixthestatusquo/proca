@@ -97,15 +97,6 @@ const PaymentForm = (props) => {
   const classes = useStyles();
   const stripe = useStripe();
 
-  if (!data.currency) {
-    // TODO: not needed anymore
-    const currency = config.component.donation?.currency || {
-      symbol: "€",
-      code: "EUR",
-    };
-    setData("currency", currency);
-  }
-
   // const onError = (errors, e) => console.log(errors, e);
   const onSubmit = async (d, event) => {
     event.preventDefault();
