@@ -6,6 +6,17 @@ let dataState = null;
 
 export const initDataState = (data) => {
   if (dataState) return false;
+
+  if (typeof data.amount === "string") {
+    try {
+      // NOTE: Why does toFixed return a *string* ?!
+      data.amount = Number.parseFloat(
+        Number.parseFloat(data.amount).toFixed(2)
+      );
+    } catch (NaN) {
+      // noop
+    }
+  }
   dataState = atom({
     key: "data",
     default: {
