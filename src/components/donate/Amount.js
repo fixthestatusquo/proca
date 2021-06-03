@@ -135,27 +135,6 @@ const DonateAmount = (props) => {
               </Button>
             </Grid>
           </Grid>
-          {/* <Typography variant="h5" gutterBottom color="textSecondary">
-            {t("campaign:donation.frequency.intro", {
-              defaultValue: "Make it monthly?",
-            })}
-          </Typography> */}
-          {config.component.donation?.amount?.monthly && (
-            <div className={classes.frequency}>
-              <Grid container spacing={1}>
-                <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="monthly">
-                    {t("Monthly")}
-                  </FrequencyButton>
-                </Grid>
-                <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="oneoff">
-                    {t("One-time")}
-                  </FrequencyButton>
-                </Grid>
-              </Grid>
-            </div>
-          )}
 
           <FormControl fullWidth>
             <FormGroup>
@@ -183,6 +162,28 @@ const DonateAmount = (props) => {
               )}
             </FormGroup>
           </FormControl>
+
+          {/* <Typography variant="h5" gutterBottom color="textSecondary">
+            {t("campaign:donation.frequency.intro", {
+              defaultValue: "Make it monthly?",
+            })}
+          </Typography> */}
+          {config.component.donation?.amount?.monthly && (
+            <div className={classes.frequency}>
+              <Grid container spacing={1}>
+                <Grid item sm={12} md={6}>
+                  <FrequencyButton frequency="monthly">
+                    {t("Monthly")}
+                  </FrequencyButton>
+                </Grid>
+                <Grid item sm={12} md={6}>
+                  <FrequencyButton frequency="oneoff">
+                    {t("One-time")}
+                  </FrequencyButton>
+                </Grid>
+              </Grid>
+            </div>
+          )}
         </CardContent>
         {!config.component.donation.external && (
           <Box margin={2}>
