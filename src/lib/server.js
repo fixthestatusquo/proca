@@ -1,4 +1,3 @@
-
 async function graphQL(operation, query, options) {
   if (!options) options = {};
   if (!options.apiUrl)
@@ -18,9 +17,9 @@ async function graphQL(operation, query, options) {
   }
   await fetch(
     options.apiUrl +
-    (options.variables.actionPage
-      ? "?id=" + options.variables.actionPage
-      : ""),
+      (options.variables.actionPage
+        ? "?id=" + options.variables.actionPage
+        : ""),
     {
       method: "POST",
       headers: headers,
@@ -242,9 +241,10 @@ async function addActionContact(actionType, actionPage, data) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  const expected = "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
-    ","
-  );
+  const expected =
+    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
+      ","
+    );
   let variables = {
     actionPage: actionPage,
     action: {
@@ -284,11 +284,15 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
-
-
-async function stripeCreatePaymentIntent(pageId, amount, currency, params) {
+async function stripeCreatePaymentIntent(
+  pageId,
+  amount,
+  currency,
+  idempotencyKey,
+  paymentMethod = ["card"]
+) {
   var query = `mutation stripeCreatePaymentIntent(
-    $actionPageId: Int!, 
+    $actionPageId: Int!,
     $input: PaymentIntentInput!
   ) {
     stripeCreatePaymentIntent(
@@ -299,15 +303,14 @@ async function stripeCreatePaymentIntent(pageId, amount, currency, params) {
   `;
 
   let variables = {
-    "actionPageId": pageId,
-    "input": {
-      "amount": amount,
-      "currency": currency,
-      "payment_method_types": ['card'],
-      ...params
-    }
-  }
-
+    actionPageId: pageId,
+    input: {
+      amount: amount * 1.0,
+      currency: currency,
+      paymentMethodTypes: paymentMethod,
+      // "statement_descriptor": "Custom descriptor"
+    },
+  };
   const response = await graphQL("stripeCreatePaymentIntent", query, {
     variables: variables,
   });
@@ -316,9 +319,9 @@ async function stripeCreatePaymentIntent(pageId, amount, currency, params) {
 
   const stripeResponse = JSON.parse(response.stripeCreatePaymentIntent);
   return {
-    'client_secret': stripeResponse.client_secret,
-    'response': stripeResponse
-  }
+    client_secret: stripeResponse.client_secret,
+    response: stripeResponse,
+  };
 }
 
 const errorMessages = (errors) => {

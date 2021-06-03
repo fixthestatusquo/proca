@@ -68,20 +68,17 @@ const DonateAmount = (props) => {
   const amounts = donateConfig.amount?.oneoff?.default ||
     donateConfig.amount?.oneoff || [3, 5, 10];
 
-  let preselect;
-  if (data.amount !== undefined) {
-    preselect = amounts.find((s) => s === data.amount);
-
-    if (!preselect && data.amount) {
-      amounts.push(data.amount);
-      amounts.sort();
-    }
+  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
+    amounts.push(data.initialAmount);
   }
+
+  let selected = amounts.find((s) => s === data.amount);
+
+  amounts.sort((a, b) => a - b);
 
   const form = useForm({
     defaultValues: {
       // XXX: this is sort of duplicated in AmountButton
-      amount: data.amount,
     },
   });
 

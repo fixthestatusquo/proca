@@ -13,6 +13,7 @@ export const initDataState = (data) => {
       data.amount = Number.parseFloat(
         Number.parseFloat(data.amount).toFixed(2)
       );
+      data.initialAmount = data.amount;
     } catch (NaN) {
       // noop
     }
@@ -20,9 +21,9 @@ export const initDataState = (data) => {
   dataState = atom({
     key: "data",
     default: {
-      currency: { symbol: '€', code: 'EUR' },
+      currency: { symbol: "€", code: "EUR" },
       frequency: "oneoff",
-      ...data
+      ...data,
     },
   });
   return true;
