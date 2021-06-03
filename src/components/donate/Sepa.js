@@ -120,9 +120,12 @@ export default function Register(props) {
       <Container component="main" maxWidth="sm">
         <PaymentBox>
           <Grid container spacing={1}>
-
             <Grid item xs={12}>
-              <CardHeader title={t("I'm donating") + " " + data.amount + data.currency?.symbol} />
+              <CardHeader
+                title={
+                  t("I'm donating") + " " + data.amount + data.currency?.symbol
+                }
+              />
             </Grid>
 
             <Grid item xs={12} sm={compact ? 12 : 6}>
@@ -174,7 +177,11 @@ export default function Register(props) {
             <Grid item xs={12}>
               <Button
                 color="primary"
-                variant="contained"
+                variant={
+                  config.layout?.button?.submit?.variant ||
+                  config.layout?.button?.variant ||
+                  "contained"
+                }
                 fullWidth
                 type="submit"
                 size="large"
@@ -188,7 +195,6 @@ export default function Register(props) {
               <ChangeAmount />
             </Grid>
           </Grid>
-
         </PaymentBox>
       </Container>
     </form>
