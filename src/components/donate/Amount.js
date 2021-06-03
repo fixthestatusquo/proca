@@ -68,20 +68,27 @@ const DonateAmount = (props) => {
   const amounts = donateConfig.amount?.oneoff?.default ||
     donateConfig.amount?.oneoff || [3, 5, 10];
 
-  const preselectedAmount = amounts.find(
-    (selected) => selected === data.amount
-  );
+  let preselect;
+  if (data.amount !== undefined) {
+    preselect = amounts.find((s) => s === data.amount);
+
+    if (!preselect && data.amount) {
+      amounts.push(data.amount);
+      amounts.sort();
+    }
+  }
+
   const form = useForm({
     defaultValues: {
       // XXX: this is sort of duplicated in AmountButton
-      amount: preselectedAmount ? null : data.amount,
+      amount: data.amount,
     },
   });
 
   const currency = data.currency;
   const amount = data.amount;
 
-  const [showCustomField, toggleCustomField] = useState(!preselectedAmount);
+  const [showCustomField, toggleCustomField] = useState(false);
   const width = useElementWidth("#proca-donate");
 
   const [compact, setCompact] = useState(true);
