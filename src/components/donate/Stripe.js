@@ -88,9 +88,9 @@ const PaymentForm = (props) => {
 
   const title = data.amount
     ? config.component?.donation.igive ||
-    t("I'm donating") + " " + data.amount + data.currency?.symbol
+      t("I'm donating") + " " + data.amount + data.currency?.symbol
     : config.component?.Donate?.amount?.title ||
-    t("Choose your donation amount");
+      t("Choose your donation amount");
 
   const elements = useElements();
   const classes = useStyles();
@@ -156,10 +156,8 @@ const PaymentForm = (props) => {
     return true;
   };
 
-  const showError = (e) => { };
-
   const CustomCardElement = (props) => (
-    <CardElement {...props} options={{ hidePostalCode: true }} /> // onChange={(e) => showError(e)} />
+    <CardElement {...props} options={{ hidePostalCode: true }} />
   );
   const StripeCard = (props) => {
     return (

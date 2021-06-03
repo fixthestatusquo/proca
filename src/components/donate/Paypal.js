@@ -31,9 +31,12 @@ const Paypal = (props) => {
     t("Choose your donation amount");
   return (
     <Container component="main" maxWidth="sm">
+
       <PaymentBox>
         <Grid container spacing={1}>
-          <CardHeader title={title} />
+          <Grid item xs={12}>
+            <CardHeader title={title} />
+          </Grid>
           <Grid item xs={12}>
             <div id="paypal-container">
               - <ButtonPaypal />-{" "}

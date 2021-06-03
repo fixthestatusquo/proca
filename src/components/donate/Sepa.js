@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { CardHeader, Container, Grid } from "@material-ui/core";
 import { Button, Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
@@ -119,11 +119,12 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <PaymentBox>
-          <h3>
-            {t("I'm donating") + " " + data.amount + data.currency?.symbol}
-          </h3>
-
           <Grid container spacing={1}>
+
+            <Grid item xs={12}>
+              <CardHeader title={t("I'm donating") + " " + data.amount + data.currency?.symbol} />
+            </Grid>
+
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <TextField
                 form={form}
@@ -187,6 +188,7 @@ export default function Register(props) {
               <ChangeAmount />
             </Grid>
           </Grid>
+
         </PaymentBox>
       </Container>
     </form>
