@@ -61,13 +61,14 @@ console.assert(
 );
 
 const stripe = loadStripe(publishableKey);
+const stripeSessionId = uuidv4();
 
 const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [error, setError] = useState(false);
-  const [data, setData] = useData();
+  const [stripeError, setStripeError] = useState(false);
+  const [data, _] = useData();
 
   const form = useForm({
     defaultValues: {
@@ -134,6 +135,15 @@ const PaymentForm = (props) => {
       data.currency.code
     );
 
+    if (!client_secret) {
+      setStripeError({
+        message: t(
+          "We couldn't handle your donation at the moment. Please try again in a few minutes."
+        ),
+      });
+      return false;
+    }
+
     const result = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: cardElement,
@@ -146,8 +156,8 @@ const PaymentForm = (props) => {
     });
 
     if (result.error) {
-      console.log('error', result);
-      setError(result.error);
+      console.log("error", result);
+      setStripeError(result.error);
       return false;
     }
 
@@ -295,9 +305,11 @@ const PaymentForm = (props) => {
                 )}
               />
             </Grid>
-            {error ? (
+            {stripeError ? (
               <Grid item xs={12}>
-                <FormHelperText error={true}>{error.message}</FormHelperText>
+                <FormHelperText error={true}>
+                  {stripeError.message}
+                </FormHelperText>
               </Grid>
             ) : (
               ""
