@@ -72,15 +72,9 @@ const DonateAmount = (props) => {
     amounts.push(data.initialAmount);
   }
 
-  let selected = amounts.find((s) => s === data.amount);
-
   amounts.sort((a, b) => a - b);
 
-  const form = useForm({
-    defaultValues: {
-      // XXX: this is sort of duplicated in AmountButton
-    },
-  });
+  const form = useForm();
 
   const currency = data.currency;
   const amount = data.amount;
