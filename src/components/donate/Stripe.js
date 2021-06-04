@@ -7,6 +7,7 @@ import {
   Button,
   Container,
   FormHelperText,
+  CircularProgress,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -38,6 +39,61 @@ import {
 import StripeInput from "./StripeInput";
 
 import Country from "../Country";
+import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+
+const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+
+console.assert(
+  typeof publishableKey !== "undefined",
+  "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
+);
+const stripe = loadStripe(publishableKey);
+
+const stripeErrorAtom = atom({
+  key: "stripe-error",
+  default: undefined,
+});
+
+const stripeCompleteAtom = atom({
+  key: "stripe-card-complete",
+  default: undefined,
+});
+
+// const onError = (errors, e) => console.log(errors, e);
+
+const CustomCardElement = (props) => {
+  const setComplete = useSetRecoilState(stripeCompleteAtom);
+  return (
+    <CardElement
+      {...props}
+      options={{ hidePostalCode: true }}
+      onChange={(e) => setComplete(e.complete)}
+    />
+  );
+};
+const StripeCard = (props) => {
+  const layout = useLayout();
+  const stripe = useStripe();
+  return (
+    <Grid item xs={12}>
+      <LayoutTextField
+        name="card"
+        label=""
+        variant={layout.variant}
+        margin={layout.margin}
+        fullWidth
+        InputLabelProps={{ shrink: true }}
+        InputProps={{
+          inputComponent: StripeInput,
+          inputProps: {
+            component: CustomCardElement,
+            stripe: stripe,
+          },
+        }}
+      />
+    </Grid>
+  );
+};
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -52,32 +108,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-
-console.assert(
-  typeof publishableKey !== "undefined",
-  "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
-);
-
-const stripe = loadStripe(publishableKey);
-
 const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [stripeError, setStripeError] = useState(false);
+  const stripeError = useRecoilValue(stripeErrorAtom);
   const [data] = useData();
 
-  const form = useForm({
-    defaultValues: {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      postcode: data.postcode,
-      country: data.country,
-    },
-  });
-
+  const form = props.form;
   const { control, errors } = form;
   const [compact, setCompact] = useState(true);
 
@@ -92,135 +130,10 @@ const PaymentForm = (props) => {
     : config.component?.Donate?.amount?.title ||
       t("Choose your donation amount");
 
-  const elements = useElements();
   const classes = useStyles();
-  const stripe = useStripe();
-
-  // const onError = (errors, e) => console.log(errors, e);
-  const onSubmit = async (event, _) => {
-    event.preventDefault();
-
-    // avoid double clicks
-    const submitButton = document.forms[0].submit;
-    submitButton.disabled = true;
-
-    if (!submitButton.classList.contains("complete")) {
-      setStripeError({ message: t("Please provide your  card information.") });
-      submitButton.disabled = false;
-      return false;
-    }
-
-    const values = form.getValues();
-
-    if (!props.stripe || !elements) {
-      console.error("Stripe not loaded");
-      submitButton.disabled = false;
-      return false;
-    }
-
-    const cardElement = elements.getElement(CardElement);
-
-    const orderComplete = async (paymentIntent) => {
-      // TODO: cleanup what information needs to be saved
-      await addActionContact("donate", config.actionPage, {
-        ...data,
-        ...values,
-        ...paymentIntent,
-      });
-      props.done(paymentIntent);
-    };
-
-    const piResponse = await stripeCreatePaymentIntent(
-      config.actionPage,
-      data.amount,
-      data.currency.code
-      // { idempotency_key: stripeSessionId }
-    );
-
-    if (piResponse.errors) {
-      console.log("Error returned from proca backend", piResponse.errors);
-      setStripeError({
-        message: t(
-          "We couldn't handle your donation at the moment. Please try again in a few minutes."
-        ),
-      });
-      submitButton.disabled = false;
-      return false;
-    }
-
-    const stripeResponse = await stripe.confirmCardPayment(
-      piResponse.client_secret,
-      {
-        payment_method: {
-          card: cardElement,
-          billing_details: {
-            name: values.name,
-            address: { country: values.country, postal_code: values.postcode },
-            email: values.email,
-          },
-        },
-      }
-    );
-
-    if (stripeResponse.error) {
-      console.log("error", stripeResponse);
-      setStripeError(stripeResponse.error);
-
-      // leave the button disabled - the card must have a problem
-      return false;
-    }
-
-    orderComplete(stripeResponse.paymentIntent);
-
-    // leave button disabled - we're done!
-    return true;
-  };
-
-  const CustomCardElement = (props) => {
-    const onChange = (e) => {
-      const buttons = document.getElementsByClassName("submit-button");
-      if (buttons.length === 0) return;
-      const button = buttons[0];
-      if (e.complete) {
-        button.classList.add("complete");
-      } else {
-        button.classList.remove("complete");
-      }
-      console.log("event", e);
-    };
-
-    return (
-      <CardElement
-        {...props}
-        options={{ hidePostalCode: true }}
-        onChange={onChange}
-      />
-    );
-  };
-  const StripeCard = (props) => {
-    return (
-      <Grid item xs={12}>
-        <LayoutTextField
-          name="card"
-          label=""
-          variant={layout.variant}
-          margin={layout.margin}
-          fullWidth
-          InputLabelProps={{ shrink: true }}
-          InputProps={{
-            inputComponent: StripeInput,
-            inputProps: {
-              component: CustomCardElement,
-              stripe: props.stripe,
-            },
-          }}
-        />
-      </Grid>
-    );
-  };
 
   return (
-    <form id="proca-donate" onSubmit={onSubmit}>
+    <form id="proca-donate">
       <Container component="main" maxWidth="sm">
         <PaymentBox>
           <Grid container spacing={1}>
@@ -342,28 +255,6 @@ const PaymentForm = (props) => {
             ) : (
               ""
             )}
-            <StripeCard stripe={props.stripe} />
-            <Grid item xs={12}>
-              <Button
-                className="submit-button"
-                name="submit"
-                color="primary"
-                variant={
-                  config.layout?.button?.submit?.variant ||
-                  config.layout?.button?.variant ||
-                  "contained"
-                }
-                fullWidth
-                type="submit"
-                size="large"
-                startIcon={<LockIcon />}
-              >
-                {t("Donate {{amount}}{{currency}}", {
-                  amount: data.amount,
-                  currency: data.currency.symbol,
-                })}
-              </Button>
-            </Grid>
           </Grid>
           <ChangeAmount />
         </PaymentBox>
@@ -372,15 +263,171 @@ const PaymentForm = (props) => {
   );
 };
 
+const SubmitButton = (props) => {
+  const [isSubmitting, setSubmitting] = useState(false);
+  const setStripeError = useSetRecoilState(stripeErrorAtom);
+  const stripeComplete = useRecoilValue(stripeCompleteAtom);
+  const stripe = useStripe();
+
+  const [data] = useData();
+
+  const elements = useElements();
+
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
+
+  const onSubmitButtonClick = async (event, _) => {
+    event.preventDefault();
+
+    const btn = event.target;
+    btn.disabled = true;
+    setSubmitting(true);
+
+    if (!stripeComplete) {
+      setStripeError({ message: t("Please provide your  card information.") });
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
+    const values = props.form.getValues();
+
+    if (!props.stripe || !elements) {
+      console.error("Stripe not loaded");
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+
+    const orderComplete = async (paymentIntent) => {
+      // TODO: cleanup what information needs to be saved
+      await addActionContact("donate", config.actionPage, {
+        ...data,
+        ...values,
+        ...paymentIntent,
+      });
+      props.done(paymentIntent);
+    };
+
+    const piResponse = await stripeCreatePaymentIntent(
+      config.actionPage,
+      data.amount,
+      data.currency.code
+      // { idempotency_key: stripeSessionId }
+    );
+
+    if (piResponse.errors) {
+      console.log("Error returned from proca backend", piResponse.errors);
+      setStripeError({
+        message: t(
+          "We couldn't handle your donation at the moment. Please try again in a few minutes."
+        ),
+      });
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
+    const stripeResponse = await stripe.confirmCardPayment(
+      piResponse.client_secret,
+      {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: values.name,
+            address: { country: values.country, postal_code: values.postcode },
+            email: values.email,
+          },
+        },
+      }
+    );
+
+    if (stripeResponse.error) {
+      console.log("error", stripeResponse);
+      setStripeError(stripeResponse.error);
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
+    orderComplete(stripeResponse.paymentIntent);
+
+    // leave button disabled - we're done!
+    return true;
+  };
+
+  return (
+    <Grid item xs={12}>
+      <Button
+        className="submit-button"
+        name="submit"
+        color="primary"
+        variant={
+          config.layout?.button?.submit?.variant ||
+          config.layout?.button?.variant ||
+          "contained"
+        }
+        fullWidth
+        type="submit"
+        size="large"
+        startIcon={isSubmitting ? undefined : <LockIcon />}
+        onClick={(e, data) => {
+          onSubmitButtonClick(e, data);
+        }}
+      >
+        {isSubmitting ? (
+          <CircularProgress />
+        ) : (
+          t("Donate {{amount}}{{currency}}", {
+            amount: data.amount,
+            currency: data.currency.symbol,
+          })
+        )}
+      </Button>
+    </Grid>
+  );
+};
+
+const PayWithStripe = (props) => {
+  // const stripe = useStripe();
+  const form = props.form;
+  return (
+    <Grid container>
+      <Grid item xs={12}>
+        <PaymentForm stripe={stripe} form={form} {...props} />
+      </Grid>
+      <Grid item xs={12}>
+        <StripeCard stripe={stripe} />
+      </Grid>
+      <Grid item xs={12}>
+        <SubmitButton stripe={stripe} form={form} {...props} />
+      </Grid>
+    </Grid>
+  );
+};
+
 const PaymentFormWrapper = (props) => {
   const config = useCampaignConfig();
+
+  const [data] = useData();
+
+  const form = useForm({
+    defaultValues: {
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      postcode: data.postcode,
+      country: data.country,
+    },
+  });
+
   return (
     <Container component="main" id="proca-donate">
-      <Grid container>
-        <Elements stripe={stripe} options={config?.lang || "auto"}>
-          <PaymentForm stripe={stripe} {...props} />
-        </Elements>
-      </Grid>
+      <Elements stripe={stripe} options={config?.lang || "auto"}>
+        <PayWithStripe {...props} form={form} />
+      </Elements>
     </Container>
   );
 };
