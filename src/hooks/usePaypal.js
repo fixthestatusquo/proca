@@ -19,6 +19,7 @@ const usePaypal = (params) => {
 
   useLayoutEffect(() => {
     if (!params.amount || params.amount === 0 || loadState.loading) return;
+    const donateConfig = config.component.donation;
 
     const renderButton = () => {
       const paypal = window.paypal;
@@ -85,6 +86,7 @@ const usePaypal = (params) => {
           height: 30,
           layout: "vertical",
           label: "paypal",
+          ...(donateConfig?.paypal?.styles || {}),
         },
       });
       document.querySelector(params.dom || "#paypal-container").innerHTML = "";
@@ -98,9 +100,11 @@ const usePaypal = (params) => {
 
     setLoadState({ loading: true, loaded: false });
     const script = document.createElement("script");
-    if (!config.component.donation?.paypal?.clientId) return;
+    if (!donateConfig?.paypal?.clientId) return;
     script.src =
-      "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
+      "https://www.paypal.com/sdk/js?currency=" +
+      (donateConfig?.currency.code || "EUR") +
+      "&client-id=" +
       (config.test ? "sb" : config.component.donation.paypal.clientId || "sb");
     //TODO: merchant-id:XXX or data-partner-attribution-id
     script.async = true;

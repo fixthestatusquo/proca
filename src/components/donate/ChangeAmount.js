@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Box } from "@material-ui/core";
 import BackspaceIcon from "@material-ui/icons/Backspace";
 
 import { useTranslation } from "react-i18next";
@@ -9,14 +9,16 @@ export default function ChangeAmount(props) {
   const { t } = useTranslation();
 
   return (
-    <Grid container justify="flex-end">
-      <Button
-        endIcon={<BackspaceIcon />}
-        onClick={() => goStep("donate_Amount")}
-        color="secondary"
-      >
-        {t("Change amount")}
-      </Button>
-    </Grid>
+    <Box mt={3}>
+      <Grid container justify="flex-end" spacing={2}>
+        <Button
+          endIcon={<BackspaceIcon />}
+          onClick={() => goStep("donate_Amount")}
+          color="secondary"
+        >
+          {t("Change amount")}
+        </Button>
+      </Grid>
+    </Box>
   );
 }

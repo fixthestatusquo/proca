@@ -4,7 +4,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
-import { Grid, CardHeader, Container } from "@material-ui/core";
+import { Grid, CardHeader, Container, Box } from "@material-ui/core";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
@@ -26,22 +26,24 @@ const Paypal = (props) => {
   });
   const title = data.amount
     ? config?.component?.donation.igive ||
-    t("I'm donating") + " " + data.amount + "€"
+      t("I'm donating") + " " + data.amount + "€"
     : config?.component?.Donate?.amount?.title ||
-    t("Choose your donation amount");
+      t("Choose your donation amount");
+
   return (
     <Container component="main" maxWidth="sm">
-
       <PaymentBox>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <CardHeader title={title} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={1}></Grid>
+          <Grid item xs={10}>
             <div id="paypal-container">
               - <ButtonPaypal />-{" "}
             </div>
           </Grid>
+          <Grid item xs={1}></Grid>
         </Grid>
         <ChangeAmount />
       </PaymentBox>

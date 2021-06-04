@@ -114,6 +114,7 @@ const PaymentForm = (props) => {
 
     if (!props.stripe || !elements) {
       console.error("Stripe not loaded");
+      submitButton.disabled = false;
       return false;
     }
 
