@@ -1,4 +1,10 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, {
+  Redirect,
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+} from "react";
 import ProcaRoot from "./ProcaRoot";
 import { initConfigState } from "../hooks/useConfig";
 import Url, { step as paramStep } from "../lib/urlparser.js";
@@ -37,7 +43,6 @@ const Widget = (props) => {
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile();
-
 
   var data = Url.data();
   document.querySelectorAll(props.selector).forEach((dom) => {
@@ -162,14 +167,24 @@ const Widget = (props) => {
     if (current < journey.length - 1) {
       setCurrent(current + 1);
     } else {
+      // we're done - check what to do next!
+
       /*global procaJourneyCompleted*/
       /*eslint no-undef: "error"*/
       if (typeof procaJourneyCompleted === "function") {
         procaJourneyCompleted({}); // NOTE: should we pass config to procaReady?
+        return;
       }
+
+      if (config?.completed_redirect_url) {
+        window.location = config.completed_redirect_url;
+        return;
+      }
+
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.
       console.error("end of the journey, no more steps");
+
       setCurrent(0);
     }
   };
