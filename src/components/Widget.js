@@ -1,10 +1,4 @@
-import React, {
-  Redirect,
-  useState,
-  useRef,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import ProcaRoot from "./ProcaRoot";
 import { initConfigState } from "../hooks/useConfig";
 import Url, { step as paramStep } from "../lib/urlparser.js";

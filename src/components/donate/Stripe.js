@@ -13,7 +13,6 @@ import {
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
 import { loadStripe } from "@stripe/stripe-js";
-import { v4 as uuidv4 } from "uuid";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
@@ -61,14 +60,13 @@ console.assert(
 );
 
 const stripe = loadStripe(publishableKey);
-const stripeSessionId = uuidv4();
 
 const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [stripeError, setStripeError] = useState(false);
-  const [data, _] = useData();
+  const [data] = useData();
 
   const form = useForm({
     defaultValues: {
@@ -80,7 +78,7 @@ const PaymentForm = (props) => {
     },
   });
 
-  const { control, errors, handleSubmit } = form;
+  const { control, errors } = form;
   const [compact, setCompact] = useState(true);
 
   const width = useElementWidth("#proca-donate");
@@ -371,7 +369,6 @@ const PaymentForm = (props) => {
 };
 
 const PaymentFormWrapper = (props) => {
-  const [loadState, setLoadState] = useState({ loading: false, loaded: false });
   const config = useCampaignConfig();
   return (
     <Container component="main" id="proca-donate">

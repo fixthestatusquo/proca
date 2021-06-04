@@ -14,8 +14,9 @@ export const initDataState = (data) => {
         Number.parseFloat(data.amount).toFixed(2)
       );
       data.initialAmount = data.amount;
-    } catch (NaN) {
+    } catch (e) {
       // noop
+      console.debug("Unable to parse as an int or float", data.amount);
     }
   }
   dataState = atom({
