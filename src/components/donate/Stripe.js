@@ -98,11 +98,17 @@ const PaymentForm = (props) => {
 
   // const onError = (errors, e) => console.log(errors, e);
   const onSubmit = async (event, _) => {
+    event.preventDefault();
+
     // avoid double clicks
     const submitButton = document.forms[0].submit;
     submitButton.disabled = true;
 
-    event.preventDefault();
+    if (!submitButton.classList.contains("complete")) {
+      setStripeError({ message: t("Please provide your  card information.") });
+      submitButton.disabled = false;
+      return false;
+    }
 
     const values = form.getValues();
 
@@ -175,11 +181,9 @@ const PaymentForm = (props) => {
       if (buttons.length === 0) return;
       const button = buttons[0];
       if (e.complete) {
-        button.classList.remove("Mui-disabled");
-        button.disabled = false;
+        button.classList.add("complete");
       } else {
-        button.classList.add("Mui-disabled");
-        button.disabled = true;
+        button.classList.remove("complete");
       }
       console.log("event", e);
     };
@@ -352,7 +356,6 @@ const PaymentForm = (props) => {
                 type="submit"
                 size="large"
                 startIcon={<LockIcon />}
-                disabled // start disabled, see CustomCardElement onChange
               >
                 {t("Donate {{amount}}{{currency}}", {
                   amount: data.amount,
