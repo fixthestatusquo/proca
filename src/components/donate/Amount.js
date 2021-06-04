@@ -105,100 +105,107 @@ const DonateAmount = (props) => {
   return (
     <Container id="proca-donate">
       <Grid container spacing={1}>
-        <CardHeader title={title} subheader={subtitle} />
+        <Grid item xs={12}>
+          <CardHeader title={title} subheader={subtitle} />
 
-        {image ? <CardMedia image={image} title={title} /> : null}
-        <CardContent>
-          <Typography color="textSecondary">
-            {t("campaign:donation.intro", {
-              defaultValue: "",
-              campaign: config.campaign.title,
-            })}
-          </Typography>
-          <Grid container spacing={1}>
-            {amounts.map((d) => (
-              <Grid sm={6} md={3} key={d} item>
-                <AmountButton
-                  amount={d}
-                  onClick={() => toggleCustomField(false)}
-                />
+          {image ? <CardMedia image={image} title={title} /> : null}
+        </Grid>
+        <Grid item xs={12}>
+          <CardContent>
+            <Typography color="textSecondary">
+              {t("campaign:donation.intro", {
+                defaultValue: "",
+                campaign: config.campaign.title,
+              })}
+            </Typography>
+            <Grid container spacing={1}>
+              {amounts.map((d) => (
+                <Grid sm={6} md={3} key={d} item>
+                  <AmountButton
+                    amount={d}
+                    onClick={() => toggleCustomField(false)}
+                  />
+                </Grid>
+              ))}
+              <Grid item>
+                <Button
+                  color="primary"
+                  name="other"
+                  onClick={() => toggleCustomField(true)}
+                >
+                  {t("Other")}
+                </Button>
               </Grid>
-            ))}
-            <Grid item>
-              <Button
-                color="primary"
-                name="other"
-                onClick={() => toggleCustomField(true)}
-              >
-                {t("Other")}
-              </Button>
             </Grid>
-          </Grid>
 
-          <FormControl fullWidth>
-            <FormGroup>
-              {showCustomField && (
-                <TextField
-                  form={form}
-                  type="number"
-                  label={t("Amount")}
-                  name="amount"
-                  className={classes.number}
-                  onChange={(e) => {
-                    const a = parseFloat(e.target.value);
-                    if (a) {
-                      setData("amount", a);
-                    }
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {currency.symbol}
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              )}
-            </FormGroup>
-          </FormControl>
+            <FormControl fullWidth>
+              <FormGroup>
+                {showCustomField && (
+                  <TextField
+                    form={form}
+                    type="number"
+                    label={t("Amount")}
+                    name="amount"
+                    className={classes.number}
+                    onChange={(e) => {
+                      const a = parseFloat(e.target.value);
+                      if (a) {
+                        setData("amount", a);
+                      }
+                    }}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          {currency.symbol}
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                )}
+              </FormGroup>
+            </FormControl>
 
-          {/* <Typography variant="h5" gutterBottom color="textSecondary">
+            {/* <Typography variant="h5" gutterBottom color="textSecondary">
             {t("campaign:donation.frequency.intro", {
               defaultValue: "Make it monthly?",
             })}
           </Typography> */}
-          {config.component.donation?.amount?.monthly && (
-            <div className={classes.frequency}>
-              <Grid container spacing={1}>
-                <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="monthly">
-                    {t("Monthly")}
-                  </FrequencyButton>
+            {config.component.donation?.amount?.monthly && (
+              <div className={classes.frequency}>
+                <Grid container spacing={1}>
+                  <Grid item sm={12} md={6}>
+                    <FrequencyButton frequency="monthly">
+                      {t("Monthly")}
+                    </FrequencyButton>
+                  </Grid>
+                  <Grid item sm={12} md={6}>
+                    <FrequencyButton frequency="oneoff">
+                      {t("One-time")}
+                    </FrequencyButton>
+                  </Grid>
                 </Grid>
-                <Grid item sm={12} md={6}>
-                  <FrequencyButton frequency="oneoff">
-                    {t("One-time")}
-                  </FrequencyButton>
-                </Grid>
-              </Grid>
-            </div>
-          )}
-        </CardContent>
+              </div>
+            )}
+          </CardContent>
+        </Grid>
+
         {!config.component.donation.external && (
-          <Box margin={2}>
-            <ButtonGroup fullWidth>
-              <Button
-                endIcon={<SkipNextIcon />}
-                fullWidth
-                disabled={!amount}
-                variant={layout.variant}
-                onClick={props.done}
-                color="primary"
-              >
-                {t("Next")}
-              </Button>
-            </ButtonGroup>
-          </Box>
+          <Grid item xs={12}>
+            <Box margin={2}>
+              <ButtonGroup fullWidth>
+                <Button
+                  endIcon={<SkipNextIcon />}
+                  fullWidth
+                  disabled={!amount}
+                  variant={layout.variant}
+                  onClick={props.done}
+                  color="primary"
+                >
+                  {t("Next")}
+                </Button>
+              </ButtonGroup>
+            </Box>
+          </Grid>
         )}
       </Grid>
     </Container>
