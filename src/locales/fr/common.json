@@ -89,7 +89,7 @@
     "Place of birth": "Lieu de naissance",
     "Donate": "Faire un don",
     "invalid IBAN": "IBAN non valide",
-    "Change amount": "Changer la quantité",
+    "Change amount": "Changer le montant",
     "Donate {{amount}}{{currency}}": "Faire un don {{amount}} {{currency}}",
     "yearly": "annuel",
     "weekly": "hebdomadaire",
