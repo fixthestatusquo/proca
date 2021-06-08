@@ -11,10 +11,6 @@ const StyledButton = withStyles((theme) => ({
     textAlign: "center",
     fontSize: theme.typography.fontSize * 1.25,
     fontWeight: theme.typography.fontWeightBold,
-    "&:disabled": {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.getContrastText(theme.palette.primary.main),
-    },
   },
 }))(Button);
 
@@ -34,12 +30,11 @@ const AmountButton = (props) => {
 
   return (
     <StyledButton
-      color="primary"
+      color={amount === props.amount ? "primary" : "default"}
       size="large"
       name="amount"
-      disabled={amount === props.amount}
       disableElevation={amount === props.amount}
-      variant={layout.button.variant}
+      variant={amount === props.amount ? "contained" : "outlined"}
       onClick={(e) => handleAmount(e, props.amount)}
       classes={props.classes}
     >

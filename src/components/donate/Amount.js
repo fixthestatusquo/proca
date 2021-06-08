@@ -218,7 +218,7 @@ const DonateAmount = (props) => {
                     endIcon={<SkipNextIcon />}
                     fullWidth
                     disabled={!amount}
-                    variant={layout.variant}
+                    variant="contained"
                     onClick={props.done}
                     color="primary"
                   >
