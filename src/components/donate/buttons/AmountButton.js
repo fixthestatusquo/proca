@@ -1,6 +1,5 @@
 import { Button, withStyles } from "@material-ui/core";
 import useData from "../../../hooks/useData";
-import useLayout from "../../../hooks/useLayout";
 
 import React from "react";
 
@@ -16,7 +15,6 @@ const StyledButton = withStyles((theme) => ({
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
-  const layout = useLayout();
   const amount = data.amount;
 
   const handleAmount = (e, amount) => {
@@ -28,11 +26,12 @@ const AmountButton = (props) => {
 
   const currency = data.currency;
 
+  // todo: offer this as an option? color={amount === props.amount ? "primary" : "default"}
   return (
     <StyledButton
-      color={amount === props.amount ? "primary" : "default"}
       size="large"
       name="amount"
+      color="primary"
       disableElevation={amount === props.amount}
       variant={amount === props.amount ? "contained" : "outlined"}
       onClick={(e) => handleAmount(e, props.amount)}

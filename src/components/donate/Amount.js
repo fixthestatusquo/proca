@@ -27,7 +27,6 @@ import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import useLayout from "../../hooks/useLayout";
 import AmountButton from "./buttons/AmountButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -62,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
 
 const DonateAmount = (props) => {
   const classes = useStyles();
-  const layout = useLayout();
 
   const { t } = useTranslation();
   const config = useCampaignConfig();

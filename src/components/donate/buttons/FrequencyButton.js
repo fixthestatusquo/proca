@@ -1,5 +1,4 @@
 import { useData } from "../../../hooks/useData";
-import useLayout from "../../../hooks/useLayout";
 import React from "react";
 import { Button, withStyles } from "@material-ui/core";
 
@@ -13,7 +12,6 @@ const StyledButton = withStyles((theme) => ({
 }))(Button);
 
 const FrequencyButton = (props) => {
-  const layout = useLayout();
   const [data, setData] = useData();
 
   const handleFrequency = (i) => {
@@ -21,10 +19,11 @@ const FrequencyButton = (props) => {
   };
   const frequency = data.frequency;
 
+  // todo: offer this as an option? color={frequency === props.frequency ? "secondary" : "default"}
   return (
     <StyledButton
+      color="secondary"
       onClick={() => handleFrequency(props.frequency)}
-      color={frequency === props.frequency ? "secondary" : "default"}
       variant={frequency === props.frequency ? "contained" : "outlined"}
       disableElevation={props.frequency === frequency}
       value={props.frequency}
