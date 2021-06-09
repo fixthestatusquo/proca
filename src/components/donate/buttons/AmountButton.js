@@ -32,6 +32,7 @@ const AmountButton = (props) => {
       size="large"
       name="amount"
       color="primary"
+      aria-pressed="{amount === props.amount}"
       disableElevation={amount === props.amount}
       variant={amount === props.amount ? "contained" : "outlined"}
       onClick={(e) => handleAmount(e, props.amount)}

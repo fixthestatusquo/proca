@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import {
   TextField as LayoutTextField,
   Grid,
+  Box,
   CardHeader,
   Button,
   Container,
@@ -25,6 +26,7 @@ import { useTranslation } from "react-i18next";
 import LockIcon from "@material-ui/icons/Lock";
 import {
   addActionContact,
+  stripeCreate,
   stripeCreatePaymentIntent,
 } from "../../lib/server.js";
 import ChangeAmount from "./ChangeAmount";
@@ -256,7 +258,6 @@ const PaymentForm = (props) => {
               ""
             )}
           </Grid>
-          <ChangeAmount />
         </PaymentBox>
       </Container>
     </form>
@@ -359,7 +360,7 @@ const SubmitButton = (props) => {
   };
 
   return (
-    <Grid item xs={12}>
+    <Box mt={2}>
       <Button
         className="submit-button"
         name="submit"
@@ -386,7 +387,7 @@ const SubmitButton = (props) => {
           })
         )}
       </Button>
-    </Grid>
+    </Box>
   );
 };
 
@@ -403,6 +404,9 @@ const PayWithStripe = (props) => {
       </Grid>
       <Grid item xs={12}>
         <SubmitButton stripe={stripe} form={form} {...props} />
+      </Grid>
+      <Grid item xs={12}>
+        <ChangeAmount />
       </Grid>
     </Grid>
   );

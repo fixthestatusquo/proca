@@ -1,12 +1,8 @@
-import { Box } from "@material-ui/core";
-import React from 'react';
+import React from "react";
 
 const PaymentBox = ({ children }) => {
-    return (
-        <Box marginTop={1} marginRight={3} marginBottom={1} marginLeft={3}>
-            {children}
-        </Box>
-    )
-}
+  // not sure why it's there
+  return <>{children}</>;
+};
 
 export default PaymentBox;

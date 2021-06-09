@@ -137,7 +137,7 @@ const DonateAmount = (props) => {
                   campaign: config.campaign.title,
                 })}
               </Typography>
-              <Grid container spacing={1}>
+              <Grid container spacing={1} role="group" aria-label="amount">
                 {amounts.map((d) => (
                   <Grid sm={6} md={3} key={d} item>
                     <AmountButton
