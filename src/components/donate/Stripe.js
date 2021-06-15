@@ -302,6 +302,19 @@ const SubmitButton = (props) => {
 
     const cardElement = elements.getElement(CardElement);
 
+    // for recurring
+    const r = await stripeCreate({
+      actionPage: config.actionPage,
+      amount: data.amount,
+      currency: data.currency,
+      frequency: data.frequency,
+      contact: {
+        name: data.firstname + data.lastname,
+        email: data.email,
+        address: { country: data.country, postal_code: data.postcode },
+      },
+    });
+
     const orderComplete = async (paymentIntent) => {
       // TODO: cleanup what information needs to be saved
       await addActionContact("donate", config.actionPage, {

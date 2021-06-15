@@ -284,6 +284,51 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
+async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
+  var query = `mutation addStripeObject (
+    $actionPageId: Int!,
+    $customer: Json,
+    $price: Json,
+    $subscription: Json
+  ) {
+    addStripeObject (
+      actionPageId: $actionPageId,
+      customer: $customer,
+      price: $price,
+      subscription: $subscription
+    )
+  }
+  `;
+
+  let price = {
+    unit_amount: params.amount * 100,
+    currency: params.currency,
+    product_data: { name: "donation" },
+  };
+  if (params.frequency)
+    price.recurring = { interval: params.frequency, interval_count: 1 };
+
+  const variables = {
+    actionPageId: params.actionPage,
+    customer: JSON.stringify(params.contact),
+    price: JSON.stringify(price),
+    subscription: JSON.stringify({}),
+  };
+
+  console.log(query, variables);
+  const response = await graphQL("addStripeObject", query, {
+    variables: variables,
+  });
+
+  if (response.errors) return response;
+
+  const stripeResponse = JSON.parse(response.addStripePaymentIntent);
+  return {
+    client_secret: stripeResponse.client_secret,
+    response: stripeResponse,
+  };
+}
+
 async function stripeCreatePaymentIntent(
   pageId,
   amount,
@@ -291,11 +336,11 @@ async function stripeCreatePaymentIntent(
   idempotencyKey,
   paymentMethod = ["card"]
 ) {
-  var query = `mutation stripeCreatePaymentIntent(
+  var query = `mutation addStripePaymentIntent(
     $actionPageId: Int!,
     $input: PaymentIntentInput!
   ) {
-    stripeCreatePaymentIntent(
+    addStripePaymentIntent(
       actionPageId: $actionPageId,
       input: $input,
     )
@@ -311,13 +356,13 @@ async function stripeCreatePaymentIntent(
       // "statement_descriptor": "Custom descriptor"
     },
   };
-  const response = await graphQL("stripeCreatePaymentIntent", query, {
+  const response = await graphQL("addStripePaymentIntent", query, {
     variables: variables,
   });
 
   if (response.errors) return response;
 
-  const stripeResponse = JSON.parse(response.stripeCreatePaymentIntent);
+  const stripeResponse = JSON.parse(response.addStripePaymentIntent);
   return {
     client_secret: stripeResponse.client_secret,
     response: stripeResponse,
@@ -336,5 +381,6 @@ export {
   getLatest,
   graphQL,
   stripeCreatePaymentIntent,
+  stripeCreate,
   errorMessages,
 };
