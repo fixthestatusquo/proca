@@ -17,7 +17,7 @@ import PaymentBox from "./PaymentBox";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { addActionContact, errorMessages } from "../../lib/server.js";
+import { addDonateContact, errorMessages } from "../../lib/server.js";
 import IBAN from "iban";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,13 +65,21 @@ export default function Register(props) {
   const { handleSubmit, setError } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
-  const onSubmit = async (data) => {
-    data.tracking = Url.utm();
-    const result = await addActionContact(
-      config.test ? "test-donate" : "donate",
-      config.actionPage,
-      data
-    );
+  const onSubmit = async (d) => {
+    d.tracking = Url.utm();
+    console.log(data);
+    d.donation = {
+      amount: data.amount,
+      currency: data.currency.code,
+      payload: {
+        iban: d.IBAN,
+        processor: "sepa",
+      },
+    };
+    if (data.frequency) d.donation.frequencyUnit = data.frequency;
+    if (config.test) d.donation.payload.test = true;
+
+    const result = await addDonateContact("sepa", config.actionPage, d);
     if (result.errors) {
       let handled = false;
       console.log(result.errors.fields, data);

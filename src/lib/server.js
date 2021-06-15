@@ -217,6 +217,14 @@ async function addAction(actionPage, actionType, data) {
   return response;
 }
 
+async function addDonateContact(provider, actionPage, data) {
+  const fields = "IBAN,donation".split(",");
+  delete data.IBAN;
+  if (data.donation.payload)
+    data.donation.payload = JSON.stringify(data.donation.payload);
+  return await addActionContact("donate", actionPage, data);
+}
+
 async function addActionContact(actionType, actionPage, data) {
   var query = `mutation addActionContact(
   $action: ActionInput!,
@@ -242,7 +250,7 @@ async function addActionContact(actionType, actionPage, data) {
   };
 
   const expected =
-    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
+    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
       ","
     );
   let variables = {
@@ -263,6 +271,8 @@ async function addActionContact(actionType, actionPage, data) {
     },
     privacy: privacy,
   };
+
+  if (data.donation) variables.action.donation = data.donation;
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.region) variables.contact.address.region = data.region;
   if (data.locality) variables.contact.address.locality = data.locality;
@@ -375,6 +385,7 @@ const errorMessages = (errors) => {
 
 export {
   addActionContact,
+  addDonateContact,
   addAction,
   getCount,
   getCountByUrl,
