@@ -3,7 +3,14 @@ import Url from "../../lib/urlparser";
 import { formatDate } from "../../lib/date";
 
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Snackbar, Box, Container, Tooltip } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  Snackbar,
+  Box,
+  Container,
+  Tooltip,
+} from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation, countries } from "./hooks/useEciTranslation";
@@ -63,14 +70,8 @@ export default (props) => {
     defaultValues: data,
   });
 
-  const {
-    handleSubmit,
-    setError,
-    clearErrors,
-    formState,
-    watch,
-    setValue,
-  } = form;
+  const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
+    form;
 
   const { nationality, country } = watch(["nationality", "country"]) || "";
   useEffect(() => {
@@ -106,10 +107,10 @@ export default (props) => {
     }
 
     // is captcha checked?
-    if (token == "dummy") {
+    if (token === "dummy") {
       console.error("dummy", t("eci:form.error.oct_captcha_invalid"));
       setStatus("nocaptcha");
-      return; 
+      return;
     }
 
     const result = await addSupport(
@@ -236,8 +237,7 @@ export default (props) => {
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
-                    url:
-                      "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
+                    url: "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
                   }),
                 }}
               />
@@ -268,13 +268,18 @@ export default (props) => {
                 <Consent form={form} />
               </Grid>
               <Grid item xs={12} sm={compact ? 12 : 4}>
-                <Tooltip arrow open={status == "nocaptcha" && token == "dummy"} placement="left" title={t("eci:form.error.email_required")}>
-                <HCaptcha
-                  sitekey={config.component.eci.hcaptcha}
-                  languageOverride={config.lang}
-                  size="compact"
-                  onVerify={(token) => handleVerificationSuccess(token)}
-                />
+                <Tooltip
+                  arrow
+                  open={status === "nocaptcha" && token === "dummy"}
+                  placement="left"
+                  title={t("eci:form.error.email_required")}
+                >
+                  <HCaptcha
+                    sitekey={config.component.eci.hcaptcha}
+                    languageOverride={config.lang}
+                    size="compact"
+                    onVerify={(token) => handleVerificationSuccess(token)}
+                  />
                 </Tooltip>
               </Grid>
               <Grid item xs={12}>
