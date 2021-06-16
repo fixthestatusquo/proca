@@ -14,6 +14,7 @@ import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "../lib/i18n";
 import merge from "lodash.merge";
+import _set from "lodash.set";
 export let configState = null;
 /*
 export const configState = atom({
@@ -91,6 +92,7 @@ export const setGlobalState = (atom, key, value) => {
 
 const set = (key, value) => {
   // obsolete, will soon be removed
+  console.log("obsolete, shouldn't be there");
   const event = new CustomEvent("proca-set", {
     detail: { key: key, value: value },
   });
@@ -130,14 +132,13 @@ export const ConfigProvider = (props) => {
           return merge(current, key);
         });
         return;
+      } else {
+        _setCampaignConfig((current) => {
+          let d = { ...current };
+          _set(d, key, value);
+          return d;
+        });
       }
-      _setCampaignConfig((current) => {
-        let d = { ...current };
-        if (typeof value === "object") {
-          d[key] = { ...d[key], ...value };
-        } else d[key] = value;
-        return d;
-      });
     },
     [_setCampaignConfig]
   );
