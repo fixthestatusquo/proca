@@ -222,6 +222,7 @@ async function addDonateContact(provider, actionPage, data) {
   delete data.IBAN;
   if (data.donation.payload)
     data.donation.payload = JSON.stringify(data.donation.payload);
+  data.donation.amount = data.donation.amount * 100; // to do: check the currency see if the smallest unit is cent indeed
   if (data.donation.frequencyUnit) {
     console.log(data.donation);
     const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
