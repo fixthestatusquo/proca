@@ -222,6 +222,11 @@ async function addDonateContact(provider, actionPage, data) {
   delete data.IBAN;
   if (data.donation.payload)
     data.donation.payload = JSON.stringify(data.donation.payload);
+  if (data.donation.frequencyUnit) {
+    console.log(data.donation);
+    const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
+    data.donation.frequencyUnit = fu[data.donation.frequencyUnit];
+  }
   return await addActionContact("donate", actionPage, data);
 }
 
