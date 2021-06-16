@@ -302,18 +302,18 @@ const SubmitButton = (props) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    // for recurring
-    const r = await stripeCreate({
+    let params = {
       actionPage: config.actionPage,
       amount: data.amount,
-      currency: data.currency,
-      frequency: data.frequency,
+      currency: data.currency.code,
       contact: {
         name: data.firstname + data.lastname,
         email: data.email,
         address: { country: data.country, postal_code: data.postcode },
       },
-    });
+    };
+    if (data.frequency === "monthly") params.frequency = "month";
+    const r = await stripeCreate(params);
 
     const orderComplete = async (paymentIntent) => {
       // TODO: cleanup what information needs to be saved

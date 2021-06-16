@@ -310,21 +310,23 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   }
   `;
 
-  let price = {
-    unit_amount: params.amount * 100,
-    currency: params.currency,
-    product_data: { name: "donation" },
-  };
-  if (params.frequency)
-    price.recurring = { interval: params.frequency, interval_count: 1 };
-
   const variables = {
     actionPageId: params.actionPage,
     customer: JSON.stringify(params.contact),
-    price: JSON.stringify(price),
-    subscription: JSON.stringify({}),
+    paymentIntent: JSON.stringify({}),
   };
 
+  params.frequency = "month"; //TOFIX test
+  if (params.frequency) {
+    let price = {
+      unit_amount: params.amount * 100,
+      currency: params.currency,
+      product_data: { name: "donation" },
+      recurring: { interval: params.frequency, interval_count: 1 },
+    };
+    variables.price = JSON.stringify(price);
+    variables.subscription = JSON.stringify({});
+  }
   console.log(query, variables);
   const response = await graphQL("addStripeObject", query, {
     variables: variables,
@@ -332,7 +334,8 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
 
   if (response.errors) return response;
 
-  const stripeResponse = JSON.parse(response.addStripePaymentIntent);
+  const stripeResponse = JSON.parse(response.addStripeObject);
+  console.log(stripeResponse);
   return {
     client_secret: stripeResponse.client_secret,
     response: stripeResponse,
