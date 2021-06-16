@@ -67,9 +67,12 @@ const DonateAmount = (props) => {
   const [data, setData] = useData();
 
   const donateConfig = config.component.donation;
-  const amounts = donateConfig.amount?.oneoff?.default ||
-    donateConfig.amount?.oneoff || [3, 5, 10];
-
+  const amounts = JSON.parse(
+    JSON.stringify(
+      donateConfig.amount?.oneoff?.default ||
+        donateConfig.amount?.oneoff || [3, 5, 10]
+    )
+  ); // JSON so it's not read only
   if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
     amounts.push(data.initialAmount);
   }

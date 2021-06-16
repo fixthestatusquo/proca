@@ -220,8 +220,9 @@ async function addAction(actionPage, actionType, data) {
 async function addDonateContact(provider, actionPage, data) {
   const fields = "IBAN,donation".split(",");
   delete data.IBAN;
-  if (data.donation.payload)
-    data.donation.payload = JSON.stringify(data.donation.payload);
+  if (!data.donation.payload) data.donation.payload = {};
+  data.donation.payload.provider = provider;
+  data.donation.payload = JSON.stringify(data.donation.payload);
   data.donation.amount = data.donation.amount * 100; // to do: check the currency see if the smallest unit is cent indeed
   if (data.donation.frequencyUnit) {
     console.log(data.donation);

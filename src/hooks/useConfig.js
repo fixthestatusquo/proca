@@ -13,7 +13,7 @@ import {
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "../lib/i18n";
-
+import merge from "lodash.merge";
 export let configState = null;
 /*
 export const configState = atom({
@@ -127,7 +127,7 @@ export const ConfigProvider = (props) => {
     (key, value) => {
       if (typeof key === "object") {
         _setCampaignConfig((current) => {
-          return { ...current, ...key };
+          return merge(current, key);
         });
         return;
       }

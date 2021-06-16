@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
 import {
-  addActionContact,
+  addDonateContact,
   stripeCreate,
   stripeCreatePaymentIntent,
 } from "../../lib/server.js";
@@ -280,11 +280,21 @@ const SubmitButton = (props) => {
   const onSubmitButtonClick = async (event, _) => {
     const orderComplete = async (paymentIntent) => {
       // TODO: cleanup what information needs to be saved
-      await addActionContact("donate", config.actionPage, {
-        ...data,
-        ...values,
-        ...paymentIntent,
-      });
+
+      const d = { ...data };
+
+      d.donation = {
+        amount: data.amount,
+        currency: data.currency.code,
+        payload: {
+          paymentIntent: paymentIntent,
+          values: values,
+        },
+      };
+      if (data.frequency) d.donation.frequencyUnit = data.frequency;
+      if (config.test) d.donation.payload.test = true;
+      console.log(d);
+      const result = await addDonateContact("stripe", config.actionPage, d);
       props.done(paymentIntent);
     };
 

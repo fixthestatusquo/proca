@@ -73,7 +73,6 @@ export default function Register(props) {
       currency: data.currency.code,
       payload: {
         iban: d.IBAN,
-        processor: "sepa",
       },
     };
     if (data.frequency) d.donation.frequencyUnit = data.frequency;
