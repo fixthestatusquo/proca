@@ -278,6 +278,16 @@ const SubmitButton = (props) => {
   const config = useCampaignConfig();
 
   const onSubmitButtonClick = async (event, _) => {
+    const orderComplete = async (paymentIntent) => {
+      // TODO: cleanup what information needs to be saved
+      await addActionContact("donate", config.actionPage, {
+        ...data,
+        ...values,
+        ...paymentIntent,
+      });
+      props.done(paymentIntent);
+    };
+
     event.preventDefault();
 
     const btn = event.target;
@@ -307,32 +317,24 @@ const SubmitButton = (props) => {
       amount: data.amount,
       currency: data.currency.code,
       contact: {
-        name: data.firstname + data.lastname,
+        name: data.firstname + " " + data.lastname,
         email: data.email,
         address: { country: data.country, postal_code: data.postcode },
       },
     };
     if (data.frequency === "monthly") params.frequency = "month";
 
-    const r = await stripeCreate(params);
+    const piResponse = await stripeCreate(params);
+    console.log("response", piResponse, piResponse.client_secret);
 
-    const orderComplete = async (paymentIntent) => {
-      // TODO: cleanup what information needs to be saved
-      await addActionContact("donate", config.actionPage, {
-        ...data,
-        ...values,
-        ...paymentIntent,
-      });
-      props.done(paymentIntent);
-    };
-
+    /*
     const piResponse = await stripeCreatePaymentIntent(
       config.actionPage,
       data.amount,
       data.currency.code
       // { idempotency_key: stripeSessionId }
     );
-
+*/
     if (piResponse.errors) {
       console.log("Error returned from proca backend", piResponse.errors);
       setStripeError({

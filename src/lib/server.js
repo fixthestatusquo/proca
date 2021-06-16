@@ -338,9 +338,9 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   if (response.errors) return response;
 
   const stripeResponse = JSON.parse(response.addStripeObject);
-  console.log(stripeResponse);
   return {
-    client_secret: stripeResponse.client_secret,
+    subscriptionId: stripeResponse.id,
+    client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
     response: stripeResponse,
   };
 }
