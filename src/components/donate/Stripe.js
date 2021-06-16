@@ -313,6 +313,7 @@ const SubmitButton = (props) => {
       },
     };
     if (data.frequency === "monthly") params.frequency = "month";
+
     const r = await stripeCreate(params);
 
     const orderComplete = async (paymentIntent) => {

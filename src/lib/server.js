@@ -325,7 +325,10 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
       recurring: { interval: params.frequency, interval_count: 1 },
     };
     variables.price = JSON.stringify(price);
-    variables.subscription = JSON.stringify({});
+    variables.subscription = JSON.stringify({
+      payment_behavior: "default_incomplete",
+      expand: ["latest_invoice.payment_intent"],
+    });
   }
   console.log(query, variables);
   const response = await graphQL("addStripeObject", query, {
