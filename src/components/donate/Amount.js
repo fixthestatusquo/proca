@@ -179,6 +179,7 @@ const DonateAmount = (props) => {
                           </InputAdornment>
                         ),
                       }}
+                      InputLabelProps={{ shrink: true }}
                     />
                   )}
                 </FormGroup>
