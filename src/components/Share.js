@@ -20,6 +20,8 @@ import Url from "../lib/urlparser";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import {
   EmailShareButton,
@@ -188,6 +190,9 @@ export default function ShareAction(props) {
   }
 
   function ActionIcon(props) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
       ""
@@ -219,8 +224,9 @@ export default function ShareAction(props) {
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
+        small={isMobile}
       >
-        {props.icon ? props.icon({ round: true, size: 48 }) : null}
+        {props.icon ? props.icon({ round: true, size: isMobile ? 40 : 48}) : null}
       </IconButton>
     );
   }
