@@ -191,7 +191,7 @@ export default function ShareAction(props) {
 
   function ActionIcon(props) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
