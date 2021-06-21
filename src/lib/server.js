@@ -167,13 +167,13 @@ async function getCount(actionPage, options) {
   return data.actionPage.campaign.stats.supporterCount;
 }
 
-async function getCountByUrl(url) {
-  var query = `query getCountByUrl($url:String)
-{actionPage(url:$url){id,campaign{name,title,
+async function getCountByName(name) {
+  var query = `query getCountByName($name:String)
+{actionPage(name:$name){id,campaign{name,title,
   externalId,stats{supporterCount }}}}
 `;
-  const response = await graphQL("getCountByUrl", query, {
-    variables: { url: url },
+  const response = await graphQL("getCountByName", query, {
+    variables: { name: name },
   });
   if (!response || response.errors) return response;
   return {
@@ -291,7 +291,7 @@ export {
   addActionContact,
   addAction,
   getCount,
-  getCountByUrl,
+  getCountByName,
   getLatest,
   graphQL,
   errorMessages,

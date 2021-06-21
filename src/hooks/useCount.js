@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCount, getCountByUrl } from "../lib/server.js";
+import { getCount, getCountByName } from "../lib/server.js";
 import { useCampaignConfig } from "../hooks/useConfig";
 
 import { atom, useRecoilState } from "recoil";
@@ -15,7 +15,7 @@ const useInitFromUrl = (actionUrl) => {
     let c = null;
     (async function () {
       if (count !== null) return;
-      c = await getCountByUrl(actionUrl);
+      c = await getCountByName(actionUrl);
       if (!isCancelled) {
         setId(c.actionPage);
         setCount(c.total);
