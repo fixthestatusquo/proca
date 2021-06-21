@@ -187,7 +187,12 @@ export default function ShareAction(props) {
         {!!config.component?.share?.reddit && (
           <ActionIcon icon={RedditIcon} component={RedditShareButton} />
         )}
-        <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
+        <ActionIcon 
+          icon={LinkedinIcon} 
+          component={LinkedinShareButton} 
+          title={metadata.title}
+          summary={shareText("share-linkedin") || metadata.description}
+        />
       </CardActions>
     );
   }
