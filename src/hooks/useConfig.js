@@ -2,6 +2,9 @@
 // technically, we are migrating, but more or less done
 
 import React, { useEffect, useCallback } from "react";
+import merge from 'lodash.merge';
+import getByPath from 'lodash.get';
+import setByPath from 'lodash.set';
 
 import {
   atom,
@@ -127,16 +130,20 @@ export const ConfigProvider = (props) => {
     (key, value) => {
       if (typeof key === "object") {
         _setCampaignConfig((current) => {
-          return { ...current, ...key };
+          return merge({}, current, key);
         });
         return;
       }
       _setCampaignConfig((current) => {
         let d = { ...current };
-        if (typeof value === "object") {
-          d[key] = { ...d[key], ...value };
-        } else d[key] = value;
-        return d;
+        if (value instanceof Array) {
+          const r = setByPath(d, key, value);
+          console.log('result', r);
+          return r;
+        } else if (typeof value === "object") {
+          return setByPath(d, key, merge(getByPath(d, key, {}), value))
+        } else 
+          return setByPath(d, key, value);
       });
     },
     [_setCampaignConfig]
