@@ -1,5 +1,5 @@
-import React from "react";
-import {RecoilRoot} from 'recoil';
+import React, {useEffect} from "react";
+import {RecoilRoot, useRecoilSnapshot} from 'recoil';
 import ProcaStyle from "./ProcaStyle.js";
 import {ConfigProvider} from "../hooks/useConfig";
 
@@ -16,6 +16,7 @@ export default function Container (props) {
 
   return (
         <RecoilRoot>
+          <DebugObserver />
         <ConfigProvider go={go} actions={actions} config={config}>
           <ProcaStyle>
 
@@ -25,4 +26,19 @@ export default function Container (props) {
         </RecoilRoot>
 
       )
+
+
+  function DebugObserver() {
+  const snapshot = useRecoilSnapshot();
+  useEffect(() => {
+    console.debug('The following atoms were modified:');
+    for (const node of snapshot.getNodes_UNSTABLE({isModified: true})) {
+      console.debug(node.key, snapshot.getLoadable(node));
+    }
+  }, [snapshot]);
+
+  return null;
+}
 };
+
+
