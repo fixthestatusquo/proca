@@ -6,8 +6,6 @@ import {
   Container,
   Grid,
   Box,
-  CardMedia,
-  CardHeader,
   CardContent,
   FormControl,
   InputAdornment,
@@ -28,6 +26,7 @@ import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import AmountButton from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
+import DonateTitle from "./DonateTitle";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -98,21 +97,6 @@ const DonateAmount = (props) => {
   if ((compact && width > 450) || (!compact && width <= 450)) {
     setCompact(width <= 450);
   }
-  const title = amount
-    ? config?.component?.donation.igive ||
-      t("I'm donating {{amount}}", {
-        amount: amount.toString() + currency.symbol,
-      })
-    : config?.component.donation?.title || t("Choose your donation amount");
-
-  const average = donateConfig?.amount?.oneoff?.average;
-  const subtitle = average
-    ? t("The average donation is {{amount}} {{currency}}", {
-        amount: average,
-        currency: currency.code,
-      })
-    : donateConfig?.subTitle;
-  const image = donateConfig?.image;
 
   return (
     <Container id="proca-donate">
@@ -135,9 +119,12 @@ const DonateAmount = (props) => {
         </AppBar>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            <CardHeader title={title} subheader={subtitle} />
-
-            {image ? <CardMedia image={image} title={title} /> : null}
+            <DonateTitle
+              config={config}
+              amount={amount}
+              currency={currency}
+              frequency={frequency}
+            />
           </Grid>
           <Grid item xs={12}>
             <CardContent>

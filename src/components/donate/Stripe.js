@@ -4,7 +4,6 @@ import {
   TextField as LayoutTextField,
   Grid,
   Box,
-  CardHeader,
   Button,
   Container,
   FormHelperText,
@@ -38,6 +37,7 @@ import StripeInput from "./StripeInput";
 
 import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import DonateTitle from "./DonateTitle";
 
 const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
@@ -122,11 +122,9 @@ const PaymentForm = (props) => {
   if ((compact && width > 440) || (!compact && width <= 440))
     setCompact(width <= 440);
 
-  const title = data.amount
-    ? config.component?.donation.igive ||
-      t("I'm donating") + " " + data.amount + data.currency?.symbol
-    : config.component?.Donate?.amount?.title ||
-      t("Choose your donation amount");
+  const amount = data.amount;
+  const frequency = data.frequency;
+  const currency = data.currency;
 
   const classes = useStyles();
 
@@ -136,7 +134,12 @@ const PaymentForm = (props) => {
         <PaymentBox>
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <CardHeader title={title} />
+              <DonateTitle
+                config={config}
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+              />
             </Grid>
 
             <Grid item xs={12} sm={compact ? 12 : 6}>

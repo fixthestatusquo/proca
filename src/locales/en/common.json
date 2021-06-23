@@ -1,4 +1,7 @@
 {
+  "a monthly": "every month",
+  "a weekly": "every week",
+  "a oneoff": "",
   "Account": "Account",
   "Address": "Address",
   "Amount": "Amount",
@@ -21,6 +24,7 @@
   "Full Name": "Full Name",
   "I'm donating": "I'm donating",
   "I'm donating {{amount}}": "I'm donating {{amount}}",
+  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}",
   "Join": "Join",
   "Last name": "Last name",
   "Legal": "Legal",

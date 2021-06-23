@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { CardHeader, Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { Button, Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 
 import { addDonateContact, errorMessages } from "../../lib/server.js";
 import IBAN from "iban";
+import DonateTitle from "./DonateTitle";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -62,6 +63,11 @@ export default function Register(props) {
   const form = useForm({
     defaultValues: data,
   });
+
+  const amount = data.amount;
+  const currency = data.currency;
+  const frequency = data.frequency;
+
   const { handleSubmit, setError } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
@@ -69,8 +75,8 @@ export default function Register(props) {
     d.tracking = Url.utm();
     console.log(data);
     d.donation = {
-      amount: data.amount,
-      currency: data.currency.code,
+      amount: amount,
+      currency: currency.code,
       payload: {
         iban: d.IBAN,
       },
@@ -128,10 +134,11 @@ export default function Register(props) {
         <PaymentBox>
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <CardHeader
-                title={
-                  t("I'm donating") + " " + data.amount + data.currency?.symbol
-                }
+              <DonateTitle
+                config={config}
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
               />
             </Grid>
 
@@ -195,8 +202,8 @@ export default function Register(props) {
                 startIcon={<LockIcon />}
               >
                 {t("Donate {{amount}}{{currency}}", {
-                  amount: data.amount,
-                  currency: data.currency.symbol,
+                  amount: amount,
+                  currency: currency.symbol,
                 })}
               </Button>
               <ChangeAmount />
