@@ -13,21 +13,7 @@ import {
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "../lib/i18n";
-import merge from "lodash.merge";
-import _set from "lodash.set";
 export let configState = null;
-/*
-export const configState = atom({
-  key:'campaign',
-  default:{
-    actionPage:null,
-    name:null,
-    organisation:null,
-    lang:null,
-    journey: [],
-  } // check the json config attribute in the actionpage for example of more advanced format
-});
-*/
 
 export const initConfigState = (config) => {
   if (config.locales) {

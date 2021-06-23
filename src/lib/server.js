@@ -218,7 +218,6 @@ async function addAction(actionPage, actionType, data) {
 }
 
 async function addDonateContact(provider, actionPage, data) {
-  const fields = "IBAN,donation".split(",");
   delete data.IBAN;
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;

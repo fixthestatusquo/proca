@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./lib/i18n";
-import { isTest, data } from "./lib/urlparser";
+import { isTest } from "./lib/urlparser";
 import { setGlobalState, setConfig, goStep, hook } from "./hooks/useConfig";
 
 import ProcaWidget from "./components/Widget.js";
@@ -9,7 +9,6 @@ import Portals from "./components/Portals.js";
 import ProcaAlert from "./components/Alert.js";
 
 import { config as Config } from "./actionPage";
-import { initDataState } from "./hooks/useData";
 //console.log(querystring);
 
 let config = {

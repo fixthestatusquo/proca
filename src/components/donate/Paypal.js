@@ -4,7 +4,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
-import { Grid, CardHeader, Container, Box } from "@material-ui/core";
+import { Grid, CardHeader, Container } from "@material-ui/core";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 

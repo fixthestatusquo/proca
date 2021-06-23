@@ -13,7 +13,7 @@ const StyledButton = withStyles((theme) => ({
 }))(Button);
 
 const FrequencyButton = (props) => {
-  const [data, setData] = useData();
+  const [, setData] = useData();
 
   const handleFrequency = (i) => {
     setData("frequency", i);

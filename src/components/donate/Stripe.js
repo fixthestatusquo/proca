@@ -24,11 +24,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
-import {
-  addDonateContact,
-  stripeCreate,
-  stripeCreatePaymentIntent,
-} from "../../lib/server.js";
+import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
@@ -293,8 +289,8 @@ const SubmitButton = (props) => {
       };
       if (data.frequency) d.donation.frequencyUnit = data.frequency;
       if (config.test) d.donation.payload.test = true;
-      console.log(d);
-      const result = await addDonateContact("stripe", config.actionPage, d);
+      // console.log(d);
+      await addDonateContact("stripe", config.actionPage, d);
       props.done(paymentIntent);
     };
 
