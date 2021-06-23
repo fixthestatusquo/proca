@@ -13,6 +13,8 @@ import {
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "../lib/i18n";
+import _set from "lodash/set";
+
 export let configState = null;
 
 export const initConfigState = (config) => {
@@ -114,30 +116,11 @@ export const ConfigProvider = (props) => {
   const setCampaignConfig = useCallback(
     // trying to set paths one at a time with multiple proca.set() calls led to
     // read-only errors... so set the all at once.
-    (to_configure) => {
+    (to_update) => {
       _setCampaignConfig((current) => {
-        for (const [key, value] of Object.entries(to_configure)) {
-          var path = key.split(".");
-          switch (path.length) {
-            case 0:
-              break;
-            case 1:
-              current[path[0]] = value;
-              break;
-            default:
-              // Walk the tree - assume Objects everywhere
-
-              var node = current;
-              do {
-                const key = path.shift();
-                // Create the branch if we need to
-                node[key] || (node[key] = {});
-                node = node[key];
-              } while (path.length > 1);
-
-              // Set the leaf to the given value
-              node[path.shift()] = value;
-          }
+        for (const [path, value] of Object.entries(to_update)) {
+          // mutates object in place
+          _set(current, path, value);
         }
         return current;
       });
@@ -165,7 +148,10 @@ export const ConfigProvider = (props) => {
             setLayout(e.detail.key, e.detail.value);
             break;
           case "campaign":
-            setCampaignConfig(e.detail.key, e.detail.value);
+            if (e.detail.value && !e.detail.key instanceof Object) {
+              setCampaignConfig({ [e.detail.key]: e.detail.value });
+            }
+            setCampaignConfig(e.detail.key);
             break;
           case "data":
             setData(e.detail.key, e.detail.value);
