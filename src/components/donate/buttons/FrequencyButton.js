@@ -1,6 +1,7 @@
 import { useData } from "../../../hooks/useData";
 import React from "react";
-import { Button, withStyles } from "@material-ui/core";
+import { Button, Grid, withStyles } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -17,16 +18,18 @@ const FrequencyButton = (props) => {
   const handleFrequency = (i) => {
     setData("frequency", i);
   };
-  const frequency = data.frequency;
+
+  const value = props.buttonValue;
+  const selected = props.selected;
 
   // todo: offer this as an option? color={frequency === props.frequency ? "secondary" : "default"}
   return (
     <StyledButton
       color="secondary"
-      onClick={() => handleFrequency(props.frequency)}
-      variant={frequency === props.frequency ? "contained" : "outlined"}
-      disableElevation={props.frequency === frequency}
-      value={props.frequency}
+      onClick={() => handleFrequency(value)}
+      variant={selected === value ? "contained" : "outlined"}
+      disableElevation={selected === value}
+      value={value}
       classes={props.classes}
     >
       {props.children}
@@ -34,4 +37,28 @@ const FrequencyButton = (props) => {
   );
 };
 
-export default FrequencyButton;
+const FrequencyButtons = ({ frequencies, selected, classes }) => {
+  const { t } = useTranslation();
+
+  // if the widget is configured for only one frequency, we don't show any buttons
+  // and data.frequency will already be set. See initDataState...
+
+  if (frequencies.length === 0) {
+    return null;
+  }
+  return (
+    <div className={classes.frequency}>
+      <Grid container spacing={1}>
+        {frequencies.map((f) => (
+          <Grid key={f} item sm={12} md={6}>
+            <FrequencyButton buttonValue={f} selected={selected}>
+              {t(f.toUpperCase())}
+            </FrequencyButton>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
+  );
+};
+
+export default FrequencyButtons;

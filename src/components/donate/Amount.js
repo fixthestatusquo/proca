@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
-import FrequencyButton from "./buttons/FrequencyButton";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -28,6 +27,7 @@ import useElementWidth from "../../hooks/useElementWidth";
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import AmountButton from "./buttons/AmountButton";
+import FrequencyButtons from "./buttons/FrequencyButton";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -67,12 +67,20 @@ const DonateAmount = (props) => {
   const [data, setData] = useData();
 
   const donateConfig = config.component.donation;
-  const amounts = JSON.parse(
-    JSON.stringify(
-      donateConfig.amount?.oneoff?.default ||
-        donateConfig.amount?.oneoff || [3, 5, 10]
-    )
-  ); // JSON so it's not read only
+
+  // TODO: adjust for currencies?
+  const configuredAmounts = donateConfig?.amount || {
+    oneoff: [3, 5, 10],
+    weekly: [1, 3, 5],
+    monthly: [3, 5, 10],
+  };
+
+  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
+  const frequency = data.frequency;
+  const amounts = [
+    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
+  ].sort();
+
   if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
     amounts.push(data.initialAmount);
   }
@@ -80,7 +88,6 @@ const DonateAmount = (props) => {
   amounts.sort((a, b) => a - b);
 
   const form = useForm();
-
   const currency = data.currency;
   const amount = data.amount;
 
@@ -145,6 +152,7 @@ const DonateAmount = (props) => {
                   <Grid sm={6} md={3} key={d} item>
                     <AmountButton
                       amount={d}
+                      currency={currency}
                       onClick={() => toggleCustomField(false)}
                     />
                   </Grid>
@@ -159,7 +167,6 @@ const DonateAmount = (props) => {
                   </Button>
                 </Grid>
               </Grid>
-
               <FormControl fullWidth>
                 <FormGroup>
                   {showCustomField && (
@@ -187,28 +194,18 @@ const DonateAmount = (props) => {
                   )}
                 </FormGroup>
               </FormControl>
-
               {/* <Typography variant="h5" gutterBottom color="textSecondary">
             {t("campaign:donation.frequency.intro", {
               defaultValue: "Make it monthly?",
             })}
           </Typography> */}
-              {config.component.donation?.amount?.monthly && (
-                <div className={classes.frequency}>
-                  <Grid container spacing={1}>
-                    <Grid item sm={12} md={6}>
-                      <FrequencyButton frequency="monthly">
-                        {t("Monthly")}
-                      </FrequencyButton>
-                    </Grid>
-                    <Grid item sm={12} md={6}>
-                      <FrequencyButton frequency="oneoff">
-                        {t("One-time")}
-                      </FrequencyButton>
-                    </Grid>
-                  </Grid>
-                </div>
-              )}
+              {frequencies.length > 1 ? (
+                <FrequencyButtons
+                  frequencies={frequencies}
+                  selected={frequency}
+                  classes={classes}
+                />
+              ) : null}
             </CardContent>
           </Grid>
 
