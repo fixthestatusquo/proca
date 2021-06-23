@@ -126,19 +126,35 @@ export const ConfigProvider = (props) => {
   const go = props.go;
 
   const setCampaignConfig = useCallback(
-    (key, value) => {
-      if (typeof key === "object") {
-        _setCampaignConfig((current) => {
-          return merge(current, key);
-        });
-        return;
-      } else {
-        _setCampaignConfig((current) => {
-          let d = { ...current };
-          _set(d, key, value);
-          return d;
-        });
-      }
+    // trying to set paths one at a time with multiple proca.set() calls led to
+    // read-only errors... so set the all at once.
+    (to_configure) => {
+      _setCampaignConfig((current) => {
+        for (const [key, value] of Object.entries(to_configure)) {
+          var path = key.split(".");
+          switch (path.length) {
+            case 0:
+              break;
+            case 1:
+              current[path[0]] = value;
+              break;
+            default:
+              // Walk the tree - assume Objects everywhere
+
+              var node = current;
+              do {
+                const key = path.shift();
+                // Create the branch if we need to
+                node[key] || (node[key] = {});
+                node = node[key];
+              } while (path.length > 1);
+
+              // Set the leaf to the given value
+              node[path.shift()] = value;
+          }
+        }
+        return current;
+      });
     },
     [_setCampaignConfig]
   );

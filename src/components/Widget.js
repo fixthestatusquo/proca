@@ -42,7 +42,16 @@ const Widget = (props) => {
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...data };
   });
-  initDataState(data);
+
+  if (props) config = { ...config, ...props };
+  config.param = getAllData(config.selector);
+  config.locales = Object.assign(config.locales, getOverwriteLocales());
+  config.actionPage = parseInt(config.actionPage, 10);
+  initConfigState(config);
+
+  console.debug("calling initDataState", config);
+  initDataState(data, config);
+
   useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
@@ -51,11 +60,6 @@ const Widget = (props) => {
     }
   }, [props]);
 
-  if (props) config = { ...config, ...props };
-  config.param = getAllData(config.selector);
-  config.locales = Object.assign(config.locales, getOverwriteLocales());
-  config.actionPage = parseInt(config.actionPage, 10);
-  initConfigState(config);
   if (config.component.widget?.mobileVersion === false) isMobile = false;
 
   if (

@@ -24,7 +24,7 @@ const AmountButton = (props) => {
     }
   };
 
-  const currency = data.currency;
+  const currency = props.currency;
 
   // todo: offer this as an option? color={amount === props.amount ? "primary" : "default"}
   return (

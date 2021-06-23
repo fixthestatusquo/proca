@@ -103,7 +103,7 @@ const render = () => {
     } //return; I have no clue why it happens
 
     //we take the data from the url
-    initDataState(data());
+    // initDataState(data());
     Widget({ ...script.dataset });
   } catch (e) {
     console.log(e);
