@@ -305,13 +305,15 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
     $actionPageId: Int!,
     $customer: Json,
     $price: Json,
-    $subscription: Json
+    $subscription: Json,
+    $paymentIntent: Json
   ) {
     addStripeObject (
       actionPageId: $actionPageId,
       customer: $customer,
       price: $price,
-      subscription: $subscription
+      subscription: $subscription,
+      paymentIntent: $paymentIntent
     )
   }
   `;
