@@ -322,7 +322,8 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
     paymentIntent: JSON.stringify({}),
   };
 
-  if (params.frequency !== "oneoff") {
+  const isSubscription = params.frequency && params.frequency !== "oneoff";
+  if (isSubscription) {
     let price = {
       unit_amount: Math.floor(params.amount * 100),
       currency: params.currency,
@@ -339,15 +340,22 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   const response = await graphQL("addStripeObject", query, {
     variables: variables,
   });
-
+  console.log(response);
   if (response.errors) return response;
 
   const stripeResponse = JSON.parse(response.addStripeObject);
-  return {
-    subscriptionId: stripeResponse.id,
-    client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
-    response: stripeResponse,
-  };
+  console.log(stripeResponse);
+
+  if (isSubscription) {
+    return {
+      subscriptionId: stripeResponse.id,
+      client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
+      response: stripeResponse,
+    };
+  }
+
+  // XXX No idea what this should really be - just guessing.
+  return { response: stripeResponse, client_secret: stripeResponse.client_secret };
 }
 
 async function stripeCreatePaymentIntent(
