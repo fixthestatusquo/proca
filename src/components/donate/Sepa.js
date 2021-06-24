@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-import { Button, Snackbar } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
-import LockIcon from "@material-ui/icons/Lock";
 
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
@@ -20,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import { addDonateContact, errorMessages } from "../../lib/server.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
+import DonateButton from "./DonateButton";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -189,23 +189,12 @@ export default function Register(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant={
-                  config.layout?.button?.submit?.variant ||
-                  config.layout?.button?.variant ||
-                  "contained"
-                }
-                fullWidth
-                type="submit"
-                size="large"
-                startIcon={<LockIcon />}
-              >
-                {t("Donate {{amount}}{{currency}}", {
-                  amount: amount,
-                  currency: currency.symbol,
-                })}
-              </Button>
+              <DonateButton
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+                config={config}
+              />
               <ChangeAmount />
             </Grid>
           </Grid>

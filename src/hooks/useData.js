@@ -4,6 +4,7 @@ import { atom, useRecoilState } from "recoil";
 
 let formData = null;
 
+// TODO - switch to using Intl.NumberFormat
 const currencySymbols = { EUR: "€", PLN: "zł", GBP: "£" };
 
 export const initDataState = (urlData, config) => {

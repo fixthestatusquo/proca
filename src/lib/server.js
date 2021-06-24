@@ -322,10 +322,9 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
     paymentIntent: JSON.stringify({}),
   };
 
-  params.frequency = "month"; //TOFIX test
-  if (params.frequency) {
+  if (params.frequency !== "oneoff") {
     let price = {
-      unit_amount: params.amount * 100,
+      unit_amount: Math.floor(params.amount * 100),
       currency: params.currency,
       product_data: { name: "donation" },
       recurring: { interval: params.frequency, interval_count: 1 },

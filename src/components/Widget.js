@@ -44,9 +44,14 @@ const Widget = (props) => {
   });
 
   if (props) config = { ...config, ...props };
+
   config.param = getAllData(config.selector);
   config.locales = Object.assign(config.locales, getOverwriteLocales());
-  config.actionPage = parseInt(config.actionPage, 10);
+  config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
+
+  if (!config.actionPage) {
+    console.assert("No actionPage defined. Can't continue.");
+  }
   initConfigState(config);
 
   console.debug("calling initDataState", config);
