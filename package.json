@@ -35,7 +35,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.5",
-    "react-i18next": "^11.10.0",
+    "react-i18next": "^11.11.0",
     "react-ipgeolocation": "^1.4.0",
     "react-scripts": "^3.4.3",
     "react-share": "^4.4.0",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.14.3",
-    "@babel/node": "^7.14.2",
+    "@babel/node": "^7.14.7",
     "@babel/plugin-transform-react-jsx": "^7.14.3",
     "@proca/api": "2.3.4",
     "@rescripts/cli": "0.0.16",
