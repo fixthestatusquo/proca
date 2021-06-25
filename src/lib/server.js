@@ -15,6 +15,7 @@ async function graphQL(operation, query, options) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
+  // console.debug("graphql: ", query, options.variables);
   await fetch(
     options.apiUrl +
     (options.variables.actionPage
@@ -318,12 +319,31 @@ async function stripeCreateCustomer(actionPageId, contactDetails) {
   if (response.errors) return response;
 
   const customer = JSON.parse(response.addStripeObject);
-  console.log("customer create stripe response", customer);
+  // console.log("customer create stripe response", customer);
 
   return customer;
 }
 
 async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
+  const customer = await stripeCreateCustomer(params.actionPage, params.contact);
+
+  const amount = Math.floor(params.amount * 100);
+  const currency = params.currency;
+  const actionPage = params.actionPage;
+
+  const isSubscription = params.frequency && params.frequency !== "oneoff";
+  if (isSubscription) {
+    const frequency = params.frequency;
+
+    return await stripeCreateSubscription({
+      actionPage, customer, frequency, amount, currency
+    }, params);
+  }
+
+  return await stripeCreatePaymentIntent({ actionPage, customer, amount, currency }, params);
+}
+
+async function stripeCreatePaymentIntent({ actionPage, customer, amount, currency }) {
   var query = `mutation addStripeObject (
     $actionPageId: Int!,
     $customer: Json,
@@ -341,94 +361,85 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   }
   `;
 
-  const customer = await stripeCreateCustomer(params.actionPage, params.contact);
-
-  const amount = Math.floor(params.amount * 100);
-
   const variables = {
-    actionPageId: params.actionPage,
+    actionPageId: actionPage,
     paymentIntent: JSON.stringify({
       amount: amount,
-      currency: params.currency,
+      currency: currency,
       setup_future_usage: "off_session",
       customer: customer.id
     }),
   };
-
-  const isSubscription = params.frequency && params.frequency !== "oneoff";
-  if (isSubscription) {
-    let price = {
-      unit_amount: amount,
-      currency: params.currency,
-      product_data: { name: "donation" },
-      recurring: { interval: params.frequency, interval_count: 1 },
-    };
-    variables.price = JSON.stringify(price);
-    variables.subscription = JSON.stringify({
-      payment_behavior: "default_incomplete",
-      expand: ["latest_invoice.payment_intent"],
-    });
-  }
-  console.log(query, variables);
+  // console.debug("GraphQL query ", query, variables);
   const response = await graphQL("addStripeObject", query, {
     variables: variables,
   });
-  console.log(response);
+  // console.debug("Proca Response ", response);
   if (response.errors) return response;
 
   const stripeResponse = JSON.parse(response.addStripeObject);
-  console.log(stripeResponse);
+  // console.debug("Stripe response ", stripeResponse);
 
-  if (isSubscription) {
-    return {
-      subscriptionId: stripeResponse.id,
-      client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
-      response: stripeResponse,
-    };
-  }
-
-  // XXX No idea what this should really be - just guessing.
   return { response: stripeResponse, client_secret: stripeResponse.client_secret };
 }
 
-async function stripeCreatePaymentIntent(
-  pageId,
-  amount,
-  currency,
-  idempotencyKey,
-  paymentMethod = ["card"]
-) {
-  var query = `mutation addStripePaymentIntent(
+async function stripeCreateSubscription({ actionPage, customer, amount, currency, frequency }, params) {
+  var query = `mutation addStripeObject (
     $actionPageId: Int!,
-    $input: PaymentIntentInput!
+    $customer: Json,
+    $price: Json,
+    $subscription: Json,
+    $paymentIntent: Json
   ) {
-    addStripePaymentIntent(
+    addStripeObject (
       actionPageId: $actionPageId,
-      input: $input,
+      customer: $customer,
+      price: $price,
+      subscription: $subscription,
+      paymentIntent: $paymentIntent
     )
   }
   `;
 
-  let variables = {
-    actionPageId: pageId,
-    input: {
-      amount: amount * 1.0,
-      currency: currency,
-      paymentMethodTypes: paymentMethod,
-      // "statement_descriptor": "Custom descriptor"
-    },
-  };
-  const response = await graphQL("addStripePaymentIntent", query, {
-    variables: variables,
-  });
+  // const STRIPE_RECURRING_INTERVALS = {
+  //   weekly: 'week',
+  //   monthly: 'month',
+  //   daily: 'day',
+  //   yearly: 'year',
+  // };
 
+  // items[0][price_data][recurring][interval].", 
+  const subscription = {
+    payment_behavior: "default_incomplete",
+    metadata: params.metadata || {},
+    customer: customer.id,
+    items: [{
+      price_data: {
+        unit_amount: amount,
+        currency: currency,
+        product: params.stripe_product_id,
+        recurring: { interval: frequency, interval_count: 1 },
+      }
+    }],
+    expand: ["latest_invoice.payment_intent"],
+  };
+
+
+  const response = await graphQL("addStripeObject", query, {
+    variables: {
+      actionPageId: actionPage,
+      subscription: JSON.stringify(subscription),
+    },
+  });
   if (response.errors) return response;
 
-  const stripeResponse = JSON.parse(response.addStripePaymentIntent);
+  const stripeResponse = JSON.parse(response.addStripeObject);
+  // console.debug(" Create Subscription Response:", stripeResponse);
   return {
-    client_secret: stripeResponse.client_secret,
+    subscriptionId: stripeResponse.id,
+    client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
     response: stripeResponse,
-  };
+  }
 }
 
 const errorMessages = (errors) => {

@@ -39,6 +39,7 @@ import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
 
+// TODO - read from the config
 const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
 console.assert(
@@ -110,6 +111,12 @@ const PaymentForm = (props) => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
+
+  if (!config.component.donation?.stripe?.product_id) {
+    throw Error(
+      "You must configure a Stripe product id " +
+      "[component.donation.stripe.product_id] to use Stripe.");
+  }
   const stripeError = useRecoilValue(stripeErrorAtom);
   const [data] = useData();
 
@@ -304,7 +311,7 @@ const SubmitButton = (props) => {
     setSubmitting(true);
 
     if (!stripeComplete) {
-      setStripeError({ message: t("Please provide your  card information.") });
+      setStripeError({ message: t("Please provide your card information.") });
       btn.disabled = false;
       setSubmitting(false);
       return false;
@@ -330,6 +337,7 @@ const SubmitButton = (props) => {
         email: data.email,
         address: { country: data.country, postal_code: data.postcode },
       },
+      stripe_product_id: config.component.donation.stripe.product_id,
     };
     if (data.frequency === "monthly") params.frequency = "month";
 
