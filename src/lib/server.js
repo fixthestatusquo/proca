@@ -17,9 +17,9 @@ async function graphQL(operation, query, options) {
   }
   await fetch(
     options.apiUrl +
-      (options.variables.actionPage
-        ? "?id=" + options.variables.actionPage
-        : ""),
+    (options.variables.actionPage
+      ? "?id=" + options.variables.actionPage
+      : ""),
     {
       method: "POST",
       headers: headers,
@@ -318,16 +318,21 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   }
   `;
 
+  const amount = Math.floor(params.amount * 100);
+
   const variables = {
     actionPageId: params.actionPage,
     customer: JSON.stringify(params.contact),
-    paymentIntent: JSON.stringify({}),
+    paymentIntent: JSON.stringify({
+      amount: amount,
+      currency: params.currency
+    }),
   };
 
   const isSubscription = params.frequency && params.frequency !== "oneoff";
   if (isSubscription) {
     let price = {
-      unit_amount: Math.floor(params.amount * 100),
+      unit_amount: amount,
       currency: params.currency,
       product_data: { name: "donation" },
       recurring: { interval: params.frequency, interval_count: 1 },
