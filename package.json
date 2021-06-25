@@ -23,7 +23,7 @@
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.15.0",
     "@testing-library/jest-dom": "^5.13.0",
-    "@testing-library/react": "^11.2.7",
+    "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.9",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^6.7.0",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.14.3",
-    "@babel/node": "^7.14.2",
+    "@babel/node": "^7.14.7",
     "@babel/plugin-transform-react-jsx": "^7.14.3",
     "@proca/api": "2.3.4",
     "@rescripts/cli": "0.0.16",
