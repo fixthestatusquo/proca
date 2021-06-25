@@ -300,6 +300,29 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
+async function stripeCreateCustomer(actionPageId, contactDetails) {
+  var query = `mutation addStripeObject (
+    $actionPageId: Int!,
+    $customer: Json,
+  ) {
+    addStripeObject (
+      actionPageId: $actionPageId,
+      customer: $customer,
+    )
+  }
+  `;
+
+  const response = await graphQL("addStripeObject", query, {
+    variables: { actionPageId: actionPageId, customer: JSON.stringify(contactDetails) }
+  });
+  if (response.errors) return response;
+
+  const customer = JSON.parse(response.addStripeObject);
+  console.log("customer create stripe response", customer);
+
+  return customer;
+}
+
 async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   var query = `mutation addStripeObject (
     $actionPageId: Int!,
@@ -318,14 +341,17 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   }
   `;
 
+  const customer = await stripeCreateCustomer(params.actionPage, params.contact);
+
   const amount = Math.floor(params.amount * 100);
 
   const variables = {
     actionPageId: params.actionPage,
-    customer: JSON.stringify(params.contact),
     paymentIntent: JSON.stringify({
       amount: amount,
-      currency: params.currency
+      currency: params.currency,
+      setup_future_usage: "off_session",
+      customer: customer.id
     }),
   };
 
