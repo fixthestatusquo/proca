@@ -83,5 +83,7 @@
     "Donate": "Donate",
     "yearly": "yearly",
     "weekly": "Weekly",
-    "monthly": "monthly"
+    "monthly": "monthly",
+    "a weekly": "Every week",
+    "a monthly": "Every month"
 }
