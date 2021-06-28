@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "تبرع {{amount}} {{currency}}",
     "yearly": "سنوياً",
     "weekly": "أسبوعيًّا",
-    "monthly": "شهريًّا"
+    "monthly": "شهريًّا",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "أنا أتبرع {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "أسبوعيًّا",
+    "a monthly": "كل شهر"
 }
