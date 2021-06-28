@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Lahjoittaa {{amount}}{{currency}}",
     "yearly": "vuosittain",
     "weekly": "Viikoittain",
-    "monthly": "kuukausittain"
+    "monthly": "kuukausittain",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Minä lahjoitan {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
+    "a weekly": "joka viikko",
+    "a monthly": "joka kuukausi"
 }
