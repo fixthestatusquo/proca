@@ -90,5 +90,8 @@
     "Donate {{amount}}{{currency}}": "Darowizna {{amount}}{{currency}}",
     "yearly": "co rok",
     "weekly": "co tydzień",
-    "monthly": "co miesiąc"
+    "monthly": "co miesiąc",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Przekazuję {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "co tydzień",
+    "a monthly": "co miesiąc"
 }
