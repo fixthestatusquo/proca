@@ -15,11 +15,12 @@ async function graphQL(operation, query, options) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
     headers.Authorization = "Basic " + options.authorization;
   }
+  // console.debug("graphql: ", query, options.variables);
   await fetch(
     options.apiUrl +
-      (options.variables.actionPage
-        ? "?id=" + options.variables.actionPage
-        : ""),
+    (options.variables.actionPage
+      ? "?id=" + options.variables.actionPage
+      : ""),
     {
       method: "POST",
       headers: headers,
@@ -217,6 +218,20 @@ async function addAction(actionPage, actionType, data) {
   return response;
 }
 
+async function addDonateContact(provider, actionPage, data) {
+  delete data.IBAN;
+  if (!data.donation.payload) data.donation.payload = {};
+  data.donation.payload.provider = provider;
+  data.donation.payload = JSON.stringify(data.donation.payload);
+  data.donation.amount = data.donation.amount * 100; // to do: check the currency see if the smallest unit is cent indeed
+  if (data.donation.frequencyUnit) {
+    console.log(data.donation);
+    const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
+    data.donation.frequencyUnit = fu[data.donation.frequencyUnit];
+  }
+  return await addActionContact("donate", actionPage, data);
+}
+
 async function addActionContact(actionType, actionPage, data) {
   var query = `mutation addActionContact(
   $action: ActionInput!,
@@ -241,9 +256,10 @@ async function addActionContact(actionType, actionPage, data) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  const expected = "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking".split(
-    ","
-  );
+  const expected =
+    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
+      ","
+    );
   let variables = {
     actionPage: actionPage,
     action: {
@@ -262,6 +278,8 @@ async function addActionContact(actionType, actionPage, data) {
     },
     privacy: privacy,
   };
+
+  if (data.donation) variables.action.donation = data.donation;
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.region) variables.contact.address.region = data.region;
   if (data.locality) variables.contact.address.locality = data.locality;
@@ -283,16 +301,160 @@ async function addActionContact(actionType, actionPage, data) {
   return response.addActionContact;
 }
 
+async function stripeCreateCustomer(actionPageId, contactDetails) {
+  var query = `mutation addStripeObject (
+    $actionPageId: Int!,
+    $customer: Json,
+  ) {
+    addStripeObject (
+      actionPageId: $actionPageId,
+      customer: $customer,
+    )
+  }
+  `;
+
+  const response = await graphQL("addStripeObject", query, {
+    variables: { actionPageId: actionPageId, customer: JSON.stringify(contactDetails) }
+  });
+  if (response.errors) return response;
+
+  const customer = JSON.parse(response.addStripeObject);
+  // console.log("customer create stripe response", customer);
+
+  return customer;
+}
+
+async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
+  const customer = await stripeCreateCustomer(params.actionPage, params.contact);
+
+  const amount = Math.floor(params.amount * 100);
+  const currency = params.currency;
+  const actionPage = params.actionPage;
+
+  const isSubscription = params.frequency && params.frequency !== "oneoff";
+  if (isSubscription) {
+    const frequency = params.frequency;
+
+    return await stripeCreateSubscription({
+      actionPage, customer, frequency, amount, currency
+    }, params);
+  }
+
+  return await stripeCreatePaymentIntent({ actionPage, customer, amount, currency }, params);
+}
+
+async function stripeCreatePaymentIntent({ actionPage, customer, amount, currency }) {
+  var query = `mutation addStripeObject (
+    $actionPageId: Int!,
+    $customer: Json,
+    $price: Json,
+    $subscription: Json,
+    $paymentIntent: Json
+  ) {
+    addStripeObject (
+      actionPageId: $actionPageId,
+      customer: $customer,
+      price: $price,
+      subscription: $subscription,
+      paymentIntent: $paymentIntent
+    )
+  }
+  `;
+
+  const variables = {
+    actionPageId: actionPage,
+    paymentIntent: JSON.stringify({
+      amount: amount,
+      currency: currency,
+      setup_future_usage: "off_session",
+      customer: customer.id
+    }),
+  };
+  // console.debug("GraphQL query ", query, variables);
+  const response = await graphQL("addStripeObject", query, {
+    variables: variables,
+  });
+  // console.debug("Proca Response ", response);
+  if (response.errors) return response;
+
+  const stripeResponse = JSON.parse(response.addStripeObject);
+  // console.debug("Stripe response ", stripeResponse);
+
+  return { response: stripeResponse, client_secret: stripeResponse.client_secret };
+}
+
+async function stripeCreateSubscription({ actionPage, customer, amount, currency, frequency }, params) {
+  var query = `mutation addStripeObject (
+    $actionPageId: Int!,
+    $customer: Json,
+    $price: Json,
+    $subscription: Json,
+    $paymentIntent: Json
+  ) {
+    addStripeObject (
+      actionPageId: $actionPageId,
+      customer: $customer,
+      price: $price,
+      subscription: $subscription,
+      paymentIntent: $paymentIntent
+    )
+  }
+  `;
+
+  // const STRIPE_RECURRING_INTERVALS = {
+  //   weekly: 'week',
+  //   monthly: 'month',
+  //   daily: 'day',
+  //   yearly: 'year',
+  // };
+
+  // items[0][price_data][recurring][interval].", 
+  const subscription = {
+    payment_behavior: "default_incomplete",
+    metadata: params.metadata || {},
+    customer: customer.id,
+    items: [{
+      price_data: {
+        unit_amount: amount,
+        currency: currency,
+        product: params.stripe_product_id,
+        recurring: { interval: frequency, interval_count: 1 },
+      }
+    }],
+    expand: ["latest_invoice.payment_intent"],
+  };
+
+
+  const response = await graphQL("addStripeObject", query, {
+    variables: {
+      actionPageId: actionPage,
+      subscription: JSON.stringify(subscription),
+    },
+  });
+  if (response.errors) return response;
+
+  const stripeResponse = JSON.parse(response.addStripeObject);
+  // console.debug(" Create Subscription Response:", stripeResponse);
+  return {
+    subscriptionId: stripeResponse.id,
+    client_secret: stripeResponse.latest_invoice.payment_intent.client_secret,
+    response: stripeResponse,
+  }
+}
+
 const errorMessages = (errors) => {
   return errors.map(({ message }) => message).join(", ");
 };
 
 export {
   addActionContact,
+  addDonateContact,
   addAction,
   getCount,
   getCountByName,
   getLatest,
   graphQL,
+  stripeCreatePaymentIntent,
+  stripeCreate,
   errorMessages,
 };

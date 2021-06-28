@@ -1,38 +1,46 @@
-import { Button } from "@material-ui/core";
+import { Button, withStyles } from "@material-ui/core";
 import useData from "../../../hooks/useData";
-import useLayout from "../../../hooks/useLayout";
 
-import React from 'react';
+import React from "react";
+
+const StyledButton = withStyles((theme) => ({
+  root: {
+    // padding: theme.spacing(1),
+    width: "100%",
+    textAlign: "center",
+    fontSize: theme.typography.fontSize * 1.25,
+    fontWeight: theme.typography.fontWeightBold,
+  },
+}))(Button);
 
 const AmountButton = (props) => {
+  const [data, setData] = useData();
+  const amount = data.amount;
 
-    const [data, setData] = useData();
-    const layout = useLayout();
+  const handleAmount = (e, amount) => {
+    setData("amount", amount);
+    if (props.onClick) {
+      props.onClick(e, props.amount);
+    }
+  };
 
-    const amount = data.amount;
+  const currency = props.currency;
 
-    const handleAmount = (e, amount) => {
-        setData("amount", amount);
-        if (props.onClick) {
-            props.onClick(e, props.amount)
-        }
-    };
-
-    const currency = data.currency;
-
-    return (
-        <Button
-            color="primary"
-            size="large"
-            disabled={amount === props.amount}
-            disableElevation={amount === props.amount}
-            variant={layout.variant}
-            onClick={(e) => handleAmount(e, props.amount)}
-            className={props.className}
-        >
-            {props.amount}&nbsp;{currency.symbol}
-        </Button>
-    );
+  // todo: offer this as an option? color={amount === props.amount ? "primary" : "default"}
+  return (
+    <StyledButton
+      size="large"
+      name="amount"
+      color="primary"
+      aria-pressed={amount === props.amount}
+      disableElevation={amount === props.amount}
+      variant={amount === props.amount ? "contained" : "outlined"}
+      onClick={(e) => handleAmount(e, props.amount)}
+      classes={props.classes}
+    >
+      {props.amount}&nbsp;{currency.symbol}
+    </StyledButton>
+  );
 };
 
 export default AmountButton;

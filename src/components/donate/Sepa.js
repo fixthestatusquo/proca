@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
-import { Box, Button, Snackbar } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
-import LockIcon from "@material-ui/icons/Lock";
 
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
 import ChangeAmount from "./ChangeAmount";
+import PaymentBox from "./PaymentBox";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { addActionContact, errorMessages } from "../../lib/server.js";
+import { addDonateContact, errorMessages } from "../../lib/server.js";
 import IBAN from "iban";
+import DonateTitle from "./DonateTitle";
+import DonateButton from "./DonateButton";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -61,16 +63,28 @@ export default function Register(props) {
   const form = useForm({
     defaultValues: data,
   });
+
+  const amount = data.amount;
+  const currency = data.currency;
+  const frequency = data.frequency;
+
   const { handleSubmit, setError } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
-  const onSubmit = async (data) => {
-    data.tracking = Url.utm();
-    const result = await addActionContact(
-      config.test ? "test-donate" : "donate",
-      config.actionPage,
-      data
-    );
+  const onSubmit = async (d) => {
+    d.tracking = Url.utm();
+    console.log(data);
+    d.donation = {
+      amount: amount,
+      currency: currency.code,
+      payload: {
+        iban: d.IBAN,
+      },
+    };
+    if (data.frequency) d.donation.frequencyUnit = data.frequency;
+    if (config.test) d.donation.payload.test = true;
+
+    const result = await addDonateContact("sepa", config.actionPage, d);
     if (result.errors) {
       let handled = false;
       console.log(result.errors.fields, data);
@@ -117,12 +131,17 @@ export default function Register(props) {
     >
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
-        <Box marginBottom={1}>
-          <h3>
-            {t("I'm donating") + " " + data.amount + data.currency?.symbol}
-          </h3>
-
+        <PaymentBox>
           <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <DonateTitle
+                config={config}
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+              />
+            </Grid>
+
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <TextField
                 form={form}
@@ -170,23 +189,16 @@ export default function Register(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-                size="large"
-                startIcon={<LockIcon />}
-              >
-                {t("Donate {{amount}}{{currency}}", {
-                  amount: data.amount,
-                  currency: data.currency.symbol,
-                })}
-              </Button>
+              <DonateButton
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+                config={config}
+              />
               <ChangeAmount />
             </Grid>
           </Grid>
-        </Box>
+        </PaymentBox>
       </Container>
     </form>
   );

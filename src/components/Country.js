@@ -64,14 +64,16 @@ export default (props) => {
   } else {
     countries = countriesJson;
   }
-  const compare = new Intl.Collator(config.lang.toLowerCase()).compare;
+  const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
+    .compare;
   countries.sort((a, b) => compare(a.name, b.name));
 
   if (props.other) {
     // no idea why we have useMemo here
-    countries = useMemo(() => addMissingCountries(countries, compare), [
-      compare,
-    ]);
+    countries = useMemo(
+      () => addMissingCountries(countries, compare),
+      [compare]
+    );
   }
 
   const { t } = useTranslation();

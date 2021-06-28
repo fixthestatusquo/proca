@@ -1,3 +1,6 @@
+
+
+
 async function paymentIntent(params) {
   const url = process.env.REACT_APP_DONATION_URL + "/stripe/oneoff";
   const headers = {
