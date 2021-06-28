@@ -90,5 +90,8 @@
     "Donate {{amount}}{{currency}}": "Darovat {{amount}}{{currency}}",
     "yearly": "každý rok",
     "weekly": "týdně",
-    "monthly": "měsíčně"
+    "monthly": "měsíčně",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Přispívám {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "každý týden",
+    "a monthly": "každý měsíc"
 }
