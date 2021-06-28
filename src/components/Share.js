@@ -20,6 +20,8 @@ import Url from "../lib/urlparser";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import {
   EmailShareButton,
@@ -171,8 +173,8 @@ export default function ShareAction(props) {
         />
         <ActionIcon
           icon={TelegramIcon}
-          component={TelegramShareButton}
           title={shareText("share-telegram")}
+          component={TelegramShareButton}
         />
         {!!config.component?.share?.email && (
           <ActionIcon
@@ -186,12 +188,20 @@ export default function ShareAction(props) {
         {!!config.component?.share?.reddit && (
           <ActionIcon icon={RedditIcon} component={RedditShareButton} />
         )}
-        <ActionIcon icon={LinkedinIcon} component={LinkedinShareButton} />
+        <ActionIcon
+          icon={LinkedinIcon}
+          component={LinkedinShareButton}
+          title={metadata.title}
+          summary={shareText("share-linkedin") || metadata.description}
+        />
       </CardActions>
     );
   }
 
   function ActionIcon(props) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
       ""
@@ -223,8 +233,11 @@ export default function ShareAction(props) {
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
+        small={isMobile}
       >
-        {props.icon ? props.icon({ round: true, size: 48 }) : null}
+        {props.icon
+          ? props.icon({ round: true, size: isMobile ? 40 : 48 })
+          : null}
       </IconButton>
     );
   }

@@ -1,14 +1,15 @@
-import React from "react";
 import { useLayoutEffect, useState } from "react";
 import PaypalIcon from "../images/Paypal.js";
 import { addAction, addActionContact } from "../lib/server.js";
 import { useCampaignConfig } from "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import uuid from "../lib/uuid";
+import useData from "./useData.js";
 
 const usePaypal = (params) => {
   const [loadState, setLoadState] = useState({ loading: false, loaded: false });
   const config = useCampaignConfig();
+  const [formData] = useData();
 
   const addClick = (event, payload) => {
     addAction(config.actionPage, event, {
@@ -20,6 +21,7 @@ const usePaypal = (params) => {
 
   useLayoutEffect(() => {
     if (!params.amount || params.amount === 0 || loadState.loading) return;
+    const donateConfig = config.component.donation;
 
     const renderButton = () => {
       const paypal = window.paypal;
@@ -68,7 +70,7 @@ const usePaypal = (params) => {
           }
           d.tracking = Url.utm();
           console.log(d);
-          const result = await addActionContact("donate", config.actionPage, d);
+          await addActionContact("donate", config.actionPage, d);
           typeof params.completed === "function" && params.completed(d);
         },
 
@@ -86,6 +88,7 @@ const usePaypal = (params) => {
           height: 30,
           layout: "vertical",
           label: "paypal",
+          ...(donateConfig?.paypal?.styles || {}),
         },
       });
       document.querySelector(params.dom || "#paypal-container").innerHTML = "";
@@ -99,9 +102,13 @@ const usePaypal = (params) => {
 
     setLoadState({ loading: true, loaded: false });
     const script = document.createElement("script");
-    if (!config.component.donation?.paypal?.clientId) return;
+
+    if (!donateConfig?.paypal?.clientId) return;
+
     script.src =
-      "https://www.paypal.com/sdk/js?currency=EUR&client-id=" +
+      "https://www.paypal.com/sdk/js?currency=" +
+      (formData.currency.code || "EUR") +
+      "&client-id=" +
       (config.test ? "sb" : config.component.donation.paypal.clientId || "sb");
     //TODO: merchant-id:XXX or data-partner-attribution-id
     script.async = true;
@@ -112,7 +119,8 @@ const usePaypal = (params) => {
     return () => {
       console.log("unload"); //document.body.removeChild(script);
     };
-  }, [loadState, params]);
+  }, [loadState, params]); // NOTE: React Hook useLayoutEffect has missing dependencies
+
   return params.amount > 0 ? "span" : PaypalIcon;
 };
 export default usePaypal;

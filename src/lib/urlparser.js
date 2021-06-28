@@ -49,6 +49,9 @@ const data = (prefix) => {
     "locality",
     "country",
     "comment",
+    "frequency",
+    "currency",
+    "lang",
   ];
   return parse(whitelist, prefix);
 };

@@ -1,38 +1,64 @@
 import { useData } from "../../../hooks/useData";
-import useLayout from "../../../hooks/useLayout";
-import React from 'react';
-import { Button, makeStyles } from '@material-ui/core';
+import React from "react";
+import { Button, Grid, withStyles } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
-const useStyles = makeStyles((theme) => ({
-    toggle: {
-        "&:disabled": {
-            backgroundColor: theme.palette.secondary.main,
-            color: theme.palette.getContrastText(theme.palette.secondary.main)
-        }
-    },
-}));
+const StyledButton = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(1),
+    width: "100%",
+    textAlign: "center",
+  },
+  disabled: {},
+}))(Button);
 
 const FrequencyButton = (props) => {
-    const classes = useStyles();
+  const [, setData] = useData();
 
-    const layout = useLayout();
-    const [data, setData] = useData();
+  const handleFrequency = (i) => {
+    setData("frequency", i);
+  };
 
-    const handleFrequency = (i) => {
-        setData("frequency", i);
-    };
-    const frequency = data.frequency;
+  const value = props.buttonValue;
+  const selected = props.selected;
 
-    return (
-        <Button
-            classes={{ root: classes.toggle }}
-            onClick={() => handleFrequency(props.frequency)}
-            variant={layout.variant}
-            color="secondary"
-            disabled={props.frequency === frequency}
-            disableElevation={props.frequency === frequency}
-            value={props.frequency}
-        >{props.children}</Button>)
-}
+  // todo: offer this as an option? color={frequency === props.frequency ? "secondary" : "default"}
+  return (
+    <StyledButton
+      color="secondary"
+      onClick={() => handleFrequency(value)}
+      variant={selected === value ? "contained" : "outlined"}
+      disableElevation={selected === value}
+      value={value}
+      classes={props.classes}
+    >
+      {props.children}
+    </StyledButton>
+  );
+};
 
-export default FrequencyButton;
+const FrequencyButtons = ({ frequencies, selected, classes }) => {
+  const { t } = useTranslation();
+
+  // if the widget is configured for only one frequency, we don't show any buttons
+  // and data.frequency will already be set. See initDataState...
+
+  if (frequencies.length === 0) {
+    return null;
+  }
+  return (
+    <div className={classes.frequency}>
+      <Grid container spacing={1}>
+        {frequencies.map((f) => (
+          <Grid key={f} item sm={12} md={6}>
+            <FrequencyButton buttonValue={f} selected={selected}>
+              {t(f.toUpperCase())}
+            </FrequencyButton>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
+  );
+};
+
+export default FrequencyButtons;

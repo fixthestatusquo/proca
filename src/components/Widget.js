@@ -30,6 +30,7 @@ const Widget = (props) => {
   const [current, setCurrent] = useState(null);
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
+
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
@@ -41,20 +42,29 @@ const Widget = (props) => {
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...data };
   });
-  initDataState(data);
+
+  if (props) config = { ...config, ...props };
+
+  config.param = getAllData(config.selector);
+  config.locales = Object.assign(config.locales, getOverwriteLocales());
+  config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
+
+  if (!config.actionPage) {
+    console.assert("No actionPage defined. Can't continue.");
+  }
+  initConfigState(config);
+
+  console.debug("calling initDataState", config);
+  initDataState(data, config);
+
   useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
-      procaReady({});
+      procaReady({}); // NOTE: should we pass config to procaReady?
     }
   }, [props]);
 
-  if (props) config = { ...config, ...props };
-  config.param = getAllData(config.selector);
-  config.locales = Object.assign(config.locales, getOverwriteLocales());
-  config.actionPage = parseInt(config.actionPage, 10);
-  initConfigState(config);
   if (config.component.widget?.mobileVersion === false) isMobile = false;
 
   if (
@@ -160,7 +170,24 @@ const Widget = (props) => {
     if (current < journey.length - 1) {
       setCurrent(current + 1);
     } else {
+      // we're done - check what to do next!
+
+      /*global procaJourneyCompleted*/
+      /*eslint no-undef: "error"*/
+      if (typeof procaJourneyCompleted === "function") {
+        procaJourneyCompleted({}); // NOTE: should we pass config to procaReady?
+        return;
+      }
+
+      if (config?.completed_redirect_url) {
+        window.location = config.completed_redirect_url;
+        return;
+      }
+
+      // TODO: what's a nicer thing to do at the end - jumping back is likely to
+      // make users think their submission didn't work.
       console.error("end of the journey, no more steps");
+
       setCurrent(0);
     }
   };

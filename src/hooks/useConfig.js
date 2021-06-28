@@ -13,20 +13,9 @@ import {
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "../lib/i18n";
+import _set from "lodash/set";
 
 export let configState = null;
-/*
-export const configState = atom({
-  key:'campaign',
-  default:{
-    actionPage:null,
-    name:null,
-    organisation:null,
-    lang:null,
-    journey: [],
-  } // check the json config attribute in the actionpage for example of more advanced format
-});
-*/
 
 export const initConfigState = (config) => {
   if (config.locales) {
@@ -91,6 +80,7 @@ export const setGlobalState = (atom, key, value) => {
 
 const set = (key, value) => {
   // obsolete, will soon be removed
+  console.log("obsolete, shouldn't be there");
   const event = new CustomEvent("proca-set", {
     detail: { key: key, value: value },
   });
@@ -124,19 +114,15 @@ export const ConfigProvider = (props) => {
   const go = props.go;
 
   const setCampaignConfig = useCallback(
-    (key, value) => {
-      if (typeof key === "object") {
-        _setCampaignConfig((current) => {
-          return { ...current, ...key };
-        });
-        return;
-      }
+    // trying to set paths one at a time with multiple proca.set() calls led to
+    // read-only errors... so set the all at once.
+    (to_update) => {
       _setCampaignConfig((current) => {
-        let d = { ...current };
-        if (typeof value === "object") {
-          d[key] = { ...d[key], ...value };
-        } else d[key] = value;
-        return d;
+        for (const [path, value] of Object.entries(to_update)) {
+          // mutates object in place
+          _set(current, path, value);
+        }
+        return current;
       });
     },
     [_setCampaignConfig]
@@ -162,7 +148,10 @@ export const ConfigProvider = (props) => {
             setLayout(e.detail.key, e.detail.value);
             break;
           case "campaign":
-            setCampaignConfig(e.detail.key, e.detail.value);
+            if (e.detail.value && !e.detail.key instanceof Object) {
+              setCampaignConfig({ [e.detail.key]: e.detail.value });
+            }
+            setCampaignConfig(e.detail.key);
             break;
           case "data":
             setData(e.detail.key, e.detail.value);
