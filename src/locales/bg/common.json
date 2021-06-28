@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "Дари {{amount}}{{currency}}",
     "yearly": "годишно",
     "weekly": "седмично",
-    "monthly": "месечно"
+    "monthly": "месечно",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Аз дарявам {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "всяка седмица",
+    "a monthly": "всеки месец"
 }
