@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}",
     "yearly": "årligt",
     "weekly": "ugentligt",
-    "monthly": "månedsvis"
+    "monthly": "månedsvis",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Jeg donerer {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
+    "a weekly": "hver uge",
+    "a monthly": "hver måned"
 }
