@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "Paaukoti {{amount}}{{currency}}",
     "yearly": "kas metus",
     "weekly": "kas savaitę",
-    "monthly": "kas mėnesį"
+    "monthly": "kas mėnesį",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Aš aukoju {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "kiekvieną savaitę",
+    "a monthly": "kiekvieną mėnesį"
 }
