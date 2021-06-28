@@ -169,7 +169,11 @@ export default function ShareAction(props) {
           title={shareText("share-twitter")}
           component={TwitterShareButton}
         />
-        <ActionIcon icon={TelegramIcon} component={TelegramShareButton} />
+        <ActionIcon
+          icon={TelegramIcon}
+          component={TelegramShareButton}
+          title={shareText("share-telegram")}
+        />
         {!!config.component?.share?.email && (
           <ActionIcon
             icon={EmailIcon}
