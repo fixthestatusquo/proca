@@ -1,4 +1,6 @@
 import Url from "url-parse";
+import queryString from "query-string";
+
 /*
         var urlParams = new URLSearchParams(window.location.search);
         params.values = {};
@@ -100,5 +102,15 @@ const utm = () => {
   return utm;
 };
 
-export { utm, data, step, config, isTest };
+const create = (base, path, params) => {
+  const url = path.startsWith("http") ? new URL(path) : new URL(base, path);
+  const search = new URLSearchParams();
+  for (const [key, value] in params) {
+    search.append(key, value);
+  }
+  url.search = search;
+  return url;
+};
+
+export { utm, data, step, config, isTest, create };
 export default { utm: utm, data: data, config: config };
