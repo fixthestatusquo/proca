@@ -15,6 +15,7 @@ const StyledButton = withStyles((theme) => ({
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
+  const currency = props.currency;
   const amount = data.amount;
 
   const handleAmount = (e, amount) => {
@@ -23,8 +24,6 @@ const AmountButton = (props) => {
       props.onClick(e, props.amount);
     }
   };
-
-  const currency = props.currency;
 
   // todo: offer this as an option? color={amount === props.amount ? "primary" : "default"}
   return (

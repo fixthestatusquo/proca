@@ -65,7 +65,7 @@ export default function Register(props) {
   });
 
   const amount = data.amount;
-  const currency = data.currency;
+  const currency = config.component.donation.currency;
   const frequency = data.frequency;
 
   const { handleSubmit, setError } = form;

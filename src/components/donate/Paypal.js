@@ -11,8 +11,9 @@ import DonateTitle from "./DonateTitle";
 const Paypal = (props) => {
   const [data] = useData();
   const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
   const ButtonPaypal = usePaypal({
-    currency: data.currency,
+    currency: donateConfig.currency,
     amount: data.amount,
     recurring: data.recurring,
   });
@@ -25,7 +26,7 @@ const Paypal = (props) => {
             <DonateTitle
               config={config}
               amount={data.amount}
-              currency={data.currency}
+              currency={donateConfig.currency}
               frequency={data.frequency}
             />
           </Grid>

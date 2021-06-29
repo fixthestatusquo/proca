@@ -4,9 +4,6 @@ import { atom, useRecoilState } from "recoil";
 
 let formData = null;
 
-// TODO - switch to using Intl.NumberFormat
-const currencySymbols = { EUR: "€", PLN: "zł", GBP: "£" };
-
 export const initDataState = (urlData, config) => {
   if (formData) return false;
 
@@ -37,38 +34,7 @@ export const initDataState = (urlData, config) => {
     }
   }
 
-  // If we got a currency code in the URL, convert the code to { code: ..., symbol: ... }
-
-  if (typeof urlData.currency === "string") {
-    try {
-      // Look up symbol for the currency
-      urlData.currency = {
-        symbol: currencySymbols[urlData.currency],
-        code: urlData.currency,
-      };
-    } catch (e) {
-      console.debug(
-        "Oops, we don't know about that currency: ",
-        urlData.currency
-      );
-    }
-  }
-
-  if (!urlData.currency) {
-    try {
-      urlData.currency = config.component.donation.currency;
-    } catch (e) {
-      // noop
-      console.debug("Error reading currency from config", e);
-    }
-  }
-
-  if (!urlData.currency) {
-    urlData.currency = { code: "EUR", symbol: "€" };
-  }
-
   // If frequency wasn't in the URL, check the config
-
   if (!urlData.frequency) {
     try {
       urlData.frequency = config.component.donation.frequency.default;
@@ -81,9 +47,6 @@ export const initDataState = (urlData, config) => {
   formData = atom({
     key: "data",
     default: {
-      // we need a default here, because nothing in the interface
-      // calls setData for currency
-      currency: { symbol: "€", code: "EUR" },
       ...urlData,
     },
   });

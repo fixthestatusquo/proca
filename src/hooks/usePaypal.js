@@ -4,12 +4,10 @@ import { addAction, addActionContact } from "../lib/server.js";
 import { useCampaignConfig } from "../hooks/useConfig";
 import Url from "../lib/urlparser.js";
 import uuid from "../lib/uuid";
-import useData from "./useData.js";
 
 const usePaypal = (params) => {
   const [loadState, setLoadState] = useState({ loading: false, loaded: false });
   const config = useCampaignConfig();
-  const [formData] = useData();
 
   const addClick = (event, payload) => {
     addAction(config.actionPage, event, {
@@ -107,7 +105,7 @@ const usePaypal = (params) => {
 
     script.src =
       "https://www.paypal.com/sdk/js?currency=" +
-      (formData.currency.code || "EUR") +
+      donateConfig.currency.code +
       "&client-id=" +
       (config.test ? "sb" : config.component.donation.paypal.clientId || "sb");
     //TODO: merchant-id:XXX or data-partner-attribution-id

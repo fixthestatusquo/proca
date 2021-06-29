@@ -132,7 +132,7 @@ const PaymentForm = (props) => {
 
   const amount = data.amount;
   const frequency = data.frequency;
-  const currency = data.currency;
+  const currency = config.component.donation.currency;
 
   const classes = useStyles();
 
@@ -283,6 +283,8 @@ const SubmitButton = (props) => {
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
+  const currency = donateConfig.currency;
 
   const onSubmitButtonClick = async (event, _) => {
     const orderComplete = async (paymentIntent) => {
@@ -292,7 +294,7 @@ const SubmitButton = (props) => {
 
       d.donation = {
         amount: data.amount,
-        currency: data.currency.code,
+        currency: currency.code,
         payload: {
           paymentIntent: paymentIntent,
           values: values,
@@ -332,7 +334,7 @@ const SubmitButton = (props) => {
     let params = {
       actionPage: config.actionPage,
       amount: data.amount,
-      currency: data.currency.code,
+      currency: currency.code,
       contact: {
         name: data.firstname + " " + data.lastname,
         email: data.email,
@@ -349,7 +351,7 @@ const SubmitButton = (props) => {
     const piResponse = await stripeCreatePaymentIntent(
       config.actionPage,
       data.amount,
-      data.currency.code
+      currency.code
       // { idempotency_key: stripeSessionId }
     );
 */
@@ -417,7 +419,7 @@ const SubmitButton = (props) => {
         ) : (
           t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
             amount: data.amount,
-            currency: data.currency,
+            currency: currency,
             frequency: t("a " + data.frequency),
           })
         )}

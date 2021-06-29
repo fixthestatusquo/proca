@@ -86,9 +86,10 @@ const DonateAmount = (props) => {
 
   amounts.sort((a, b) => a - b);
 
-  const form = useForm();
-  const currency = data.currency;
+  const currency = donateConfig.currency;
   const amount = data.amount;
+
+  const form = useForm();
 
   const [showCustomField, toggleCustomField] = useState(false);
   const width = useElementWidth("#proca-donate");
