@@ -4,7 +4,7 @@ proca generates custom events that can be listened to from the page embedding th
 
 All the events are sent on the dom node "#proca" (the script dom). 
 
-- journey (load/blur)
+- journey (blur)
 - step (load/blur)
 - ? action specific actions ? (sign/share/donate/tweet/mail? submit? done? complete?)
 - ? contact 
