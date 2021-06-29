@@ -180,17 +180,6 @@ const Widget = (props) => {
     } else {
       // we're done - check what to do next!
       dispatch("blur", { elem: "journey" });
-      /*global procaJourneyCompleted*/
-      /*eslint no-undef: "error"*/
-      if (typeof procaJourneyCompleted === "function") {
-        procaJourneyCompleted({}); // NOTE: should we pass config to procaReady?
-        return;
-      }
-
-      if (config?.completed_redirect_url) {
-        window.location = config.completed_redirect_url;
-        return;
-      }
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.
