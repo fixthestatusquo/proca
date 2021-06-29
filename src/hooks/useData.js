@@ -37,7 +37,7 @@ export const initDataState = (urlData, config) => {
   // If frequency wasn't in the URL, check the config
   if (!urlData.frequency) {
     try {
-      urlData.frequency = config.component.donation.frequency.default;
+      urlData.frequency = config.component.donation?.frequency?.default;
     } catch (e) {
       // noop
       console.debug("Error reading frequency from config", e);
