@@ -233,7 +233,7 @@ export default function ShareAction(props) {
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
-        small={isMobile}
+        size={isMobile ? "small" : "medium"}
       >
         {props.icon
           ? props.icon({ round: true, size: isMobile ? 40 : 48 })
