@@ -27,9 +27,9 @@ export const initDataState = (urlData, config) => {
 
   if (!urlData.amount) {
     try {
-      if (config?.component.donation.amount.default) {
+      if (config.component.donation?.amount.default) {
         urlData.amount = urlData.initialAmount =
-          config.component.donation.amount.default;
+          config.component.donation?.amount.default;
       }
     } catch (e) {
       // noop

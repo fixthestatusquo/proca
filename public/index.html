@@ -270,7 +270,16 @@ pre {background:#dede; padding: 10px}
 
   <script>
     function procaReady () {
-      console.log("ready");
+
+      document.getElementById("proca").addEventListener("load", function(e){
+        console.log("load",e.detail); //
+       }, false);
+      document.getElementById("proca").addEventListener("blur", function(e){
+        console.log("blur",e.detail); //
+       }, false);
+      document.getElementById("proca").addEventListener("go", function(e){
+        console.log("go",e.detail); //
+       }, false);
     }
 
     jQuery(function($) {

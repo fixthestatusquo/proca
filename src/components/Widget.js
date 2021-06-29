@@ -6,11 +6,11 @@ import { getAllData, getOverwriteLocales } from "../lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "../hooks/useLayout";
+import dispatch from "../lib/event";
 
 import { initDataState } from "../hooks/useData";
 
 import Loader from "./Loader";
-// warning, magic trick ahead: in the webpack config-overwrite, we set ComponentLoader as src/tmp.config/{id}.load.js
 import { steps } from "../actionPage";
 import Button from "./FAB";
 import Dialog from "./Dialog";
@@ -61,6 +61,13 @@ const Widget = (props) => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
+      const proca = document.getElementById("proca");
+      if (!proca) {
+        // we are in dev mode, create a fake proca
+        const placeholder = document.createElement("div");
+        placeholder.id = "proca";
+        document.head.appendChild(placeholder);
+      }
       procaReady({}); // NOTE: should we pass config to procaReady?
     }
   }, [props]);
@@ -123,6 +130,7 @@ const Widget = (props) => {
       return;
     }
 
+    dispatch("go", { step: journey[i], journey: journey });
     if (depths[i] === 1) {
       // we jump 2 if start of a sub (dialog + 1st substep) {
       topMulti.current = journey[i];
@@ -171,7 +179,7 @@ const Widget = (props) => {
       setCurrent(current + 1);
     } else {
       // we're done - check what to do next!
-
+      dispatch("blur", { elem: "journey" });
       /*global procaJourneyCompleted*/
       /*eslint no-undef: "error"*/
       if (typeof procaJourneyCompleted === "function") {
@@ -247,7 +255,6 @@ const Widget = (props) => {
     if (config.component.widget?.autoStart !== false) {
       if (isMobile || !paramStep()) go(1);
       else go(paramStep());
-
       //      return null;
     }
   }
