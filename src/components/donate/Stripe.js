@@ -112,10 +112,10 @@ const PaymentForm = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
 
-  if (!config.component.donation?.stripe?.product_id) {
+  if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.product_id] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -340,7 +340,7 @@ const SubmitButton = (props) => {
         email: data.email,
         address: { country: data.country, postal_code: data.postcode },
       },
-      stripe_product_id: config.component.donation.stripe.product_id,
+      stripe_product_id: config.component.donation.stripe.productId,
     };
     if (data.frequency === "monthly") params.frequency = "month";
 
