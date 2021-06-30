@@ -38,6 +38,7 @@
     "react-hook-form": "^6.15.5",
     "react-i18next": "^11.11.0",
     "react-ipgeolocation": "^1.4.0",
+    "react-script-hook": "^1.4.1",
     "react-scripts": "^3.4.3",
     "react-share": "^4.4.0",
     "react-swipeable-views": "^0.14.0",

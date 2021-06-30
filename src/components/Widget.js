@@ -27,7 +27,11 @@ let config = {
 };
 
 const Widget = (props) => {
-  const [current, setCurrent] = useState(null);
+  const [current, _setCurrent] = useState(null);
+  const setCurrent = (i) => {
+    _setCurrent(i);
+    if (i) dispatch("go", { step: journey[i], journey: journey });
+  };
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
@@ -130,7 +134,6 @@ const Widget = (props) => {
       return;
     }
 
-    dispatch("go", { step: journey[i], journey: journey });
     if (depths[i] === 1) {
       // we jump 2 if start of a sub (dialog + 1st substep) {
       topMulti.current = journey[i];
@@ -179,7 +182,7 @@ const Widget = (props) => {
       setCurrent(current + 1);
     } else {
       // we're done - check what to do next!
-      dispatch("blur", { elem: "journey" });
+      dispatch("complete", { elem: "journey", journey: journey });
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.

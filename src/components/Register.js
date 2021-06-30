@@ -31,6 +31,7 @@ import Organisation from "./Organisation";
 import Country from "./Country";
 
 import { addActionContact } from "../lib/server.js";
+import dispatch from "../lib/event.js";
 import uuid from "../lib/uuid.js";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
@@ -119,6 +120,16 @@ export default function Register(props) {
       !handled && setStatus("error");
       return;
     }
+    dispatch(
+      config.component?.register?.actionType || "register",
+      {
+        uuid: result.contactRef,
+        test: !!config.test,
+        firstname: data.firstname,
+        country: data.country,
+      },
+      data
+    );
     setStatus("success");
     setData(data);
     if (!config.component.share?.anonymous) {

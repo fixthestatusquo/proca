@@ -147,7 +147,9 @@ pre {background:#dede; padding: 10px}
 
   <script>
     function procaReady () {
-      console.log("ready");
+        proca.addEventListener("eci", function (e) {
+          console.log(e.type, e.detail); // you can display or redirect to an external lead capture
+        });
     }
 
       function display() {

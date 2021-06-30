@@ -1,5 +1,6 @@
 import i18n from "../../lib/i18n";
 import Url from "../../lib/urlparser";
+import dispatch from "../../lib/event";
 import { formatDate } from "../../lib/date";
 
 import React, { useState, useEffect } from "react";
@@ -177,6 +178,11 @@ export default (props) => {
         setStatus("error");
       return;
     }
+    dispatch("eci", {
+      uuid: result.contactRef,
+      test: !!config.test,
+      country: data.nationality,
+    });
 
     props.done &&
       props.done({

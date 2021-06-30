@@ -128,6 +128,12 @@ const autoRender = () => {
 };
 
 autoRender();
-export { Widget, Alert, set, go, hook, React, ReactDOM };
+
+const addEventListener = (type, listener) => {
+  const el = document.getElementById("proca");
+  el.addEventListener(type, listener, false);
+};
+
+export { Widget, Alert, set, go, hook, React, ReactDOM, addEventListener };
 
 //      <SignatureForm margin= "dense" variant= "filled" />

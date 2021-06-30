@@ -17,6 +17,7 @@ import metadataparser from "page-metadata-parser";
 import uuid from "../lib/uuid";
 import { addAction } from "../lib/server";
 import Url from "../lib/urlparser";
+import dispatch from "../lib/event";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
@@ -207,12 +208,15 @@ export default function ShareAction(props) {
       ""
     );
     function addShare(event) {
-      if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
-      addAction(actionPage, event, {
+      const d = {
         uuid: uuid(),
         payload: { key: "medium", value: medium },
         tracking: Url.utm(),
-      });
+      };
+
+      dispatch(event, d);
+      if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
+      addAction(actionPage, event, d);
     }
 
     function after(props) {
@@ -221,7 +225,6 @@ export default function ShareAction(props) {
 
     function before(props) {
       addShare("share_click");
-      console.log("clicking " + medium);
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;

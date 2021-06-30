@@ -69,16 +69,15 @@ const DonateAmount = (props) => {
 
   // TODO: adjust for currencies?
   const configuredAmounts = donateConfig?.amount || {
-    oneoff: [3, 5, 10],
-    weekly: [1, 3, 5],
-    monthly: [3, 5, 10],
+    default: [3, 5, 10, 50, 200],
   };
 
   const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
   const frequency = data.frequency;
+
   const amounts = [
     ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
-  ].sort();
+  ];
 
   if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
     amounts.push(data.initialAmount);
