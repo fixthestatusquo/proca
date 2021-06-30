@@ -13,7 +13,8 @@ import {
 //import TextField from "../TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
-import { loadStripe } from "@stripe/stripe-js";
+//import { loadStripe } from "@stripe/stripe-js";
+import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
@@ -38,15 +39,6 @@ import StripeInput from "./StripeInput";
 import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
-
-// TODO - read from the config
-const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-
-console.assert(
-  typeof publishableKey !== "undefined",
-  "you need to set up a REACT_APP_STRIPE_PUBLIC_KEY and proca-donate"
-);
-const stripe = loadStripe(publishableKey);
 
 const stripeErrorAtom = atom({
   key: "stripe-error",
@@ -73,6 +65,7 @@ const CustomCardElement = (props) => {
 const StripeCard = (props) => {
   const layout = useLayout();
   const stripe = useStripe();
+
   return (
     <Grid item xs={12}>
       <LayoutTextField
@@ -433,13 +426,13 @@ const PayWithStripe = (props) => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <PaymentForm stripe={stripe} form={form} {...props} />
+        <PaymentForm stripe={props.stripe} form={form} {...props} />
       </Grid>
       <Grid item xs={12}>
-        <StripeCard stripe={stripe} />
+        <StripeCard stripe={props.stripe} />
       </Grid>
       <Grid item xs={12}>
-        <SubmitButton stripe={stripe} form={form} {...props} />
+        <SubmitButton stripe={props.stripe} form={form} {...props} />
       </Grid>
       <Grid item xs={12}>
         <ChangeAmount />
@@ -452,6 +445,18 @@ const PaymentFormWrapper = (props) => {
   const config = useCampaignConfig();
 
   const [data] = useData();
+  const publishableKey =
+    config.component.donation?.stripe?.publicKey ||
+    process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+
+  const [stripe, loadStripe] = useState(null);
+  const [loading, error] = useScript({
+    src: "https://js.stripe.com/v3/",
+    onload: () => {
+      // the object window.Stripe exists
+      loadStripe(window.Stripe(publishableKey));
+    },
+  });
 
   const form = useForm({
     defaultValues: {
@@ -463,10 +468,12 @@ const PaymentFormWrapper = (props) => {
     },
   });
 
+  if (error) return <h3>Failed to load Stripe API: {error.message}</h3>;
+
   return (
     <Container component="main" id="proca-donate">
       <Elements stripe={stripe} options={config?.lang || "auto"}>
-        <PayWithStripe {...props} form={form} />
+        <PayWithStripe {...props} form={form} stripe={stripe} />
       </Elements>
     </Container>
   );
