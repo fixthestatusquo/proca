@@ -201,6 +201,7 @@
       "document.si.personal.number": "Invalid format. Format required: NNNNNNNNNNNNN (N = digit)",
       "email": "Invalid email address",
       "email.required": "Checkbox required",
+      "email_required": "email_required",
       "oct.captcha.invalid": "Captcha invalid",
       "oct.empty.property": "Field required",
       "oct.error.at.postalcode": "Invalid format. Format required: NNNN (N = digit)",
@@ -222,7 +223,11 @@
       "oct.error.pl.postalcode": "Invalid format. Format required: NNNNN (N = digit)",
       "oct.error.propertytypemismatch": "Invalid format",
       "oct.error.si.postalcode": "Invalid format. Format required: NNNN (N = digit)",
-      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)"
+      "oct.error.sk.postalcode": "Invalid format. Format required: GNNNN (N = digit, G = digit can be number 0, 8 or 9)",
+      "oct_captcha_invalid": "oct_captcha_invalid",
+      "oct_error_invaliddateformat": "oct_error_invaliddateformat",
+      "oct_error_invalidrange": "oct_error_invalidrange",
+      "oct_error_invalidsize": "oct_error_invalidsize"
     },
     "fill-form": "Fill in the form",
     "generic.error": "Please correct the errors in the statement of support form",

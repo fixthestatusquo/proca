@@ -14,7 +14,7 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
     console.log("freq", frequency);
     switch (frequency) {
       case "monthly":
-        title = t("I'm donating {{amount}}{{ currency }} monthly", {
+        title = t("I'm donating {{amount}}{{currency}} monthly", {
           amount: amount.toString(),
           currency: currency.symbol,
         });
@@ -22,7 +22,7 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
 
       case "oneoff":
       default:
-        title = t("I'm donating {{amount}}{{ currency }}", {
+        title = t("I'm donating {{amount}}{{currency}}", {
           amount: amount.toString(),
           currency: currency.symbol,
         });

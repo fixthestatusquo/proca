@@ -1,12 +1,10 @@
 {
-  "a monthly": "every month",
-  "a weekly": "every week",
-  "a oneoff": "",
   "Account": "Account",
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birthdate",
   "Change amount": "Change amount",
+  "Choose an Amount": "Choose an Amount",
   "Choose your donation amount": "Choose your donation amount",
   "City": "City",
   "Comment": "Comment",
@@ -24,21 +22,22 @@
   "Full Name": "Full Name",
   "I'm donating": "I'm donating",
   "I'm donating {{amount}}": "I'm donating {{amount}}",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}",
+  "I'm donating {{amount}}{{currency}}": "I'm donating {{amount}}{{currency}}",
+  "I'm donating {{amount}}{{currency}} monthly": "I'm donating {{amount}}{{currency}} monthly",
   "Join": "Join",
   "Last name": "Last name",
   "Legal": "Legal",
   "Link_Share button": "Link",
   "Locality": "Locality",
   "Monthly donations": "Monthly donations",
-  "monthly": "monthly",
-  "weekly": "weekly",
-  "yearly": "yearly",
   "Next": "Next",
   "No Thanks": "No Thanks",
   "Other": "Other",
   "Phone": "Phone",
   "Place of birth": "Place of birth",
+  "Please provide your card information": {
+    "": ""
+  },
   "Postal Code": "Postal Code",
   "Privacy": "Privacy",
   "Share": "Share",
@@ -56,7 +55,15 @@
   "Thanks!": "Thanks!",
   "The average donation is {{amount}}": "The average donation is {{amount}}",
   "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
+  "The average donation is {{amount}}{{currency": {
+    "symbol}}": "symbol}}"
+  },
   "This field is required.": "This field is required.",
+  "We couldn't handle your donation at the moment": {
+    " Please try again in a few minutes": {
+      "": ""
+    }
+  },
   "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -74,6 +81,7 @@
     "subject": "subject"
   },
   "invalid IBAN": "invalid IBAN",
+  "monthly": "monthly",
   "organisation": "Your organisation account",
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
@@ -90,5 +98,7 @@
   "twitter": {
     "actionText": "I signed. you should too"
   },
+  "weekly": "weekly",
+  "yearly": "yearly",
   "you need to be 18 years old": "you need to be 18 years old"
 }

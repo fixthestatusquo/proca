@@ -417,10 +417,9 @@ const SubmitButton = (props) => {
         {isSubmitting ? (
           <CircularProgress />
         ) : (
-          t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
+          t("Donate {{amount}}{{currency}}", {
             amount: data.amount,
-            currency: currency,
-            frequency: t("a " + data.frequency),
+            currency: currency.symbol,
           })
         )}
       </Button>
