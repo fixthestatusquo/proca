@@ -90,5 +90,8 @@
     "monthly": "щомісяця",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Я дарую {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "щотижня",
-    "a monthly": "щомісяця"
+    "a monthly": "щомісяця",
+    "I'm donating {{amount}}{{currency}} monthly": "Я пожертвую {{amount}} {{currency}} щомісяця",
+    "I'm donating {{amount}}{{currency}}": "Я дарую {{amount}} {{currency}}",
+    "Choose an Amount": "Виберіть суму"
 }
