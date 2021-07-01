@@ -223,7 +223,11 @@ async function addDonateContact(provider, actionPage, data) {
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;
   data.donation.payload = JSON.stringify(data.donation.payload);
-  data.donation.amount = data.donation.amount * 100; // to do: check the currency see if the smallest unit is cent indeed
+  if (!Number.isInteger(data.donation.amount)) {
+    throw Error(
+      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`
+    );
+  }
   if (data.donation.frequencyUnit) {
     console.log(data.donation);
     const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
@@ -333,7 +337,7 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
     params.contact
   );
 
-  const amount = Math.floor(params.amount * 100);
+  const amount = params.amount;
   const currency = params.currency;
   const actionPage = params.actionPage;
 
