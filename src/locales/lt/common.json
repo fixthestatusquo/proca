@@ -91,5 +91,8 @@
     "monthly": "kas mėnesį",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Aš aukoju {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "kiekvieną savaitę",
-    "a monthly": "kiekvieną mėnesį"
+    "a monthly": "kiekvieną mėnesį",
+    "I'm donating {{amount}}{{currency}} monthly": "Kas mėnesį aukoju {{amount}}{{currency}}",
+    "I'm donating {{amount}}{{currency}}": "Aš aukoju {{amount}}{{currency}}",
+    "Choose an Amount": "Pasirinkite sumą"
 }
