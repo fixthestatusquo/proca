@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Doar {{amount}}{{currency}}",
     "yearly": "anualmente",
     "weekly": "semanalmente",
-    "monthly": "mensalmente"
+    "monthly": "mensalmente",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Estou doando {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "a cada semana",
+    "a monthly": "a cada mês"
 }

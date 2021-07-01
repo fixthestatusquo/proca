@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "Donează {{amount}}{{currency}}",
     "yearly": "anual",
     "weekly": "săptămânal",
-    "monthly": "lunar"
+    "monthly": "lunar",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Donez {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "în fiecare săptămână",
+    "a monthly": "în fiecare lună"
 }

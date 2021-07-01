@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Δωρεά {{amount}}{{currency}}",
     "yearly": "ετήσια",
     "weekly": "εβδομαδιαίως",
-    "monthly": "μηνιαίως"
+    "monthly": "μηνιαίως",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Δωρίζω {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "κάθε εβδομάδα",
+    "a monthly": "Καθε μήνα"
 }

@@ -90,5 +90,8 @@
     "Donate {{amount}}{{currency}}": "Deonaigh {{amount}} {{currency}}",
     "yearly": "go bliantúil",
     "weekly": "go seachtainiúil",
-    "monthly": "go míosúil"
+    "monthly": "go míosúil",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Táim ag bronnadh {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "gach seachtain",
+    "a monthly": "gach mí"
 }

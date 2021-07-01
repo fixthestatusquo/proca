@@ -87,5 +87,8 @@
     "Donate {{amount}}{{currency}}": "Eman {{amount}} {{currency}}",
     "yearly": "urtero",
     "weekly": "astero",
-    "monthly": "hilabetero"
+    "monthly": "hilabetero",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "{{amount}} {{ currency.symbol }} {{frequency}} ematen ari naiz",
+    "a weekly": "Astero",
+    "a monthly": "Hilabetero"
 }

@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "תרום {{amount}} {{currency}}",
     "yearly": "בכל שנה",
     "weekly": "שבועי",
-    "monthly": "חודשי"
+    "monthly": "חודשי",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "אני תורם {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "כל שבוע",
+    "a monthly": "כל חודש"
 }
