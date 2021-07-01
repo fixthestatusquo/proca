@@ -55,9 +55,6 @@
   "Thanks!": "Thanks!",
   "The average donation is {{amount}}": "The average donation is {{amount}}",
   "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
-  "The average donation is {{amount}}{{currency": {
-    "symbol}}": "symbol}}"
-  },
   "This field is required.": "This field is required.",
   "We couldn't handle your donation at the moment": {
     " Please try again in a few minutes": {
