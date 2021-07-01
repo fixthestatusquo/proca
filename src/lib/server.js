@@ -218,6 +218,17 @@ async function addAction(actionPage, actionType, data) {
   return response;
 }
 
+const PROCA_FREQUENCIES = {
+  daily: "DAY",
+  day: "DAILY",
+  month: "MONTHLY",
+  monthly: "MONTHLY",
+  oneoff: "ONE_OFF",
+  week: "WEEKLY",
+  weekly: "WEEKLY",
+  year: "YEARLY",
+  yearly: "YEARLY",
+};
 async function addDonateContact(provider, actionPage, data) {
   delete data.IBAN;
   if (!data.donation.payload) data.donation.payload = {};
@@ -229,10 +240,12 @@ async function addDonateContact(provider, actionPage, data) {
     );
   }
   if (data.donation.frequencyUnit) {
-    console.log(data.donation);
-    const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
-    data.donation.frequencyUnit = fu[data.donation.frequencyUnit];
+    data.donation.frequencyUnit =
+      PROCA_FREQUENCIES[data.donation.frequencyUnit] ||
+      data.donation.frequencyUnit;
   }
+  console.debug("Donation Data for Proca", data.donation);
+
   return await addActionContact("donate", actionPage, data);
 }
 
