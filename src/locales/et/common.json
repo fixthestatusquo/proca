@@ -92,5 +92,8 @@
     "monthly": "iga kuu",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ma annetan {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "iga nädal",
-    "a monthly": "iga kuu"
+    "a monthly": "iga kuu",
+    "I'm donating {{amount}}{{currency}} monthly": "Ma annetan {{amount}}{{currency}} igakuiselt",
+    "I'm donating {{amount}}{{currency}}": "Ma annetan {{amount}}{{currency}}",
+    "Choose an Amount": "Vali summa"
 }
