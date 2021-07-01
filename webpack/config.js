@@ -20,11 +20,6 @@ function readConfigOverride() {
   let apId = process.env[envVar] || process.argv[2];
 
   if (apId) {
-    apId = parseInt(apId);
-    if (Number.isNaN(apId))
-      throw new Error(
-        "Please provide action page id (number in actionpage env var or as argument)"
-      );
     const fn = path.resolve(__dirname, configFolder() + apId + ".json");
     try {
       return fs.readFileSync(fn);
