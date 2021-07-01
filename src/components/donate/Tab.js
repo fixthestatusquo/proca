@@ -31,7 +31,7 @@ export default function Target(props) {
   const { t } = useTranslation();
   const classes = useStyles();
   const config = useCampaignConfig();
-  const [requestData, _] = useData();
+  const [requestData] = useData();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -49,15 +49,15 @@ export default function Target(props) {
         window.location,
         config.completed_redirect_url,
         {
-          firstName: data.firstName,
-          amount: data.amount,
-          currency: currency.code,
+          firstName: requestData.firstName,
+          amount: requestData.amount,
+          currency: requestData.currency.code,
         }
       );
-      return;
     }
 
     setSubmitted(true);
+
     props.done(d);
   };
 
