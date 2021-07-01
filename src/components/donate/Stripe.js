@@ -288,7 +288,7 @@ const SubmitButton = (props) => {
 
   const onSubmitButtonClick = async (event, _) => {
     const orderComplete = async (paymentIntent, paymentConfirm) => {
-      const procaRequest = { ...values };
+      const procaRequest = { ...formData, ...values };
       const confirmedIntent = paymentConfirm.paymentIntent;
 
       const payload = {

@@ -91,26 +91,22 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
         });
       },
       onApprove: async function (paypalResponse, actions) {
-        console.log("onApprove paypalResponse Subscription", paypalResponse);
-
         const order = await actions.order.get();
-        console.log("paypal subscription order", order);
-
         const subscription = await actions.subscription.get();
-        console.log("paypal subscription", subscription);
 
-        const d = {
+        const procaRequest = {
+          ...formData,
           uuid: uuid(false),
           tracking: Url.utm(),
         };
 
-        _addContactFromPayPal(d, subscription.subscriber);
+        _addContactFromPayPal(procaRequest, subscription.subscriber);
 
         const subscriptionAmount =
           subscription.billing_info.cycle_executions[0].total_price_per_cycle
             .gross_amount;
 
-        d.donation = {
+        procaRequest.donation = {
           amount: Math.floor(Number.parseFloat(subscriptionAmount.value) * 100),
           currency: subscriptionAmount.currency_code,
           frequencyUnit: formData.frequency,
@@ -125,19 +121,17 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
           },
         };
 
-        if (config.test) d.donation.payload.test = true;
+        if (config.test) procaRequest.donation.payload.test = true;
 
-        d.tracking = Url.utm();
-        console.log("sending proca", d);
+        procaRequest.tracking = Url.utm();
 
         const procaResponse = await addDonateContact(
           "paypal",
           config.actionPage,
-          d
+          procaRequest
         );
-        console.log("proca response", procaResponse);
 
-        completed(d);
+        completed(procaResponse);
       },
       ...sharedParameters,
     });
@@ -182,16 +176,17 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
         const don = await actions.order.capture();
         console.log("onApprove paypalResponse OneOff", don);
 
-        const d = {
+        const procaRequest = {
+          ...formData,
           uuid: uuid(false),
           tracking: Url.utm(),
         };
 
-        _addContactFromPayPal(d, don.payer);
+        _addContactFromPayPal(procaRequest, don.payer);
 
         const purchased = don.purchase_units[0];
 
-        d.donation = {
+        procaRequest.donation = {
           amount: Math.floor(purchased.amount.value * 100),
           currency: purchased.amount.currency_code,
           payload: {
@@ -201,14 +196,12 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
           },
         };
 
-        // console.debug("sending proca", d);
         const procaResponse = await addDonateContact(
           "paypal",
           config.actionPage,
-          d
+          procaRequest
         );
-        console.debug("procaResponse", procaResponse);
-        completed(d);
+        completed(procaResponse);
       },
 
       onError: function (err) {
