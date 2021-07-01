@@ -90,5 +90,8 @@
     "monthly": "hilabetero",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "{{amount}} {{ currency.symbol }} {{frequency}} ematen ari naiz",
     "a weekly": "Astero",
-    "a monthly": "Hilabetero"
+    "a monthly": "Hilabetero",
+    "I'm donating {{amount}}{{currency}} monthly": "{{amount}} {{currency}} ematen ari naiz hilero",
+    "I'm donating {{amount}}{{currency}}": "{{amount}} {{currency}} ematen ari naiz",
+    "Choose an Amount": "Aukeratu zenbatekoa"
 }
