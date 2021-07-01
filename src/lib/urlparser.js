@@ -1,6 +1,4 @@
 import Url from "url-parse";
-import queryString from "query-string";
-
 /*
         var urlParams = new URLSearchParams(window.location.search);
         params.values = {};
@@ -103,7 +101,7 @@ const utm = () => {
 };
 
 const create = (base, path, params) => {
-  const url = path.startsWith("http") ? new URL(path) : new URL(base, path);
+  const url = path.startsWith("http") ? new URL(path) : new URL(path, base);
   const search = new URLSearchParams();
   for (const [key, value] in params) {
     search.append(key, value);
