@@ -143,6 +143,18 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
     });
     document.querySelector(dom || "#paypal-container").innerHTML = "";
     buttons.render(dom || "#paypal-container");
+
+    return () => {
+      // https://github.com/paypal/paypal-checkout-components/issues/1506
+
+      try {
+        if (buttons && buttons.close) {
+          buttons.close();
+        }
+      } catch (e) {
+        console.error("Ignore error trying to close PayPal buttons", e);
+      }
+    };
   }, [
     amount,
     completed,
