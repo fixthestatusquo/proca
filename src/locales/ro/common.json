@@ -91,5 +91,8 @@
     "monthly": "lunar",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Donez {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "în fiecare săptămână",
-    "a monthly": "în fiecare lună"
+    "a monthly": "în fiecare lună",
+    "I'm donating {{amount}}{{currency}} monthly": "Donez {{amount}}{{currency}} lunar",
+    "I'm donating {{amount}}{{currency}}": "Fac o donație {{amount}}{{currency}}",
+    "Choose an Amount": "Alegeți o sumă"
 }

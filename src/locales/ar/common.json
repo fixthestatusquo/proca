@@ -91,5 +91,8 @@
     "monthly": "شهريًّا",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "أنا أتبرع {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "أسبوعيًّا",
-    "a monthly": "كل شهر"
+    "a monthly": "كل شهر",
+    "I'm donating {{amount}}{{currency}} monthly": "أتبرع {{amount}} {{currency}} شهريًا",
+    "I'm donating {{amount}}{{currency}}": "أنا أتبرع {{amount}} {{currency}}",
+    "Choose an Amount": "اختر المبلغ"
 }

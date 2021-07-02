@@ -93,5 +93,8 @@
     "monthly": "go míosúil",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Táim ag bronnadh {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "gach seachtain",
-    "a monthly": "gach mí"
+    "a monthly": "gach mí",
+    "I'm donating {{amount}}{{currency}} monthly": "Táim ag bronnadh {{amount}} {{currency}} go míosúil",
+    "I'm donating {{amount}}{{currency}}": "Tá mé ag bronnadh {{amount}} {{currency}}",
+    "Choose an Amount": "Roghnaigh Méid"
 }

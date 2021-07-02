@@ -92,5 +92,8 @@
     "monthly": "månadsvis",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Jag donerar {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
     "a weekly": "varje vecka",
-    "a monthly": "varje månad"
+    "a monthly": "varje månad",
+    "I'm donating {{amount}}{{currency}} monthly": "Jag donerar {{amount}}{{currency}} varje månad.",
+    "I'm donating {{amount}}{{currency}}": "Jag donerar {{amount}}{{currency}}",
+    "Choose an Amount": "Välj ett belopp"
 }

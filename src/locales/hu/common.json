@@ -92,5 +92,8 @@
     "monthly": "havi",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Adományozok {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
     "a weekly": "hetente",
-    "a monthly": "havonta"
+    "a monthly": "havonta",
+    "I'm donating {{amount}}{{currency}} monthly": "Adományozok {{amount}}{{currency}} havonta",
+    "I'm donating {{amount}}{{currency}}": "Adományozok {{amount}}{{currency}}",
+    "Choose an Amount": "Válasszon egy összeget"
 }

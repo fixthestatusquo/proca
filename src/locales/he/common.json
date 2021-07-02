@@ -91,5 +91,8 @@
     "monthly": "חודשי",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "אני תורם {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "כל שבוע",
-    "a monthly": "כל חודש"
+    "a monthly": "כל חודש",
+    "I'm donating {{amount}}{{currency}} monthly": "אני תורם {{amount}} {{currency}} מדי חודש",
+    "I'm donating {{amount}}{{currency}}": "אני תורם {{amount}} {{currency}}",
+    "Choose an Amount": "בחר סכום"
 }

@@ -93,5 +93,8 @@
     "monthly": "месечно",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Донирам {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "сваке недеље",
-    "a monthly": "сваког месеца"
+    "a monthly": "сваког месеца",
+    "I'm donating {{amount}}{{currency}} monthly": "Донирам {{amount}} {{currency}} месечно",
+    "I'm donating {{amount}}{{currency}}": "Донирам {{amount}} {{currency}}",
+    "Choose an Amount": "Изаберите износ"
 }
