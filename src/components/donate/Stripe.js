@@ -443,7 +443,7 @@ const SubmitButton = (props) => {
         }}
       >
         {isSubmitting ? (
-          <CircularProgress />
+          <CircularProgress color="inherit" />
         ) : (
           t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
             amount: formData.amount,
