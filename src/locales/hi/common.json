@@ -95,5 +95,7 @@
     "a monthly": "प्रत्येक माह",
     "I'm donating {{amount}}{{currency}} monthly": "मैं [१३] [२३] मासिक दान कर रहा हूँ",
     "I'm donating {{amount}}{{currency}}": "मैं दान कर रहा हूँ [१३] [२३]",
-    "Choose an Amount": "एक राशि चुनें"
+    "Choose an Amount": "एक राशि चुनें",
+    "Please provide your card information": "कृपया अपने कार्ड की जानकारी प्रदान करें",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "हम इस समय आपके दान को संभाल नहीं सके। कृपया कुछ देर बाद दुबारा कोशिश करे।"
 }
