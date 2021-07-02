@@ -209,7 +209,12 @@ const Widget = (props) => {
         }
         return (
           <>
-            <Action actionPage={config.actionPage} done={nextStep} />
+            <Action
+              actionPage={config.actionPage}
+              done={nextStep}
+              journey={journey}
+              current={current}
+            />
             {props.children}
           </>
         ); //break;
@@ -230,6 +235,8 @@ const Widget = (props) => {
             <Action
               actionPage={config.actionPage}
               done={nextTopStep}
+              journey={journey}
+              current={current}
               dialog={true}
             >
               <SubAction actionPage={config.actionPage} done={nextStep} />

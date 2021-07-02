@@ -53,6 +53,15 @@ export default function FABAction(props) {
     return el;
   };
 
+  let callToAction = t("Sign now!");
+  let isDonate = false;
+
+  const nextAction = props.journey[props.current + 2];
+  if (nextAction.startsWith("donate")) {
+    isDonate = true;
+    callToAction = t("Donate now!");
+  }
+
   const dom = createDom("proca-fab");
 
   return (
@@ -70,11 +79,11 @@ export default function FABAction(props) {
               <Fab
                 color="primary"
                 variant="extended"
-                aria-label={t("Sign now!")}
+                aria-label={callToAction}
                 onClick={handleClickOpen}
               >
-                <CreateIcon />
-                {t("Sign now!")}&nbsp;
+                {!isDonate && <CreateIcon />}
+                {callToAction}&nbsp;
               </Fab>
             </Badge>
           </Slide>
