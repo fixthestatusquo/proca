@@ -91,5 +91,8 @@
     "monthly": "ikmēneša",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Es ziedoju {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "katru nedēļu",
-    "a monthly": "katru mēnesi"
+    "a monthly": "katru mēnesi",
+    "I'm donating {{amount}}{{currency}} monthly": "Es ziedoju {{amount}}{{currency}} katru mēnesi",
+    "I'm donating {{amount}}{{currency}}": "Es ziedoju {{amount}}{{currency}}",
+    "Choose an Amount": "Izvēlieties summu"
 }

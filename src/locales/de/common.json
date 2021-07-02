@@ -91,5 +91,8 @@
     "monthly": "monatlich",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ich spende {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "wöchentlich",
-    "a monthly": "Jeden Monat"
+    "a monthly": "Jeden Monat",
+    "I'm donating {{amount}}{{currency}} monthly": "Ich spende {{amount}}{{currency}} monatlich",
+    "I'm donating {{amount}}{{currency}}": "Ich spende {{amount}}{{currency}}",
+    "Choose an Amount": "Wählen Sie einen Betrag"
 }

@@ -93,5 +93,8 @@
     "monthly": "mesačne",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Darujem {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "každý týždeň",
-    "a monthly": "každý mesiac"
+    "a monthly": "každý mesiac",
+    "I'm donating {{amount}}{{currency}} monthly": "Darujem {{amount}}{{currency}} mesačne",
+    "I'm donating {{amount}}{{currency}}": "Darujem {{amount}}{{currency}}",
+    "Choose an Amount": "Vyberte si sumu"
 }

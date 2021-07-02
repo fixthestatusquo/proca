@@ -91,5 +91,8 @@
     "monthly": "mensualment",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Estic donant {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "Cada setmana",
-    "a monthly": "Cada mes"
+    "a monthly": "Cada mes",
+    "I'm donating {{amount}}{{currency}} monthly": "Estic donant {{amount}} {{currency}} mensualment",
+    "I'm donating {{amount}}{{currency}}": "Estic donant {{amount}} {{currency}}",
+    "Choose an Amount": "Trieu una quantitat"
 }

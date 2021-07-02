@@ -93,5 +93,8 @@
     "monthly": "kull xahar",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Qed nagħti donazzjoni {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "kull ġimgħa",
-    "a monthly": "kull xahar"
+    "a monthly": "kull xahar",
+    "I'm donating {{amount}}{{currency}} monthly": "Qed nagħti donazzjoni {{amount}} {{currency}} kull xahar",
+    "I'm donating {{amount}}{{currency}}": "Jien nagħti donazzjoni {{amount}} {{currency}}",
+    "Choose an Amount": "Agħżel Ammont"
 }

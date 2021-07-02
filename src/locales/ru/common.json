@@ -92,5 +92,8 @@
     "monthly": "ежемесячно",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Я жертвую {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "каждую неделю",
-    "a monthly": "каждый месяц"
+    "a monthly": "каждый месяц",
+    "I'm donating {{amount}}{{currency}} monthly": "Я жертвую {{amount}}{{currency}} ежемесячно",
+    "I'm donating {{amount}}{{currency}}": "Я жертвую {{amount}}{{currency}}",
+    "Choose an Amount": "Выберите сумму"
 }

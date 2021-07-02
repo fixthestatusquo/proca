@@ -97,5 +97,8 @@
     "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nous ne pouvons pas gérer votre don pour le moment. S'il vous plait, réessayez dans quelques minutes.",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Je fais un don {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "toutes les semaines",
-    "a monthly": "1 fois par mois"
+    "a monthly": "1 fois par mois",
+    "I'm donating {{amount}}{{currency}} monthly": "Je fais un don mensuel de {{amount}}{{currency}}.",
+    "I'm donating {{amount}}{{currency}}": "Je fais un don {{amount}} {{currency}}",
+    "Choose an Amount": "Choisissez un montant"
 }

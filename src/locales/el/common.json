@@ -92,5 +92,8 @@
     "monthly": "μηνιαίως",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Δωρίζω {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "κάθε εβδομάδα",
-    "a monthly": "Καθε μήνα"
+    "a monthly": "Καθε μήνα",
+    "I'm donating {{amount}}{{currency}} monthly": "Δωρίζω {{amount}}{{currency}} μηνιαίως",
+    "I'm donating {{amount}}{{currency}}": "Δωρίζω {{amount}}{{currency}}",
+    "Choose an Amount": "Επιλέξτε ένα ποσό"
 }
