@@ -100,5 +100,6 @@
     "a monthly": "1 fois par mois",
     "I'm donating {{amount}}{{currency}} monthly": "Je fais un don mensuel de {{amount}}{{currency}}.",
     "I'm donating {{amount}}{{currency}}": "Je fais un don {{amount}} {{currency}}",
-    "Choose an Amount": "Choisissez un montant"
+    "Choose an Amount": "Choisissez un montant",
+    "Please provide your card information": "Veuillez fournir les informations relatives à votre carte"
 }
