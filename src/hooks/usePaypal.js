@@ -88,6 +88,9 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
         return actions.subscription.create({
           plan_id: plan_id,
           quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
+          application_context: {
+            shipping_preference: "NO_SHIPPING",
+          },
         });
       },
       onApprove: async function (paypalResponse, actions) {
@@ -169,6 +172,9 @@ const usePaypal = ({ completed, amount, campaign, dom, formData }) => {
         return actions.order.create({
           purchase_units: [{ amount: { value: parseFloat(amount) } }],
           description: campaign || "Donation",
+          application_context: {
+            shipping_preference: "NO_SHIPPING",
+          },
         });
       },
       fundingSource: paypal.FUNDING.PAYPAL,
