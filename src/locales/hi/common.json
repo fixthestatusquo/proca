@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "दान करें {{amount}}{{currency}}",
     "yearly": "वार्षिक",
     "weekly": "साप्ताहिक",
-    "monthly": "महीने के"
+    "monthly": "महीने के",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "मैं दान कर रहा हूँ [१३] [२४] [४६]",
+    "a weekly": "हर हफ्ते",
+    "a monthly": "प्रत्येक माह"
 }

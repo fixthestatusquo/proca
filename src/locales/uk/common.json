@@ -87,5 +87,8 @@
     "Donate {{amount}}{{currency}}": "Пожертвувати {{amount}} {{currency}}",
     "yearly": "щороку",
     "weekly": "щотижня",
-    "monthly": "щомісяця"
+    "monthly": "щомісяця",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Я дарую {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "щотижня",
+    "a monthly": "щомісяця"
 }

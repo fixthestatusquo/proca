@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "Fes una donació {{amount}} {{currency}}",
     "yearly": "cada any",
     "weekly": "setmanalment",
-    "monthly": "mensualment"
+    "monthly": "mensualment",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Estic donant {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "Cada setmana",
+    "a monthly": "Cada mes"
 }

@@ -218,17 +218,34 @@ async function addAction(actionPage, actionType, data) {
   return response;
 }
 
+const PROCA_FREQUENCIES = {
+  daily: "DAY",
+  day: "DAILY",
+  month: "MONTHLY",
+  monthly: "MONTHLY",
+  oneoff: "ONE_OFF",
+  week: "WEEKLY",
+  weekly: "WEEKLY",
+  year: "YEARLY",
+  yearly: "YEARLY",
+};
 async function addDonateContact(provider, actionPage, data) {
   delete data.IBAN;
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;
   data.donation.payload = JSON.stringify(data.donation.payload);
-  data.donation.amount = data.donation.amount * 100; // to do: check the currency see if the smallest unit is cent indeed
-  if (data.donation.frequencyUnit) {
-    console.log(data.donation);
-    const fu = { oneoff: "ONE_OFF", monthly: "MONTHLY", weekly: "WEEKLY" };
-    data.donation.frequencyUnit = fu[data.donation.frequencyUnit];
+  if (!Number.isInteger(data.donation.amount)) {
+    throw Error(
+      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`
+    );
   }
+  if (data.donation.frequencyUnit) {
+    data.donation.frequencyUnit =
+      PROCA_FREQUENCIES[data.donation.frequencyUnit] ||
+      data.donation.frequencyUnit;
+  }
+  console.debug("Donation Data for Proca", data.donation);
+
   return await addActionContact("donate", actionPage, data);
 }
 
@@ -291,7 +308,7 @@ async function addActionContact(actionType, actionPage, data) {
 
   for (let [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
-      variables.action.fields.push({ key: key, value: value.toString() });
+      variables.action.fields.push({ key: key, value: JSON.stringify(value) });
   }
 
   const response = await graphQL("addActionContact", query, {
@@ -333,7 +350,7 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
     params.contact
   );
 
-  const amount = Math.floor(params.amount * 100);
+  const amount = params.amount;
   const currency = params.currency;
   const actionPage = params.actionPage;
 

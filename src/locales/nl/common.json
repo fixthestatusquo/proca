@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Doneren {{amount}}{{currency}}",
     "yearly": "Jaarlijks",
     "weekly": "wekelijks",
-    "monthly": "maandelijks"
+    "monthly": "maandelijks",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ik doneer {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "elke week",
+    "a monthly": "elke maand"
 }

@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Adományozni {{amount}}{{currency}}",
     "yearly": "évente",
     "weekly": "heti",
-    "monthly": "havi"
+    "monthly": "havi",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Adományozok {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
+    "a weekly": "hetente",
+    "a monthly": "havonta"
 }

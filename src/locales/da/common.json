@@ -89,5 +89,14 @@
     "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}",
     "yearly": "årligt",
     "weekly": "ugentligt",
-    "monthly": "månedsvis"
+    "monthly": "månedsvis",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Jeg donerer {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
+    "a weekly": "hver uge",
+    "a monthly": "hver måned",
+    "The average donation is {{amount}}{{currency": {
+        "symbol}}": "symbol}}"
+    },
+    "I'm donating {{amount}}{{currency}} monthly": "Jeg donerer {{amount}}{{currency}} hver måned",
+    "I'm donating {{amount}}{{currency}}": "Jeg donerer {{amount}}{{currency}}",
+    "Choose an Amount": "Vælg et beløb"
 }

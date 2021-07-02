@@ -11,7 +11,6 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
   if (config?.component?.donation.igive) {
     title = config?.component?.donation.igive;
   } else if (amount) {
-    console.log("freq", frequency);
     switch (frequency) {
       case "monthly":
         title = t("I'm donating {{amount}}{{currency}} monthly", {
@@ -32,7 +31,6 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
   }
 
   const averages = donateConfig?.average;
-  console.log(averages, frequency);
   const subtitle =
     averages && averages[frequency]
       ? t("The average donation is {{amount}}{{currency.symbol}}", {

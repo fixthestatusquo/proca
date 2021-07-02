@@ -91,5 +91,8 @@
     "Donate {{amount}}{{currency}}": "Darujte {{amount}}{{currency}}",
     "yearly": "letno",
     "weekly": "tedensko",
-    "monthly": "mesečno"
+    "monthly": "mesečno",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Darujem {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "vsak teden",
+    "a monthly": "vsak mesec"
 }

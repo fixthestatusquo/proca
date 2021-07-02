@@ -73,19 +73,23 @@ export default function Register(props) {
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const onSubmit = async (d) => {
-    d.tracking = Url.utm();
-    console.log(data);
-    d.donation = {
-      amount: amount,
+    const procaRequest = { ...data, ...d };
+    procaRequest.tracking = Url.utm();
+    procaRequest.donation = {
+      amount: Math.floor(amount * 100),
       currency: currency.code,
       payload: {
-        iban: d.IBAN,
+        iban: procaRequest.IBAN,
       },
     };
-    if (data.frequency) d.donation.frequencyUnit = data.frequency;
-    if (config.test) d.donation.payload.test = true;
+    if (data.frequency) procaRequest.donation.frequencyUnit = data.frequency;
+    if (config.test) procaRequest.donation.payload.test = true;
 
-    const result = await addDonateContact("sepa", config.actionPage, d);
+    const result = await addDonateContact(
+      "sepa",
+      config.actionPage,
+      procaRequest
+    );
     if (result.errors) {
       let handled = false;
       console.log(result.errors.fields, data);

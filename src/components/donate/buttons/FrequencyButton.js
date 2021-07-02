@@ -30,6 +30,7 @@ const FrequencyButton = (props) => {
       variant={selected === value ? "contained" : "outlined"}
       disableElevation={selected === value}
       value={value}
+      fullWidth={true}
       classes={props.classes}
     >
       {props.children}
@@ -41,7 +42,7 @@ const FrequencyButtons = ({ frequencies, selected, classes }) => {
   const { t } = useTranslation();
 
   // if the widget is configured for only one frequency, we don't show any buttons
-  // and data.frequency will already be set. See initDataState...
+  // and data.frequency will already be set
 
   if (frequencies.length === 0) {
     return null;
@@ -50,7 +51,7 @@ const FrequencyButtons = ({ frequencies, selected, classes }) => {
     <div className={classes.frequency}>
       <Grid container spacing={1}>
         {frequencies.map((f) => (
-          <Grid key={f} item sm={12} md={6}>
+          <Grid key={f} item xs={12} md={6}>
             <FrequencyButton buttonValue={f} selected={selected}>
               {t(f.toUpperCase())}
             </FrequencyButton>

@@ -15,6 +15,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Stripe from "./Stripe";
 import Sepa from "./Sepa";
 import Paypal from "./Paypal";
+import { useCampaignConfig } from "../../hooks/useConfig.js";
+import useData from "../../hooks/useData.js";
+import { create as createURL } from "../../lib/urlparser.js";
 
 const useStyles = makeStyles((theme) => ({
   tabRoot: {
@@ -27,6 +30,8 @@ export default function Target(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
   const classes = useStyles();
+  const config = useCampaignConfig();
+  const [requestData] = useData();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -37,8 +42,22 @@ export default function Target(props) {
   //                <ButonPaypal />
 
   const done = (d) => {
-    console.log(d);
+    // console.log(d);
+
+    if (config?.completed_redirect_url) {
+      window.location = createURL(
+        window.location,
+        config.completed_redirect_url,
+        {
+          firstName: requestData.firstName,
+          amount: requestData.amount,
+          currency: requestData.currency.code,
+        }
+      );
+    }
+
     setSubmitted(true);
+
     props.done(d);
   };
 

@@ -41,6 +41,13 @@ import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
 
+const STRIPE_FREQUENCY = {
+  monthly: "month",
+  weekly: "week",
+  daily: "day",
+  yearly: "year",
+};
+
 const stripeErrorAtom = atom({
   key: "stripe-error",
   default: undefined,
@@ -68,23 +75,25 @@ const StripeCard = (props) => {
   const stripe = useStripe();
 
   return (
-    <Grid item xs={12}>
-      <LayoutTextField
-        name="card"
-        label=""
-        variant={layout.variant}
-        margin={layout.margin}
-        fullWidth
-        InputLabelProps={{ shrink: true }}
-        InputProps={{
-          inputComponent: StripeInput,
-          inputProps: {
-            component: CustomCardElement,
-            stripe: stripe,
-          },
-        }}
-      />
-    </Grid>
+    <Container component="main" maxWidth="sm">
+      <Grid item xs={12}>
+        <LayoutTextField
+          name="card"
+          label=""
+          variant={layout.variant}
+          margin={layout.margin}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          InputProps={{
+            inputComponent: StripeInput,
+            inputProps: {
+              component: CustomCardElement,
+              stripe: stripe,
+            },
+          }}
+        />
+      </Grid>
+    </Container>
   );
 };
 
@@ -271,7 +280,7 @@ const SubmitButton = (props) => {
   const stripeComplete = useRecoilValue(stripeCompleteAtom);
   const stripe = useStripe();
 
-  const [data] = useData();
+  const [formData] = useData();
 
   const elements = useElements();
 
@@ -281,23 +290,48 @@ const SubmitButton = (props) => {
   const currency = donateConfig.currency;
 
   const onSubmitButtonClick = async (event, _) => {
-    const orderComplete = async (paymentIntent) => {
-      // TODO: cleanup what information needs to be saved
+    const orderComplete = async (paymentIntent, paymentConfirm) => {
+      const procaRequest = { ...formData, ...values };
+      const confirmedIntent = paymentConfirm.paymentIntent;
 
-      const d = { ...data };
-
-      d.donation = {
-        amount: data.amount,
-        currency: currency.code,
-        payload: {
-          paymentIntent: paymentIntent,
-          values: values,
-        },
+      const payload = {
+        paymentConfirm: confirmedIntent,
+        paymentIntent: paymentIntent,
+        formValues: values,
       };
-      if (data.frequency) d.donation.frequencyUnit = data.frequency;
-      if (config.test) d.donation.payload.test = true;
-      // console.log(d);
-      const result = await addDonateContact("stripe", config.actionPage, d);
+      procaRequest.donation = {
+        amount: confirmedIntent.amount,
+        currency: confirmedIntent.currency.toUpperCase(),
+      };
+
+      if (formData.frequency !== "oneoff") {
+        const intentResponse = paymentIntent.response;
+        const subscriptionPlan = intentResponse.items.data[0].plan;
+
+        procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
+        payload.response = confirmedIntent;
+        payload.subscriptionId = intentResponse.id;
+        payload.subscriptionPlan = subscriptionPlan;
+        payload.customerId = intentResponse.customer;
+      }
+
+      procaRequest.donation.payload = payload;
+
+      if (config.test) payload.test = true;
+
+      const procaResponse = await addDonateContact(
+        "stripe",
+        config.actionPage,
+        procaRequest
+      );
+
+      if (procaResponse.errors) {
+        throw Error("Proca didn't like the request !", procaResponse.errors);
+      }
+
+      // console.log("procaResponse", procaResponse);
+
+      props.done(paymentConfirm);
       dispatch(
         "donate",
         {
@@ -310,9 +344,8 @@ const SubmitButton = (props) => {
           frequency: data.frequency || "oneoff",
           country: data.country,
         },
-        data
+        procaRequest
       );
-      props.done(paymentIntent);
     };
 
     event.preventDefault();
@@ -341,28 +374,27 @@ const SubmitButton = (props) => {
 
     let params = {
       actionPage: config.actionPage,
-      amount: data.amount,
+      amount: Math.floor(formData.amount * 100),
       currency: currency.code,
       contact: {
-        name: data.firstname + " " + data.lastname,
-        email: data.email,
-        address: { country: data.country, postal_code: data.postcode },
+        name: formData.firstname + " " + formData.lastname,
+        email: formData.email,
+        address: { country: formData.country, postal_code: formData.postcode },
       },
       stripe_product_id: config.component.donation.stripe.productId,
     };
-    if (data.frequency === "monthly") params.frequency = "month";
+    if (formData.frequency)
+      params.frequency = STRIPE_FREQUENCY[formData.frequency];
 
     const piResponse = await stripeCreate(params);
-    console.log("response", piResponse, piResponse.client_secret);
 
-    /*
-    const piResponse = await stripeCreatePaymentIntent(
-      config.actionPage,
-      data.amount,
-      currency.code
-      // { idempotency_key: stripeSessionId }
+    // this has the subscription ID in it
+    console.debug(
+      "stripe payment intent response",
+      piResponse,
+      piResponse.client_secret
     );
-*/
+
     if (piResponse.errors) {
       console.log("Error returned from proca backend", piResponse.errors);
       setStripeError({
@@ -386,6 +418,7 @@ const SubmitButton = (props) => {
             email: values.email,
           },
         },
+        // expand: {},
       }
     );
 
@@ -397,7 +430,9 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    orderComplete(stripeResponse.paymentIntent);
+    console.debug("stripe confirm card payment response", stripeResponse);
+
+    orderComplete(piResponse, stripeResponse);
 
     // leave button disabled - we're done!
     return true;
@@ -423,11 +458,12 @@ const SubmitButton = (props) => {
         }}
       >
         {isSubmitting ? (
-          <CircularProgress />
+          <CircularProgress color="inherit" />
         ) : (
-          t("Donate {{amount}}{{currency}}", {
-            amount: data.amount,
-            currency: currency.symbol,
+          t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
+            amount: formData.amount,
+            currency: currency,
+            frequency: t("a " + formData.frequency),
           })
         )}
       </Button>

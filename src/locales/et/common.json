@@ -89,5 +89,8 @@
     "Donate {{amount}}{{currency}}": "Annetada {{amount}}{{currency}}",
     "yearly": "iga aastaselt",
     "weekly": "iganädalane",
-    "monthly": "iga kuu"
+    "monthly": "iga kuu",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ma annetan {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "iga nädal",
+    "a monthly": "iga kuu"
 }

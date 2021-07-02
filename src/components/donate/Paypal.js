@@ -9,13 +9,18 @@ import PaymentBox from "./PaymentBox";
 import DonateTitle from "./DonateTitle";
 
 const Paypal = (props) => {
-  const [data] = useData();
+  const [formData] = useData();
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
+
   const ButtonPaypal = usePaypal({
     currency: donateConfig.currency,
-    amount: data.amount,
-    recurring: data.recurring,
+    amount: formData.amount,
+    recurring: formData.recurring,
+    completed: (response) => {
+      props.done(response);
+    },
+    formData: formData,
   });
 
   return (
@@ -25,9 +30,9 @@ const Paypal = (props) => {
           <Grid item xs={12}>
             <DonateTitle
               config={config}
-              amount={data.amount}
+              amount={formData.amount}
               currency={donateConfig.currency}
-              frequency={data.frequency}
+              frequency={formData.frequency}
             />
           </Grid>
           <Grid item xs={1}></Grid>

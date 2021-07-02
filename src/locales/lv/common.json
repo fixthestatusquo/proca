@@ -88,5 +88,8 @@
     "Donate {{amount}}{{currency}}": "Ziedot {{amount}}{{currency}}",
     "yearly": "gada",
     "weekly": "iknedēļas",
-    "monthly": "ikmēneša"
+    "monthly": "ikmēneša",
+    "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Es ziedoju {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a weekly": "katru nedēļu",
+    "a monthly": "katru mēnesi"
 }
