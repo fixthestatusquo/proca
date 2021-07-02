@@ -94,5 +94,7 @@
     "a monthly": "în fiecare lună",
     "I'm donating {{amount}}{{currency}} monthly": "Donez {{amount}}{{currency}} lunar",
     "I'm donating {{amount}}{{currency}}": "Fac o donație {{amount}}{{currency}}",
-    "Choose an Amount": "Alegeți o sumă"
+    "Choose an Amount": "Alegeți o sumă",
+    "Please provide your card information": "Vă rugăm să furnizați informațiile cardului dvs.",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nu ne putem ocupa de donația dvs. în acest moment. Vă rugăm să încercați din nou în câteva minute."
 }
