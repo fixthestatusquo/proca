@@ -136,7 +136,7 @@ const DonateAmount = (props) => {
               </Typography>
               <Grid container spacing={1} role="group" aria-label="amount">
                 {amounts.map((d) => (
-                  <Grid sm={6} md={3} key={d} item>
+                  <Grid xs={6} md={3} key={d} item>
                     <AmountButton
                       amount={d}
                       currency={currency}
