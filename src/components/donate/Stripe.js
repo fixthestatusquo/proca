@@ -74,23 +74,25 @@ const StripeCard = (props) => {
   const stripe = useStripe();
 
   return (
-    <Grid item xs={12}>
-      <LayoutTextField
-        name="card"
-        label=""
-        variant={layout.variant}
-        margin={layout.margin}
-        fullWidth
-        InputLabelProps={{ shrink: true }}
-        InputProps={{
-          inputComponent: StripeInput,
-          inputProps: {
-            component: CustomCardElement,
-            stripe: stripe,
-          },
-        }}
-      />
-    </Grid>
+    <Container component="main" maxWidth="sm">
+      <Grid item xs={12}>
+        <LayoutTextField
+          name="card"
+          label=""
+          variant={layout.variant}
+          margin={layout.margin}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          InputProps={{
+            inputComponent: StripeInput,
+            inputProps: {
+              component: CustomCardElement,
+              stripe: stripe,
+            },
+          }}
+        />
+      </Grid>
+    </Container>
   );
 };
 
@@ -115,7 +117,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+      "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
