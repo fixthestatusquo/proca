@@ -95,5 +95,7 @@
     "a monthly": "каждый месяц",
     "I'm donating {{amount}}{{currency}} monthly": "Я жертвую {{amount}}{{currency}} ежемесячно",
     "I'm donating {{amount}}{{currency}}": "Я жертвую {{amount}}{{currency}}",
-    "Choose an Amount": "Выберите сумму"
+    "Choose an Amount": "Выберите сумму",
+    "Please provide your card information": "Пожалуйста, предоставьте информацию о вашей карте",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Мы не можем обработать ваше пожертвование в данный момент. Пожалуйста, повторите попытку через несколько минут."
 }
