@@ -25,6 +25,7 @@ import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
+import dispatch from "../../lib/event.js";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
@@ -296,7 +297,21 @@ const SubmitButton = (props) => {
       if (data.frequency) d.donation.frequencyUnit = data.frequency;
       if (config.test) d.donation.payload.test = true;
       // console.log(d);
-      await addDonateContact("stripe", config.actionPage, d);
+      const result = await addDonateContact("stripe", config.actionPage, d);
+      dispatch(
+        "donate",
+        {
+          payment: "stripe",
+          uuid: result.contactRef,
+          test: !!config.test,
+          firstname: data.firstname,
+          amount: data.amount,
+          currency: currency.code,
+          frequency: data.frequency || "oneoff",
+          country: data.country,
+        },
+        data
+      );
       props.done(paymentIntent);
     };
 

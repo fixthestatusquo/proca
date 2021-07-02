@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 import { addDonateContact, errorMessages } from "../../lib/server.js";
+import dispatch from "../../lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
@@ -109,6 +110,20 @@ export default function Register(props) {
     }
     setStatus("success");
     setData(data);
+    dispatch(
+      "donate",
+      {
+        payment: "sepa",
+        uuid: result.contactRef,
+        test: !!config.test,
+        firstname: data.firstname,
+        amount: data.amount,
+        currency: currency.code,
+        frequency: data.frequency || "oneoff",
+        country: data.country,
+      },
+      data
+    );
     props.done &&
       props.done({
         errors: result.errors,
