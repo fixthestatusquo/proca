@@ -95,5 +95,7 @@
     "a monthly": "havonta",
     "I'm donating {{amount}}{{currency}} monthly": "Adományozok {{amount}}{{currency}} havonta",
     "I'm donating {{amount}}{{currency}}": "Adományozok {{amount}}{{currency}}",
-    "Choose an Amount": "Válasszon egy összeget"
+    "Choose an Amount": "Válasszon egy összeget",
+    "Please provide your card information": "Kérjük, adja meg kártyaadatait",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Jelenleg nem tudjuk kezelni az adományát. Kérjük, néhány perc múlva próbálja meg újra."
 }
