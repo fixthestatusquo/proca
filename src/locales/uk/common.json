@@ -93,5 +93,7 @@
     "a monthly": "щомісяця",
     "I'm donating {{amount}}{{currency}} monthly": "Я пожертвую {{amount}} {{currency}} щомісяця",
     "I'm donating {{amount}}{{currency}}": "Я дарую {{amount}} {{currency}}",
-    "Choose an Amount": "Виберіть суму"
+    "Choose an Amount": "Виберіть суму",
+    "Please provide your card information": "Будь ласка, надайте дані своєї картки",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "На даний момент ми не змогли впоратися з вашою пожертвою. Повторіть спробу через кілька хвилин."
 }

@@ -95,5 +95,7 @@
     "a monthly": "iga kuu",
     "I'm donating {{amount}}{{currency}} monthly": "Ma annetan {{amount}}{{currency}} igakuiselt",
     "I'm donating {{amount}}{{currency}}": "Ma annetan {{amount}}{{currency}}",
-    "Choose an Amount": "Vali summa"
+    "Choose an Amount": "Vali summa",
+    "Please provide your card information": "Palun esitage oma kaardi andmed",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Me ei saa praegu teie annetusega hakkama. Palun proovige mõne minuti pärast uuesti."
 }

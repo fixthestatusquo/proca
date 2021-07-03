@@ -98,5 +98,7 @@
     },
     "I'm donating {{amount}}{{currency}} monthly": "Jeg donerer {{amount}}{{currency}} hver måned",
     "I'm donating {{amount}}{{currency}}": "Jeg donerer {{amount}}{{currency}}",
-    "Choose an Amount": "Vælg et beløb"
+    "Choose an Amount": "Vælg et beløb",
+    "Please provide your card information": "Angiv venligst dine kortoplysninger",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Vi kan ikke håndtere din donation i øjeblikket. Prøv venligst igen om et par minutter."
 }

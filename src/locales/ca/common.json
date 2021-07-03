@@ -94,5 +94,7 @@
     "a monthly": "Cada mes",
     "I'm donating {{amount}}{{currency}} monthly": "Estic donant {{amount}} {{currency}} mensualment",
     "I'm donating {{amount}}{{currency}}": "Estic donant {{amount}} {{currency}}",
-    "Choose an Amount": "Trieu una quantitat"
+    "Choose an Amount": "Trieu una quantitat",
+    "Please provide your card information": "Proporcioneu la informació de la vostra targeta",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "De moment no hem pogut gestionar la vostra donació. Torneu-ho a provar d'aquí a uns quants minuts."
 }

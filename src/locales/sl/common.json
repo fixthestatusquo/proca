@@ -97,5 +97,7 @@
     "a monthly": "vsak mesec",
     "I'm donating {{amount}}{{currency}} monthly": "Darujem {{amount}}{{currency}} mesečno",
     "I'm donating {{amount}}{{currency}}": "Darujem {{amount}}{{currency}}",
-    "Choose an Amount": "Izberite znesek"
+    "Choose an Amount": "Izberite znesek",
+    "Please provide your card information": "Navedite podatke o svoji kartici",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Trenutno ne moremo obdelati vaše donacije. Poskusite znova čez nekaj minut."
 }

@@ -98,5 +98,7 @@
     },
     "I'm donating {{amount}}{{currency}} monthly": "Lahjoitan {{amount}}{{currency}} kuukausittain.",
     "I'm donating {{amount}}{{currency}}": "Minä lahjoitan {{amount}}{{currency}}{{currency}}",
-    "Choose an Amount": "Valitse määrä"
+    "Choose an Amount": "Valitse määrä",
+    "Please provide your card information": "Anna kortin tiedot",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Emme pysty käsittelemään lahjoitustasi tällä hetkellä. Yritä uudelleen muutaman minuutin kuluttua."
 }
