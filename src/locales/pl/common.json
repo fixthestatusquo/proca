@@ -96,5 +96,7 @@
     "a monthly": "co miesiąc",
     "I'm donating {{amount}}{{currency}} monthly": "Przekazuję {{amount}}{{currency}} miesięcznie",
     "I'm donating {{amount}}{{currency}}": "Przekazuję {{amount}}{{currency}}",
-    "Choose an Amount": "Wybierz kwotę"
+    "Choose an Amount": "Wybierz kwotę",
+    "Please provide your card information": "Proszę podać informacje o karcie",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nie możemy w tej chwili obsłużyć Twojej darowizny. Prosimy spróbować ponownie za kilka minut."
 }

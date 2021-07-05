@@ -95,5 +95,7 @@
     "a monthly": "Καθε μήνα",
     "I'm donating {{amount}}{{currency}} monthly": "Δωρίζω {{amount}}{{currency}} μηνιαίως",
     "I'm donating {{amount}}{{currency}}": "Δωρίζω {{amount}}{{currency}}",
-    "Choose an Amount": "Επιλέξτε ένα ποσό"
+    "Choose an Amount": "Επιλέξτε ένα ποσό",
+    "Please provide your card information": "Παρακαλούμε δώστε τα στοιχεία της κάρτας σας",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Δεν μπορούμε να διαχειριστούμε τη δωρεά σας αυτή τη στιγμή. Παρακαλώ προσπαθήστε ξανά σε λίγα λεπτά."
 }

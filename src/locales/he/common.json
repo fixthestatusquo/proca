@@ -94,5 +94,7 @@
     "a monthly": "כל חודש",
     "I'm donating {{amount}}{{currency}} monthly": "אני תורם {{amount}} {{currency}} מדי חודש",
     "I'm donating {{amount}}{{currency}}": "אני תורם {{amount}} {{currency}}",
-    "Choose an Amount": "בחר סכום"
+    "Choose an Amount": "בחר סכום",
+    "Please provide your card information": "אנא ספק את פרטי הכרטיס שלך",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "לא הצלחנו להתמודד עם התרומה שלך כרגע. נסה שוב בעוד מספר דקות."
 }

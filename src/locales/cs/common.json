@@ -96,5 +96,7 @@
     "a monthly": "každý měsíc",
     "I'm donating {{amount}}{{currency}} monthly": "Přispívám {{amount}}{{currency}} měsíčně",
     "I'm donating {{amount}}{{currency}}": "Přispívám {{amount}}{{currency}}",
-    "Choose an Amount": "Zvolte částku"
+    "Choose an Amount": "Zvolte částku",
+    "Please provide your card information": "Uveďte prosím údaje o své kartě",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "V tuto chvíli bychom váš dar nezvládli. Zkuste to prosím znovu za několik minut."
 }

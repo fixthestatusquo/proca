@@ -94,5 +94,7 @@
     "a monthly": "всеки месец",
     "I'm donating {{amount}}{{currency}} monthly": "Дарявам {{amount}}{{currency}} месечно",
     "I'm donating {{amount}}{{currency}}": "Аз дарявам {{amount}}{{currency}}",
-    "Choose an Amount": "Изберете сума"
+    "Choose an Amount": "Изберете сума",
+    "Please provide your card information": "Моля, посочете информацията за картата си",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "В момента не можем да се справим с вашето дарение. Моля, опитайте отново след няколко минути."
 }
