@@ -333,7 +333,7 @@ const SubmitButton = (props) => {
 
       props.done(paymentConfirm);
       dispatch(
-        "donate",
+        "donate:complete",
         {
           payment: "stripe",
           uuid: result.contactRef,

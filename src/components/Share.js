@@ -214,7 +214,7 @@ export default function ShareAction(props) {
         tracking: Url.utm(),
       };
 
-      dispatch(event, d);
+      dispatch(event.replace("_", ":"), d);
       if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
       addAction(actionPage, event, d);
     }

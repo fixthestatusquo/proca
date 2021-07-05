@@ -178,7 +178,7 @@ export default (props) => {
         setStatus("error");
       return;
     }
-    dispatch("eci", {
+    dispatch("eci:complete", {
       uuid: result.contactRef,
       test: !!config.test,
       country: data.nationality,

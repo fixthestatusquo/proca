@@ -130,8 +130,9 @@ const autoRender = () => {
 autoRender();
 
 const addEventListener = (type, listener) => {
-  const el = document.getElementById("proca");
-  el.addEventListener(type, listener, false);
+  let el = document.getElementById("proca");
+  if (!el) el = window;
+  el.addEventListener(type, listener);
 };
 
 export { Widget, Alert, set, go, hook, React, ReactDOM, addEventListener };

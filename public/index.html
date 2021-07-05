@@ -15,7 +15,6 @@
     <meta property="og:image" content="https://placekitten.com/540/284" />
     <title><%= campaign %> widget for <%= organisation %></title>
     <meta name="twitter:title" content="Demo of <%= campaign %>" />
-
     <meta
       name="description"
       content="Sign the initiative with <%= organisation %>!"
@@ -385,7 +384,9 @@
     </script>
 
     <script>
-      function procaReady() {
+      window.addEventListener("proca:init", d => {
+//        proca.set("layout", "variant", "outlined");
+//        proca.set("layout","primaryColor","#f90");
         proca.addEventListener("complete", function (e) {
           console.log(e.type, e.detail);
         });
@@ -405,7 +406,7 @@
         proca.addEventListener("donate", function (e) {
           console.log(e.type, e.detail);
         });
-      }
+      });
 
       jQuery(function ($) {
         $(".columns a").click(function () {

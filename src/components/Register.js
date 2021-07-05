@@ -121,7 +121,7 @@ export default function Register(props) {
       return;
     }
     dispatch(
-      config.component?.register?.actionType || "register",
+      (config.component?.register?.actionType || "register") + ":complete",
       {
         uuid: result.contactRef,
         test: !!config.test,

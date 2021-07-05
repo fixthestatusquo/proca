@@ -26,11 +26,17 @@ let config = {
   locale: {},
 };
 
+let init = false;
+
 const Widget = (props) => {
   const [current, _setCurrent] = useState(null);
   const setCurrent = (i) => {
+    if (i >= 0 && journey[i])
+      dispatch(journey[i].toLowerCase() + ":init", {
+        step: journey[i],
+        journey: journey,
+      });
     _setCurrent(i);
-    if (i) dispatch("go", { step: journey[i], journey: journey });
   };
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
@@ -58,13 +64,15 @@ const Widget = (props) => {
   }
   initConfigState(config);
 
-  console.debug("calling initDataState", config);
   initDataState(data, config);
 
   useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
+      console.log(
+        "obsolete, please use window.addEventListener('proca:init', function(){}); instead"
+      );
       const proca = document.getElementById("proca");
       if (!proca) {
         // we are in dev mode, create a fake proca
@@ -72,6 +80,7 @@ const Widget = (props) => {
         placeholder.id = "proca";
         document.head.appendChild(placeholder);
       }
+
       procaReady({}); // NOTE: should we pass config to procaReady?
     }
   }, [props]);
@@ -97,6 +106,15 @@ const Widget = (props) => {
     // obsolete?
     setCurrent(0);
     return;
+  }
+  if (!init) {
+    dispatch("proca:init", {
+      config: config,
+      data: data,
+      isMobile: isMobile,
+      step: journey[current ? current : 0],
+    });
+    init = true;
   }
 
   if (props.loader) {
@@ -182,7 +200,7 @@ const Widget = (props) => {
       setCurrent(current + 1);
     } else {
       // we're done - check what to do next!
-      dispatch("complete", { elem: "journey", journey: journey });
+      dispatch("proca:complete", { elem: "journey", journey: journey });
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.

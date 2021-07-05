@@ -146,11 +146,13 @@ pre {background:#dede; padding: 10px}
     </script>
 
   <script>
-    function procaReady () {
-        proca.addEventListener("eci", function (e) {
-          console.log(e.type, e.detail); // you can display or redirect to an external lead capture
-        });
-    }
+    window.addEventListener("proca:debug", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("proca:init", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("proca:complete", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("eci_support:init", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("eci:complete", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("share:click", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("share:close", function(e){console.log(e.type,e.detail);});
 
       function display() {
         var variants = ["standard", "filled", "outlined"];

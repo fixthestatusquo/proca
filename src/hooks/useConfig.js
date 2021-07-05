@@ -75,7 +75,13 @@ export const setGlobalState = (atom, key, value) => {
     detail: { atom: atom, key: key, value: value },
   });
 
-  document.getElementById(id).dispatchEvent(event);
+  const el = document.getElementById(id);
+  if (el) {
+    el.dispatchEvent(event);
+  } else {
+    // delay until the display is finished
+    setTimeout(setGlobalState, 1, atom, key, value);
+  }
 };
 
 const set = (key, value) => {

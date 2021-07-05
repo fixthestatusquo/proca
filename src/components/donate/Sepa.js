@@ -115,7 +115,7 @@ export default function Register(props) {
     setStatus("success");
     setData(data);
     dispatch(
-      "donate",
+      "donate:complete",
       {
         payment: "sepa",
         uuid: result.contactRef,

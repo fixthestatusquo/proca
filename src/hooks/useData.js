@@ -55,7 +55,6 @@ export const initDataState = (urlData, config) => {
 
 const useData = () => {
   const [formValues, _set] = useRecoilState(formData);
-
   const setData = useCallback(
     (key, value) => {
       if (typeof key === "object") {
