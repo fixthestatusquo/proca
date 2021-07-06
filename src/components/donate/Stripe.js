@@ -118,7 +118,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+      "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -336,13 +336,13 @@ const SubmitButton = (props) => {
         "donate:complete",
         {
           payment: "stripe",
-          uuid: result.contactRef,
+          uuid: procaResponse.contactRef,
           test: !!config.test,
-          firstname: data.firstname,
-          amount: data.amount,
+          firstname: formData.firstname,
+          amount: formData.amount,
           currency: currency.code,
-          frequency: data.frequency || "oneoff",
-          country: data.country,
+          frequency: formData.frequency || "oneoff",
+          country: formData.country,
         },
         procaRequest
       );
@@ -501,7 +501,7 @@ const PaymentFormWrapper = (props) => {
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
   const [stripe, loadStripe] = useState(null);
-  const [loading, error] = useScript({
+  const [, error] = useScript({
     src: "https://js.stripe.com/v3/",
     onload: () => {
       // the object window.Stripe exists
