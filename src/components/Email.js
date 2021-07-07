@@ -65,7 +65,7 @@ const Component = (props) => {
           : [];
       let to = [];
       emails.map((d) => {
-        to.push({ email: d.trim() });
+        return to.push({ email: d.trim() });
       });
       console.log(to);
       setAllProfiles(to);
