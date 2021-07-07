@@ -1,0 +1,29 @@
+{
+  "actionpage": 0,
+  "organisation": "Dummy org for CI",
+  "lang": "en",
+  "filename": "demo/ci",
+  "lead": {
+    "name": "ci",
+    "title": "Dummy org for CI"
+  },
+  "campaign": {
+    "title": "CI for all"
+  },
+  "journey": [
+    "Register","Share",
+    "Target",
+    "donate/Amount",
+    "donate/Tab",
+    "donate/Stripe"
+  ],
+  "layout": {},
+  "component": {
+    "register": {
+      "field": {}
+    }
+  },
+  "portal": [],
+  "locales": {},
+  "template": false
+}
