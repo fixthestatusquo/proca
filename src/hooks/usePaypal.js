@@ -32,9 +32,11 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     contact.email = payer.email_address;
     contact.phone = payer.phone?.phone_number?.national_number;
 
-    const address = payer?.address || payer.shipping_address.address;
-    contact.country = address?.country_code;
-    contact.postcode = address?.postal_code;
+    const address = payer?.address || payer?.shipping_address?.address;
+    if (address) {
+      contact.country = address?.country_code;
+      contact.postcode = address?.postal_code;
+    }
   };
 
   const donationStart = (data, actions) => {
