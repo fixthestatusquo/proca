@@ -309,7 +309,6 @@ const SubmitButton = (props) => {
         const subscriptionPlan = intentResponse.items.data[0].plan;
 
         procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
-        payload.response = confirmedIntent;
         payload.subscriptionId = intentResponse.id;
         payload.subscriptionPlan = subscriptionPlan;
         payload.customerId = intentResponse.customer;
