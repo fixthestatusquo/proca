@@ -36,7 +36,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.5",
-    "react-i18next": "^11.11.0",
+    "react-i18next": "^11.11.1",
     "react-ipgeolocation": "^1.4.0",
     "react-script-hook": "^1.4.1",
     "react-scripts": "^3.4.3",
