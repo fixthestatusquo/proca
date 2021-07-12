@@ -29,7 +29,7 @@ export const initConfigState = (config) => {
           campaignTitle = true;
         }
         i18next.addResourceBundle(
-          config.lang,
+          config.lang || "en", // tests
           ns,
           config.locales[k],
           true,
@@ -41,7 +41,7 @@ export const initConfigState = (config) => {
     });
     if (!campaignTitle) {
       i18next.addResourceBundle(
-        config.lang,
+        config.lang || "en",
         "campaign",
         config.campaign,
         true,
@@ -49,7 +49,7 @@ export const initConfigState = (config) => {
       );
     }
     i18next.addResourceBundle(
-      config.lang,
+      config.lang || "en",
       "common",
       config.locales,
       true,

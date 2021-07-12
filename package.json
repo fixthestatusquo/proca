@@ -51,10 +51,12 @@
     "@babel/node": "^7.14.7",
     "@babel/plugin-transform-react-jsx": "^7.14.5",
     "@proca/api": "2.3.4",
+    "@proca/widget": "/home/aaron/fixthestatusquo/proca-widget",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
     "babel-plugin-i18next-extract": "^0.8.3",
     "babel-plugin-module-resolver": "^4.1.0",
+    "cd": "^0.3.3",
     "compression-webpack-plugin": "^6.0.2",
     "cross-fetch": "^3.1.4",
     "dotenv": "^10.0.0",
@@ -73,7 +75,7 @@
     "pull": "node bin/pull.js",
     "push": "node bin/push.js",
     "start": "rescripts start",
-    "test": "rescripts test",
+    "test": "CI=true rescripts test",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
@@ -84,7 +86,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^locales/(.*)$": "<rootDir>/src/locales/en/$1"
+      "^locales/(.*)$": "<rootDir>/src/locales/en/$1",
+      "@i18n-iso-countries/lang": "i18n-iso-countries/langs/en.json"
     }
   },
   "browserslist": {

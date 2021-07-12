@@ -56,6 +56,10 @@ const Widget = (props) => {
   if (props) config = { ...config, ...props };
 
   config.param = getAllData(config.selector);
+  // in tests locales is not defined
+  if (config.locales === undefined) {
+    config.locales = {};
+  }
   config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
 
