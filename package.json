@@ -75,7 +75,7 @@
     "pull": "node bin/pull.js",
     "push": "node bin/push.js",
     "start": "rescripts start",
-    "test": "CI=true rescripts test",
+    "test": "jest",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
@@ -83,12 +83,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^locales/(.*)$": "<rootDir>/src/locales/en/$1",
-      "@i18n-iso-countries/lang": "i18n-iso-countries/langs/en.json"
-    }
   },
   "browserslist": {
     "production": [
