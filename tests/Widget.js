@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Widget from "../Widget";
+import Widget from "components/Widget";
 
 it("renders", () => {
   const div = document.createElement("div");
