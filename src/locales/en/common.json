@@ -10,6 +10,7 @@
   "Comment": "Comment",
   "Country": "Country",
   "Donate": "Donate",
+  "Donate now!": "Donate now!",
   "Donate {{amount}}{{currency}}": "Donate {{amount}}{{currency}}",
   "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
   "Download": "Download",

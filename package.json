@@ -75,7 +75,7 @@
     "pull": "node bin/pull.js",
     "push": "node bin/push.js",
     "start": "rescripts start",
-    "test": "jest",
+    "test": "CI=true rescripts test",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
@@ -95,5 +95,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^locales/(.*)$": "<rootDir>/src/locales/en/$1",
+      "@i18n-iso-countries/lang": "i18n-iso-countries/langs/en.json"
+    },
+    "globalSetup": "./src/tests/setup.js"
   }
 }
