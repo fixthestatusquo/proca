@@ -25,14 +25,13 @@ import General from "./General";
 import Address from "./Address";
 import Consent from "./Consent";
 import Id from "./Id";
+import Captcha from "./Captcha";
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
 
 import { makeStyles } from "@material-ui/core/styles";
-//import HCaptcha from "@hcaptcha/react-hcaptcha";
-import HCaptcha from "../../../vendor/hcaptcha.js";
 
 //const countries = eciLocale.common.country;
 
@@ -270,23 +269,15 @@ export default (props) => {
                   country={nationality}
                 />
               )}
-              <Grid item xs={12} sm={compact ? 12 : 8}>
+              <Grid item xs={12}>
                 <Consent form={form} />
               </Grid>
-              <Grid item xs={12} sm={compact ? 12 : 4}>
-                <Tooltip
-                  arrow
-                  open={status === "nocaptcha" && token === "dummy"}
-                  placement="left"
-                  title={t("eci:form.error.email_required")}
-                >
-                  <HCaptcha
-                    sitekey={config.component.eci.hcaptcha}
-                    languageOverride={config.lang}
-                    size="compact"
-                    onVerify={(token) => handleVerificationSuccess(token)}
-                  />
-                </Tooltip>
+              <Grid item xs={12}>
+                <Captcha
+                  form={form}
+                  lang={config.lang}
+                  onVerify={(token) => handleVerificationSuccess(token)}
+                />
               </Grid>
               <Grid item xs={12}>
                 <Button

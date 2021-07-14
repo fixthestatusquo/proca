@@ -64,6 +64,7 @@
     "webpack-bundle-analyzer": "^4.4.2"
   },
   "scripts": {
+    "format": "prettier --write '**/*.{js,css,json,md}'",
     "build": "rescripts build",
     "eci": "bin/eci.js",
     "fetch": "node bin/fetch.js",
