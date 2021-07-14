@@ -275,7 +275,7 @@ export default (props) => {
               <Grid item xs={12}>
                 <Captcha
                   form={form}
-                  lang={config.lang}
+                  compact={compact}
                   onVerify={(token) => handleVerificationSuccess(token)}
                 />
               </Grid>

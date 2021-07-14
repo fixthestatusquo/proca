@@ -13,13 +13,20 @@ export default function Captcha(props) {
   const { t } = useTranslation();
   const { setValue } = props.form;
 
-  const compact = true;
+  const compact = props.compact || false;
   useEffect(() => {
     let isLive = true;
     (async () => {
       fetch("https://captcha.proca.app")
         .then((response) => response.json())
-        .then((captcha) => isLive && setCaptcha(captcha));
+        .then(
+          (captcha) =>
+            isLive &&
+            setCaptcha({
+              data: captcha.data.replace('width="150" height="50"', ""),
+              text: captcha.text,
+            })
+        );
     })();
     return () => (isLive = false);
   }, [count]);
@@ -38,7 +45,7 @@ export default function Captcha(props) {
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={compact ? 6 : 7}>
+        <Grid item xs={compact ? 7 : 7}>
           <TextField
             form={props.form}
             name="captcha"
@@ -60,7 +67,7 @@ export default function Captcha(props) {
             required
           />
         </Grid>
-        <Grid item xs={compact ? 6 : 5}>
+        <Grid item xs={compact ? 5 : 5}>
           <Box py={1} dangerouslySetInnerHTML={{ __html: captcha.data }} />
         </Grid>
       </Grid>
