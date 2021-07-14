@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
-import { Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import TextField from "../TextField";
 import { useTranslation } from "react-i18next";
 import IconButton from "@material-ui/core/IconButton";
@@ -13,7 +13,7 @@ export default function Captcha(props) {
   const { t } = useTranslation();
   const { setValue } = props.form;
 
-  const compact = false;
+  const compact = true;
   useEffect(() => {
     let isLive = true;
     (async () => {
@@ -38,7 +38,7 @@ export default function Captcha(props) {
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={compact ? 12 : 7}>
+        <Grid item xs={compact ? 6 : 7}>
           <TextField
             form={props.form}
             name="captcha"
@@ -60,8 +60,8 @@ export default function Captcha(props) {
             required
           />
         </Grid>
-        <Grid item xs={12} sm={compact ? 12 : 5}>
-          <div dangerouslySetInnerHTML={{ __html: captcha.data }} />
+        <Grid item xs={compact ? 6 : 5}>
+          <Box py={1} dangerouslySetInnerHTML={{ __html: captcha.data }} />
         </Grid>
       </Grid>
     </>
