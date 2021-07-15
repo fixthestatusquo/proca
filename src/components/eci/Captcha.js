@@ -9,6 +9,14 @@ import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  focus: {
+    "& svg": {
+      backgroundColor: "rgba(0, 0, 0, 0.09)",
+      transition: theme.transitions.create(["background-color"], {
+        duration: theme.transitions.duration.complex,
+      }),
+    },
+  },
   captcha: {
     backgroundColor: theme.palette.background.paper,
     "& path": {
@@ -27,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Captcha(props) {
   const [captcha, setCaptcha] = useState(null);
+  const [isFocussed, setFocussed] = useState(false);
   const classes = useStyles();
   const [count, setCount] = useState(0);
   const { t } = useTranslation();
@@ -53,12 +62,19 @@ export default function Captcha(props) {
     event.preventDefault();
   };
 
+  const handleFocus = (event) => {
+    setFocussed(true);
+  };
+  const handleBlur = (event) => {
+    setFocussed(false);
+  };
+
   const Svg = () => {
     if (!captcha) return null;
     return (
       <svg
         className={classes.captcha}
-        viewBox={"0,0," + captcha.width + "," + captcha.height}
+        viewBox={"0,0," + captcha.width + "," + (captcha.height + 17)}
       >
         {captcha.d.map((d, i) => (
           <path className={i === 0 ? "n" : null} key={i} d={d} />
@@ -77,6 +93,8 @@ export default function Captcha(props) {
             name="captcha"
             helperText={t("eci:form.captcha-image-title")}
             label=""
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -94,7 +112,7 @@ export default function Captcha(props) {
           />
         </Grid>
         <Grid item xs={compact ? 5 : 5}>
-          <Box py={1}>
+          <Box py={1} className={isFocussed ? classes.focus : null}>
             <Svg />
           </Box>
         </Grid>

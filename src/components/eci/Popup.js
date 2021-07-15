@@ -7,6 +7,7 @@ const EciPopup = (props) => {
   const { t } = useTranslation();
 
   const openPopup = (event) => {
+    if (!event.target.href) return;
     event.preventDefault();
     switch (event.target.href.split("#")[1]) {
       case "privacy":
