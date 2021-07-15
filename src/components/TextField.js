@@ -34,7 +34,7 @@ export default (props) => {
   const value = watch(props.name) || "";
   return (
     <TextField
-      id={props.name}
+      id={"proca_" + props.name}
       name={props.name}
       label={/* i18next-extract-disable-line */ t(props.name)}
       inputRef={register(props.register)}
