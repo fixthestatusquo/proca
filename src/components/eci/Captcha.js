@@ -12,9 +12,15 @@ const useStyles = makeStyles((theme) => ({
   focus: {
     "& svg": {
       backgroundColor: "rgba(0, 0, 0, 0.09)",
-      transition: theme.transitions.create(["background-color"], {
+      transition: theme.transitions.create(["background-color", "transform"], {
         duration: theme.transitions.duration.complex,
       }),
+      "& path.n": {
+        strokeWidth: 2,
+        filter: "none",
+        fill: "none",
+        stroke: "rgba(0, 0, 0, 0.13)",
+      },
     },
   },
   captcha: {
@@ -28,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       strokeWidth: 3,
       filter: "none",
       fill: "none",
-      stroke: theme.palette.primary.light,
+      stroke: theme.palette.primary.main,
     },
   },
 }));
@@ -47,15 +53,25 @@ export default function Captcha(props) {
     (async () => {
       fetch("https://captcha.proca.app")
         .then((response) => response.json())
-        .then((captcha) => isLive && setCaptcha(captcha));
+        .then(
+          (captcha) => isLive && setCaptcha(captcha) && props.onChange(captcha)
+        );
     })();
     return () => (isLive = false);
   }, [count]);
 
   const handleClick = () => {
     setCount(count + 1);
+    setFocussed(true);
     setValue("captcha", "");
     //    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseOver = (event) => {
+    setFocussed(true);
+  };
+  const handleMouseLeave = (event) => {
+    setFocussed(false);
   };
 
   const handleMouseDown = (event) => {
@@ -77,7 +93,7 @@ export default function Captcha(props) {
         viewBox={"0,0," + captcha.width + "," + (captcha.height + 17)}
       >
         {captcha.d.map((d, i) => (
-          <path className={i === 0 ? "n" : null} key={i} d={d} />
+          <path className={d.startsWith("M19 84") ? "n" : null} key={i} d={d} />
         ))}
       </svg>
     );
@@ -102,6 +118,8 @@ export default function Captcha(props) {
                     aria-label={t("eci:form.captcha-button-arialabel-refresh")}
                     onClick={handleClick}
                     onMouseDown={handleMouseDown}
+                    onMouseOver={handleMouseOver}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <ReplayIcon />
                   </IconButton>

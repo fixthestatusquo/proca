@@ -198,7 +198,7 @@ export default (props) => {
     });
   }, [setError, nationality]);
 
-  const handleVerificationSuccess = (token) => {
+  const handleCaptcha = (token) => {
     setToken(token);
   };
 
@@ -269,7 +269,7 @@ export default (props) => {
                 <Captcha
                   form={form}
                   compact={compact}
-                  onVerify={(token) => handleVerificationSuccess(token)}
+                  onChange={(captcha) => handleCaptcha(captcha)}
                 />
               </Grid>
               <Grid item xs={12}>
