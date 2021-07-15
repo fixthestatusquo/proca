@@ -43,6 +43,7 @@
     "react-share": "^4.4.0",
     "react-swipeable-views": "^0.14.0",
     "recoil": "^0.3.1",
+    "snarkdown": "^2.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

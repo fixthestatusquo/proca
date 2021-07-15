@@ -106,13 +106,6 @@ export default (props) => {
       }
     }
 
-    // is captcha checked?
-    if (token === "dummy") {
-      console.error("dummy", t("eci:form.error.oct_captcha_invalid"));
-      setStatus("nocaptcha");
-      return;
-    }
-
     const result = await addSupport(
       config.test ? "test" : "support",
       +config.component.eci.actionpage,
