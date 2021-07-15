@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     "& path": {
       stroke: theme.palette.primary.light,
       fill: theme.palette.primary.main,
-      filter: "drop-shadow( 2px 2px 1px rgba(0, 0, 0, .4))",
+      filter: "drop-shadow( 2px 1px 1px rgba(0, 0, 0, .4))",
     },
     "& path.n": {
       strokeWidth: 3,
