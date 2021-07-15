@@ -54,7 +54,8 @@ export default function Captcha(props) {
       fetch("https://captcha.proca.app")
         .then((response) => response.json())
         .then(
-          (captcha) => isLive && setCaptcha(captcha) && props.onChange(captcha)
+          (captcha) =>
+            isLive && (setCaptcha(captcha) || props.onChange(captcha))
         );
     })();
     return () => (isLive = false);

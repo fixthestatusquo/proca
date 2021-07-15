@@ -199,6 +199,7 @@ export default (props) => {
   }, [setError, nationality]);
 
   const handleCaptcha = (token) => {
+    console.log(token);
     setToken(token);
   };
 
