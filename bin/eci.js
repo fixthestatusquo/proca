@@ -65,15 +65,15 @@ const makeLocalAP = (mainAP, locale, eci) => {
   page.component.eci.organisers = eci.organisers.organiser;
   page.component.eci.registrationDate =
     eci.startOfTheCollectionPeriod || eci.registrationDate;
-  page.component.eci.registrationDate = page.component.eci.registrationDate.substring(
-    0,
-    10
-  );
+  page.component.eci.registrationDate =
+    page.component.eci.registrationDate.substring(0, 10);
+
   page.locales["campaign:"] = getLocale(
     page.lang.toLowerCase(),
     eci.languages.language
   );
 
+  console.log(page);
   return page;
 };
 
@@ -114,8 +114,14 @@ const makeLocalAP = (mainAP, locale, eci) => {
       },
     };
     // console.log(JSON.stringify(upsertEciVars, null, 2));
-    console.log(`Will UPSERT these pages to campaign ${campaignName}: ${upsertEciVars.campaign.actionPages.map(({name})=>name).join(', ')}`);
-    console.log(`The pages are not stored in ./config; you must yarn pull them if you need a local copy.`);
+    console.log(
+      `Will UPSERT these pages to campaign ${campaignName}: ${upsertEciVars.campaign.actionPages
+        .map(({ name }) => name)
+        .join(", ")}`
+    );
+    console.log(
+      `The pages are not stored in ./config; you must yarn pull them if you need a local copy.`
+    );
 
     const upsert = await api.request(
       link,

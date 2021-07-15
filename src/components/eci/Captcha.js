@@ -6,9 +6,28 @@ import { useTranslation } from "react-i18next";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  captcha: {
+    backgroundColor: theme.palette.background.paper,
+    "& path": {
+      stroke: theme.palette.primary.light,
+      fill: theme.palette.primary.main,
+      filter: "drop-shadow( 2px 2px 1px rgba(0, 0, 0, .4))",
+    },
+    "& path.n": {
+      strokeWidth: 3,
+      filter: "none",
+      fill: "none",
+      stroke: theme.palette.primary.light,
+    },
+  },
+}));
 
 export default function Captcha(props) {
-  const [captcha, setCaptcha] = useState({ data: "" });
+  const [captcha, setCaptcha] = useState(null);
+  const classes = useStyles();
   const [count, setCount] = useState(0);
   const { t } = useTranslation();
   const { setValue } = props.form;
@@ -19,14 +38,7 @@ export default function Captcha(props) {
     (async () => {
       fetch("https://captcha.proca.app")
         .then((response) => response.json())
-        .then(
-          (captcha) =>
-            isLive &&
-            setCaptcha({
-              data: captcha.data.replace('width="150" height="50"', ""),
-              text: captcha.text,
-            })
-        );
+        .then((captcha) => isLive && setCaptcha(captcha));
     })();
     return () => (isLive = false);
   }, [count]);
@@ -39,6 +51,20 @@ export default function Captcha(props) {
 
   const handleMouseDown = (event) => {
     event.preventDefault();
+  };
+
+  const Svg = () => {
+    if (!captcha) return null;
+    return (
+      <svg
+        className={classes.captcha}
+        viewBox={"0,0," + captcha.width + "," + captcha.height}
+      >
+        {captcha.d.map((d, i) => (
+          <path className={i === 0 ? "n" : null} key={i} d={d} />
+        ))}
+      </svg>
+    );
   };
 
   //  return parse(captcha.data);
@@ -68,7 +94,9 @@ export default function Captcha(props) {
           />
         </Grid>
         <Grid item xs={compact ? 5 : 5}>
-          <Box py={1} dangerouslySetInnerHTML={{ __html: captcha.data }} />
+          <Box py={1}>
+            <Svg />
+          </Box>
         </Grid>
       </Grid>
     </>
