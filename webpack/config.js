@@ -5,7 +5,8 @@ const path = require("path");
 function getConfigOverride(defaultConfig) {
   const config = readConfigOverride();
   if (config) {
-    return parseConfig(config);
+    config[1] = parseConfig(config[1]);
+    return config
   } else {
     return defaultConfig;
   }
@@ -20,9 +21,10 @@ function readConfigOverride() {
   let apId = process.env[envVar] || process.argv[2];
 
   if (apId) {
-    const fn = path.resolve(__dirname, configFolder() + apId + ".json");
+    const configFile = apId + ".json";
+    const fn = path.resolve(__dirname, configFolder() + configFile);
     try {
-      return fs.readFileSync(fn);
+      return [configFile, fs.readFileSync(fn)];
     } catch (e) {
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
