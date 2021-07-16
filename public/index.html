@@ -11,18 +11,10 @@
       href="https://widget.proca.foundation/d/demo/petition/oembed.json"
       title="Embed JSON"
     />
-
-    <meta property="og:image" content="https://placekitten.com/540/284" />
-    <title><%= campaign %> widget for <%= organisation %></title>
-    <meta name="twitter:title" content="Demo of <%= campaign %>" />
-    <meta
-      name="description"
-      content="Sign the initiative with <%= organisation %>!"
-    />
-    <meta
-      name="twitter:description"
-      content="Sign the initiative with <%= organisation %>"
-    />
+    <title>Proca !</title>
+    <meta name="twitter:title" content="Proca Demo" />
+    <meta name="description" content="Sign the initiative !" />
+    <meta name="twitter:description" content="Sign the initiative" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@eucampaign" />
     <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
@@ -182,7 +174,7 @@
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
-      <h2>Campaign <%= campaign %></h2>
+      <h2>Campaign</h2>
       <div
         class="proca-widget"
         id="signature-form"
@@ -224,12 +216,8 @@
             I want to receive the newsletter from {{name}}
           </p>
           <p class="proca-text [disable]sign-now">Do it now!</p>
-          <p class="proca-text share">
-            I signed <%= campaign %>, you should sign too!
-          </p>
-          <p class="proca-text share-twitter">
-            I signed #<%=campaign %>, you should too!
-          </p>
+          <p class="proca-text share">I signed , you should sign too!</p>
+          <p class="proca-text share-twitter">I signed - you should too!</p>
           <p class="proca-text [remove]-share-whatsapp">Hi, sign that!</p>
           <p class="proca-text [disable]ddd-consent-into"></p>
           <h2>How to embed this into your website?</h2>
@@ -384,9 +372,9 @@
     </script>
 
     <script>
-      window.addEventListener("proca:init", d => {
-//        proca.set("layout", "variant", "outlined");
-//        proca.set("layout","primaryColor","#f90");
+      window.addEventListener("proca:init", (d) => {
+        //        proca.set("layout", "variant", "outlined");
+        //        proca.set("layout","primaryColor","#f90");
         proca.addEventListener("complete", function (e) {
           console.log(e.type, e.detail);
         });
