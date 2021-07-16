@@ -115,7 +115,6 @@ export default (props) => {
 
     if (result.errors) {
       let handled = false;
-      console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
@@ -199,7 +198,6 @@ export default (props) => {
   }, [setError, nationality]);
 
   const handleCaptcha = (token) => {
-    console.log(token);
     setToken(token);
   };
 

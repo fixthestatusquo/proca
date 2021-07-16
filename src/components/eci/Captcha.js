@@ -45,9 +45,22 @@ export default function Captcha(props) {
   const classes = useStyles();
   const [count, setCount] = useState(0);
   const { t } = useTranslation();
-  const { setValue } = props.form;
+  const { setValue, errors } = props.form;
+
+  if (errors.captcha) {
+    console.log(errors.captcha, count);
+    //    setCount(count + 1);
+  }
 
   const compact = props.compact || false;
+
+  useEffect(() => {
+    if (!errors.captcha) return;
+    setCount((c) => c + 1);
+    setFocussed(true);
+    setValue("captcha", "");
+  }, [errors.captcha]);
+
   useEffect(() => {
     let isLive = true;
     (async () => {
