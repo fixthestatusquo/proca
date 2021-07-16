@@ -6,10 +6,9 @@ function getConfigOverride(defaultConfig) {
   const config = readConfigOverride();
   if (config) {
     config[1] = parseConfig(config[1]);
-    return config
-  } else {
-    return defaultConfig;
+    return config;
   }
+  throw Error("\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n");
 }
 
 function configFolder() {
