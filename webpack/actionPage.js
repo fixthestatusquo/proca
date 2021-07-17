@@ -24,12 +24,12 @@ const stepComponent = {
 };
 
 module.exports = (defaultCode) => {
-  const config = getConfigOverride({
+  const [filename, config] = getConfigOverride({
     journey: ["Petition", "Share"],
     lang: "en",
   });
 
-  const code = createCode(config);
+  const code = createCode(filename, config);
 
   if (process.env["SHOW_ACTIONPAGE_CODE"]) {
     console.debug(`===== The code generated for actionPage.js:`);
@@ -39,7 +39,7 @@ module.exports = (defaultCode) => {
   return code;
 };
 
-function createCode(config) {
+function createCode(filename, config) {
   const nl = "\n";
   let steps = [];
   let portals = [];
@@ -87,7 +87,7 @@ function createCode(config) {
     nl +
     nl;
 
-  src += `import apConfig from "@config/${config.actionpage}.json"` + nl;
+  src += `import apConfig from "@config/${filename}"` + nl;
 
   src +=
     `if (apConfig.actionpage && apConfig.template && apConfig.template == true) { apConfig.actionpage = null; }` +

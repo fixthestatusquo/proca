@@ -10,7 +10,7 @@ module.exports = (webpack) => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
   } else {
-    const config = getConfigOverride({ filename: "_example" });
+    const [configFile, config] = getConfigOverride({ filename: "_example" });
     widgetBuildConfig(webpack, config);
   }
 

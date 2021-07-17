@@ -12,7 +12,8 @@
         "opt-in": "Yes, I want {{partner}} to keep me informed via email",
         "intro": "Find out more about our campaigns, actions and {{campaign}} progress",
         "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
-        "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email"
+        "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email",
+        "implicit": "Submit this form to receive emails from {{name}}"
     },
     "Link_Share button": "Link",
     "Email_Share button": "Email",
@@ -82,8 +83,17 @@
     "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
     "Donate": "Donate",
     "yearly": "yearly",
-    "weekly": "Weekly",
+    "weekly": "weekly",
     "monthly": "monthly",
     "a weekly": "Every week",
-    "a monthly": "Every month"
+    "a monthly": "Every month",
+    "invalid IBAN": "invalid IBAN",
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We couldn't handle your donation at the moment. Please try again in a few minutes.",
+    "Please provide your card information": "Please provide your card information",
+    "Place of birth": "Place of birth",
+    "I'm donating {{amount}}{{currency}} monthly": "I'm donating {{amount}}{{currency}} monthly",
+    "I'm donating {{amount}}{{currency}}": "I'm donating {{amount}}{{currency}}",
+    "Donate {{amount}}{{currency}}": "Donate {{amount}}{{currency}}",
+    "Choose an Amount": "Choose an amount",
+    "Change amount": "Change amount"
 }

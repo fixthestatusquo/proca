@@ -6,7 +6,7 @@ const path = require("path");
 const { getConfigOverride, configFolder } = require("./config");
 
 module.exports = (webpack) => {
-  const config = getConfigOverride({
+  const [configFile, config] = getConfigOverride({
     lang: "en",
   });
 

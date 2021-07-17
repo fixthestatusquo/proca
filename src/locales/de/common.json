@@ -7,7 +7,7 @@
         "processing-nocookie": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
         "processing": "Deine Daten werden sicher und verschlüsselt übertragen. Mit Deiner Eingabe akzeptierst Du unsere Bestimmungen zum <1>Datenschutz</1>",
         "opt-in-both": "Ja, ich möchte, dass mich {{partner}} und {{lead}} per E-Mail auf dem Laufenden halten",
-        "implicit": "Senden Sie dieses Formular ab, um E-Mails von {{name}} zu erhalten."
+        "implicit": "Senden Sie dieses Formular ab, um E-Mails von {{name}} zu erhalten"
     },
     "share": {
         "title": "Fast fertig, jetzt gleich weiter zum nächsten Schritt.",
@@ -85,15 +85,15 @@
     "Donate": "Spenden",
     "invalid IBAN": "ungültige IBAN",
     "Change amount": "Betrag ändern",
-    "Donate {{amount}}{{currency}}": "Spende {{amount}}{{currency}}",
-    "yearly": "Jährlich",
+    "Donate {{amount}}{{currency}}": "{{amount}} {{currency}} spenden",
+    "yearly": "jährlich",
     "weekly": "wöchentlich",
     "monthly": "monatlich",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ich spende {{amount}} {{ currency.symbol }} {{frequency}}",
     "a weekly": "wöchentlich",
     "a monthly": "Jeden Monat",
     "I'm donating {{amount}}{{currency}} monthly": "Ich spende {{amount}}{{currency}} monatlich",
-    "I'm donating {{amount}}{{currency}}": "Ich spende {{amount}}{{currency}}",
+    "I'm donating {{amount}}{{currency}}": "Ich spende {{amount}} {{currency}}",
     "Choose an Amount": "Wählen Sie einen Betrag",
     "Please provide your card information": "Bitte geben Sie Ihre Karteninformationen an",
     "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Wir konnten Ihre Spende im Moment nicht bearbeiten. Bitte versuchen Sie es in ein paar Minuten erneut."
