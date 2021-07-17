@@ -7,21 +7,22 @@ import ListItem from "@material-ui/core/ListItem";
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from "@material-ui/core/ListItemText";
 //import Divider from '@material-ui/core/Divider';
+import FileIcon from "@material-ui/icons/Description";
 
 export default function Details(props) {
   const config = useCampaignConfig();
   const eci = config.component.eci;
   const { t } = useTranslation();
   const r = /REQ.ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
-  eci.registrationUrl =
-    "https://europa.eu/citizens-initiative/initiatives/details/" +
-    r[1] +
-    "/" +
-    r[2] +
-    "_" +
-    config.lang;
-  console.log(eci);
-
+  eci.registrationUrl = r
+    ? "https://europa.eu/citizens-initiative/initiatives/details/" +
+      r[1] +
+      "/" +
+      r[2] +
+      "_" +
+      config.lang
+    : "";
+  eci.apiUrl = eci.apiUrl.replace("/api", "");
   return (
     <>
       <h4>{t("eci:form.title")}</h4>
@@ -45,21 +46,23 @@ export default function Details(props) {
           href={eci.apiUrl + "/d/certification.pdf"}
         >
           <ListItemText
-            secondary={eci.apiUrl + "/certification.pdf"}
+            secondary={<FileIcon />}
             primary={t("eci:footer.conformity-title")}
           />
         </ListItem>
-        <ListItem
-          button
-          component="a"
-          target="_blank"
-          href={eci.registrationUrl}
-        >
-          <ListItemText
-            secondary={eci.registrationUrl}
-            primary={t("eci:initiative.register_webpage")}
-          />
-        </ListItem>
+        {eci.registrationUrl && (
+          <ListItem
+            button
+            component="a"
+            target="_blank"
+            href={eci.registrationUrl}
+          >
+            <ListItemText
+              secondary={eci.registrationUrl}
+              primary={t("eci:initiative.register_webpage")}
+            />
+          </ListItem>
+        )}
         <ListItem>
           <ListItemText
             primary={t("eci:initiative.representative")}
