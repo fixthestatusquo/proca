@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     
-<meta property="og:image" content="https://placekitten.com/540/284" />
-<title>ECI</title>
+    <meta name="twitter:title" content="<%= campaign %>" />
+<title><%= campaign %></title>
 <meta name="twitter:title" content="Sign the ECI" />
 
 <meta name="description" content="Sign the ECI!" />
@@ -16,9 +16,6 @@
 <meta name="twitter:site" content="@eucampaign" />
 <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <style>
   html {
@@ -69,7 +66,7 @@ pre {background:#dede; padding: 10px}
   </head>
   <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand eci-title" href="#">ECI</a>
+      <a class="navbar-brand eci-title" href="#"><%= campaign %></a>
     </nav>
     <noscript
       >You need to enable JavaScript to participate to this campaign.</noscript
@@ -93,36 +90,6 @@ pre {background:#dede; padding: 10px}
       </div>
     </div>
 
-    <div class="modal" id="code" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">How to add the widget on your site?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <h4>If you use wordpress</h4>
-              <ul>
-                <li> add "proca" plugin</li>
-                <li class="dynamic"> use the shortcode [proca widget=%widget_shortcode%]</li>
-              </ul>
-
-          <h4>Any other (Javascript)</h4>
-          <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">&lt;/div>
-          </pre>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -133,35 +100,8 @@ pre {background:#dede; padding: 10px}
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-      var params = {};
-
-
-    </script>
-
   <script>
-    function procaReady () {
-      console.log("ready");
-    }
 
-    jQuery(function($) {
-      $('.columns a').click(function() {
-        $('#action_column').removeClass().addClass($(this).data('class'));
-        window.dispatchEvent(new Event('resize'));
-      });
-      $('.color a').click(function() {
-        proca.set("layout","primaryColor",$(this).data('color')); });
-      $('.variant a').click(function() {
-        proca.set("layout","variant",$(this).data('variant'));
-      });
-      $('a.theme').click(function() {
-        var theme=$(this).data('theme');
-        $("#signature-form").removeClass().addClass("bg-"+theme);
-        
-        proca.set("layout","theme",theme);
-        $(this).data('theme', theme === "light"? "dark":"light");
-      });
-});
   </script>
   </body>
 </html>

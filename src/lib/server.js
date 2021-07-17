@@ -120,7 +120,12 @@ async function getCount(actionPage, options) {
 `;
   query = query.replace(/(\n)/gm, "").replace(/\s\s+/g, " ");
   if (options?.apiUrl) {
-    url = options.apiUrl;
+    url =
+      options.apiUrl +
+      "?query=" +
+      encodeURIComponent(query) +
+      "&variables=" +
+      encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
   } else {
     url =
       (process.env.REACT_APP_API_URL ||

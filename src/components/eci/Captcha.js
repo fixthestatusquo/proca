@@ -54,25 +54,27 @@ export default function Captcha(props) {
 
   const compact = props.compact || false;
 
+  const update = (captcha) => {
+    setCaptcha(captcha);
+    props.onChange(captcha);
+  };
+
   useEffect(() => {
     if (!errors.captcha) return;
     setCount((c) => c + 1);
     setFocussed(true);
     setValue("captcha", "");
-  }, [errors.captcha]);
+  }, [errors.captcha]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     let isLive = true;
     (async () => {
       fetch("https://captcha.proca.app")
         .then((response) => response.json())
-        .then(
-          (captcha) =>
-            isLive && (setCaptcha(captcha) || props.onChange(captcha))
-        );
+        .then((captcha) => isLive && update(captcha));
     })();
     return () => (isLive = false);
-  }, [count]);
+  }, [count]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleClick = () => {
     setCount(count + 1);

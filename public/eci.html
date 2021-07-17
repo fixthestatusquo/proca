@@ -5,27 +5,46 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    
-<meta property="og:image" content="https://placekitten.com/540/284" />
-<title><%= campaign %> widget for <%= organisation %></title>
-<meta name="twitter:title" content="Sign the ECI" />
 
-<meta name="description" content="Sign the ECI!" />
-<meta name="twitter:description" content="Sign the ECI" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@eucampaign" />
-<meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta property="og:image" content="https://placekitten.com/540/284" />
+    <title><%= campaign %> widget for <%= organisation %></title>
+    <meta name="twitter:title" content="Sign the ECI" />
 
-<style>
-  html {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-   nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  }
-</style>
+    <meta name="description" content="Sign the ECI!" />
+    <meta name="twitter:description" content="Sign the ECI" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@eucampaign" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
+          "Lucida Typewriter", monospace;
+      }
+    </style>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -40,66 +59,54 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-<minimal-style style="display:none">
-  .proca-widget, #signature-form {max-width:600px;min-width:300px}
-
-  .row{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-  }
-
-.col{
-  display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    padding:0 10px;
-  flex:1;
-}
-
-pre {background:#dede; padding: 10px}
-
-</minimal-style>
-<style>
-  body {padding-top:5rem;}
-
-</style>
-
+    <minimal-style style="display: none">
+      .proca-widget, #signature-form {max-width:600px;min-width:300px} .row{
+      display: flex; flex-direction: row; flex-wrap: wrap; width:100%; } .col{
+      display: flex; flex-direction: column; flex-basis: 100%; padding:0 10px;
+      flex:1; } pre {background:#dede; padding: 10px}
+    </minimal-style>
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
   </head>
   <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand eci-title" href="#">ECI</a>
     </nav>
     <noscript
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
-           <h2 class="eci-name">...</h2>
+      <h2 class="eci-name">...</h2>
+      <h3><i class="proca-counter">...</i> Supporters already</h3>
       <div class="row">
         <div class="col">
-          <div class="proca-widget" id="signature-form" >
-          <div class="alert alert-info" role="alert">
-           <h3 class="eci-title">...</h3>
-           <div class="eci-description"></div>
-<div class="eci-more"></div>
+            <div class="alert alert-info" role="alert">
+              <h3 class="eci-title">...</h3>
+              <div class="eci-description"></div>
+          <div class="eci-more"></div>
+            </div>
+        </div>
+        <div class="col">
+          <div class="proca-widget" id="signature-form">
           </div>
-
-          </div>
-            
-
         </div>
       </div>
       <div class="row">
         <div class="col">
-        <h2>Are you working for this organisation?</h2>
-        <p>
-        Adding this widget on your website is simple!
-        </p>
+          <h2>Are you working for this organisation?</h2>
+          <p>Adding this widget on your website is simple!</p>
           <p>
-          We recommend that you run the widget on your website’s homepage. However, if you prefer, you can run it on a specific campaign or other relevant page. For the final version, it's better to have a memorable url, as it will hopefully be widely shared.</p>
+            We recommend that you run the widget on your website’s homepage.
+            However, if you prefer, you can run it on a specific campaign or
+            other relevant page. For the final version, it's better to have a
+            memorable url, as it will hopefully be widely shared.
+          </p>
           <p>
-          You simply need to copy paste in your website editor, for instance wordpress 
+            You simply need to copy paste in your website editor, for instance
+            wordpress
           </p>
 
           <pre class="dynamic">
@@ -111,24 +118,44 @@ pre {background:#dede; padding: 10px}
 &lt;div class="eci-more">&lt;/div>
           </pre>
 
-          <p><i>You can put the first line wherever you want, the other lines has to be where you want the form to be displayed</i></p>
-          ◦<p>
-          Please do <b>NOT</b> test the widget on a live page – we don’t want people trying to sign before we go live!
-          <br>
-          In order to be compliant with the EU Regulation, you must put the title, text and "more" button, these are the elements with eci-title, eci-description and eci-more classes. 
-          <br>
-          We recommend that you put them in two columns, and that's what the code above does – but it is ultimately up to you.<br>
-          One block (composed of the eci-title, eci-description and eci-more classes) will be the official text of our ECI, which will be displayed in the language that you have chosen for your widget. Legally, this official text <b>must</b> be displayed alongside the signing part of the widget. You are free to use different layouts, for instance here we use "h3" for the title of the ECI, and you can put other elements for styling differently (in the example above, we put the eci text on a blue background), as long as all the 3 elements (title, text and "more" are displayed. 
-          <br>
-          The other div with the class proca-widget can be empty, and will contain signing section, which first gives people an option to be kept updated on progress, secondly the ECI signing itself (this information is never seen by us or any campaign partners), and thirdly the opportunity to share. <br>
-          you can see an example of the widget and the steps above.
+          <p>
+            <i
+              >You can put the first line wherever you want, the other lines has
+              to be where you want the form to be displayed</i
+            >
+          </p>
+          ◦
+          <p>
+            Please do <b>NOT</b> test the widget on a live page – we don’t want
+            people trying to sign before we go live!
+            <br />
+            In order to be compliant with the EU Regulation, you must put the
+            title, text and "more" button, these are the elements with
+            eci-title, eci-description and eci-more classes.
+            <br />
+            We recommend that you put them in two columns, and that's what the
+            code above does – but it is ultimately up to you.<br />
+            One block (composed of the eci-title, eci-description and eci-more
+            classes) will be the official text of our ECI, which will be
+            displayed in the language that you have chosen for your widget.
+            Legally, this official text <b>must</b> be displayed alongside the
+            signing part of the widget. You are free to use different layouts,
+            for instance here we use "h3" for the title of the ECI, and you can
+            put other elements for styling differently (in the example above, we
+            put the eci text on a blue background), as long as all the 3
+            elements (title, text and "more" are displayed.
+            <br />
+            The other div with the class proca-widget can be empty, and will
+            contain signing section, which first gives people an option to be
+            kept updated on progress, secondly the ECI signing itself (this
+            information is never seen by us or any campaign partners), and
+            thirdly the opportunity to share. <br />
+            you can see an example of the widget and the steps above.
+          </p>
         </div>
-      </div>
       </div>
     </div>
 
-  </div>
-</div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -141,48 +168,67 @@ pre {background:#dede; padding: 10px}
     -->
     <script>
       var params = {};
-
-
     </script>
 
-  <script>
-    window.addEventListener("proca:debug", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("proca:init", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("proca:complete", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("eci_support:init", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("eci:complete", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("share:click", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("share:close", function(e){console.log(e.type,e.detail);});
+    <script>
+      window.addEventListener("proca:debug", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("proca:init", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("proca:complete", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("eci_support:init", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("eci:complete", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("share:click", function (e) {
+        console.log(e.type, e.detail);
+      });
+      window.addEventListener("share:close", function (e) {
+        console.log(e.type, e.detail);
+      });
 
       function display() {
         var variants = ["standard", "filled", "outlined"];
         var urlParams = new URLSearchParams(window.location.search);
-        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
-        var widget_shortcode = window.location.pathname.replace("/index.html","").replace("/d/","");
+        var widget_path =
+          window.location.hostname +
+          window.location.pathname.replace("/index.html", "");
+        var widget_shortcode = window.location.pathname
+          .replace("/index.html", "")
+          .replace("/d/", "");
         for (let d of document.getElementsByClassName("dynamic")) {
-          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
+          d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
         }
       }
 
-    jQuery(function($) {
-     display();
-      $('.columns a').click(function() {
-        $('#action_column').removeClass().addClass($(this).data('class'));
-        window.dispatchEvent(new Event('resize'));
+      jQuery(function ($) {
+        display();
+        $(".columns a").click(function () {
+          $("#action_column").removeClass().addClass($(this).data("class"));
+          window.dispatchEvent(new Event("resize"));
+        });
+        $(".color a").click(function () {
+          proca.set("layout", "primaryColor", $(this).data("color"));
+        });
+        $(".variant a").click(function () {
+          proca.set("layout", "variant", $(this).data("variant"));
+        });
+        $("a.theme").click(function () {
+          var theme = $(this).data("theme");
+          $("#signature-form")
+            .removeClass()
+            .addClass("bg-" + theme);
+
+          proca.set("layout", "theme", theme);
+          $(this).data("theme", theme === "light" ? "dark" : "light");
+        });
       });
-      $('.color a').click(function() {
-        proca.set("layout","primaryColor",$(this).data('color')); });
-      $('.variant a').click(function() {
-        proca.set("layout","variant",$(this).data('variant'));
-      });
-      $('a.theme').click(function() {
-        var theme=$(this).data('theme');
-        $("#signature-form").removeClass().addClass("bg-"+theme);
-        
-        proca.set("layout","theme",theme);
-        $(this).data('theme', theme === "light"? "dark":"light");
-      });
-});
-  </script>
+    </script>
   </body>
 </html>
