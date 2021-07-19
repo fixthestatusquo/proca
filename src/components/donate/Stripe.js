@@ -118,7 +118,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-      "[component.donation.stripe.productId] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -140,137 +140,139 @@ const PaymentForm = (props) => {
   const classes = useStyles();
 
   return (
-    <form id="proca-donate">
-      <Container component="main" maxWidth="sm">
-        <PaymentBox>
-          <Grid container spacing={1}>
-            <Grid item xs={12}>
-              <DonateTitle
-                config={config}
-                amount={amount}
-                currency={currency}
-                frequency={frequency}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={compact ? 12 : 6}>
-              <Controller
-                control={control}
-                name="firstname"
-                render={({ onChange, value }) => (
-                  <LayoutTextField
-                    label={t("First name")}
-                    className={classes.textField}
-                    autoComplete="given-name"
-                    required
-                    error={!!(errors && errors["firstname"])}
-                    helperText={
-                      errors &&
-                      errors["firstname"] &&
-                      errors["firstname"].message
-                    }
-                    variant={layout.variant}
-                    margin={layout.margin}
-                    onChange={onChange}
-                    value={value}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 6}>
-              <Controller
-                control={control}
-                name="lastname"
-                render={({ onChange, value }) => (
-                  <LayoutTextField
-                    label={t("Last name")}
-                    className={classes.textField}
-                    autoComplete="family-name"
-                    required
-                    error={!!(errors && errors["lastname"])}
-                    helperText={
-                      errors && errors["lastname"] && errors["lastname"].message
-                    }
-                    variant={layout.variant}
-                    margin={layout.margin}
-                    onChange={onChange}
-                    value={value}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Controller
-                control={control}
-                name="email"
-                render={({ onChange, value }) => (
-                  <LayoutTextField
-                    className={classes.textField}
-                    label={t("Email")}
-                    autoComplete="email"
-                    type="email"
-                    placeholder="your.email@example.org"
-                    required
-                    error={!!(errors && errors["email"])}
-                    helperText={
-                      errors && errors["email"] && errors["email"].message
-                    }
-                    variant={layout.variant}
-                    margin={layout.margin}
-                    onChange={onChange}
-                    value={value}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 4}>
-              <Controller
-                control={control}
-                name="postcode"
-                render={({ onChange, value }) => (
-                  <LayoutTextField
-                    className={classes.textField}
-                    label={t("Postal Code")}
-                    autoComplete="postal-code"
-                    error={!!(errors && errors["postcode"])}
-                    helperText={
-                      errors && errors["postcode"] && errors["postcode"].message
-                    }
-                    variant={layout.variant}
-                    margin={layout.margin}
-                    onChange={onChange}
-                    value={value}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 8}>
-              <Controller
-                control={control}
-                name="country"
-                render={({ onChange, value }) => (
-                  <Country
-                    form={form}
-                    required
-                    onChange={onChange}
-                    value={value}
-                  />
-                )}
-              />
-            </Grid>
-            {stripeError ? (
-              <Grid item xs={12}>
-                <FormHelperText error={true}>
-                  {stripeError.message}
-                </FormHelperText>
-              </Grid>
-            ) : (
-              ""
-            )}
+    <Container component="main" maxWidth="sm">
+      <PaymentBox>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <DonateTitle
+              config={config}
+              amount={amount}
+              currency={currency}
+              frequency={frequency}
+            />
           </Grid>
-        </PaymentBox>
-      </Container>
-    </form>
+
+          <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Controller
+              control={control}
+              name="firstname"
+              rules={{ required: true }}
+              render={({ onChange, onBlur, value }) => (
+                <LayoutTextField
+                  label={t("First name")}
+                  className={classes.textField}
+                  autoComplete="given-name"
+                  required
+                  error={!!(errors && errors["firstname"])}
+                  helperText={
+                    errors && errors["firstname"] && errors["firstname"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Controller
+              control={control}
+              name="lastname"
+              rules={{ required: true }}
+              render={({ onChange, value }) => (
+                <LayoutTextField
+                  label={t("Last name")}
+                  className={classes.textField}
+                  autoComplete="family-name"
+                  required
+                  error={!!(errors && errors["lastname"])}
+                  helperText={
+                    errors && errors["lastname"] && errors["lastname"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  value={value}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Controller
+              control={control}
+              name="email"
+              // KISS for email validation - something@something\.something
+              rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
+              render={({ onChange, value }) => (
+                <LayoutTextField
+                  className={classes.textField}
+                  label={t("Email")}
+                  autoComplete="email"
+                  type="email"
+                  placeholder="your.email@example.org"
+                  required
+                  error={!!(errors && errors["email"])}
+                  helperText={
+                    errors && errors["email"] && errors["email"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  value={value}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 4}>
+            <Controller
+              control={control}
+              name="postcode"
+              render={({ onChange, value }) => (
+                <LayoutTextField
+                  className={classes.textField}
+                  label={t("Postal Code")}
+                  autoComplete="postal-code"
+                  error={!!(errors && errors["postcode"])}
+                  helperText={
+                    errors && errors["postcode"] && errors["postcode"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  value={value}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 8}>
+            <Controller
+              control={control}
+              name="country"
+              rules={{ required: true }}
+              render={({ onChange, value }) => (
+                <Country
+                  form={form}
+                  required
+                  onChange={onChange}
+                  value={value}
+                />
+              )}
+            />
+          </Grid>
+          {stripeError ? (
+            <Grid item xs={12}>
+              <FormHelperText error={true}>
+                {stripeError.message}
+              </FormHelperText>
+            </Grid>
+          ) : (
+            ""
+          )}
+        </Grid>
+      </PaymentBox>
+    </Container>
   );
 };
 
@@ -353,6 +355,14 @@ const SubmitButton = (props) => {
     btn.disabled = true;
     setSubmitting(true);
 
+    const form = props.form;
+    form.trigger();
+    if (Object.keys(form.errors).length > 0) {
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
     if (!stripeComplete) {
       setStripeError({ message: t("Please provide your card information.") });
       btn.disabled = false;
@@ -360,7 +370,7 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    const values = props.form.getValues();
+    const values = form.getValues();
 
     if (!props.stripe || !elements) {
       console.error("Stripe not loaded");
@@ -474,20 +484,22 @@ const PayWithStripe = (props) => {
   // const stripe = useStripe();
   const form = props.form;
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <PaymentForm stripe={props.stripe} form={form} {...props} />
+    <form id="proca-donate">
+      <Grid container>
+        <Grid item xs={12}>
+          <PaymentForm stripe={props.stripe} form={form} {...props} />
+        </Grid>
+        <Grid item xs={12}>
+          <StripeCard stripe={props.stripe} />
+        </Grid>
+        <Grid item xs={12}>
+          <SubmitButton stripe={props.stripe} form={form} {...props} />
+        </Grid>
+        <Grid item xs={12}>
+          <ChangeAmount />
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <StripeCard stripe={props.stripe} />
-      </Grid>
-      <Grid item xs={12}>
-        <SubmitButton stripe={props.stripe} form={form} {...props} />
-      </Grid>
-      <Grid item xs={12}>
-        <ChangeAmount />
-      </Grid>
-    </Grid>
+    </form>
   );
 };
 
@@ -510,11 +522,11 @@ const PaymentFormWrapper = (props) => {
 
   const form = useForm({
     defaultValues: {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      postcode: data.postcode,
-      country: data.country,
+      firstname: data.firstname || "",
+      lastname: data.lastname || "",
+      email: data.email || "",
+      postcode: data.postcode || "",
+      country: data.country || "",
     },
   });
 
