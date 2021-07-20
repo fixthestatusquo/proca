@@ -21,6 +21,7 @@ import dispatch from "../../lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
+import { NameField } from "../NameField";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -70,8 +71,7 @@ export default function Register(props) {
   const frequency = data.frequency;
 
   const { handleSubmit, setError } = form;
-  //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
-  //const values = getValues() || {};
+
   const onSubmit = async (d) => {
     const procaRequest = { ...data, ...d };
     procaRequest.tracking = Url.utm();
@@ -162,23 +162,21 @@ export default function Register(props) {
             </Grid>
 
             <Grid item xs={12} sm={compact ? 12 : 6}>
-              <TextField
+              <NameField
                 form={form}
+                classes={classes}
                 name="firstname"
                 label={t("First name")}
-                placeholder="eg. Leonardo"
                 autoComplete="given-name"
-                required
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
-              <TextField
+              <NameField
                 form={form}
+                classes={classes}
                 name="lastname"
                 label={t("Last name")}
                 autoComplete="family-name"
-                required
-                placeholder="eg. Da Vinci"
               />
             </Grid>
             <Grid item xs={12}>

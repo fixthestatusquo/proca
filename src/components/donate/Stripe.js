@@ -40,6 +40,7 @@ import StripeInput from "./StripeInput";
 import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
+import { NameField } from "../NameField";
 
 const STRIPE_FREQUENCY = {
   monthly: "month",
@@ -122,7 +123,7 @@ const PaymentForm = (props) => {
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
-  const [data] = useData();
+  const [data, setData] = useData();
 
   const form = props.form;
   const { control, errors } = form;
@@ -153,50 +154,21 @@ const PaymentForm = (props) => {
           </Grid>
 
           <Grid item xs={12} sm={compact ? 12 : 6}>
-            <Controller
-              control={control}
+            <NameField
+              form={form}
+              classes={classes}
               name="firstname"
-              rules={{ required: true }}
-              render={({ onChange, onBlur, value }) => (
-                <LayoutTextField
-                  label={t("First name")}
-                  className={classes.textField}
-                  autoComplete="given-name"
-                  required
-                  error={!!(errors && errors["firstname"])}
-                  helperText={
-                    errors && errors["firstname"] && errors["firstname"].message
-                  }
-                  variant={layout.variant}
-                  margin={layout.margin}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  value={value}
-                />
-              )}
+              label={t("First name")}
+              autoComplete="given-name"
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 6}>
-            <Controller
-              control={control}
+            <NameField
+              form={form}
+              classes={classes}
               name="lastname"
-              rules={{ required: true }}
-              render={({ onChange, value }) => (
-                <LayoutTextField
-                  label={t("Last name")}
-                  className={classes.textField}
-                  autoComplete="family-name"
-                  required
-                  error={!!(errors && errors["lastname"])}
-                  helperText={
-                    errors && errors["lastname"] && errors["lastname"].message
-                  }
-                  variant={layout.variant}
-                  margin={layout.margin}
-                  onChange={onChange}
-                  value={value}
-                />
-              )}
+              label={t("Last name")}
+              autoComplete="family-name"
             />
           </Grid>
           <Grid item xs={12}>
@@ -205,12 +177,13 @@ const PaymentForm = (props) => {
               name="email"
               // KISS for email validation - something@something\.something
               rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
-              render={({ onChange, value }) => (
+              render={({ onChange, onBlur, value }) => (
                 <LayoutTextField
                   className={classes.textField}
                   label={t("Email")}
                   autoComplete="email"
                   type="email"
+                  name="email"
                   placeholder="your.email@example.org"
                   required
                   error={!!(errors && errors["email"])}
@@ -220,6 +193,10 @@ const PaymentForm = (props) => {
                   variant={layout.variant}
                   margin={layout.margin}
                   onChange={onChange}
+                  onBlur={(e) => {
+                    setData(e.target.name, e.target.value);
+                    onBlur(e);
+                  }}
                   value={value}
                 />
               )}
