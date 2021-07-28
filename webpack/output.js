@@ -22,7 +22,7 @@ module.exports = (webpack) => {
   iframeConfig(webpack);
   oembedConfig(webpack);
   console.log(
-    `building https://widget.proca.foundation${webpack.output.publicPath}index.html`
+    `building https://widget.proca.app${webpack.output.publicPath}index.html`
   );
   console.log(
     "to publish:\n rsync -avz d/" +
@@ -144,7 +144,7 @@ function oembedConfig(webpack) {
       provider_name: "Fix the Status Quo",
       provider_url: "https://www.fixthestatusquo.org",
 
-      html: `<iframe src="https://widget.proca.foundation${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
+      html: `<iframe src="https://widget.proca.app${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
       width: 700,
       height: 825,
       cache_age: 3600,
