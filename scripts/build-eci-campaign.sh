@@ -10,6 +10,10 @@ if [ -z "$camp" ]; then
 fi
 
 for id in $(proca-cli pages -o greenpeace |grep "campaign: $camp" | cut -f 1 -d ' '); do  
-	yarn pull $id
-#	yarn build $id  
+#	yarn pull $id
+  if [ $id \> 428 ];
+then
+	yarn build $id  
+    echo "building $id";
+fi;
 done 
