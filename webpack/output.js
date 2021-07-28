@@ -92,6 +92,8 @@ function widgetBuildConfig(webpack, config) {
       plug.options.templateParameters = {
         campaign: config.campaign.title,
         organisation: config.organisation,
+        lang: config.lang,
+        filename: config.filename,
       };
     }
   }
@@ -102,6 +104,7 @@ function widgetBuildConfig(webpack, config) {
         if (plug.options.filename === "index.html")
           plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
         plug.options.title = `${config.organisation} - ${config.campaign.title}`;
+        plug.options.config = config;
       }
     }
   }
@@ -125,11 +128,23 @@ function optimizationConfig(webpack) {
 }
 
 function iframeConfig(webpack) {
+  let config = {};
   const publicDir = path.resolve(__dirname, "../public");
+  for (const plug of webpack.plugins) {
+    if (plug instanceof HtmlWebpackPlugin) {
+      config = plug.options.templateParameters;
+
+      //if (plug.options.filename === "index.html")
+    }
+  }
+  console.log(publicDir, config);
+
   webpack.plugins.push(
     new HtmlWebpackPlugin({
       filename: "iframe.html",
       template: `${publicDir}/iframe.html`,
+      title: config.filename, //this is a hackish workaround
+      proca: config, //this is a hackish workaround
     })
   );
 }

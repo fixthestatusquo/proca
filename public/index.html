@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -8,12 +8,12 @@
     <link
       rel="alternate"
       type="application/json+oembed"
-      href="./oembed.json"
+      href="/d/<%= filename %>/oembed.json"
       title="Embed JSON"
     />
 
     <meta property="og:image" content="https://placekitten.com/540/284" />
-    <title><%= campaign %> widget for <%= organisation %></title>
+    <title><%= campaign %> widget for <%= organisation %> in <%= lang %></title>
     <meta name="twitter:title" content="Demo of <%= campaign %>" />
     <meta
       name="description"
