@@ -25,7 +25,7 @@ import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import AmountButton from "./buttons/AmountButton";
+import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
 
@@ -188,14 +188,14 @@ const DonateAmount = (props) => {
                     />
                   </Grid>
                 ))}
-                <Grid item>
-                  <Button
-                    color="primary"
-                    name="other"
+                <Grid xs={6} md={3} key="other" item>
+                  <OtherButton
+
                     onClick={() => toggleCustomField(true)}
+                    selected={showCustomField}
                   >
                     {t("Other")}
-                  </Button>
+                  </OtherButton>
                 </Grid>
               </Grid>
               <FormControl fullWidth>

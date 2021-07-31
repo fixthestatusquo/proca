@@ -42,4 +42,20 @@ const AmountButton = (props) => {
   );
 };
 
+export const OtherButton = (props) => {
+
+  const selected = props.selected;
+
+  return (<StyledButton
+    color="primary"
+    name="other"
+    size="large"
+    aria-pressed={selected}
+    disableElevation={selected}
+    classes={props.classes}
+    variant={selected ? "contained" : "outlined"}
+    {...props}>{props.children}</StyledButton>)
+
+};
+
 export default AmountButton;
