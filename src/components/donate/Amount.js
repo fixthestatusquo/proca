@@ -28,6 +28,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
+import Steps from "./steps";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -102,6 +103,8 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
   );
 };
 
+
+
 const DonateAmount = (props) => {
   const classes = useStyles();
 
@@ -144,107 +147,93 @@ const DonateAmount = (props) => {
 
   return (
     <Container id="proca-donate">
-      <Paper square>
-        <AppBar position="static" color="default">
-          <Tabs
-            variant="fullWidth"
-            value="amount"
-            indicatorColor="primary"
-            textColor="primary"
-            aria-label="disabled tabs example"
-          >
-            {" "}
-            <Tab
-              value="amount"
-              label={t("Choose an Amount")}
-              aria-label={t("Choose an Amount")}
-            />
-          </Tabs>
-        </AppBar>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <CardContent>
-              <Typography color="textSecondary">
-                {t("campaign:donation.intro", {
-                  defaultValue: "",
-                  campaign: config.campaign.title,
-                })}
-              </Typography>
-              <Grid container spacing={1} role="group" aria-label="amount">
-                {amounts.map((d) => (
-                  <Grid xs={6} md={3} key={d} item>
-                    <AmountButton
-                      amount={d}
-                      currency={currency}
-                      onClick={() => toggleCustomField(false)}
-                    />
-                  </Grid>
-                ))}
-                <Grid xs={6} md={3} key="other" item>
-                  <OtherButton
-
-                    onClick={() => toggleCustomField(true)}
-                    selected={showCustomField}
-                  >
-                    {t("Other")}
-                  </OtherButton>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Steps selected="amount" />
+        </Grid>
+        <Grid item xs={12}>
+          <DonateTitle
+            config={config}
+            amount={amount}
+            currency={currency}
+            frequency={frequency}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CardContent>
+            <Typography color="textSecondary">
+              {t("campaign:donation.intro", {
+                defaultValue: "",
+                campaign: config.campaign.title,
+              })}
+            </Typography>
+            <Grid container spacing={1} role="group" aria-label="amount">
+              {amounts.map((d) => (
+                <Grid xs={6} md={3} key={d} item>
+                  <AmountButton
+                    amount={d}
+                    currency={currency}
+                    onClick={() => toggleCustomField(false)}
+                  />
                 </Grid>
+              ))}
+              <Grid xs={6} md={3} key="other" item>
+                <OtherButton
+
+                  onClick={() => toggleCustomField(true)}
+                  selected={showCustomField}
+                >
+                  {t("Other")}
+                </OtherButton>
               </Grid>
-              <FormControl fullWidth>
-                <FormGroup>
-                  {showCustomField && (
-                    <OtherAmountInput
-                      form={form}
-                      classes={classes}
-                      currency={currency}
-                      setData={setData}
-                    />
-                  )}
-                </FormGroup>
-              </FormControl>
-              {/* <Typography variant="h5" gutterBottom color="textSecondary">
+            </Grid>
+            <FormControl fullWidth>
+              <FormGroup>
+                {showCustomField && (
+                  <OtherAmountInput
+                    form={form}
+                    classes={classes}
+                    currency={currency}
+                    setData={setData}
+                  />
+                )}
+              </FormGroup>
+            </FormControl>
+            {/* <Typography variant="h5" gutterBottom color="textSecondary">
             {t("campaign:donation.frequency.intro", {
               defaultValue: "Make it monthly?",
             })}
           </Typography> */}
-              {frequencies.length > 1 ? (
-                <FrequencyButtons
-                  frequencies={frequencies}
-                  selected={frequency}
-                  classes={classes}
-                />
-              ) : null}
-            </CardContent>
-          </Grid>
-
-          {!config.component.donation.external && (
-            <Grid item xs={12}>
-              <Box margin={2}>
-                <ButtonGroup fullWidth>
-                  <Button
-                    endIcon={<SkipNextIcon />}
-                    fullWidth
-                    disabled={!amount}
-                    variant="contained"
-                    onClick={props.done}
-                    color="primary"
-                  >
-                    {t("Next")}
-                  </Button>
-                </ButtonGroup>
-              </Box>
-            </Grid>
-          )}
+            {frequencies.length > 1 ? (
+              <FrequencyButtons
+                frequencies={frequencies}
+                selected={frequency}
+                classes={classes}
+              />
+            ) : null}
+          </CardContent>
         </Grid>
-      </Paper>
+
+        {!config.component.donation.external && (
+          <Grid item xs={12}>
+            <Box margin={2}>
+              <ButtonGroup fullWidth>
+                <Button
+                  endIcon={<SkipNextIcon />}
+                  fullWidth
+                  disabled={!amount}
+                  variant="contained"
+                  onClick={props.done}
+                  color="primary"
+                >
+                  {t("Next")}
+                </Button>
+              </ButtonGroup>
+            </Box>
+          </Grid>
+        )}
+      </Grid>
+      {/* </Paper> */}
     </Container>
   );
 };

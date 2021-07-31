@@ -18,6 +18,8 @@ import Paypal from "./Paypal";
 import { useCampaignConfig } from "../../hooks/useConfig.js";
 import useData from "../../hooks/useData.js";
 import { create as createURL } from "../../lib/urlparser.js";
+import { Grid } from "@material-ui/core";
+import Steps from "./steps.js";
 
 const useStyles = makeStyles((theme) => ({
   tabRoot: {
@@ -64,6 +66,12 @@ export default function Target(props) {
   return (
     <>
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
+
+      <Grid container xs={12}>
+        <Grid item xs={12}>
+          <Steps selected="payment" />
+        </Grid>
+      </Grid>
       <Paper square>
         <AppBar position="static" color="default">
           <Tabs
