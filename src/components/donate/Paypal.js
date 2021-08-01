@@ -4,7 +4,6 @@ import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
 import { Grid, Container, FormHelperText } from "@material-ui/core";
-import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 import DonateTitle from "./DonateTitle";
 
@@ -62,9 +61,7 @@ const Paypal = (props) => {
               - <ButtonPaypal />-{" "}
             </div>
           </Grid>
-          <Grid item xs={1}></Grid>
         </Grid>
-        <ChangeAmount />
       </PaymentBox>
     </Container>
   );
