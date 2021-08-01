@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
+import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
 import { useTranslation } from "react-i18next";
 
@@ -24,7 +23,35 @@ import Steps from "./steps.js";
 const useStyles = makeStyles((theme) => ({
   tabRoot: {
     minWidth: 10,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText
   },
+  // tabContainer: {
+  //   padding: "12px",
+  //   paddingTop: "0",
+  //   paddingBottom: "0"
+  // },
+  container: {
+    padding: "12px",
+    paddingTop: "8px"
+  }
+}));
+
+const tabStyles = makeStyles((theme) => ({
+  root: {
+    minWidth: 10,
+    backgroundColor: theme.palette.primary.main,
+    '&$selected': {
+      color: theme.palette.primary.contrastText
+    }
+  },
+  selected: {}
+}));
+
+const containingBoxStyles = makeStyles((theme) => ({
+  root: {
+    border: "1px solid " + theme.palette.primary.main
+  }
 }));
 
 export default function Target(props) {
@@ -32,6 +59,8 @@ export default function Target(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
   const classes = useStyles();
+  const tabClasses = tabStyles();
+  const boxStyles = containingBoxStyles();
   const config = useCampaignConfig();
   const [requestData] = useData();
 
@@ -64,53 +93,51 @@ export default function Target(props) {
   };
 
   return (
-    <>
+    <Container classes={{ root: boxStyles.root }}>
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
 
       <Grid container xs={12}>
         <Grid item xs={12}>
-          <Steps selected="payment" />
+          <Steps /> {/* Hard coded for now */}
         </Grid>
       </Grid>
-      <Paper square>
-        <AppBar position="static" color="default">
-          <Tabs
-            variant="fullWidth"
-            value={value}
-            indicatorColor="primary"
-            textColor="primary"
-            onChange={handleChange}
-            aria-label="disabled tabs example"
-          >
-            <Tab
-              classes={{ root: classes.tabRoot }}
-              value="stripe"
-              label="Card"
-              aria-label="Stripe"
-              icon={<PaymentIcon />}
-            />
-            <Tab
-              value="sepa"
-              classes={{ root: classes.tabRoot }}
-              label="Sepa"
-              aria-label="Sepa"
-              icon={<AccountBalanceIcon />}
-            />
-            <Tab
-              classes={{ root: classes.tabRoot }}
-              value="paypal"
-              label="Paypal"
-              aria-label="Paypal"
-              icon={<PaypalIcon />}
-            />
-          </Tabs>
-        </AppBar>
-        <Box p={1}>
-          {value === "stripe" && <Stripe done={done} />}
-          {value === "sepa" && <Sepa done={done} />}
-          {value === "paypal" && <Paypal done={done} />}
-        </Box>
-      </Paper>
-    </>
+      <Tabs
+        variant="fullWidth"
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}
+        aria-label="disabled tabs example"
+        classes={{ root: classes.tabContainer }}
+        borderColr
+      >
+        <Tab
+          value="stripe"
+          classes={{ root: tabClasses.root, selected: tabClasses.selected }}
+          label="Card"
+          aria-label="Stripe"
+          icon={<PaymentIcon />}
+        />
+        <Tab
+          value="sepa"
+          classes={{ root: tabClasses.root, selected: tabClasses.selected }}
+          label="Sepa"
+          aria-label="Sepa"
+          icon={<AccountBalanceIcon />}
+        />
+        <Tab
+          classes={{ root: tabClasses.root, selected: tabClasses.selected }}
+          value="paypal"
+          label="Paypal"
+          aria-label="Paypal"
+          icon={<PaypalIcon />}
+        />
+      </Tabs>
+      <Box p={1} classes={{ root: classes.container }}>
+        {value === "stripe" && <Stripe done={done} />}
+        {value === "sepa" && <Sepa done={done} />}
+        {value === "paypal" && <Paypal done={done} />}
+      </Box>
+    </Container>
   );
 }

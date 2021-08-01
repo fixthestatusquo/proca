@@ -119,7 +119,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+      "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -471,9 +471,6 @@ const PayWithStripe = (props) => {
         </Grid>
         <Grid item xs={12}>
           <SubmitButton stripe={props.stripe} form={form} {...props} />
-        </Grid>
-        <Grid item xs={12}>
-          <ChangeAmount />
         </Grid>
       </Grid>
     </form>

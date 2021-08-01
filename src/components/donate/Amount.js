@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   frequency: {
     marginTop: theme.spacing(2),
   },
+  container: {
+    border: "solid 1px " + theme.palette.primary.dark
+  }
 }));
 
 const OtherAmountInput = ({ form, classes, currency, setData }) => {
@@ -146,7 +149,7 @@ const DonateAmount = (props) => {
   }
 
   return (
-    <Container id="proca-donate">
+    <Container id="proca-donate" className={classes.container}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Steps selected="amount" />

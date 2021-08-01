@@ -10,7 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
-import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
 import { useForm } from "react-hook-form";
@@ -212,7 +211,6 @@ export default function Register(props) {
                 frequency={frequency}
                 config={config}
               />
-              <ChangeAmount />
             </Grid>
           </Grid>
         </PaymentBox>
