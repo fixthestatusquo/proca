@@ -73,13 +73,6 @@ const Widget = (props) => {
       console.log(
         "obsolete, please use window.addEventListener('proca:init', function(){}); instead"
       );
-      const proca = document.getElementById("proca");
-      if (!proca) {
-        // we are in dev mode, create a fake proca
-        const placeholder = document.createElement("div");
-        placeholder.id = "proca";
-        document.head.appendChild(placeholder);
-      }
 
       procaReady({}); // NOTE: should we pass config to procaReady?
     }

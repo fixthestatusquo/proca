@@ -58,8 +58,16 @@ const Widget = (args) => {
   if (!dom) {
     dom = document.createElement("div");
     dom.id = "proca-widget";
-    config.selector = "#" + dom.id;
-    document.body.appendChild(dom);
+    dom.className = "proca-widget";
+    const script = document.getElementById("proca");
+    if (document.body.contains(script)) {
+      //dom.insertAdjacentElement("beforeBegin",script);
+      script.parentNode.insertBefore(dom, script);
+    } else {
+      //
+      console.log("proca script isn't in the body, but no proca-widget");
+      //document.body.appendChild(dom);
+    }
   } else {
     Array.from(dom.childNodes).forEach((d) => {
       frag.appendChild(d);
@@ -74,7 +82,7 @@ const Widget = (args) => {
       {isTest() && <ProcaAlert text="TEST MODE" severity="warning" />}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    document.querySelector(config.selector)
+    dom
   );
 };
 
@@ -94,9 +102,10 @@ const set = (atom, key, value) => {
   setConfig(key, value);
 };
 
-const render = () => {
+const render = (script) => {
   try {
-    var script = document.getElementById("proca");
+    //    var script = document.getElementById("proca");
+    //  we are the ones setting the id=proc of the script now in autoRender
     if (!script) {
       script = {};
     } //return; I have no clue why it happens
@@ -110,17 +119,22 @@ const render = () => {
 };
 
 const autoRender = () => {
+  if (document.currentScript) document.currentScript.id = "proca";
   if (window.proca) {
-    console.log("Powered by proca.foundation");
+    console.log("Powered by proca.app");
   }
+  const currentScript = document.currentScript;
   try {
     if (
       document.readyState === "loading"
       //!(document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive")
     ) {
-      document.addEventListener("DOMContentLoaded", render);
+      document.addEventListener("DOMContentLoaded", () =>
+        render(currentScript)
+      );
     } else {
-      render();
+      console.log("loaded", currentScript);
+      render(currentScript);
     }
   } catch (e) {
     console.log(e);

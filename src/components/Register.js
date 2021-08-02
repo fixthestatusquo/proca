@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
   },
+  field: {
+    margin: "0 !important",
+  },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -220,7 +223,7 @@ export default function Register(props) {
             {config.component?.register?.field.organisation && (
               <Organisation form={form} compact={compact} />
             )}
-            <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
                 name="firstname"
@@ -230,7 +233,7 @@ export default function Register(props) {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
                 name="lastname"
@@ -239,7 +242,7 @@ export default function Register(props) {
                 placeholder="eg. Da Vinci"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.field}>
               <TextField
                 form={form}
                 name="email"
@@ -251,7 +254,12 @@ export default function Register(props) {
               />
             </Grid>
             {config.component?.register?.field?.postcode !== false && (
-              <Grid item xs={12} sm={compact ? 12 : 3}>
+              <Grid
+                item
+                xs={12}
+                sm={compact ? 12 : 3}
+                className={classes.field}
+              >
                 <TextField
                   form={form}
                   name="postcode"
@@ -264,17 +272,22 @@ export default function Register(props) {
               </Grid>
             )}
             {config.component?.register?.field?.country !== false && (
-              <Grid item xs={12} sm={compact ? 12 : 9}>
+              <Grid
+                item
+                xs={12}
+                sm={compact ? 12 : 9}
+                className={classes.field}
+              >
                 <Country form={form} required />
               </Grid>
             )}
             {config.component?.register?.field?.phone === true && (
-              <Grid item xs={12}>
+              <Grid item xs={12} className={classes.field}>
                 <TextField form={form} name="phone" label={t("Phone")} />
               </Grid>
             )}
             {config.component?.register?.field?.comment !== false && (
-              <Grid item xs={12}>
+              <Grid item xs={12} className={classes.field}>
                 <TextField
                   form={form}
                   name="comment"

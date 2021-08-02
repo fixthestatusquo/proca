@@ -78,7 +78,11 @@ export default function ProcaStyle(props) {
           MuiDialog: {
             root: { fontFamily: "unset!important" },
           },
+          MuiFormControl: {
+            root: { marginTop: "8px!important", marginBottom: "4px!important" },
+          },
           MuiFilledInput: {
+            root: { margin: "0px!important" },
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
