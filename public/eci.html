@@ -80,7 +80,7 @@
     >
     <div id="root" class="container">
       <h2 class="eci-name">...</h2>
-      <h3><i class="proca-counter">...</i> Supporters already</h3>
+      <h3><i class="aaproca-counter">...</i> Supporters already</h3>
       <div class="row">
         <div class="col">
             <div class="alert alert-info" role="alert">
@@ -171,8 +171,13 @@
     </script>
 
     <script>
-      window.addEventListener("proca:debug", function (e) {
-        console.log(e.type, e.detail);
+      window.addEventListener("proca", function (e) {
+        if (e.detail.message == "count")
+          console.log("the counter says",e.detail.value);
+      });
+
+      window.addEventListener("proca", function (e) {
+        console.log(e.detail.message, e.detail.value);
       });
       window.addEventListener("proca:init", function (e) {
         console.log(e.type, e.detail);

@@ -3,6 +3,7 @@ import { getCount, getCountByName } from "../lib/server.js";
 import { useCampaignConfig } from "../hooks/useConfig";
 
 import { atom, useRecoilState } from "recoil";
+import dispatch from "../lib/event.js";
 
 const CountState = atom({ key: "actionCount", default: null });
 
@@ -20,6 +21,7 @@ const useInitFromUrl = (actionUrl) => {
         setId(c.actionPage);
         setCount(c.total);
       }
+      dispatch("count", c.total);
     })();
 
     return () => {
@@ -52,6 +54,7 @@ export default function useCounter(actionPage) {
       if (apiUrl) options.apiUrl = apiUrl;
       c = await getCount(actionPage, options);
       if (!isCancelled) setCount(c);
+      dispatch("count", c);
     })();
 
     return () => {

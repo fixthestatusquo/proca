@@ -23,6 +23,7 @@ import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
+import useCount from "../../hooks/useCount";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -58,6 +59,9 @@ export default (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation(config.lang);
   const [data] = useData();
+
+  useCount(config.component.eci.actionpage); // TODO, make conditional to fetch the counter?
+  //config.component.eci.apiUrl
 
   const form = useForm({
     defaultValues: data,
