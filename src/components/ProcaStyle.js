@@ -2,7 +2,7 @@ import React from "react";
 import {
   StylesProvider,
   createGenerateClassName,
-  createMuiTheme,
+  createTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { makeStyles, createStyles } from "@material-ui/core";
@@ -47,7 +47,7 @@ export default function ProcaStyle(props) {
   const layout = useLayout();
   const theme = React.useMemo(
     () =>
-      createMuiTheme({
+      createTheme({
         palette: {
           primary: { main: layout.primaryColor },
           secondary: { main: layout.secondaryColor },
