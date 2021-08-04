@@ -25,6 +25,7 @@ import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 //import HCaptcha from "@hcaptcha/react-hcaptcha";
 import HCaptcha from "../../../vendor/hcaptcha.js";
+import ProgressCounter from "../ProgressCounter";
 
 //const countries = eciLocale.common.country;
 
@@ -63,14 +64,8 @@ export default (props) => {
     defaultValues: data,
   });
 
-  const {
-    handleSubmit,
-    setError,
-    clearErrors,
-    formState,
-    watch,
-    setValue,
-  } = form;
+  const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
+    form;
 
   const { nationality, country } = watch(["nationality", "country"]) || "";
   useEffect(() => {
@@ -214,6 +209,7 @@ export default (props) => {
   return (
     <Container component="main" maxWidth="sm">
       <Box marginBottom={1}>
+        <ProgressCounter actionPage={config.component.eci.actionpage} />
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <form
@@ -229,8 +225,7 @@ export default (props) => {
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
-                    url:
-                      "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
+                    url: "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
                   }),
                 }}
               />
