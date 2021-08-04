@@ -3,6 +3,8 @@
  * locales -> src/locales/XX where XX is lang from config or 'en'
  */
 const path = require("path");
+const fs = require("fs");
+
 const { getConfigOverride, configFolder } = require("./config");
 
 module.exports = (webpack) => {
@@ -17,8 +19,16 @@ module.exports = (webpack) => {
     "../src/locales/" + lang
   );
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
-  webpack.resolve.alias["@i18n-iso-countries/lang"] =
-    "i18n-iso-countries/langs/" + lang + ".json";
+  const countryList = "i18n-iso-countries/langs/" + lang + ".json";
+
+  if (fs.existsSync("./node_modules/" + countryList)) {
+    webpack.resolve.alias["@i18n-iso-countries/lang"] =
+      "i18n-iso-countries/langs/" + lang + ".json";
+  } else {
+    console.log("can't find", lang, "default to en");
+    webpack.resolve.alias["@i18n-iso-countries/lang"] =
+      "i18n-iso-countries/langs/en.json";
+  }
 
   return webpack;
 };
