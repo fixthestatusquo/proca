@@ -62,7 +62,7 @@ export default (props) => {
 
   if (config.component.eci.apiUrl === false) {
     config.component.eci.apiUrl = process.env.REACT_APP_API_URL;
-    config.component.eci.actionPage = config.actionPage;
+    config.component.eci.actionpage = config.actionPage;
   }
 
   useCount(config.component.eci.actionpage); // TODO, make conditional to fetch the counter?
