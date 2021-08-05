@@ -60,6 +60,11 @@ export default (props) => {
   const { t } = useTranslation(config.lang);
   const [data] = useData();
 
+  if (config.component.eci.apiUrl === false) {
+    config.component.eci.apiUrl = process.env.REACT_APP_API_URL;
+    config.component.eci.actionPage = config.actionPage;
+  }
+
   useCount(config.component.eci.actionpage); // TODO, make conditional to fetch the counter?
   //config.component.eci.apiUrl
 
