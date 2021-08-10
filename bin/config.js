@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { link, admin, widget, request, basicAuth } = require("@proca/api");
-require("cross-fetch/polyfill");
+const crossFetch = require("cross-fetch");
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -49,21 +49,66 @@ const save = (config, suffix = "") => {
   fs.writeFileSync(file(id) + suffix, JSON.stringify(config, null, 2));
 };
 
+const saveCampaign = (campaign, suffix = "") => {
+  console.log(file("campaign/" + campaign.name));
+  fs.writeFileSync(
+    file("campaign/" + campaign.name),
+    JSON.stringify(campaign, null, 2)
+  );
+};
+
 const fetch = async (actionPage) => {
-  const c = link(process.env.REACT_APP_API_URL || "https://api.proca.app/api");
+  let data = undefined;
 
-  const query = widget.GetActionPageDocument;
-  let vars = {};
+  const query = `
+query actionPage ($id:Int!) {
+  actionPage (id:$id) {
+    id, name, locale, journey
+    campaign {
+      id,
+      title,name,config,
+      org {name,title}
+    },
+    org {
+      title
+    }
+    , config
+  }
+}
+`;
 
-  const { data, errors } = await request(c, widget.GetActionPageDocument, {
-    id: actionPage,
-  });
-  if (errors) throw errors;
+  try {
+    const res = await crossFetch(
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: query,
+          variables: { id: actionPage },
+          operationName: "actionPage",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+
+    const resJson = await res.json();
+
+    data = resJson.data;
+  } catch (err) {
+    throw err;
+  }
   if (data.actionPage.journey.length === 0) {
     data.actionPage.journey = ["Petition", "Share"];
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
+  data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
   const config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
@@ -79,6 +124,7 @@ const fetch = async (actionPage) => {
     template: data.actionPage.config.template || false,
   };
   save(config, ".remote");
+  saveCampaign(data.actionPage.campaign);
   return config;
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
 
