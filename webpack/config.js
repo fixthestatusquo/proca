@@ -1,11 +1,11 @@
 const envVar = "actionpage";
 const fs = require("graceful-fs");
 const path = require("path");
+const merge = require("lodash").merge;
 
 function getConfigOverride(defaultConfig) {
   const config = readConfigOverride();
   if (config) {
-    config[1] = parseConfig(config[1]);
     return config;
   }
   throw Error(
@@ -25,7 +25,43 @@ function readConfigOverride() {
     const configFile = apId + ".json";
     const fn = path.resolve(__dirname, configFolder() + configFile);
     try {
-      return [configFile, fs.readFileSync(fn)];
+      const config = parseConfig(fs.readFileSync(fn));
+      let campaignConfig = {};
+      if (config.campaign.name) {
+        campaignConfig = parseConfig(
+          fs.readFileSync(
+            path.resolve(
+              __dirname,
+              configFolder() + "/campaign/" + config.campaign.name + ".json"
+            )
+          )
+        );
+        if (campaignConfig.config.demand) {
+          // TODO: remove after we migrated all campaigns to the new format
+          config.locales["campaign:"] = {
+            description: campaignConfig.config.demand,
+          };
+        }
+        if (
+          campaignConfig.config.locales &&
+          campaignConfig.config.locales[config.lang]
+        ) {
+          config.locales["campaign:"] =
+            campaignConfig.config.locales[config.lang];
+        }
+        if (
+          campaignConfig.config.locales &&
+          campaignConfig.config.locales[config.lang]["common:"]
+        ) {
+          config.locales = merge(
+            config.locales,
+            campaignConfig.config.locales[config.lang]["common:"]
+          );
+          console.log("found locales");
+        }
+      }
+      //      console.log(config.locales);process.exit(1);
+      return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
@@ -42,7 +78,7 @@ function parseConfig(config) {
   try {
     return JSON.parse(config);
   } catch (e) {
-    console.error(`Cannot parse action page config: `, e.message);
+    console.error(`Cannot parse config: `, e.message);
     throw e;
   }
 }

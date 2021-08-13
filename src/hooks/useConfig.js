@@ -48,6 +48,7 @@ export const initConfigState = (config) => {
         true
       );
     }
+    console.log(config);
     i18next.addResourceBundle(
       config.lang,
       "common",

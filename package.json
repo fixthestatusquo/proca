@@ -32,6 +32,7 @@
     "page-metadata-parser": "^1.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-flagpack": "^1.1.0",
     "react-hook-form": "^6.15.5",
     "react-i18next": "^11.11.4",
     "react-ipgeolocation": "^1.4.0",
@@ -44,8 +45,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.14.8",
     "@babel/node": "^7.14.9",
@@ -53,6 +52,8 @@
     "@proca/api": "2.3.4",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
     "babel-plugin-i18next-extract": "^0.8.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "compression-webpack-plugin": "^6.0.2",
@@ -71,7 +72,6 @@
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "nope.prepublish": "babel src --out-dir lib",
     "wip.deploy": "rsync -azv --no-o --no-g build/* steinem:/srv/widget/d/",
-
     "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
     "pull": "node bin/pull.js",
     "push": "node bin/push.js",
