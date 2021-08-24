@@ -73,8 +73,7 @@ function readConfigOverride() {
         }
         console.log(config.lang, campaignConfig.config.locales);
       }
-      console.log(config);
-      process.exit(1);
+      //      console.log(config);      process.exit(1);
       return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(
