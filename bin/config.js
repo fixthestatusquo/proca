@@ -3,7 +3,6 @@ const path = require("path");
 const { link, admin, widget, request, basicAuth } = require("@proca/api");
 const crossFetch = require("cross-fetch");
 require("cross-fetch/polyfill"); // for the push
-const merge = require("lodash").merge;
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -57,7 +56,6 @@ const saveCampaign = (campaign, lang = "en") => {
     title: campaign.title,
     description: campaign.description || campaign.request,
   };
-  //  console.log(merge(defaultConfig,campaign.config));process.exit(1);
   console.log(file("campaign/" + campaign.name));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
