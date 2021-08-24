@@ -22,6 +22,7 @@ const read = (id) => {
 };
 
 const array2string = (s) => {
+  if (!s) return "";
   s.forEach((d, i) => {
     if (typeof s[i] === "string") return;
     s[i] = s[i].join("+");
