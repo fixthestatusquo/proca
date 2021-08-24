@@ -115,7 +115,6 @@ export default function Captcha(props) {
     );
   };
 
-  console.log("compact", compact);
   //  return parse(captcha.data);
   return (
     <>
