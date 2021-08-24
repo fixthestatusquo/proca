@@ -42,12 +42,21 @@ function readConfigOverride() {
             description: campaignConfig.config.demand,
           };
         }
+        ["layout", "component"].map((k) => {
+          config[k] = merge(config[k], campaignConfig.config[k]);
+        });
+        if (!config.portal || config.portal.length === 0)
+          config.portal = campaignConfig.config.portal;
+        config.journey = config.journey || campaignConfig.config.journey;
         if (
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang]
         ) {
           config.locales["campaign:"] =
             campaignConfig.config.locales[config.lang];
+          if (campaignConfig.config.locales[config.lang].title)
+            config.campaign.title =
+              campaignConfig.config.locales[config.lang].title;
         }
         if (
           campaignConfig.config.locales &&
@@ -60,7 +69,7 @@ function readConfigOverride() {
           console.log("found locales");
         }
       }
-      //      console.log(config.locales);process.exit(1);
+      //console.log(config);process.exit(1);
       return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(
