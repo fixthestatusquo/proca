@@ -52,6 +52,17 @@ function readConfigOverride() {
         if (!config.locales) config.locales = {};
         if (
           campaignConfig.config.locales &&
+          campaignConfig.config.locales[config.lang] &&
+          campaignConfig.config.locales[config.lang]["common:"]
+        ) {
+          config.locales = merge(
+            config.locales,
+            campaignConfig.config.locales[config.lang]["common:"]
+          );
+          delete campaignConfig.config.locales[config.lang]["common:"];
+        }
+        if (
+          campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang]
         ) {
           config.locales["campaign:"] =
@@ -60,18 +71,10 @@ function readConfigOverride() {
             config.campaign.title =
               campaignConfig.config.locales[config.lang].title;
         }
-        if (
-          campaignConfig.config.locales &&
-          campaignConfig.config.locales[config.lang]["common:"]
-        ) {
-          config.locales = merge(
-            config.locales,
-            campaignConfig.config.locales[config.lang]["common:"]
-          );
-          console.log("found locales");
-        }
+        console.log(config.lang, campaignConfig.config.locales);
       }
-      //console.log(config);process.exit(1);
+      console.log(config);
+      process.exit(1);
       return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(

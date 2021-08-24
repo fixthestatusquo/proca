@@ -207,6 +207,7 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
+  console.log(config.component.register);
   return (
     <form
       className={classes.container}
@@ -240,6 +241,7 @@ export default function Register(props) {
                 label={t("Last name")}
                 autoComplete="family-name"
                 placeholder="eg. Da Vinci"
+                required={config.component?.register?.field?.lastname?.required}
               />
             </Grid>
             <Grid item xs={12} className={classes.field}>
