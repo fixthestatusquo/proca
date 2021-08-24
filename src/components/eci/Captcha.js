@@ -115,11 +115,12 @@ export default function Captcha(props) {
     );
   };
 
+  console.log("compact", compact);
   //  return parse(captcha.data);
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={compact ? 7 : 7}>
+        <Grid item xs={compact ? 12 : 7}>
           <TextField
             form={props.form}
             name="captcha"
@@ -145,7 +146,7 @@ export default function Captcha(props) {
             required
           />
         </Grid>
-        <Grid item xs={compact ? 5 : 5}>
+        <Grid item xs={compact ? 12 : 5}>
           <Box py={1} className={isFocussed ? classes.focus : null}>
             <Svg />
           </Box>
