@@ -47,7 +47,9 @@ function readConfigOverride() {
         });
         if (!config.portal || config.portal.length === 0)
           config.portal = campaignConfig.config.portal;
-        config.journey = config.journey || campaignConfig.config.journey;
+        if (!config.journey || config.journey.length === 0)
+          config.journey = campaignConfig.config.journey;
+        if (!config.locales) config.locales = {};
         if (
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang]
