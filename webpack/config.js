@@ -36,6 +36,7 @@ function readConfigOverride() {
             )
           )
         );
+        if (!config.locales) config.locales = {};
         if (campaignConfig.config.demand) {
           // TODO: remove after we migrated all campaigns to the new format
           config.locales["campaign:"] = {
@@ -49,7 +50,6 @@ function readConfigOverride() {
           config.portal = campaignConfig.config.portal;
         if (!config.journey || config.journey.length === 0)
           config.journey = campaignConfig.config.journey;
-        if (!config.locales) config.locales = {};
         if (
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang] &&

@@ -86,6 +86,7 @@ export default function ProcaStyle(props) {
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
+              height: "1.1876em!important",
             },
             multiline: {
               paddingTop: "23px!important",
