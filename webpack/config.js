@@ -71,7 +71,6 @@ function readConfigOverride() {
             config.campaign.title =
               campaignConfig.config.locales[config.lang].title;
         }
-        console.log(config.lang, campaignConfig.config.locales);
       }
       //      console.log(config);      process.exit(1);
       return [configFile, config, campaignConfig];
