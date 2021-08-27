@@ -20,7 +20,6 @@ function configFolder() {
 }
 function readConfigOverride() {
   let apId = process.env[envVar] || process.argv[2];
-
   if (apId) {
     const configFile = apId + ".json";
     const fn = path.resolve(__dirname, configFolder() + configFile);
@@ -71,6 +70,8 @@ function readConfigOverride() {
             config.campaign.title =
               campaignConfig.config.locales[config.lang].title;
         }
+      } else {
+        console.error("can't find the campaign.name on the config", config);
       }
       //      console.log(config);      process.exit(1);
       return [configFile, config, campaignConfig];
