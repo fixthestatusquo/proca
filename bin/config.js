@@ -31,6 +31,9 @@ const array2string = (s) => {
 };
 
 const string2array = (s) => {
+  if (!s || s.length === 0 || s[0] === "") {
+    return null;
+  }
   s.forEach((d, i) => {
     const sub = d.split("+");
     if (sub.length === 1) return;
@@ -160,13 +163,9 @@ query actionPage ($id:Int!) {
     }
 
     const resJson = await res.json();
-
     data = resJson.data;
   } catch (err) {
     throw err;
-  }
-  if (data.actionPage.journey.length === 0) {
-    data.actionPage.journey = ["Petition", "Share"];
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
@@ -187,8 +186,8 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
-  if (data.actionPage.config.template) {
-    config["template"] = data.actionPage.config.template;
+  if (!config.journey) {
+    delete config.journey;
   }
   save(config, ".remote");
   saveCampaign(data.actionPage.campaign, config.lang);
@@ -236,17 +235,16 @@ const push = async (id) => {
   console.log(local);
   const c = apiLink();
   const actionPage = actionPageFromLocalConfig(id, local);
-
   const { data, errors } = await request(
     c,
     admin.UpdateActionPageDocument,
     actionPage
   );
   if (errors) {
-    console.log(actionPage);
+    //    console.log(actionPage);
     throw errors;
   }
-  console.log(local);
+  console.log(actionPage);
   return data;
 };
 
