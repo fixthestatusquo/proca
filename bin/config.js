@@ -67,6 +67,94 @@ const saveCampaign = (campaign, lang = "en") => {
   );
 };
 
+const api = async (query, variables, name = "query") => {
+  let headers = basicAuth({
+    username: process.env.AUTH_USER,
+    password: process.env.AUTH_PASSWORD,
+  });
+  headers["Content-Type"] = "application/json";
+
+  try {
+    const res = await crossFetch(
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: query,
+          operationName: name,
+          variables: variables,
+        }),
+        headers: headers,
+      }
+    );
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+    const resJson = await res.json();
+
+    return resJson.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const getCampaign = async (name) => {
+  const query = `
+query getCampaign ($name:String!){
+  campaigns (name:$name) {
+    id, org {
+      name
+    }
+  }
+}`;
+
+  const data = await api(query, { name: name }, "getCampaign");
+  return data.campaigns[0];
+};
+
+const getPage = async (name) => {
+  const query = `
+query getPage ($name:String!){
+  actionPage (name:$name) {
+    id, name, locale, org {
+      name, title
+    }
+  }
+}`;
+
+  const data = await api(query, { name: name }, "getPage");
+  return data.actionPage;
+};
+
+const addPage = async (name, campaignName, locale) => {
+  const query = `
+mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $locale: String!) {
+  upsertCampaign(orgName: $orgName, input: {
+    name: $campaignName, actionPages: [{name:$name,locale:$locale}]
+  }) {
+    id,
+  }
+}
+`;
+
+  const campaign = await getCampaign(campaignName);
+  const r = await api(
+    query,
+    {
+      name: name,
+      locale: locale,
+      campaignName: campaignName,
+      orgName: campaign.org.name,
+    },
+    "addPage"
+  );
+  const page = await getPage(name);
+  await pull(page.id);
+  console.log("action page " + name + " #" + page.id);
+  return page;
+};
+
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
   const query = `
@@ -269,4 +357,5 @@ module.exports = {
   apiLink,
   actionPageFromLocalConfig,
   pushCampaign,
+  addPage,
 };
