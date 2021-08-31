@@ -35,6 +35,7 @@ const string2array = (s) => {
     return null;
   }
   s.forEach((d, i) => {
+    if (typeof d !== "string") return;
     const sub = d.split("+");
     if (sub.length === 1) return;
     s[i] = sub;
@@ -216,7 +217,7 @@ const fetch = async (actionPage) => {
   const query = `
 query actionPage ($id:Int!) {
   actionPage (id:$id) {
-    id, name, locale, journey
+    id, name, locale,
     campaign {
       id,
       title,name,config,
@@ -268,7 +269,7 @@ query actionPage ($id:Int!) {
       title: data.actionPage.campaign.title,
       name: data.actionPage.campaign.name,
     },
-    journey: string2array(data.actionPage.journey),
+    journey: string2array(data.actionPage.config.journey),
     layout: data.actionPage.config.layout || {},
     component: data.actionPage.config.component || {},
     portal: data.actionPage.config.portal || [],
