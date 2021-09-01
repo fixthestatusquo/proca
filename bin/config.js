@@ -307,8 +307,8 @@ const actionPageFromLocalConfig = (id, local) => {
     actionPage: {
       name: local.filename,
       locale: local.lang.toLowerCase(),
-      journey: array2string(local.journey),
       config: JSON.stringify({
+        journey: array2string(local.journey),
         layout: local.layout,
         component: local.component,
         locales: local.locales,
