@@ -32,7 +32,7 @@
     "page-metadata-parser": "^1.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-flagpack": "^1.1.0",
+    "react-flagpack": "^1.2.0",
     "react-hook-form": "^6.15.5",
     "react-i18next": "^11.11.4",
     "react-ipgeolocation": "^1.4.0",
