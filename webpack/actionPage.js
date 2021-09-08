@@ -24,7 +24,7 @@ const stepComponent = {
 };
 
 module.exports = (defaultCode) => {
-  const [filename, config] = getConfigOverride({
+  const [filename, config, campaign] = getConfigOverride({
     journey: ["Petition", "Share"],
     lang: "en",
   });
@@ -34,6 +34,7 @@ module.exports = (defaultCode) => {
   if (process.env["SHOW_ACTIONPAGE_CODE"]) {
     console.debug(`===== The code generated for actionPage.js:`);
     console.debug(code);
+    //    process.exit(1);
   }
 
   return code;
@@ -87,12 +88,7 @@ function createCode(filename, config) {
     nl +
     nl;
 
-  src += `import apConfig from "@config/${filename}"` + nl;
-
-  src +=
-    `if (apConfig.actionpage && apConfig.template && apConfig.template == true) { apConfig.actionpage = null; }` +
-    nl;
-  src += `export const config = apConfig` + nl;
+  src += `export const config = ` + JSON.stringify(config) + nl;
   src +=
     `export const steps = {${steps
       .filter(unique)

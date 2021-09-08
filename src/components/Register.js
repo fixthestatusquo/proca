@@ -240,6 +240,7 @@ export default function Register(props) {
                 label={t("Last name")}
                 autoComplete="family-name"
                 placeholder="eg. Da Vinci"
+                required={config.component.register?.field?.lastname?.required}
               />
             </Grid>
             <Grid item xs={12} className={classes.field}>
@@ -253,7 +254,7 @@ export default function Register(props) {
                 placeholder="your.email@example.org"
               />
             </Grid>
-            {config.component?.register?.field?.postcode !== false && (
+            {config.component.register?.field?.postcode !== false && (
               <Grid
                 item
                 xs={12}
@@ -266,12 +267,12 @@ export default function Register(props) {
                   label={t("Postal Code")}
                   autoComplete="postal-code"
                   required={
-                    config.component?.register?.field?.postcode?.required
+                    config.component.register?.field?.postcode?.required
                   }
                 />
               </Grid>
             )}
-            {config.component?.register?.field?.country !== false && (
+            {config.component.register?.field?.country !== false && (
               <Grid
                 item
                 xs={12}
@@ -281,18 +282,19 @@ export default function Register(props) {
                 <Country form={form} required />
               </Grid>
             )}
-            {config.component?.register?.field?.phone === true && (
+            {config.component.register?.field?.phone === true && (
               <Grid item xs={12} className={classes.field}>
                 <TextField form={form} name="phone" label={t("Phone")} />
               </Grid>
             )}
-            {config.component?.register?.field?.comment !== false && (
+            {config.component.register?.field?.comment !== false && (
               <Grid item xs={12} className={classes.field}>
                 <TextField
                   form={form}
                   name="comment"
                   multiline
                   rowsMax="20"
+                  required={config.component.register?.field?.comment?.required}
                   label={t("Comment")}
                 />
               </Grid>

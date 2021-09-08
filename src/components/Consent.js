@@ -6,6 +6,8 @@ import {
   Button,
   RadioGroup,
   FormHelperText,
+  FormLabel,
+  FormControl,
   FormControlLabel,
   Collapse,
 } from "@material-ui/core";
@@ -13,7 +15,6 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
-import { useLayout } from "../hooks/useLayout";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,7 +51,6 @@ export default (props) => {
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
   const config = useCampaignConfig();
-  const layout = useLayout();
   const classes = useStyles();
 
   const optin = (event) => {
@@ -78,83 +78,84 @@ export default (props) => {
 
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
 
+  console.log(errors.privacy);
+
   return (
     <Fragment>
       <Grid item xs={12}>
-        {consentIntro && (
-          <FormHelperText
-            className={classes.bigHelper}
-            variant={layout.variant}
-            error={typeof errors.privacy === "object"}
-            margin={layout.margin}
-          >
-            {consentIntro} *
-          </FormHelperText>
-        )}
-      </Grid>
-      <Grid item xs={12}>
-        <RadioGroup
-          aria-label="privacy consent"
-          name="privacy"
-          onChange={handleChange}
-          required
-        >
-          {!config.component?.consent?.split && (
-            <FormControlLabel
-              value="opt-in"
-              checked={value === "opt-in"}
-              inputRef={register}
-              className={classes.label}
-              control={<Radio color="primary" required />}
-              label={t("consent.opt-in", { partner: config.organisation })}
-            />
+        <FormControl component="fieldset" error={!!(errors && errors.privacy)}>
+          {consentIntro && (
+            <FormLabel
+              component="legend"
+              error={typeof errors.privacy === "object"}
+            >
+              {consentIntro} *
+            </FormLabel>
           )}
-          {config.component?.consent?.split && (
-            <>
+          <RadioGroup
+            aria-label="privacy consent"
+            name="privacy"
+            onChange={handleChange}
+            required
+          >
+            {!config.component?.consent?.split && (
               <FormControlLabel
                 value="opt-in"
+                checked={value === "opt-in"}
                 inputRef={register}
                 className={classes.label}
-                checked={value === "opt-in"}
                 control={<Radio color="primary" required />}
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
-              <FormControlLabel
-                value="opt-in-both"
-                inputRef={register}
-                className={classes.label}
-                control={<Radio color="primary" />}
-                label={t("consent.opt-in-both", {
-                  lead: config.lead.title,
-                  partner: config.organisation,
-                })}
-              />
-            </>
-          )}
+            )}
+            {config.component?.consent?.split && (
+              <>
+                <FormControlLabel
+                  value="opt-in"
+                  inputRef={register}
+                  className={classes.label}
+                  checked={value === "opt-in"}
+                  control={<Radio color="primary" required />}
+                  label={t("consent.opt-in", { partner: config.organisation })}
+                />
+                <FormControlLabel
+                  value="opt-in-both"
+                  inputRef={register}
+                  className={classes.label}
+                  control={<Radio color="primary" />}
+                  label={t("consent.opt-in-both", {
+                    lead: config.lead.title,
+                    partner: config.organisation,
+                  })}
+                />
+              </>
+            )}
 
-          <FormControlLabel
-            value="opt-out"
-            checked={value === "opt-out"}
-            control={<Radio />}
-            className={classes.label}
-            inputRef={register({ required: "Yes or No?" })}
-            label={t("consent.opt-out")}
-          />
-          {confirmOptOut && (
-            <Collapse in={value === "opt-out"}>
-              <Alert severity="warning">
-                <Trans i18nKey="consent.confirm">
-                  <AlertTitle>Sure?</AlertTitle>
-                  <span>explanation</span>
-                  <b>unsubscribe at any time</b>
-                </Trans>
-                <Button variant="contained" onClick={optin}>
-                  {t("consent.opt-in")}
-                </Button>
-              </Alert>
-            </Collapse>
-          )}
-        </RadioGroup>
+            <FormControlLabel
+              value="opt-out"
+              checked={value === "opt-out"}
+              control={<Radio />}
+              className={classes.label}
+              inputRef={register({ required: "Yes or No?" })}
+              label={t("consent.opt-out")}
+            />
+            {confirmOptOut && (
+              <Collapse in={value === "opt-out"}>
+                <Alert severity="warning">
+                  <Trans i18nKey="consent.confirm">
+                    <AlertTitle>Sure?</AlertTitle>
+                    <span>explanation</span>
+                    <b>unsubscribe at any time</b>
+                  </Trans>
+                  <Button variant="contained" onClick={optin}>
+                    {t("consent.opt-in")}
+                  </Button>
+                </Alert>
+              </Collapse>
+            )}
+          </RadioGroup>
+          <FormHelperText>{errors?.privacy?.message}</FormHelperText>
+        </FormControl>
       </Grid>
       <Grid item xs={12}>
         <Box className={classes.notice}>
