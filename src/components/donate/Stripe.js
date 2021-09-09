@@ -26,7 +26,7 @@ import { useTranslation } from "react-i18next";
 import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
-import ChangeAmount from "./ChangeAmount";
+import PaymentMethodButtons from "./PaymentMethodButtons";
 import PaymentBox from "./PaymentBox";
 
 import {
@@ -119,7 +119,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-      "[component.donation.stripe.productId] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -468,6 +468,9 @@ const PayWithStripe = (props) => {
         </Grid>
         <Grid item xs={12}>
           <StripeCard stripe={props.stripe} />
+        </Grid>
+        <Grid item xs={12}>
+          <PaymentMethodButtons paymentMethod={props.paymentMethod} />
         </Grid>
         <Grid item xs={12}>
           <SubmitButton stripe={props.stripe} form={form} {...props} />

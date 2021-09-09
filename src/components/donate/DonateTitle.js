@@ -1,11 +1,19 @@
-import { CardHeader } from "@material-ui/core";
+import { CardHeader, makeStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import React from "react";
 
+const useStyles = makeStyles((theme) => ({
+  header: {
+    paddingBottom: 0,
+  },
+}));
+
 const DonateTitle = ({ config, currency, frequency, amount }) => {
   const donateConfig = config.component.donation;
   const { t } = useTranslation();
+
+  const classes = useStyles();
 
   let title = t("Choose your donation amount");
   if (config?.component?.donation.igive) {
@@ -41,7 +49,11 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
 
   return (
     <div>
-      <CardHeader title={title} subheader={subtitle} />
+      <CardHeader
+        className={classes.header}
+        title={title}
+        subheader={subtitle}
+      />
     </div>
   );
 };

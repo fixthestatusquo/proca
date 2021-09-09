@@ -19,7 +19,7 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import TextField from "../TextField";
+
 import { useForm } from "react-hook-form";
 import useElementWidth from "../../hooks/useElementWidth";
 
@@ -29,6 +29,8 @@ import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
 import Steps from "./steps";
+import PaymentMethodButtons from "./PaymentMethodButtons";
+import OtherAmountInput from "./OtherAmount";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -56,57 +58,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   frequency: {
-    marginTop: theme.spacing(2),
+    // marginTop: theme.spacing(2),
   },
   container: {
-    border: "solid 1px " + theme.palette.primary.dark
-  }
+    border: "solid 1px " + theme.palette.primary.dark,
+  },
+  formContainers: {
+    marginBottom: "1em",
+  },
+  cardHeader: {
+    paddingTop: 0,
+  },
 }));
-
-const OtherAmountInput = ({ form, classes, currency, setData }) => {
-  const [otherAmountError, setOtherAmountError] = useState(false);
-  const { t } = useTranslation();
-
-  return (
-    <>
-      {otherAmountError ? (
-        <Grid item xs={12}>
-          <FormHelperText error={true}>{otherAmountError}</FormHelperText>
-        </Grid>
-      ) : (
-        ""
-      )}
-      <TextField
-        form={form}
-        type="number"
-        label={t("Amount")}
-        name="amount"
-        className={classes.number}
-        onChange={(e) => {
-          const a = parseFloat(e.target.value);
-          if (a && a > 1.0) {
-            setData("amount", a);
-            setOtherAmountError("");
-          } else {
-            setOtherAmountError(
-              t("Please enter a valid amount greater than 1.0 {{currency}}", {
-                currency: currency.symbol,
-              })
-            );
-          }
-        }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">{currency.symbol}</InputAdornment>
-          ),
-        }}
-        InputLabelProps={{ shrink: true }}
-      />
-    </>
-  );
-};
-
-
 
 const DonateAmount = (props) => {
   const classes = useStyles();
@@ -152,9 +115,6 @@ const DonateAmount = (props) => {
     <Container id="proca-donate" className={classes.container}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Steps selected="amount" />
-        </Grid>
-        <Grid item xs={12}>
           <DonateTitle
             config={config}
             amount={amount}
@@ -163,14 +123,29 @@ const DonateAmount = (props) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <CardContent>
-            <Typography color="textSecondary">
-              {t("campaign:donation.intro", {
-                defaultValue: "",
-                campaign: config.campaign.title,
+          <CardContent className={classes.cardHeader}>
+            {config.campaign.title ? (
+              <Typography paragraph color="textPrimary">
+                {t("campaign:donation.intro", {
+                  defaultValue: "",
+                  campaign: config.campaign.title,
+                })}
+              </Typography>
+            ) : (
+              ""
+            )}
+            <Typography paragraph gutterBottom color="textPrimary">
+              {t("campaign:donation.amount.intro", {
+                defaultValue: "Choose an amount :",
               })}
             </Typography>
-            <Grid container spacing={1} role="group" aria-label="amount">
+            <Grid
+              container
+              className={classes.formContainers}
+              spacing={1}
+              role="group"
+              aria-label="amount"
+            >
               {amounts.map((d) => (
                 <Grid xs={6} md={3} key={d} item>
                   <AmountButton
@@ -182,7 +157,6 @@ const DonateAmount = (props) => {
               ))}
               <Grid xs={6} md={3} key="other" item>
                 <OtherButton
-
                   onClick={() => toggleCustomField(true)}
                   selected={showCustomField}
                 >
@@ -190,23 +164,25 @@ const DonateAmount = (props) => {
                 </OtherButton>
               </Grid>
             </Grid>
-            <FormControl fullWidth>
-              <FormGroup>
-                {showCustomField && (
+
+            {showCustomField && (
+              <FormControl fullWidth>
+                <FormGroup>
                   <OtherAmountInput
                     form={form}
                     classes={classes}
                     currency={currency}
                     setData={setData}
-                  />
-                )}
-              </FormGroup>
-            </FormControl>
-            {/* <Typography variant="h5" gutterBottom color="textSecondary">
-            {t("campaign:donation.frequency.intro", {
-              defaultValue: "Make it monthly?",
-            })}
-          </Typography> */}
+                  />{" "}
+                </FormGroup>
+              </FormControl>
+            )}
+
+            <Typography paragraph gutterBottom color="textPrimary">
+              {t("campaign:donation.frequency.intro", {
+                defaultValue: "Make it monthly?",
+              })}
+            </Typography>
             {frequencies.length > 1 ? (
               <FrequencyButtons
                 frequencies={frequencies}
@@ -214,27 +190,17 @@ const DonateAmount = (props) => {
                 classes={classes}
               />
             ) : null}
+
+            <Typography paragraph gutterBottom color="textPrimary">
+              {t("campaign:donation.paymentMethods.intro", {
+                defaultValue: "Checkout :",
+              })}
+            </Typography>
+            {!config.component.donation.external && (
+              <PaymentMethodButtons classes={classes} />
+            )}
           </CardContent>
         </Grid>
-
-        {!config.component.donation.external && (
-          <Grid item xs={12}>
-            <Box margin={2}>
-              <ButtonGroup fullWidth>
-                <Button
-                  endIcon={<SkipNextIcon />}
-                  fullWidth
-                  disabled={!amount}
-                  variant="contained"
-                  onClick={props.done}
-                  color="primary"
-                >
-                  {t("Next")}
-                </Button>
-              </ButtonGroup>
-            </Box>
-          </Grid>
-        )}
       </Grid>
       {/* </Paper> */}
     </Container>

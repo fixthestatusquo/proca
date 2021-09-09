@@ -48,17 +48,15 @@ const FrequencyButtons = ({ frequencies, selected, classes }) => {
     return null;
   }
   return (
-    <div className={classes.frequency}>
-      <Grid container spacing={1}>
-        {frequencies.map((f) => (
-          <Grid key={f} item xs={12} md={6}>
-            <FrequencyButton buttonValue={f} selected={selected}>
-              {t(f.toUpperCase())}
-            </FrequencyButton>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+    <Grid container spacing={1} className={classes.formContainers}>
+      {frequencies.map((f) => (
+        <Grid key={f} item xs={12} md={6}>
+          <FrequencyButton buttonValue={f} selected={selected}>
+            {t(f.toUpperCase())}
+          </FrequencyButton>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
