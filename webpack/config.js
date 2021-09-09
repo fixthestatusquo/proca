@@ -48,7 +48,10 @@ function readConfigOverride() {
         if (!config.portal || config.portal.length === 0)
           config.portal = campaignConfig.config.portal;
         if (!config.journey || config.journey.length === 0)
-          config.journey = campaignConfig.config.journey;
+          config.journey = campaignConfig.config.journey || [
+            "Petition",
+            "Share",
+          ];
         if (
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang] &&
