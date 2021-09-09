@@ -26,7 +26,6 @@ import { useTranslation } from "react-i18next";
 import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
-import PaymentMethodButtons from "./PaymentMethodButtons";
 import PaymentBox from "./PaymentBox";
 
 import {
@@ -108,6 +107,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(0),
     height: "auto!important",
     width: "100%",
+  },
+  submitButton: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -457,9 +459,16 @@ const SubmitButton = (props) => {
   );
 };
 
+const submitButtonStyles = makeStyles((theme) => ({
+  submitButton: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
 const PayWithStripe = (props) => {
   // const stripe = useStripe();
   const form = props.form;
+  const classes = submitButtonStyles();
   return (
     <form id="proca-donate">
       <Grid container>
@@ -469,10 +478,7 @@ const PayWithStripe = (props) => {
         <Grid item xs={12}>
           <StripeCard stripe={props.stripe} />
         </Grid>
-        <Grid item xs={12}>
-          <PaymentMethodButtons paymentMethod={props.paymentMethod} />
-        </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} classes={{ root: classes.submitButton }}>
           <SubmitButton stripe={props.stripe} form={form} {...props} />
         </Grid>
       </Grid>

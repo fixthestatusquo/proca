@@ -24,11 +24,10 @@ import { useForm } from "react-hook-form";
 import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
-import Steps from "./steps";
+import Steps from "./Stepper";
 import PaymentMethodButtons from "./PaymentMethodButtons";
 import OtherAmountInput from "./OtherAmount";
 
@@ -113,6 +112,11 @@ const DonateAmount = (props) => {
 
   return (
     <Container id="proca-donate" className={classes.container}>
+      <Grid container xs={12}>
+        <Grid item xs={12}>
+          <Steps /> {/* Hard coded for now */}
+        </Grid>
+      </Grid>
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <DonateTitle
@@ -197,7 +201,7 @@ const DonateAmount = (props) => {
               })}
             </Typography>
             {!config.component.donation.external && (
-              <PaymentMethodButtons classes={classes} />
+              <PaymentMethodButtons classes={classes} nextStep={props.done} />
             )}
           </CardContent>
         </Grid>

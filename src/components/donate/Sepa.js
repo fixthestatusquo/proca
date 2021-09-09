@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(0),
     width: "100%",
   },
+  submitButton: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function Register(props) {
@@ -204,7 +207,7 @@ export default function Register(props) {
                 register={{ validate: validateIBAN }}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} classes={{ root: classes.submitButton }}>
               <DonateButton
                 amount={amount}
                 currency={currency}
