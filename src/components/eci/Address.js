@@ -17,7 +17,14 @@ export default function Register(props) {
 
   const { postcode, country } = watch(["postcode", "country"]);
 
-  const geocountries = props.geocountries || ["DE", "FR", "IT", "PL", "CA"];
+  const geocountries = props.geocountries || [
+    "DE",
+    "FR",
+    "IT",
+    "PL",
+    "CA",
+    "DK",
+  ];
 
   useEffect(() => {
     if (!geocountries.includes(country)) {
