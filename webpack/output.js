@@ -24,11 +24,6 @@ module.exports = (webpack) => {
   console.log(
     `building https://widget.proca.app${webpack.output.publicPath}index.html`
   );
-  console.log(
-    "to publish:\n rsync -avz d/" +
-      webpack.output.publicPath.split("/")[2] +
-      " kundera:/var/www/act.tttp/d/"
-  );
   return webpack;
 };
 
@@ -74,10 +69,14 @@ function widgetBuildConfig(webpack, config) {
     webpack.plugins.push({
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap("AfterEmitPlugin", (compilation) => {
-          fs.symlinkSync(
-            path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
-            path.resolve(__dirname, "../build/index.js")
-          );
+          try {
+            fs.symlinkSync(
+              path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
+              path.resolve(__dirname, "../build/index.js")
+            );
+          } catch (e) {
+            console.log("already building the widget");
+          }
           saveVersion(config);
           cleanUp(config);
         });
