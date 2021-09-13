@@ -60,8 +60,11 @@ export default (props) => {
   const { t } = useTranslation(config.lang);
   const [data] = useData();
 
-  if (config.component.eci.apiUrl === false) {
+  if (!config.component.eci.apiUrl) {
     config.component.eci.apiUrl = process.env.REACT_APP_API_URL;
+  }
+
+  if (!config.component.eci.actionpage) {
     config.component.eci.actionpage = config.actionPage;
   }
 
