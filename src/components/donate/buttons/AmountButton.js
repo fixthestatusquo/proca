@@ -9,7 +9,7 @@ const StyledButton = withStyles((theme) => ({
     width: "100%",
     textAlign: "center",
     fontSize: theme.typography.fontSize * 1.25,
-    fontWeight: theme.typography.fontWeightBold,
+    fontWeight: theme.typography.fontWeightMedium,
   },
 }))(Button);
 
@@ -30,10 +30,10 @@ const AmountButton = (props) => {
     <StyledButton
       size="large"
       name="amount"
-      color="primary"
+      color={amount === props.amount ? "primary" : "default"}
       aria-pressed={amount === props.amount}
-      disableElevation={amount === props.amount}
-      variant={amount === props.amount ? "contained" : "outlined"}
+      disableElevation={true}
+      variant="contained"
       onClick={(e) => handleAmount(e, props.amount)}
       classes={props.classes}
     >
@@ -43,19 +43,22 @@ const AmountButton = (props) => {
 };
 
 export const OtherButton = (props) => {
-
   const selected = props.selected;
 
-  return (<StyledButton
-    color="primary"
-    name="other"
-    size="large"
-    aria-pressed={selected}
-    disableElevation={selected}
-    classes={props.classes}
-    variant={selected ? "contained" : "outlined"}
-    {...props}>{props.children}</StyledButton>)
-
+  return (
+    <StyledButton
+      color={selected ? "primary" : "default"}
+      name="other"
+      size="large"
+      aria-pressed={selected}
+      disableElevation={true}
+      classes={props.classes}
+      variant="contained"
+      {...props}
+    >
+      {props.children}
+    </StyledButton>
+  );
 };
 
 export default AmountButton;
