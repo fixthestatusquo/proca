@@ -11,10 +11,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   messages: {
-    fontSize: '1rem',
-    lineHeight: '1.4',
-    marginBottom: '25px',
-  }
+    fontSize: "1rem",
+    lineHeight: "1.4",
+    marginBottom: "25px",
+  },
 }));
 
 const Paypal = (props) => {
@@ -41,22 +41,26 @@ const Paypal = (props) => {
     <Container component="main" maxWidth="sm">
       <PaymentBox>
         <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={formData.amount}
-              currency={donateConfig.currency}
-              frequency={formData.frequency}
-            />
-          </Grid>
+          {donateConfig.useTitle && (
+            <Grid item xs={12}>
+              <DonateTitle
+                config={config}
+                amount={formData.amount}
+                currency={donateConfig.currency}
+                frequency={formData.frequency}
+              />
+            </Grid>
+          )}
 
           <Grid item xs={1}></Grid>
           <Grid item xs={10}>
-            {errorFromPaypal ? <Grid item xs={12}>
-              <FormHelperText className={classes.messages} error={true}>
-                {errorFromPaypal.message}
-              </FormHelperText>
-            </Grid> : null}
+            {errorFromPaypal ? (
+              <Grid item xs={12}>
+                <FormHelperText className={classes.messages} error={true}>
+                  {errorFromPaypal.message}
+                </FormHelperText>
+              </Grid>
+            ) : null}
             <div id="paypal-container">
               - <ButtonPaypal />-{" "}
             </div>
