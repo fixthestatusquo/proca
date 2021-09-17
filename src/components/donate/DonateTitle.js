@@ -22,7 +22,7 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
     switch (frequency) {
       case "monthly":
         title = t("I'm donating {{amount}}{{currency}} monthly", {
-          amount: amount.toString(),
+          amount: Number(amount).toFixed(2).toLocaleString(),
           currency: currency.symbol,
         });
         break;
@@ -30,7 +30,7 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
       case "oneoff":
       default:
         title = t("I'm donating {{amount}}{{currency}}", {
-          amount: amount.toString(),
+          amount: Number(amount).toFixed(2).toLocaleString(),
           currency: currency.symbol,
         });
     }
@@ -39,13 +39,18 @@ const DonateTitle = ({ config, currency, frequency, amount }) => {
   }
 
   const averages = donateConfig?.average;
-  const subtitle =
-    averages && averages[frequency]
-      ? t("The average donation is {{amount}}{{currency.symbol}}", {
-          amount: averages[frequency],
-          currency: currency,
-        })
-      : donateConfig?.subTitle;
+  let subtitle = donateConfig?.subTitle;
+
+  if (averages) {
+    console.log("averages", averages);
+    if (averages[frequency]) {
+      console.log("frequency ", frequency, "average", averages[frequency]);
+      subtitle = t("The average donation is {{amount}}{{currency}}", {
+        amount: Number(averages[frequency]).toFixed(2).toLocaleString(),
+        currency: currency.symbol,
+      });
+    }
+  }
 
   return (
     <div>

@@ -72,11 +72,12 @@ export default function Payment(props) {
     <Container classes={{ root: boxStyles.root }}>
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
 
-      <Grid container xs={12}>
+      <Grid container justifyContent="center">
         <Grid item xs={12}>
           <Steps />
         </Grid>
       </Grid>
+
       <Box p={1} classes={{ root: classes.container }}>
         {paymentMethod === "stripe" && <Stripe done={done} />}
         {paymentMethod === "sepa" && <Sepa done={done} />}

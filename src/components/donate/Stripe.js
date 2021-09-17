@@ -139,6 +139,7 @@ const PaymentForm = (props) => {
   const amount = data.amount;
   const frequency = data.frequency;
   const currency = config.component.donation.currency;
+  const useTitle = config.component.donation.useTitle;
 
   const classes = useStyles();
 
@@ -146,14 +147,16 @@ const PaymentForm = (props) => {
     <Container component="main" maxWidth="sm">
       <PaymentBox>
         <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
-            />
-          </Grid>
+          {useTitle && (
+            <Grid item xs={12}>
+              <DonateTitle
+                config={config}
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+              />
+            </Grid>
+          )}
 
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <NameField

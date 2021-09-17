@@ -103,20 +103,22 @@ const DonateAmount = (props) => {
 
   return (
     <Container id="proca-donate" className={classes.container}>
-      <Grid container xs={12}>
+      <Grid container justifyContent="center">
         <Grid item xs={12}>
           <Steps /> {/* Hard coded for now */}
         </Grid>
       </Grid>
       <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <DonateTitle
-            config={config}
-            amount={amount}
-            currency={currency}
-            frequency={frequency}
-          />
-        </Grid>
+        {donateConfig.useTitle && (
+          <Grid item xs={12}>
+            <DonateTitle
+              config={config}
+              amount={amount}
+              currency={currency}
+              frequency={frequency}
+            />
+          </Grid>
+        )}
         <Grid item xs={12}>
           <CardContent className={classes.cardHeader}>
             {config.campaign.title ? (
@@ -173,17 +175,20 @@ const DonateAmount = (props) => {
               </FormControl>
             )}
 
-            <Typography paragraph gutterBottom color="textPrimary">
-              {t("campaign:donation.frequency.intro", {
-                defaultValue: "Make it monthly?",
-              })}
-            </Typography>
             {frequencies.length > 1 ? (
-              <FrequencyButtons
-                frequencies={frequencies}
-                selected={frequency}
-                classes={classes}
-              />
+              <>
+                {" "}
+                <Typography paragraph gutterBottom color="textPrimary">
+                  {t("campaign:donation.frequency.intro", {
+                    defaultValue: "Make it monthly?",
+                  })}
+                </Typography>
+                <FrequencyButtons
+                  frequencies={frequencies}
+                  selected={frequency}
+                  classes={classes}
+                />
+              </>
             ) : null}
 
             <Typography paragraph gutterBottom color="textPrimary">

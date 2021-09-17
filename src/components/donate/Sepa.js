@@ -142,6 +142,8 @@ export default function Register(props) {
     return IBAN.isValid(d) || t("invalid IBAN");
   };
 
+  const useTitle = config.component.donation.useTitle;
+
   return (
     <form
       className={classes.container}
@@ -154,14 +156,16 @@ export default function Register(props) {
       <Container component="main" maxWidth="sm">
         <PaymentBox>
           <Grid container spacing={1}>
-            <Grid item xs={12}>
-              <DonateTitle
-                config={config}
-                amount={amount}
-                currency={currency}
-                frequency={frequency}
-              />
-            </Grid>
+            {useTitle && (
+              <Grid item xs={12}>
+                <DonateTitle
+                  config={config}
+                  amount={amount}
+                  currency={currency}
+                  frequency={frequency}
+                />
+              </Grid>
+            )}
 
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <NameField
