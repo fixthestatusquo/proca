@@ -70,7 +70,7 @@ const Widget = (props) => {
     if (!config.test) return;
     const styles = `
     .proca-widget { 
-            background: repeating-linear-gradient(-45deg, #F4F980 2px, #F4F980 8px, rgba(0,0,0,0.6) 15px, rgba(0,0,0,0.6) 33px );
+            background: repeating-linear-gradient(-45deg, #F4F980 2px, #F4F980 8px, rgba(255,255,255,0.6) 15px, rgba(255,255,255,0.6) 33px );
     };
 `;
 
