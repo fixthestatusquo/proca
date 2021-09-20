@@ -67,6 +67,20 @@ const Widget = (props) => {
   initDataState(data, config);
 
   useEffect(() => {
+    if (!config.test) return;
+    const styles = `
+    .proca-widget { 
+            background: repeating-linear-gradient(-45deg,#F4F980,#F4F980 10px,#eee 10px,#eee 20px);
+    };
+`;
+
+    let styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+  }, [config.test]);
+
+  useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
