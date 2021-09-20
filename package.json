@@ -36,7 +36,7 @@
     "react-hook-form": "^6.15.5",
     "react-i18next": "^11.12.0",
     "react-ipgeolocation": "^1.4.0",
-    "react-script-hook": "^1.4.1",
+    "react-script-hook": "^1.5.0",
     "react-scripts": "^3.4.3",
     "react-share": "^4.4.0",
     "react-swipeable-views": "^0.14.0",
@@ -60,7 +60,7 @@
     "cross-fetch": "^3.1.4",
     "dotenv": "^10.0.0",
     "generate-json-webpack-plugin": "^1.0.0",
-    "prettier": "^2.4.0",
+    "prettier": "^2.4.1",
     "typescript": "^4.4.2",
     "webpack-bundle-analyzer": "^4.4.2"
   },
