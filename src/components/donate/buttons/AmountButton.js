@@ -1,7 +1,18 @@
-import { Button, withStyles } from "@material-ui/core";
+import {
+  Button,
+  FormControl,
+  FormGroup,
+  Grid,
+  makeStyles,
+  withStyles,
+} from "@material-ui/core";
 import useData from "../../../hooks/useData";
 
-import React from "react";
+import React, { useState } from "react";
+import { useCampaignConfig } from "../../../hooks/useConfig";
+import { useForm } from "react-hook-form";
+import OtherAmountInput from "../OtherAmount";
+import { useTranslation } from "react-i18next";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -61,4 +72,84 @@ export const OtherButton = (props) => {
   );
 };
 
-export default AmountButton;
+const amountStyles = makeStyles(() => ({
+  formContainers: {
+    marginBottom: "1em",
+  },
+}));
+
+const Amounts = () => {
+  const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
+  const currency = donateConfig.currency;
+  // TODO: adjust for currencies?
+  const configuredAmounts = donateConfig?.amount || {
+    default: [3, 5, 10, 50, 200],
+  };
+
+  const [data, setData] = useData();
+
+  const frequency = data.frequency;
+
+  const amounts = [
+    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
+  ];
+
+  // const amount = data.amount;
+  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
+    amounts.push(data.initialAmount);
+  }
+  amounts.sort((a, b) => a - b);
+
+  const form = useForm();
+  const [showCustomField, toggleCustomField] = useState(false);
+  const classes = amountStyles();
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <Grid
+        container
+        className={classes.formContainers}
+        spacing={1}
+        role="group"
+        aria-label="amount"
+      >
+        {amounts.map((d) => (
+          <Grid xs={6} md={3} key={d} item>
+            {/* Maybe we should pass AmountButton the formData handler, so that it's a simpler
+               component */}
+            <AmountButton
+              amount={d}
+              currency={currency}
+              onClick={() => toggleCustomField(false)}
+            />
+          </Grid>
+        ))}
+        <Grid xs={6} md={3} key="other" item>
+          <OtherButton
+            onClick={() => toggleCustomField(true)}
+            selected={showCustomField}
+          >
+            {t("Other")}
+          </OtherButton>
+        </Grid>
+      </Grid>
+
+      {showCustomField && (
+        <FormControl fullWidth>
+          <FormGroup>
+            <OtherAmountInput
+              form={form}
+              classes={classes}
+              currency={currency}
+              setData={setData}
+            />{" "}
+          </FormGroup>
+        </FormControl>
+      )}
+    </>
+  );
+};
+
+export default Amounts;
