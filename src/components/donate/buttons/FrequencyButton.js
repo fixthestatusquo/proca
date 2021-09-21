@@ -1,7 +1,9 @@
 import { useData } from "../../../hooks/useData";
 import React from "react";
-import { Button, Grid, withStyles } from "@material-ui/core";
+import { Button, Grid, Typography, withStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import { useCampaignConfig } from "../../../hooks/useConfig";
+import { makeStyles } from "@material-ui/styles";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -38,8 +40,15 @@ const FrequencyButton = (props) => {
   );
 };
 
-const FrequencyButtons = ({ frequencies, selected, classes }) => {
+const useStyles = makeStyles(() => ({
+  formContainers: {
+    marginBottom: "1em",
+  },
+}));
+
+const FrequencyButtons = ({ frequencies, selected }) => {
   const { t } = useTranslation();
+  const classes = useStyles();
 
   // if the widget is configured for only one frequency, we don't show any buttons
   // and data.frequency will already be set
@@ -60,4 +69,27 @@ const FrequencyButtons = ({ frequencies, selected, classes }) => {
   );
 };
 
-export default FrequencyButtons;
+const Frequencies = () => {
+  const { t } = useTranslation();
+
+  const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
+  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
+
+  const [data] = useData();
+  const frequency = data.frequency;
+
+  return frequencies.length > 1 ? (
+    <>
+      {" "}
+      <Typography paragraph gutterBottom color="textPrimary">
+        {t("campaign:donation.frequency.intro", {
+          defaultValue: "Make it monthly?",
+        })}
+      </Typography>
+      <FrequencyButtons frequencies={frequencies} selected={frequency} />
+    </>
+  ) : null;
+};
+
+export default Frequencies;

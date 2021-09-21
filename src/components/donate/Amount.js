@@ -16,11 +16,12 @@ import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import AmountButton, { OtherButton } from "./buttons/AmountButton";
-import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
-import Steps from "./Stepper";
+import Steps, { useDonateStep } from "./Stepper";
 import PaymentMethodButtons from "./PaymentMethodButtons";
 import OtherAmountInput from "./OtherAmount";
+import Frequencies from "./buttons/FrequencyButton";
+import Amounts from "./buttons/AmountButton";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -47,15 +48,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.fontSize * 3,
     },
   },
-  frequency: {
-    // marginTop: theme.spacing(2),
-  },
   container: {
     border: "solid 1px " + theme.palette.primary.dark,
   },
-  formContainers: {
-    marginBottom: "1em",
-  },
+
   cardHeader: {
     paddingTop: 0,
   },
@@ -66,34 +62,8 @@ const DonateAmount = (props) => {
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [data, setData] = useData();
-
   const donateConfig = config.component.donation;
 
-  // TODO: adjust for currencies?
-  const configuredAmounts = donateConfig?.amount || {
-    default: [3, 5, 10, 50, 200],
-  };
-
-  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
-  const frequency = data.frequency;
-
-  const amounts = [
-    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
-  ];
-
-  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
-    amounts.push(data.initialAmount);
-  }
-
-  amounts.sort((a, b) => a - b);
-
-  const currency = donateConfig.currency;
-  const amount = data.amount;
-
-  const form = useForm();
-
-  const [showCustomField, toggleCustomField] = useState(false);
   const width = useElementWidth("#proca-donate");
 
   const [compact, setCompact] = useState(true);
@@ -101,22 +71,20 @@ const DonateAmount = (props) => {
     setCompact(width <= 450);
   }
 
+  const [, setDonateStep] = useDonateStep();
+  const [, setData] = useData();
+
   return (
     <Container id="proca-donate" className={classes.container}>
       <Grid container justifyContent="center">
-        <Grid item xs={12}>
+        <Grid item xs={10}>
           <Steps /> {/* Hard coded for now */}
         </Grid>
       </Grid>
       <Grid container spacing={1}>
         {donateConfig.useTitle && (
           <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
-            />
+            <DonateTitle />{" "}
           </Grid>
         )}
         <Grid item xs={12}>
@@ -136,60 +104,10 @@ const DonateAmount = (props) => {
                 defaultValue: "Choose an amount :",
               })}
             </Typography>
-            <Grid
-              container
-              className={classes.formContainers}
-              spacing={1}
-              role="group"
-              aria-label="amount"
-            >
-              {amounts.map((d) => (
-                <Grid xs={6} md={3} key={d} item>
-                  <AmountButton
-                    amount={d}
-                    currency={currency}
-                    onClick={() => toggleCustomField(false)}
-                  />
-                </Grid>
-              ))}
-              <Grid xs={6} md={3} key="other" item>
-                <OtherButton
-                  onClick={() => toggleCustomField(true)}
-                  selected={showCustomField}
-                >
-                  {t("Other")}
-                </OtherButton>
-              </Grid>
-            </Grid>
 
-            {showCustomField && (
-              <FormControl fullWidth>
-                <FormGroup>
-                  <OtherAmountInput
-                    form={form}
-                    classes={classes}
-                    currency={currency}
-                    setData={setData}
-                  />{" "}
-                </FormGroup>
-              </FormControl>
-            )}
+            <Amounts />
 
-            {frequencies.length > 1 ? (
-              <>
-                {" "}
-                <Typography paragraph gutterBottom color="textPrimary">
-                  {t("campaign:donation.frequency.intro", {
-                    defaultValue: "Make it monthly?",
-                  })}
-                </Typography>
-                <FrequencyButtons
-                  frequencies={frequencies}
-                  selected={frequency}
-                  classes={classes}
-                />
-              </>
-            ) : null}
+            <Frequencies />
 
             <Typography paragraph gutterBottom color="textPrimary">
               {t("campaign:donation.paymentMethods.intro", {
@@ -197,7 +115,20 @@ const DonateAmount = (props) => {
               })}
             </Typography>
             {!config.component.donation.external && (
-              <PaymentMethodButtons classes={classes} nextStep={props.done} />
+              <PaymentMethodButtons
+                classes={classes}
+                nextStep={props.done}
+                onClickStripe={() => {
+                  setData("paymentMethod", "stripe");
+                  setDonateStep(1);
+                  props.done();
+                }}
+                onClickSepa={() => {
+                  setData("paymentMethod", "sepa");
+                  setDonateStep(1);
+                  props.done();
+                }}
+              />
             )}
           </CardContent>
         </Grid>
@@ -206,4 +137,5 @@ const DonateAmount = (props) => {
     </Container>
   );
 };
+
 export default DonateAmount;

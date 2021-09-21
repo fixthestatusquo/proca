@@ -2,6 +2,8 @@ import { CardHeader, makeStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import React from "react";
+import { useCampaignConfig } from "../../hooks/useConfig";
+import useData from "../../hooks/useData";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -9,9 +11,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DonateTitle = ({ config, currency, frequency, amount }) => {
+const DonateTitle = () => {
+  const config = useCampaignConfig();
   const donateConfig = config.component.donation;
+  const currency = donateConfig.currency;
+
   const { t } = useTranslation();
+
+  const [data] = useData();
+  const amount = data.amount;
+  const frequency = data.frequency;
 
   const classes = useStyles();
 

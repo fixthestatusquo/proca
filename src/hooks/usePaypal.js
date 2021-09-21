@@ -48,7 +48,11 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
   const donationError = (err) => {
     console.log("onError", err);
-    failed({ message: "There was a problem processing your donation. If you'd like to try again, just click the PayPal button again.", error: err });
+    failed({
+      message:
+        "There was a problem processing your donation. If you'd like to try again, just click the PayPal button again.",
+      error: err,
+    });
     addClick("donation_error", {
       source: "paypal",
       amount: amount,
@@ -57,12 +61,17 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
   const donationCancel = (data, actions) => {
     console.log("onCancel", data, actions);
-    failed({ message: "Oops, changed your mind? If you'd like to continue, just click the Paypal button again." });
+    failed({
+      message:
+        "Oops, changed your mind? If you'd like to continue, just click the Paypal button again.",
+    });
     addClick("donation_cancel", {
       source: "paypal",
       amount: amount,
     });
   };
+
+  const configuredStyles = donateConfig?.paypal?.styles || {};
 
   const sharedParameters = {
     commit: true,
@@ -71,12 +80,13 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     onCancel: donationCancel,
     style: {
       shape: "rect",
-      color: "silver",
+      color: "blue",
       size: "responsive",
-      height: 30,
+      height: 44,
       layout: "vertical",
       label: "paypal",
-      ...(donateConfig?.paypal?.styles || {}),
+      ...configuredStyles,
+      noop: false,
     },
   };
 
@@ -222,15 +232,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
         });
         console.log("error", err);
       },
-      style: {
-        shape: "rect",
-        color: "silver",
-        size: "responsive",
-        height: 30,
-        layout: "vertical",
-        label: "paypal",
-        ...(donateConfig?.paypal?.styles || {}),
-      },
+      style: sharedParameters.style,
     });
     document.querySelector(dom || "#paypal-container").innerHTML = "";
     buttons.render(dom || "#paypal-container");
@@ -241,8 +243,8 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     completed,
     config.actionPage,
     dom,
-    donateConfig.paypal.styles,
     formData,
+    sharedParameters,
   ]);
 
   useLayoutEffect(() => {

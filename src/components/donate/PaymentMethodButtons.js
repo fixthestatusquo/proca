@@ -5,10 +5,9 @@ import { Grid } from "@material-ui/core";
 
 import PaymentIcon from "@material-ui/icons/Payment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import PaypalIcon from "../../images/Paypal.js";
 import { makeStyles } from "@material-ui/core/styles";
-import useData from "../../hooks/useData.js";
-import { useDonateStep } from "./Stepper.js";
+
+import Paypal from "./Paypal.js";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -23,10 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaymentMethodButtons = (props) => {
+const PaymentMethodButtons = React.memo(({ onClickStripe, onClickSepa }) => {
   const classes = useStyles();
-  const [, setData] = useData();
-  const [, setDonateStep] = useDonateStep();
 
   return (
     <Grid
@@ -41,13 +38,9 @@ const PaymentMethodButtons = (props) => {
           size="large"
           fullWidth
           variant="contained"
-          onClick={() => {
-            setData("paymentMethod", "stripe");
-            setDonateStep(1);
-            props.nextStep();
-          }}
           color="primary"
           classes={{ root: classes.button }}
+          onClick={onClickStripe}
         >
           <PaymentIcon /> Card
         </Button>
@@ -57,11 +50,7 @@ const PaymentMethodButtons = (props) => {
           size="large"
           fullWidth
           variant="contained"
-          onClick={() => {
-            setData("paymentMethod", "sepa");
-            setDonateStep(1);
-            props.nextStep();
-          }}
+          onClick={onClickSepa}
           color="primary"
           classes={{ root: classes.button }}
         >
@@ -69,23 +58,10 @@ const PaymentMethodButtons = (props) => {
         </Button>
       </Grid>
       <Grid item xs={12}>
-        <Button
-          size="large"
-          fullWidth
-          variant="contained"
-          onClick={() => {
-            setData("paymentMethod", "paypal");
-            setDonateStep(1);
-            props.nextStep();
-          }}
-          color="primary"
-          classes={{ root: classes.paypal }}
-        >
-          <PaypalIcon /> PayPal
-        </Button>
+        <Paypal classes={{ root: classes.paypal }} />
       </Grid>
     </Grid>
   );
-};
+});
 
 export default PaymentMethodButtons;
