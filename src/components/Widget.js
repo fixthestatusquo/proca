@@ -66,8 +66,9 @@ const Widget = (props) => {
 
   initDataState(data, config);
 
+  const test = config.test;
   useEffect(() => {
-    if (!config.test) return;
+    if (!test) return;
     const styles = `
     .proca-widget { 
             background: repeating-linear-gradient(-45deg, #F4F980 2px, #F4F980 8px, rgba(255,255,255,0.6) 15px, rgba(255,255,255,0.6) 33px );
@@ -78,7 +79,7 @@ const Widget = (props) => {
     styleSheet.type = "text/css";
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-  }, [config.test]);
+  }, [test]);
 
   useEffect(() => {
     /*global procaReady*/

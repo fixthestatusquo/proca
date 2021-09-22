@@ -52,6 +52,13 @@ export default (props) => {
   const [value, setValue] = React.useState(false);
   const config = useCampaignConfig();
   const classes = useStyles();
+  const consentIntro =
+    config.component?.consent?.intro === false
+      ? null
+      : t("consent.intro", {
+          name: config.organisation,
+          campaign: config.campaign.title,
+        });
 
   const optin = (event) => {
     setValue("opt-in");
@@ -61,24 +68,7 @@ export default (props) => {
     setValue(event.target.value);
   };
 
-  const link =
-    config.component?.consent?.privacyPolicy ||
-    "https://proca.foundation/privacy_policy";
-  const consentProcessing =
-    config.component?.country === false
-      ? "consent.processing-nocookie"
-      : "consent.processing";
-  const consentIntro =
-    config.component?.consent?.intro === false
-      ? null
-      : t("consent.intro", {
-          name: config.organisation,
-          campaign: config.campaign.title,
-        });
-
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
-
-  console.log(errors.privacy);
 
   return (
     <Fragment>
@@ -157,13 +147,29 @@ export default (props) => {
           <FormHelperText>{errors?.privacy?.message}</FormHelperText>
         </FormControl>
       </Grid>
-      <Grid item xs={12}>
-        <Box className={classes.notice}>
-          <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
-            Consent processing according to <a href={link}>privacy policy</a>
-          </Trans>
-        </Box>
-      </Grid>
     </Fragment>
+  );
+};
+
+export const ConsentProcessing = (props) => {
+  const config = useCampaignConfig();
+  const classes = useStyles();
+  const link =
+    config.component?.consent?.privacyPolicy ||
+    "https://proca.app/privacy_policy";
+
+  const consentProcessing =
+    config.component?.country === false
+      ? "consent.processing-nocookie"
+      : "consent.processing";
+
+  return (
+    <Grid item xs={12}>
+      <Box className={classes.notice}>
+        <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
+          Consent processing according to <a href={link}>privacy policy</a>
+        </Trans>
+      </Box>
+    </Grid>
   );
 };

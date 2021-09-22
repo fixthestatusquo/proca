@@ -24,7 +24,7 @@ import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Consent from "./Consent";
+import Consent, { ConsentProcessing } from "./Consent";
 import ImplicitConsent from "./ImplicitConsent";
 
 import Organisation from "./Organisation";
@@ -84,6 +84,8 @@ export default function Register(props) {
     setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
+
+  console.log(data);
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -293,7 +295,7 @@ export default function Register(props) {
                   form={form}
                   name="comment"
                   multiline
-                  rowsMax="20"
+                  maxRows="20"
                   required={config.component.register?.field?.comment?.required}
                   label={t("Comment")}
                 />
@@ -336,6 +338,7 @@ export default function Register(props) {
                 </Button>
               )}
             </Grid>
+            <ConsentProcessing />
           </Grid>
         </Box>
       </Container>
