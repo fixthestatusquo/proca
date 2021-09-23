@@ -82,18 +82,21 @@ export default function ProcaStyle(props) {
             root: { marginTop: "8px!important", marginBottom: "4px!important" },
           },
           MuiFilledInput: {
-            root: { margin: "0px!important" },
+            root: {
+              margin: "0px!important",
+              "& input": {
+                height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
+              },
+            },
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
-              height: "1.1876em",
             },
             inputMultiline: {},
             multiline: {
               paddingTop: "23px!important",
               paddingBottom: "6px!important",
               "& textarea": {
-                height: "unset",
                 paddingTop: "0!important",
                 paddingBottom: "0!important",
               },
