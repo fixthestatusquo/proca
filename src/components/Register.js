@@ -295,7 +295,7 @@ export default function Register(props) {
                   form={form}
                   name="comment"
                   multiline
-                  maxRows="20"
+                  maxRows="10"
                   required={config.component.register?.field?.comment?.required}
                   label={t("Comment")}
                 />
