@@ -86,13 +86,13 @@ export default function ProcaStyle(props) {
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
-              minHeight: "1.1876em!important",
+              height: "1.1876em",
             },
+            inputMultiline: {},
             multiline: {
               paddingTop: "23px!important",
               paddingBottom: "6px!important",
               "& textarea": {
-                minHeight: "1.1876em!important",
                 height: "unset",
                 paddingTop: "0!important",
                 paddingBottom: "0!important",
