@@ -54,7 +54,7 @@ api: graphql
 
   `yarn pull 42`
 
-  This will create the configure file for the widget with id `42`.
+  This will create the configuration file for the widget with id `42`.
 
 - edit `config/42.json` to adjust the steps, configure the components, change the color, whatever)
 - `yarn start 42` runs a local server with the widget
