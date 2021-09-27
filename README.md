@@ -62,4 +62,4 @@ You can find more information in this [config documentation](./docs/config.md)
 
 Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
-
+We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you will listen to input when someone raise an issue that doesn't concern you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive.
