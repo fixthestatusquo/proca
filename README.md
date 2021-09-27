@@ -61,8 +61,12 @@ api: graphql
 - `yarn build 34` generates the widget under d/{actionpage.NAME of the widget}
 - `yarn push 42` save the local config (under config) to the server
 
+<<<<<<< HEAD
 You can find more information in this [config documentation](./docs/config.md)
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
+=======
+We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you will listen to input when someone raise an issue that doesn't concern you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive.
+>>>>>>> main
