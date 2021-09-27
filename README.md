@@ -47,19 +47,22 @@ api: graphql
 
 # Setup and 3 min intro
 
-- git clone this repository
-- yarn (or npm to install the dependencies)
-- cp .env.example .env and put your login + pwd
-- yarn pull 42  (the action page id as seen in the backend)
-- edit config/42.json, adjust the steps, configure the components, change the color, whatever)
-- yarn start: runs a local server with the widget
-- yarn build: generates the widget under d/{actionpage.NAME of the widget}
-- yarn push: save the local config (under config) to the server
+- `git clone` this repository
+- `yarn` (or npm to install the dependencies)
+- `cp .env.example .env` and put your login + pwd
+- yarn pull folowed by the action page id as seen in the backend. For instance
+
+  `yarn pull 42`
+
+  This will create the configure file for the widget with id `42`.
+
+- edit `config/42.json` to adjust the steps, configure the components, change the color, whatever)
+- `yarn start 42` runs a local server with the widget
+- `yarn build 34` generates the widget under d/{actionpage.NAME of the widget}
+- `yarn push 42` save the local config (under config) to the server
 
 You can find more information in this [config documentation](./docs/config.md)
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
-
-
