@@ -60,13 +60,15 @@ api: graphql
 
 - edit `config/42.json` to adjust the steps, configure the components, change the color, whatever)
 - `yarn start 42` runs a local server with the widget
-- `yarn build 34` generates the widget under d/{actionpage.NAME of the widget}
+- `yarn build 42` generates the widget under d/{actionpage.NAME of the widget}
 - `yarn push 42` save the local config (under config) to the server
 
 You can find more information in this [config documentation](./docs/config.md)
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+# Community and code of conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
+Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we aer building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support and troubleshoot for each other.
 
-We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you will listen to input when someone raise an issue that doesn't concern you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive.
+Please note that this project is released with a [Contributor Covenant](code_of_conduct.md). By participating in this project you agree to abide by its terms.
+
+We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you agree to liste when someone raise an issue that doesn't affect you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive but a starting point.
