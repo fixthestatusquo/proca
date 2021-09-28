@@ -248,29 +248,22 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
   ]);
 
   useLayoutEffect(() => {
-    if (!amount || amount === 0 || loadState.loading) return;
-
-    const isSubscription = formData.frequency !== "oneoff";
-    if (isSubscription && formData.frequency !== "monthly") {
-      throw Error("Only 'monthly' with Paypal for now.");
-    }
-
-    if (loadState.loaded) {
-      return isSubscription ? renderSubscriptionButton() : renderOneOffButton();
+    if (loadState.loading) {
+      return;
     }
 
     setLoadState({ loading: true, loaded: false });
+
     const script = document.createElement("script");
-
-    if (!donateConfig?.paypal?.clientId) return;
-
-    //TODO: merchant-id:XXX or data-partner-attribution-id
-
     const search = new URLSearchParams();
+
+    const config = useCampaignConfig();
+    const donateConfig = config.component.donation;
+
     search.append("components", "buttons");
     search.append("currency", donateConfig.currency.code);
-    console.log(config.component.donation.paypal.clientId);
-    search.append("client-id", config.component.donation.paypal.clientId);
+    search.append("client-id", donateConfig.paypal.clientId);
+
     if (isSubscription) {
       search.append("intent", "subscription");
       search.append("vault", "true");
@@ -298,20 +291,8 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
         console.error("Ignore error trying to close PayPal buttons", e);
       }
     };
-  }, [
-    loadState,
-    completed,
-    amount,
-    campaign,
-    dom,
-    config.component.donation.paypal.clientId,
-    donateConfig.currency.code,
-    donateConfig.paypal.clientId,
-    formData.frequency,
-    renderOneOffButton,
-    renderSubscriptionButton,
-  ]);
+  }, [loadState, completed]);
 
-  return amount > 0 ? "span" : PaypalIcon;
+  return PaypalIcon;
 };
 export default usePaypal;

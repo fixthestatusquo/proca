@@ -22,6 +22,7 @@ import PaymentMethodButtons from "./PaymentMethodButtons";
 import OtherAmountInput from "./OtherAmount";
 import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
+import { Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -73,9 +74,14 @@ const DonateAmount = (props) => {
 
   const [, setDonateStep] = useDonateStep();
   const [, setData] = useData();
+  const [complete, setComplete] = useState(false);
 
   return (
     <Container id="proca-donate" className={classes.container}>
+      {complete && (
+        <Alert severity="success">{t("Thank you for your donation!")}</Alert>
+      )}
+
       <Grid container justifyContent="center">
         <Grid item xs={10}>
           <Steps /> {/* Hard coded for now */}
@@ -117,7 +123,7 @@ const DonateAmount = (props) => {
             {!config.component.donation.external && (
               <PaymentMethodButtons
                 classes={classes}
-                nextStep={props.done}
+                onComplete={props.done} // for PayPal
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
                   setDonateStep(1);
@@ -127,6 +133,9 @@ const DonateAmount = (props) => {
                   setData("paymentMethod", "sepa");
                   setDonateStep(1);
                   props.done();
+                }}
+                onComplete={() => {
+                  setComplete(true);
                 }}
               />
             )}
