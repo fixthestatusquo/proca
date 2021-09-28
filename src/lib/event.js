@@ -12,8 +12,11 @@ const dispatch = (event, data, pii) => {
   });
   elem.dispatchEvent(e);
   elem.dispatchEvent(
-    new CustomEvent("proca:debug", { bubbles: true, detail: { event: event } })
-  );
+    new CustomEvent("proca", {
+      bubbles: true,
+      detail: { message: event.replace("proca:", ""), value: data },
+    })
+  ); //
 };
 
 export default dispatch;

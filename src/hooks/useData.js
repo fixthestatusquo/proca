@@ -35,7 +35,7 @@ export const initDataState = (urlData, config) => {
   }
 
   // If frequency wasn't in the URL, check the config
-  if (!urlData.frequency) {
+  if (!urlData.frequency && config.component.donation?.frequency?.default) {
     try {
       urlData.frequency = config.component.donation?.frequency?.default;
     } catch (e) {
@@ -47,6 +47,7 @@ export const initDataState = (urlData, config) => {
   formData = atom({
     key: "data",
     default: {
+      ...{ comment: config.param.locales?.comment },
       ...urlData,
     },
   });

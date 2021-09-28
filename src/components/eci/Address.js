@@ -17,13 +17,22 @@ export default function Register(props) {
 
   const { postcode, country } = watch(["postcode", "country"]);
 
-  const geocountries = props.geocountries || ["DE", "FR", "IT", "PL", "CA"];
+  const postcodeLength = {
+    DE: 5,
+    FR: 5,
+    IT: 5,
+    PL: 5,
+    CA: 5,
+    DK: 4,
+  };
+
+  const geocountries = props.geocountries || Object.keys(postcodeLength);
 
   useEffect(() => {
     if (!geocountries.includes(country)) {
       return;
     }
-    if (!postcode || postcode.length !== 5) return;
+    if (!postcode || postcode.length !== postcodeLength[country]) return;
     const api = "https://" + country + ".proca.app/" + postcode;
 
     async function fetchAPI() {
@@ -48,7 +57,7 @@ export default function Register(props) {
         });
     }
     fetchAPI();
-    //}, [postcode, setError, setValue, country, geocountries]); can't put geocountries otherwise it loops
+    // eslint-disable-next-line
   }, [postcode, country, setValue]);
 
   return (

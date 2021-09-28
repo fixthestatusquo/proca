@@ -32,6 +32,16 @@ i18n
     defaultNS: "common",
     react: {
       transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: [
+        "br",
+        "strong",
+        "b",
+        "em",
+        "i",
+        "p",
+        "ul",
+        "li",
+      ],
     },
     interpolation: {
       escapeValue: false,

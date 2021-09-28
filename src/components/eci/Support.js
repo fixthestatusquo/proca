@@ -4,14 +4,7 @@ import dispatch from "../../lib/event";
 import { formatDate } from "../../lib/date";
 
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Grid,
-  Snackbar,
-  Box,
-  Container,
-  Tooltip,
-} from "@material-ui/core";
+import { Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation, countries } from "./hooks/useEciTranslation";
@@ -25,14 +18,14 @@ import General from "./General";
 import Address from "./Address";
 import Consent from "./Consent";
 import Id from "./Id";
+import Captcha from "./Captcha";
 import useElementWidth from "../../hooks/useElementWidth";
 import useData from "../../hooks/useData";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
+import useCount from "../../hooks/useCount";
 
 import { makeStyles } from "@material-ui/core/styles";
-//import HCaptcha from "@hcaptcha/react-hcaptcha";
-import HCaptcha from "../../../vendor/hcaptcha.js";
 
 //const countries = eciLocale.common.country;
 
@@ -66,6 +59,17 @@ export default (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation(config.lang);
   const [data] = useData();
+
+  if (!config.component.eci.apiUrl) {
+    config.component.eci.apiUrl = process.env.REACT_APP_API_URL;
+  }
+
+  if (!config.component.eci.actionpage) {
+    config.component.eci.actionpage = config.actionPage;
+  }
+
+  useCount(config.component.eci.actionpage); // TODO, make conditional to fetch the counter?
+  //config.component.eci.apiUrl
 
   const form = useForm({
     defaultValues: data,
@@ -107,13 +111,6 @@ export default (props) => {
       }
     }
 
-    // is captcha checked?
-    if (token === "dummy") {
-      console.error("dummy", t("eci:form.error.oct_captcha_invalid"));
-      setStatus("nocaptcha");
-      return;
-    }
-
     const result = await addSupport(
       config.test ? "test" : "support",
       +config.component.eci.actionpage,
@@ -123,7 +120,6 @@ export default (props) => {
 
     if (result.errors) {
       let handled = false;
-      console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
@@ -206,7 +202,7 @@ export default (props) => {
     });
   }, [setError, nationality]);
 
-  const handleVerificationSuccess = (token) => {
+  const handleCaptcha = (token) => {
     setToken(token);
   };
 
@@ -270,23 +266,15 @@ export default (props) => {
                   country={nationality}
                 />
               )}
-              <Grid item xs={12} sm={compact ? 12 : 8}>
+              <Grid item xs={12}>
                 <Consent form={form} />
               </Grid>
-              <Grid item xs={12} sm={compact ? 12 : 4}>
-                <Tooltip
-                  arrow
-                  open={status === "nocaptcha" && token === "dummy"}
-                  placement="left"
-                  title={t("eci:form.error.email_required")}
-                >
-                  <HCaptcha
-                    sitekey={config.component.eci.hcaptcha}
-                    languageOverride={config.lang}
-                    size="compact"
-                    onVerify={(token) => handleVerificationSuccess(token)}
-                  />
-                </Tooltip>
+              <Grid item xs={12}>
+                <Captcha
+                  form={form}
+                  compact={compact}
+                  onChange={(captcha) => handleCaptcha(captcha)}
+                />
               </Grid>
               <Grid item xs={12}>
                 <Button

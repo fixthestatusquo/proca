@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dialog from "../Dialog";
+import TTag from "../TTag";
 import { useTranslation } from "react-i18next";
 
 const EciPopup = (props) => {
@@ -7,6 +8,7 @@ const EciPopup = (props) => {
   const { t } = useTranslation();
 
   const openPopup = (event) => {
+    if (!event.target.href) return;
     event.preventDefault();
     switch (event.target.href.split("#")[1]) {
       case "privacy":
@@ -23,7 +25,7 @@ const EciPopup = (props) => {
         setPopup(
           <>
             <h3>{t("eci:common.head-title.home")}</h3>
-            <div>{t("campaign:description")}</div>
+            <TTag message="campaign:description" />
           </>
         );
         break;
@@ -50,7 +52,7 @@ const EciPopup = (props) => {
       <Dialog
         dialog={popup !== false}
         close={handleClose}
-        name={t("campaign:title")}
+        name={t("campaign:name")}
       >
         {popup}
       </Dialog>

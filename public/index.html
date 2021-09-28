@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -8,12 +8,12 @@
     <link
       rel="alternate"
       type="application/json+oembed"
-      href="https://widget.proca.foundation/d/demo/petition/oembed.json"
+      href="/d/<%= filename %>/oembed.json"
       title="Embed JSON"
     />
 
     <meta property="og:image" content="https://placekitten.com/540/284" />
-    <title><%= campaign %> widget for <%= organisation %></title>
+    <title><%= campaign %> widget for <%= organisation %> in <%= lang %></title>
     <meta name="twitter:title" content="Demo of <%= campaign %>" />
     <meta
       name="description"
@@ -183,6 +183,7 @@
     >
     <div id="root" class="container">
       <h2>Campaign <%= campaign %></h2>
+      <div class="proca-progress"></div>
       <div
         class="proca-widget"
         id="signature-form"
@@ -190,7 +191,7 @@
         nodata-twitter-text="Do the test"
       >
         <div class="alert alert-info" role="alert">
-          <h3>This is an example, but your can test signing</h3>
+          <h3>This is an example, but you can test signing</h3>
 
           For a real one, the signature form will be directly embedded into your
           website, with your design and url.
@@ -220,6 +221,8 @@
       </div>
       <div class="row">
         <div class="col">
+          <p class="proca-text [disable]comment">Hello, let's roll,
+          more text</p>
           <p class="proca-text [disable]consent_intro">
             I want to receive the newsletter from {{name}}
           </p>
@@ -244,9 +247,7 @@
               This is the most flexible solution, you can have a full width
               form, or manage your layout exactly the way your want.
               <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">
-&lt;/div>
+&lt;script src="https://%widget_path%">&lt;/script>
           </pre
               >
             </div>
@@ -256,9 +257,9 @@
               the example above), it's almost the same, but you put the text you
               want on the left hand column as the content of the widget
               <pre class="dynamic">
-&lt;script id="proca" src="https://%widget_path%">&lt;/script>
+&lt;script src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">
-&lt;div class="proca-description">&lt;/div>
+  &lt;div class="proca-description">&lt;/div>
   Put here the title and text of the campaign
 &lt;/div>
           </pre
@@ -319,6 +320,9 @@
             </button>
           </div>
         </div>
+      </div>
+      <div class="proca-html">
+        This is a text taken from the page 
       </div>
     </div>
     <!--

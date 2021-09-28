@@ -71,6 +71,21 @@ const Widget = (props) => {
   initConfigState(config);
   initDataState(data, config);
 
+  const test = config.test;
+  useEffect(() => {
+    if (!test) return;
+    const styles = `
+    .proca-widget { 
+            background: repeating-linear-gradient(-45deg, #F4F980 2px, #F4F980 8px, rgba(255,255,255,0.6) 15px, rgba(255,255,255,0.6) 33px );
+    };
+`;
+
+    let styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+  }, [test]);
+
   useEffect(() => {
     /*global procaReady*/
     /*eslint no-undef: "error"*/
@@ -78,13 +93,6 @@ const Widget = (props) => {
       console.log(
         "obsolete, please use window.addEventListener('proca:init', function(){}); instead"
       );
-      const proca = document.getElementById("proca");
-      if (!proca) {
-        // we are in dev mode, create a fake proca
-        const placeholder = document.createElement("div");
-        placeholder.id = "proca";
-        document.head.appendChild(placeholder);
-      }
 
       procaReady({}); // NOTE: should we pass config to procaReady?
     }

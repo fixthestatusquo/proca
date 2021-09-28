@@ -24,7 +24,7 @@ import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Consent from "./Consent";
+import Consent, { ConsentProcessing } from "./Consent";
 import ImplicitConsent from "./ImplicitConsent";
 
 import Organisation from "./Organisation";
@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
+  },
+  field: {
+    margin: "0 !important",
   },
   textField: {
     marginLeft: theme.spacing(0),
@@ -81,6 +84,8 @@ export default function Register(props) {
     setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
+
+  console.log(data);
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -220,7 +225,7 @@ export default function Register(props) {
             {config.component?.register?.field.organisation && (
               <Organisation form={form} compact={compact} />
             )}
-            <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
                 name="firstname"
@@ -230,16 +235,17 @@ export default function Register(props) {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 6}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
                 name="lastname"
                 label={t("Last name")}
                 autoComplete="family-name"
                 placeholder="eg. Da Vinci"
+                required={config.component.register?.field?.lastname?.required}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.field}>
               <TextField
                 form={form}
                 name="email"
@@ -250,36 +256,47 @@ export default function Register(props) {
                 placeholder="your.email@example.org"
               />
             </Grid>
-            {config.component?.register?.field?.postcode !== false && (
-              <Grid item xs={12} sm={compact ? 12 : 3}>
+            {config.component.register?.field?.postcode !== false && (
+              <Grid
+                item
+                xs={12}
+                sm={compact ? 12 : 3}
+                className={classes.field}
+              >
                 <TextField
                   form={form}
                   name="postcode"
                   label={t("Postal Code")}
                   autoComplete="postal-code"
                   required={
-                    config.component?.register?.field?.postcode?.required
+                    config.component.register?.field?.postcode?.required
                   }
                 />
               </Grid>
             )}
-            {config.component?.register?.field?.country !== false && (
-              <Grid item xs={12} sm={compact ? 12 : 9}>
+            {config.component.register?.field?.country !== false && (
+              <Grid
+                item
+                xs={12}
+                sm={compact ? 12 : 9}
+                className={classes.field}
+              >
                 <Country form={form} required />
               </Grid>
             )}
-            {config.component?.register?.field?.phone === true && (
-              <Grid item xs={12}>
+            {config.component.register?.field?.phone === true && (
+              <Grid item xs={12} className={classes.field}>
                 <TextField form={form} name="phone" label={t("Phone")} />
               </Grid>
             )}
-            {config.component?.register?.field?.comment !== false && (
-              <Grid item xs={12}>
+            {config.component.register?.field?.comment !== false && (
+              <Grid item xs={12} className={classes.field}>
                 <TextField
                   form={form}
                   name="comment"
                   multiline
-                  rowsMax="20"
+                  maxRows="10"
+                  required={config.component.register?.field?.comment?.required}
                   label={t("Comment")}
                 />
               </Grid>
@@ -321,6 +338,7 @@ export default function Register(props) {
                 </Button>
               )}
             </Grid>
+            <ConsentProcessing />
           </Grid>
         </Box>
       </Container>

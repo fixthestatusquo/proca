@@ -1,9 +1,10 @@
 # Proca *Progressive Campaigning* 
 
 - provide a state of the art campaiging tool
-- integrate with the campaign website so no new CMS to learn
-- work with coalition and GDPR
-- 
+- integrate with the campaign website, so no new CMS to learn
+- work with coalitions and GDPR
+- privacy first, every personal data of your supporter is encrypted with your organisation key
+
 You want to engage your members and ask them to take an online action? Well, you won't be the first organisation, and you will soon realise that they aren't any decent looking petition tool that are easy to install and configure.
 
 And this is what this tool solves.
@@ -39,10 +40,10 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 cores.
 
 ## Technology
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
-graphql
 
 front-end: react
 Back-end: elixir
+api: graphql
 
 # Setup and 3 min intro
 
@@ -61,4 +62,4 @@ You can find more information in this [config documentation](./docs/config.md)
 
 Please note that this project is released with a [Contributor Code of Conduct](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
-
+We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you will listen to input when someone raise an issue that doesn't concern you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive.

@@ -6,7 +6,7 @@ All the events are sent on the dom node "#proca" (the script dom), but they bubb
 
 to make it easier to debug and find the event triggered, you can add in your page:
 
-    window.addEventListener("proca:debug", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("proca", function(e){console.log(e.type,e.detail);});
 
 it will list all the events triggered 
 
@@ -14,27 +14,27 @@ it will list all the events triggered
 
 ## events
 
-each event has a "name:action" format. the "detail" attribute on the event contains specific extra information relevant to the event.
+each event has two parameters :
+- message, the name action, of instance that the user finished a step and it going to the next one
+- value: the (optional) details of the action, for instance the amount if the event is a contribution
 
-### proca:init
+### init
 
 Called once when the widget is displayed. you can customise the widget from there, for instance change the primary color and the general style (variant):
 
-      window.addEventListener("proca:init", d => {
+      window.addEventListener("proca", e => {
+        if (e.message !== "init") return;
         proca.set("layout", "variant", "outlined");
         proca.set("layout","primaryColor","#f90");
       });
 
-    window.addEventListener("eci_support:init", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("eci:complete", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("share:click", function(e){console.log(e.type,e.detail);});
-    window.addEventListener("share:close", function(e){console.log(e.type,e.detail);});
 
-### proca:complete 
+### complete 
 
 end of the journey. 
 
-    window.addEventListener("proca:complete", function(e){
+    window.addEventListener("proca", function(e){
+      if (e.message !== "complete") return;
       alert("THAT'S ALL, FOLKS");
       window.location.href = "https://proca.app"; // your thank you page
     });
@@ -42,11 +42,11 @@ end of the journey.
 _note: If you do not handle that event and change the page, the widget is looping back to the first step._
 
 
-### register:init
-### share:init
-### donate:init
-### twitter:init
-### eci_support:init
+### register
+### share
+### donate
+### twitter
+### eci_support
 
 Every time the widget displays a new step, a event "name of the step" _(in lowercase)_ + ":init" is trigered
 you might use it to display/hide specific instructions in the page

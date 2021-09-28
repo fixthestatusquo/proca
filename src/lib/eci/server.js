@@ -66,9 +66,13 @@ async function addSupport(actionType, actionPage, data, options) {
   //      variables.action.fields.push({key:key,value:value})
   //  }
 
+  if (options.captcha?.mac) {
+    data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;
+  }
+
   const response = await graphQL("addSupport", query, {
     variables: variables,
-    extensions: { captcha: options.captcha || "dummy" },
+    extensions: { captcha: data.captcha || "dummy" },
     apiUrl: options.apiUrl, // "https://eci.fixthestatusquo.org/api",
   });
   if (response.errors) {

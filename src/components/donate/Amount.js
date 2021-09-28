@@ -10,6 +10,7 @@ import {
   FormControl,
   InputAdornment,
   FormGroup,
+  FormHelperText,
   Button,
   ButtonGroup,
   Typography,
@@ -24,7 +25,7 @@ import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import AmountButton from "./buttons/AmountButton";
+import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
 
@@ -57,6 +58,49 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
+
+const OtherAmountInput = ({ form, classes, currency, setData }) => {
+  const [otherAmountError, setOtherAmountError] = useState(false);
+  const { t } = useTranslation();
+
+  return (
+    <>
+      {otherAmountError ? (
+        <Grid item xs={12}>
+          <FormHelperText error={true}>{otherAmountError}</FormHelperText>
+        </Grid>
+      ) : (
+        ""
+      )}
+      <TextField
+        form={form}
+        type="number"
+        label={t("Amount")}
+        name="amount"
+        className={classes.number}
+        onChange={(e) => {
+          const a = parseFloat(e.target.value);
+          if (a && a > 1.0) {
+            setData("amount", a);
+            setOtherAmountError("");
+          } else {
+            setOtherAmountError(
+              t("Please enter a valid amount greater than 1.0 {{currency}}", {
+                currency: currency.symbol,
+              })
+            );
+          }
+        }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">{currency.symbol}</InputAdornment>
+          ),
+        }}
+        InputLabelProps={{ shrink: true }}
+      />
+    </>
+  );
+};
 
 const DonateAmount = (props) => {
   const classes = useStyles();
@@ -144,39 +188,24 @@ const DonateAmount = (props) => {
                     />
                   </Grid>
                 ))}
-                <Grid item>
-                  <Button
-                    color="primary"
-                    name="other"
+                <Grid xs={6} md={3} key="other" item>
+                  <OtherButton
+
                     onClick={() => toggleCustomField(true)}
+                    selected={showCustomField}
                   >
                     {t("Other")}
-                  </Button>
+                  </OtherButton>
                 </Grid>
               </Grid>
               <FormControl fullWidth>
                 <FormGroup>
                   {showCustomField && (
-                    <TextField
+                    <OtherAmountInput
                       form={form}
-                      type="number"
-                      label={t("Amount")}
-                      name="amount"
-                      className={classes.number}
-                      onChange={(e) => {
-                        const a = parseFloat(e.target.value);
-                        if (a) {
-                          setData("amount", a);
-                        }
-                      }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            {currency.symbol}
-                          </InputAdornment>
-                        ),
-                      }}
-                      InputLabelProps={{ shrink: true }}
+                      classes={classes}
+                      currency={currency}
+                      setData={setData}
                     />
                   )}
                 </FormGroup>

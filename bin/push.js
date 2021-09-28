@@ -9,8 +9,10 @@ const { push } = require("./config");
   try {
     const d = await push(parseInt(id, 10));
     console.log(d);
-  } catch (e) {
-    console.error(e);
+  } catch (errors) {
+    errors.map((e) => {
+      console.error("\x1b[31m", e.message);
+    });
     // Deal with the fact the chain failed
   }
 })();

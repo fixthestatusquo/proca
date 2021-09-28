@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const { link, admin, widget, request, basicAuth } = require("@proca/api");
-require("cross-fetch/polyfill");
+const crossFetch = require("cross-fetch");
+require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -21,6 +22,7 @@ const read = (id) => {
 };
 
 const array2string = (s) => {
+  if (!s) return "";
   s.forEach((d, i) => {
     if (typeof s[i] === "string") return;
     s[i] = s[i].join("+");
@@ -29,7 +31,11 @@ const array2string = (s) => {
 };
 
 const string2array = (s) => {
+  if (!s || s.length === 0 || s[0] === "") {
+    return null;
+  }
   s.forEach((d, i) => {
+    if (typeof d !== "string") return;
     const sub = d.split("+");
     if (sub.length === 1) return;
     s[i] = sub;
@@ -49,36 +55,231 @@ const save = (config, suffix = "") => {
   fs.writeFileSync(file(id) + suffix, JSON.stringify(config, null, 2));
 };
 
-const fetch = async (actionPage) => {
-  const c = link(process.env.REACT_APP_API_URL || "https://api.proca.app/api");
+const saveCampaign = (campaign, lang = "en") => {
+  const defaultConfig = { actionPage: {}, locales: {} };
+  defaultConfig.locales[lang] = {
+    title: campaign.title,
+    description: campaign.description || campaign.request,
+  };
+  console.log(file("campaign/" + campaign.name));
+  fs.writeFileSync(
+    file("campaign/" + campaign.name),
+    JSON.stringify(campaign, null, 2)
+  );
+};
 
-  const query = widget.GetActionPageDocument;
-  let vars = {};
-
-  const { data, errors } = await request(c, widget.GetActionPageDocument, {
-    id: actionPage,
+const api = async (query, variables, name = "query") => {
+  let headers = basicAuth({
+    username: process.env.AUTH_USER,
+    password: process.env.AUTH_PASSWORD,
   });
-  if (errors) throw errors;
-  if (data.actionPage.journey.length === 0) {
-    data.actionPage.journey = ["Petition", "Share"];
+  headers["Content-Type"] = "application/json";
+
+  try {
+    const res = await crossFetch(
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: query,
+          operationName: name,
+          variables: variables,
+        }),
+        headers: headers,
+      }
+    );
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+    const resJson = await res.json();
+
+    return resJson.data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const getCampaign = async (name) => {
+  const query = `
+query getCampaign ($name:String!){
+  campaigns (name:$name) {
+    id, org {
+      name
+    }
+  }
+}`;
+
+  const data = await api(query, { name: name }, "getCampaign");
+  return data.campaigns[0];
+};
+
+const getPage = async (name) => {
+  const query = `
+query getPage ($name:String!){
+  actionPage (name:$name) {
+    id, name, locale, org {
+      name, title
+    }
+  }
+}`;
+
+  const data = await api(query, { name: name }, "getPage");
+  return data.actionPage;
+};
+
+const addPage = async (name, campaignName, locale) => {
+  const query = `
+mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $locale: String!) {
+  upsertCampaign(orgName: $orgName, input: {
+    name: $campaignName, actionPages: [{name:$name,locale:$locale}]
+  }) {
+    id,
+  }
+}
+`;
+
+  const campaign = await getCampaign(campaignName);
+  const r = await api(
+    query,
+    {
+      name: name,
+      locale: locale,
+      campaignName: campaignName,
+      orgName: campaign.org.name,
+    },
+    "addPage"
+  );
+  const page = await getPage(name);
+  await pull(page.id);
+  console.log("action page " + name + " #" + page.id);
+  return page;
+};
+
+const pushCampaign = async (name) => {
+  const campaign = read("campaign/" + name);
+  const query = `
+mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
+  upsertCampaign(orgName: $orgName, input: {
+    name: $name, config: $config, actionPages: []
+  }) {
+    id
+  }
+}
+`;
+  let headers = basicAuth({
+    username: process.env.AUTH_USER,
+    password: process.env.AUTH_PASSWORD,
+  });
+  headers["Content-Type"] = "application/json";
+
+  try {
+    const res = await crossFetch(
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: query,
+          variables: {
+            orgName: campaign.org.name,
+            name: campaign.name,
+            config: JSON.stringify(campaign.config),
+          },
+          operationName: "updateCampaign",
+        }),
+        headers: headers,
+      }
+    );
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+    const resJson = await res.json();
+
+    data = resJson.data;
+  } catch (err) {
+    throw err;
+  }
+  if (data.upsertCampaign.id !== campaign.id) {
+    console.log(data, campaign);
+    throw new Error(
+      "created a new campaign instead of editing the existing one",
+      data.upsertCampaign.id,
+      campaign.id
+    );
+  }
+  return data.upsertCampaign;
+};
+
+const fetch = async (actionPage) => {
+  let data = undefined;
+
+  const query = `
+query actionPage ($id:Int!) {
+  actionPage (id:$id) {
+    id, name, locale,
+    campaign {
+      id,
+      title,name,config,
+      org {name,title}
+    },
+    org {
+      title
+    }
+    , config
+  }
+}
+`;
+
+  try {
+    const res = await crossFetch(
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: query,
+          variables: { id: actionPage },
+          operationName: "actionPage",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+
+    const resJson = await res.json();
+    data = resJson.data;
+  } catch (err) {
+    throw err;
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
-  const config = {
+  data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
+  let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,
-    campaign: { title: data.actionPage.campaign.title },
-    journey: string2array(data.actionPage.journey),
+    campaign: {
+      title: data.actionPage.campaign.title,
+      name: data.actionPage.campaign.name,
+    },
+    journey: string2array(data.actionPage.config.journey),
     layout: data.actionPage.config.layout || {},
     component: data.actionPage.config.component || {},
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
-    template: data.actionPage.config.template || false,
   };
+  if (!config.journey) {
+    delete config.journey;
+  }
   save(config, ".remote");
+  saveCampaign(data.actionPage.campaign, config.lang);
   return config;
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
 
@@ -106,8 +307,8 @@ const actionPageFromLocalConfig = (id, local) => {
     actionPage: {
       name: local.filename,
       locale: local.lang.toLowerCase(),
-      journey: array2string(local.journey),
       config: JSON.stringify({
+        journey: array2string(local.journey),
         layout: local.layout,
         component: local.component,
         locales: local.locales,
@@ -123,17 +324,16 @@ const push = async (id) => {
   console.log(local);
   const c = apiLink();
   const actionPage = actionPageFromLocalConfig(id, local);
-
   const { data, errors } = await request(
     c,
     admin.UpdateActionPageDocument,
     actionPage
   );
   if (errors) {
-    console.log(actionPage);
+    //    console.log(actionPage);
     throw errors;
   }
-  console.log(local);
+  console.log(actionPage);
   return data;
 };
 
@@ -157,4 +357,6 @@ module.exports = {
   save,
   apiLink,
   actionPageFromLocalConfig,
+  pushCampaign,
+  addPage,
 };

@@ -14,6 +14,7 @@ const ProcaAlert = (props) => {
       open={open}
       key={props.text}
       onClose={handleClose}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={props.autoHideDuration}
     >
       <Alert severity={props.severity} onClose={handleClose}>

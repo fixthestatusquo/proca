@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= htmlWebpackPlugin.options.proca.lang %>">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="/d/<%= htmlWebpackPlugin.options.title %>/oembed.json"
+      title="Embed JSON"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
 body {
