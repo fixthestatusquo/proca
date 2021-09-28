@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Button } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-
-import PaymentIcon from "@material-ui/icons/Payment";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import { Button, FormHelperText, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Paypal from "./Paypal.js";
+import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import PaymentIcon from "@material-ui/icons/Payment";
+import Paypal from "./Paypal";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -22,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaymentMethodButtons = React.memo(({ onClickStripe, onClickSepa }) => {
+const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
   const classes = useStyles();
+  const [errorFromPaypal, setErrorFromPaypal] = useState();
 
   return (
     <Grid
@@ -57,11 +56,21 @@ const PaymentMethodButtons = React.memo(({ onClickStripe, onClickSepa }) => {
           <AccountBalanceIcon /> SEPA
         </Button>
       </Grid>
+      {errorFromPaypal ? (
+        <Grid item xs={12}>
+          <FormHelperText className={classes.messages} error={true}>
+            {errorFromPaypal.message}
+          </FormHelperText>
+        </Grid>
+      ) : null}
       <Grid item xs={12}>
-        <Paypal classes={{ root: classes.paypal }} />
+        <Paypal
+          onError={(error) => setErrorFromPaypal(error)}
+          onComplete={props.onComplete}
+        />
       </Grid>
     </Grid>
   );
-});
+};
 
 export default PaymentMethodButtons;
