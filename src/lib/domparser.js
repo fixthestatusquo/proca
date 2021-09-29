@@ -4,10 +4,15 @@ const getData = (key, selector) => {
 };
 
 const getOverwriteLocales = (
-  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-out,consent_processing,email_subject,email_body,twitter_actionText"
+  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-out,consent_processing,email_subject,email_body,twitter_actionText,button,progress"
 ) => {
   allowed = allowed.split(",");
-  const converting = { "sign-now": "Sign now!" }; // dealing with keys that aren't classes
+  const converting = {
+    "sign-now": "Sign now!",
+    button: "Sign now!",
+    progress: "progress_plural",
+  }; // dealing with keys that aren't classes
+
   const texts = document.getElementsByClassName("proca-text");
   let locales = {};
   for (const t of texts) {
