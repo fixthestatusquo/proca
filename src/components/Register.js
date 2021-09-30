@@ -84,16 +84,21 @@ export default function Register(props) {
     setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
-
-  console.log(data);
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { trigger, handleSubmit, setError, formState, getValues } = form;
+  const { trigger, handleSubmit, setError, formState, getValues, setValue } =
+    form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
+  const comment = data.comment;
+
+  useEffect(() => {
+    setValue("comment", comment);
+  }, [comment, setValue]);
+
   const onSubmit = async (data) => {
     data.tracking = Url.utm();
     if (config.component.consent?.implicit) data.privacy = "opt-in";
@@ -132,6 +137,7 @@ export default function Register(props) {
         test: !!config.test,
         firstname: data.firstname,
         country: data.country,
+        comment: data.comment,
       },
       data
     );
