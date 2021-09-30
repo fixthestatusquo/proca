@@ -22,24 +22,8 @@ const useStyles = makeStyles((theme) => ({
 const nextStep = (value, steps) => {
   if (!steps) {
     steps = [
-      100,
-      200,
-      500,
-      1000,
-      2000,
-      5000,
-      10000,
-      20000,
-      50000,
-      100000,
-      200000,
-      500000,
-      1000000,
-      1200000,
-      150000,
-      2000000,
-      5000000,
-      1000000,
+      100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000,
+      500000, 1000000, 1200000, 150000, 2000000, 5000000, 1000000,
     ];
   }
   let next = false;
@@ -74,8 +58,9 @@ export default function Progress(props) {
   const config = useCampaignConfig();
   const classes = useStyles();
   const goal = nextStep(count, config.component.counter?.steps);
-  const separator = config.component.counter?.separator;
-  if (!count) return null;
+  const separator = config.component.counter?.separator | " "; //non breaking space
+  const min = config.component.counter?.min | 0;
+  if (!count || count <= min) return null;
 
   return (
     <Box className={classes.root}>
