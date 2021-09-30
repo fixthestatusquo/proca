@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import ProcaRoot from "./ProcaRoot";
+import merge from "lodash.merge";
 import { initConfigState } from "../hooks/useConfig";
 import Url, { step as paramStep } from "../lib/urlparser.js";
 import { getAllData, getOverwriteLocales } from "../lib/domparser";
@@ -56,7 +57,8 @@ const Widget = (props) => {
   if (props) config = { ...config, ...props };
 
   config.param = getAllData(config.selector);
-  config.locales = Object.assign(config.locales, getOverwriteLocales());
+  //config.locales = Object.assign(config.locales, getOverwriteLocales());
+  config.locales = merge(config.locales, getOverwriteLocales());
   config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
 
   if (!config.actionPage) {
