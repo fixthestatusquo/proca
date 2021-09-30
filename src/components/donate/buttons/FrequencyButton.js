@@ -14,15 +14,14 @@ const StyledButton = withStyles((theme) => ({
   disabled: {},
 }))(Button);
 
-const FrequencyButton = (props) => {
+const FrequencyButton = ({ buttonValue, selected, classes, children }) => {
   const [, setData] = useData();
 
   const handleFrequency = (i) => {
     setData("frequency", i);
   };
 
-  const value = props.buttonValue;
-  const selected = props.selected;
+  const value = buttonValue;
 
   // todo: offer this as an option? color={frequency === props.frequency ? "secondary" : "default"}
   return (
@@ -33,9 +32,9 @@ const FrequencyButton = (props) => {
       disableElevation={selected === value}
       value={value}
       fullWidth={true}
-      classes={props.classes}
+      classes={classes}
     >
-      {props.children}
+      {children}
     </StyledButton>
   );
 };
@@ -46,7 +45,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FrequencyButtons = ({ frequencies, selected }) => {
+const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -60,7 +59,11 @@ const FrequencyButtons = ({ frequencies, selected }) => {
     <Grid container spacing={1} className={classes.formContainers}>
       {frequencies.map((f) => (
         <Grid key={f} item xs={12} md={6}>
-          <FrequencyButton buttonValue={f} selected={selected}>
+          <FrequencyButton
+            buttonValue={f}
+            selected={selected}
+            setFrequency={setFrequency}
+          >
             {t(f.toUpperCase())}
           </FrequencyButton>
         </Grid>
@@ -69,7 +72,7 @@ const FrequencyButtons = ({ frequencies, selected }) => {
   );
 };
 
-const Frequencies = () => {
+const Frequencies = (props) => {
   const { t } = useTranslation();
 
   const config = useCampaignConfig();
@@ -82,12 +85,16 @@ const Frequencies = () => {
   return frequencies.length > 1 ? (
     <>
       {" "}
-      <Typography paragraph gutterBottom color="textPrimary">
+      <Typography variant="h6" paragraph gutterBottom color="textPrimary">
         {t("campaign:donation.frequency.intro", {
           defaultValue: "Make it monthly?",
         })}
       </Typography>
-      <FrequencyButtons frequencies={frequencies} selected={frequency} />
+      <FrequencyButtons
+        frequencies={frequencies}
+        selected={frequency}
+        setFrequency={props.setFrequency}
+      />
     </>
   ) : null;
 };

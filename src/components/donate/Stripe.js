@@ -8,6 +8,7 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
+  Typography,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -516,10 +517,17 @@ const PaymentFormWrapper = (props) => {
     },
   });
 
+  const { t } = useTranslation();
+
   if (error) return <h3>Failed to load Stripe API: {error.message}</h3>;
 
   return (
     <Container component="main" id="proca-donate">
+      <Typography variant="h6" gutterBottom color="textPrimary">
+        {t("campaign:donation.stripe.intro", {
+          defaultValue: "Payment details :",
+        })}
+      </Typography>
       <Elements stripe={stripe} options={config?.lang || "auto"}>
         <PayWithStripe {...props} form={form} stripe={stripe} />
       </Elements>

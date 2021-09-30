@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, dispatch, useEffect } from "react";
 
 import Url from "../../lib/urlparser.js";
 import uuid from "../../lib/uuid";
@@ -7,8 +7,14 @@ import useData from "../../hooks/useData";
 import { useCampaignConfig, useSetCampaignConfig } from "../../hooks/useConfig";
 import { data } from "../../lib/urlparser.js";
 import { atomFamily } from "recoil";
-import { PayPalButtons, FUNDING } from "@paypal/react-paypal-js";
+import {
+  PayPalButtons,
+  FUNDING,
+  usePayPalScriptReducer,
+  DISPATCH_ACTION,
+} from "@paypal/react-paypal-js";
 import { addDonateContact } from "../../lib/server.js";
+import { Button } from "@material-ui/core";
 
 const _addContactFromPayPal = (contact, payer) => {
   if (!payer) return;
@@ -27,63 +33,57 @@ const _addContactFromPayPal = (contact, payer) => {
 
 // // -------------- Subscriptions ---------------------------------------------------
 
-// async function onApproveSubscription(paypalResponse, actions, formData) {
-//   const order = await actions.order.get();
-//   const subscription = await actions.subscription.get();
+async function onApproveSubscription({
+  formData,
+  actionPage,
+  paypalResponse,
+  actions,
+  onComplete,
+}) {
+  console.log("oh hey i'm approving thsi subscription");
 
-//   const procaRequest = {
-//     ...formData,
-//     uuid: uuid(false),
-//     tracking: Url.utm(),
-//   };
+  // const order = await actions.order.get();
+  const subscription = await actions.subscription.get();
 
-//   _addContactFromPayPal(procaRequest, subscription.subscriber);
+  const procaRequest = {
+    ...formData,
+    uuid: uuid(false),
+    tracking: Url.utm(),
+  };
 
-//   const subscriptionAmount =
-//     subscription.billing_info.cycle_executions[0].total_price_per_cycle
-//       .gross_amount;
+  _addContactFromPayPal(procaRequest, subscription.subscriber);
 
-//   procaRequest.donation = {
-//     amount: Math.floor(Number.parseFloat(subscriptionAmount.value) * 100),
-//     currency: subscriptionAmount.currency_code,
-//     frequencyUnit: formData.frequency,
+  const subscriptionAmount =
+    subscription.billing_info.cycle_executions[0].total_price_per_cycle
+      .gross_amount;
 
-//     payload: {
-//       response: paypalResponse,
-//       subscriptionId: subscription.id,
-//       customerId: subscription.payer_id,
-//       subscription: subscription,
-//       order: order,
-//       formValues: formData,
-//     },
-//   };
+  procaRequest.donation = {
+    amount: Math.floor(Number.parseFloat(subscriptionAmount.value) * 100),
+    currency: subscriptionAmount.currency_code,
+    frequencyUnit: formData.frequency,
 
-//   // if (config.test) procaRequest.donation.payload.test = true;
+    payload: {
+      response: paypalResponse,
+      subscriptionId: subscription.id,
+      customerId: subscription.payer_id,
+      subscription: subscription,
+      ///order: order,
+      formValues: formData,
+    },
+  };
 
-//   procaRequest.tracking = Url.utm();
+  // if (config.test) procaRequest.donation.payload.test = true;
 
-//   const procaResponse = await addDonateContact(
-//     "paypal",
-//     config.actionPage,
-//     procaRequest
-//   );
+  procaRequest.tracking = Url.utm();
 
-//   completed(procaResponse);
-// }
+  const procaResponse = await addDonateContact(
+    "paypal",
+    actionPage,
+    procaRequest
+  );
 
-// export const subscriptionHandler = {
-//   createSubscription: function (data, actions) {
-//     return actions.subscription.create({
-//       plan_id: plan_id,
-//       quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
-//       application_context: {
-//         shipping_preference: "NO_SHIPPING",
-//       },
-//     });
-//   },
-//   onApproveSubscription: onApproveSubscription,
-
-// };
+  onComplete(procaResponse);
+}
 
 // -------------- OneOff  ---------------------------------------------------
 
@@ -92,6 +92,7 @@ const onApproveOrder = async ({
   actionPage,
   onComplete,
   actions,
+  paypalResponse,
 }) => {
   const order = await actions.order.capture();
 
@@ -109,6 +110,7 @@ const onApproveOrder = async ({
     amount: Math.floor(purchased.amount.value * 100),
     currency: purchased.amount.currency_code,
     payload: {
+      response: paypalResponse,
       order: order,
       values: formData,
     },
@@ -140,29 +142,30 @@ const ProcaPayPalButton = (props) => {
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
 
-  const onError = (error) => {
-    console.log("onError", error);
-    props.onError({
-      message:
-        "There was a problem processing your donation. If you'd like to try again, just click the PayPal button again.",
-      error,
-    });
-  };
+  const frequency = props.frequency;
+  const [{ options }, dispatch] = usePayPalScriptReducer();
 
-  const onCancel = (data, actions) => {
-    console.log("onCancel", data, actions);
-    props.onError({
-      message:
-        "Oops, changed your mind? If you'd like to continue, just click the Paypal button again.",
+  if (frequency !== "oneoff") {
+    options.intent = "subscription";
+    options.vault = "true";
+  } else {
+    options.intent = "";
+    options.value = "";
+  }
+
+  useEffect(() => {
+    dispatch({
+      type: DISPATCH_ACTION.RESET_OPTIONS,
+      value: options,
     });
-  };
+  }, [frequency]);
 
   const createOrder = useCallback(
-    (data, actions) => {
+    (paypalResponse, actions) => {
       return onCreateOrder({
         amount: amount,
         description: description,
-        data: data,
+        paypalResponse: paypalResponse,
         actions: actions,
       });
     },
@@ -170,11 +173,11 @@ const ProcaPayPalButton = (props) => {
   );
 
   const approveOrder = useCallback(
-    (data, actions) => {
+    (paypalResponse, actions) => {
       return onApproveOrder({
         formData: formData,
         actionPage: actionPage,
-        data: data,
+        paypalResponse: paypalResponse,
         actions: actions,
         onComplete: props.onComplete,
       });
@@ -182,24 +185,59 @@ const ProcaPayPalButton = (props) => {
     [formData, actionPage, props.onComplete]
   );
 
+  const plan_id = donateConfig.paypal.planId;
+
+  const createSubscription = useCallback(
+    (data, actions) => {
+      return actions.subscription.create({
+        plan_id: plan_id,
+        quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
+        application_context: {
+          shipping_preference: "NO_SHIPPING",
+        },
+      });
+    },
+    [amount, plan_id]
+  );
+
+  const approveSubscription = useCallback(
+    (paypalResponse, actions) => {
+      return onApproveSubscription({
+        paypalResponse: paypalResponse,
+        actions: actions,
+        formData: formData,
+        onComplete: props.onComplete,
+        actionPage: actionPage,
+      });
+    },
+    [formData, actionPage, props.onComplete]
+  );
+
   const configuredStyles = donateConfig.paypal?.styles || {};
+  const sharedOptions = {
+    fundingSource: FUNDING.PAYPAL,
+    commit: true, // no server-side calls
+    ...configuredStyles,
+    ...props,
+  };
+  const orderOptions = {
+    ...sharedOptions,
+    createOrder: createOrder,
+    onApprove: approveOrder,
+  };
+  const subscriptionOptions = {
+    ...sharedOptions,
+    createSubscription: createSubscription,
+    onApprove: approveSubscription,
+  };
+
+  const buttonOptions =
+    frequency === "oneoff" ? orderOptions : subscriptionOptions;
 
   return (
     <>
       {" "}
-      <PayPalButtons
-        fundingSource={FUNDING.PAYPAL}
-        commit={true} // no server-side calls
-        createOrder={createOrder}
-        onApprove={approveOrder}
-        // createSubscription={{ createSubscription }}
-        //onError={onError}
-        //onCancel={onCancel}
-        style={{
-          ...configuredStyles,
-        }}
-        {...props}
-      />
+      <PayPalButtons {...buttonOptions} />
     </>
   );
 };

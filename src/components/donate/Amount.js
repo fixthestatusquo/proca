@@ -96,7 +96,7 @@ const DonateAmount = (props) => {
         <Grid item xs={12}>
           <CardContent className={classes.cardHeader}>
             {config.campaign.title ? (
-              <Typography paragraph color="textPrimary">
+              <Typography variant="h5" paragraph color="textPrimary">
                 {t("campaign:donation.intro", {
                   defaultValue: "",
                   campaign: config.campaign.title,
@@ -105,7 +105,7 @@ const DonateAmount = (props) => {
             ) : (
               ""
             )}
-            <Typography paragraph gutterBottom color="textPrimary">
+            <Typography variant="h6" paragraph gutterBottom color="textPrimary">
               {t("campaign:donation.amount.intro", {
                 defaultValue: "Choose an amount :",
               })}
@@ -115,7 +115,7 @@ const DonateAmount = (props) => {
 
             <Frequencies />
 
-            <Typography paragraph gutterBottom color="textPrimary">
+            <Typography paragraph variant="h6" gutterBottom color="textPrimary">
               {t("campaign:donation.paymentMethods.intro", {
                 defaultValue: "Checkout :",
               })}

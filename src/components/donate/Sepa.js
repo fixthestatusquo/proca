@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
@@ -154,6 +154,11 @@ export default function Register(props) {
     >
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
+        <Typography variant="h6" gutterBottom color="textPrimary">
+          {t("campaign:donation.stripe.intro", {
+            defaultValue: "Payment details :",
+          })}
+        </Typography>
         <PaymentBox>
           <Grid container spacing={1}>
             {useTitle && (

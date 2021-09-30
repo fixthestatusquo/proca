@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useData from "../../hooks/useData";
-import { useCampaignConfig } from "../../hooks/useConfig";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PayPalButton from "./PayPalButton";
-import { create as createURL } from "../../lib/urlparser.js";
+import { useCampaignConfig } from "../../hooks/useConfig";
 
-// oneoff
-
-const Paypal = ({ classes, onError, onComplete }) => {
+const Paypal = ({ onError, onComplete }) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
+  const [formData] = useData();
+  const frequency = formData.frequency;
+
+  const providerOptions = {
+    "client-id": donateConfig.paypal.clientId,
+    currency: donateConfig.currency.code,
+  };
+
+  if (frequency !== "oneoff") {
+    providerOptions["intent"] = "subscription";
+    providerOptions["vault"] = "true";
+  }
+
   return (
-    <PayPalScriptProvider
-      options={{
-        "client-id": donateConfig.paypal.clientId,
-        currency: donateConfig.currency.code
-      }}
-    >
-      <PayPalButton onComplete={onComplete} onError={onError} />
+    <PayPalScriptProvider options={providerOptions}>
+      <PayPalButton
+        onComplete={onComplete}
+        onError={onError}
+        frequency={frequency}
+      />
     </PayPalScriptProvider>
   );
 };
