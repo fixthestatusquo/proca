@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Widget from "../components/Widget";
-import { render } from "@testing-library/react";
 import Register from "../components/Register";
 import Share from "../components/Share";
+import { render } from "@testing-library/react";
 
 jest.doMock("../actionPage", () => {
   const originalModule = jest.requireActual("../actionPage");
@@ -11,6 +11,14 @@ jest.doMock("../actionPage", () => {
     __esModule: true,
     ...originalModule,
     steps: { Register, Share },
+  };
+});
+
+jest.mock("react-ipgeolocation", () => {
+  return {
+    useGeolocation: () => {
+      return { country: "es", error: false, isLoading: false };
+    },
   };
 });
 
