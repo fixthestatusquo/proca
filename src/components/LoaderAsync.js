@@ -5,13 +5,17 @@ import useData from "../hooks/useData";
 const LoaderAsync = (props) => {
   const config = useCampaignConfig();
   const loaders = config.component.loader;
+  const lang = config.lang;
   const [, setData] = useData();
   useEffect(() => {
     let isCancelled = false;
     if (!loaders) return;
     Object.entries(loaders).map(([k, v]) => {
       (async function () {
-        const d = await fetch(v.url).catch((e) => {
+        let url = v.url;
+        if (v.appendLocale === true) url += lang;
+        console.log(url);
+        const d = await fetch(url).catch((e) => {
           console.log(e);
           setData(k, e.message);
         });
@@ -27,7 +31,7 @@ const LoaderAsync = (props) => {
     return () => {
       isCancelled = true;
     };
-  }, [loaders, setData]);
+  }, [loaders, lang, setData]);
 
   return null;
 };
