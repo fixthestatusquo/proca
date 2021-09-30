@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Widget from "../components/Widget";
-import Register from "../components/Register";
-import Share from "../components/Share";
 import { render } from "@testing-library/react";
 
-jest.doMock("../actionPage", () => {
+jest.mock("../actionPage", () => {
   const originalModule = jest.requireActual("../actionPage");
+  const Register = jest.requireActual("../components/Register");
+  const Share = jest.requireActual("../components/Share");
   return {
     __esModule: true,
     ...originalModule,
