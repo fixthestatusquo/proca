@@ -43,7 +43,7 @@ function readConfigOverride() {
           };
         }
         ["layout", "component"].map((k) => {
-          config[k] = merge(config[k], campaignConfig.config[k]);
+          config[k] = merge(campaignConfig.config[k], config[k]);
         });
         if (!config.portal || config.portal.length === 0)
           config.portal = campaignConfig.config.portal;
