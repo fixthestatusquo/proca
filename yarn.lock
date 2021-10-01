@@ -1673,10 +1673,10 @@
   dependencies:
     ramda "^0.26.0"
 
-"@stripe/react-stripe-js@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.4.1.tgz#884d59286fff00ba77389b32c045516f65d7a340"
-  integrity sha512-FjcVrhf72+9fUL3Lz3xi02ni9tzH1A1x6elXlr6tvBDgSD55oPJuodoP8eC7xTnBIKq0olF5uJvgtkJyDCdzjA==
+"@stripe/react-stripe-js@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.5.0.tgz#7e4d80077e88e1f2c1f10ac255f2838d7c9488c2"
+  integrity sha512-A7+bNeb0O/kw3JdtMeiB6frokPcks5obi+TIjuFRXUMZ5o/o1Qe7eLgLnsb0KOO/g3KJqNCpHiYcKCLESZJJbQ==
   dependencies:
     prop-types "^15.7.2"
 
@@ -1802,10 +1802,10 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/react@^12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-12.1.0.tgz#3e9a4002b0b8f986a738a2f88fc458b5af319f35"
-  integrity sha512-Ge3Ht3qXE82Yv9lyPpQ7ZWgzo/HgOcHu569Y4ZGWcZME38iOFiOg87qnu6hTEa8jTJVL7zYovnvD3GE2nsNIoQ==
+"@testing-library/react@^12.1.1":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-12.1.1.tgz#e693943aa48d0190099acdc3928a751d73bcf7d5"
+  integrity sha512-JDyWbvMuedEpP6SPL4Cvbhk59TVxQ3pwuR6ZfJHdRsHuxDd/ziSMA3nVM3fViaSbsQhuQFE/mvFrPrvQbL5kRQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.0.0"
@@ -5962,10 +5962,10 @@ i18next@^19.8.3:
   dependencies:
     "@babel/runtime" "^7.12.0"
 
-i18next@^21.0.2:
-  version "21.0.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.0.2.tgz#a394cbd0cc1879a9ad7a4a979a222d12033022cc"
-  integrity sha512-cSjRitffS1xm90YgPFTaqut89Y4Oc2i4aiCmAuhxHPryYdKzSIGl1YSv8PzlW+UPFOKRIUCOYZ5Rn+aUXKq/qQ==
+i18next@^21.2.0:
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.2.0.tgz#07346948d8c1e7be91518897839f8158c50dd76d"
+  integrity sha512-I2BLM/YNyEjCzRak1kL3uYYawwkfduQbNramMx7uMjjbos3zGZB1ag6dgbdoTR0baR34fpG4X4oWKaQExNo8wg==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
