@@ -5962,10 +5962,10 @@ i18next@^19.8.3:
   dependencies:
     "@babel/runtime" "^7.12.0"
 
-i18next@^21.0.2:
-  version "21.0.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.0.2.tgz#a394cbd0cc1879a9ad7a4a979a222d12033022cc"
-  integrity sha512-cSjRitffS1xm90YgPFTaqut89Y4Oc2i4aiCmAuhxHPryYdKzSIGl1YSv8PzlW+UPFOKRIUCOYZ5Rn+aUXKq/qQ==
+i18next@^21.2.0:
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.2.0.tgz#07346948d8c1e7be91518897839f8158c50dd76d"
+  integrity sha512-I2BLM/YNyEjCzRak1kL3uYYawwkfduQbNramMx7uMjjbos3zGZB1ag6dgbdoTR0baR34fpG4X4oWKaQExNo8wg==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
