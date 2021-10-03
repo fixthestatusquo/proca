@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useData from "../hooks/useData";
 
 import TextField from "./TextField";
@@ -52,16 +52,18 @@ const addAllCountries = () => {
   return d;
 };
 
-const iso = (list) => {
+/*const iso = (list) => {
   let d = [];
   list.map((country) => d.push(country.iso));
   return d;
-};
+};*/
+
 const addCountries = (list, t) => {
   let d = [];
   list.map((country) => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
+    return null;
   });
   return d;
 };
@@ -98,11 +100,7 @@ export default (props) => {
     countries.push({ iso: "ZZ", name: t("Other") });
   }
   if (false || props.other) {
-    // no idea why we have useMemo here
-    countries = useMemo(
-      () => addMissingCountries(countries, compare),
-      [compare]
-    );
+    countries = addMissingCountries(countries, compare);
   }
 
   const { register, setValue, watch } = props.form;
@@ -132,7 +130,7 @@ export default (props) => {
       setValue("country", location.country);
       setData("country", country);
     }
-  }, [location, country, countries, setValue, setData]);
+  }, [location, country, countries, setValue, setData, t]);
 
   useEffect(() => {
     register({ name: "country" });
