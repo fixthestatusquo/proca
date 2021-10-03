@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import useData from "../hooks/useData";
 
 import TextField from "./TextField";
@@ -7,9 +7,8 @@ import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "../hooks/useConfig";
 
 import { allCountries } from "../lib/i18n";
-import countriesJson from "../data/countries.json";
-// import {allCountries} from '../lib/i18n'; and use instead XXX
-let countries = [];
+//import countriesJson from "../data/countries.json";
+import countriesJson from "../data/eu27.json";
 
 const emoji = (country) => {
   const offset = 127397;
@@ -45,38 +44,66 @@ export const addMissingCountries = (countries, compare) => {
   return countries.filter(({ iso }) => iso !== "ZZ").concat(others);
 };
 
+const addAllCountries = () => {
+  const d = [];
+  for (const [code, label] of Object.entries(allCountries)) {
+    d.push({ iso: code, name: label });
+  }
+  return d;
+};
+
+const iso = (list) => {
+  let d = [];
+  list.map((country) => d.push(country.iso));
+  return d;
+};
+const addCountries = (list, t) => {
+  let d = [];
+  list.map((country) => {
+    country !== "ZZ" &&
+      d.push({ iso: country, name: allCountries[country] || "" });
+  });
+  return d;
+};
+
 const Flag = (props) => {
   const country = props.country?.toUpperCase();
-  const name = countries.find((d) => d.iso === country);
-  if (!name) return null;
   const d = emoji(country);
-  return <span title={name.name}>{d}</span>;
+  return <span title={"flag " + d}>{d}</span>;
 };
 
 export default (props) => {
   const config = useCampaignConfig();
+  const { t } = useTranslation();
+  const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
+
+  let countries = [];
   if (props.countries) {
     countries = Object.keys(props.countries).map((iso) => ({
       iso: iso.toUpperCase(),
       name: props.countries[iso],
     }));
   } else {
-    countries = countriesJson;
+    countries = addCountries(countriesJson, t);
   }
   const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
     .compare;
   countries.sort((a, b) => compare(a.name, b.name));
 
-  if (props.other) {
+  if (config.component.country?.all === true) {
+    countries = addAllCountries();
+  }
+  if (config.component.country?.other !== false) {
+    countries.push({ iso: "ZZ", name: t("Other") });
+  }
+  if (false || props.other) {
     // no idea why we have useMemo here
     countries = useMemo(
       () => addMissingCountries(countries, compare),
       [compare]
     );
   }
-
-  const { t } = useTranslation();
 
   const { register, setValue, watch } = props.form;
 
@@ -88,17 +115,24 @@ export default (props) => {
     country: config.data.country || config.component.country,
   });
   useEffect(() => {
+    if (location.country === country) return;
+
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {
-        console.log("visitor from ", location, "but not on our list");
-        location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
+        console.log("visitor from ", location?.country, "but not on our list");
+        countries.unshift({
+          iso: location.country,
+          name: allCountries[location.country] || t("Other"),
+        });
+        //        location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
+      } else {
       }
+      setCountries(countries);
       if (!location.country) return;
-
       setValue("country", location.country);
       setData("country", country);
     }
-  }, [location, country, setValue, setData]);
+  }, [location, country, countries, setValue, setData]);
 
   useEffect(() => {
     register({ name: "country" });
@@ -115,7 +149,7 @@ export default (props) => {
       }}
     >
       <option key="" value=""></option>
-      {countries.map((option) => (
+      {_countries.map((option) => (
         <option key={option.iso} value={option.iso}>
           {(emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
         </option>
