@@ -13,6 +13,7 @@ const LoaderAsync = (props) => {
     Object.entries(loaders).map(([k, v]) => {
       (async function () {
         let url = v.url;
+        if (!url) return null;
         if (v.appendLocale === true) url += lang;
         console.log(url);
         const d = await fetch(url).catch((e) => {
