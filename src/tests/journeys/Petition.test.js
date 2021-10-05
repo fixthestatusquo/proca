@@ -67,9 +67,7 @@ describe("Journeys", () => {
 
     fireEvent.change(nameInput, { target: { value: "Hari" } });
     fireEvent.change(emailInput, { target: { value: "Seldon" } });
-
     fireEvent.click(signUpButton);
-
     fireEvent.change(optOutOption);
   });
 });
