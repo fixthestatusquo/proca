@@ -48,14 +48,6 @@ export default function Captcha(props) {
   const { t } = useTranslation();
   const { setValue, errors } = props.form;
 
-  if (errors.captcha) {
-    dispatch("input_error", {
-      type: "captcha",
-      message: errors.captcha.message,
-    });
-    //    setCount(count + 1);
-  }
-
   const compact = props.compact || false;
 
   const update = (captcha) => {
@@ -64,6 +56,13 @@ export default function Captcha(props) {
   };
 
   useEffect(() => {
+    if (errors.captcha) {
+      dispatch("input_error", {
+        type: "captcha",
+        count: count + 1,
+        message: errors.captcha.message,
+      });
+    }
     if (!errors.captcha) return;
     setCount((c) => c + 1);
     setFocussed(true);
