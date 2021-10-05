@@ -42,6 +42,8 @@ export default function useCounter(actionPage) {
   if (!actionPage && actionPage !== false && !config.template)
     actionPage = config.actionPage;
 
+  if (config.component.counter === false) actionPage = null; //disable the counter
+
   useEffect(() => {
     let isCancelled = false;
     let c = null;

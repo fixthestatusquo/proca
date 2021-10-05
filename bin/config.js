@@ -156,6 +156,8 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
   return page;
 };
 
+const pullCampaign = async (name) => {};
+
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
   const query = `
