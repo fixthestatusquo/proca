@@ -17,7 +17,8 @@ import Dialog from "./Dialog";
 import Alert from "./Alert";
 import TwoColumns from "./TwoColumns";
 import { OperationCanceledException } from "typescript";
-
+console.log("steps: ");
+console.log(steps);
 let config = {
   data: Url.data(),
   utm: Url.utm(),
@@ -41,14 +42,13 @@ const Widget = (props) => {
   };
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-
+  // console.log(props);
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile();
-
   var data = Url.data();
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...data };
@@ -225,7 +225,7 @@ const Widget = (props) => {
 
   const CurrentAction = (props) => {
     let Action = null;
-
+    console.log("depths: " + depths);
     switch (depths[current]) {
       case 0:
         Action = steps[journey[current]];
@@ -314,6 +314,7 @@ const Widget = (props) => {
         hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
+        {console.log("current: " + current)}
         {Number.isInteger(current) && <CurrentAction />}
       </TwoColumns>
       {props.children}

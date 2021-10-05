@@ -53,6 +53,7 @@
     "@proca/widget": "/home/aaron/fixthestatusquo/proca-widget",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.0",
     "@testing-library/user-event": "^13.2.1",
     "babel-plugin-i18next-extract": "^0.8.3",

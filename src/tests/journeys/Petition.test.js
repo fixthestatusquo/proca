@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Widget from "../../components/Widget";
 import { render, fireEvent, screen } from "@testing-library/react";
 
@@ -41,7 +40,7 @@ const CONFIG = {
 };
 
 describe("Journeys", () => {
-  it("renders petition journey", () => {
+  it.skip("renders petition journey", () => {
     const div = document.createElement("div");
     document.body.append(div);
     div.id = "proca";
