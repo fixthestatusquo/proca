@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
+import dispatch from "../../lib/event";
 
 const useStyles = makeStyles((theme) => ({
   focus: {
@@ -48,7 +49,10 @@ export default function Captcha(props) {
   const { setValue, errors } = props.form;
 
   if (errors.captcha) {
-    console.log(errors.captcha, count);
+    dispatch("input_error", {
+      type: "captcha",
+      message: errors.captcha.message,
+    });
     //    setCount(count + 1);
   }
 
