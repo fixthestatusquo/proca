@@ -102,7 +102,9 @@ const Thanks = (props) => {
 
             <Grid container spacing={1} alignContent="flex-start">
               <Grid item xs={12}>
-                <Typography variant="h6">Donation to WeMove Europe</Typography>
+                <Typography variant="h6">
+                  {t("Donation to WeMove Europe")}
+                </Typography>
               </Grid>
 
               <Grid item xs={12}>
