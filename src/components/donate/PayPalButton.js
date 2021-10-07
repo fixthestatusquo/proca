@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 
 import Url from "../../lib/urlparser.js";
 import uuid from "../../lib/uuid";
@@ -207,6 +207,35 @@ const LoadingSpinner = () => {
   );
 };
 
+const useFrequencyChange = (frequency) => {
+  const [{ options }, dispatch] = usePayPalScriptReducer();
+
+  let changed = false;
+
+  // anything but oneoff is a subscription
+  if (frequency !== "oneoff" && options.intent !== "subscription") {
+    changed = true;
+    options.intent = "subscription";
+    options.vault = "true";
+
+    // oneoff should never have intent
+  } else if (frequency === "oneoff" && options.intent !== "") {
+    changed = true;
+    options.intent = "";
+    options.value = "";
+  } else {
+    // noop - we're already in sync
+  }
+
+  if (changed) {
+    dispatch({
+      type: DISPATCH_ACTION.RESET_OPTIONS,
+      value: options,
+    });
+  }
+  return frequency;
+};
+
 const ProcaPayPalButton = (props) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
@@ -215,24 +244,10 @@ const ProcaPayPalButton = (props) => {
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
 
-  const frequency = props.frequency;
-  const [{ options }, dispatch] = usePayPalScriptReducer();
   const isPending = false;
-  if (frequency !== "oneoff") {
-    options.intent = "subscription";
-    options.vault = "true";
-  } else {
-    options.intent = "";
-    options.value = "";
-  }
 
-  useEffect(() => {
-    dispatch({
-      type: DISPATCH_ACTION.RESET_OPTIONS,
-      value: options,
-    });
-  }, [dispatch, frequency]);
-  // NOTE: Don't include options - it creates a render loop.
+  // const frequency = props.frequency;
+  const frequency = useFrequencyChange(props.frequency);
 
   const createOrder = useCallback(
     (paypalResponse, actions) => {
