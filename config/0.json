@@ -14,8 +14,8 @@
     "Register","Share",
     "Target",
     "donate/Amount",
-    "donate/Tab",
-    "donate/Stripe"
+    "donate/Payment",
+    "donate/Thanks"
   ],
   "layout": {},
   "component": {
