@@ -79,14 +79,14 @@
     "Sign the ECI": "Allekirjoita ECI",
     "Share": "Jaa",
     "Join": "Liity",
-    "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}",
+    "The average donation is {{currency}}{{amount}}": "Keskimääräinen lahjoitus on {{currency}}{{amount}}",
     "I'm donating {{amount}}": "Lahjoitan {{amount}}",
     "Stay informed": "Liity jakelulistalle",
     "Place of birth": "Syntymäpaikka",
     "Donate": "Lahjoita",
     "invalid IBAN": "virheellinen IBAN",
     "Change amount": "Muutosmäärä",
-    "Donate {{amount}}{{currency}}": "Lahjoittaa {{amount}}{{currency}}",
+    "Donate {{currency}}{{amount}}": "Lahjoittaa {{currency}}{{amount}}",
     "yearly": "vuosittain",
     "weekly": "Viikoittain",
     "monthly": "kuukausittain",
@@ -96,8 +96,8 @@
     "The average donation is {{amount}}{{currency": {
         "symbol}}": "symboli}}"
     },
-    "I'm donating {{amount}}{{currency}} monthly": "Lahjoitan {{amount}}{{currency}} kuukausittain.",
-    "I'm donating {{amount}}{{currency}}": "Minä lahjoitan {{amount}}{{currency}}{{currency}}",
+    "I'm donating {{currency}}{{amount}} monthly": "Lahjoitan {{currency}}{{amount}} kuukausittain.",
+    "I'm donating {{currency}}{{amount}}": "Minä lahjoitan {{currency}}{{amount}}{{currency}}",
     "Choose an Amount": "Valitse määrä",
     "Please provide your card information": "Anna kortin tiedot",
     "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Emme pysty käsittelemään lahjoitustasi tällä hetkellä. Yritä uudelleen muutaman minuutin kuluttua."

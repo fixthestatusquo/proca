@@ -79,14 +79,14 @@
     "Sign the ECI": "Underskriv ECI",
     "Share": "Del",
     "Join": "Meld dig ind",
-    "The average donation is {{amount}} {{currency}}": "Den gennemsnitlige donation er {{amount}} {{currency}}",
+    "The average donation is {{currency}}{{amount}}": "Den gennemsnitlige donation er {{currency}}{{amount}}",
     "I'm donating {{amount}}": "Jeg donerer {{amount}}",
     "Stay informed": "Hold dig opdateret",
     "Place of birth": "Fødselssted",
     "Donate": "Donér",
     "invalid IBAN": "ugyldigt IBAN",
     "Change amount": "Ændringsbeløb",
-    "Donate {{amount}}{{currency}}": "Donere {{amount}}{{currency}}",
+    "Donate {{currency}}{{amount}}": "Donere {{currency}}{{amount}}",
     "yearly": "årligt",
     "weekly": "ugentligt",
     "monthly": "månedsvis",
@@ -96,8 +96,8 @@
     "The average donation is {{amount}}{{currency": {
         "symbol}}": "symbol}}"
     },
-    "I'm donating {{amount}}{{currency}} monthly": "Jeg donerer {{amount}}{{currency}} hver måned",
-    "I'm donating {{amount}}{{currency}}": "Jeg donerer {{amount}}{{currency}}",
+    "I'm donating {{currency}}{{amount}} monthly": "Jeg donerer {{currency}}{{amount}} hver måned",
+    "I'm donating {{currency}}{{amount}}": "Jeg donerer {{currency}}{{amount}}",
     "Choose an Amount": "Vælg et beløb",
     "Please provide your card information": "Angiv venligst dine kortoplysninger",
     "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Vi kan ikke håndtere din donation i øjeblikket. Prøv venligst igen om et par minutter."

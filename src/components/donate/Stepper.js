@@ -63,7 +63,7 @@ const AmountLabel = ({ amount, symbol }) => {
   const { t } = useTranslation();
   return (
     <span style={{ fontSize: "1.1em" }}>
-      {t("{{amount}} {{symbol}}", {
+      {t("{{symbol}}{{amount}}", {
         amount: amount,
         symbol: symbol,
       })}
