@@ -216,8 +216,8 @@ const ProcaPayPalButton = (props) => {
   const actionPage = config.actionPage;
 
   const frequency = props.frequency;
-  const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
-
+  const [{ options }, dispatch] = usePayPalScriptReducer();
+  const isPending = false;
   if (frequency !== "oneoff") {
     options.intent = "subscription";
     options.vault = "true";
@@ -231,7 +231,8 @@ const ProcaPayPalButton = (props) => {
       type: DISPATCH_ACTION.RESET_OPTIONS,
       value: options,
     });
-  }, [dispatch, frequency, options]);
+  }, [dispatch, frequency]);
+  // NOTE: Don't include options - it creates a render loop.
 
   const createOrder = useCallback(
     (paypalResponse, actions) => {
