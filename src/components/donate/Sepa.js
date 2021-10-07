@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
 import useElementWidth from "../../hooks/useElementWidth";
 import Url from "../../lib/urlparser.js";
@@ -10,7 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
-import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
 import { useForm } from "react-hook-form";
@@ -32,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     width: "100%",
+  },
+  submitButton: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -73,6 +75,8 @@ export default function Register(props) {
   const { handleSubmit, setError } = form;
 
   const onSubmit = async (d) => {
+    setData(d);
+
     const procaRequest = { ...data, ...d };
     procaRequest.tracking = Url.utm();
     procaRequest.donation = {
@@ -128,6 +132,7 @@ export default function Register(props) {
       },
       data
     );
+    console.log("props ", props);
     props.done &&
       props.done({
         errors: result.errors,
@@ -140,6 +145,8 @@ export default function Register(props) {
     return IBAN.isValid(d) || t("invalid IBAN");
   };
 
+  const useTitle = config.component.donation.useTitle;
+
   return (
     <form
       className={classes.container}
@@ -150,16 +157,23 @@ export default function Register(props) {
     >
       <Error display={status === "error"} />
       <Container component="main" maxWidth="sm">
+        <Typography variant="h6" gutterBottom color="textPrimary">
+          {t("campaign:donation.stripe.intro", {
+            defaultValue: "Payment details :",
+          })}
+        </Typography>
         <PaymentBox>
           <Grid container spacing={1}>
-            <Grid item xs={12}>
-              <DonateTitle
-                config={config}
-                amount={amount}
-                currency={currency}
-                frequency={frequency}
-              />
-            </Grid>
+            {useTitle && (
+              <Grid item xs={12}>
+                <DonateTitle
+                  config={config}
+                  amount={amount}
+                  currency={currency}
+                  frequency={frequency}
+                />
+              </Grid>
+            )}
 
             <Grid item xs={12} sm={compact ? 12 : 6}>
               <NameField
@@ -205,14 +219,13 @@ export default function Register(props) {
                 register={{ validate: validateIBAN }}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} classes={{ root: classes.submitButton }}>
               <DonateButton
                 amount={amount}
                 currency={currency}
                 frequency={frequency}
                 config={config}
               />
-              <ChangeAmount />
             </Grid>
           </Grid>
         </PaymentBox>

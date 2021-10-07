@@ -40,6 +40,7 @@ const data = (prefix) => {
   prefix = prefix || "proca_";
   const whitelist = [
     "amount",
+    "paymentMethod",
     "firstname",
     "lastname",
     "name",

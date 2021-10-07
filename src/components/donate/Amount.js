@@ -2,32 +2,17 @@ import React, { useState } from "react";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Container,
-  Grid,
-  Box,
-  CardContent,
-  FormControl,
-  InputAdornment,
-  FormGroup,
-  FormHelperText,
-  Button,
-  ButtonGroup,
-  Typography,
-  Paper,
-  AppBar,
-  Tabs,
-  Tab,
-} from "@material-ui/core";
-import TextField from "../TextField";
-import { useForm } from "react-hook-form";
+import { CardContent, Container, Grid, Typography } from "@material-ui/core";
+
 import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
-import AmountButton, { OtherButton } from "./buttons/AmountButton";
-import FrequencyButtons from "./buttons/FrequencyButton";
 import DonateTitle from "./DonateTitle";
+import Steps, { useDonateStep } from "./Stepper";
+import PaymentMethodButtons from "./PaymentMethodButtons";
+import Frequencies from "./buttons/FrequencyButton";
+import Amounts from "./buttons/AmountButton";
+import { Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   amount: {
@@ -54,87 +39,22 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.fontSize * 3,
     },
   },
-  frequency: {
-    marginTop: theme.spacing(2),
+  container: {
+    border: "solid 1px " + theme.palette.primary.dark,
+  },
+
+  cardHeader: {
+    paddingTop: 0,
   },
 }));
-
-const OtherAmountInput = ({ form, classes, currency, setData }) => {
-  const [otherAmountError, setOtherAmountError] = useState(false);
-  const { t } = useTranslation();
-
-  return (
-    <>
-      {otherAmountError ? (
-        <Grid item xs={12}>
-          <FormHelperText error={true}>{otherAmountError}</FormHelperText>
-        </Grid>
-      ) : (
-        ""
-      )}
-      <TextField
-        form={form}
-        type="number"
-        label={t("Amount")}
-        name="amount"
-        className={classes.number}
-        onChange={(e) => {
-          const a = parseFloat(e.target.value);
-          if (a && a > 1.0) {
-            setData("amount", a);
-            setOtherAmountError("");
-          } else {
-            setOtherAmountError(
-              t("Please enter a valid amount greater than 1.0 {{currency}}", {
-                currency: currency.symbol,
-              })
-            );
-          }
-        }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">{currency.symbol}</InputAdornment>
-          ),
-        }}
-        InputLabelProps={{ shrink: true }}
-      />
-    </>
-  );
-};
 
 const DonateAmount = (props) => {
   const classes = useStyles();
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [data, setData] = useData();
-
   const donateConfig = config.component.donation;
 
-  // TODO: adjust for currencies?
-  const configuredAmounts = donateConfig?.amount || {
-    default: [3, 5, 10, 50, 200],
-  };
-
-  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
-  const frequency = data.frequency;
-
-  const amounts = [
-    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
-  ];
-
-  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
-    amounts.push(data.initialAmount);
-  }
-
-  amounts.sort((a, b) => a - b);
-
-  const currency = donateConfig.currency;
-  const amount = data.amount;
-
-  const form = useForm();
-
-  const [showCustomField, toggleCustomField] = useState(false);
   const width = useElementWidth("#proca-donate");
 
   const [compact, setCompact] = useState(true);
@@ -142,110 +62,79 @@ const DonateAmount = (props) => {
     setCompact(width <= 450);
   }
 
+  const [, setDonateStep] = useDonateStep();
+  const [, setData] = useData();
+  const [complete, setComplete] = useState(false);
+
   return (
-    <Container id="proca-donate">
-      <Paper square>
-        <AppBar position="static" color="default">
-          <Tabs
-            variant="fullWidth"
-            value="amount"
-            indicatorColor="primary"
-            textColor="primary"
-            aria-label="disabled tabs example"
-          >
-            {" "}
-            <Tab
-              value="amount"
-              label={t("Choose an Amount")}
-              aria-label={t("Choose an Amount")}
-            />
-          </Tabs>
-        </AppBar>
-        <Grid container spacing={1}>
+    <Container id="proca-donate" className={classes.container}>
+      {complete && (
+        <Alert severity="success">{t("Thank you for your donation!")}</Alert>
+      )}
+
+      <Grid container justifyContent="center">
+        <Grid item xs={10}>
+          <Steps /> {/* Hard coded for now */}
+        </Grid>
+      </Grid>
+      <Grid container spacing={1}>
+        {donateConfig.useTitle && (
           <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
-            />
+            <DonateTitle />{" "}
           </Grid>
-          <Grid item xs={12}>
-            <CardContent>
-              <Typography color="textSecondary">
+        )}
+        <Grid item xs={12}>
+          <CardContent className={classes.cardHeader}>
+            {config.campaign.title ? (
+              <Typography variant="h5" paragraph color="textPrimary">
                 {t("campaign:donation.intro", {
                   defaultValue: "",
                   campaign: config.campaign.title,
                 })}
               </Typography>
-              <Grid container spacing={1} role="group" aria-label="amount">
-                {amounts.map((d) => (
-                  <Grid xs={6} md={3} key={d} item>
-                    <AmountButton
-                      amount={d}
-                      currency={currency}
-                      onClick={() => toggleCustomField(false)}
-                    />
-                  </Grid>
-                ))}
-                <Grid xs={6} md={3} key="other" item>
-                  <OtherButton
+            ) : (
+              ""
+            )}
+            <Typography variant="h6" paragraph gutterBottom color="textPrimary">
+              {t("campaign:donation.amount.intro", {
+                defaultValue: "Choose an amount :",
+              })}
+            </Typography>
 
-                    onClick={() => toggleCustomField(true)}
-                    selected={showCustomField}
-                  >
-                    {t("Other")}
-                  </OtherButton>
-                </Grid>
-              </Grid>
-              <FormControl fullWidth>
-                <FormGroup>
-                  {showCustomField && (
-                    <OtherAmountInput
-                      form={form}
-                      classes={classes}
-                      currency={currency}
-                      setData={setData}
-                    />
-                  )}
-                </FormGroup>
-              </FormControl>
-              {/* <Typography variant="h5" gutterBottom color="textSecondary">
-            {t("campaign:donation.frequency.intro", {
-              defaultValue: "Make it monthly?",
-            })}
-          </Typography> */}
-              {frequencies.length > 1 ? (
-                <FrequencyButtons
-                  frequencies={frequencies}
-                  selected={frequency}
-                  classes={classes}
-                />
-              ) : null}
-            </CardContent>
-          </Grid>
+            <Amounts />
 
-          {!config.component.donation.external && (
-            <Grid item xs={12}>
-              <Box margin={2}>
-                <ButtonGroup fullWidth>
-                  <Button
-                    endIcon={<SkipNextIcon />}
-                    fullWidth
-                    disabled={!amount}
-                    variant="contained"
-                    onClick={props.done}
-                    color="primary"
-                  >
-                    {t("Next")}
-                  </Button>
-                </ButtonGroup>
-              </Box>
-            </Grid>
-          )}
+            <Frequencies />
+
+            <Typography paragraph variant="h6" gutterBottom color="textPrimary">
+              {t("campaign:donation.paymentMethods.intro", {
+                defaultValue: "Checkout :",
+              })}
+            </Typography>
+            {!config.component.donation.external && (
+              <PaymentMethodButtons
+                classes={classes}
+                onClickStripe={() => {
+                  setData("paymentMethod", "stripe");
+                  setDonateStep(1);
+                  props.done();
+                }}
+                onClickSepa={() => {
+                  setData("paymentMethod", "sepa");
+                  setDonateStep(1);
+                  props.done();
+                }}
+                onComplete={() => {
+                  setComplete(true);
+                  props.go("donate_Thanks");
+                }}
+              />
+            )}
+          </CardContent>
         </Grid>
-      </Paper>
+      </Grid>
+      {/* </Paper> */}
     </Container>
   );
 };
+
 export default DonateAmount;

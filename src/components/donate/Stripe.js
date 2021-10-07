@@ -8,6 +8,7 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
+  Typography,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -26,7 +27,6 @@ import { useTranslation } from "react-i18next";
 import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
-import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 
 import {
@@ -109,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
     height: "auto!important",
     width: "100%",
   },
+  submitButton: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 const PaymentForm = (props) => {
@@ -137,6 +140,7 @@ const PaymentForm = (props) => {
   const amount = data.amount;
   const frequency = data.frequency;
   const currency = config.component.donation.currency;
+  const useTitle = config.component.donation.useTitle;
 
   const classes = useStyles();
 
@@ -144,14 +148,16 @@ const PaymentForm = (props) => {
     <Container component="main" maxWidth="sm">
       <PaymentBox>
         <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
-            />
-          </Grid>
+          {useTitle && (
+            <Grid item xs={12}>
+              <DonateTitle
+                config={config}
+                amount={amount}
+                currency={currency}
+                frequency={frequency}
+              />
+            </Grid>
+          )}
 
           <Grid item xs={12} sm={compact ? 12 : 6}>
             <NameField
@@ -271,6 +277,7 @@ const SubmitButton = (props) => {
   const onSubmitButtonClick = async (event, _) => {
     const orderComplete = async (paymentIntent, paymentConfirm) => {
       const procaRequest = { ...formData, ...values };
+
       const confirmedIntent = paymentConfirm.paymentIntent;
 
       const payload = {
@@ -309,7 +316,6 @@ const SubmitButton = (props) => {
 
       // console.log("procaResponse", procaResponse);
 
-      props.done(paymentConfirm);
       dispatch(
         "donate:complete",
         {
@@ -324,6 +330,8 @@ const SubmitButton = (props) => {
         },
         procaRequest
       );
+
+      props.done(paymentConfirm);
     };
 
     event.preventDefault();
@@ -457,9 +465,16 @@ const SubmitButton = (props) => {
   );
 };
 
+const submitButtonStyles = makeStyles((theme) => ({
+  submitButton: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
 const PayWithStripe = (props) => {
   // const stripe = useStripe();
   const form = props.form;
+  const classes = submitButtonStyles();
   return (
     <form id="proca-donate">
       <Grid container>
@@ -469,11 +484,8 @@ const PayWithStripe = (props) => {
         <Grid item xs={12}>
           <StripeCard stripe={props.stripe} />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} classes={{ root: classes.submitButton }}>
           <SubmitButton stripe={props.stripe} form={form} {...props} />
-        </Grid>
-        <Grid item xs={12}>
-          <ChangeAmount />
         </Grid>
       </Grid>
     </form>
@@ -507,10 +519,17 @@ const PaymentFormWrapper = (props) => {
     },
   });
 
+  const { t } = useTranslation();
+
   if (error) return <h3>Failed to load Stripe API: {error.message}</h3>;
 
   return (
     <Container component="main" id="proca-donate">
+      <Typography variant="h6" gutterBottom color="textPrimary">
+        {t("campaign:donation.stripe.intro", {
+          defaultValue: "Payment details :",
+        })}
+      </Typography>
       <Elements stripe={stripe} options={config?.lang || "auto"}>
         <PayWithStripe {...props} form={form} stripe={stripe} />
       </Elements>

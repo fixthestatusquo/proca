@@ -21,6 +21,7 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@stripe/react-stripe-js": "^1.5.0",
     "@stripe/stripe-js": "^1.19.1",
+    "@paypal/react-paypal-js": "^7.3.3",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^6.8.0",
     "i18next": "^21.2.4",
