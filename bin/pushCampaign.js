@@ -1,3 +1,4 @@
+#!/usr/bin/node
 require("dotenv").config();
 
 const { pushCampaign } = require("./config");
