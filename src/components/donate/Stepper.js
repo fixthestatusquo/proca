@@ -2,15 +2,12 @@ import React, { useCallback } from "react";
 
 import {
   makeStyles,
-  Paper,
   Step,
   StepIcon,
   StepLabel,
   Stepper,
-  SvgIcon,
 } from "@material-ui/core";
 
-import { styled } from "@material-ui/styles";
 import { atom, useRecoilState } from "recoil";
 import { goStep, useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";

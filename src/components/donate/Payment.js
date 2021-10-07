@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Stripe from "./Stripe";
 import Sepa from "./Sepa";
-import Paypal from "./Paypal";
 import { useCampaignConfig } from "../../hooks/useConfig.js";
 import useData from "../../hooks/useData.js";
 import { create as createURL } from "../../lib/urlparser.js";
@@ -44,7 +43,7 @@ export default function Payment(props) {
   const classes = useStyles();
   const boxStyles = containingBoxStyles();
   const config = useCampaignConfig();
-  const [requestData, setData] = useData();
+  const [requestData] = useData();
 
   const done = (d) => {
     // console.log(d);

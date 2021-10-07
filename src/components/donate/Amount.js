@@ -2,24 +2,14 @@ import React, { useState } from "react";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  CardContent,
-  Container,
-  FormControl,
-  FormGroup,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { CardContent, Container, Grid, Typography } from "@material-ui/core";
 
-import { useForm } from "react-hook-form";
 import useElementWidth from "../../hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
-import AmountButton, { OtherButton } from "./buttons/AmountButton";
 import DonateTitle from "./DonateTitle";
 import Steps, { useDonateStep } from "./Stepper";
 import PaymentMethodButtons from "./PaymentMethodButtons";
-import OtherAmountInput from "./OtherAmount";
 import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
 import { Alert } from "@material-ui/lab";
@@ -123,7 +113,6 @@ const DonateAmount = (props) => {
             {!config.component.donation.external && (
               <PaymentMethodButtons
                 classes={classes}
-                onComplete={props.done} // for PayPal
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
                   setDonateStep(1);

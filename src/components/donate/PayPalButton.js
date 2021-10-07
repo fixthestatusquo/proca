@@ -4,10 +4,8 @@ import Url from "../../lib/urlparser.js";
 import uuid from "../../lib/uuid";
 
 import useData from "../../hooks/useData";
-import { useCampaignConfig, useSetCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "../../hooks/useConfig";
 import dispatch from "../../lib/event";
-import { data } from "../../lib/urlparser.js";
-import { atomFamily } from "recoil";
 import {
   PayPalButtons,
   FUNDING,
@@ -15,13 +13,7 @@ import {
   DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
 import { addDonateContact } from "../../lib/server.js";
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  makeStyles,
-} from "@material-ui/core";
+import { Button, CircularProgress, makeStyles } from "@material-ui/core";
 
 const _addContactFromPayPal = (setFormData, contact, payer) => {
   if (!payer) return;
@@ -239,7 +231,7 @@ const ProcaPayPalButton = (props) => {
       type: DISPATCH_ACTION.RESET_OPTIONS,
       value: options,
     });
-  }, [frequency]);
+  }, [dispatch, frequency, options]);
 
   const createOrder = useCallback(
     (paypalResponse, actions) => {
@@ -252,7 +244,7 @@ const ProcaPayPalButton = (props) => {
         isTest: !!config.test,
       });
     },
-    [amount, description]
+    [amount, config.test, description, setFormData]
   );
 
   const approveOrder = useCallback(
@@ -266,7 +258,7 @@ const ProcaPayPalButton = (props) => {
         onComplete: props.onComplete,
       });
     },
-    [formData, actionPage, props.onComplete]
+    [setFormData, formData, actionPage, props.onComplete]
   );
 
   const plan_id = donateConfig.paypal.planId;
@@ -282,7 +274,7 @@ const ProcaPayPalButton = (props) => {
         },
       });
     },
-    [amount, plan_id]
+    [amount, plan_id, setFormData]
   );
 
   const approveSubscription = useCallback(
@@ -297,7 +289,7 @@ const ProcaPayPalButton = (props) => {
         isTest: !!config.test,
       });
     },
-    [formData, actionPage, props.onComplete]
+    [setFormData, formData, props.onComplete, actionPage, config.test]
   );
 
   const configuredStyles = donateConfig.paypal?.styles || {};
