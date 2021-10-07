@@ -277,6 +277,7 @@ const SubmitButton = (props) => {
   const onSubmitButtonClick = async (event, _) => {
     const orderComplete = async (paymentIntent, paymentConfirm) => {
       const procaRequest = { ...formData, ...values };
+
       const confirmedIntent = paymentConfirm.paymentIntent;
 
       const payload = {
@@ -315,7 +316,6 @@ const SubmitButton = (props) => {
 
       // console.log("procaResponse", procaResponse);
 
-      props.done(paymentConfirm);
       dispatch(
         "donate:complete",
         {
@@ -330,6 +330,8 @@ const SubmitButton = (props) => {
         },
         procaRequest
       );
+
+      props.done(paymentConfirm);
     };
 
     event.preventDefault();

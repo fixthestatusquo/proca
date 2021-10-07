@@ -44,7 +44,7 @@ export default function Payment(props) {
   const classes = useStyles();
   const boxStyles = containingBoxStyles();
   const config = useCampaignConfig();
-  const [requestData] = useData();
+  const [requestData, setData] = useData();
 
   const done = (d) => {
     // console.log(d);
@@ -81,7 +81,6 @@ export default function Payment(props) {
       <Box p={1} classes={{ root: classes.container }}>
         {paymentMethod === "stripe" && <Stripe done={done} />}
         {paymentMethod === "sepa" && <Sepa done={done} />}
-        {paymentMethod === "paypal" && <Paypal done={done} />}
       </Box>
     </Container>
   );

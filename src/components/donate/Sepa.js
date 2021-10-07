@@ -75,6 +75,8 @@ export default function Register(props) {
   const { handleSubmit, setError } = form;
 
   const onSubmit = async (d) => {
+    setData(d);
+
     const procaRequest = { ...data, ...d };
     procaRequest.tracking = Url.utm();
     procaRequest.donation = {
@@ -130,6 +132,7 @@ export default function Register(props) {
       },
       data
     );
+    console.log("props ", props);
     props.done &&
       props.done({
         errors: result.errors,

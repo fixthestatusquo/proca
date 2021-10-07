@@ -3,6 +3,7 @@ import useData from "../../hooks/useData";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PayPalButton from "./PayPalButton";
 import { useCampaignConfig } from "../../hooks/useConfig";
+import dispatch from "../../lib/event";
 
 const Paypal = ({ onError, onComplete }) => {
   const config = useCampaignConfig();

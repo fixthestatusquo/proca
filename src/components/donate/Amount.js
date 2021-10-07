@@ -136,6 +136,7 @@ const DonateAmount = (props) => {
                 }}
                 onComplete={() => {
                   setComplete(true);
+                  props.go("donate_Thanks");
                 }}
               />
             )}

@@ -197,9 +197,9 @@ const Widget = (props) => {
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.
-      console.error("end of the journey, no more steps");
+      // console.error("end of the journey, no more steps");
 
-      setCurrent(0);
+      // setCurrent(0);
     }
   };
 
@@ -223,6 +223,7 @@ const Widget = (props) => {
             <Action
               actionPage={config.actionPage}
               done={nextStep}
+              go={go}
               journey={journey}
               current={current}
             />
@@ -249,8 +250,13 @@ const Widget = (props) => {
               journey={journey}
               current={current}
               dialog={true}
+              go={go}
             >
-              <SubAction actionPage={config.actionPage} done={nextStep} />
+              <SubAction
+                actionPage={config.actionPage}
+                done={nextStep}
+                go={go}
+              />
             </Action>
             {props.children}
           </>

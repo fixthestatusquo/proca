@@ -65,7 +65,10 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
       ) : null}
       <Grid item xs={12}>
         <Paypal
-          onError={(error) => setErrorFromPaypal(error)}
+          onError={(error) => {
+            console.log(error);
+            setErrorFromPaypal(error);
+          }}
           onComplete={props.onComplete}
         />
       </Grid>
