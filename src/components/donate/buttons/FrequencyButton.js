@@ -55,6 +55,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   if (frequencies.length === 0) {
     return null;
   }
+  /* i18next-extract-disable-next-line */
   return (
     <Grid container spacing={1} className={classes.formContainers}>
       {frequencies.map((f) => (

@@ -457,7 +457,9 @@ const SubmitButton = (props) => {
           t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
             amount: formData.amount,
             currency: currency,
-            frequency: t("a " + formData.frequency),
+            frequency: t(
+              "a " + formData.frequency
+            ) /* i18next-extract-disable-line */,
           })
         )}
       </Button>
