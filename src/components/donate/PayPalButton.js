@@ -13,7 +13,7 @@ import {
   DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
 import { addDonateContact } from "../../lib/server.js";
-import { Button, CircularProgress, makeStyles } from "@material-ui/core";
+import { Box, Button, CircularProgress, makeStyles } from "@material-ui/core";
 
 const _addContactFromPayPal = (setFormData, contact, payer) => {
   if (!payer) return;
@@ -178,9 +178,7 @@ const useStyles = makeStyles({
     color: "#003087",
     textAlign: "center",
     height: "45px",
-  },
-  spinner: {
-    verticalAlign: "middle",
+    minHeight: "45px",
   },
 });
 
@@ -244,7 +242,9 @@ const ProcaPayPalButton = (props) => {
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
 
-  const isPending = false;
+  const classes = useStyles();
+
+  const [{ isPending }] = usePayPalScriptReducer();
 
   // const frequency = props.frequency;
   const frequency = useFrequencyChange(props.frequency);
@@ -308,7 +308,7 @@ const ProcaPayPalButton = (props) => {
     [setFormData, formData, props.onComplete, actionPage, config.test]
   );
 
-  const configuredStyles = donateConfig.paypal?.styles || {};
+  const configuredStyles = donateConfig.paypal?.styles || { height: "55px" };
   const sharedOptions = {
     fundingSource: FUNDING.PAYPAL,
     commit: true, // no server-side calls
@@ -330,10 +330,10 @@ const ProcaPayPalButton = (props) => {
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
 
   return (
-    <>
+    <Box classes={{ root: classes.root }}>
       {" "}
       {isPending ? <LoadingSpinner /> : <PayPalButtons {...buttonOptions} />}
-    </>
+    </Box>
   );
 };
 
