@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SEPA = (formData) => {
+const SEPA = ({ formData }) => {
   const IBAN = formData.IBAN.replaceAll(" ", "");
   const { t } = useTranslation();
   return (
@@ -34,13 +34,13 @@ const SEPA = (formData) => {
         {t("Payment Method")} :{" "}
       </Grid>
       <Grid item xs={6}>
-        {t("SEPA Bank Transfer")}
+        {t("SEPA Bank Transfer")} :{" "}
       </Grid>
 
       <Grid item xs={12}></Grid>
       <Grid item xs={2}></Grid>
       <Grid item xs={4}>
-        {t("Account :")}
+        {t("IBAN")} :{" "}
       </Grid>
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
