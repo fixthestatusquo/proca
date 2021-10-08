@@ -308,11 +308,14 @@ const ProcaPayPalButton = (props) => {
     [setFormData, formData, props.onComplete, actionPage, config.test]
   );
 
-  const configuredStyles = donateConfig.paypal?.styles || { height: "55px" };
+  const configuredStyles = donateConfig.paypal?.styles || {
+    color: "gold", // how do I read the variant to know this?
+    height: 45,
+  };
   const sharedOptions = {
     fundingSource: FUNDING.PAYPAL,
     commit: true, // no server-side calls
-    ...configuredStyles,
+    style: configuredStyles,
     ...props,
   };
   const orderOptions = {
