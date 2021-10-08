@@ -107,10 +107,6 @@ const Thanks = (props) => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12}>
-                {JSON.stringify(formData)}
-              </Grid>
-
               <Grid item xs={12}></Grid>
               <Grid item xs={2}></Grid>
               <Grid item xs={4}>
