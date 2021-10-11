@@ -26,7 +26,9 @@ export default function More(props) {
       >
         <Details />
       </Dialog>
-      <Button onClick={handleClick}>{t("eci:common.more_info")}</Button>
+      <Button variant="contained" onClick={handleClick}>
+        {t("eci:common.more_info")}
+      </Button>
     </>
   );
 }
