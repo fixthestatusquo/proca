@@ -42,7 +42,6 @@ const Widget = (props) => {
   };
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  // console.log(props);
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps

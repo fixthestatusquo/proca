@@ -88,6 +88,7 @@ export default (props) => {
     api: "https://country.proca.foundation",
     country: config.data.country || config.component.country,
   });
+
   useEffect(() => {
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {

@@ -1,3 +1,3 @@
 describe("Share", () => {
-  it("should show Share component", () => {});
+  it.skip("should show Share component", () => {});
 });

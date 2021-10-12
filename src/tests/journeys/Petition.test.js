@@ -31,9 +31,15 @@ jest.mock("../../actionPage", () => {
 
 jest.mock("react-ipgeolocation", () => {
   return () => {
-    return { country: "ES", error: false, isLoading: false };
+    return { country: "US", error: false, isLoading: false };
   };
 });
+
+//src/locales/common.json
+// jest.mock("../../locales/common.json", () => {
+//   const englishLocales = jest.requireActual("../../locales/en/common.json");
+//   return { ...englishLocales };
+// });
 
 const CONFIG = {
   selector: "#proca",
@@ -52,6 +58,24 @@ const CONFIG = {
   locales: {},
   actionPage: 42,
 };
+
+// global.window = Object.create(window);
+// const url = "http://campaign.test";
+// Object.defineProperty(window, "location", {
+//   value: {
+//     href: url,
+//   },
+// });
+
+// global.document = Object.create(document);
+// const url = "http://campaign.test";
+// Object.defineProperty(document, "location", {
+//   value: {
+//     href: url,
+//   },
+// });
+
+//Object.defineProperty(document, "referrer", null);
 
 describe("Journeys", () => {
   it("renders petition journey", () => {
