@@ -108,10 +108,12 @@ export default (props) => {
   if (props.list === false) return null;
 
   const country = watch("country") || "";
+
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
     country: config.data.country || config.component.country,
   });
+
   useEffect(() => {
     if (location.country === country) return;
 

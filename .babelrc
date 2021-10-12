@@ -1,15 +1,13 @@
 {
-"presets": ["@babel/preset-env"],
-  "plugins": [
-    
+  "presets": [
     [
-      "i18next-extract",
+      "@babel/preset-env",
       {
-        "keyAsDefaultValue": ["en"],
-        "defaultNS": "common",
-        "outputPath": "src/locales/{{locale}}/{{ns}}.json"
+        "targets": {
+          "node": "current"
+        }
       }
-    ],
-    "@babel/plugin-transform-react-jsx"
-  ]
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-react-jsx", "inline-react-svg"]
 }
