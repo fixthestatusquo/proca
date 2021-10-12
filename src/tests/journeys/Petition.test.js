@@ -1,6 +1,6 @@
 import React from "react";
 import Widget from "../../components/Widget";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, act } from "@testing-library/react";
 
 jest.mock("../../actionPage", () => {
   const originalModule = jest.requireActual("../../actionPage");
@@ -35,12 +35,6 @@ jest.mock("react-ipgeolocation", () => {
   };
 });
 
-//src/locales/common.json
-// jest.mock("../../locales/common.json", () => {
-//   const englishLocales = jest.requireActual("../../locales/en/common.json");
-//   return { ...englishLocales };
-// });
-
 const CONFIG = {
   selector: "#proca",
   actionpage: 42,
@@ -57,25 +51,8 @@ const CONFIG = {
   },
   locales: {},
   actionPage: 42,
+  journey: ["Register", "Share"],
 };
-
-// global.window = Object.create(window);
-// const url = "http://campaign.test";
-// Object.defineProperty(window, "location", {
-//   value: {
-//     href: url,
-//   },
-// });
-
-// global.document = Object.create(document);
-// const url = "http://campaign.test";
-// Object.defineProperty(document, "location", {
-//   value: {
-//     href: url,
-//   },
-// });
-
-//Object.defineProperty(document, "referrer", null);
 
 describe("Journeys", () => {
   it("renders petition journey", () => {
@@ -83,28 +60,19 @@ describe("Journeys", () => {
     document.body.append(div);
     div.id = "proca";
 
-    render(
-      <div>
-        <Widget {...CONFIG} journey={["Register", "Share"]} />
-      </div>
-    );
-
-    const nameInput = screen.getByRole("input", { name: "firstname" });
-    const emailInput = screen.getByRole("input", { name: "email" });
-    const signUpButton = screen.getByRole("button", {
-      name: "Añade mi nombre",
-    });
-    const optOutOption = screen.getByRole("input", {
-      name: "privacy",
-      value: "opt-out",
+    let emailInput;
+    let nameInput;
+    act(() => {
+      render(
+        <div>
+          <Widget {...CONFIG} />
+        </div>
+      );
+      emailInput = screen.getByRole("textbox", { name: "Email" });
+      nameInput = screen.getByRole("textbox", { name: "First name" });
     });
 
     expect(nameInput).toBeInTheDocument();
     expect(emailInput).toBeInTheDocument();
-
-    fireEvent.change(nameInput, { target: { value: "Hari" } });
-    fireEvent.change(emailInput, { target: { value: "Seldon" } });
-    fireEvent.click(signUpButton);
-    fireEvent.change(optOutOption);
   });
 });
