@@ -12,13 +12,7 @@ const EciPopup = (props) => {
     event.preventDefault();
     switch (event.target.href.split("#")[1]) {
       case "privacy":
-        setPopup(
-          <div
-            dangerouslySetInnerHTML={{
-              __html: t("eci:privacy.info"),
-            }}
-          />
-        );
+        setPopup(<TTag message="eci:privacy.info" />);
 
         break;
       case "content":
