@@ -46,7 +46,7 @@ const EciPopup = (props) => {
       <Dialog
         dialog={popup !== false}
         close={handleClose}
-        name={t("campaign:name")}
+        name={t("campaign:title")}
       >
         {popup}
       </Dialog>

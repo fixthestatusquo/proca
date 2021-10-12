@@ -17,6 +17,7 @@ import Button from "./FAB";
 import Dialog from "./Dialog";
 import Alert from "./Alert";
 import TwoColumns from "./TwoColumns";
+import { OperationCanceledException } from "typescript";
 
 let config = {
   data: Url.data(),
@@ -57,15 +58,18 @@ const Widget = (props) => {
   if (props) config = { ...config, ...props };
 
   config.param = getAllData(config.selector);
-  //config.locales = Object.assign(config.locales, getOverwriteLocales());
+  // in tests locales is not defined
+  //  if (config.locales === undefined) {
+  //    config.locales = {};
+  //  }
   config.locales = merge(config.locales, getOverwriteLocales());
   config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
 
   if (!config.actionPage) {
     console.assert("No actionPage defined. Can't continue.");
   }
-  initConfigState(config);
 
+  initConfigState(config);
   initDataState(data, config);
 
   const test = config.test;
@@ -227,7 +231,13 @@ const Widget = (props) => {
       case 0:
         Action = steps[journey[current]];
         if (!Action) {
-          console.log(current, journey, steps, steps[journey[current]]);
+          console.log(
+            "No action defined! ",
+            current,
+            journey,
+            steps,
+            steps[journey[current]]
+          );
           return (
             <>
               <Alert severity="error">Configuration problem</Alert>
@@ -235,6 +245,14 @@ const Widget = (props) => {
             </>
           );
         }
+        console.log(
+          `Action is ${Action}`,
+          current,
+          journey,
+          steps,
+          steps[journey[current]]
+        );
+
         return (
           <>
             <Action
