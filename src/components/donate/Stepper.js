@@ -36,7 +36,7 @@ const BiggerStepIcon = (props) => {
 
 const labelStyles = makeStyles({
   root: {
-    fontSize: "1em",
+    fontSize: "1.25em",
   },
   label: {
     fontSize: "1em",
@@ -62,12 +62,12 @@ const StyledStepLabel = (props) => {
 const AmountLabel = ({ amount, symbol }) => {
   const { t } = useTranslation();
   return (
-    <span style={{ fontSize: "1.1em" }}>
-      {t("{{symbol}}{{amount}}", {
+    <>
+      {t("{{amount}} {{symbol}}", {
         amount: amount,
         symbol: symbol,
       })}
-    </span>
+    </>
   );
 };
 

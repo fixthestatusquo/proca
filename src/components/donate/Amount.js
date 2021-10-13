@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
-    border: "solid 1px " + theme.palette.primary.dark,
+    // border: "solid 1px " + theme.palette.primary.dark,
   },
 
   cardHeader: {
