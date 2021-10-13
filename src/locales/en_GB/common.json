@@ -73,7 +73,7 @@
     "Share": "Share",
     "Join": "Join",
     "organisation": "Your organisation account",
-    "The average donation is {{currency}}{{amount}}": "The average donation is {{currency}}{{amount}}",
+    "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
     "The average donation is {{amount}}": "The average donation is {{amount}}",
     "Stay informed": "Stay informed",
     "Sorry, we couldn't save": "Sorry, we couldn't save",
@@ -91,9 +91,9 @@
     "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We couldn't handle your donation at the moment. Please try again in a few minutes.",
     "Please provide your card information": "Please provide your card information",
     "Place of birth": "Place of birth",
-    "I'm donating {{currency}}{{amount}} monthly": "I'm donating {{currency}}{{amount}} monthly",
-    "I'm donating {{currency}}{{amount}}": "I'm donating {{currency}}{{amount}}",
-    "Donate {{currency}}{{amount}}": "Donate {{currency}}{{amount}}",
+    "I'm donating {{amount}} {{currency}} monthly": "I'm donating {{amount}} {{currency}} monthly",
+    "I'm donating {{amount}} {{currency}}": "I'm donating {{amount}} {{currency}}",
+    "Donate {{amount}} {{currency}}": "Donate {{amount}} {{currency}}",
     "Choose an Amount": "Choose an amount",
     "Change amount": "Change amount"
 }

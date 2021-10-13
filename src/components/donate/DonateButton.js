@@ -30,7 +30,7 @@ const DonateButton = (
       {isSubmitting ? (
         <CircularProgress />
       ) : (
-        t("Donate {{currency}}{{amount}}", {
+        t("Donate {{amount}} {{currency}}", {
           amount: amount,
           currency: currency.symbol,
         })
