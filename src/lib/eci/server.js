@@ -58,6 +58,7 @@ async function addSupport(actionType, actionPage, data, options) {
 
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
+    delete variables.tracking.location; // UNTIL FIXED
   }
 
   // no custom values for ECI signatures
