@@ -66,9 +66,9 @@
   "This field is required.": "This field is required.",
   "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We couldn't handle your donation at the moment. Please try again in a few minutes.",
   "Your organisation account": "Your organisation account",
-  "a monthly": "a month",
-  "a weekly": "a week",
-  "a yearly": "a year",
+  "a monthly": "each month",
+  "a weekly": "each week",
+  "a yearly": "each year",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "implicit": "Submit this form to receive emails from {{name}}",

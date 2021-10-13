@@ -33,7 +33,9 @@ const DonateButton = (
         t("Donate {{amount}} {{currency}}", {
           amount: amount,
           currency: currency.symbol,
-        })
+        }) +
+        " " +
+        (frequency !== "oneoff" ? t("a " + frequency) : "")
       )}
     </Button>
   );

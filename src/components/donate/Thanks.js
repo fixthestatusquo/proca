@@ -132,7 +132,10 @@ const Thanks = (props) => {
               </Grid>
               <Grid item xs={6}>
                 {Number(formData.amount).toLocaleString()}{" "}
-                {donateConfig.currency.symbol}
+                {donateConfig.currency.symbol}{" "}
+                {formData.frequency !== "oneoff"
+                  ? t("a " + formData.frequency)
+                  : ""}
               </Grid>
 
               <Grid item xs={12}></Grid>
