@@ -72,7 +72,7 @@ export default function Payment(props) {
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
 
       <Grid container justifyContent="center">
-        <Grid item xs={12}>
+        <Grid item xs={10}>
           <Steps />
         </Grid>
       </Grid>
