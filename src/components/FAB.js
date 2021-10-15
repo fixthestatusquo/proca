@@ -69,7 +69,6 @@ export default function FABAction(props) {
     ReactDOM.createPortal(
       <>
         <div className={classes.fab}>
-          <Slide direction="right" mountOnEnter unmountOnExit in={true}>
             <Badge
               badgeContent={counter}
               max={9999999}
@@ -86,7 +85,6 @@ export default function FABAction(props) {
                 {callToAction}&nbsp;
               </Fab>
             </Badge>
-          </Slide>
         </div>
       </>,
       dom
