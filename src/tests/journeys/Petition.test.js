@@ -1,6 +1,6 @@
 import React from "react";
 import Widget from "../../components/Widget";
-import { render, fireEvent, screen, act } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 
 jest.mock("../../actionPage", () => {
   const originalModule = jest.requireActual("../../actionPage");
@@ -32,6 +32,17 @@ jest.mock("../../actionPage", () => {
 jest.mock("react-ipgeolocation", () => {
   return () => {
     return { country: "US", error: false, isLoading: false };
+  };
+});
+jest.mock("../../hooks/useData.js", () => {
+  return {
+    initDataState: jest.fn(() => true),
+    useData: () => {
+      return { data: { comment: "", country: "US" }, setData: jest.fn };
+    },
+    default: () => {
+      return { data: { comment: "", country: "US" }, setData: jest.fn };
+    },
   };
 });
 
