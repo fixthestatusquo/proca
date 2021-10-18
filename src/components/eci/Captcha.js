@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, Button } from "@material-ui/core";
 import TextField from "../TextField";
 import { useTranslation } from "react-i18next";
 import IconButton from "@material-ui/core/IconButton";
+import PlayIcon from "@material-ui/icons/RecordVoiceOver";
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
@@ -45,13 +47,21 @@ export default function Captcha(props) {
   const [isFocussed, setFocussed] = useState(false);
   const classes = useStyles();
   const [count, setCount] = useState(0);
+  const [audioCaptcha, _setAudioCaptcha] = useState(false);
+
   const { t } = useTranslation();
   const { setValue, errors } = props.form;
 
   const compact = props.compact || false;
 
+  const setAudioCaptcha = (audio) => {
+    _setAudioCaptcha(audio);
+    props.onChange({ ...captcha, audio: audio });
+  };
   const update = (captcha) => {
     setCaptcha(captcha);
+
+    captcha.count = count;
     props.onChange(captcha);
   };
 
@@ -119,40 +129,98 @@ export default function Captcha(props) {
   };
 
   //  return parse(captcha.data);
+  const handlePlay = () => {
+    var audio = document.getElementById("audio");
+    audio.play();
+  };
+
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item xs={compact ? 12 : 7}>
-          <TextField
-            form={props.form}
-            name="captcha"
-            helperText={t("eci:form.captcha-image-title")}
-            label=""
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label={t("eci:form.captcha-button-arialabel-refresh")}
-                    onClick={handleClick}
-                    onMouseDown={handleMouseDown}
-                    onMouseOver={handleMouseOver}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <ReplayIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            required
-          />
-        </Grid>
-        <Grid item xs={compact ? 12 : 5}>
-          <Box py={1} className={isFocussed ? classes.focus : null}>
-            <Svg />
-          </Box>
-        </Grid>
+        {audioCaptcha && (
+          <Grid item xs={12}>
+            <audio
+              id="audio"
+              src="https://sign.fossilfreerevolution.org/d/audiocaptcha.mp3"
+            />
+            <Grid>
+              <Button
+                variant="contained"
+                onClick={() => setAudioCaptcha(false)}
+                size="small"
+                aria-label={t("eci:form.captcha-button-arialabel-image")}
+              >
+                {t("eci:form.captcha-button-arialabel-image")}
+              </Button>
+            </Grid>
+            <TextField
+              form={props.form}
+              label={t("eci:form.captcha-audio-download")}
+              name="captcha"
+              required
+              InputProps={{
+                "aria-label": t("eci:form.captcha-audio-download") + ": MAMA",
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label={t(
+                        "eci:form.captcha-button-arialabel-refresh"
+                      )}
+                      onClick={handlePlay}
+                    >
+                      <PlayCircleOutlineIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+        )}
+        {!audioCaptcha && (
+          <>
+            <Grid item xs={compact ? 12 : 6}>
+              <TextField
+                form={props.form}
+                name="captcha"
+                helperText={t("eci:form.captcha-image-title")}
+                label=""
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={t(
+                          "eci:form.captcha-button-arialabel-refresh"
+                        )}
+                        onClick={handleClick}
+                        onMouseDown={handleMouseDown}
+                        onMouseOver={handleMouseOver}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <ReplayIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                required
+              />
+            </Grid>
+            <Grid item xs={compact ? 11 : 5}>
+              <Box py={1} className={isFocussed ? classes.focus : null}>
+                <Svg />
+              </Box>
+            </Grid>
+            <Grid item xs={1}>
+              <IconButton
+                aria-label={t("eci:form.captcha-button-arialabel-audio")}
+                onClick={() => setAudioCaptcha(true)}
+              >
+                <PlayIcon />
+              </IconButton>
+            </Grid>
+          </>
+        )}
       </Grid>
     </>
   );

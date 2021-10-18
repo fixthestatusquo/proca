@@ -61,11 +61,16 @@ async function addSupport(actionType, actionPage, data, options) {
     delete variables.tracking.location; // UNTIL FIXED
   }
 
+  if (options.captcha.audio) {
+    variables.action.fields({ key: "audioCaptcha", value: "yes" });
+  }
   // no custom values for ECI signatures
   //  for (let [key,value] of Object.entries(data)) {
   //    if (value && !(expected.includes(key)))
   //      variables.action.fields.push({key:key,value:value})
   //  }
+
+  console.log(data.captcha, options.captcha);
 
   if (options.captcha?.mac) {
     data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;

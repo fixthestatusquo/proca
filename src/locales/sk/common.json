@@ -41,8 +41,8 @@
     "Enter a number.": "Zadajte číslo.",
     "This field is required.": "Toto pole je povinné.",
     "progress_0": "{{count}} podpísali. Poďme na {{goal}}",
-    "progress_1": "",
-    "progress_2": "",
+    "progress_1": "{{count}} podpísali. Poďme na {{goal}}",
+    "progress_2": "{{count}} podpísali. Poďme na {{goal}}",
     "Sign": "Prihlásiť sa teraz!",
     "share": {
         "email": {
