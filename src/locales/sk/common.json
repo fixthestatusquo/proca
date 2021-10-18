@@ -8,7 +8,7 @@
     "dialogTitle": "Informujte ma o kampani",
     "Your organisation account": "Váš účet organizácie",
     "Thank you": "Ďakujeme!",
-    "Sign now!": "Prihlásiť sa teraz!",
+    "Sign now!": "Odoslať!!",
     "Next": "Ďalšia",
     "Locality": "Oblasť",
     "Full Name": "Celé meno",
@@ -43,7 +43,7 @@
     "progress_0": "{{count}} podpísali. Poďme na {{goal}}",
     "progress_1": "",
     "progress_2": "",
-    "Sign": "Prihlásiť sa teraz!",
+    "Sign": "Odoslať!",
     "share": {
         "email": {
             "body": "Ahoj,\nProsím, podpíšte sa, myslím, že to chcete podporiť",
