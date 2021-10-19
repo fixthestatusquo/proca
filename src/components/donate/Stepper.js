@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 
 import {
+  Box,
   makeStyles,
   Step,
   StepIcon,
@@ -12,6 +13,7 @@ import { atom, useRecoilState } from "recoil";
 import { goStep, useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
+import { useIsVeryNarrow } from "../../hooks/useLayout";
 
 const donateStepAtom = atom({ key: "donateStep", default: 0 });
 
@@ -46,6 +48,7 @@ const labelStyles = makeStyles({
 });
 
 const StyledStepLabel = (props) => {
+
   const classes = labelStyles();
   return (
     <StepLabel
@@ -72,8 +75,32 @@ const AmountLabel = ({ amount, symbol }) => {
 };
 
 const stepperStyles = makeStyles({
-  root: { paddingBottom: 0, paddingRight: "24px", paddingLeft: "24px" },
+  box: {
+    textAlign: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
+    maxWidth: "90%"
+  },
+  root: {
+    padding: 0
+  }
 });
+
+const AmountTextLabel = ({ donateStep, currency, formData, isVeryNarrow, label }) => {
+  if (isVeryNarrow) {
+    return ''
+  }
+
+  return (
+    <>
+      {donateStep === 1 ? (
+        <AmountLabel amount={formData.amount} symbol={currency.symbol} />
+      ) : (
+        label
+      )}
+    </>
+  );
+};
 
 const Steps = (props) => {
   const { t } = useTranslation();
@@ -83,11 +110,12 @@ const Steps = (props) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
+  const isVeryNarrow = useIsVeryNarrow();
 
   const classes = stepperStyles();
 
   return (
-    <>
+    <Box className={classes.box}>
       <Stepper activeStep={donateStep} classes={{ root: classes.root }}>
         <Step
           key="amount"
@@ -97,18 +125,14 @@ const Steps = (props) => {
           }}
         >
           <StyledStepLabel>
-            {donateStep === 1 ? (
-              <AmountLabel amount={formData.amount} symbol={currency.symbol} />
-            ) : (
-              t("Amount")
-            )}
+            <AmountTextLabel donateStep={donateStep} formData={formData} currency={currency} isVeryNarrow={isVeryNarrow} label={t("Amount")} />
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>Payment</StyledStepLabel>
+          <StyledStepLabel>{isVeryNarrow ? '' : 'Payment'}</StyledStepLabel>
         </Step>
       </Stepper>
-    </>
+    </Box>
   );
 };
 

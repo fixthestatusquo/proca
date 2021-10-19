@@ -156,7 +156,7 @@ export default function Register(props) {
       url="http://localhost"
     >
       <Error display={status === "error"} />
-      <Container component="main" maxWidth="sm">
+      <Container component="main">
         <Typography variant="h6" gutterBottom color="textPrimary">
           {t("campaign:donation.stripe.intro", {
             defaultValue: "Payment details :",

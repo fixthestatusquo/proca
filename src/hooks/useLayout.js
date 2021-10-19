@@ -55,5 +55,9 @@ const useIsMobile = () => {
   return mobile;
 };
 
-export { useSetLayout, useLayout, init, useIsMobile };
+const useIsVeryNarrow = () => {
+  return useMediaQuery("(max-width:480px)", { noSsr: true });
+};
+
+export { useSetLayout, useLayout, init, useIsMobile, useIsVeryNarrow };
 export default useLayout;

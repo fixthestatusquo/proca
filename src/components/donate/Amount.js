@@ -43,9 +43,9 @@ const useStyles = makeStyles((theme) => ({
     // border: "solid 1px " + theme.palette.primary.dark,
   },
 
-  cardHeader: {
-    paddingTop: 0,
-  },
+  // cardHeader: {
+  //   paddingTop: 0,
+  // },
 }));
 
 const DonateAmount = (props) => {
@@ -72,12 +72,10 @@ const DonateAmount = (props) => {
         <Alert severity="success">{t("Thank you for your donation!")}</Alert>
       )}
 
-      <Grid container justifyContent="center">
-        <Grid item xs={10}>
-          <Steps /> {/* Hard coded for now */}
-        </Grid>
-      </Grid>
       <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Steps />
+        </Grid>
         {donateConfig.useTitle && (
           <Grid item xs={12}>
             <DonateTitle />{" "}

@@ -11,7 +11,7 @@ import Sepa from "./Sepa";
 import { useCampaignConfig } from "../../hooks/useConfig.js";
 import useData from "../../hooks/useData.js";
 import { create as createURL } from "../../lib/urlparser.js";
-import { Grid } from "@material-ui/core";
+import { CardContent, Grid } from "@material-ui/core";
 import Steps from "./Stepper";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,17 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const containingBoxStyles = makeStyles((theme) => ({
-  root: {
-    // border: "1px solid " + theme.palette.primary.main,
-  },
-}));
-
 export default function Payment(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
-  const classes = useStyles();
-  const boxStyles = containingBoxStyles();
   const config = useCampaignConfig();
   const [requestData] = useData();
 
@@ -68,19 +60,21 @@ export default function Payment(props) {
   const paymentMethod = requestData.paymentMethod || "stripe";
 
   return (
-    <Container classes={{ root: boxStyles.root }}>
+    <Container>
       {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
 
-      <Grid container justifyContent="center">
-        <Grid item xs={10}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} justifyContent="center">
+
           <Steps />
         </Grid>
+        <Grid item xs={12}>
+          <CardContent>
+            {paymentMethod === "stripe" && <Stripe done={done} />}
+            {paymentMethod === "sepa" && <Sepa done={done} />}
+          </CardContent>
+        </Grid>
       </Grid>
-
-      <Box p={1} classes={{ root: classes.container }}>
-        {paymentMethod === "stripe" && <Stripe done={done} />}
-        {paymentMethod === "sepa" && <Sepa done={done} />}
-      </Box>
     </Container>
   );
 }

@@ -9,6 +9,7 @@ import {
   FormHelperText,
   CircularProgress,
   Typography,
+  CardContent,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -122,7 +123,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+      "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -146,115 +147,113 @@ const PaymentForm = (props) => {
 
   return (
     <Container component="main" maxWidth="sm">
-      <PaymentBox>
-        <Grid container spacing={1}>
-          {useTitle && (
-            <Grid item xs={12}>
-              <DonateTitle
-                config={config}
-                amount={amount}
-                currency={currency}
-                frequency={frequency}
-              />
-            </Grid>
-          )}
-
-          <Grid item xs={12} sm={compact ? 12 : 6}>
-            <NameField
-              form={form}
-              classes={classes}
-              name="firstname"
-              label={t("First name")}
-              autoComplete="given-name"
-            />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 6}>
-            <NameField
-              form={form}
-              classes={classes}
-              name="lastname"
-              label={t("Last name")}
-              autoComplete="family-name"
-            />
-          </Grid>
+      <Grid container spacing={1}>
+        {useTitle && (
           <Grid item xs={12}>
-            <Controller
-              control={control}
-              name="email"
-              // KISS for email validation - something@something\.something
-              rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
-              render={({ onChange, onBlur, value }) => (
-                <LayoutTextField
-                  className={classes.textField}
-                  label={t("Email")}
-                  autoComplete="email"
-                  type="email"
-                  name="email"
-                  placeholder="your.email@example.org"
-                  required
-                  error={!!(errors && errors["email"])}
-                  helperText={
-                    errors && errors["email"] && errors["email"].message
-                  }
-                  variant={layout.variant}
-                  margin={layout.margin}
-                  onChange={onChange}
-                  onBlur={(e) => {
-                    setData(e.target.name, e.target.value);
-                    onBlur(e);
-                  }}
-                  value={value}
-                />
-              )}
+            <DonateTitle
+              config={config}
+              amount={amount}
+              currency={currency}
+              frequency={frequency}
             />
           </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 4}>
-            <Controller
-              control={control}
-              name="postcode"
-              render={({ onChange, value }) => (
-                <LayoutTextField
-                  className={classes.textField}
-                  label={t("Postal Code")}
-                  autoComplete="postal-code"
-                  error={!!(errors && errors["postcode"])}
-                  helperText={
-                    errors && errors["postcode"] && errors["postcode"].message
-                  }
-                  variant={layout.variant}
-                  margin={layout.margin}
-                  onChange={onChange}
-                  value={value}
-                />
-              )}
-            />
-          </Grid>
-          <Grid item xs={12} sm={compact ? 12 : 8}>
-            <Controller
-              control={control}
-              name="country"
-              rules={{ required: true }}
-              render={({ onChange, value }) => (
-                <Country
-                  form={form}
-                  required
-                  onChange={onChange}
-                  value={value}
-                />
-              )}
-            />
-          </Grid>
-          {stripeError ? (
-            <Grid item xs={12}>
-              <FormHelperText error={true}>
-                {stripeError.message}
-              </FormHelperText>
-            </Grid>
-          ) : (
-            ""
-          )}
+        )}
+
+        <Grid item xs={12} sm={compact ? 12 : 6}>
+          <NameField
+            form={form}
+            classes={classes}
+            name="firstname"
+            label={t("First name")}
+            autoComplete="given-name"
+          />
         </Grid>
-      </PaymentBox>
+        <Grid item xs={12} sm={compact ? 12 : 6}>
+          <NameField
+            form={form}
+            classes={classes}
+            name="lastname"
+            label={t("Last name")}
+            autoComplete="family-name"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Controller
+            control={control}
+            name="email"
+            // KISS for email validation - something@something\.something
+            rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
+            render={({ onChange, onBlur, value }) => (
+              <LayoutTextField
+                className={classes.textField}
+                label={t("Email")}
+                autoComplete="email"
+                type="email"
+                name="email"
+                placeholder="your.email@example.org"
+                required
+                error={!!(errors && errors["email"])}
+                helperText={
+                  errors && errors["email"] && errors["email"].message
+                }
+                variant={layout.variant}
+                margin={layout.margin}
+                onChange={onChange}
+                onBlur={(e) => {
+                  setData(e.target.name, e.target.value);
+                  onBlur(e);
+                }}
+                value={value}
+              />
+            )}
+          />
+        </Grid>
+        <Grid item xs={12} sm={compact ? 12 : 4}>
+          <Controller
+            control={control}
+            name="postcode"
+            render={({ onChange, value }) => (
+              <LayoutTextField
+                className={classes.textField}
+                label={t("Postal Code")}
+                autoComplete="postal-code"
+                error={!!(errors && errors["postcode"])}
+                helperText={
+                  errors && errors["postcode"] && errors["postcode"].message
+                }
+                variant={layout.variant}
+                margin={layout.margin}
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+        </Grid>
+        <Grid item xs={12} sm={compact ? 12 : 8}>
+          <Controller
+            control={control}
+            name="country"
+            rules={{ required: true }}
+            render={({ onChange, value }) => (
+              <Country
+                form={form}
+                required
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+        </Grid>
+        {stripeError ? (
+          <Grid item xs={12}>
+            <FormHelperText error={true}>
+              {stripeError.message}
+            </FormHelperText>
+          </Grid>
+        ) : (
+          ""
+        )}
+      </Grid>
     </Container>
   );
 };
