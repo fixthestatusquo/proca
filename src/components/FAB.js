@@ -46,7 +46,7 @@ export default function FABAction(props) {
   const createDom = (id) => {
     let el = document.getElementById(id);
     if (!el) {
-      const el = document.createElement("div");
+      el = document.createElement("div");
       el.id = id;
       document.body.appendChild(el);
     }
@@ -69,11 +69,12 @@ export default function FABAction(props) {
     ReactDOM.createPortal(
       <>
         <div className={classes.fab}>
+          <Slide direction="right" mountOnEnter unmountOnExit in={true}>
             <Badge
               badgeContent={counter}
               max={9999999}
               color="secondary"
-              overlap="circle"
+              overlap="circular"
             >
               <Fab
                 color="primary"
@@ -85,6 +86,7 @@ export default function FABAction(props) {
                 {callToAction}&nbsp;
               </Fab>
             </Badge>
+          </Slide>
         </div>
       </>,
       dom
