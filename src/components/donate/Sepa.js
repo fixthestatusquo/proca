@@ -10,7 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import TextField from "../TextField";
 import Alert from "@material-ui/lab/Alert";
-import PaymentBox from "./PaymentBox";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -162,73 +161,71 @@ export default function Register(props) {
             defaultValue: "Payment details :",
           })}
         </Typography>
-        <PaymentBox>
-          <Grid container spacing={1}>
-            {useTitle && (
-              <Grid item xs={12}>
-                <DonateTitle
-                  config={config}
-                  amount={amount}
-                  currency={currency}
-                  frequency={frequency}
-                />
-              </Grid>
-            )}
-
-            <Grid item xs={12} sm={compact ? 12 : 6}>
-              <NameField
-                form={form}
-                classes={classes}
-                name="firstname"
-                label={t("First name")}
-                autoComplete="given-name"
-              />
-            </Grid>
-            <Grid item xs={12} sm={compact ? 12 : 6}>
-              <NameField
-                form={form}
-                classes={classes}
-                name="lastname"
-                label={t("Last name")}
-                autoComplete="family-name"
-              />
-            </Grid>
+        <Grid container spacing={1}>
+          {useTitle && (
             <Grid item xs={12}>
-              <TextField
-                form={form}
-                name="email"
-                type="email"
-                label={t("Email")}
-                autoComplete="email"
-                required
-                placeholder="your.email@example.org"
-              />
-            </Grid>
-            {config.component?.donate?.field?.phone === true && (
-              <Grid item xs={12}>
-                <TextField form={form} name="phone" label={t("Phone")} />
-              </Grid>
-            )}
-
-            <Grid item xs={12}>
-              <TextField
-                form={form}
-                name="IBAN"
-                fullWidth
-                required
-                register={{ validate: validateIBAN }}
-              />
-            </Grid>
-            <Grid item xs={12} classes={{ root: classes.submitButton }}>
-              <DonateButton
+              <DonateTitle
+                config={config}
                 amount={amount}
                 currency={currency}
                 frequency={frequency}
-                config={config}
               />
             </Grid>
+          )}
+
+          <Grid item xs={12} sm={compact ? 12 : 6}>
+            <NameField
+              form={form}
+              classes={classes}
+              name="firstname"
+              label={t("First name")}
+              autoComplete="given-name"
+            />
           </Grid>
-        </PaymentBox>
+          <Grid item xs={12} sm={compact ? 12 : 6}>
+            <NameField
+              form={form}
+              classes={classes}
+              name="lastname"
+              label={t("Last name")}
+              autoComplete="family-name"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              form={form}
+              name="email"
+              type="email"
+              label={t("Email")}
+              autoComplete="email"
+              required
+              placeholder="your.email@example.org"
+            />
+          </Grid>
+          {config.component?.donate?.field?.phone === true && (
+            <Grid item xs={12}>
+              <TextField form={form} name="phone" label={t("Phone")} />
+            </Grid>
+          )}
+
+          <Grid item xs={12}>
+            <TextField
+              form={form}
+              name="IBAN"
+              fullWidth
+              required
+              register={{ validate: validateIBAN }}
+            />
+          </Grid>
+          <Grid item xs={12} classes={{ root: classes.submitButton }}>
+            <DonateButton
+              amount={amount}
+              currency={currency}
+              frequency={frequency}
+              config={config}
+            />
+          </Grid>
+        </Grid>
       </Container>
     </form>
   );

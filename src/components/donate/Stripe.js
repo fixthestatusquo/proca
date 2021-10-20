@@ -8,8 +8,7 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
-  Typography,
-  CardContent,
+  Typography
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -28,7 +27,6 @@ import { useTranslation } from "react-i18next";
 import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
-import PaymentBox from "./PaymentBox";
 
 import {
   useStripe,
