@@ -10,6 +10,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
 import dispatch from "../../lib/event";
+import { useCampaignConfig } from "../../hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
   focus: {
@@ -43,12 +44,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Captcha(props) {
+  const config = useCampaignConfig();
   const [captcha, setCaptcha] = useState(null);
   const [isFocussed, setFocussed] = useState(false);
   const classes = useStyles();
   const [count, setCount] = useState(0);
   const [audioCaptcha, _setAudioCaptcha] = useState(false);
-
+  const withAudioCaptcha = config.component.captcha?.audio !== false;
+  console.log(withAudioCaptcha, config.component.captcha);
   const { t } = useTranslation();
   const { setValue, errors } = props.form;
 
@@ -211,14 +214,16 @@ export default function Captcha(props) {
                 <Svg />
               </Box>
             </Grid>
-            <Grid item xs={1}>
-              <IconButton
-                aria-label={t("eci:form.captcha-button-arialabel-audio")}
-                onClick={() => setAudioCaptcha(true)}
-              >
-                <PlayIcon />
-              </IconButton>
-            </Grid>
+            {withAudioCaptcha && (
+              <Grid item xs={1}>
+                <IconButton
+                  aria-label={t("eci:form.captcha-button-arialabel-audio")}
+                  onClick={() => setAudioCaptcha(true)}
+                >
+                  <PlayIcon />
+                </IconButton>
+              </Grid>
+            )}
           </>
         )}
       </Grid>

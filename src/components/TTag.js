@@ -11,8 +11,6 @@ const snarkdown = (md) => {
         : `<p>${_snarkdown(l)}</p>`
     );
 
-  console.log(md, htmls);
-
   return htmls.join("\n\n");
 };
 
