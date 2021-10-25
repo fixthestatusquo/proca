@@ -11,6 +11,8 @@ const snarkdown = (md) => {
         : `<p>${_snarkdown(l)}</p>`
     );
 
+  console.log(md, htmls);
+
   return htmls.join("\n\n");
 };
 
@@ -18,6 +20,15 @@ const TTag = (props) => {
   const { t } = useTranslation();
   //const tbr = (key) => t(key).replace(/\n- /g, "<li>").replace(/\n/g, "<br>");
   const tbr = (key) => snarkdown(t(key));
+  if (props.dangerouslySet === true) {
+    return (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: snarkdown(t(props.message)),
+        }}
+      ></div>
+    );
+  }
   return <Trans t={tbr} i18nKey={props.message}></Trans>;
   //return /* i18next-extract-disable-line */ t(props.message);
 };
