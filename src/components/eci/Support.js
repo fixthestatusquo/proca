@@ -49,7 +49,7 @@ export default (props) => {
   const classes = useStyles();
 
   const width = useElementWidth("#proca-register");
-  const [token, setToken] = useState("dummy");
+  const [token, setToken] = useState({ text: "dummy", audio: false });
   const [compact, setCompact] = useState(true);
   const [require, setRequire] = useState(false);
   const [acceptableIds, setIds] = useState({});

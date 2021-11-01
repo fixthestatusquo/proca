@@ -58,8 +58,8 @@ function readConfigOverride() {
           campaignConfig.config.locales[config.lang]["common:"]
         ) {
           config.locales = merge(
-            config.locales,
-            campaignConfig.config.locales[config.lang]["common:"]
+            campaignConfig.config.locales[config.lang]["common:"],
+            config.locales
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }

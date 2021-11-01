@@ -44,7 +44,8 @@ export default (props) => {
     name: props.countries[iso],
   }));
 
-  const compare = new Intl.Collator(config.lang.toLowerCase()).compare;
+  const compare = new Intl.Collator(config.lang.toLowerCase().substring(0, 2))
+    .compare;
   countries.sort((a, b) => compare(a.name, b.name));
 
   if (props.other) {

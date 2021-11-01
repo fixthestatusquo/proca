@@ -167,7 +167,6 @@ export default function Register(props) {
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
-    //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
       input.oninvalid = (e) => {

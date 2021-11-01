@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const Consent = (props) => {
   const { errors, register } = props.form;
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
@@ -173,3 +173,5 @@ export const ConsentProcessing = (props) => {
     </Grid>
   );
 };
+
+export default Consent;
