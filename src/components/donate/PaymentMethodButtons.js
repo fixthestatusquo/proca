@@ -7,18 +7,11 @@ import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
 import Paypal from "./Paypal";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   button: {
     "& svg": { marginRight: "0.5em" },
-  },
-  paypal: {
-    "& svg": {
-      "& path:first-child": { fill: theme.palette.primary.contrastText }, // todo read from theme
-      marginRight: "0.75em",
-      marginLeft: "0.5em",
-    },
-  },
-}));
+  }
+});
 
 const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
   const classes = useStyles();

@@ -333,10 +333,10 @@ const ProcaPayPalButton = (props) => {
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
 
   return (
-    <Box classes={{ root: classes.root }}>
+    <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">
       {" "}
       {isPending ? <LoadingSpinner /> : <PayPalButtons {...buttonOptions} />}
-    </Box>
+    </Box >
   );
 };
 
