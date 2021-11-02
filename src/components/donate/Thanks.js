@@ -2,8 +2,7 @@ import {
   CardContent,
   Container,
   Grid,
-  makeStyles,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import React from "react";
 
@@ -11,26 +10,14 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    // border: "solid 1px " + theme.palette.primary.dark,
-  },
-  root: {
-    "& > *": {
-      margin: theme.spacing(0.5),
-      fontSize: theme.fontSize * 3,
-    },
-  },
-}));
-
 const SEPA = ({ formData }) => {
   const IBAN = formData.IBAN.replaceAll(" ", "");
   const { t } = useTranslation();
   return (
     <>
       <Grid item xs={12}></Grid>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={5}>
         {t("Payment Method")} :{" "}
       </Grid>
       <Grid item xs={6}>
@@ -38,15 +25,15 @@ const SEPA = ({ formData }) => {
       </Grid>
 
       <Grid item xs={12}></Grid>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={5}>
         {t("IBAN")} :{" "}
       </Grid>
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
           IBAN.substring(0, 2) +
-            " ............ " +
-            IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
+          " ............ " +
+          IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
       </Grid>
     </>
   );
@@ -58,8 +45,8 @@ const Card = (formData) => {
   return (
     <>
       <Grid item xs={12}></Grid>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={5}>
         {t("Payment Method")} :{" "}
       </Grid>
       <Grid item xs={6}>
@@ -75,8 +62,8 @@ const PayPal = (formData) => {
   return (
     <>
       <Grid item xs={12}></Grid>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={5}>
         {t("Payment Method")} :{" "}
       </Grid>
       <Grid item xs={6}>
@@ -88,14 +75,14 @@ const PayPal = (formData) => {
 const Thanks = (props) => {
   const { t } = useTranslation();
   const donateConfig = useCampaignConfig().component.donation;
-  const classes = useStyles();
+  // const classes = useStyles();
   const [formData] = useData();
 
   return (
-    <Container id="proca-donate" className={classes.container}>
+    <Container id="proca-donate">
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <CardContent className={classes.cardHeader}>
+          <CardContent>
             <Typography variant="h4" gutterBottom color="textPrimary">
               {t("Thank you for your donation!")}
             </Typography>
@@ -108,8 +95,8 @@ const Thanks = (props) => {
               </Grid>
 
               <Grid item xs={12}></Grid>
-              <Grid item xs={2}></Grid>
-              <Grid item xs={4}>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={5}>
                 Name :
               </Grid>
               <Grid item xs={6}>
@@ -117,8 +104,8 @@ const Thanks = (props) => {
               </Grid>
 
               <Grid item xs={12}></Grid>
-              <Grid item xs={2}></Grid>
-              <Grid item xs={4}>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={5}>
                 Email :
               </Grid>
               <Grid item xs={6}>
@@ -126,8 +113,8 @@ const Thanks = (props) => {
               </Grid>
 
               <Grid item xs={12}></Grid>
-              <Grid item xs={2}></Grid>
-              <Grid item xs={4}>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={5}>
                 Amount :{" "}
               </Grid>
               <Grid item xs={6}>
@@ -139,8 +126,8 @@ const Thanks = (props) => {
               </Grid>
 
               <Grid item xs={12}></Grid>
-              <Grid item xs={2}></Grid>
-              <Grid item xs={4}>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={5}>
                 Date :{" "}
               </Grid>
               <Grid item xs={6}>
