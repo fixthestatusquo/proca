@@ -15,6 +15,7 @@
 /build
 /dist
 /d 
+/config
 /src/tmp.config
 # misc
 .DS_Store
