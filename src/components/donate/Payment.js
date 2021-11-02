@@ -19,22 +19,7 @@ export default function Payment(props) {
   const [requestData] = useData();
 
   const done = (d) => {
-    // console.log(d);
-
-    if (config?.completed_redirect_url) {
-      window.location = createURL(
-        window.location,
-        config.completed_redirect_url,
-        {
-          firstName: requestData.firstName,
-          amount: requestData.amount,
-          currency: requestData.currency.code,
-        }
-      );
-    }
-
     setSubmitted(true);
-
     props.done(d);
   };
 
