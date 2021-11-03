@@ -26,18 +26,37 @@ const filter = (query, whitelist = null, prefix = "") => {
   return r;
 };
 
-const parse = (whitelist, prefix) => {
-  const url = Url(document.location, true);
+const parse = (whitelist, prefix = "proca_") => {
+  const url = Url(window.location, true);
   return filter(url.query, whitelist, prefix) || {};
 };
 
 const step = (prefix) => {
-  const s = parse(["go"], prefix || "proca_");
+  const s = parse(["go"], prefix);
   return s.go || null;
 };
 
+
+/*
+ * The proca core api does not provide a way to know the current step, so we are redirecting back
+ * to the payment. This fun should probably be a helper
+ */
+const stepUrl = (step, params = {}, prefix = "proca_") => {
+  const curLoc = new URL(window.location.href);
+  curLoc.searchParams.delete("proca_go");
+  curLoc.searchParams.append("proca_go", step.replace('/', '_'));
+
+  for (const [k, v] of Object.entries(params)) {
+    if (typeof v !== 'undefined') {
+      curLoc.searchParams.delete(prefix + k);
+      curLoc.searchParams.append(prefix + k, v);
+    }
+  }
+  console.log("stepUrl", step, params, curLoc.href);
+  return curLoc.href;
+}
+
 const data = (prefix) => {
-  prefix = prefix || "proca_";
   const whitelist = [
     "amount",
     "paymentMethod",
@@ -58,12 +77,11 @@ const data = (prefix) => {
 };
 
 const isTest = () => {
-  const r = parse(["test"], "proca_");
+  const r = parse(["test"]);
   return "test" in r;
 };
 
 const config = (prefix) => {
-  prefix = prefix || "proca_";
   const whitelist = ["comment"];
   return parse(whitelist, prefix);
 };
@@ -117,5 +135,5 @@ const create = (base, path, params) => {
   return url;
 };
 
-export { utm, data, step, config, isTest, create };
+export { utm, data, step, stepUrl, config, isTest, create};
 export default { utm: utm, data: data, config: config };
