@@ -55,6 +55,11 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   if (frequencies.length === 0) {
     return null;
   }
+
+  const labels = {
+    oneoff: t('oneoff', {defaultValue: 'one-off'}),
+    monthly: t('monthly', {defaultValue: 'monthly'}),
+  }
   /* i18next-extract-disable-next-line */
   return (
     <Grid container spacing={1} className={classes.formContainers}>
@@ -65,7 +70,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
             selected={selected}
             setFrequency={setFrequency}
           >
-            {t(f.toUpperCase())}
+            {labels[f].toUpperCase()}
           </FrequencyButton>
         </Grid>
       ))}

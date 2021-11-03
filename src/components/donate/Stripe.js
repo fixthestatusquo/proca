@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField as LayoutTextField,
@@ -123,12 +123,7 @@ const StripeBankSelect = (props) => {
           }}
         />
 
-        <p dangerouslySetInnerHTML={{
-          __html: t("I declare that I have familiarized myself with the" +
-                    " <a href=\"https://www.przelewy24.pl/regulamin\">regulations</a>" +
-                    " and <a hre=\"https://www.przelewy24.pl/obowiazekinformacyjny\">" +
-                    "information obligation</a> of the Przelewy24 service.")
-                                    }}>
+        <p dangerouslySetInnerHTML={{__html: t("campaign:donation.stripe.p24_legal")}}>
         </p>
       </Grid>
     </Container>
@@ -669,7 +664,7 @@ const PaymentFormWrapper = (props) => {
           defaultValue: "Payment details :",
         })}
       </Typography>
-      <Elements stripe={stripe} options={config?.lang || "auto"}>
+      <Elements stripe={stripe} options={{locale: config?.lang || "auto"}}>
         <PayWithStripe {...props} method={method} form={form} stripe={stripe} />
       </Elements>
     </Container>

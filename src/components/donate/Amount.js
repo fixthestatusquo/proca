@@ -95,7 +95,7 @@ const DonateAmount = (props) => {
             )}
             <Typography variant="h6" paragraph gutterBottom color="textPrimary">
               {t("campaign:donation.amount.intro", {
-                defaultValue: "Choose an amount :",
+                defaultValue: "Choose an Amount:",
               })}
             </Typography>
 
@@ -104,8 +104,8 @@ const DonateAmount = (props) => {
             <Frequencies setFrequency={frequency => setData("frequency", frequency)} />
 
             <Typography paragraph variant="h6" gutterBottom color="textPrimary">
-              {t("campaign:donation.paymentMethods.intro", {
-                defaultValue: "Checkout :",
+              {t("campaign:donation.payment_methods.intro", {
+                defaultValue: "Checkout:",
               })}
             </Typography>
             {!config.component.donation.external && (

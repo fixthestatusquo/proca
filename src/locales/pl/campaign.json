@@ -1,0 +1,24 @@
+{
+  "description": "opis",
+  "donation": {
+    "amount": {
+      "intro": "Wybierz kwotę:",
+      "other": "Inna"
+    },
+    "frequency": {
+      "intro": "Wpłacasz co miesiąc?"
+    },
+    "intro": "",
+    "payment_methods": {
+      "intro": "Wpłać za pomocą:",
+      "card": "Karta",
+      "bank_transfer": "Przelew online",
+      "sepa": "Zlecenie SEPA"
+    },
+    "stripe": {
+      "intro": "Dane do przelewu",
+      "p24_legal": "Oświadczam, że zapoznałem się z <a href=\"https://www.przelewy24.pl/regulamin\">regulaminem</a> i <a href=\"https://www.przelewy24.pl/obowiazekinformacyjny\">obowiązkiem informacyjnym</a> serwisu Przelewy24."
+    }
+  },
+  "title": "tytuł"
+}

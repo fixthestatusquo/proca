@@ -131,7 +131,7 @@ const Amounts = () => {
             onClick={() => toggleCustomField(true)}
             selected={showCustomField}
           >
-            {t("Other")}
+            {t("campaign:donation.amount.other", {defaultValue: "Other"})}
           </OtherButton>
         </Grid>
       </Grid>

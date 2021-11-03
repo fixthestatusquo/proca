@@ -129,7 +129,7 @@ const Steps = (props) => {
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>{isVeryNarrow ? '' : 'Payment'}</StyledStepLabel>
+          <StyledStepLabel>{isVeryNarrow ? '' : t('Payment')}</StyledStepLabel>
         </Step>
       </Stepper>
     </Box>

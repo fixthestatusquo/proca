@@ -3,6 +3,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { config } from "../actionPage";
 import locales from "locales/common.json"; // locales is an alias to src/locales/{process.widget.lang}
+import localesCampaign from "locales/campaign.json";
 import isoCountries from "i18n-iso-countries";
 import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used locales
 
@@ -15,7 +16,7 @@ export const allCountries = isoCountries.getNames(config.lang.toLowerCase(), {
 
 let resources = {};
 
-resources[config.lang.toLowerCase()] = { common: locales };
+resources[config.lang.toLowerCase()] = { common: locales, campaign: localesCampaign };
 
 i18n
   //  .use(LanguageDetector)
@@ -28,7 +29,7 @@ i18n
     fallbackLng: "en",
     //    debug: true,
     // have a common namespace used around the full app
-    ns: ["common"],
+    ns: ["common", "campaign"],
     defaultNS: "common",
     react: {
       transSupportBasicHtmlNodes: true,
