@@ -235,7 +235,7 @@ const PROCA_FREQUENCIES = {
   yearly: "YEARLY",
 };
 async function addDonateContact(provider, actionPage, data) {
-  delete data.IBAN;
+  delete data.IBAN; // XXX This should be deleted at the caller. SEPA payment?
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;
   data.donation.payload = JSON.stringify(data.donation.payload);
@@ -506,6 +506,20 @@ const errorMessages = (errors) => {
   return errors.map(({ message }) => message).join(", ");
 };
 
+/*
+ * A useful helper to pass data to GQL - For GQL it's a difference if you do not
+ * pass a param or pass a null param. If you intend not to send null params (as optional args),
+ * filter the object with this function, to have them removed. Returns a copy.
+ */
+
+const removeNullValues = (obj) => {
+    if (!obj || typeof obj !== 'object')
+      return obj;
+    return Object.fromEntries(
+      Object.entries(obj).filter(([k,v]) => v !== null)
+    );
+};
+
 export {
   addActionContact,
   addDonateContact,
@@ -517,4 +531,5 @@ export {
   stripeCreatePaymentIntent,
   stripeCreate,
   errorMessages,
+  removeNullValues
 };

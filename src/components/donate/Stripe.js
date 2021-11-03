@@ -26,7 +26,7 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
-import { addDonateContact, stripeCreate } from "../../lib/server.js";
+import { addDonateContact, stripeCreate, removeNullValues } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
 
 import {
@@ -293,6 +293,22 @@ const PaymentForm = (props) => {
   );
 };
 
+const useStripeRedirectParams = () => {
+  const u = new URL(window.location);
+  const p = u.searchParams;
+
+  const status = p.get('redirect_status');
+  const paymentIntentId = p.get('payment_intent');
+  const paymentSecret = p.get('payment_intent_client_secret');
+
+  return {
+    isRedirect: status && paymentIntentId && paymentSecret,
+    status,
+    paymentIntentId,
+    paymentSecret
+  };
+};
+
 const SubmitButton = (props) => {
   const [isSubmitting, setSubmitting] = useState(false);
   const setStripeError = useSetRecoilState(stripeErrorAtom);
@@ -308,23 +324,22 @@ const SubmitButton = (props) => {
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
 
-  const orderComplete = async (paymentIntent, paymentConfirm, form) => {
-    const values = form.getValues();
+  const orderComplete = useCallback(async (paymentIntent, paymentConfirm) => {
+    const values = props.form.getValues();
     const procaRequest = { ...formData, ...values };
 
-    const confirmedIntent = paymentConfirm.paymentIntent;
+    const confirmedIntent = removeNullValues(paymentConfirm.paymentIntent);
+    delete confirmedIntent.client_secret; // Stripe API guide strongly asks for this.
 
     const payload = {
-      paymentConfirm: confirmedIntent,
-      paymentIntent: paymentIntent,
-      formValues: values,
+      paymentIntent: confirmedIntent
     };
     procaRequest.donation = {
       amount: confirmedIntent.amount,
       currency: confirmedIntent.currency.toUpperCase(),
     };
 
-    if (formData.frequency !== "oneoff") {
+    if (formData.frequency !== "oneoff" && paymentIntent) {
       const intentResponse = paymentIntent.response;
       const subscriptionPlan = intentResponse.items.data[0].plan;
 
@@ -342,7 +357,7 @@ const SubmitButton = (props) => {
       "stripe",
       config.actionPage,
       procaRequest
-    );
+   );
 
     if (procaResponse.errors) {
       throw Error("Proca didn't like the request !", procaResponse.errors);
@@ -366,10 +381,10 @@ const SubmitButton = (props) => {
     );
 
     props.done(paymentConfirm);
-  };
+  }, [props, config, currency, formData]);
 
 
-  const onSubmitButtonClick = async (event, _) => {
+  const onSubmitButtonClick = useCallback(async (event, _) => {
 
     event.preventDefault();
 
@@ -496,22 +511,52 @@ const SubmitButton = (props) => {
 
     console.debug("stripe confirm card payment response", stripeResponse);
 
-    orderComplete(piResponse, stripeResponse, form);
+    // for p24 order is completed after the redirect
+    if (method === 'card') {
+      // XXX await missing here?
+      orderComplete(piResponse, stripeResponse);
+    }
 
     // leave button disabled - we're done!
     return true;
-  };
+  }, [stripe, props,currency, setStripeError, stripeComplete, elements, config, formData, orderComplete, t]);
 
-  const onRedirectFromPayment = () => {
-    return props.done();
-  }
+  /* run when we have returned from Stripe payment */
+  const onRedirectFromPayment = useCallback(async (clientSecret) => {
+    const {paymentIntent, error} = await stripe.retrievePaymentIntent(clientSecret);
 
-  switch ((new URL(window.location)).searchParams.get('redirect_status')) {
-    case 'succeeded':
-      onRedirectFromPayment();
-      break;
-  }
+    if (error) {
+      setStripeError(error);
+    } else {
+      // first argument is used to pass the initial payment intent in case of regular payments
+      // we do not have it here, because we came back from redirect, we only pass the retrieved
+      // paymentIntent, which is equivalent to one returned from confirmCardPayment()
+      return await orderComplete(undefined, {paymentIntent});
+    }
+  }, [stripe, orderComplete, setStripeError]);
 
+  /* Check if we are back from Stripe redirection */
+  const stripeRedirect = useStripeRedirectParams();
+  useEffect(() => {
+    if (stripe && stripeRedirect.isRedirect) {
+      switch (stripeRedirect.status) {
+        case 'succeeded':
+          onRedirectFromPayment(stripeRedirect.paymentSecret);
+          break;
+        case 'failed':
+          if (stripeRedirect.clientSecret) {
+            stripe.retrievePaymentIntent(stripeRedirect.clientSecret).then(x => console.log('failed payment intent', x));
+          }
+          setStripeError({message: t("Failed to make the donation. Try again.")});
+          console.log("ERROR after redirect");
+          break;
+        default:
+      }
+    }
+
+  }, [stripe, stripeRedirect, onRedirectFromPayment, setStripeError, t])
+
+  /* Render button */
   return (
     <Box mt={2}>
       <Button
