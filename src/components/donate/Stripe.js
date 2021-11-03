@@ -10,6 +10,7 @@ import {
   CircularProgress,
   Typography
 } from "@material-ui/core";
+import {stepUrl} from '../../lib/urlparser';
 
 //import TextField from "../TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
@@ -33,6 +34,7 @@ import {
   Elements,
   useElements,
   CardElement,
+  P24BankElement
 } from "@stripe/react-stripe-js";
 import StripeInput from "./StripeInput";
 
@@ -97,6 +99,41 @@ const StripeCard = (props) => {
   );
 };
 
+const StripeBankSelect = (props) => {
+  const layout = useLayout();
+  const stripe = useStripe();
+  const { t } = useTranslation();
+
+  return (
+    <Container component="main" maxWidth="sm">
+      <Grid item xs={12}>
+        <LayoutTextField
+          name="p24"
+          label=""
+          variant={layout.variant}
+          margin={layout.margin}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          InputProps={{
+            inputComponent: StripeInput,
+            inputProps: {
+              component: P24BankElement,
+              stripe: stripe,
+            },
+          }}
+        />
+
+        <p dangerouslySetInnerHTML={{
+          __html: t("I declare that I have familiarized myself with the" +
+                    " <a href=\"https://www.przelewy24.pl/regulamin\">regulations</a>" +
+                    " and <a hre=\"https://www.przelewy24.pl/obowiazekinformacyjny\">" +
+                    "information obligation</a> of the Przelewy24 service.")
+                                    }}>
+        </p>
+      </Grid>
+    </Container>
+  );
+};
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
@@ -271,65 +308,68 @@ const SubmitButton = (props) => {
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
 
-  const onSubmitButtonClick = async (event, _) => {
-    const orderComplete = async (paymentIntent, paymentConfirm) => {
-      const procaRequest = { ...formData, ...values };
+  const orderComplete = async (paymentIntent, paymentConfirm, form) => {
+    const values = form.getValues();
+    const procaRequest = { ...formData, ...values };
 
-      const confirmedIntent = paymentConfirm.paymentIntent;
+    const confirmedIntent = paymentConfirm.paymentIntent;
 
-      const payload = {
-        paymentConfirm: confirmedIntent,
-        paymentIntent: paymentIntent,
-        formValues: values,
-      };
-      procaRequest.donation = {
-        amount: confirmedIntent.amount,
-        currency: confirmedIntent.currency.toUpperCase(),
-      };
-
-      if (formData.frequency !== "oneoff") {
-        const intentResponse = paymentIntent.response;
-        const subscriptionPlan = intentResponse.items.data[0].plan;
-
-        procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
-        payload.subscriptionId = intentResponse.id;
-        payload.subscriptionPlan = subscriptionPlan;
-        payload.customerId = intentResponse.customer;
-      }
-
-      procaRequest.donation.payload = payload;
-
-      if (config.test) payload.test = true;
-
-      const procaResponse = await addDonateContact(
-        "stripe",
-        config.actionPage,
-        procaRequest
-      );
-
-      if (procaResponse.errors) {
-        throw Error("Proca didn't like the request !", procaResponse.errors);
-      }
-
-      // console.log("procaResponse", procaResponse);
-
-      dispatch(
-        "donate:complete",
-        {
-          payment: "stripe",
-          uuid: procaResponse.contactRef,
-          test: !!config.test,
-          firstname: formData.firstname,
-          amount: formData.amount,
-          currency: currency.code,
-          frequency: formData.frequency || "oneoff",
-          country: formData.country,
-        },
-        procaRequest
-      );
-
-      props.done(paymentConfirm);
+    const payload = {
+      paymentConfirm: confirmedIntent,
+      paymentIntent: paymentIntent,
+      formValues: values,
     };
+    procaRequest.donation = {
+      amount: confirmedIntent.amount,
+      currency: confirmedIntent.currency.toUpperCase(),
+    };
+
+    if (formData.frequency !== "oneoff") {
+      const intentResponse = paymentIntent.response;
+      const subscriptionPlan = intentResponse.items.data[0].plan;
+
+      procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
+      payload.subscriptionId = intentResponse.id;
+      payload.subscriptionPlan = subscriptionPlan;
+      payload.customerId = intentResponse.customer;
+    }
+
+    procaRequest.donation.payload = payload;
+
+    if (config.test) payload.test = true;
+
+    const procaResponse = await addDonateContact(
+      "stripe",
+      config.actionPage,
+      procaRequest
+    );
+
+    if (procaResponse.errors) {
+      throw Error("Proca didn't like the request !", procaResponse.errors);
+    }
+
+    // console.log("procaResponse", procaResponse);
+
+    dispatch(
+      "donate:complete",
+      {
+        payment: "stripe",
+        uuid: procaResponse.contactRef,
+        test: !!config.test,
+        firstname: formData.firstname,
+        amount: formData.amount,
+        currency: currency.code,
+        frequency: formData.frequency || "oneoff",
+        country: formData.country,
+      },
+      procaRequest
+    );
+
+    props.done(paymentConfirm);
+  };
+
+
+  const onSubmitButtonClick = async (event, _) => {
 
     event.preventDefault();
 
@@ -337,7 +377,7 @@ const SubmitButton = (props) => {
     btn.disabled = true;
     setSubmitting(true);
 
-    const form = props.form;
+    const {method, form} = props;
     form.trigger();
     if (Object.keys(form.errors).length > 0) {
       btn.disabled = false;
@@ -345,7 +385,8 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    if (!stripeComplete) {
+    // For the card input, we wait until it is changed, and then set the stripeComplete
+    if (method === 'card' && !stripeComplete) {
       setStripeError({ message: t("Please provide your card information.") });
       btn.disabled = false;
       setSubmitting(false);
@@ -362,6 +403,7 @@ const SubmitButton = (props) => {
     }
 
     const cardElement = elements.getElement(CardElement);
+    const p24Element = elements.getElement(P24BankElement);
 
     let params = {
       actionPage: config.actionPage,
@@ -373,6 +415,7 @@ const SubmitButton = (props) => {
         address: { country: formData.country, postal_code: formData.postcode },
       },
       stripe_product_id: config.component.donation.stripe.productId,
+      paymentMethod: method
     };
     if (formData.frequency)
       params.frequency = STRIPE_FREQUENCY[formData.frequency];
@@ -398,20 +441,50 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    const stripeResponse = await stripe.confirmCardPayment(
-      piResponse.client_secret,
-      {
-        payment_method: {
-          card: cardElement,
-          billing_details: {
-            name: values.name,
-            address: { country: values.country, postal_code: values.postcode },
-            email: values.email,
-          },
-        },
-        // expand: {},
-      }
-    );
+    const billing_details = {
+      name: values.name,
+      address: { country: values.country, postal_code: values.postcode },
+      email: values.email,
+    };
+    let stripeResponse;
+
+    switch (method) {
+      case 'card':
+        stripeResponse = await stripe.confirmCardPayment(
+          piResponse.client_secret,
+          {
+            payment_method: {
+              card: cardElement,
+              billing_details: billing_details
+            },
+            // expand: {},
+          }
+        );
+        break;
+      case 'p24':
+        stripeResponse = await stripe.confirmP24Payment(
+          piResponse.client_secret,
+          {
+            payment_method: {
+              p24: p24Element,
+              billing_details: billing_details
+            },
+            payment_method_options: {
+              p24: {
+                tos_shown_and_accepted: true
+              }
+            },
+            return_url: stepUrl('donate/Payment', {
+              paymentMethod: 'stripe/p24',
+              ...formData,
+              ...values
+            })
+          }
+        );
+        break;
+      default:
+        throw new Error(`Stripe: unsupported payment method ${method}`);
+    }
 
     if (stripeResponse.error) {
       console.log("error", stripeResponse);
@@ -423,11 +496,21 @@ const SubmitButton = (props) => {
 
     console.debug("stripe confirm card payment response", stripeResponse);
 
-    orderComplete(piResponse, stripeResponse);
+    orderComplete(piResponse, stripeResponse, form);
 
     // leave button disabled - we're done!
     return true;
   };
+
+  const onRedirectFromPayment = () => {
+    return props.done();
+  }
+
+  switch ((new URL(window.location)).searchParams.get('redirect_status')) {
+    case 'succeeded':
+      onRedirectFromPayment();
+      break;
+  }
 
   return (
     <Box mt={2}>
@@ -472,7 +555,7 @@ const submitButtonStyles = makeStyles((theme) => ({
 
 const PayWithStripe = (props) => {
   // const stripe = useStripe();
-  const form = props.form;
+  const {form, method} = props;
   const classes = submitButtonStyles();
   return (
     <form id="proca-donate">
@@ -480,18 +563,30 @@ const PayWithStripe = (props) => {
         <Grid item xs={12}>
           <PaymentForm stripe={props.stripe} form={form} {...props} />
         </Grid>
-        <Grid item xs={12}>
+        {method === 'card' &&
+         <Grid item xs={12}>
           <StripeCard stripe={props.stripe} />
-        </Grid>
+         </Grid>
+        }
+        {method === 'p24' &&
+         <Grid item xs={12}>
+          <StripeBankSelect stripe={props.stripe} />
+         </Grid>
+        }
         <Grid item xs={12} classes={{ root: classes.submitButton }}>
-          <SubmitButton stripe={props.stripe} form={form} {...props} />
+          <SubmitButton stripe={props.stripe} method={method} form={form} {...props} />
         </Grid>
       </Grid>
     </form>
   );
 };
 
+/*
+ * Props:
+ * method - the selected payment method (default 'card')
+ */
 const PaymentFormWrapper = (props) => {
+  const method = props.method || 'card';
   const config = useCampaignConfig();
 
   const [data] = useData();
@@ -530,7 +625,7 @@ const PaymentFormWrapper = (props) => {
         })}
       </Typography>
       <Elements stripe={stripe} options={config?.lang || "auto"}>
-        <PayWithStripe {...props} form={form} stripe={stripe} />
+        <PayWithStripe {...props} method={method} form={form} stripe={stripe} />
       </Elements>
     </Container>
   );

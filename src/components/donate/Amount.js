@@ -63,7 +63,7 @@ const DonateAmount = (props) => {
   }
 
   const [, setDonateStep] = useDonateStep();
-  const [, setData] = useData();
+  const [{frequency}, setData] = useData();
   const [complete, setComplete] = useState(false);
 
   return (
@@ -101,7 +101,7 @@ const DonateAmount = (props) => {
 
             <Amounts />
 
-            <Frequencies />
+            <Frequencies setFrequency={frequency => setData("frequency", frequency)} />
 
             <Typography paragraph variant="h6" gutterBottom color="textPrimary">
               {t("campaign:donation.paymentMethods.intro", {
@@ -110,9 +110,15 @@ const DonateAmount = (props) => {
             </Typography>
             {!config.component.donation.external && (
               <PaymentMethodButtons
+                frequency={frequency}
                 classes={classes}
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
+                  setDonateStep(1);
+                  props.done();
+                }}
+                onClickStripeP24={() => {
+                  setData("paymentMethod", "stripe/p24");
                   setDonateStep(1);
                   props.done();
                 }}

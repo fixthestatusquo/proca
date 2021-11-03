@@ -34,6 +34,7 @@ export default function Payment(props) {
         <Grid item xs={12}>
           <CardContent>
             {paymentMethod === "stripe" && <Stripe done={done} />}
+            {paymentMethod === "stripe/p24" && <Stripe method="p24" done={done} />}
             {paymentMethod === "sepa" && <Sepa done={done} />}
           </CardContent>
         </Grid>

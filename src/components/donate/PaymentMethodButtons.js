@@ -14,8 +14,7 @@ const useStyles = makeStyles({
   }
 });
 
-
-const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
+const PaymentMethodButtons = ({ onClickStripe, onClickStripeP24, onClickSepa, frequency, ...props }) => {
   const classes = useStyles();
   const [errorFromPaypal, setErrorFromPaypal] = useState();
 
@@ -43,6 +42,19 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             <PaymentIcon /> Card
           </Button>
         </Grid>) : null}
+      {donateConfig.stripe && frequency === "oneoff" ? (
+       <Grid item xs={12}>
+        <Button
+          size="large"
+          fullWidth
+          variant="contained"
+          color="primary"
+          classes={{ root: classes.button }}
+          onClick={onClickStripeP24}
+        >
+          <AccountBalanceIcon /> Bank transfer
+        </Button>
+       </Grid>) : null}
       {donateConfig.sepa ? (
         <Grid item xs={12}>
           <Button

@@ -349,7 +349,7 @@ async function stripeCreateCustomer(actionPageId, contactDetails) {
   return customer;
 }
 
-async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
+async function stripeCreate(params /* pageId, amount, currency, contact, paymentMethod*/) {
   const customer = await stripeCreateCustomer(
     params.actionPage,
     params.contact
@@ -358,6 +358,8 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   const amount = params.amount;
   const currency = params.currency;
   const actionPage = params.actionPage;
+  const paymentMethod = params.paymentMethod;
+
 
   const isSubscription = params.frequency && params.frequency !== "oneoff";
   if (isSubscription) {
@@ -370,14 +372,14 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
         frequency,
         amount,
         currency,
+        paymentMethod
       },
       params
     );
   }
 
   return await stripeCreatePaymentIntent(
-    { actionPage, customer, amount, currency },
-    params
+    { actionPage, customer, amount, currency, paymentMethod }
   );
 }
 
@@ -386,6 +388,7 @@ async function stripeCreatePaymentIntent({
   customer,
   amount,
   currency,
+  paymentMethod
 }) {
   var query = `mutation addStripeObject (
     $actionPageId: Int!,
@@ -404,14 +407,21 @@ async function stripeCreatePaymentIntent({
   }
   `;
 
+  if (!paymentMethod) paymentMethod = 'card'
+
+  const paymentIntent = {
+    amount: amount,
+    currency: currency,
+    customer: customer.id,
+    payment_method_types: [paymentMethod]
+  };
+  if (paymentMethod === 'card') {
+    paymentIntent.setup_future_usage = "off_session";
+  }
+
   const variables = {
     actionPageId: actionPage,
-    paymentIntent: JSON.stringify({
-      amount: amount,
-      currency: currency,
-      setup_future_usage: "off_session",
-      customer: customer.id,
-    }),
+    paymentIntent: JSON.stringify(paymentIntent),
   };
   // console.debug("GraphQL query ", query, variables);
   const response = await graphQL("addStripeObject", query, {
