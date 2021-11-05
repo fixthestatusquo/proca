@@ -13,6 +13,7 @@
   "Donate": "Donate",
   "Donate now!": "Donate now!",
   "Donate {{amount}} {{currency}}": "Donate {{amount}} {{currency}}",
+  "Donation to WeMove Europe": "Donation to WeMove Europe",
   "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too.",
@@ -26,6 +27,7 @@
   "I'm donating {{amount}}": "I'm donating {{amount}}",
   "I'm donating {{amount}} {{currency}}": "I'm donating {{amount}} {{currency}}",
   "I'm donating {{amount}} {{currency}} monthly": "I'm donating {{amount}} {{currency}} monthly",
+  "IBAN": "IBAN",
   "Join": "Join",
   "Last name": "Last name",
   "Legal": "Legal",
@@ -39,9 +41,12 @@
   "Payment Method": "Payment Method",
   "Phone": "Phone",
   "Place of birth": "Place of birth",
-  "Please enter a valid amount greater than 1": {
-    "0 {{currency}}": "0 {{currency}}"
+  "Please enter a valid amount": {
+    " The minimum donation is {{ amount }} {{ currency }}": {
+      "": ""
+    }
   },
+  "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.",
   "Please provide your card information": "Please provide your card information",
   "Postal Code": "Postal Code",
   "Privacy": "Privacy",

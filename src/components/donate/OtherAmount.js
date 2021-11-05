@@ -25,13 +25,14 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
         className={classes.number}
         onChange={(e) => {
           const a = parseFloat(e.target.value);
-          if (a && a > 1.0) {
+          if (a && a >= 1.0) {
             setData("amount", a);
             setOtherAmountError("");
           } else {
             setOtherAmountError(
-              t("Please enter a valid amount greater than 1.0 {{currency}}", {
+              t("Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.", {
                 currency: currency.symbol,
+                amount: 1
               })
             );
           }
