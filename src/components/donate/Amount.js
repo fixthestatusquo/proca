@@ -19,7 +19,7 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import { useForm } from "react-hook-form";
 import useElementWidth from "@hooks/useElementWidth";
 

@@ -13,8 +13,8 @@ import DoneIcon from "@material-ui/icons/Done";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import TextField from "../TextField";
-import ProgressCounter from "../ProgressCounter";
+import TextField from "@components/TextField";
+import ProgressCounter from "@components/ProgressCounter";
 import { addActionContact } from "@lib/server.js";
 import useElementWidth from "@hooks/useElementWidth";
 import { useConfig } from "@hooks/useConfig";
@@ -23,7 +23,7 @@ import useData from "@hooks/useData";
 import uuid from "@lib/uuid.js";
 import domparser from "@lib/domparser";
 import { useInitFromUrl } from "@hooks/useCount";
-import Consent from "../Consent";
+import Consent from "@components/Consent";
 import { url as postcardUrl } from "./Download";
 
 let defaultValues = {

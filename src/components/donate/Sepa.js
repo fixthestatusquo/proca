@@ -8,7 +8,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
@@ -21,7 +21,7 @@ import dispatch from "@lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
-import { NameField } from "../NameField";
+import { NameField } from "@components/NameField";
 
 const useStyles = makeStyles((theme) => ({
   container: {

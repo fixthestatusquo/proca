@@ -11,7 +11,7 @@ import ShareIcon from "@material-ui/icons/Share";
 
 import Email from "./Email";
 import Support from "./Support";
-import Share from "../Share";
+import Share from "@components/Share";
 
 export default function Target(props) {
   const [value, setValue] = React.useState("email");

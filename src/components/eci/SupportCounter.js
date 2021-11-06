@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import ProgressCounter from "../ProgressCounter";
+import ProgressCounter from "@components/ProgressCounter";
 import Support from "./Support";
 import { useCampaignConfig } from "@hooks/useConfig";
 

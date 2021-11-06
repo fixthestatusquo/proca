@@ -1,6 +1,6 @@
 import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
-import CounterI from "../Counter";
+import CounterI from "@components/Counter";
 
 export default function Counter(props) {
   const config = useCampaignConfig();

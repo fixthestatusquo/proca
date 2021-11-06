@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
-import TextField from "../TextField";
-import Country from "../Country"; // the country component is for address, different than the country for nationality
+import TextField from "@components/TextField";
+import Country from "@components/Country"; // the country component is for address, different than the country for nationality
 import { useTranslation } from "react-i18next";
 
 export default function Register(props) {

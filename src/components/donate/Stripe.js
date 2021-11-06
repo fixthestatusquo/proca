@@ -10,7 +10,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-//import TextField from "../TextField";
+//import TextField from "@components/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
 //import { loadStripe } from "@stripe/stripe-js";
@@ -37,10 +37,10 @@ import {
 } from "@stripe/react-stripe-js";
 import StripeInput from "./StripeInput";
 
-import Country from "../Country";
+import Country from "@components/Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
-import { NameField } from "../NameField";
+import { NameField } from "@components/NameField";
 
 const STRIPE_FREQUENCY = {
   monthly: "month",

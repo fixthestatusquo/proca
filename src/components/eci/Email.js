@@ -1,5 +1,5 @@
 import React from "react";
-import Register from "../Register";
+import Register from "@components/Register";
 import { Button } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";

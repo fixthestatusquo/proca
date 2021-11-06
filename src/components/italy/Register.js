@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { formatDate } from "@lib/date";
 
 import { Box, Button, Snackbar } from "@material-ui/core";
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import { ReactComponent as ProcaIcon } from "@images/Proca.svg";
@@ -18,17 +18,17 @@ import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
 import i18n from "@lib/i18n";
-import { useTranslation } from "../eci/hooks/useEciTranslation";
+import { useTranslation } from "@components/eci/hooks/useEciTranslation";
 
 import Consent from "./Consent";
-import EmailConsent from "../Consent";
+import EmailConsent from "@components/Consent";
 import documents from "@data/document_number_formats.json";
 
-//import Country from "../Country";
-import Id from "../eci/Id";
-import Address from "../eci/Address";
-import General from "../eci/General";
-import ProgressCounter from "../ProgressCounter";
+//import Country from "@components/Country";
+import Id from "@components/eci/Id";
+import Address from "@components/eci/Address";
+import General from "@components/eci/General";
+import ProgressCounter from "@components/ProgressCounter";
 
 import { addSupport, errorMessages } from "./lib/server.js";
 //import uuid from "@lib/uuid.js";
