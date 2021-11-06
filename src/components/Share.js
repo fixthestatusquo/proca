@@ -210,7 +210,7 @@ export default function ShareAction(props) {
     function addShare(event) {
       const d = {
         uuid: uuid(),
-        payload: { key: "medium", value: medium },
+        payload: { medium: medium },
         tracking: Url.utm(),
       };
 
