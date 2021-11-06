@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "../hooks/useConfig";
 
-import { allCountries } from "../lib/i18n";
+import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
 import countriesJson from "../data/eu27.json";
 

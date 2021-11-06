@@ -12,7 +12,7 @@ import {
 
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
-import i18next from "../lib/i18n";
+import i18next from "@lib/i18n";
 import _set from "lodash/set";
 
 export let configState = null;

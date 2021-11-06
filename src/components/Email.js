@@ -13,8 +13,8 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../hooks/useConfig";
 import { useForm } from "react-hook-form";
 
-import uuid from "../lib/uuid";
-import { addAction } from "../lib/server";
+import uuid from "@lib/uuid";
+import { addAction } from "@lib/server";
 
 const Component = (props) => {
   const config = useCampaignConfig();

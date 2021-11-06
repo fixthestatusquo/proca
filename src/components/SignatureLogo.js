@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getLatest } from "../lib/server.js";
+import { getLatest } from "@lib/server.js";
 //import {GridList,GridListTile}from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";

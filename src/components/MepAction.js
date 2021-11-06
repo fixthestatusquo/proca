@@ -14,8 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TwitterIcon from "../images/Twitter.js";
 import eugroups from "../data/eugroups.json";
 import { Flag } from "./Country";
-import { addAction } from "../lib/server";
-import uuid from "../lib/uuid";
+import { addAction } from "@lib/server";
+import uuid from "@lib/uuid";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

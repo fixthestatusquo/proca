@@ -13,8 +13,8 @@ import { useTranslation } from "react-i18next";
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import EmailIcon from "@material-ui/icons/Email";
 
-import { addAction } from "../lib/server";
-import uuid from "../lib/uuid";
+import { addAction } from "@lib/server";
+import uuid from "@lib/uuid";
 
 const component = function TwitterAction(profile) {
   const [disabled, disable] = useState(false);

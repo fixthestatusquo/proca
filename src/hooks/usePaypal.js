@@ -1,9 +1,9 @@
 import { useCallback, useLayoutEffect, useState } from "react";
 import PaypalIcon from "../images/Paypal.js";
-import { addAction, addDonateContact } from "../lib/server.js";
+import { addAction, addDonateContact } from "@lib/server.js";
 import { useCampaignConfig } from "../hooks/useConfig";
-import Url from "../lib/urlparser.js";
-import uuid from "../lib/uuid";
+import Url from "@lib/urlparser.js";
+import uuid from "@lib/uuid";
 
 let buttons;
 
@@ -48,7 +48,11 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
   const donationError = (err) => {
     console.log("onError", err);
-    failed({ message: "There was a problem processing your donation. If you'd like to try again, just click the PayPal button again.", error: err });
+    failed({
+      message:
+        "There was a problem processing your donation. If you'd like to try again, just click the PayPal button again.",
+      error: err,
+    });
     addClick("donation_error", {
       source: "paypal",
       amount: amount,
@@ -57,7 +61,10 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
   const donationCancel = (data, actions) => {
     console.log("onCancel", data, actions);
-    failed({ message: "Oops, changed your mind? If you'd like to continue, just click the Paypal button again." });
+    failed({
+      message:
+        "Oops, changed your mind? If you'd like to continue, just click the Paypal button again.",
+    });
     addClick("donation_cancel", {
       source: "paypal",
       amount: amount,

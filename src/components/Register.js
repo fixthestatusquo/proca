@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import useElementWidth from "../hooks/useElementWidth";
-import Url from "../lib/urlparser.js";
+import Url from "@lib/urlparser.js";
 import { useCampaignConfig } from "../hooks/useConfig";
 import useData from "../hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,9 +30,9 @@ import ImplicitConsent from "./ImplicitConsent";
 import Organisation from "./Organisation";
 import Country from "./Country";
 
-import { addActionContact } from "../lib/server.js";
-import dispatch from "../lib/event.js";
-import uuid from "../lib/uuid.js";
+import { addActionContact } from "@lib/server.js";
+import dispatch from "@lib/event.js";
+import uuid from "@lib/uuid.js";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
