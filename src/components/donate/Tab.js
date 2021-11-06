@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 import PaymentIcon from "@material-ui/icons/Payment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import PaypalIcon from "../../images/Paypal.js";
+import PaypalIcon from "@images/Paypal.js";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Stripe from "./Stripe";
