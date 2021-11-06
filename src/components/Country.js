@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useData from "@hooks/useData";
 
-import TextField from "./TextField";
+import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";

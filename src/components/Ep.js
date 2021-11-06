@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import List from "@material-ui/core/List";
-import MepAction from "./MepAction";
-import Dialog from "./Dialog";
-import Country from "./Country";
+import MepAction from "@components/MepAction";
+import Dialog from "@components/Dialog";
+import Country from "@components/Country";
 import useData from "@hooks/useData";
-import Register from "./Register";
+import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";

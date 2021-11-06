@@ -15,7 +15,7 @@ import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Box, Button, Snackbar } from "@material-ui/core";
-import TextField from "./TextField";
+import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
@@ -24,11 +24,11 @@ import DoneIcon from "@material-ui/icons/Done";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Consent, { ConsentProcessing } from "./Consent";
-import ImplicitConsent from "./ImplicitConsent";
+import Consent, { ConsentProcessing } from "@components/Consent";
+import ImplicitConsent from "@components/ImplicitConsent";
 
-import Organisation from "./Organisation";
-import Country from "./Country";
+import Organisation from "@components/Organisation";
+import Country from "@components/Country";
 
 import { addActionContact } from "@lib/server.js";
 import dispatch from "@lib/event.js";

@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import TwitterIcon from "../images/Twitter.js";
 import eugroups from "../data/eugroups.json";
-import { Flag } from "./Country";
+import { Flag } from "@components/Country";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 

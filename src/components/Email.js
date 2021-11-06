@@ -2,13 +2,13 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import List from "@material-ui/core/List";
 
-import EmailAction from "./EmailAction";
-import ProgressCounter from "./ProgressCounter";
+import EmailAction from "@components/EmailAction";
+import ProgressCounter from "@components/ProgressCounter";
 
-import Country from "./Country";
+import Country from "@components/Country";
 import useData from "@hooks/useData";
 import { useIsMobile } from "@hooks/useDevice";
-import Register from "./Register";
+import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";

@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import Alert from "./Alert";
+import Alert from "@components/Alert";
 import useData from "@hooks/useData";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";

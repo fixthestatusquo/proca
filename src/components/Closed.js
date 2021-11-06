@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import Register from "./Register";
-import TTag from "./TTag";
+import Register from "@components/Register";
+import TTag from "@components/TTag";
 
 export default function SignatureForm(props) {
   const { t } = useTranslation();

@@ -1,6 +1,6 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
-import ProcaStyle from "./ProcaStyle.js";
+import ProcaStyle from "@components/ProcaStyle.js";
 import { ConfigProvider } from "@hooks/useConfig";
 
 export default function Container(props) {
