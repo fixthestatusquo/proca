@@ -9,7 +9,7 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
-import dispatch from "../../lib/event";
+import dispatch from "@lib/event";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({

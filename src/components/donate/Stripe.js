@@ -24,8 +24,8 @@ import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";
-import { addDonateContact, stripeCreate } from "../../lib/server.js";
-import dispatch from "../../lib/event.js";
+import { addDonateContact, stripeCreate } from "@lib/server.js";
+import dispatch from "@lib/event.js";
 import ChangeAmount from "./ChangeAmount";
 import PaymentBox from "./PaymentBox";
 

@@ -17,7 +17,7 @@ import Sepa from "./Sepa";
 import Paypal from "./Paypal";
 import { useCampaignConfig } from "../../hooks/useConfig.js";
 import useData from "../../hooks/useData.js";
-import { create as createURL } from "../../lib/urlparser.js";
+import { create as createURL } from "@lib/urlparser.js";
 
 const useStyles = makeStyles((theme) => ({
   tabRoot: {
