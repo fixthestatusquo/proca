@@ -22,7 +22,7 @@ import { useTranslation } from "../eci/hooks/useEciTranslation";
 
 import Consent from "./Consent";
 import EmailConsent from "../Consent";
-import documents from "../../data/document_number_formats.json";
+import documents from "@data/document_number_formats.json";
 
 //import Country from "../Country";
 import Id from "../eci/Id";

@@ -10,7 +10,7 @@ import SendIcon from "@material-ui/icons/Send";
 import { useTranslation, countries } from "./hooks/useEciTranslation";
 import { useForm } from "react-hook-form";
 
-import documents from "../../data/document_number_formats.json";
+import documents from "@data/document_number_formats.json";
 import { addSupport, errorMessages } from "@lib/eci/server.js";
 
 import Country from "./Country";
