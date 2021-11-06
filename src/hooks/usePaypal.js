@@ -1,7 +1,7 @@
 import { useCallback, useLayoutEffect, useState } from "react";
 import PaypalIcon from "../images/Paypal.js";
 import { addAction, addDonateContact } from "@lib/server.js";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import Url from "@lib/urlparser.js";
 import uuid from "@lib/uuid";
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import { TextField as LayoutTextField } from "@material-ui/core";
-import { useLayout } from "../hooks/useLayout";
-import useData from "../hooks/useData";
+import { useLayout } from "@hooks/useLayout";
+import useData from "@hooks/useData";
 
 export const NameField = ({ name, label, form, classes, autoComplete }) => {
   const layout = useLayout();

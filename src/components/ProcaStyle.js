@@ -8,7 +8,7 @@ import {
 import { makeStyles, createStyles } from "@material-ui/core";
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
 //import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
-import { useLayout } from "../hooks/useLayout";
+import { useLayout } from "@hooks/useLayout";
 
 const generateClassName = createGenerateClassName({
   disableGlobal: false,

@@ -3,10 +3,10 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 import TwitterList from "./TwitterList";
 import Dialog from "./Dialog";
 import Country from "./Country";
-import useData from "../hooks/useData";
+import useData from "@hooks/useData";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 
 const Component = (props) => {

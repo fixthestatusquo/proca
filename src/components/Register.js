@@ -8,10 +8,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import useElementWidth from "../hooks/useElementWidth";
+import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
-import { useCampaignConfig } from "../hooks/useConfig";
-import useData from "../hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Box, Button, Snackbar } from "@material-ui/core";

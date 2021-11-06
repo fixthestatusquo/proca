@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useCampaignConfig } from "../hooks/useConfig";
-import useData from "../hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 
 const LoaderAsync = (props) => {
   const config = useCampaignConfig();

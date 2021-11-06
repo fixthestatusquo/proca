@@ -3,74 +3,81 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 import MepAction from "./MepAction";
 import Dialog from "./Dialog";
 import Country from "./Country";
-import useData from "../hooks/useData";
+import useData from "@hooks/useData";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
-import {useCampaignConfig} from "../hooks/useConfig";
-import {useForm} from "react-hook-form";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { useForm } from "react-hook-form";
 
-const Component = props => {
+const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
-  const [data,] = useData();
+  const [data] = useData();
 
-//  const [filter, setFilter] = useState({country:null});
+  //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [dialog, viewDialog] = useState(false);
   const { t } = useTranslation();
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: data
+    defaultValues: data,
   });
-  const {watch}=form;
-  const country=watch("country");
+  const { watch } = form;
+  const country = watch("country");
 
   useEffect(() => {
-    const fetchData = async url => {
+    const fetchData = async (url) => {
       await fetch(url)
-        .then(res => {
+        .then((res) => {
           if (!res.ok) throw res.error();
           return res.json();
         })
-        .then(d => {
-          if (config.hook && typeof config.hook["twitter:load"] === "function") {
+        .then((d) => {
+          if (
+            config.hook &&
+            typeof config.hook["twitter:load"] === "function"
+          ) {
             config.hook["twitter:load"](d);
           }
           setAllProfiles(d);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     };
-    if (config.component?.twitter?.listUrl) 
+    if (config.component?.twitter?.listUrl)
       fetchData(config.component.twitter.listUrl);
   }, [config.component, config.hook, setAllProfiles]);
 
-  const filterProfiles = useCallback ( country => {
+  const filterProfiles = useCallback(
+    (country) => {
       //       setProfiles(allProfiles);
-    if (!country) return;
-    country = country.toLowerCase();
-    const d = allProfiles.filter(d => {
-      return d.country === country || d.country === "" | d.constituency?.country === country;
-    });
-    setProfiles(d);
-  },[allProfiles]);
+      if (!country) return;
+      country = country.toLowerCase();
+      const d = allProfiles.filter((d) => {
+        return (
+          d.country === country ||
+          (d.country === "") | (d.constituency?.country === country)
+        );
+      });
+      setProfiles(d);
+    },
+    [allProfiles]
+  );
 
   useEffect(() => {
-//    setFilter({country:config.country});
+    //    setFilter({country:config.country});
     filterProfiles(country);
-/*    if (typeof config.hook["twitter:load"] === "function") {
+    /*    if (typeof config.hook["twitter:load"] === "function") {
       let d = allProfiles;
       config.hook["twitter:load"](d);
       setProfiles(d);
     }*/
+  }, [country, filterProfiles]);
 
-  },[country,filterProfiles]);
-
-
-  const handleDone = d => {
-    console.log ("close");
+  const handleDone = (d) => {
+    console.log("close");
     viewDialog(true);
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
@@ -84,18 +91,24 @@ const Component = props => {
       >
         <Register actionPage={props.actionPage} />
       </Dialog>
-      <Country form={form}/>
+      <Country form={form} />
       <List>
-    {profiles.map((d) =>
-      <MepAction key={d.epid} actionPage={actionPage} done={handleDone} actionUrl={actionUrl} actionText={actionText} {...d}></MepAction>
-    )}
-  </List>
-
+        {profiles.map((d) => (
+          <MepAction
+            key={d.epid}
+            actionPage={actionPage}
+            done={handleDone}
+            actionUrl={actionUrl}
+            actionText={actionText}
+            {...d}
+          ></MepAction>
+        ))}
+      </List>
     </Fragment>
   );
 };
 
 Component.defaultProps = {
-  actionText: ".{@} you should check that!"
+  actionText: ".{@} you should check that!",
 };
 export default Component;

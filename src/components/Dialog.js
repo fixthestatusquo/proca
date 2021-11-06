@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //import { Container, Grid } from "@material-ui/core";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 

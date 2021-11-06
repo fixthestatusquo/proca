@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
 import Alert from "./Alert";
-import useData from "../hooks/useData";
+import useData from "@hooks/useData";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { Button } from "@material-ui/core";
@@ -21,9 +21,8 @@ function Component(props) {
       let template = document.querySelector(dom);
       if (template) {
         template.style.display = "none";
-        document.getElementById(
-          "proca-html-root"
-        ).innerHTML = template.innerHTML.replace(/(\{[^}]+\})/g, replacer);
+        document.getElementById("proca-html-root").innerHTML =
+          template.innerHTML.replace(/(\{[^}]+\})/g, replacer);
       } else {
         setError("missing template dom with class " + dom);
       }

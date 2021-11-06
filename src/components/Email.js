@@ -6,11 +6,11 @@ import EmailAction from "./EmailAction";
 import ProgressCounter from "./ProgressCounter";
 
 import Country from "./Country";
-import useData from "../hooks/useData";
-import { useIsMobile } from "../hooks/useDevice";
+import useData from "@hooks/useData";
+import { useIsMobile } from "@hooks/useDevice";
 import Register from "./Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 
 import uuid from "@lib/uuid";

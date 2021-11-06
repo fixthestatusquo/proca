@@ -19,7 +19,7 @@ import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
 import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

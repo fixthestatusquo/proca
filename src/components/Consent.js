@@ -14,7 +14,7 @@ import {
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 import { makeStyles } from "@material-ui/core/styles";
 

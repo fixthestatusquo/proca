@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import ProgressCounter from "./ProgressCounter";
 import Register from "./Register";
 import Closed from "./Closed";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 export default function SignatureForm(props) {
   const { t } = useTranslation();
