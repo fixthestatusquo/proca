@@ -49,7 +49,7 @@
     "@babel/cli": "^7.15.7",
     "@babel/node": "^7.15.8",
     "@babel/plugin-transform-react-jsx": "^7.16.0",
-    "@proca/api": "2.3.4",
+    "@proca/api": "3.0.0",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
     "@testing-library/react": "^12.1.2",
