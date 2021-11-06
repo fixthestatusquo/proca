@@ -26,6 +26,7 @@ module.exports = (webpack) => {
   webpack.resolve.alias["@lib"] = path.resolve(__dirname, "../src/lib/");
   webpack.resolve.alias["@hooks"] = path.resolve(__dirname, "../src/hooks/");
   webpack.resolve.alias["@images"] = path.resolve(__dirname, "../src/images/");
+  webpack.resolve.alias["@data"] = path.resolve(__dirname, "../src/data/");
   const countryList = "i18n-iso-countries/langs/" + lang + ".json";
 
   if (fs.existsSync("./node_modules/" + countryList)) {
