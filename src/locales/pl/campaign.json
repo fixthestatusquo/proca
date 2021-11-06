@@ -17,6 +17,7 @@
     },
     "stripe": {
       "intro": "Dane do przelewu",
+      "submit": "Wpłacam {{amount}}{{currency.symbol}} {{frequency}}",
       "p24_legal": "Oświadczam, że zapoznałem się z <a href=\"https://www.przelewy24.pl/regulamin\">regulaminem</a> i <a href=\"https://www.przelewy24.pl/obowiazekinformacyjny\">obowiązkiem informacyjnym</a> serwisu Przelewy24."
     }
   },

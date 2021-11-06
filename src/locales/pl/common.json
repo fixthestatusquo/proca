@@ -93,6 +93,7 @@
     "monthly": "co miesiąc",
     "oneoff": "jeden raz",
     "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Przekazuję {{amount}} {{ currency.symbol }} {{frequency}}",
+    "a oneoff": "jeden raz",
     "a weekly": "co tydzień",
     "a monthly": "co miesiąc",
     "I'm donating {{amount}} {{currency}} monthly": "Przekazuję {{amount}} {{currency}} miesięcznie",
