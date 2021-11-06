@@ -16,13 +16,13 @@ import { useTranslation } from "react-i18next";
 import TextField from "../TextField";
 import ProgressCounter from "../ProgressCounter";
 import { addActionContact } from "@lib/server.js";
-import useElementWidth from "../../hooks/useElementWidth";
-import { useConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import useElementWidth from "@hooks/useElementWidth";
+import { useConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 
 import uuid from "@lib/uuid.js";
 import domparser from "@lib/domparser";
-import { useInitFromUrl } from "../../hooks/useCount";
+import { useInitFromUrl } from "@hooks/useCount";
 import Consent from "../Consent";
 import { url as postcardUrl } from "./Download";
 

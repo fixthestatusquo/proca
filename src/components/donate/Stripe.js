@@ -16,11 +16,11 @@ import {
 //import { loadStripe } from "@stripe/stripe-js";
 import useScript from "react-script-hook";
 
-import { useLayout } from "../../hooks/useLayout";
+import { useLayout } from "@hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
-import useElementWidth from "../../hooks/useElementWidth";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import useElementWidth from "@hooks/useElementWidth";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { useTranslation } from "react-i18next";
 //import SendIcon from "@material-ui/icons/Send";
 import LockIcon from "@material-ui/icons/Lock";

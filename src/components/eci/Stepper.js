@@ -8,9 +8,9 @@ import Email from "./Email";
 import Support from "./Support";
 import Share from "../Share";
 import Alert from "../Alert";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "./hooks/useEciTranslation";
-import { useIsMobile } from "../../hooks/useLayout";
+import { useIsMobile } from "@hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
 
 import ProgressCounter from "../ProgressCounter";

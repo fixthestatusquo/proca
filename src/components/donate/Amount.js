@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -21,7 +21,7 @@ import {
 } from "@material-ui/core";
 import TextField from "../TextField";
 import { useForm } from "react-hook-form";
-import useElementWidth from "../../hooks/useElementWidth";
+import useElementWidth from "@hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
@@ -190,7 +190,6 @@ const DonateAmount = (props) => {
                 ))}
                 <Grid xs={6} md={3} key="other" item>
                   <OtherButton
-
                     onClick={() => toggleCustomField(true)}
                     selected={showCustomField}
                   >

@@ -19,11 +19,11 @@ import Address from "./Address";
 import Consent from "./Consent";
 import Id from "./Id";
 import Captcha from "./Captcha";
-import useElementWidth from "../../hooks/useElementWidth";
-import useData from "../../hooks/useData";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import useElementWidth from "@hooks/useElementWidth";
+import useData from "@hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
-import useCount from "../../hooks/useCount";
+import useCount from "@hooks/useCount";
 
 import { makeStyles } from "@material-ui/core/styles";
 
