@@ -271,65 +271,68 @@ const SubmitButton = (props) => {
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
 
-  const onSubmitButtonClick = async (event, _) => {
-    const orderComplete = async (paymentIntent, paymentConfirm) => {
-      const procaRequest = { ...formData, ...values };
+  const orderComplete = async (paymentIntent, paymentConfirm) => {
+    const values = props.form.getValues();
+    const procaRequest = { ...formData, ...values };
 
-      const confirmedIntent = paymentConfirm.paymentIntent;
+    const confirmedIntent = paymentConfirm.paymentIntent;
 
-      const payload = {
-        paymentConfirm: confirmedIntent,
-        paymentIntent: paymentIntent,
-        formValues: values,
-      };
-      procaRequest.donation = {
-        amount: confirmedIntent.amount,
-        currency: confirmedIntent.currency.toUpperCase(),
-      };
-
-      if (formData.frequency !== "oneoff") {
-        const intentResponse = paymentIntent.response;
-        const subscriptionPlan = intentResponse.items.data[0].plan;
-
-        procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
-        payload.subscriptionId = intentResponse.id;
-        payload.subscriptionPlan = subscriptionPlan;
-        payload.customerId = intentResponse.customer;
-      }
-
-      procaRequest.donation.payload = payload;
-
-      if (config.test) payload.test = true;
-
-      const procaResponse = await addDonateContact(
-        "stripe",
-        config.actionPage,
-        procaRequest
-      );
-
-      if (procaResponse.errors) {
-        throw Error("Proca didn't like the request !", procaResponse.errors);
-      }
-
-      // console.log("procaResponse", procaResponse);
-
-      dispatch(
-        "donate:complete",
-        {
-          payment: "stripe",
-          uuid: procaResponse.contactRef,
-          test: !!config.test,
-          firstname: formData.firstname,
-          amount: formData.amount,
-          currency: currency.code,
-          frequency: formData.frequency || "oneoff",
-          country: formData.country,
-        },
-        procaRequest
-      );
-
-      props.done(paymentConfirm);
+    const payload = {
+      paymentConfirm: confirmedIntent,
+      paymentIntent: paymentIntent,
+      formValues: values,
     };
+    procaRequest.donation = {
+      amount: confirmedIntent.amount,
+      currency: confirmedIntent.currency.toUpperCase(),
+    };
+
+    if (formData.frequency !== "oneoff") {
+      const intentResponse = paymentIntent.response;
+      const subscriptionPlan = intentResponse.items.data[0].plan;
+
+      procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
+      payload.subscriptionId = intentResponse.id;
+      payload.subscriptionPlan = subscriptionPlan;
+      payload.customerId = intentResponse.customer;
+    }
+
+    procaRequest.donation.payload = payload;
+
+    if (config.test) payload.test = true;
+
+    const procaResponse = await addDonateContact(
+      "stripe",
+      config.actionPage,
+      procaRequest
+    );
+
+    if (procaResponse.errors) {
+      throw Error("Proca didn't like the request !", procaResponse.errors);
+    }
+
+    // console.log("procaResponse", procaResponse);
+
+    dispatch(
+      "donate:complete",
+      {
+        payment: "stripe",
+        uuid: procaResponse.contactRef,
+        test: !!config.test,
+        firstname: formData.firstname,
+        amount: formData.amount,
+        currency: currency.code,
+        frequency: formData.frequency || "oneoff",
+        country: formData.country,
+      },
+      procaRequest
+    );
+
+    props.done(paymentConfirm);
+  };
+
+  const onSubmitButtonClick = async (event, _) => {
+    ;
 
     event.preventDefault();
 
