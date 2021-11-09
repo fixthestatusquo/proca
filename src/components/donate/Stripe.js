@@ -63,6 +63,7 @@ const stripeCompleteAtom = atom({
 // const onError = (errors, e) => console.log(errors, e);
 
 const CustomCardElement = (props) => {
+  // XXX pass props.setComplete from parent
   const setComplete = useSetRecoilState(stripeCompleteAtom);
   return (
     <CardElement
@@ -304,11 +305,19 @@ const useStripeRedirectParams = () => {
   };
 };
 
+/*
+ * Refactor plan:
+ * - we want SubmitButton to be smaller
+ * - I have already wrapped callbacks in useCallback - and listed the deps there
+ *
+ */
+
 const SubmitButton = (props) => {
   const [isSubmitting, setSubmitting] = useState(false);
   const setStripeError = useSetRecoilState(stripeErrorAtom);
+  // XXX make a prop
   const stripeComplete = useRecoilValue(stripeCompleteAtom);
-  const stripe = useStripe();
+  const stripe = useStripe(); // global stripe state
 
   const [formData] = useData();
 
@@ -533,17 +542,18 @@ const SubmitButton = (props) => {
   /* Check if we are back from Stripe redirection */
   const stripeRedirect = useStripeRedirectParams();
   useEffect(() => {
-    if (stripe && stripeRedirect.isRedirect) {
+    if (stripe && stripeRedirect.isRedirect && stripeRedirect.paymentSecret) {
       switch (stripeRedirect.status) {
         case 'succeeded':
           onRedirectFromPayment(stripeRedirect.paymentSecret);
           break;
         case 'failed':
-          if (stripeRedirect.clientSecret) {
-            stripe.retrievePaymentIntent(stripeRedirect.clientSecret).then(x => console.log('failed payment intent', x));
-          }
+          stripe.retrievePaymentIntent(stripeRedirect.paymentSecret).then(x => console.log('failed payment intent', x));
           setStripeError({message: t("Failed to make the donation. Try again.")});
           console.log("ERROR after redirect");
+          break;
+        case 'pending':
+          stripe.retrievePaymentIntent(stripeRedirect.paymentSecret).then(x => console.log('pending payment', x));
           break;
         default:
       }
@@ -574,7 +584,7 @@ const SubmitButton = (props) => {
         {isSubmitting ? (
           <CircularProgress color="inherit" />
         ) : (
-          t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
+          t("campaign:donation.stripe.submit", {
             amount: formData.amount,
             currency: currency,
             frequency: t(
@@ -594,6 +604,7 @@ const submitButtonStyles = makeStyles((theme) => ({
 }));
 
 const PayWithStripe = (props) => {
+  // XXX add a state for if stripe data is colleted
   // const stripe = useStripe();
   const {form, method} = props;
   const classes = submitButtonStyles();
