@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Jag donerar {{amount}} {{currency}}",
     "Choose an Amount": "Välj ett belopp",
     "Please provide your card information": "Ange dina kortuppgifter",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Vi kan inte hantera din donation för tillfället. Försök igen om några minuter."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Vi kan inte hantera din donation för tillfället. Försök igen om några minuter.",
+    "Card": "Kort",
+    "Donate now!": "Donera nu!",
+    "Donation to WeMove Europe": "Donation till WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Betalningsmetod",
+    "SEPA Bank Transfer": "SEPA-banköverföring",
+    "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
+    "Thank you for your donation!": "Tack för din donation!",
+    "a yearly": "varje år",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
