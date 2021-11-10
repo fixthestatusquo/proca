@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardContent, Container, Grid, Typography } from "@material-ui/core";
 
-import useElementWidth from "../../hooks/useElementWidth";
+import useElementWidth from "@hooks/useElementWidth";
 
 import { useTranslation } from "react-i18next";
 import DonateTitle from "./DonateTitle";
