@@ -91,5 +91,18 @@
     "Birthdate": "Ranar haifuwa",
     "Amount": "Adadi",
     "Address": "Adireshin",
-    "Account": "Asusu"
+    "Account": "Asusu",
+    "a monthly": "kowane wata",
+    "a weekly": "kowane mako",
+    "a yearly": "kowace shekara",
+    "Card": "Katin",
+    "Donate now!": "Ba da gudummawa yanzu!",
+    "Donation to WeMove Europe": "Kyauta ga WeMove Turai",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Hanyar Biyan Kuɗi",
+    "SEPA Bank Transfer": "Canja wurin Bankin SEPA",
+    "Sign the ECI!": "Sa hannu kan ECI!",
+    "Thank you for your donation!": "Na gode da gudummawar ku!",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
