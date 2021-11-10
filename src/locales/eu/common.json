@@ -95,5 +95,16 @@
     "I'm donating {{amount}} {{currency}}": "{{amount}} {{currency}} ematen ari naiz",
     "Choose an Amount": "Aukeratu zenbatekoa",
     "Please provide your card information": "Mesedez, eman txartelaren informazioa",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Une honetan ezin izan dugu zure dohaintza kudeatu. Saiatu berriro minutu batzuk barru."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Une honetan ezin izan dugu zure dohaintza kudeatu. Saiatu berriro minutu batzuk barru.",
+    "Card": "Txartela",
+    "Donate now!": "Eman orain dohaintza!",
+    "Donation to WeMove Europe": "Dohaintza WeMove Europe-ri",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Ordainketa modua",
+    "SEPA Bank Transfer": "SEPA Banku Transferentzia",
+    "Sign the ECI!": "Sinatu ECI!",
+    "Thank you for your donation!": "Eskerrik asko zure dohaintzagatik!",
+    "a yearly": "urtero",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
