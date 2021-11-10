@@ -96,5 +96,16 @@
     "I'm donating {{amount}} {{currency}}": "Aš aukoju {{amount}} {{currency}}",
     "Choose an Amount": "Pasirinkite sumą",
     "Please provide your card information": "Pateikite savo kortelės informaciją",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Šiuo metu negalime tvarkyti jūsų aukos. Prašome pabandyti dar kartą po kelių minučių."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Šiuo metu negalime tvarkyti jūsų aukos. Prašome pabandyti dar kartą po kelių minučių.",
+    "Card": "Kortelė",
+    "Donate now!": "Paaukokite dabar!",
+    "Donation to WeMove Europe": "Aukojimas organizacijai \"WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "\"PayPal\"",
+    "Payment Method": "Mokėjimo būdas",
+    "SEPA Bank Transfer": "SEPA banko pervedimas",
+    "Sign the ECI!": "Pasirašykite ECI!",
+    "Thank you for your donation!": "Dėkojame už jūsų auką!",
+    "a yearly": "kiekvienais metais",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
