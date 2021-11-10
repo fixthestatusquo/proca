@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Δωρίζω {{amount}} {{currency}}",
     "Choose an Amount": "Επιλέξτε ένα ποσό",
     "Please provide your card information": "Παρακαλούμε δώστε τα στοιχεία της κάρτας σας",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Δεν μπορούμε να διαχειριστούμε τη δωρεά σας αυτή τη στιγμή. Παρακαλώ προσπαθήστε ξανά σε λίγα λεπτά."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Δεν μπορούμε να διαχειριστούμε τη δωρεά σας αυτή τη στιγμή. Παρακαλώ προσπαθήστε ξανά σε λίγα λεπτά.",
+    "Card": "Κάρτα",
+    "Donate now!": "Δωρίστε τώρα!",
+    "Donation to WeMove Europe": "Δωρεά στο WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Μέθοδος πληρωμής",
+    "SEPA Bank Transfer": "Τραπεζικό έμβασμα SEPA",
+    "Sign the ECI!": "Υπογράψτε το ECI!",
+    "Thank you for your donation!": "Σας ευχαριστούμε για τη δωρεά σας!",
+    "a yearly": "κάθε χρόνο",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
