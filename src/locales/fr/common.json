@@ -101,5 +101,16 @@
     "I'm donating {{amount}} {{currency}} monthly": "Je fais un don mensuel de {{amount}} {{currency}}",
     "I'm donating {{amount}} {{currency}}": "Je fais un don de {{amount}} {{currency}}",
     "Choose an Amount": "Choisissez un montant",
-    "Please provide your card information": "Veuillez fournir les informations relatives à votre carte"
+    "Please provide your card information": "Veuillez fournir les informations relatives à votre carte",
+    "Card": "Carte",
+    "Donate now!": "Faites un don maintenant !",
+    "Donation to WeMove Europe": "Donation à WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Mode de paiement",
+    "SEPA Bank Transfer": "Virement bancaire SEPA",
+    "Sign the ECI!": "Signez l'ICE !",
+    "Thank you for your donation!": "Merci pour votre don !",
+    "a yearly": "chaque année",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
