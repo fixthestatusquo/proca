@@ -100,5 +100,16 @@
     "I'm donating {{amount}} {{currency}}": "Minä lahjoitan {{amount}} {{currency}}{{currency}}",
     "Choose an Amount": "Valitse määrä",
     "Please provide your card information": "Anna kortin tiedot",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Emme pysty käsittelemään lahjoitustasi tällä hetkellä. Yritä uudelleen muutaman minuutin kuluttua."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Emme pysty käsittelemään lahjoitustasi tällä hetkellä. Yritä uudelleen muutaman minuutin kuluttua.",
+    "Card": "Kortti",
+    "Donate now!": "Lahjoita nyt!",
+    "Donation to WeMove Europe": "Lahjoitus WeMove Europelle",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Maksutapa",
+    "SEPA Bank Transfer": "SEPA-pankkisiirto",
+    "Sign the ECI!": "Allekirjoita ECI!",
+    "Thank you for your donation!": "Kiitos lahjoituksestasi!",
+    "a yearly": "vuosittain",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
