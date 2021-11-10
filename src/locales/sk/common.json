@@ -41,11 +41,10 @@
     "Enter a number.": "Zadajte číslo.",
     "This field is required.": "Toto pole je povinné.",
     "progress_0": "{{count}} podpísali. Poďme na {{goal}}",
-        "progress": "{{count}} podpísali. Poďme na {{goal}}",
-    "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
-
     "progress_1": "{{count}} podpísali. Poďme na {{goal}}",
     "progress_2": "{{count}} podpísali. Poďme na {{goal}}",
+    "progress": "{{count}} podpísali. Poďme na {{goal}}",
+    "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
     "Sign": "Odoslať!",
     "share": {
         "email": {
@@ -101,5 +100,16 @@
     "I'm donating {{amount}} {{currency}}": "Darujem {{amount}} {{currency}}",
     "Choose an Amount": "Vyberte si sumu",
     "Please provide your card information": "Uveďte informácie o svojej karte",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Váš dar by sme momentálne nemohli spracovať. Skúste to, prosím, o niekoľko minút znova."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Váš dar by sme momentálne nemohli spracovať. Skúste to, prosím, o niekoľko minút znova.",
+    "Card": "Karta",
+    "Donate now!": "Darujte teraz!",
+    "Donation to WeMove Europe": "Príspevok pre WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Spôsob platby",
+    "SEPA Bank Transfer": "Bankový prevod SEPA",
+    "Sign the ECI!": "Podpíšte ECI!",
+    "Thank you for your donation!": "Ďakujeme vám za váš dar!",
+    "a yearly": "každý rok",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
