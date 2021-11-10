@@ -7,8 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import { useCampaignConfig } from "../hooks/useConfig";
-import useData from "../hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 const Iframe = (props) => {
   const config = useCampaignConfig();
   const [data] = useData();

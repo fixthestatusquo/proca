@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { Box, Grid, FormHelperText } from "@material-ui/core";
 
 import { useTranslation, Trans } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
-import { useLayout } from "../hooks/useLayout";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { useLayout } from "@hooks/useLayout";
 
 import { makeStyles } from "@material-ui/core/styles";
 

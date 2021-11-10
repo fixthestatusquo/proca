@@ -216,6 +216,17 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
     </script>
 
   <script>
+
+      window.addEventListener("proca", d => {
+        if (d.detail.message === "init") {
+console.log ("proca loaded");
+          setTimeout(() => {proca.go(1)}, 1);
+
+        } else {
+          console.log(d.detail.message,d.detail.value);
+        }
+      });
+
     jQuery(function($) {
       $('.columns a').click(function() {
         $('#action_column').removeClass().addClass($(this).data('class'));

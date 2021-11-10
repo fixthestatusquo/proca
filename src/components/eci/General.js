@@ -1,5 +1,5 @@
 import React from "react";
-import { isDate } from "../../lib/date";
+import { isDate } from "@lib/date";
 import { Container, Grid, Typography } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import { useTranslation } from "./hooks/useEciTranslation";
 
 export default function Register(props) {

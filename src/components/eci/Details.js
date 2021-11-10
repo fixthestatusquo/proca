@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 //import ListItemIcon from '@material-ui/core/ListItemIcon';

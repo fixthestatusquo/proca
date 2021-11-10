@@ -2,24 +2,24 @@ import React, { useState } from "react";
 
 import { Container, Grid, Typography } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
-import useElementWidth from "../../hooks/useElementWidth";
-import Url from "../../lib/urlparser.js";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import useElementWidth from "@hooks/useElementWidth";
+import Url from "@lib/urlparser.js";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { addDonateContact, errorMessages } from "../../lib/server.js";
-import dispatch from "../../lib/event.js";
+import { addDonateContact, errorMessages } from "@lib/server.js";
+import dispatch from "@lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
-import { NameField } from "../NameField";
+import { NameField } from "@components/NameField";
 
 const useStyles = makeStyles((theme) => ({
   container: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-//import useConfig from "../hooks/useConfig";
+//import useConfig from "@hooks/useConfig";
 
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,7 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TwitterIcon from "../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
-import TextField from "./TextField";
+import TextField from "@components/TextField";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";

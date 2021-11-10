@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Dialog from "../Dialog";
-import TTag from "../TTag";
+import Dialog from "@components/Dialog";
+import TTag from "@components/TTag";
 import { useTranslation } from "react-i18next";
 
 const EciPopup = (props) => {

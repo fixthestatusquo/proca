@@ -1,22 +1,22 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import ProcaRoot from "./ProcaRoot";
+import ProcaRoot from "@components/ProcaRoot";
 import merge from "lodash.merge";
-import { initConfigState } from "../hooks/useConfig";
-import Url, { step as paramStep } from "../lib/urlparser.js";
-import { getAllData, getOverwriteLocales } from "../lib/domparser";
+import { initConfigState } from "@hooks/useConfig";
+import Url, { step as paramStep } from "@lib/urlparser.js";
+import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
-import { useIsMobile } from "../hooks/useLayout";
-import dispatch from "../lib/event";
+import { useIsMobile } from "@hooks/useLayout";
+import dispatch from "@lib/event";
 
-import { initDataState } from "../hooks/useData";
+import { initDataState } from "@hooks/useData";
 
-import Loader from "./Loader";
+import Loader from "@components/Loader";
 import { steps } from "../actionPage";
-import Button from "./FAB";
-import Dialog from "./Dialog";
-import Alert from "./Alert";
-import TwoColumns from "./TwoColumns";
+import Button from "@components/FAB";
+import Dialog from "@components/Dialog";
+import Alert from "@components/Alert";
+import TwoColumns from "@components/TwoColumns";
 
 let config = {
   data: Url.data(),

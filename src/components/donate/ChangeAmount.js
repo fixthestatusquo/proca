@@ -4,7 +4,7 @@ import { Grid, Button, Box } from "@material-ui/core";
 import BackspaceIcon from "@material-ui/icons/Backspace";
 
 import { useTranslation } from "react-i18next";
-import { goStep } from "../../hooks/useConfig";
+import { goStep } from "@hooks/useConfig";
 export default function ChangeAmount(props) {
   const { t } = useTranslation();
 

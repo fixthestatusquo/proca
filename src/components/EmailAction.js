@@ -6,15 +6,15 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import PropTypes from "prop-types";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import EmailIcon from "@material-ui/icons/Email";
 
-import { addAction } from "../lib/server";
-import uuid from "../lib/uuid";
+import { addAction } from "@lib/server";
+import uuid from "@lib/uuid";
 
 const component = function TwitterAction(profile) {
   const [disabled, disable] = useState(false);

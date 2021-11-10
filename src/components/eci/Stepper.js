@@ -6,14 +6,14 @@ import ShareIcon from "@material-ui/icons/Share";
 
 import Email from "./Email";
 import Support from "./Support";
-import Share from "../Share";
-import Alert from "../Alert";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import Share from "@components/Share";
+import Alert from "@components/Alert";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "./hooks/useEciTranslation";
-import { useIsMobile } from "../../hooks/useLayout";
+import { useIsMobile } from "@hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
 
-import ProgressCounter from "../ProgressCounter";
+import ProgressCounter from "@components/ProgressCounter";
 
 export default function StepperEci(props) {
   const [submitted, setSubmitted] = useState(false);

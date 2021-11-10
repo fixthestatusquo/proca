@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
 import { Grid, Box, Button } from "@material-ui/core";
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import IconButton from "@material-ui/core/IconButton";
 import PlayIcon from "@material-ui/icons/RecordVoiceOver";
@@ -9,8 +9,8 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { makeStyles } from "@material-ui/core/styles";
-import dispatch from "../../lib/event";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import dispatch from "@lib/event";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
   focus: {

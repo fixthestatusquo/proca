@@ -1,7 +1,7 @@
-import i18n from "../../lib/i18n";
-import Url from "../../lib/urlparser";
-import dispatch from "../../lib/event";
-import { formatDate } from "../../lib/date";
+import i18n from "@lib/i18n";
+import Url from "@lib/urlparser";
+import dispatch from "@lib/event";
+import { formatDate } from "@lib/date";
 
 import React, { useState, useEffect } from "react";
 import { Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
@@ -10,8 +10,8 @@ import SendIcon from "@material-ui/icons/Send";
 import { useTranslation, countries } from "./hooks/useEciTranslation";
 import { useForm } from "react-hook-form";
 
-import documents from "../../data/document_number_formats.json";
-import { addSupport, errorMessages } from "../../lib/eci/server.js";
+import documents from "@data/document_number_formats.json";
+import { addSupport, errorMessages } from "@lib/eci/server.js";
 
 import Country from "./Country";
 import General from "./General";
@@ -19,11 +19,11 @@ import Address from "./Address";
 import Consent from "./Consent";
 import Id from "./Id";
 import Captcha from "./Captcha";
-import useElementWidth from "../../hooks/useElementWidth";
-import useData from "../../hooks/useData";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import useElementWidth from "@hooks/useElementWidth";
+import useData from "@hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
-import useCount from "../../hooks/useCount";
+import useCount from "@hooks/useCount";
 
 import { makeStyles } from "@material-ui/core/styles";
 

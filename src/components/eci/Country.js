@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo } from "react";
-import useData from "../../hooks/useData";
+import useData from "@hooks/useData";
 
-import TextField from "../TextField";
+import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 import { Container, Grid } from "@material-ui/core";
-import { addMissingCountries } from "../Country";
+import { addMissingCountries } from "@components/Country";
 
 const emoji = (country) => {
   const offset = 127397;

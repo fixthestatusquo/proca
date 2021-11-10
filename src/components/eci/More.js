@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { useTranslation } from "./hooks/useEciTranslation";
 
-import Dialog from "../Dialog";
+import Dialog from "@components/Dialog";
 import Details from "./Details";
 
 export default function More(props) {

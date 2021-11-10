@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import SaveIcon from "@material-ui/icons/SaveAlt";
 import { useTranslation } from "react-i18next";
-import { useData } from "../../hooks/useData";
+import { useData } from "@hooks/useData";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const url = (data, param) => {

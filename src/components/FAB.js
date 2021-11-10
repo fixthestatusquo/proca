@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Fab, Slide, Badge } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-import useCount from "../hooks/useCount.js";
+import useCount from "@hooks/useCount.js";
 import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles((theme) => ({

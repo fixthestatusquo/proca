@@ -14,12 +14,12 @@ import {
 } from "@material-ui/core";
 
 import metadataparser from "page-metadata-parser";
-import uuid from "../lib/uuid";
-import { addAction } from "../lib/server";
-import Url from "../lib/urlparser";
-import dispatch from "../lib/event";
+import uuid from "@lib/uuid";
+import { addAction } from "@lib/server";
+import Url from "@lib/urlparser";
+import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -210,7 +210,7 @@ export default function ShareAction(props) {
     function addShare(event) {
       const d = {
         uuid: uuid(),
-        payload: { key: "medium", value: medium },
+        payload: { medium: medium },
         tracking: Url.utm(),
       };
 

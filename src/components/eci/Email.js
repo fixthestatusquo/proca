@@ -1,7 +1,7 @@
 import React from "react";
-import Register from "../Register";
+import Register from "@components/Register";
 import { Button } from "@material-ui/core";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import Alert from "@material-ui/lab/Alert";

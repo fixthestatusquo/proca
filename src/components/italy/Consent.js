@@ -8,7 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { useTranslation } from "react-i18next";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
   /* Styles applied to the root element. */
