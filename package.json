@@ -20,12 +20,8 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@stripe/react-stripe-js": "^1.6.0",
-<<<<<<< HEAD
-    "@stripe/stripe-js": "^1.20.3",
-    "@paypal/react-paypal-js": "^7.3.3",
-=======
     "@stripe/stripe-js": "^1.21.1",
->>>>>>> main
+    "@paypal/react-paypal-js": "^7.3.3",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^6.8.0",
     "i18next": "^21.4.0",
