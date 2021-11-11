@@ -131,6 +131,7 @@
         "belowMinimum": "Kérjük, adjon meg egy érvényes összeget. A minimális adomány összege {{ amount }} {{ currency }}",
         "payment": {
             "intro": "Fizetési részletek :"
-        }
+        },
+        "button": "Adományozni {{amount}}{{currency.symbol}} {{frequency}} {{frequency}}"
     }
 }
