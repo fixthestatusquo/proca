@@ -126,6 +126,9 @@
             "sepa": "sepa"
         },
         "thanks": "Na gode da gudummawar ku!",
-        "to": "Kyauta ga {{organisation}}"
+        "to": "Kyauta ga {{organisation}}",
+        "payment": {
+            "intro": "Bayanin biyan kuɗi:"
+        }
     }
 }
