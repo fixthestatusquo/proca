@@ -108,5 +108,28 @@
     "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
     "Thank you for your donation!": "Täname teid annetuse eest!",
     "a yearly": "igal aastal",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Vali summa :"
+        },
+        "belowMinimum": "Palun sisestage kehtiv summa. Minimaalne annetus on {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "iga kuu",
+                "weekly": "igal aastal"
+            },
+            "intro": "Teha seda igakuiselt?",
+            "monthly": "igakuine",
+            "yearly": "igal aastal",
+            "oneoff": "ühekordne"
+        },
+        "paymentMethods": {
+            "card": "kaart",
+            "intro": "Kassasse :",
+            "sepa": "sepa"
+        },
+        "thanks": "Täname teid annetuse eest!",
+        "to": "Annetus {{organisation}}"
+    }
 }
