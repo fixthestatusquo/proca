@@ -131,6 +131,7 @@
         "to": "Donation à {{organisation}}",
         "payment": {
             "intro": "Modalités de paiement :"
-        }
+        },
+        "button": "Faire un don {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }

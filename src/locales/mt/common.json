@@ -132,6 +132,7 @@
         "to": "Donazzjoni lil {{organisation}}",
         "payment": {
             "intro": "Dettalji tal-ħlas:"
-        }
+        },
+        "button": "Agħti donazzjoni {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

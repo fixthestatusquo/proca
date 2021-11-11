@@ -130,6 +130,7 @@
         "to": "التبرع لـ {{organisation}}",
         "payment": {
             "intro": "بيانات الدفع :"
-        }
+        },
+        "button": "تبرع بـ {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }

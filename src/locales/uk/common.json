@@ -129,6 +129,7 @@
         "to": "Пожертвування на {{organisation}}",
         "payment": {
             "intro": "Платіжні реквізити :"
-        }
+        },
+        "button": "Пожертвувати {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

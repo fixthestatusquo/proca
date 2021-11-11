@@ -130,6 +130,7 @@
         "to": "Spende an {{organisation}}",
         "payment": {
             "intro": "Zahlungsbedingungen :"
-        }
+        },
+        "button": "Spenden Sie {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

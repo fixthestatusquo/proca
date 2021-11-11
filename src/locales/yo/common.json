@@ -126,6 +126,7 @@
         "to": "Ẹbun si {{organisation}}",
         "payment": {
             "intro": "Awọn alaye isanwo:"
-        }
+        },
+        "button": "Ṣetọrẹ {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

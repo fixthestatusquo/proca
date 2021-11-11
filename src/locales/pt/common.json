@@ -131,6 +131,7 @@
         "to": "Doação para {{organisation}}",
         "payment": {
             "intro": "Detalhes do pagamento :"
-        }
+        },
+        "button": "Doar {{amount}}{{currency.symbol}} {{frequency}} [X37X"
     }
 }

@@ -130,6 +130,7 @@
         "to": "Donație către {{organisation}}",
         "payment": {
             "intro": "Detalii de plată :"
-        }
+        },
+        "button": "Donează {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }
