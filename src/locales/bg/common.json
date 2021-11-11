@@ -130,6 +130,7 @@
         "to": "Дарение за {{organisation}}",
         "payment": {
             "intro": "Подробности за плащането:"
-        }
+        },
+        "button": "Дарение {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }
