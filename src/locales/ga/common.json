@@ -131,6 +131,9 @@
             "sepa": "sepa"
         },
         "thanks": "Go raibh maith agat as do síntiús!",
-        "to": "Síntiús do {{organisation}}"
+        "to": "Síntiús do {{organisation}}",
+        "payment": {
+            "intro": "Sonraí íocaíochta:"
+        }
     }
 }
