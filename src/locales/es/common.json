@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Estoy donando {{amount}} {{currency}}",
     "Choose an Amount": "Elija un importe",
     "Please provide your card information": "Indique los datos de su tarjeta",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "No hemos podido gestionar su donación en este momento. Por favor, inténtelo de nuevo en unos minutos."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "No hemos podido gestionar su donación en este momento. Por favor, inténtelo de nuevo en unos minutos.",
+    "Card": "Tarjeta",
+    "Donate now!": "¡Done ahora!",
+    "Donation to WeMove Europe": "Donación a WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Forma de pago",
+    "SEPA Bank Transfer": "Transferencia bancaria SEPA",
+    "Sign the ECI!": "¡Firme la ICE!",
+    "Thank you for your donation!": "Gracias por su donación.",
+    "a yearly": "cada año",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }

@@ -98,5 +98,16 @@
     "I'm donating {{amount}} {{currency}}": "Tá mé ag bronnadh {{amount}} {{currency}}",
     "Choose an Amount": "Roghnaigh Méid",
     "Please provide your card information": "Tabhair faisnéis do chárta le do thoil",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Ní raibh muid in ann do síntiús a láimhseáil i láthair na huaire. Bain triail eile as i gceann cúpla nóiméad."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Ní raibh muid in ann do síntiús a láimhseáil i láthair na huaire. Bain triail eile as i gceann cúpla nóiméad.",
+    "Card": "Cárta",
+    "Donate now!": "Deonaigh anois!",
+    "Donation to WeMove Europe": "Deonú do WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Modh íocaíochta",
+    "SEPA Bank Transfer": "Aistriú Bainc SEPA",
+    "Sign the ECI!": "Sínigh an ECI!",
+    "Thank you for your donation!": "Go raibh maith agat as do síntiús!",
+    "a yearly": "gach bliain",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }

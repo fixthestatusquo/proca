@@ -98,5 +98,16 @@
     "I'm donating {{amount}} {{currency}}": "Přispívám {{amount}} {{currency}}",
     "Choose an Amount": "Zvolte částku",
     "Please provide your card information": "Uveďte prosím údaje o své kartě",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "V tuto chvíli bychom váš dar nezvládli. Zkuste to prosím znovu za několik minut."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "V tuto chvíli bychom váš dar nezvládli. Zkuste to prosím znovu za několik minut.",
+    "Card": "Karta",
+    "Donate now!": "Přispějte nyní!",
+    "Donation to WeMove Europe": "Příspěvek pro WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Způsob platby",
+    "SEPA Bank Transfer": "Bankovní převod SEPA",
+    "Sign the ECI!": "Podepište ECI!",
+    "Thank you for your donation!": "Děkujeme vám za váš dar!",
+    "a yearly": "každý rok",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }

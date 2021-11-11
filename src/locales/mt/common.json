@@ -98,5 +98,16 @@
     "I'm donating {{amount}} {{currency}}": "Jien nagħti donazzjoni {{amount}} {{currency}}",
     "Choose an Amount": "Agħżel Ammont",
     "Please provide your card information": "Jekk jogħġbok ipprovdi l-informazzjoni tal-karta tiegħek",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Bħalissa ma stajniex nittrattaw id-donazzjoni tiegħek. Jekk jogħġbok erġa 'pprova fi ftit minuti."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Bħalissa ma stajniex nittrattaw id-donazzjoni tiegħek. Jekk jogħġbok erġa 'pprova fi ftit minuti.",
+    "Card": "Card",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "Donate now!": "Agħti donazzjoni issa!",
+    "Donation to WeMove Europe": "Donazzjoni lil WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Metodu ta 'pagament",
+    "SEPA Bank Transfer": "Trasferiment Bankarju SEPA",
+    "Sign the ECI!": "Iffirma l-ECI!",
+    "Thank you for your donation!": "Grazzi tad-donazzjoni tiegħek!",
+    "a yearly": "kull sena"
 }

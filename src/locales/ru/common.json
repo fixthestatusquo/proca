@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Я жертвую {{amount}} {{currency}}",
     "Choose an Amount": "Выберите сумму",
     "Please provide your card information": "Пожалуйста, предоставьте информацию о вашей карте",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Мы не можем обработать ваше пожертвование в данный момент. Пожалуйста, повторите попытку через несколько минут."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Мы не можем обработать ваше пожертвование в данный момент. Пожалуйста, повторите попытку через несколько минут.",
+    "Card": "Карта",
+    "PayPal": "PayPal",
+    "Donate now!": "Пожертвуйте сейчас!",
+    "Donation to WeMove Europe": "Пожертвование в пользу WeMove Europe",
+    "IBAN": "IBAN",
+    "Payment Method": "Способ оплаты",
+    "SEPA Bank Transfer": "Банковский перевод SEPA",
+    "Sign the ECI!": "Подпишите ECI!",
+    "Thank you for your donation!": "Спасибо за ваше пожертвование!",
+    "a yearly": "каждый год",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }

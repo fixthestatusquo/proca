@@ -90,5 +90,18 @@
     "Birthdate": "Ojo ibi",
     "Amount": "Iye",
     "Address": "Adirẹsi",
-    "Account": "Iroyin"
+    "Account": "Iroyin",
+    "a monthly": "oṣooṣu",
+    "a weekly": "kọọkan ose",
+    "a yearly": "kọọkan odun",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "Card": "Kaadi",
+    "Donate now!": "Ṣetọrẹ ni bayi!",
+    "Donation to WeMove Europe": "Ẹbun si WeMove Europe",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Eto isanwo",
+    "SEPA Bank Transfer": "SEPA Bank Gbigbe",
+    "Sign the ECI!": "Wọlé ECI!",
+    "Thank you for your donation!": "O ṣeun fun ẹbun rẹ!"
 }
