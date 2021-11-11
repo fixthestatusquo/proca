@@ -73,7 +73,6 @@ const Thanks = (props) => {
   const donateConfig = config.component.donation;
   // const classes = useStyles();
   const [formData] = useData();
-  console.log(config);
   return (
     <Container id="proca-donate">
       <Grid container spacing={1}>
