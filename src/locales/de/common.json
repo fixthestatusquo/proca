@@ -107,5 +107,28 @@
     "Sign the ECI!": "Unterzeichnen Sie die EBI!",
     "Thank you for your donation!": "Vielen Dank für Ihre Spende!",
     "a yearly": "jedes Jahr",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Wählen Sie einen Betrag:"
+        },
+        "belowMinimum": "Bitte geben Sie einen gültigen Betrag ein. Die Mindestspende beträgt {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "jeden Monat",
+                "weekly": "jedes Jahr"
+            },
+            "intro": "Monatlich?",
+            "monthly": "monatlich",
+            "yearly": "Jährlich",
+            "oneoff": "einmalig"
+        },
+        "paymentMethods": {
+            "card": "Karte",
+            "intro": "Zur Kasse gehen:",
+            "sepa": "sepa"
+        },
+        "thanks": "Vielen Dank für Ihre Spende!",
+        "to": "Spende an {{organisation}}"
+    }
 }
