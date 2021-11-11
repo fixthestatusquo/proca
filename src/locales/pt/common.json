@@ -130,6 +130,9 @@
             "sepa": "sepa"
         },
         "thanks": "Obrigado pela sua doação!",
-        "to": "Doação para {{organisation}}"
+        "to": "Doação para {{organisation}}",
+        "payment": {
+            "intro": "Detalhes do pagamento :"
+        }
     }
 }
