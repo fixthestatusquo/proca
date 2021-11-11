@@ -110,5 +110,28 @@
     "Donation to WeMove Europe": "Donacija WeMove Europe",
     "IBAN": "IBAN",
     "a yearly": "svake godine",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Odaberite iznos:"
+        },
+        "belowMinimum": "Unesite valjani iznos. Minimalna donacija je {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "svaki mjesec",
+                "weekly": "svake godine"
+            },
+            "intro": "Neka bude mjesečno?",
+            "monthly": "mjesečno",
+            "yearly": "godišnje",
+            "oneoff": "jednokratno"
+        },
+        "paymentMethods": {
+            "card": "kartica",
+            "intro": "Provjeri :",
+            "sepa": "sepa"
+        },
+        "thanks": "Hvala vam na donaciji!",
+        "to": "Donacija za {{organisation}}"
+    }
 }
