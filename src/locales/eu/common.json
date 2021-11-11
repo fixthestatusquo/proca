@@ -106,5 +106,28 @@
     "Sign the ECI!": "Sinatu ECI!",
     "Thank you for your donation!": "Eskerrik asko zure dohaintzagatik!",
     "a yearly": "urtero",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Aukeratu Zenbateko bat:"
+        },
+        "belowMinimum": "Mesedez, sartu baliozko kopuru bat. Gutxieneko dohaintza {{ amount }} {{ currency }} da",
+        "frequency": {
+            "each": {
+                "monthly": "hilero",
+                "weekly": "urtero"
+            },
+            "intro": "Hilero egin?",
+            "monthly": "hilero",
+            "yearly": "urtero",
+            "oneoff": "bat off"
+        },
+        "paymentMethods": {
+            "card": "txartela",
+            "intro": "Errebisatu :",
+            "sepa": "sepa"
+        },
+        "thanks": "Eskerrik asko zure dohaintzagatik!",
+        "to": "Dohaintza {{organisation}}"
+    }
 }
