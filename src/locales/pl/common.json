@@ -131,6 +131,9 @@
             "sepa": "sepa"
         },
         "thanks": "Dziękujemy za darowiznę!",
-        "to": "Darowizna na rzecz {{organisation}}"
+        "to": "Darowizna na rzecz {{organisation}}",
+        "payment": {
+            "intro": "Szczegóły płatności :"
+        }
     }
 }
