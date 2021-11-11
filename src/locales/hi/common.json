@@ -130,6 +130,9 @@
             "sepa": "सेपा"
         },
         "thanks": "आपके दान के लिए शुक्रिया!",
-        "to": "{{organisation}} को दान"
+        "to": "{{organisation}} को दान",
+        "payment": {
+            "intro": "भुगतान विवरण :"
+        }
     }
 }
