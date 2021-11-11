@@ -134,6 +134,7 @@
         "to": "Lahjoitus {{organisation}}",
         "payment": {
             "intro": "Maksutiedot :"
-        }
+        },
+        "button": "Lahjoita {{amount}}{{currency.symbol}} {{frequency}} {{frequency}}"
     }
 }
