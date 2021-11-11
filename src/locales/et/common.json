@@ -131,6 +131,7 @@
         "to": "Annetus {{organisation}}",
         "payment": {
             "intro": "Maksmise üksikasjad :"
-        }
+        },
+        "button": "Annetada {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }
