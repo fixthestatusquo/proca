@@ -109,5 +109,28 @@
     "Sign the ECI!": "Sínigh an ECI!",
     "Thank you for your donation!": "Go raibh maith agat as do síntiús!",
     "a yearly": "gach bliain",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "frequency": {
+            "intro": "Déan é go míosúil?",
+            "each": {
+                "monthly": "gach mí",
+                "weekly": "gach bliain"
+            },
+            "monthly": "go míosúil",
+            "yearly": "go bliantúil",
+            "oneoff": "aon uaire"
+        },
+        "amount": {
+            "intro": "Roghnaigh Méid:"
+        },
+        "belowMinimum": "Iontráil méid bailí. Is é an síntiús íosta {{ amount }} {{ currency }}",
+        "paymentMethods": {
+            "card": "cárta",
+            "intro": "Seiceáil:",
+            "sepa": "sepa"
+        },
+        "thanks": "Go raibh maith agat as do síntiús!",
+        "to": "Síntiús do {{organisation}}"
+    }
 }
