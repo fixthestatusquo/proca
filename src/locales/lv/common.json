@@ -129,6 +129,9 @@
             "sepa": "sepa"
         },
         "to": "Ziedojums {{organisation}}",
-        "thanks": "Paldies par jūsu ziedojumu!"
+        "thanks": "Paldies par jūsu ziedojumu!",
+        "payment": {
+            "intro": "Informācija par maksājumu :"
+        }
     }
 }
