@@ -104,5 +104,28 @@
     "SEPA Bank Transfer": "Canja wurin Bankin SEPA",
     "Sign the ECI!": "Sa hannu kan ECI!",
     "Thank you for your donation!": "Na gode da gudummawar ku!",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Zaɓi Adadi:"
+        },
+        "belowMinimum": "Da fatan za a shigar da ingantaccen adadin Mafi ƙarancin gudummawa shine {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "kowane wata",
+                "weekly": "kowace shekara"
+            },
+            "intro": "Yi shi kowane wata?",
+            "monthly": "kowane wata",
+            "yearly": "kowace shekara",
+            "oneoff": "kashe daya"
+        },
+        "paymentMethods": {
+            "card": "kati",
+            "intro": "Dubawa:",
+            "sepa": "sepa"
+        },
+        "thanks": "Na gode da gudummawar ku!",
+        "to": "Kyauta ga {{organisation}}"
+    }
 }
