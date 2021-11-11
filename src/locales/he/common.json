@@ -129,6 +129,9 @@
             "sepa": "sepa"
         },
         "thanks": "תודה על תרומתך!",
-        "to": "תרומה ל-{{organisation}}"
+        "to": "תרומה ל-{{organisation}}",
+        "payment": {
+            "intro": "פרטי תשלום :"
+        }
     }
 }
