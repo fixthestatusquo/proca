@@ -6,20 +6,21 @@ import { makeStyles } from "@material-ui/core/styles";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
 import Paypal from "./Paypal";
-import { useCampaignConfig } from "../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   button: {
     "& svg": { marginRight: "0.5em" },
-  }
+  },
 });
-
 
 const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
   const classes = useStyles();
   const [errorFromPaypal, setErrorFromPaypal] = useState();
+  const { t } = useTranslation();
 
-  const config = useCampaignConfig()
+  const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
   return (
@@ -40,9 +41,11 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             classes={{ root: classes.button }}
             onClick={onClickStripe}
           >
-            <PaymentIcon /> Card
+            <PaymentIcon />
+            {t("donation.paymentMethods.card", { defaultvalue: "Card" })}
           </Button>
-        </Grid>) : null}
+        </Grid>
+      ) : null}
       {donateConfig.sepa ? (
         <Grid item xs={12}>
           <Button
@@ -53,9 +56,11 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             color="primary"
             classes={{ root: classes.button }}
           >
-            <AccountBalanceIcon /> SEPA
+            <AccountBalanceIcon />
+            {t("donation.paymentMethods.sepa", { defaultvalue: "SEPA" })}
           </Button>
-        </Grid>) : null}
+        </Grid>
+      ) : null}
       {errorFromPaypal ? (
         <Grid item xs={12}>
           <FormHelperText className={classes.messages} error={true}>
@@ -72,7 +77,8 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             }}
             onComplete={props.onComplete}
           />
-        </Grid>) : null}
+        </Grid>
+      ) : null}
     </Grid>
   );
 };

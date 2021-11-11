@@ -1,9 +1,4 @@
-import {
-  CardContent,
-  Container,
-  Grid,
-  Typography
-} from "@material-ui/core";
+import { CardContent, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
 
 import { useTranslation } from "react-i18next";
@@ -32,8 +27,8 @@ const SEPA = ({ formData }) => {
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
           IBAN.substring(0, 2) +
-          " ............ " +
-          IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
+            " ............ " +
+            IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
       </Grid>
     </>
   );
@@ -74,23 +69,24 @@ const PayPal = (formData) => {
 };
 const Thanks = (props) => {
   const { t } = useTranslation();
-  const donateConfig = useCampaignConfig().component.donation;
+  const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
   // const classes = useStyles();
   const [formData] = useData();
-
+  console.log(config);
   return (
     <Container id="proca-donate">
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <CardContent>
             <Typography variant="h4" gutterBottom color="textPrimary">
-              {t("Thank you for your donation!")}
+              {t("donation.thanks")}
             </Typography>
 
             <Grid container spacing={1} alignContent="flex-start">
               <Grid item xs={12}>
                 <Typography variant="h6">
-                  {t("Donation to WeMove Europe")}
+                  {t("donation.to", { organisation: config.organisation })}
                 </Typography>
               </Grid>
 
@@ -121,7 +117,9 @@ const Thanks = (props) => {
                 {Number(formData.amount).toLocaleString()}{" "}
                 {donateConfig.currency.symbol}{" "}
                 {formData.frequency !== "oneoff"
-                  ? t("a " + formData.frequency)
+                  ? t("donation.frequency.each." + formData.frequency, {
+                      defaultValue: "a " + formData.frequency,
+                    }) /* i18next-extract-disable-line */
                   : ""}
               </Grid>
 

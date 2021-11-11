@@ -5,7 +5,6 @@
   "Birthdate": "Birthdate",
   "Card": "Card",
   "Change amount": "Change amount",
-  "Choose an Amount": "Choose an Amount",
   "Choose your donation amount": "Choose your donation amount",
   "City": "City",
   "Comment": "Comment",
@@ -13,8 +12,6 @@
   "Donate": "Donate",
   "Donate now!": "Donate now!",
   "Donate {{amount}} {{currency}}": "Donate {{amount}} {{currency}}",
-  "Donation to WeMove Europe": "Donation to WeMove Europe",
-  "Donations must be {{amount}} or more": "Donations must be {{amount}}'s or more",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too.",
   "Email": "Email",
@@ -41,7 +38,6 @@
   "Payment Method": "Payment Method",
   "Phone": "Phone",
   "Place of birth": "Place of birth",
-  "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.",
   "Please provide your card information": "Please provide your card information",
   "Postal Code": "Postal Code",
   "Privacy": "Privacy",
@@ -66,9 +62,6 @@
   "This field is required.": "This field is required.",
   "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We couldn't handle your donation at the moment. Please try again in a few minutes.",
   "Your organisation account": "Your organisation account",
-  "a monthly": "each month",
-  "a weekly": "each week",
-  "a yearly": "each year",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "implicit": "Submit this form to receive emails from {{name}}",
@@ -80,6 +73,29 @@
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
   },
   "dialogTitle": "Keep me informed about the campaign",
+  "donation": {
+    "amount": {"intro":"Choose an Amount :"},
+    "belowMinimum": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}",
+    "frequency": {
+      "each": {
+        "monthly": "each month",
+        "oneoff": "",
+        "weekly": "each week",
+        "weekly": "each year"
+      },
+      "intro": "Make it monthly?",
+      "monthly": "monthly",
+      "yearly": "yearly",
+      "oneoff": "one off"
+    },
+    "paymentMethods": {
+      "card": "card",
+      "intro": "Checkout :",
+      "sepa": "sepa"
+    },
+    "thanks": "Thank you for your donation!",
+    "to": "Donation to {{organisation}}"
+  },
   "email": {
     "body": "body",
     "subject": "subject"

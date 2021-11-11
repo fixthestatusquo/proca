@@ -94,7 +94,7 @@ const DonateAmount = (props) => {
               ""
             )}
             <Typography variant="h6" paragraph gutterBottom color="textPrimary">
-              {t("campaign:donation.amount.intro", {
+              {t("donation.amount.intro", {
                 defaultValue: "Choose an amount :",
               })}
             </Typography>
@@ -104,7 +104,7 @@ const DonateAmount = (props) => {
             <Frequencies />
 
             <Typography paragraph variant="h6" gutterBottom color="textPrimary">
-              {t("campaign:donation.paymentMethods.intro", {
+              {t("donation.paymentMethods.intro", {
                 defaultValue: "Checkout :",
               })}
             </Typography>

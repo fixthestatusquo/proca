@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useTranslation } from "react-i18next";
-import { FormHelperText, Grid, InputAdornment } from "@material-ui/core";
+import { InputAdornment } from "@material-ui/core";
 import TextField from "../TextField";
 
 const OtherAmountInput = ({ form, classes, currency, setData }) => {
@@ -10,19 +10,14 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
 
   return (
     <>
-      {otherAmountError ? (
-        <Grid item xs={12}>
-          <FormHelperText error={true}>{otherAmountError}</FormHelperText>
-        </Grid>
-      ) : (
-        ""
-      )}
       <TextField
         form={form}
         type="number"
         label={t("Amount")}
         name="amount"
         className={classes.number}
+        error={!!otherAmountError}
+        helperText={otherAmountError}
         onChange={(e) => {
           const a = parseFloat(e.target.value);
           if (a && a >= 1.0) {
@@ -30,9 +25,9 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
             setOtherAmountError("");
           } else {
             setOtherAmountError(
-              t("Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.", {
+              t("donation.belowMinimum", {
                 currency: currency.symbol,
-                amount: 1
+                amount: 1,
               })
             );
           }

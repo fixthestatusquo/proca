@@ -65,7 +65,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
             selected={selected}
             setFrequency={setFrequency}
           >
-            {t(f.toUpperCase())}
+            {t("donation.frequency." + f.toLowerCase(), { defaultValue: f })}
           </FrequencyButton>
         </Grid>
       ))}
@@ -87,7 +87,7 @@ const Frequencies = (props) => {
     <>
       {" "}
       <Typography variant="h6" paragraph gutterBottom color="textPrimary">
-        {t("campaign:donation.frequency.intro", {
+        {t("donation.frequency.intro", {
           defaultValue: "Make it monthly?",
         })}
       </Typography>
