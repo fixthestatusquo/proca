@@ -129,6 +129,9 @@
             "sepa": "sepa"
         },
         "thanks": "Vă mulțumim pentru donație!",
-        "to": "Donație către {{organisation}}"
+        "to": "Donație către {{organisation}}",
+        "payment": {
+            "intro": "Detalii de plată :"
+        }
     }
 }
