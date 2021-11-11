@@ -130,6 +130,9 @@
             "sepa": "sepa"
         },
         "thanks": "Täname teid annetuse eest!",
-        "to": "Annetus {{organisation}}"
+        "to": "Annetus {{organisation}}",
+        "payment": {
+            "intro": "Maksmise üksikasjad :"
+        }
     }
 }
