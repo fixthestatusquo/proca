@@ -108,5 +108,28 @@
     "Sign the ECI!": "ईसीआई पर हस्ताक्षर करें!",
     "Thank you for your donation!": "आपके दान के लिए शुक्रिया!",
     "a yearly": "हर साल",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "एक राशि चुनें:"
+        },
+        "belowMinimum": "कृपया एक मान्य राशि दर्ज करें। न्यूनतम दान है {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "हर महीने",
+                "weekly": "हर साल"
+            },
+            "intro": "इसे मासिक करें?",
+            "monthly": "महीने के",
+            "yearly": "सालाना",
+            "oneoff": "एक बंद"
+        },
+        "paymentMethods": {
+            "card": "कार्ड",
+            "intro": "चेक आउट :",
+            "sepa": "सेपा"
+        },
+        "thanks": "आपके दान के लिए शुक्रिया!",
+        "to": "{{organisation}} को दान"
+    }
 }
