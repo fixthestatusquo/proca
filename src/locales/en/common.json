@@ -41,11 +41,6 @@
   "Payment Method": "Payment Method",
   "Phone": "Phone",
   "Place of birth": "Place of birth",
-  "Please enter a valid amount": {
-    " The minimum donation is {{ amount }} {{ currency }}": {
-      "": ""
-    }
-  },
   "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.",
   "Please provide your card information": "Please provide your card information",
   "Postal Code": "Postal Code",
