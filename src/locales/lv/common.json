@@ -130,6 +130,7 @@
         "thanks": "Paldies par jūsu ziedojumu!",
         "payment": {
             "intro": "Informācija par maksājumu :"
-        }
+        },
+        "button": "Ziedot {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }
