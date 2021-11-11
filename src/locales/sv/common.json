@@ -108,5 +108,28 @@
     "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
     "Thank you for your donation!": "Tack för din donation!",
     "a yearly": "varje år",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Välj ett belopp :"
+        },
+        "belowMinimum": "Ange ett giltigt belopp. Den minsta donationen är {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "varje månad",
+                "weekly": "varje år"
+            },
+            "intro": "Månadsvis?",
+            "monthly": "månadsvis",
+            "yearly": "årligen",
+            "oneoff": "en gång"
+        },
+        "paymentMethods": {
+            "card": "kort",
+            "intro": "Utcheckning :",
+            "sepa": "sepa"
+        },
+        "thanks": "Tack för din donation!",
+        "to": "Donation till {{organisation}}"
+    }
 }
