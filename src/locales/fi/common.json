@@ -111,5 +111,28 @@
     "Sign the ECI!": "Allekirjoita ECI!",
     "Thank you for your donation!": "Kiitos lahjoituksestasi!",
     "a yearly": "vuosittain",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Valitse määrä :"
+        },
+        "belowMinimum": "Kirjoita kelvollinen summa. Vähimmäislahjoitus on {{ amount }} {{ currency }}.",
+        "frequency": {
+            "each": {
+                "monthly": "joka kuukausi",
+                "weekly": "vuosittain"
+            },
+            "intro": "Kuukausittain?",
+            "monthly": "kuukausittain",
+            "yearly": "vuosittain",
+            "oneoff": "ainutkertainen"
+        },
+        "paymentMethods": {
+            "card": "kortti",
+            "intro": "Kassalle :",
+            "sepa": "sepa"
+        },
+        "thanks": "Kiitos lahjoituksestasi!",
+        "to": "Lahjoitus {{organisation}}"
+    }
 }
