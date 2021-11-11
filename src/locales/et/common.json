@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Ma annetan {{amount}} {{currency}}",
     "Choose an Amount": "Vali summa",
     "Please provide your card information": "Palun esitage oma kaardi andmed",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Me ei saa praegu teie annetusega hakkama. Palun proovige mõne minuti pärast uuesti."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Me ei saa praegu teie annetusega hakkama. Palun proovige mõne minuti pärast uuesti.",
+    "Card": "Kaart",
+    "Donate now!": "Annetage nüüd!",
+    "Donation to WeMove Europe": "Annetus WeMove Europe'ile",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Makseviis",
+    "SEPA Bank Transfer": "SEPA pangaülekanne",
+    "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
+    "Thank you for your donation!": "Täname teid annetuse eest!",
+    "a yearly": "igal aastal",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }

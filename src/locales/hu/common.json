@@ -97,5 +97,16 @@
     "I'm donating {{amount}} {{currency}}": "Adományozok {{amount}} {{currency}}",
     "Choose an Amount": "Válasszon egy összeget",
     "Please provide your card information": "Kérjük, adja meg kártyaadatait",
-    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Jelenleg nem tudjuk kezelni az adományát. Kérjük, néhány perc múlva próbálja meg újra."
+    "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Jelenleg nem tudjuk kezelni az adományát. Kérjük, néhány perc múlva próbálja meg újra.",
+    "SEPA Bank Transfer": "SEPA banki átutalás",
+    "Sign the ECI!": "Írja alá az ECI-t!",
+    "Thank you for your donation!": "Köszönjük adományát!",
+    "a yearly": "minden évben",
+    "Card": "Kártya",
+    "Donate now!": "Adományozzon most!",
+    "Donation to WeMove Europe": "Adományozás a WeMove Europe számára",
+    "IBAN": "IBAN",
+    "PayPal": "PayPal",
+    "Payment Method": "Fizetési mód",
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
 }
