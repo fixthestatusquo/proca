@@ -125,6 +125,9 @@
             "sepa": "sepa"
         },
         "thanks": "O ṣeun fun ẹbun rẹ!",
-        "to": "Ẹbun si {{organisation}}"
+        "to": "Ẹbun si {{organisation}}",
+        "payment": {
+            "intro": "Awọn alaye isanwo:"
+        }
     }
 }
