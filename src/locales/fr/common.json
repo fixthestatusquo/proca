@@ -113,15 +113,17 @@
     "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
     "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Veuillez entrer un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
     "donation": {
+      "button":"Faire un don de {{amount}}{{currency.symbol}} {{frequency}}",
         "frequency": {
             "each": {
+                "oneoff": "",
                 "weekly": "chaque année",
                 "monthly": "chaque mois"
             },
             "intro": "Le rendre mensuel ?",
-            "monthly": "mensuel",
+            "monthly": "tous les mois",
             "yearly": "annuel",
-            "oneoff": "à l'arrêt"
+            "oneoff": "une fois"
         },
         "amount": {
             "intro": "Choisissez un montant :"
@@ -129,7 +131,7 @@
         "belowMinimum": "Veuillez saisir un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
         "paymentMethods": {
             "card": "carte",
-            "intro": "Départ :",
+            "intro": "Modalités de paiement :",
             "sepa": "sepa"
         },
         "thanks": "Merci pour votre don !",

@@ -73,6 +73,7 @@
   },
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
+    "button":"Donate {{amount}}{{currency.symbol}} {{frequency}}",
     "amount": {
       "intro": "Choose an Amount :"
     },

@@ -445,7 +445,8 @@ const SubmitButton = (props) => {
         {isSubmitting ? (
           <CircularProgress color="inherit" />
         ) : (
-          t("Donate {{amount}}{{currency.symbol}} {{frequency}}", {
+          t("donation.button", {
+            defaultValue: "Donate {{amount}}{{currency.symbol}} {{frequency}}",
             amount: formData.amount,
             currency: currency,
             frequency: t("donation.frequency.each." + formData.frequency, {
