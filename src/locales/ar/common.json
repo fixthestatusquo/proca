@@ -129,6 +129,9 @@
             "sepa": "سيبا"
         },
         "thanks": "شكرا لك على تبرعك!",
-        "to": "التبرع لـ {{organisation}}"
+        "to": "التبرع لـ {{organisation}}",
+        "payment": {
+            "intro": "بيانات الدفع :"
+        }
     }
 }
