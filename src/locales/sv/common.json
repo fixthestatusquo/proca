@@ -130,6 +130,9 @@
             "sepa": "sepa"
         },
         "thanks": "Tack för din donation!",
-        "to": "Donation till {{organisation}}"
+        "to": "Donation till {{organisation}}",
+        "payment": {
+            "intro": "Betalningsuppgifter :"
+        }
     }
 }
