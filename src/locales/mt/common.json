@@ -131,6 +131,9 @@
             "sepa": "sepa"
         },
         "thanks": "Grazzi tad-donazzjoni tiegħek!",
-        "to": "Donazzjoni lil {{organisation}}"
+        "to": "Donazzjoni lil {{organisation}}",
+        "payment": {
+            "intro": "Dettalji tal-ħlas:"
+        }
     }
 }
