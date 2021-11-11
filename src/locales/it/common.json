@@ -107,5 +107,28 @@
     "Sign the ECI!": "Firmate l'ECI!",
     "Thank you for your donation!": "Grazie per la vostra donazione!",
     "a yearly": "ogni anno",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Scegliere un importo:"
+        },
+        "belowMinimum": "Si prega di inserire un importo valido. La donazione minima è {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "ogni mese",
+                "weekly": "ogni anno"
+            },
+            "intro": "Farlo mensilmente?",
+            "monthly": "mensile",
+            "yearly": "annuale",
+            "oneoff": "una tantum"
+        },
+        "paymentMethods": {
+            "card": "scheda",
+            "intro": "Cassa :",
+            "sepa": "sepa"
+        },
+        "thanks": "Grazie per la vostra donazione!",
+        "to": "Donazione a {{organisation}}"
+    }
 }
