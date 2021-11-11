@@ -133,6 +133,9 @@
             "oneoff": "engangsydelse"
         },
         "thanks": "Tak for din donation!",
-        "to": "Donation til {{organisation}}"
+        "to": "Donation til {{organisation}}",
+        "payment": {
+            "intro": "Betalingsoplysninger :"
+        }
     }
 }
