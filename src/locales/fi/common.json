@@ -133,6 +133,9 @@
             "sepa": "sepa"
         },
         "thanks": "Kiitos lahjoituksestasi!",
-        "to": "Lahjoitus {{organisation}}"
+        "to": "Lahjoitus {{organisation}}",
+        "payment": {
+            "intro": "Maksutiedot :"
+        }
     }
 }
