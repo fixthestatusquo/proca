@@ -140,6 +140,12 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
 `;
 
   const campaign = await getCampaign(campaignName);
+  console.log(campaign);
+
+  if (!campaign) {
+    throw new Error("campaign not found: " + campaignName);
+  }
+
   const r = await api(
     query,
     {
@@ -150,7 +156,15 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
     },
     "addPage"
   );
+  console.log({
+    name: name,
+    locale: locale,
+    campaignName: campaignName,
+    orgName: campaign.org.name,
+  });
+
   const page = await getPage(name);
+  if (!page) throw new Error("actionpage not found:" + name);
   await pull(page.id);
   console.log("action page " + name + " #" + page.id);
   return page;

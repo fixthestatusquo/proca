@@ -8,7 +8,7 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
-  Typography
+  Typography,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -121,7 +121,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-      "[component.donation.stripe.productId] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -233,20 +233,13 @@ const PaymentForm = (props) => {
             name="country"
             rules={{ required: true }}
             render={({ onChange, value }) => (
-              <Country
-                form={form}
-                required
-                onChange={onChange}
-                value={value}
-              />
+              <Country form={form} required onChange={onChange} value={value} />
             )}
           />
         </Grid>
         {stripeError ? (
           <Grid item xs={12}>
-            <FormHelperText error={true}>
-              {stripeError.message}
-            </FormHelperText>
+            <FormHelperText error={true}>{stripeError.message}</FormHelperText>
           </Grid>
         ) : (
           ""
@@ -332,8 +325,6 @@ const SubmitButton = (props) => {
   };
 
   const onSubmitButtonClick = async (event, _) => {
-    ;
-
     event.preventDefault();
 
     const btn = event.target;
@@ -501,13 +492,12 @@ const PaymentFormWrapper = (props) => {
   const publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-
   const [stripe, loadStripe] = useState(null);
   const [, error] = useScript({
     src: "https://js.stripe.com/v3/",
     onload: () => {
       // the object window.Stripe exists
-      loadStripe(window.Stripe(publishableKey));
+      loadStripe(window.Stripe(publishableKey, { locale: config.lang }));
     },
   });
 
