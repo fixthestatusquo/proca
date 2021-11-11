@@ -132,6 +132,9 @@
             "sepa": "sepa"
         },
         "thanks": "Zahvaljujemo se vam za donacijo!",
-        "to": "Donacija za {{organisation}}"
+        "to": "Donacija za {{organisation}}",
+        "payment": {
+            "intro": "Podrobnosti o plačilu:"
+        }
     }
 }
