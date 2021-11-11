@@ -110,5 +110,31 @@
     "Sign the ECI!": "Podpišite ECI!",
     "Thank you for your donation!": "Zahvaljujemo se vam za donacijo!",
     "a yearly": "vsako leto",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Izberite znesek :"
+        },
+        "belowMinimum": "Vnesite veljavni znesek. Najmanjša donacija je {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "vsak mesec",
+                "weekly": "vsako leto"
+            },
+            "intro": "Naj bo mesečno?",
+            "monthly": "mesečno",
+            "yearly": "letno",
+            "oneoff": "enkratno"
+        },
+        "paymentMethods": {
+            "card": "kartica",
+            "intro": "Izpisovanje :",
+            "sepa": "sepa"
+        },
+        "thanks": "Zahvaljujemo se vam za donacijo!",
+        "to": "Donacija za {{organisation}}",
+        "payment": {
+            "intro": "Podrobnosti o plačilu:"
+        }
+    }
 }

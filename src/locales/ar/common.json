@@ -107,5 +107,31 @@
     "Sign the ECI!": "قم بالتوقيع على ECI!",
     "Thank you for your donation!": "شكرا لك على تبرعك!",
     "a yearly": "كل سنة",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "اختر المبلغ:"
+        },
+        "belowMinimum": "يرجى إدخال مبلغ صالح. الحد الأدنى للتبرع هو {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "كل شهر",
+                "weekly": "كل سنة"
+            },
+            "intro": "جعلها شهريا؟",
+            "monthly": "شهريا",
+            "yearly": "سنوي",
+            "oneoff": "مرة واحدة"
+        },
+        "paymentMethods": {
+            "card": "بطاقة",
+            "intro": "الدفع :",
+            "sepa": "سيبا"
+        },
+        "thanks": "شكرا لك على تبرعك!",
+        "to": "التبرع لـ {{organisation}}",
+        "payment": {
+            "intro": "بيانات الدفع :"
+        }
+    }
 }

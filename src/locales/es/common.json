@@ -108,5 +108,31 @@
     "Sign the ECI!": "¡Firme la ICE!",
     "Thank you for your donation!": "Gracias por su donación.",
     "a yearly": "cada año",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Elija una cantidad :"
+        },
+        "belowMinimum": "Por favor, introduzca una cantidad válida. La donación mínima es de {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "cada mes",
+                "weekly": "cada año"
+            },
+            "intro": "¿Que sea mensual?",
+            "monthly": "mensualmente",
+            "yearly": "anualmente",
+            "oneoff": "una sola vez"
+        },
+        "paymentMethods": {
+            "card": "tarjeta",
+            "intro": "Pago :",
+            "sepa": "sepa"
+        },
+        "thanks": "Gracias por su donación.",
+        "to": "Donación a {{organisation}}",
+        "payment": {
+            "intro": "Datos de pago :"
+        }
+    }
 }

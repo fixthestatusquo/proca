@@ -111,5 +111,31 @@
     "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
     "Thank you for your donation!": "Tak for din donation!",
     "a yearly": "hvert år",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "paymentMethods": {
+            "card": "kort",
+            "intro": "Checkout :",
+            "sepa": "sepa"
+        },
+        "amount": {
+            "intro": "Vælg et beløb :"
+        },
+        "belowMinimum": "Indtast venligst et gyldigt beløb. Minimumsdonationen er {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "hver måned",
+                "weekly": "hvert år"
+            },
+            "intro": "Gør det månedligt?",
+            "monthly": "månedlig",
+            "yearly": "årligt",
+            "oneoff": "engangsydelse"
+        },
+        "thanks": "Tak for din donation!",
+        "to": "Donation til {{organisation}}",
+        "payment": {
+            "intro": "Betalingsoplysninger :"
+        }
+    }
 }

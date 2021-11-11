@@ -108,5 +108,31 @@
     "Sign the ECI!": "Подпишите ECI!",
     "Thank you for your donation!": "Спасибо за ваше пожертвование!",
     "a yearly": "каждый год",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Выберите сумму :"
+        },
+        "belowMinimum": "Пожалуйста, введите действительную сумму. Минимальное пожертвование составляет {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "каждый месяц",
+                "weekly": "каждый год"
+            },
+            "intro": "Сделать его ежемесячным?",
+            "monthly": "ежемесячно",
+            "yearly": "ежегодно",
+            "oneoff": "один раз"
+        },
+        "paymentMethods": {
+            "card": "карта",
+            "intro": "Выезд",
+            "sepa": "sepa"
+        },
+        "thanks": "Спасибо за ваше пожертвование!",
+        "to": "Пожертвование на {{organisation}}",
+        "payment": {
+            "intro": "Платежные реквизиты :"
+        }
+    }
 }

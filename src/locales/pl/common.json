@@ -109,5 +109,31 @@
     "Thank you for your donation!": "Dziękujemy za darowiznę!",
     "a yearly": "każdego roku",
     "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
-    "Payment Method": "Metoda płatności"
+    "Payment Method": "Metoda płatności",
+    "donation": {
+        "amount": {
+            "intro": "Wybierz kwotę :"
+        },
+        "belowMinimum": "Proszę wpisać prawidłową kwotę. Minimalna kwota darowizny wynosi {{ amount }} {{ currency }}.",
+        "frequency": {
+            "each": {
+                "monthly": "każdego miesiąca",
+                "weekly": "każdego roku"
+            },
+            "intro": "Czy to będzie co miesiąc?",
+            "monthly": "miesięcznie",
+            "yearly": "corocznie",
+            "oneoff": "jednorazowo"
+        },
+        "paymentMethods": {
+            "card": "karta",
+            "intro": "Wymeldowanie :",
+            "sepa": "sepa"
+        },
+        "thanks": "Dziękujemy za darowiznę!",
+        "to": "Darowizna na rzecz {{organisation}}",
+        "payment": {
+            "intro": "Szczegóły płatności :"
+        }
+    }
 }

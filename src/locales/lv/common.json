@@ -107,5 +107,31 @@
     "Sign the ECI!": "Parakstiet ECI!",
     "Thank you for your donation!": "Paldies par jūsu ziedojumu!",
     "a yearly": "katru gadu",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Izvēlieties summu :"
+        },
+        "belowMinimum": "Lūdzu, ievadiet derīgu summu. Minimālais ziedojums ir {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "katru mēnesi",
+                "weekly": "katru gadu"
+            },
+            "intro": "Veikt to katru mēnesi?",
+            "monthly": "ikmēneša",
+            "yearly": "gada",
+            "oneoff": "vienreizējs"
+        },
+        "paymentMethods": {
+            "card": "karte",
+            "intro": "Izrakstīšanās :",
+            "sepa": "sepa"
+        },
+        "to": "Ziedojums {{organisation}}",
+        "thanks": "Paldies par jūsu ziedojumu!",
+        "payment": {
+            "intro": "Informācija par maksājumu :"
+        }
+    }
 }

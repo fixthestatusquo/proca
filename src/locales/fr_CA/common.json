@@ -108,5 +108,31 @@
     "SEPA Bank Transfer": "Virement bancaire SEPA",
     "Sign the ECI!": "Signez l'ICE !",
     "Thank you for your donation!": "Merci pour votre don !",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Choisissez un montant :"
+        },
+        "belowMinimum": "Veuillez saisir un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
+        "frequency": {
+            "each": {
+                "monthly": "chaque mois",
+                "weekly": "chaque année"
+            },
+            "intro": "Le rendre mensuel ?",
+            "monthly": "mensuel",
+            "yearly": "annuel",
+            "oneoff": "à l'arrêt"
+        },
+        "paymentMethods": {
+            "card": "carte",
+            "intro": "Départ :",
+            "sepa": "sepa"
+        },
+        "thanks": "Merci pour votre don !",
+        "to": "Donation à {{organisation}}",
+        "payment": {
+            "intro": "Modalités de paiement :"
+        }
+    }
 }

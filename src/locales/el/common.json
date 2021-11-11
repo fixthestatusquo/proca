@@ -108,5 +108,31 @@
     "Sign the ECI!": "Υπογράψτε το ECI!",
     "Thank you for your donation!": "Σας ευχαριστούμε για τη δωρεά σας!",
     "a yearly": "κάθε χρόνο",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "frequency": {
+            "intro": "Να το κάνετε μηνιαίο;",
+            "each": {
+                "monthly": "κάθε μήνα",
+                "weekly": "κάθε χρόνο"
+            },
+            "monthly": "μηνιαία",
+            "yearly": "ετήσια",
+            "oneoff": "εφάπαξ"
+        },
+        "amount": {
+            "intro": "Επιλέξτε ένα ποσό :"
+        },
+        "belowMinimum": "Παρακαλώ εισάγετε ένα έγκυρο ποσό. Το ελάχιστο ποσό δωρεάς είναι {{ amount }} {{ currency }}",
+        "paymentMethods": {
+            "card": "κάρτα",
+            "intro": "Checkout :",
+            "sepa": "sepa"
+        },
+        "thanks": "Σας ευχαριστούμε για τη δωρεά σας!",
+        "to": "Δωρεά στο {{organisation}}",
+        "payment": {
+            "intro": "Λεπτομέρειες πληρωμής :"
+        }
+    }
 }

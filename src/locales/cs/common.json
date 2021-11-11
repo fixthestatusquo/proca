@@ -109,5 +109,31 @@
     "Sign the ECI!": "Podepište ECI!",
     "Thank you for your donation!": "Děkujeme vám za váš dar!",
     "a yearly": "každý rok",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Vyberte si částku :"
+        },
+        "belowMinimum": "Zadejte prosím platnou částku. Minimální výše příspěvku je {{ amount }} {{ currency }}",
+        "frequency": {
+            "monthly": "měsíční",
+            "each": {
+                "monthly": "každý měsíc",
+                "weekly": "každý rok"
+            },
+            "intro": "Měsíčně?",
+            "yearly": "roční",
+            "oneoff": "jednorázově"
+        },
+        "paymentMethods": {
+            "card": "karta",
+            "intro": "Pokladna :",
+            "sepa": "sepa"
+        },
+        "thanks": "Děkujeme vám za váš dar!",
+        "to": "Příspěvek na {{organisation}}",
+        "payment": {
+            "intro": "Platební údaje :"
+        }
+    }
 }

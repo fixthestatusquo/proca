@@ -108,5 +108,31 @@
     "IBAN": "IBAN",
     "PayPal": "PayPal",
     "Payment Method": "Fizetési mód",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "frequency": {
+            "each": {
+                "weekly": "minden évben",
+                "monthly": "minden hónapban"
+            },
+            "intro": "Havi rendszerességgel?",
+            "monthly": "havonta",
+            "yearly": "évente",
+            "oneoff": "egyszeri"
+        },
+        "paymentMethods": {
+            "card": "kártya",
+            "intro": "Pénztár :",
+            "sepa": "sepa"
+        },
+        "thanks": "Köszönjük adományát!",
+        "to": "Adomány a {{organisation}}",
+        "amount": {
+            "intro": "Válasszon egy összeget :"
+        },
+        "belowMinimum": "Kérjük, adjon meg egy érvényes összeget. A minimális adomány összege {{ amount }} {{ currency }}",
+        "payment": {
+            "intro": "Fizetési részletek :"
+        }
+    }
 }

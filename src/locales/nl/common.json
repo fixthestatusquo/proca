@@ -108,5 +108,31 @@
     "Sign the ECI!": "Teken de ECI!",
     "Thank you for your donation!": "Dank u voor uw donatie!",
     "a yearly": "elk jaar",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Kies een bedrag :"
+        },
+        "belowMinimum": "Voer een geldig bedrag in. De minimum donatie is {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "elke maand",
+                "weekly": "elk jaar"
+            },
+            "intro": "Maandelijks?",
+            "monthly": "maandelijks",
+            "yearly": "jaarlijks",
+            "oneoff": "eenmalig"
+        },
+        "paymentMethods": {
+            "card": "kaart",
+            "intro": "Afrekenen:",
+            "sepa": "sepa"
+        },
+        "thanks": "Dank u voor uw donatie!",
+        "to": "Donatie aan {{organisation}}",
+        "payment": {
+            "intro": "Betalingsgegevens:"
+        }
+    }
 }

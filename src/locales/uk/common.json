@@ -106,5 +106,31 @@
     "Sign the ECI!": "Підпишіть ECI!",
     "Thank you for your donation!": "Дякуємо за вашу пожертву!",
     "a yearly": "кожен рік",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Виберіть суму:"
+        },
+        "belowMinimum": "Введіть дійсну суму. Мінімальна пожертва становить {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "кожного місяця",
+                "weekly": "кожен рік"
+            },
+            "intro": "Робити це щомісяця?",
+            "monthly": "щомісячно",
+            "yearly": "щорічно",
+            "oneoff": "один раз"
+        },
+        "paymentMethods": {
+            "card": "картка",
+            "intro": "Перевіряти :",
+            "sepa": "sepa"
+        },
+        "thanks": "Дякуємо за вашу пожертву!",
+        "to": "Пожертвування на {{organisation}}",
+        "payment": {
+            "intro": "Платіжні реквізити :"
+        }
+    }
 }

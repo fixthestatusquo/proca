@@ -109,5 +109,31 @@
     "SEPA Bank Transfer": "Trasferiment Bankarju SEPA",
     "Sign the ECI!": "Iffirma l-ECI!",
     "Thank you for your donation!": "Grazzi tad-donazzjoni tiegħek!",
-    "a yearly": "kull sena"
+    "a yearly": "kull sena",
+    "donation": {
+        "amount": {
+            "intro": "Agħżel Ammont:"
+        },
+        "belowMinimum": "Jekk jogħġbok daħħal ammont validu. Id-donazzjoni minima hija {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "kull xahar",
+                "weekly": "kull sena"
+            },
+            "intro": "Jagħmluha kull xahar?",
+            "monthly": "kull xahar",
+            "yearly": "kull sena",
+            "oneoff": "darba waħda"
+        },
+        "paymentMethods": {
+            "card": "karta",
+            "intro": "Iċċekkja:",
+            "sepa": "sepa"
+        },
+        "thanks": "Grazzi tad-donazzjoni tiegħek!",
+        "to": "Donazzjoni lil {{organisation}}",
+        "payment": {
+            "intro": "Dettalji tal-ħlas:"
+        }
+    }
 }

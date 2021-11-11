@@ -107,5 +107,31 @@
     "SEPA Bank Transfer": "העברה בנקאית SEPA",
     "Sign the ECI!": "חתום על ECI!",
     "Thank you for your donation!": "תודה על תרומתך!",
-    "a yearly": "כל שנה"
+    "a yearly": "כל שנה",
+    "donation": {
+        "amount": {
+            "intro": "בחר כמות:"
+        },
+        "belowMinimum": "נא להזין סכום חוקי. התרומה המינימלית היא {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "כל חודש",
+                "weekly": "כל שנה"
+            },
+            "intro": "לעשות את זה חודשי?",
+            "monthly": "יַרחוֹן",
+            "yearly": "שְׁנָתִי",
+            "oneoff": "חד פעמי"
+        },
+        "paymentMethods": {
+            "card": "כַּרְטִיס",
+            "intro": "לבדוק :",
+            "sepa": "sepa"
+        },
+        "thanks": "תודה על תרומתך!",
+        "to": "תרומה ל-{{organisation}}",
+        "payment": {
+            "intro": "פרטי תשלום :"
+        }
+    }
 }

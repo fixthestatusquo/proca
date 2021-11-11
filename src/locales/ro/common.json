@@ -107,5 +107,31 @@
     "Sign the ECI!": "Semnați ICE!",
     "Thank you for your donation!": "Vă mulțumim pentru donație!",
     "a yearly": "în fiecare an",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Alegeți o sumă :"
+        },
+        "belowMinimum": "Vă rugăm să introduceți o sumă validă. Donația minimă este {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "în fiecare lună",
+                "weekly": "în fiecare an"
+            },
+            "intro": "Să fie lunar?",
+            "monthly": "lunar",
+            "yearly": "anual",
+            "oneoff": "o singură dată"
+        },
+        "paymentMethods": {
+            "card": "card",
+            "intro": "Checkout :",
+            "sepa": "sepa"
+        },
+        "thanks": "Vă mulțumim pentru donație!",
+        "to": "Donație către {{organisation}}",
+        "payment": {
+            "intro": "Detalii de plată :"
+        }
+    }
 }
