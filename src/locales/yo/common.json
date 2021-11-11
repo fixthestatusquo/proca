@@ -103,5 +103,28 @@
     "Payment Method": "Eto isanwo",
     "SEPA Bank Transfer": "SEPA Bank Gbigbe",
     "Sign the ECI!": "Wọlé ECI!",
-    "Thank you for your donation!": "O ṣeun fun ẹbun rẹ!"
+    "Thank you for your donation!": "O ṣeun fun ẹbun rẹ!",
+    "donation": {
+        "amount": {
+            "intro": "Yan iye kan:"
+        },
+        "belowMinimum": "Jọwọ tẹ iye to wulo. Ẹbun ti o kere julọ jẹ {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "oṣooṣu",
+                "weekly": "kọọkan odun"
+            },
+            "intro": "Ṣe oṣooṣu?",
+            "monthly": "oṣooṣu",
+            "yearly": "lododun",
+            "oneoff": "ọkan kuro"
+        },
+        "paymentMethods": {
+            "card": "kaadi",
+            "intro": "Ṣayẹwo :",
+            "sepa": "sepa"
+        },
+        "thanks": "O ṣeun fun ẹbun rẹ!",
+        "to": "Ẹbun si {{organisation}}"
+    }
 }
