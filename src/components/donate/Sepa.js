@@ -157,7 +157,7 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="main">
         <Typography variant="h6" gutterBottom color="textPrimary">
-          {t("campaign:donation.stripe.intro", {
+          {t("donation.payment.intro", {
             defaultValue: "Payment details :",
           })}
         </Typography>

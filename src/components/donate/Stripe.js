@@ -518,7 +518,7 @@ const PaymentFormWrapper = (props) => {
   return (
     <Container component="main" id="proca-donate">
       <Typography variant="h6" gutterBottom color="textPrimary">
-        {t("campaign:donation.stripe.intro", {
+        {t("donation.payment.intro", {
           defaultValue: "Payment details :",
         })}
       </Typography>

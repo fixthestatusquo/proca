@@ -74,19 +74,23 @@
   },
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
-    "amount": {"intro":"Choose an Amount :"},
+    "amount": {
+      "intro": "Choose an Amount :"
+    },
     "belowMinimum": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "each month",
         "oneoff": "",
-        "weekly": "each week",
         "weekly": "each year"
       },
       "intro": "Make it monthly?",
       "monthly": "monthly",
-      "yearly": "yearly",
-      "oneoff": "one off"
+      "oneoff": "one off",
+      "yearly": "yearly"
+    },
+    "payment": {
+      "intro": "Payment details :"
     },
     "paymentMethods": {
       "card": "card",
