@@ -130,6 +130,7 @@
         "to": "תרומה ל-{{organisation}}",
         "payment": {
             "intro": "פרטי תשלום :"
-        }
+        },
+        "button": "תרום {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }
