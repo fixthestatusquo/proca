@@ -113,5 +113,28 @@
     "Thank you for your donation!": "Merci pour votre don !",
     "a yearly": "chaque année",
     "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
-    "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Veuillez entrer un montant valide. Le don minimum est de {{ amount }} {{ currency }}."
+    "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Veuillez entrer un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
+    "donation": {
+        "frequency": {
+            "each": {
+                "weekly": "chaque année",
+                "monthly": "chaque mois"
+            },
+            "intro": "Le rendre mensuel ?",
+            "monthly": "mensuel",
+            "yearly": "annuel",
+            "oneoff": "à l'arrêt"
+        },
+        "amount": {
+            "intro": "Choisissez un montant :"
+        },
+        "belowMinimum": "Veuillez saisir un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
+        "paymentMethods": {
+            "card": "carte",
+            "intro": "Départ :",
+            "sepa": "sepa"
+        },
+        "thanks": "Merci pour votre don !",
+        "to": "Donation à {{organisation}}"
+    }
 }
