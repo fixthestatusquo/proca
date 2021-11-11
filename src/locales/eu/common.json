@@ -129,6 +129,7 @@
         "to": "Dohaintza {{organisation}}",
         "payment": {
             "intro": "Ordainketa xehetasunak:"
-        }
+        },
+        "button": "Dohaintza eman {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }
