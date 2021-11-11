@@ -133,6 +133,9 @@
             "sepa": "sepa"
         },
         "thanks": "Ďakujeme vám za váš dar!",
-        "to": "Príspevok na {{organisation}}"
+        "to": "Príspevok na {{organisation}}",
+        "payment": {
+            "intro": "Platobné údaje :"
+        }
     }
 }
