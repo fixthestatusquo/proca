@@ -107,5 +107,28 @@
     "Sign the ECI!": "Pasirašykite ECI!",
     "Thank you for your donation!": "Dėkojame už jūsų auką!",
     "a yearly": "kiekvienais metais",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Pasirinkite sumą :"
+        },
+        "belowMinimum": "Įveskite galiojančią sumą. Mažiausia auka yra {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "kiekvieną mėnesį",
+                "weekly": "kiekvienais metais"
+            },
+            "intro": "Kas mėnesį?",
+            "monthly": "kas mėnesį",
+            "yearly": "metinis",
+            "oneoff": "vienkartinis"
+        },
+        "paymentMethods": {
+            "card": "kortelė",
+            "intro": "Atsiskaitymas :",
+            "sepa": "sepa"
+        },
+        "thanks": "Dėkojame už jūsų auką!",
+        "to": "Dovanojimas {{organisation}}"
+    }
 }
