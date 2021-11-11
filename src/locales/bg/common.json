@@ -107,5 +107,28 @@
     "Sign the ECI!": "Подпишете ECI!",
     "Thank you for your donation!": "Благодарим ви за дарението!",
     "a yearly": "всяка година",
-    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+    "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
+    "donation": {
+        "amount": {
+            "intro": "Изберете сума :"
+        },
+        "belowMinimum": "Моля, въведете валидна сума. Минималната сума за дарение е {{ amount }} {{ currency }}",
+        "frequency": {
+            "each": {
+                "monthly": "всеки месец",
+                "weekly": "всяка година"
+            },
+            "intro": "Да се прави ежемесечно?",
+            "monthly": "месечно",
+            "yearly": "годишно",
+            "oneoff": "еднократно"
+        },
+        "paymentMethods": {
+            "card": "карта",
+            "intro": "Напускане:",
+            "sepa": "сепа"
+        },
+        "thanks": "Благодарим ви за дарението!",
+        "to": "Дарение за {{organisation}}"
+    }
 }
