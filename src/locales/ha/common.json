@@ -127,6 +127,7 @@
         "to": "Kyauta ga {{organisation}}",
         "payment": {
             "intro": "Bayanin biyan kuɗi:"
-        }
+        },
+        "button": "Ba da gudummawa {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }
