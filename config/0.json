@@ -11,7 +11,8 @@
     "title": "CI for all"
   },
   "journey": [
-    "Register","Share",
+    "Register",
+    "Share",
     "Target",
     "donate/Amount",
     "donate/Payment",
@@ -27,4 +28,3 @@
   "locales": {},
   "template": false
 }
-

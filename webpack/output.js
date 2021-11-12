@@ -22,7 +22,7 @@ module.exports = (webpack) => {
   iframeConfig(webpack);
   oembedConfig(webpack);
   console.log(
-    `building https://widget.proca.app${webpack.output.publicPath}index.html`
+    `building https://widget.proca.app${webpack.output.publicPath}index.html`,
   );
   return webpack;
 };
@@ -46,17 +46,17 @@ function saveVersion(config) {
   fs.writeFileSync(
     path.resolve(
       __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json"
+      "../d/" + config.filename + "/config-" + hash + ".json",
     ),
-    JSON.stringify(config, null, 2)
+    JSON.stringify(config, null, 2),
   );
 }
 
 function cleanUp(config) {
   fs.unlinkSync(
-    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
+    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map"),
   );
-  //needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
+  // needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
 }
 
 function widgetBuildConfig(webpack, config) {
@@ -72,7 +72,7 @@ function widgetBuildConfig(webpack, config) {
           try {
             fs.symlinkSync(
               path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
-              path.resolve(__dirname, "../build/index.js")
+              path.resolve(__dirname, "../build/index.js"),
             );
           } catch (e) {
             console.log("already building the widget");
@@ -100,8 +100,9 @@ function widgetBuildConfig(webpack, config) {
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
-        if (plug.options.filename === "index.html")
+        if (plug.options.filename === "index.html") {
           plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
+        }
         plug.options.title = `${config.organisation} - ${config.campaign.title}`;
         plug.options.config = config;
       }
@@ -133,7 +134,7 @@ function iframeConfig(webpack) {
     if (plug instanceof HtmlWebpackPlugin) {
       config = plug.options.templateParameters;
 
-      //if (plug.options.filename === "index.html")
+      // if (plug.options.filename === "index.html")
     }
   }
   console.log(publicDir, config);
@@ -142,9 +143,9 @@ function iframeConfig(webpack) {
     new HtmlWebpackPlugin({
       filename: "iframe.html",
       template: `${publicDir}/iframe.html`,
-      title: config.filename, //this is a hackish workaround
-      proca: config, //this is a hackish workaround
-    })
+      title: config.filename, // this is a hackish workaround
+      proca: config, // this is a hackish workaround
+    }),
   );
 }
 
@@ -158,11 +159,12 @@ function oembedConfig(webpack) {
       provider_name: "Fix the Status Quo",
       provider_url: "https://www.fixthestatusquo.org",
 
-      html: `<iframe src="https://widget.proca.app${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
+      html:
+        `<iframe src="https://widget.proca.app${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
       width: 700,
       height: 825,
       cache_age: 3600,
-    })
+    }),
   );
 }
 function compressionConfig(webpack) {
@@ -171,6 +173,6 @@ function compressionConfig(webpack) {
       exclude: /\*.map$/,
       test: "index.js",
       include: "index.js",
-    })
+    }),
   );
 }

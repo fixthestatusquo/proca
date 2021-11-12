@@ -1,0 +1,21 @@
+{
+  "incremental": true,
+  "typescript": {
+    "indentWidth": 2
+  },
+  "json": {
+    "indentWidth": 2
+  },
+  "markdown": {
+  },
+  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"],
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.59.2.wasm",
+    "https://plugins.dprint.dev/json-0.13.2.wasm",
+    "https://plugins.dprint.dev/markdown-0.11.2.wasm"
+  ]
+}

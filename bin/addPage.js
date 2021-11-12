@@ -4,8 +4,9 @@ const { addPage } = require("./config");
 
 (async () => {
   const argv = process.argv.slice(2);
-  if (!argv[1])
+  if (!argv[1]) {
     throw "need addPage {campaign.name} {locale} [ page/name/to/create ]";
+  }
   const name = argv[2] ? argv[2] : argv[0] + "/" + argv[1];
 
   try {

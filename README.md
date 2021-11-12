@@ -69,7 +69,8 @@ You can find more information in this [config documentation](./docs/config.md)
 
 One of the most common contribution we receive is help on the translations. We are using [weblate](https://hosted.weblate.org/projects/proca) and you are encouraged to participate, either to improve an existing language or request a new one.
 
-We are usually following the [material-ui guidelines](https://material.io/design/communication/writing.html#principles): 
+We are usually following the [material-ui guidelines](https://material.io/design/communication/writing.html#principles):
+
 - Be concise
 - Use the present tense to describe product behavior
 - Use simple, direct language that makes content easy to understand.

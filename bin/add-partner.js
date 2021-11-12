@@ -14,7 +14,7 @@ const checkError = (errors) => {
 };
 
 const pickName = (fromName, partner) => {
-  fromName = fromName.replace(/[.]/g, '')
+  fromName = fromName.replace(/[.]/g, "");
   const parts = fromName.split("/");
   parts.unshift(partner);
   return parts.join("/").toLowerCase();
@@ -44,8 +44,8 @@ const copy = async (fn, org, tn) => {
         name: tn,
       });
       if (
-        existing.errors &&
-        existing.errors[0].extensions.code == "not_found"
+        existing.errors
+        && existing.errors[0].extensions.code == "not_found"
       ) {
         console.log("actionpage doesn't exist", fn);
       }
@@ -64,7 +64,7 @@ const copy = async (fn, org, tn) => {
     }
   }
   if (data && data.copyActionPage) {
-    //console.log("copied page config type", typeof data.copyActionPage.config);
+    // console.log("copied page config type", typeof data.copyActionPage.config);
     return {
       ...data.copyActionPage,
       config: JSON.parse(data.copyActionPage.config),
@@ -102,9 +102,10 @@ const addOrg = async (partnerOrg) => {
   const { errors, data } = await request(api, admin.AddOrgDocument, {
     org: { name: partnerOrg, title: partnerOrg },
   });
-  if (errors && errors[0].path.splice(-1)[0] != "name")
+  if (errors && errors[0].path.splice(-1)[0] != "name") {
     // ignore error if org already exists
     checkError(errors);
+  }
   console.log("created new org", partnerOrg, data.addOrg.id);
   return {
     id: data.addOrg.id,
@@ -115,8 +116,8 @@ const addOrg = async (partnerOrg) => {
 };
 
 const addPartner = async (genericPage, partnerOrg) => {
-  const joinResult = await request(api, admin.JoinOrgDocument, {orgName: partnerOrg});
-  if (joinResult.errors) console.error(`Could not join ${partnerOrg} as superuser`, errors)
+  const joinResult = await request(api, admin.JoinOrgDocument, { orgName: partnerOrg });
+  if (joinResult.errors) console.error(`Could not join ${partnerOrg} as superuser`, errors);
 
   let org = null;
   try {
@@ -128,11 +129,10 @@ const addPartner = async (genericPage, partnerOrg) => {
   }
   console.log(org);
 
-
   const newAp = await copy(
     genericPage,
     partnerOrg,
-    pickName(genericPage, partnerOrg)
+    pickName(genericPage, partnerOrg),
   );
   console.log("copy:", newAp);
 
@@ -146,17 +146,17 @@ const addPartner = async (genericPage, partnerOrg) => {
     console.error("this config does not have component.consent or layout", cfg);
     throw new Error(`ad config for AP ${newAp.id}`);
   }
-  //split consent
+  // split consent
   cfg.component.consent.split = false;
   // priv policy
-  cfg.component.consent.privacyPolicy =
-    (org.config.privacy && org.config.privacy.policyUrl) ||
-    cfg.component.consent.privacyPolicy ||
-    "";
+  cfg.component.consent.privacyPolicy = (org.config.privacy && org.config.privacy.policyUrl)
+    || cfg.component.consent.privacyPolicy
+    || "";
 
   // color
-  if (org.config.brand && org.config.brand.primaryColor)
+  if (org.config.brand && org.config.brand.primaryColor) {
     cfg.layout.primaryColor = org.config.brand.primaryColor;
+  }
   // something else?
 
   await updateConfig(newAp.id, cfg);

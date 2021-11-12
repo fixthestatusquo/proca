@@ -9,7 +9,7 @@ function getConfigOverride(defaultConfig) {
     return config;
   }
   throw Error(
-    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n"
+    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
   );
 }
 
@@ -31,9 +31,9 @@ function readConfigOverride() {
           fs.readFileSync(
             path.resolve(
               __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json"
-            )
-          )
+              configFolder() + "/campaign/" + config.campaign.name + ".json",
+            ),
+          ),
         );
         if (!config.locales) config.locales = {};
         if (campaignConfig.config.demand) {
@@ -45,33 +45,34 @@ function readConfigOverride() {
         ["layout", "component"].map((k) => {
           config[k] = merge(campaignConfig.config[k], config[k]);
         });
-        if (!config.portal || config.portal.length === 0)
+        if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal;
-        if (!config.journey || config.journey.length === 0)
+        }
+        if (!config.journey || config.journey.length === 0) {
           config.journey = campaignConfig.config.journey || [
             "Petition",
             "Share",
           ];
+        }
         if (
-          campaignConfig.config.locales &&
-          campaignConfig.config.locales[config.lang] &&
-          campaignConfig.config.locales[config.lang]["common:"]
+          campaignConfig.config.locales
+          && campaignConfig.config.locales[config.lang]
+          && campaignConfig.config.locales[config.lang]["common:"]
         ) {
           config.locales = merge(
             campaignConfig.config.locales[config.lang]["common:"],
-            config.locales
+            config.locales,
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
         if (
-          campaignConfig.config.locales &&
-          campaignConfig.config.locales[config.lang]
+          campaignConfig.config.locales
+          && campaignConfig.config.locales[config.lang]
         ) {
-          config.locales["campaign:"] =
-            campaignConfig.config.locales[config.lang];
-          if (campaignConfig.config.locales[config.lang].title)
-            config.campaign.title =
-              campaignConfig.config.locales[config.lang].title;
+          config.locales["campaign:"] = campaignConfig.config.locales[config.lang];
+          if (campaignConfig.config.locales[config.lang].title) {
+            config.campaign.title = campaignConfig.config.locales[config.lang].title;
+          }
         }
       } else {
         console.error("can't find the campaign.name on the config", config);
@@ -81,7 +82,7 @@ function readConfigOverride() {
     } catch (e) {
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
-        e.message
+        e.message,
       );
       throw e;
     }

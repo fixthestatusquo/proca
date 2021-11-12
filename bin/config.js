@@ -64,7 +64,7 @@ const saveCampaign = (campaign, lang = "en") => {
   console.log(file("campaign/" + campaign.name));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
-    JSON.stringify(campaign, null, 2)
+    JSON.stringify(campaign, null, 2),
   );
 };
 
@@ -86,7 +86,7 @@ const api = async (query, variables, name = "query") => {
           variables: variables,
         }),
         headers: headers,
-      }
+      },
     );
 
     if (res.status >= 400) {
@@ -154,7 +154,7 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
       campaignName: campaignName,
       orgName: campaign.org.name,
     },
-    "addPage"
+    "addPage",
   );
   console.log({
     name: name,
@@ -204,7 +204,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
           operationName: "updateCampaign",
         }),
         headers: headers,
-      }
+      },
     );
 
     if (res.status >= 400) {
@@ -221,7 +221,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     throw new Error(
       "created a new campaign instead of editing the existing one",
       data.upsertCampaign.id,
-      campaign.id
+      campaign.id,
     );
   }
   return data.upsertCampaign;
@@ -260,7 +260,7 @@ query actionPage ($id:Int!) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (res.status >= 400) {
@@ -343,7 +343,7 @@ const push = async (id) => {
   const { data, errors } = await request(
     c,
     admin.UpdateActionPageDocument,
-    actionPage
+    actionPage,
   );
   if (errors) {
     //    console.log(actionPage);

@@ -46,10 +46,11 @@ function createCode(filename, config) {
   let portals = [];
 
   if (config.journey) {
-    if (!(config.journey instanceof Array))
+    if (!(config.journey instanceof Array)) {
       throw new Error(
-        `config.journey should be an array!, is: ${config.journey}`
+        `config.journey should be an array!, is: ${config.journey}`,
       );
+    }
 
     steps = config.journey
       .reduce((acc, val) => acc.concat(val), [])
@@ -57,10 +58,11 @@ function createCode(filename, config) {
   }
 
   if (config.portal) {
-    if (!(config.portal instanceof Array))
+    if (!(config.portal instanceof Array)) {
       throw new Error(
-        `config.portal should be an array!, is: ${config.portal}`
+        `config.portal should be an array!, is: ${config.portal}`,
       );
+    }
     config.portal.forEach((p) => {
       let c = p.component ? p.component : p;
       c = stepToFilename(c);
@@ -78,31 +80,32 @@ function createCode(filename, config) {
 
   let src = ``;
 
-  src +=
-    [...components]
-      .map((s) => {
-        const n = componentFilenameToModulename(s);
-        return `import ${n} from './components/${s}'`;
-      })
-      .join("\n") +
-    nl +
-    nl;
+  src += [...components]
+    .map((s) => {
+      const n = componentFilenameToModulename(s);
+      return `import ${n} from './components/${s}'`;
+    })
+    .join("\n")
+    + nl
+    + nl;
 
   src += `export const config = ` + JSON.stringify(config) + nl;
-  src +=
-    `export const steps = {${steps
+  src += `export const steps = {${
+    steps
       .filter(unique)
       .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
-  src +=
-    `export const portals = {${portals
+      .join(",")
+  }}`
+    + nl
+    + nl;
+  src += `export const portals = {${
+    portals
       .filter(unique)
       .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
+      .join(",")
+  }}`
+    + nl
+    + nl;
 
   return src;
 }
