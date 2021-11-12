@@ -131,6 +131,7 @@
         "to": "Donation till {{organisation}}",
         "payment": {
             "intro": "Betalningsuppgifter :"
-        }
+        },
+        "button": "Donera {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

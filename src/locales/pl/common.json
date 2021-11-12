@@ -132,6 +132,7 @@
         "to": "Darowizna na rzecz {{organisation}}",
         "payment": {
             "intro": "Szczegóły płatności :"
-        }
+        },
+        "button": "Przekaż darowiznę {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

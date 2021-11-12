@@ -133,6 +133,7 @@
         "to": "Donacija za {{organisation}}",
         "payment": {
             "intro": "Pojedinosti o plaćanju :"
-        }
+        },
+        "button": "Donirajte {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

@@ -132,6 +132,7 @@
         "to": "Příspěvek na {{organisation}}",
         "payment": {
             "intro": "Platební údaje :"
-        }
+        },
+        "button": "Darovat {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }

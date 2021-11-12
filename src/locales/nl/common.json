@@ -131,6 +131,7 @@
         "to": "Donatie aan {{organisation}}",
         "payment": {
             "intro": "Betalingsgegevens:"
-        }
+        },
+        "button": "Doneer {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

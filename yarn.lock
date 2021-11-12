@@ -1632,25 +1632,25 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@paypal/paypal-js@^4.0.8":
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.0.11.tgz#a196dfa29bf9c8ffc3f4c59c596bea3dedac746d"
-  integrity sha512-U1yRZzYkIuuQDIU54bRqIAac1fbK3RWsRh/lhfMGX5m9VKqqBExsOirXy+S2mRMg1FqMqM+rehYnIJa+v66FIQ==
+"@paypal/paypal-js@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.1.0.tgz#f783083f11e1e8ae4890cc79e2730657f8865f82"
+  integrity sha512-fBPpNBfzIpn4hWgks+EmZmuwKopkkMRBAtvCuEkH0RQIUobH7Dtf3enyFAt1+u8ZdgdIvueSBB58lRCSP2RNkA==
   dependencies:
     promise-polyfill "^8.2.0"
 
-"@paypal/react-paypal-js@^7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.3.3.tgz#3e688efa7a7ac9f74040b70e349b691f26540a2f"
-  integrity sha512-lqxKODnRu80LB785vE3WIAus9h1qku5eMu86x4G4zl8ewXwSW7VKPIXo20vM+klLpgJF2C5kvle/vItwuMT3xw==
+"@paypal/react-paypal-js@^7.4.2":
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.4.2.tgz#ede939987a021344be09d7466d7c28667bdb9c29"
+  integrity sha512-NYE5SopmMK80h0/hYIr3//iaIjGNHTFxRE9aTo2LzNik75WHu/skUggowHwZHpYWgLi6NYvz7WawRSnesjk6Sw==
   dependencies:
-    "@paypal/paypal-js" "^4.0.8"
-    "@paypal/sdk-constants" "^1.0.107"
+    "@paypal/paypal-js" "^4.1.0"
+    "@paypal/sdk-constants" "^1.0.110"
 
-"@paypal/sdk-constants@^1.0.107":
-  version "1.0.109"
-  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.109.tgz#a68c9f58cd6a1d49664efd218ba582a51bc55a85"
-  integrity sha512-pUDuRSxLYQHkIGjaO3x9gQ5Le4RrApSl8Uio+ukdHqmx9cT77g3EGHN5AADvqgv5Yq9aryZ+xN7P/Y03NOmPkA==
+"@paypal/sdk-constants@^1.0.110":
+  version "1.0.110"
+  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.110.tgz#ade73b6a7ab53838dbfa4c36f3a905b26dddab2d"
+  integrity sha512-W/JvynHo68yVbR5+H3xXncFvucbVmt4PSBifBuGGH8NqDUq8kwOFNaHt0xmUIvWoK77pQjtaulYssty3rnztTw==
   dependencies:
     cross-domain-utils "^2.0.10"
     hi-base32 "^0.5.0"
@@ -5962,10 +5962,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18n-iso-countries@^6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/i18n-iso-countries/-/i18n-iso-countries-6.8.0.tgz#eebbc75594c6832aff86176c1bb38daa133d6dfd"
-  integrity sha512-jJs/+CA6+VUICFxqGcB0vFMERGfhfvyNk+8Vb9EagSZkl7kSpm/kT0VyhvzM/zixDWEV/+oN9L7v/GT9BwzoGg==
+i18n-iso-countries@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/i18n-iso-countries/-/i18n-iso-countries-7.0.0.tgz#b842d6bd947093a38af0f3587fe3632175dd249e"
+  integrity sha512-Q7NEui+oCW4LK2OkUTOV9qCARLViWpwTJfNPOPKG2KpPw5WAxrK8bAPSPFdsu/0GyjK/NPexQFgCGiqwkHl6yg==
   dependencies:
     diacritics "1.3.0"
 
@@ -5998,10 +5998,10 @@ i18next@^19.8.3:
   dependencies:
     "@babel/runtime" "^7.12.0"
 
-i18next@^21.4.0:
-  version "21.4.0"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.4.0.tgz#59d0129e9e3974313300b0f60a0e01812ba5689e"
-  integrity sha512-H8QwhJXxnPWDvRlLn3nqDvbry7PM7i3UYa0+5EHWvlVkvNNy5WJVTzZe2tZH+HnaGVAE5MaujasyOca8mbQN+w==
+i18next@^21.4.2:
+  version "21.4.2"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.4.2.tgz#10d10e07c9d1d589d71ac031f8ae755a37fcd0fc"
+  integrity sha512-vVWsmTnZNdYHPLt01MvT5YNM2lxec2R6r5T72J89eaazp8XQnGSqA66O+a918qqmjHZGB6HHRSs02xp753he9g==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -9733,10 +9733,10 @@ react-hook-form@^6.15.5:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.8.tgz#725c139d308c431c4611e4b9d85a49f01cfc0e7a"
   integrity sha512-prq82ofMbnRyj5wqDe8hsTRcdR25jQ+B8KtCS7BLCzjFHAwNuCjRwzPuP4eYLsEBjEIeYd6try+pdLdw0kPkpg==
 
-react-i18next@^11.13.0:
-  version "11.13.0"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.13.0.tgz#7b6f23f717154a44cf3f70d62a9368152bf8a73f"
-  integrity sha512-AY8ydSqx8LVm1Tn5yXFA0JwCeSWpcFOSr96HrjUXXVAWWbptamZOY2iMxVaGNlGxSLnRY0U2sdCIPVYHcmhBxQ==
+react-i18next@^11.14.2:
+  version "11.14.2"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.14.2.tgz#2ff28f6a0ddf06eaf79435ed6c70c441d709cf34"
+  integrity sha512-fmDhwNA0zDmSEL3BBT5qwNMvxrKu25oXDDAZyHprfB0AHZmWXfBmRLf8MX8i1iBd2I2C2vsA2D9wxYBIwzooEQ==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
@@ -9957,10 +9957,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-recoil@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.0.tgz#d8e3bdefc70aa0f0e74554c90ecda1b3f3718b23"
-  integrity sha512-xXGV0bpmi7NV2r6twNaZ35lP5lLeE0r+zR6tnZ3b4hD/sQS39S982Gq5xfrlIS0dvIiNlp2jkubmuUm1hvTaPQ==
+recoil@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.2.tgz#61fecce3b4dc91127a595586cf7369e2811ba024"
+  integrity sha512-Edibzpu3dbUMLy6QRg73WL8dvMl9Xqhp+kU+f2sJtXxsaXvAlxU/GcnDE8HXPkprXrhHF2e6SZozptNvjNF5fw==
   dependencies:
     hamt_plus "1.0.2"
 

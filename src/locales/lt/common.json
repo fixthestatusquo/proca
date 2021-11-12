@@ -130,6 +130,7 @@
         "to": "Dovanojimas {{organisation}}",
         "payment": {
             "intro": "Mokėjimo informacija:"
-        }
+        },
+        "button": "Paaukoti {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }

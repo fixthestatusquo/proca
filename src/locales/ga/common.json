@@ -132,6 +132,7 @@
         "to": "Síntiús do {{organisation}}",
         "payment": {
             "intro": "Sonraí íocaíochta:"
-        }
+        },
+        "button": "Deonaigh {{amount}} {{currency.symbol}} {{frequency}}"
     }
 }

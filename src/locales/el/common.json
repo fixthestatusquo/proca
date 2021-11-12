@@ -131,6 +131,7 @@
         "to": "Δωρεά στο {{organisation}}",
         "payment": {
             "intro": "Λεπτομέρειες πληρωμής :"
-        }
+        },
+        "button": "Δωρεά {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }

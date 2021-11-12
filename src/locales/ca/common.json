@@ -130,6 +130,7 @@
         "to": "Donació a {{organisation}}",
         "payment": {
             "intro": "Detalls del pagament :"
-        }
+        },
+        "button": "Donar {{amount}}{{currency.symbol}} {{frequency}}"
     }
 }
