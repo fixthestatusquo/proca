@@ -38,7 +38,7 @@
     "react-i18next": "^11.14.2",
     "react-ipgeolocation": "^1.4.0",
     "react-script-hook": "^1.5.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
     "react-swipeable-views": "^0.14.0",
     "recoil": "^0.5.2",
