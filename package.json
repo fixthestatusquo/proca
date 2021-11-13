@@ -66,8 +66,8 @@
   },
   "scripts": {
     "nope.format": "prettier --write '**/*.{js,css,json,md}'",
-    "format": "dprint fmt",
-    "build": "rescripts build",
+    "format": "nice -20 dprint fmt",
+    "build": "nice -20 rescripts build",
     "eci": "bin/eci.js",
     "fetch": "node bin/fetch.js",
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
