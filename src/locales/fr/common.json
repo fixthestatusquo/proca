@@ -10,7 +10,7 @@
     "implicit": "Soumettez ce formulaire pour recevoir des messages électroniques de {{name}}."
   },
   "share": {
-    "title": "Vous avez presque terminé ! Passez à l'étape suivante.",
+    "title": "Vous avez presque terminé ! Passez à l'étape suivante.",
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "email": {
       "subject": "Vous devriez signer ce document",
@@ -107,8 +107,8 @@
   "PayPal": "PayPal",
   "Payment Method": "Mode de paiement",
   "SEPA Bank Transfer": "Virement bancaire SEPA",
-  "Sign the ECI!": "Signez l'ICE !",
-  "Thank you for your donation!": "Merci pour votre don !",
+  "Sign the ECI!": "Signez l'ICE !",
+  "Thank you for your donation!": "Merci pour votre don !",
   "a yearly": "chaque année",
   "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}.": "Veuillez entrer un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
@@ -126,18 +126,18 @@
       "oneoff": "une fois"
     },
     "amount": {
-      "intro": "Choisissez un montant :"
+      "intro": "Choisissez un montant"
     },
     "belowMinimum": "Veuillez saisir un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
     "paymentMethods": {
       "card": "carte",
-      "intro": "Modalités de paiement :",
+      "intro": "Modalités de paiement",
       "sepa": "sepa"
     },
     "thanks": "Merci pour votre don !",
     "to": "Donation à {{organisation}}",
     "payment": {
-      "intro": "Modalités de paiement :"
+      "intro": "Modalités de paiement"
     }
   }
 }
