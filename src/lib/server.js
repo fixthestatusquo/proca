@@ -51,9 +51,15 @@ async function graphQL(operation, query, options) {
         response.errors.forEach((error) => {
           const field = error.path && error.path.slice(-1)[0];
           if (!field) return;
+          let msg = error.message.split(":");
+        if (msg.length === 2) {
+          msg = msg[1];
+        } else  {
+          msg = error.message;
+        }
           response.errors.fields.push({
             name: toCamel(field),
-            message: error.message,
+            message: msg, // error.message,
           });
         });
         data = response;

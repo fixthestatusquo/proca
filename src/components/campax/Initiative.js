@@ -167,14 +167,23 @@ export default function Register(props) {
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
-      result.errors.forEach((error) => {
-        const fields = error.message && error.message.split(":");
-        if (fields.length === 2) {
-          setError(fields[0], { type: "manual", message: fields[1] });
-        }
-        console.log(error);
-      });
-      setStatus("error");
+      let handled = false;
+      console.log(result.errors.fields, data);
+      if (result.errors.fields) {
+        result.errors.fields.forEach((field) => {
+          if (field.name in data) {
+            setError(field.name, { type: "server", message: field.message });
+            handled = true;
+          } else if (field.name.toLowerCase() in data) {
+            setError(field.name.toLowerCase(), {
+              type: "server",
+              message: field.message,
+            });
+            handled = true;
+          }
+        });
+      }
+      !handled && setStatus("error");
       return;
     }
     setStatus("success");
