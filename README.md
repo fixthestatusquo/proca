@@ -9,6 +9,8 @@ You want to engage your members and ask them to take an online action? Well, you
 
 And this is what this tool solves.
 
+Alternatively, [we](https://fixthestatusquo.org) are providing this [Campaign tool as a Service](https://proca.app) and are hosting and maintaining it for you if you prefer. It's definitely cheaper and easier if you have a one-off campaign, and cost effective if you have a more specific need or want us to provide some custom development.
+
 ## Guiding principles and design
 
 - _Focussed_: this tool should do as little as possible. It doesn't have to be managing the content/layout of your campaign. You have already a prefered CMS for that, or can spin a wordpress one in no time. We provide action/petition widgets that you can embed into your site, we don't want to be yet another site you need to manage
@@ -47,9 +49,9 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 cores.
 
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
 
-front-end: react
-[Back-end](../proca-server): elixir
-api: graphql
+- front-end: react, react-hook-form and material-ui
+- [Back-end](../proca-server): elixir
+- api: graphql
 
 # Setup and 3 min intro
 
@@ -86,6 +88,8 @@ We strive to use an inclusive language in the code, translations, documentation 
 # Community and code of conduct
 
 Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we are building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support each other, share tricks and stories and grow together. 
+
+Before starting to change something, we recommend you to contact us (create an issue on github is fine), who knows, what you need might already be almost there, we are just missing some documentation and explanation. 
 
 Please note that this project is released with a [Contributor Covenant](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
