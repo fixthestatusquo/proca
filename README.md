@@ -44,7 +44,7 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 cores.
 Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
 
 front-end: react
-Back-end: elixir
+[Back-end](../proca-server): elixir
 api: graphql
 
 # Setup and 3 min intro
@@ -65,7 +65,7 @@ api: graphql
 
 You can find more information in this [config documentation](./docs/config.md)
 
-# Translation
+# Documentation and Translation
 
 One of the most common contribution we receive is help on the translations. We are using [weblate](https://hosted.weblate.org/projects/proca) and you are encouraged to participate, either to improve an existing language or request a new one.
 
@@ -77,12 +77,11 @@ We are usually following the [material-ui guidelines](https://material.io/design
 - Avoid using punctuation in places where it isn't necessary
 - Use common words that are clearly and easily understandable across all reading levels
 
-However, inclusive writing is more important than conciseness... but you can probably re-write the sentence to make it gender neutral or not gender specific.
+We strive to use an inclusive language in the code, translations, documentation and issue tracker. By contributing to this project, you agree to listen when someone raise an issue that doesn't affect you directly, reflect on it and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive but a starting point.
 
 # Community and code of conduct
 
-Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we aer building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support and troubleshoot for each other.
+Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we are building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support each other, share tricks and stories and grow together. 
 
 Please note that this project is released with a [Contributor Covenant](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
-We strive to use an inclusive language in code, documentation and issue tracker. By contributing to this project, you agree to liste when someone raise an issue that doesn't affect you directly and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive but a starting point.
