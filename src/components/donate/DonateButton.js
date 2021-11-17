@@ -1,16 +1,15 @@
+// import React from "react";
+
 import { Button, CircularProgress } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 
+import { useFormatMoney } from "@hooks/useFormatting";
 import { useTranslation } from "react-i18next";
 
-import React from "react";
-
 const DonateButton = (
-  { amount, currency, config, frequency, isSubmitting },
+  { amount, config, frequency, isSubmitting },
   props
 ) => {
-  const { t } = useTranslation();
-
   return (
     <Button
       color="primary"
@@ -29,16 +28,22 @@ const DonateButton = (
       {" "}
       {isSubmitting ? (
         <CircularProgress />
-      ) : (
-        t("Donate {{amount}} {{currency}}", {
-          amount: amount,
-          currency: currency.symbol,
-        }) +
-        " " +
-        (frequency !== "oneoff" ? t("a " + frequency) : "")
+      ) : (<CallToAction amount={amount} frequency={frequency} config={config} />
       )}
     </Button>
   );
 };
 
+const CallToAction = ({ amount, frequency, config }) => {
+  const { t } = useTranslation();
+  const formatMoney = useFormatMoney();
+  /* i18next-extract-disable-next-line */
+  return t("donation.button.cta." + frequency.toLowerCase(), {
+    amount: formatMoney(amount)
+  })
+}
+
+
 export default DonateButton;
+
+export { CallToAction };

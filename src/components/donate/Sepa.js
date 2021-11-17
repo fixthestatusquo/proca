@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
@@ -54,7 +54,7 @@ export default function Register(props) {
       return (
         <Snackbar open={true} autoHideDuration={6000}>
           <Alert severity="error">
-            {t("Sorry, we couldn't save")}
+            {t("donation.error.general")}
             <br />
             Details: {errorDetails}
           </Alert>
@@ -141,7 +141,7 @@ export default function Register(props) {
   };
 
   const validateIBAN = (d) => {
-    return IBAN.isValid(d) || t("invalid IBAN");
+    return IBAN.isValid(d) || t("donation.error.form.invalid.iban");
   };
 
   const useTitle = config.component.donation.useTitle;
@@ -156,19 +156,11 @@ export default function Register(props) {
     >
       <Error display={status === "error"} />
       <Container component="main">
-        <Typography variant="h6" gutterBottom color="textPrimary">
-          {t("donation.payment.intro", {
-            defaultValue: "Payment details :",
-          })}
-        </Typography>
         <Grid container spacing={1}>
           {useTitle && (
             <Grid item xs={12}>
               <DonateTitle
-                config={config}
-                amount={amount}
-                currency={currency}
-                frequency={frequency}
+                showAverage={false}
               />
             </Grid>
           )}

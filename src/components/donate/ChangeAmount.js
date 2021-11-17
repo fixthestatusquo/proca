@@ -16,7 +16,7 @@ export default function ChangeAmount(props) {
           onClick={() => goStep("donate_Amount")}
           color="secondary"
         >
-          {t("Change amount")}
+          {t("donation.amount.change")}
         </Button>
       </Grid>
     </Box>

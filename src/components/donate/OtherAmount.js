@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { InputAdornment } from "@material-ui/core";
 import TextField from "../TextField";
+import { useFormatMoney } from "@hooks/useFormatting";
 
 const OtherAmountInput = ({ form, classes, currency, setData }) => {
   const [otherAmountError, setOtherAmountError] = useState(false);
   const { t } = useTranslation();
+  const formatMoneyAmount = useFormatMoney();
 
   return (
     <>
@@ -25,9 +27,8 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
             setOtherAmountError("");
           } else {
             setOtherAmountError(
-              t("donation.belowMinimum", {
-                currency: currency.symbol,
-                amount: 1,
+              t("donation.form.error.minimum", {
+                amount: formatMoneyAmount(1)
               })
             );
           }

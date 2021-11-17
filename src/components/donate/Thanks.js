@@ -4,31 +4,32 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
+import { useFormatMoney } from "@hooks/useFormatting.js";
 
 const SEPA = ({ formData }) => {
-  const IBAN = formData.IBAN.replaceAll(" ", "");
   const { t } = useTranslation();
+  const IBAN = formData.IBAN.replaceAll(" ", "");
   return (
     <>
       <Grid item xs={12}></Grid>
       <Grid item xs={1}></Grid>
       <Grid item xs={5}>
-        {t("Payment Method")} :{" "}
+        {t("donation.payment_methods.title")}
       </Grid>
       <Grid item xs={6}>
-        {t("SEPA Bank Transfer")} :{" "}
+        {t("donation.payment_methods.sepa")}
       </Grid>
 
       <Grid item xs={12}></Grid>
       <Grid item xs={1}></Grid>
       <Grid item xs={5}>
-        {t("IBAN")} :{" "}
+        {t("donation.iban")}
       </Grid>
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
           IBAN.substring(0, 2) +
-            " ............ " +
-            IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
+          " ............ " +
+          IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
       </Grid>
     </>
   );
@@ -42,10 +43,10 @@ const Card = (formData) => {
       <Grid item xs={12}></Grid>
       <Grid item xs={1}></Grid>
       <Grid item xs={5}>
-        {t("Payment Method")} :{" "}
+        {t("donation.payment_methods.title")}
       </Grid>
       <Grid item xs={6}>
-        {t("Card")}
+        {t("donation.payment_methods.card")}
       </Grid>
     </>
   );
@@ -59,10 +60,10 @@ const PayPal = (formData) => {
       <Grid item xs={12}></Grid>
       <Grid item xs={1}></Grid>
       <Grid item xs={5}>
-        {t("Payment Method")} :{" "}
+        {t("donation.payment_methods.title")}
       </Grid>
       <Grid item xs={6}>
-        {t("PayPal")}
+        {t("donation.payment_methods.paypal")}
       </Grid>
     </>
   );
@@ -70,9 +71,8 @@ const PayPal = (formData) => {
 const Thanks = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const donateConfig = config.component.donation;
-  // const classes = useStyles();
   const [formData] = useData();
+  const formatMoneyAmount = useFormatMoney();
   return (
     <Container id="proca-donate">
       <Grid container spacing={1}>
@@ -101,7 +101,7 @@ const Thanks = (props) => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Email :
+                Email
               </Grid>
               <Grid item xs={6}>
                 {formData.email}
@@ -110,25 +110,23 @@ const Thanks = (props) => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Amount :{" "}
+                Amount
               </Grid>
               <Grid item xs={6}>
-                {Number(formData.amount).toLocaleString()}{" "}
-                {donateConfig.currency.symbol}{" "}
-                {formData.frequency !== "oneoff"
-                  ? t("donation.frequency.each." + formData.frequency, {
-                      defaultValue: "a " + formData.frequency,
-                    }) /* i18next-extract-disable-line */
-                  : ""}
+                {
+                  formData.frequency !== "oneoff"
+                    ? t("donation.frequency.each." + formData.frequency, /* i18next-extract-disable-line */
+                      { amount: formatMoneyAmount(formData.amount) })
+                    : ""}
               </Grid>
 
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Date :{" "}
+                Date
               </Grid>
               <Grid item xs={6}>
-                {new Date().toLocaleDateString()}
+                {new Date().toLocaleDateString(config.locale)}
               </Grid>
 
               {formData.paymentMethod === "sepa" && (

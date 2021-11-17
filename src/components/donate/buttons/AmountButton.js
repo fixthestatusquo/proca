@@ -13,6 +13,7 @@ import { useCampaignConfig } from "../../../hooks/useConfig";
 import { useForm } from "react-hook-form";
 import OtherAmountInput from "../OtherAmount";
 import { useTranslation } from "react-i18next";
+import { useFormatMoney } from "@hooks/useFormatting";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -26,8 +27,8 @@ const StyledButton = withStyles((theme) => ({
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
-  const currency = props.currency;
   const amount = data.amount;
+  const formatMoney = useFormatMoney();
 
   const handleAmount = (e, amount) => {
     setData("amount", amount);
@@ -48,7 +49,7 @@ const AmountButton = (props) => {
       onClick={(e) => handleAmount(e, props.amount)}
       classes={props.classes}
     >
-      {props.amount}&nbsp;{currency.symbol}
+      {formatMoney(props.amount)}
     </StyledButton>
   );
 };
