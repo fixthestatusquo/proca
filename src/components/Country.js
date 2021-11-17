@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import useData from "@hooks/useData";
 
 import TextField from "@components/TextField";
@@ -74,44 +74,46 @@ const Flag = (props) => {
   return <span title={"flag " + d}>{d}</span>;
 };
 
-export default (props) => {
+const Country = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
 
-  let countries = [];
-  if (props.countries) {
-    countries = Object.keys(props.countries).map((iso) => ({
-      iso: iso.toUpperCase(),
-      name: props.countries[iso],
-    }));
-  } else {
-    countries = addCountries(countriesJson, t);
-  }
-  const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
-    .compare;
-  countries.sort((a, b) => compare(a.name, b.name));
+  const countries = useMemo ( () => {
+    let countries = [];
+    if (props.countries) {
+      countries = Object.keys(props.countries).map((iso) => ({
+        iso: iso.toUpperCase(),
+        name: props.countries[iso],
+      }));
+    } else {
+      countries = addCountries(countriesJson, t);
+    }
+    const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
+      .compare;
+    countries.sort((a, b) => compare(a.name, b.name));
 
-  if (config.component.country?.all === true) {
-    countries = addAllCountries();
-  }
-  if (config.component.country?.other !== false) {
-    countries.push({ iso: "ZZ", name: t("Other") });
-  }
-  if (false || props.other) {
-    countries = addMissingCountries(countries, compare);
-  }
+    if (config.component.country?.all === true) {
+      countries = addAllCountries();
+    }
+    if (config.component.country?.other !== false) {
+      countries.push({ iso: "ZZ", name: t("Other") });
+    }
+    if (false || props.other) {
+      countries = addMissingCountries(countries, compare);
+    }
+    return countries;
+  },[config.component.country?.all, config.component.country?.other, config.lang, props.countries, props.other, t]);
 
   const { register, setValue, watch } = props.form;
 
-  if (props.list === false) return null;
-
-  const country = watch("country") || "";
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
     country: config.data.country || config.component.country,
   });
+
+  const country = watch("country") || "";
   useEffect(() => {
     if (location.country === country) return;
 
@@ -136,6 +138,8 @@ export default (props) => {
     register({ name: "country" });
   }, [register]);
 
+  if (props.list === false) return null;
+
   return (
     <TextField
       select
@@ -156,4 +160,5 @@ export default (props) => {
   );
 };
 
+export default Country;
 export { emoji, Flag };
