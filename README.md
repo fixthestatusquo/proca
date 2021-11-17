@@ -25,6 +25,10 @@ There are as well the issue of introducing a new domain/subdomain (weak SEO, pot
 
 Our solution? This petition tool is as transparent as possible and embed the action into one (or several) of your existing pages).
 
+With a bit of javascript or even just html, you can [control and adjust the text or layout](./docs/config.md) of your widget.
+
+The widget can also [send you events](./docs/events.md) to let you know what your supporters have done, and allow you to update the journey, display extra information or whaterver you want to do ;)
+
 ## Full encryption mode
 
 If the campaigner organisation provides an encryption key (based on NaCl, probably the best elliptic curve encryption solution), we store the signatures and actions _encrypted_. We will not be able to read them anymore. Even if the bad guys compromise the security of our server, they will not be able to read any personal data either, because the campaign organisation (having the key) is the only one that can
