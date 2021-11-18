@@ -80,7 +80,7 @@
     },
     "form": {
       "error": {
-        "minimum": "minimum"
+        "minimum": "The minimum donation is {{ampount}}"
       }
     },
     "frequency": {
