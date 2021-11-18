@@ -107,7 +107,7 @@ if true (or set from the url as a get param ?proca_test
 - theme: "standard", "filled", "outlined". Check the material-ui doc for examples
 - HtmlTemplate: "eci.html" it's for the "demo" page, it takes as a template the file public/{HtmlTemplate}.html
 
-## component
+# component
 
 This is the big chunk of the configuration options for each component.
 
@@ -115,7 +115,7 @@ most components are using the hook useCampaignConfig to read that config and adj
 
 _Tip: When developing, always have a sensible default behaviour even if the specific config.component isn't set. if you add a new feature, by default, the component should work as before (backward compatibility) until you enable the new feature into the config file_
 
-### Widget
+## Widget
 
 the main behaviour
 
@@ -123,7 +123,7 @@ the main behaviour
 - config.component.widget?.autoStart: boolean, default true. used to not automatically display the widget. see portal Clickify below
 - config.component.widget.forceWidth: number. by default, the width of the widget is the width available on the page (reactive). Can be used to force a width, for instance to embed into broken or weird html pages ;)
 
-### Register
+## Register
 
 Register is the main form used to collect personal data and consent
 
@@ -133,7 +133,7 @@ Register is the main form used to collect personal data and consent
 - config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 - config.component.field.phone: boolean (show/hide)
 
-### Consent
+## Consent
 
 to collect the consent of being contacted
 
@@ -141,34 +141,112 @@ to collect the consent of being contacted
 - config.component.consent.privacyPolicy: **very important**: the privacy policy of the organisation embedding the widget
 - config.component.consent.split: if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
 
-### Share
+## Share
 
 - config.component.share.anonymous: boolean. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?
 - config.component.share.top: boolean. Are the share button above or below image+text shared (taken from meta data)
 - config.component.share.email: boolean. Enable the share by email. Brocken now (on some config)
 - config.component.share.reddit: boolean: Enable share on reddit
 
-### Donate
+## Donate
 
-** bit of a mess, changing to component.donation only soon
+The Donate steps are configured under the `config.component.donation` key.
 
-- config.component.donate.field.phone: boolean, asking for phone number
-- config.component.donation.amount.oneoff.average: if set, displays it as "on average, folks give xxx"
-- config.component.donation.amount.oneoff.default: [3,5,10,50] amount displayed as default options (in buttons)
-- config.component.donation.external.url: if set, the donation is done on an extrnal payment provider (the widget only lets choose the amount)
-- config.component.donation.monthly: boolean, recurring donation available
-- config.component.donation.currency: {symbol: "€", code: "EUR"} symbol is used for display, code for the payment providers
-- config.component.donation.subTitle
-- config.component.donation.image
-- config.component.donation.igive
-- config.component.Donate.amount.title
+### `currency`: dict
 
-in .env:
+Configure the currency.
 
-- REACT_APP_DONATION_URL
-- REACT_APP_STRIPE_PUBLIC_KEY
+      "currency": {
+        "code": "EUR",
+        "symbol": "€"
+      }
 
-### Donate Sepa
+### `frequency.options`: [ 'monthly', 'oneoff' ]
+
+### `frequency.default`: str
+
+The donation form can present multiple options for recurring or one-off donations. The 'frequency' section configures what options are shown. For each frequency, there are other configuration keys used to control how they are displayed. For example, if "monthly" is in frequency.options, amount.monthly should be set to a list of amounts to display when "monthly" is selected.
+
+`options` lists which frequencies to present as buttons on the form. The options `monthly`, `oneoff` are tested, `weekly` and `annually` are partly implemented but need translations and testing.
+
+    "frequency": {
+        "options": [ 'monthly' ]           // all donations are monthly recurring
+        "options": [ 'monthly', 'oneoff' ] // show a choice between monthly and oneoff
+    }
+
+Use `default` to set which frequency to preselect.
+
+### `average`: dict
+
+If average is defined for a frequency, the form will display a message like "The average donation is X". You can change the message in the translation files.
+
+    "average": {
+        "monthly": 4.50,
+        "oneoff": 10.00
+    }
+
+### `amount`: dict
+
+Sets the amounts to display for each frequency. If `default` is set, it will be preselected.
+
+    "amount": {
+        "oneoff": [ 3, 5, 10, 25, 50, 100, 200 ],
+        "monthly": [ 5, 7, 8, 9, 10, 11 ],
+        "default": 5
+    }
+
+### `paypal`: dict
+
+Configures the PayPal button. See the [PayPal documentation](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) for how to get the `clientId`.
+
+The `planId` is used to create [subscriptions](https://developer.paypal.com/docs/subscriptions/). See the [documentation](https://www.paypal.com/us/brc/article/setting-up-recurring-payments-for-business) for instructions on creating a plan.
+
+Create a subscription plan with:
+
+- Plan type: Quantity pricing
+- Price per item: 0,01 EUR
+- Billing cycle: Every 1 month
+- Number of billing cycles: Unlimited
+
+Example:
+
+    "paypal": {
+        "clientId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "planId": "P-XYZ"
+    }
+
+### `stripe`: dict
+
+Configures Stripe for card donations. See the Stripe documentation for getting the [publishable API key](https://stripe.com/docs/keys). Subscriptions rely on a Product - see the documenation for [creating a product](https://stripe.com/docs/billing/prices-guide#manage-products).
+
+Create the Product with a 1 € / month price.
+
+Example:
+
+    "stripe": {
+        "productId": "prod_xyz",
+        "publishableKey": "pk_xyx"
+    }
+
+### `sepa`: dict
+
+The SEPA handler does nothing. The SEPA details are sent to the AMQP server - that's all. The `sepa` key lets you enable the SEPA payment method.
+
+Example:
+
+    "sepa": {
+        "enabled": true
+    }
+
+### `useTitle`: bool
+
+If true the donation form will display a "title" above the form. The default is "I'm donating {{amount}} {{frequency}}" and can be updated using translations. The `average` phrase will only be displayed if useTitle is true.
+
+    "useTitle": true
+
+### `title`: str
+
+Set a title to display when no amount is selected.
 
 # portal
 
