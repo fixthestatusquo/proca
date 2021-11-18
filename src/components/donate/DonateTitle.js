@@ -58,13 +58,12 @@ const DonateTitle = ({ showAverage = true }) => {
   }
 
   return (
-    <>
-      <CardHeader
-        className={classes.header}
-        title={title}
-        subheader={subtitle}
-      />
-    </>
+    <CardHeader
+      className={classes.header}
+      title={title}
+      subheader={subtitle}
+    />
+
   );
 };
 
