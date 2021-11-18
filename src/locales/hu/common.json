@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "18 évesnek kell lenned",
   "twitter": {
-    "actionText": "Aláírtam. Neked is kellene",
-    "actionUrl": "actionUrl"
+    "actionText": "Aláírtam. Neked is kellene"
   },
   "register": "Add hozzá a nevemet",
   "dialogTitle": "Tájékoztasson a kampányról",
@@ -36,7 +35,6 @@
   "Last name": "Vezetéknév",
   "First name": "Keresztnév",
   "Amount": "Összeg",
-  "Donations must be %(amount)s or more": "Az adományoknak legalább% (s) s összegűeknek kell lenniük",
   "Enter a valid email address.": "Adjon meg egy érvényes e-mail címet.",
   "Enter a number.": "Írjon be egy számot.",
   "This field is required.": "A mező kitöltése kötelező.",
@@ -66,72 +64,38 @@
     "subject": "subject",
     "body": "test"
   },
-  "Donations must be {{amount}} or more": "Az adományoknak legalább {{amount}} -nak kell lenniük",
-  "The average donation is {{amount}}": "Az átlagos adomány {{amount}}",
-  "Monthly donations": "Havi adományok",
   "Phone": "Telefon",
   "Other": "Egyéb",
-  "I'm donating ": "Adakozom ",
-  "I'm donating": "Adakozom",
-  "Choose your donation amount": "Válassza ki az adomány összegét",
-  "organisation": "A szervezeti fiók",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
   "Sign the ECI": "Aláírja az ECI-t",
   "Share": "Megosztás",
   "Join": "Csatlakozás",
-  "The average donation is {{amount}} {{currency}}": "Az átlagos adomány {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Adományozok {{amount}}",
   "Stay informed": "Tájékoztatás kérése",
   "Place of birth": "Születési hely",
-  "Donate": "Adományozás",
-  "invalid IBAN": "érvénytelen IBAN",
-  "Change amount": "Változás összege",
-  "Donate {{amount}} {{currency}}": "Adományozni {{amount}} {{currency}}",
-  "yearly": "évente",
-  "weekly": "heti",
-  "monthly": "havi",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Adományozok {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
-  "a weekly": "hetente",
-  "a monthly": "havonta",
-  "I'm donating {{amount}} {{currency}} monthly": "Adományozok {{amount}} {{currency}} havonta",
-  "I'm donating {{amount}} {{currency}}": "Adományozok {{amount}} {{currency}}",
-  "Choose an Amount": "Válasszon egy összeget",
-  "Please provide your card information": "Kérjük, adja meg kártyaadatait",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Jelenleg nem tudjuk kezelni az adományát. Kérjük, néhány perc múlva próbálja meg újra.",
-  "SEPA Bank Transfer": "SEPA banki átutalás",
   "Sign the ECI!": "Írja alá az ECI-t!",
-  "Thank you for your donation!": "Köszönjük adományát!",
-  "a yearly": "minden évben",
-  "Donate now!": "Adományozzon most!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Fizetési mód",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "frequency": {
       "each": {
         "weekly": "minden évben",
         "monthly": "minden hónapban"
       },
-      "intro": "Havi rendszerességgel?",
       "monthly": "havonta",
       "yearly": "évente",
       "oneoff": "egyszeri"
-    },
-    "paymentMethods": {
-      "card": "kártya",
-      "intro": "Pénztár :",
-      "sepa": "sepa"
     },
     "thanks": "Köszönjük adományát!",
     "to": "Adomány a {{organisation}}",
     "amount": {
       "intro": "Válasszon egy összeget :"
     },
-    "belowMinimum": "Kérjük, adjon meg egy érvényes összeget. A minimális adomány összege {{ amount }} {{ currency }}",
     "payment": {
       "intro": "Fizetési részletek :"
     },
-    "button": "Adományozni {{amount}}{{currency.symbol}} {{frequency}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

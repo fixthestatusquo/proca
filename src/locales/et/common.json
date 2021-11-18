@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "peate olema 18-aastane",
   "twitter": {
-    "actionText": "Kirjutasin alla. sa peaksid ka",
-    "actionUrl": "actionUrl"
+    "actionText": "Kirjutasin alla. sa peaksid ka"
   },
   "register": "Lisage minu nimi",
   "dialogTitle": "Hoidke mind kampaaniaga kursis",
@@ -36,7 +35,6 @@
   "Last name": "Perekonnanimi",
   "First name": "Eesnimi",
   "Amount": "Summa",
-  "Donations must be %(amount)s or more": "Annetused peavad olema% (summa) s või rohkem",
   "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
   "Enter a number.": "Sisestage number.",
   "This field is required.": "See väli on kohustuslik.",
@@ -62,76 +60,42 @@
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "implicit": "Esitage see vorm, et saada e-kirju {{name}}"
   },
-  "organisation": "Teie organisatsiooni konto",
   "email": {
     "subject": "teema",
     "body": "keha"
   },
-  "Donations must be {{amount}} or more": "Annetused peavad olema vähemalt {{amount}}",
-  "The average donation is {{amount}}": "Keskmine annetus on {{amount}}",
-  "Monthly donations": "Igakuised annetused",
   "Phone": "Telefon",
   "Other": "Teine",
-  "I'm donating ": "Annetan ",
-  "I'm donating": "Annetan",
-  "Choose your donation amount": "Valige annetuse summa",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
   "Sign the ECI": "Allkirjastage ECI",
   "Share": "Jaga",
   "Join": "Ühine",
-  "The average donation is {{amount}} {{currency}}": "Keskmine annetus on {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Annetan {{amount}}",
   "Stay informed": "Olge kursis",
   "Place of birth": "Sünnikoht",
-  "Donate": "Anneta",
-  "invalid IBAN": "kehtetu IBAN",
-  "Change amount": "Muuda summa",
-  "Donate {{amount}} {{currency}}": "Annetada {{amount}} {{currency}}",
-  "yearly": "iga aastaselt",
-  "weekly": "iganädalane",
-  "monthly": "iga kuu",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ma annetan {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "iga nädal",
-  "a monthly": "iga kuu",
-  "I'm donating {{amount}} {{currency}} monthly": "Ma annetan {{amount}} {{currency}} igakuiselt",
-  "I'm donating {{amount}} {{currency}}": "Ma annetan {{amount}} {{currency}}",
-  "Choose an Amount": "Vali summa",
-  "Please provide your card information": "Palun esitage oma kaardi andmed",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Me ei saa praegu teie annetusega hakkama. Palun proovige mõne minuti pärast uuesti.",
-  "Donate now!": "Annetage nüüd!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Makseviis",
-  "SEPA Bank Transfer": "SEPA pangaülekanne",
   "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
-  "Thank you for your donation!": "Täname teid annetuse eest!",
-  "a yearly": "igal aastal",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Vali summa :"
     },
-    "belowMinimum": "Palun sisestage kehtiv summa. Minimaalne annetus on {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "iga kuu",
         "weekly": "igal aastal"
       },
-      "intro": "Teha seda igakuiselt?",
       "monthly": "igakuine",
       "yearly": "igal aastal",
       "oneoff": "ühekordne"
-    },
-    "paymentMethods": {
-      "card": "kaart",
-      "intro": "Kassasse :",
-      "sepa": "sepa"
     },
     "thanks": "Täname teid annetuse eest!",
     "to": "Annetus {{organisation}}",
     "payment": {
       "intro": "Maksmise üksikasjad :"
     },
-    "button": "Annetada {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

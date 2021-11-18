@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "тебе должно быть 18 лет",
   "twitter": {
-    "actionText": "Я подписал. Ты тоже должен",
-    "actionUrl": "actionUrl"
+    "actionText": "Я подписал. Ты тоже должен"
   },
   "share": {
     "title": "Почти готово! Сделай следующий шаг.",
@@ -14,9 +13,6 @@
     }
   },
   "register": "Добавить мое имя",
-  "progress_0": "{{count}} уже подписали. Дойдем до {{goal}}",
-  "progress_1": "{{count}} уже подписали. Дойдем до {{goal}}",
-  "progress_2": "{{count}} уже подписали. Дойдем до {{goal}}",
   "email": {
     "subject": "тема",
     "body": "тело"
@@ -32,7 +28,6 @@
     "confirm": "<0>Вы уверены?</0><1>Выбрав \"Нет\", вы не сможете узнать, является ли эта кампания успешной, или для ее выигрыша нам необходимо предпринять еще больше совместных действий. Если вы выберете \"Да\", мы будем держать вас в курсе этой и других наших срочных кампаний.</1><2>Вы можете отказаться от подписки в любое время.</2>",
     "implicit": "Отправьте эту форму, чтобы получать электронные письма от {{name}}"
   },
-  "organisation": "Ваш организационный аккаунт",
   "This field is required.": "Обязательное поле.",
   "Thanks!": "Спасибо!",
   "Thank you": "Спасибо",
@@ -53,8 +48,6 @@
   "Link_Share button": "Ссылка",
   "Legal": "Юридическая информация",
   "Last name": "Фамилия",
-  "I'm donating ": "я жертвую ",
-  "I'm donating": "я жертвую",
   "Full Name": "Полное имя",
   "First name": "Имя",
   "Enter a valid email address.": "Введите действительный адрес эл. почты.",
@@ -63,14 +56,10 @@
   "Email": "Эл. почта",
   "Download explanation": "Ваш документ уже готов, мы тоже отправим его вам по электронной почте.",
   "Download": "Скачать",
-  "Donations must be {{amount}} or more": "Пожертвования должны быть {{amount}} или больше",
   "Country": "Страна",
   "Comment": "Коментарий",
   "City": "Город",
-  "The average donation is {{amount}}": "Среднее пожертвование составляет {{amount}}",
-  "Choose your donation amount": "Выберите сумму пожертвования",
   "Birthdate": "Дата рождения",
-  "Monthly donations": "Ежемесячные пожертвования",
   "Amount": "Сумма",
   "Address": "Адрес",
   "Account": "Учётная запись",
@@ -79,59 +68,32 @@
   "Sign the ECI": "Подпишите ЕГИ",
   "Share": "Поделиться",
   "Join": "Присоединиться",
-  "The average donation is {{amount}} {{currency}}": "Среднее пожертвование составляет {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Я делаю пожертвование {{amount}}",
   "Stay informed": "Будьте в курсе",
   "Place of birth": "Место рождения",
-  "Donate": "Пожертвовать",
-  "invalid IBAN": "недействительный IBAN",
-  "Change amount": "Изменить сумму",
-  "Donate {{amount}} {{currency}}": "Пожертвовать {{amount}} {{currency}}",
-  "yearly": "в год",
-  "weekly": "еженедельно",
-  "monthly": "ежемесячно",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Я жертвую {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "каждую неделю",
-  "a monthly": "каждый месяц",
-  "I'm donating {{amount}} {{currency}} monthly": "Я жертвую {{amount}} {{currency}} ежемесячно",
-  "I'm donating {{amount}} {{currency}}": "Я жертвую {{amount}} {{currency}}",
-  "Choose an Amount": "Выберите сумму",
-  "Please provide your card information": "Пожалуйста, предоставьте информацию о вашей карте",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Мы не можем обработать ваше пожертвование в данный момент. Пожалуйста, повторите попытку через несколько минут.",
-  "PayPal": "PayPal",
-  "Donate now!": "Пожертвуйте сейчас!",
-  "IBAN": "IBAN",
-  "Payment Method": "Способ оплаты",
-  "SEPA Bank Transfer": "Банковский перевод SEPA",
   "Sign the ECI!": "Подпишите ECI!",
-  "Thank you for your donation!": "Спасибо за ваше пожертвование!",
-  "a yearly": "каждый год",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Выберите сумму :"
     },
-    "belowMinimum": "Пожалуйста, введите действительную сумму. Минимальное пожертвование составляет {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "каждый месяц",
         "weekly": "каждый год"
       },
-      "intro": "Сделать его ежемесячным?",
       "monthly": "ежемесячно",
       "yearly": "ежегодно",
       "oneoff": "один раз"
-    },
-    "paymentMethods": {
-      "card": "карта",
-      "intro": "Выезд",
-      "sepa": "sepa"
     },
     "thanks": "Спасибо за ваше пожертвование!",
     "to": "Пожертвование на {{organisation}}",
     "payment": {
       "intro": "Платежные реквизиты :"
     },
-    "button": "Пожертвовать {{amount}}{{currency.symbol}}{{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

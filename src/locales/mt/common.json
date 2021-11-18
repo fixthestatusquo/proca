@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "trid tkun 18-il sena",
   "twitter": {
-    "actionText": "I ffirmat. għandek ukoll",
-    "actionUrl": "actionUrl"
+    "actionText": "I ffirmat. għandek ukoll"
   },
   "share": {
     "title": "Kważi lest! Ħu l-pass li jmiss.",
@@ -14,10 +13,6 @@
     }
   },
   "register": "Żid ismi",
-  "progress_0": "{{count}} iffirmaw. Ejja mmorru {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
   "email": {
     "subject": "suġġett",
     "body": "ġisem"
@@ -33,7 +28,6 @@
     "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
     "implicit": "Ibgħat din il-formola biex tirċievi emails minn {{name}}"
   },
-  "organisation": "Il-kont tal-organizzazzjoni tiegħek",
   "This field is required.": "Dan il-field huwa meħtieġ.",
   "Thanks!": "Grazzi!",
   "Thank you": "Grazzi",
@@ -54,8 +48,6 @@
   "Link_Share button": "Rabta",
   "Legal": "Legali",
   "Last name": "Kunjom",
-  "I'm donating ": "Qed nagħti donazzjoni ",
-  "I'm donating": "Qed nagħti donazzjoni",
   "Full Name": "Isem sħiħ",
   "First name": "Isem",
   "Enter a valid email address.": "Daħħal indirizz tal-email validu.",
@@ -64,14 +56,10 @@
   "Email": "Email",
   "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
   "Download": "Niżżel",
-  "Donations must be {{amount}} or more": "Id-donazzjonijiet għandhom ikunu {{amount}} jew aktar",
   "Country": "Pajjiż",
   "Comment": "Kumment",
   "City": "Belt",
-  "The average donation is {{amount}}": "Id-donazzjoni medja hija {{amount}}",
-  "Choose your donation amount": "Agħżel l-ammont tad-donazzjoni tiegħek",
   "Birthdate": "Data tat-twelid",
-  "Monthly donations": "Donazzjonijiet ta ’kull xahar",
   "Amount": "Ammont",
   "Address": "Indirizz",
   "Account": "Kont",
@@ -80,59 +68,32 @@
   "Sign the ECI": "Iffirma l-ECI",
   "Share": "Aqsam",
   "Join": "Jingħaqdu",
-  "The average donation is {{amount}} {{currency}}": "Id-donazzjoni medja hija {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Qed nagħti donazzjoni {{amount}}",
   "Stay informed": "Ibqa’ infurmat",
   "Place of birth": "Post tat-twelid",
-  "Donate": "Donazzjoni",
-  "invalid IBAN": "IBAN invalidu",
-  "Change amount": "Ibdel l-ammont",
-  "Donate {{amount}} {{currency}}": "Donazzjoni {{amount}} {{currency}}",
-  "yearly": "kull sena",
-  "weekly": "kull ġimgħa",
-  "monthly": "kull xahar",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Qed nagħti donazzjoni {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "kull ġimgħa",
-  "a monthly": "kull xahar",
-  "I'm donating {{amount}} {{currency}} monthly": "Qed nagħti donazzjoni {{amount}} {{currency}} kull xahar",
-  "I'm donating {{amount}} {{currency}}": "Jien nagħti donazzjoni {{amount}} {{currency}}",
-  "Choose an Amount": "Agħżel Ammont",
-  "Please provide your card information": "Jekk jogħġbok ipprovdi l-informazzjoni tal-karta tiegħek",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Bħalissa ma stajniex nittrattaw id-donazzjoni tiegħek. Jekk jogħġbok erġa 'pprova fi ftit minuti.",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
-  "Donate now!": "Agħti donazzjoni issa!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Metodu ta 'pagament",
-  "SEPA Bank Transfer": "Trasferiment Bankarju SEPA",
   "Sign the ECI!": "Iffirma l-ECI!",
-  "Thank you for your donation!": "Grazzi tad-donazzjoni tiegħek!",
-  "a yearly": "kull sena",
   "donation": {
     "amount": {
       "intro": "Agħżel Ammont:"
     },
-    "belowMinimum": "Jekk jogħġbok daħħal ammont validu. Id-donazzjoni minima hija {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "kull xahar",
         "weekly": "kull sena"
       },
-      "intro": "Jagħmluha kull xahar?",
       "monthly": "kull xahar",
       "yearly": "kull sena",
       "oneoff": "darba waħda"
-    },
-    "paymentMethods": {
-      "card": "karta",
-      "intro": "Iċċekkja:",
-      "sepa": "sepa"
     },
     "thanks": "Grazzi tad-donazzjoni tiegħek!",
     "to": "Donazzjoni lil {{organisation}}",
     "payment": {
       "intro": "Dettalji tal-ħlas:"
     },
-    "button": "Agħti donazzjoni {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

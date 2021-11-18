@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "musíte mať 18 rokov",
   "twitter": {
-    "actionText": "Podpísal som sa. mali by ste tiež",
-    "actionUrl": "actionUrl"
+    "actionText": "Podpísal som sa. mali by ste tiež"
   },
   "register": "Pridajte moje meno",
   "dialogTitle": "Informujte ma o kampani",
@@ -36,13 +35,9 @@
   "Last name": "Priezvisko",
   "First name": "Krstné meno",
   "Amount": "Čiastka",
-  "Donations must be %(amount)s or more": "Dary musia byť minimálne% (suma) s",
   "Enter a valid email address.": "Zadajte platnú e-mailovú adresu.",
   "Enter a number.": "Zadajte číslo.",
   "This field is required.": "Toto pole je povinné.",
-  "progress_0": "{{count}} podpísali. Poďme na {{goal}}",
-  "progress_1": "{{count}} podpísali. Poďme na {{goal}}",
-  "progress_2": "{{count}} podpísali. Poďme na {{goal}}",
   "progress": "{{count}} podpísali. Poďme na {{goal}}",
   "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
   "Sign": "Odoslať!",
@@ -65,76 +60,42 @@
     "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
     "implicit": "Odoslaním tohto formulára získate e-maily od {{name}}"
   },
-  "organisation": "Váš účet organizácie",
   "email": {
     "subject": "predmet",
     "body": "telo"
   },
-  "Donations must be {{amount}} or more": "Dary musia byť {{amount}} alebo viac",
-  "The average donation is {{amount}}": "Priemerný dar je {{amount}}",
-  "Monthly donations": "Mesačné dary",
   "Phone": "Telefón",
   "Other": "Ostatné",
-  "I'm donating ": "Darujem ",
-  "I'm donating": "Darujem",
-  "Choose your donation amount": "Vyberte si sumu daru",
   "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
   "Sign the ECI": "Podpíšte ECI",
   "Share": "Zdieľať",
   "Join": "Pridať sa",
-  "The average donation is {{amount}} {{currency}}": "Priemerný dar je {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Darujem {{amount}}",
   "Stay informed": "Dostávať informácie",
   "Place of birth": "Miesto narodenia",
-  "Donate": "Prispieť",
-  "invalid IBAN": "neplatný IBAN",
-  "Change amount": "Výška zmeny",
-  "Donate {{amount}} {{currency}}": "Darovať {{amount}} {{currency}}",
-  "yearly": "raz za rok",
-  "weekly": "týždenne",
-  "monthly": "mesačne",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Darujem {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "každý týždeň",
-  "a monthly": "každý mesiac",
-  "I'm donating {{amount}} {{currency}} monthly": "Darujem {{amount}} {{currency}} mesačne",
-  "I'm donating {{amount}} {{currency}}": "Darujem {{amount}} {{currency}}",
-  "Choose an Amount": "Vyberte si sumu",
-  "Please provide your card information": "Uveďte informácie o svojej karte",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Váš dar by sme momentálne nemohli spracovať. Skúste to, prosím, o niekoľko minút znova.",
-  "Donate now!": "Darujte teraz!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Spôsob platby",
-  "SEPA Bank Transfer": "Bankový prevod SEPA",
   "Sign the ECI!": "Podpíšte ECI!",
-  "Thank you for your donation!": "Ďakujeme vám za váš dar!",
-  "a yearly": "každý rok",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Vyberte si sumu :"
     },
-    "belowMinimum": "Zadajte platnú sumu. Minimálna výška príspevku je {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "každý mesiac",
         "weekly": "každý rok"
       },
-      "intro": "Aby to bolo mesačne?",
       "monthly": "mesačne",
       "yearly": "ročne",
       "oneoff": "jednorazové"
-    },
-    "paymentMethods": {
-      "card": "karta",
-      "intro": "Pokladňa :",
-      "sepa": "sepa"
     },
     "thanks": "Ďakujeme vám za váš dar!",
     "to": "Príspevok na {{organisation}}",
     "payment": {
       "intro": "Platobné údaje :"
     },
-    "button": "Darujte {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

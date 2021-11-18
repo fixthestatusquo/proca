@@ -21,10 +21,6 @@
   "This field is required.": "Vyplňte prosím toto pole.",
   "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
   "Stay in touch": "Zůstat v kontaktu",
-  "Donations must be %(amount)s or more": "Dary musí být% (částka) s nebo více",
-  "progress_0": "{{count}} podepsali. Pojďme na {{goal}}",
-  "progress_1": "Už máme {{count}} podpisů. Blížíme se k {{goal}}!",
-  "progress_2": "Už máme {{count}} podpisů. Blížíme se k {{goal}}!",
   "Sign": "Chci podepsat!",
   "share": {
     "email": {
@@ -47,8 +43,7 @@
   },
   "you need to be 18 years old": "musíte mít 18 let",
   "twitter": {
-    "actionText": "Já jsem se podepsal. měl bys také",
-    "actionUrl": "actionUrl"
+    "actionText": "Já jsem se podepsal. měl bys také"
   },
   "register": "Přidejte mé jméno",
   "dialogTitle": "Informujte mě o kampani",
@@ -63,76 +58,42 @@
   "Birthdate": "Datum narození",
   "Address": "Adresa",
   "Account": "Účet",
-  "organisation": "Váš účet organizace",
   "email": {
     "subject": "předmět",
     "body": "tělo"
   },
-  "Donations must be {{amount}} or more": "Dary musí být {{amount}} nebo více",
-  "The average donation is {{amount}}": "Průměrný dar je {{amount}}",
-  "Monthly donations": "Měsíční dary",
   "Phone": "Telefón",
   "Other": "Ostatní",
-  "I'm donating ": "Daruji ",
-  "I'm donating": "Daruji",
-  "Choose your donation amount": "Vyberte si částku daru",
   "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
   "Sign the ECI": "Podepište ECI",
   "Share": "Sdílet",
   "Join": "Přidat se",
-  "The average donation is {{amount}} {{currency}}": "Průměrný dar je {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Daruji {{amount}}",
   "Stay informed": "Chci být nadále v obraze",
   "Place of birth": "Místo narození",
-  "Donate": "Darovat",
-  "invalid IBAN": "neplatný IBAN",
-  "Change amount": "Částka změny",
-  "Donate {{amount}} {{currency}}": "Darovat {{amount}} {{currency}}",
-  "yearly": "každý rok",
-  "weekly": "týdně",
-  "monthly": "měsíčně",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Přispívám {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "každý týden",
-  "a monthly": "každý měsíc",
-  "I'm donating {{amount}} {{currency}} monthly": "Přispívám {{amount}} {{currency}} měsíčně",
-  "I'm donating {{amount}} {{currency}}": "Přispívám {{amount}} {{currency}}",
-  "Choose an Amount": "Zvolte částku",
-  "Please provide your card information": "Uveďte prosím údaje o své kartě",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "V tuto chvíli bychom váš dar nezvládli. Zkuste to prosím znovu za několik minut.",
-  "Donate now!": "Přispějte nyní!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Způsob platby",
-  "SEPA Bank Transfer": "Bankovní převod SEPA",
   "Sign the ECI!": "Podepište ECI!",
-  "Thank you for your donation!": "Děkujeme vám za váš dar!",
-  "a yearly": "každý rok",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Vyberte si částku :"
     },
-    "belowMinimum": "Zadejte prosím platnou částku. Minimální výše příspěvku je {{ amount }} {{ currency }}",
     "frequency": {
       "monthly": "měsíční",
       "each": {
         "monthly": "každý měsíc",
         "weekly": "každý rok"
       },
-      "intro": "Měsíčně?",
       "yearly": "roční",
       "oneoff": "jednorázově"
-    },
-    "paymentMethods": {
-      "card": "karta",
-      "intro": "Pokladna :",
-      "sepa": "sepa"
     },
     "thanks": "Děkujeme vám za váš dar!",
     "to": "Příspěvek na {{organisation}}",
     "payment": {
       "intro": "Platební údaje :"
     },
-    "button": "Darovat {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

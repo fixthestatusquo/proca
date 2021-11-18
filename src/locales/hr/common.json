@@ -8,12 +8,8 @@
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
-    "opt-in-org": "Da, želim da me {{partner}} obavještava putem e-maila",
     "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}"
   },
-  "progress_0": "{{count}} potpis. Pomogni nam doseći cilj od {{goal}}",
-  "progress_1": "{{count}} potpisa. Pomogni nam doseći cilj od {{goal}}",
-  "progress_2": "{{count}} potpisa. Pomogni nam doseći cilj od {{goal}}",
   "Thank you": "Hvala",
   "share": {
     "email": {
@@ -24,7 +20,6 @@
     "title": "Skoro pa gotovo! Napravi sljedeći korak.",
     "message": "Ovo se isplati potpisati!"
   },
-  "Donations must be %(amount)s or more": "Najmanji iznos donacije je {{amount}}",
   "This field is required.": "Ovo je obavezno polje.",
   "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
   "Locality": "Lokalitet",
@@ -34,8 +29,7 @@
   "City": "Grad",
   "Your organisation account": "Račun vaše organizacije",
   "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
-    "actionUrl": "actionUrl"
+    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
   },
   "you need to be 18 years old": "morate imati 18 godina",
   "Birthdate": "Datum rođenja",
@@ -65,75 +59,41 @@
   "Postal Code": "Poštanski broj",
   "Email": "E-mail",
   "Other": "Drugo",
-  "I'm donating ": "Ja doniram ",
-  "I'm donating": "Ja doniram",
-  "Choose your donation amount": "Odaberite iznos donacije",
   "email": {
     "subject": "predmet",
     "body": "sadržaj"
   },
   "Phone": "Telefon",
-  "Donations must be {{amount}} or more": "Iznos donacije mora biti {{amount}}'s ili više",
-  "The average donation is {{amount}}": "Prosječna donacija iznosi {{amount}}",
-  "Monthly donations": "Mjesečne donacije",
-  "organisation": "Račun vaše organizacije",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Sign the ECI": "Potpiši ECI",
   "Share": "Dijeli",
   "Join": "Pridruži se",
-  "The average donation is {{amount}} {{currency}}": "Prosječna donacija iznosi {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Doniram {{amount}}",
   "Stay informed": "Ostanite u toku",
   "Place of birth": "Mjesto rođenja",
-  "Donate": "Doniraj",
-  "invalid IBAN": "nevažeći IBAN",
-  "Change amount": "Promijeni iznos",
-  "Donate {{amount}} {{currency}}": "Doniraj {{amount}} {{currency}}",
-  "yearly": "godišnje",
-  "weekly": "tjedno",
-  "monthly": "mjesečno",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Doniram {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "svaki tjedan",
-  "a monthly": "svaki mjesec",
-  "I'm donating {{amount}} {{currency}} monthly": "Doniram {{amount}} {{currency}} mjesečno",
-  "I'm donating {{amount}} {{currency}}": "Doniram {{amount}} {{currency}}",
-  "Choose an Amount": "Odaberi iznos",
-  "Please provide your card information": "Navedi podatke tvoje kartice",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Trenutačno ne možemo obraditi tvoju donaciju. Pokušaj ponovno za par minuta.",
-  "PayPal": "PayPal",
-  "Payment Method": "Način plaćanja",
-  "SEPA Bank Transfer": "SEPA bankovni prijenos",
   "Sign the ECI!": "Potpišite ECI!",
-  "Thank you for your donation!": "Hvala vam na donaciji!",
-  "Donate now!": "Donirajte sada!",
-  "IBAN": "IBAN",
-  "a yearly": "svake godine",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Odaberite iznos:"
     },
-    "belowMinimum": "Unesite valjani iznos. Minimalna donacija je {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "svaki mjesec",
         "weekly": "svake godine"
       },
-      "intro": "Neka bude mjesečno?",
       "monthly": "mjesečno",
       "yearly": "godišnje",
       "oneoff": "jednokratno"
-    },
-    "paymentMethods": {
-      "card": "kartica",
-      "intro": "Provjeri :",
-      "sepa": "sepa"
     },
     "thanks": "Hvala vam na donaciji!",
     "to": "Donacija za {{organisation}}",
     "payment": {
       "intro": "Pojedinosti o plaćanju :"
     },
-    "button": "Donirajte {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

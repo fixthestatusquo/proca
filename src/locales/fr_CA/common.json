@@ -39,15 +39,13 @@
   "Last name": "Nom",
   "First name": "Prénom",
   "Amount": "Montant",
-  "Donations must be %(amount)s or more": "Le montant minimum pour un don est de {{amount}} ou plus",
   "Enter a number.": "Entrer un chiffre.",
   "This field is required.": "Ce champ est obligatoire.",
   "progress": "{{count}} Signature. Objectif : {{goal}}",
   "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
   "you need to be 18 years old": "vous devez avoir 18 ans",
   "twitter": {
-    "actionText": "J'ai signé. Tu devrais aussi",
-    "actionUrl": "actionUrl"
+    "actionText": "J'ai signé. Tu devrais aussi"
   },
   "register": "Ajouter mon nom",
   "dialogTitle": "Tenez-moi informé·e de la campagne",
@@ -63,75 +61,41 @@
   "Address": "Adresse",
   "Account": "Compte",
   "Other": "Autres",
-  "I'm donating ": "Je fais un don ",
-  "I'm donating": "Je fais un don",
-  "Choose your donation amount": "Choisis le montant de ton don",
-  "organisation": "Le compte de votre organisation",
   "email": {
     "subject": "objet",
     "body": "corps du message"
   },
-  "Donations must be {{amount}} or more": "Le montant minimal pour un don est de {{amount}}",
-  "The average donation is {{amount}}": "Le montant moyen est de {{amount}}",
-  "Monthly donations": "Dons mensuels",
   "Phone": "Téléphone",
   "Sorry, we couldn't save": "Désolés, nous n'avons pas pu sauvegarder",
   "Sign the ECI": "Signer l'ICE",
   "Share": "Partager",
   "Join": "Rejoindre",
-  "The average donation is {{amount}} {{currency}}": "Le don moyen est de {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Je fais un don de {{amount}}",
   "Stay informed": "Rester informé·e",
   "Place of birth": "Lieu de naissance",
-  "Donate": "Faire un don",
-  "invalid IBAN": "IBAN invalide",
-  "Change amount": "Changer le montant",
-  "Donate {{amount}} {{currency}}": "Faire un don de {{amount}} {{currency}}",
-  "yearly": "annuel",
-  "weekly": "hebdomadaire",
-  "monthly": "mensuel",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Je fais un don {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "chaque semaine",
-  "a monthly": "tous les mois",
-  "I'm donating {{amount}} {{currency}} monthly": "Je fais un don mensuel de {{amount}} {{currency}}",
-  "I'm donating {{amount}} {{currency}}": "Je fais un don de {{amount}} {{currency}}",
-  "Choose an Amount": "Choisissez un montant",
-  "Please provide your card information": "Veuillez fournir les informations relatives à votre carte",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nous ne pouvons pas gérer votre don pour le moment. Veuillez réessayer dans quelques minutes.",
-  "PayPal": "PayPal",
-  "a yearly": "chaque année",
-  "Donate now!": "Faites un don maintenant !",
-  "IBAN": "IBAN",
-  "Payment Method": "Mode de paiement",
-  "SEPA Bank Transfer": "Virement bancaire SEPA",
   "Sign the ECI!": "Signez l'ICE !",
-  "Thank you for your donation!": "Merci pour votre don !",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Choisissez un montant :"
     },
-    "belowMinimum": "Veuillez saisir un montant valide. Le don minimum est de {{ amount }} {{ currency }}.",
     "frequency": {
       "each": {
         "monthly": "chaque mois",
         "weekly": "chaque année"
       },
-      "intro": "Le rendre mensuel ?",
       "monthly": "mensuel",
       "yearly": "annuel",
       "oneoff": "à l'arrêt"
-    },
-    "paymentMethods": {
-      "card": "carte",
-      "intro": "Départ :",
-      "sepa": "sepa"
     },
     "thanks": "Merci pour votre don !",
     "to": "Donation à {{organisation}}",
     "payment": {
       "intro": "Modalités de paiement :"
     },
-    "button": "Faire un don {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

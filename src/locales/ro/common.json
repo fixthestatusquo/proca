@@ -18,7 +18,6 @@
   "Last name": "Numele de familie",
   "First name": "Prenume",
   "Amount": "Sumă",
-  "Donations must be %(amount)s or more": "Donațiile trebuie să fie% (sumă) sau mai mult",
   "Enter a valid email address.": "Introduceți o adresă de email validă.",
   "Enter a number.": "Introduceți un număr.",
   "This field is required.": "Acest câmp este obligatoriu.",
@@ -45,8 +44,7 @@
   },
   "you need to be 18 years old": "trebuie să ai 18 ani",
   "twitter": {
-    "actionText": "Am semnat. ar trebui si tu",
-    "actionUrl": "actionUrl"
+    "actionText": "Am semnat. ar trebui si tu"
   },
   "register": "Adaugă numele meu",
   "dialogTitle": "Păstrați-mă la curent cu campania",
@@ -61,76 +59,42 @@
   "Birthdate": "Data nasterii",
   "Address": "Adresă",
   "Account": "Cont",
-  "organisation": "Contul organizației dvs.",
   "email": {
     "subject": "subiect",
     "body": "corp"
   },
-  "Donations must be {{amount}} or more": "Donațiile trebuie să fie {{amount}} sau mai mare",
-  "The average donation is {{amount}}": "Donația medie este de {{amount}}",
-  "Monthly donations": "Donatii lunare",
   "Phone": "Telefon",
   "Other": "Altele",
-  "I'm donating ": "Donez ",
-  "I'm donating": "Donez",
-  "Choose your donation amount": "Alegeți suma donației dvs",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
   "Sign the ECI": "Semnați ECI",
   "Share": "Distribuie",
   "Join": "Alăturați-vă",
-  "The average donation is {{amount}} {{currency}}": "Donația medie este de {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Donez {{amount}}",
   "Stay informed": "Fiți la curent",
   "Place of birth": "Locul nasterii",
-  "Donate": "Donaţi",
-  "invalid IBAN": "IBAN invalid",
-  "Change amount": "Suma de modificare",
-  "Donate {{amount}} {{currency}}": "Donează {{amount}} {{currency}}",
-  "yearly": "anual",
-  "weekly": "săptămânal",
-  "monthly": "lunar",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Donez {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "în fiecare săptămână",
-  "a monthly": "în fiecare lună",
-  "I'm donating {{amount}} {{currency}} monthly": "Donez {{amount}} {{currency}} lunar",
-  "I'm donating {{amount}} {{currency}}": "Fac o donație {{amount}} {{currency}}",
-  "Choose an Amount": "Alegeți o sumă",
-  "Please provide your card information": "Vă rugăm să furnizați informațiile cardului dvs.",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nu ne putem ocupa de donația dvs. în acest moment. Vă rugăm să încercați din nou în câteva minute.",
-  "Donate now!": "Donează acum!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Metoda de plată",
-  "SEPA Bank Transfer": "Transfer bancar SEPA",
   "Sign the ECI!": "Semnați ICE!",
-  "Thank you for your donation!": "Vă mulțumim pentru donație!",
-  "a yearly": "în fiecare an",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Alegeți o sumă :"
     },
-    "belowMinimum": "Vă rugăm să introduceți o sumă validă. Donația minimă este {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "în fiecare lună",
         "weekly": "în fiecare an"
       },
-      "intro": "Să fie lunar?",
       "monthly": "lunar",
       "yearly": "anual",
       "oneoff": "o singură dată"
-    },
-    "paymentMethods": {
-      "card": "card",
-      "intro": "Checkout :",
-      "sepa": "sepa"
     },
     "thanks": "Vă mulțumim pentru donație!",
     "to": "Donație către {{organisation}}",
     "payment": {
       "intro": "Detalii de plată :"
     },
-    "button": "Donează {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

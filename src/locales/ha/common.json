@@ -1,7 +1,5 @@
 {
   "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
-  "yearly": "kowace shekara",
-  "weekly": "mako -mako",
   "twitter": {
     "actionText": "Na sanya hannu. ya kamata ku ma"
   },
@@ -17,9 +15,6 @@
   "register": "Ƙara sunana",
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",
-  "organisation": "Asusun kungiyar ku",
-  "monthly": "kowane wata",
-  "invalid IBAN": "mara inganci IBAN",
   "email": {
     "subject": "batun",
     "body": "jiki"
@@ -36,10 +31,7 @@
     "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>"
   },
   "Your organisation account": "Asusun kungiyar ku",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Ba za mu iya ɗaukar gudummawar ku a halin yanzu ba. Da fatan a sake gwadawa cikin 'yan mintuna kaɗan.",
   "This field is required.": "Wannan fillin ana bukatansa.",
-  "The average donation is {{amount}} {{currency}}": "Matsakaicin gudummawar shine {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Matsakaicin gudummawar shine {{amount}}",
   "Thanks!": "Godiya!",
   "Thank you": "na gode",
   "Street": "Titin",
@@ -55,22 +47,16 @@
   "Share": "Raba",
   "Privacy": "Sirri",
   "Postal Code": "Lambar gidan waya",
-  "Please provide your card information": "Da fatan za a ba da bayanin katin ku",
   "Place of birth": "Wurin haihuwa",
   "Phone": "Waya",
   "Other": "Sauran",
   "No Thanks": "A'a na gode",
   "Next": "Na gaba",
-  "Monthly donations": "Gudummawar wata",
   "Locality": "Yanki",
   "Link_Share button": "Haɗi",
   "Legal": "Na doka",
   "Last name": "Sunan mahaifa",
   "Join": "Shiga",
-  "I'm donating {{amount}} {{currency}} monthly": "Ina ba da gudummawa {{amount}} {{currency}} kowane wata",
-  "I'm donating {{amount}} {{currency}}": "Ina ba da gudummawa {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Ina bayar da gudunmawa {{amount}}",
-  "I'm donating": "Ina bayar da gudunmawa",
   "Full Name": "Cikakken suna",
   "First name": "Sunan rana",
   "Enter a valid email address.": "Shigar da adireshin imel mai aiki.",
@@ -79,55 +65,37 @@
   "Email": "Imel",
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
   "Download": "Saukewa",
-  "Donations must be {{amount}} or more": "Ba da gudummawa dole ne {{amount}} ko fiye",
-  "Donate {{amount}} {{currency}}": "Ba da gudummawa {{amount}} {{currency}}",
-  "Donate": "Ba da kyauta",
   "Country": "Ƙasa",
   "Comment": "Sharhi",
   "City": "Birnin",
-  "Choose your donation amount": "Zaɓi adadin gudummawar ku",
-  "Choose an Amount": "Zabi Adadi",
-  "Change amount": "Canja adadin",
   "Birthdate": "Ranar haifuwa",
   "Amount": "Adadi",
   "Address": "Adireshin",
   "Account": "Asusu",
-  "a monthly": "kowane wata",
-  "a weekly": "kowane mako",
-  "a yearly": "kowace shekara",
-  "Donate now!": "Ba da gudummawa yanzu!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Hanyar Biyan Kuɗi",
-  "SEPA Bank Transfer": "Canja wurin Bankin SEPA",
   "Sign the ECI!": "Sa hannu kan ECI!",
-  "Thank you for your donation!": "Na gode da gudummawar ku!",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Zaɓi Adadi:"
     },
-    "belowMinimum": "Da fatan za a shigar da ingantaccen adadin Mafi ƙarancin gudummawa shine {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "kowane wata",
         "weekly": "kowace shekara"
       },
-      "intro": "Yi shi kowane wata?",
       "monthly": "kowane wata",
       "yearly": "kowace shekara",
       "oneoff": "kashe daya"
-    },
-    "paymentMethods": {
-      "card": "kati",
-      "intro": "Dubawa:",
-      "sepa": "sepa"
     },
     "thanks": "Na gode da gudummawar ku!",
     "to": "Kyauta ga {{organisation}}",
     "payment": {
       "intro": "Bayanin biyan kuɗi:"
     },
-    "button": "Ba da gudummawa {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

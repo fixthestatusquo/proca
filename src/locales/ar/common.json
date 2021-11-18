@@ -18,7 +18,6 @@
   "Last name": "إسم العائلة",
   "First name": "الإسم الأول",
   "Amount": "المبلغ",
-  "Donations must be %(amount)s or more": "يجب أن تكون التبرعات٪ (amount) s أو أكثر",
   "Enter a valid email address.": "أدخل عنوان بريد صالح.",
   "Enter a number.": "أدخل رقما.",
   "This field is required.": "هذا الحقل مطلوب.",
@@ -45,8 +44,7 @@
   },
   "you need to be 18 years old": "يجب أن يكون عمرك 18 عامًا",
   "twitter": {
-    "actionText": "وقعت. يجب عليك أنت أيضا",
-    "actionUrl": "العمل"
+    "actionText": "وقعت. يجب عليك أنت أيضا"
   },
   "register": "أضف اسمي",
   "dialogTitle": "ابقني على اطلاع حول الحملة",
@@ -61,76 +59,42 @@
   "Birthdate": "يوم الميلاد",
   "Address": "العنوان",
   "Account": "الحساب",
-  "Choose your donation amount": "حدد القيمة النقدي المتبرع بها",
-  "organisation": "حساب مؤسستك",
   "email": {
     "subject": "subject",
     "body": "الجسم"
   },
-  "Donations must be {{amount}} or more": "يجب أن تكون التبرعات {{amount}} أو أكثر",
-  "The average donation is {{amount}}": "متوسط التبرع هو {{amount}}",
-  "Monthly donations": "التبرعات الشهرية",
   "Phone": "الهاتف",
   "Other": "آخر",
-  "I'm donating ": "أنا أتبرع ",
-  "I'm donating": "أنا أتبرع",
   "Sorry, we couldn't save": "عذرا ، لم نتمكن من الحفظ",
   "Sign the ECI": "قم بالتوقيع على ECI",
   "Share": "مشاركة",
   "Join": "الإلتحاق بالغرفة",
-  "The average donation is {{amount}} {{currency}}": "متوسط التبرع هو {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "أنا أتبرع {{amount}}",
   "Stay informed": "البقاء على علم",
   "Place of birth": "مكان الميلاد",
-  "Donate": "التبرع",
-  "invalid IBAN": "IBAN غير صالح",
-  "Change amount": "تغيير المبلغ",
-  "Donate {{amount}} {{currency}}": "تبرع {{amount}} {{currency}}",
-  "yearly": "سنوياً",
-  "weekly": "أسبوعيًّا",
-  "monthly": "شهريًّا",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "أنا أتبرع {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "أسبوعيًّا",
-  "a monthly": "كل شهر",
-  "I'm donating {{amount}} {{currency}} monthly": "أتبرع {{amount}} {{currency}} شهريًا",
-  "I'm donating {{amount}} {{currency}}": "أنا أتبرع {{amount}} {{currency}}",
-  "Choose an Amount": "اختر المبلغ",
-  "Please provide your card information": "يرجى تقديم معلومات بطاقتك",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "لم نتمكن من التعامل مع تبرعك في الوقت الحالي. يرجى المحاولة مرة أخرى في بضع دقائق.",
-  "Donate now!": "تبرع الآن!",
-  "IBAN": "رقم الحساب بصيغة IBAN",
-  "PayPal": "باي بال",
-  "Payment Method": "طريقة الدفع او السداد",
-  "SEPA Bank Transfer": "تحويل بنكي SEPA",
   "Sign the ECI!": "قم بالتوقيع على ECI!",
-  "Thank you for your donation!": "شكرا لك على تبرعك!",
-  "a yearly": "كل سنة",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "اختر المبلغ:"
     },
-    "belowMinimum": "يرجى إدخال مبلغ صالح. الحد الأدنى للتبرع هو {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "كل شهر",
         "weekly": "كل سنة"
       },
-      "intro": "جعلها شهريا؟",
       "monthly": "شهريا",
       "yearly": "سنوي",
       "oneoff": "مرة واحدة"
-    },
-    "paymentMethods": {
-      "card": "بطاقة",
-      "intro": "الدفع :",
-      "sepa": "سيبا"
     },
     "thanks": "شكرا لك على تبرعك!",
     "to": "التبرع لـ {{organisation}}",
     "payment": {
       "intro": "بيانات الدفع :"
     },
-    "button": "تبرع بـ {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

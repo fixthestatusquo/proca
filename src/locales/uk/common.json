@@ -13,10 +13,6 @@
     }
   },
   "register": "Додати моє ім’я",
-  "progress_0": "{{count}} підписав. Досягнімо {{goal}}",
-  "progress_1": "{{count}} підписали. Досягнімо {{goal}}",
-  "progress_2": "{{count}} підписало. Досягнімо {{goal}}",
-  "organisation": "Обліковий запис вашої організації",
   "email": {
     "subject": "тема",
     "body": "тіло"
@@ -34,8 +30,6 @@
   },
   "Your organisation account": "Обліковий запис вашої організації",
   "This field is required.": "Це обов'язкове поле.",
-  "The average donation is {{amount}} {{currency}}": "Середнє пожертвування становить {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Середнє пожертвування становить {{amount}}",
   "Thanks!": "Дякуємо!",
   "Thank you": "Дякую.",
   "Street": "Вулиця",
@@ -56,14 +50,11 @@
   "Other": "Інше",
   "No Thanks": "Ні, дякую",
   "Next": "Далі",
-  "Monthly donations": "Щомісячні пожертви",
   "Locality": "Мова",
   "Link_Share button": "Посилання",
   "Legal": "Юридичні відомості",
   "Last name": "Прізвище",
   "Join": "Приєднатися",
-  "I'm donating {{amount}}": "Я жертвую {{amount}}",
-  "I'm donating": "Я жертвую",
   "Full Name": "Повне ім'я",
   "First name": "Ім'я",
   "Enter a valid email address.": "Уведіть правильну е-пошту.",
@@ -72,64 +63,37 @@
   "Email": "Е-пошта",
   "Download explanation": "Ваш документ готовий, ми також надсилаємо його вам е-поштою.",
   "Download": "Завантажити",
-  "Donations must be {{amount}} or more": "Пожертви повинні бути {{amount}} або більше",
-  "Donate": "Пожертвувати",
   "Country": "Країна",
   "Comment": "Коментар",
   "City": "Місто",
-  "Choose your donation amount": "Виберіть суму пожертви",
   "Birthdate": "День народження",
   "Amount": "Сума",
   "Address": "Адреса",
   "Account": "Обліковий запис",
-  "invalid IBAN": "недійсний IBAN",
-  "Change amount": "Змінити суму",
-  "Donate {{amount}} {{currency}}": "Пожертвувати {{amount}} {{currency}}",
-  "yearly": "щороку",
-  "weekly": "щотижня",
-  "monthly": "щомісяця",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Я дарую {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "щотижня",
-  "a monthly": "щомісяця",
-  "I'm donating {{amount}} {{currency}} monthly": "Я пожертвую {{amount}} {{currency}} щомісяця",
-  "I'm donating {{amount}} {{currency}}": "Я дарую {{amount}} {{currency}}",
-  "Choose an Amount": "Виберіть суму",
-  "Please provide your card information": "Будь ласка, надайте дані своєї картки",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "На даний момент ми не змогли впоратися з вашою пожертвою. Повторіть спробу через кілька хвилин.",
-  "SEPA Bank Transfer": "Банківський переказ SEPA",
-  "Donate now!": "Пожертвуйте зараз!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Спосіб оплати",
   "Sign the ECI!": "Підпишіть ECI!",
-  "Thank you for your donation!": "Дякуємо за вашу пожертву!",
-  "a yearly": "кожен рік",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Виберіть суму:"
     },
-    "belowMinimum": "Введіть дійсну суму. Мінімальна пожертва становить {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "кожного місяця",
         "weekly": "кожен рік"
       },
-      "intro": "Робити це щомісяця?",
       "monthly": "щомісячно",
       "yearly": "щорічно",
       "oneoff": "один раз"
-    },
-    "paymentMethods": {
-      "card": "картка",
-      "intro": "Перевіряти :",
-      "sepa": "sepa"
     },
     "thanks": "Дякуємо за вашу пожертву!",
     "to": "Пожертвування на {{organisation}}",
     "payment": {
       "intro": "Платіжні реквізити :"
     },
-    "button": "Пожертвувати {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "Ha de ser major d'edat",
   "twitter": {
-    "actionText": "He signat. Tu també ho hauries de fer",
-    "actionUrl": "actionUrl"
+    "actionText": "He signat. Tu també ho hauries de fer"
   },
   "share": {
     "title": "Gairebé ho té! Doneu el següent pas.",
@@ -52,8 +51,6 @@
   "Link_Share button": "Enllaç",
   "Legal": "Informació legal",
   "Last name": "Cognoms",
-  "I'm donating ": "Estic donant ",
-  "I'm donating": "Estic donant",
   "Full Name": "Nom",
   "First name": "Nom",
   "Enter a valid email address.": "Escriviu una adreça de correu vàlida.",
@@ -62,75 +59,43 @@
   "Email": "Correu electrònic",
   "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
   "Download": "Descarrega",
-  "Donations must be {{amount}} or more": "Els donatius han de ser de {{amount}} o més",
   "Country": "País",
   "Comment": "Comentari",
   "City": "Municipi",
-  "The average donation is {{amount}}": "El donatiu mitjà és de {{amount}}",
-  "Choose your donation amount": "Trieu l'import del vostre donatiu",
   "Birthdate": "Data de naixement",
-  "Monthly donations": "Donatius mensuals",
   "Amount": "Quantitat",
   "Address": "Adreça",
   "Account": "Compte",
-  "organisation": "El compte de la teva organització",
   "Sorry, we couldn't save": "No hem pogut desar",
   "Sign the ECI": "Signar l’ECI",
   "Share": "Comparteix",
   "Join": "Unir-s'hi",
-  "The average donation is {{amount}} {{currency}}": "El donatiu mitjà és de {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Dono {{amount}}",
   "Stay informed": "Mantingueu-vos informat",
   "Place of birth": "Lloc de naixement",
-  "Donate": "Donar",
-  "invalid IBAN": "IBAN no vàlid",
-  "Change amount": "Canvia l'import",
-  "Donate {{amount}} {{currency}}": "Fes una donació {{amount}} {{currency}}",
-  "yearly": "cada any",
-  "weekly": "setmanalment",
-  "monthly": "mensualment",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Estic donant {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "Cada setmana",
-  "a monthly": "Cada mes",
-  "I'm donating {{amount}} {{currency}} monthly": "Estic donant {{amount}} {{currency}} mensualment",
-  "I'm donating {{amount}} {{currency}}": "Estic donant {{amount}} {{currency}}",
-  "Choose an Amount": "Trieu una quantitat",
-  "Please provide your card information": "Proporcioneu la informació de la vostra targeta",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "De moment no hem pogut gestionar la vostra donació. Torneu-ho a provar d'aquí a uns quants minuts.",
-  "Donate now!": "Dona ara!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Mètode de pagament",
-  "SEPA Bank Transfer": "Transferència bancària SEPA",
   "Sign the ECI!": "Signa l'ECI!",
-  "Thank you for your donation!": "Gràcies per la teva donació!",
-  "a yearly": "cada any",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Trieu una quantitat:"
     },
-    "belowMinimum": "Introduïu una quantitat vàlida. La donació mínima és {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "cada mes",
         "weekly": "cada any"
       },
-      "intro": "Fer-lo mensualment?",
       "monthly": "mensual",
       "yearly": "anualment",
       "oneoff": "una sola"
-    },
-    "paymentMethods": {
-      "card": "targeta",
-      "intro": "Checkout:",
-      "sepa": "sepa"
     },
     "thanks": "Gràcies per la teva donació!",
     "to": "Donació a {{organisation}}",
     "payment": {
       "intro": "Detalls del pagament :"
     },
-    "button": "Donar {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

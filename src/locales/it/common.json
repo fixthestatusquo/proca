@@ -24,7 +24,6 @@
   "This field is required.": "Questo campo è richiesto.",
   "Enter a number.": "Inserire un numero.",
   "Enter a valid email address.": "Inserisci un indirizzo e-mail valido.",
-  "Donations must be %(amount)s or more": "L’importo minimo della donazione è {{amount}} o superiore",
   "Amount": "Importo",
   "First name": "Nome",
   "Last name": "Nome e cognome",
@@ -62,75 +61,41 @@
   "Full Name": "Nome e cognome",
   "Account": "Conto",
   "Other": "Altro",
-  "I'm donating ": "Sto donando ",
-  "I'm donating": "Sto donando",
-  "Choose your donation amount": "Scegli l'importo della tua donazione",
-  "organisation": "Il conto della tua organizzazione",
   "email": {
     "subject": "soggetto",
     "body": "corpo"
   },
-  "Donations must be {{amount}} or more": "Le donazioni devono essere di {{amount}} o piu",
-  "The average donation is {{amount}}": "La donazione media è {{amount}}",
-  "Monthly donations": "Donazioni mensili",
   "Phone": "Telefono",
   "Sorry, we couldn't save": "Spiacenti, non siamo riusciti a salvare",
   "Sign the ECI": "Firma l'ECI",
   "Share": "Condividi",
   "Join": "Unisciti a",
-  "The average donation is {{amount}} {{currency}}": "La donazione media è {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Sto donando {{amount}}",
   "Stay informed": "Rimanete informati",
   "Place of birth": "Luogo di nascita",
-  "Donate": "Donare",
-  "invalid IBAN": "IBAN non valido",
-  "Change amount": "Cambiare l'importo",
-  "Donate {{amount}} {{currency}}": "Donare {{amount}} {{currency}}",
-  "yearly": "annuale",
-  "weekly": "settimanale",
-  "monthly": "mensile",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Sto donando {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "ogni settimana",
-  "a monthly": "ogni mese",
-  "I'm donating {{amount}} {{currency}} monthly": "Sto donando {{amount}} {{currency}} mensilmente",
-  "I'm donating {{amount}} {{currency}}": "Sto donando {{amount}} {{currency}}",
-  "Choose an Amount": "Scegli un importo",
-  "Please provide your card information": "Per favore, fornisci le informazioni sulla tua carta",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Non abbiamo potuto gestire la tua donazione al momento. Si prega di riprovare tra qualche minuto.",
-  "Donate now!": "Dona ora!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Metodo di pagamento",
-  "SEPA Bank Transfer": "Trasferimento bancario SEPA",
   "Sign the ECI!": "Firmate l'ECI!",
-  "Thank you for your donation!": "Grazie per la vostra donazione!",
-  "a yearly": "ogni anno",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Scegliere un importo:"
     },
-    "belowMinimum": "Si prega di inserire un importo valido. La donazione minima è {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "ogni mese",
         "weekly": "ogni anno"
       },
-      "intro": "Farlo mensilmente?",
       "monthly": "mensile",
       "yearly": "annuale",
       "oneoff": "una tantum"
-    },
-    "paymentMethods": {
-      "card": "scheda",
-      "intro": "Cassa :",
-      "sepa": "sepa"
     },
     "thanks": "Grazie per la vostra donazione!",
     "to": "Donazione a {{organisation}}",
     "payment": {
       "intro": "Dettagli di pagamento:"
     },
-    "button": "Donare {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }
