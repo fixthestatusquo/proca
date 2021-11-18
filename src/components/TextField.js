@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const TextFieldProca = (props) => {
   const { t } = useTranslation();
   const layout = useLayout();
   const classes = useStyles();
@@ -49,3 +49,6 @@ export default (props) => {
     />
   );
 };
+
+export default TextFieldProca;
+

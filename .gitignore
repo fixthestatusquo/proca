@@ -16,6 +16,7 @@
 /dist
 /d 
 /config
+/config.*
 /src/tmp.config
 # misc
 .DS_Store

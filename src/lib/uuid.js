@@ -22,7 +22,7 @@ const reset = () => {
   return id;
 };
 // @input set null=generate or return previous, false=return if uuid is set or not, string or array = set the uuid
-export default function (set) {
+const getuuid = set => {
   if (typeof set === "undefined") {
     return id ? id : generate();
   }
@@ -34,4 +34,5 @@ export default function (set) {
   return id;
 }
 
-export { reset };
+export default getuuid;
+export { reset, getuuid as uuid};

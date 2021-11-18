@@ -1,9 +1,13 @@
 {
   "incremental": true,
+   "useTabs": false,  
+    "indentWidth": 2,
   "typescript": {
-    "indentWidth": 2
+    "indentWidth": 2,
+    "useTabs":false
   },
   "json": {
+    "useTabs":false,
     "indentWidth": 2
   },
   "markdown": {
