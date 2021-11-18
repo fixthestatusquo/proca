@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const ImplicitConsent = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const layout = useLayout();
@@ -69,3 +69,5 @@ export default (props) => {
     </Fragment>
   );
 };
+
+export default ImplicitConsent;

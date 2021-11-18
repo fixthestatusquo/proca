@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const Organisation = (props) => {
   const classes = useStyles();
 
   const { t } = useTranslation();
@@ -140,3 +140,5 @@ export default (props) => {
     </>
   );
 };
+
+export default Organisation;
