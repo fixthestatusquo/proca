@@ -1,101 +1,142 @@
 {
-  "you need to be 18 years old": "du skal være 18 år gammel",
-  "twitter": {
-    "actionText": "Jeg underskrev. du burde også"
-  },
-  "register": "Tilføj mit navn",
-  "dialogTitle": "Hold mig informeret om kampagnen",
-  "Your organisation account": "Din organisationskonto",
-  "Thank you": "tak skal du have",
-  "Sign now!": "Tilmeld nu!",
-  "Next": "Next",
-  "Locality": "Lokalitet",
-  "Full Name": "Fuldt navn",
-  "Download": "Download",
-  "Comment": "Kommentar",
-  "Birthdate": "Fødselsdato",
-  "Address": "Adresse",
-  "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
-  "Link_Share button": "Hyperlink",
-  "Email_Share button": "Emailadresse",
-  "Share on Twitter": "Del på Twitter",
-  "Share on Facebook": "Del det på Facebook",
-  "Sign Up": "Tilmeld dig",
-  "Stay in touch": "Holde kontakt",
-  "No Thanks": "Nej tak",
-  "Privacy": "Privatliv",
-  "Legal": "Juridisk",
-  "Thanks!": "Tak!",
-  "Country": "Land",
-  "City": "By",
-  "Street": "Gade",
-  "Postal Code": "Postnummer",
-  "Email": "Emailadresse",
-  "Last name": "Efternavn",
-  "First name": "Fornavn",
-  "Amount": "Beløb",
-  "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
-  "Enter a number.": "Indtast et nummer.",
-  "This field is required.": "Dette felt er påkrævet.",
-  "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-  "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-  "Sign": "Tilmeld nu!",
-  "share": {
+    "you need to be 18 years old": "du skal være 18 år gammel",
+    "twitter": {
+        "actionText": "Jeg underskrev. du burde også"
+    },
+    "register": "Tilføj mit navn",
+    "dialogTitle": "Hold mig informeret om kampagnen",
+    "Your organisation account": "Din organisationskonto",
+    "Thank you": "tak skal du have",
+    "Sign now!": "Tilmeld nu!",
+    "Next": "Next",
+    "Locality": "Lokalitet",
+    "Full Name": "Fuldt navn",
+    "Download": "Download",
+    "Comment": "Kommentar",
+    "Birthdate": "Fødselsdato",
+    "Address": "Adresse",
+    "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
+    "Link_Share button": "Hyperlink",
+    "Email_Share button": "Emailadresse",
+    "Share on Twitter": "Del på Twitter",
+    "Share on Facebook": "Del det på Facebook",
+    "Sign Up": "Tilmeld dig",
+    "Stay in touch": "Holde kontakt",
+    "No Thanks": "Nej tak",
+    "Privacy": "Privatliv",
+    "Legal": "Juridisk",
+    "Thanks!": "Tak!",
+    "Country": "Land",
+    "City": "By",
+    "Street": "Gade",
+    "Postal Code": "Postnummer",
+    "Email": "Emailadresse",
+    "Last name": "Efternavn",
+    "First name": "Fornavn",
+    "Amount": "Beløb",
+    "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
+    "Enter a number.": "Indtast et nummer.",
+    "This field is required.": "Dette felt er påkrævet.",
+    "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+    "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+    "Sign": "Tilmeld nu!",
+    "share": {
+        "email": {
+            "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
+            "subject": "Du skal underskrive dette"
+        },
+        "message": "Du skal underskrive dette!",
+        "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
+        "title": "Næsten færdig! Tag det næste skridt."
+    },
+    "consent": {
+        "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+        "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
+        "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
+        "opt-in": "Ja, hold mig informeret via e-mail",
+        "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
+        "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+        "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
+        "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}"
+    },
+    "Account": "Konto",
     "email": {
-      "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
-      "subject": "Du skal underskrive dette"
+        "subject": "emne",
+        "body": "krop"
     },
-    "message": "Du skal underskrive dette!",
-    "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
-    "title": "Næsten færdig! Tag det næste skridt."
-  },
-  "consent": {
-    "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
-    "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
-    "opt-in": "Ja, hold mig informeret via e-mail",
-    "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
-    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
-    "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}"
-  },
-  "Account": "Konto",
-  "email": {
-    "subject": "emne",
-    "body": "krop"
-  },
-  "Phone": "Telefon",
-  "Other": "Andre",
-  "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
-  "Sign the ECI": "Underskriv ECI",
-  "Share": "Del",
-  "Join": "Meld dig ind",
-  "Stay informed": "Hold dig opdateret",
-  "Place of birth": "Fødselssted",
-  "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
-  "donation": {
-    "amount": {
-      "intro": "Vælg et beløb :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "hver måned",
-        "weekly": "hvert år"
-      },
-      "monthly": "månedlig",
-      "yearly": "årligt",
-      "oneoff": "engangsydelse"
-    },
-    "thanks": "Tak for din donation!",
-    "to": "Donation til {{organisation}}",
-    "payment": {
-      "intro": "Betalingsoplysninger :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
+    "Phone": "Telefon",
+    "Other": "Andre",
+    "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
+    "Sign the ECI": "Underskriv ECI",
+    "Share": "Del",
+    "Join": "Meld dig ind",
+    "Stay informed": "Hold dig opdateret",
+    "Place of birth": "Fødselssted",
+    "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
+    "donation": {
+        "amount": {
+            "intro": "Vælg et beløb :",
+            "change": "Ændringsbeløb",
+            "choose": "Vælg et beløb"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "hver måned",
+                "weekly": "hvert år",
+                "oneoff": "Når"
+            },
+            "monthly": "månedlig",
+            "yearly": "årligt",
+            "oneoff": "engangsydelse",
+            "ask": {
+                "weekly": "Gør det til en ugentlig donation?",
+                "monthly": "Gør det månedligt?",
+                "oneoff": "Donér"
+            },
+            "feedback": {
+                "monthly": "Jeg donerer {{amount}} {{frequency}}",
+                "oneoff": "Jeg donerer {{amount}}"
+            }
+        },
+        "thanks": "Tak for din donation!",
+        "to": "Donation til {{organisation}}",
+        "payment": {
+            "intro": "Betalingsoplysninger :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "payment_methods": {
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Betalingsmetode",
+            "card": "Kort",
+            "intro": "Hvordan ønsker du at donere?"
+        },
+        "average": "Den gennemsnitlige donation er {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Kreditkortnummer mangler"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "generelt",
+            "initialisation": "initialisering"
+        },
+        "form": {
+            "error": {
+                "minimum": "Minimumsdonationen er {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "åben"
+        }
     }
-  }
 }
