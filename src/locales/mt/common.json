@@ -1,99 +1,140 @@
 {
-  "you need to be 18 years old": "trid tkun 18-il sena",
-  "twitter": {
-    "actionText": "I ffirmat. għandek ukoll"
-  },
-  "share": {
-    "title": "Kważi lest! Ħu l-pass li jmiss.",
-    "message": "Għandek tiffirma dan!",
-    "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
+    "you need to be 18 years old": "trid tkun 18-il sena",
+    "twitter": {
+        "actionText": "I ffirmat. għandek ukoll"
+    },
+    "share": {
+        "title": "Kważi lest! Ħu l-pass li jmiss.",
+        "message": "Għandek tiffirma dan!",
+        "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
+        "email": {
+            "subject": "Għandek tiffirma dan",
+            "body": "Hello,\nJekk jogħġbok iffirma, naħseb li trid tappoġġjaha"
+        }
+    },
+    "register": "Żid ismi",
     "email": {
-      "subject": "Għandek tiffirma dan",
-      "body": "Hello,\nJekk jogħġbok iffirma, naħseb li trid tappoġġjaha"
+        "subject": "suġġett",
+        "body": "ġisem"
+    },
+    "dialogTitle": "Żommni infurmat dwar il-kampanja",
+    "consent": {
+        "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
+        "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
+        "opt-out": "Le, tibgħatx email jew żommni aġġornat fil-futur",
+        "opt-in-both": "Iva, irrid {{partner}} u {{lead}} iżommuni infurmat permezz tal-email",
+        "opt-in": "Iva, irrid {{partner}} li jżommni infurmat permezz tal-email",
+        "intro": "Sib aktar dwar il-kampanji, l-azzjonijiet u l-progress tagħna {{campaign}}",
+        "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
+        "implicit": "Ibgħat din il-formola biex tirċievi emails minn {{name}}"
+    },
+    "This field is required.": "Dan il-field huwa meħtieġ.",
+    "Thanks!": "Grazzi!",
+    "Thank you": "Grazzi",
+    "Street": "Triq",
+    "Stay in touch": "Ibqa 'f'kuntatt",
+    "Sign now!": "Iffirma issa!",
+    "Sign Up": "Irregistra",
+    "Sign": "Iffirma Issa!",
+    "Share on Twitter": "Aqsam fuq Twitter",
+    "Share on Facebook": "Ixxerja fuq facebook",
+    "Privacy": "Privatezza",
+    "Postal Code": "Kodiċi postali",
+    "Phone": "Telefon",
+    "Other": "Oħrajn",
+    "No Thanks": "Le grazzi",
+    "Next": "Li jmiss",
+    "Locality": "Lokalità",
+    "Link_Share button": "Rabta",
+    "Legal": "Legali",
+    "Last name": "Kunjom",
+    "Full Name": "Isem sħiħ",
+    "First name": "Isem",
+    "Enter a valid email address.": "Daħħal indirizz tal-email validu.",
+    "Enter a number.": "Daħħal numru.",
+    "Email_Share button": "Email",
+    "Email": "Email",
+    "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
+    "Download": "Niżżel",
+    "Country": "Pajjiż",
+    "Comment": "Kumment",
+    "City": "Belt",
+    "Birthdate": "Data tat-twelid",
+    "Amount": "Ammont",
+    "Address": "Indirizz",
+    "Account": "Kont",
+    "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
+    "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
+    "Sign the ECI": "Iffirma l-ECI",
+    "Share": "Aqsam",
+    "Join": "Jingħaqdu",
+    "Stay informed": "Ibqa’ infurmat",
+    "Place of birth": "Post tat-twelid",
+    "Sign the ECI!": "Iffirma l-ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Agħżel Ammont:",
+            "choose": "Agħżel Ammont",
+            "change": "Ibdel l-ammont"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "kull xahar",
+                "weekly": "kull sena",
+                "oneoff": "Darba"
+            },
+            "monthly": "kull xahar",
+            "yearly": "kull sena",
+            "oneoff": "darba waħda",
+            "ask": {
+                "monthly": "Jagħmluha kull xahar?",
+                "oneoff": "Agħti donazzjoni",
+                "weekly": "Tagħmel din donazzjoni ta' kull ġimgħa?"
+            },
+            "feedback": {
+                "monthly": "Qed nagħti donazzjoni {{amount}} {{frequency}}",
+                "oneoff": "Qed nagħti donazzjoni {{amount}}"
+            }
+        },
+        "thanks": "Grazzi tad-donazzjoni tiegħek!",
+        "to": "Donazzjoni lil {{organisation}}",
+        "payment": {
+            "intro": "Dettalji tal-ħlas:"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "iban": "iban",
+        "average": "Id-donazzjoni medja hija {{amount}}",
+        "error": {
+            "card": {
+                "missing": "In-numru tal-karta tal-kreditu huwa nieqes"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "ġenerali",
+            "initialisation": "inizjalizzazzjoni"
+        },
+        "form": {
+            "error": {
+                "minimum": "Id-donazzjoni minima hija {{ampount}}"
+            }
+        },
+        "mobile": {
+            "open": "miftuħa"
+        },
+        "payment_methods": {
+            "card": "Card",
+            "intro": "Kif trid tagħti donazzjoni?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Metodu ta 'pagament"
+        }
     }
-  },
-  "register": "Żid ismi",
-  "email": {
-    "subject": "suġġett",
-    "body": "ġisem"
-  },
-  "dialogTitle": "Żommni infurmat dwar il-kampanja",
-  "consent": {
-    "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
-    "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
-    "opt-out": "Le, tibgħatx email jew żommni aġġornat fil-futur",
-    "opt-in-both": "Iva, irrid {{partner}} u {{lead}} iżommuni infurmat permezz tal-email",
-    "opt-in": "Iva, irrid {{partner}} li jżommni infurmat permezz tal-email",
-    "intro": "Sib aktar dwar il-kampanji, l-azzjonijiet u l-progress tagħna {{campaign}}",
-    "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
-    "implicit": "Ibgħat din il-formola biex tirċievi emails minn {{name}}"
-  },
-  "This field is required.": "Dan il-field huwa meħtieġ.",
-  "Thanks!": "Grazzi!",
-  "Thank you": "Grazzi",
-  "Street": "Triq",
-  "Stay in touch": "Ibqa 'f'kuntatt",
-  "Sign now!": "Iffirma issa!",
-  "Sign Up": "Irregistra",
-  "Sign": "Iffirma Issa!",
-  "Share on Twitter": "Aqsam fuq Twitter",
-  "Share on Facebook": "Ixxerja fuq facebook",
-  "Privacy": "Privatezza",
-  "Postal Code": "Kodiċi postali",
-  "Phone": "Telefon",
-  "Other": "Oħrajn",
-  "No Thanks": "Le grazzi",
-  "Next": "Li jmiss",
-  "Locality": "Lokalità",
-  "Link_Share button": "Rabta",
-  "Legal": "Legali",
-  "Last name": "Kunjom",
-  "Full Name": "Isem sħiħ",
-  "First name": "Isem",
-  "Enter a valid email address.": "Daħħal indirizz tal-email validu.",
-  "Enter a number.": "Daħħal numru.",
-  "Email_Share button": "Email",
-  "Email": "Email",
-  "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
-  "Download": "Niżżel",
-  "Country": "Pajjiż",
-  "Comment": "Kumment",
-  "City": "Belt",
-  "Birthdate": "Data tat-twelid",
-  "Amount": "Ammont",
-  "Address": "Indirizz",
-  "Account": "Kont",
-  "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
-  "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
-  "Sign the ECI": "Iffirma l-ECI",
-  "Share": "Aqsam",
-  "Join": "Jingħaqdu",
-  "Stay informed": "Ibqa’ infurmat",
-  "Place of birth": "Post tat-twelid",
-  "Sign the ECI!": "Iffirma l-ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Agħżel Ammont:"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "kull xahar",
-        "weekly": "kull sena"
-      },
-      "monthly": "kull xahar",
-      "yearly": "kull sena",
-      "oneoff": "darba waħda"
-    },
-    "thanks": "Grazzi tad-donazzjoni tiegħek!",
-    "to": "Donazzjoni lil {{organisation}}",
-    "payment": {
-      "intro": "Dettalji tal-ħlas:"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
-    }
-  }
 }
