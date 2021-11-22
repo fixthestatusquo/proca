@@ -1,101 +1,142 @@
 {
-  "you need to be 18 years old": "Ha de ser major d'edat",
-  "twitter": {
-    "actionText": "He signat. Tu també ho hauries de fer"
-  },
-  "share": {
-    "title": "Gairebé ho té! Doneu el següent pas.",
-    "message": "Hauríeu de signar això!",
-    "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
+    "you need to be 18 years old": "Ha de ser major d'edat",
+    "twitter": {
+        "actionText": "He signat. Tu també ho hauries de fer"
+    },
+    "share": {
+        "title": "Gairebé ho té! Doneu el següent pas.",
+        "message": "Hauríeu de signar això!",
+        "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
+        "email": {
+            "subject": "Hauríeu de signar això",
+            "body": "Hola,\nSi us plau, signa això. Crec que hi voldràs donar suport"
+        }
+    },
+    "register": "Afegeix el meu nom",
+    "progress": "{{count}} han signat. Volem arribar a {{goal}}",
+    "progress_plural": "",
     "email": {
-      "subject": "Hauríeu de signar això",
-      "body": "Hola,\nSi us plau, signa això. Crec que hi voldràs donar suport"
+        "subject": "assumpte",
+        "body": "cos"
+    },
+    "dialogTitle": "Mantingueu-me informat de la campanya",
+    "consent": {
+        "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
+        "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
+        "opt-out": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere",
+        "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
+        "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
+        "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
+        "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>",
+        "implicit": "Envieu aquest formulari per rebre correus electrònics de {{name}}"
+    },
+    "Your organisation account": "El vostre compte d'organització",
+    "This field is required.": "Aquest camp és obligatori.",
+    "Thanks!": "Gràcies!",
+    "Thank you": "Gràcies",
+    "Street": "Carrer",
+    "Stay in touch": "Estar en contacte",
+    "Sign now!": "Signeu ara!",
+    "Sign Up": "Registreu-vos",
+    "Sign": "Signa ara!",
+    "Share on Twitter": "Compartiu-ho a Twitter",
+    "Share on Facebook": "Compartiu-ho a Facebook",
+    "Privacy": "Privadesa",
+    "Postal Code": "Codi postal",
+    "Phone": "Telèfon",
+    "Other": "Altres",
+    "No Thanks": "No, gràcies",
+    "Next": "Següent",
+    "Locality": "Localitat",
+    "Link_Share button": "Enllaç",
+    "Legal": "Informació legal",
+    "Last name": "Cognoms",
+    "Full Name": "Nom",
+    "First name": "Nom",
+    "Enter a valid email address.": "Escriviu una adreça de correu vàlida.",
+    "Enter a number.": "Escriviu un número.",
+    "Email_Share button": "Correu electrònic",
+    "Email": "Correu electrònic",
+    "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
+    "Download": "Descarrega",
+    "Country": "País",
+    "Comment": "Comentari",
+    "City": "Municipi",
+    "Birthdate": "Data de naixement",
+    "Amount": "Quantitat",
+    "Address": "Adreça",
+    "Account": "Compte",
+    "Sorry, we couldn't save": "No hem pogut desar",
+    "Sign the ECI": "Signar l’ECI",
+    "Share": "Comparteix",
+    "Join": "Unir-s'hi",
+    "Stay informed": "Mantingueu-vos informat",
+    "Place of birth": "Lloc de naixement",
+    "Sign the ECI!": "Signa l'ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Trieu una quantitat:",
+            "change": "Canvia la quantitat",
+            "choose": "Trieu una quantitat"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "cada mes",
+                "weekly": "cada any",
+                "oneoff": "Un cop"
+            },
+            "monthly": "mensual",
+            "yearly": "anualment",
+            "oneoff": "una sola",
+            "ask": {
+                "monthly": "Fer-lo mensualment?",
+                "oneoff": "Donar",
+                "weekly": "Fer-ho una donació setmanal?"
+            },
+            "feedback": {
+                "monthly": "Estic donant {{amount}} {{frequency}}",
+                "oneoff": "Estic donant {{amount}}"
+            }
+        },
+        "thanks": "Gràcies per la teva donació!",
+        "to": "Donació a {{organisation}}",
+        "payment": {
+            "intro": "Detalls del pagament :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "average": "La donació mitjana és de {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Falta el número de targeta de crèdit"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "general",
+            "initialisation": "inicialització"
+        },
+        "form": {
+            "error": {
+                "minimum": "La donació mínima és {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "obert"
+        },
+        "payment_methods": {
+            "card": "Targeta",
+            "intro": "Com vols donar?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Mètode de pagament"
+        }
     }
-  },
-  "register": "Afegeix el meu nom",
-  "progress": "{{count}} han signat. Volem arribar a {{goal}}",
-  "progress_plural": "",
-  "email": {
-    "subject": "assumpte",
-    "body": "cos"
-  },
-  "dialogTitle": "Mantingueu-me informat de la campanya",
-  "consent": {
-    "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
-    "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
-    "opt-out": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere",
-    "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
-    "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
-    "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
-    "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>",
-    "implicit": "Envieu aquest formulari per rebre correus electrònics de {{name}}"
-  },
-  "Your organisation account": "El vostre compte d'organització",
-  "This field is required.": "Aquest camp és obligatori.",
-  "Thanks!": "Gràcies!",
-  "Thank you": "Gràcies",
-  "Street": "Carrer",
-  "Stay in touch": "Estar en contacte",
-  "Sign now!": "Signeu ara!",
-  "Sign Up": "Registreu-vos",
-  "Sign": "Signa ara!",
-  "Share on Twitter": "Compartiu-ho a Twitter",
-  "Share on Facebook": "Compartiu-ho a Facebook",
-  "Privacy": "Privadesa",
-  "Postal Code": "Codi postal",
-  "Phone": "Telèfon",
-  "Other": "Altres",
-  "No Thanks": "No, gràcies",
-  "Next": "Següent",
-  "Locality": "Localitat",
-  "Link_Share button": "Enllaç",
-  "Legal": "Informació legal",
-  "Last name": "Cognoms",
-  "Full Name": "Nom",
-  "First name": "Nom",
-  "Enter a valid email address.": "Escriviu una adreça de correu vàlida.",
-  "Enter a number.": "Escriviu un número.",
-  "Email_Share button": "Correu electrònic",
-  "Email": "Correu electrònic",
-  "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
-  "Download": "Descarrega",
-  "Country": "País",
-  "Comment": "Comentari",
-  "City": "Municipi",
-  "Birthdate": "Data de naixement",
-  "Amount": "Quantitat",
-  "Address": "Adreça",
-  "Account": "Compte",
-  "Sorry, we couldn't save": "No hem pogut desar",
-  "Sign the ECI": "Signar l’ECI",
-  "Share": "Comparteix",
-  "Join": "Unir-s'hi",
-  "Stay informed": "Mantingueu-vos informat",
-  "Place of birth": "Lloc de naixement",
-  "Sign the ECI!": "Signa l'ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Trieu una quantitat:"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "cada mes",
-        "weekly": "cada any"
-      },
-      "monthly": "mensual",
-      "yearly": "anualment",
-      "oneoff": "una sola"
-    },
-    "thanks": "Gràcies per la teva donació!",
-    "to": "Donació a {{organisation}}",
-    "payment": {
-      "intro": "Detalls del pagament :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
-    }
-  }
 }

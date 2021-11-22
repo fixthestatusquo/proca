@@ -1,99 +1,143 @@
 {
-  "Country": "Zemlja",
-  "consent": {
-    "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
-    "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
-    "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
-    "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
-    "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
-    "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}"
-  },
-  "Thank you": "Hvala",
-  "share": {
+    "Country": "Zemlja",
+    "consent": {
+        "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
+        "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
+        "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
+        "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
+        "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
+        "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
+        "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
+        "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}"
+    },
+    "Thank you": "Hvala",
+    "share": {
+        "email": {
+            "subject": "Ovo se isplati potpisati",
+            "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati"
+        },
+        "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
+        "title": "Skoro pa gotovo! Napravi sljedeći korak.",
+        "message": "Ovo se isplati potpisati!"
+    },
+    "This field is required.": "Ovo je obavezno polje.",
+    "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
+    "Locality": "Lokalitet",
+    "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila.",
+    "Last name": "Prezime",
+    "Download": "Preuzimanje",
+    "City": "Grad",
+    "Your organisation account": "Račun vaše organizacije",
+    "twitter": {
+        "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
+    },
+    "you need to be 18 years old": "morate imati 18 godina",
+    "Birthdate": "Datum rođenja",
+    "Legal": "Pravo",
+    "Amount": "Iznos",
+    "No Thanks": "Ne hvala",
+    "Full Name": "Puno ime",
+    "Share on Facebook": "Dijeli na Facebooku",
+    "register": "Dodaj moje ime",
+    "Comment": "Komentar",
+    "Email_Share button": "E-mail",
+    "Share on Twitter": "Dijeli na Twitteru",
+    "Sign Up": "Registracija",
+    "Next": "Dalje",
+    "Link_Share button": "Poveznica",
+    "dialogTitle": "Želim primati obavijesti o napretku kampanje",
+    "Sign now!": "Potpišite sada!",
+    "Stay in touch": "Ostanite u kontaktu",
+    "Account": "Račun",
+    "First name": "Ime",
+    "Street": "Ulica",
+    "Privacy": "Privatnost",
+    "Enter a number.": "Upišite broj.",
+    "Thanks!": "Hvala!",
+    "Address": "Adresa",
+    "Sign": "Potpišite sada!",
+    "Postal Code": "Poštanski broj",
+    "Email": "E-mail",
+    "Other": "Drugo",
     "email": {
-      "subject": "Ovo se isplati potpisati",
-      "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati"
+        "subject": "predmet",
+        "body": "sadržaj"
     },
-    "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
-    "title": "Skoro pa gotovo! Napravi sljedeći korak.",
-    "message": "Ovo se isplati potpisati!"
-  },
-  "This field is required.": "Ovo je obavezno polje.",
-  "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
-  "Locality": "Lokalitet",
-  "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila.",
-  "Last name": "Prezime",
-  "Download": "Preuzimanje",
-  "City": "Grad",
-  "Your organisation account": "Račun vaše organizacije",
-  "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
-  },
-  "you need to be 18 years old": "morate imati 18 godina",
-  "Birthdate": "Datum rođenja",
-  "Legal": "Pravo",
-  "Amount": "Iznos",
-  "No Thanks": "Ne hvala",
-  "Full Name": "Puno ime",
-  "Share on Facebook": "Dijeli na Facebooku",
-  "register": "Dodaj moje ime",
-  "Comment": "Komentar",
-  "Email_Share button": "E-mail",
-  "Share on Twitter": "Dijeli na Twitteru",
-  "Sign Up": "Registracija",
-  "Next": "Dalje",
-  "Link_Share button": "Poveznica",
-  "dialogTitle": "Želim primati obavijesti o napretku kampanje",
-  "Sign now!": "Potpišite sada!",
-  "Stay in touch": "Ostanite u kontaktu",
-  "Account": "Račun",
-  "First name": "Ime",
-  "Street": "Ulica",
-  "Privacy": "Privatnost",
-  "Enter a number.": "Upišite broj.",
-  "Thanks!": "Hvala!",
-  "Address": "Adresa",
-  "Sign": "Potpišite sada!",
-  "Postal Code": "Poštanski broj",
-  "Email": "E-mail",
-  "Other": "Drugo",
-  "email": {
-    "subject": "predmet",
-    "body": "sadržaj"
-  },
-  "Phone": "Telefon",
-  "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
-  "Sign the ECI": "Potpiši ECI",
-  "Share": "Dijeli",
-  "Join": "Pridruži se",
-  "Stay informed": "Ostanite u toku",
-  "Place of birth": "Mjesto rođenja",
-  "Sign the ECI!": "Potpišite ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Odaberite iznos:"
+    "Phone": "Telefon",
+    "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
+    "Sign the ECI": "Potpiši ECI",
+    "Share": "Dijeli",
+    "Join": "Pridruži se",
+    "Stay informed": "Ostanite u toku",
+    "Place of birth": "Mjesto rođenja",
+    "Sign the ECI!": "Potpišite ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Odaberite iznos:",
+            "change": "Promijenite iznos",
+            "choose": "Odaberite iznos"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "svaki mjesec",
+                "weekly": "svake godine",
+                "oneoff": "Jednom"
+            },
+            "monthly": "mjesečno",
+            "yearly": "godišnje",
+            "oneoff": "jednokratno",
+            "ask": {
+                "monthly": "Neka bude mjesečno?",
+                "oneoff": "Donirajte",
+                "weekly": "Želite li ovo učiniti tjednom donacijom?"
+            },
+            "feedback": {
+                "monthly": "Doniram {{amount}} {{frequency}}",
+                "oneoff": "Doniram {{amount}}"
+            }
+        },
+        "thanks": "Hvala vam na donaciji!",
+        "to": "Donacija za {{organisation}}",
+        "payment": {
+            "intro": "Pojedinosti o plaćanju :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "average": "Prosječna donacija je {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Nedostaje broj kreditne kartice"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "Općenito",
+            "initialisation": "inicijalizacija"
+        },
+        "form": {
+            "error": {
+                "minimum": "Minimalna donacija je {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "otvorena"
+        },
+        "payment_methods": {
+            "card": "Kartica",
+            "intro": "Kako želite donirati?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Način plaćanja"
+        }
     },
-    "frequency": {
-      "each": {
-        "monthly": "svaki mjesec",
-        "weekly": "svake godine"
-      },
-      "monthly": "mjesečno",
-      "yearly": "godišnje",
-      "oneoff": "jednokratno"
-    },
-    "thanks": "Hvala vam na donaciji!",
-    "to": "Donacija za {{organisation}}",
-    "payment": {
-      "intro": "Pojedinosti o plaćanju :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
-    }
-  }
+    "progress_0": "{{count}} su potpisali. Idemo na {{goal}}",
+    "progress_1": "",
+    "progress_2": ""
 }

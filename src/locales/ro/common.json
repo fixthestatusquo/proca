@@ -1,100 +1,141 @@
 {
-  "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
-  "Link_Share button": "Link",
-  "Email_Share button": "E-mail",
-  "Share on Twitter": "Distribuiți pe Twitter",
-  "Share on Facebook": "Distribuiți pe Facebook",
-  "Sign Up": "Înregistrare",
-  "Stay in touch": "Ține legătura",
-  "No Thanks": "Nu multumesc",
-  "Privacy": "Confidențialitate",
-  "Legal": "Legale",
-  "Thanks!": "Mulțumiri!",
-  "Country": "Țara",
-  "City": "Oras",
-  "Street": "Strada",
-  "Postal Code": "Cod poștal",
-  "Email": "E-mail",
-  "Last name": "Numele de familie",
-  "First name": "Prenume",
-  "Amount": "Sumă",
-  "Enter a valid email address.": "Introduceți o adresă de email validă.",
-  "Enter a number.": "Introduceți un număr.",
-  "This field is required.": "Acest câmp este obligatoriu.",
-  "progress": "{{count}} au semnat. Să mergem la {{goal}}",
-  "Sign": "Înscrieți-vă acum!",
-  "share": {
+    "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
+    "Link_Share button": "Link",
+    "Email_Share button": "E-mail",
+    "Share on Twitter": "Distribuiți pe Twitter",
+    "Share on Facebook": "Distribuiți pe Facebook",
+    "Sign Up": "Înregistrare",
+    "Stay in touch": "Ține legătura",
+    "No Thanks": "Nu multumesc",
+    "Privacy": "Confidențialitate",
+    "Legal": "Legale",
+    "Thanks!": "Mulțumiri!",
+    "Country": "Țara",
+    "City": "Oras",
+    "Street": "Strada",
+    "Postal Code": "Cod poștal",
+    "Email": "E-mail",
+    "Last name": "Numele de familie",
+    "First name": "Prenume",
+    "Amount": "Sumă",
+    "Enter a valid email address.": "Introduceți o adresă de email validă.",
+    "Enter a number.": "Introduceți un număr.",
+    "This field is required.": "Acest câmp este obligatoriu.",
+    "progress": "{{count}} au semnat. Să mergem la {{goal}}",
+    "Sign": "Înscrieți-vă acum!",
+    "share": {
+        "email": {
+            "body": "Bună,\nVă rugăm să semnați, cred că doriți să o susțineți",
+            "subject": "Ar trebui să semnezi acest lucru"
+        },
+        "message": "Ar trebui să semnezi asta!",
+        "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
+        "title": "Aproape gata! Faceți următorul pas."
+    },
+    "consent": {
+        "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
+        "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
+        "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
+        "opt-in": "Da, ține-mă informat prin e-mail",
+        "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
+        "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
+        "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
+        "implicit": "Trimiteți acest formular pentru a primi e-mailuri de la {{name}}"
+    },
+    "you need to be 18 years old": "trebuie să ai 18 ani",
+    "twitter": {
+        "actionText": "Am semnat. ar trebui si tu"
+    },
+    "register": "Adaugă numele meu",
+    "dialogTitle": "Păstrați-mă la curent cu campania",
+    "Your organisation account": "Contul organizației dvs.",
+    "Thank you": "Mulțumesc",
+    "Sign now!": "Semnați acum!",
+    "Next": "Următor",
+    "Locality": "Localitate",
+    "Full Name": "Nume complet",
+    "Download": "Descarcă",
+    "Comment": "Comentariu",
+    "Birthdate": "Data nasterii",
+    "Address": "Adresă",
+    "Account": "Cont",
     "email": {
-      "body": "Bună,\nVă rugăm să semnați, cred că doriți să o susțineți",
-      "subject": "Ar trebui să semnezi acest lucru"
+        "subject": "subiect",
+        "body": "corp"
     },
-    "message": "Ar trebui să semnezi asta!",
-    "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
-    "title": "Aproape gata! Faceți următorul pas."
-  },
-  "consent": {
-    "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-    "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
-    "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
-    "opt-in": "Da, ține-mă informat prin e-mail",
-    "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
-    "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-    "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
-    "implicit": "Trimiteți acest formular pentru a primi e-mailuri de la {{name}}"
-  },
-  "you need to be 18 years old": "trebuie să ai 18 ani",
-  "twitter": {
-    "actionText": "Am semnat. ar trebui si tu"
-  },
-  "register": "Adaugă numele meu",
-  "dialogTitle": "Păstrați-mă la curent cu campania",
-  "Your organisation account": "Contul organizației dvs.",
-  "Thank you": "Mulțumesc",
-  "Sign now!": "Semnați acum!",
-  "Next": "Următor",
-  "Locality": "Localitate",
-  "Full Name": "Nume complet",
-  "Download": "Descarcă",
-  "Comment": "Comentariu",
-  "Birthdate": "Data nasterii",
-  "Address": "Adresă",
-  "Account": "Cont",
-  "email": {
-    "subject": "subiect",
-    "body": "corp"
-  },
-  "Phone": "Telefon",
-  "Other": "Altele",
-  "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
-  "Sign the ECI": "Semnați ECI",
-  "Share": "Distribuie",
-  "Join": "Alăturați-vă",
-  "Stay informed": "Fiți la curent",
-  "Place of birth": "Locul nasterii",
-  "Sign the ECI!": "Semnați ICE!",
-  "donation": {
-    "amount": {
-      "intro": "Alegeți o sumă :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "în fiecare lună",
-        "weekly": "în fiecare an"
-      },
-      "monthly": "lunar",
-      "yearly": "anual",
-      "oneoff": "o singură dată"
-    },
-    "thanks": "Vă mulțumim pentru donație!",
-    "to": "Donație către {{organisation}}",
-    "payment": {
-      "intro": "Detalii de plată :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
+    "Phone": "Telefon",
+    "Other": "Altele",
+    "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
+    "Sign the ECI": "Semnați ECI",
+    "Share": "Distribuie",
+    "Join": "Alăturați-vă",
+    "Stay informed": "Fiți la curent",
+    "Place of birth": "Locul nasterii",
+    "Sign the ECI!": "Semnați ICE!",
+    "donation": {
+        "amount": {
+            "intro": "Alegeți o sumă :",
+            "change": "Suma de modificare",
+            "choose": "Alegeți o sumă"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "în fiecare lună",
+                "weekly": "în fiecare an",
+                "oneoff": "Odată ce"
+            },
+            "monthly": "lunar",
+            "yearly": "anual",
+            "oneoff": "o singură dată",
+            "ask": {
+                "monthly": "Să fie lunar?",
+                "oneoff": "Donează",
+                "weekly": "Să fie o donație săptămânală?"
+            },
+            "feedback": {
+                "monthly": "Donez {{amount}} {{frequency}}",
+                "oneoff": "Donez {{amount}}"
+            }
+        },
+        "thanks": "Vă mulțumim pentru donație!",
+        "to": "Donație către {{organisation}}",
+        "payment": {
+            "intro": "Detalii de plată :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "error": {
+            "card": {
+                "missing": "Lipsește numărul cardului de credit"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "general",
+            "initialisation": "inițializare"
+        },
+        "average": "Donația medie este de {{amount}}",
+        "form": {
+            "error": {
+                "minimum": "Donația minimă este de {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "deschis"
+        },
+        "payment_methods": {
+            "card": "Card",
+            "intro": "Cum doriți să donați?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Metoda de plată"
+        }
     }
-  }
 }
