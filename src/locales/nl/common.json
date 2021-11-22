@@ -18,7 +18,6 @@
   "Last name": "Achternaam",
   "First name": "Voornaam",
   "Amount": "Hoeveelheid",
-  "Donations must be %(amount)s or more": "Donaties moeten % (bedrag) of meer bedragen",
   "Enter a valid email address.": "Voer een geldig e-mailadres in.",
   "Enter a number.": "Voer een nummer in.",
   "This field is required.": "Dit veld is vereist.",
@@ -46,8 +45,7 @@
   },
   "you need to be 18 years old": "je moet 18 jaar oud zijn",
   "twitter": {
-    "actionText": "Ik heb getekend. Jij moet ook",
-    "actionUrl": "actieUrl"
+    "actionText": "Ik heb getekend. Jij moet ook"
   },
   "register": "Voeg mijn naam toe",
   "dialogTitle": "Hou me op de hoogte van de campagne",
@@ -62,76 +60,42 @@
   "Birthdate": "Geboortedatum",
   "Address": "Adres",
   "Account": "Account",
-  "organisation": "Uw organisatie-account",
   "email": {
     "subject": "onderwerp",
     "body": "Romp"
   },
-  "Donations must be {{amount}} or more": "Donaties moeten {{amount}}'s of meer zijn",
-  "The average donation is {{amount}}": "De gemiddelde donatie is {{amount}}",
-  "Monthly donations": "Maandelijkse donaties",
   "Phone": "Telefoon",
   "Other": "Anders",
-  "I'm donating ": "Ik doneer... ",
-  "I'm donating": "Ik doneer...",
-  "Choose your donation amount": "Kies uw donatiebedrag",
   "Sorry, we couldn't save": "Sorry, we konden het niet redden.",
   "Sign the ECI": "Teken de ECI",
   "Share": "Share",
   "Join": "Deelnemen",
-  "The average donation is {{amount}} {{currency}}": "De gemiddelde donatie is {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Ik doneer {{amount}}",
   "Stay informed": "Hou mij op de hoogte",
   "Place of birth": "Geboorteplaats",
-  "Donate": "Doneren",
-  "invalid IBAN": "ongeldig IBAN",
-  "Change amount": "Verander bedrag",
-  "Donate {{amount}} {{currency}}": "Doneren {{amount}} {{currency}}",
-  "yearly": "Jaarlijks",
-  "weekly": "wekelijks",
-  "monthly": "maandelijks",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Ik doneer {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "elke week",
-  "a monthly": "elke maand",
-  "I'm donating {{amount}} {{currency}} monthly": "Ik doneer {{amount}} {{currency}} maandelijks",
-  "I'm donating {{amount}} {{currency}}": "Ik doneer {{amount}} {{currency}}",
-  "Choose an Amount": "Kies een bedrag",
-  "Please provide your card information": "Geef uw kaartinformatie",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We kunnen uw donatie op dit moment niet verwerken. Probeert u het over een paar minuten nog eens.",
-  "Donate now!": "Doneer nu!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Betaalmethode",
-  "SEPA Bank Transfer": "SEPA-overschrijving",
   "Sign the ECI!": "Teken de ECI!",
-  "Thank you for your donation!": "Dank u voor uw donatie!",
-  "a yearly": "elk jaar",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Kies een bedrag :"
     },
-    "belowMinimum": "Voer een geldig bedrag in. De minimum donatie is {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "elke maand",
         "weekly": "elk jaar"
       },
-      "intro": "Maandelijks?",
       "monthly": "maandelijks",
       "yearly": "jaarlijks",
       "oneoff": "eenmalig"
-    },
-    "paymentMethods": {
-      "card": "kaart",
-      "intro": "Afrekenen:",
-      "sepa": "sepa"
     },
     "thanks": "Dank u voor uw donatie!",
     "to": "Donatie aan {{organisation}}",
     "payment": {
       "intro": "Betalingsgegevens:"
     },
-    "button": "Doneer {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

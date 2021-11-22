@@ -1,7 +1,5 @@
 {
   "you need to be 18 years old": "o nilo lati jẹ ọdun 18",
-  "yearly": "lododun",
-  "weekly": "osẹ -sẹsẹ",
   "twitter": {
     "actionText": "Mo fowo si. o yẹ ki o tun"
   },
@@ -16,9 +14,6 @@
   },
   "register": "Fi orukọ mi kun",
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
-  "organisation": "Account agbari rẹ",
-  "monthly": "oṣooṣu",
-  "invalid IBAN": "aiṣedeede IBAN",
   "email": {
     "subject": "koko",
     "body": "ara"
@@ -35,10 +30,7 @@
     "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa."
   },
   "Your organisation account": "Account agbari rẹ",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "A ko le ṣakoso ẹbun rẹ ni akoko yii. Jọwọ gbiyanju lẹẹkansi ni iṣẹju diẹ.",
   "This field is required.": "E ni lati se nkan si aye yi.",
-  "The average donation is {{amount}} {{currency}}": "Ifunni apapọ jẹ {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Ifunni apapọ jẹ {{amount}}",
   "Thanks!": "O ṣeun!",
   "Thank you": "e dupe",
   "Street": "opopona",
@@ -54,22 +46,16 @@
   "Share": "Pin",
   "Privacy": "Asiri",
   "Postal Code": "Koodu ifiweranse",
-  "Please provide your card information": "Jọwọ pese alaye kaadi rẹ",
   "Place of birth": "Ibi ti a ti bi ni",
   "Phone": "Foonu",
   "Other": "Omiiran",
   "No Thanks": "Rara o se",
   "Next": "Itele",
-  "Monthly donations": "Awọn ẹbun oṣooṣu",
   "Locality": "Agbegbe",
   "Link_Share button": "Ọna asopọ",
   "Legal": "Ofin",
   "Last name": "Oruko idile",
   "Join": "Darapọ mọ",
-  "I'm donating {{amount}} {{currency}} monthly": "Mo n ṣetọrẹ {{amount}} {{currency}} ni oṣooṣu",
-  "I'm donating {{amount}} {{currency}}": "Mo ṣetọrẹ {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Mo ṣetọrẹ {{amount}}",
-  "I'm donating": "Mo n ṣe itọrẹ",
   "Full Name": "Akokun Oruko",
   "First name": "Orukọ akọkọ",
   "Enter a valid email address.": "Tẹ adirẹsi imeeli ti o wulo sii.",
@@ -78,55 +64,37 @@
   "Email": "Imeeli",
   "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
   "Download": "Gbaa lati ayelujara",
-  "Donations must be {{amount}} or more": "Awọn ẹbun gbọdọ jẹ {{amount}} tabi diẹ sii",
-  "Donate {{amount}} {{currency}}": "Ṣetọrẹ {{amount}} {{currency}}",
-  "Donate": "Ṣe itọrẹ",
   "Country": "Orilẹ -ede",
   "Comment": "Ọrọìwòye",
   "City": "Ilu",
-  "Choose your donation amount": "Yan iye ẹbun rẹ",
-  "Choose an Amount": "Yan iye kan",
-  "Change amount": "Iyipada iye",
   "Birthdate": "Ojo ibi",
   "Amount": "Iye",
   "Address": "Adirẹsi",
   "Account": "Iroyin",
-  "a monthly": "oṣooṣu",
-  "a weekly": "kọọkan ose",
-  "a yearly": "kọọkan odun",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
-  "Donate now!": "Ṣetọrẹ ni bayi!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Eto isanwo",
-  "SEPA Bank Transfer": "SEPA Bank Gbigbe",
   "Sign the ECI!": "Wọlé ECI!",
-  "Thank you for your donation!": "O ṣeun fun ẹbun rẹ!",
   "donation": {
     "amount": {
       "intro": "Yan iye kan:"
     },
-    "belowMinimum": "Jọwọ tẹ iye to wulo. Ẹbun ti o kere julọ jẹ {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "oṣooṣu",
         "weekly": "kọọkan odun"
       },
-      "intro": "Ṣe oṣooṣu?",
       "monthly": "oṣooṣu",
       "yearly": "lododun",
       "oneoff": "ọkan kuro"
-    },
-    "paymentMethods": {
-      "card": "kaadi",
-      "intro": "Ṣayẹwo :",
-      "sepa": "sepa"
     },
     "thanks": "O ṣeun fun ẹbun rẹ!",
     "to": "Ẹbun si {{organisation}}",
     "payment": {
       "intro": "Awọn alaye isanwo:"
     },
-    "button": "Ṣetọrẹ {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

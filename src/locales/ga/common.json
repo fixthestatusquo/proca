@@ -13,12 +13,6 @@
     }
   },
   "register": "Cuir m’ainm leis",
-  "progress_0": "{{count}} sínithe. Téimid go {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
-  "progress_4": "",
-  "organisation": "Do chuntas eagraíochta",
   "email": {
     "subject": "ábhar",
     "body": "comhlacht"
@@ -36,8 +30,6 @@
   },
   "Your organisation account": "Do chuntas eagraíochta",
   "This field is required.": "Teastaíonn an réimse seo.",
-  "The average donation is {{amount}} {{currency}}": "Is é an meán-síntiús {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Is é an meán-síntiús {{amount}}",
   "Thanks!": "Go raibh maith agat!",
   "Thank you": "Go raibh maith agat",
   "Street": "Sráid",
@@ -57,15 +49,11 @@
   "Other": "Eile",
   "No Thanks": "Níl sé uaim go raibh maith agat",
   "Next": "An chéad rian eile",
-  "Monthly donations": "Síntiúis mhíosúla",
   "Locality": "Ceantar",
   "Link_Share button": "Nasc",
   "Legal": "Dlí",
   "Last name": "Ainm deireanach",
   "Join": "Bí páirteach",
-  "I'm donating {{amount}}": "Táim ag bronnadh {{amount}}",
-  "I'm donating ": "Táim ag bronnadh ",
-  "I'm donating": "Táim ag bronnadh",
   "Full Name": "Ainm iomlán",
   "First name": "Ainm",
   "Enter a valid email address.": "Iontráil seoladh bailí ríomhphoist.",
@@ -74,43 +62,17 @@
   "Email": "Ríomhphost",
   "Download explanation": "Tá do dhoiciméad réidh anois, táimid á sheoladh chugat freisin.",
   "Download": "Íoslódáil",
-  "Donations must be {{amount}} or more": "Caithfidh síntiúis a bheith {{amount}} nó níos mó",
   "Country": "Tír",
   "Comment": "Tráchtaireacht",
   "City": "Cathrach",
-  "Choose your donation amount": "Roghnaigh méid do síntiúis",
   "Birthdate": "Dáta breithe",
   "Amount": "Méid",
   "Address": "Seoladh",
   "Account": "Cuntas",
   "Place of birth": "Áit bhreithe",
-  "Donate": "Deonaigh",
-  "invalid IBAN": "IBAN neamhbhailí",
-  "Change amount": "Athraigh méid",
-  "Donate {{amount}} {{currency}}": "Deonaigh {{amount}} {{currency}}",
-  "yearly": "go bliantúil",
-  "weekly": "go seachtainiúil",
-  "monthly": "go míosúil",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Táim ag bronnadh {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "gach seachtain",
-  "a monthly": "gach mí",
-  "I'm donating {{amount}} {{currency}} monthly": "Táim ag bronnadh {{amount}} {{currency}} go míosúil",
-  "I'm donating {{amount}} {{currency}}": "Tá mé ag bronnadh {{amount}} {{currency}}",
-  "Choose an Amount": "Roghnaigh Méid",
-  "Please provide your card information": "Tabhair faisnéis do chárta le do thoil",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Ní raibh muid in ann do síntiús a láimhseáil i láthair na huaire. Bain triail eile as i gceann cúpla nóiméad.",
-  "Donate now!": "Deonaigh anois!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Modh íocaíochta",
-  "SEPA Bank Transfer": "Aistriú Bainc SEPA",
   "Sign the ECI!": "Sínigh an ECI!",
-  "Thank you for your donation!": "Go raibh maith agat as do síntiús!",
-  "a yearly": "gach bliain",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "frequency": {
-      "intro": "Déan é go míosúil?",
       "each": {
         "monthly": "gach mí",
         "weekly": "gach bliain"
@@ -122,17 +84,16 @@
     "amount": {
       "intro": "Roghnaigh Méid:"
     },
-    "belowMinimum": "Iontráil méid bailí. Is é an síntiús íosta {{ amount }} {{ currency }}",
-    "paymentMethods": {
-      "card": "cárta",
-      "intro": "Seiceáil:",
-      "sepa": "sepa"
-    },
     "thanks": "Go raibh maith agat as do síntiús!",
     "to": "Síntiús do {{organisation}}",
     "payment": {
       "intro": "Sonraí íocaíochta:"
     },
-    "button": "Deonaigh {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

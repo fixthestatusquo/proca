@@ -18,13 +18,9 @@
   "Last name": "Prezime",
   "First name": "Ime",
   "Amount": "Износ",
-  "Donations must be %(amount)s or more": "Донације морају бити% (износ) с или више",
   "Enter a valid email address.": "Upišite validnu email adresu.",
   "Enter a number.": "Унесите број.",
   "This field is required.": "Molimo vas da popunite ovo polje.",
-  "progress_0": "Broj potpisa: {{count}}. Hajde da stignemo do {{goal}}",
-  "progress_1": "Broj potpisa: {{count}}. Hajde da stignemo do {{goal}}",
-  "progress_2": "Broj potpisa: {{count}}. Hajde da stignemo do {{goal}}",
   "Sign": "Potpišite!",
   "share": {
     "email": {
@@ -47,8 +43,7 @@
   },
   "you need to be 18 years old": "треба да имате 18 година",
   "twitter": {
-    "actionText": "Потписао сам. и ти би требао такође",
-    "actionUrl": "ацтионУрл"
+    "actionText": "Потписао сам. и ти би требао такође"
   },
   "register": "Додај моје име",
   "dialogTitle": "Potpiši peticiju za zabranu biometrijskog nadzora",
@@ -63,76 +58,42 @@
   "Birthdate": "Датум рођења",
   "Address": "Адреса",
   "Account": "Налог",
-  "organisation": "Налог ваше организације",
   "email": {
     "subject": "тема",
     "body": "тело"
   },
-  "Donations must be {{amount}} or more": "Донације морају бити {{amount}} или више",
-  "The average donation is {{amount}}": "Просечна донација је {{amount}}",
-  "Monthly donations": "Месечне донације",
   "Phone": "Телефон",
   "Other": "Ostalo",
-  "I'm donating ": "Донирам ",
-  "I'm donating": "Донирам",
-  "Choose your donation amount": "Изаберите износ донације",
   "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
   "Sign the ECI": "Потпишите ЕЦИ",
   "Share": "Deli",
   "Join": "Придружи се",
-  "The average donation is {{amount}} {{currency}}": "Просечна донација је {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Донирам {{amount}}",
   "Stay informed": "Будите информисани",
   "Place of birth": "Место рођења",
-  "Donate": "Приложи",
-  "invalid IBAN": "неважећи ИБАН",
-  "Change amount": "Промените износ",
-  "Donate {{amount}} {{currency}}": "Донирајте {{amount}} {{currency}}",
-  "yearly": "годишње",
-  "weekly": "недељно",
-  "monthly": "месечно",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Донирам {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "сваке недеље",
-  "a monthly": "сваког месеца",
-  "I'm donating {{amount}} {{currency}} monthly": "Донирам {{amount}} {{currency}} месечно",
-  "I'm donating {{amount}} {{currency}}": "Донирам {{amount}} {{currency}}",
-  "Choose an Amount": "Изаберите износ",
-  "Please provide your card information": "Наведите податке о својој картици",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Тренутно нисмо могли да се носимо са вашом донацијом. Молим покушајте поново за неколико минута.",
-  "Donate now!": "Донирајте одмах!",
-  "IBAN": "ИБАН",
-  "PayPal": "ПаиПал",
-  "Payment Method": "Начин плаћања",
-  "SEPA Bank Transfer": "СЕПА банковни трансфер",
   "Sign the ECI!": "Потпишите ЕЦИ!",
-  "Thank you for your donation!": "Хвала вам на донацији!",
-  "a yearly": "сваке године",
-  "{{amount}} {{symbol}}": "[Кс0Кс] [Кс11Кс]",
   "donation": {
     "amount": {
       "intro": "Изаберите износ:"
     },
-    "belowMinimum": "Унесите важећи износ. Минимална донација је [Кс53Кс] [Кс66Кс]",
     "frequency": {
       "each": {
         "monthly": "сваког месеца",
         "weekly": "сваке године"
       },
-      "intro": "Да буде месечно?",
       "monthly": "месечно",
       "yearly": "годишње",
       "oneoff": "једнократно"
-    },
-    "paymentMethods": {
-      "card": "картица",
-      "intro": "Проверити :",
-      "sepa": "сепа"
     },
     "thanks": "Хвала вам на донацији!",
     "to": "Донација за [Кс12Кс]",
     "payment": {
       "intro": "Подаци о плаћању :"
     },
-    "button": "Донирајте [Кс7Кс][Кс17Кс] [Кс37Кс]"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

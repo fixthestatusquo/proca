@@ -69,7 +69,7 @@ const DonateAmount = (props) => {
   return (
     <Container id="proca-donate" className={classes.container}>
       {complete && (
-        <Alert severity="success">{t("Thank you for your donation!")}</Alert>
+        <Alert severity="success">{t("donation.thanks")}</Alert>
       )}
 
       <Grid container spacing={1}>
@@ -85,8 +85,7 @@ const DonateAmount = (props) => {
           <CardContent className={classes.cardHeader}>
             {config.campaign.title ? (
               <Typography variant="h5" paragraph color="textPrimary">
-                {t("campaign:donation.intro", {
-                  defaultValue: "",
+                {t("donation.intro", {
                   campaign: config.campaign.title,
                 })}
               </Typography>
@@ -94,9 +93,7 @@ const DonateAmount = (props) => {
               ""
             )}
             <Typography variant="h6" paragraph gutterBottom color="textPrimary">
-              {t("donation.amount.intro", {
-                defaultValue: "Choose an amount :",
-              })}
+              {t("donation.amount.intro")}
             </Typography>
 
             <Amounts />
@@ -104,9 +101,7 @@ const DonateAmount = (props) => {
             <Frequencies />
 
             <Typography paragraph variant="h6" gutterBottom color="textPrimary">
-              {t("donation.paymentMethods.intro", {
-                defaultValue: "Checkout :",
-              })}
+              {t("donation.payment_methods.intro")}
             </Typography>
             {!config.component.donation.external && (
               <PaymentMethodButtons

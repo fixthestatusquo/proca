@@ -3,14 +3,9 @@
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birthdate",
-  "Change amount": "Change amount",
-  "Choose your donation amount": "Choose your donation amount",
   "City": "City",
   "Comment": "Comment",
   "Country": "Country",
-  "Donate": "Donate",
-  "Donate now!": "Donate now!",
-  "Donate {{amount}} {{currency}}": "Donate {{amount}} {{currency}}",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too.",
   "Email": "Email",
@@ -19,28 +14,18 @@
   "Enter a valid email address.": "Enter a valid email address.",
   "First name": "First name",
   "Full Name": "Full Name",
-  "I'm donating": "I'm donating",
-  "I'm donating {{amount}}": "I'm donating {{amount}}",
-  "I'm donating {{amount}} {{currency}}": "I'm donating {{amount}} {{currency}}",
-  "I'm donating {{amount}} {{currency}} monthly": "I'm donating {{amount}} {{currency}} monthly",
-  "IBAN": "IBAN",
   "Join": "Join",
   "Last name": "Last name",
   "Legal": "Legal",
   "Link_Share button": "Link",
   "Locality": "Locality",
-  "Monthly donations": "Monthly donations",
   "Next": "Next",
   "No Thanks": "No Thanks",
   "Other": "Other",
-  "PayPal": "PayPal",
-  "Payment Method": "Payment Method",
   "Phone": "Phone",
   "Place of birth": "Place of birth",
-  "Please provide your card information": "Please provide your card information",
   "Postal Code": "Postal Code",
   "Privacy": "Privacy",
-  "SEPA Bank Transfer": "SEPA Bank Transfer",
   "Share": "Share",
   "Share on Facebook": "Share on Facebook",
   "Share on Twitter": "Share on Twitter",
@@ -54,12 +39,8 @@
   "Stay informed": "Stay informed",
   "Street": "Street",
   "Thank you": "Thank you",
-  "Thank you for your donation!": "Thank you for your donation!",
   "Thanks!": "Thanks!",
-  "The average donation is {{amount}}": "The average donation is {{amount}}",
-  "The average donation is {{amount}} {{currency}}": "The average donation is {{amount}} {{currency}}",
   "This field is required.": "This field is required.",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "We couldn't handle your donation at the moment. Please try again in a few minutes.",
   "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -73,29 +54,68 @@
   },
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
-    "button": "Donate {{amount}}{{currency.symbol}} {{frequency}}",
     "amount": {
-      "intro": "Choose an Amount :"
+      "change": "Change amount",
+      "choose": "Choose an Amount",
+      "intro": "Choose an Amount"
     },
-    "belowMinimum": "Please enter a valid amount. The minimum donation is {{ amount }} {{ currency }}",
+    "average": "The average donation is {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Credit card number is missing"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "general",
+      "initialisation": "initialisation"
+    },
+    "form": {
+      "error": {
+        "minimum": "The minimum donation is {{ampount}}"
+      }
+    },
     "frequency": {
+      "ask": {
+        "monthly": "Make it monthly?",
+        "oneoff": "Donate",
+        "weekly": "Make this a weekly donation?"
+      },
       "each": {
         "monthly": "each month",
-        "oneoff": "",
+        "oneoff": "Once",
         "weekly": "each year"
       },
-      "intro": "Make it monthly?",
       "monthly": "monthly",
-      "oneoff": "one off",
-      "yearly": "yearly"
+      "oneoff": "once",
+      "yearly": "yearly",
+      "feedback": {
+        "monthly": "I'm donating {{amount}} {{frequency}}",
+        "oneoff": "I'm donating {{amount}}"
+      }
+    },
+    "iban": "iban",
+    "intro": "",
+    "mobile": {
+      "open": "open"
     },
     "payment": {
-      "intro": "Payment details :"
+      "intro": "Payment details"
     },
-    "paymentMethods": {
-      "card": "card",
-      "intro": "Checkout :",
-      "sepa": "sepa"
+    "payment_methods": {
+      "card": "Card",
+      "intro": "How do you want to donate?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Payment Method"
     },
     "thanks": "Thank you for your donation!",
     "to": "Donation to {{organisation}}"
@@ -104,9 +124,6 @@
     "body": "body",
     "subject": "subject"
   },
-  "invalid IBAN": "invalid IBAN",
-  "monthly": "monthly",
-  "organisation": "Your organisation account",
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
@@ -122,8 +139,5 @@
   "twitter": {
     "actionText": "I signed. you should too"
   },
-  "weekly": "weekly",
-  "yearly": "yearly",
-  "you need to be 18 years old": "you need to be 18 years old",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}"
+  "you need to be 18 years old": "you need to be 18 years old"
 }

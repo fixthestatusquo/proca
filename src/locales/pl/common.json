@@ -28,13 +28,9 @@
   "Last name": "Nazwisko",
   "First name": "Imię",
   "Amount": "Kwota",
-  "Donations must be %(amount)s or more": "Darowizny muszą wynosić %(kwoty) lub więcej",
   "Enter a valid email address.": "Wprowadź prawidłowy adres e-mail.",
   "Enter a number.": "Wprowadź liczbę.",
   "This field is required.": "To pole jest wymagane.",
-  "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
   "Sign": "Podpisz teraz!",
   "share": {
     "email": {
@@ -47,8 +43,7 @@
   },
   "you need to be 18 years old": "musisz mieć ukończone 18 lat",
   "twitter": {
-    "actionText": "Ja podpisałem. Ty też powinieneś.",
-    "actionUrl": "actionUrl"
+    "actionText": "Ja podpisałem. Ty też powinieneś."
   },
   "register": "Dodaj moje imię",
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
@@ -63,76 +58,42 @@
   "Birthdate": "Data urodzenia",
   "Address": "Adres",
   "Account": "Konto",
-  "organisation": "Konto organizacji",
   "email": {
     "subject": "temat",
     "body": "body"
   },
-  "Donations must be {{amount}} or more": "Darowizny muszą być {{amount}} lub więcej",
-  "The average donation is {{amount}}": "Średnia wysokość darowizny wynosi {{amount}}.",
-  "Monthly donations": "Miesięczne darowizny",
   "Phone": "Telefon",
   "Other": "Inne",
-  "I'm donating ": "Oddaję ",
-  "I'm donating": "Oddaję",
-  "Choose your donation amount": "Wybierz kwotę darowizny",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
   "Sign the ECI": "Podpisz europejską inicjatywę obywatelską",
   "Share": "Udostępnij",
   "Join": "Dołącz do",
-  "The average donation is {{amount}} {{currency}}": "Średnia wysokość darowizny wynosi {{amount}} {{currency}}.",
-  "I'm donating {{amount}}": "Przekazuję datki {{amount}}",
   "Stay informed": "Bądź na bieżąco",
   "Place of birth": "Miejsce urodzenia",
-  "Donate": "Donate",
-  "invalid IBAN": "nieważny IBAN",
-  "Change amount": "Kwota zmiany",
-  "Donate {{amount}} {{currency}}": "Donate {{amount}} {{currency}}",
-  "yearly": "corocznie",
-  "weekly": "tygodnik",
-  "monthly": "miesięcznie",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Przekazuję {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "co tydzień",
-  "a monthly": "co miesiąc",
-  "I'm donating {{amount}} {{currency}} monthly": "Wpłacam {{amount}} {{currency}} miesięcznie",
-  "I'm donating {{amount}} {{currency}}": "Przekazuję darowiznę {{amount}} {{currency}}",
-  "Choose an Amount": "Wybierz kwotę",
-  "Please provide your card information": "Proszę podać informacje o karcie",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Nie możemy w tej chwili obsłużyć Twojej darowizny. Prosimy spróbować ponownie za kilka minut.",
-  "Donate now!": "Przekaż darowiznę teraz!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "SEPA Bank Transfer": "Przelew bankowy SEPA",
   "Sign the ECI!": "Podpisz europejską inicjatywę obywatelską!",
-  "Thank you for your donation!": "Dziękujemy za darowiznę!",
-  "a yearly": "każdego roku",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
-  "Payment Method": "Metoda płatności",
   "donation": {
     "amount": {
       "intro": "Wybierz kwotę :"
     },
-    "belowMinimum": "Proszę wpisać prawidłową kwotę. Minimalna kwota darowizny wynosi {{ amount }} {{ currency }}.",
     "frequency": {
       "each": {
         "monthly": "każdego miesiąca",
         "weekly": "każdego roku"
       },
-      "intro": "Czy to będzie co miesiąc?",
       "monthly": "miesięcznie",
       "yearly": "corocznie",
       "oneoff": "jednorazowo"
-    },
-    "paymentMethods": {
-      "card": "karta",
-      "intro": "Wymeldowanie :",
-      "sepa": "sepa"
     },
     "thanks": "Dziękujemy za darowiznę!",
     "to": "Darowizna na rzecz {{organisation}}",
     "payment": {
       "intro": "Szczegóły płatności :"
     },
-    "button": "Przekaż darowiznę {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

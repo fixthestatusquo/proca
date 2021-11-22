@@ -59,7 +59,7 @@ export default function FABAction(props) {
   const nextAction = props.journey[props.current + 2];
   if (nextAction.startsWith("donate")) {
     isDonate = true;
-    callToAction = t("Donate now!");
+    callToAction = t("donation.mobile.open");
   }
 
   const dom = createDom("proca-fab");

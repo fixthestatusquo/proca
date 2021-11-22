@@ -8,7 +8,6 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
-  Typography,
 } from "@material-ui/core";
 
 //import TextField from "../TextField";
@@ -40,6 +39,7 @@ import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
 import { NameField } from "../NameField";
+import { CallToAction } from "./DonateButton";
 
 const STRIPE_FREQUENCY = {
   monthly: "month",
@@ -121,11 +121,11 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+      "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
-  const [data, setData] = useData();
+  const [, setData] = useData();
 
   const form = props.form;
   const { control, errors } = form;
@@ -136,9 +136,6 @@ const PaymentForm = (props) => {
   if ((compact && width > 440) || (!compact && width <= 440))
     setCompact(width <= 440);
 
-  const amount = data.amount;
-  const frequency = data.frequency;
-  const currency = config.component.donation.currency;
   const useTitle = config.component.donation.useTitle;
 
   const classes = useStyles();
@@ -149,10 +146,7 @@ const PaymentForm = (props) => {
         {useTitle && (
           <Grid item xs={12}>
             <DonateTitle
-              config={config}
-              amount={amount}
-              currency={currency}
-              frequency={frequency}
+              showAverage={false}
             />
           </Grid>
         )}
@@ -340,7 +334,7 @@ const SubmitButton = (props) => {
     }
 
     if (!stripeComplete) {
-      setStripeError({ message: t("Please provide your card information.") });
+      setStripeError({ message: t("donation.error.card.missing") });
       btn.disabled = false;
       setSubmitting(false);
       return false;
@@ -373,19 +367,10 @@ const SubmitButton = (props) => {
 
     const piResponse = await stripeCreate(params);
 
-    // this has the subscription ID in it
-    console.debug(
-      "stripe payment intent response",
-      piResponse,
-      piResponse.client_secret
-    );
-
     if (piResponse.errors) {
       console.log("Error returned from proca backend", piResponse.errors);
       setStripeError({
-        message: t(
-          "We couldn't handle your donation at the moment. Please try again in a few minutes."
-        ),
+        message: t("donation.error.general"),
       });
       btn.disabled = false;
       setSubmitting(false);
@@ -415,7 +400,7 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    console.debug("stripe confirm card payment response", stripeResponse);
+    // console.debug("stripe confirm card payment response", stripeResponse);
 
     orderComplete(piResponse, stripeResponse);
 
@@ -445,19 +430,13 @@ const SubmitButton = (props) => {
         {isSubmitting ? (
           <CircularProgress color="inherit" />
         ) : (
-          t("donation.button", {
-            defaultValue: "Donate {{amount}}{{currency.symbol}} {{frequency}}",
-            amount: formData.amount,
-            currency: currency,
-            frequency: t("donation.frequency.each." + formData.frequency, {
-              defaultValue: "a " + formData.frequency,
-            }) /* i18next-extract-disable-line */,
-          })
+          <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
         )}
       </Button>
     </Box>
   );
 };
+
 
 const submitButtonStyles = makeStyles((theme) => ({
   submitButton: {
@@ -514,15 +493,10 @@ const PaymentFormWrapper = (props) => {
 
   const { t } = useTranslation();
 
-  if (error) return <h3>Failed to load Stripe API: {error.message}</h3>;
+  if (error) return <h3>{t('donation.error.initialisation')}</h3>;
 
   return (
     <Container component="main" id="proca-donate">
-      <Typography variant="h6" gutterBottom color="textPrimary">
-        {t("donation.payment.intro", {
-          defaultValue: "Payment details :",
-        })}
-      </Typography>
       <Elements stripe={stripe} options={config?.lang || "auto"}>
         <PayWithStripe {...props} form={form} stripe={stripe} />
       </Elements>

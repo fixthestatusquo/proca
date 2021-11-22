@@ -15,7 +15,6 @@
   "register": "Gehitu nire izena",
   "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
   "progress_plural": "",
-  "organisation": "Zure erakundearen kontua",
   "email": {
     "subject": "gaia",
     "body": "gorputza"
@@ -33,8 +32,6 @@
   },
   "Your organisation account": "Zure erakundearen kontua",
   "This field is required.": "Eremu hau beharrezkoa da",
-  "The average donation is {{amount}} {{currency}}": "Batez besteko dohaintza {{amount}} {{currency}} da",
-  "The average donation is {{amount}}": "Batez besteko dohaintza {{amount}} da",
   "Thanks!": "Eskerrik asko!",
   "Thank you": "Eskerrik asko!",
   "Street": "Kalea",
@@ -54,15 +51,11 @@
   "Other": "Beste bat",
   "No Thanks": "Ez eskerrik asko",
   "Next": "Hurrengoa",
-  "Monthly donations": "Hileko dohaintzak",
   "Locality": "Herria",
   "Link_Share button": "Esteka",
   "Legal": "Legezkoa",
   "Last name": "Abizena",
   "Join": "Batu",
-  "I'm donating {{amount}}": "Ematen ari naiz {{amount}}",
-  "I'm donating ": "Ematen ari naiz ",
-  "I'm donating": "Ematen ari naiz",
   "Full Name": "Izen osoa",
   "First name": "Izena",
   "Enter a valid email address.": "Idatzi balio duen helbide elektronikoa.",
@@ -71,65 +64,38 @@
   "Email": "E-posta",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
   "Download": "Deskargatu",
-  "Donations must be {{amount}} or more": "Dohaintzak {{amount}} edo gehiago izan behar dira",
   "Country": "Herrialdea",
   "Comment": "Iruzkina utzi",
   "City": "Herria",
-  "Choose your donation amount": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere.",
   "Birthdate": "Urtebetetze data",
   "Amount": "Kopurua",
   "Address": "Helbidea",
   "Account": "Kontua",
   "Place of birth": "Jaioterria",
-  "Donate": "Egin dohaintza",
-  "invalid IBAN": "IBAN baliogabea",
-  "Change amount": "Aldatu zenbatekoa",
-  "Donate {{amount}} {{currency}}": "Eman {{amount}} {{currency}}",
-  "yearly": "urtero",
-  "weekly": "astero",
-  "monthly": "hilabetero",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "{{amount}} {{ currency.symbol }} {{frequency}} ematen ari naiz",
-  "a weekly": "Astero",
-  "a monthly": "Hilabetero",
-  "I'm donating {{amount}} {{currency}} monthly": "{{amount}} {{currency}} ematen ari naiz hilero",
-  "I'm donating {{amount}} {{currency}}": "{{amount}} {{currency}} ematen ari naiz",
-  "Choose an Amount": "Aukeratu zenbatekoa",
-  "Please provide your card information": "Mesedez, eman txartelaren informazioa",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Une honetan ezin izan dugu zure dohaintza kudeatu. Saiatu berriro minutu batzuk barru.",
-  "Donate now!": "Eman orain dohaintza!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Ordainketa modua",
-  "SEPA Bank Transfer": "SEPA Banku Transferentzia",
   "Sign the ECI!": "Sinatu ECI!",
-  "Thank you for your donation!": "Eskerrik asko zure dohaintzagatik!",
-  "a yearly": "urtero",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Aukeratu Zenbateko bat:"
     },
-    "belowMinimum": "Mesedez, sartu baliozko kopuru bat. Gutxieneko dohaintza {{ amount }} {{ currency }} da",
     "frequency": {
       "each": {
         "monthly": "hilero",
         "weekly": "urtero"
       },
-      "intro": "Hilero egin?",
       "monthly": "hilero",
       "yearly": "urtero",
       "oneoff": "bat off"
-    },
-    "paymentMethods": {
-      "card": "txartela",
-      "intro": "Errebisatu :",
-      "sepa": "sepa"
     },
     "thanks": "Eskerrik asko zure dohaintzagatik!",
     "to": "Dohaintza {{organisation}}",
     "payment": {
       "intro": "Ordainketa xehetasunak:"
     },
-    "button": "Dohaintza eman {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

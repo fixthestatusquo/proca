@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "du måste vara 18 år gammal",
   "twitter": {
-    "actionText": "Jag skrev under. du borde också",
-    "actionUrl": "actionUrl"
+    "actionText": "Jag skrev under. du borde också"
   },
   "register": "Lägg till mitt namn",
   "dialogTitle": "Håll mig informerad om kampanjen",
@@ -35,7 +34,6 @@
   "Last name": "Efternamn",
   "First name": "Förnamn",
   "Amount": "Belopp",
-  "Donations must be %(amount)s or more": "Donationer måste vara% (belopp) s eller mer",
   "Enter a valid email address.": "Ange en giltig e-postadress.",
   "Enter a number.": "Ange ett nummer.",
   "This field is required.": "Detta fält krävs.",
@@ -62,76 +60,42 @@
     "implicit": "Skicka in det här formuläret för att få e-post från {{name}}"
   },
   "Account": "Konto",
-  "organisation": "Ditt organisationskonto",
   "email": {
     "subject": "ämne",
     "body": "kropp"
   },
-  "Donations must be {{amount}} or more": "Donationer måste vara {{amount}} eller mer",
-  "The average donation is {{amount}}": "Den genomsnittliga donationen är {{amount}}",
-  "Monthly donations": "Månatliga donationer",
   "Phone": "Telefon",
   "Other": "Övrigt",
-  "I'm donating ": "Jag donerar ",
-  "I'm donating": "Jag donerar",
-  "Choose your donation amount": "Välj ditt donationsbelopp",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
   "Sign the ECI": "Underteckna ECI",
   "Share": "Dela",
   "Join": "Gå med",
-  "The average donation is {{amount}} {{currency}}": "Den genomsnittliga donationen är {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Jag donerar {{amount}}",
   "Stay informed": "Håll dig uppdaterad",
   "Place of birth": "Födelseort",
-  "Donate": "Donera",
-  "invalid IBAN": "ogiltigt IBAN",
-  "Change amount": "Ändringsbelopp",
-  "Donate {{amount}} {{currency}}": "Donera {{amount}} {{currency}}",
-  "yearly": "årligen",
-  "weekly": "veckovis",
-  "monthly": "månadsvis",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Jag donerar {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
-  "a weekly": "varje vecka",
-  "a monthly": "varje månad",
-  "I'm donating {{amount}} {{currency}} monthly": "Jag donerar {{amount}} {{currency}} varje månad.",
-  "I'm donating {{amount}} {{currency}}": "Jag donerar {{amount}} {{currency}}",
-  "Choose an Amount": "Välj ett belopp",
-  "Please provide your card information": "Ange dina kortuppgifter",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Vi kan inte hantera din donation för tillfället. Försök igen om några minuter.",
-  "Donate now!": "Donera nu!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Betalningsmetod",
-  "SEPA Bank Transfer": "SEPA-banköverföring",
   "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
-  "Thank you for your donation!": "Tack för din donation!",
-  "a yearly": "varje år",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Välj ett belopp :"
     },
-    "belowMinimum": "Ange ett giltigt belopp. Den minsta donationen är {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "varje månad",
         "weekly": "varje år"
       },
-      "intro": "Månadsvis?",
       "monthly": "månadsvis",
       "yearly": "årligen",
       "oneoff": "en gång"
-    },
-    "paymentMethods": {
-      "card": "kort",
-      "intro": "Utcheckning :",
-      "sepa": "sepa"
     },
     "thanks": "Tack för din donation!",
     "to": "Donation till {{organisation}}",
     "payment": {
       "intro": "Betalningsuppgifter :"
     },
-    "button": "Donera {{amount}}{{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

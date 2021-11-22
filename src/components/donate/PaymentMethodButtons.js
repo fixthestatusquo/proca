@@ -42,7 +42,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             onClick={onClickStripe}
           >
             <PaymentIcon />
-            {t("donation.paymentMethods.card", { defaultvalue: "Card" })}
+            {t("donation.payment_methods.card", { defaultvalue: "Card" })}
           </Button>
         </Grid>
       ) : null}
@@ -57,7 +57,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             classes={{ root: classes.button }}
           >
             <AccountBalanceIcon />
-            {t("donation.paymentMethods.sepa", { defaultvalue: "SEPA" })}
+            {t("donation.payment_methods.sepa", { defaultvalue: "SEPA" })}
           </Button>
         </Grid>
       ) : null}

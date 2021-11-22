@@ -1,8 +1,7 @@
 {
   "you need to be 18 years old": "sinun on oltava 18-vuotias",
   "twitter": {
-    "actionText": "Allekirjoitin. Sinunkin pitäisi",
-    "actionUrl": "actionUrl"
+    "actionText": "Allekirjoitin. Sinunkin pitäisi"
   },
   "register": "Lisää nimeni",
   "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
@@ -35,7 +34,6 @@
   "Last name": "Sukunimi",
   "First name": "Etunimi",
   "Amount": "Määrä",
-  "Donations must be %(amount)s or more": "Lahjoitusten on oltava vähintään% (määrä) s",
   "Enter a valid email address.": "Anna toimiva sähköpostiosoite.",
   "Enter a number.": "Syötä numero.",
   "This field is required.": "Tämä kenttä on pakollinen.",
@@ -62,79 +60,42 @@
     "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}"
   },
   "Account": "Tili",
-  "organisation": "Organisaatiotilisi",
   "email": {
     "subject": "aihe",
     "body": "runko"
   },
-  "Donations must be {{amount}} or more": "Lahjoitusten on oltava vähintään {{amount}}",
-  "The average donation is {{amount}}": "Keskimääräinen lahjoitus on {{amount}}",
-  "Monthly donations": "Kuukausittaiset lahjoitukset",
   "Phone": "Puhelin",
   "Other": "Muu",
-  "I'm donating ": "Lahjoitan ",
-  "I'm donating": "Lahjoitan",
-  "Choose your donation amount": "Valitse lahjoitussumma",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
   "Sign the ECI": "Allekirjoita ECI",
   "Share": "Jaa",
   "Join": "Liity",
-  "The average donation is {{amount}} {{currency}}": "Keskimääräinen lahjoitus on {{amount}} {{currency}}",
-  "I'm donating {{amount}}": "Lahjoitan {{amount}}",
   "Stay informed": "Liity jakelulistalle",
   "Place of birth": "Syntymäpaikka",
-  "Donate": "Lahjoita",
-  "invalid IBAN": "virheellinen IBAN",
-  "Change amount": "Muutosmäärä",
-  "Donate {{amount}} {{currency}}": "Lahjoittaa {{amount}} {{currency}}",
-  "yearly": "vuosittain",
-  "weekly": "Viikoittain",
-  "monthly": "kuukausittain",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Minä lahjoitan {{amount}} {{ currency.symbol }} {{frequency}} {{frequency}}",
-  "a weekly": "joka viikko",
-  "a monthly": "joka kuukausi",
-  "The average donation is {{amount}}{{currency": {
-    "symbol}}": "symboli}}"
-  },
-  "I'm donating {{amount}} {{currency}} monthly": "Lahjoitan {{amount}} {{currency}} kuukausittain.",
-  "I'm donating {{amount}} {{currency}}": "Minä lahjoitan {{amount}} {{currency}}{{currency}}",
-  "Choose an Amount": "Valitse määrä",
-  "Please provide your card information": "Anna kortin tiedot",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Emme pysty käsittelemään lahjoitustasi tällä hetkellä. Yritä uudelleen muutaman minuutin kuluttua.",
-  "Donate now!": "Lahjoita nyt!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Maksutapa",
-  "SEPA Bank Transfer": "SEPA-pankkisiirto",
   "Sign the ECI!": "Allekirjoita ECI!",
-  "Thank you for your donation!": "Kiitos lahjoituksestasi!",
-  "a yearly": "vuosittain",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Valitse määrä :"
     },
-    "belowMinimum": "Kirjoita kelvollinen summa. Vähimmäislahjoitus on {{ amount }} {{ currency }}.",
     "frequency": {
       "each": {
         "monthly": "joka kuukausi",
         "weekly": "vuosittain"
       },
-      "intro": "Kuukausittain?",
       "monthly": "kuukausittain",
       "yearly": "vuosittain",
       "oneoff": "ainutkertainen"
-    },
-    "paymentMethods": {
-      "card": "kortti",
-      "intro": "Kassalle :",
-      "sepa": "sepa"
     },
     "thanks": "Kiitos lahjoituksestasi!",
     "to": "Lahjoitus {{organisation}}",
     "payment": {
       "intro": "Maksutiedot :"
     },
-    "button": "Lahjoita {{amount}}{{currency.symbol}} {{frequency}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

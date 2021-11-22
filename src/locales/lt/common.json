@@ -13,10 +13,6 @@
     }
   },
   "register": "Pridėti mano vardą",
-  "progress_0": "{{count}} pasirašė. Eikime į {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "organisation": "Jūsų organizacijos paskyra",
   "email": {
     "subject": "tema",
     "body": "kūnas"
@@ -34,8 +30,6 @@
   },
   "Your organisation account": "Jūsų organizacijos paskyra",
   "This field is required.": "Šis laukas yra būtinas",
-  "The average donation is {{amount}} {{currency}}": "Vidutinė auka yra {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Vidutinė auka yra {{amount}}",
   "Thanks!": "Dėkoju!",
   "Thank you": "Ačiū",
   "Street": "Gatvė",
@@ -55,15 +49,11 @@
   "Other": "Kita",
   "No Thanks": "&Ne, ačiū",
   "Next": "Toliau",
-  "Monthly donations": "Mėnesinės aukos",
   "Locality": "Vietovė",
   "Link_Share button": "Nuoroda",
   "Legal": "„Legal“",
   "Last name": "Pavardė",
   "Join": "Prisijungti",
-  "I'm donating {{amount}}": "Aukoju {{amount}}",
-  "I'm donating ": "Aukoju ",
-  "I'm donating": "Aukoju",
   "Full Name": "Visas vardas",
   "First name": "Pirmas vardas",
   "Enter a valid email address.": "Įveskite galiojantį el. Pašto adresą.",
@@ -72,65 +62,38 @@
   "Email": "El. paštas",
   "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
   "Download": "Parsiųst",
-  "Donations must be {{amount}} or more": "Aukos turi būti {{amount}} ar daugiau",
   "Country": "Šalis",
   "Comment": "Komentaras",
   "City": "Miestas",
-  "Choose your donation amount": "Pasirinkite aukos sumą",
   "Birthdate": "Gimimo data",
   "Amount": "Suma",
   "Address": "Adresas",
   "Account": "Paskyra",
   "Place of birth": "Gimimo vieta",
-  "Donate": "Paaukoti",
-  "invalid IBAN": "negaliojantis IBAN",
-  "Change amount": "Pakeisti sumą",
-  "Donate {{amount}} {{currency}}": "Paaukoti {{amount}} {{currency}}",
-  "yearly": "kas metus",
-  "weekly": "kas savaitę",
-  "monthly": "kas mėnesį",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Aš aukoju {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "kiekvieną savaitę",
-  "a monthly": "kiekvieną mėnesį",
-  "I'm donating {{amount}} {{currency}} monthly": "Kas mėnesį aukoju {{amount}} {{currency}}",
-  "I'm donating {{amount}} {{currency}}": "Aš aukoju {{amount}} {{currency}}",
-  "Choose an Amount": "Pasirinkite sumą",
-  "Please provide your card information": "Pateikite savo kortelės informaciją",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Šiuo metu negalime tvarkyti jūsų aukos. Prašome pabandyti dar kartą po kelių minučių.",
-  "Donate now!": "Paaukokite dabar!",
-  "IBAN": "IBAN",
-  "PayPal": "\"PayPal\"",
-  "Payment Method": "Mokėjimo būdas",
-  "SEPA Bank Transfer": "SEPA banko pervedimas",
   "Sign the ECI!": "Pasirašykite ECI!",
-  "Thank you for your donation!": "Dėkojame už jūsų auką!",
-  "a yearly": "kiekvienais metais",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Pasirinkite sumą :"
     },
-    "belowMinimum": "Įveskite galiojančią sumą. Mažiausia auka yra {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "kiekvieną mėnesį",
         "weekly": "kiekvienais metais"
       },
-      "intro": "Kas mėnesį?",
       "monthly": "kas mėnesį",
       "yearly": "metinis",
       "oneoff": "vienkartinis"
-    },
-    "paymentMethods": {
-      "card": "kortelė",
-      "intro": "Atsiskaitymas :",
-      "sepa": "sepa"
     },
     "thanks": "Dėkojame už jūsų auką!",
     "to": "Dovanojimas {{organisation}}",
     "payment": {
       "intro": "Mokėjimo informacija:"
     },
-    "button": "Paaukoti {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }

@@ -55,7 +55,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   if (frequencies.length === 0) {
     return null;
   }
-  /* i18next-extract-disable-next-line */
+
   return (
     <Grid container spacing={1} className={classes.formContainers}>
       {frequencies.map((f) => (
@@ -65,7 +65,9 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
             selected={selected}
             setFrequency={setFrequency}
           >
-            {t("donation.frequency." + f.toLowerCase(), { defaultValue: f })}
+            {
+              /* i18next-extract-disable-next-line */
+              t("donation.frequency.each." + f.toLowerCase(), { defaultValue: f })}
           </FrequencyButton>
         </Grid>
       ))}
@@ -87,9 +89,11 @@ const Frequencies = (props) => {
     <>
       {" "}
       <Typography variant="h6" paragraph gutterBottom color="textPrimary">
-        {t("donation.frequency.intro", {
-          defaultValue: "Make it monthly?",
-        })}
+        {
+          /*  i18next-extract-disable-next-line */
+          t("donation.frequency.ask." + frequency.toLowerCase(), {
+            defaultValue: "Make it monthly?",
+          })}
       </Typography>
       <FrequencyButtons
         frequencies={frequencies}

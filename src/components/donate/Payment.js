@@ -24,7 +24,7 @@ export default function Payment(props) {
 
   return (
     <Container>
-      {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
+      {submitted && <Alert severity="success">{t("donation.thanks")}</Alert>}
 
       <Grid container spacing={1}>
         <Grid item xs={12} justifyContent="center">

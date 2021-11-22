@@ -13,10 +13,6 @@
     }
   },
   "register": "Pievienojiet manu vārdu",
-  "progress_0": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "organisation": "Jūsu organizācijas konts",
   "email": {
     "subject": "priekšmets",
     "body": "ķermeņa"
@@ -34,8 +30,6 @@
   },
   "Your organisation account": "Jūsu organizācijas konts",
   "This field is required.": "Šis lauks ir obligāts.",
-  "The average donation is {{amount}} {{currency}}": "Vidējais ziedojums ir {{amount}} {{currency}}",
-  "The average donation is {{amount}}": "Vidējais ziedojums ir {{amount}}",
   "Thanks!": "Paldies!",
   "Thank you": "Paldies",
   "Street": "Iela",
@@ -55,15 +49,11 @@
   "Other": "Cits",
   "No Thanks": "Nē paldies",
   "Next": "Nākošais",
-  "Monthly donations": "Ikmēneša ziedojumi",
   "Locality": "Apkārtne",
   "Link_Share button": "Saite",
   "Legal": "Juridisks",
   "Last name": "Uzvārds",
   "Join": "Pievienoties",
-  "I'm donating {{amount}}": "Es ziedoju {{amount}}",
-  "I'm donating ": "Es ziedoju ",
-  "I'm donating": "Es ziedoju",
   "Full Name": "Pilnais vārds",
   "First name": "Vārds",
   "Enter a valid email address.": "Ievadiet derīgu epasta adresi.",
@@ -72,65 +62,38 @@
   "Email": "Epasts",
   "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
   "Download": "Lejupielādēt",
-  "Donations must be {{amount}} or more": "Ziedojumiem jābūt {{amount}} vai vairāk",
   "Country": "Valsts",
   "Comment": "Komentārs",
   "City": "Pilsēta",
-  "Choose your donation amount": "Izvēlieties ziedojuma summu",
   "Birthdate": "Dzimšanas datums",
   "Amount": "Daudzums",
   "Address": "Adrese",
   "Account": "Konts",
   "Place of birth": "Dzimšanas vieta",
-  "Donate": "Ziedot",
-  "invalid IBAN": "nederīgs IBAN",
-  "Change amount": "Izmaiņas summa",
-  "Donate {{amount}} {{currency}}": "Ziedot {{amount}} {{currency}}",
-  "yearly": "gada",
-  "weekly": "iknedēļas",
-  "monthly": "ikmēneša",
-  "I'm donating {{amount}} {{ currency.symbol }} {{frequency}}": "Es ziedoju {{amount}} {{ currency.symbol }} {{frequency}}",
-  "a weekly": "katru nedēļu",
-  "a monthly": "katru mēnesi",
-  "I'm donating {{amount}} {{currency}} monthly": "Es ziedoju {{amount}} {{currency}} katru mēnesi",
-  "I'm donating {{amount}} {{currency}}": "Es ziedoju {{amount}} {{currency}}",
-  "Choose an Amount": "Izvēlieties summu",
-  "Please provide your card information": "Lūdzu, norādiet savas kartes informāciju",
-  "We couldn't handle your donation at the moment. Please try again in a few minutes.": "Šobrīd mēs nevarējām apstrādāt jūsu ziedojumu. Lūdzu, mēģiniet vēlreiz pēc dažām minūtēm.",
-  "Donate now!": "Ziedot tagad!",
-  "IBAN": "IBAN",
-  "PayPal": "PayPal",
-  "Payment Method": "Maksājuma metode",
-  "SEPA Bank Transfer": "SEPA bankas pārskaitījums",
   "Sign the ECI!": "Parakstiet ECI!",
-  "Thank you for your donation!": "Paldies par jūsu ziedojumu!",
-  "a yearly": "katru gadu",
-  "{{amount}} {{symbol}}": "{{amount}} {{symbol}}",
   "donation": {
     "amount": {
       "intro": "Izvēlieties summu :"
     },
-    "belowMinimum": "Lūdzu, ievadiet derīgu summu. Minimālais ziedojums ir {{ amount }} {{ currency }}",
     "frequency": {
       "each": {
         "monthly": "katru mēnesi",
         "weekly": "katru gadu"
       },
-      "intro": "Veikt to katru mēnesi?",
       "monthly": "ikmēneša",
       "yearly": "gada",
       "oneoff": "vienreizējs"
-    },
-    "paymentMethods": {
-      "card": "karte",
-      "intro": "Izrakstīšanās :",
-      "sepa": "sepa"
     },
     "to": "Ziedojums {{organisation}}",
     "thanks": "Paldies par jūsu ziedojumu!",
     "payment": {
       "intro": "Informācija par maksājumu :"
     },
-    "button": "Ziedot {{amount}} {{currency.symbol}} {{frequency}}"
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    }
   }
 }
