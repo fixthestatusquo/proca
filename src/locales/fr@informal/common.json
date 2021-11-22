@@ -1,101 +1,142 @@
 {
-  "you need to be 18 years old": "vous devez avoir 18 ans",
-  "twitter": {
-    "actionText": "J'ai signé. Vous devriez aussi"
-  },
-  "share": {
-    "title": "Presque terminé ! Passez à l'étape suivante.",
-    "message": "Vous devriez signer ceci !",
-    "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voit ce petition🙏.",
+    "you need to be 18 years old": "vous devez avoir 18 ans",
+    "twitter": {
+        "actionText": "J'ai signé. Vous devriez aussi"
+    },
+    "share": {
+        "title": "Presque terminé ! Passez à l'étape suivante.",
+        "message": "Vous devriez signer ceci !",
+        "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voit ce petition🙏.",
+        "email": {
+            "subject": "Vous devez signer ceci",
+            "body": "Salut,\nVeuillez signer, je pense que vous voulez le soutenir"
+        }
+    },
+    "register": "Ajouter mon nom",
+    "progress": "{{count}} signature. Objectif : {{goal}}",
+    "progress_plural": "{{count}} signatures. Objectif : {{goal}}",
     "email": {
-      "subject": "Vous devez signer ceci",
-      "body": "Salut,\nVeuillez signer, je pense que vous voulez le soutenir"
+        "subject": "sujet",
+        "body": "corps"
+    },
+    "dialogTitle": "Tenez-moi informé de la campagne",
+    "consent": {
+        "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
+        "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
+        "opt-out": "Non, je ne souhaite pas recevoir d'information sur les suites de cette campagne",
+        "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
+        "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu acceptes nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
+        "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
+        "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel",
+        "implicit": "Envoie ce formulaire pour recevoir des courriels de {{name}}"
+    },
+    "Your organisation account": "Le compte de votre organisation",
+    "This field is required.": "Ce champ est obligatoire.",
+    "Thanks!": "Merci !",
+    "Thank you": "Merci",
+    "Street": "Rue",
+    "Stay informed": "Restez informé",
+    "Stay in touch": "Restez en contact",
+    "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
+    "Sign the ECI": "Signer l'ICE",
+    "Sign now!": "Signez maintenant !",
+    "Sign Up": "S'inscrire",
+    "Sign": "Signez maintenant !",
+    "Share on Twitter": "Partager sur Twitter",
+    "Share on Facebook": "Partager sur Facebook",
+    "Share": "Partager",
+    "Privacy": "Vie privée",
+    "Postal Code": "Code postal",
+    "Phone": "Téléphone",
+    "Other": "Autre",
+    "No Thanks": "Non merci",
+    "Next": "Suivant",
+    "Locality": "Localité",
+    "Link_Share button": "Lier",
+    "Legal": "Juridique",
+    "Last name": "Nom de famille",
+    "Join": "Rejoindre",
+    "Full Name": "Nom complet",
+    "First name": "Prénom",
+    "Enter a valid email address.": "Entre une adresse électronique valide.",
+    "Enter a number.": "Entre un numéro.",
+    "Email_Share button": "Courriel",
+    "Email": "Courriel",
+    "Download explanation": "Ton document est maintenant prêt, nous te l'envoyons également par e-mail.",
+    "Download": "Télécharger",
+    "Country": "Pays",
+    "Comment": "Commentaire",
+    "City": "Ville",
+    "Birthdate": "Date de naissance",
+    "Amount": "Montant",
+    "Address": "Adresse",
+    "Account": "Crée ton compte",
+    "Place of birth": "Lieu de naissance",
+    "Sign the ECI!": "Signez l'ICE !",
+    "donation": {
+        "amount": {
+            "intro": "Choisissez un montant :",
+            "change": "Modifier le montant",
+            "choose": "Choisissez un montant"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "chaque mois",
+                "weekly": "chaque année",
+                "oneoff": "Une fois que"
+            },
+            "monthly": "mensuel",
+            "yearly": "annuel",
+            "oneoff": "un hors",
+            "ask": {
+                "monthly": "Le rendre mensuel ?",
+                "oneoff": "Faire un don",
+                "weekly": "Faire un don hebdomadaire ?"
+            },
+            "feedback": {
+                "monthly": "Je fais un don {{amount}} {{currency}}",
+                "oneoff": "Je fais un don {{amount}}"
+            }
+        },
+        "thanks": "Merci pour votre don!",
+        "to": "Don à {{organisation}}",
+        "payment": {
+            "intro": "Détails de paiement :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "payment_methods": {
+            "paypal": "Pay Pal",
+            "sepa": "SEPA",
+            "title": "Mode de paiement",
+            "card": "Carte",
+            "intro": "Comment voulez-vous faire un don ?"
+        },
+        "average": "Le don moyen est de {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Le numéro de carte de crédit est manquant"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "général",
+            "initialisation": "initialisation"
+        },
+        "form": {
+            "error": {
+                "minimum": "Le don minimum est de {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "ouvert"
+        }
     }
-  },
-  "register": "Ajouter mon nom",
-  "progress": "{{count}} signature. Objectif : {{goal}}",
-  "progress_plural": "{{count}} signatures. Objectif : {{goal}}",
-  "email": {
-    "subject": "sujet",
-    "body": "corps"
-  },
-  "dialogTitle": "Tenez-moi informé de la campagne",
-  "consent": {
-    "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
-    "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
-    "opt-out": "Non, je ne souhaite pas recevoir d'information sur les suites de cette campagne",
-    "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
-    "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu acceptes nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
-    "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
-    "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me tiennent informé·e par courriel",
-    "implicit": "Envoie ce formulaire pour recevoir des courriels de {{name}}"
-  },
-  "Your organisation account": "Le compte de votre organisation",
-  "This field is required.": "Ce champ est obligatoire.",
-  "Thanks!": "Merci !",
-  "Thank you": "Merci",
-  "Street": "Rue",
-  "Stay informed": "Restez informé",
-  "Stay in touch": "Restez en contact",
-  "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
-  "Sign the ECI": "Signer l'ICE",
-  "Sign now!": "Signez maintenant !",
-  "Sign Up": "S'inscrire",
-  "Sign": "Signez maintenant !",
-  "Share on Twitter": "Partager sur Twitter",
-  "Share on Facebook": "Partager sur Facebook",
-  "Share": "Partager",
-  "Privacy": "Vie privée",
-  "Postal Code": "Code postal",
-  "Phone": "Téléphone",
-  "Other": "Autre",
-  "No Thanks": "Non merci",
-  "Next": "Suivant",
-  "Locality": "Localité",
-  "Link_Share button": "Lier",
-  "Legal": "Juridique",
-  "Last name": "Nom de famille",
-  "Join": "Rejoindre",
-  "Full Name": "Nom complet",
-  "First name": "Prénom",
-  "Enter a valid email address.": "Entre une adresse électronique valide.",
-  "Enter a number.": "Entre un numéro.",
-  "Email_Share button": "Courriel",
-  "Email": "Courriel",
-  "Download explanation": "Ton document est maintenant prêt, nous te l'envoyons également par e-mail.",
-  "Download": "Télécharger",
-  "Country": "Pays",
-  "Comment": "Commentaire",
-  "City": "Ville",
-  "Birthdate": "Date de naissance",
-  "Amount": "Montant",
-  "Address": "Adresse",
-  "Account": "Crée ton compte",
-  "Place of birth": "Lieu de naissance",
-  "Sign the ECI!": "Signez l'ICE !",
-  "donation": {
-    "amount": {
-      "intro": "Choisissez un montant :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "chaque mois",
-        "weekly": "chaque année"
-      },
-      "monthly": "mensuel",
-      "yearly": "annuel",
-      "oneoff": "un hors"
-    },
-    "thanks": "Merci pour votre don!",
-    "to": "Don à {{organisation}}",
-    "payment": {
-      "intro": "Détails de paiement :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
-    }
-  }
 }
