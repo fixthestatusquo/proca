@@ -1,101 +1,142 @@
 {
-  "you need to be 18 years old": "musíte mať 18 rokov",
-  "twitter": {
-    "actionText": "Podpísal som sa. mali by ste tiež"
-  },
-  "register": "Pridajte moje meno",
-  "dialogTitle": "Informujte ma o kampani",
-  "Your organisation account": "Váš účet organizácie",
-  "Thank you": "Ďakujeme!",
-  "Sign now!": "Odoslať!!",
-  "Next": "Ďalšia",
-  "Locality": "Oblasť",
-  "Full Name": "Celé meno",
-  "Download": "Stiahnuť",
-  "Comment": "Komentár",
-  "Birthdate": "Dátum narodenia",
-  "Address": "Adresa",
-  "Account": "Účet",
-  "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
-  "Link_Share button": "Odkaz",
-  "Email_Share button": "Email",
-  "Share on Twitter": "Zdieľajte na Twitteri",
-  "Share on Facebook": "Zdieľať na Facebooku",
-  "Sign Up": "Zaregistrovať sa",
-  "Stay in touch": "Zostať v kontakte",
-  "No Thanks": "Nie ďakujem",
-  "Privacy": "Súkromie",
-  "Legal": "Právne informácie",
-  "Thanks!": "Vďaka!",
-  "Country": "Zem",
-  "City": "Mesto",
-  "Street": "Ulica",
-  "Postal Code": "Poštové smerovacie číslo",
-  "Email": "Email",
-  "Last name": "Priezvisko",
-  "First name": "Krstné meno",
-  "Amount": "Čiastka",
-  "Enter a valid email address.": "Zadajte platnú e-mailovú adresu.",
-  "Enter a number.": "Zadajte číslo.",
-  "This field is required.": "Toto pole je povinné.",
-  "progress": "{{count}} podpísali. Poďme na {{goal}}",
-  "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
-  "Sign": "Odoslať!",
-  "share": {
+    "you need to be 18 years old": "musíte mať 18 rokov",
+    "twitter": {
+        "actionText": "Podpísal som sa. mali by ste tiež"
+    },
+    "register": "Pridajte moje meno",
+    "dialogTitle": "Informujte ma o kampani",
+    "Your organisation account": "Váš účet organizácie",
+    "Thank you": "Ďakujeme!",
+    "Sign now!": "Odoslať!!",
+    "Next": "Ďalšia",
+    "Locality": "Oblasť",
+    "Full Name": "Celé meno",
+    "Download": "Stiahnuť",
+    "Comment": "Komentár",
+    "Birthdate": "Dátum narodenia",
+    "Address": "Adresa",
+    "Account": "Účet",
+    "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
+    "Link_Share button": "Odkaz",
+    "Email_Share button": "Email",
+    "Share on Twitter": "Zdieľajte na Twitteri",
+    "Share on Facebook": "Zdieľať na Facebooku",
+    "Sign Up": "Zaregistrovať sa",
+    "Stay in touch": "Zostať v kontakte",
+    "No Thanks": "Nie ďakujem",
+    "Privacy": "Súkromie",
+    "Legal": "Právne informácie",
+    "Thanks!": "Vďaka!",
+    "Country": "Zem",
+    "City": "Mesto",
+    "Street": "Ulica",
+    "Postal Code": "Poštové smerovacie číslo",
+    "Email": "Email",
+    "Last name": "Priezvisko",
+    "First name": "Krstné meno",
+    "Amount": "Čiastka",
+    "Enter a valid email address.": "Zadajte platnú e-mailovú adresu.",
+    "Enter a number.": "Zadajte číslo.",
+    "This field is required.": "Toto pole je povinné.",
+    "progress": "{{count}} podpísali. Poďme na {{goal}}",
+    "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
+    "Sign": "Odoslať!",
+    "share": {
+        "email": {
+            "body": "Ahoj,\nProsím, podpíšte sa, myslím, že to chcete podporiť",
+            "subject": "Mali by ste to podpísať"
+        },
+        "message": "Toto by ste mali podpísať!",
+        "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
+        "title": "Skoro hotové! Urobte ďalší krok."
+    },
+    "consent": {
+        "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+        "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
+        "opt-out": "Nie, neposielajte mi e-maily ani ma nebudem informovať o ďalších udalostiach",
+        "opt-in": "Áno, informujte ma e-mailom",
+        "intro": "Súhlasím, že {{name}} ma bude kontaktovať ohľadom dôležitých kampaní",
+        "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+        "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
+        "implicit": "Odoslaním tohto formulára získate e-maily od {{name}}"
+    },
     "email": {
-      "body": "Ahoj,\nProsím, podpíšte sa, myslím, že to chcete podporiť",
-      "subject": "Mali by ste to podpísať"
+        "subject": "predmet",
+        "body": "telo"
     },
-    "message": "Toto by ste mali podpísať!",
-    "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
-    "title": "Skoro hotové! Urobte ďalší krok."
-  },
-  "consent": {
-    "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
-    "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
-    "opt-out": "Nie, neposielajte mi e-maily ani ma nebudem informovať o ďalších udalostiach",
-    "opt-in": "Áno, informujte ma e-mailom",
-    "intro": "Súhlasím, že {{name}} ma bude kontaktovať ohľadom dôležitých kampaní",
-    "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
-    "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
-    "implicit": "Odoslaním tohto formulára získate e-maily od {{name}}"
-  },
-  "email": {
-    "subject": "predmet",
-    "body": "telo"
-  },
-  "Phone": "Telefón",
-  "Other": "Ostatné",
-  "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
-  "Sign the ECI": "Podpíšte ECI",
-  "Share": "Zdieľať",
-  "Join": "Pridať sa",
-  "Stay informed": "Dostávať informácie",
-  "Place of birth": "Miesto narodenia",
-  "Sign the ECI!": "Podpíšte ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Vyberte si sumu :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "každý mesiac",
-        "weekly": "každý rok"
-      },
-      "monthly": "mesačne",
-      "yearly": "ročne",
-      "oneoff": "jednorazové"
-    },
-    "thanks": "Ďakujeme vám za váš dar!",
-    "to": "Príspevok na {{organisation}}",
-    "payment": {
-      "intro": "Platobné údaje :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
+    "Phone": "Telefón",
+    "Other": "Ostatné",
+    "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
+    "Sign the ECI": "Podpíšte ECI",
+    "Share": "Zdieľať",
+    "Join": "Pridať sa",
+    "Stay informed": "Dostávať informácie",
+    "Place of birth": "Miesto narodenia",
+    "Sign the ECI!": "Podpíšte ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Vyberte si sumu :",
+            "change": "Výška zmeny",
+            "choose": "Vyberte si sumu"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "každý mesiac",
+                "weekly": "každý rok",
+                "oneoff": "Keď"
+            },
+            "monthly": "mesačne",
+            "yearly": "ročne",
+            "oneoff": "jednorazové",
+            "ask": {
+                "monthly": "Aby to bolo mesačne?",
+                "oneoff": "Darujte",
+                "weekly": "Aby to bol týždenný príspevok?"
+            },
+            "feedback": {
+                "monthly": "Darujem {{amount}} {{frequency}}",
+                "oneoff": "Darujem {{amount}}"
+            }
+        },
+        "thanks": "Ďakujeme vám za váš dar!",
+        "to": "Príspevok na {{organisation}}",
+        "payment": {
+            "intro": "Platobné údaje :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "average": "Priemerná výška príspevku je {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Chýba číslo kreditnej karty"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "všeobecné",
+            "initialisation": "inicializácia"
+        },
+        "form": {
+            "error": {
+                "minimum": "Minimálna výška príspevku je {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "otvoriť"
+        },
+        "payment_methods": {
+            "card": "Karta",
+            "intro": "Ako chcete darovať?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Spôsob platby"
+        }
     }
-  }
 }
