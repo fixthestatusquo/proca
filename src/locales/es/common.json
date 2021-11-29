@@ -1,101 +1,142 @@
 {
-  "Download explanation": "Su documento ya está listo, se lo estamos enviando por correo electrónico también.",
-  "Link_Share button": "Enlace",
-  "Email_Share button": "Correo electrónico",
-  "Share on Twitter": "Compartir en Twitter",
-  "Share on Facebook": "Compartir en Facebook",
-  "Sign Up": "Regístrate",
-  "Stay in touch": "Mantente en contacto",
-  "No Thanks": "No, gracias",
-  "Privacy": "Privacidad",
-  "Legal": "Legal",
-  "Thanks!": "¡Gracias!",
-  "Country": "País",
-  "City": "Municipio",
-  "Street": "Calle",
-  "Postal Code": "Código postal",
-  "Email": "Correo electrónico",
-  "Last name": "Apellidos",
-  "First name": "Nombre",
-  "Amount": "Monto",
-  "Enter a valid email address.": "Proporcione una dirección de correo electrónico válida.",
-  "Enter a number.": "Introduce un número.",
-  "This field is required.": "Este campo es necesario.",
-  "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
-  "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
-  "Sign": "¡Firmar ahora!",
-  "share": {
+    "Download explanation": "Su documento ya está listo, se lo estamos enviando por correo electrónico también.",
+    "Link_Share button": "Enlace",
+    "Email_Share button": "Correo electrónico",
+    "Share on Twitter": "Compartir en Twitter",
+    "Share on Facebook": "Compartir en Facebook",
+    "Sign Up": "Regístrate",
+    "Stay in touch": "Mantente en contacto",
+    "No Thanks": "No, gracias",
+    "Privacy": "Privacidad",
+    "Legal": "Legal",
+    "Thanks!": "¡Gracias!",
+    "Country": "País",
+    "City": "Municipio",
+    "Street": "Calle",
+    "Postal Code": "Código postal",
+    "Email": "Correo electrónico",
+    "Last name": "Apellidos",
+    "First name": "Nombre",
+    "Amount": "Monto",
+    "Enter a valid email address.": "Proporcione una dirección de correo electrónico válida.",
+    "Enter a number.": "Introduce un número.",
+    "This field is required.": "Este campo es necesario.",
+    "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
+    "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
+    "Sign": "¡Firmar ahora!",
+    "share": {
+        "email": {
+            "body": "Hola,\npor favor, firma, creo que querrás apoyarlo",
+            "subject": "Deberías firmar esto"
+        },
+        "message": "¡Deberías firmar esto!",
+        "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
+        "title": "¡Ya casi está! Da el siguiente paso."
+    },
+    "consent": {
+        "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
+        "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que realizar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes nuestras",
+        "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
+        "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
+        "intro": "Estoy de acuerdo que {{campaign}} me contacte acerca de campañas importantes",
+        "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
+        "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
+        "implicit": "Envíe este formulario para recibir correos electrónicos de {{name}}"
+    },
+    "you need to be 18 years old": "debes ser mayor de edad",
+    "twitter": {
+        "actionText": "Yo firmé. Tú también deberías hacerlo"
+    },
+    "register": "Añade mi nombre",
+    "dialogTitle": "Mantenme informado/a sobre la campaña",
+    "Your organisation account": "La cuenta de su organización",
+    "Thank you": "Gracias",
+    "Sign now!": "¡Firma ahora!",
+    "Next": "Siguiente",
+    "Locality": "Localidad",
+    "Full Name": "Nombre completo",
+    "Download": "Descargar",
+    "Comment": "Comentario",
+    "Birthdate": "Fecha de nacimiento",
+    "Address": "Dirección",
+    "Account": "Cuenta",
     "email": {
-      "body": "Hola,\npor favor, firma, creo que querrás apoyarlo",
-      "subject": "Deberías firmar esto"
+        "subject": "asunto",
+        "body": "cuerpo"
     },
-    "message": "¡Deberías firmar esto!",
-    "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
-    "title": "¡Ya casi está! Da el siguiente paso."
-  },
-  "consent": {
-    "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
-    "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones que tenemos que realizar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes nuestras",
-    "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
-    "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
-    "intro": "Estoy de acuerdo que {{campaign}} me contacte acerca de campañas importantes",
-    "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
-    "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
-    "implicit": "Envíe este formulario para recibir correos electrónicos de {{name}}"
-  },
-  "you need to be 18 years old": "debes ser mayor de edad",
-  "twitter": {
-    "actionText": "Yo firmé. Tú también deberías hacerlo"
-  },
-  "register": "Añade mi nombre",
-  "dialogTitle": "Mantenme informado/a sobre la campaña",
-  "Your organisation account": "La cuenta de su organización",
-  "Thank you": "Gracias",
-  "Sign now!": "¡Firma ahora!",
-  "Next": "Siguiente",
-  "Locality": "Localidad",
-  "Full Name": "Nombre completo",
-  "Download": "Descargar",
-  "Comment": "Comentario",
-  "Birthdate": "Fecha de nacimiento",
-  "Address": "Dirección",
-  "Account": "Cuenta",
-  "email": {
-    "subject": "asunto",
-    "body": "cuerpo"
-  },
-  "Phone": "Teléfono",
-  "Other": "Otros",
-  "Sorry, we couldn't save": "No se ha podido guardar",
-  "Sign the ECI": "Firme la ECI",
-  "Share": "Compartir",
-  "Join": "Unirse",
-  "Stay informed": "Mantenerse al tanto",
-  "Place of birth": "Lugar de nacimiento",
-  "Sign the ECI!": "¡Firme la ICE!",
-  "donation": {
-    "amount": {
-      "intro": "Elija una cantidad :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "cada mes",
-        "weekly": "cada año"
-      },
-      "monthly": "mensualmente",
-      "yearly": "anualmente",
-      "oneoff": "una sola vez"
-    },
-    "thanks": "Gracias por su donación.",
-    "to": "Donación a {{organisation}}",
-    "payment": {
-      "intro": "Datos de pago :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
+    "Phone": "Teléfono",
+    "Other": "Otros",
+    "Sorry, we couldn't save": "No se ha podido guardar",
+    "Sign the ECI": "Firme la ECI",
+    "Share": "Compartir",
+    "Join": "Unirse",
+    "Stay informed": "Mantenerse al tanto",
+    "Place of birth": "Lugar de nacimiento",
+    "Sign the ECI!": "¡Firme la ICE!",
+    "donation": {
+        "amount": {
+            "intro": "Elija una cantidad :",
+            "change": "Importe del cambio",
+            "choose": "Elija un importe"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "cada mes",
+                "weekly": "cada año",
+                "oneoff": "Una vez"
+            },
+            "monthly": "mensualmente",
+            "yearly": "anualmente",
+            "oneoff": "una sola vez",
+            "ask": {
+                "monthly": "¿Que sea mensual?",
+                "oneoff": "Donar",
+                "weekly": "¿Hacer una donación semanal?"
+            },
+            "feedback": {
+                "monthly": "Estoy donando {{amount}} {{frequency}}",
+                "oneoff": "Estoy donando {{amount}}"
+            }
+        },
+        "thanks": "Gracias por su donación.",
+        "to": "Donación a {{organisation}}",
+        "payment": {
+            "intro": "Datos de pago :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "average": "La donación media es {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Falta el número de la tarjeta de crédito"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "general",
+            "initialisation": "inicialización"
+        },
+        "form": {
+            "error": {
+                "minimum": "La donación mínima es de {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "Abrir"
+        },
+        "payment_methods": {
+            "card": "Tarjeta",
+            "intro": "¿Cómo quiere donar?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Forma de pago"
+        }
     }
-  }
 }

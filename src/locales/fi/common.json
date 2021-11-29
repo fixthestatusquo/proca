@@ -1,101 +1,142 @@
 {
-  "you need to be 18 years old": "sinun on oltava 18-vuotias",
-  "twitter": {
-    "actionText": "Allekirjoitin. Sinunkin pitäisi"
-  },
-  "register": "Lisää nimeni",
-  "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
-  "Your organisation account": "Organisaatiotilisi",
-  "Thank you": "Kiitos",
-  "Sign now!": "Allekirjoita!",
-  "Next": "Seuraava",
-  "Locality": "Sijainti",
-  "Full Name": "Koko nimi",
-  "Download": "Lataa",
-  "Comment": "Kommentti",
-  "Birthdate": "Syntymäpäivä",
-  "Address": "Osoite",
-  "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle sähköpostitse.",
-  "Link_Share button": "Linkki",
-  "Email_Share button": "Sähköpostiosoite",
-  "Share on Twitter": "Jaa Twitterissä",
-  "Share on Facebook": "Jaa Facebookissa",
-  "Sign Up": "Rekisteröidy",
-  "Stay in touch": "Pysyä yhteydessä",
-  "No Thanks": "Ei kiitos",
-  "Privacy": "Yksityisyys",
-  "Legal": "Lakiasiat",
-  "Thanks!": "Suuret kiitokset!",
-  "Country": "Maa",
-  "City": "Kaupunki",
-  "Street": "Kadun nimi",
-  "Postal Code": "Postinumero",
-  "Email": "Sähköpostiosoite",
-  "Last name": "Sukunimi",
-  "First name": "Etunimi",
-  "Amount": "Määrä",
-  "Enter a valid email address.": "Anna toimiva sähköpostiosoite.",
-  "Enter a number.": "Syötä numero.",
-  "This field is required.": "Tämä kenttä on pakollinen.",
-  "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
-  "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
-  "Sign": "Allekirjoita!",
-  "share": {
+    "you need to be 18 years old": "sinun on oltava 18-vuotias",
+    "twitter": {
+        "actionText": "Allekirjoitin. Sinunkin pitäisi"
+    },
+    "register": "Lisää nimeni",
+    "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
+    "Your organisation account": "Organisaatiotilisi",
+    "Thank you": "Kiitos",
+    "Sign now!": "Allekirjoita!",
+    "Next": "Seuraava",
+    "Locality": "Sijainti",
+    "Full Name": "Koko nimi",
+    "Download": "Lataa",
+    "Comment": "Kommentti",
+    "Birthdate": "Syntymäpäivä",
+    "Address": "Osoite",
+    "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle sähköpostitse.",
+    "Link_Share button": "Linkki",
+    "Email_Share button": "Sähköpostiosoite",
+    "Share on Twitter": "Jaa Twitterissä",
+    "Share on Facebook": "Jaa Facebookissa",
+    "Sign Up": "Rekisteröidy",
+    "Stay in touch": "Pysyä yhteydessä",
+    "No Thanks": "Ei kiitos",
+    "Privacy": "Yksityisyys",
+    "Legal": "Lakiasiat",
+    "Thanks!": "Suuret kiitokset!",
+    "Country": "Maa",
+    "City": "Kaupunki",
+    "Street": "Kadun nimi",
+    "Postal Code": "Postinumero",
+    "Email": "Sähköpostiosoite",
+    "Last name": "Sukunimi",
+    "First name": "Etunimi",
+    "Amount": "Määrä",
+    "Enter a valid email address.": "Anna toimiva sähköpostiosoite.",
+    "Enter a number.": "Syötä numero.",
+    "This field is required.": "Tämä kenttä on pakollinen.",
+    "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
+    "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
+    "Sign": "Allekirjoita!",
+    "share": {
+        "email": {
+            "body": "Moi,\nOle hyvä ja allekirjoita, mielestäni haluat tukea sitä",
+            "subject": "Sinun tulisi allekirjoittaa tämä"
+        },
+        "message": "Sinun tulisi allekirjoittaa tämä!",
+        "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
+        "title": "Melkein valmista! Ota seuraava askel."
+    },
+    "consent": {
+        "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
+        "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
+        "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minua ajan tasalla tulevaisuudessa",
+        "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
+        "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
+        "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
+        "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse",
+        "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}"
+    },
+    "Account": "Tili",
     "email": {
-      "body": "Moi,\nOle hyvä ja allekirjoita, mielestäni haluat tukea sitä",
-      "subject": "Sinun tulisi allekirjoittaa tämä"
+        "subject": "aihe",
+        "body": "runko"
     },
-    "message": "Sinun tulisi allekirjoittaa tämä!",
-    "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
-    "title": "Melkein valmista! Ota seuraava askel."
-  },
-  "consent": {
-    "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
-    "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
-    "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minua ajan tasalla tulevaisuudessa",
-    "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
-    "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
-    "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
-    "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse",
-    "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}"
-  },
-  "Account": "Tili",
-  "email": {
-    "subject": "aihe",
-    "body": "runko"
-  },
-  "Phone": "Puhelin",
-  "Other": "Muu",
-  "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
-  "Sign the ECI": "Allekirjoita ECI",
-  "Share": "Jaa",
-  "Join": "Liity",
-  "Stay informed": "Liity jakelulistalle",
-  "Place of birth": "Syntymäpaikka",
-  "Sign the ECI!": "Allekirjoita ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Valitse määrä :"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "joka kuukausi",
-        "weekly": "vuosittain"
-      },
-      "monthly": "kuukausittain",
-      "yearly": "vuosittain",
-      "oneoff": "ainutkertainen"
-    },
-    "thanks": "Kiitos lahjoituksestasi!",
-    "to": "Lahjoitus {{organisation}}",
-    "payment": {
-      "intro": "Maksutiedot :"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
+    "Phone": "Puhelin",
+    "Other": "Muu",
+    "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
+    "Sign the ECI": "Allekirjoita ECI",
+    "Share": "Jaa",
+    "Join": "Liity",
+    "Stay informed": "Liity jakelulistalle",
+    "Place of birth": "Syntymäpaikka",
+    "Sign the ECI!": "Allekirjoita ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Valitse määrä :",
+            "change": "Muutosmäärä",
+            "choose": "Valitse määrä"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "joka kuukausi",
+                "weekly": "vuosittain",
+                "oneoff": "Kun"
+            },
+            "monthly": "kuukausittain",
+            "yearly": "vuosittain",
+            "oneoff": "ainutkertainen",
+            "ask": {
+                "oneoff": "Lahjoita",
+                "weekly": "Tehdäänkö tästä viikoittainen lahjoitus?",
+                "monthly": "Kuukausittain?"
+            },
+            "feedback": {
+                "monthly": "Minä lahjoitan {{amount}} {{frequency}}",
+                "oneoff": "Lahjoitan {{amount}}"
+            }
+        },
+        "thanks": "Kiitos lahjoituksestasi!",
+        "to": "Lahjoitus {{organisation}}",
+        "payment": {
+            "intro": "Maksutiedot :"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "avoin"
+        },
+        "payment_methods": {
+            "card": "Kortti",
+            "intro": "Miten haluat lahjoittaa?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Maksutapa"
+        },
+        "average": "Keskimääräinen lahjoitus on {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Luottokortin numero puuttuu"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "yleinen",
+            "initialisation": "alustaminen"
+        },
+        "form": {
+            "error": {
+                "minimum": "Vähimmäislahjoitus on {{ampount}}"
+            }
+        }
     }
-  }
 }

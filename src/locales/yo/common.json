@@ -1,100 +1,141 @@
 {
-  "you need to be 18 years old": "o nilo lati jẹ ọdun 18",
-  "twitter": {
-    "actionText": "Mo fowo si. o yẹ ki o tun"
-  },
-  "share": {
-    "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle.",
-    "message": "O yẹ ki o fowo si eyi!",
-    "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
+    "you need to be 18 years old": "o nilo lati jẹ ọdun 18",
+    "twitter": {
+        "actionText": "Mo fowo si. o yẹ ki o tun"
+    },
+    "share": {
+        "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle.",
+        "message": "O yẹ ki o fowo si eyi!",
+        "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
+        "email": {
+            "subject": "O yẹ ki o fowo si eyi",
+            "body": "Hi,\nJọwọ ṣe ibuwọlu, Mo ro pe o fẹ ṣe atilẹyin fun"
+        }
+    },
+    "register": "Fi orukọ mi kun",
+    "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
     "email": {
-      "subject": "O yẹ ki o fowo si eyi",
-      "body": "Hi,\nJọwọ ṣe ibuwọlu, Mo ro pe o fẹ ṣe atilẹyin fun"
+        "subject": "koko",
+        "body": "ara"
+    },
+    "dialogTitle": "Pa mi mọ nipa ipolongo naa",
+    "consent": {
+        "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
+        "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
+        "opt-out": "Rara, maṣe fi imeeli ranṣẹ si mi tabi jẹ ki n ṣe imudojuiwọn ni ọjọ iwaju",
+        "opt-in-both": "Bẹẹni, Mo fẹ {{partner}} ati {{lead}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
+        "opt-in": "Bẹẹni, Mo fẹ {{partner}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
+        "intro": "Wa diẹ sii nipa awọn ipolongo wa, awọn iṣe ati ilọsiwaju {{campaign}}",
+        "implicit": "Fi fọọmu yii silẹ lati gba awọn imeeli lati {{name}}",
+        "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa."
+    },
+    "Your organisation account": "Account agbari rẹ",
+    "This field is required.": "E ni lati se nkan si aye yi.",
+    "Thanks!": "O ṣeun!",
+    "Thank you": "e dupe",
+    "Street": "opopona",
+    "Stay informed": "Duro fun",
+    "Stay in touch": "Duro ni ifọwọkan",
+    "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
+    "Sign the ECI": "Wole ECI",
+    "Sign now!": "Wole bayi!",
+    "Sign Up": "Forukọsilẹ",
+    "Sign": "Wọlé Bayi!",
+    "Share on Twitter": "Pin lori Twitter",
+    "Share on Facebook": "Pin lori Facebook",
+    "Share": "Pin",
+    "Privacy": "Asiri",
+    "Postal Code": "Koodu ifiweranse",
+    "Place of birth": "Ibi ti a ti bi ni",
+    "Phone": "Foonu",
+    "Other": "Omiiran",
+    "No Thanks": "Rara o se",
+    "Next": "Itele",
+    "Locality": "Agbegbe",
+    "Link_Share button": "Ọna asopọ",
+    "Legal": "Ofin",
+    "Last name": "Oruko idile",
+    "Join": "Darapọ mọ",
+    "Full Name": "Akokun Oruko",
+    "First name": "Orukọ akọkọ",
+    "Enter a valid email address.": "Tẹ adirẹsi imeeli ti o wulo sii.",
+    "Enter a number.": "Tẹ nọmba sii.",
+    "Email_Share button": "Imeeli",
+    "Email": "Imeeli",
+    "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
+    "Download": "Gbaa lati ayelujara",
+    "Country": "Orilẹ -ede",
+    "Comment": "Ọrọìwòye",
+    "City": "Ilu",
+    "Birthdate": "Ojo ibi",
+    "Amount": "Iye",
+    "Address": "Adirẹsi",
+    "Account": "Iroyin",
+    "Sign the ECI!": "Wọlé ECI!",
+    "donation": {
+        "amount": {
+            "intro": "Yan iye kan:",
+            "change": "Yi iye pada",
+            "choose": "Yan iye kan"
+        },
+        "frequency": {
+            "each": {
+                "monthly": "oṣooṣu",
+                "weekly": "kọọkan odun",
+                "oneoff": "Lẹẹkan"
+            },
+            "monthly": "oṣooṣu",
+            "yearly": "lododun",
+            "oneoff": "ọkan kuro",
+            "ask": {
+                "monthly": "Ṣe oṣooṣu?",
+                "oneoff": "Ṣetọrẹ",
+                "weekly": "Ṣe eyi ni ẹbun ọsẹ kan?"
+            },
+            "feedback": {
+                "monthly": "Mo n ṣetọrẹ {{amount}} {{frequency}}",
+                "oneoff": "Mo n ṣetọrẹ {{amount}}"
+            }
+        },
+        "thanks": "O ṣeun fun ẹbun rẹ!",
+        "to": "Ẹbun si {{organisation}}",
+        "payment": {
+            "intro": "Awọn alaye isanwo:"
+        },
+        "button": {
+            "cta": {
+                "monthly": "Donate {{amount}} every month",
+                "oneoff": "Donate {{amount}}"
+            }
+        },
+        "payment_methods": {
+            "card": "Kaadi",
+            "intro": "Bawo ni o ṣe fẹ lati ṣetọrẹ?",
+            "paypal": "PayPal",
+            "sepa": "SEPA",
+            "title": "Eto isanwo"
+        },
+        "average": "Itọrẹ apapọ jẹ {{amount}}",
+        "error": {
+            "card": {
+                "missing": "Nọmba kaadi kirẹditi nsọnu"
+            },
+            "form": {
+                "invalid": {
+                    "iban": "iban"
+                }
+            },
+            "general": "gbogboogbo",
+            "initialisation": "ipilẹṣẹ"
+        },
+        "form": {
+            "error": {
+                "minimum": "Itọrẹ ti o kere julọ jẹ {{ampount}}"
+            }
+        },
+        "iban": "iban",
+        "mobile": {
+            "open": "ṣii"
+        }
     }
-  },
-  "register": "Fi orukọ mi kun",
-  "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
-  "email": {
-    "subject": "koko",
-    "body": "ara"
-  },
-  "dialogTitle": "Pa mi mọ nipa ipolongo naa",
-  "consent": {
-    "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
-    "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
-    "opt-out": "Rara, maṣe fi imeeli ranṣẹ si mi tabi jẹ ki n ṣe imudojuiwọn ni ọjọ iwaju",
-    "opt-in-both": "Bẹẹni, Mo fẹ {{partner}} ati {{lead}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
-    "opt-in": "Bẹẹni, Mo fẹ {{partner}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
-    "intro": "Wa diẹ sii nipa awọn ipolongo wa, awọn iṣe ati ilọsiwaju {{campaign}}",
-    "implicit": "Fi fọọmu yii silẹ lati gba awọn imeeli lati {{name}}",
-    "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa."
-  },
-  "Your organisation account": "Account agbari rẹ",
-  "This field is required.": "E ni lati se nkan si aye yi.",
-  "Thanks!": "O ṣeun!",
-  "Thank you": "e dupe",
-  "Street": "opopona",
-  "Stay informed": "Duro fun",
-  "Stay in touch": "Duro ni ifọwọkan",
-  "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
-  "Sign the ECI": "Wole ECI",
-  "Sign now!": "Wole bayi!",
-  "Sign Up": "Forukọsilẹ",
-  "Sign": "Wọlé Bayi!",
-  "Share on Twitter": "Pin lori Twitter",
-  "Share on Facebook": "Pin lori Facebook",
-  "Share": "Pin",
-  "Privacy": "Asiri",
-  "Postal Code": "Koodu ifiweranse",
-  "Place of birth": "Ibi ti a ti bi ni",
-  "Phone": "Foonu",
-  "Other": "Omiiran",
-  "No Thanks": "Rara o se",
-  "Next": "Itele",
-  "Locality": "Agbegbe",
-  "Link_Share button": "Ọna asopọ",
-  "Legal": "Ofin",
-  "Last name": "Oruko idile",
-  "Join": "Darapọ mọ",
-  "Full Name": "Akokun Oruko",
-  "First name": "Orukọ akọkọ",
-  "Enter a valid email address.": "Tẹ adirẹsi imeeli ti o wulo sii.",
-  "Enter a number.": "Tẹ nọmba sii.",
-  "Email_Share button": "Imeeli",
-  "Email": "Imeeli",
-  "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
-  "Download": "Gbaa lati ayelujara",
-  "Country": "Orilẹ -ede",
-  "Comment": "Ọrọìwòye",
-  "City": "Ilu",
-  "Birthdate": "Ojo ibi",
-  "Amount": "Iye",
-  "Address": "Adirẹsi",
-  "Account": "Iroyin",
-  "Sign the ECI!": "Wọlé ECI!",
-  "donation": {
-    "amount": {
-      "intro": "Yan iye kan:"
-    },
-    "frequency": {
-      "each": {
-        "monthly": "oṣooṣu",
-        "weekly": "kọọkan odun"
-      },
-      "monthly": "oṣooṣu",
-      "yearly": "lododun",
-      "oneoff": "ọkan kuro"
-    },
-    "thanks": "O ṣeun fun ẹbun rẹ!",
-    "to": "Ẹbun si {{organisation}}",
-    "payment": {
-      "intro": "Awọn alaye isanwo:"
-    },
-    "button": {
-      "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
-      }
-    }
-  }
 }
