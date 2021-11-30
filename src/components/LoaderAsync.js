@@ -10,24 +10,40 @@ const LoaderAsync = (props) => {
   useEffect(() => {
     let isCancelled = false;
     if (!loaders) return;
-    Object.entries(loaders).map(([k, v]) => {
-      (async function () {
-        let url = v.url;
-        if (!url) return null;
-        if (v.appendLocale === true) url += lang;
-        console.log(url);
-        const d = await fetch(url).catch((e) => {
-          console.log(e);
-          setData(k, e.message);
-        });
-        const text = await d.text();
-        if (!isCancelled) {
-          setData(k, text);
-        }
-      })();
-
-      return null;
-    });
+    if (loaders.json) {
+        (async function () {
+          let url = loaders.url;
+          if (!url) return null;
+          if (loaders.appendLocale === true) url += lang;
+          const d = await fetch(url).catch((e) => {
+            setData("message", e.message); // we need to guess the field, message is the most common one 
+          });
+          const json = await d.json();
+          if (!isCancelled) {
+            setData(json);
+//            Object.entries(json).map(([k,v]) => {
+//              setData({k, v);
+//            });
+          }
+          return null;
+        })();
+    } else {
+      Object.entries(loaders).map(([k, v]) => {
+        (async function () {
+          let url = v.url;
+          if (!url) return null;
+          if (v.appendLocale === true) url += lang;
+          const d = await fetch(url).catch((e) => {
+            setData(k, e.message);
+          });
+          const text = await d.text();
+          if (!isCancelled) {
+            setData(k, text);
+          }
+        })();
+        return null;
+      });
+    }
 
     return () => {
       isCancelled = true;

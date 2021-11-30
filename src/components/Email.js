@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, Fragment } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import List from "@material-ui/core/List";
 
@@ -12,6 +12,8 @@ import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
+import { Grid } from "@material-ui/core";
+import TextField from "@components/TextField";
 
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
@@ -26,6 +28,8 @@ const Component = (props) => {
   const isMobile = useIsMobile();
 
   const { t } = useTranslation();
+  console.log(data);
+
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -33,6 +37,14 @@ const Component = (props) => {
   });
   const { watch } = form;
   const country = watch("country");
+  const fields = watch(["subject","object"]);
+
+  useEffect( () => {
+    ["subject","message"].map ( k => {
+      if (data[k] && !fields[k])
+        form.setValue(k,data[k]);
+    });
+  },data);
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -176,8 +188,32 @@ const Component = (props) => {
   };
 
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
+  //
+  const ExtraFields = props => {
+    return (<>
+            <Grid item xs={12} className={props.classes.field}>
+              <TextField
+                  form={props.form}
+                  name="subject"
+                  required={config.component.register?.field?.subject?.required}
+                  label={t("Subject")}
+                />
+              </Grid>
+            <Grid item xs={12} className={props.classes.field}>
+              <TextField
+                  form={props.form}
+                  name="message"
+                  multiline
+                  maxRows="10"
+                  required={config.component.register?.field?.body?.required}
+                  label={t("Your message")}
+                />
+              </Grid>
+      </>
+    );
+  };
   return (
-    <Fragment>
+    <>
       {config.component.email.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
@@ -188,7 +224,7 @@ const Component = (props) => {
         <List>
           {profiles.map((d) => (
             <Action
-              key={d.id}
+              key={d.id || JSON.stringify(d)}
               actionPage={config.actionPage}
               done={props.done}
               actionUrl={props.actionUrl || data.actionUrl}
@@ -198,8 +234,8 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register done={props.done} onClick={send} />
-    </Fragment>
+      <Register done={props.done} onClick={send} extraFields={ExtraFields}/>
+    </>
   );
 };
 

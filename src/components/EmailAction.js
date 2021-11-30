@@ -16,18 +16,18 @@ import EmailIcon from "@material-ui/icons/Email";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 
-const component = function TwitterAction(profile) {
+const component = function EmailAction(profile) {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
   const { t } = useTranslation();
   const config = useCampaignConfig();
 
-  function addTweet(event, screenName) {
+  function addEmailAction(event, id) {
     addAction(profile.actionPage, event, {
       uuid: uuid(),
       //        tracking: Url.utm(),
-      payload: [{ key: "screen_name", value: screenName }],
+      payload: [{id: id }],
     });
   }
 
@@ -52,14 +52,14 @@ const component = function TwitterAction(profile) {
       encodeURIComponent(body);
     var win = window.open(url, "_blank");
     select(true);
-    addTweet("email_click", profile.screen_name);
+    addEmailAction("email_click", profile?.screen_name || profile.id);
 
     var timer = setInterval(() => {
       if (win.closed) {
         clearInterval(timer);
         disable(true);
         select(false);
-        addTweet("email_close", profile.screen_name);
+        addEmailAction("email_close", profile?.screen_name || profile.id);
         if (profile.done instanceof Function) profile.done();
       }
     }, 1000);
@@ -97,7 +97,7 @@ const component = function TwitterAction(profile) {
 
 // you can have actionText (text of function(profile))
 component.propTypes = {
-  screen_name: PropTypes.string.isRequired,
+  screen_name: PropTypes.string,
   name: PropTypes.string,
   image: PropTypes.string,
   url: PropTypes.string,

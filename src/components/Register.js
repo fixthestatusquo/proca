@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -14,7 +13,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Box, Button, Snackbar } from "@material-ui/core";
+import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
@@ -306,6 +305,8 @@ export default function Register(props) {
                 />
               </Grid>
             )}
+            {props.extraFields && props.extraFields({form:form,classes:classes})}
+
             <ConsentBlock
               organisation={props.organisation}
               privacy_url={config.privacyUrl}
