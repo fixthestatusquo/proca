@@ -211,6 +211,9 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
       throw new Error("Bad response from server");
     }
     const resJson = await res.json();
+    if (resJson.errors) {
+      console.log(resJson.errors);
+    }
 
     data = resJson.data;
   } catch (err) {
