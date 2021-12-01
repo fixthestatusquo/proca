@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useLayoutEffect, useCallback } from "react";
 
 import List from "@material-ui/core/List";
 
@@ -28,23 +28,24 @@ const Component = (props) => {
   const isMobile = useIsMobile();
 
   const { t } = useTranslation();
-  console.log(data);
 
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { watch } = form;
+  const { watch, setValue } = form;
   const country = watch("country");
-  const fields = watch(["subject","object"]);
+  const fields = watch(["subject","message"]);
 
   useEffect( () => {
     ["subject","message"].map ( k => {
-      if (data[k] && !fields[k])
-        form.setValue(k,data[k]);
+      if (data[k] && !fields[k]) {
+        setValue(k,data[k]);
+      }
+      return undefined;
     });
-  },data);
+  },[data,fields]);
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -79,7 +80,7 @@ const Component = (props) => {
       emails.map((d) => {
         return to.push({ email: d.trim() });
       });
-      console.log(to);
+//      console.log(to);
       setAllProfiles(to);
       setProfiles(to);
     }
@@ -195,7 +196,7 @@ const Component = (props) => {
               <TextField
                   form={props.form}
                   name="subject"
-                  required={config.component.register?.field?.subject?.required}
+                  required={config.component.email?.field?.subject?.required}
                   label={t("Subject")}
                 />
               </Grid>
@@ -205,7 +206,7 @@ const Component = (props) => {
                   name="message"
                   multiline
                   maxRows="10"
-                  required={config.component.register?.field?.body?.required}
+                  required={config.component.email?.field?.message?.required}
                   label={t("Your message")}
                 />
               </Grid>
@@ -234,7 +235,7 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register done={props.done} onClick={send} extraFields={ExtraFields}/>
+      <Register form={form} done={props.done} onClick={send} extraFields={ExtraFields}/>
     </>
   );
 };

@@ -18,6 +18,7 @@ const LoaderAsync = (props) => {
           const d = await fetch(url).catch((e) => {
             setData("message", e.message); // we need to guess the field, message is the most common one 
           });
+          if (!d) return;
           const json = await d.json();
           if (!isCancelled) {
             setData(json);

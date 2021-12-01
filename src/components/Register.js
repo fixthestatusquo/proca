@@ -83,13 +83,15 @@ export default function Register(props) {
     setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
-  const form = useForm({
+  const _form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: data,
+    defaultValues: props.form ? null: data,
   });
-  const { trigger, handleSubmit, setError, formState, getValues, setValue } =
-    form;
+
+  const form = props.form || _form;
+
+  const { trigger, handleSubmit, setError, formState, getValues, setValue } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const comment = data.comment;
