@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import List from "@material-ui/core/List";
 
