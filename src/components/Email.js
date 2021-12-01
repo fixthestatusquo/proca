@@ -34,18 +34,19 @@ const Component = (props) => {
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { watch, setValue } = form;
-  const country = watch("country");
-  const fields = watch(["subject","message"]);
+  const { watch, getValues } = form;
+
+  const country = watch ("country");
+  const fields = getValues (["subject","message"]);
 
   useEffect( () => {
     ["subject","message"].map ( k => {
       if (data[k] && !fields[k]) {
-        setValue(k,data[k]);
+        form.setValue(k,data[k]);
       }
       return undefined;
     });
-  },[data,fields]);
+  },[data,fields,form]);
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -219,7 +220,7 @@ const Component = (props) => {
         <ProgressCounter actionPage={props.actionPage} />
       )}
       {config.component.email?.filter?.includes("country") && (
-        <Country form={form} list={config.component?.twitter?.countries} />
+        <Country form={form} list={config.component?.email?.countries} />
       )}
       {config.component.email?.showTo !== false && (
         <List>
