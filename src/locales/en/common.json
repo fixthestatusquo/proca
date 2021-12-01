@@ -38,9 +38,11 @@
   "Stay in touch": "Stay in touch",
   "Stay informed": "Stay informed",
   "Street": "Street",
+  "Subject": "Subject",
   "Thank you": "Thank you",
   "Thanks!": "Thanks!",
   "This field is required.": "This field is required.",
+  "Your message": "Your message",
   "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -80,7 +82,7 @@
     },
     "form": {
       "error": {
-        "minimum": "The minimum donation is {{ampount}}"
+        "minimum": "The minimum donation is {{amount}}"
       }
     },
     "frequency": {
@@ -94,13 +96,13 @@
         "oneoff": "Once",
         "weekly": "each year"
       },
-      "monthly": "monthly",
-      "oneoff": "once",
-      "yearly": "yearly",
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
         "oneoff": "I'm donating {{amount}}"
-      }
+      },
+      "monthly": "monthly",
+      "oneoff": "once",
+      "yearly": "yearly"
     },
     "iban": "iban",
     "intro": "",
@@ -134,10 +136,10 @@
     },
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
     "message": "You should sign this!",
-    "title": "Almost done! Take the next step."
-  },
+    "title": "Almost done! Take the next step.",
   "twitter": {
     "actionText": "I signed. you should too"
+  }
   },
   "you need to be 18 years old": "you need to be 18 years old"
 }
