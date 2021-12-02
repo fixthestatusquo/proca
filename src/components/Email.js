@@ -193,15 +193,16 @@ const Component = (props) => {
   //
   const ExtraFields = props => {
     return (<>
-            <Grid item xs={12} className={props.classes.field}>
+      {config.component.email.field?.subject && <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="subject"
                   required={config.component.email?.field?.subject?.required}
                   label={t("Subject")}
                 />
-              </Grid>
-            <Grid item xs={12} className={props.classes.field}>
+              </Grid> }
+
+            {config.component.email.message?.subject &&  <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="message"
@@ -210,7 +211,7 @@ const Component = (props) => {
                   required={config.component.email?.field?.message?.required}
                   label={t("Your message")}
                 />
-              </Grid>
+              </Grid> }
       </>
     );
   };

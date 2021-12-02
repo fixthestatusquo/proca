@@ -32,6 +32,7 @@ const TextFieldProca = (props) => {
   };
   const { errors, register, clearErrors, watch } = props.form;
   const value = watch(props.name) || "";
+
   return (
     <TextField
       id={"proca_" + props.name}
