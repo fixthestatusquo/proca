@@ -47,7 +47,10 @@
         },
         "message": "Du skal underskrive dette!",
         "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
-        "title": "Næsten færdig! Tag det næste skridt."
+        "title": "Næsten færdig! Tag det næste skridt.",
+        "twitter": {
+            "actionText": "Jeg har skrevet under. Det bør du også gøre"
+        }
     },
     "consent": {
         "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "åben"
         }
-    }
+    },
+    "Your message": "Din besked",
+    "Subject": "Emneord"
 }
