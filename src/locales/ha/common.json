@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}",
                 "oneoff": "Ina bayar da gudummawa {{amount}}"
-            }
+            },
+            "weekly": "mako-mako"
         },
         "thanks": "Na gode da gudummawar ku!",
         "to": "Kyauta ga {{organisation}}",
