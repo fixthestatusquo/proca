@@ -46,7 +46,10 @@
         },
         "message": "Moral bi to podpisati!",
         "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
-        "title": "Skoraj končano!"
+        "title": "Skoraj končano!",
+        "twitter": {
+            "actionText": "Podpisal sem se. tudi ti bi se moral."
+        }
     },
     "consent": {
         "processing": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
@@ -140,5 +143,7 @@
     "progress_0": "{{count}} so se podpisali. Pojdimo v {{goal}}",
     "progress_1": "",
     "progress_2": "",
-    "progress_3": ""
+    "progress_3": "",
+    "Subject": "Zadeva",
+    "Your message": "Vaše sporočilo"
 }
