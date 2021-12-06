@@ -29,7 +29,10 @@
         },
         "message": "Potpiši za borbu protiv biometrijskog nadzora!",
         "intro": "Odlično, potpisali ste 👍. Podelite peticiju kako bi je videlo što više ljudi 🙏.",
-        "title": "Još malo i gotovo! Sledeći korak."
+        "title": "Još malo i gotovo! Sledeći korak.",
+        "twitter": {
+            "actionText": "Потписао сам. и ти би требао такође"
+        }
     },
     "consent": {
         "processing": "Ваши лични подаци ће бити приватни и безбедни. Слањем информација пристајете на употребу података и колачића у складу са нашом <1> политиком приватности </1>",
@@ -139,5 +142,7 @@
     },
     "progress_0": "[Кс0Кс] су потписали. Идемо на [Кс35Кс]",
     "progress_1": "",
-    "progress_2": ""
+    "progress_2": "",
+    "Subject": "Предмет",
+    "Your message": "Ваша порука"
 }
