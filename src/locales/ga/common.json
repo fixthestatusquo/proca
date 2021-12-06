@@ -10,6 +10,9 @@
         "email": {
             "subject": "Ba cheart duit é seo a shíniú",
             "body": "Haigh,\nSínigh le do thoil, sílim gur mhaith leat tacú leis"
+        },
+        "twitter": {
+            "actionText": "Shínigh mé. ba chóir duit freisin"
         }
     },
     "register": "Cuir m’ainm leis",
@@ -136,5 +139,7 @@
             "sepa": "SEPA",
             "title": "Modh íocaíochta"
         }
-    }
+    },
+    "Your message": "Do theachtaireacht",
+    "Subject": "Ábhar"
 }
