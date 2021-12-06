@@ -91,7 +91,7 @@
       "yearly": "yearly"
     },
     "iban": "iban",
-    "intro": "",
+    "intro": "Donate to {{campaign}}",
     "mobile": {
       "open": "open"
     },
