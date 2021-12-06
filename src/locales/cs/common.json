@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Přispívám {{amount}} {{frequency}}",
                 "oneoff": "Přispívám {{amount}}"
-            }
+            },
+            "weekly": "týdně"
         },
         "thanks": "Děkujeme vám za váš dar!",
         "to": "Příspěvek na {{organisation}}",
