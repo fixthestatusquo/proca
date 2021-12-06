@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Jeg donerer {{amount}} {{frequency}}",
                 "oneoff": "Jeg donerer {{amount}}"
-            }
+            },
+            "weekly": "ugentlig"
         },
         "thanks": "Tak for din donation!",
         "to": "Donation til {{organisation}}",
