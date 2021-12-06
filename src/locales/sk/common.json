@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Darujem {{amount}} {{frequency}}",
                 "oneoff": "Darujem {{amount}}"
-            }
+            },
+            "weekly": "týždenník"
         },
         "thanks": "Ďakujeme vám za váš dar!",
         "to": "Príspevok na {{organisation}}",
