@@ -10,6 +10,9 @@
         "email": {
             "subject": "Għandek tiffirma dan",
             "body": "Hello,\nJekk jogħġbok iffirma, naħseb li trid tappoġġjaha"
+        },
+        "twitter": {
+            "actionText": "I ffirmajt. għandek ukoll"
         }
     },
     "register": "Żid ismi",
@@ -136,5 +139,7 @@
             "sepa": "SEPA",
             "title": "Metodu ta 'pagament"
         }
-    }
+    },
+    "Subject": "Suġġett",
+    "Your message": "Il-messaġġ tiegħek"
 }
