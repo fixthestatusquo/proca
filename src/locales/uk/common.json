@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Я жертвую {{amount}} {{frequency}}",
                 "oneoff": "Я жертвую {{amount}}"
-            }
+            },
+            "weekly": "щотижня"
         },
         "thanks": "Дякуємо за вашу пожертву!",
         "to": "Пожертвування на {{organisation}}",
