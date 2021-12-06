@@ -48,7 +48,10 @@
         },
         "message": "Devias assinar isto!",
         "intro": "Ótimo, você assinou 👍. Para multiplicar o seu impacto, partilhe longe e longe para que todos vejam isto petition🙏.",
-        "title": "Quase pronto! Dê o próximo passo."
+        "title": "Quase pronto! Dê o próximo passo.",
+        "twitter": {
+            "actionText": "Eu assinei. Tu também devias."
+        }
     },
     "consent": {
         "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Forma de pagamento"
         }
-    }
+    },
+    "Subject": "Assunto",
+    "Your message": "A sua mensagem"
 }
