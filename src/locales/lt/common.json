@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Aukoju {{amount}} {{frequency}}",
                 "oneoff": "Aš aukoju {{amount}}"
-            }
+            },
+            "weekly": "savaitinis"
         },
         "thanks": "Dėkojame už jūsų auką!",
         "to": "Dovanojimas {{organisation}}",
