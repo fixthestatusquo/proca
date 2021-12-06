@@ -47,7 +47,10 @@
         },
         "message": "Du borde underteckna detta!",
         "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
-        "title": "Nästan klar! Ta nästa steg."
+        "title": "Nästan klar! Ta nästa steg.",
+        "twitter": {
+            "actionText": "Jag har skrivit under. Det borde du också göra."
+        }
     },
     "consent": {
         "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "öppna"
         }
-    }
+    },
+    "Subject": "Ämne",
+    "Your message": "Ditt meddelande"
 }
