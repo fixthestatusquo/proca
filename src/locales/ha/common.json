@@ -10,6 +10,9 @@
         "email": {
             "subject": "Ya kamata ku sa hannu kan wannan",
             "body": "Sannu,\nDa fatan za a sa hannu, ina tsammanin kuna son tallafa masa"
+        },
+        "twitter": {
+            "actionText": "na sanya hannu ya kamata ku ma"
         }
     },
     "register": "Ƙara sunana",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Hanyar Biyan Kuɗi"
         }
-    }
+    },
+    "Subject": "Magana",
+    "Your message": "Sakon ku"
 }
