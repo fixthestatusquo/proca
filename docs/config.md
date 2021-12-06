@@ -156,10 +156,10 @@ The Donate steps are configured under the `config.component.donation` key.
 
 Configure the currency.
 
-      "currency": {
-        "code": "EUR",
-        "symbol": "€"
-      }
+    "currency": {
+      "code": "EUR",
+      "symbol": "€"
+    }
 
 ### `frequency.options`: [ 'monthly', 'oneoff' ]
 

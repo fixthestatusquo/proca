@@ -74,7 +74,7 @@
     "donation": {
         "amount": {
             "intro": "Wybierz kwotę :",
-            "change": "Kwota zmiany",
+            "change": "Zmień kwotę",
             "choose": "Wybierz kwotę"
         },
         "frequency": {

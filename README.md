@@ -87,9 +87,8 @@ We strive to use an inclusive language in the code, translations, documentation 
 
 # Community and code of conduct
 
-Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we are building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support each other, share tricks and stories and grow together. 
+Our vision is for radical change in society in a socialist, feminist, antiracist and sustainable direction. Our role within that is to make online campaigning easier and more effective and we are building a flexible and easy to use action tool which has all the useful features to help progressive campaigners change the world. We hope to help grow a diverse online community of progressive campaigners, technologists and activists who will support each other, share tricks and stories and grow together.
 
-Before starting to change something, we recommend you to contact us (create an issue on github is fine), who knows, what you need might already be almost there, we are just missing some documentation and explanation. 
+Before starting to change something, we recommend you to contact us (create an issue on github is fine), who knows, what you need might already be almost there, we are just missing some documentation and explanation.
 
 Please note that this project is released with a [Contributor Covenant](code_of_conduct.md). By participating in this project you agree to abide by its terms.
-

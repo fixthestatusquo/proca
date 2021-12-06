@@ -1,33 +1,33 @@
 {
     "consent": {
-        "intro": "En savoir plus sur nos campagnes, nos actions et nos progrès.",
-        "opt-in": "Oui, je veux que {{partner}} me tienne informé par e-mail.",
-        "opt-out": "Non, ne m'envoyez pas d'e-mails et ne me tenez pas au courant à l'avenir.",
+        "intro": "En savoir plus sur nos campagnes, nos actions et nos progrès",
+        "opt-in": "Oui, je veux que {{partner}} me tienne informé par e-mail",
+        "opt-out": "Non, ne m'envoyez pas d'e-mails et ne me tenez pas au courant à l'avenir",
         "confirm": "<0>Etes-vous sûr ? </0><1>En sélectionnant 'Non', vous ne pourrez pas savoir si cette campagne est réussie, ou s'il y a d'autres actions que nous devons mener ensemble pour la gagner. Si vous sélectionnez 'Oui', nous vous tiendrons au courant de cette campagne et de nos autres campagnes urgentes.</1><2>Vous pouvez vous désinscrire à tout moment.</2>",
-        "processing": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données et des cookies conformément à notre <1>politique de confidentialité</1>.",
-        "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>.",
-        "opt-in-both": "Oui, je souhaite que {{partner}} et {{lead}} me tiennent informé par e-mail.",
-        "implicit": "Soumettez ce formulaire pour recevoir des messages électroniques de {{name}}."
+        "processing": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données et des cookies conformément à notre <1>politique de confidentialité</1>",
+        "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
+        "opt-in-both": "Oui, je souhaite que {{partner}} et {{lead}} me tiennent informé par e-mail",
+        "implicit": "Soumettez ce formulaire pour recevoir des messages électroniques de {{name}}"
     },
     "share": {
-        "title": "Vous avez presque terminé ! Passez à l'étape suivante.",
+        "title": "Vous avez presque terminé ! Passez à l'étape suivante.",
         "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
         "email": {
             "subject": "Vous devriez signer ce document",
-            "body": "Bonjour,\nVeuillez signer, je pense que vous voulez le soutenir."
+            "body": "Bonjour,\nVeuillez signer, je pense que vous voulez le soutenir"
         },
         "message": "Vous devriez signer ça !"
     },
     "Sign": "Signez maintenant !",
-    "progress": "{{count}} ont signé. Passons à {{goal}}.",
-    "progress_plural": "",
+    "progress": "{{count}} ont signé. Passons à {{goal}}",
+    "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
     "This field is required.": "Ce champ est obligatoire.",
     "Enter a number.": "Entrez un numéro.",
     "Enter a valid email address.": "Saisissez une adresse électronique valide.",
     "Amount": "Montant",
     "First name": "Prénom",
     "Last name": "Nom de famille",
-    "Email": "Courriel :",
+    "Email": "Courriel",
     "Phone": "Téléphone",
     "Postal Code": "Code postal",
     "Address": "Adresse",
@@ -45,12 +45,12 @@
     "Sign now!": "Signez maintenant !",
     "Share on Facebook": "Partager sur Facebook",
     "Share on Twitter": "Partager sur Twitter",
-    "Email_Share button": "Courriel :",
+    "Email_Share button": "Courriel",
     "Link_Share button": "Lien",
     "Next": "Suivant",
     "Download": "Télécharger",
-    "Thank you": "Merci.",
-    "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par e-mail.",
+    "Thank you": "Merci",
+    "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par e-mail",
     "you need to be 18 years old": "vous devez avoir 18 ans",
     "Sign Up": "S'inscrire",
     "Your organisation account": "Le compte de votre organisation",
@@ -63,7 +63,7 @@
     "dialogTitle": "Tenez-moi informé de la campagne",
     "Other": "Autre",
     "email": {
-        "subject": "sujet",
+        "subject": "objet",
         "body": "corps"
     },
     "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauvegarder",
@@ -72,12 +72,12 @@
     "Join": "Rejoignez",
     "Stay informed": "Restez informé",
     "Place of birth": "Lieu de naissance",
-    "Sign the ECI!": "Signez l'ICE !",
+    "Sign the ECI!": "Signez l'ICE !",
     "donation": {
         "button": {
             "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
+                "monthly": "Donnez {{amount}} chaque mois",
+                "oneoff": "Faire un don {{amount}}"
             }
         },
         "frequency": {
@@ -86,7 +86,7 @@
                 "weekly": "chaque année",
                 "monthly": "chaque mois"
             },
-            "monthly": "tous les mois",
+            "monthly": "mensuel",
             "yearly": "annuel",
             "oneoff": "une fois",
             "ask": {
@@ -95,7 +95,7 @@
                 "weekly": "En faire un don hebdomadaire ?"
             },
             "feedback": {
-                "monthly": "Je fais un don {{amount}} {{currency}}",
+                "monthly": "Je fais un don {{amount}} {{frequency}}",
                 "oneoff": "Je fais un don {{amount}}"
             }
         },
@@ -107,7 +107,7 @@
         "thanks": "Merci pour votre don !",
         "to": "Donation à {{organisation}}",
         "payment": {
-            "intro": "Modalités de paiement"
+            "intro": "Détails du paiement"
         },
         "average": "Le don moyen est de {{amount}}",
         "error": {

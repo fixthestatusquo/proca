@@ -1,13 +1,13 @@
 {
   "incremental": true,
-   "useTabs": false,  
-    "indentWidth": 2,
+  "useTabs": false,
+  "indentWidth": 2,
   "typescript": {
     "indentWidth": 2,
-    "useTabs":false
+    "useTabs": false
   },
   "json": {
-    "useTabs":false,
+    "useTabs": false,
     "indentWidth": 2
   },
   "markdown": {
@@ -15,6 +15,7 @@
   "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"],
   "excludes": [
     "**/node_modules",
+    "src/locales",
     "**/*-lock.json"
   ],
   "plugins": [
