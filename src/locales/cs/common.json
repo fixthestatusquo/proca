@@ -29,7 +29,10 @@
         },
         "message": "Měli byste to podepsat!",
         "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
-        "title": "Téměř hotovo! Přejděte k dalšímu kroku."
+        "title": "Téměř hotovo! Přejděte k dalšímu kroku.",
+        "twitter": {
+            "actionText": "Podepsal jsem. měl bys také"
+        }
     },
     "consent": {
         "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
@@ -139,5 +142,7 @@
     },
     "progress_0": "{{count}} podepsali. Přejděme k {{goal}}.",
     "progress_1": "",
-    "progress_2": ""
+    "progress_2": "",
+    "Subject": "Předmět",
+    "Your message": "Vaše zpráva"
 }
