@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Doniram {{amount}} {{frequency}}",
                 "oneoff": "Doniram {{amount}}"
-            }
+            },
+            "weekly": "tjedni"
         },
         "thanks": "Hvala vam na donaciji!",
         "to": "Donacija za {{organisation}}",
