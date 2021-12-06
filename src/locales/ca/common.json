@@ -10,6 +10,9 @@
         "email": {
             "subject": "Hauríeu de signar això",
             "body": "Hola,\nSi us plau, signa això. Crec que hi voldràs donar suport"
+        },
+        "twitter": {
+            "actionText": "Vaig signar. tu també hauries"
         }
     },
     "register": "Afegeix el meu nom",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Mètode de pagament"
         }
-    }
+    },
+    "Subject": "Assignatura",
+    "Your message": "El teu missatge"
 }
