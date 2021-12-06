@@ -16,7 +16,10 @@
             "body": "Hallo!\nBitte unterschreiben Sie, ich denke, Sie wollen es unterstützen",
             "subject": "Sie sollten dies unterschreiben"
         },
-        "message": "Sie sollten das unterschreiben!"
+        "message": "Sie sollten das unterschreiben!",
+        "twitter": {
+            "actionText": "Ich habe unterschrieben. Das sollten Sie auch."
+        }
     },
     "Sign": "Jetzt unterschreiben!",
     "progress": "{{count}} unterzeichnet haben. Gehen wir zu {{goal}}",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Zahlungsmethode"
         }
-    }
+    },
+    "Subject": "Thema",
+    "Your message": "Ihre Nachricht"
 }
