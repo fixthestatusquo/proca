@@ -18,7 +18,10 @@
         },
         "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
         "title": "Skoro pa gotovo! Napravi sljedeći korak.",
-        "message": "Ovo se isplati potpisati!"
+        "message": "Ovo se isplati potpisati!",
+        "twitter": {
+            "actionText": "potpisao sam. trebao bi i ti"
+        }
     },
     "This field is required.": "Ovo je obavezno polje.",
     "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
@@ -139,5 +142,7 @@
     },
     "progress_0": "{{count}} su potpisali. Idemo na {{goal}}",
     "progress_1": "",
-    "progress_2": ""
+    "progress_2": "",
+    "Subject": "Predmet",
+    "Your message": "Tvoja poruka"
 }
