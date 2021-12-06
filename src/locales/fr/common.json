@@ -100,7 +100,8 @@
             "feedback": {
                 "monthly": "Je fais un don {{amount}} {{frequency}}",
                 "oneoff": "Je fais un don {{amount}}"
-            }
+            },
+            "weekly": "hebdomadaire"
         },
         "amount": {
             "intro": "Choisissez un montant",
