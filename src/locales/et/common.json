@@ -48,7 +48,10 @@
         },
         "message": "Peaksite sellele alla kirjutama!",
         "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
-        "title": "Peaaegu valmis. Üks samm veel!"
+        "title": "Peaaegu valmis. Üks samm veel!",
+        "twitter": {
+            "actionText": "Ma kirjutasin alla. sa peaksid ka alla kirjutama."
+        }
     },
     "consent": {
         "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Makseviis"
         }
-    }
+    },
+    "Subject": "Teema",
+    "Your message": "Teie sõnum"
 }
