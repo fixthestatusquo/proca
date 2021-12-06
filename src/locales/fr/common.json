@@ -16,7 +16,10 @@
             "subject": "Vous devriez signer ce document",
             "body": "Bonjour,\nVeuillez signer, je pense que vous voulez le soutenir"
         },
-        "message": "Vous devriez signer ça !"
+        "message": "Vous devriez signer ça !",
+        "twitter": {
+            "actionText": "J'ai signé. Vous devriez aussi"
+        }
     },
     "Sign": "Signez maintenant !",
     "progress": "{{count}} ont signé. Passons à {{goal}}",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Mode de paiement"
         }
-    }
+    },
+    "Subject": "Sujet",
+    "Your message": "Votre message"
 }
