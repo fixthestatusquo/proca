@@ -3,21 +3,14 @@
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birthdate",
-  "City": "City",
   "Comment": "Comment",
   "Country": "Country",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too",
   "Email": "Email",
-  "Email_Share button": "Email",
-  "Enter a number.": "Enter a number.",
-  "Enter a valid email address.": "Enter a valid email address.",
   "First name": "First name",
-  "Full Name": "Full Name",
   "Join": "Join",
   "Last name": "Last name",
-  "Legal": "Legal",
-  "Link_Share button": "Link",
   "Locality": "Locality",
   "Next": "Next",
   "No Thanks": "No Thanks",
@@ -25,23 +18,16 @@
   "Phone": "Phone",
   "Place of birth": "Place of birth",
   "Postal Code": "Postal Code",
-  "Privacy": "Privacy",
   "Share": "Share",
-  "Share on Facebook": "Share on Facebook",
-  "Share on Twitter": "Share on Twitter",
   "Sign": "Sign Now!",
-  "Sign Up": "Sign Up",
   "Sign now!": "Sign now!",
   "Sign the ECI": "Sign the ECI",
   "Sign the ECI!": "Sign the ECI!",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
-  "Stay in touch": "Stay in touch",
   "Stay informed": "Stay informed",
-  "Street": "Street",
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Thanks!": "Thanks!",
-  "This field is required.": "This field is required.",
   "Your message": "Your message",
   "Your organisation account": "Your organisation account",
   "consent": {
@@ -58,7 +44,6 @@
   "donation": {
     "amount": {
       "change": "Change amount",
-      "choose": "Choose an Amount",
       "intro": "Choose an Amount"
     },
     "average": "The average donation is {{amount}}",
@@ -102,15 +87,13 @@
       },
       "monthly": "monthly",
       "oneoff": "once",
+      "weekly": "weekly",
       "yearly": "yearly"
     },
     "iban": "iban",
     "intro": "",
     "mobile": {
       "open": "open"
-    },
-    "payment": {
-      "intro": "Payment details"
     },
     "payment_methods": {
       "card": "Card",
@@ -130,16 +113,12 @@
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
   "share": {
-    "email": {
-      "body": "Hi, \nPlease do sign, I think you want to support it",
-      "subject": "You should sign this"
-    },
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
     "message": "You should sign this!",
-    "title": "Almost done! Take the next step.",
+    "title": "Almost done! Take the next step."
+  },
   "twitter": {
-    "actionText": "I signed. you should too"
-  }
+    "actionText": "actionText"
   },
   "you need to be 18 years old": "you need to be 18 years old"
 }
