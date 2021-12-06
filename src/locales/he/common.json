@@ -98,7 +98,8 @@
             "feedback": {
                 "monthly": "אני תורם {{amount}} {{frequency}}",
                 "oneoff": "אני תורם {{amount}}"
-            }
+            },
+            "weekly": "שְׁבוּעִי"
         },
         "thanks": "תודה על תרומתך!",
         "to": "תרומה ל-{{organisation}}",
