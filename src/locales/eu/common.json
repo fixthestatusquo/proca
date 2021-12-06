@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "{{amount}} {{frequency}} ematen ari naiz",
                 "oneoff": "Dohaintzan ari naiz {{amount}}"
-            }
+            },
+            "weekly": "astero"
         },
         "thanks": "Eskerrik asko zure dohaintzagatik!",
         "to": "Dohaintza {{organisation}}",
