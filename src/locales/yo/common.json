@@ -98,7 +98,8 @@
             "feedback": {
                 "monthly": "Mo n ṣetọrẹ {{amount}} {{frequency}}",
                 "oneoff": "Mo n ṣetọrẹ {{amount}}"
-            }
+            },
+            "weekly": "osẹ-sẹsẹ"
         },
         "thanks": "O ṣeun fun ẹbun rẹ!",
         "to": "Ẹbun si {{organisation}}",
