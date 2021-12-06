@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Minä lahjoitan {{amount}} {{frequency}}",
                 "oneoff": "Lahjoitan {{amount}}"
-            }
+            },
+            "weekly": "viikoittain"
         },
         "thanks": "Kiitos lahjoituksestasi!",
         "to": "Lahjoitus {{organisation}}",
