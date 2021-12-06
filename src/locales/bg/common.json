@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Дарявам {{amount}} {{frequency}}",
                 "oneoff": "Аз дарявам {{amount}}"
-            }
+            },
+            "weekly": "седмично"
         },
         "thanks": "Благодарим ви за дарението!",
         "to": "Дарение за {{organisation}}",
