@@ -9,7 +9,10 @@
             "subject": "Tu devrais signer ceci"
         },
         "intro": "C’est formidable que tu y participe 👍. Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
-        "title": "Presque terminé, passons directement à l’étape suivante."
+        "title": "Presque terminé, passons directement à l’étape suivante.",
+        "twitter": {
+            "actionText": "J'ai signé. Vous devriez aussi"
+        }
     },
     "consent": {
         "processing": "Tes données sont transmises de manière sécurisée et chiffrées. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "ouvrir"
         }
-    }
+    },
+    "Subject": "Sujet",
+    "Your message": "Votre message"
 }
