@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Qed nagħti donazzjoni {{amount}} {{frequency}}",
                 "oneoff": "Qed nagħti donazzjoni {{amount}}"
-            }
+            },
+            "weekly": "kull ġimgħa"
         },
         "thanks": "Grazzi tad-donazzjoni tiegħek!",
         "to": "Donazzjoni lil {{organisation}}",
