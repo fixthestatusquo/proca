@@ -39,7 +39,10 @@
         },
         "message": "Powinieneś to podpisać!",
         "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
-        "title": "Prawie gotowe! Zrób następny krok."
+        "title": "Prawie gotowe! Zrób następny krok.",
+        "twitter": {
+            "actionText": "Ja podpisałem. Ty też powinieneś."
+        }
     },
     "you need to be 18 years old": "musisz mieć ukończone 18 lat",
     "twitter": {
@@ -139,5 +142,7 @@
     },
     "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
     "progress_1": "",
-    "progress_2": ""
+    "progress_2": "",
+    "Subject": "Przedmiot:",
+    "Your message": "Twoja wiadomość"
 }
