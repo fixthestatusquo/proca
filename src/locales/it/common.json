@@ -16,7 +16,10 @@
             "body": "Ciao,\nPer favore, firma, penso che tu voglia sostenerlo",
             "subject": "Dovresti firmare questo"
         },
-        "message": "Dovresti firmare questo!"
+        "message": "Dovresti firmare questo!",
+        "twitter": {
+            "actionText": "Ho firmato. dovresti farlo anche tu"
+        }
     },
     "Sign": "Firma ora!",
     "progress": "{{count}} hanno firmato. Andiamo a {{goal}}",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "aprire"
         }
-    }
+    },
+    "Subject": "Oggetto",
+    "Your message": "Il tuo messaggio"
 }
