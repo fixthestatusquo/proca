@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Ik doneer {{amount}} {{frequency}}",
                 "oneoff": "Ik doneer {{amount}}"
-            }
+            },
+            "weekly": "wekelijks"
         },
         "thanks": "Dank u voor uw donatie!",
         "to": "Donatie aan {{organisation}}",
