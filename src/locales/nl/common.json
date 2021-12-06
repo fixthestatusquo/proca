@@ -31,7 +31,10 @@
         },
         "message": "Je moet dit tekenen!",
         "intro": "Geweldig, je hebt getekend 👍. Om je impact te vermenigvuldigen, deel je deze petitie wijd en zijd om ervoor te zorgen dat iedereen deze petitie ziet 🙏.",
-        "title": "Bijna klaar! Neem de volgende stap."
+        "title": "Bijna klaar! Neem de volgende stap.",
+        "twitter": {
+            "actionText": "Ik heb getekend. Dat zou jij ook moeten doen."
+        }
     },
     "consent": {
         "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "open"
         }
-    }
+    },
+    "Subject": "Onderwerp",
+    "Your message": "Uw bericht"
 }
