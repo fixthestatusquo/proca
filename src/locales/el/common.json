@@ -94,7 +94,8 @@
             "feedback": {
                 "monthly": "Κάνω δωρεά {{amount}} {{frequency}}",
                 "oneoff": "Δωρίζω {{amount}}"
-            }
+            },
+            "weekly": "εβδομαδιαία"
         },
         "amount": {
             "intro": "Επιλέξτε ένα ποσό :",
