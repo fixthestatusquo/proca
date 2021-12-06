@@ -97,7 +97,8 @@
             "feedback": {
                 "monthly": "Przekazuję darowiznę {{amount}} {{currency}}",
                 "oneoff": "Przekazuję datki {{amount}}"
-            }
+            },
+            "weekly": "tygodnik"
         },
         "thanks": "Dziękujemy za darowiznę!",
         "to": "Darowizna na rzecz {{organisation}}",
