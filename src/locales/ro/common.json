@@ -30,7 +30,10 @@
         },
         "message": "Ar trebui să semnezi asta!",
         "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
-        "title": "Aproape gata! Faceți următorul pas."
+        "title": "Aproape gata! Faceți următorul pas.",
+        "twitter": {
+            "actionText": "Am semnat. ar trebui să semnezi și tu"
+        }
     },
     "consent": {
         "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
@@ -137,5 +140,7 @@
             "sepa": "SEPA",
             "title": "Metoda de plată"
         }
-    }
+    },
+    "Subject": "Subiect",
+    "Your message": "Mesajul dumneavoastră"
 }

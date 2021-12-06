@@ -48,7 +48,10 @@
         },
         "message": "Toto by ste mali podpísať!",
         "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
-        "title": "Skoro hotové! Urobte ďalší krok."
+        "title": "Skoro hotové! Urobte ďalší krok.",
+        "twitter": {
+            "actionText": "Podpísal som. mal by si aj ty"
+        }
     },
     "consent": {
         "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Spôsob platby"
         }
-    }
+    },
+    "Subject": "Predmet",
+    "Your message": "Vaša správa"
 }
