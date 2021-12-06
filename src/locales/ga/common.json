@@ -92,7 +92,8 @@
             "feedback": {
                 "monthly": "Tá mé ag bronnadh {{amount}} {{frequency}}",
                 "oneoff": "Tá mé ag bronnadh {{amount}}"
-            }
+            },
+            "weekly": "go seachtainiúil"
         },
         "amount": {
             "intro": "Roghnaigh Méid:",
