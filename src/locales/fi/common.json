@@ -47,7 +47,10 @@
         },
         "message": "Sinun tulisi allekirjoittaa tämä!",
         "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
-        "title": "Melkein valmista! Ota seuraava askel."
+        "title": "Melkein valmista! Ota seuraava askel.",
+        "twitter": {
+            "actionText": "Allekirjoitin. sinunkin pitäisi"
+        }
     },
     "consent": {
         "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
@@ -138,5 +141,7 @@
                 "minimum": "Vähimmäislahjoitus on {{ampount}}"
             }
         }
-    }
+    },
+    "Subject": "Aihe",
+    "Your message": "Viestisi"
 }
