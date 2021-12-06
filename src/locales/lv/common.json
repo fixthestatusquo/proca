@@ -10,6 +10,9 @@
         "email": {
             "subject": "Jums tas jāparaksta",
             "body": "Sveiki,\nLūdzu, parakstiet, es domāju, ka vēlaties to atbalstīt"
+        },
+        "twitter": {
+            "actionText": "Es parakstījos. tev arī vajadzētu"
         }
     },
     "register": "Pievienojiet manu vārdu",
@@ -136,5 +139,7 @@
             "sepa": "SEPA",
             "title": "Maksājuma metode"
         }
-    }
+    },
+    "Subject": "Temats",
+    "Your message": "Jūsu ziņa"
 }
