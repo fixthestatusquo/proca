@@ -10,6 +10,9 @@
         "email": {
             "subject": "Vous devez signer ceci",
             "body": "Salut,\nVeuillez signer, je pense que vous voulez le soutenir"
+        },
+        "twitter": {
+            "actionText": "J'ai signé. Tu devrais aussi"
         }
     },
     "register": "Ajouter mon nom",
@@ -138,5 +141,7 @@
         "mobile": {
             "open": "ouvert"
         }
-    }
+    },
+    "Subject": "Sujet",
+    "Your message": "Ton message"
 }
