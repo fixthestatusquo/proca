@@ -48,7 +48,10 @@
         },
         "message": "Ezt alá kellene írnia!",
         "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
-        "title": "Majdnem készen is vagyunk!"
+        "title": "Majdnem készen is vagyunk!",
+        "twitter": {
+            "actionText": "Aláírtam. neked is alá kellene írnod"
+        }
     },
     "consent": {
         "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
@@ -138,5 +141,7 @@
             "sepa": "SEPA",
             "title": "Fizetési mód"
         }
-    }
+    },
+    "Subject": "Tárgy:",
+    "Your message": "Az Ön üzenete"
 }
