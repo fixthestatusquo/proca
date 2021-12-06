@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Jag donerar {{amount}} {{frequency}}",
                 "oneoff": "Jag donerar {{amount}}"
-            }
+            },
+            "weekly": "veckovis"
         },
         "thanks": "Tack för din donation!",
         "to": "Donation till {{organisation}}",
