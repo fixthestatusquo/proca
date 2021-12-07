@@ -191,7 +191,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
 
   try {
     const res = await crossFetch(
-      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      process.env.REACT_APP_API_URL || process.env.API_URL || "https://api.proca.app/api",
       {
         method: "POST",
         body: JSON.stringify({
