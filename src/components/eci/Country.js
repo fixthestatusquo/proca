@@ -64,7 +64,7 @@ export default (props) => {
   useEffect(() => {
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {
-        console.log("visitor from ", location, "but not on our list");
+        console.log("visitor from ", location.country, "but not in EU");
         location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
       }
       if (!location.country) return;
