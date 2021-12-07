@@ -10,6 +10,9 @@
         "email": {
             "subject": "Turėtumėte tai pasirašyti",
             "body": "Sveiki,\nPrašau pasirašyti, manau, kad norite jį paremti"
+        },
+        "twitter": {
+            "actionText": "Pasirašiau. turėtumėte ir jūs."
         }
     },
     "register": "Pridėti mano vardą",
@@ -94,7 +97,8 @@
             "feedback": {
                 "monthly": "Aukoju {{amount}} {{frequency}}",
                 "oneoff": "Aš aukoju {{amount}}"
-            }
+            },
+            "weekly": "savaitinis"
         },
         "thanks": "Dėkojame už jūsų auką!",
         "to": "Dovanojimas {{organisation}}",
@@ -136,5 +140,7 @@
             "sepa": "SEPA",
             "title": "Mokėjimo būdas"
         }
-    }
+    },
+    "Subject": "Tema",
+    "Your message": "Jūsų žinutė"
 }

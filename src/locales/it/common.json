@@ -16,7 +16,10 @@
             "body": "Ciao,\nPer favore, firma, penso che tu voglia sostenerlo",
             "subject": "Dovresti firmare questo"
         },
-        "message": "Dovresti firmare questo!"
+        "message": "Dovresti firmare questo!",
+        "twitter": {
+            "actionText": "Ho firmato. dovresti farlo anche tu"
+        }
     },
     "Sign": "Firma ora!",
     "progress": "{{count}} hanno firmato. Andiamo a {{goal}}",
@@ -96,7 +99,8 @@
             "feedback": {
                 "monthly": "Sto donando {{amount}} {{currency}}",
                 "oneoff": "Sto donando {{amount}}"
-            }
+            },
+            "weekly": "settimanale"
         },
         "thanks": "Grazie per la vostra donazione!",
         "to": "Donazione a {{organisation}}",
@@ -138,5 +142,7 @@
         "mobile": {
             "open": "aprire"
         }
-    }
+    },
+    "Subject": "Oggetto",
+    "Your message": "Il tuo messaggio"
 }

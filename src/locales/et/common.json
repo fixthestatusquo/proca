@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Ma annetan {{amount}} {{frequency}}",
                 "oneoff": "Ma annetan {{amount}}"
-            }
+            },
+            "weekly": "iganädalane"
         },
         "thanks": "Täname teid annetuse eest!",
         "to": "Annetus {{organisation}}",

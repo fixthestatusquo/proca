@@ -103,7 +103,8 @@
             "feedback": {
                 "monthly": "أنا أتبرع بـ {{amount}} {{frequency}}",
                 "oneoff": "أنا أتبرع بـ {{amount}}"
-            }
+            },
+            "weekly": "أسبوعي"
         },
         "thanks": "شكرا لك على تبرعك!",
         "to": "التبرع لـ {{organisation}}",

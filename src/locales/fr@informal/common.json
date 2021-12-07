@@ -10,6 +10,9 @@
         "email": {
             "subject": "Vous devez signer ceci",
             "body": "Salut,\nVeuillez signer, je pense que vous voulez le soutenir"
+        },
+        "twitter": {
+            "actionText": "J'ai signé. Tu devrais aussi"
         }
     },
     "register": "Ajouter mon nom",
@@ -96,7 +99,8 @@
             "feedback": {
                 "monthly": "Je fais un don {{amount}} {{currency}}",
                 "oneoff": "Je fais un don {{amount}}"
-            }
+            },
+            "weekly": "hebdomadaire"
         },
         "thanks": "Merci pour votre don!",
         "to": "Don à {{organisation}}",
@@ -138,5 +142,7 @@
         "mobile": {
             "open": "ouvert"
         }
-    }
+    },
+    "Subject": "Sujet",
+    "Your message": "Ton message"
 }

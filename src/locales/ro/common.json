@@ -98,7 +98,8 @@
             "feedback": {
                 "monthly": "Donez {{amount}} {{frequency}}",
                 "oneoff": "Donez {{amount}}"
-            }
+            },
+            "weekly": "săptămânal"
         },
         "thanks": "Vă mulțumim pentru donație!",
         "to": "Donație către {{organisation}}",

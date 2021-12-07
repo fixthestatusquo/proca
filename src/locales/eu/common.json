@@ -10,6 +10,9 @@
         "email": {
             "subject": "Hau sinatu beharko zenuke",
             "body": "Kaixo,\nMesedez, sinatu, onartzen duzula nahi duzula uste dut"
+        },
+        "twitter": {
+            "actionText": "sinatu nuen. zuk ere beharko zenuke"
         }
     },
     "register": "Gehitu nire izena",
@@ -96,7 +99,8 @@
             "feedback": {
                 "monthly": "{{amount}} {{frequency}} ematen ari naiz",
                 "oneoff": "Dohaintzan ari naiz {{amount}}"
-            }
+            },
+            "weekly": "astero"
         },
         "thanks": "Eskerrik asko zure dohaintzagatik!",
         "to": "Dohaintza {{organisation}}",
@@ -138,5 +142,7 @@
             "sepa": "SEPA",
             "title": "Ordainketa modua"
         }
-    }
+    },
+    "Subject": "Gaia",
+    "Your message": "Zure mezua"
 }

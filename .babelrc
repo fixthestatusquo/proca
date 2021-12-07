@@ -7,7 +7,7 @@
       {
         "keyAsDefaultValue": ["en"],
         "defaultNS": "common",
-"discardOldKeys": true,
+        "discardOldKeys": true,
         "outputPath": "src/locales/{{locale}}/{{ns}}.json"
       }
     ],

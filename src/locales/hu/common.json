@@ -94,7 +94,8 @@
             "feedback": {
                 "monthly": "Adományozom {{amount}} {{frequency}}",
                 "oneoff": "Adományozom {{amount}}"
-            }
+            },
+            "weekly": "heti"
         },
         "thanks": "Köszönjük adományát!",
         "to": "Adomány a {{organisation}}",

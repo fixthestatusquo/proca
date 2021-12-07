@@ -10,6 +10,9 @@
         "email": {
             "subject": "Ya kamata ku sa hannu kan wannan",
             "body": "Sannu,\nDa fatan za a sa hannu, ina tsammanin kuna son tallafa masa"
+        },
+        "twitter": {
+            "actionText": "na sanya hannu ya kamata ku ma"
         }
     },
     "register": "Ƙara sunana",
@@ -96,7 +99,8 @@
             "feedback": {
                 "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}",
                 "oneoff": "Ina bayar da gudummawa {{amount}}"
-            }
+            },
+            "weekly": "mako-mako"
         },
         "thanks": "Na gode da gudummawar ku!",
         "to": "Kyauta ga {{organisation}}",
@@ -138,5 +142,7 @@
             "sepa": "SEPA",
             "title": "Hanyar Biyan Kuɗi"
         }
-    }
+    },
+    "Subject": "Magana",
+    "Your message": "Sakon ku"
 }

@@ -10,6 +10,9 @@
         "email": {
             "subject": "O yẹ ki o fowo si eyi",
             "body": "Hi,\nJọwọ ṣe ibuwọlu, Mo ro pe o fẹ ṣe atilẹyin fun"
+        },
+        "twitter": {
+            "actionText": "Mo fowo si. ìwọ náà gbọ́dọ̀"
         }
     },
     "register": "Fi orukọ mi kun",
@@ -95,7 +98,8 @@
             "feedback": {
                 "monthly": "Mo n ṣetọrẹ {{amount}} {{frequency}}",
                 "oneoff": "Mo n ṣetọrẹ {{amount}}"
-            }
+            },
+            "weekly": "osẹ-sẹsẹ"
         },
         "thanks": "O ṣeun fun ẹbun rẹ!",
         "to": "Ẹbun si {{organisation}}",
@@ -137,5 +141,7 @@
         "mobile": {
             "open": "ṣii"
         }
-    }
+    },
+    "Subject": "Koko-ọrọ",
+    "Your message": "Ifiranṣẹ rẹ"
 }

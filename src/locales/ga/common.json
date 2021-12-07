@@ -10,6 +10,9 @@
         "email": {
             "subject": "Ba cheart duit é seo a shíniú",
             "body": "Haigh,\nSínigh le do thoil, sílim gur mhaith leat tacú leis"
+        },
+        "twitter": {
+            "actionText": "Shínigh mé. ba chóir duit freisin"
         }
     },
     "register": "Cuir m’ainm leis",
@@ -89,7 +92,8 @@
             "feedback": {
                 "monthly": "Tá mé ag bronnadh {{amount}} {{frequency}}",
                 "oneoff": "Tá mé ag bronnadh {{amount}}"
-            }
+            },
+            "weekly": "go seachtainiúil"
         },
         "amount": {
             "intro": "Roghnaigh Méid:",
@@ -136,5 +140,7 @@
             "sepa": "SEPA",
             "title": "Modh íocaíochta"
         }
-    }
+    },
+    "Your message": "Do theachtaireacht",
+    "Subject": "Ábhar"
 }

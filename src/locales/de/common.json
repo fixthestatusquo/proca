@@ -99,7 +99,8 @@
             "feedback": {
                 "monthly": "Ich spende {{amount}} {{currency}}",
                 "oneoff": "Ich spende {{amount}}"
-            }
+            },
+            "weekly": "wöchentlich"
         },
         "thanks": "Vielen Dank für Ihre Spende!",
         "to": "Spende an {{organisation}}",

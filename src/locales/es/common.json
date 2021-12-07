@@ -31,7 +31,10 @@
         },
         "message": "¡Deberías firmar esto!",
         "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
-        "title": "¡Ya casi está! Da el siguiente paso."
+        "title": "¡Ya casi está! Da el siguiente paso.",
+        "twitter": {
+            "actionText": "He firmado. Tú también deberías hacerlo"
+        }
     },
     "consent": {
         "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
@@ -96,7 +99,8 @@
             "feedback": {
                 "monthly": "Estoy donando {{amount}} {{frequency}}",
                 "oneoff": "Estoy donando {{amount}}"
-            }
+            },
+            "weekly": "semanal"
         },
         "thanks": "Gracias por su donación.",
         "to": "Donación a {{organisation}}",
@@ -138,5 +142,7 @@
             "sepa": "SEPA",
             "title": "Forma de pago"
         }
-    }
+    },
+    "Subject": "Asunto",
+    "Your message": "Su mensaje"
 }
