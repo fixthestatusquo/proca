@@ -1897,19 +1897,19 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@paypal/paypal-js@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.1.0.tgz#f783083f11e1e8ae4890cc79e2730657f8865f82"
-  integrity sha512-fBPpNBfzIpn4hWgks+EmZmuwKopkkMRBAtvCuEkH0RQIUobH7Dtf3enyFAt1+u8ZdgdIvueSBB58lRCSP2RNkA==
+"@paypal/paypal-js@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.2.1.tgz#350efe38962a94f440d34c44514fe80b8a13bb19"
+  integrity sha512-5b+UykL8+WNOEWHgC2nGJUR9EMmRJNspVBjT7knZcItTP9sQeQ7lCGoM5yubFDMeVmhmCZDtJDASpwlo9VOcJg==
   dependencies:
-    promise-polyfill "^8.2.0"
+    promise-polyfill "^8.2.1"
 
-"@paypal/react-paypal-js@^7.4.2":
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.4.2.tgz#ede939987a021344be09d7466d7c28667bdb9c29"
-  integrity sha512-NYE5SopmMK80h0/hYIr3//iaIjGNHTFxRE9aTo2LzNik75WHu/skUggowHwZHpYWgLi6NYvz7WawRSnesjk6Sw==
+"@paypal/react-paypal-js@^7.5.0":
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.5.0.tgz#f48b6281dac17e47a302b9b2d3195e37d1fce2d8"
+  integrity sha512-QWA0FArj4DG8WcyWZuQ/m7r4tI3Z3AF8Q/1cN8ANjUljjq7crvYu1a7WlRoBiwRQqaERXNjAZ3Ch+f22KRFGMA==
   dependencies:
-    "@paypal/paypal-js" "^4.1.0"
+    "@paypal/paypal-js" "^4.2.1"
     "@paypal/sdk-constants" "^1.0.110"
 
 "@paypal/sdk-constants@^1.0.110":
@@ -10141,10 +10141,10 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
-promise-polyfill@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.2.0.tgz#367394726da7561457aba2133c9ceefbd6267da0"
-  integrity sha512-k/TC0mIcPVF6yHhUvwAp7cvL6I2fFV7TzF1DuGPI8mBh4QQazf36xCKEHKTZKRysEoTQoQdKyP25J8MPJp7j5g==
+promise-polyfill@^8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.2.1.tgz#1fa955b325bee4f6b8a4311e18148d4e5b46d254"
+  integrity sha512-3p9zj0cEHbp7NVUxEYUWjQlffXqnXaZIMPkAO7HhFh8u5636xLRDHOUo2vpWSK0T2mqm6fKLXYn1KP6PAZ2gKg==
 
 promise@^8.1.0:
   version "8.1.0"
