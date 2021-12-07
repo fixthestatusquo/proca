@@ -1,124 +1,124 @@
 {
-    "Account": "Account",
-    "Address": "Address",
-    "Amount": "Amount",
-    "Birthdate": "Birthdate",
-    "Comment": "Comment",
-    "Country": "Country",
-    "Download": "Download",
-    "Download explanation": "Your document is now ready, we are emailing it to you too",
-    "Email": "Email",
-    "First name": "First name",
-    "Join": "Join",
-    "Last name": "Last name",
-    "Locality": "Locality",
-    "Next": "Next",
-    "No Thanks": "No Thanks",
-    "Other": "Other",
-    "Phone": "Phone",
-    "Place of birth": "Place of birth",
-    "Postal Code": "Postal Code",
-    "Share": "Share",
-    "Sign": "Sign Now!",
-    "Sign now!": "Sign now!",
-    "Sign the ECI": "Sign the ECI",
-    "Sign the ECI!": "Sign the ECI!",
-    "Sorry, we couldn't save": "Sorry, we couldn't save",
-    "Stay informed": "Stay informed",
-    "Subject": "Subject",
-    "Thank you": "Thank you",
-    "Thanks!": "Thanks!",
-    "Your message": "Your message",
-    "Your organisation account": "Your organisation account",
-    "consent": {
-        "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
-        "implicit": "Submit this form to receive emails from {{name}}",
-        "intro": "Find out more about our campaigns, actions and {{campaign}} progress",
-        "opt-in": "Yes, I want {{partner}} to keep me informed via email",
-        "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email",
-        "opt-out": "No, don't send me emails or keep me updated in future",
-        "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
-        "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
+  "Account": "Account",
+  "Address": "Address",
+  "Amount": "Amount",
+  "Birthdate": "Birthdate",
+  "Comment": "Comment",
+  "Country": "Country",
+  "Download": "Download",
+  "Download explanation": "Your document is now ready, we are emailing it to you too",
+  "Email": "Email",
+  "First name": "First name",
+  "Join": "Join",
+  "Last name": "Last name",
+  "Locality": "Locality",
+  "Next": "Next",
+  "No Thanks": "No Thanks",
+  "Other": "Other",
+  "Phone": "Phone",
+  "Place of birth": "Place of birth",
+  "Postal Code": "Postal Code",
+  "Share": "Share",
+  "Sign": "Sign Now!",
+  "Sign now!": "Sign now!",
+  "Sign the ECI": "Sign the ECI",
+  "Sign the ECI!": "Sign the ECI!",
+  "Sorry, we couldn't save": "Sorry, we couldn't save",
+  "Stay informed": "Stay informed",
+  "Subject": "Subject",
+  "Thank you": "Thank you",
+  "Thanks!": "Thanks!",
+  "Your message": "Your message",
+  "Your organisation account": "Your organisation account",
+  "consent": {
+    "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
+    "implicit": "Submit this form to receive emails from {name}",
+    "intro": "Find out more about our campaigns, actions and {{campaign}} progress",
+    "opt-in": "Yes, I want {{partner}} to keep me informed via email",
+    "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email",
+    "opt-out": "No, don't send me emails or keep me updated in future",
+    "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
+    "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
+  },
+  "dialogTitle": "Keep me informed about the campaign",
+  "donation": {
+    "amount": {
+      "change": "Change amount",
+      "intro": "Choose an Amount"
     },
-    "dialogTitle": "Keep me informed about the campaign",
-    "donation": {
-        "amount": {
-            "change": "Change amount",
-            "intro": "Choose an Amount"
-        },
-        "average": "The average donation is {{amount}}",
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "error": {
-            "card": {
-                "missing": "Credit card number is missing"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "general",
-            "initialisation": "initialisation"
-        },
-        "form": {
-            "error": {
-                "minimum": "The minimum donation is {{amount}}"
-            }
-        },
-        "frequency": {
-            "ask": {
-                "monthly": "Make it monthly?",
-                "oneoff": "Donate",
-                "weekly": "Make this a weekly donation?"
-            },
-            "each": {
-                "monthly": "each month",
-                "oneoff": "Once",
-                "weekly": "each year"
-            },
-            "feedback": {
-                "monthly": "I'm donating {{amount}} {{frequency}}",
-                "oneoff": "I'm donating {{amount}}"
-            },
-            "monthly": "monthly",
-            "oneoff": "once",
-            "weekly": "weekly",
-            "yearly": "yearly"
-        },
-        "iban": "iban",
-        "intro": "",
-        "mobile": {
-            "open": "open"
-        },
-        "payment_methods": {
-            "card": "Card",
-            "intro": "How do you want to donate?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Payment Method"
-        },
-        "thanks": "Thank you for your donation!",
-        "to": "Donation to {{organisation}}"
+    "average": "The average donation is {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
     },
-    "email": {
-        "body": "body",
-        "subject": "subject"
+    "error": {
+      "card": {
+        "missing": "Credit card number is missing"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "general",
+      "initialisation": "initialisation"
     },
-    "progress": "{{count}} have signed. Let's go to {{goal}}",
-    "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
-    "register": "Add my name",
-    "share": {
-        "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
-        "message": "You should sign this!",
-        "title": "Almost done! Take the next step."
+    "form": {
+      "error": {
+        "minimum": "The minimum donation is {{amount}}"
+      }
     },
-    "twitter": {
-        "actionText": "actionText"
+    "frequency": {
+      "ask": {
+        "monthly": "Make it monthly?",
+        "oneoff": "Donate",
+        "weekly": "Make this a weekly donation?"
+      },
+      "each": {
+        "monthly": "each month",
+        "oneoff": "Once",
+        "weekly": "each year"
+      },
+      "feedback": {
+        "monthly": "I'm donating {{amount}} {{frequency}}",
+        "oneoff": "I'm donating {{amount}}"
+      },
+      "monthly": "monthly",
+      "oneoff": "once",
+      "weekly": "weekly",
+      "yearly": "yearly"
     },
-    "you need to be 18 years old": "you need to be 18 years old"
+    "iban": "iban",
+    "intro": "",
+    "mobile": {
+      "open": "open"
+    },
+    "payment_methods": {
+      "card": "Card",
+      "intro": "How do you want to donate?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Payment Method"
+    },
+    "thanks": "Thank you for your donation!",
+    "to": "Donation to {{organisation}}"
+  },
+  "email": {
+    "body": "body",
+    "subject": "subject"
+  },
+  "progress": "{{count}} have signed. Let's go to {{goal}}",
+  "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
+  "register": "Add my name",
+  "share": {
+    "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
+    "message": "You should sign this!",
+    "title": "Almost done! Take the next step."
+  },
+  "twitter": {
+    "actionText": "actionText"
+  },
+  "you need to be 18 years old": "you need to be 18 years old"
 }
