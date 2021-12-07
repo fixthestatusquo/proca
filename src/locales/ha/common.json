@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
-    "twitter": {
-        "actionText": "Na sanya hannu. ya kamata ku ma"
+  "Account": "Asusu",
+  "Address": "Adireshin",
+  "Amount": "Adadi",
+  "Birthdate": "Ranar haifuwa",
+  "City": "Birnin",
+  "Comment": "Sharhi",
+  "Country": "Ƙasa",
+  "Download": "Saukewa",
+  "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
+  "Email": "Imel",
+  "Email_Share button": "Imel",
+  "Enter a number.": "Shigar da lamba.",
+  "Enter a valid email address.": "Shigar da adireshin imel mai aiki.",
+  "First name": "Sunan rana",
+  "Full Name": "Cikakken suna",
+  "Join": "Shiga",
+  "Last name": "Sunan mahaifa",
+  "Legal": "Na doka",
+  "Link_Share button": "Haɗi",
+  "Locality": "Yanki",
+  "Next": "Na gaba",
+  "No Thanks": "A'a na gode",
+  "Other": "Sauran",
+  "Phone": "Waya",
+  "Place of birth": "Wurin haihuwa",
+  "Postal Code": "Lambar gidan waya",
+  "Privacy": "Sirri",
+  "Share": "Raba",
+  "Share on Facebook": "Raba akan Facebook",
+  "Share on Twitter": "Raba akan Twitter",
+  "Sign": "Shiga Yanzu!",
+  "Sign Up": "Shiga",
+  "Sign now!": "Shiga yanzu!",
+  "Sign the ECI": "Shiga ECI",
+  "Sign the ECI!": "Sa hannu kan ECI!",
+  "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
+  "Stay in touch": "Kasance tare",
+  "Stay informed": "Kasance cikin sani",
+  "Street": "Titin",
+  "Subject": "Magana",
+  "Thank you": "na gode",
+  "Thanks!": "Godiya!",
+  "This field is required.": "Wannan fillin ana bukatansa.",
+  "Your message": "Sakon ku",
+  "Your organisation account": "Asusun kungiyar ku",
+  "consent": {
+    "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>",
+    "implicit": "Shigar da wannan fom don karɓar imel daga {{name}}",
+    "intro": "Nemo ƙarin bayani game da kamfen ɗin mu, ayyuka da {{campaign}} ci gaba",
+    "opt-in": "Ee, ina son {{partner}} ya sanar da ni ta imel",
+    "opt-in-both": "Ee, ina son {{partner}} da {{lead}} su ci gaba da sanar da ni ta imel",
+    "opt-out": "A'a, kar ku aiko min da imel ko ci gaba da sabunta ni nan gaba",
+    "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
+    "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>"
+  },
+  "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
+  "donation": {
+    "amount": {
+      "change": "Canja adadin",
+      "choose": "Zaɓi Adadi",
+      "intro": "Zaɓi Adadi:"
     },
-    "share": {
-        "title": "Kusan an gama! Dauki mataki na gaba.",
-        "message": "Ya kamata ku sa hannu kan wannan!",
-        "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
-        "email": {
-            "subject": "Ya kamata ku sa hannu kan wannan",
-            "body": "Sannu,\nDa fatan za a sa hannu, ina tsammanin kuna son tallafa masa"
-        },
-        "twitter": {
-            "actionText": "na sanya hannu ya kamata ku ma"
+    "average": "Matsakaicin gudummawar ita ce {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Lambar katin kiredit ya ɓace"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "na gaba ɗaya",
+      "initialisation": "farawa"
     },
-    "register": "Ƙara sunana",
-    "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
-    "progress_plural": "",
+    "form": {
+      "error": {
+        "minimum": "Mafi ƙarancin gudummawa shine {{ampount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Yi shi kowane wata?",
+        "oneoff": "Ba da gudummawa",
+        "weekly": "Yi wannan gudummawar mako-mako?"
+      },
+      "each": {
+        "monthly": "kowane wata",
+        "oneoff": "Sau ɗaya",
+        "weekly": "kowace shekara"
+      },
+      "feedback": {
+        "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}",
+        "oneoff": "Ina bayar da gudummawa {{amount}}"
+      },
+      "monthly": "kowane wata",
+      "oneoff": "kashe daya",
+      "weekly": "mako-mako",
+      "yearly": "kowace shekara"
+    },
+    "iban": "iban",
+    "intro": "Ba da gudummawa ga {{campaign}}",
+    "mobile": {
+      "open": "bude"
+    },
+    "payment": {
+      "intro": "Bayanin biyan kuɗi:"
+    },
+    "payment_methods": {
+      "card": "Katin",
+      "intro": "Ta yaya kuke son bayarwa?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Hanyar Biyan Kuɗi"
+    },
+    "thanks": "Na gode da gudummawar ku!",
+    "to": "Kyauta ga {{organisation}}"
+  },
+  "email": {
+    "body": "jiki",
+    "subject": "batun"
+  },
+  "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
+  "progress_plural": "",
+  "register": "Ƙara sunana",
+  "share": {
     "email": {
-        "subject": "batun",
-        "body": "jiki"
+      "body": "Sannu,\nDa fatan za a sa hannu, ina tsammanin kuna son tallafa masa",
+      "subject": "Ya kamata ku sa hannu kan wannan"
     },
-    "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
-    "consent": {
-        "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
-        "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
-        "opt-out": "A'a, kar ku aiko min da imel ko ci gaba da sabunta ni nan gaba",
-        "opt-in-both": "Ee, ina son {{partner}} da {{lead}} su ci gaba da sanar da ni ta imel",
-        "opt-in": "Ee, ina son {{partner}} ya sanar da ni ta imel",
-        "intro": "Nemo ƙarin bayani game da kamfen ɗin mu, ayyuka da {{campaign}} ci gaba",
-        "implicit": "Shigar da wannan fom don karɓar imel daga {{name}}",
-        "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>"
-    },
-    "Your organisation account": "Asusun kungiyar ku",
-    "This field is required.": "Wannan fillin ana bukatansa.",
-    "Thanks!": "Godiya!",
-    "Thank you": "na gode",
-    "Street": "Titin",
-    "Stay informed": "Kasance cikin sani",
-    "Stay in touch": "Kasance tare",
-    "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
-    "Sign the ECI": "Shiga ECI",
-    "Sign now!": "Shiga yanzu!",
-    "Sign Up": "Shiga",
-    "Sign": "Shiga Yanzu!",
-    "Share on Twitter": "Raba akan Twitter",
-    "Share on Facebook": "Raba akan Facebook",
-    "Share": "Raba",
-    "Privacy": "Sirri",
-    "Postal Code": "Lambar gidan waya",
-    "Place of birth": "Wurin haihuwa",
-    "Phone": "Waya",
-    "Other": "Sauran",
-    "No Thanks": "A'a na gode",
-    "Next": "Na gaba",
-    "Locality": "Yanki",
-    "Link_Share button": "Haɗi",
-    "Legal": "Na doka",
-    "Last name": "Sunan mahaifa",
-    "Join": "Shiga",
-    "Full Name": "Cikakken suna",
-    "First name": "Sunan rana",
-    "Enter a valid email address.": "Shigar da adireshin imel mai aiki.",
-    "Enter a number.": "Shigar da lamba.",
-    "Email_Share button": "Imel",
-    "Email": "Imel",
-    "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
-    "Download": "Saukewa",
-    "Country": "Ƙasa",
-    "Comment": "Sharhi",
-    "City": "Birnin",
-    "Birthdate": "Ranar haifuwa",
-    "Amount": "Adadi",
-    "Address": "Adireshin",
-    "Account": "Asusu",
-    "Sign the ECI!": "Sa hannu kan ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Zaɓi Adadi:",
-            "change": "Canja adadin",
-            "choose": "Zaɓi Adadi"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "kowane wata",
-                "weekly": "kowace shekara",
-                "oneoff": "Sau ɗaya"
-            },
-            "monthly": "kowane wata",
-            "yearly": "kowace shekara",
-            "oneoff": "kashe daya",
-            "ask": {
-                "oneoff": "Ba da gudummawa",
-                "monthly": "Yi shi kowane wata?",
-                "weekly": "Yi wannan gudummawar mako-mako?"
-            },
-            "feedback": {
-                "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}",
-                "oneoff": "Ina bayar da gudummawa {{amount}}"
-            },
-            "weekly": "mako-mako"
-        },
-        "thanks": "Na gode da gudummawar ku!",
-        "to": "Kyauta ga {{organisation}}",
-        "payment": {
-            "intro": "Bayanin biyan kuɗi:"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "average": "Matsakaicin gudummawar ita ce {{amount}}",
-        "error": {
-            "card": {
-                "missing": "Lambar katin kiredit ya ɓace"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "na gaba ɗaya",
-            "initialisation": "farawa"
-        },
-        "form": {
-            "error": {
-                "minimum": "Mafi ƙarancin gudummawa shine {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "bude"
-        },
-        "payment_methods": {
-            "card": "Katin",
-            "intro": "Ta yaya kuke son bayarwa?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Hanyar Biyan Kuɗi"
-        }
-    },
-    "Subject": "Magana",
-    "Your message": "Sakon ku"
+    "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
+    "message": "Ya kamata ku sa hannu kan wannan!",
+    "title": "Kusan an gama! Dauki mataki na gaba.",
+    "twitter": {
+      "actionText": "na sanya hannu ya kamata ku ma"
+    }
+  },
+  "twitter": {
+    "actionText": "Na sanya hannu. ya kamata ku ma"
+  },
+  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }

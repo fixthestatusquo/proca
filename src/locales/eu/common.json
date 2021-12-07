@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "18 urte izan behar dituzu",
-    "twitter": {
-        "actionText": "Sinatu nuen. zuk ere egin beharko zenuke"
+  "Account": "Kontua",
+  "Address": "Helbidea",
+  "Amount": "Kopurua",
+  "Birthdate": "Urtebetetze data",
+  "City": "Herria",
+  "Comment": "Iruzkina utzi",
+  "Country": "Herrialdea",
+  "Download": "Deskargatu",
+  "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
+  "Email": "E-posta",
+  "Email_Share button": "Posta elektronikoa",
+  "Enter a number.": "Idatzi zenbaki bat.",
+  "Enter a valid email address.": "Idatzi balio duen helbide elektronikoa.",
+  "First name": "Izena",
+  "Full Name": "Izen osoa",
+  "Join": "Batu",
+  "Last name": "Abizena",
+  "Legal": "Legezkoa",
+  "Link_Share button": "Esteka",
+  "Locality": "Herria",
+  "Next": "Hurrengoa",
+  "No Thanks": "Ez eskerrik asko",
+  "Other": "Beste bat",
+  "Phone": "Telefonoa",
+  "Place of birth": "Jaioterria",
+  "Postal Code": "Posta kodea",
+  "Privacy": "Pribatutasuna",
+  "Share": "Partekatu",
+  "Share on Facebook": "Partekatu Facebook-en",
+  "Share on Twitter": "Partekatu Twitterren",
+  "Sign": "Saioa hasi!",
+  "Sign Up": "Erregistroa",
+  "Sign now!": "Saioa hasi!",
+  "Sign the ECI": "Sinatu ECI",
+  "Sign the ECI!": "Sinatu ECI!",
+  "Sorry, we couldn't save": "Ezin izan dugu gorde",
+  "Stay in touch": "Harremanetan jarraitu",
+  "Stay informed": "Jarrai zaitez informatuta",
+  "Street": "Kalea",
+  "Subject": "Gaia",
+  "Thank you": "Eskerrik asko!",
+  "Thanks!": "Eskerrik asko!",
+  "This field is required.": "Eremu hau beharrezkoa da",
+  "Your message": "Zure mezua",
+  "Your organisation account": "Zure erakundearen kontua",
+  "consent": {
+    "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
+    "implicit": "Bidali inprimaki hau {{name}} -ren mezu elektronikoak jasotzeko.",
+    "intro": "Ados nago Merkataritza eta Inbertsio Itunen kontrako Kanpaina nirekin harremanetan jartzearekin, kanpaina garrantzitsuei buruzko informazioa helarazteko.",
+    "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
+    "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
+    "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
+    "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
+    "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu"
+  },
+  "dialogTitle": "Jarrai nazazu kanpainaren berri",
+  "donation": {
+    "amount": {
+      "change": "Aldatu zenbatekoa",
+      "choose": "Aukeratu Zenbateko bat",
+      "intro": "Aukeratu Zenbateko bat:"
     },
-    "share": {
-        "title": "Bukatzear! Hurrengo pausoa eman.",
-        "message": "Hau sinatu beharko zenuke!",
-        "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
-        "email": {
-            "subject": "Hau sinatu beharko zenuke",
-            "body": "Kaixo,\nMesedez, sinatu, onartzen duzula nahi duzula uste dut"
-        },
-        "twitter": {
-            "actionText": "sinatu nuen. zuk ere beharko zenuke"
+    "average": "Batez besteko dohaintza {{amount}} da",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Kreditu txartelaren zenbakia falta da"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "orokorra",
+      "initialisation": "hasieratzea"
     },
-    "register": "Gehitu nire izena",
-    "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
-    "progress_plural": "",
+    "form": {
+      "error": {
+        "minimum": "Gutxieneko dohaintza {{ampount}} da"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Hilero egin?",
+        "oneoff": "Dohaintza eman",
+        "weekly": "Asteroko dohaintza bat egin nahi duzu?"
+      },
+      "each": {
+        "monthly": "hilero",
+        "oneoff": "Behin",
+        "weekly": "urtero"
+      },
+      "feedback": {
+        "monthly": "{{amount}} {{frequency}} ematen ari naiz",
+        "oneoff": "Dohaintzan ari naiz {{amount}}"
+      },
+      "monthly": "hilero",
+      "oneoff": "bat off",
+      "weekly": "astero",
+      "yearly": "urtero"
+    },
+    "iban": "iban",
+    "intro": "Dohaintza egin {{campaign}}",
+    "mobile": {
+      "open": "irekia"
+    },
+    "payment": {
+      "intro": "Ordainketa xehetasunak:"
+    },
+    "payment_methods": {
+      "card": "Txartela",
+      "intro": "Nola eman nahi duzu dohaintza?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Ordainketa modua"
+    },
+    "thanks": "Eskerrik asko zure dohaintzagatik!",
+    "to": "Dohaintza {{organisation}}"
+  },
+  "email": {
+    "body": "gorputza",
+    "subject": "gaia"
+  },
+  "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
+  "progress_plural": "",
+  "register": "Gehitu nire izena",
+  "share": {
     "email": {
-        "subject": "gaia",
-        "body": "gorputza"
+      "body": "Kaixo,\nMesedez, sinatu, onartzen duzula nahi duzula uste dut",
+      "subject": "Hau sinatu beharko zenuke"
     },
-    "dialogTitle": "Jarrai nazazu kanpainaren berri",
-    "consent": {
-        "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
-        "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
-        "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
-        "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
-        "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
-        "intro": "Ados nago Merkataritza eta Inbertsio Itunen kontrako Kanpaina nirekin harremanetan jartzearekin, kanpaina garrantzitsuei buruzko informazioa helarazteko.",
-        "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
-        "implicit": "Bidali inprimaki hau {{name}} -ren mezu elektronikoak jasotzeko."
-    },
-    "Your organisation account": "Zure erakundearen kontua",
-    "This field is required.": "Eremu hau beharrezkoa da",
-    "Thanks!": "Eskerrik asko!",
-    "Thank you": "Eskerrik asko!",
-    "Street": "Kalea",
-    "Stay informed": "Jarrai zaitez informatuta",
-    "Stay in touch": "Harremanetan jarraitu",
-    "Sorry, we couldn't save": "Ezin izan dugu gorde",
-    "Sign the ECI": "Sinatu ECI",
-    "Sign now!": "Saioa hasi!",
-    "Sign Up": "Erregistroa",
-    "Sign": "Saioa hasi!",
-    "Share on Twitter": "Partekatu Twitterren",
-    "Share on Facebook": "Partekatu Facebook-en",
-    "Share": "Partekatu",
-    "Privacy": "Pribatutasuna",
-    "Postal Code": "Posta kodea",
-    "Phone": "Telefonoa",
-    "Other": "Beste bat",
-    "No Thanks": "Ez eskerrik asko",
-    "Next": "Hurrengoa",
-    "Locality": "Herria",
-    "Link_Share button": "Esteka",
-    "Legal": "Legezkoa",
-    "Last name": "Abizena",
-    "Join": "Batu",
-    "Full Name": "Izen osoa",
-    "First name": "Izena",
-    "Enter a valid email address.": "Idatzi balio duen helbide elektronikoa.",
-    "Enter a number.": "Idatzi zenbaki bat.",
-    "Email_Share button": "Posta elektronikoa",
-    "Email": "E-posta",
-    "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
-    "Download": "Deskargatu",
-    "Country": "Herrialdea",
-    "Comment": "Iruzkina utzi",
-    "City": "Herria",
-    "Birthdate": "Urtebetetze data",
-    "Amount": "Kopurua",
-    "Address": "Helbidea",
-    "Account": "Kontua",
-    "Place of birth": "Jaioterria",
-    "Sign the ECI!": "Sinatu ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Aukeratu Zenbateko bat:",
-            "change": "Aldatu zenbatekoa",
-            "choose": "Aukeratu Zenbateko bat"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "hilero",
-                "weekly": "urtero",
-                "oneoff": "Behin"
-            },
-            "monthly": "hilero",
-            "yearly": "urtero",
-            "oneoff": "bat off",
-            "ask": {
-                "monthly": "Hilero egin?",
-                "oneoff": "Dohaintza eman",
-                "weekly": "Asteroko dohaintza bat egin nahi duzu?"
-            },
-            "feedback": {
-                "monthly": "{{amount}} {{frequency}} ematen ari naiz",
-                "oneoff": "Dohaintzan ari naiz {{amount}}"
-            },
-            "weekly": "astero"
-        },
-        "thanks": "Eskerrik asko zure dohaintzagatik!",
-        "to": "Dohaintza {{organisation}}",
-        "payment": {
-            "intro": "Ordainketa xehetasunak:"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "average": "Batez besteko dohaintza {{amount}} da",
-        "error": {
-            "card": {
-                "missing": "Kreditu txartelaren zenbakia falta da"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "orokorra",
-            "initialisation": "hasieratzea"
-        },
-        "form": {
-            "error": {
-                "minimum": "Gutxieneko dohaintza {{ampount}} da"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "irekia"
-        },
-        "payment_methods": {
-            "card": "Txartela",
-            "intro": "Nola eman nahi duzu dohaintza?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Ordainketa modua"
-        }
-    },
-    "Subject": "Gaia",
-    "Your message": "Zure mezua"
+    "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
+    "message": "Hau sinatu beharko zenuke!",
+    "title": "Bukatzear! Hurrengo pausoa eman.",
+    "twitter": {
+      "actionText": "sinatu nuen. zuk ere beharko zenuke"
+    }
+  },
+  "twitter": {
+    "actionText": "Sinatu nuen. zuk ere egin beharko zenuke"
+  },
+  "you need to be 18 years old": "18 urte izan behar dituzu"
 }

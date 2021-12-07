@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "du skal være 18 år gammel",
-    "twitter": {
-        "actionText": "Jeg underskrev. du burde også"
+  "Account": "Konto",
+  "Address": "Adresse",
+  "Amount": "Beløb",
+  "Birthdate": "Fødselsdato",
+  "City": "By",
+  "Comment": "Kommentar",
+  "Country": "Land",
+  "Download": "Download",
+  "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
+  "Email": "Emailadresse",
+  "Email_Share button": "Emailadresse",
+  "Enter a number.": "Indtast et nummer.",
+  "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
+  "First name": "Fornavn",
+  "Full Name": "Fuldt navn",
+  "Join": "Meld dig ind",
+  "Last name": "Efternavn",
+  "Legal": "Juridisk",
+  "Link_Share button": "Hyperlink",
+  "Locality": "Lokalitet",
+  "Next": "Next",
+  "No Thanks": "Nej tak",
+  "Other": "Andre",
+  "Phone": "Telefon",
+  "Place of birth": "Fødselssted",
+  "Postal Code": "Postnummer",
+  "Privacy": "Privatliv",
+  "Share": "Del",
+  "Share on Facebook": "Del det på Facebook",
+  "Share on Twitter": "Del på Twitter",
+  "Sign": "Tilmeld nu!",
+  "Sign Up": "Tilmeld dig",
+  "Sign now!": "Tilmeld nu!",
+  "Sign the ECI": "Underskriv ECI",
+  "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
+  "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
+  "Stay in touch": "Holde kontakt",
+  "Stay informed": "Hold dig opdateret",
+  "Street": "Gade",
+  "Subject": "Emneord",
+  "Thank you": "tak skal du have",
+  "Thanks!": "Tak!",
+  "This field is required.": "Dette felt er påkrævet.",
+  "Your message": "Din besked",
+  "Your organisation account": "Din organisationskonto",
+  "consent": {
+    "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
+    "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
+    "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
+    "opt-in": "Ja, hold mig informeret via e-mail",
+    "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
+    "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
+    "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>"
+  },
+  "dialogTitle": "Hold mig informeret om kampagnen",
+  "donation": {
+    "amount": {
+      "change": "Ændringsbeløb",
+      "choose": "Vælg et beløb",
+      "intro": "Vælg et beløb :"
     },
-    "register": "Tilføj mit navn",
-    "dialogTitle": "Hold mig informeret om kampagnen",
-    "Your organisation account": "Din organisationskonto",
-    "Thank you": "tak skal du have",
-    "Sign now!": "Tilmeld nu!",
-    "Next": "Next",
-    "Locality": "Lokalitet",
-    "Full Name": "Fuldt navn",
-    "Download": "Download",
-    "Comment": "Kommentar",
-    "Birthdate": "Fødselsdato",
-    "Address": "Adresse",
-    "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
-    "Link_Share button": "Hyperlink",
-    "Email_Share button": "Emailadresse",
-    "Share on Twitter": "Del på Twitter",
-    "Share on Facebook": "Del det på Facebook",
-    "Sign Up": "Tilmeld dig",
-    "Stay in touch": "Holde kontakt",
-    "No Thanks": "Nej tak",
-    "Privacy": "Privatliv",
-    "Legal": "Juridisk",
-    "Thanks!": "Tak!",
-    "Country": "Land",
-    "City": "By",
-    "Street": "Gade",
-    "Postal Code": "Postnummer",
-    "Email": "Emailadresse",
-    "Last name": "Efternavn",
-    "First name": "Fornavn",
-    "Amount": "Beløb",
-    "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
-    "Enter a number.": "Indtast et nummer.",
-    "This field is required.": "Dette felt er påkrævet.",
-    "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-    "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-    "Sign": "Tilmeld nu!",
-    "share": {
-        "email": {
-            "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
-            "subject": "Du skal underskrive dette"
-        },
-        "message": "Du skal underskrive dette!",
-        "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
-        "title": "Næsten færdig! Tag det næste skridt.",
-        "twitter": {
-            "actionText": "Jeg har skrevet under. Det bør du også gøre"
+    "average": "Den gennemsnitlige donation er {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Kreditkortnummer mangler"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "generelt",
+      "initialisation": "initialisering"
     },
-    "consent": {
-        "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-        "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
-        "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
-        "opt-in": "Ja, hold mig informeret via e-mail",
-        "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
-        "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-        "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
-        "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}"
+    "form": {
+      "error": {
+        "minimum": "Minimumsdonationen er {{ampount}}"
+      }
     },
-    "Account": "Konto",
+    "frequency": {
+      "ask": {
+        "monthly": "Gør det månedligt?",
+        "oneoff": "Donér",
+        "weekly": "Gør det til en ugentlig donation?"
+      },
+      "each": {
+        "monthly": "hver måned",
+        "oneoff": "Når",
+        "weekly": "hvert år"
+      },
+      "feedback": {
+        "monthly": "Jeg donerer {{amount}} {{frequency}}",
+        "oneoff": "Jeg donerer {{amount}}"
+      },
+      "monthly": "månedlig",
+      "oneoff": "engangsydelse",
+      "weekly": "ugentlig",
+      "yearly": "årligt"
+    },
+    "iban": "iban",
+    "intro": "Donér til {{campaign}}",
+    "mobile": {
+      "open": "åben"
+    },
+    "payment": {
+      "intro": "Betalingsoplysninger :"
+    },
+    "payment_methods": {
+      "card": "Kort",
+      "intro": "Hvordan ønsker du at donere?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Betalingsmetode"
+    },
+    "thanks": "Tak for din donation!",
+    "to": "Donation til {{organisation}}"
+  },
+  "email": {
+    "body": "krop",
+    "subject": "emne"
+  },
+  "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+  "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+  "register": "Tilføj mit navn",
+  "share": {
     "email": {
-        "subject": "emne",
-        "body": "krop"
+      "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
+      "subject": "Du skal underskrive dette"
     },
-    "Phone": "Telefon",
-    "Other": "Andre",
-    "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
-    "Sign the ECI": "Underskriv ECI",
-    "Share": "Del",
-    "Join": "Meld dig ind",
-    "Stay informed": "Hold dig opdateret",
-    "Place of birth": "Fødselssted",
-    "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
-    "donation": {
-        "amount": {
-            "intro": "Vælg et beløb :",
-            "change": "Ændringsbeløb",
-            "choose": "Vælg et beløb"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "hver måned",
-                "weekly": "hvert år",
-                "oneoff": "Når"
-            },
-            "monthly": "månedlig",
-            "yearly": "årligt",
-            "oneoff": "engangsydelse",
-            "ask": {
-                "weekly": "Gør det til en ugentlig donation?",
-                "monthly": "Gør det månedligt?",
-                "oneoff": "Donér"
-            },
-            "feedback": {
-                "monthly": "Jeg donerer {{amount}} {{frequency}}",
-                "oneoff": "Jeg donerer {{amount}}"
-            },
-            "weekly": "ugentlig"
-        },
-        "thanks": "Tak for din donation!",
-        "to": "Donation til {{organisation}}",
-        "payment": {
-            "intro": "Betalingsoplysninger :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "payment_methods": {
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Betalingsmetode",
-            "card": "Kort",
-            "intro": "Hvordan ønsker du at donere?"
-        },
-        "average": "Den gennemsnitlige donation er {{amount}}",
-        "error": {
-            "card": {
-                "missing": "Kreditkortnummer mangler"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "generelt",
-            "initialisation": "initialisering"
-        },
-        "form": {
-            "error": {
-                "minimum": "Minimumsdonationen er {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "åben"
-        }
-    },
-    "Your message": "Din besked",
-    "Subject": "Emneord"
+    "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
+    "message": "Du skal underskrive dette!",
+    "title": "Næsten færdig! Tag det næste skridt.",
+    "twitter": {
+      "actionText": "Jeg har skrevet under. Det bør du også gøre"
+    }
+  },
+  "twitter": {
+    "actionText": "Jeg underskrev. du burde også"
+  },
+  "you need to be 18 years old": "du skal være 18 år gammel"
 }

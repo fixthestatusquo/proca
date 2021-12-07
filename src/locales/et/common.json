@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "peate olema 18-aastane",
-    "twitter": {
-        "actionText": "Kirjutasin alla. sa peaksid ka"
+  "Account": "Konto",
+  "Address": "Aadress",
+  "Amount": "Summa",
+  "Birthdate": "Sünnikuupäev",
+  "City": "Linn",
+  "Comment": "Kommentaar",
+  "Country": "Riik",
+  "Download": "Laadi alla",
+  "Download explanation": "Teie dokument on nüüd valmis, me saadame selle ka teile e-kirjaga.",
+  "Email": "E-posti aadress",
+  "Email_Share button": "E-posti aadress",
+  "Enter a number.": "Sisestage number.",
+  "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
+  "First name": "Eesnimi",
+  "Full Name": "Täisnimi",
+  "Join": "Ühine",
+  "Last name": "Perekonnanimi",
+  "Legal": "Juriidiline teave",
+  "Link_Share button": "Viide",
+  "Locality": "Paikkond",
+  "Next": "Edasi",
+  "No Thanks": "Ei aitäh",
+  "Other": "Teine",
+  "Phone": "Telefon",
+  "Place of birth": "Sünnikoht",
+  "Postal Code": "Sihtnumber",
+  "Privacy": "Privaatsus",
+  "Share": "Jaga",
+  "Share on Facebook": "Jagage Facebookis",
+  "Share on Twitter": "Jaga Twitteris",
+  "Sign": "Lisa allkiri",
+  "Sign Up": "Registreeri",
+  "Sign now!": "Lisa allkiri!",
+  "Sign the ECI": "Allkirjastage ECI",
+  "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
+  "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
+  "Stay in touch": "Ühendust pidama",
+  "Stay informed": "Olge kursis",
+  "Street": "Tänav",
+  "Subject": "Teema",
+  "Thank you": "Aitäh",
+  "Thanks!": "Suur aitäh!",
+  "This field is required.": "See väli on kohustuslik.",
+  "Your message": "Teie sõnum",
+  "Your organisation account": "Teie organisatsiooni konto",
+  "consent": {
+    "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
+    "implicit": "Esitage see vorm, et saada e-kirju {{name}}",
+    "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
+    "opt-in": "Jah, hoia mind e-posti teel kursis",
+    "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
+    "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
+    "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+    "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>"
+  },
+  "dialogTitle": "Hoidke mind kampaaniaga kursis",
+  "donation": {
+    "amount": {
+      "change": "Muuda summa",
+      "choose": "Vali summa",
+      "intro": "Vali summa :"
     },
-    "register": "Lisage minu nimi",
-    "dialogTitle": "Hoidke mind kampaaniaga kursis",
-    "Your organisation account": "Teie organisatsiooni konto",
-    "Thank you": "Aitäh",
-    "Sign now!": "Lisa allkiri!",
-    "Next": "Edasi",
-    "Locality": "Paikkond",
-    "Full Name": "Täisnimi",
-    "Download": "Laadi alla",
-    "Comment": "Kommentaar",
-    "Birthdate": "Sünnikuupäev",
-    "Address": "Aadress",
-    "Account": "Konto",
-    "Download explanation": "Teie dokument on nüüd valmis, me saadame selle ka teile e-kirjaga.",
-    "Link_Share button": "Viide",
-    "Email_Share button": "E-posti aadress",
-    "Share on Twitter": "Jaga Twitteris",
-    "Share on Facebook": "Jagage Facebookis",
-    "Sign Up": "Registreeri",
-    "Stay in touch": "Ühendust pidama",
-    "No Thanks": "Ei aitäh",
-    "Privacy": "Privaatsus",
-    "Legal": "Juriidiline teave",
-    "Thanks!": "Suur aitäh!",
-    "Country": "Riik",
-    "City": "Linn",
-    "Street": "Tänav",
-    "Postal Code": "Sihtnumber",
-    "Email": "E-posti aadress",
-    "Last name": "Perekonnanimi",
-    "First name": "Eesnimi",
-    "Amount": "Summa",
-    "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
-    "Enter a number.": "Sisestage number.",
-    "This field is required.": "See väli on kohustuslik.",
-    "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
-    "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
-    "Sign": "Lisa allkiri",
-    "share": {
-        "email": {
-            "body": "Tere,\nPalun kirjutage alla, arvan, et soovite seda toetada",
-            "subject": "Peaksite sellele alla kirjutama"
-        },
-        "message": "Peaksite sellele alla kirjutama!",
-        "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
-        "title": "Peaaegu valmis. Üks samm veel!",
-        "twitter": {
-            "actionText": "Ma kirjutasin alla. sa peaksid ka alla kirjutama."
+    "average": "Keskmine annetus on {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Krediitkaardi number puudub"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "üldine",
+      "initialisation": "initsialiseerimine"
     },
-    "consent": {
-        "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-        "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
-        "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
-        "opt-in": "Jah, hoia mind e-posti teel kursis",
-        "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
-        "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-        "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
-        "implicit": "Esitage see vorm, et saada e-kirju {{name}}"
+    "form": {
+      "error": {
+        "minimum": "Minimaalne annetus on {{ampount}}"
+      }
     },
+    "frequency": {
+      "ask": {
+        "monthly": "Teha seda igakuiselt?",
+        "oneoff": "Annetada",
+        "weekly": "Teha see iganädalane annetus?"
+      },
+      "each": {
+        "monthly": "iga kuu",
+        "oneoff": "Kui",
+        "weekly": "igal aastal"
+      },
+      "feedback": {
+        "monthly": "Ma annetan {{amount}} {{frequency}}",
+        "oneoff": "Ma annetan {{amount}}"
+      },
+      "monthly": "igakuine",
+      "oneoff": "ühekordne",
+      "weekly": "iganädalane",
+      "yearly": "igal aastal"
+    },
+    "iban": "iban",
+    "intro": "Annetada {{campaign}}",
+    "mobile": {
+      "open": "avatud"
+    },
+    "payment": {
+      "intro": "Maksmise üksikasjad :"
+    },
+    "payment_methods": {
+      "card": "Kaart",
+      "intro": "Kuidas soovite annetada?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Makseviis"
+    },
+    "thanks": "Täname teid annetuse eest!",
+    "to": "Annetus {{organisation}}"
+  },
+  "email": {
+    "body": "keha",
+    "subject": "teema"
+  },
+  "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+  "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+  "register": "Lisage minu nimi",
+  "share": {
     "email": {
-        "subject": "teema",
-        "body": "keha"
+      "body": "Tere,\nPalun kirjutage alla, arvan, et soovite seda toetada",
+      "subject": "Peaksite sellele alla kirjutama"
     },
-    "Phone": "Telefon",
-    "Other": "Teine",
-    "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
-    "Sign the ECI": "Allkirjastage ECI",
-    "Share": "Jaga",
-    "Join": "Ühine",
-    "Stay informed": "Olge kursis",
-    "Place of birth": "Sünnikoht",
-    "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
-    "donation": {
-        "amount": {
-            "intro": "Vali summa :",
-            "change": "Muuda summa",
-            "choose": "Vali summa"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "iga kuu",
-                "weekly": "igal aastal",
-                "oneoff": "Kui"
-            },
-            "monthly": "igakuine",
-            "yearly": "igal aastal",
-            "oneoff": "ühekordne",
-            "ask": {
-                "monthly": "Teha seda igakuiselt?",
-                "oneoff": "Annetada",
-                "weekly": "Teha see iganädalane annetus?"
-            },
-            "feedback": {
-                "monthly": "Ma annetan {{amount}} {{frequency}}",
-                "oneoff": "Ma annetan {{amount}}"
-            },
-            "weekly": "iganädalane"
-        },
-        "thanks": "Täname teid annetuse eest!",
-        "to": "Annetus {{organisation}}",
-        "payment": {
-            "intro": "Maksmise üksikasjad :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "error": {
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "card": {
-                "missing": "Krediitkaardi number puudub"
-            },
-            "general": "üldine",
-            "initialisation": "initsialiseerimine"
-        },
-        "average": "Keskmine annetus on {{amount}}",
-        "form": {
-            "error": {
-                "minimum": "Minimaalne annetus on {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "avatud"
-        },
-        "payment_methods": {
-            "card": "Kaart",
-            "intro": "Kuidas soovite annetada?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Makseviis"
-        }
-    },
-    "Subject": "Teema",
-    "Your message": "Teie sõnum"
+    "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
+    "message": "Peaksite sellele alla kirjutama!",
+    "title": "Peaaegu valmis. Üks samm veel!",
+    "twitter": {
+      "actionText": "Ma kirjutasin alla. sa peaksid ka alla kirjutama."
+    }
+  },
+  "twitter": {
+    "actionText": "Kirjutasin alla. sa peaksid ka"
+  },
+  "you need to be 18 years old": "peate olema 18-aastane"
 }

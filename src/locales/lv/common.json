@@ -1,146 +1,147 @@
 {
-    "you need to be 18 years old": "jums jābūt 18 gadus vecam",
-    "twitter": {
-        "actionText": "Es parakstījos. jums arī vajadzētu"
+  "Account": "Konts",
+  "Address": "Adrese",
+  "Amount": "Daudzums",
+  "Birthdate": "Dzimšanas datums",
+  "City": "Pilsēta",
+  "Comment": "Komentārs",
+  "Country": "Valsts",
+  "Download": "Lejupielādēt",
+  "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
+  "Email": "Epasts",
+  "Email_Share button": "E-pasts",
+  "Enter a number.": "Ievadiet numuru.",
+  "Enter a valid email address.": "Ievadiet derīgu epasta adresi.",
+  "First name": "Vārds",
+  "Full Name": "Pilnais vārds",
+  "Join": "Pievienoties",
+  "Last name": "Uzvārds",
+  "Legal": "Juridisks",
+  "Link_Share button": "Saite",
+  "Locality": "Apkārtne",
+  "Next": "Nākošais",
+  "No Thanks": "Nē paldies",
+  "Other": "Cits",
+  "Phone": "Telefons",
+  "Place of birth": "Dzimšanas vieta",
+  "Postal Code": "Pasta indekss",
+  "Privacy": "Privātums",
+  "Share": "Kopīgot",
+  "Share on Facebook": "Dalīties vietnē “Facebook”",
+  "Share on Twitter": "Dalieties vietnē Twitter",
+  "Sign": "Parakstieties tūlīt!",
+  "Sign Up": "Pierakstīties",
+  "Sign now!": "Parakstieties tūlīt!",
+  "Sign the ECI": "Parakstiet ECI",
+  "Sign the ECI!": "Parakstiet ECI!",
+  "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
+  "Stay in touch": "Uzturēt kontaktus",
+  "Stay informed": "Gribu būt lietas kursā",
+  "Street": "Iela",
+  "Subject": "Temats",
+  "Thank you": "Paldies",
+  "Thanks!": "Paldies!",
+  "This field is required.": "Šis lauks ir obligāts.",
+  "Your message": "Jūsu ziņa",
+  "Your organisation account": "Jūsu organizācijas konts",
+  "consent": {
+    "confirm": "<0> Vai esat pārliecināts? </0> <1> Atlasot “Nē”, jūs nevarēsiet uzzināt, vai šī kampaņa ir veiksmīga vai vai mums ir jāveic vēl kāda darbība, lai to uzvarētu. Ja atlasīsit Jā, mēs informēsim jūs par šo un citām steidzamajām kampaņām. </1> <2> Abonementu varat anulēt jebkurā laikā. </2>",
+    "implicit": "Nosūtiet šo veidlapu, lai saņemtu e-pastus no {{name}}",
+    "intro": "Uzziniet vairāk par mūsu kampaņām, darbībām un {{campaign}} progresu",
+    "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu pa e-pastu",
+    "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
+    "opt-out": "Nē, nesūtiet man e-pastus un neziņojiet mani turpmāk",
+    "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
+    "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>"
+  },
+  "dialogTitle": "Informējiet mani par kampaņu",
+  "donation": {
+    "amount": {
+      "change": "Izmaiņas summa",
+      "choose": "Izvēlieties summu",
+      "intro": "Izvēlieties summu :"
     },
-    "share": {
-        "title": "Gandrīz pabeigts! Veiciet nākamo soli.",
-        "message": "Jums to vajadzētu parakstīt!",
-        "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
-        "email": {
-            "subject": "Jums tas jāparaksta",
-            "body": "Sveiki,\nLūdzu, parakstiet, es domāju, ka vēlaties to atbalstīt"
-        },
-        "twitter": {
-            "actionText": "Es parakstījos. tev arī vajadzētu"
+    "average": "Vidējais ziedojums ir {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Trūkst kredītkartes numura"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "vispārīgi",
+      "initialisation": "inicializācija"
     },
-    "register": "Pievienojiet manu vārdu",
+    "form": {
+      "error": {
+        "minimum": "Minimālais ziedojums ir {{ampount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Veikt to katru mēnesi?",
+        "oneoff": "Ziedot",
+        "weekly": "Veiciet šo iknedēļas ziedojumu?"
+      },
+      "each": {
+        "monthly": "katru mēnesi",
+        "oneoff": "Pēc tam, kad",
+        "weekly": "katru gadu"
+      },
+      "feedback": {
+        "monthly": "Es ziedoju {{amount}} {{frequency}}",
+        "oneoff": "Es ziedoju {{amount}}"
+      },
+      "monthly": "ikmēneša",
+      "oneoff": "vienreizējs",
+      "weekly": "iknedēļas",
+      "yearly": "gada"
+    },
+    "iban": "iban",
+    "intro": "Ziedot {{campaign}}",
+    "mobile": {
+      "open": "atvērts"
+    },
+    "payment": {
+      "intro": "Informācija par maksājumu :"
+    },
+    "payment_methods": {
+      "card": "Karte",
+      "intro": "Kā vēlaties ziedot?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Maksājuma metode"
+    },
+    "thanks": "Paldies par jūsu ziedojumu!",
+    "to": "Ziedojums {{organisation}}"
+  },
+  "email": {
+    "body": "ķermeņa",
+    "subject": "priekšmets"
+  },
+  "register": "Pievienojiet manu vārdu",
+  "share": {
     "email": {
-        "subject": "priekšmets",
-        "body": "ķermeņa"
+      "body": "Sveiki,\nLūdzu, parakstiet, es domāju, ka vēlaties to atbalstīt",
+      "subject": "Jums tas jāparaksta"
     },
-    "dialogTitle": "Informējiet mani par kampaņu",
-    "consent": {
-        "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-        "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-        "opt-out": "Nē, nesūtiet man e-pastus un neziņojiet mani turpmāk",
-        "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
-        "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu pa e-pastu",
-        "intro": "Uzziniet vairāk par mūsu kampaņām, darbībām un {{campaign}} progresu",
-        "confirm": "<0> Vai esat pārliecināts? </0> <1> Atlasot “Nē”, jūs nevarēsiet uzzināt, vai šī kampaņa ir veiksmīga vai vai mums ir jāveic vēl kāda darbība, lai to uzvarētu. Ja atlasīsit Jā, mēs informēsim jūs par šo un citām steidzamajām kampaņām. </1> <2> Abonementu varat anulēt jebkurā laikā. </2>",
-        "implicit": "Nosūtiet šo veidlapu, lai saņemtu e-pastus no {{name}}"
-    },
-    "Your organisation account": "Jūsu organizācijas konts",
-    "This field is required.": "Šis lauks ir obligāts.",
-    "Thanks!": "Paldies!",
-    "Thank you": "Paldies",
-    "Street": "Iela",
-    "Stay informed": "Gribu būt lietas kursā",
-    "Stay in touch": "Uzturēt kontaktus",
-    "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
-    "Sign the ECI": "Parakstiet ECI",
-    "Sign now!": "Parakstieties tūlīt!",
-    "Sign Up": "Pierakstīties",
-    "Sign": "Parakstieties tūlīt!",
-    "Share on Twitter": "Dalieties vietnē Twitter",
-    "Share on Facebook": "Dalīties vietnē “Facebook”",
-    "Share": "Kopīgot",
-    "Privacy": "Privātums",
-    "Postal Code": "Pasta indekss",
-    "Phone": "Telefons",
-    "Other": "Cits",
-    "No Thanks": "Nē paldies",
-    "Next": "Nākošais",
-    "Locality": "Apkārtne",
-    "Link_Share button": "Saite",
-    "Legal": "Juridisks",
-    "Last name": "Uzvārds",
-    "Join": "Pievienoties",
-    "Full Name": "Pilnais vārds",
-    "First name": "Vārds",
-    "Enter a valid email address.": "Ievadiet derīgu epasta adresi.",
-    "Enter a number.": "Ievadiet numuru.",
-    "Email_Share button": "E-pasts",
-    "Email": "Epasts",
-    "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
-    "Download": "Lejupielādēt",
-    "Country": "Valsts",
-    "Comment": "Komentārs",
-    "City": "Pilsēta",
-    "Birthdate": "Dzimšanas datums",
-    "Amount": "Daudzums",
-    "Address": "Adrese",
-    "Account": "Konts",
-    "Place of birth": "Dzimšanas vieta",
-    "Sign the ECI!": "Parakstiet ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Izvēlieties summu :",
-            "change": "Izmaiņas summa",
-            "choose": "Izvēlieties summu"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "katru mēnesi",
-                "weekly": "katru gadu",
-                "oneoff": "Pēc tam, kad"
-            },
-            "monthly": "ikmēneša",
-            "yearly": "gada",
-            "oneoff": "vienreizējs",
-            "ask": {
-                "monthly": "Veikt to katru mēnesi?",
-                "oneoff": "Ziedot",
-                "weekly": "Veiciet šo iknedēļas ziedojumu?"
-            },
-            "feedback": {
-                "monthly": "Es ziedoju {{amount}} {{frequency}}",
-                "oneoff": "Es ziedoju {{amount}}"
-            },
-            "weekly": "iknedēļas"
-        },
-        "to": "Ziedojums {{organisation}}",
-        "thanks": "Paldies par jūsu ziedojumu!",
-        "payment": {
-            "intro": "Informācija par maksājumu :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "average": "Vidējais ziedojums ir {{amount}}",
-        "error": {
-            "card": {
-                "missing": "Trūkst kredītkartes numura"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "vispārīgi",
-            "initialisation": "inicializācija"
-        },
-        "form": {
-            "error": {
-                "minimum": "Minimālais ziedojums ir {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "atvērts"
-        },
-        "payment_methods": {
-            "card": "Karte",
-            "intro": "Kā vēlaties ziedot?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Maksājuma metode"
-        }
-    },
-    "Subject": "Temats",
-    "Your message": "Jūsu ziņa"
+    "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
+    "message": "Jums to vajadzētu parakstīt!",
+    "title": "Gandrīz pabeigts! Veiciet nākamo soli.",
+    "twitter": {
+      "actionText": "Es parakstījos. tev arī vajadzētu"
+    }
+  },
+  "twitter": {
+    "actionText": "Es parakstījos. jums arī vajadzētu"
+  },
+  "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }

@@ -1,146 +1,147 @@
 {
-    "you need to be 18 years old": "jums reikia 18 metu",
-    "twitter": {
-        "actionText": "Aš pasirašiau. tu taip pat turėtum"
+  "Account": "Paskyra",
+  "Address": "Adresas",
+  "Amount": "Suma",
+  "Birthdate": "Gimimo data",
+  "City": "Miestas",
+  "Comment": "Komentaras",
+  "Country": "Šalis",
+  "Download": "Parsiųst",
+  "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
+  "Email": "El. paštas",
+  "Email_Share button": "El",
+  "Enter a number.": "Įveskite skaičių.",
+  "Enter a valid email address.": "Įveskite galiojantį el. Pašto adresą.",
+  "First name": "Pirmas vardas",
+  "Full Name": "Visas vardas",
+  "Join": "Prisijungti",
+  "Last name": "Pavardė",
+  "Legal": "„Legal“",
+  "Link_Share button": "Nuoroda",
+  "Locality": "Vietovė",
+  "Next": "Toliau",
+  "No Thanks": "&Ne, ačiū",
+  "Other": "Kita",
+  "Phone": "telefonas",
+  "Place of birth": "Gimimo vieta",
+  "Postal Code": "Pašto kodas",
+  "Privacy": "Privatumas",
+  "Share": "Bendrinti",
+  "Share on Facebook": "Dalytis tinkle „Facebook“",
+  "Share on Twitter": "Bendrinkite „Twitter“",
+  "Sign": "Pasirašykite dabar!",
+  "Sign Up": "Prisijungti",
+  "Sign now!": "Pasirašykite dabar!",
+  "Sign the ECI": "Pasirašykite AIV",
+  "Sign the ECI!": "Pasirašykite ECI!",
+  "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
+  "Stay in touch": "Palaikykite ryšį",
+  "Stay informed": "Gauti naujausią informaciją",
+  "Street": "Gatvė",
+  "Subject": "Tema",
+  "Thank you": "Ačiū",
+  "Thanks!": "Dėkoju!",
+  "This field is required.": "Šis laukas yra būtinas",
+  "Your message": "Jūsų žinutė",
+  "Your organisation account": "Jūsų organizacijos paskyra",
+  "consent": {
+    "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
+    "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}",
+    "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
+    "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
+    "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
+    "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
+    "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
+    "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>"
+  },
+  "dialogTitle": "Informuokite mane apie kampaniją",
+  "donation": {
+    "amount": {
+      "change": "Pakeisti sumą",
+      "choose": "Pasirinkite sumą",
+      "intro": "Pasirinkite sumą :"
     },
-    "share": {
-        "title": "Beveik baigta! Ženkite kitą žingsnį.",
-        "message": "Turėtumėte tai pasirašyti!",
-        "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
-        "email": {
-            "subject": "Turėtumėte tai pasirašyti",
-            "body": "Sveiki,\nPrašau pasirašyti, manau, kad norite jį paremti"
-        },
-        "twitter": {
-            "actionText": "Pasirašiau. turėtumėte ir jūs."
+    "average": "Vidutinė auka yra {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Trūksta kredito kortelės numerio"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "bendras",
+      "initialisation": "iniciacija"
     },
-    "register": "Pridėti mano vardą",
+    "form": {
+      "error": {
+        "minimum": "Mažiausia auka yra {{ampount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Kas mėnesį?",
+        "oneoff": "Paaukoti",
+        "weekly": "Padarykite tai kassavaitine auka?"
+      },
+      "each": {
+        "monthly": "kiekvieną mėnesį",
+        "oneoff": "Kai",
+        "weekly": "kiekvienais metais"
+      },
+      "feedback": {
+        "monthly": "Aukoju {{amount}} {{frequency}}",
+        "oneoff": "Aš aukoju {{amount}}"
+      },
+      "monthly": "kas mėnesį",
+      "oneoff": "vienkartinis",
+      "weekly": "savaitinis",
+      "yearly": "metinis"
+    },
+    "iban": "iban",
+    "intro": "Paaukoti {{campaign}}",
+    "mobile": {
+      "open": "Atviras"
+    },
+    "payment": {
+      "intro": "Mokėjimo informacija:"
+    },
+    "payment_methods": {
+      "card": "Kortelė",
+      "intro": "Kaip norite aukoti?",
+      "paypal": "\"PayPal\"",
+      "sepa": "SEPA",
+      "title": "Mokėjimo būdas"
+    },
+    "thanks": "Dėkojame už jūsų auką!",
+    "to": "Dovanojimas {{organisation}}"
+  },
+  "email": {
+    "body": "kūnas",
+    "subject": "tema"
+  },
+  "register": "Pridėti mano vardą",
+  "share": {
     "email": {
-        "subject": "tema",
-        "body": "kūnas"
+      "body": "Sveiki,\nPrašau pasirašyti, manau, kad norite jį paremti",
+      "subject": "Turėtumėte tai pasirašyti"
     },
-    "dialogTitle": "Informuokite mane apie kampaniją",
-    "consent": {
-        "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
-        "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
-        "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
-        "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
-        "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
-        "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
-        "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
-        "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}"
-    },
-    "Your organisation account": "Jūsų organizacijos paskyra",
-    "This field is required.": "Šis laukas yra būtinas",
-    "Thanks!": "Dėkoju!",
-    "Thank you": "Ačiū",
-    "Street": "Gatvė",
-    "Stay informed": "Gauti naujausią informaciją",
-    "Stay in touch": "Palaikykite ryšį",
-    "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
-    "Sign the ECI": "Pasirašykite AIV",
-    "Sign now!": "Pasirašykite dabar!",
-    "Sign Up": "Prisijungti",
-    "Sign": "Pasirašykite dabar!",
-    "Share on Twitter": "Bendrinkite „Twitter“",
-    "Share on Facebook": "Dalytis tinkle „Facebook“",
-    "Share": "Bendrinti",
-    "Privacy": "Privatumas",
-    "Postal Code": "Pašto kodas",
-    "Phone": "telefonas",
-    "Other": "Kita",
-    "No Thanks": "&Ne, ačiū",
-    "Next": "Toliau",
-    "Locality": "Vietovė",
-    "Link_Share button": "Nuoroda",
-    "Legal": "„Legal“",
-    "Last name": "Pavardė",
-    "Join": "Prisijungti",
-    "Full Name": "Visas vardas",
-    "First name": "Pirmas vardas",
-    "Enter a valid email address.": "Įveskite galiojantį el. Pašto adresą.",
-    "Enter a number.": "Įveskite skaičių.",
-    "Email_Share button": "El",
-    "Email": "El. paštas",
-    "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
-    "Download": "Parsiųst",
-    "Country": "Šalis",
-    "Comment": "Komentaras",
-    "City": "Miestas",
-    "Birthdate": "Gimimo data",
-    "Amount": "Suma",
-    "Address": "Adresas",
-    "Account": "Paskyra",
-    "Place of birth": "Gimimo vieta",
-    "Sign the ECI!": "Pasirašykite ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Pasirinkite sumą :",
-            "change": "Pakeisti sumą",
-            "choose": "Pasirinkite sumą"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "kiekvieną mėnesį",
-                "weekly": "kiekvienais metais",
-                "oneoff": "Kai"
-            },
-            "monthly": "kas mėnesį",
-            "yearly": "metinis",
-            "oneoff": "vienkartinis",
-            "ask": {
-                "monthly": "Kas mėnesį?",
-                "oneoff": "Paaukoti",
-                "weekly": "Padarykite tai kassavaitine auka?"
-            },
-            "feedback": {
-                "monthly": "Aukoju {{amount}} {{frequency}}",
-                "oneoff": "Aš aukoju {{amount}}"
-            },
-            "weekly": "savaitinis"
-        },
-        "thanks": "Dėkojame už jūsų auką!",
-        "to": "Dovanojimas {{organisation}}",
-        "payment": {
-            "intro": "Mokėjimo informacija:"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "average": "Vidutinė auka yra {{amount}}",
-        "error": {
-            "card": {
-                "missing": "Trūksta kredito kortelės numerio"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "bendras",
-            "initialisation": "iniciacija"
-        },
-        "form": {
-            "error": {
-                "minimum": "Mažiausia auka yra {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "Atviras"
-        },
-        "payment_methods": {
-            "card": "Kortelė",
-            "intro": "Kaip norite aukoti?",
-            "paypal": "\"PayPal\"",
-            "sepa": "SEPA",
-            "title": "Mokėjimo būdas"
-        }
-    },
-    "Subject": "Tema",
-    "Your message": "Jūsų žinutė"
+    "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
+    "message": "Turėtumėte tai pasirašyti!",
+    "title": "Beveik baigta! Ženkite kitą žingsnį.",
+    "twitter": {
+      "actionText": "Pasirašiau. turėtumėte ir jūs."
+    }
+  },
+  "twitter": {
+    "actionText": "Aš pasirašiau. tu taip pat turėtum"
+  },
+  "you need to be 18 years old": "jums reikia 18 metu"
 }
