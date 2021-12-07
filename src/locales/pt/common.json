@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "você precisa ter 18 anos de idade",
-    "twitter": {
-        "actionText": "Eu assinei. Tu também devias"
+  "Account": "Conta",
+  "Address": "Endereço",
+  "Amount": "Quantia",
+  "Birthdate": "Data de nascimento",
+  "City": "Cidade",
+  "Comment": "Comentário",
+  "Country": "País",
+  "Download": "Transferências",
+  "Download explanation": "O seu documento está agora pronto, estamos a enviar-lho também por e-mail.",
+  "Email": "E-mail",
+  "Email_Share button": "E-mail",
+  "Enter a number.": "Digite um número.",
+  "Enter a valid email address.": "Digite um e-mail válido.",
+  "First name": "Nome",
+  "Full Name": "Nome completo",
+  "Join": "Entrar",
+  "Last name": "Sobrenome",
+  "Legal": "Informação legal",
+  "Link_Share button": "Hiperligação",
+  "Locality": "Localidade",
+  "Next": "Próximo",
+  "No Thanks": "Não, obrigado",
+  "Other": "Outro",
+  "Phone": "Telefone",
+  "Place of birth": "Local de nascimento",
+  "Postal Code": "Código postal",
+  "Privacy": "Privacidade",
+  "Share": "Partilhar",
+  "Share on Facebook": "Partilhar no Facebook",
+  "Share on Twitter": "Compartilhar no Twitter",
+  "Sign": "Assine Agora!",
+  "Sign Up": "Criar conta",
+  "Sign now!": "Assine agora!",
+  "Sign the ECI": "Assine o ECI",
+  "Sign the ECI!": "Assine o ECI!",
+  "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
+  "Stay in touch": "Mantenha-se em contacto",
+  "Stay informed": "Fique informado",
+  "Street": "Rua",
+  "Subject": "Assunto",
+  "Thank you": "Obrigado",
+  "Thanks!": "Obrigado!",
+  "This field is required.": "Este campo é obrigatório.",
+  "Your message": "A sua mensagem",
+  "Your organisation account": "A sua conta de organização",
+  "consent": {
+    "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
+    "implicit": "Submeta este formulário para receber e-mails de {{name}}",
+    "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
+    "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",
+    "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail",
+    "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro",
+    "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
+    "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>"
+  },
+  "dialogTitle": "Mantenha-me informado sobre a campanha",
+  "donation": {
+    "amount": {
+      "change": "Modificar montante",
+      "choose": "Escolha uma quantia",
+      "intro": "Escolha uma Quantia :"
     },
-    "register": "Acrescentar meu nome",
-    "dialogTitle": "Mantenha-me informado sobre a campanha",
-    "Your organisation account": "A sua conta de organização",
-    "Thank you": "Obrigado",
-    "Sign now!": "Assine agora!",
-    "Next": "Próximo",
-    "Locality": "Localidade",
-    "Full Name": "Nome completo",
-    "Download": "Transferências",
-    "Comment": "Comentário",
-    "Birthdate": "Data de nascimento",
-    "Address": "Endereço",
-    "Account": "Conta",
-    "Download explanation": "O seu documento está agora pronto, estamos a enviar-lho também por e-mail.",
-    "Link_Share button": "Hiperligação",
-    "Email_Share button": "E-mail",
-    "Share on Twitter": "Compartilhar no Twitter",
-    "Share on Facebook": "Partilhar no Facebook",
-    "Sign Up": "Criar conta",
-    "Stay in touch": "Mantenha-se em contacto",
-    "No Thanks": "Não, obrigado",
-    "Privacy": "Privacidade",
-    "Legal": "Informação legal",
-    "Thanks!": "Obrigado!",
-    "Country": "País",
-    "City": "Cidade",
-    "Street": "Rua",
-    "Postal Code": "Código postal",
-    "Email": "E-mail",
-    "Last name": "Sobrenome",
-    "First name": "Nome",
-    "Amount": "Quantia",
-    "Enter a valid email address.": "Digite um e-mail válido.",
-    "Enter a number.": "Digite um número.",
-    "This field is required.": "Este campo é obrigatório.",
-    "progress": "{{count}} assinou. Vamos ao {{goal}}",
-    "progress_plural": "{{count}} assinaram. Vamos ao {{goal}}",
-    "Sign": "Assine Agora!",
-    "share": {
-        "email": {
-            "body": "Hi,\nPor favor assine, acho que você quer apoiar",
-            "subject": "Você deve assinar isto"
-        },
-        "message": "Devias assinar isto!",
-        "intro": "Ótimo, você assinou 👍. Para multiplicar o seu impacto, partilhe longe e longe para que todos vejam isto petition🙏.",
-        "title": "Quase pronto! Dê o próximo passo.",
-        "twitter": {
-            "actionText": "Eu assinei. Tu também devias."
+    "average": "A doação média é de {{amount}}.",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Falta o número do cartão de crédito"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "geral",
+      "initialisation": "inicialização"
     },
-    "consent": {
-        "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-        "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
-        "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro",
-        "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",
-        "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
-        "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-        "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail",
-        "implicit": "Submeta este formulário para receber e-mails de {{name}}"
+    "form": {
+      "error": {
+        "minimum": "A doação mínima é de {{ampount}}."
+      }
     },
+    "frequency": {
+      "ask": {
+        "monthly": "Torná-lo mensal?",
+        "oneoff": "Doe",
+        "weekly": "Fazer uma doação semanal?"
+      },
+      "each": {
+        "monthly": "cada mês",
+        "oneoff": "Uma vez",
+        "weekly": "cada ano"
+      },
+      "feedback": {
+        "monthly": "Estou doando {{amount}} {{frequency}}",
+        "oneoff": "Eu estou doando {{amount}}"
+      },
+      "monthly": "mensal",
+      "oneoff": "um fora",
+      "weekly": "semanalmente",
+      "yearly": "anual"
+    },
+    "iban": "iban",
+    "intro": "Doe para {{campaign}}",
+    "mobile": {
+      "open": "aberto"
+    },
+    "payment": {
+      "intro": "Detalhes do pagamento :"
+    },
+    "payment_methods": {
+      "card": "Cartão",
+      "intro": "Como você quer doar?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Forma de pagamento"
+    },
+    "thanks": "Obrigado pela sua doação!",
+    "to": "Doação para {{organisation}}"
+  },
+  "email": {
+    "body": "corpo",
+    "subject": "assunto"
+  },
+  "progress": "{{count}} assinou. Vamos ao {{goal}}",
+  "progress_plural": "{{count}} assinaram. Vamos ao {{goal}}",
+  "register": "Acrescentar meu nome",
+  "share": {
     "email": {
-        "subject": "assunto",
-        "body": "corpo"
+      "body": "Hi,\nPor favor assine, acho que você quer apoiar",
+      "subject": "Você deve assinar isto"
     },
-    "Phone": "Telefone",
-    "Other": "Outro",
-    "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
-    "Sign the ECI": "Assine o ECI",
-    "Share": "Partilhar",
-    "Join": "Entrar",
-    "Stay informed": "Fique informado",
-    "Place of birth": "Local de nascimento",
-    "Sign the ECI!": "Assine o ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Escolha uma Quantia :",
-            "change": "Modificar montante",
-            "choose": "Escolha uma quantia"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "cada mês",
-                "weekly": "cada ano",
-                "oneoff": "Uma vez"
-            },
-            "monthly": "mensal",
-            "yearly": "anual",
-            "oneoff": "um fora",
-            "ask": {
-                "monthly": "Torná-lo mensal?",
-                "oneoff": "Doe",
-                "weekly": "Fazer uma doação semanal?"
-            },
-            "feedback": {
-                "monthly": "Estou doando {{amount}} {{frequency}}",
-                "oneoff": "Eu estou doando {{amount}}"
-            },
-            "weekly": "semanalmente"
-        },
-        "thanks": "Obrigado pela sua doação!",
-        "to": "Doação para {{organisation}}",
-        "payment": {
-            "intro": "Detalhes do pagamento :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "average": "A doação média é de {{amount}}.",
-        "error": {
-            "card": {
-                "missing": "Falta o número do cartão de crédito"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "geral",
-            "initialisation": "inicialização"
-        },
-        "form": {
-            "error": {
-                "minimum": "A doação mínima é de {{ampount}}."
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "aberto"
-        },
-        "payment_methods": {
-            "card": "Cartão",
-            "intro": "Como você quer doar?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Forma de pagamento"
-        }
-    },
-    "Subject": "Assunto",
-    "Your message": "A sua mensagem"
+    "intro": "Ótimo, você assinou 👍. Para multiplicar o seu impacto, partilhe longe e longe para que todos vejam isto petition🙏.",
+    "message": "Devias assinar isto!",
+    "title": "Quase pronto! Dê o próximo passo.",
+    "twitter": {
+      "actionText": "Eu assinei. Tu também devias."
+    }
+  },
+  "twitter": {
+    "actionText": "Eu assinei. Tu também devias"
+  },
+  "you need to be 18 years old": "você precisa ter 18 anos de idade"
 }
