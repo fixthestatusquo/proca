@@ -1,148 +1,149 @@
 {
-    "you need to be 18 years old": "du måste vara 18 år gammal",
-    "twitter": {
-        "actionText": "Jag skrev under. du borde också"
+  "Account": "Konto",
+  "Address": "Adress",
+  "Amount": "Belopp",
+  "Birthdate": "Födelsedatum",
+  "City": "Stad",
+  "Comment": "Kommentar",
+  "Country": "Land",
+  "Download": "Hämta",
+  "Download explanation": "Ditt dokument är nu klart, vi skickar det också till dig via e-post.",
+  "Email": "E-post",
+  "Email_Share button": "E-post",
+  "Enter a number.": "Ange ett nummer.",
+  "Enter a valid email address.": "Ange en giltig e-postadress.",
+  "First name": "Förnamn",
+  "Full Name": "Fullständigt namn",
+  "Join": "Gå med",
+  "Last name": "Efternamn",
+  "Legal": "Användarvillkor",
+  "Link_Share button": "Länk",
+  "Locality": "Lokalitet",
+  "Next": "Nästa",
+  "No Thanks": "Nej tack",
+  "Other": "Övrigt",
+  "Phone": "Telefon",
+  "Place of birth": "Födelseort",
+  "Postal Code": "Postnummer",
+  "Privacy": "Integritetsskydd",
+  "Share": "Dela",
+  "Share on Facebook": "Dela på Facebook",
+  "Share on Twitter": "Dela på Twitter",
+  "Sign": "Skriv under",
+  "Sign Up": "Registrera",
+  "Sign now!": "Skriv under!",
+  "Sign the ECI": "Underteckna ECI",
+  "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
+  "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
+  "Stay in touch": "Hålla kontakten",
+  "Stay informed": "Håll dig uppdaterad",
+  "Street": "Gata",
+  "Subject": "Ämne",
+  "Thank you": "Tack.",
+  "Thanks!": "Tack!",
+  "This field is required.": "Detta fält krävs.",
+  "Your message": "Ditt meddelande",
+  "Your organisation account": "Ditt organisationskonto",
+  "consent": {
+    "confirm": "<0> Är du säker? </0> <1> Genom att välja \"Nej\" kan du inte ta reda på om den här kampanjen lyckas, eller om det finns fler åtgärder vi måste vidta för att vinna den. Om du väljer \"Ja\" håller vi dig uppdaterad om detta och våra andra brådskande kampanjer. </1> <2> Du kan när som helst avsluta prenumerationen. </2>",
+    "implicit": "Skicka in det här formuläret för att få e-post från {{name}}",
+    "intro": "Jag godkänner att {{name}} kontaktar mig om viktiga kampanjer",
+    "opt-in": "Ja, håll mig informerad via e-post",
+    "opt-in-both": "Ja, jag vill att {{partner}} och {{lead}} ska hålla mig informerad via e-post",
+    "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
+    "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
+    "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>"
+  },
+  "dialogTitle": "Håll mig informerad om kampanjen",
+  "donation": {
+    "amount": {
+      "change": "Ändringsbelopp",
+      "choose": "Välj ett belopp",
+      "intro": "Välj ett belopp :"
     },
-    "register": "Lägg till mitt namn",
-    "dialogTitle": "Håll mig informerad om kampanjen",
-    "Your organisation account": "Ditt organisationskonto",
-    "Thank you": "Tack.",
-    "Sign now!": "Skriv under!",
-    "Next": "Nästa",
-    "Locality": "Lokalitet",
-    "Full Name": "Fullständigt namn",
-    "Download": "Hämta",
-    "Comment": "Kommentar",
-    "Birthdate": "Födelsedatum",
-    "Address": "Adress",
-    "Download explanation": "Ditt dokument är nu klart, vi skickar det också till dig via e-post.",
-    "Link_Share button": "Länk",
-    "Email_Share button": "E-post",
-    "Share on Twitter": "Dela på Twitter",
-    "Share on Facebook": "Dela på Facebook",
-    "Sign Up": "Registrera",
-    "Stay in touch": "Hålla kontakten",
-    "No Thanks": "Nej tack",
-    "Privacy": "Integritetsskydd",
-    "Legal": "Användarvillkor",
-    "Thanks!": "Tack!",
-    "Country": "Land",
-    "City": "Stad",
-    "Street": "Gata",
-    "Postal Code": "Postnummer",
-    "Email": "E-post",
-    "Last name": "Efternamn",
-    "First name": "Förnamn",
-    "Amount": "Belopp",
-    "Enter a valid email address.": "Ange en giltig e-postadress.",
-    "Enter a number.": "Ange ett nummer.",
-    "This field is required.": "Detta fält krävs.",
-    "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
-    "progress_plural": "",
-    "Sign": "Skriv under",
-    "share": {
-        "email": {
-            "body": "Hej,\nVänligen skriv, jag tror att du vill stödja det",
-            "subject": "Du borde underteckna detta"
-        },
-        "message": "Du borde underteckna detta!",
-        "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
-        "title": "Nästan klar! Ta nästa steg.",
-        "twitter": {
-            "actionText": "Jag har skrivit under. Det borde du också göra."
+    "average": "Den genomsnittliga donationen är {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Kreditkortsnumret saknas"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "Allmänt",
+      "initialisation": "Initialisering"
     },
-    "consent": {
-        "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
-        "confirm": "<0> Är du säker? </0> <1> Genom att välja \"Nej\" kan du inte ta reda på om den här kampanjen lyckas, eller om det finns fler åtgärder vi måste vidta för att vinna den. Om du väljer \"Ja\" håller vi dig uppdaterad om detta och våra andra brådskande kampanjer. </1> <2> Du kan när som helst avsluta prenumerationen. </2>",
-        "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
-        "opt-in": "Ja, håll mig informerad via e-post",
-        "intro": "Jag godkänner att {{name}} kontaktar mig om viktiga kampanjer",
-        "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
-        "opt-in-both": "Ja, jag vill att {{partner}} och {{lead}} ska hålla mig informerad via e-post",
-        "implicit": "Skicka in det här formuläret för att få e-post från {{name}}"
+    "form": {
+      "error": {
+        "minimum": "Den minsta donationen är {{ampount}}"
+      }
     },
-    "Account": "Konto",
+    "frequency": {
+      "ask": {
+        "monthly": "Månadsvis?",
+        "oneoff": "Donera",
+        "weekly": "Gör detta till en veckodonation?"
+      },
+      "each": {
+        "monthly": "varje månad",
+        "oneoff": "När",
+        "weekly": "varje år"
+      },
+      "feedback": {
+        "monthly": "Jag donerar {{amount}} {{frequency}}",
+        "oneoff": "Jag donerar {{amount}}"
+      },
+      "monthly": "månadsvis",
+      "oneoff": "en gång",
+      "weekly": "veckovis",
+      "yearly": "årligen"
+    },
+    "iban": "iban",
+    "intro": "Donera till {{campaign}}",
+    "mobile": {
+      "open": "öppna"
+    },
+    "payment": {
+      "intro": "Betalningsuppgifter :"
+    },
+    "payment_methods": {
+      "card": "Kort",
+      "intro": "Hur vill du donera?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Betalningsmetod"
+    },
+    "thanks": "Tack för din donation!",
+    "to": "Donation till {{organisation}}"
+  },
+  "email": {
+    "body": "kropp",
+    "subject": "ämne"
+  },
+  "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
+  "progress_plural": "",
+  "register": "Lägg till mitt namn",
+  "share": {
     "email": {
-        "subject": "ämne",
-        "body": "kropp"
+      "body": "Hej,\nVänligen skriv, jag tror att du vill stödja det",
+      "subject": "Du borde underteckna detta"
     },
-    "Phone": "Telefon",
-    "Other": "Övrigt",
-    "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
-    "Sign the ECI": "Underteckna ECI",
-    "Share": "Dela",
-    "Join": "Gå med",
-    "Stay informed": "Håll dig uppdaterad",
-    "Place of birth": "Födelseort",
-    "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
-    "donation": {
-        "amount": {
-            "intro": "Välj ett belopp :",
-            "change": "Ändringsbelopp",
-            "choose": "Välj ett belopp"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "varje månad",
-                "weekly": "varje år",
-                "oneoff": "När"
-            },
-            "monthly": "månadsvis",
-            "yearly": "årligen",
-            "oneoff": "en gång",
-            "ask": {
-                "monthly": "Månadsvis?",
-                "oneoff": "Donera",
-                "weekly": "Gör detta till en veckodonation?"
-            },
-            "feedback": {
-                "monthly": "Jag donerar {{amount}} {{frequency}}",
-                "oneoff": "Jag donerar {{amount}}"
-            },
-            "weekly": "veckovis"
-        },
-        "thanks": "Tack för din donation!",
-        "to": "Donation till {{organisation}}",
-        "payment": {
-            "intro": "Betalningsuppgifter :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "payment_methods": {
-            "title": "Betalningsmetod",
-            "card": "Kort",
-            "intro": "Hur vill du donera?",
-            "paypal": "PayPal",
-            "sepa": "SEPA"
-        },
-        "average": "Den genomsnittliga donationen är {{amount}}",
-        "error": {
-            "card": {
-                "missing": "Kreditkortsnumret saknas"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "Allmänt",
-            "initialisation": "Initialisering"
-        },
-        "form": {
-            "error": {
-                "minimum": "Den minsta donationen är {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "öppna"
-        }
-    },
-    "Subject": "Ämne",
-    "Your message": "Ditt meddelande"
+    "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
+    "message": "Du borde underteckna detta!",
+    "title": "Nästan klar! Ta nästa steg.",
+    "twitter": {
+      "actionText": "Jag har skrivit under. Det borde du också göra."
+    }
+  },
+  "twitter": {
+    "actionText": "Jag skrev under. du borde också"
+  },
+  "you need to be 18 years old": "du måste vara 18 år gammal"
 }
