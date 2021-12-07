@@ -1,147 +1,148 @@
 {
-    "Link_Share button": "קישור",
-    "Email_Share button": "דוא״ל",
-    "Share on Facebook": "שיתוף בפייסבוק",
-    "Sign Up": "הרשמה",
-    "No Thanks": "לא, תודה",
-    "Privacy": "פרטיות",
-    "Legal": "משפטי",
-    "Country": "ארץ",
-    "City": "עיר",
-    "Street": "רחוב",
-    "Email": "דוא״ל",
-    "Last name": "שם הרשימה",
-    "Amount": "כמות",
-    "Enter a valid email address.": "נא להקליד כתובת דוא״ל תקנית.",
-    "This field is required.": "שדה זה דרוש.",
-    "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
-    "Share on Twitter": "שתף בטוויטר",
-    "Stay in touch": "תישאר בקשר",
-    "Thanks!": "תודה!",
-    "Postal Code": "מיקוד",
-    "First name": "שם פרטי",
-    "Enter a number.": "הזן מספר.",
-    "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
-    "Sign": "היכנס עכשיו!",
-    "share": {
-        "email": {
-            "body": "היי,\nאנא חתום, אני חושב שאתה רוצה לתמוך בזה",
-            "subject": "אתה צריך לחתום על זה"
-        },
-        "message": "אתה צריך לחתום על זה!",
-        "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
-        "title": "כמעט סיימתי! בצע את הצעד הבא.",
-        "twitter": {
-            "actionText": "נרשמתי. גם אתה צריך"
+  "Account": "חשבון",
+  "Address": "כתובת",
+  "Amount": "כמות",
+  "Birthdate": "תאריך לידה",
+  "City": "עיר",
+  "Comment": "הערה",
+  "Country": "ארץ",
+  "Download": "הורד",
+  "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
+  "Email": "דוא״ל",
+  "Email_Share button": "דוא״ל",
+  "Enter a number.": "הזן מספר.",
+  "Enter a valid email address.": "נא להקליד כתובת דוא״ל תקנית.",
+  "First name": "שם פרטי",
+  "Full Name": "שם מלא",
+  "Join": "הצטרפות",
+  "Last name": "שם הרשימה",
+  "Legal": "משפטי",
+  "Link_Share button": "קישור",
+  "Locality": "יישוב",
+  "Next": "הבא",
+  "No Thanks": "לא, תודה",
+  "Other": "אחר",
+  "Phone": "טלפון",
+  "Place of birth": "מקום לידה",
+  "Postal Code": "מיקוד",
+  "Privacy": "פרטיות",
+  "Share": "שיתוף",
+  "Share on Facebook": "שיתוף בפייסבוק",
+  "Share on Twitter": "שתף בטוויטר",
+  "Sign": "היכנס עכשיו!",
+  "Sign Up": "הרשמה",
+  "Sign now!": "חתמו עכשיו!",
+  "Sign the ECI": "חתמו על ה- ECI",
+  "Sign the ECI!": "חתום על ECI!",
+  "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
+  "Stay in touch": "תישאר בקשר",
+  "Stay informed": "להישאר מעודכן",
+  "Street": "רחוב",
+  "Subject": "נושא",
+  "Thank you": "תודה רבה לך!",
+  "Thanks!": "תודה!",
+  "This field is required.": "שדה זה דרוש.",
+  "Your message": "ההודעה שלך",
+  "Your organisation account": "חשבון הארגון שלך",
+  "consent": {
+    "confirm": "<0> האם אתה בטוח? </ 0> <1> על ידי בחירה באפשרות 'לא', לא תוכל לגלות אם מסע פרסום זה מוצלח, או אם נצטרך לבצע פעולות נוספות יחד כדי לזכות בו. אם תבחר 'כן' אנו נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו. </ 1> <2> תוכל לבטל את הרישום בכל עת. </ 2>",
+    "implicit": "שלח טופס זה לקבלת אימיילים מאת {{name}}",
+    "intro": "אני מסכים {{name}} ליצור איתי קשר בקמפיינים חשובים",
+    "opt-in": "כן, עדכן אותי באמצעות דוא\"ל",
+    "opt-in-both": "כן, אני רוצה ש- {{partner}} ו- {{lead}} יידעו אותי באמצעות דוא\"ל",
+    "opt-out": "לא, אל תשלח לי דוא\"ל או תעדכן אותי בעתיד",
+    "processing": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
+    "processing-nocookie": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>"
+  },
+  "dialogTitle": "עדכן אותי לגבי הקמפיין",
+  "donation": {
+    "amount": {
+      "change": "שנה כמות",
+      "choose": "בחר כמות",
+      "intro": "בחר כמות:"
+    },
+    "average": "התרומה הממוצעת היא {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "חסר מספר כרטיס אשראי"
+      },
+      "form": {
+        "invalid": {
+          "iban": "איבן"
         }
+      },
+      "general": "כללי",
+      "initialisation": "אתחול"
     },
-    "consent": {
-        "processing": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
-        "confirm": "<0> האם אתה בטוח? </ 0> <1> על ידי בחירה באפשרות 'לא', לא תוכל לגלות אם מסע פרסום זה מוצלח, או אם נצטרך לבצע פעולות נוספות יחד כדי לזכות בו. אם תבחר 'כן' אנו נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו. </ 1> <2> תוכל לבטל את הרישום בכל עת. </ 2>",
-        "opt-out": "לא, אל תשלח לי דוא\"ל או תעדכן אותי בעתיד",
-        "opt-in": "כן, עדכן אותי באמצעות דוא\"ל",
-        "intro": "אני מסכים {{name}} ליצור איתי קשר בקמפיינים חשובים",
-        "processing-nocookie": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
-        "opt-in-both": "כן, אני רוצה ש- {{partner}} ו- {{lead}} יידעו אותי באמצעות דוא\"ל",
-        "implicit": "שלח טופס זה לקבלת אימיילים מאת {{name}}"
+    "form": {
+      "error": {
+        "minimum": "התרומה המינימלית היא {{ampount}}"
+      }
     },
-    "you need to be 18 years old": "אתה צריך להיות בן 18",
-    "twitter": {
-        "actionText": "נרשמתי. גם אתה צריך"
+    "frequency": {
+      "ask": {
+        "monthly": "לעשות את זה חודשי?",
+        "oneoff": "לִתְרוֹם",
+        "weekly": "האם לעשות זאת כתרומה שבועית?"
+      },
+      "each": {
+        "monthly": "כל חודש",
+        "oneoff": "פַּעַם",
+        "weekly": "כל שנה"
+      },
+      "feedback": {
+        "monthly": "אני תורם {{amount}} {{frequency}}",
+        "oneoff": "אני תורם {{amount}}"
+      },
+      "monthly": "יַרחוֹן",
+      "oneoff": "חד פעמי",
+      "weekly": "שְׁבוּעִי",
+      "yearly": "שְׁנָתִי"
     },
-    "register": "הוסף את שמי",
-    "dialogTitle": "עדכן אותי לגבי הקמפיין",
-    "Your organisation account": "חשבון הארגון שלך",
-    "Thank you": "תודה רבה לך!",
-    "Sign now!": "חתמו עכשיו!",
-    "Next": "הבא",
-    "Locality": "יישוב",
-    "Full Name": "שם מלא",
-    "Download": "הורד",
-    "Comment": "הערה",
-    "Birthdate": "תאריך לידה",
-    "Address": "כתובת",
-    "Account": "חשבון",
+    "iban": "איבן",
+    "intro": "תרומה ל-{{campaign}}",
+    "mobile": {
+      "open": "לִפְתוֹחַ"
+    },
+    "payment": {
+      "intro": "פרטי תשלום :"
+    },
+    "payment_methods": {
+      "card": "כַּרְטִיס",
+      "intro": "איך אתה רוצה לתרום?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "אמצעי תשלום"
+    },
+    "thanks": "תודה על תרומתך!",
+    "to": "תרומה ל-{{organisation}}"
+  },
+  "email": {
+    "body": "גוף",
+    "subject": "נושא"
+  },
+  "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
+  "register": "הוסף את שמי",
+  "share": {
     "email": {
-        "subject": "נושא",
-        "body": "גוף"
+      "body": "היי,\nאנא חתום, אני חושב שאתה רוצה לתמוך בזה",
+      "subject": "אתה צריך לחתום על זה"
     },
-    "Phone": "טלפון",
-    "Other": "אחר",
-    "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
-    "Sign the ECI": "חתמו על ה- ECI",
-    "Share": "שיתוף",
-    "Join": "הצטרפות",
-    "Stay informed": "להישאר מעודכן",
-    "Place of birth": "מקום לידה",
-    "Sign the ECI!": "חתום על ECI!",
-    "donation": {
-        "amount": {
-            "intro": "בחר כמות:",
-            "change": "שנה כמות",
-            "choose": "בחר כמות"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "כל חודש",
-                "weekly": "כל שנה",
-                "oneoff": "פַּעַם"
-            },
-            "monthly": "יַרחוֹן",
-            "yearly": "שְׁנָתִי",
-            "oneoff": "חד פעמי",
-            "ask": {
-                "monthly": "לעשות את זה חודשי?",
-                "oneoff": "לִתְרוֹם",
-                "weekly": "האם לעשות זאת כתרומה שבועית?"
-            },
-            "feedback": {
-                "monthly": "אני תורם {{amount}} {{frequency}}",
-                "oneoff": "אני תורם {{amount}}"
-            },
-            "weekly": "שְׁבוּעִי"
-        },
-        "thanks": "תודה על תרומתך!",
-        "to": "תרומה ל-{{organisation}}",
-        "payment": {
-            "intro": "פרטי תשלום :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "error": {
-            "general": "כללי",
-            "card": {
-                "missing": "חסר מספר כרטיס אשראי"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "איבן"
-                }
-            },
-            "initialisation": "אתחול"
-        },
-        "average": "התרומה הממוצעת היא {{amount}}",
-        "form": {
-            "error": {
-                "minimum": "התרומה המינימלית היא {{ampount}}"
-            }
-        },
-        "iban": "איבן",
-        "mobile": {
-            "open": "לִפְתוֹחַ"
-        },
-        "payment_methods": {
-            "card": "כַּרְטִיס",
-            "intro": "איך אתה רוצה לתרום?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "אמצעי תשלום"
-        }
-    },
-    "Subject": "נושא",
-    "Your message": "ההודעה שלך"
+    "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
+    "message": "אתה צריך לחתום על זה!",
+    "title": "כמעט סיימתי! בצע את הצעד הבא.",
+    "twitter": {
+      "actionText": "נרשמתי. גם אתה צריך"
+    }
+  },
+  "twitter": {
+    "actionText": "נרשמתי. גם אתה צריך"
+  },
+  "you need to be 18 years old": "אתה צריך להיות בן 18"
 }
