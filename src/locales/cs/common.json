@@ -1,149 +1,150 @@
 {
-    "Link_Share button": "Odkaz",
-    "Email_Share button": "E-mail",
-    "Share on Twitter": "Sdílet na Twitteru",
-    "Share on Facebook": "Sdílet na Facebooku",
-    "Sign Up": "Zaregistrovat se",
-    "No Thanks": "Ne, díky",
-    "Privacy": "Soukromí",
-    "Legal": "Právní",
-    "Thanks!": "Díky!",
-    "Country": "Stát",
-    "City": "City",
-    "Street": "Ulice",
-    "Postal Code": "Poštovní směrovací číslo",
-    "Email": "E-mail",
-    "Last name": "Příjmení",
-    "First name": "Jméno",
-    "Amount": "Částka",
-    "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
-    "Enter a number.": "Zadejte jméno.",
-    "This field is required.": "Vyplňte prosím toto pole.",
-    "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
-    "Stay in touch": "Zůstat v kontaktu",
-    "Sign": "Chci podepsat!",
-    "share": {
-        "email": {
-            "body": "Ahoj,\nPodepište prosím, myslím, že to chcete podpořit",
-            "subject": "Měli byste to podepsat"
-        },
-        "message": "Měli byste to podepsat!",
-        "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
-        "title": "Téměř hotovo! Přejděte k dalšímu kroku.",
-        "twitter": {
-            "actionText": "Podepsal jsem. měl bys také"
+  "Account": "Účet",
+  "Address": "Adresa",
+  "Amount": "Částka",
+  "Birthdate": "Datum narození",
+  "City": "City",
+  "Comment": "Komentář",
+  "Country": "Stát",
+  "Download": "Stáhnout",
+  "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem.",
+  "Email": "E-mail",
+  "Email_Share button": "E-mail",
+  "Enter a number.": "Zadejte jméno.",
+  "Enter a valid email address.": "Zadejte platnou e-mailovou adresu.",
+  "First name": "Jméno",
+  "Full Name": "Celé jméno",
+  "Join": "Přidat se",
+  "Last name": "Příjmení",
+  "Legal": "Právní",
+  "Link_Share button": "Odkaz",
+  "Locality": "Oblast",
+  "Next": "Další",
+  "No Thanks": "Ne, díky",
+  "Other": "Ostatní",
+  "Phone": "Telefón",
+  "Place of birth": "Místo narození",
+  "Postal Code": "Poštovní směrovací číslo",
+  "Privacy": "Soukromí",
+  "Share": "Sdílet",
+  "Share on Facebook": "Sdílet na Facebooku",
+  "Share on Twitter": "Sdílet na Twitteru",
+  "Sign": "Chci podepsat!",
+  "Sign Up": "Zaregistrovat se",
+  "Sign now!": "Chci podepsat!",
+  "Sign the ECI": "Podepište ECI",
+  "Sign the ECI!": "Podepište ECI!",
+  "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
+  "Stay in touch": "Zůstat v kontaktu",
+  "Stay informed": "Chci být nadále v obraze",
+  "Street": "Ulice",
+  "Subject": "Předmět",
+  "Thank you": "Děkuji ti",
+  "Thanks!": "Díky!",
+  "This field is required.": "Vyplňte prosím toto pole.",
+  "Your message": "Vaše zpráva",
+  "Your organisation account": "Váš účet organizace",
+  "consent": {
+    "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
+    "implicit": "Odesláním tohoto formuláře získáte e-maily od {{name}}",
+    "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
+    "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
+    "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
+    "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
+    "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
+    "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte."
+  },
+  "dialogTitle": "Informujte mě o kampani",
+  "donation": {
+    "amount": {
+      "change": "Částka změny",
+      "choose": "Zvolte částku",
+      "intro": "Vyberte si částku :"
+    },
+    "average": "Průměrný příspěvek je {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Chybí číslo kreditní karty"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "obecně",
+      "initialisation": "inicializace"
     },
-    "consent": {
-        "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
-        "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
-        "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
-        "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
-        "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
-        "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte.",
-        "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
-        "implicit": "Odesláním tohoto formuláře získáte e-maily od {{name}}"
+    "form": {
+      "error": {
+        "minimum": "Minimální příspěvek je {{ampount}}"
+      }
     },
-    "you need to be 18 years old": "musíte mít 18 let",
-    "twitter": {
-        "actionText": "Já jsem se podepsal. měl bys také"
+    "frequency": {
+      "ask": {
+        "monthly": "Měsíčně?",
+        "oneoff": "Darovat",
+        "weekly": "Udělat z toho týdenní příspěvek?"
+      },
+      "each": {
+        "monthly": "každý měsíc",
+        "oneoff": "Jakmile",
+        "weekly": "každý rok"
+      },
+      "feedback": {
+        "monthly": "Přispívám {{amount}} {{frequency}}",
+        "oneoff": "Přispívám {{amount}}"
+      },
+      "monthly": "měsíční",
+      "oneoff": "jednorázově",
+      "weekly": "týdně",
+      "yearly": "roční"
     },
-    "register": "Přidejte mé jméno",
-    "dialogTitle": "Informujte mě o kampani",
-    "Your organisation account": "Váš účet organizace",
-    "Thank you": "Děkuji ti",
-    "Sign now!": "Chci podepsat!",
-    "Next": "Další",
-    "Locality": "Oblast",
-    "Full Name": "Celé jméno",
-    "Download": "Stáhnout",
-    "Comment": "Komentář",
-    "Birthdate": "Datum narození",
-    "Address": "Adresa",
-    "Account": "Účet",
+    "iban": "iban",
+    "intro": "Přispějte na {{campaign}}",
+    "mobile": {
+      "open": "otevřít"
+    },
+    "payment": {
+      "intro": "Platební údaje :"
+    },
+    "payment_methods": {
+      "card": "Karta",
+      "intro": "Jak chcete přispět?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Způsob platby"
+    },
+    "thanks": "Děkujeme vám za váš dar!",
+    "to": "Příspěvek na {{organisation}}"
+  },
+  "email": {
+    "body": "tělo",
+    "subject": "předmět"
+  },
+  "progress_0": "{{count}} podepsali. Přejděme k {{goal}}.",
+  "progress_1": "",
+  "progress_2": "",
+  "register": "Přidejte mé jméno",
+  "share": {
     "email": {
-        "subject": "předmět",
-        "body": "tělo"
+      "body": "Ahoj,\nPodepište prosím, myslím, že to chcete podpořit",
+      "subject": "Měli byste to podepsat"
     },
-    "Phone": "Telefón",
-    "Other": "Ostatní",
-    "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
-    "Sign the ECI": "Podepište ECI",
-    "Share": "Sdílet",
-    "Join": "Přidat se",
-    "Stay informed": "Chci být nadále v obraze",
-    "Place of birth": "Místo narození",
-    "Sign the ECI!": "Podepište ECI!",
-    "donation": {
-        "amount": {
-            "intro": "Vyberte si částku :",
-            "change": "Částka změny",
-            "choose": "Zvolte částku"
-        },
-        "frequency": {
-            "monthly": "měsíční",
-            "each": {
-                "monthly": "každý měsíc",
-                "weekly": "každý rok",
-                "oneoff": "Jakmile"
-            },
-            "yearly": "roční",
-            "oneoff": "jednorázově",
-            "ask": {
-                "monthly": "Měsíčně?",
-                "oneoff": "Darovat",
-                "weekly": "Udělat z toho týdenní příspěvek?"
-            },
-            "feedback": {
-                "monthly": "Přispívám {{amount}} {{frequency}}",
-                "oneoff": "Přispívám {{amount}}"
-            },
-            "weekly": "týdně"
-        },
-        "thanks": "Děkujeme vám za váš dar!",
-        "to": "Příspěvek na {{organisation}}",
-        "payment": {
-            "intro": "Platební údaje :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "error": {
-            "general": "obecně",
-            "card": {
-                "missing": "Chybí číslo kreditní karty"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "initialisation": "inicializace"
-        },
-        "average": "Průměrný příspěvek je {{amount}}",
-        "form": {
-            "error": {
-                "minimum": "Minimální příspěvek je {{ampount}}"
-            }
-        },
-        "iban": "iban",
-        "mobile": {
-            "open": "otevřít"
-        },
-        "payment_methods": {
-            "card": "Karta",
-            "intro": "Jak chcete přispět?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Způsob platby"
-        }
-    },
-    "progress_0": "{{count}} podepsali. Přejděme k {{goal}}.",
-    "progress_1": "",
-    "progress_2": "",
-    "Subject": "Předmět",
-    "Your message": "Vaše zpráva"
+    "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
+    "message": "Měli byste to podepsat!",
+    "title": "Téměř hotovo! Přejděte k dalšímu kroku.",
+    "twitter": {
+      "actionText": "Podepsal jsem. měl bys také"
+    }
+  },
+  "twitter": {
+    "actionText": "Já jsem se podepsal. měl bys také"
+  },
+  "you need to be 18 years old": "musíte mít 18 let"
 }
