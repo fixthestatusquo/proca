@@ -1,149 +1,150 @@
 {
-    "consent": {
-        "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych pilnych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
-        "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie o nowościach w przyszłości",
-        "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
-        "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i {{campaign}} postępach.",
-        "processing": "Twoje dane osobowe będą przechowywane w sposób prywatny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
-        "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>.",
-        "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco za pośrednictwem poczty elektronicznej",
-        "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}."
+  "Account": "Konto",
+  "Address": "Adres",
+  "Amount": "Kwota",
+  "Birthdate": "Data urodzenia",
+  "City": "Miasto",
+  "Comment": "Komentarz",
+  "Country": "Kraj",
+  "Download": "Pobierz",
+  "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie.",
+  "Email": "E-mail",
+  "Email_Share button": "E-mail",
+  "Enter a number.": "Wprowadź liczbę.",
+  "Enter a valid email address.": "Wprowadź prawidłowy adres e-mail.",
+  "First name": "Imię",
+  "Full Name": "Imię i nazwisko",
+  "Join": "Dołącz do",
+  "Last name": "Nazwisko",
+  "Legal": "Prawna",
+  "Link_Share button": "Link",
+  "Locality": "Położenie",
+  "Next": "Następny",
+  "No Thanks": "Nie, dziękuję.",
+  "Other": "Inne",
+  "Phone": "Telefon",
+  "Place of birth": "Miejsce urodzenia",
+  "Postal Code": "Kod pocztowy",
+  "Privacy": "Prywatność",
+  "Share": "Udostępnij",
+  "Share on Facebook": "Udostępnij na Facebooku",
+  "Share on Twitter": "Udostępnij na Twitterze",
+  "Sign": "Podpisz teraz!",
+  "Sign Up": "Zarejestruj się",
+  "Sign now!": "Podpisz teraz!",
+  "Sign the ECI": "Podpisz europejską inicjatywę obywatelską",
+  "Sign the ECI!": "Podpisz europejską inicjatywę obywatelską!",
+  "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
+  "Stay in touch": "Bądź w kontakcie",
+  "Stay informed": "Bądź na bieżąco",
+  "Street": "Ulica",
+  "Subject": "Przedmiot:",
+  "Thank you": "Dziękuję.",
+  "Thanks!": "Dzięki!",
+  "This field is required.": "To pole jest wymagane.",
+  "Your message": "Twoja wiadomość",
+  "Your organisation account": "Konto organizacji",
+  "consent": {
+    "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych pilnych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
+    "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}.",
+    "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i {{campaign}} postępach.",
+    "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
+    "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco za pośrednictwem poczty elektronicznej",
+    "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie o nowościach w przyszłości",
+    "processing": "Twoje dane osobowe będą przechowywane w sposób prywatny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
+    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>."
+  },
+  "dialogTitle": "Informuj mnie na bieżąco o kampanii",
+  "donation": {
+    "amount": {
+      "change": "Zmień kwotę",
+      "choose": "Wybierz kwotę",
+      "intro": "Wybierz kwotę :"
     },
-    "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie.",
-    "Link_Share button": "Link",
-    "Email_Share button": "E-mail",
-    "Share on Twitter": "Udostępnij na Twitterze",
-    "Share on Facebook": "Udostępnij na Facebooku",
-    "Sign Up": "Zarejestruj się",
-    "Stay in touch": "Bądź w kontakcie",
-    "No Thanks": "Nie, dziękuję.",
-    "Privacy": "Prywatność",
-    "Legal": "Prawna",
-    "Thanks!": "Dzięki!",
-    "Country": "Kraj",
-    "City": "Miasto",
-    "Street": "Ulica",
-    "Postal Code": "Kod pocztowy",
-    "Email": "E-mail",
-    "Last name": "Nazwisko",
-    "First name": "Imię",
-    "Amount": "Kwota",
-    "Enter a valid email address.": "Wprowadź prawidłowy adres e-mail.",
-    "Enter a number.": "Wprowadź liczbę.",
-    "This field is required.": "To pole jest wymagane.",
-    "Sign": "Podpisz teraz!",
-    "share": {
-        "email": {
-            "body": "Witam,\nProszę podpisać, myślę, że chcesz go wesprzeć",
-            "subject": "Powinien pan podpisać ten dokument"
-        },
-        "message": "Powinieneś to podpisać!",
-        "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
-        "title": "Prawie gotowe! Zrób następny krok.",
-        "twitter": {
-            "actionText": "Ja podpisałem. Ty też powinieneś."
+    "average": "Średnia wysokość darowizny wynosi {{amount}}.",
+    "button": {
+      "cta": {
+        "monthly": "Donate {{amount}} every month",
+        "oneoff": "Donate {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Brak numeru karty kredytowej"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
         }
+      },
+      "general": "ogólne",
+      "initialisation": "inicjalizacja"
     },
-    "you need to be 18 years old": "musisz mieć ukończone 18 lat",
-    "twitter": {
-        "actionText": "Ja podpisałem. Ty też powinieneś."
+    "form": {
+      "error": {
+        "minimum": "Minimalna kwota darowizny wynosi {{ampount}}."
+      }
     },
-    "register": "Dodaj moje imię",
-    "dialogTitle": "Informuj mnie na bieżąco o kampanii",
-    "Your organisation account": "Konto organizacji",
-    "Thank you": "Dziękuję.",
-    "Sign now!": "Podpisz teraz!",
-    "Next": "Następny",
-    "Locality": "Położenie",
-    "Full Name": "Imię i nazwisko",
-    "Download": "Pobierz",
-    "Comment": "Komentarz",
-    "Birthdate": "Data urodzenia",
-    "Address": "Adres",
-    "Account": "Konto",
+    "frequency": {
+      "ask": {
+        "monthly": "Czy to będzie co miesiąc?",
+        "oneoff": "Donate",
+        "weekly": "Czy ma to być cotygodniowa darowizna?"
+      },
+      "each": {
+        "monthly": "każdego miesiąca",
+        "oneoff": "Raz",
+        "weekly": "każdego roku"
+      },
+      "feedback": {
+        "monthly": "Przekazuję darowiznę {{amount}} {{currency}}",
+        "oneoff": "Przekazuję datki {{amount}}"
+      },
+      "monthly": "miesięcznie",
+      "oneoff": "jednorazowo",
+      "weekly": "tygodnik",
+      "yearly": "corocznie"
+    },
+    "iban": "iban",
+    "intro": "Przekaż darowiznę na rzecz {{campaign}}.",
+    "mobile": {
+      "open": "otwórz"
+    },
+    "payment": {
+      "intro": "Szczegóły płatności :"
+    },
+    "payment_methods": {
+      "card": "Karta",
+      "intro": "Jak chcesz przekazać darowiznę?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Metoda płatności"
+    },
+    "thanks": "Dziękujemy za darowiznę!",
+    "to": "Darowizna na rzecz {{organisation}}"
+  },
+  "email": {
+    "body": "body",
+    "subject": "temat"
+  },
+  "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
+  "register": "Dodaj moje imię",
+  "share": {
     "email": {
-        "subject": "temat",
-        "body": "body"
+      "body": "Witam,\nProszę podpisać, myślę, że chcesz go wesprzeć",
+      "subject": "Powinien pan podpisać ten dokument"
     },
-    "Phone": "Telefon",
-    "Other": "Inne",
-    "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
-    "Sign the ECI": "Podpisz europejską inicjatywę obywatelską",
-    "Share": "Udostępnij",
-    "Join": "Dołącz do",
-    "Stay informed": "Bądź na bieżąco",
-    "Place of birth": "Miejsce urodzenia",
-    "Sign the ECI!": "Podpisz europejską inicjatywę obywatelską!",
-    "donation": {
-        "amount": {
-            "intro": "Wybierz kwotę :",
-            "change": "Zmień kwotę",
-            "choose": "Wybierz kwotę"
-        },
-        "frequency": {
-            "each": {
-                "monthly": "każdego miesiąca",
-                "weekly": "każdego roku",
-                "oneoff": "Raz"
-            },
-            "monthly": "miesięcznie",
-            "yearly": "corocznie",
-            "oneoff": "jednorazowo",
-            "ask": {
-                "monthly": "Czy to będzie co miesiąc?",
-                "oneoff": "Donate",
-                "weekly": "Czy ma to być cotygodniowa darowizna?"
-            },
-            "feedback": {
-                "monthly": "Przekazuję darowiznę {{amount}} {{currency}}",
-                "oneoff": "Przekazuję datki {{amount}}"
-            },
-            "weekly": "tygodnik"
-        },
-        "thanks": "Dziękujemy za darowiznę!",
-        "to": "Darowizna na rzecz {{organisation}}",
-        "payment": {
-            "intro": "Szczegóły płatności :"
-        },
-        "button": {
-            "cta": {
-                "monthly": "Donate {{amount}} every month",
-                "oneoff": "Donate {{amount}}"
-            }
-        },
-        "iban": "iban",
-        "average": "Średnia wysokość darowizny wynosi {{amount}}.",
-        "error": {
-            "card": {
-                "missing": "Brak numeru karty kredytowej"
-            },
-            "form": {
-                "invalid": {
-                    "iban": "iban"
-                }
-            },
-            "general": "ogólne",
-            "initialisation": "inicjalizacja"
-        },
-        "form": {
-            "error": {
-                "minimum": "Minimalna kwota darowizny wynosi {{ampount}}."
-            }
-        },
-        "mobile": {
-            "open": "otwórz"
-        },
-        "payment_methods": {
-            "card": "Karta",
-            "intro": "Jak chcesz przekazać darowiznę?",
-            "paypal": "PayPal",
-            "sepa": "SEPA",
-            "title": "Metoda płatności"
-        }
-    },
-    "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-    "progress_1": "",
-    "progress_2": "",
-    "Subject": "Przedmiot:",
-    "Your message": "Twoja wiadomość"
+    "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
+    "message": "Powinieneś to podpisać!",
+    "title": "Prawie gotowe! Zrób następny krok.",
+    "twitter": {
+      "actionText": "Ja podpisałem. Ty też powinieneś."
+    }
+  },
+  "twitter": {
+    "actionText": "Ja podpisałem. Ty też powinieneś."
+  },
+  "you need to be 18 years old": "musisz mieć ukończone 18 lat"
 }
