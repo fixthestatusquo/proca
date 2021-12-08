@@ -127,11 +127,17 @@ the main behaviour
 
 Register is the main form used to collect personal data and consent
 
+most fields can either be displayed or hidden, most fields can either be required or not. First name and emails are always displayed AND required
 - config.component.field.organisation: do we collect the organisation details (with prefill options using twitter)
+- config.component.field.lastname: {required:boolean}
 - config.component.field.postcode: boolean (show/hide) or {required:boolean}
 - config.component.field.country: boolean (show/hide) or {required:boolean}
-- config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
+- config.component.field.comment: boolean (show/hide) or {required:boolean}
 - config.component.field.phone: boolean (show/hide)
+
+## Country
+- config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
+
 
 ## Consent
 
