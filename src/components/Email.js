@@ -193,31 +193,33 @@ const Component = (props) => {
   //
   const ExtraFields = props => {
     return (<>
-      {config.component.email.field?.subject && <Grid item xs={12} className={props.classes.field}>
+      {config.component.email?.field?.subject && <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="subject"
-                  required={config.component.email?.field?.subject?.required}
+                 required={config.component.email.field.subject.required}
                   label={t("Subject")}
                 />
               </Grid> }
 
-            {config.component.email.message?.subject &&  <Grid item xs={12} className={props.classes.field}>
+            {config.component.email?.field?.message &&  <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="message"
                   multiline
                   maxRows="10"
-                  required={config.component.email?.field?.message?.required}
+                  required={config.component.email.field.message.required}
                   label={t("Your message")}
                 />
               </Grid> }
       </>
     );
   };
+
+  const onClick = config.component.email?.server !== true ? send : null;
   return (
     <>
-      {config.component.email.progress && (
+      {config.component.email?.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
       {config.component.email?.filter?.includes("country") && (
@@ -237,7 +239,7 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register form={form} done={props.done} onClick={send} extraFields={ExtraFields}/>
+      <Register form={form} done={props.done} onClick={onClick} extraFields={ExtraFields}/>
     </>
   );
 };
