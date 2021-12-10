@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Box, Grid, FormHelperText } from "@material-ui/core";
 
 import { useTranslation, Trans } from "react-i18next";
