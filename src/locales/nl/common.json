@@ -1,26 +1,26 @@
 {
-  "Account": "Rekening",
+  "Account": "Account",
   "Address": "Adres",
   "Amount": "Bedrag",
   "Birthdate": "Geboortedatum",
   "City": "Stad",
-  "Comment": "Commentaar",
+  "Comment": "Opmerkingen",
   "Country": "Land",
   "Download": "Download",
-  "Download explanation": "Uw document is nu klaar, wij mailen het ook naar u",
+  "Download explanation": "Uw document is nu klaar, we mailen het ook naar u",
   "Email": "E-mail",
   "Email_Share button": "E-mail",
   "Enter a number.": "Voer een nummer in.",
   "Enter a valid email address.": "Voer een geldig e-mailadres in.",
   "First name": "Voornaam",
   "Full Name": "Volledige naam",
-  "Join": "Word lid van",
-  "Last name": "Achternaam",
+  "Join": "Doe mee",
+  "Last name": "Familienaam",
   "Legal": "Wettelijk",
   "Link_Share button": "Link",
-  "Locality": "Plaats",
+  "Locality": "Gemeente",
   "Next": "Volgende",
-  "No Thanks": "Geen dank",
+  "No Thanks": "Nee, bedankt",
   "Other": "Andere",
   "Phone": "Telefoon",
   "Place of birth": "Geboorteplaats",
@@ -34,7 +34,7 @@
   "Sign now!": "Teken nu!",
   "Sign the ECI": "Onderteken de ECI",
   "Sign the ECI!": "Teken de ECI!",
-  "Sorry, we couldn't save": "Sorry, we konden geen",
+  "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Stay in touch": "Blijf in contact",
   "Stay informed": "Blijf op de hoogte",
   "Street": "Straat",
@@ -43,14 +43,14 @@
   "Thanks!": "Bedankt.",
   "This field is required.": "Dit veld is verplicht.",
   "Your message": "Uw bericht",
-  "Your organisation account": "Uw organisatie account",
+  "Your organisation account": "Uw organisatie's account",
   "consent": {
-    "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten kunnen komen of deze campagne succesvol is, of dat er meer actie nodig is die we samen moeten ondernemen om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende campagnes.</1><2>U kunt zich op elk moment uitschrijven.</2>",
+    "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
     "implicit": "Verstuur dit formulier om e-mails te ontvangen van {{name}}",
-    "intro": "Kom meer te weten over onze campagnes, acties en {{campaign}} vorderingen",
+    "intro": "Kom meer te weten over onze campagnes, acties en {{campaign}} updates",
     "opt-in": "Ja, ik wil dat {{partner}} mij via e-mail op de hoogte houdt",
     "opt-in-both": "Ja, ik wil dat {{partner}} en {{lead}} mij via e-mail op de hoogte houden",
-    "opt-out": "Nee, stuur me geen e-mails of hou me op de hoogte in de toekomst",
+    "opt-out": "Nee, stuur me geen e-mails - hou me niet op de hoogte in de toekomst",
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>"
   },
@@ -101,7 +101,7 @@
         "oneoff": "Ik doneer {{amount}}"
       },
       "monthly": "maandelijks",
-      "oneoff": "eens",
+      "oneoff": "Eén keer",
       "weekly": "wekelijks",
       "yearly": "jaarlijks"
     },
@@ -124,10 +124,10 @@
     "to": "Donatie aan {{organisation}}"
   },
   "email": {
-    "body": "lichaam",
+    "body": "hoofdtekst",
     "subject": "onderwerp"
   },
-  "progress": "{{count}} hebben getekend. Laten we naar {{goal}} gaan.",
+  "progress": "{{count}} hebben getekend. Laten we voor {{goal}} gaan.",
   "progress_plural": "",
   "register": "Mijn naam toevoegen",
   "share": {
@@ -135,15 +135,15 @@
       "body": "Hallo,\nTeken alsjeblieft, ik denk dat je het wilt steunen",
       "subject": "Je moet dit ondertekenen"
     },
-    "intro": "Geweldig, je hebt getekend 👍. Om je impact te vermenigvuldigen, deel je deze petitie wijd en zijd om ervoor te zorgen dat iedereen deze petitie ziet 🙏.",
-    "message": "Je moet dit tekenen!",
-    "title": "Bijna klaar! Neem de volgende stap.",
+    "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
+    "message": "Teken dit!",
+    "title": "Bijna klaar! Zet de volgende stap.",
     "twitter": {
       "actionText": "Ik heb getekend. Dat zou jij ook moeten doen."
     }
   },
   "twitter": {
-    "actionText": "Ik heb getekend. Dat zou jij ook moeten doen."
+    "actionText": "Ik heb getekend. Doe mee!"
   },
-  "you need to be 18 years old": "je moet 18 jaar oud zijn"
+  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }
