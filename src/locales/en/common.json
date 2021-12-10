@@ -89,7 +89,7 @@
       "weekly": "weekly",
       "yearly": "yearly"
     },
-    "iban": "iban",
+    "iban": "IBAN",
     "intro": "Donate to {{campaign}}",
     "mobile": {
       "open": "open"
