@@ -102,7 +102,10 @@ export default function Register(props) {
 
   const onSubmit = async (data) => {
     data.tracking = Url.utm();
-    if (config.component.consent?.implicit) data.privacy = "opt-in";
+    if (config.component.consent?.implicit) {
+      data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
+      // implicit true or opt-in or opt-out
+    }
 
     const result = await addActionContact(
       config.test

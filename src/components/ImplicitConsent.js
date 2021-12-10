@@ -42,16 +42,15 @@ const ImplicitConsent = (props) => {
   const classes = useStyles();
 
   const link =
-    config.component?.consent?.privacyPolicy ||
-    "https://proca.foundation/privacy_policy";
+    config.component.consent.privacyPolicy ||
+    "https://proca.app/privacy_policy";
   const consentProcessing =
-    config.component?.country === false
+    config.component.country === false
       ? "consent.processing-nocookie"
       : "consent.processing";
-
-  return (
-    <Fragment>
-      <Grid item xs={12}>
+  return (<>
+    {config.component.consent.implicit !=="opt-out" && (
+      <><Grid item xs={12}>
         <FormHelperText className={classes.bigHelper} margin={layout.margin}>
           {t("consent.implicit", {
             name: config.organisation,
@@ -66,8 +65,8 @@ const ImplicitConsent = (props) => {
           </Trans>
         </Box>
       </Grid>
-    </Fragment>
-  );
+      </>
+    )}</>);
 };
 
 export default ImplicitConsent;
