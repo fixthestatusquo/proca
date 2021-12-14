@@ -269,7 +269,7 @@ export default function Register(props) {
               <Grid
                 item
                 xs={12}
-                sm={compact ? 12 : 3}
+                sm={(compact || config.component.register?.field?.country === false  ) ? 12 : 3}
                 className={classes.field}
               >
                 <TextField
