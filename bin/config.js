@@ -56,16 +56,12 @@ const save = (config, suffix = "") => {
 };
 
 const saveCampaign = (campaign, lang = "en") => {
-  const defaultConfig = { actionPage: {}, locales: {} };
-  defaultConfig.locales[lang] = {
-    title: campaign.title,
-    description: campaign.description || campaign.request,
-  };
   console.log(file("campaign/" + campaign.name));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
     JSON.stringify(campaign, null, 2),
   );
+  return "campaign/" + campaign.name +".json";
 };
 
 const api = async (query, variables, name = "query") => {
@@ -104,13 +100,14 @@ const getCampaign = async (name) => {
   const query = `
 query getCampaign ($name:String!){
   campaigns (name:$name) {
-    id, org {
-      name
-    }
+      id,
+      title,name,config,
+      org {name,title}
   }
 }`;
 
   const data = await api(query, { name: name }, "getCampaign");
+  data.campaigns[0].config = JSON.parse(data.campaigns[0].config);
   return data.campaigns[0];
 };
 
@@ -170,7 +167,9 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
   return page;
 };
 
-const pullCampaign = async (name) => {};
+const pullCampaign = async (name) => {
+  return await getCampaign (name);
+};
 
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
@@ -267,7 +266,7 @@ query actionPage ($id:Int!) {
     );
 
     if (res.status >= 400) {
-      throw new Error("Bad response from server");
+      throw new Error("Bad response from server:" +res.status);
     }
 
     const resJson = await res.json();
@@ -377,5 +376,7 @@ module.exports = {
   apiLink,
   actionPageFromLocalConfig,
   pushCampaign,
+  pullCampaign,
+  saveCampaign,
   addPage,
 };
