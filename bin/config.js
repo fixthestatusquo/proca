@@ -107,6 +107,9 @@ query getCampaign ($name:String!){
 }`;
 
   const data = await api(query, { name: name }, "getCampaign");
+  if (!data.campaigns[0]) 
+    throw new Error ("can't find campaign "+name);
+  console.log(data.campaigns[0]);
   data.campaigns[0].config = JSON.parse(data.campaigns[0].config);
   return data.campaigns[0];
 };
