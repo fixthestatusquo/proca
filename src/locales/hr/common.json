@@ -7,7 +7,7 @@
   "Comment": "Komentar",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
-  "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila.",
+  "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila",
   "Email": "E-mail",
   "Email_Share button": "E-mail",
   "Enter a number.": "Upišite broj.",
@@ -57,15 +57,15 @@
   "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
     "amount": {
-      "change": "Promijenite iznos",
+      "change": "Promijeni iznos",
       "choose": "Odaberite iznos",
-      "intro": "Odaberite iznos:"
+      "intro": "Odaberi iznos"
     },
     "average": "Prosječna donacija je {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Doniraj {{amount}} svaki mjesec",
+        "oneoff": "Doniraj {{amount}}"
       }
     },
     "error": {
@@ -77,19 +77,19 @@
           "iban": "iban"
         }
       },
-      "general": "Općenito",
+      "general": "opće",
       "initialisation": "inicijalizacija"
     },
     "form": {
       "error": {
-        "minimum": "Minimalna donacija je {{ampount}}"
+        "minimum": "Minimalna donacija je {{amount}}"
       }
     },
     "frequency": {
       "ask": {
         "monthly": "Neka bude mjesečno?",
-        "oneoff": "Donirajte",
-        "weekly": "Želite li ovo učiniti tjednom donacijom?"
+        "oneoff": "Doniraj",
+        "weekly": "Ovo učiniti tjednom donacijom?"
       },
       "each": {
         "monthly": "svaki mjesec",
@@ -101,12 +101,12 @@
         "oneoff": "Doniram {{amount}}"
       },
       "monthly": "mjesečno",
-      "oneoff": "jednokratno",
-      "weekly": "tjedni",
+      "oneoff": "jednom",
+      "weekly": "tjedno",
       "yearly": "godišnje"
     },
-    "iban": "iban",
-    "intro": "Donirajte za {{campaign}}",
+    "iban": "IBAN",
+    "intro": "Doniraj za {{campaign}}",
     "mobile": {
       "open": "otvorena"
     },
@@ -115,21 +115,21 @@
     },
     "payment_methods": {
       "card": "Kartica",
-      "intro": "Kako želite donirati?",
+      "intro": "Kako želiš donirati?",
       "paypal": "PayPal",
       "sepa": "SEPA",
       "title": "Način plaćanja"
     },
-    "thanks": "Hvala vam na donaciji!",
+    "thanks": "Hvala na donaciji!",
     "to": "Donacija za {{organisation}}"
   },
   "email": {
     "body": "sadržaj",
     "subject": "predmet"
   },
-  "progress_0": "{{count}} su potpisali. Idemo na {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
+  "progress_0": "{{count}} potpis. Idemo na {{goal}}",
+  "progress_1": "{{count}} potpisa. Idemo na {{goal}}",
+  "progress_2": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
   "share": {
     "email": {
