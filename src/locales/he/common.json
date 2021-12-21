@@ -141,6 +141,11 @@
       "actionText": "נרשמתי. גם אתה צריך"
     }
   },
+  "target": {
+    "country": {
+      "empty": "בחר מדינה אחרת, אין עם מי לפנות ב-{{country}}"
+    }
+  },
   "twitter": {
     "actionText": "נרשמתי. גם אתה צריך"
   },
