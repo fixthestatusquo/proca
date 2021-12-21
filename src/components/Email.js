@@ -12,7 +12,7 @@ import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
 
 import uuid from "@lib/uuid";
@@ -97,6 +97,7 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
+      // display error if empty
       setProfiles(d);
     },
     [allProfiles]
@@ -218,7 +219,7 @@ const Component = (props) => {
 
   const onClick = config.component.email?.server !== true ? send : null;
   return (
-    <>
+      <Container maxWidth="sm">
       {config.component.email?.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
@@ -233,14 +234,14 @@ const Component = (props) => {
               actionPage={config.actionPage}
               done={props.done}
               actionUrl={props.actionUrl || data.actionUrl}
-              actionText={config.param.twitterText || t("twitter.actionText")}
+              actionText={config.param.twitterText || t(["campaign:twitter"])}
               {...d}
             ></Action>
           ))}
         </List>
       )}
       <Register form={form} done={props.done} onClick={onClick} extraFields={ExtraFields}/>
-    </>
+    </Container>
   );
 };
 
