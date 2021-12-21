@@ -82,7 +82,7 @@
     },
     "form": {
       "error": {
-        "minimum": "Minimalna kwota darowizny wynosi {{ampount}}."
+        "minimum": "Minimalna kwota darowizny wynosi {{amount}}."
       }
     },
     "frequency": {
