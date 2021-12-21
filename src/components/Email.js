@@ -16,6 +16,7 @@ import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
 
 import uuid from "@lib/uuid";
+import {getCountryName} from "@lib/i18n";
 import { addAction } from "@lib/server";
 
 const Component = (props) => {
@@ -34,7 +35,7 @@ const Component = (props) => {
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { watch, getValues } = form;
+  const { watch, getValues, setError, clearErrors } = form;
 
   const country = watch ("country");
   const fields = getValues (["subject","message"]);
@@ -89,6 +90,7 @@ const Component = (props) => {
 
   const filterProfiles = useCallback(
     (country) => {
+      console.log("filtering for "+country);
       if (!country) return;
       country = country.toLowerCase();
       const d = allProfiles.filter((d) => {
@@ -98,13 +100,22 @@ const Component = (props) => {
         );
       });
       // display error if empty
+      //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
+      if (d.length === 0) {
+        setError("country",{message:t("target.country.empty",{country:getCountryName(country)}),type:"no_empty"});
+      } else {
+        console.log("clear error for country");
+        clearErrors("country");
+      }
       setProfiles(d);
     },
     [allProfiles]
   );
 
   useEffect(() => {
+    console.log("change profiles for "+country);
     filterProfiles(country);
+
   }, [country, filterProfiles]);
 
   const send = (data) => {

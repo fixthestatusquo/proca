@@ -104,6 +104,11 @@
     "thanks": "Thank you for your donation!",
     "to": "Donation to {{organisation}}"
   },
+  "target": {
+    "country":{
+    "empty": "Select another country, there is no-one to contact in {{country}}"
+    }
+  },
   "email": {
     "body": "body",
     "subject": "subject"

@@ -15,6 +15,8 @@ export const allCountries = isoCountries.getNames(config.lang.toLowerCase(), {
 
 let resources = {};
 
+export const getCountryName = iso => ( isoCountries.getName(iso.toUpperCase(),config.lang.toLowerCase(),{select:"official"}))
+
 resources[config.lang.toLowerCase()] = { common: locales };
 
 i18n
