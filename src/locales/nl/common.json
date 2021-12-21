@@ -142,6 +142,11 @@
       "actionText": "Ik heb getekend. Dat zou jij ook moeten doen."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Ik heb getekend. Doe mee!"
   },
