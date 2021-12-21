@@ -143,6 +143,11 @@
       "actionText": "potpisao sam. trebao bi i ti"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Odaberite drugu zemlju, nemate nikoga za kontaktirati u {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
   },
