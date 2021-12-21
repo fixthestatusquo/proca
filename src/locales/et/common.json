@@ -142,6 +142,11 @@
       "actionText": "Ma kirjutasin alla. sa peaksid ka alla kirjutama."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Kirjutasin alla. sa peaksid ka"
   },
