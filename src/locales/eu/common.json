@@ -142,6 +142,11 @@
       "actionText": "sinatu nuen. zuk ere beharko zenuke"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Sinatu nuen. zuk ere egin beharko zenuke"
   },
