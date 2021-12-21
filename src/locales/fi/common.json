@@ -142,6 +142,11 @@
       "actionText": "Allekirjoitin. sinunkin pitäisi"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
+    }
+  },
   "twitter": {
     "actionText": "Allekirjoitin. Sinunkin pitäisi"
   },
