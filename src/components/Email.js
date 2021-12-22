@@ -109,7 +109,7 @@ const Component = (props) => {
       }
       setProfiles(d);
     },
-    [allProfiles]
+    [allProfiles,setError,clearErrors,t]
   );
 
   useEffect(() => {
