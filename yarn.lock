@@ -6603,10 +6603,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18n-iso-countries@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/i18n-iso-countries/-/i18n-iso-countries-7.1.0.tgz#123513a36c31fcb0f69127d5634304e810b0ff1a"
-  integrity sha512-XJ3c46J8zs8EXzaHN7NnVf079yupl8PHSr6zbMufhkLFopEXbM9u79i6H11w6HUdkiPkARcO2+YpSmIfUJyttw==
+i18n-iso-countries@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/i18n-iso-countries/-/i18n-iso-countries-7.2.0.tgz#2b03fb9d56ace7b28d9bbf9dbcbaff6c5121ebf2"
+  integrity sha512-Gv77ztnU3l5zeJvd0JLbsFsmHOj/rjuTbSJtdUZShedrh3uepWDbbvg49vzvQOdD1HcyzhUT6fhczVx6Lsj7aw==
   dependencies:
     diacritics "1.3.0"
 
