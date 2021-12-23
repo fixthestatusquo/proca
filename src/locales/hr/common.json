@@ -145,7 +145,7 @@
   },
   "target": {
     "country": {
-      "empty": "Odaberite drugu zemlju, nemate nikoga za kontaktirati u {{country}}"
+      "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
     }
   },
   "twitter": {
