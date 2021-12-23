@@ -143,6 +143,11 @@
       "actionText": "Ja podpisałem. Ty też powinieneś."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}."
+    }
+  },
   "twitter": {
     "actionText": "Ja podpisałem. Ty też powinieneś."
   },

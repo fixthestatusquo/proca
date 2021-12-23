@@ -142,6 +142,11 @@
       "actionText": "Ich habe unterschrieben. Das sollten Sie auch."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Wählen Sie ein anderes Land, in {{country}} ist niemand zu erreichen."
+    }
+  },
   "twitter": {
     "actionText": "Ich habe unterschrieben. Das sollten Sie auch."
   },

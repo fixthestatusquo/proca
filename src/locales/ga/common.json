@@ -140,6 +140,11 @@
       "actionText": "Shínigh mé. ba chóir duit freisin"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Shínigh mé. ba chóir duit freisin"
   },

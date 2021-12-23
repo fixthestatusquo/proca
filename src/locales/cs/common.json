@@ -143,6 +143,11 @@
       "actionText": "Podepsal jsem. měl bys také"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat."
+    }
+  },
   "twitter": {
     "actionText": "Já jsem se podepsal. měl bys také"
   },

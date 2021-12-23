@@ -140,6 +140,11 @@
       "actionText": "Es parakstījos. tev arī vajadzētu"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Es parakstījos. jums arī vajadzētu"
   },

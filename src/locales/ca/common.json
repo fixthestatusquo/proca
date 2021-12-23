@@ -142,6 +142,11 @@
       "actionText": "Vaig signar. tu també hauries"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "He signat. Tu també ho hauries de fer"
   },

@@ -142,6 +142,11 @@
       "actionText": "na sanya hannu ya kamata ku ma"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Na sanya hannu. ya kamata ku ma"
   },

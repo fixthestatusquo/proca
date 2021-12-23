@@ -144,6 +144,11 @@
       "actionText": "Podpisal sem se. tudi ti bi se moral."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral."
+    }
+  },
   "twitter": {
     "actionText": "Podpisal sem. tudi vi bi morali"
   },

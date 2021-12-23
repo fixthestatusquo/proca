@@ -142,6 +142,11 @@
       "actionText": "Eu assinei. Tu também devias."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Selecione outro país, não há ninguém para contactar em {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Eu assinei. Tu também devias"
   },
