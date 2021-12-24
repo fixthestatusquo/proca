@@ -231,7 +231,7 @@ export default function Register(props) {
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={1}>
-            {config.component?.register?.field.organisation && (
+            {config.component?.register?.field?.organisation && (
               <Organisation form={form} compact={compact} />
             )}
             <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
