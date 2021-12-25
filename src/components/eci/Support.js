@@ -59,16 +59,12 @@ export default (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation(config.lang);
   const [data] = useData();
+ 
+  const apiUrl = config.component.eci.apiUrl || process.env.REACT_APP_API_URL;
 
-  if (!config.component.eci.apiUrl) {
-    config.component.eci.apiUrl = process.env.REACT_APP_API_URL;
-  }
+  const actionpage = config.component.eci.actionpage || config.actionPage;
 
-  if (!config.component.eci.actionpage) {
-    config.component.eci.actionpage = config.actionPage;
-  }
-
-  useCount(config.component.eci.actionpage); // TODO, make conditional to fetch the counter?
+  useCount(actionpage); // TODO, make conditional to fetch the counter?
   //config.component.eci.apiUrl
 
   const form = useForm({
@@ -113,9 +109,9 @@ export default (props) => {
 
     const result = await addSupport(
       config.test ? "test" : "support",
-      +config.component.eci.actionpage,
+      +actionpage,
       data,
-      { captcha: token, apiUrl: config.component.eci.apiUrl }
+      { captcha: token, apiUrl: apiUrl }
     );
 
     if (result.errors) {
