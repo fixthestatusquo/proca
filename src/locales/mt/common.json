@@ -140,6 +140,11 @@
       "actionText": "I ffirmajt. għandek ukoll"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"
+    }
+  },
   "twitter": {
     "actionText": "I ffirmat. għandek ukoll"
   },

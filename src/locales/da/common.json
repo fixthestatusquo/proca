@@ -142,6 +142,11 @@
       "actionText": "Jeg har skrevet under. Det bør du også gøre"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Jeg underskrev. du burde også"
   },

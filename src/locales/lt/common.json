@@ -140,6 +140,11 @@
       "actionText": "Pasirašiau. turėtumėte ir jūs."
     }
   },
+  "target": {
+    "country": {
+      "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Aš pasirašiau. tu taip pat turėtum"
   },

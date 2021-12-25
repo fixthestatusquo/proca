@@ -141,6 +141,11 @@
       "actionText": "Mo fowo si. ìwọ náà gbọ́dọ̀"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Yan orilẹ-ede miiran, ko si ẹnikan lati kan si ni {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Mo fowo si. o yẹ ki o tun"
   },

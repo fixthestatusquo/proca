@@ -142,6 +142,11 @@
       "actionText": "Podpísal som. mal by si aj ty"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Vyberte inú krajinu, v {{country}} nie je nikoho, koho by ste mohli kontaktovať"
+    }
+  },
   "twitter": {
     "actionText": "Podpísal som sa. mali by ste tiež"
   },

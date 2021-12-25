@@ -142,6 +142,11 @@
       "actionText": "He firmado. Tú también deberías hacerlo"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}"
+    }
+  },
   "twitter": {
     "actionText": "Yo firmé. Tú también deberías hacerlo"
   },

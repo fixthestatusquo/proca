@@ -141,6 +141,11 @@
       "actionText": "Am semnat. ar trebui să semnezi și tu"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}."
+    }
+  },
   "twitter": {
     "actionText": "Am semnat. ar trebui si tu"
   },

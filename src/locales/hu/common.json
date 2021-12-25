@@ -142,6 +142,11 @@
       "actionText": "Aláírtam. neked is alá kellene írnod"
     }
   },
+  "target": {
+    "country": {
+      "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."
+    }
+  },
   "twitter": {
     "actionText": "Aláírtam. Neked is kellene"
   },
