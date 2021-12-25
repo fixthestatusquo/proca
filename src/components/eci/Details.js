@@ -11,7 +11,7 @@ import FileIcon from "@material-ui/icons/Description";
 
 export default function Details(props) {
   const config = useCampaignConfig();
-  const eci = config.component.eci;
+  const eci =  Object.assign({}, config.component.eci);
   const { t } = useTranslation();
   const r = /REQ.ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
   eci.registrationUrl = r

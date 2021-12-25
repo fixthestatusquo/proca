@@ -18,7 +18,6 @@ let resources = {};
 export const getCountryName = iso => ( isoCountries.getName(iso.toUpperCase(),config.lang.toLowerCase(),{select:"official"}))
 
 resources[config.lang.toLowerCase()] = { common: locales };
-console.log(resources);
 i18n
   //  .use(LanguageDetector)
   .use(initReactI18next)
