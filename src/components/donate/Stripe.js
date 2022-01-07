@@ -206,6 +206,7 @@ const PaymentForm = (props) => {
             name="postcode"
             render={({ onChange, value }) => (
               <LayoutTextField
+                name="postcode"
                 className={classes.textField}
                 label={t("Postal Code")}
                 autoComplete="postal-code"
