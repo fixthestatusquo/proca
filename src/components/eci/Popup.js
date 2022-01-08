@@ -26,7 +26,7 @@ const EciPopup = (props) => {
         );
         break;
       default:
-        console.log("");
+        console.log(event.target.href);
     }
   };
 

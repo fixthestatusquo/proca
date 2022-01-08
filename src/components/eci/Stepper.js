@@ -35,7 +35,6 @@ export default function StepperEci(props) {
   };
 
   const doneEci = () => {
-    console.log("eci saved");
     setSubmitted(true);
     setValue(steps[step("eci") + 1]);
   };
