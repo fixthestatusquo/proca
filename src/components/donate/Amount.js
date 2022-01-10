@@ -14,6 +14,8 @@ import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
 import { Alert } from "@material-ui/lab";
 
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
 const useStyles = makeStyles((theme) => ({
   amount: {
     width: "5em",
@@ -63,8 +65,21 @@ const DonateAmount = (props) => {
   }
 
   const [, setDonateStep] = useDonateStep();
-  const [, setData] = useData();
+  const [formData, setData] = useData();
   const [complete, setComplete] = useState(false);
+
+  const frequency = formData.frequency;
+
+  const providerOptions = {
+    "client-id": donateConfig.paypal.clientId,
+    currency: donateConfig.currency.code,
+  };
+
+  if (frequency !== "oneoff") {
+    providerOptions["intent"] = "subscription";
+    providerOptions["vault"] = "true";
+  }
+
 
   return (
     <Container id="proca-donate" className={classes.container}>
@@ -96,32 +111,35 @@ const DonateAmount = (props) => {
               {t("donation.amount.intro")}
             </Typography>
 
-            <Amounts />
+            <PayPalScriptProvider options={providerOptions}>
 
-            <Frequencies />
+              <Amounts />
 
-            <Typography paragraph variant="h6" gutterBottom color="textPrimary">
-              {t("donation.payment_methods.intro")}
-            </Typography>
-            {!config.component.donation.external && (
-              <PaymentMethodButtons
-                classes={classes}
-                onClickStripe={() => {
-                  setData("paymentMethod", "stripe");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onClickSepa={() => {
-                  setData("paymentMethod", "sepa");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onComplete={() => {
-                  setComplete(true);
-                  props.go("donate_Thanks");
-                }}
-              />
-            )}
+              <Frequencies />
+
+              <Typography paragraph variant="h6" gutterBottom color="textPrimary">
+                {t("donation.payment_methods.intro")}
+              </Typography>
+              {!config.component.donation.external && (
+                <PaymentMethodButtons
+                  classes={classes}
+                  onClickStripe={() => {
+                    setData("paymentMethod", "stripe");
+                    setDonateStep(1);
+                    props.done();
+                  }}
+                  onClickSepa={() => {
+                    setData("paymentMethod", "sepa");
+                    setDonateStep(1);
+                    props.done();
+                  }}
+                  onComplete={() => {
+                    setComplete(true);
+                    props.go("donate_Thanks");
+                  }}
+                />
+              )}
+            </PayPalScriptProvider>
           </CardContent>
         </Grid>
       </Grid>

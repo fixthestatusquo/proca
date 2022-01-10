@@ -10,7 +10,6 @@ import {
   PayPalButtons,
   FUNDING,
   usePayPalScriptReducer,
-  DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
 import { addDonateContact } from "../../lib/server.js";
 import { Box, Button, CircularProgress, makeStyles } from "@material-ui/core";
@@ -161,15 +160,9 @@ const onApproveOrder = async ({
   onComplete(procaResponse);
 };
 
-const onCreateOrder = ({ amount, description, data, actions }) => {
-  return actions.order.create({
-    purchase_units: [{ amount: { value: parseFloat(amount) } }],
-    description: description,
-    application_context: {
-      shipping_preference: "NO_SHIPPING",
-    },
-  });
-};
+// const onCreateOrder = ({ amount, description, data, actions }) => {
+//   return;
+// };
 
 const useStyles = makeStyles({
   root: {
@@ -205,34 +198,7 @@ const LoadingSpinner = () => {
   );
 };
 
-const useFrequencyChange = (frequency) => {
-  const [{ options }, dispatch] = usePayPalScriptReducer();
 
-  let changed = false;
-
-  // anything but oneoff is a subscription
-  if (frequency !== "oneoff" && options.intent !== "subscription") {
-    changed = true;
-    options.intent = "subscription";
-    options.vault = "true";
-
-    // oneoff should never have intent
-  } else if (frequency === "oneoff" && options.intent !== "") {
-    changed = true;
-    options.intent = "";
-    options.value = "";
-  } else {
-    // noop - we're already in sync
-  }
-
-  if (changed) {
-    dispatch({
-      type: DISPATCH_ACTION.RESET_OPTIONS,
-      value: options,
-    });
-  }
-  return frequency;
-};
 
 const ProcaPayPalButton = (props) => {
   const config = useCampaignConfig();
@@ -246,22 +212,17 @@ const ProcaPayPalButton = (props) => {
 
   const [{ isPending }] = usePayPalScriptReducer();
 
-  // const frequency = props.frequency;
-  const frequency = useFrequencyChange(props.frequency);
+  const createOrder = (paypalResponse, actions) => {
+    setFormData("paymentMethod", "paypal");
 
-  const createOrder = useCallback(
-    (paypalResponse, actions) => {
-      setFormData("paymentMethod", "paypal");
-      return onCreateOrder({
-        amount: amount,
-        description: description,
-        paypalResponse: paypalResponse,
-        actions: actions,
-        isTest: !!config.test,
-      });
-    },
-    [amount, config.test, description, setFormData]
-  );
+    return actions.order.create({
+      purchase_units: [{ amount: { value: parseFloat(amount) } }],
+      description: description,
+      application_context: {
+        shipping_preference: "NO_SHIPPING",
+      },
+    })
+  };
 
   const approveOrder = useCallback(
     (paypalResponse, actions) => {
@@ -307,7 +268,6 @@ const ProcaPayPalButton = (props) => {
     },
     [setFormData, formData, props.onComplete, actionPage, config.test]
   );
-
   const configuredStyles = donateConfig.paypal?.styles || {
     color: "gold", // how do I read the variant to know this?
     height: 45,
@@ -330,7 +290,7 @@ const ProcaPayPalButton = (props) => {
   };
 
   const buttonOptions =
-    frequency === "oneoff" ? orderOptions : subscriptionOptions;
+    formData.frequency === "oneoff" ? orderOptions : subscriptionOptions;
 
   return (
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">

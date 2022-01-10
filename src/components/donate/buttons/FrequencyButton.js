@@ -4,6 +4,7 @@ import { Button, Grid, Typography, withStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../../hooks/useConfig";
 import { makeStyles } from "@material-ui/styles";
+import { DISPATCH_ACTION, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 const StyledButton = withStyles((theme) => ({
   root: {
@@ -14,11 +15,42 @@ const StyledButton = withStyles((theme) => ({
   disabled: {},
 }))(Button);
 
+const setPayPalFrequency = (frequency, options, dispatch) => {
+  let changed = false;
+
+  // anything but oneoff is a subscription
+  if (frequency !== "oneoff" && options.intent !== "subscription") {
+    changed = true;
+    options.intent = "subscription";
+    options.vault = "true";
+
+    // oneoff should never have intent
+  } else if (frequency === "oneoff" && options.intent !== "") {
+    changed = true;
+    options.intent = "";
+    options.value = "";
+  } else {
+    // noop - we're already in sync
+  }
+
+  if (changed) {
+    dispatch({
+      type: DISPATCH_ACTION.RESET_OPTIONS,
+      value: options,
+    });
+  }
+  return frequency;
+};
+
+
+
 const FrequencyButton = ({ buttonValue, selected, classes, children }) => {
   const [, setData] = useData();
+  const [{ options }, dispatch] = usePayPalScriptReducer();
 
   const handleFrequency = (i) => {
     setData("frequency", i);
+    setPayPalFrequency(i, options, dispatch);
   };
 
   const value = buttonValue;
