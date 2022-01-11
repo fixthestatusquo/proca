@@ -1,5 +1,8 @@
 // for consent
 
+t("consent.confirmAction", "We have sent a confirmation link by email to the following address:\n {{email}}\nPlease retrieve the email right now and click on the link it contains. Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there really is a person behind every participation. We are waiting... \n");
+t("consent.confirmOptIn", "Don’t forget to check your mailbox (including your  spam folder!) and confirm your email subscription");
+
 t("consent.processing","Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>");
 t("consent.processing-nocookie","Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>");
 
