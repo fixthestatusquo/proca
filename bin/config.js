@@ -1,12 +1,23 @@
 const fs = require("fs");
 const path = require("path");
-const { link, admin, widget, request, basicAuth } = require("@proca/api");
+const { link, admin, request, basicAuth } = require("@proca/api");
 const crossFetch = require("cross-fetch");
 require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
+
+const API_URL = process.env.API_URL || process.env.REACT_APP_API_URL || "https://api.proca.app/api";
+
+// mkdir -p
+const mkdirp = (pathToFile) =>
+      pathToFile.split('/').reduce((prev, curr, i) => {
+        if(prev && fs.existsSync(prev) === false) {
+          fs.mkdirSync(prev);
+        }
+        return prev + '/' + curr;
+      });
 
 const file = (id) => {
   return path.resolve(__dirname, tmp + id + ".json");
@@ -56,6 +67,7 @@ const save = (config, suffix = "") => {
 };
 
 const saveCampaign = (campaign, lang = "en") => {
+  // XXX so much repetition!
   console.log(file("campaign/" + campaign.name));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
@@ -63,6 +75,43 @@ const saveCampaign = (campaign, lang = "en") => {
   );
   return "campaign/" + campaign.name +".json";
 };
+
+const saveTargets = (campaignName, targets) => {
+  const fileName = file("campaign/" + campaignName + "/targets");
+  console.log(fileName);
+  mkdirp(fileName);
+  fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
+  return fileName;
+}
+
+const pushCampaignTargets = async (campaignName) => {
+  const fileName = file("campaign/" + campaignName + "/targets");
+  if (!fs.existsSync(fileName)) {
+    console.error("no targets file", fileName);
+    return [];
+  }
+  const content = fs.readFileSync(fileName);
+  const targets = JSON.parse(content).map((t) => {
+    t.fields = JSON.stringify(t.fields);
+    delete  t.id;
+    return t;
+  });
+
+
+  const campaign = read("campaign/" + campaignName);
+  if (campaign === null) {
+    console.log("fetch campaign so I can get its name")
+    return [];
+  }
+  const query = `
+mutation UpsertTargets($id: Int!, $targets: [TargetInput!]) {
+  upsertTargets(campaignId: $id, targets: $targets) {id}
+}
+`;
+
+  const ids = await api(query, {id: campaign.id, targets}, "UpsertTargets");
+  return ids.upsertTargets;
+}
 
 const api = async (query, variables, name = "query") => {
   let headers = basicAuth({
@@ -73,7 +122,7 @@ const api = async (query, variables, name = "query") => {
 
   try {
     const res = await crossFetch(
-      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      API_URL,
       {
         method: "POST",
         body: JSON.stringify({
@@ -90,16 +139,48 @@ const api = async (query, variables, name = "query") => {
     }
     const resJson = await res.json();
 
+    if (resJson.errors) {
+      resJson.errors.forEach(e => console.error(`${e.message}: ${e.path?.join("->")} ${e.extensions ? JSON.stringify(e.extensions) : ''}`));
+      return resJson;
+    }
+
     return resJson.data;
   } catch (err) {
     throw err;
   }
 };
 
+
+const getCampaignTargets = async (name) => {
+  const query = `
+query GetCampaignTargets($name: String!) {
+  campaign(name:$name) {
+    targets {
+      id name area fields externalId
+      ... on PrivateTarget {
+        emails { email }
+      }
+    }
+  }
+}
+`;
+
+  const data = await api(query, {name}, "GetCampaignTargets");
+  if (!data.campaign)
+    throw new Error ("can't find campaign "+name);
+  if (data.campaign.targets.length === 0)
+    console.log("No targets.")
+  data.campaign.targets = data.campaign.targets.map((t) => {
+    if (t.fields) t.fields = JSON.parse(t.fields);
+    return t;
+  })
+  return data.campaign.targets;
+};
+
 const getCampaign = async (name) => {
   const query = `
 query getCampaign ($name:String!){
-  campaigns (name:$name) {
+  campaign (name:$name) {
       id,
       title,name,config,
       org {name,title}
@@ -107,11 +188,10 @@ query getCampaign ($name:String!){
 }`;
 
   const data = await api(query, { name: name }, "getCampaign");
-  if (!data.campaigns[0]) 
+  if (!data.campaign)
     throw new Error ("can't find campaign "+name);
-  console.log(data.campaigns[0]);
-  data.campaigns[0].config = JSON.parse(data.campaigns[0].config);
-  return data.campaigns[0];
+  data.campaign.config = JSON.parse(data.campaign.config);
+  return data.campaign;
 };
 
 const getPage = async (name) => {
@@ -146,7 +226,7 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
     throw new Error("campaign not found: " + campaignName);
   }
 
-  const r = await api(
+  await api(
     query,
     {
       name: name,
@@ -174,6 +254,16 @@ const pullCampaign = async (name) => {
   return await getCampaign (name);
 };
 
+const pullCampaignTargets = async (name) => {
+  const targets = await getCampaignTargets(name);
+  if (targets.length === 0) {
+    console.log("not storing empty targets");
+  } else {
+    saveTargets(name, targets);
+  }
+  return targets;
+}
+
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
   const query = `
@@ -190,10 +280,11 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     password: process.env.AUTH_PASSWORD,
   });
   headers["Content-Type"] = "application/json";
+  let data;
 
   try {
     const res = await crossFetch(
-      process.env.REACT_APP_API_URL || process.env.API_URL || "https://api.proca.app/api",
+      API_URL,
       {
         method: "POST",
         body: JSON.stringify({
@@ -254,7 +345,7 @@ query actionPage ($id:Int!) {
 
   try {
     const res = await crossFetch(
-      process.env.REACT_APP_API_URL || "https://api.proca.app/api",
+      API_URL,
       {
         method: "POST",
         body: JSON.stringify({
@@ -317,8 +408,7 @@ const apiLink = () => {
   if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
     console.error("need .env with AUTH_USER + AUTH_PASSWORD");
   }
-  let url = process.env.REACT_APP_API_URL || "https://api.proca.app/api";
-  const c = link(url, a);
+  const c = link(API_URL, a);
   return c;
 };
 
@@ -380,6 +470,9 @@ module.exports = {
   actionPageFromLocalConfig,
   pushCampaign,
   pullCampaign,
+  pullCampaignTargets,
+  pushCampaignTargets,
+  saveTargets,
   saveCampaign,
   addPage,
 };

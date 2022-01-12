@@ -3,7 +3,6 @@ async function graphQL(operation, query, options) {
   if (!options.apiUrl)
     options.apiUrl =
       process.env.REACT_APP_API_URL ||
-      process.env.API_URL ||
       "https://api.proca.app/api";
 
   let data = null;
@@ -135,7 +134,6 @@ async function getCount(actionPage, options) {
   } else {
     url =
       (process.env.REACT_APP_API_URL ||
-        process.env.API_URL ||
         "https://api.proca.app/api") +
       "?query=" +
       encodeURIComponent(query) +
