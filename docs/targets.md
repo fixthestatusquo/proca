@@ -23,7 +23,7 @@ PrivateTarget has emails property (list of {email, emailStatus}), which is not a
     }
 ```
 
-emailStatus can be one of: Email status can be one of:
+emailStatus can be one of:
  - `none` - default status, free to send
  - `bounce` - cannot send
  - `blocked`- cannot send
@@ -36,15 +36,15 @@ and push it with bin/pushTarget.js {campaign name}
 
 @marcin, can you complete/confirm:
 
-- Targets have id (auto-generated uuid) and optional external id. You can either store the generated ids of targets and updated them later by id, or provide the external id and use that (you will not have to store it's generated id this way) 
-  - XXX fix! In WIP version  externalId is mandatory - but we can make it optional
+- Targets have id (auto-generated uuid) and optional external id. You can either store the generated ids of targets and updated them later by id, or provide the external id and use that (you will not have to store proca generated id this way) 
+- XXX fix! In WIP version  externalId is mandatory - but we can make it optional
 
 - so the upsertTargets works as follows:
   1. is external id given? and is there such target in the campaign? -> update it
   2. is id given? and is there such target in the campaign? -> update it 
   3. create a new target, generate id as uuid for it
 
-- multiple targets can have the same area - and the area will be used to match supporters area, for stats (reminder: supporter.area is calculated from contact data depending on contact_schema of the campaign. For now it's a country, but for Swiss initiative it's the kanton. For other contact schemas it's possible to have constituencies here and so on)
+- multiple targets can have the same area - and the area will be used to match supporters area, for stats (reminder: supporter.area is calculated from contact data depending on contact_schema of the campaign. For now it's a country, but for Swiss initiative it's the canton. For other contact schemas it's possible to have constituencies here, or whatever makes sense for your campaign)
 - area can be empty - in which case all the supporters of that campaign will be matched to that target
 - area can contain a string, and it should match the area of supporter in same campaign (for example country). 
 - multiple targets can have the same email - yes. (XXX although atm if one such target bounces, only their email will be set to bounce.. perhaps it should updated all email_statuses also in other campaigns)
@@ -73,7 +73,7 @@ mtt {
 {
   screename:"@xxx",
   picture:"https://url"
-  first_name: "xxx"  // we use underscore between first_name in other places
+  first_name: "xxx"
   last_name: "yyy"
   description: "bla/title"
   country? -> in area or duplicate?
