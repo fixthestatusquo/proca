@@ -63,7 +63,7 @@ export default function Target(props) {
 
   return (
     <>
-      {submitted && <Alert severity="success">{t("Thanks!")}</Alert>}
+      {submitted && <Alert severity="success">{t("Thank you")}</Alert>}
       <Paper square>
         <AppBar position="static" color="default">
           <Tabs
