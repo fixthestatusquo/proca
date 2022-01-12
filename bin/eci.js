@@ -28,6 +28,7 @@ const path = require("path");
 const {
   pull,
   read,
+  pullCampaign,
   save,
   file,
   apiLink,
