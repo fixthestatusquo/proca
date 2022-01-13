@@ -219,9 +219,20 @@ const Component = (props) => {
                   form={props.form}
                   name="message"
                   multiline
-                  maxRows="10"
+                  maxRows={config.component.email.field.message.disabled ? 4: 10}
+                  disabled={!!config.component.email.field.message.disabled}
                   required={config.component.email.field.message.required}
                   label={t("Your message")}
+                />
+              </Grid> }
+            {config.component.email?.field?.comment &&  <Grid item xs={12}>
+              <TextField
+                  form={props.form}
+                  name="comment"
+                  multiline
+                  maxRows={3}
+                  required={config.component.email.field.comment.required}
+                  label={t("Comment")}
                 />
               </Grid> }
       </>
