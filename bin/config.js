@@ -140,7 +140,7 @@ const api = async (query, variables, name = "query") => {
     const resJson = await res.json();
 
     if (resJson.errors) {
-      resJson.errors.forEach(e => console.error(`${e.message}: ${e.path?.join("->")} ${e.extensions ? JSON.stringify(e.extensions) : ''}`));
+      resJson.errors.forEach(e => console.error(`${e.message}: ${e.path && e.path.join("->")} ${e.extensions ? JSON.stringify(e.extensions) : ''}`));
       return resJson;
     }
 
