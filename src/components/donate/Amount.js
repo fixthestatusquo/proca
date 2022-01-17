@@ -77,7 +77,7 @@ const DonateAmount = (props) => {
 
   if (frequency !== "oneoff") {
     providerOptions["intent"] = "subscription";
-    providerOptions["vault"] = "true";
+    providerOptions["vault"] = true;
   }
 
 
