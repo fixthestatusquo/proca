@@ -27,7 +27,7 @@ const read = (id) => {
   try {
     return JSON.parse(fs.readFileSync(file(id), "utf8"));
   } catch (e) {
-    console.error("no local copy of the actionpage " + id, e.message);
+    console.error("no local copy of " + id, e.message);
     return null;
   }
 };
@@ -85,15 +85,19 @@ const saveTargets = (campaignName, targets) => {
 }
 
 const pushCampaignTargets = async (campaignName) => {
-  const fileName = file("campaign/" + campaignName + "/targets");
-  if (!fs.existsSync(fileName)) {
-    console.error("no targets file", fileName);
+  const targets = read ("target/"+campaignName);
+  if (targets === null) {
+    console.log("no local version of targets")
     return [];
   }
-  const content = fs.readFileSync(fileName);
-  const targets = JSON.parse(content).map((t) => {
-    t.fields = JSON.stringify(t.fields);
+  targets.map((t) => {
+    t.fields = JSON.stringify(t.field);
     delete  t.id;
+    delete  t.field;
+    if (!t.emails) {
+      t.emails = [ t.email ? t.email : t.externalId +"@example.org"];
+      delete t.email;
+    }
     return t;
   });
 
