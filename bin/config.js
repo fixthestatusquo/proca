@@ -77,9 +77,8 @@ const saveCampaign = (campaign, lang = "en") => {
 };
 
 const saveTargets = (campaignName, targets) => {
-  const fileName = file("campaign/" + campaignName + "/targets");
-  console.log(fileName);
-  mkdirp(fileName);
+  const fileName = file("target/" + campaignName );
+  mkdirp("public/target/"); //TODO: write the public version of the target list, ie. without the email
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
 }
@@ -95,7 +94,7 @@ const pushCampaignTargets = async (campaignName) => {
     delete  t.id;
     delete  t.field;
     if (!t.emails) {
-      t.emails = [ t.email ? t.email : t.externalId +"@example.org"];
+      t.emails = [ {email: t.email ? t.email : t.externalId +"@example.org"}];
       delete t.email;
     }
     return t;
