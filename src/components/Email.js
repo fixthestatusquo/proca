@@ -68,7 +68,9 @@ const Component = (props) => {
             setProfiles(d);
         })
         .catch((error) => {
-          console.log(error);
+          const placeholder = {name:error.toString(),description:"Please check your internet connection and try later"};
+          setProfiles([placeholder]);
+          setAllProfiles([placeholder]);
         });
     };
     if (config.component?.email?.listUrl) {
