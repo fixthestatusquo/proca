@@ -154,13 +154,13 @@ const api = async (query, variables, name = "query") => {
 };
 
 
-const getCampaignTargets = async (name) => {
+const getCampaignTargets = async (name) => { // todo MK: add externalId
   const query = `
 query GetCampaignTargets($name: String!) {
   campaign(name:$name) {
+  ... on PrivateCampaign {
     targets {
-      id name area fields externalId
-      ... on PrivateTarget {
+      id name area fields
         emails { email }
       }
     }
@@ -169,6 +169,7 @@ query GetCampaignTargets($name: String!) {
 `;
 
   const data = await api(query, {name}, "GetCampaignTargets");
+    console.log(data);
   if (!data.campaign)
     throw new Error ("can't find campaign "+name);
   if (data.campaign.targets.length === 0)
