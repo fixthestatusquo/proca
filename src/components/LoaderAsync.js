@@ -21,7 +21,6 @@ const LoaderAsync = (props) => {
           if (!d) return;
           const json = await d.json();
           if (!isCancelled) {
-            console.log("get new data",json);
             setData(json);
 //            Object.entries(json).map(([k,v]) => {
 //              setData({k, v);
