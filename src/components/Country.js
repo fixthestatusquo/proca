@@ -112,7 +112,6 @@ const Country = (props) => {
     api: "https://country.proca.foundation",
     country: config.data.country || config.component.country,
   });
-
   const country = watch("country") || "";
   useEffect(() => {
     if (location.country === country) return;
