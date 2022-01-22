@@ -57,7 +57,7 @@ const Component = (props) => {
       }
       return undefined;
     });
-  },[data,fields,form]);
+  },[{firstname:tokens.firstname, country: tokens.country ? getCountryName(tokens.country):""},fields,form]);
 
   useEffect(() => {
     const fetchData = async (url) => {
