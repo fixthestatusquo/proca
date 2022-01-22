@@ -114,8 +114,8 @@ const Country = (props) => {
   });
   const country = watch("country") || "";
   useEffect(() => {
-    if (location.country === country) return;
 
+    if (location.country === country) return;
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {
         console.log("visitor from ", location?.country, "but not on our list");
@@ -130,6 +130,8 @@ const Country = (props) => {
       if (!location.country) return;
       setValue("country", location.country);
       setData("country", country);
+    } else { // geoLocation doesn't work
+      setCountries(countries);
     }
   }, [location, country, countries, setValue, setData, t]);
 
