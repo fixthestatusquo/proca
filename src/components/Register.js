@@ -92,7 +92,7 @@ export default function Register(props) {
 
   const form = props.form || _form;
 
-  const { trigger, handleSubmit, setError, formState, getValues, setValue } = form;
+  const { trigger, handleSubmit, setError, clearErrors, formState, getValues, setValue } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const comment = data.comment;
@@ -226,6 +226,8 @@ export default function Register(props) {
     const provider = await checkMail (email);
     if (provider === false)
       setError("email", { type: "mx", message: "Please enter a valid email address" });
+    else 
+      clearErrors("email");
 
     // what do we do with the provider?
   }
@@ -270,7 +272,7 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="email"
-                onBlur={onBlurEmail}
+                onBlur={onBlurEmail} // todo: implement it as react hook form validation rules
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
