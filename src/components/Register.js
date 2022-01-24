@@ -8,7 +8,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import useElementWidth from "@hooks/useElementWidth";
-import Url from "@lib/urlparser.js";
+import Url from "@lib/urlparser";
+import checkMail from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -218,6 +219,17 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
+  const onBlurEmail = async (e) => {
+    const email = e.target.value;
+    if (!e.target.checkValidity())
+      return; // html5 errors are handled elsewhere
+    const provider = await checkMail (email);
+    if (provider === false)
+      setError("email", { type: "mx", message: "Please enter a valid email address" });
+
+    // what do we do with the provider?
+  }
+
   return (
     <form
       className={classes.container}
@@ -258,6 +270,7 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="email"
+                onBlur={onBlurEmail}
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
