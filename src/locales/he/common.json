@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "גוף",
+    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
     "subject": "נושא"
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
