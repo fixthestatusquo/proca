@@ -125,8 +125,12 @@
   },
   "email": {
     "body": "ķermeņa",
+    "invalid_domain": "{{domain}} nevar saņemt e-pastus",
     "subject": "priekšmets"
   },
+  "progress_0": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
   "register": "Pievienojiet manu vārdu",
   "share": {
     "email": {

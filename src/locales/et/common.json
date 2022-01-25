@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "keha",
+    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
     "subject": "teema"
   },
   "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",

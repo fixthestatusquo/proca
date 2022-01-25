@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "jiki",
+    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
     "subject": "batun"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",

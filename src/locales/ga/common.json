@@ -125,8 +125,14 @@
   },
   "email": {
     "body": "comhlacht",
+    "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
     "subject": "ábhar"
   },
+  "progress_0": "{{count}} sínithe. Rachaimid go {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
+  "progress_3": "",
+  "progress_4": "",
   "register": "Cuir m’ainm leis",
   "share": {
     "email": {

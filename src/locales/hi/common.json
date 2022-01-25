@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "शरीर",
+    "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
     "subject": "विषय"
   },
   "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",

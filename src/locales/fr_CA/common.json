@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "corps du message",
+    "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails",
     "subject": "objet"
   },
   "progress": "{{count}} Signature. Objectif : {{goal}}",

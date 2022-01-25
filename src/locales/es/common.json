@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "cuerpo",
+    "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "subject": "asunto"
   },
   "progress": "{{count}} ha firmado. Vamos a por {{goal}}",

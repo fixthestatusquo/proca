@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "kropp",
+    "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
     "subject": "ämne"
   },
   "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",

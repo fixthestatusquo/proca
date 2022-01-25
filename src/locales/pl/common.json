@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "body",
+    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail",
     "subject": "temat"
   },
   "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
