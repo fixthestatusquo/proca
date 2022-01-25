@@ -1,11 +1,18 @@
-const checkMail = async (email) => {
-  if (!email) return false;
-
+const getDomain = (email) => {
   const parts = email.split("@");
   if (parts.length != 2) 
     return false;
+  return parts[1];
+}
+
+const checkMail = async (email) => {
+  if (!email) return false;
+
+  const domain = getDomain(email);
+  if (!domain) 
+    return false;
   try {
-    const response = await fetch ("https://check-mail.proca.app/"+parts[1]);
+    const response = await fetch ("https://check-mail.proca.app/"+domain);
     const r = await response.json();
     return r;
   } catch (e) {
@@ -15,3 +22,4 @@ const checkMail = async (email) => {
 }
 
 export default checkMail;
+export {getDomain, checkMail};

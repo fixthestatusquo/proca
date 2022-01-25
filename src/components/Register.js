@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser";
-import checkMail from "@lib/checkMail";
+import {checkMail, getDomain} from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -225,7 +225,9 @@ export default function Register(props) {
       return; // html5 errors are handled elsewhere
     const provider = await checkMail (email);
     if (provider === false)
-      setError("email", { type: "mx", message: "Please enter a valid email address" });
+      setError("email", { type: "mx", message: t("email.invalid_domain",{
+        defaultValue: "{{domain}} cannot receive emails",
+        domain:getDomain(email)})});
     else 
       clearErrors("email");
 
