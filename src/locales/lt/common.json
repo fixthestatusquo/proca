@@ -125,8 +125,12 @@
   },
   "email": {
     "body": "kūnas",
+    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
     "subject": "tema"
   },
+  "progress_0": "{{count}} pasirašė. Eikime į {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
   "register": "Pridėti mano vardą",
   "share": {
     "email": {
