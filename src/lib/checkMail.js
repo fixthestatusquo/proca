@@ -1,10 +1,11 @@
 const getDomain = (email) => {
   const parts = email.split("@");
-  if (parts.length != 2) 
+  if (parts.length !== 2) 
     return false;
   return parts[1];
 }
 
+// return name of the main domain of the MX record if found, false if no mx record
 const checkMail = async (email) => {
   if (!email) return false;
 
