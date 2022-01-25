@@ -125,8 +125,13 @@
   },
   "email": {
     "body": "ġisem",
+    "invalid_domain": "{{domain}} ma tistax tirċievi emails",
     "subject": "suġġett"
   },
+  "progress_0": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
+  "progress_3": "",
   "register": "Żid ismi",
   "share": {
     "email": {
