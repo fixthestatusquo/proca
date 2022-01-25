@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "Тялото",
+    "invalid_domain": "{{domain}} не мога да получавам имейли",
     "subject": "тема"
   },
   "progress": "{{count}} са подписали. Да отидем на {{goal}}",
