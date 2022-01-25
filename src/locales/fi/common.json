@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "runko",
+    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
     "subject": "aihe"
   },
   "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
