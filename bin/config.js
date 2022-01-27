@@ -77,14 +77,13 @@ const saveCampaign = (campaign, lang = "en") => {
 };
 
 const saveTargets = (campaignName, targets) => {
-  const fileName = file("target/" + campaignName );
-  mkdirp("public/target/"); //TODO: write the public version of the target list, ie. without the email
+  const fileName = file("target/server/" + campaignName );
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
 }
 
 const pushCampaignTargets = async (campaignName) => {
-  const targets = read ("target/"+campaignName);
+  const targets = read ("target/source/"+campaignName);
   if (targets === null) {
     console.log("no local version of targets")
     return [];
