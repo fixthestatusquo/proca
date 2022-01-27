@@ -161,7 +161,9 @@ query GetCampaignTargets($name: String!) {
   ... on PrivateCampaign {
     targets {
       id name area fields
+      ... on PrivateTarget {
         emails { email }
+        }
       }
     }
   }
@@ -287,6 +289,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   let data;
 
   try {
+    console.log(campaign);
     const res = await crossFetch(
       API_URL,
       {
@@ -296,6 +299,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
           variables: {
             orgName: campaign.org.name,
             name: campaign.name,
+            title: campaign.title,
             config: JSON.stringify(campaign.config),
           },
           operationName: "updateCampaign",
@@ -311,7 +315,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     if (resJson.errors) {
       console.log(resJson.errors);
     }
-
+console.log(resJson);
     data = resJson.data;
   } catch (err) {
     throw err;
