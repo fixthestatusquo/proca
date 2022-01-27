@@ -6,12 +6,13 @@ const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 
 const merge = (targets, twitters) => {
   const merged = targets.map((target) => {
-    let r = twitters.find(
+    let r = twitters && twitters.find(
       (d) => clean(d.screen_name) === clean(target.fields?.screen_name)
     );
     if (!r) {
       // todo, some formatting
       r = {
+        procaid: target.id,
         name: target.fields.name,
         country: target.area,
         description: target.fields.description,
@@ -21,6 +22,7 @@ const merge = (targets, twitters) => {
       };
     } else {
       r.procaid = target.id;
+      r.name = target.name; //? not sure which one we want to keep
       if (target.description) 
         r.description = target.description;
       r.country = target.area
@@ -70,10 +72,13 @@ const saveTargets = (campaignName, targets) => {
   try {
     const c = read("campaign/" + name); // the config file
     const targets = read("target/server/" + name); // the list of targets from proca server
-    const twitters = read("target/twitter/" + name); // the list from twitter
-
+    let twitters = null;
+    try {
+      twitters = read("target/twitter/" + name); // the list from twitter
+    } catch (e) {
+      console.log("no twitter list");
+    }
     const d = merge(targets, twitters);
-    console.log (d);
     //    const d = await pullCampaign(argv[0]);
     if (d) {
       const c=saveTargets(name,d);
