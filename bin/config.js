@@ -112,7 +112,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]) {
   upsertTargets(campaignId: $id, targets: $targets) {id}
 }
 `;
-  const ids = await api(query, {id: campaign.id, formattedTargets}, "UpsertTargets");
+  const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
 
