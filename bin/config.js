@@ -89,8 +89,9 @@ const pushCampaignTargets = async (campaignName) => {
     console.log("no local version of targets")
     return [];
   }
-  targets.map((t) => {
+  const formattedTargets = targets.map((t) => {
     t.fields = JSON.stringify(t.field);
+    if (!t.name) return null; //skip empty records
     delete  t.id;
     delete  t.field;
     if (!t.emails) {
@@ -98,7 +99,7 @@ const pushCampaignTargets = async (campaignName) => {
       delete t.email;
     }
     return t;
-  });
+  }).filter( d => d !== null);
 
 
   const campaign = read("campaign/" + campaignName);
@@ -111,8 +112,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]) {
   upsertTargets(campaignId: $id, targets: $targets) {id}
 }
 `;
-
-  const ids = await api(query, {id: campaign.id, targets}, "UpsertTargets");
+  const ids = await api(query, {id: campaign.id, formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
 
@@ -162,7 +162,7 @@ query GetCampaignTargets($name: String!) {
     targets {
       id name area fields externalId
       ... on PrivateTarget {
-        emails { email }
+        emails { email, emailStatus }
         }
       }
     }
