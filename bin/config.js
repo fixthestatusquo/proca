@@ -160,7 +160,7 @@ query GetCampaignTargets($name: String!) {
   campaign(name:$name) {
   ... on PrivateCampaign {
     targets {
-      id name area fields
+      id name area fields externalId
       ... on PrivateTarget {
         emails { email }
         }
