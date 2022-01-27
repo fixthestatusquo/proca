@@ -282,7 +282,7 @@ async function addActionContact(actionType, actionPage, data) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  const expected =
+  let expected =
     "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
       ","
     );
@@ -305,6 +305,16 @@ async function addActionContact(actionType, actionPage, data) {
     privacy: privacy,
   };
 
+  if (data.targets) {
+    variables.action.mtt = {
+      subject: data.subject,
+      body: data.message,
+      targets: data.targets.map(d => d.procaid),
+    }
+    delete data.targets;
+    delete data.message;
+    delete data.subject;
+  }
   if (data.donation) variables.action.donation = data.donation;
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.region) variables.contact.address.region = data.region;
@@ -319,7 +329,6 @@ async function addActionContact(actionType, actionPage, data) {
     if (value && !expected.includes(key))
       variables.action.fields.push({ key: key, value: JSON.stringify(value) });
   }
-
   const response = await graphQL("addActionContact", query, {
     variables: variables,
   });

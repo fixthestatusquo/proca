@@ -107,11 +107,14 @@ export default function Register(props) {
       data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
-
-    const result = await addActionContact(
-      config.test
+    let actionType = config.test
         ? "test"
-        : config.component?.register?.actionType || "register",
+        : config.component?.register?.actionType || "register";
+    if (props.targets) {
+      data.targets = props.targets;
+      actionType = "mail2target";
+    }
+    const result = await addActionContact(actionType,
       config.actionPage,
       data
     );
@@ -219,18 +222,21 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
-  const onBlurEmail = async (e) => {
+  const validateEmail = async (e) => {
     const email = e.target.value;
     if (!e.target.checkValidity())
       return; // html5 errors are handled elsewhere
     const provider = await checkMail (email);
-    if (provider === false)
+    console.log("provider",provider);
+    if (provider === false) {
       setError("email", { type: "mx", message: t("email.invalid_domain",{
         defaultValue: "{{domain}} cannot receive emails",
         domain:getDomain(email)})});
-    else 
+      return false;
+    } else {
       clearErrors("email");
-
+    }
+    return true;
     // what do we do with the provider?
   }
 
@@ -274,7 +280,7 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="email"
-                onBlur={onBlurEmail} // todo: implement it as react hook form validation rules
+                onBlur={validateEmail} // todo: implement it as react hook form validation rules
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
