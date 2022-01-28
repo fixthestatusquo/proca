@@ -107,7 +107,7 @@ const pushCampaignTargets = async (campaignName) => {
     return [];
   }
   const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]) {
+mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
   upsertTargets(campaignId: $id, targets: $targets) {id}
 }
 `;
