@@ -385,7 +385,7 @@ query actionPage ($id:Int!) {
   let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
-    org:{privacyPolicy : (data.actionPage.org.config.privacy && data.actionPage.org.config.privacy.policyUrl || '', url:data.actionPage.org.config.url || ''},
+    org:{privacyPolicy : (data.actionPage.org.config.privacy && data.actionPage.org.config.privacy.policyUrl || ''), url:data.actionPage.org.config.url || ''},
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,
