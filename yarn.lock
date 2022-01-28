@@ -1902,25 +1902,25 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@paypal/paypal-js@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.2.1.tgz#350efe38962a94f440d34c44514fe80b8a13bb19"
-  integrity sha512-5b+UykL8+WNOEWHgC2nGJUR9EMmRJNspVBjT7knZcItTP9sQeQ7lCGoM5yubFDMeVmhmCZDtJDASpwlo9VOcJg==
+"@paypal/paypal-js@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-5.0.1.tgz#d2884d5a36b4307a57f0a8f317644bff5a71c58e"
+  integrity sha512-qm17kEm/5w6B3AOx95YWFCb167OVis0/CBqDRQNQUBmDjqEe15qxk3U8LLxKeVvIyij5agx4gAyVcwkd8f6nVA==
   dependencies:
     promise-polyfill "^8.2.1"
 
-"@paypal/react-paypal-js@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.5.0.tgz#f48b6281dac17e47a302b9b2d3195e37d1fce2d8"
-  integrity sha512-QWA0FArj4DG8WcyWZuQ/m7r4tI3Z3AF8Q/1cN8ANjUljjq7crvYu1a7WlRoBiwRQqaERXNjAZ3Ch+f22KRFGMA==
+"@paypal/react-paypal-js@^7.5.1":
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.5.1.tgz#722d4681dbd2b0402737a433db8cf29efa2a3b64"
+  integrity sha512-qaI+dDs20rVIEsGZcWMvYzmuO3V5QrfSJSyMRkE2LAxKus19+5BxXNLcNI8odwe70U+mo1GE0WU3uMw7tZKfIg==
   dependencies:
-    "@paypal/paypal-js" "^4.2.1"
-    "@paypal/sdk-constants" "^1.0.110"
+    "@paypal/paypal-js" "^5.0.1"
+    "@paypal/sdk-constants" "^1.0.114"
 
-"@paypal/sdk-constants@^1.0.110":
-  version "1.0.110"
-  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.110.tgz#ade73b6a7ab53838dbfa4c36f3a905b26dddab2d"
-  integrity sha512-W/JvynHo68yVbR5+H3xXncFvucbVmt4PSBifBuGGH8NqDUq8kwOFNaHt0xmUIvWoK77pQjtaulYssty3rnztTw==
+"@paypal/sdk-constants@^1.0.114":
+  version "1.0.116"
+  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.116.tgz#01afb69ab290c9ab000d66010eeace1620f66577"
+  integrity sha512-V/f5Heit1W/O/4KD1y+3ymgCyN3QbZfx6ST5vvAM8dMGrrLFwGHxljP/aJntR/Rn167T0ujPaZq6VWaaMScyMA==
   dependencies:
     cross-domain-utils "^2.0.10"
     hi-base32 "^0.5.0"
