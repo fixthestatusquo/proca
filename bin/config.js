@@ -343,7 +343,9 @@ query actionPage ($id:Int!) {
       org {name,title}
     },
     org {
-      title
+      title,
+      name,
+        config
     }
     , config
   }
@@ -377,10 +379,13 @@ query actionPage ($id:Int!) {
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
+  data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
+  console.log(data.actionPage.org);
   let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
+    org:{privacyPolicy : data.actionPage.org.config?.privacy?.policyUrl || '', url:data.actionPage.org.config.url || ''},
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,

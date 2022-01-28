@@ -156,6 +156,7 @@ export const ConsentProcessing = (props) => {
   const classes = useStyles();
   const link =
     config.component?.consent?.privacyPolicy ||
+    config.org.privacyPolicy ||
     "https://proca.app/privacy_policy";
 
   const consentProcessing =
