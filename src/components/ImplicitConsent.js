@@ -43,6 +43,7 @@ const ImplicitConsent = (props) => {
 
   const link =
     config.component.consent.privacyPolicy ||
+    config.org.privacyPolicy ||
     "https://proca.app/privacy_policy";
   const consentProcessing =
     config.component.country === false
