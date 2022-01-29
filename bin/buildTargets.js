@@ -1,5 +1,5 @@
 const fs = require("fs");
-require("dotenv").config();
+require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();

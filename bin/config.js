@@ -116,10 +116,13 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
 }
 
 const api = async (query, variables, name = "query") => {
-  let headers = basicAuth({
-    username: process.env.AUTH_USER,
-    password: process.env.AUTH_PASSWORD,
-  });
+  let headers = {};
+  if (process.env.AUTH_USER) {
+    headers = basicAuth({
+      username: process.env.AUTH_USER,
+      password: process.env.AUTH_PASSWORD,
+    });
+  }
   headers["Content-Type"] = "application/json";
 
   try {

@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("./dotenv.js");
 
 const { addPage } = require("./config");
 
