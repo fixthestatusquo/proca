@@ -140,6 +140,7 @@ const api = async (query, variables, name = "query") => {
     );
 
     if (res.status >= 400) {
+      console.log(res);
       throw new Error("Bad response from server");
     }
     const resJson = await res.json();
