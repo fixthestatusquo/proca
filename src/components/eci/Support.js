@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const Support = (props) => {
   const classes = useStyles();
 
   const width = useElementWidth("#proca-register");
@@ -298,3 +298,5 @@ export default (props) => {
     </Container>
   );
 };
+
+export default Support;

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import useData from "@hooks/useData";
 
 import TextField from "@components/TextField";
@@ -7,7 +7,6 @@ import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 import { Container, Grid } from "@material-ui/core";
-import { addMissingCountries } from "@components/Country";
 
 const emoji = (country) => {
   const offset = 127397;
@@ -33,7 +32,7 @@ const Flag = (props) => {
   return <span title={name.name}>{d}</span>;
 };
 
-export default (props) => {
+const Country = (props) => {
   const config = useCampaignConfig();
   const [, setData] = useData();
 
@@ -48,13 +47,12 @@ export default (props) => {
     .compare;
   countries.sort((a, b) => compare(a.name, b.name));
 
-  if (props.other) {
-    countries = useMemo(() => addMissingCountries(countries), [countries]);
-  }
+//  if (props.other) {
+//    countries = useMemo(() => addMissingCountries(countries), [countries]);
+//  }
 
   const { register, setValue, watch } = props.form;
 
-  if (props.list === false) return null;
 
   const country = watch("nationality") || "";
   const location = useGeoLocation({
@@ -78,6 +76,7 @@ export default (props) => {
     register({ name: "nationality" });
   }, [register]);
 
+  if (props.list === false) return null;
   return (
     <Container component="main" maxWidth="sm">
       <Grid container spacing={1}>
@@ -105,5 +104,7 @@ export default (props) => {
     </Container>
   );
 };
+
+export default Country;
 
 export { emoji, Flag };
