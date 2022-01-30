@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "telo",
+    "invalid_domain": "{{domain}} nemôže prijímať e-maily",
     "subject": "predmet"
   },
   "progress": "{{count}} podpísali. Poďme na {{goal}}",

@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "sadržaj",
+    "invalid_domain": "{{domain}} ne može primati e-poštu",
     "subject": "predmet"
   },
   "progress_0": "{{count}} potpis. Idemo na {{goal}}",

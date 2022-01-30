@@ -100,6 +100,7 @@
     "to": "Donation to {{organisation}}"
   },
   "email": {
+    "invalid_domain":"{{domain}} cannot receive emails",
     "body": "body",
     "subject": "subject"
   },

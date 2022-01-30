@@ -8,7 +8,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import useElementWidth from "@hooks/useElementWidth";
-import Url from "@lib/urlparser.js";
+import Url from "@lib/urlparser";
+import {checkMail, getDomain} from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -91,7 +92,7 @@ export default function Register(props) {
 
   const form = props.form || _form;
 
-  const { trigger, handleSubmit, setError, formState, getValues, setValue } = form;
+  const { trigger, handleSubmit, setError, clearErrors, formState, getValues, setValue } = form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const comment = data.comment;
@@ -106,11 +107,14 @@ export default function Register(props) {
       data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
-
-    const result = await addActionContact(
-      config.test
+    let actionType = config.test
         ? "test"
-        : config.component?.register?.actionType || "register",
+        : config.component?.register?.actionType || "register";
+    if (props.targets) {
+      data.targets = props.targets;
+      actionType = "mail2target";
+    }
+    const result = await addActionContact(actionType,
       config.actionPage,
       data
     );
@@ -218,6 +222,24 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
+  const validateEmail = async (e) => {
+    const email = e.target.value;
+    if (!e.target.checkValidity())
+      return; // html5 errors are handled elsewhere
+    const provider = await checkMail (email);
+    console.log("provider",provider);
+    if (provider === false) {
+      setError("email", { type: "mx", message: t("email.invalid_domain",{
+        defaultValue: "{{domain}} cannot receive emails",
+        domain:getDomain(email)})});
+      return false;
+    } else {
+      clearErrors("email");
+    }
+    return true;
+    // what do we do with the provider?
+  }
+
   return (
     <form
       className={classes.container}
@@ -258,6 +280,7 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="email"
+                onBlur={validateEmail} // todo: implement it as react hook form validation rules
                 type="email"
                 label={t("Email")}
                 autoComplete="email"

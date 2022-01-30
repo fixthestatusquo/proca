@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("./dotenv.js");
 const { pull } = require("./config");
 
 (async () => {

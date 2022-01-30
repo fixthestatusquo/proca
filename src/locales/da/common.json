@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "krop",
+    "invalid_domain": "{{domain}} kan ikke modtage e-mails",
     "subject": "emne"
   },
   "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",

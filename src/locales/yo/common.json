@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "ara",
+    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
     "subject": "koko"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",

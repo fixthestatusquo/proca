@@ -77,20 +77,20 @@ const saveCampaign = (campaign, lang = "en") => {
 };
 
 const saveTargets = (campaignName, targets) => {
-  const fileName = file("target/" + campaignName );
-  mkdirp("public/target/"); //TODO: write the public version of the target list, ie. without the email
+  const fileName = file("target/server/" + campaignName );
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
 }
 
 const pushCampaignTargets = async (campaignName) => {
-  const targets = read ("target/"+campaignName);
+  const targets = read ("target/source/"+campaignName);
   if (targets === null) {
     console.log("no local version of targets")
     return [];
   }
-  targets.map((t) => {
+  const formattedTargets = targets.map((t) => {
     t.fields = JSON.stringify(t.field);
+    if (!t.name) return null; //skip empty records
     delete  t.id;
     delete  t.field;
     if (!t.emails) {
@@ -98,7 +98,7 @@ const pushCampaignTargets = async (campaignName) => {
       delete t.email;
     }
     return t;
-  });
+  }).filter( d => d !== null);
 
 
   const campaign = read("campaign/" + campaignName);
@@ -107,20 +107,22 @@ const pushCampaignTargets = async (campaignName) => {
     return [];
   }
   const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]) {
+mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
   upsertTargets(campaignId: $id, targets: $targets) {id}
 }
 `;
-
-  const ids = await api(query, {id: campaign.id, targets}, "UpsertTargets");
+  const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
 
 const api = async (query, variables, name = "query") => {
-  let headers = basicAuth({
-    username: process.env.AUTH_USER,
-    password: process.env.AUTH_PASSWORD,
-  });
+  let headers = {};
+  if (process.env.AUTH_USER) {
+    headers = basicAuth({
+      username: process.env.AUTH_USER,
+      password: process.env.AUTH_PASSWORD,
+    });
+  }
   headers["Content-Type"] = "application/json";
 
   try {
@@ -138,6 +140,7 @@ const api = async (query, variables, name = "query") => {
     );
 
     if (res.status >= 400) {
+      console.log(res);
       throw new Error("Bad response from server");
     }
     const resJson = await res.json();
@@ -154,14 +157,16 @@ const api = async (query, variables, name = "query") => {
 };
 
 
-const getCampaignTargets = async (name) => { // todo MK: add externalId
+const getCampaignTargets = async (name) => {
   const query = `
 query GetCampaignTargets($name: String!) {
   campaign(name:$name) {
   ... on PrivateCampaign {
     targets {
-      id name area fields
-        emails { email }
+      id name area fields externalId
+      ... on PrivateTarget {
+          emails { email, emailStatus }
+        }
       }
     }
   }
@@ -169,7 +174,7 @@ query GetCampaignTargets($name: String!) {
 `;
 
   const data = await api(query, {name}, "GetCampaignTargets");
-    console.log(data);
+    console.log(data.campaign.targets);
   if (!data.campaign)
     throw new Error ("can't find campaign "+name);
   if (data.campaign.targets.length === 0)
@@ -287,6 +292,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   let data;
 
   try {
+    console.log(campaign);
     const res = await crossFetch(
       API_URL,
       {
@@ -296,6 +302,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
           variables: {
             orgName: campaign.org.name,
             name: campaign.name,
+            title: campaign.title,
             config: JSON.stringify(campaign.config),
           },
           operationName: "updateCampaign",
@@ -311,7 +318,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     if (resJson.errors) {
       console.log(resJson.errors);
     }
-
+console.log(resJson);
     data = resJson.data;
   } catch (err) {
     throw err;
@@ -340,7 +347,9 @@ query actionPage ($id:Int!) {
       org {name,title}
     },
     org {
-      title
+      title,
+      name,
+        config
     }
     , config
   }
@@ -374,10 +383,13 @@ query actionPage ($id:Int!) {
   }
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
+  data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
+  console.log(data.actionPage.org);
   let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
+    org:{privacyPolicy : (data.actionPage.org.config.privacy && data.actionPage.org.config.privacy.policyUrl || ''), url:data.actionPage.org.config.url || ''},
     lang: data.actionPage.locale.toLowerCase(),
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,

@@ -274,7 +274,7 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register form={form} done={props.done} onClick={onClick} extraFields={ExtraFields}/>
+      <Register form={form} done={props.done} targets={profiles} onClick={onClick} extraFields={ExtraFields}/>
     </Container>
   );
 };

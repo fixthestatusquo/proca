@@ -125,6 +125,7 @@
   },
   "email": {
     "body": "test",
+    "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
     "subject": "subject"
   },
   "progress": "{{count}} aláírta. Menjünk a {{goal}} oldalra",
