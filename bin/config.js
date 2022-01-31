@@ -108,7 +108,7 @@ const pushCampaignTargets = async (campaignName) => {
   }
   const query = `
 mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
-  upsertTargets(campaignId: $id, targets: $targets) {id}
+  upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
 }
 `;
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
