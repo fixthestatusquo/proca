@@ -108,9 +108,10 @@ const pushCampaignTargets = async (campaignName) => {
   }
   const query = `
 mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
-  upsertTargets(campaignId: $id, targets: $targets) {id}
+  upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
 }
 `;
+  console.log(JSON.stringify(formattedTargets, null, 2));
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
@@ -341,6 +342,8 @@ const fetch = async (actionPage) => {
 query actionPage ($id:Int!) {
   actionPage (id:$id) {
     id, name, locale,
+    thankYouTemplate,
+    ... on PrivateActionPage { supporterConfirmTemplate },
     campaign {
       id,
       title,name,config,
@@ -349,39 +352,23 @@ query actionPage ($id:Int!) {
     org {
       title,
       name,
-        config
+      config,
+      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
     }
     , config
   }
 }
 `;
-
+ 
   try {
-    const res = await crossFetch(
-      API_URL,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          query: query,
-          variables: { id: actionPage },
-          operationName: "actionPage",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    );
-
-    if (res.status >= 400) {
-      throw new Error("Bad response from server:" +res.status);
-    }
-
-    const resJson = await res.json();
-    data = resJson.data;
+    data = await api(query, { id: actionPage }, "actionPage");
   } catch (err) {
     throw err;
   }
+  console.log(data);
+  if (!data.actionPage) throw new Error (data.toString());
 
+  console.log(data.actionPage)
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
@@ -403,6 +390,15 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
+  if (config.component.consent && data.actionPage.org.processing) {
+    let consentEmail = {};
+    if (data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate))
+      consentEmail.confirmAction = true;
+    if (Boolean(data.actionPage.thankYouTemplate))
+      consentEmail.confirmOptIn = true;
+    if (Object.keys(consentEmail).length > 0)
+      config.component.consent.email = consentEmail; // we always overwrite based on the templates
+  }
   if (!config.journey) {
     delete config.journey;
   }

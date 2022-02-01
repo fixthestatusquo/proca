@@ -65,7 +65,6 @@ const component = function EmailAction(profile) {
     }, 1000);
   };
 
-  console.log(profile.name);
   return (
     <ListItem
       alignItems="flex-start"

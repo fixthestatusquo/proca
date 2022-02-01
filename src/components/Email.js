@@ -23,7 +23,8 @@ import { addAction } from "@lib/server";
 const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
-  const [data] = useData();
+  const Action = EmailAction;
+  const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const isMobile = useIsMobile();
@@ -35,20 +36,21 @@ const Component = (props) => {
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { watch, getValues, setError, clearErrors } = form;
+  const { watch, getValues, setValue, setError, clearErrors } = form;
 
   const country = watch ("country");
   const fields = getValues (["subject","message"]);
 
-  const tokens = watch (extractTokens (data["message"]));
+  const tokenKeys = extractTokens (data["message"]);
+  const tokens = watch (tokenKeys);
   const handleMerging = text => {
-    form.setValue("message",text);
-    console.log("merged",text);
+    setValue("message",text);
   };
 
+  if (tokenKeys.includes ("targets"))
+    tokens.targets=profiles;
   const merged = useToken (data["message"],tokens, handleMerging);
 
-  console.log ("rendering");
 
   useEffect( () => {
     ["subject","message"].map ( k => {
@@ -97,12 +99,11 @@ const Component = (props) => {
 //      console.log(to);
       setAllProfiles(to);
       setProfiles(to);
-    }
+    }// eslint-disable-next-line 
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterProfiles = useCallback(
     (country) => {
-      console.log("filtering for "+country);
       if (!country) return;
       country = country.toLowerCase();
       const d = allProfiles.filter((d) => {
@@ -116,16 +117,17 @@ const Component = (props) => {
       if (d.length === 0) {
         setError("country",{message:t("target.country.empty",{country:getCountryName(country)}),type:"no_empty"});
       } else {
-        console.log("clear error for country");
         clearErrors("country");
       }
       setProfiles(d);
+      setData("targets",d);
+      setData("country",country);
     },
-    [allProfiles,setError,clearErrors,t]
+    [allProfiles,setError,clearErrors,t, setData]
   );
 
   useEffect(() => {
-    console.log("change profiles for "+country);
+    
     filterProfiles(country);
 
   }, [country, filterProfiles]);

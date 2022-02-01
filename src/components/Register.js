@@ -208,7 +208,7 @@ export default function Register(props) {
 
   if (status === "success") {
     return (
-      <Container component="main" maxWidth="sm">
+      <Container component="div" maxWidth="sm">
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <DoneIcon color="action" fontSize="large" my={4} />
@@ -250,7 +250,7 @@ export default function Register(props) {
     >
       <Success display={status === "success"} />
       <Error display={status === "error"} />
-      <Container component="main" maxWidth="sm">
+      <Container component="div" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={1}>
             {config.component?.register?.field?.organisation && (

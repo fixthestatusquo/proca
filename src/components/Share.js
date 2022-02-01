@@ -23,6 +23,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import useData from "@hooks/useData";
 
 import {
   EmailShareButton,
@@ -91,7 +92,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function ShareAction(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
-
   const actionPage = config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
   const { t } = useTranslation();
@@ -148,9 +148,20 @@ export default function ShareAction(props) {
   );
 
   function Actions(props) {
-    const shareText = (key) => {
-      return config.param.locales[key] || config.param.locales["share"];
+    const { t } = useTranslation();
+    const [data,] = useData();
+
+    const shareText = (key, target) => {
+      const i18nKey = ["campaign:"+key.replace ("-","."),"campaign:share.default"];
+      let msg = config.param.locales[key] || config.param.locales["share"] || t (i18nKey,"share.message");
+      if (target) {
+        msg += " "+target;
+      }
+      return msg;
     };
+  
+    let twitters = [];
+    data.targets?.forEach( d => {if (d.screen_name) twitters.push("@"+d.screen_name)});
     return (
       <CardActions>
         <ActionIcon
@@ -169,7 +180,7 @@ export default function ShareAction(props) {
         <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
         <ActionIcon
           icon={TwitterIcon}
-          title={shareText("share-twitter")}
+          title={shareText("share-twitter",twitters.join(" "))}
           component={TwitterShareButton}
         />
         <ActionIcon
