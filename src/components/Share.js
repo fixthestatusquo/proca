@@ -148,9 +148,13 @@ export default function ShareAction(props) {
   );
 
   function Actions(props) {
+    const { t } = useTranslation();
+
     const shareText = (key) => {
-      return config.param.locales[key] || config.param.locales["share"];
+      const i18nKey = ["campaign:"+key.replace ("-","."),"campaign:share.default"];
+      return config.param.locales[key] || config.param.locales["share"] || t (i18nKey,"share.message");
     };
+    
     return (
       <CardActions>
         <ActionIcon
