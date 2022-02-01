@@ -111,6 +111,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
   upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
 }
 `;
+  console.log(JSON.stringify(formattedTargets, null, 2));
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
@@ -341,6 +342,8 @@ const fetch = async (actionPage) => {
 query actionPage ($id:Int!) {
   actionPage (id:$id) {
     id, name, locale,
+    thankYouTemplate,
+    ... on PrivateActionPage { supporterConfirmTemplate },
     campaign {
       id,
       title,name,config,
@@ -349,13 +352,18 @@ query actionPage ($id:Int!) {
     org {
       title,
       name,
-        config
+      config,
+      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
     }
     , config
   }
 }
 `;
 
+  let headers = basicAuth({
+    username: process.env.AUTH_USER,
+    password: process.env.AUTH_PASSWORD,
+  });
   try {
     const res = await crossFetch(
       API_URL,
@@ -366,9 +374,9 @@ query actionPage ($id:Int!) {
           variables: { id: actionPage },
           operationName: "actionPage",
         }),
-        headers: {
+        headers: Object.assign({
           "Content-Type": "application/json",
-        },
+        }, headers),
       },
     );
 
@@ -377,11 +385,13 @@ query actionPage ($id:Int!) {
     }
 
     const resJson = await res.json();
+    if (resJson.errors) throw resJson.errors;
     data = resJson.data;
   } catch (err) {
     throw err;
   }
 
+  console.log(data.actionPage)
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
@@ -403,6 +413,12 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
+  if (config.component.consent) {
+    Object.assign(config.component.consent, {
+      confirmSupporter: data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate),
+      thankYou: Boolean(data.actionPage.thankYouTemplate)
+    });
+  }
   if (!config.journey) {
     delete config.journey;
   }
