@@ -391,10 +391,13 @@ query actionPage ($id:Int!) {
     locales: data.actionPage.config.locales || {},
   };
   if (config.component.consent && data.actionPage.org.processing) {
-    Object.assign(config.component.consent, {email:{
-      confirmAction: data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate),
-      confirmOptIn: Boolean(data.actionPage.thankYouTemplate)
-    }});
+    let consentEmail = {};
+    if (data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate))
+      consentEmail.confirmAction = true;
+    if (Boolean(data.actionPage.thankYouTemplate))
+      consentEmail.confirmOptIn = true;
+    if (Object.keys(consentEmail).length > 0)
+      config.component.consent.email = consentEmail; // we always overwrite based on the templates
   }
   if (!config.journey) {
     delete config.journey;
