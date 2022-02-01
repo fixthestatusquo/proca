@@ -359,37 +359,14 @@ query actionPage ($id:Int!) {
   }
 }
 `;
-
-  let headers = basicAuth({
-    username: process.env.AUTH_USER,
-    password: process.env.AUTH_PASSWORD,
-  });
+ 
   try {
-    const res = await crossFetch(
-      API_URL,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          query: query,
-          variables: { id: actionPage },
-          operationName: "actionPage",
-        }),
-        headers: Object.assign({
-          "Content-Type": "application/json",
-        }, headers),
-      },
-    );
-
-    if (res.status >= 400) {
-      throw new Error("Bad response from server:" +res.status);
-    }
-
-    const resJson = await res.json();
-    if (resJson.errors) throw resJson.errors;
-    data = resJson.data;
+    data = await api(query, { id: actionPage }, "actionPage");
   } catch (err) {
     throw err;
   }
+  console.log(data);
+  if (!data.actionPage) throw new Error (data.toString());
 
   console.log(data.actionPage)
   data.actionPage.config = JSON.parse(data.actionPage.config);
@@ -413,11 +390,11 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
-  if (config.component.consent) {
-    Object.assign(config.component.consent, {
-      confirmSupporter: data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate),
-      thankYou: Boolean(data.actionPage.thankYouTemplate)
-    });
+  if (config.component.consent && data.actionPage.org.processing) {
+    Object.assign(config.component.consent, {email:{
+      confirmAction: data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate),
+      confirmOptIn: Boolean(data.actionPage.thankYouTemplate)
+    }});
   }
   if (!config.journey) {
     delete config.journey;
