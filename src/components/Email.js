@@ -7,6 +7,7 @@ import ProgressCounter from "@components/ProgressCounter";
 
 import Country from "@components/Country";
 import useData from "@hooks/useData";
+import useToken, {extractTokens} from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
@@ -35,10 +36,21 @@ const Component = (props) => {
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { watch, getValues, setError, clearErrors } = form;
+  const { watch, getValues, setValue, setError, clearErrors } = form;
 
   const country = watch ("country");
   const fields = getValues (["subject","message"]);
+
+  const tokenKeys = extractTokens (data["message"]);
+  const tokens = watch (tokenKeys);
+  const handleMerging = text => {
+    setValue("message",text);
+  };
+
+  if (tokenKeys.includes ("targets"))
+    tokens.targets=profiles;
+  const merged = useToken (data["message"],tokens, handleMerging);
+
 
   useEffect( () => {
     ["subject","message"].map ( k => {
@@ -47,7 +59,7 @@ const Component = (props) => {
       }
       return undefined;
     });
-  },[data,fields,form]);
+  },[{firstname:tokens.firstname, country: tokens.country ? getCountryName(tokens.country):""},fields,form]);
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -253,14 +265,14 @@ const Component = (props) => {
       {config.component.email?.showTo !== false && (
         <List>
           {profiles.map((d) => (
-            <Action
+            <EmailAction
               key={d.id || JSON.stringify(d)}
               actionPage={config.actionPage}
               done={props.done}
               actionUrl={props.actionUrl || data.actionUrl}
-              actionText={config.param.twitterText || t(["campaign:twitter"])}
+              actionText={t(["campaign:share.twitter", "campaign:share"])}
               {...d}
-            ></Action>
+            ></EmailAction>
           ))}
         </List>
       )}
