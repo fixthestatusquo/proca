@@ -23,7 +23,6 @@ import { addAction } from "@lib/server";
 const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
-  const Action = EmailAction;
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
@@ -49,7 +48,8 @@ const Component = (props) => {
 
   if (tokenKeys.includes ("targets"))
     tokens.targets=profiles;
-  const merged = useToken (data["message"],tokens, handleMerging);
+  useToken (data["message"],tokens, handleMerging); 
+  // # todo more reacty, use the returned value instead of the handleMerging callback
 
 
   useEffect( () => {
@@ -58,9 +58,10 @@ const Component = (props) => {
         form.setValue(k,data[k]);
       }
       return undefined;
-    });
+    }); // eslint-disable-next-line
   },[{firstname:tokens.firstname, country: tokens.country ? getCountryName(tokens.country):""},fields,form]);
-
+  // todo: clean the dependency
+  //
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
