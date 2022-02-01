@@ -23,7 +23,7 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const Action = EmailAction;
-  const [data] = useData();
+  const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const isMobile = useIsMobile();
@@ -87,12 +87,11 @@ const Component = (props) => {
 //      console.log(to);
       setAllProfiles(to);
       setProfiles(to);
-    }
+    }// eslint-disable-next-line 
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterProfiles = useCallback(
     (country) => {
-      console.log("filtering for "+country);
       if (!country) return;
       country = country.toLowerCase();
       const d = allProfiles.filter((d) => {
@@ -106,16 +105,17 @@ const Component = (props) => {
       if (d.length === 0) {
         setError("country",{message:t("target.country.empty",{country:getCountryName(country)}),type:"no_empty"});
       } else {
-        console.log("clear error for country");
         clearErrors("country");
       }
       setProfiles(d);
+      setData("targets",d);
+      setData("country",country);
     },
-    [allProfiles,setError,clearErrors,t]
+    [allProfiles,setError,clearErrors,t, setData]
   );
 
   useEffect(() => {
-    console.log("change profiles for "+country);
+    
     filterProfiles(country);
 
   }, [country, filterProfiles]);

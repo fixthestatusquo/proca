@@ -23,8 +23,8 @@ const merge = (targets, twitters) => {
     } else {
       r.procaid = target.id;
       r.name = target.name; //? not sure which one we want to keep
-      if (target.description) 
-        r.description = target.description;
+     if (r.description && target.fields.description) 
+        r.description = target.fields.description;
       r.country = target.area
     }
     return r;
