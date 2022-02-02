@@ -237,6 +237,7 @@ export default function Register(props) {
     } else {
       clearErrors("email");
     }
+    //todo, create a hook and save, and handle properly the validation ;)
     return true;
     // what do we do with the provider?
   }
