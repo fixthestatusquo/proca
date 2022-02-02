@@ -120,7 +120,6 @@ export default function Register(props) {
     );
     if (result.errors) {
       let handled = false;
-      console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
@@ -146,6 +145,7 @@ export default function Register(props) {
         firstname: data.firstname,
         country: data.country,
         comment: data.comment,
+        privacy: data.privacy
       },
       data
     );
@@ -160,6 +160,7 @@ export default function Register(props) {
         uuid: uuid(),
         firstname: data.firstname,
         country: data.country,
+        privacy: data.privacy
       });
   };
 

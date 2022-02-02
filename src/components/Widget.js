@@ -31,6 +31,8 @@ let init = false;
 
 const Widget = (props) => {
   const [current, _setCurrent] = useState(null);
+//  const [breadCrumb, setReturnStep] = useState({});  creates extra render
+
   const setCurrent = (i) => {
     if (i >= 0 && journey[i])
       dispatch(journey[i].toLowerCase() + ":init", {
@@ -39,7 +41,7 @@ const Widget = (props) => {
       });
     _setCurrent(i);
   };
-  const [, updateState] = React.useState();
+  const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
   //  const theme = useTheme();
@@ -189,6 +191,7 @@ const Widget = (props) => {
   // the result is whatever the action that has finished wants to share to the journey
   //
   const nextStep = (result) => {
+    // setReturnStep(result);
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
     if (typeof steps[journey[current]].after === "function") {

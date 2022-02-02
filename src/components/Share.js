@@ -13,6 +13,7 @@ import {
   CardMedia,
 } from "@material-ui/core";
 
+import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
@@ -88,6 +89,36 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 */
+  const ConfirmPreviousStep = props => {
+    const { t } = useTranslation();
+    const [data] = useData();
+
+    if (props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
+      // t("email.sent","We sent you an email"); to be used as the title
+      return (
+        <Alert severity="info">
+          {t("consent.confirmOptIn")}
+        </Alert>
+      );
+    }
+
+    if (props.email?.confirmAction) {
+      return (
+        <Alert severity="warning" autoHideDuration={10000}>
+          {t("consent.confirmAction",{email:data.email})}
+        </Alert>
+      );
+    }
+
+    if (data.privacy) { // we saved previously
+      return (
+        <Alert severity="success">
+          {t("Thank you")}
+        </Alert>
+      );
+    }
+    return null;
+  }
 
 export default function ShareAction(props) {
   const classes = useStyles();
@@ -114,8 +145,10 @@ export default function ShareAction(props) {
     if (props.done instanceof Function) props.done();
   };
 
+
   return (
     <div className={classes.root}>
+      <ConfirmPreviousStep prev={props.prev} email={config.component.consent?.email} />
       <h3>{t("share.title")}</h3>
       <p>{t("share.intro")}</p>
       <Card className={classes.root}>
@@ -149,19 +182,27 @@ export default function ShareAction(props) {
 
   function Actions(props) {
     const { t } = useTranslation();
-    const [data,] = useData();
+    const [data] = useData();
 
     const shareText = (key, target) => {
-      const i18nKey = ["campaign:"+key.replace ("-","."),"campaign:share.default"];
-      let msg = config.param.locales[key] || config.param.locales["share"] || t (i18nKey,"share.message");
+      const i18nKey = [
+        "campaign:" + key.replace("-", "."),
+        "campaign:share.default",
+      ];
+      let msg =
+        config.param.locales[key] ||
+        config.param.locales["share"] ||
+        t(i18nKey, "share.message");
       if (target) {
-        msg += " "+target;
+        msg += " " + target;
       }
       return msg;
     };
-  
+
     let twitters = [];
-    data.targets?.forEach( d => {if (d.screen_name) twitters.push("@"+d.screen_name)});
+    data.targets?.forEach((d) => {
+      if (d.screen_name) twitters.push("@" + d.screen_name);
+    });
     return (
       <CardActions>
         <ActionIcon
@@ -180,7 +221,7 @@ export default function ShareAction(props) {
         <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
         <ActionIcon
           icon={TwitterIcon}
-          title={shareText("share-twitter",twitters.join(" "))}
+          title={shareText("share-twitter", twitters.join(" "))}
           component={TwitterShareButton}
         />
         <ActionIcon
