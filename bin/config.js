@@ -377,7 +377,7 @@ query actionPage ($id:Int!) {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     org:{privacyPolicy : (data.actionPage.org.config.privacy && data.actionPage.org.config.privacy.policyUrl || ''), url:data.actionPage.org.config.url || ''},
-    lang: data.actionPage.locale.toLowerCase(),
+    lang: data.actionPage.locale,
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,
     campaign: {
@@ -429,7 +429,7 @@ const actionPageFromLocalConfig = (id, local) => {
     id: id,
     actionPage: {
       name: local.filename,
-      locale: local.lang.toLowerCase(),
+      locale: local.lang,
       config: JSON.stringify({
         journey: array2string(local.journey),
         layout: local.layout,
