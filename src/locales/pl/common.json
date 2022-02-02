@@ -45,7 +45,7 @@
   "Your message": "Twoja wiadomość",
   "Your organisation account": "Konto organizacji",
   "consent": {
-    "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych pilnych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
+    "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
     "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}.",
     "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i {{campaign}} postępach.",
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
