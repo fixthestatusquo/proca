@@ -35,7 +35,7 @@ const getOverwriteLocales = (
 
 const getAllData = (
   selector,
-  allowed = "share,share-twitter,share-whatsapp,share-telegram,share-linkedin,share-subject,share-body,dialog-title,firstname,lastname,email,phone,postcode,country,comment"
+  allowed = "share,share-twitter,share-whatsapp,share-telegram,share-linkedin,share-subject,share-body,dialog-title,firstname,lastname,email,phone,postcode,country,comment,email-subject,email-body"
 ) => {
   allowed = allowed.split(",");
   const dom = document.querySelector(selector);
@@ -62,6 +62,7 @@ const getAllData = (
     const chosen = Math.floor(Math.random() * (value.length + 1));
     locales[key] = value[chosen];
   }
+  console.log(locales);
   return { ...dom.dataset, locales: locales };
 };
 export { getData, getAllData, getOverwriteLocales };

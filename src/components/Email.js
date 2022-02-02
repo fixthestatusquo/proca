@@ -27,14 +27,14 @@ const Component = (props) => {
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const isMobile = useIsMobile();
-
   const { t } = useTranslation();
-
+  const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: data,
+    defaultValues: Object.assign({},paramEmail,data)
   });
+
   const { watch, getValues, setValue, setError, clearErrors } = form;
 
   const country = watch ("country");
@@ -42,6 +42,13 @@ const Component = (props) => {
 
   const tokenKeys = extractTokens (data["message"]);
   const tokens = watch (tokenKeys);
+  useEffect ( () => {
+    console.log(fields);
+    if (fields.message ==='' && paramEmail.message) {
+      setValue("message",paramEmail.message);
+    }
+  },[paramEmail]);
+
   const handleMerging = text => {
     setValue("message",text);
   };

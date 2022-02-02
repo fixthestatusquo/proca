@@ -69,7 +69,7 @@ function readConfigOverride() {
           campaignConfig.config.locales
           && campaignConfig.config.locales[config.lang]
         ) {
-          config.locales["campaign:"] = campaignConfig.config.locales[config.lang];
+          config.locales["campaign:"] = Object.assign({},campaignConfig.config.locales[config.lang],config.locales["campaign:"]);
           if (campaignConfig.config.locales[config.lang].title) {
             config.campaign.title = campaignConfig.config.locales[config.lang].title;
           }
