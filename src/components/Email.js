@@ -52,10 +52,16 @@ const Component = (props) => {
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
 
-  useEffect( () => {
+  useEffect( () => { // not clear what it does, todo
     ["subject","message"].map ( k => {
       if (data[k] && !fields[k]) {
-        form.setValue(k,data[k]);
+        if (tokenKeys.length) { // there are token in the message
+          const empty = {};
+          tokenKeys.forEach ( d => (empty[d] = '' ));
+          form.setValue(k,t(data[k],empty));
+        } else {
+          form.setValue(k,data[k]);
+        }
       }
       return undefined;
     }); // eslint-disable-next-line
