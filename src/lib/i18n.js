@@ -9,7 +9,7 @@ import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used l
 isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
-export const allCountries = isoCountries.getNames(config.lang.toLowerCase(), {
+export const allCountries = isoCountries.getNames(config.lang.toLowerCase().slice(0,2), {
   select: "official",
 });
 
