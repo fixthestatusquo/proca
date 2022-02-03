@@ -43,10 +43,9 @@ const Component = (props) => {
   const tokenKeys = extractTokens (data["message"]);
   const tokens = watch (tokenKeys);
   useEffect ( () => {
-    console.log(fields);
     if (fields.message ==='' && paramEmail.message) {
       setValue("message",paramEmail.message);
-    }
+    } // eslint-disable-next-line
   },[paramEmail]);
 
   const handleMerging = text => {
@@ -268,6 +267,15 @@ const Component = (props) => {
   };
 
   const onClick = config.component.email?.server !== true ? send : null;
+
+  const prepareData = (data) => {
+    if (!data.message) 
+      data.message = getValues ("message"); 
+    if (data.comment)
+      data.message += "\n" + data.comment;
+    return data;
+  }
+
   return (
       <Container maxWidth="sm">
       {config.component.email?.progress && (
@@ -290,7 +298,7 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register form={form} done={props.done} targets={profiles} onClick={onClick} extraFields={ExtraFields}/>
+      <Register form={form} done={props.done} targets={profiles} beforeSubmit={prepareData} onClick={onClick} extraFields={ExtraFields}/>
     </Container>
   );
 };

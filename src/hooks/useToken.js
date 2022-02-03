@@ -19,12 +19,7 @@ const extractTokens = text => {
 };
 
 
-const useToken = (text, data, handleChange) => {
-  const token = extractTokens(text);
-  const { t } = useTranslation();
-
-  const [rendered, merge] = useState (text);
-  useEffect ( () => {
+const applyToken = (text, token, data, t) => {
     if (token.includes("name")) {
       data.name = (data.firstname || '')+ " " + (data.lastname || '');
     }
@@ -38,9 +33,18 @@ const useToken = (text, data, handleChange) => {
          data.target.salutation = data.targets.map (d => d.salutation).join(", ");
       }
     }
-    const updated = t(text,data);
+    return t(text,data);
+}
+
+const useToken = (text, data, handleChange) => {
+  const token = extractTokens(text);
+  const { t } = useTranslation();
+
+  const [rendered, merge] = useState (text);
+  useEffect ( () => {
+    const updated = applyToken (text,token, data, t);
     if (updated !==rendered) {
-      handleChange(updated);
+      handleChange && handleChange(updated);
       merge(updated);
     } // eslint-disable-next-line
   },[handleChange,text,data,token]);
@@ -49,4 +53,4 @@ const useToken = (text, data, handleChange) => {
 }
 
 export default useToken;
-export {extractTokens};
+export {extractTokens, applyToken};

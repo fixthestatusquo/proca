@@ -62,7 +62,6 @@ const getAllData = (
     const chosen = Math.floor(Math.random() * (value.length + 1));
     locales[key] = value[chosen];
   }
-  console.log(locales);
   return { ...dom.dataset, locales: locales };
 };
 export { getData, getAllData, getOverwriteLocales };

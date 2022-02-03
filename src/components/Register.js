@@ -114,6 +114,10 @@ export default function Register(props) {
       data.targets = props.targets;
       actionType = "mail2target";
     }
+    if (props.beforeSubmit && typeof props.beforeSubmit === 'function') {
+      data = props.beforeSubmit (data);
+    }
+
     const result = await addActionContact(actionType,
       config.actionPage,
       data

@@ -20,13 +20,19 @@ const merge = (targets, twitters) => {
         followers_count : 0,
         verified : false
       };
+
     } else {
       r.procaid = target.id;
       r.name = target.name; //? not sure which one we want to keep
-     if (r.description && target.fields.description) 
+     //if (r.description && target.fields.description) 
         r.description = target.fields.description;
+     //if (r.description && target.fields.description) 
+      
       r.country = target.area
     }
+    if (target.fields.salutation) 
+      r.salutation=target.fields.salutation;
+
     return r;
   });
   return merged;
