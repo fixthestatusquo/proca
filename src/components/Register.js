@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -75,7 +75,7 @@ export default function Register(props) {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
-
+  const emailProvider = useRef (undefined); // we don't know the email provider
   const { t } = useTranslation();
 
   const width = useElementWidth("#proca-register");
@@ -102,6 +102,16 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (data) => {
+    if (emailProvider.current === false) {
+      setError("email", { type: "mx", message: t("email.invalid_domain",{
+        defaultValue: "{{domain}} cannot receive emails",
+        domain:getDomain(data.email)})});
+      // the email domain is checked and invalid
+      return false;
+    } else {
+      data.emailProvider = emailProvider.current || "undefined"
+    }
+
     data.tracking = Url.utm();
     if (config.component.consent?.implicit) {
       data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
@@ -232,13 +242,14 @@ export default function Register(props) {
     if (!e.target.checkValidity())
       return; // html5 errors are handled elsewhere
     const provider = await checkMail (email);
-    console.log("provider",provider);
+    emailProvider.current = provider;
     if (provider === false) {
       setError("email", { type: "mx", message: t("email.invalid_domain",{
         defaultValue: "{{domain}} cannot receive emails",
         domain:getDomain(email)})});
       return false;
     } else {
+      
       clearErrors("email");
     }
     //todo, create a hook and save, and handle properly the validation ;)
