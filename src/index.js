@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { goStep, hook, setConfig, setGlobalState } from "./hooks/useConfig";
 import "./lib/i18n";
 import { isTest } from "./lib/urlparser";
+import {scrollTo} from './lib/scroll';
 
 import ProcaAlert from "./components/Alert.js";
 import Portals from "./components/Portals.js";
@@ -148,6 +149,6 @@ const addEventListener = (type, listener) => {
   el.addEventListener(type, listener);
 };
 
-export { addEventListener, Alert, go, hook, React, ReactDOM, set, Widget };
+export { addEventListener, Alert, go, scrollTo, hook, React, ReactDOM, set, Widget };
 
 //      <SignatureForm margin= "dense" variant= "filled" />

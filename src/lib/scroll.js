@@ -1,7 +1,17 @@
-const scrollWidgetIntoView = () = {
-  widget = document.getElmentById("proca-widget");
-  if (!widget) return;
-  widget.scrollIntoView();
+
+const scrollTo = (dom) => {
+  let delay = 0;
+  if (typeof dom === 'object') {
+    delay = dom.delay || 0;
+    dom = dom.selector;
+  }
+
+  setTimeout( () => {
+    const widget = document.querySelector(dom || ".proca-widget");
+    if (!widget) return;
+    widget.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+
+  }, delay);
 }
 
-export {scrollWidgetIntoView};
+export {scrollTo};

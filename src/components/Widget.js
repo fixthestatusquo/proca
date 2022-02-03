@@ -8,6 +8,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import dispatch from "@lib/event";
+import {scrollTo} from '@lib/scroll';
 
 import { initDataState } from "@hooks/useData";
 
@@ -290,7 +291,10 @@ const Widget = (props) => {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
       if (isMobile || !paramStep()) go(1);
-      else go(paramStep());
+      else {
+        go(paramStep());
+        scrollTo({delay:300});
+      };
       //      return null;
     }
   }
