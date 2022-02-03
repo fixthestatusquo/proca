@@ -70,7 +70,7 @@ const component = function EmailAction(profile) {
       alignItems="flex-start"
       selected={selected}
       disabled={disabled}
-      button={true}
+      button={config.component?.email?.split === true}
       onClick={config.component?.email?.split === true ? mail : null}
       divider={true}
     >
