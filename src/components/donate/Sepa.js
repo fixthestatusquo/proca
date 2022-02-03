@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
-import { Snackbar } from "@material-ui/core";
+import { Container, Grid, Snackbar, TextField as LayoutTextField } from "@material-ui/core";
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -11,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 import { addDonateContact, errorMessages } from "@lib/server.js";
@@ -20,6 +19,7 @@ import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
 import { NameField } from "@components/NameField";
+import useLayout from "../../hooks/useLayout";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -66,6 +66,7 @@ export default function Register(props) {
   const form = useForm({
     defaultValues: data,
   });
+  const { control, errors } = form;
 
   const amount = data.amount;
   const currency = config.component.donation.currency;
@@ -145,6 +146,7 @@ export default function Register(props) {
   };
 
   const useTitle = config.component.donation.useTitle;
+  const layout = useLayout();
 
   return (
     <form
@@ -184,14 +186,33 @@ export default function Register(props) {
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
-              form={form}
+            <Controller
+              control={control}
               name="email"
-              type="email"
-              label={t("Email")}
-              autoComplete="email"
-              required
-              placeholder="your.email@example.org"
+              rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
+              render={({ onChange, onBlur, value }) => (
+                <LayoutTextField
+                  className={classes.textField}
+                  label={t("Email")}
+                  autoComplete="email"
+                  type="email"
+                  name="email"
+                  placeholder="your.email@example.org"
+                  required
+                  error={!!(errors && errors["email"])}
+                  helperText={
+                    errors && errors["email"] && errors["email"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  onBlur={(e) => {
+                    setData(e.target.name, e.target.value);
+                    onBlur(e);
+                  }}
+                  value={value}
+                />
+              )}
             />
           </Grid>
           {config.component?.donate?.field?.phone === true && (
