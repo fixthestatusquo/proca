@@ -62,7 +62,7 @@ const Component = (props) => {
     ["subject","message"].map ( k => {
       if (data[k] && !fields[k]) {
         if (tokenKeys.length) { // there are token in the message
-          const empty = {};
+          const empty = {defaultValue:data[k], nsSeparator: false};
           tokenKeys.forEach ( d => (empty[d] = '' ));
           form.setValue(k,t(data[k],empty));
         } else {
