@@ -35,6 +35,7 @@ const applyToken = (text, token, data, t) => {
       }
     }
     data.nsSeparator= false; // VERY IMPORTANT, otherwise it mangles any text containing ":"
+    data.defaultValue = text; //very IMPORTANT too, fallback if the NS goes weird anyway
     return t(text,data);
 }
 
