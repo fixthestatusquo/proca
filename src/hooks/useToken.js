@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 
 import { useTranslation } from "react-i18next";
-import i18next  from 'i18next';
 
 
 const extractTokens = text => {
@@ -41,7 +40,7 @@ const applyToken = (text, token, data, t) => {
 
 const useToken = (text, data, handleChange) => {
   const token = extractTokens(text);
-  const { t, i18n } = useTranslation(); 
+  const { t  } = useTranslation(); 
   const [rendered, merge] = useState (text);
   useEffect ( () => {
     const updated = applyToken (text,token, data,t);
