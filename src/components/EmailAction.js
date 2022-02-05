@@ -68,6 +68,7 @@ const component = function EmailAction(profile) {
   return (
     <ListItem
       alignItems="flex-start"
+      component="div"
       selected={selected}
       disabled={disabled}
       button={config.component?.email?.split === true}
