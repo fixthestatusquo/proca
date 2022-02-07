@@ -1902,22 +1902,22 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@paypal/paypal-js@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-5.0.1.tgz#d2884d5a36b4307a57f0a8f317644bff5a71c58e"
-  integrity sha512-qm17kEm/5w6B3AOx95YWFCb167OVis0/CBqDRQNQUBmDjqEe15qxk3U8LLxKeVvIyij5agx4gAyVcwkd8f6nVA==
+"@paypal/paypal-js@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-5.0.2.tgz#bf07d7ae3f397070f67b4727982365a44faa836e"
+  integrity sha512-bRQ6P0sftCkunQXKjujDjxCbfCdIZpn29JoQU5HTW50lV1yFGKf8q9DJIAnzHPgDDc0CTJ27dlkLD94oKEd6Jg==
   dependencies:
     promise-polyfill "^8.2.1"
 
-"@paypal/react-paypal-js@^7.5.1":
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.5.1.tgz#722d4681dbd2b0402737a433db8cf29efa2a3b64"
-  integrity sha512-qaI+dDs20rVIEsGZcWMvYzmuO3V5QrfSJSyMRkE2LAxKus19+5BxXNLcNI8odwe70U+mo1GE0WU3uMw7tZKfIg==
+"@paypal/react-paypal-js@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.6.0.tgz#4161739263daf72f646c87d12c2225cf50c76f13"
+  integrity sha512-GPaFXOVEh2bCNKOmLmArxWoBM6gfzoP41HfDdEr58geJi+t32/FtVKdaoxymE6f3oStaobt6KDdzxPpKuNeisQ==
   dependencies:
-    "@paypal/paypal-js" "^5.0.1"
-    "@paypal/sdk-constants" "^1.0.114"
+    "@paypal/paypal-js" "^5.0.2"
+    "@paypal/sdk-constants" "^1.0.116"
 
-"@paypal/sdk-constants@^1.0.114":
+"@paypal/sdk-constants@^1.0.116":
   version "1.0.116"
   resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.116.tgz#01afb69ab290c9ab000d66010eeace1620f66577"
   integrity sha512-V/f5Heit1W/O/4KD1y+3ymgCyN3QbZfx6ST5vvAM8dMGrrLFwGHxljP/aJntR/Rn167T0ujPaZq6VWaaMScyMA==
