@@ -9,7 +9,7 @@ const scrollTo = (dom) => {
   setTimeout( () => {
     const widget = document.querySelector(dom || ".proca-widget");
     if (!widget) return;
-    widget.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+    widget.scrollIntoView({ block: 'center',  behavior: 'smooth' });
 
   }, delay);
 }

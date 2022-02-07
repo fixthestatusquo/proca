@@ -94,6 +94,7 @@ Widget.jump = (step) => {
 
 const go = (action) => {
   goStep(action);
+  scrollTo({delay:300});
 };
 
 const set = (atom, key, value) => {

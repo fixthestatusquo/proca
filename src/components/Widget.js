@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useRef, useCallback, useEffect, useLayoutEffect } from "react";
 import ProcaRoot from "@components/ProcaRoot";
 import merge from "lodash.merge";
 import { initConfigState } from "@hooks/useConfig";
@@ -8,7 +8,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import dispatch from "@lib/event";
-import {scrollTo} from '@lib/scroll';
+import {scrollTo as _scrollTo} from '@lib/scroll';
 
 import { initDataState } from "@hooks/useData";
 
@@ -97,6 +97,19 @@ const Widget = (props) => {
       procaReady({}); // NOTE: should we pass config to procaReady?
     }
   }, [props]);
+
+  const scrollNeeded = useRef (false);
+  useLayoutEffect( () => {
+    console.log("go to widget", scrollNeeded.current);
+    if (scrollNeeded.current) {
+      _scrollTo();
+      scrollNeeded.current = false;
+    } 
+  });
+
+  const scrollTo = () => {
+    scrollNeeded.current = true;
+  }
 
   if (config.component.widget?.mobileVersion === false) isMobile = false;
 
@@ -195,6 +208,7 @@ const Widget = (props) => {
     // setReturnStep(result);
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
+    scrollTo();
     if (typeof steps[journey[current]].after === "function") {
       if (steps[journey[current]].after(result) === false) {
         console.log(
@@ -293,7 +307,7 @@ const Widget = (props) => {
       if (isMobile || !paramStep()) go(1);
       else {
         go(paramStep());
-        scrollTo({delay:300});
+        _scrollTo({delay:300});
       };
       //      return null;
     }
