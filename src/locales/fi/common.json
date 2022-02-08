@@ -46,6 +46,8 @@
   "Your organisation account": "Organisaatiotilisi",
   "consent": {
     "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
+    "confirmAction": "Olemme lähettäneet vahvistuslinkin sähköpostitse seuraavaan osoitteeseen:\n {{email}}\nPyydämme sinua noutamaan sähköpostiviestin heti ja klikkaamaan sen sisältämää linkkiä (tarkista roskapostikansiosi!).\n Vasta sen jälkeen toimintasi lasketaan!\nVahvistuksesi on ratkaisevan tärkeä toiminnan poliittisen painoarvon kannalta. Näin taataan, että jokaisen lähetyksen takana on oikea henkilö. Odotamme vahvistustasi...",
+    "confirmOptIn": "Muista tarkistaa postilaatikkosi (myös roskapostikansiosi!) ja vahvistaa sähköpostitilauksesi.",
     "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}",
     "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
     "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
