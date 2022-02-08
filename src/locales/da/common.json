@@ -48,6 +48,7 @@
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
     "confirmAction": "Vi har sendt et bekræftelseslink pr. e-mail til følgende adresse:\n {{email}}\nDu bedes hente e-mailen nu og klikke på linket (tjek din spam-mappe!).\n Først da vil din handling tælle!\nDin bekræftelse er afgørende for aktionens politiske vægt. Det garanterer, at der er en rigtig person bag hver indsendelse. Vi afventer din bekræftelse...",
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
+    "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
     "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
     "opt-in": "Ja, hold mig informeret via e-mail",
