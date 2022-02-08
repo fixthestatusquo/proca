@@ -46,6 +46,9 @@
   "Your organisation account": "Teie organisatsiooni konto",
   "consent": {
     "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
+    "confirmAction": "Oleme saatnud kinnituse lingi e-posti teel järgmisele aadressile:\n {{email}}.\nPalun võtke e-kiri kohe kätte ja klõpsake selles sisalduvale lingile (kontrollige oma rämpsposti kausta!).\n Ainult siis loeb teie tegevus!\nTeie kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame teie kinnitust...",
+    "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh rämpsposti kausta!) ja kinnitada oma e-posti tellimust.",
+    "emailSent": "Saatsime teile e-kirja aadressile {email}!",
     "implicit": "Esitage see vorm, et saada e-kirju {{name}}",
     "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
     "opt-in": "Jah, hoia mind e-posti teel kursis",

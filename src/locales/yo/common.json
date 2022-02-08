@@ -46,6 +46,9 @@
   "Your organisation account": "Account agbari rẹ",
   "consent": {
     "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa.",
+    "confirmAction": "A ti fi ọna asopọ ijẹrisi ranṣẹ nipasẹ imeeli si adirẹsi atẹle yii:\n {{email}}\nJọwọ gba imeeli pada ni bayi ki o tẹ ọna asopọ ti o wa ninu (ṣayẹwo folda àwúrúju rẹ!).\n Nikan lẹhinna iṣẹ rẹ yoo ka!\nIjẹrisi rẹ ṣe pataki fun iwuwo iṣelu ti iṣe naa. Eyi ṣe iṣeduro pe eniyan gidi wa lẹhin gbogbo ifakalẹ. A yoo duro de ijẹrisi rẹ...",
+    "confirmOptIn": "Maṣe gbagbe lati ṣayẹwo apoti leta rẹ (pẹlu folda àwúrúju rẹ!) Ati jẹrisi ṣiṣe alabapin imeeli rẹ",
+    "emailSent": "A fi imeeli ranṣẹ si ọ si {imeeli}!",
     "implicit": "Fi fọọmu yii silẹ lati gba awọn imeeli lati {{name}}",
     "intro": "Wa diẹ sii nipa awọn ipolongo wa, awọn iṣe ati ilọsiwaju {{campaign}}",
     "opt-in": "Bẹẹni, Mo fẹ {{partner}} lati jẹ ki n sọ fun mi nipasẹ imeeli",

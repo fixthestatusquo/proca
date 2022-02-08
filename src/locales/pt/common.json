@@ -46,6 +46,9 @@
   "Your organisation account": "A sua conta de organização",
   "consent": {
     "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
+    "confirmAction": "Enviamos um link de confirmação por e-mail para o seguinte endereço:\n {{email}}\nPor favor, recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Só então a sua acção contará!\nA sua confirmação é crucial para o peso político da acção. Isto garante que há uma pessoa real por trás de cada envio. Nós aguardaremos a sua confirmação...",
+    "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo sua pasta de spam!) e confirmar sua assinatura de e-mail",
+    "emailSent": "Nós lhe enviamos um e-mail para {email}!",
     "implicit": "Submeta este formulário para receber e-mails de {{name}}",
     "intro": "Saiba mais sobre nossas campanhas, ações e progresso {{campaign}}.",
     "opt-in": "Sim, eu quero {{partner}} me manter informado via e-mail",

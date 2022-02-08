@@ -46,6 +46,9 @@
   "Your organisation account": "Uw organisatie's account",
   "consent": {
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
+    "confirmAction": "Wij hebben een bevestigingslink per e-mail naar het volgende adres gestuurd:\n {{email}}\nGelieve de e-mail nu op te halen en op de link te klikken die erin staat (controleer uw spam-map!).\n Alleen dan telt uw actie!\nUw bevestiging is cruciaal voor het politieke gewicht van de actie. Dit garandeert dat er een echt persoon achter elke inzending staat. We wachten op je bevestiging...",
+    "confirmOptIn": "Vergeet niet uw mailbox te controleren (ook uw spam-map!) en uw e-mailabonnement te bevestigen",
+    "emailSent": "We hebben je een e-mail gestuurd naar {email}!",
     "implicit": "Verstuur dit formulier om e-mails te ontvangen van {{name}}",
     "intro": "Kom meer te weten over onze campagnes, acties en {{campaign}} updates",
     "opt-in": "Ja, ik wil dat {{partner}} mij via e-mail op de hoogte houdt",
