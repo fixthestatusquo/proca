@@ -77,7 +77,7 @@ const Widget = (props) => {
     const styles = `
 @keyframes procaBackgroundTest {
   0% {
-    background-color: #F4F980;
+    background-color: #fff4e5;
   }
   100% {
     background-color: auto;

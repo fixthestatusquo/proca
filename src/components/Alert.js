@@ -7,8 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   bigger: {
-      fontSize: '1.2rem'
-}
+      fontSize: 18
+  }
 }));
 
 function Transition(props) {

@@ -12,6 +12,7 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
+import { AlertTitle } from '@material-ui/lab';
 
 import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
@@ -93,10 +94,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     const { t } = useTranslation();
     const [data] = useData();
 
-    if (props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
-      // t("email.sent","We sent you an email"); to be used as the title
+    if (true || props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
       return (
         <Alert severity="info">
+        <AlertTitle>{t("consent.emailSent",{email:data.email, defaultValue: "We sent you an email to {email}!"})}</AlertTitle>
           {t("consent.confirmOptIn")}
         </Alert>
       );
