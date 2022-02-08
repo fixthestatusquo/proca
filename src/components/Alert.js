@@ -31,6 +31,7 @@ TransitionComponent={Transition}
       autoHideDuration={props.autoHideDuration}
     >
       <Alert severity={props.severity} onClose={handleClose}
+    icon={props.icon}
     className={classes.bigger}
     >
         {props.children || props.text}

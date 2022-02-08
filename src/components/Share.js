@@ -26,6 +26,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import useData from "@hooks/useData";
+import MailIcon from '@material-ui/icons/MailOutline';
 
 import {
   EmailShareButton,
@@ -91,13 +92,17 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 */
   const ConfirmPreviousStep = props => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [data] = useData();
 
-    if (true || props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
+    const ConfirmTitle = props => (
+      i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle> 
+    )
+
+    if (props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
       return (
-        <Alert severity="info">
-        <AlertTitle>{t("consent.emailSent",{email:data.email, defaultValue: "We sent you an email to {email}!"})}</AlertTitle>
+        <Alert severity="info" icon={<MailIcon />}>
+          <ConfirmTitle email={data.email}/>
           {t("consent.confirmOptIn")}
         </Alert>
       );
@@ -105,7 +110,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
     if (props.email?.confirmAction) {
       return (
-        <Alert severity="warning" autoHideDuration={10000}>
+        <Alert severity="warning" autoHideDuration={10000} icon={<MailIcon />}>
+          <ConfirmTitle email={data.email}/>
           {t("consent.confirmAction",{email:data.email})}
         </Alert>
       );
