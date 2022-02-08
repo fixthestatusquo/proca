@@ -46,6 +46,8 @@
   "Your organisation account": "Jūsu organizācijas konts",
   "consent": {
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",
+    "confirmAction": "Mēs esam nosūtījuši apstiprinājuma saiti uz šādu e-pasta adresi:\n {{email}}.\nLūdzu, saņemiet e-pastu tieši tagad un noklikšķiniet uz tajā esošās saites (pārbaudiet savu surogātpasta mapi!).\n Tikai tad jūsu darbība tiks ieskaitīta!\nJūsu apstiprinājumam ir izšķiroša nozīme, lai akcija būtu politiski nozīmīga. Tas garantē, ka aiz katra iesnieguma stāv reāla persona. Mēs gaidīsim jūsu apstiprinājumu...",
+    "confirmOptIn": "Neaizmirstiet pārbaudīt savu pastkasti (ieskaitot surogātpasta mapi!) un apstiprināt e-pasta abonēšanu.",
     "implicit": "Nosūtiet šo veidlapu, lai saņemtu e-pastus no {{name}}",
     "intro": "Uzziniet vairāk par mūsu kampaņām, darbībām un {{campaign}} progresu",
     "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu e-pastā",
