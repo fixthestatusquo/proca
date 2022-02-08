@@ -46,6 +46,8 @@
   "Your organisation account": "Račun vaše organizacije",
   "consent": {
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
+    "confirmAction": "E-mailom smo poslali vezu za potvrdu na sljedeću adresu:\n {{email}}\nMolimo dohvatite e-poštu odmah i kliknite na poveznicu koja sadrži (provjerite svoju mapu neželjene pošte!).\n Tek tada će se vaša akcija računati!\nVaša je potvrda ključna za političku težinu akcije. To jamči da iza svakog podnošenja stoji stvarna osoba. Čekamo vašu potvrdu...",
+    "confirmOptIn": "Ne zaboravite provjeriti svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrditi pretplatu na e-poštu",
     "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}",
     "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
     "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
