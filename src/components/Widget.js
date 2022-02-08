@@ -73,10 +73,18 @@ const Widget = (props) => {
 
   const test = config.test;
   useEffect(() => {
-    if (!test) return;
+    if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
     const styles = `
-    .proca-widget { 
-            background: repeating-linear-gradient(-45deg, #F4F980 2px, #F4F980 8px, rgba(255,255,255,0.6) 15px, rgba(255,255,255,0.6) 33px );
+@keyframes procaBackgroundTest {
+  0% {
+    background-color: #F4F980;
+  }
+  100% {
+    background-color: auto;
+  }
+  }
+    .proca-widget {
+      animation: 5s ease-out 0s 1 procaBackgroundTest;
     };
 `;
 
