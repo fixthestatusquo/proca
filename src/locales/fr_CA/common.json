@@ -48,6 +48,7 @@
     "confirm": "<0> Êtes-vous sûr·e?</0><1> En choisissant Non, vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant Oui, nous vous tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
     "confirmAction": "Nous avons envoyé un lien de confirmation par email à l'adresse suivante :\n {{email}}\nVeuillez récupérer l'email dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier spam !).\n Ce n'est qu'à ce moment-là que votre action comptera !\nVotre confirmation est cruciale pour le poids politique de l'action. Cela garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation...",
     "confirmOptIn": "N'oubliez pas de vérifier votre boîte aux lettres (y compris votre dossier de spam !) et de confirmer votre abonnement à l'e-mail.",
+    "emailSent": "Nous vous avons envoyé un courriel à {email} !",
     "implicit": "Soumettez ce formulaire pour recevoir les courriels de {{name}}",
     "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
     "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
