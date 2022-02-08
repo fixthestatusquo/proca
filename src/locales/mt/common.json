@@ -46,6 +46,8 @@
   "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
   "consent": {
     "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
+    "confirmAction": "Bgħatna link ta' konferma bl-email fl-indirizz li ġej:\n {{email}}\nJekk jogħġbok irkupra l-email dritt issa u kklikkja fuq il-link li fiha (iċċekkja l-folder tal-ispam tiegħek!).\n Hekk biss se tgħodd l-azzjoni tiegħek!\nIl-konferma tiegħek hija kruċjali għall-piż politiku tal-azzjoni. Dan jiggarantixxi li hemm persuna reali wara kull sottomissjoni. Nistennew il-konferma tiegħek...",
+    "confirmOptIn": "Tinsiex tiċċekkja l-kaxxa postali tiegħek (inkluż il-folder tal-ispam tiegħek!) U tikkonferma l-abbonament tal-email tiegħek",
     "implicit": "Ibgħat din il-formola biex tirċievi emails minn {{name}}",
     "intro": "Sib aktar dwar il-kampanji, l-azzjonijiet u l-progress tagħna {{campaign}}",
     "opt-in": "Iva, irrid {{partner}} li jżommni infurmat permezz tal-email",
