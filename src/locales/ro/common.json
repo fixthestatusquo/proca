@@ -48,6 +48,7 @@
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
     "confirmAction": "Am trimis un link de confirmare prin e-mail la următoarea adresă:\n {{email}}.\nVă rugăm să preluați e-mailul chiar acum și să faceți clic pe link-ul pe care îl conține (verificați dosarul de spam!).\n Doar atunci acțiunea dumneavoastră va conta!\nConfirmarea dvs. este crucială pentru greutatea politică a acțiunii. Acest lucru garantează că în spatele fiecărei propuneri se află o persoană reală. Așteptăm confirmarea dumneavoastră...",
     "confirmOptIn": "Nu uitați să vă verificați căsuța poștală (inclusiv folderul de spam!) și să confirmați abonarea la e-mail.",
+    "emailSent": "Ți-am trimis un e-mail la {email}!",
     "implicit": "Trimiteți acest formular pentru a primi e-mailuri de la {{name}}",
     "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
     "opt-in": "Da, ține-mă informat prin e-mail",
