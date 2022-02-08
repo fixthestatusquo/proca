@@ -46,6 +46,9 @@
   "Your organisation account": "El vostre compte d'organització",
   "consent": {
     "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>",
+    "confirmAction": "Hem enviat un enllaç de confirmació per correu electrònic a la següent adreça:\n {{email}}\nSi us plau, recupereu el correu electrònic ara mateix i feu clic a l'enllaç que conté (comproveu la vostra carpeta de correu brossa!).\n Només així comptarà la teva acció!\nLa teva confirmació és crucial per al pes polític de l'acció. Això garanteix que hi ha una persona real darrere de cada enviament. Esperem la teva confirmació...",
+    "confirmOptIn": "No us oblideu de comprovar la vostra bústia de correu (inclosa la carpeta de correu brossa!) i confirmar la vostra subscripció per correu electrònic",
+    "emailSent": "T'hem enviat un correu electrònic a {email}!",
     "implicit": "Envieu aquest formulari per rebre correus electrònics de {{name}}",
     "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
     "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
