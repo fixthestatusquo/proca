@@ -46,6 +46,8 @@
   "Your organisation account": "Asusun kungiyar ku",
   "consent": {
     "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>",
+    "confirmAction": "Mun aika hanyar hanyar tabbatarwa ta imel zuwa adireshin mai zuwa:\n {{email}}\nDa fatan za a dawo da imel ɗin a yanzu kuma danna mahaɗin da ya ƙunshi (duba babban fayil ɗin spam!).\n Sai kawai aikinku zai ƙidaya!\nTabbatar da ku yana da mahimmanci ga nauyin siyasa na aikin. Wannan yana ba da tabbacin cewa akwai mutum na gaske a bayan kowane ƙaddamarwa. Za mu jira tabbacin ku...",
+    "confirmOptIn": "Kar ku manta da duba akwatin wasiku (ciki har da babban fayil ɗin spam!) Kuma tabbatar da biyan kuɗin imel ɗin ku",
     "implicit": "Shigar da wannan fom don karɓar imel daga {{name}}",
     "intro": "Nemo ƙarin bayani game da kamfen ɗin mu, ayyuka da {{campaign}} ci gaba",
     "opt-in": "Ee, ina son {{partner}} ya sanar da ni ta imel",
