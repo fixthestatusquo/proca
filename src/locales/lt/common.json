@@ -46,6 +46,8 @@
   "Your organisation account": "Jūsų organizacijos paskyra",
   "consent": {
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
+    "confirmAction": "Patvirtinimo nuorodą išsiuntėme el. paštu šiuo adresu:\n {{email}}.\nPrašome dabar atsiimti laišką ir spustelėti jame esančią nuorodą (patikrinkite nepageidaujamų laiškų aplanką!).\n Tik tada jūsų veiksmas bus įskaitytas!\nJūsų patvirtinimas yra labai svarbus veiksmo politiniam svoriui. Taip užtikrinama, kad už kiekvieno pateikto dokumento slypi tikras asmuo. Lauksime jūsų patvirtinimo...",
+    "confirmOptIn": "Nepamirškite patikrinti savo pašto dėžutės (įskaitant nepageidaujamų laiškų aplanką!) ir patvirtinti el. pašto prenumeratą.",
     "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}",
     "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
     "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
