@@ -131,7 +131,7 @@
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "subject": "Betreff"
   },
-  "progress": "{{count}} unterzeichnet haben. Gehen wir zu {{goal}}",
+  "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "",
   "register": "Meinen Namen hinzufügen",
   "share": {
