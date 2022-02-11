@@ -175,6 +175,44 @@
     -->
     <script>
       var params = {};
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var widget_path =
+          window.location.hostname +
+          window.location.pathname.replace("/index.html", "");
+        var widget_shortcode = window.location.pathname
+          .replace("/index.html", "")
+          .replace("/d/", "");
+        for (let d of document.getElementsByClassName("dynamic")) {
+          d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
+          d.innerHTML = d.innerHTML.replace(
+            "%widget_shortcode%",
+            widget_shortcode
+          );
+        }
+
+        //       if (urlParams.get("variant")) {
+        //         params.variant = urlParams.get("variant");
+        //       }
+
+        if (urlParams.get("actionPage"))
+          params.actionPage = urlParams.get("actionPage");
+
+        //        params.loader = urlParams.get("proca_loader");
+        proca.Widget(params);
+      }
+
+      if (typeof proca === "object") {
+        //not used on dev
+        display();
+      } else {
+        console.log("DEV MODE");
+        window.addEventListener("DOMContentLoaded", function () {
+          display();
+        });
+      }
+    </script>
     </script>
 
     <script>
