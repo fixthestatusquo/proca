@@ -295,6 +295,15 @@
     </script>
 
     <script>
+
+/* example of how to filter
+      window.addEventListener("proca", e => {
+        if (e.detail.message !== "init") return;
+        proca.hook("target","load", d => {
+          return d.filter (d => d.screen_name !== "whatever");
+        })
+      });
+*/
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
         console.log(e.type, e.detail);

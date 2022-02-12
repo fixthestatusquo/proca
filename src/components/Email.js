@@ -82,8 +82,8 @@ const Component = (props) => {
           return res.json();
         })
         .then((d) => {
-          if (config.hook && typeof config.hook["email:load"] === "function") {
-            config.hook["email:load"](d);
+          if (config.hook && typeof config.hook["target:load"] === "function") {
+            d = config.hook["target:load"](d);
           }
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
@@ -98,7 +98,7 @@ const Component = (props) => {
           setAllProfiles([placeholder]);
         });
     };
-    if (config.component?.email?.listUrl) {
+    if (config.component.email?.listUrl) {
       fetchData(config.component.email.listUrl);
     } else {
       const emails =
@@ -144,6 +144,7 @@ const Component = (props) => {
     filterProfiles(country);
 
   }, [country, filterProfiles]);
+
 
   const send = (data) => {
     const hrefGmail = (message) => {
@@ -282,6 +283,7 @@ const Component = (props) => {
         <ProgressCounter actionPage={props.actionPage} />
       )}
       {config.component.email?.filter?.includes("country") && (
+
         <Country form={form} list={config.component?.email?.countries} />
       )}
       {config.component.email?.showTo !== false && (

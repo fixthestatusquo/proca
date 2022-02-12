@@ -108,7 +108,11 @@ const setHook = (object, action, hook) => {
   const event = new CustomEvent("proca-hook", {
     detail: { object: object, action: action, hook: hook },
   });
-  document.getElementById(id).dispatchEvent(event);
+  if (document.getElementById(id)) {
+    document.getElementById(id).dispatchEvent(event);
+  } else { // wait until the rendering is done
+    setTimeout(setHook, 1, object, action, hook);
+  }
 };
 
 export const ConfigProvider = (props) => {
@@ -136,10 +140,12 @@ export const ConfigProvider = (props) => {
 
   const setHook = useCallback(
     (object, action, hook) => {
-      const hooks = {};
-      hooks[object + ":" + action] = hook;
-
-      _setCampaignConfig("hook", hooks);
+      _setCampaignConfig((current) => {
+        const next = { ...current };
+        next.hook = {...current.hook};
+        next.hook[object + ":" + action] = hook;
+        return next;
+      });
     },
     [_setCampaignConfig]
   );
@@ -180,7 +186,6 @@ export const ConfigProvider = (props) => {
 
         if (!typeof e.detail.object === "string")
           return console.error("object must me a string");
-
         setHook(e.detail.object, e.detail.action, e.detail.hook);
       },
       false
