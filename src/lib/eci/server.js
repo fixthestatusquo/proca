@@ -81,6 +81,16 @@ async function addSupport(actionType, actionPage, data, options) {
     apiUrl: options.apiUrl, // "https://eci.fixthestatusquo.org/api",
   });
   if (response.errors) {
+    response.errors.forEach ( d => {
+      if (d.extensions?.code === 'bad_captcha') {
+        if (!response.errors.fields) 
+          response.errors.fields = [];
+        response.errors.fields.push({
+          name: "captcha",
+          message: d.message, // error.message,
+        });
+      }
+    });
     return response;
   }
   return response.addActionContact;
