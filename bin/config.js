@@ -218,31 +218,40 @@ query getPage ($name:String!){
   return data.actionPage;
 };
 
-const addPage = async (name, campaignName, locale) => {
-  const query = `
-mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $locale: String!) {
-  upsertCampaign(orgName: $orgName, input: {
-    name: $campaignName, actionPages: [{name:$name,locale:$locale}]
+const addPage = async (name, campaignName, locale, orgName) => {
+  let campaign= {org:{name:orgName}}; // no need to fetch the campaign if the orgName is specified
+
+  const query = `mutation addPage($campaign:String!,$org: String!, $name: String!, $locale: String!) {
+  addActionPage(campaignName:$campaign, orgName: $org, input: {
+    name: $name, locale:$locale
   }) {
-    id,
+    id
   }
 }
 `;
 
-  const campaign = await getCampaign(campaignName);
-  console.log(campaign);
+  if (!orgName) {
+    campaign = await getCampaign(campaignName);
+  }
 
   if (!campaign) {
     throw new Error("campaign not found: " + campaignName);
   }
+
+  console.log({
+      name: name,
+      locale: locale,
+      campaign: campaignName,
+      org: campaign.org.name,
+    });
 
   await api(
     query,
     {
       name: name,
       locale: locale,
-      campaignName: campaignName,
-      orgName: campaign.org.name,
+      campaign: campaignName,
+      org: campaign.org.name,
     },
     "addPage",
   );
@@ -254,8 +263,8 @@ mutation addPage($orgName: String!, $campaignName:String!, $name: String!, $loca
   });
 
   const page = await getPage(name);
-  if (!page) throw new Error("actionpage not found:" + name);
-  await pull(page.id);
+//  if (!page) throw new Error("actionpage not found:" + name);
+//  await pull(page.id);
   console.log("action page " + name + " #" + page.id);
   return page;
 };
