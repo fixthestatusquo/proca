@@ -111,7 +111,6 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
   upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
 }
 `;
-  console.log(JSON.stringify(formattedTargets, null, 2));
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
   return ids.upsertTargets;
 }
@@ -175,7 +174,6 @@ query GetCampaignTargets($name: String!) {
 `;
 
   const data = await api(query, {name}, "GetCampaignTargets");
-    console.log(data.campaign.targets);
   if (!data.campaign)
     throw new Error ("can't find campaign "+name);
   if (data.campaign.targets.length === 0)
@@ -238,13 +236,6 @@ const addPage = async (name, campaignName, locale, orgName) => {
     throw new Error("campaign not found: " + campaignName);
   }
 
-  console.log({
-      name: name,
-      locale: locale,
-      campaign: campaignName,
-      org: campaign.org.name,
-    });
-
   await api(
     query,
     {
@@ -302,7 +293,6 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   let data;
 
   try {
-    console.log(campaign);
     const res = await crossFetch(
       API_URL,
       {
@@ -328,7 +318,6 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     if (resJson.errors) {
       console.log(resJson.errors);
     }
-console.log(resJson);
     data = resJson.data;
   } catch (err) {
     throw err;
@@ -374,10 +363,8 @@ query actionPage ($id:Int!) {
   } catch (err) {
     throw err;
   }
-  console.log(data);
   if (!data.actionPage) throw new Error (data.toString());
 
-  console.log(data.actionPage)
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);

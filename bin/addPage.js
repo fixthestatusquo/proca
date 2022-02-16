@@ -1,6 +1,6 @@
 require("./dotenv.js");
 
-const { addPage } = require("./config");
+const { addPage, pull } = require("./config");
 
 (async () => {
   const argv = process.argv.slice(2);
@@ -8,9 +8,10 @@ const { addPage } = require("./config");
   const locale = argv[1];
   let org = null;
   if (!argv[1]) {
-    console.error("need addPage {campaign.name} {locale} [ page/name/to/create ] or");
-    console.error("need addPage {campaign.name} {locale} [ organisation_name]");
-    throw "missing params";
+    console.error("missing parameters, either:");
+    console.error("addPage {campaign.name} {locale} [ page/name/to/create ] or");
+    console.error("addPage {campaign.name} {locale} {organisation_name}");
+    return;
   }
   let name = argv[2] ? argv[2] : argv[0] + "/" + argv[1];
 
@@ -22,7 +23,8 @@ const { addPage } = require("./config");
   try {
    //const addPage = async (name, campaignName, locale, orgName) => {
     console.log("creating",name, campaign, locale, org);
-    const d = await addPage(name, campaign, locale, org);
+    let d = await addPage(name, campaign, locale, org);
+    d = await pull(d.id);
     console.log(d);
   } catch (e) {
     console.error(e);
