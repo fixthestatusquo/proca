@@ -4,7 +4,7 @@ const { pullTarget, read, file } = require("./config");
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 
-const merge = (targets, twitters) => {
+const merge = (targets, twitters, options) => {
   const merged = targets.map((target) => {
     let r = twitters && twitters.find(
       (d) => clean(d.screen_name) === clean(target.fields?.screen_name)
@@ -29,6 +29,9 @@ const merge = (targets, twitters) => {
      //if (r.description && target.fields.description) 
       
       r.country = target.area
+    }
+    if (options.email) {
+      r.email = target.emails[0].email;
     }
     if (target.fields.salutation) 
       r.salutation=target.fields.salutation;
@@ -74,7 +77,12 @@ const saveTargets = (campaignName, targets) => {
 (async () => {
   const argv = process.argv.slice(2);
   const name = argv[0];
-  if (!argv[0]) throw "need buildCampaign {name}";
+  if (!argv[0]) {
+    console.error("need buildCampaign {name} [--email]");
+    return;
+  }
+  const publicEmail = argv[1] === "--email";
+
   try {
     const c = read("campaign/" + name); // the config file
     const targets = read("target/server/" + name); // the list of targets from proca server
@@ -84,7 +92,7 @@ const saveTargets = (campaignName, targets) => {
     } catch (e) {
       console.log("no twitter list");
     }
-    const d = merge(targets, twitters);
+    const d = merge(targets, twitters, {email: publicEmail});
     //    const d = await pullCampaign(argv[0]);
     if (d) {
       const c=saveTargets(name,d);
