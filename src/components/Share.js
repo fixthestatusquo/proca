@@ -195,11 +195,12 @@ export default function ShareAction(props) {
       const i18nKey = [
         "campaign:" + key.replace("-", "."),
         "campaign:share.default",
+        "share.message"
       ];
       let msg =
         config.param.locales[key] ||
         config.param.locales["share"] ||
-        t(i18nKey, "share.message");
+        t(i18nKey);
       if (target) {
         msg += " " + target;
       }
