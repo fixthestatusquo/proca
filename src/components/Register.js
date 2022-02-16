@@ -75,8 +75,11 @@ export default function Register(props) {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
-  const emailProvider = useRef (undefined); // we don't know the email provider
+  let emailProvider = useRef (undefined); // we don't know the email provider
   const { t } = useTranslation();
+
+  if (props.emailProvider) 
+    emailProvider = props.emailProvider; // use case: if Register is called from a parent component that wants to store the email provider
 
   const width = useElementWidth("#proca-register");
   const [compact, setCompact] = useState(true);

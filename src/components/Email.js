@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 import List from "@material-ui/core/List";
 
@@ -28,7 +28,9 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const isMobile = useIsMobile();
   const { t } = useTranslation();
-  const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
+  const emailProvider = useRef (undefined); // we don't know the email provider
+
+  const  paramEmail = {subject:t(["campaign:email.subject","email.subject"],""),message:t(["campaign:email.body","email.body"],"")};
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -173,9 +175,9 @@ const Component = (props) => {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
       else s = s + " " + profile.actionUrl;
     }
+  //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
 
-    const body = t("email.body");
-
+    const body = t(["campaign:email.body","email.body"],"");
     for (var i = 0; i < profiles.length; i++) {
       if (profiles[i].email) to.push(profiles[i].email);
     }
@@ -191,8 +193,9 @@ const Component = (props) => {
     ) {
       to = config.component.email.to;
     }
-    const url =
-      !isMobile && data.email.includes("@gmail")
+
+    const url = //link to gmail compose instead of the default mailto to avoid misconfiguration if we can
+      !isMobile && (data.email.includes("@gmail") || emailProvider.current === "google.com")
         ? hrefGmail({
             to: to,
             subject: encodeURIComponent(s),
@@ -233,16 +236,17 @@ const Component = (props) => {
   //
   const ExtraFields = props => {
     return (<>
-      {config.component.email?.field?.subject && <Grid item xs={12} className={props.classes.field}>
+      {config.component.email?.field?.subject ? <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="subject"
                  required={config.component.email.field.subject.required}
                   label={t("Subject")}
                 />
-              </Grid> }
+              </Grid>
+            : <input type="hidden" {...props.form.register('subject')} />}
 
-            {config.component.email?.field?.message &&  <Grid item xs={12} className={props.classes.field}>
+            {config.component.email?.field?.message ?  <Grid item xs={12} className={props.classes.field}>
               <TextField
                   form={props.form}
                   name="message"
@@ -252,7 +256,8 @@ const Component = (props) => {
                   required={config.component.email.field.message.required}
                   label={t("Your message")}
                 />
-              </Grid> }
+              </Grid>
+            : <input type="hidden" {...props.form.register('message')} />}
             {config.component.email?.field?.comment &&  <Grid item xs={12}>
               <TextField
                   form={props.form}
@@ -300,7 +305,7 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register form={form} done={props.done} targets={profiles} beforeSubmit={prepareData} onClick={onClick} extraFields={ExtraFields}/>
+      <Register form={form} emailProvider={emailProvider} done={props.done} targets={config.component.email?.server ? profiles : null} beforeSubmit={prepareData} onClick={onClick} extraFields={ExtraFields}/>
     </Container>
   );
 };
