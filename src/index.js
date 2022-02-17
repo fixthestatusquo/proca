@@ -13,7 +13,7 @@ import { config as Config } from "./actionPage";
 // console.log(querystring);
 
 let config = {
-  selector: ".proca-widget, #signature-form, #proca-form", // +, "[href='#proca_widget']"
+  selector: ".proca-widget, #proca-form", // +, "[href='#proca_widget']"
 };
 
 let rendered = false;
