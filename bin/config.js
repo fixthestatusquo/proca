@@ -145,6 +145,12 @@ const api = async (query, variables, name = "query") => {
       throw new Error(res.statusText);
     }
 
+    if (res.status === 404) {
+      console.error ("invalid api url");
+      console.log("check that your .env has the correct REACT_APP_API_URL");
+      throw new Error(res.statusText);
+    }
+
     if (res.status >= 400) {
       console.log(res);
       throw new Error("Bad response from server");
