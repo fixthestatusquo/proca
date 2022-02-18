@@ -27,7 +27,8 @@ const { addPage, pull } = require("./config");
     d = await pull(d.id);
     console.log(d);
   } catch (e) {
-    console.error(e);
+    process.exit(1);
+    //console.error(e);
     // Deal with the fact the chain failed
   }
 })();

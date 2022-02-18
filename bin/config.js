@@ -139,6 +139,12 @@ const api = async (query, variables, name = "query") => {
       },
     );
 
+    if (res.status === 401) {
+      console.error ("permission error");
+      console.log("check that your .env has the correct AUTH_USER and AUTH_PASSWORD");
+      throw new Error(res.statusText);
+    }
+
     if (res.status >= 400) {
       console.log(res);
       throw new Error("Bad response from server");
@@ -236,7 +242,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
     throw new Error("campaign not found: " + campaignName);
   }
 
-  await api(
+  const r = await api(
     query,
     {
       name: name,
@@ -246,6 +252,10 @@ const addPage = async (name, campaignName, locale, orgName) => {
     },
     "addPage",
   );
+  if (r.errors) {
+    console.log("check that your .env has the correct AUTH_USER and AUTH_PASSWORD");
+    throw new Error (r.errors[0].message);
+  }
   console.log({
     name: name,
     locale: locale,
