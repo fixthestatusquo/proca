@@ -327,7 +327,7 @@ async function addActionContact(actionType, actionPage, data) {
 
   for (let [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
-      variables.action.fields.push({ key: key, value: JSON.stringify(value) });
+      variables.action.fields.push({ key: key, value: value.toString() });
   }
   const response = await graphQL("addActionContact", query, {
     variables: variables,
