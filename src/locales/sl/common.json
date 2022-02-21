@@ -54,7 +54,7 @@
     "opt-in": "Da, obveščajte me po e-pošti",
     "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti",
     "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
-    "processing": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
+    "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>."
   },
   "dialogTitle": "Obveščajte me o kampanji",
