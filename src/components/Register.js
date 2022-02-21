@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  "#petition-form": { position: "relative" },
   "@global": {
     "select:-moz-focusring": {
       color: "transparent",

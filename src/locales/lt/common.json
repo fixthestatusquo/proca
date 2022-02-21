@@ -127,9 +127,7 @@
     "to": "Dovanojimas {{organisation}}"
   },
   "email": {
-    "body": "kūnas",
-    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
-    "subject": "tema"
+    "invalid_domain": "{{domain}} negalima gauti el. laiškų"
   },
   "progress_0": "{{count}} pasirašė. Eikime į {{goal}}",
   "progress_1": "",
@@ -137,8 +135,6 @@
   "register": "Pridėti mano vardą",
   "share": {
     "email": {
-      "body": "Sveiki,\nPrašau pasirašyti, manau, kad norite jį paremti",
-      "subject": "Turėtumėte tai pasirašyti"
     },
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",

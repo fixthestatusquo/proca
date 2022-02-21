@@ -24,12 +24,17 @@ import useData from "@hooks/useData";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
 import useCount from "@hooks/useCount";
-
+import ProgressCounter from "@components/ProgressCounter";
 import { makeStyles } from "@material-ui/core/styles";
 
 //const countries = eciLocale.common.country;
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+    "& .MuiInputLabel-root": {
+      color: "red"
+    }
+  },
   container: {
     display: "flex",
     flexWrap: "wrap",
