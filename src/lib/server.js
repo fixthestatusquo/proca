@@ -22,6 +22,7 @@ async function graphQL(operation, query, options) {
         : ""),
     {
       method: "POST",
+      referrerPolicy: "no-referrer-when-downgrade",
       headers: headers,
       body: JSON.stringify({
         query: query,

@@ -354,7 +354,7 @@ export default function Register(props) {
               </Grid>
             )}
             {props.extraFields && props.extraFields({form:form,classes:classes})}
-            {config.component.register.custom && <CustomField compact={compact} form={form} classes={classes}/>}
+            {config.component.register?.custom && <CustomField compact={compact} form={form} classes={classes}/>}
 
             <ConsentBlock
               organisation={props.organisation}
