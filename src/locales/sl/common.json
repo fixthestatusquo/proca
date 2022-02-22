@@ -50,7 +50,7 @@
     "confirmOptIn": "Ne pozabite preveriti svojega poštnega predala (vključno z mapo za nezaželeno pošto!) in potrditi prijavo na e-pošto.",
     "emailSent": "Poslali smo vam e-pošto na naslov {email}!",
     "implicit": "Pošljite ta obrazec za prejemanje e-poštnih sporočil od {{name}}",
-    "intro": "Strinjam se, da me {{name}} obvešča glede svojih kampanj na področju trajnostnega razvoja",
+    "intro": "Preberite več o naših kampanjah, ukrepih in napredku {{campaign}}",
     "opt-in": "Da, obveščajte me po e-pošti",
     "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti",
     "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
