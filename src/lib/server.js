@@ -197,10 +197,10 @@ async function addAction(actionPage, actionType, data) {
   $contact: ID!, 
   $actionPage: Int!,
   $actionType: String!,
-  $payload: [CustomFieldInput!],
+  $payload: Json,
   $tracking: TrackingInput) 
 {
-  addAction (actionPageId: $actionPage, action: { actionType: $actionType, fields: $payload}
+  addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload}
     contactRef: $contact, tracking: $tracking) 
   {contactRef}
 }`;
@@ -212,10 +212,13 @@ async function addAction(actionPage, actionType, data) {
   };
 
   if (typeof data.payload === "object") {
-    variables.payload = [];
+    variables.payload = {};
     for (const [key, value] of Object.entries(data.payload)) {
-      if (value) variables.payload.push({ key: key, value: value.toString() });
+      if (value) {
+        variables.payload[key]=value;
+      }
     }
+    variables.payload = JSON.stringify(variables.payload);
   }
   if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
