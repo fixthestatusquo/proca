@@ -36,12 +36,6 @@ function readConfigOverride() {
           ),
         );
         if (!config.locales) config.locales = {};
-        if (campaignConfig.config.demand) {
-          // TODO: remove after we migrated all campaigns to the new format
-          config.locales["campaign:"] = {
-            description: campaignConfig.config.demand,
-          };
-        }
         ["layout", "component"].map((k) => {
           config[k] = merge(campaignConfig.config[k], config[k]);
         });
@@ -64,6 +58,7 @@ function readConfigOverride() {
             config.locales,
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
+
         }
         if (
           campaignConfig.config.locales
