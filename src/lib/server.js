@@ -217,7 +217,6 @@ async function addAction(actionPage, actionType, data) {
       if (value) variables.payload.push({ key: key, value: value.toString() });
     }
   }
-
   if (data.tracking && Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
   }
@@ -290,7 +289,7 @@ async function addActionContact(actionType, actionPage, data) {
     actionPage: actionPage,
     action: {
       actionType: actionType,
-      fields: [], // added below
+      customFields: {}, // added below
     },
     contact: {
       firstName: data.firstname,
@@ -325,10 +324,12 @@ async function addActionContact(actionType, actionPage, data) {
     variables.tracking = data.tracking;
   }
 
+
   for (let [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
-      variables.action.fields.push({ key: key, value: value.toString() });
+      variables.action.customFields[key] = value;
   }
+  variables.action.customFields = JSON.stringify (variables.action.customFields);
   const response = await graphQL("addActionContact", query, {
     variables: variables,
   });
