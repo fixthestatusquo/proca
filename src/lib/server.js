@@ -192,7 +192,7 @@ async function getCountByName(name) {
   };
 }
 
-async function addAction(actionPage, actionType, data) {
+async function addAction(actionPage, actionType, data, test) {
   var query = `mutation addAction (
   $contact: ID!, 
   $actionPage: Int!,
@@ -260,7 +260,7 @@ async function addDonateContact(provider, actionPage, data) {
   return await addActionContact("donate", actionPage, data);
 }
 
-async function addActionContact(actionType, actionPage, data) {
+async function addActionContact(actionType, actionPage, data, test) {
   var query = `mutation addActionContact(
   $action: ActionInput!,
   $contact:ContactInput!,
@@ -306,6 +306,9 @@ async function addActionContact(actionType, actionPage, data) {
     },
     privacy: privacy,
   };
+
+  if (test)
+    variables.action.testing = true;
 
   if (data.targets) {
     variables.action.mtt = {

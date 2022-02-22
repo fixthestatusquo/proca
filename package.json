@@ -80,6 +80,7 @@
     "push": "node bin/push.js",
     "pushCampaign": "node bin/pushCampaign.js",
     "pullCampaign": "node bin/pullCampaign.js",
+    "start:stg": "PROCA_ENV=staging rescripts start",
     "start": "rescripts start",
     "test": "rescripts test",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"

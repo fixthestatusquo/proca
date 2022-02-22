@@ -402,6 +402,9 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
+  if (data.actionPage.config.test)
+    config.test = true;
+
   if (config.component.consent && data.actionPage.org.processing) {
     let consentEmail = {};
     if (data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate))
@@ -437,26 +440,32 @@ const apiLink = () => {
 };
 
 const actionPageFromLocalConfig = (id, local) => {
-  return {
-    id: id,
-    actionPage: {
-      name: local.filename,
-      locale: local.lang,
-      config: JSON.stringify({
+  const config = {
         journey: array2string(local.journey),
         layout: local.layout,
         component: local.component,
         locales: local.locales,
         portal: local.portal,
-        template: local.template,
-      }),
+      };
+
+  if (local.test)
+    config.test = true;
+  if (local.template)
+      config.template= local.template;
+
+  return ({
+    id: id,
+    actionPage: {
+      name: local.filename,
+      locale: local.lang,
+      config: JSON.stringify(config),
     },
-  };
+  });
+
 };
 
 const push = async (id) => {
   const local = read(id);
-  console.log(local);
   const c = apiLink();
   const actionPage = actionPageFromLocalConfig(id, local);
   const { data, errors } = await request(

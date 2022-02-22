@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Snackbar from "@material-ui/core/Snackbar";
-import Alert from "@material-ui/lab/Alert";
+import {Alert, AlertTitle} from "@material-ui/lab";
 import Slide from '@material-ui/core/Slide';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Transition(props) {
-  return <Slide {...props} direction="top" />;
+  return <Slide {...props} direction="up" />;
 }
 const ProcaAlert = (props) => {
   const classes = useStyles();
@@ -34,6 +34,7 @@ TransitionComponent={Transition}
     icon={props.icon}
     className={classes.bigger}
     >
+    {props.title && <AlertTitle>{props.title}</AlertTitle>}
         {props.children || props.text}
       </Alert>
     </Snackbar>

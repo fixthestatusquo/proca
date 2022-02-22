@@ -80,7 +80,7 @@ const Widget = (args) => {
   rendered = true;
   ReactDOM.render(
     <ProcaWidget {...config} container={frag}>
-      {isTest() && <ProcaAlert text="TEST MODE" severity="warning" />}
+      {config.test && <ProcaAlert title="TEST MODE" severity="warning">Experiment freely, this action will not be counted</ProcaAlert>}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
     dom,

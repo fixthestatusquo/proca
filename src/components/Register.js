@@ -119,9 +119,7 @@ export default function Register(props) {
       data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
-    let actionType = config.test
-        ? "test"
-        : config.component?.register?.actionType || "register";
+    let actionType = config.component?.register?.actionType || "register";
     if (props.targets) {
       data.targets = props.targets;
       actionType = "mail2target";
@@ -132,8 +130,10 @@ export default function Register(props) {
 
     const result = await addActionContact(actionType,
       config.actionPage,
-      data
+      data,
+      config.test
     );
+
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
