@@ -3,44 +3,30 @@
   "Address": "Indirizzo",
   "Amount": "Importo",
   "Birthdate": "Data di nascita",
-  "City": "Città",
   "Comment": "Commento",
   "Country": "Paese",
   "Download": "Scaricare",
   "Download explanation": "Il tuo documento è ora pronto, te lo mandiamo anche via e-mail.",
   "Email": "Email",
-  "Email_Share button": "Email",
   "Enter a number.": "Inserire un numero.",
-  "Enter a valid email address.": "Inserisci un indirizzo e-mail valido.",
   "First name": "Nome",
-  "Full Name": "Nome e cognome",
   "Join": "Unisciti a",
   "Last name": "Nome e cognome",
-  "Legal": "Legale",
   "Link_Share button": "Link",
   "Locality": "Località",
   "Next": "Prossimo",
-  "No Thanks": "No grazie",
   "Other": "Altro",
   "Phone": "Telefono",
-  "Place of birth": "Luogo di nascita",
   "Postal Code": "Codice postale",
-  "Privacy": "Privacy",
   "Share": "Condividi",
-  "Share on Facebook": "Condividi su Facebook",
   "Share on Twitter": "Condividi su Twitter",
   "Sign": "Firma ora!",
-  "Sign Up": "Iscriviti",
   "Sign now!": "Firma ora!",
-  "Sign the ECI": "Firma l'ECI",
   "Sign the ECI!": "Firmate l'ECI!",
   "Sorry, we couldn't save": "Spiacenti, non siamo riusciti a salvare",
-  "Stay in touch": "Rimanere in contatto",
   "Stay informed": "Rimanete informati",
-  "Street": "Via",
   "Subject": "Oggetto",
   "Thank you": "Grazie",
-  "Thanks!": "Grazie!",
   "This field is required.": "Questo campo è richiesto.",
   "Your message": "Il tuo messaggio",
   "Your organisation account": "Il conto della tua organizzazione",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Cambiare l'importo",
-      "choose": "Scegliere un importo",
       "intro": "Scegliere un importo:"
     },
     "average": "La donazione media è {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "aprire"
     },
-    "payment": {
-      "intro": "Dettagli di pagamento:"
-    },
     "payment_methods": {
       "card": "Scheda",
       "intro": "Come vuoi donare?",
@@ -127,24 +109,18 @@
     "to": "Donazione a {{organisation}}"
   },
   "email": {
-    "body": "corpo",
-    "invalid_domain": "{{domain}} non può ricevere email",
-    "subject": "soggetto"
+    "invalid_domain": "{{domain}} non può ricevere email"
   },
   "progress": "{{count}} hanno firmato. Andiamo a {{goal}}",
   "progress_plural": "",
   "register": "Aggiungi il mio nome",
   "share": {
     "email": {
-      "body": "Ciao,\nPer favore, firma, penso che tu voglia sostenerlo",
       "subject": "Dovresti firmare questo"
     },
     "intro": "Grande, hai firmato 👍. Per moltiplicare il tuo impatto, condividi in lungo e in largo per assicurarti che tutti vedano questa petizione 🙏.",
     "message": "Dovresti firmare questo!",
-    "title": "Quasi fatto! Fai il prossimo passo.",
-    "twitter": {
-      "actionText": "Ho firmato. dovresti farlo anche tu"
-    }
+    "title": "Quasi fatto! Fai il prossimo passo."
   },
   "target": {
     "country": {

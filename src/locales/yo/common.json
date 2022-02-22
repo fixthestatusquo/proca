@@ -3,44 +3,30 @@
   "Address": "Adirẹsi",
   "Amount": "Iye",
   "Birthdate": "Ojo ibi",
-  "City": "Ilu",
   "Comment": "Ọrọìwòye",
   "Country": "Orilẹ -ede",
   "Download": "Gbaa lati ayelujara",
   "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
   "Email": "Imeeli",
-  "Email_Share button": "Imeeli",
   "Enter a number.": "Tẹ nọmba sii.",
-  "Enter a valid email address.": "Tẹ adirẹsi imeeli ti o wulo sii.",
   "First name": "Orukọ akọkọ",
-  "Full Name": "Akokun Oruko",
   "Join": "Darapọ mọ",
   "Last name": "Oruko idile",
-  "Legal": "Ofin",
   "Link_Share button": "Ọna asopọ",
   "Locality": "Agbegbe",
   "Next": "Itele",
-  "No Thanks": "Rara o se",
   "Other": "Omiiran",
   "Phone": "Foonu",
-  "Place of birth": "Ibi ti a ti bi ni",
   "Postal Code": "Koodu ifiweranse",
-  "Privacy": "Asiri",
   "Share": "Pin",
-  "Share on Facebook": "Pin lori Facebook",
   "Share on Twitter": "Pin lori Twitter",
   "Sign": "Wọlé Bayi!",
-  "Sign Up": "Forukọsilẹ",
   "Sign now!": "Wole bayi!",
-  "Sign the ECI": "Wole ECI",
   "Sign the ECI!": "Wọlé ECI!",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
-  "Stay in touch": "Duro ni ifọwọkan",
   "Stay informed": "Duro fun",
-  "Street": "opopona",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
-  "Thanks!": "O ṣeun!",
   "This field is required.": "E ni lati se nkan si aye yi.",
   "Your message": "Ifiranṣẹ rẹ",
   "Your organisation account": "Account agbari rẹ",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Yi iye pada",
-      "choose": "Yan iye kan",
       "intro": "Yan iye kan:"
     },
     "average": "Itọrẹ apapọ jẹ {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "ṣii"
     },
-    "payment": {
-      "intro": "Awọn alaye isanwo:"
-    },
     "payment_methods": {
       "card": "Kaadi",
       "intro": "Bawo ni o ṣe fẹ lati ṣetọrẹ?",
@@ -127,23 +109,17 @@
     "to": "Ẹbun si {{organisation}}"
   },
   "email": {
-    "body": "ara",
-    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
-    "subject": "koko"
+    "invalid_domain": "{{domain}} ko le gba awọn imeeli"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
   "share": {
     "email": {
-      "body": "Hi,\nJọwọ ṣe ibuwọlu, Mo ro pe o fẹ ṣe atilẹyin fun",
       "subject": "O yẹ ki o fowo si eyi"
     },
     "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
     "message": "O yẹ ki o fowo si eyi!",
-    "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle.",
-    "twitter": {
-      "actionText": "Mo fowo si. ìwọ náà gbọ́dọ̀"
-    }
+    "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle."
   },
   "target": {
     "country": {

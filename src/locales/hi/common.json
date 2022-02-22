@@ -3,44 +3,30 @@
   "Address": "पता",
   "Amount": "रकम",
   "Birthdate": "जन्म दिन",
-  "City": "Faridabad",
   "Comment": "विषयसूची",
   "Country": "देश",
   "Download": "डाउनलोड",
   "Download explanation": "आपका दस्तावेज़ अब तैयार है, हम इसे आपको ईमेल भी कर रहे हैं।",
   "Email": "ईमेल",
-  "Email_Share button": "ईमेल",
   "Enter a number.": "एक नंबर दर्ज करें।",
-  "Enter a valid email address.": "मान्य ईमेल पता दर्ज करें।",
   "First name": "पहला नाम",
-  "Full Name": "पूरा नाम",
   "Join": "हिस्सा बनें",
   "Last name": "उपनाम",
-  "Legal": "कानूनी",
   "Link_Share button": "संपर्क",
   "Locality": "इलाका",
   "Next": "Next",
-  "No Thanks": "जी नहीं, धन्यवाद",
   "Other": "अन्य",
   "Phone": "दूरभाष",
-  "Place of birth": "जन्म स्थान",
   "Postal Code": "डाक कोड",
-  "Privacy": "गोपनियता",
   "Share": "साझा करें",
-  "Share on Facebook": "फेसबुक पर सांझा करें",
   "Share on Twitter": "ट्विटर पर साझा करें",
   "Sign": "अभी साइन करें!",
-  "Sign Up": "साइन अप करें",
   "Sign now!": "अब साइन इन करें!",
-  "Sign the ECI": "ईसीआई पर हस्ताक्षर करें",
   "Sign the ECI!": "ईसीआई पर हस्ताक्षर करें!",
   "Sorry, we couldn't save": "क्षमा करें, हम नहीं बचा सके",
-  "Stay in touch": "संपर्क में रहना",
   "Stay informed": "सूचित रहें",
-  "Street": "सड़क",
   "Subject": "विषय",
   "Thank you": "धन्यवाद",
-  "Thanks!": "धन्यवाद!",
   "This field is required.": "यह सूचना आवश्यक है",
   "Your message": "आपका सन्देश",
   "Your organisation account": "आपका संगठन खाता",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "राशि बदलें",
-      "choose": "एक राशि चुनें",
       "intro": "एक राशि चुनें:"
     },
     "average": "औसत दान है {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "खोलना"
     },
-    "payment": {
-      "intro": "भुगतान विवरण :"
-    },
     "payment_methods": {
       "card": "कार्ड",
       "intro": "आप कैसे दान करना चाहते हैं?",
@@ -127,24 +109,18 @@
     "to": "{{organisation}} को दान"
   },
   "email": {
-    "body": "शरीर",
-    "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
-    "subject": "विषय"
+    "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता"
   },
   "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",
   "progress_plural": "",
   "register": "मेरा नाम जोड़ें",
   "share": {
     "email": {
-      "body": "नमस्ते,\nकृपया हस्ताक्षर करें, मुझे लगता है कि आप इसका समर्थन करना चाहते हैं",
       "subject": "आपको इस पर हस्ताक्षर करना चाहिए"
     },
     "intro": "महान, आपने साइन इन किया है signed अपने प्रभाव को गुणा करने के लिए, यह सुनिश्चित करने के लिए दूर-दूर तक साझा करें कि यह याचिका हर कोई देखता है।",
     "message": "आपको इस पर हस्ताक्षर करना चाहिए!",
-    "title": "लगभग हो गया! अगला कदम उठाएं।",
-    "twitter": {
-      "actionText": "मैंने हस्ताक्षर किए। तुम भी"
-    }
+    "title": "लगभग हो गया! अगला कदम उठाएं।"
   },
   "target": {
     "country": {

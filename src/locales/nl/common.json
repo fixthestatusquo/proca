@@ -3,44 +3,30 @@
   "Address": "Adres",
   "Amount": "Bedrag",
   "Birthdate": "Geboortedatum",
-  "City": "Stad",
   "Comment": "Opmerkingen",
   "Country": "Land",
   "Download": "Download",
   "Download explanation": "Uw document is nu klaar, we mailen het ook naar u",
   "Email": "E-mail",
-  "Email_Share button": "E-mail",
   "Enter a number.": "Voer een nummer in.",
-  "Enter a valid email address.": "Voer een geldig e-mailadres in.",
   "First name": "Voornaam",
-  "Full Name": "Volledige naam",
   "Join": "Doe mee",
   "Last name": "Achternaam",
-  "Legal": "Wettelijk",
   "Link_Share button": "Link",
   "Locality": "Gemeente",
   "Next": "Volgende",
-  "No Thanks": "Nee, bedankt",
   "Other": "Andere",
   "Phone": "Telefoon",
-  "Place of birth": "Geboorteplaats",
   "Postal Code": "Postcode",
-  "Privacy": "Privacy",
   "Share": "Deel",
-  "Share on Facebook": "Deel op Facebook",
   "Share on Twitter": "Deel op Twitter",
   "Sign": "Teken nu!",
-  "Sign Up": "Aanmelden",
   "Sign now!": "Teken nu!",
-  "Sign the ECI": "Onderteken de ECI",
   "Sign the ECI!": "Teken de ECI!",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
-  "Stay in touch": "Blijf in contact",
   "Stay informed": "Blijf op de hoogte",
-  "Street": "Straat",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
-  "Thanks!": "Bedankt.",
   "This field is required.": "Dit veld is verplicht.",
   "Your message": "Uw bericht",
   "Your organisation account": "Uw organisatie's account",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Verander bedrag",
-      "choose": "Kies een bedrag",
       "intro": "Kies een bedrag"
     },
     "average": "De gemiddelde donatie is {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "open"
     },
-    "payment": {
-      "intro": "Betalingsgegevens"
-    },
     "payment_methods": {
       "card": "Kaart",
       "intro": "Hoe wil je doneren?",
@@ -134,15 +116,11 @@
   "register": "Mijn naam toevoegen",
   "share": {
     "email": {
-      "body": "Hallo,\nTeken alsjeblieft, ik denk dat je het wilt steunen",
       "subject": "Je moet dit ondertekenen"
     },
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
-    "title": "Bijna klaar! Zet de volgende stap.",
-    "twitter": {
-      "actionText": "Ik heb getekend. Dat zou jij ook moeten doen."
-    }
+    "title": "Bijna klaar! Zet de volgende stap."
   },
   "target": {
     "country": {

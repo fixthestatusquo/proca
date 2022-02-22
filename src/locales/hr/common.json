@@ -3,44 +3,30 @@
   "Address": "Adresa",
   "Amount": "Iznos",
   "Birthdate": "Datum rođenja",
-  "City": "Grad",
   "Comment": "Komentar",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
   "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila",
   "Email": "E-mail",
-  "Email_Share button": "E-mail",
   "Enter a number.": "Upišite broj.",
-  "Enter a valid email address.": "Upišite valjanu e-mail adresu.",
   "First name": "Ime",
-  "Full Name": "Puno ime",
   "Join": "Pridruži se",
   "Last name": "Prezime",
-  "Legal": "Pravo",
   "Link_Share button": "Poveznica",
   "Locality": "Lokalitet",
   "Next": "Dalje",
-  "No Thanks": "Ne hvala",
   "Other": "Drugo",
   "Phone": "Telefon",
-  "Place of birth": "Mjesto rođenja",
   "Postal Code": "Poštanski broj",
-  "Privacy": "Privatnost",
   "Share": "Dijeli",
-  "Share on Facebook": "Dijeli na Facebooku",
   "Share on Twitter": "Dijeli na Twitteru",
   "Sign": "Potpišite sada!",
-  "Sign Up": "Registracija",
   "Sign now!": "Potpišite sada!",
-  "Sign the ECI": "Potpiši ECI",
   "Sign the ECI!": "Potpišite ECI!",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
-  "Stay in touch": "Ostanite u kontaktu",
   "Stay informed": "Ostanite u toku",
-  "Street": "Ulica",
   "Subject": "Predmet",
   "Thank you": "Hvala",
-  "Thanks!": "Hvala!",
   "This field is required.": "Ovo je obavezno polje.",
   "Your message": "Tvoja poruka",
   "Your organisation account": "Račun vaše organizacije",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Promijeni iznos",
-      "choose": "Odaberite iznos",
       "intro": "Odaberi iznos"
     },
     "average": "Prosječna donacija je {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "otvorena"
     },
-    "payment": {
-      "intro": "Pojedinosti o plaćanju :"
-    },
     "payment_methods": {
       "card": "Kartica",
       "intro": "Kako želiš donirati?",
@@ -127,9 +109,7 @@
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "body": "sadržaj",
-    "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "subject": "predmet"
+    "invalid_domain": "{{domain}} ne može primati e-poštu"
   },
   "progress_0": "{{count}} potpis. Idemo na {{goal}}",
   "progress_1": "{{count}} potpisa. Idemo na {{goal}}",
@@ -137,15 +117,11 @@
   "register": "Dodaj moje ime",
   "share": {
     "email": {
-      "body": "Pozdrav,\nmolim vas da potpišete. Mislim da se kampanja isplati podržati",
       "subject": "Ovo se isplati potpisati"
     },
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
     "message": "Ovo se isplati potpisati!",
-    "title": "Skoro pa gotovo! Napravi sljedeći korak.",
-    "twitter": {
-      "actionText": "potpisao sam. trebao bi i ti"
-    }
+    "title": "Skoro pa gotovo! Napravi sljedeći korak."
   },
   "target": {
     "country": {

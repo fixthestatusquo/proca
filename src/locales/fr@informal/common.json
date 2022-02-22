@@ -3,44 +3,30 @@
   "Address": "Adresse",
   "Amount": "Montant",
   "Birthdate": "Date de naissance",
-  "City": "Ville",
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
   "Download explanation": "Ton document est maintenant prêt, nous te l'envoyons également par e-mail.",
   "Email": "Courriel",
-  "Email_Share button": "Courriel",
   "Enter a number.": "Entre un numéro.",
-  "Enter a valid email address.": "Entre une adresse électronique valide.",
   "First name": "Prénom",
-  "Full Name": "Nom complet",
   "Join": "Rejoindre",
   "Last name": "Nom de famille",
-  "Legal": "Juridique",
   "Link_Share button": "Lier",
   "Locality": "Localité",
   "Next": "Suivant",
-  "No Thanks": "Non merci",
   "Other": "Autre",
   "Phone": "Téléphone",
-  "Place of birth": "Lieu de naissance",
   "Postal Code": "Code postal",
-  "Privacy": "Vie privée",
   "Share": "Partager",
-  "Share on Facebook": "Partager sur Facebook",
   "Share on Twitter": "Partager sur Twitter",
   "Sign": "Signez maintenant !",
-  "Sign Up": "S'inscrire",
   "Sign now!": "Signez maintenant !",
-  "Sign the ECI": "Signer l'ICE",
   "Sign the ECI!": "Signez l'ICE !",
   "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauver",
-  "Stay in touch": "Restez en contact",
   "Stay informed": "Restez informé",
-  "Street": "Rue",
   "Subject": "Sujet",
   "Thank you": "Merci",
-  "Thanks!": "Merci !",
   "This field is required.": "Ce champ est obligatoire.",
   "Your message": "Ton message",
   "Your organisation account": "Le compte de votre organisation",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Modifier le montant",
-      "choose": "Choisissez un montant",
       "intro": "Choisissez un montant :"
     },
     "average": "Le don moyen est de {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "ouvert"
     },
-    "payment": {
-      "intro": "Détails de paiement :"
-    },
     "payment_methods": {
       "card": "Carte",
       "intro": "Comment voulez-vous faire un don ?",
@@ -127,24 +109,18 @@
     "to": "Don à {{organisation}}"
   },
   "email": {
-    "body": "corps",
-    "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails",
-    "subject": "sujet"
+    "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails"
   },
   "progress": "{{count}} signature. Objectif : {{goal}}",
   "progress_plural": "{{count}} signatures. Objectif : {{goal}}",
   "register": "Ajouter mon nom",
   "share": {
     "email": {
-      "body": "Salut,\nVeuillez signer, je pense que vous voulez le soutenir",
       "subject": "Vous devez signer ceci"
     },
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voit ce petition🙏.",
     "message": "Vous devriez signer ceci !",
-    "title": "Presque terminé ! Passez à l'étape suivante.",
-    "twitter": {
-      "actionText": "J'ai signé. Tu devrais aussi"
-    }
+    "title": "Presque terminé ! Passez à l'étape suivante."
   },
   "target": {
     "country": {

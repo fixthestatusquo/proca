@@ -3,44 +3,30 @@
   "Address": "Cím",
   "Amount": "Összeg",
   "Birthdate": "Születési dátum",
-  "City": "Város",
   "Comment": "Megjegyzés",
   "Country": "Ország",
   "Download": "Letöltés",
   "Download explanation": "A dokumentumod készen áll, neked is elküldjük.",
   "Email": "E-mail",
-  "Email_Share button": "E-mail",
   "Enter a number.": "Írjon be egy számot.",
-  "Enter a valid email address.": "Adjon meg egy érvényes e-mail címet.",
   "First name": "Keresztnév",
-  "Full Name": "Teljes név",
   "Join": "Csatlakozás",
   "Last name": "Vezetéknév",
-  "Legal": "Jogi információk",
   "Link_Share button": "Hivatkozás",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
-  "No Thanks": "Nem, köszönöm",
   "Other": "Egyéb",
   "Phone": "Telefon",
-  "Place of birth": "Születési hely",
   "Postal Code": "irányítószám",
-  "Privacy": "Adatvédelem",
   "Share": "Megosztás",
-  "Share on Facebook": "Megosztás Facebookon",
   "Share on Twitter": "Oszd meg a Twitteren",
   "Sign": "Aláírom!",
-  "Sign Up": "Regisztráció",
   "Sign now!": "Aláírom!",
-  "Sign the ECI": "Aláírja az ECI-t",
   "Sign the ECI!": "Írja alá az ECI-t!",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
-  "Stay in touch": "Maradj kapcsolatban",
   "Stay informed": "Tájékoztatás kérése",
-  "Street": "Utcanév",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
-  "Thanks!": "Köszönjük!",
   "This field is required.": "A mező kitöltése kötelező.",
   "Your message": "Az Ön üzenete",
   "Your organisation account": "A szervezeti fiók",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Változás összege",
-      "choose": "Válasszon egy összeget",
       "intro": "Válasszon egy összeget :"
     },
     "average": "Az átlagos adományozás {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "nyitott"
     },
-    "payment": {
-      "intro": "Fizetési részletek :"
-    },
     "payment_methods": {
       "card": "Kártya",
       "intro": "Hogyan szeretne adományozni?",
@@ -134,15 +116,11 @@
   "register": "Add hozzá a nevemet",
   "share": {
     "email": {
-      "body": "Szia,\nKérem, írja alá, azt hiszem, támogatni szeretné",
       "subject": "Ezt alá kell írnia"
     },
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",
-    "title": "Majdnem készen is vagyunk!",
-    "twitter": {
-      "actionText": "Aláírtam. neked is alá kellene írnod"
-    }
+    "title": "Majdnem készen is vagyunk!"
   },
   "target": {
     "country": {

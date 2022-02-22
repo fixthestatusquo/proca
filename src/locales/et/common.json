@@ -3,44 +3,30 @@
   "Address": "Aadress",
   "Amount": "Summa",
   "Birthdate": "Sünnikuupäev",
-  "City": "Linn",
   "Comment": "Kommentaar",
   "Country": "Riik",
   "Download": "Laadi alla",
   "Download explanation": "Teie dokument on nüüd valmis, me saadame selle ka teile e-kirjaga.",
   "Email": "E-posti aadress",
-  "Email_Share button": "E-posti aadress",
   "Enter a number.": "Sisestage number.",
-  "Enter a valid email address.": "Palun sisestage kehtiv e-posti aadress.",
   "First name": "Eesnimi",
-  "Full Name": "Täisnimi",
   "Join": "Ühine",
   "Last name": "Perekonnanimi",
-  "Legal": "Juriidiline teave",
   "Link_Share button": "Viide",
   "Locality": "Paikkond",
   "Next": "Edasi",
-  "No Thanks": "Ei aitäh",
   "Other": "Teine",
   "Phone": "Telefon",
-  "Place of birth": "Sünnikoht",
   "Postal Code": "Sihtnumber",
-  "Privacy": "Privaatsus",
   "Share": "Jaga",
-  "Share on Facebook": "Jagage Facebookis",
   "Share on Twitter": "Jaga Twitteris",
   "Sign": "Lisa allkiri",
-  "Sign Up": "Registreeri",
   "Sign now!": "Lisa allkiri!",
-  "Sign the ECI": "Allkirjastage ECI",
   "Sign the ECI!": "Kirjutage alla Euroopa kodanikualgatusele!",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
-  "Stay in touch": "Ühendust pidama",
   "Stay informed": "Olge kursis",
-  "Street": "Tänav",
   "Subject": "Teema",
   "Thank you": "Aitäh",
-  "Thanks!": "Suur aitäh!",
   "This field is required.": "See väli on kohustuslik.",
   "Your message": "Teie sõnum",
   "Your organisation account": "Teie organisatsiooni konto",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Muuda summa",
-      "choose": "Vali summa",
       "intro": "Vali summa :"
     },
     "average": "Keskmine annetus on {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "avatud"
     },
-    "payment": {
-      "intro": "Maksmise üksikasjad :"
-    },
     "payment_methods": {
       "card": "Kaart",
       "intro": "Kuidas soovite annetada?",
@@ -127,24 +109,18 @@
     "to": "Annetus {{organisation}}"
   },
   "email": {
-    "body": "keha",
-    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
-    "subject": "teema"
+    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta."
   },
   "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "register": "Lisage minu nimi",
   "share": {
     "email": {
-      "body": "Tere,\nPalun kirjutage alla, arvan, et soovite seda toetada",
       "subject": "Peaksite sellele alla kirjutama"
     },
     "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
     "message": "Peaksite sellele alla kirjutama!",
-    "title": "Peaaegu valmis. Üks samm veel!",
-    "twitter": {
-      "actionText": "Ma kirjutasin alla. sa peaksid ka alla kirjutama."
-    }
+    "title": "Peaaegu valmis. Üks samm veel!"
   },
   "target": {
     "country": {

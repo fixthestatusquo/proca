@@ -3,44 +3,30 @@
   "Address": "Helbidea",
   "Amount": "Kopurua",
   "Birthdate": "Urtebetetze data",
-  "City": "Herria",
   "Comment": "Iruzkina utzi",
   "Country": "Herrialdea",
   "Download": "Deskargatu",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
   "Email": "E-posta",
-  "Email_Share button": "Posta elektronikoa",
   "Enter a number.": "Idatzi zenbaki bat.",
-  "Enter a valid email address.": "Idatzi balio duen helbide elektronikoa.",
   "First name": "Izena",
-  "Full Name": "Izen osoa",
   "Join": "Batu",
   "Last name": "Abizena",
-  "Legal": "Legezkoa",
   "Link_Share button": "Esteka",
   "Locality": "Herria",
   "Next": "Hurrengoa",
-  "No Thanks": "Ez eskerrik asko",
   "Other": "Beste bat",
   "Phone": "Telefonoa",
-  "Place of birth": "Jaioterria",
   "Postal Code": "Posta kodea",
-  "Privacy": "Pribatutasuna",
   "Share": "Partekatu",
-  "Share on Facebook": "Partekatu Facebook-en",
   "Share on Twitter": "Partekatu Twitterren",
   "Sign": "Saioa hasi!",
-  "Sign Up": "Erregistroa",
   "Sign now!": "Saioa hasi!",
-  "Sign the ECI": "Sinatu ECI",
   "Sign the ECI!": "Sinatu ECI!",
   "Sorry, we couldn't save": "Ezin izan dugu gorde",
-  "Stay in touch": "Harremanetan jarraitu",
   "Stay informed": "Jarrai zaitez informatuta",
-  "Street": "Kalea",
   "Subject": "Gaia",
   "Thank you": "Eskerrik asko!",
-  "Thanks!": "Eskerrik asko!",
   "This field is required.": "Eremu hau beharrezkoa da",
   "Your message": "Zure mezua",
   "Your organisation account": "Zure erakundearen kontua",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Aldatu zenbatekoa",
-      "choose": "Aukeratu Zenbateko bat",
       "intro": "Aukeratu Zenbateko bat:"
     },
     "average": "Batez besteko dohaintza {{amount}} da",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "irekia"
     },
-    "payment": {
-      "intro": "Ordainketa xehetasunak:"
-    },
     "payment_methods": {
       "card": "Txartela",
       "intro": "Nola eman nahi duzu dohaintza?",
@@ -127,24 +109,18 @@
     "to": "Dohaintza {{organisation}}"
   },
   "email": {
-    "body": "gorputza",
-    "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
-    "subject": "gaia"
+    "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso"
   },
   "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
   "progress_plural": "",
   "register": "Gehitu nire izena",
   "share": {
     "email": {
-      "body": "Kaixo,\nMesedez, sinatu, onartzen duzula nahi duzula uste dut",
       "subject": "Hau sinatu beharko zenuke"
     },
     "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
     "message": "Hau sinatu beharko zenuke!",
-    "title": "Bukatzear! Hurrengo pausoa eman.",
-    "twitter": {
-      "actionText": "sinatu nuen. zuk ere beharko zenuke"
-    }
+    "title": "Bukatzear! Hurrengo pausoa eman."
   },
   "target": {
     "country": {

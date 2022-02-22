@@ -3,44 +3,30 @@
   "Address": "Adresse",
   "Amount": "Beløb",
   "Birthdate": "Fødselsdato",
-  "City": "By",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Download",
   "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
   "Email": "Emailadresse",
-  "Email_Share button": "Emailadresse",
   "Enter a number.": "Indtast et nummer.",
-  "Enter a valid email address.": "Angiv en gyldig e-mailadresse.",
   "First name": "Fornavn",
-  "Full Name": "Fuldt navn",
   "Join": "Meld dig ind",
   "Last name": "Efternavn",
-  "Legal": "Juridisk",
   "Link_Share button": "Hyperlink",
   "Locality": "Lokalitet",
   "Next": "Next",
-  "No Thanks": "Nej tak",
   "Other": "Andre",
   "Phone": "Telefon",
-  "Place of birth": "Fødselssted",
   "Postal Code": "Postnummer",
-  "Privacy": "Privatliv",
   "Share": "Del",
-  "Share on Facebook": "Del det på Facebook",
   "Share on Twitter": "Del på Twitter",
   "Sign": "Tilmeld nu!",
-  "Sign Up": "Tilmeld dig",
   "Sign now!": "Tilmeld nu!",
-  "Sign the ECI": "Underskriv ECI",
   "Sign the ECI!": "Skriv under på det europæiske borgerinitiativ!",
   "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
-  "Stay in touch": "Holde kontakt",
   "Stay informed": "Hold dig opdateret",
-  "Street": "Gade",
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
-  "Thanks!": "Tak!",
   "This field is required.": "Dette felt er påkrævet.",
   "Your message": "Din besked",
   "Your organisation account": "Din organisationskonto",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Ændringsbeløb",
-      "choose": "Vælg et beløb",
       "intro": "Vælg et beløb :"
     },
     "average": "Den gennemsnitlige donation er {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "åben"
     },
-    "payment": {
-      "intro": "Betalingsoplysninger :"
-    },
     "payment_methods": {
       "card": "Kort",
       "intro": "Hvordan ønsker du at donere?",
@@ -127,24 +109,18 @@
     "to": "Donation til {{organisation}}"
   },
   "email": {
-    "body": "krop",
-    "invalid_domain": "{{domain}} kan ikke modtage e-mails",
-    "subject": "emne"
+    "invalid_domain": "{{domain}} kan ikke modtage e-mails"
   },
   "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "register": "Tilføj mit navn",
   "share": {
     "email": {
-      "body": "Hej,\nUnderskriv venligst, jeg tror, du vil støtte det",
       "subject": "Du skal underskrive dette"
     },
     "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
     "message": "Du skal underskrive dette!",
-    "title": "Næsten færdig! Tag det næste skridt.",
-    "twitter": {
-      "actionText": "Jeg har skrevet under. Det bør du også gøre"
-    }
+    "title": "Næsten færdig! Tag det næste skridt."
   },
   "target": {
     "country": {

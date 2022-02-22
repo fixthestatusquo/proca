@@ -3,44 +3,30 @@
   "Address": "Adireshin",
   "Amount": "Adadi",
   "Birthdate": "Ranar haifuwa",
-  "City": "Birnin",
   "Comment": "Sharhi",
   "Country": "Ƙasa",
   "Download": "Saukewa",
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
   "Email": "Imel",
-  "Email_Share button": "Imel",
   "Enter a number.": "Shigar da lamba.",
-  "Enter a valid email address.": "Shigar da adireshin imel mai aiki.",
   "First name": "Sunan rana",
-  "Full Name": "Cikakken suna",
   "Join": "Shiga",
   "Last name": "Sunan mahaifa",
-  "Legal": "Na doka",
   "Link_Share button": "Haɗi",
   "Locality": "Yanki",
   "Next": "Na gaba",
-  "No Thanks": "A'a na gode",
   "Other": "Sauran",
   "Phone": "Waya",
-  "Place of birth": "Wurin haihuwa",
   "Postal Code": "Lambar gidan waya",
-  "Privacy": "Sirri",
   "Share": "Raba",
-  "Share on Facebook": "Raba akan Facebook",
   "Share on Twitter": "Raba akan Twitter",
   "Sign": "Shiga Yanzu!",
-  "Sign Up": "Shiga",
   "Sign now!": "Shiga yanzu!",
-  "Sign the ECI": "Shiga ECI",
   "Sign the ECI!": "Sa hannu kan ECI!",
   "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
-  "Stay in touch": "Kasance tare",
   "Stay informed": "Kasance cikin sani",
-  "Street": "Titin",
   "Subject": "Magana",
   "Thank you": "na gode",
-  "Thanks!": "Godiya!",
   "This field is required.": "Wannan fillin ana bukatansa.",
   "Your message": "Sakon ku",
   "Your organisation account": "Asusun kungiyar ku",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Canja adadin",
-      "choose": "Zaɓi Adadi",
       "intro": "Zaɓi Adadi:"
     },
     "average": "Matsakaicin gudummawar ita ce {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "bude"
     },
-    "payment": {
-      "intro": "Bayanin biyan kuɗi:"
-    },
     "payment_methods": {
       "card": "Katin",
       "intro": "Ta yaya kuke son bayarwa?",
@@ -127,24 +109,18 @@
     "to": "Kyauta ga {{organisation}}"
   },
   "email": {
-    "body": "jiki",
-    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
-    "subject": "batun"
+    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",
   "register": "Ƙara sunana",
   "share": {
     "email": {
-      "body": "Sannu,\nDa fatan za a sa hannu, ina tsammanin kuna son tallafa masa",
       "subject": "Ya kamata ku sa hannu kan wannan"
     },
     "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
     "message": "Ya kamata ku sa hannu kan wannan!",
-    "title": "Kusan an gama! Dauki mataki na gaba.",
-    "twitter": {
-      "actionText": "na sanya hannu ya kamata ku ma"
-    }
+    "title": "Kusan an gama! Dauki mataki na gaba."
   },
   "target": {
     "country": {

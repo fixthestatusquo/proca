@@ -3,44 +3,30 @@
   "Address": "Osoite",
   "Amount": "Määrä",
   "Birthdate": "Syntymäpäivä",
-  "City": "Kaupunki",
   "Comment": "Kommentti",
   "Country": "Maa",
   "Download": "Lataa",
   "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle sähköpostitse.",
   "Email": "Sähköpostiosoite",
-  "Email_Share button": "Sähköpostiosoite",
   "Enter a number.": "Syötä numero.",
-  "Enter a valid email address.": "Anna toimiva sähköpostiosoite.",
   "First name": "Etunimi",
-  "Full Name": "Koko nimi",
   "Join": "Liity",
   "Last name": "Sukunimi",
-  "Legal": "Lakiasiat",
   "Link_Share button": "Linkki",
   "Locality": "Sijainti",
   "Next": "Seuraava",
-  "No Thanks": "Ei kiitos",
   "Other": "Muu",
   "Phone": "Puhelin",
-  "Place of birth": "Syntymäpaikka",
   "Postal Code": "Postinumero",
-  "Privacy": "Yksityisyys",
   "Share": "Jaa",
-  "Share on Facebook": "Jaa Facebookissa",
   "Share on Twitter": "Jaa Twitterissä",
   "Sign": "Allekirjoita!",
-  "Sign Up": "Rekisteröidy",
   "Sign now!": "Allekirjoita!",
-  "Sign the ECI": "Allekirjoita ECI",
   "Sign the ECI!": "Allekirjoita ECI!",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
-  "Stay in touch": "Pysyä yhteydessä",
   "Stay informed": "Liity jakelulistalle",
-  "Street": "Kadun nimi",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
-  "Thanks!": "Suuret kiitokset!",
   "This field is required.": "Tämä kenttä on pakollinen.",
   "Your message": "Viestisi",
   "Your organisation account": "Organisaatiotilisi",
@@ -61,7 +47,6 @@
   "donation": {
     "amount": {
       "change": "Muutosmäärä",
-      "choose": "Valitse määrä",
       "intro": "Valitse määrä :"
     },
     "average": "Keskimääräinen lahjoitus on {{amount}}",
@@ -113,9 +98,6 @@
     "mobile": {
       "open": "avoin"
     },
-    "payment": {
-      "intro": "Maksutiedot :"
-    },
     "payment_methods": {
       "card": "Kortti",
       "intro": "Miten haluat lahjoittaa?",
@@ -127,24 +109,18 @@
     "to": "Lahjoitus {{organisation}}"
   },
   "email": {
-    "body": "runko",
-    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
-    "subject": "aihe"
+    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja"
   },
   "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "register": "Lisää nimeni",
   "share": {
     "email": {
-      "body": "Moi,\nOle hyvä ja allekirjoita, mielestäni haluat tukea sitä",
       "subject": "Sinun tulisi allekirjoittaa tämä"
     },
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
-    "title": "Melkein valmista! Ota seuraava askel.",
-    "twitter": {
-      "actionText": "Allekirjoitin. sinunkin pitäisi"
-    }
+    "title": "Melkein valmista! Ota seuraava askel."
   },
   "target": {
     "country": {
