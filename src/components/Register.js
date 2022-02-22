@@ -29,6 +29,7 @@ import ImplicitConsent from "@components/ImplicitConsent";
 
 import Organisation from "@components/Organisation";
 import Country from "@components/Country";
+import CustomField from "@components/field/CustomField";
 
 import { addActionContact } from "@lib/server.js";
 import dispatch from "@lib/event.js";
@@ -353,6 +354,7 @@ export default function Register(props) {
               </Grid>
             )}
             {props.extraFields && props.extraFields({form:form,classes:classes})}
+            {config.component.register.custom && <CustomField compact={compact} form={form} classes={classes}/>}
 
             <ConsentBlock
               organisation={props.organisation}

@@ -58,7 +58,6 @@ const Widget = (props) => {
   });
 
   if (props) config = { ...config, ...props };
-
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.locales = merge(config.locales, getOverwriteLocales());
