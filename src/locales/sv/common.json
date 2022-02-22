@@ -3,45 +3,23 @@
   "Address": "Adress",
   "Amount": "Belopp",
   "Birthdate": "Födelsedatum",
-  "City": "Stad",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Hämta",
   "Download explanation": "Ditt dokument är nu klart, vi skickar det också till dig via e-post.",
   "Email": "E-post",
-  "Email_Share button": "E-post",
-  "Enter a number.": "Ange ett nummer.",
-  "Enter a valid email address.": "Ange en giltig e-postadress.",
   "First name": "Förnamn",
-  "Full Name": "Fullständigt namn",
-  "Join": "Gå med",
   "Last name": "Efternamn",
-  "Legal": "Användarvillkor",
-  "Link_Share button": "Länk",
   "Locality": "Lokalitet",
   "Next": "Nästa",
-  "No Thanks": "Nej tack",
   "Other": "Övrigt",
   "Phone": "Telefon",
-  "Place of birth": "Födelseort",
   "Postal Code": "Postnummer",
-  "Privacy": "Integritetsskydd",
-  "Share": "Dela",
-  "Share on Facebook": "Dela på Facebook",
-  "Share on Twitter": "Dela på Twitter",
   "Sign": "Skriv under",
-  "Sign Up": "Registrera",
   "Sign now!": "Skriv under!",
-  "Sign the ECI": "Underteckna ECI",
-  "Sign the ECI!": "Underteckna Europeiska medborgarinitiativet!",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
-  "Stay in touch": "Hålla kontakten",
-  "Stay informed": "Håll dig uppdaterad",
-  "Street": "Gata",
   "Subject": "Ämne",
   "Thank you": "Tack.",
-  "Thanks!": "Tack!",
-  "This field is required.": "Detta fält krävs.",
   "Your message": "Ditt meddelande",
   "Your organisation account": "Ditt organisationskonto",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Ändringsbelopp",
-      "choose": "Välj ett belopp",
       "intro": "Välj ett belopp :"
     },
     "average": "Den genomsnittliga donationen är {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "öppna"
     },
-    "payment": {
-      "intro": "Betalningsuppgifter :"
-    },
     "payment_methods": {
       "card": "Kort",
       "intro": "Hur vill du donera?",
@@ -127,24 +101,15 @@
     "to": "Donation till {{organisation}}"
   },
   "email": {
-    "body": "kropp",
-    "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
-    "subject": "ämne"
+    "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden"
   },
   "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
   "progress_plural": "",
   "register": "Lägg till mitt namn",
   "share": {
-    "email": {
-      "body": "Hej,\nVänligen skriv, jag tror att du vill stödja det",
-      "subject": "Du borde underteckna detta"
-    },
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
-    "title": "Nästan klar! Ta nästa steg.",
-    "twitter": {
-      "actionText": "Jag har skrivit under. Det borde du också göra."
-    }
+    "title": "Nästan klar! Ta nästa steg."
   },
   "target": {
     "country": {

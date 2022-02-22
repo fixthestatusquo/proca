@@ -3,45 +3,23 @@
   "Address": "Adres",
   "Amount": "Kwota",
   "Birthdate": "Data urodzenia",
-  "City": "Miasto",
   "Comment": "Komentarz",
   "Country": "Kraj",
   "Download": "Pobierz",
   "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie.",
   "Email": "E-mail",
-  "Email_Share button": "E-mail",
-  "Enter a number.": "Wprowadź liczbę.",
-  "Enter a valid email address.": "Wprowadź prawidłowy adres e-mail.",
   "First name": "Imię",
-  "Full Name": "Imię i nazwisko",
-  "Join": "Dołącz do",
   "Last name": "Nazwisko",
-  "Legal": "Prawna",
-  "Link_Share button": "Link",
   "Locality": "Położenie",
   "Next": "Następny",
-  "No Thanks": "Nie, dziękuję.",
   "Other": "Inne",
   "Phone": "Telefon",
-  "Place of birth": "Miejsce urodzenia",
   "Postal Code": "Kod pocztowy",
-  "Privacy": "Prywatność",
-  "Share": "Udostępnij",
-  "Share on Facebook": "Udostępnij na Facebooku",
-  "Share on Twitter": "Udostępnij na Twitterze",
   "Sign": "Podpisz teraz!",
-  "Sign Up": "Zarejestruj się",
   "Sign now!": "Podpisz teraz!",
-  "Sign the ECI": "Podpisz europejską inicjatywę obywatelską",
-  "Sign the ECI!": "Podpisz europejską inicjatywę obywatelską!",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
-  "Stay in touch": "Bądź w kontakcie",
-  "Stay informed": "Bądź na bieżąco",
-  "Street": "Ulica",
   "Subject": "Temat",
   "Thank you": "Dziękuję",
-  "Thanks!": "Dzięki!",
-  "This field is required.": "To pole jest wymagane.",
   "Your message": "Twoja wiadomość",
   "Your organisation account": "Konto organizacji",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Zmień kwotę",
-      "choose": "Wybierz kwotę",
       "intro": "Wybierz kwotę :"
     },
     "average": "Średnia wysokość darowizny wynosi {{amount}}.",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "otwórz"
     },
-    "payment": {
-      "intro": "Szczegóły płatności :"
-    },
     "payment_methods": {
       "card": "Karta",
       "intro": "Jak chcesz przekazać darowiznę?",
@@ -127,25 +101,16 @@
     "to": "Darowizna na rzecz {{organisation}}"
   },
   "email": {
-    "body": "body",
-    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail",
-    "subject": "temat"
+    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
   },
   "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
   "progress_1": "",
   "progress_2": "",
   "register": "Dodaj moje imię",
   "share": {
-    "email": {
-      "body": "Witam,\nProszę podpisać, myślę, że chcesz go wesprzeć",
-      "subject": "Powinien pan podpisać ten dokument"
-    },
     "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
     "message": "Powinieneś to podpisać!",
-    "title": "Prawie gotowe! Zrób następny krok.",
-    "twitter": {
-      "actionText": "Ja podpisałem. Ty też powinieneś."
-    }
+    "title": "Prawie gotowe! Zrób następny krok."
   },
   "target": {
     "country": {

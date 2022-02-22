@@ -3,45 +3,23 @@
   "Address": "Adresa",
   "Amount": "Čiastka",
   "Birthdate": "Dátum narodenia",
-  "City": "Mesto",
   "Comment": "Komentár",
   "Country": "Zem",
   "Download": "Stiahnuť",
   "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
   "Email": "Email",
-  "Email_Share button": "Email",
-  "Enter a number.": "Zadajte číslo.",
-  "Enter a valid email address.": "Zadajte platnú e-mailovú adresu.",
   "First name": "Krstné meno",
-  "Full Name": "Celé meno",
-  "Join": "Pridať sa",
   "Last name": "Priezvisko",
-  "Legal": "Právne informácie",
-  "Link_Share button": "Odkaz",
   "Locality": "Oblasť",
   "Next": "Ďalšia",
-  "No Thanks": "Nie ďakujem",
   "Other": "Ostatné",
   "Phone": "Telefón",
-  "Place of birth": "Miesto narodenia",
   "Postal Code": "Poštové smerovacie číslo",
-  "Privacy": "Súkromie",
-  "Share": "Zdieľať",
-  "Share on Facebook": "Zdieľať na Facebooku",
-  "Share on Twitter": "Zdieľajte na Twitteri",
   "Sign": "Odoslať!",
-  "Sign Up": "Zaregistrovať sa",
   "Sign now!": "Odoslať!!",
-  "Sign the ECI": "Podpíšte ECI",
-  "Sign the ECI!": "Podpíšte ECI!",
   "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
-  "Stay in touch": "Zostať v kontakte",
-  "Stay informed": "Dostávať informácie",
-  "Street": "Ulica",
   "Subject": "Predmet",
   "Thank you": "Ďakujeme!",
-  "Thanks!": "Vďaka!",
-  "This field is required.": "Toto pole je povinné.",
   "Your message": "Vaša správa",
   "Your organisation account": "Váš účet organizácie",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Výška zmeny",
-      "choose": "Vyberte si sumu",
       "intro": "Vyberte si sumu :"
     },
     "average": "Priemerná výška príspevku je {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "otvoriť"
     },
-    "payment": {
-      "intro": "Platobné údaje :"
-    },
     "payment_methods": {
       "card": "Karta",
       "intro": "Ako chcete darovať?",
@@ -127,24 +101,15 @@
     "to": "Príspevok na {{organisation}}"
   },
   "email": {
-    "body": "telo",
-    "invalid_domain": "{{domain}} nemôže prijímať e-maily",
-    "subject": "predmet"
+    "invalid_domain": "{{domain}} nemôže prijímať e-maily"
   },
   "progress": "{{count}} podpísali. Poďme na {{goal}}",
   "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
   "register": "Pridajte moje meno",
   "share": {
-    "email": {
-      "body": "Ahoj,\nProsím, podpíšte sa, myslím, že to chcete podporiť",
-      "subject": "Mali by ste to podpísať"
-    },
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
-    "title": "Skoro hotové! Urobte ďalší krok.",
-    "twitter": {
-      "actionText": "Podpísal som. mal by si aj ty"
-    }
+    "title": "Skoro hotové! Urobte ďalší krok."
   },
   "target": {
     "country": {

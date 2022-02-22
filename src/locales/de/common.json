@@ -3,45 +3,23 @@
   "Address": "Adresse",
   "Amount": "Betrag",
   "Birthdate": "Geburtsdatum",
-  "City": "Stadt",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Herunterladen",
   "Download explanation": "Ihr Dokument ist jetzt fertig, wir schicken es Ihnen auch per E-Mail zu.",
   "Email": "E-Mail",
-  "Email_Share button": "E-Mail",
-  "Enter a number.": "Geben Sie eine Nummer ein.",
-  "Enter a valid email address.": "Geben Sie eine gültige E-Mail Adresse ein.",
   "First name": "Vorname",
-  "Full Name": "Vollständiger Name",
-  "Join": "Beitreten",
   "Last name": "Nachname",
-  "Legal": "Rechtliches",
-  "Link_Share button": "Link",
   "Locality": "Ortschaft",
   "Next": "Weiter",
-  "No Thanks": "Nein Danke",
   "Other": "Andere",
   "Phone": "Telefon",
-  "Place of birth": "Ort der Geburt",
   "Postal Code": "Postleitzahl",
-  "Privacy": "Datenschutz",
-  "Share": "Teilen Sie",
-  "Share on Facebook": "Auf Facebook teilen",
-  "Share on Twitter": "Auf Twitter teilen",
   "Sign": "Jetzt unterschreiben!",
-  "Sign Up": "Anmeldung",
   "Sign now!": "Jetzt unterschreiben!",
-  "Sign the ECI": "Unterzeichnen Sie die EBI",
-  "Sign the ECI!": "Unterzeichnen Sie die EBI!",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
-  "Stay in touch": "In Kontakt bleiben",
-  "Stay informed": "Informiert bleiben",
-  "Street": "Straße",
   "Subject": "Betreff",
   "Thank you": "Dankeschön",
-  "Thanks!": "Danke!",
-  "This field is required.": "Dieses Feld ist erforderlich.",
   "Your message": "Ihre Nachricht",
   "Your organisation account": "Ihr Organisationskonto",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Betrag ändern",
-      "choose": "Wählen Sie einen Betrag",
       "intro": "Wählen Sie einen Betrag:"
     },
     "average": "Die durchschnittliche Spende beträgt {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "öffnen"
     },
-    "payment": {
-      "intro": "Zahlungsbedingungen :"
-    },
     "payment_methods": {
       "card": "Karte",
       "intro": "Wie möchten Sie spenden?",
@@ -133,16 +107,9 @@
   "progress_plural": "",
   "register": "Meinen Namen hinzufügen",
   "share": {
-    "email": {
-      "body": "Hallo!\nBitte unterschreiben Sie, ich denke, Sie wollen es unterstützen",
-      "subject": "Sie sollten dies unterschreiben"
-    },
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
     "message": "Sie sollten das unterschreiben!",
-    "title": "Fast fertig! Machen Sie den nächsten Schritt.",
-    "twitter": {
-      "actionText": "Ich habe unterschrieben. Das sollten Sie auch."
-    }
+    "title": "Fast fertig! Machen Sie den nächsten Schritt."
   },
   "target": {
     "country": {

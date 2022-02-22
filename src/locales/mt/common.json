@@ -3,45 +3,23 @@
   "Address": "Indirizz",
   "Amount": "Ammont",
   "Birthdate": "Data tat-twelid",
-  "City": "Belt",
   "Comment": "Kumment",
   "Country": "Pajjiż",
   "Download": "Niżżel",
   "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
   "Email": "Email",
-  "Email_Share button": "Email",
-  "Enter a number.": "Daħħal numru.",
-  "Enter a valid email address.": "Daħħal indirizz tal-email validu.",
   "First name": "Isem",
-  "Full Name": "Isem sħiħ",
-  "Join": "Jingħaqdu",
   "Last name": "Kunjom",
-  "Legal": "Legali",
-  "Link_Share button": "Rabta",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
-  "No Thanks": "Le grazzi",
   "Other": "Oħrajn",
   "Phone": "Telefon",
-  "Place of birth": "Post tat-twelid",
   "Postal Code": "Kodiċi postali",
-  "Privacy": "Privatezza",
-  "Share": "Aqsam",
-  "Share on Facebook": "Ixxerja fuq facebook",
-  "Share on Twitter": "Aqsam fuq Twitter",
   "Sign": "Iffirma Issa!",
-  "Sign Up": "Irregistra",
   "Sign now!": "Iffirma issa!",
-  "Sign the ECI": "Iffirma l-ECI",
-  "Sign the ECI!": "Iffirma l-ECI!",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
-  "Stay in touch": "Ibqa 'f'kuntatt",
-  "Stay informed": "Ibqa’ infurmat",
-  "Street": "Triq",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
-  "Thanks!": "Grazzi!",
-  "This field is required.": "Dan il-field huwa meħtieġ.",
   "Your message": "Il-messaġġ tiegħek",
   "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Ibdel l-ammont",
-      "choose": "Agħżel Ammont",
       "intro": "Agħżel Ammont:"
     },
     "average": "Id-donazzjoni medja hija {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "miftuħa"
     },
-    "payment": {
-      "intro": "Dettalji tal-ħlas:"
-    },
     "payment_methods": {
       "card": "Card",
       "intro": "Kif trid tagħti donazzjoni?",
@@ -127,9 +101,7 @@
     "to": "Donazzjoni lil {{organisation}}"
   },
   "email": {
-    "body": "ġisem",
-    "invalid_domain": "{{domain}} ma tistax tirċievi emails",
-    "subject": "suġġett"
+    "invalid_domain": "{{domain}} ma tistax tirċievi emails"
   },
   "progress_0": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "progress_1": "",
@@ -137,16 +109,9 @@
   "progress_3": "",
   "register": "Żid ismi",
   "share": {
-    "email": {
-      "body": "Hello,\nJekk jogħġbok iffirma, naħseb li trid tappoġġjaha",
-      "subject": "Għandek tiffirma dan"
-    },
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
     "message": "Għandek tiffirma dan!",
-    "title": "Kważi lest! Ħu l-pass li jmiss.",
-    "twitter": {
-      "actionText": "I ffirmajt. għandek ukoll"
-    }
+    "title": "Kważi lest! Ħu l-pass li jmiss."
   },
   "target": {
     "country": {

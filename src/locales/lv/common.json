@@ -3,45 +3,23 @@
   "Address": "Adrese",
   "Amount": "Daudzums",
   "Birthdate": "Dzimšanas datums",
-  "City": "Pilsēta",
   "Comment": "Komentārs",
   "Country": "Valsts",
   "Download": "Lejupielādēt",
   "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
   "Email": "Epasts",
-  "Email_Share button": "E-pasts",
-  "Enter a number.": "Ievadiet numuru.",
-  "Enter a valid email address.": "Ievadiet derīgu epasta adresi.",
   "First name": "Vārds",
-  "Full Name": "Pilnais vārds",
-  "Join": "Pievienoties",
   "Last name": "Uzvārds",
-  "Legal": "Juridisks",
-  "Link_Share button": "Saite",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
-  "No Thanks": "Nē paldies",
   "Other": "Cits",
   "Phone": "Telefons",
-  "Place of birth": "Dzimšanas vieta",
   "Postal Code": "Pasta indekss",
-  "Privacy": "Privātums",
-  "Share": "Kopīgot",
-  "Share on Facebook": "Dalīties vietnē “Facebook”",
-  "Share on Twitter": "Dalieties vietnē Twitter",
   "Sign": "Parakstieties tūlīt!",
-  "Sign Up": "Pierakstīties",
   "Sign now!": "Parakstieties tūlīt!",
-  "Sign the ECI": "Parakstiet ECI",
-  "Sign the ECI!": "Parakstiet ECI!",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
-  "Stay in touch": "Uzturēt kontaktus",
-  "Stay informed": "Gribu būt lietas kursā",
-  "Street": "Iela",
   "Subject": "Temats",
   "Thank you": "Paldies",
-  "Thanks!": "Paldies!",
-  "This field is required.": "Šis lauks ir obligāts.",
   "Your message": "Jūsu ziņa",
   "Your organisation account": "Jūsu organizācijas konts",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Izmaiņas summa",
-      "choose": "Izvēlieties summu",
       "intro": "Izvēlieties summu :"
     },
     "average": "Vidējais ziedojums ir {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "atvērts"
     },
-    "payment": {
-      "intro": "Informācija par maksājumu :"
-    },
     "payment_methods": {
       "card": "Karte",
       "intro": "Kā vēlaties ziedot?",
@@ -127,25 +101,16 @@
     "to": "Ziedojums {{organisation}}"
   },
   "email": {
-    "body": "ķermeņa",
-    "invalid_domain": "{{domain}} nevar saņemt e-pastus",
-    "subject": "priekšmets"
+    "invalid_domain": "{{domain}} nevar saņemt e-pastus"
   },
   "progress_0": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "progress_1": "",
   "progress_2": "",
   "register": "Pievienojiet manu vārdu",
   "share": {
-    "email": {
-      "body": "Sveiki,\nLūdzu, parakstiet, es domāju, ka vēlaties to atbalstīt",
-      "subject": "Jums tas jāparaksta"
-    },
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",
-    "title": "Gandrīz pabeigts! Veiciet nākamo soli.",
-    "twitter": {
-      "actionText": "Es parakstījos. tev arī vajadzētu"
-    }
+    "title": "Gandrīz pabeigts! Veiciet nākamo soli."
   },
   "target": {
     "country": {

@@ -3,45 +3,23 @@
   "Address": "כתובת",
   "Amount": "כמות",
   "Birthdate": "תאריך לידה",
-  "City": "עיר",
   "Comment": "הערה",
   "Country": "ארץ",
   "Download": "הורד",
   "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
   "Email": "דוא״ל",
-  "Email_Share button": "דוא״ל",
-  "Enter a number.": "הזן מספר.",
-  "Enter a valid email address.": "נא להקליד כתובת דוא״ל תקנית.",
   "First name": "שם פרטי",
-  "Full Name": "שם מלא",
-  "Join": "הצטרפות",
   "Last name": "שם הרשימה",
-  "Legal": "משפטי",
-  "Link_Share button": "קישור",
   "Locality": "יישוב",
   "Next": "הבא",
-  "No Thanks": "לא, תודה",
   "Other": "אחר",
   "Phone": "טלפון",
-  "Place of birth": "מקום לידה",
   "Postal Code": "מיקוד",
-  "Privacy": "פרטיות",
-  "Share": "שיתוף",
-  "Share on Facebook": "שיתוף בפייסבוק",
-  "Share on Twitter": "שתף בטוויטר",
   "Sign": "היכנס עכשיו!",
-  "Sign Up": "הרשמה",
   "Sign now!": "חתמו עכשיו!",
-  "Sign the ECI": "חתמו על ה- ECI",
-  "Sign the ECI!": "חתום על ECI!",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
-  "Stay in touch": "תישאר בקשר",
-  "Stay informed": "להישאר מעודכן",
-  "Street": "רחוב",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
-  "Thanks!": "תודה!",
-  "This field is required.": "שדה זה דרוש.",
   "Your message": "ההודעה שלך",
   "Your organisation account": "חשבון הארגון שלך",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "שנה כמות",
-      "choose": "בחר כמות",
       "intro": "בחר כמות:"
     },
     "average": "התרומה הממוצעת היא {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "לִפְתוֹחַ"
     },
-    "payment": {
-      "intro": "פרטי תשלום :"
-    },
     "payment_methods": {
       "card": "כַּרְטִיס",
       "intro": "איך אתה רוצה לתרום?",
@@ -127,23 +101,14 @@
     "to": "תרומה ל-{{organisation}}"
   },
   "email": {
-    "body": "גוף",
-    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "subject": "נושא"
+    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים"
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",
   "share": {
-    "email": {
-      "body": "היי,\nאנא חתום, אני חושב שאתה רוצה לתמוך בזה",
-      "subject": "אתה צריך לחתום על זה"
-    },
     "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
     "message": "אתה צריך לחתום על זה!",
-    "title": "כמעט סיימתי! בצע את הצעד הבא.",
-    "twitter": {
-      "actionText": "נרשמתי. גם אתה צריך"
-    }
+    "title": "כמעט סיימתי! בצע את הצעד הבא."
   },
   "target": {
     "country": {

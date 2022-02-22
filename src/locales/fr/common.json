@@ -3,45 +3,23 @@
   "Address": "Adresse",
   "Amount": "Montant",
   "Birthdate": "Date de naissance",
-  "City": "Ville",
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
   "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par e-mail",
   "Email": "Courriel",
-  "Email_Share button": "Courriel",
-  "Enter a number.": "Entrez un numéro.",
-  "Enter a valid email address.": "Saisissez une adresse électronique valide.",
   "First name": "Prénom",
-  "Full Name": "Nom complet",
-  "Join": "Rejoignez",
   "Last name": "Nom de famille",
-  "Legal": "Mentions légales",
-  "Link_Share button": "Lien",
   "Locality": "Localité",
   "Next": "Suivant",
-  "No Thanks": "Non merci",
   "Other": "Autre",
   "Phone": "Téléphone",
-  "Place of birth": "Lieu de naissance",
   "Postal Code": "Code postal",
-  "Privacy": "Vie privée",
-  "Share": "Partager",
-  "Share on Facebook": "Partager sur Facebook",
-  "Share on Twitter": "Partager sur Twitter",
   "Sign": "Signez maintenant !",
-  "Sign Up": "S'inscrire",
   "Sign now!": "Signez maintenant !",
-  "Sign the ECI": "Signer l'ICE",
-  "Sign the ECI!": "Signez l'ICE !",
   "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauvegarder",
-  "Stay in touch": "Restez en contact",
-  "Stay informed": "Restez informé",
-  "Street": "Rue",
   "Subject": "Sujet",
   "Thank you": "Merci",
-  "Thanks!": "Merci !",
-  "This field is required.": "Ce champ est obligatoire.",
   "Your message": "Votre message",
   "Your organisation account": "Le compte de votre organisation",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Montant du changement",
-      "choose": "Choisissez un montant",
       "intro": "Choisissez un montant"
     },
     "average": "Le don moyen est de {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "ouvrir"
     },
-    "payment": {
-      "intro": "Détails du paiement"
-    },
     "payment_methods": {
       "card": "Carte",
       "intro": "Comment voulez-vous faire un don ?",
@@ -133,16 +107,9 @@
   "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
   "register": "Ajouter mon nom",
   "share": {
-    "email": {
-      "body": "Bonjour,\nVeuillez signer, je pense que vous voulez le soutenir",
-      "subject": "Vous devriez signer ce document"
-    },
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "message": "Vous devriez signer ça !",
-    "title": "Vous avez presque terminé ! Passez à l'étape suivante.",
-    "twitter": {
-      "actionText": "J'ai signé. Vous devriez aussi"
-    }
+    "title": "Vous avez presque terminé ! Passez à l'étape suivante."
   },
   "target": {
     "country": {

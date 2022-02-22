@@ -3,45 +3,23 @@
   "Address": "Адреса",
   "Amount": "Износ",
   "Birthdate": "Датум рођења",
-  "City": "Велеград",
   "Comment": "Komentar",
   "Country": "Država",
   "Download": "Преузимање",
   "Download explanation": "Ваш документ је сада спреман, ми вам га шаљемо и вама.",
   "Email": "Email",
-  "Email_Share button": "Email",
-  "Enter a number.": "Унесите број.",
-  "Enter a valid email address.": "Upišite validnu email adresu.",
   "First name": "Ime",
-  "Full Name": "Пуно име",
-  "Join": "Придружи се",
   "Last name": "Prezime",
-  "Legal": "Правно",
-  "Link_Share button": "Веза",
   "Locality": "Локалитет",
   "Next": "Даље",
-  "No Thanks": "Не хвала",
   "Other": "Ostalo",
   "Phone": "Телефон",
-  "Place of birth": "Место рођења",
   "Postal Code": "поштански код",
-  "Privacy": "Приватност",
-  "Share": "Deli",
-  "Share on Facebook": "Поделите на Фејсбуку",
-  "Share on Twitter": "Поделите на Твиттер-у",
   "Sign": "Potpišite!",
-  "Sign Up": "Пријави се",
   "Sign now!": "Potpišite!",
-  "Sign the ECI": "Потпишите ЕЦИ",
-  "Sign the ECI!": "Потпишите ЕЦИ!",
   "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
-  "Stay in touch": "Остати у контакту",
-  "Stay informed": "Будите информисани",
-  "Street": "Улица",
   "Subject": "Предмет",
   "Thank you": "Хвала вам",
-  "Thanks!": "Хвала!",
-  "This field is required.": "Molimo vas da popunite ovo polje.",
   "Your message": "Ваша порука",
   "Your organisation account": "Налог ваше организације",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Промени износ",
-      "choose": "Изаберите износ",
       "intro": "Изаберите износ:"
     },
     "average": "Просечна донација је [Кс24Кс]",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "отворен"
     },
-    "payment": {
-      "intro": "Подаци о плаћању :"
-    },
     "payment_methods": {
       "card": "Цард",
       "intro": "Како желите да донирате?",
@@ -127,25 +101,16 @@
     "to": "Донација за [Кс12Кс]"
   },
   "email": {
-    "body": "тело",
-    "invalid_domain": "[Кс0Кс] не може да прима е-поруке",
-    "subject": "тема"
+    "invalid_domain": "[Кс0Кс] не може да прима е-поруке"
   },
   "progress_0": "[Кс0Кс] су потписали. Идемо на [Кс35Кс]",
   "progress_1": "",
   "progress_2": "",
   "register": "Додај моје име",
   "share": {
-    "email": {
-      "body": "Здраво,\nМолим вас потпишите, мислим да желите да га подржите",
-      "subject": "Potpiši za borbu protiv biometrijskog nadzora"
-    },
     "intro": "Odlično, potpisali ste 👍. Podelite peticiju kako bi je videlo što više ljudi 🙏.",
     "message": "Potpiši za borbu protiv biometrijskog nadzora!",
-    "title": "Još malo i gotovo! Sledeći korak.",
-    "twitter": {
-      "actionText": "Потписао сам. и ти би требао такође"
-    }
+    "title": "Još malo i gotovo! Sledeći korak."
   },
   "target": {
     "country": {

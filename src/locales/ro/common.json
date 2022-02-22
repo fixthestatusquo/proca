@@ -3,45 +3,23 @@
   "Address": "Adresă",
   "Amount": "Sumă",
   "Birthdate": "Data nasterii",
-  "City": "Oras",
   "Comment": "Comentariu",
   "Country": "Țara",
   "Download": "Descarcă",
   "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
   "Email": "E-mail",
-  "Email_Share button": "E-mail",
-  "Enter a number.": "Introduceți un număr.",
-  "Enter a valid email address.": "Introduceți o adresă de email validă.",
   "First name": "Prenume",
-  "Full Name": "Nume complet",
-  "Join": "Alăturați-vă",
   "Last name": "Numele de familie",
-  "Legal": "Legale",
-  "Link_Share button": "Link",
   "Locality": "Localitate",
   "Next": "Următor",
-  "No Thanks": "Nu multumesc",
   "Other": "Altele",
   "Phone": "Telefon",
-  "Place of birth": "Locul nasterii",
   "Postal Code": "Cod poștal",
-  "Privacy": "Confidențialitate",
-  "Share": "Distribuie",
-  "Share on Facebook": "Distribuiți pe Facebook",
-  "Share on Twitter": "Distribuiți pe Twitter",
   "Sign": "Înscrieți-vă acum!",
-  "Sign Up": "Înregistrare",
   "Sign now!": "Semnați acum!",
-  "Sign the ECI": "Semnați ECI",
-  "Sign the ECI!": "Semnați ICE!",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
-  "Stay in touch": "Ține legătura",
-  "Stay informed": "Fiți la curent",
-  "Street": "Strada",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
-  "Thanks!": "Mulțumiri!",
-  "This field is required.": "Acest câmp este obligatoriu.",
   "Your message": "Mesajul dumneavoastră",
   "Your organisation account": "Contul organizației dvs.",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Suma de modificare",
-      "choose": "Alegeți o sumă",
       "intro": "Alegeți o sumă :"
     },
     "average": "Donația medie este de {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "deschis"
     },
-    "payment": {
-      "intro": "Detalii de plată :"
-    },
     "payment_methods": {
       "card": "Card",
       "intro": "Cum doriți să donați?",
@@ -127,23 +101,14 @@
     "to": "Donație către {{organisation}}"
   },
   "email": {
-    "body": "corp",
-    "invalid_domain": "{{domain}} nu poate primi e-mailuri",
-    "subject": "subiect"
+    "invalid_domain": "{{domain}} nu poate primi e-mailuri"
   },
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
   "share": {
-    "email": {
-      "body": "Bună,\nVă rugăm să semnați, cred că doriți să o susțineți",
-      "subject": "Ar trebui să semnezi acest lucru"
-    },
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
-    "title": "Aproape gata! Faceți următorul pas.",
-    "twitter": {
-      "actionText": "Am semnat. ar trebui să semnezi și tu"
-    }
+    "title": "Aproape gata! Faceți următorul pas."
   },
   "target": {
     "country": {

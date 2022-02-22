@@ -3,45 +3,23 @@
   "Address": "Adresas",
   "Amount": "Suma",
   "Birthdate": "Gimimo data",
-  "City": "Miestas",
   "Comment": "Komentaras",
   "Country": "Šalis",
   "Download": "Parsiųst",
   "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
   "Email": "El. paštas",
-  "Email_Share button": "El",
-  "Enter a number.": "Įveskite skaičių.",
-  "Enter a valid email address.": "Įveskite galiojantį el. Pašto adresą.",
   "First name": "Pirmas vardas",
-  "Full Name": "Visas vardas",
-  "Join": "Prisijungti",
   "Last name": "Pavardė",
-  "Legal": "„Legal“",
-  "Link_Share button": "Nuoroda",
   "Locality": "Vietovė",
   "Next": "Toliau",
-  "No Thanks": "&Ne, ačiū",
   "Other": "Kita",
   "Phone": "telefonas",
-  "Place of birth": "Gimimo vieta",
   "Postal Code": "Pašto kodas",
-  "Privacy": "Privatumas",
-  "Share": "Bendrinti",
-  "Share on Facebook": "Dalytis tinkle „Facebook“",
-  "Share on Twitter": "Bendrinkite „Twitter“",
   "Sign": "Pasirašykite dabar!",
-  "Sign Up": "Prisijungti",
   "Sign now!": "Pasirašykite dabar!",
-  "Sign the ECI": "Pasirašykite AIV",
-  "Sign the ECI!": "Pasirašykite ECI!",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
-  "Stay in touch": "Palaikykite ryšį",
-  "Stay informed": "Gauti naujausią informaciją",
-  "Street": "Gatvė",
   "Subject": "Tema",
   "Thank you": "Ačiū",
-  "Thanks!": "Dėkoju!",
-  "This field is required.": "Šis laukas yra būtinas",
   "Your message": "Jūsų žinutė",
   "Your organisation account": "Jūsų organizacijos paskyra",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Pakeisti sumą",
-      "choose": "Pasirinkite sumą",
       "intro": "Pasirinkite sumą :"
     },
     "average": "Vidutinė auka yra {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "Atviras"
     },
-    "payment": {
-      "intro": "Mokėjimo informacija:"
-    },
     "payment_methods": {
       "card": "Kortelė",
       "intro": "Kaip norite aukoti?",
@@ -134,14 +108,9 @@
   "progress_2": "",
   "register": "Pridėti mano vardą",
   "share": {
-    "email": {
-    },
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",
-    "title": "Beveik baigta! Ženkite kitą žingsnį.",
-    "twitter": {
-      "actionText": "Pasirašiau. turėtumėte ir jūs."
-    }
+    "title": "Beveik baigta! Ženkite kitą žingsnį."
   },
   "target": {
     "country": {

@@ -3,45 +3,23 @@
   "Address": "Adreça",
   "Amount": "Quantitat",
   "Birthdate": "Data de naixement",
-  "City": "Municipi",
   "Comment": "Comentari",
   "Country": "País",
   "Download": "Descarrega",
   "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
   "Email": "Correu electrònic",
-  "Email_Share button": "Correu electrònic",
-  "Enter a number.": "Escriviu un número.",
-  "Enter a valid email address.": "Escriviu una adreça de correu vàlida.",
   "First name": "Nom",
-  "Full Name": "Nom",
-  "Join": "Unir-s'hi",
   "Last name": "Cognoms",
-  "Legal": "Informació legal",
-  "Link_Share button": "Enllaç",
   "Locality": "Localitat",
   "Next": "Següent",
-  "No Thanks": "No, gràcies",
   "Other": "Altres",
   "Phone": "Telèfon",
-  "Place of birth": "Lloc de naixement",
   "Postal Code": "Codi postal",
-  "Privacy": "Privadesa",
-  "Share": "Comparteix",
-  "Share on Facebook": "Compartiu-ho a Facebook",
-  "Share on Twitter": "Compartiu-ho a Twitter",
   "Sign": "Signa ara!",
-  "Sign Up": "Registreu-vos",
   "Sign now!": "Signeu ara!",
-  "Sign the ECI": "Signar l’ECI",
-  "Sign the ECI!": "Signa l'ECI!",
   "Sorry, we couldn't save": "No hem pogut desar",
-  "Stay in touch": "Estar en contacte",
-  "Stay informed": "Mantingueu-vos informat",
-  "Street": "Carrer",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
-  "Thanks!": "Gràcies!",
-  "This field is required.": "Aquest camp és obligatori.",
   "Your message": "El teu missatge",
   "Your organisation account": "El vostre compte d'organització",
   "consent": {
@@ -61,7 +39,6 @@
   "donation": {
     "amount": {
       "change": "Canvia la quantitat",
-      "choose": "Trieu una quantitat",
       "intro": "Trieu una quantitat:"
     },
     "average": "La donació mitjana és de {{amount}}",
@@ -113,9 +90,6 @@
     "mobile": {
       "open": "obert"
     },
-    "payment": {
-      "intro": "Detalls del pagament :"
-    },
     "payment_methods": {
       "card": "Targeta",
       "intro": "Com vols donar?",
@@ -127,24 +101,15 @@
     "to": "Donació a {{organisation}}"
   },
   "email": {
-    "body": "cos",
-    "invalid_domain": "{{domain}} no pot rebre correus electrònics",
-    "subject": "assumpte"
+    "invalid_domain": "{{domain}} no pot rebre correus electrònics"
   },
   "progress": "{{count}} han signat. Volem arribar a {{goal}}",
   "progress_plural": "",
   "register": "Afegeix el meu nom",
   "share": {
-    "email": {
-      "body": "Hola,\nSi us plau, signa això. Crec que hi voldràs donar suport",
-      "subject": "Hauríeu de signar això"
-    },
     "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
     "message": "Hauríeu de signar això!",
-    "title": "Gairebé ho té! Doneu el següent pas.",
-    "twitter": {
-      "actionText": "Vaig signar. tu també hauries"
-    }
+    "title": "Gairebé ho té! Doneu el següent pas."
   },
   "target": {
     "country": {
