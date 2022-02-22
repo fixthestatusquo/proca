@@ -8,26 +8,19 @@
   "Download": "Descargar",
   "Download explanation": "Su documento ya está listo, se lo estamos enviando por correo electrónico.",
   "Email": "Correo electrónico",
-  "Enter a number.": "Introduce un número.",
   "First name": "Nombre",
-  "Join": "Unirse",
   "Last name": "Apellidos",
-  "Link_Share button": "Enlace",
   "Locality": "Localidad",
   "Next": "Siguiente",
   "Other": "Otros",
   "Phone": "Teléfono",
   "Postal Code": "Código postal",
-  "Share": "Compartir",
   "Share on Twitter": "Compartir en Twitter",
   "Sign": "¡Firma ahora!",
   "Sign now!": "¡Firma ahora!",
-  "Sign the ECI!": "¡Firma la ICE!",
   "Sorry, we couldn't save": "No se ha podido guardar",
-  "Stay informed": "Mantenerse al tanto",
   "Subject": "Asunto",
   "Thank you": "Gracias",
-  "This field is required.": "Este campo es necesario.",
   "Your message": "Su mensaje",
   "Your organisation account": "La cuenta de su organización",
   "consent": {
@@ -115,9 +108,6 @@
   "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
   "register": "Añade mi nombre",
   "share": {
-    "email": {
-      "subject": "Deberías firmar esto"
-    },
     "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",
     "title": "¡Ya casi está! Da el siguiente paso."

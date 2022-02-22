@@ -8,26 +8,19 @@
   "Download": "Gbaa lati ayelujara",
   "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
   "Email": "Imeeli",
-  "Enter a number.": "Tẹ nọmba sii.",
   "First name": "Orukọ akọkọ",
-  "Join": "Darapọ mọ",
   "Last name": "Oruko idile",
-  "Link_Share button": "Ọna asopọ",
   "Locality": "Agbegbe",
   "Next": "Itele",
   "Other": "Omiiran",
   "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
-  "Share": "Pin",
   "Share on Twitter": "Pin lori Twitter",
   "Sign": "Wọlé Bayi!",
   "Sign now!": "Wole bayi!",
-  "Sign the ECI!": "Wọlé ECI!",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
-  "Stay informed": "Duro fun",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
-  "This field is required.": "E ni lati se nkan si aye yi.",
   "Your message": "Ifiranṣẹ rẹ",
   "Your organisation account": "Account agbari rẹ",
   "consent": {
@@ -114,9 +107,6 @@
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
   "share": {
-    "email": {
-      "subject": "O yẹ ki o fowo si eyi"
-    },
     "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
     "message": "O yẹ ki o fowo si eyi!",
     "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle."

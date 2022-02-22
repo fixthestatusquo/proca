@@ -8,26 +8,19 @@
   "Download": "डाउनलोड",
   "Download explanation": "आपका दस्तावेज़ अब तैयार है, हम इसे आपको ईमेल भी कर रहे हैं।",
   "Email": "ईमेल",
-  "Enter a number.": "एक नंबर दर्ज करें।",
   "First name": "पहला नाम",
-  "Join": "हिस्सा बनें",
   "Last name": "उपनाम",
-  "Link_Share button": "संपर्क",
   "Locality": "इलाका",
   "Next": "Next",
   "Other": "अन्य",
   "Phone": "दूरभाष",
   "Postal Code": "डाक कोड",
-  "Share": "साझा करें",
   "Share on Twitter": "ट्विटर पर साझा करें",
   "Sign": "अभी साइन करें!",
   "Sign now!": "अब साइन इन करें!",
-  "Sign the ECI!": "ईसीआई पर हस्ताक्षर करें!",
   "Sorry, we couldn't save": "क्षमा करें, हम नहीं बचा सके",
-  "Stay informed": "सूचित रहें",
   "Subject": "विषय",
   "Thank you": "धन्यवाद",
-  "This field is required.": "यह सूचना आवश्यक है",
   "Your message": "आपका सन्देश",
   "Your organisation account": "आपका संगठन खाता",
   "consent": {
@@ -115,9 +108,6 @@
   "progress_plural": "",
   "register": "मेरा नाम जोड़ें",
   "share": {
-    "email": {
-      "subject": "आपको इस पर हस्ताक्षर करना चाहिए"
-    },
     "intro": "महान, आपने साइन इन किया है signed अपने प्रभाव को गुणा करने के लिए, यह सुनिश्चित करने के लिए दूर-दूर तक साझा करें कि यह याचिका हर कोई देखता है।",
     "message": "आपको इस पर हस्ताक्षर करना चाहिए!",
     "title": "लगभग हो गया! अगला कदम उठाएं।"

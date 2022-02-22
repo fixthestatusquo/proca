@@ -8,26 +8,19 @@
   "Download": "Herunterladen",
   "Download explanation": "Ihr Dokument ist jetzt fertig, wir schicken es Ihnen auch per E-Mail zu.",
   "Email": "E-Mail",
-  "Enter a number.": "Geben Sie eine Nummer ein.",
   "First name": "Vorname",
-  "Join": "Beitreten",
   "Last name": "Nachname",
-  "Link_Share button": "Link",
   "Locality": "Ortschaft",
   "Next": "Weiter",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
-  "Share": "Teilen Sie",
   "Share on Twitter": "Auf Twitter teilen",
   "Sign": "Jetzt unterschreiben!",
   "Sign now!": "Jetzt unterschreiben!",
-  "Sign the ECI!": "Unterzeichnen Sie die EBI!",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
-  "Stay informed": "Informiert bleiben",
   "Subject": "Betreff",
   "Thank you": "Dankeschön",
-  "This field is required.": "Dieses Feld ist erforderlich.",
   "Your message": "Ihre Nachricht",
   "Your organisation account": "Ihr Organisationskonto",
   "consent": {
@@ -115,9 +108,6 @@
   "progress_plural": "",
   "register": "Meinen Namen hinzufügen",
   "share": {
-    "email": {
-      "subject": "Sie sollten dies unterschreiben"
-    },
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
     "message": "Sie sollten das unterschreiben!",
     "title": "Fast fertig! Machen Sie den nächsten Schritt."

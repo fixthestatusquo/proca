@@ -8,26 +8,19 @@
   "Download": "Íoslódáil",
   "Download explanation": "Tá do dhoiciméad réidh anois, táimid á sheoladh chugat freisin.",
   "Email": "Ríomhphost",
-  "Enter a number.": "Iontráil uimhir.",
   "First name": "Ainm",
-  "Join": "Bí páirteach",
   "Last name": "Ainm deireanach",
-  "Link_Share button": "Nasc",
   "Locality": "Ceantar",
   "Next": "An chéad rian eile",
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
-  "Share": "Comhroinn",
   "Share on Twitter": "Comhroinn ar Twitter",
   "Sign": "Sínigh Anois!",
   "Sign now!": "Sínigh anois!",
-  "Sign the ECI!": "Sínigh an ECI!",
   "Sorry, we couldn't save": "Tá brón orm, ní raibh muid in ann sábháil",
-  "Stay informed": "Bí ar an eolas",
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
-  "This field is required.": "Teastaíonn an réimse seo.",
   "Your message": "Do theachtaireacht",
   "Your organisation account": "Do chuntas eagraíochta",
   "consent": {
@@ -118,9 +111,6 @@
   "progress_4": "",
   "register": "Cuir m’ainm leis",
   "share": {
-    "email": {
-      "subject": "Ba cheart duit é seo a shíniú"
-    },
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",
     "message": "Ba chóir duit é seo a shíniú!",
     "title": "Beagnach críochnaithe! Glac an chéad chéim eile."

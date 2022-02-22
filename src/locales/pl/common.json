@@ -8,26 +8,19 @@
   "Download": "Pobierz",
   "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie.",
   "Email": "E-mail",
-  "Enter a number.": "Wprowadź liczbę.",
   "First name": "Imię",
-  "Join": "Dołącz do",
   "Last name": "Nazwisko",
-  "Link_Share button": "Link",
   "Locality": "Położenie",
   "Next": "Następny",
   "Other": "Inne",
   "Phone": "Telefon",
   "Postal Code": "Kod pocztowy",
-  "Share": "Udostępnij",
   "Share on Twitter": "Udostępnij na Twitterze",
   "Sign": "Podpisz teraz!",
   "Sign now!": "Podpisz teraz!",
-  "Sign the ECI!": "Podpisz europejską inicjatywę obywatelską!",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
-  "Stay informed": "Bądź na bieżąco",
   "Subject": "Temat",
   "Thank you": "Dziękuję",
-  "This field is required.": "To pole jest wymagane.",
   "Your message": "Twoja wiadomość",
   "Your organisation account": "Konto organizacji",
   "consent": {
@@ -116,9 +109,6 @@
   "progress_2": "",
   "register": "Dodaj moje imię",
   "share": {
-    "email": {
-      "subject": "Powinien pan podpisać ten dokument"
-    },
     "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
     "message": "Powinieneś to podpisać!",
     "title": "Prawie gotowe! Zrób następny krok."

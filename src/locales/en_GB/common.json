@@ -8,24 +8,18 @@
   "Download": "Download",
   "Download explanation": "Your document is now ready; we are emailing it to you too.",
   "Email": "Email",
-  "Enter a number.": "Enter a number.",
   "First name": "Given name",
-  "Join": "Join",
   "Last name": "Surname",
-  "Link_Share button": "Link",
   "Locality": "Locality",
   "Next": "Next",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal code",
-  "Share": "Share",
   "Share on Twitter": "Share on Twitter",
   "Sign": "Sign Now!",
   "Sign now!": "Sign now!",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
-  "Stay informed": "Stay informed",
   "Thank you": "Thank you",
-  "This field is required.": "This field is required.",
   "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -38,16 +32,10 @@
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
   },
   "dialogTitle": "Keep me informed about the campaign",
-  "email": {
-    "subject": "subject"
-  },
   "progress": "{{count}} has signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
   "share": {
-    "email": {
-      "subject": "You should sign this"
-    },
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
     "message": "You should sign this!",
     "title": "Almost done! Take the next step."

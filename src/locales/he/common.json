@@ -8,26 +8,19 @@
   "Download": "הורד",
   "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
   "Email": "דוא״ל",
-  "Enter a number.": "הזן מספר.",
   "First name": "שם פרטי",
-  "Join": "הצטרפות",
   "Last name": "שם הרשימה",
-  "Link_Share button": "קישור",
   "Locality": "יישוב",
   "Next": "הבא",
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
-  "Share": "שיתוף",
   "Share on Twitter": "שתף בטוויטר",
   "Sign": "היכנס עכשיו!",
   "Sign now!": "חתמו עכשיו!",
-  "Sign the ECI!": "חתום על ECI!",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
-  "Stay informed": "להישאר מעודכן",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
-  "This field is required.": "שדה זה דרוש.",
   "Your message": "ההודעה שלך",
   "Your organisation account": "חשבון הארגון שלך",
   "consent": {
@@ -114,9 +107,6 @@
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",
   "share": {
-    "email": {
-      "subject": "אתה צריך לחתום על זה"
-    },
     "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
     "message": "אתה צריך לחתום על זה!",
     "title": "כמעט סיימתי! בצע את הצעד הבא."

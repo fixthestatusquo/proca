@@ -8,26 +8,19 @@
   "Download": "Descarcă",
   "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
   "Email": "E-mail",
-  "Enter a number.": "Introduceți un număr.",
   "First name": "Prenume",
-  "Join": "Alăturați-vă",
   "Last name": "Numele de familie",
-  "Link_Share button": "Link",
   "Locality": "Localitate",
   "Next": "Următor",
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
-  "Share": "Distribuie",
   "Share on Twitter": "Distribuiți pe Twitter",
   "Sign": "Înscrieți-vă acum!",
   "Sign now!": "Semnați acum!",
-  "Sign the ECI!": "Semnați ICE!",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
-  "Stay informed": "Fiți la curent",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
-  "This field is required.": "Acest câmp este obligatoriu.",
   "Your message": "Mesajul dumneavoastră",
   "Your organisation account": "Contul organizației dvs.",
   "consent": {
@@ -114,9 +107,6 @@
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
   "share": {
-    "email": {
-      "subject": "Ar trebui să semnezi acest lucru"
-    },
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
     "title": "Aproape gata! Faceți următorul pas."

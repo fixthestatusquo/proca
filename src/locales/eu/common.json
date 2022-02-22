@@ -8,26 +8,19 @@
   "Download": "Deskargatu",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
   "Email": "E-posta",
-  "Enter a number.": "Idatzi zenbaki bat.",
   "First name": "Izena",
-  "Join": "Batu",
   "Last name": "Abizena",
-  "Link_Share button": "Esteka",
   "Locality": "Herria",
   "Next": "Hurrengoa",
   "Other": "Beste bat",
   "Phone": "Telefonoa",
   "Postal Code": "Posta kodea",
-  "Share": "Partekatu",
   "Share on Twitter": "Partekatu Twitterren",
   "Sign": "Saioa hasi!",
   "Sign now!": "Saioa hasi!",
-  "Sign the ECI!": "Sinatu ECI!",
   "Sorry, we couldn't save": "Ezin izan dugu gorde",
-  "Stay informed": "Jarrai zaitez informatuta",
   "Subject": "Gaia",
   "Thank you": "Eskerrik asko!",
-  "This field is required.": "Eremu hau beharrezkoa da",
   "Your message": "Zure mezua",
   "Your organisation account": "Zure erakundearen kontua",
   "consent": {
@@ -115,9 +108,6 @@
   "progress_plural": "",
   "register": "Gehitu nire izena",
   "share": {
-    "email": {
-      "subject": "Hau sinatu beharko zenuke"
-    },
     "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
     "message": "Hau sinatu beharko zenuke!",
     "title": "Bukatzear! Hurrengo pausoa eman."

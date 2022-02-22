@@ -8,26 +8,19 @@
   "Download": "Prenos",
   "Download explanation": "Vaš dokument je zdaj pripravljen, tudi vam ga pošiljamo po e-pošti.",
   "Email": "Elektronski naslov",
-  "Enter a number.": "Vnesite številko.",
   "First name": "Ime",
-  "Join": "Pridruži se",
   "Last name": "Priimek",
-  "Link_Share button": "Povezava",
   "Locality": "Okraj",
   "Next": "Naslednja",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštna številka",
-  "Share": "Skupna raba",
   "Share on Twitter": "Daj v skupno uporaba na Twitter",
   "Sign": "Prijavite se zdaj!",
   "Sign now!": "Podpišite peticijo!",
-  "Sign the ECI!": "Podpišite ECI!",
   "Sorry, we couldn't save": "Žal nismo mogli shraniti",
-  "Stay informed": "Ostanite obveščeni",
   "Subject": "Zadeva",
   "Thank you": "Hvala vam",
-  "This field is required.": "To polje je obvezno.",
   "Your message": "Vaše sporočilo",
   "Your organisation account": "Račun vaše organizacije",
   "consent": {
@@ -117,9 +110,6 @@
   "progress_3": "",
   "register": "Dodaj moje ime",
   "share": {
-    "email": {
-      "subject": "Moral bi to podpisati"
-    },
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",
     "title": "Skoraj končano!"

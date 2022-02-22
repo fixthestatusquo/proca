@@ -8,26 +8,19 @@
   "Download": "Stiahnuť",
   "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
   "Email": "Email",
-  "Enter a number.": "Zadajte číslo.",
   "First name": "Krstné meno",
-  "Join": "Pridať sa",
   "Last name": "Priezvisko",
-  "Link_Share button": "Odkaz",
   "Locality": "Oblasť",
   "Next": "Ďalšia",
   "Other": "Ostatné",
   "Phone": "Telefón",
   "Postal Code": "Poštové smerovacie číslo",
-  "Share": "Zdieľať",
   "Share on Twitter": "Zdieľajte na Twitteri",
   "Sign": "Odoslať!",
   "Sign now!": "Odoslať!!",
-  "Sign the ECI!": "Podpíšte ECI!",
   "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
-  "Stay informed": "Dostávať informácie",
   "Subject": "Predmet",
   "Thank you": "Ďakujeme!",
-  "This field is required.": "Toto pole je povinné.",
   "Your message": "Vaša správa",
   "Your organisation account": "Váš účet organizácie",
   "consent": {
@@ -115,9 +108,6 @@
   "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
   "register": "Pridajte moje meno",
   "share": {
-    "email": {
-      "subject": "Mali by ste to podpísať"
-    },
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
     "title": "Skoro hotové! Urobte ďalší krok."

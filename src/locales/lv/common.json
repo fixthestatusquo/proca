@@ -8,26 +8,19 @@
   "Download": "Lejupielādēt",
   "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
   "Email": "Epasts",
-  "Enter a number.": "Ievadiet numuru.",
   "First name": "Vārds",
-  "Join": "Pievienoties",
   "Last name": "Uzvārds",
-  "Link_Share button": "Saite",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
-  "Share": "Kopīgot",
   "Share on Twitter": "Dalieties vietnē Twitter",
   "Sign": "Parakstieties tūlīt!",
   "Sign now!": "Parakstieties tūlīt!",
-  "Sign the ECI!": "Parakstiet ECI!",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
-  "Stay informed": "Gribu būt lietas kursā",
   "Subject": "Temats",
   "Thank you": "Paldies",
-  "This field is required.": "Šis lauks ir obligāts.",
   "Your message": "Jūsu ziņa",
   "Your organisation account": "Jūsu organizācijas konts",
   "consent": {
@@ -116,9 +109,6 @@
   "progress_2": "",
   "register": "Pievienojiet manu vārdu",
   "share": {
-    "email": {
-      "subject": "Jums tas jāparaksta"
-    },
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",
     "title": "Gandrīz pabeigts! Veiciet nākamo soli."
