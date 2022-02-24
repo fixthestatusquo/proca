@@ -62,7 +62,7 @@ async function addSupport(actionType, actionPage, data, options) {
   }
 
   if (options.captcha.audio) {
-    variables.action.fields = { key: "audioCaptcha", value: "yes" };
+    variables.action.customFields = JSON.stringify({"audioCaptcha":true});
   }
   // no custom values for ECI signatures
   //  for (let [key,value] of Object.entries(data)) {

@@ -76,9 +76,9 @@ export default function Captcha(props) {
       });
     }
     if (!errors.captcha) return;
-    setCount((c) => c + 1);
+//    setCount((c) => c + 1);
     setFocussed(true);
-    setValue("captcha", "");
+//    setValue("captcha", "");
   }, [errors.captcha]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -184,8 +184,8 @@ export default function Captcha(props) {
               <TextField
                 form={props.form}
                 name="captcha"
-                helperText={t("eci:form.captcha-image-title")}
-                label=""
+                label="Captcha"
+                helperText={errors.captcha && t("eci:form.captcha-image-title")}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 InputProps={{
