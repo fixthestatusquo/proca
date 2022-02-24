@@ -14,10 +14,12 @@ module.exports = (webpack) => {
 
   const lang = config.lang.substring(0, 2).toLowerCase();
 
+
   webpack.resolve.alias["locales"] = path.resolve(
     __dirname,
     "../src/locales/" + lang,
   );
+
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
   webpack.resolve.alias["@components"] = path.resolve(
     __dirname,

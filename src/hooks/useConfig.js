@@ -19,6 +19,7 @@ export let configState = null;
 
 export const initConfigState = (config) => {
   if (config.locales) {
+    console.log(config.locales.register);
     let campaignTitle = false;
     Object.keys(config.locales).map((k) => {
       if (k.charAt(k.length - 1) === ":") {

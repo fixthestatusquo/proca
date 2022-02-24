@@ -15,19 +15,21 @@ export const allCountries = isoCountries.getNames(config.lang.toLowerCase().slic
 
 let resources = {};
 
-export const getCountryName = iso => ( isoCountries.getName(iso.toUpperCase(),config.lang.toLowerCase(),{select:"official"}))
+export const getCountryName = iso => ( isoCountries.getName(iso.toUpperCase(),config.lang.toLowerCase().slice(0,2),{select:"official"}))
 
-resources[config.lang.toLowerCase()] = { common: locales };
+const lang = config.lang.length === 2 ?config.lang.toLowerCase(): config.lang;
+
+resources[lang] = { common: locales };
 i18n
   //  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     // we init with resources
     resources: resources,
-    languages: config.lang.toLowerCase(),
-    lng: config.lang.toLowerCase(),
-    fallbackLng: "en",
-    //    debug: true,
+    languages: lang,
+    lng: lang,
+    fallbackLng: config.lang.length === 2 ? "en": config.lang.toLowerCase().slice(0,2),
+        debug: true,
     // have a common namespace used around the full app
     ns: ["common"],
     defaultNS: "common",

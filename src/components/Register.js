@@ -259,6 +259,7 @@ export default function Register(props) {
     return true;
     // what do we do with the provider?
   }
+                
 
   return (
     <form
