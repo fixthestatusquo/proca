@@ -10,7 +10,7 @@
   "Email": "E-Mail",
   "First name": "Vorname",
   "Last name": "Nachname",
-  "Locality": "Ortschaft",
+  "Locality": "Ort",
   "Next": "Weiter",
   "Other": "Andere",
   "Phone": "Telefon",
@@ -19,7 +19,7 @@
   "Sign now!": "Jetzt unterschreiben!",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
   "Subject": "Betreff",
-  "Thank you": "Dankeschön",
+  "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
   "Your organisation account": "Ihr Organisationskonto",
   "consent": {
@@ -28,7 +28,7 @@
     "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
     "emailSent": "Wir haben Ihnen eine E-Mail an {email} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails von {{name}} zu erhalten.",
-    "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und {{campaign}} Fortschritte",
+    "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten",
     "opt-out": "Nein, senden Sie mir keine E-Mails und halten Sie mich in Zukunft nicht auf dem Laufenden",
@@ -103,11 +103,11 @@
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen"
   },
-  "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
-  "progress_plural": "",
+  "progress": "{{count}} hat unterzeichnet. Nächstes Ziel: {{goal}}",
+  "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "share": {
-    "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
+    "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Sie sollten das unterschreiben!",
     "title": "Fast fertig! Machen Sie den nächsten Schritt."
   },
