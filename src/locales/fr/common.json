@@ -18,17 +18,17 @@
   "Sign": "Signez maintenant !",
   "Sign now!": "Signez maintenant !",
   "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauvegarder",
-  "Subject": "Sujet",
+  "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
   "Your organisation account": "Le compte de votre organisation",
   "consent": {
-    "confirm": "<0>Etes-vous sûr ? </0><1>En sélectionnant 'Non', vous ne pourrez pas savoir si cette campagne est réussie, ou s'il y a d'autres actions que nous devons mener ensemble pour la gagner. Si vous sélectionnez 'Oui', nous vous tiendrons au courant de cette campagne et de nos autres campagnes urgentes.</1><2>Vous pouvez vous désinscrire à tout moment.</2>",
-    "confirmAction": "Nous avons envoyé un lien de confirmation par email à l'adresse suivante :\n {{email}}\nVeuillez récupérer l'email dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier spam !).\n Ce n'est qu'à ce moment-là que votre action comptera !\nVotre confirmation est cruciale pour le poids politique de l'action. Cela garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation...",
-    "confirmOptIn": "N'oubliez pas de vérifier votre boîte aux lettres (y compris votre dossier de spam !) et de confirmer votre abonnement à l'e-mail.",
-    "emailSent": "Nous vous avons envoyé un courriel à {email} !",
+    "confirm": "<0>Êtes-vous sûr(e) ? </0><1>En sélectionnant « Non », vous ne pourrez pas savoir si cette campagne est réussie, ou s'il y a d'autres actions que nous devons mener ensemble pour la gagner. Si vous sélectionnez « Oui », nous vous tiendrons au courant de cette campagne et de nos autres campagnes urgentes.</1><2>Vous pouvez vous désinscrire à tout moment.</2>",
+    "confirmAction": "Veuillez récupérer le courriel dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier Indésirables !).\n Ce n'est qu'à ce moment-là que votre action comptera !\nVotre confirmation est cruciale pour le poids politique de l'action. Ceci garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation…",
+    "confirmOptIn": "N'oubliez pas de vérifier votre boîte de réception (y compris votre dossier Indésirables !) et de confirmer votre abonnement aux courriels",
+    "emailSent": "Nous vous avons envoyé un courriel à {{email}} !",
     "implicit": "Soumettez ce formulaire pour recevoir des messages électroniques de {{name}}",
-    "intro": "En savoir plus sur nos campagnes, nos actions et nos progrès",
+    "intro": "Découvrez nos campagnes, actions et les progrès de {{campaign}}",
     "opt-in": "Oui, je veux que {{partner}} me tienne informé par e-mail",
     "opt-in-both": "Oui, je souhaite que {{partner}} et {{lead}} me tiennent informé par e-mail",
     "opt-out": "Non, ne m'envoyez pas d'e-mails et ne me tenez pas au courant à l'avenir",
@@ -62,7 +62,7 @@
     },
     "form": {
       "error": {
-        "minimum": "Le don minimum est de {{ampount}}"
+        "minimum": "Le don minimum est de {{amount}}"
       }
     },
     "frequency": {
@@ -85,8 +85,8 @@
       "weekly": "hebdomadaire",
       "yearly": "annuel"
     },
-    "iban": "iban",
-    "intro": "Faites un don à {{campaign}}.",
+    "iban": "IBAN",
+    "intro": "Faire un don à {{campaign}}",
     "mobile": {
       "open": "ouvrir"
     },
@@ -98,10 +98,10 @@
       "title": "Mode de paiement"
     },
     "thanks": "Merci pour votre don !",
-    "to": "Donation à {{organisation}}"
+    "to": "Don à {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails"
+    "invalid_domain": "{{domain}} ne peut pas recevoir de courriels"
   },
   "progress": "{{count}} ont signé. Passons à {{goal}}",
   "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
@@ -113,7 +113,7 @@
   },
   "target": {
     "country": {
-      "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}."
+      "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"
     }
   },
   "twitter": {
