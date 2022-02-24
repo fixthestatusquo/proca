@@ -29,7 +29,7 @@ i18n
     languages: lang,
     lng: lang,
     fallbackLng: config.lang.length === 2 ? "en": config.lang.toLowerCase().slice(0,2),
-        debug: true,
+        //debug: true,
     // have a common namespace used around the full app
     ns: ["common"],
     defaultNS: "common",
