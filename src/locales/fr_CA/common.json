@@ -6,7 +6,7 @@
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
-  "Download explanation": "Ton fichier PDF est maintenant prêt et nous te l’envoyons par courriel.",
+  "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par courriel",
   "Email": "Courriel",
   "First name": "Prénom",
   "Last name": "Nom",
@@ -18,15 +18,15 @@
   "Sign": "Signer maintenant!",
   "Sign now!": "Signez maintenant!",
   "Sorry, we couldn't save": "Désolés, nous n'avons pas pu sauvegarder",
-  "Subject": "Sujet",
+  "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
   "Your organisation account": "Le compte de votre organisation",
   "consent": {
     "confirm": "<0> Êtes-vous sûr·e?</0><1> En choisissant Non, vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant Oui, nous vous tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
-    "confirmAction": "Nous avons envoyé un lien de confirmation par email à l'adresse suivante :\n {{email}}\nVeuillez récupérer l'email dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier spam !).\n Ce n'est qu'à ce moment-là que votre action comptera !\nVotre confirmation est cruciale pour le poids politique de l'action. Cela garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation...",
-    "confirmOptIn": "N'oubliez pas de vérifier votre boîte aux lettres (y compris votre dossier de spam !) et de confirmer votre abonnement à l'e-mail.",
-    "emailSent": "Nous vous avons envoyé un courriel à {email} !",
+    "confirmAction": "Veuillez récupérer le courriel dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier Indésirables!).\n Ce n'est qu'à ce moment-là que votre action comptera!\nVotre confirmation est cruciale pour le poids politique de l'action. Ceci garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation…",
+    "confirmOptIn": "N'oubliez pas de vérifier votre boîte de réception (y compris votre dossier Indésirables !) et de confirmer votre abonnement aux courriels",
+    "emailSent": "Nous vous avons envoyé un courriel à {{email}}!",
     "implicit": "Soumettez ce formulaire pour recevoir les courriels de {{name}}",
     "intro": "En savoir plus sur nos compagnes, nos actions et la progression de {{campaign}}",
     "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
@@ -39,13 +39,13 @@
   "donation": {
     "amount": {
       "change": "Montant du changement",
-      "intro": "Choisissez un montant :"
+      "intro": "Choisissez un montant"
     },
     "average": "Le don moyen est de {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Donnez {{amount}} chaque mois",
+        "oneoff": "Faire un don {{amount}}"
       }
     },
     "error": {
@@ -62,14 +62,14 @@
     },
     "form": {
       "error": {
-        "minimum": "Le don minimum est de {{ampount}}"
+        "minimum": "Le don minimum est de {{amount}}"
       }
     },
     "frequency": {
       "ask": {
-        "monthly": "Le rendre mensuel ?",
+        "monthly": "Le rendre mensuel?",
         "oneoff": "Faire un don",
-        "weekly": "En faire un don hebdomadaire ?"
+        "weekly": "En faire un don hebdomadaire?"
       },
       "each": {
         "monthly": "chaque mois",
@@ -77,43 +77,43 @@
         "weekly": "chaque année"
       },
       "feedback": {
-        "monthly": "Je fais un don {{amount}} {{currency}}",
+        "monthly": "Je fais un don {{amount}} {{frequency}}",
         "oneoff": "Je fais un don {{amount}}"
       },
       "monthly": "mensuel",
-      "oneoff": "à l'arrêt",
+      "oneoff": "une fois",
       "weekly": "hebdomadaire",
       "yearly": "annuel"
     },
-    "iban": "iban",
-    "intro": "Faites un don à {{campaign}}.",
+    "iban": "IBAN",
+    "intro": "Faire un don à {{campaign}}",
     "mobile": {
       "open": "ouvrir"
     },
     "payment_methods": {
       "card": "Carte",
-      "intro": "Comment voulez-vous faire un don ?",
+      "intro": "Comment voulez-vous faire un don?",
       "paypal": "PayPal",
       "sepa": "SEPA",
       "title": "Mode de paiement"
     },
-    "thanks": "Merci pour votre don !",
-    "to": "Donation à {{organisation}}"
+    "thanks": "Merci pour votre don!",
+    "to": "Don à {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails"
+    "invalid_domain": "{{domain}} ne peut pas recevoir de courriels"
   },
   "progress": "{{count}} Signature. Objectif : {{goal}}",
   "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
   "register": "Ajouter mon nom",
   "share": {
-    "intro": "C’est formidable que tu y participe 👍. Pour multiplier ton influence, partage cette campagne autan que possible afin de garantir qu’une grande nombre de personnes en a accès 🙏.",
+    "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "message": "Tu devrais signer ceci!",
     "title": "Presque terminé, passons directement à l’étape suivante."
   },
   "target": {
     "country": {
-      "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}."
+      "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"
     }
   },
   "twitter": {

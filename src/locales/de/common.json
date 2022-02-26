@@ -6,7 +6,7 @@
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Herunterladen",
-  "Download explanation": "Ihr Dokument ist jetzt fertig, wir schicken es Ihnen auch per E-Mail zu.",
+  "Download explanation": "Ihr Dokument ist jetzt fertig, wir schicken es Ihnen auch per E-Mail zu",
   "Email": "E-Mail",
   "First name": "Vorname",
   "Last name": "Nachname",
@@ -24,9 +24,9 @@
   "Your organisation account": "Ihr Organisationskonto",
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
-    "confirmAction": "Wir haben einen Bestätigungslink per E-Mail an die folgende Adresse geschickt:\n {{email}}\nBitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung...",
+    "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
     "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
-    "emailSent": "Wir haben Ihnen eine E-Mail an {email} geschickt!",
+    "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails von {{name}} zu erhalten.",
     "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
@@ -39,13 +39,13 @@
   "donation": {
     "amount": {
       "change": "Betrag ändern",
-      "intro": "Wählen Sie einen Betrag:"
+      "intro": "Wählen Sie einen Betrag"
     },
     "average": "Die durchschnittliche Spende beträgt {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "{{amount}} monatlich spenden",
+        "oneoff": "{{amount}} spenden"
       }
     },
     "error": {
@@ -62,30 +62,30 @@
     },
     "form": {
       "error": {
-        "minimum": "Die Mindestspende beträgt {{ampount}}"
+        "minimum": "Die Mindestspende beträgt {{amount}}"
       }
     },
     "frequency": {
       "ask": {
         "monthly": "Monatlich?",
-        "oneoff": "Spenden Sie",
+        "oneoff": "Spenden",
         "weekly": "Eine wöchentliche Spende?"
       },
       "each": {
         "monthly": "jeden Monat",
-        "oneoff": "Sobald",
+        "oneoff": "Einmal",
         "weekly": "jedes Jahr"
       },
       "feedback": {
-        "monthly": "Ich spende {{amount}} {{currency}}",
+        "monthly": "Ich spende {{amount}} {{frequency}}",
         "oneoff": "Ich spende {{amount}}"
       },
       "monthly": "monatlich",
-      "oneoff": "einmalig",
+      "oneoff": "einmal",
       "weekly": "wöchentlich",
       "yearly": "Jährlich"
     },
-    "iban": "iban",
+    "iban": "IBAN",
     "intro": "Spenden Sie an {{campaign}}",
     "mobile": {
       "open": "öffnen"
@@ -113,7 +113,7 @@
   },
   "target": {
     "country": {
-      "empty": "Wählen Sie ein anderes Land, in {{country}} ist niemand zu erreichen."
+      "empty": "Wählen Sie ein anderes Land, in {{country}} ist niemand zu erreichen"
     }
   },
   "twitter": {
