@@ -84,7 +84,7 @@ export default function Captcha(props) {
   useEffect(() => {
     let isLive = true;
     (async () => {
-      fetch("https://captcha.proca.app")
+      fetch(config.component.eci?.captcha ||  "https://captcha.proca.app")
         .then((response) => response.json())
         .then((captcha) => isLive && update(captcha));
     })();
