@@ -61,6 +61,9 @@ async function addSupport(actionType, actionPage, data, options) {
     delete variables.tracking.location; // UNTIL FIXED
   }
 
+  if (options.test)
+    variables.action.testing = true;
+
   if (options.captcha.audio) {
     variables.action.customFields = JSON.stringify({"audioCaptcha":true});
   }

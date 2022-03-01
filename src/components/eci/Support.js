@@ -113,10 +113,10 @@ const Support = (props) => {
     }
 
     const result = await addSupport(
-      config.test ? "test" : "support",
+      "support",
       +actionpage,
       data,
-      { captcha: token, apiUrl: apiUrl }
+      { captcha: token, apiUrl: apiUrl, test: config.test }
     );
 
     if (result.errors) {

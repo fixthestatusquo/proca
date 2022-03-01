@@ -100,7 +100,6 @@ const pushCampaignTargets = async (campaignName) => {
     return t;
   }).filter( d => d !== null);
 
-
   const campaign = read("campaign/" + campaignName);
   if (campaign === null) {
     console.log("fetch campaign so I can get its name")
@@ -112,6 +111,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
 }
 `;
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
+  console.log(ids);
   return ids.upsertTargets;
 }
 
@@ -188,8 +188,8 @@ query GetCampaignTargets($name: String!) {
   const data = await api(query, {name}, "GetCampaignTargets");
   if (!data.campaign)
     throw new Error ("can't find campaign "+name);
-  if (data.campaign.targets.length === 0)
-    console.log("No targets.")
+  if (!data.campaign.targets || data.campaign.targets.length === 0)
+    throw new Error("No targets.");
   data.campaign.targets = data.campaign.targets.map((t) => {
     if (t.fields) t.fields = JSON.parse(t.fields);
     return t;
