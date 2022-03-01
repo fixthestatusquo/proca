@@ -13,7 +13,7 @@ const merge = (targets, twitters, options) => {
       // todo, some formatting
       r = {
         procaid: target.id,
-        name: target.fields.name,
+        name: target.name,
         country: target.area,
         description: target.fields.description,
         screenname: target.fields.screen_name,

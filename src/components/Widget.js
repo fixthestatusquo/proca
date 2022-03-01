@@ -107,7 +107,6 @@ const Widget = (props) => {
 
   const scrollNeeded = useRef (false);
   useLayoutEffect( () => {
-    console.log("go to widget", scrollNeeded.current);
     if (scrollNeeded.current) {
       _scrollTo();
       scrollNeeded.current = false;

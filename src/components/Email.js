@@ -101,7 +101,10 @@ const Component = (props) => {
         });
     };
     if (config.component.email?.listUrl) {
-      fetchData(config.component.email.listUrl);
+      const url = config.component.email.listUrl === true ? 
+        "https://widget.proca.app/t/"+config.campaign.name+".json"
+      : config.component.email.listUrl;
+      fetchData(url);
     } else {
       const emails =
         typeof config.component.email.to === "string"
