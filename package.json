@@ -69,6 +69,7 @@
     "nope.format": "prettier --write '**/*.{js,css,json,md}'",
     "format": "nice -20 dprint fmt",
     "build": "nice -20 rescripts build",
+    "build@local": "NODE_OPTIONS=--openssl-legacy-provider nice -20 rescripts build",
     "deploy": "bash bin/deploy.sh",
     "eci": "bin/eci.js",
     "fetch": "node bin/fetch.js",
