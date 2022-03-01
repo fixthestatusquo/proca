@@ -27,7 +27,6 @@ import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
-import Organisation from "@components/Organisation";
 import Country from "@components/Country";
 import CustomField from "@components/field/CustomField";
 
@@ -260,7 +259,6 @@ export default function Register(props) {
     // what do we do with the provider?
   }
                 
-
   return (
     <form
       className={classes.container}
@@ -274,9 +272,6 @@ export default function Register(props) {
       <Container component="div" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={1}>
-            {config.component?.register?.field?.organisation && (
-              <Organisation form={form} compact={compact} />
-            )}
             <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
