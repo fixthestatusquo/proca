@@ -8,10 +8,21 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+  },
+  '@keyframes procaPrimaryGrey': {
+    '0%': {
+      color:  theme.palette.text.primary,
+    },
+    '100%': {
+      color: theme.palette.primary.main,
+    },
+  },
   root: {
     fontSize: theme.typography.pxToRem(18),
+    fontWeight: "bold",
+    animation: `$procaPrimaryGrey 3s ${theme.transitions.easing.easeOut}`,
     color: theme.palette.text.secondary,
-    background: theme.palette.background.default,
     width: "100%",
     "& > * + *": {
       marginTop: theme.spacing(2),
