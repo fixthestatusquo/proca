@@ -282,6 +282,7 @@ export default function Register(props) {
                 required
               />
             </Grid>
+            {config.component.register?.field?.lastname !== false && 
             <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
@@ -292,7 +293,8 @@ export default function Register(props) {
                 required={config.component.register?.field?.lastname?.required}
               />
             </Grid>
-            <Grid item xs={12} className={classes.field}>
+            }
+            <Grid item xs={12} sm={config.component.register?.field?.lastname !== false ? 12:6} className={classes.field}>
               <TextField
                 form={form}
                 name="email"
