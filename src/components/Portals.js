@@ -5,7 +5,16 @@ import { portals } from "../actionPage";
 
 const Portalify = (props) => {
   let r = [];
-  const Portal = portals[props.component];
+
+
+  const Portal = props => { // a portal that returns null doesn't overwrite the existing text
+    const r = portals[props.component](props);
+    console.log(r);
+    if (r ===null && props.original) 
+      return <div dangerouslySetInnerHTML={{__html: props.original}}></div>
+    return r;
+  }
+
   if (props.create === "prepend") {
     //if props.append?
     //    node.append(...nodes or strings) – append nodes or strings at the end of node,
@@ -14,12 +23,13 @@ const Portalify = (props) => {
     //node.after(...nodes or strings) –- insert nodes or strings after node,
     //node.replaceWith(...nodes or strings) –
     //document.query
-    console.log("todo");
+    console.log("todo") ; 
   }
 
+  !props.dom && // does it happen? 
   document.querySelectorAll(props.selector).forEach((dom, i) => {
     r.push(
-      ReactDOM.createPortal(<Portal {...props} key={props.selector + i} />, dom)
+      ReactDOM.createPortal(<Portal {...props} key={props.selector + i} original={dom.innerHTML}/>, dom)
     );
     dom.innerHTML = "";
   });
@@ -28,7 +38,7 @@ const Portalify = (props) => {
     props.dom.querySelectorAll(props.selector).forEach((dom, i) => {
       r.push(
         ReactDOM.createPortal(
-          <Portal {...props} key={props.selector + i} />,
+          <Portal {...props} key={props.selector + i} original={dom.innerHTML}/>,
           dom
         )
       );
