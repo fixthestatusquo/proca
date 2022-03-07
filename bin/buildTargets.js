@@ -33,6 +33,11 @@ const merge = (targets, twitters, options) => {
     if (options.email) {
       r.email = target.emails[0].email;
     }
+
+    if (options.display) {
+      r.display = !!target.fields.display;
+    }
+
     if (target.fields.salutation) 
       r.salutation=target.fields.salutation;
 
@@ -82,6 +87,7 @@ const saveTargets = (campaignName, targets) => {
     return;
   }
   const publicEmail = argv[1] === "--email";
+  const display = argv[1] === "--display";
 
   try {
     const c = read("campaign/" + name); // the config file
@@ -92,7 +98,7 @@ const saveTargets = (campaignName, targets) => {
     } catch (e) {
       console.log("no twitter list");
     }
-    const d = merge(targets, twitters, {email: publicEmail});
+    const d = merge(targets, twitters, {email: publicEmail, display: display});
     //    const d = await pullCampaign(argv[0]);
     if (d) {
       const c=saveTargets(name,d);

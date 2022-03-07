@@ -292,7 +292,7 @@ const Component = (props) => {
       )}
       {config.component.email?.filter?.includes("country") && (
 
-        <Country form={form} list={config.component?.email?.countries} />
+        <Country form={form} list={config.component.email?.countries} />
       )}
       {config.component.email?.showTo !== false && (
         <List>
@@ -301,6 +301,7 @@ const Component = (props) => {
               key={d.id || JSON.stringify(d)}
               actionPage={config.actionPage}
               done={props.done}
+              display = {config.component.email?.filter?.includes("display") && d.display}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               {...d}

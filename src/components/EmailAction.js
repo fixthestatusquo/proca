@@ -65,6 +65,9 @@ const component = function EmailAction(profile) {
     }, 1000);
   };
 
+  if (profile.display === false) {
+    return null;
+  }
   return (
     <ListItem
       alignItems="flex-start"
