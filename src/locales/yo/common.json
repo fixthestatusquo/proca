@@ -22,6 +22,15 @@
   "Thank you": "e dupe",
   "Your message": "Ifiranṣẹ rẹ",
   "Your organisation account": "Account agbari rẹ",
+  "action": {
+    "donate": "Ṣetọrẹ",
+    "email": "Fi imeeli ranṣẹ",
+    "join": "Darapọ mọ",
+    "register": "Forukọsilẹ",
+    "share": "Pin",
+    "sign": "wole",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa.",
     "confirmAction": "A ti fi ọna asopọ ijẹrisi ranṣẹ nipasẹ imeeli si adirẹsi atẹle yii:\n {{email}}\nJọwọ gba imeeli pada ni bayi ki o tẹ ọna asopọ ti o wa ninu (ṣayẹwo folda àwúrúju rẹ!).\n Nikan lẹhinna iṣẹ rẹ yoo ka!\nIjẹrisi rẹ ṣe pataki fun iwuwo iṣelu ti iṣe naa. Eyi ṣe iṣeduro pe eniyan gidi wa lẹhin gbogbo ifakalẹ. A yoo duro de ijẹrisi rẹ...",
@@ -101,7 +110,9 @@
     "to": "Ẹbun si {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ko le gba awọn imeeli"
+    "body": "ara",
+    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
+    "subject": "koko ọrọ"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
