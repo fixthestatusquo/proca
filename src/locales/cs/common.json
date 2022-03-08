@@ -22,6 +22,15 @@
   "Thank you": "Děkuji ti",
   "Your message": "Vaše zpráva",
   "Your organisation account": "Váš účet organizace",
+  "action": {
+    "donate": "Darovat",
+    "email": "Odeslat e-mail",
+    "join": "Připojte se k",
+    "register": "Registrace",
+    "share": "Sdílet",
+    "sign": "Podepsat",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
     "confirmAction": "Potvrzovací odkaz jsme zaslali e-mailem na následující adresu:\n {{email}}.\nVyhledejte si prosím tento e-mail hned teď a klikněte na odkaz, který obsahuje (zkontrolujte si složku se spamem!).\n Teprve poté bude vaše akce započítána!\nVaše potvrzení je rozhodující pro politickou váhu akce. Tím zaručíte, že za každým podáním stojí skutečná osoba. Budeme čekat na vaše potvrzení...",
@@ -101,7 +110,9 @@
     "to": "Příspěvek na {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nelze přijímat e-maily"
+    "body": "tělo",
+    "invalid_domain": "{{domain}} nelze přijímat e-maily",
+    "subject": "předmět"
   },
   "progress_0": "{{count}} podepsali. Přejděme k {{goal}}.",
   "progress_1": "",
