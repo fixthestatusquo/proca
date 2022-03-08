@@ -22,6 +22,15 @@
   "Thank you": "Obrigado",
   "Your message": "A sua mensagem",
   "Your organisation account": "A sua conta de organização",
+  "action": {
+    "donate": "Doe",
+    "email": "Envie um e-mail",
+    "join": "Junte-se a",
+    "register": "Registe-se",
+    "share": "Compartilhe",
+    "sign": "Assine",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
     "confirmAction": "Enviamos um link de confirmação por e-mail para o seguinte endereço:\n {{email}}\nPor favor, recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Só então a sua acção contará!\nA sua confirmação é crucial para o peso político da acção. Isto garante que há uma pessoa real por trás de cada envio. Nós aguardaremos a sua confirmação...",
@@ -101,7 +110,9 @@
     "to": "Doação para {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} não pode receber e-mails"
+    "body": "corpo",
+    "invalid_domain": "{{domain}} não pode receber e-mails",
+    "subject": "assunto"
   },
   "progress": "{{count}} assinou. Vamos ao {{goal}}",
   "progress_plural": "{{count}} assinaram. Vamos ao {{goal}}",
