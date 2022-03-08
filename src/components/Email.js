@@ -301,7 +301,7 @@ const Component = (props) => {
               key={d.id || JSON.stringify(d)}
               actionPage={config.actionPage}
               done={props.done}
-              display = {config.component.email?.filter?.includes("display") && d.display}
+              display = {d.display}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               {...d}

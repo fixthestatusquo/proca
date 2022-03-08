@@ -65,6 +65,7 @@ const component = function EmailAction(profile) {
     }, 1000);
   };
 
+  //config.component.email?.filter?.includes("display") && d.display}
   if (profile.display === false) {
     return null;
   }
