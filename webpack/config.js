@@ -64,7 +64,14 @@ function readConfigOverride() {
           campaignConfig.config.locales
           && campaignConfig.config.locales[config.lang]
         ) {
-          config.locales["campaign:"] = Object.assign({},campaignConfig.config.locales[config.lang],config.locales["campaign:"]);
+          let  campaigns = Object.assign({},campaignConfig.config.locales[config.lang]["campaign:"],config.locales["campaign:"]);
+          Object.keys(campaignConfig.config.locales[config.lang]).filter( d => d.slice(-1) !== ":")
+          .forEach ( d => {
+             campaigns[d] = campaignConfig.config.locales[config.lang][d];
+          });
+
+          config.locales["campaign:"] = campaigns;
+//          config.locales["campaign:"] = Object.assign({},campaignConfig.config.locales[config.lang],config.locales["campaign:"]);
           if (campaignConfig.config.locales[config.lang].title) {
             config.campaign.title = campaignConfig.config.locales[config.lang].title;
           }
@@ -72,8 +79,7 @@ function readConfigOverride() {
       } else {
         console.error("can't find the campaign.name on the config", config);
       }
-     //        console.log(config);      process.exit(1);
-      
+      //       console.log(config.locales);      process.exit(1);
       return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(
