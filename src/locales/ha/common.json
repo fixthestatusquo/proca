@@ -22,6 +22,15 @@
   "Thank you": "na gode",
   "Your message": "Sakon ku",
   "Your organisation account": "Asusun kungiyar ku",
+  "action": {
+    "donate": "Ba da gudummawa",
+    "email": "Aika imel",
+    "join": "Shiga",
+    "register": "Yi rijista",
+    "share": "Raba",
+    "sign": "Alama",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>",
     "confirmAction": "Mun aika hanyar hanyar tabbatarwa ta imel zuwa adireshin mai zuwa:\n {{email}}\nDa fatan za a dawo da imel ɗin a yanzu kuma danna mahaɗin da ya ƙunshi (duba babban fayil ɗin spam!).\n Sai kawai aikinku zai ƙidaya!\nTabbatar da ku yana da mahimmanci ga nauyin siyasa na aikin. Wannan yana ba da tabbacin cewa akwai mutum na gaske a bayan kowane ƙaddamarwa. Za mu jira tabbacin ku...",
@@ -101,7 +110,9 @@
     "to": "Kyauta ga {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba"
+    "body": "jiki",
+    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
+    "subject": "batun"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",
