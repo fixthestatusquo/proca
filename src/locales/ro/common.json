@@ -22,6 +22,15 @@
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
   "Your organisation account": "Contul organizației dvs.",
+  "action": {
+    "donate": "Donează",
+    "email": "Trimiteți un e-mail",
+    "join": "Alăturați-vă",
+    "register": "Înregistrare",
+    "share": "Share",
+    "sign": "Semnează",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
     "confirmAction": "Am trimis un link de confirmare prin e-mail la următoarea adresă:\n {{email}}.\nVă rugăm să preluați e-mailul chiar acum și să faceți clic pe link-ul pe care îl conține (verificați dosarul de spam!).\n Doar atunci acțiunea dumneavoastră va conta!\nConfirmarea dvs. este crucială pentru greutatea politică a acțiunii. Acest lucru garantează că în spatele fiecărei propuneri se află o persoană reală. Așteptăm confirmarea dumneavoastră...",
@@ -101,7 +110,9 @@
     "to": "Donație către {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nu poate primi e-mailuri"
+    "body": "corp",
+    "invalid_domain": "{{domain}} nu poate primi e-mailuri",
+    "subject": "subiect"
   },
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
