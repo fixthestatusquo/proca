@@ -12,7 +12,7 @@ const Move4Nature = (props) => {
         <TextField
           form={form}
           name="activity"
-          label={t("Activity")}
+          label={t("Activity") // i18next-extract-disable-line} 
           required
           select
           SelectProps={{
@@ -38,7 +38,7 @@ const Move4Nature = (props) => {
             endAdornment: <InputAdornment position="end">km</InputAdornment>,
           }}
           required
-          label={t("Distance")}
+          label={t("Distance") // i18next-extract-disable-line}
         />
       </Grid>
     </>

@@ -22,6 +22,15 @@
   "Thank you": "Thank you",
   "Your message": "Your message",
   "Your organisation account": "Your organisation account",
+  "action": {
+    "donate": "Donate",
+    "email": "Send an Email",
+    "join": "Join",
+    "register": "Register",
+    "share": "Share",
+    "sign": "Sign",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "confirmAction": "Please retrieve the email right now and click on the link it contains (check your spam folder!).\n Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there is a real person behind every submission. We’ll await your confirmation...",
@@ -101,7 +110,9 @@
     "to": "Donation to {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} cannot receive emails"
+    "body": "body",
+    "invalid_domain": "{{domain}} cannot receive emails",
+    "subject": "subject"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
