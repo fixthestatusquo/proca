@@ -22,6 +22,15 @@
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
   "Your organisation account": "Jūsų organizacijos paskyra",
+  "action": {
+    "donate": "Paaukoti",
+    "email": "Siųsti el. laišką",
+    "join": "Prisijunkite prie",
+    "register": "Registruotis",
+    "share": "Dalintis",
+    "sign": "Ženklas",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
     "confirmAction": "Patvirtinimo nuorodą išsiuntėme el. paštu šiuo adresu:\n {{email}}.\nPrašome dabar atsiimti laišką ir spustelėti jame esančią nuorodą (patikrinkite nepageidaujamų laiškų aplanką!).\n Tik tada jūsų veiksmas bus įskaitytas!\nJūsų patvirtinimas yra labai svarbus veiksmo politiniam svoriui. Taip užtikrinama, kad už kiekvieno pateikto dokumento slypi tikras asmuo. Lauksime jūsų patvirtinimo...",
@@ -101,7 +110,9 @@
     "to": "Dovanojimas {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} negalima gauti el. laiškų"
+    "body": "kūnas",
+    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
+    "subject": "tema"
   },
   "progress_0": "{{count}} pasirašė. Eikime į {{goal}}",
   "progress_1": "",
