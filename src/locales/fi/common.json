@@ -22,6 +22,15 @@
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
   "Your organisation account": "Organisaatiotilisi",
+  "action": {
+    "donate": "Lahjoita",
+    "email": "Lähetä sähköpostia",
+    "join": "Liity",
+    "register": "Rekisteröi",
+    "share": "Jaa",
+    "sign": "Kirjaudu",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
     "confirmAction": "Olemme lähettäneet vahvistuslinkin sähköpostitse seuraavaan osoitteeseen:\n {{email}}\nPyydämme sinua noutamaan sähköpostiviestin heti ja klikkaamaan sen sisältämää linkkiä (tarkista roskapostikansiosi!).\n Vasta sen jälkeen toimintasi lasketaan!\nVahvistuksesi on ratkaisevan tärkeä toiminnan poliittisen painoarvon kannalta. Näin taataan, että jokaisen lähetyksen takana on oikea henkilö. Odotamme vahvistustasi...",
@@ -101,7 +110,9 @@
     "to": "Lahjoitus {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja"
+    "body": "keho",
+    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
+    "subject": "aihe"
   },
   "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
