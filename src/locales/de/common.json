@@ -22,6 +22,15 @@
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
   "Your organisation account": "Ihr Organisationskonto",
+  "action": {
+    "donate": "Spenden Sie",
+    "email": "Eine E-Mail senden",
+    "join": "Beitreten",
+    "register": "Register",
+    "share": "Teilen Sie",
+    "sign": "Unterschrift",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
@@ -101,7 +110,9 @@
     "to": "Spende an {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kann keine E-Mails empfangen"
+    "body": "Körper",
+    "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
+    "subject": "Thema"
   },
   "progress": "{{count}} hat unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
