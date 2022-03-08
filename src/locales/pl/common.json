@@ -22,6 +22,15 @@
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
   "Your organisation account": "Konto organizacji",
+  "action": {
+    "donate": "Przekaż darowiznę",
+    "email": "Wyślij wiadomość e-mail",
+    "join": "Dołącz do",
+    "register": "Rejestr",
+    "share": "Udostępnij",
+    "sign": "Znak",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
     "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową na poniższy adres:\n {{email}}.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!).\n Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
@@ -101,7 +110,9 @@
     "to": "Darowizna na rzecz {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
+    "body": "body",
+    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail",
+    "subject": "temat"
   },
   "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
   "progress_1": "",
