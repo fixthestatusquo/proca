@@ -22,6 +22,15 @@
   "Thank you": "Ďakujeme!",
   "Your message": "Vaša správa",
   "Your organisation account": "Váš účet organizácie",
+  "action": {
+    "donate": "Darujte",
+    "email": "Odoslať e-mail",
+    "join": "Pripojte sa k",
+    "register": "Registrácia",
+    "share": "Zdieľať",
+    "sign": "Podpísať",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
     "confirmAction": "Odoslali sme vám odkaz na potvrdenie e-mailom na túto adresu:\n {{email}}\nProsím, vyzdvihnite si tento e-mail hneď teraz a kliknite na odkaz, ktorý obsahuje (skontrolujte si priečinok so spamom!).\n Až potom bude vaša akcia započítaná!\nVaše potvrdenie je rozhodujúce pre politickú váhu akcie. Zaručuje to, že za každým podaním je skutočná osoba. Budeme čakať na vaše potvrdenie...",
@@ -101,7 +110,9 @@
     "to": "Príspevok na {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nemôže prijímať e-maily"
+    "body": "telo",
+    "invalid_domain": "{{domain}} nemôže prijímať e-maily",
+    "subject": "predmet"
   },
   "progress": "{{count}} podpísali. Poďme na {{goal}}",
   "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
