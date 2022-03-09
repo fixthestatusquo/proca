@@ -20,7 +20,7 @@ const SpeakoutCheck = props => {
     const getCookie =  () => {
 //      const r = '_pk_id.2.a608=857d7b7cb8c1535c.1646841743.; _pk_ses.2.a608=1; member=%7B%22firstname%22%3A%22ALonso%22%2C%22lastname%22%3A%22Bistro%22%2C%22email%22%3A%22testp%40tet.com%22%2C%22postcode%22%3A%221234%22%2C%22country%22%3A%22pl%22%2C%22phone%22%3Anull%2C%22cs%22%3A%222982%22%2C%22consents%22%3A%7B%222.1.0-pl%22%3A%7B%22consent_level%22%3A%22none_given%22%2C%22consent_created_at%22%3A%222022-03-09T17%3A19%3A51.851Z%22%7D%7D%7D'.split("; ")
 
-       const r = document.cookie.split(";")
+       const r = document.cookie.split("; ")
         .filter(d => d.startsWith("member="))
         .map (d => {
           try {
