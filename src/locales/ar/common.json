@@ -110,9 +110,7 @@
     "to": "التبرع لـ {{organisation}}"
   },
   "email": {
-    "body": "الجسم",
-    "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
-    "subject": "موضوعات"
+    "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني"
   },
   "progress_0": "وقعت {{count}}. دعنا نذهب إلى {{goal}}",
   "progress_1": "",

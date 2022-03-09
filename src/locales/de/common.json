@@ -110,9 +110,7 @@
     "to": "Spende an {{organisation}}"
   },
   "email": {
-    "body": "Körper",
-    "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "subject": "Thema"
+    "invalid_domain": "{{domain}} kann keine E-Mails empfangen"
   },
   "progress": "{{count}} hat unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",

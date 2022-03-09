@@ -110,9 +110,7 @@
     "to": "Doação para {{organisation}}"
   },
   "email": {
-    "body": "corpo",
-    "invalid_domain": "{{domain}} não pode receber e-mails",
-    "subject": "assunto"
+    "invalid_domain": "{{domain}} não pode receber e-mails"
   },
   "progress": "{{count}} assinou. Vamos ao {{goal}}",
   "progress_plural": "{{count}} assinaram. Vamos ao {{goal}}",

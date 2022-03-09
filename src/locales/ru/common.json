@@ -110,9 +110,7 @@
     "to": "Пожертвование на {{organisation}}"
   },
   "email": {
-    "body": "тело",
-    "invalid_domain": "{{domain}} не может получать электронные письма",
-    "subject": "тема"
+    "invalid_domain": "{{domain}} не может получать электронные письма"
   },
   "progress_0": "{{count}} подписали. Переходим к {{goal}}",
   "progress_1": "",

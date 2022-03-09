@@ -110,9 +110,7 @@
     "to": "Dohaintza {{organisation}}"
   },
   "email": {
-    "body": "gorputza",
-    "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
-    "subject": "gaia"
+    "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso"
   },
   "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
   "progress_plural": "",

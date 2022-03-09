@@ -110,9 +110,7 @@
     "to": "תרומה ל-{{organisation}}"
   },
   "email": {
-    "body": "גוּף",
-    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "subject": "נושא"
+    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים"
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",

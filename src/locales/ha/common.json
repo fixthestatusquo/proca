@@ -110,9 +110,7 @@
     "to": "Kyauta ga {{organisation}}"
   },
   "email": {
-    "body": "jiki",
-    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
-    "subject": "batun"
+    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",

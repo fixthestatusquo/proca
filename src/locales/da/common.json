@@ -110,9 +110,7 @@
     "to": "Donation til {{organisation}}"
   },
   "email": {
-    "body": "krop",
-    "invalid_domain": "{{domain}} kan ikke modtage e-mails",
-    "subject": "emne"
+    "invalid_domain": "{{domain}} kan ikke modtage e-mails"
   },
   "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",

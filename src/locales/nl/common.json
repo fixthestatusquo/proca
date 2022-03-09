@@ -110,9 +110,7 @@
     "to": "Donatie aan {{organisation}}"
   },
   "email": {
-    "body": "lichaam",
-    "invalid_domain": "{{domain}} kan geen emails ontvangen",
-    "subject": "onderwerp"
+    "invalid_domain": "{{domain}} kan geen emails ontvangen"
   },
   "progress": "{{count}} hebben getekend. Laten we voor {{goal}} gaan.",
   "progress_plural": "",

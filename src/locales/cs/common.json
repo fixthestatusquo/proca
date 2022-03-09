@@ -110,9 +110,7 @@
     "to": "Příspěvek na {{organisation}}"
   },
   "email": {
-    "body": "tělo",
-    "invalid_domain": "{{domain}} nelze přijímat e-maily",
-    "subject": "předmět"
+    "invalid_domain": "{{domain}} nelze přijímat e-maily"
   },
   "progress_0": "{{count}} podepsali. Přejděme k {{goal}}.",
   "progress_1": "",

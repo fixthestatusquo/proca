@@ -110,9 +110,7 @@
     "to": "{{organisation}} को दान"
   },
   "email": {
-    "body": "तन",
-    "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
-    "subject": "विषय"
+    "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता"
   },
   "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",
   "progress_plural": "",

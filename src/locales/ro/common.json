@@ -110,9 +110,7 @@
     "to": "Donație către {{organisation}}"
   },
   "email": {
-    "body": "corp",
-    "invalid_domain": "{{domain}} nu poate primi e-mailuri",
-    "subject": "subiect"
+    "invalid_domain": "{{domain}} nu poate primi e-mailuri"
   },
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",

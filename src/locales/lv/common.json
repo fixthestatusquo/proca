@@ -110,9 +110,7 @@
     "to": "Ziedojums {{organisation}}"
   },
   "email": {
-    "body": "ķermenis",
-    "invalid_domain": "{{domain}} nevar saņemt e-pastus",
-    "subject": "tēma"
+    "invalid_domain": "{{domain}} nevar saņemt e-pastus"
   },
   "progress_0": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "progress_1": "",

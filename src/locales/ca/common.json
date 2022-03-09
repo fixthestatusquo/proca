@@ -110,9 +110,7 @@
     "to": "Donació a {{organisation}}"
   },
   "email": {
-    "body": "cos",
-    "invalid_domain": "{{domain}} no pot rebre correus electrònics",
-    "subject": "assignatura"
+    "invalid_domain": "{{domain}} no pot rebre correus electrònics"
   },
   "progress": "{{count}} han signat. Volem arribar a {{goal}}",
   "progress_plural": "",

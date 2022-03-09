@@ -110,9 +110,7 @@
     "to": "Ẹbun si {{organisation}}"
   },
   "email": {
-    "body": "ara",
-    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
-    "subject": "koko ọrọ"
+    "invalid_domain": "{{domain}} ko le gba awọn imeeli"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",

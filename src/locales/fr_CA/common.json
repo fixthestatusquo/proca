@@ -110,9 +110,7 @@
     "to": "Don à {{organisation}}"
   },
   "email": {
-    "body": "corps",
-    "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "subject": "sujet"
+    "invalid_domain": "{{domain}} ne peut pas recevoir de courriels"
   },
   "progress": "{{count}} Signature. Objectif : {{goal}}",
   "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",

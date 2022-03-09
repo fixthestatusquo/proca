@@ -110,9 +110,7 @@
     "to": "Дарение за {{organisation}}"
   },
   "email": {
-    "body": "тяло",
-    "invalid_domain": "{{domain}} не мога да получавам имейли",
-    "subject": "тема"
+    "invalid_domain": "{{domain}} не мога да получавам имейли"
   },
   "progress": "{{count}} са подписали. Да отидем на {{goal}}",
   "progress_plural": "",

@@ -110,9 +110,7 @@
     "to": "Adomány a {{organisation}}"
   },
   "email": {
-    "body": "test",
-    "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
-    "subject": "téma"
+    "invalid_domain": "{{domain}} nem tud e-maileket fogadni"
   },
   "progress": "{{count}} aláírta. Menjünk a {{goal}} oldalra",
   "progress_plural": "",

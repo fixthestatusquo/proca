@@ -110,9 +110,7 @@
     "to": "Annetus {{organisation}}"
   },
   "email": {
-    "body": "keha",
-    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
-    "subject": "teema"
+    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta."
   },
   "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",

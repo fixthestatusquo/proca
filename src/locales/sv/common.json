@@ -110,9 +110,7 @@
     "to": "Donation till {{organisation}}"
   },
   "email": {
-    "body": "kropp",
-    "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
-    "subject": "ämne"
+    "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden"
   },
   "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
   "progress_plural": "",

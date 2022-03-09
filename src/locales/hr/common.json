@@ -110,9 +110,7 @@
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "body": "tijelo",
-    "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "subject": "predmet"
+    "invalid_domain": "{{domain}} ne može primati e-poštu"
   },
   "progress_0": "{{count}} potpis. Idemo na {{goal}}",
   "progress_1": "{{count}} potpisa. Idemo na {{goal}}",

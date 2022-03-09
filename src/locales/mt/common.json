@@ -110,9 +110,7 @@
     "to": "Donazzjoni lil {{organisation}}"
   },
   "email": {
-    "body": "korp",
-    "invalid_domain": "{{domain}} ma tistax tirċievi emails",
-    "subject": "suġġett"
+    "invalid_domain": "{{domain}} ma tistax tirċievi emails"
   },
   "progress_0": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "progress_1": "",

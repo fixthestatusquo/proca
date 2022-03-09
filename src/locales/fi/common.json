@@ -110,9 +110,7 @@
     "to": "Lahjoitus {{organisation}}"
   },
   "email": {
-    "body": "keho",
-    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
-    "subject": "aihe"
+    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja"
   },
   "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",

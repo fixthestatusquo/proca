@@ -110,9 +110,7 @@
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "body": "telo",
-    "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
-    "subject": "predmet"
+    "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil"
   },
   "progress_0": "{{count}} so se podpisali. Pojdimo v {{goal}}",
   "progress_1": "",

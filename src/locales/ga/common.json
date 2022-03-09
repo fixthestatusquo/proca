@@ -110,9 +110,7 @@
     "to": "Síntiús do {{organisation}}"
   },
   "email": {
-    "body": "comhlacht",
-    "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
-    "subject": "ábhar"
+    "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil"
   },
   "progress_0": "{{count}} sínithe. Rachaimid go {{goal}}",
   "progress_1": "",

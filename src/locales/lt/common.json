@@ -110,9 +110,7 @@
     "to": "Dovanojimas {{organisation}}"
   },
   "email": {
-    "body": "kūnas",
-    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
-    "subject": "tema"
+    "invalid_domain": "{{domain}} negalima gauti el. laiškų"
   },
   "progress_0": "{{count}} pasirašė. Eikime į {{goal}}",
   "progress_1": "",

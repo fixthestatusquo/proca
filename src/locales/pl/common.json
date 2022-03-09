@@ -110,9 +110,7 @@
     "to": "Darowizna na rzecz {{organisation}}"
   },
   "email": {
-    "body": "body",
-    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail",
-    "subject": "temat"
+    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
   },
   "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
   "progress_1": "",
