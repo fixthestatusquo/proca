@@ -36,7 +36,7 @@ const SpeakoutCheck = props => {
 //    if (!data.firstname) return;
     if (document.cookie.indexOf("member=") === -1)
       return;
-    //setData(data);
+    setData(data);
     setCampaign((current) => {
       let r= JSON.parse(JSON.stringify(current)); // deep copy
       r.component.consent = Object.assign({}, current.component.consent, {implicit:true})
