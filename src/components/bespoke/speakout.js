@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect,useLayoutEffect, useState} from 'react';
 import {useSetCampaignConfig} from '@hooks/useConfig';
 import {useData} from '@hooks/useData';
 
@@ -10,8 +10,7 @@ const SpeakoutCheck = props => {
 
   const [refreshed, setRefresh] = useState(true);
 
-  useEffect ( () => {
-    console.log("refreshed");
+  useLayoutEffect ( () => {
     if (!refreshed)
       window.proca.go(1);
     setRefresh(true);
@@ -19,7 +18,7 @@ const SpeakoutCheck = props => {
 
   useEffect ( () => {
     const getCookie =  () => {
-      //const r = "member=%7B%22firstname%22%3A%22ALson%22%2C%22lastname%22%3A%22sdf%22%2C%22email%22%3A%22pbt%40tttp.eu%22%2C%22postcode%22%3A%22123%22%2C%22country%22%3A%22de%22%2C%22phone%22%3Anull%2C%22cs%22%3A%222785%22%2C%22consents%22%3A%7B%7D%7D; lt-anonymous-id=\"0.161dfbed177b9729468\"; lt-session-data={\"id\":\"0.450cb21c1795b815ed4\",\"lastUpdatedDate\":\"2021-05-11T12:57:55Z\"}; lt-pageview-id=\"0.138ef0611795b815ed9\"".split(";")
+//      const r = "member=%7B%22firstname%22%3A%22ALson%22%2C%22lastname%22%3A%22sdf%22%2C%22email%22%3A%22pbt%40tttp.eu%22%2C%22postcode%22%3A%22123%22%2C%22country%22%3A%22de%22%2C%22phone%22%3Anull%2C%22cs%22%3A%222785%22%2C%22consents%22%3A%7B%7D%7D; lt-anonymous-id=\"0.161dfbed177b9729468\"; lt-session-data={\"id\":\"0.450cb21c1795b815ed4\",\"lastUpdatedDate\":\"2021-05-11T12:57:55Z\"}; lt-pageview-id=\"0.138ef0611795b815ed9\"".split(";")
 
        const r = document.cookie.split(";")
         .filter(d => d.startsWith("member="))
@@ -34,10 +33,10 @@ const SpeakoutCheck = props => {
 
     }
     const data = getCookie ();
-    if (!data.firstname) return;
-//    if (document.cookie.indexOf("member=") === -1)
-//      return;
-    setData(data);
+//    if (!data.firstname) return;
+    if (document.cookie.indexOf("member=") === -1)
+      return;
+    //setData(data);
     setCampaign((current) => {
       let r= JSON.parse(JSON.stringify(current)); // deep copy
       r.component.consent = Object.assign({}, current.component.consent, {implicit:true})
