@@ -34,7 +34,7 @@ const Icons = (props) => {
 <Box m={1} key={props.activities[i+1]+i} onClick={() => setActivity(props.activities[i])}>
     <Grid container direction="column" alignItems="center">
   <Grid item>
-<Fab key={i} boxShadow={0} color={current===props.activities[i] ? "primary":"default"} title={props.activities[i]}>{d}</Fab>
+<Fab size="large" key={i} boxShadow={0} color={current===props.activities[i] ? "primary":"default"} title={props.activities[i]}>{d}</Fab>
   </Grid>
   <Grid item>
     {t(props.activities[i])}
