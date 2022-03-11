@@ -94,8 +94,15 @@ const pushCampaignTargets = async (campaignName) => {
     delete  t.id;
     delete  t.field;
     if (!t.emails) {
-      t.emails = [ {email: t.email ? t.email : t.externalId +"@example.org"}];
-      delete t.email;
+      t.emails = [];
+      if (t.email) {
+        // check if multiple emails separated by ";"
+        //t.emails = [ {email: t.email.trim()}];
+        t.email.replace(",",";").split(";").forEach ( d => {
+          t.emails.push({email: d.trim()});
+        });
+        delete t.email;
+      }
     }
     return t;
   }).filter( d => d !== null);

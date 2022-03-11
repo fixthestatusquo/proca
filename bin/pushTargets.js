@@ -5,7 +5,7 @@ const { pushCampaignTargets } = require("./config");
 
 (async () => {
   const argv = process.argv.slice(2);
-  if (!argv[0]) throw Error("need pullTargets {campaignName}");
+  if (!argv[0]) throw Error("need pushTargets {campaignName}");
   try {
     await pushCampaignTargets(argv[0]);
   } catch (e) {
