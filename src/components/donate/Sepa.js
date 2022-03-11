@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
@@ -19,7 +19,7 @@ import dispatch from "@lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
-import { NameField } from "@components/NameField";
+//import { NameField } from "@components/NameField";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -72,6 +72,19 @@ export default function Register(props) {
   const frequency = data.frequency;
 
   const { handleSubmit, setError } = form;
+
+  useEffect(() => {
+    const inputs = document.querySelectorAll("input, select, textarea");
+    // todo: workaround until the feature is native react-form ?
+    inputs.forEach((input) => {
+      input.oninvalid = (e) => {
+        setError(e.target.attributes.name.nodeValue, {
+          type: e.type,
+          message: e.target.validationMessage,
+        });
+      };
+    });
+  }, [setError]);
 
   const onSubmit = async (d) => {
     setData(d);
@@ -166,21 +179,22 @@ export default function Register(props) {
           )}
 
           <Grid item xs={12} sm={compact ? 12 : 6}>
-            <NameField
+            <TextField
               form={form}
-              classes={classes}
               name="firstname"
               label={t("First name")}
               autoComplete="given-name"
+              required
             />
           </Grid>
           <Grid item xs={12} sm={compact ? 12 : 6}>
-            <NameField
+            <TextField
               form={form}
               classes={classes}
               name="lastname"
               label={t("Last name")}
               autoComplete="family-name"
+              required
             />
           </Grid>
           <Grid item xs={12}>
