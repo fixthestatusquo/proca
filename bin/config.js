@@ -500,6 +500,7 @@ const pull = async (actionPage) => {
 };
 
 module.exports = {
+  api,
   pull,
   push,
   fetch,
