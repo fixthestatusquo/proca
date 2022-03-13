@@ -19,7 +19,6 @@ import dispatch from "@lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
-//import { NameField } from "@components/NameField";
 
 const useStyles = makeStyles((theme) => ({
   container: {
