@@ -93,6 +93,10 @@ const Component = (props) => {
           setAllProfiles(d);
           if (!config.component.email?.filter?.includes("country"))
             setProfiles(d);
+          if (config.component.email?.filter?.includes("random")) {
+            const i = d[Math.floor(Math.random() * d.length)];
+            setProfiles([i]);
+          }
         })
         .catch((error) => {
           const placeholder = {name:error.toString(),description:"Please check your internet connection and try later"};
