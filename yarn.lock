@@ -2177,10 +2177,10 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/react@^12.1.3":
-  version "12.1.3"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-12.1.3.tgz#ef26c5f122661ea9b6f672b23dc6b328cadbbf26"
-  integrity sha512-oCULRXWRrBtC9m6G/WohPo1GLcLesH7T4fuKzRAKn1CWVu9BzXtqLXDDTA6KhFNNtRwLtfSMr20HFl+Qrdrvmg==
+"@testing-library/react@^12.1.4":
+  version "12.1.4"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-12.1.4.tgz#09674b117e550af713db3f4ec4c0942aa8bbf2c0"
+  integrity sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.0.0"
@@ -10477,10 +10477,10 @@ react-hook-form@^6.15.5:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.8.tgz#725c139d308c431c4611e4b9d85a49f01cfc0e7a"
   integrity sha512-prq82ofMbnRyj5wqDe8hsTRcdR25jQ+B8KtCS7BLCzjFHAwNuCjRwzPuP4eYLsEBjEIeYd6try+pdLdw0kPkpg==
 
-react-i18next@^11.15.5:
-  version "11.15.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.15.5.tgz#3de940a1c5a27956d8265663ca67494881f385e8"
-  integrity sha512-vBWuVEQgrhZrGKpyv8FmJ7Zs5jRQWl794Tte7yzJ0okZqqi3jd6j2pLYNg441WcREsbIOvWdiDXbY7W6E93p1A==
+react-i18next@^11.15.6:
+  version "11.15.6"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.15.6.tgz#693430fbee5ac7d0774bd88683575d62adb24afb"
+  integrity sha512-OUWcFdNgIA9swVx3JGIreuquglAinpRwB/HYrCprTN+s9BQDt9LSiY7x5DGc2JzVpwqtpoTV7oRUTOxEPNyUPw==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-escaper "^2.0.2"

@@ -22,6 +22,15 @@
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "Your organisation account": "Uw organisatie's account",
+  "action": {
+    "donate": "Doneer",
+    "email": "Stuur een e-mail",
+    "join": "Word lid van",
+    "register": "Registreren",
+    "share": "Deel",
+    "sign": "Teken",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
     "confirmAction": "Wij hebben een bevestigingslink per e-mail naar het volgende adres gestuurd:\n {{email}}\nGelieve de e-mail nu op te halen en op de link te klikken die erin staat (controleer uw spam-map!).\n Alleen dan telt uw actie!\nUw bevestiging is cruciaal voor het politieke gewicht van de actie. Dit garandeert dat er een echt persoon achter elke inzending staat. We wachten op je bevestiging...",

@@ -22,6 +22,15 @@
   "Thank you": "Хвала вам",
   "Your message": "Ваша порука",
   "Your organisation account": "Налог ваше организације",
+  "action": {
+    "donate": "Донате",
+    "email": "Пошаљите е-маил",
+    "join": "Придружити",
+    "register": "Регистровати",
+    "share": "Објави",
+    "sign": "Сигн",
+    "twitter": "Твеет"
+  },
   "consent": {
     "confirm": "<0> Da li ste sigurni? </0> <1> Ako izaberete \"Ne\", nećete moći da saznate da li je kampanja uspešna i da li je potrebno još zajedničkih napora da bi uspela. Ako izaberete \"Da\", obaveštavaćemo vas o ovoj i drugim bitnim kampanjama. </1> <2> Možete se odjaviti u svakom trenutku.</2>",
     "confirmAction": "Послали смо везу за потврду имејлом на следећу адресу:\n [Кс69Кс]\nПреузмите е-пошту одмах и кликните на линк који садржи (проверите своју спам фасциклу!).\n Тек тада ће се ваша акција рачунати!\nВаша потврда је кључна за политичку тежину акције. Ово гарантује да иза сваког поднеска стоји стварна особа. Чекамо вашу потврду...",
