@@ -22,6 +22,15 @@
   "Thank you": "Merci",
   "Your message": "Ton message",
   "Your organisation account": "Le compte de votre organisation",
+  "action": {
+    "donate": "Fais un don à",
+    "email": "Envoyer un email",
+    "join": "Rejoindre",
+    "register": "Registre",
+    "share": "Partager",
+    "sign": "Signe",
+    "twitter": "Tweet"
+  },
   "consent": {
     "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
     "confirmAction": "Nous avons envoyé un lien de confirmation par email à l'adresse suivante :\n {{email}}.\nS'il te plaît, récupère l'email dès maintenant et clique sur le lien qu'il contient (vérifie ton dossier spam !).\n Ce n'est qu'alors que ton action comptera !\nTa confirmation est cruciale pour le poids politique de l'action. Cela garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons ta confirmation...",
