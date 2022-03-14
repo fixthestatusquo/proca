@@ -13,7 +13,7 @@ import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "@hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
 
-import ProgressCounter from "@components/ProgressCounter";
+//import ProgressCounter from "@components/ProgressCounter";
 
 export default function StepperEci(props) {
   const [submitted, setSubmitted] = useState(false);
@@ -99,10 +99,11 @@ export default function StepperEci(props) {
           </Step>
         );
       default:
-        return <div>DEFAULT</div>;
+        return <div key="error">DEFAULT</div>;
     }
   };
 
+    //{<ProgressCounter actionPage={config.component.eci.actionpage} />
   return (
     <>
       {submitted && (
@@ -110,7 +111,6 @@ export default function StepperEci(props) {
           {t("eci:congratulations.successfully-title")}
         </Alert>
       )}
-      <ProgressCounter actionPage={config.component.eci.actionpage} />
       <Stepper
         nonLinear
         alternativeLabel={useIsMobile()}

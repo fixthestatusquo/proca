@@ -9,7 +9,6 @@ const Portalify = (props) => {
 
   const Portal = props => { // a portal that returns null doesn't overwrite the existing text
     const r = portals[props.component](props);
-    console.log(r);
     if (r ===null && props.original) 
       return <div dangerouslySetInnerHTML={{__html: props.original}}></div>
     return r;
@@ -26,6 +25,7 @@ const Portalify = (props) => {
     console.log("todo") ; 
   }
 
+/*  
   !props.dom && // does it happen? 
   document.querySelectorAll(props.selector).forEach((dom, i) => {
     r.push(
@@ -33,9 +33,11 @@ const Portalify = (props) => {
     );
     dom.innerHTML = "";
   });
-
-  props.dom &&
-    props.dom.querySelectorAll(props.selector).forEach((dom, i) => {
+*/
+  const dom = props.dom || document;
+  let found = false;
+    dom.querySelectorAll(props.selector).forEach((dom, i) => {
+      found = true;
       r.push(
         ReactDOM.createPortal(
           <Portal {...props} key={props.selector + i} original={dom.innerHTML}/>,
@@ -44,6 +46,14 @@ const Portalify = (props) => {
       );
       dom.innerHTML = "";
     });
+
+  !found && 
+  document.querySelectorAll(props.selector).forEach((dom, i) => {
+    r.push(
+      ReactDOM.createPortal(<Portal {...props} key={props.selector + i} original={dom.innerHTML}/>, dom)
+    );
+    dom.innerHTML = "";
+  });
 
   return r;
 };

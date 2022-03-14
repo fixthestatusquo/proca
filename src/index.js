@@ -52,6 +52,7 @@ const Widget = (args) => {
     config.journey[i] = d.replace("/", "_");
   });
 
+
   config.portal && initPortals(config.portal);
 
   let dom = document.querySelector(config.selector);
@@ -70,6 +71,7 @@ const Widget = (args) => {
       // document.body.appendChild(dom);
     }
   } else {
+    
     Array.from(dom.childNodes).forEach((d) => {
       frag.appendChild(d);
     });
