@@ -80,7 +80,7 @@ const Country = (props) => {
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
 
-  const countries = useMemo ( () => {
+  const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {
       countries = Object.keys(props.countries).map((iso) => ({
@@ -104,7 +104,7 @@ const Country = (props) => {
       countries = addMissingCountries(countries, compare);
     }
     return countries;
-  },[config.component.country?.all, config.component.country?.other, config.lang, props.countries, props.other, t]);
+  }, [config.component.country?.all, config.component.country?.other, config.lang, props.countries, props.other, t]);
 
   const { register, setValue, watch } = props.form;
 
@@ -150,6 +150,7 @@ const Country = (props) => {
       SelectProps={{
         native: true,
       }}
+      required={props.required}
     >
       <option key="" value=""></option>
       {_countries.map((option) => (

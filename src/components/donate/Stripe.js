@@ -204,6 +204,7 @@ const PaymentForm = (props) => {
           <Controller
             control={control}
             name="postcode"
+            rules={{ required: true }}
             render={({ onChange, value }) => (
               <LayoutTextField
                 name="postcode"
@@ -218,6 +219,8 @@ const PaymentForm = (props) => {
                 margin={layout.margin}
                 onChange={onChange}
                 value={value}
+                required={true}
+
               />
             )}
           />

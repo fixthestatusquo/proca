@@ -20,6 +20,7 @@ import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
 import { NameField } from "@components/NameField";
 import useLayout from "../../hooks/useLayout";
+import Country from "../Country";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -64,7 +65,14 @@ export default function Register(props) {
   }
 
   const form = useForm({
-    defaultValues: data,
+    mode: 'onSubmit',
+    defaultValues: {
+      firstname: data.firstname || "",
+      lastname: data.lastname || "",
+      email: data.email || "",
+      postcode: data.postcode || "",
+      country: data.country || "",
+    },
   });
   const { control, errors } = form;
 
@@ -75,6 +83,18 @@ export default function Register(props) {
   const { handleSubmit, setError } = form;
 
   const onSubmit = async (d) => {
+
+    // const btn = event.target;
+    // btn.disabled = true;
+    // setSubmitting(true);
+
+    form.trigger();
+    if (Object.keys(form.errors).length > 0) {
+      // btn.disabled = false;
+      // setSubmitting(false);
+      return false;
+    }
+
     setData(d);
 
     const procaRequest = { ...data, ...d };
@@ -215,11 +235,51 @@ export default function Register(props) {
               )}
             />
           </Grid>
+
           {config.component?.donate?.field?.phone === true && (
             <Grid item xs={12}>
               <TextField form={form} name="phone" label={t("Phone")} />
             </Grid>
           )}
+
+          <Grid item xs={12} sm={compact ? 12 : 4}>
+            <Controller
+              control={control}
+              name="postcode"
+              defaultValue=""
+              render={({ onChange, value }) => (
+                <LayoutTextField
+                  name="postcode"
+                  className={classes.textField}
+                  label={t("Postal Code")}
+                  autoComplete="postal-code"
+                  error={!!(errors && errors["postcode"])}
+                  helperText={
+                    errors && errors["postcode"] && errors["postcode"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  value={value}
+                  required={true}
+
+                />
+              )}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={compact ? 12 : 8}>
+            <Controller
+              control={control}
+              name="country"
+              defaultValue=""
+              rules={{ required: true }}
+              render={({ onChange, value }) => (
+                <Country form={form} required onChange={onChange} value={value} />
+              )}
+            />
+          </Grid>
+
 
           <Grid item xs={12}>
             <TextField
@@ -236,6 +296,7 @@ export default function Register(props) {
               currency={currency}
               frequency={frequency}
               config={config}
+              form={form}
             />
           </Grid>
         </Grid>
