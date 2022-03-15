@@ -53,7 +53,7 @@ const normalise = (value, max) => {
   return (value * 100) / max;
 };
 
-const formatNumber = (value, separator) => {
+export const formatNumber = (value, separator) => {
   if (typeof Intl.NumberFormat === "function" && !separator)
     return Intl.NumberFormat().format(value);
   if (!separator)

@@ -6,6 +6,9 @@ import Slide from '@material-ui/core/Slide';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  title : {
+      fontSize: 22
+  },
   bigger: {
       fontSize: 18
   }
@@ -34,7 +37,7 @@ TransitionComponent={Transition}
     icon={props.icon}
     className={classes.bigger}
     >
-    {props.title && <AlertTitle>{props.title}</AlertTitle>}
+    {props.title && <AlertTitle classes={{root: classes.title}}>{props.title}</AlertTitle>}
         {props.children || props.text}
       </Alert>
     </Snackbar>

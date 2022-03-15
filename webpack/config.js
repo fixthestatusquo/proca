@@ -71,7 +71,6 @@ function readConfigOverride() {
           });
 
           config.locales["campaign:"] = campaigns;
-//          config.locales["campaign:"] = Object.assign({},campaignConfig.config.locales[config.lang],config.locales["campaign:"]);
           if (campaignConfig.config.locales[config.lang].title) {
             config.campaign.title = campaignConfig.config.locales[config.lang].title;
           }

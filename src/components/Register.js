@@ -263,7 +263,7 @@ export default function Register(props) {
     return true;
     // what do we do with the provider?
   }
-                
+               
   return (
     <form
       className={classes.container}
@@ -373,7 +373,7 @@ export default function Register(props) {
                 fullWidth
                 onClick={handleClick}
                 size="large"
-                disabled={formState.isSubmitting}
+                disabled={formState.isSubmitting || (config.component.register?.disabled === true)}
                 endIcon={
                   <SvgIcon>
                     <ProcaIcon />
