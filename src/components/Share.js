@@ -153,6 +153,20 @@ export default function ShareAction(props) {
     if (props.done instanceof Function) props.done();
   };
 
+  const addShare = (event, medium) => {
+    const d = {
+      uuid: uuid(),
+      payload: { medium: medium },
+      tracking: Url.utm(),
+    };
+
+    dispatch(event.replace("_", ":"), d);
+    console.log('config', config);
+    if (config.component.share?.anonymous === true) return;
+    addAction(actionPage, event, d);
+    console.log('yay');
+  }
+
   return (
     <div className={classes.root}>
       <ConfirmPreviousStep prev={props.prev} email={config.component.consent?.email} />
@@ -214,13 +228,18 @@ function Actions(props) {
 
   let cardIcons;
 
-  const shareWebAPI = () => {
+  const nativeShare = (component) => {
+    addShare("share_click");
+    const url = shareUrl(component); // URL NEEDS TO BE FIXED
+    shareWebAPI(url);
+    }
+
+  const shareWebAPI = (url) => {
       navigator.share({
-      title: 'Sharing',
       text: shareText("share.message"),
-      url: 'some url',
+      url: url,
     })
-      .then(() => console.log('Successful share'))
+      .then(() => addShare("share_close", 'native_share'))
       .catch((error) => console.log('Error sharing', error));
   }
 
@@ -232,7 +251,7 @@ function Actions(props) {
           className={classes.next}
           variant="contained"
           color="primary"
-          onClick={shareWebAPI}
+          onClick={() => nativeShare( Button )}
         >
           {t("action.share")}
         </Button>
@@ -305,24 +324,13 @@ function Actions(props) {
       "ShareButton-",
       ""
     );
-    function addShare(event) {
-      const d = {
-        uuid: uuid(),
-        payload: { medium: medium },
-        tracking: Url.utm(),
-      };
-
-      dispatch(event.replace("_", ":"), d);
-      if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
-      addAction(actionPage, event, d);
-    }
 
     function after(props) {
-      addShare("share_close");
+      addShare("share_close", medium);
     }
 
     function before(props) {
-      addShare("share_click");
+      addShare("share_click", medium);
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
