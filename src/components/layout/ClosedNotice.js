@@ -1,16 +1,68 @@
 import React from 'react';
-import Alert from "@components/Alert";
+import ReactDOM from 'react-dom';
 import { useCampaignConfig } from "@hooks/useConfig";
 import useCount from "@hooks/useCount";
 import { formatNumber } from "@components/ProgressCounter";
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import { makeStyles } from "@material-ui/core/styles";
+import Box from '@material-ui/core/Box';
+
+const useStyles = makeStyles( theme => ({
+root: {
+  top: 100,
+  right: 0,
+    width: 800,
+    position: "fixed",
+    zIndex: 70000,
+},
+ribbon: {
+    backgroundColor: theme.palette.primary.main,
+    color: 'white',
+    width: 850,
+    textAlign: 'center',
+    padding: '10px 200px',
+    zIndex: 10000,
+    '&::before': {
+        position: "absolute",
+        zIndex: -1,
+        content: '',
+        display: 'block',
+        border: '5px solid #2980b9',
+    },
+    '&::after': {
+        position: "absolute",
+        zIndex: -1,
+        content: '',
+        display: 'block',
+        border: '5px solid #2980b9',
+    },
+    transform: 'translateX(180px) rotate(35deg)',
+    top: 60,
+    marginLeft: -40,
+}
+}));
+
+   let elem = document.createElement("div");
+    elem.id = "ribbon";
+    document.body.prepend(elem);
+
 
 const Closed = props => {
   const config = useCampaignConfig();
   const count = useCount(config.actionPage);
+  const classes = useStyles();
+
+
   if (config.component.widget?.closed !== true)
     return null;
-  return (<Alert icon={<ThumbUpIcon fontSize="inherit" />} severity="success" autoHideDuration={null} title={formatNumber(count)}>Thank you - Благодаря ти - Hvala vam - Děkujib – Tack – Bedankt – Aitäh – Kiitos – Merci – Danke – ευχαριστώ – Kösz – Grazie – Paldies - Dziękuję Ci – Obrigado – Mulțumesc – Ďakujem - Hvala vam – Gracias</Alert>);
+      return ReactDOM.createPortal(
+  <div className={classes.root}>
+       <Box className={classes.ribbon} boxShadow={3}>
+<h3>{formatNumber(count)}</h3>
+  <span className={classes.span}>
+  Thank you - Благодаря ти - Hvala vam - Děkujib – Tack – Bedankt – Aitäh – Kiitos – Merci – Danke – ευχαριστώ – Kösz – Grazie – Paldies - Dziękuję Ci – Obrigado – Mulțumesc – Ďakujem - Hvala vam – Gracias</span> 
+  </Box></div>, elem);
+
+//  return (<Alert icon={<ThumbUpIcon fontSize="inherit" />} severity="success" autoHideDuration={null} title={formatNumber(count)}>Thank you - Благодаря ти - Hvala vam - Děkujib – Tack – Bedankt – Aitäh – Kiitos – Merci – Danke – ευχαριστώ – Kösz – Grazie – Paldies - Dziękuję Ci – Obrigado – Mulțumesc – Ďakujem - Hvala vam – Gracias</Alert>);
 };
 
 export default Closed;
