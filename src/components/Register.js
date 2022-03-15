@@ -263,7 +263,14 @@ export default function Register(props) {
     return true;
     // what do we do with the provider?
   }
-               
+  
+
+  const ConditionalDisabled = (props) =>  {
+    if (props.disabled === true)
+      return (<fieldset disabled="disabled">{props.children}</fieldset>)
+    return props.children;
+  };
+
   return (
     <form
       className={classes.container}
@@ -275,6 +282,7 @@ export default function Register(props) {
       <Success display={status === "success"} />
       <Error display={status === "error"} />
       <Container component="div" maxWidth="sm">
+        <ConditionalDisabled disabled = {config.component.register?.disabled === true}>
         <Box marginBottom={1}>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
@@ -373,7 +381,7 @@ export default function Register(props) {
                 fullWidth
                 onClick={handleClick}
                 size="large"
-                disabled={formState.isSubmitting || (config.component.register?.disabled === true)}
+                disabled={formState.isSubmitting || config.component.register?.disabled === true}
                 endIcon={
                   <SvgIcon>
                     <ProcaIcon />
@@ -398,6 +406,7 @@ export default function Register(props) {
             <ConsentProcessing />
           </Grid>
         </Box>
+    </ConditionalDisabled>
       </Container>
     </form>
   );
