@@ -48,14 +48,14 @@ const Icons = (props) => {
 
 const Move4Nature = (props) => {
   const { t } = useTranslation();
-  const { compact, classes, form } = props;
+  const { classes, form } = props;
   const activities = "walk,run,cycle,skate,swim,roll,other".split(",");
   return (
     <>
     <Icons activities={activities} form={form}/>
     <input type="hidden" ref={form.register} name="activity" />
 
-      <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
+      <Grid item xs={12} sm={ 12 } className={classes.field}>
         <TextField
           form={form}
           min={1}
