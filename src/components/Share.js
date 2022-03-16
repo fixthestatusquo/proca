@@ -23,6 +23,7 @@ import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import ShareIcon from "@material-ui/icons/Share";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import useData from "@hooks/useData";
@@ -96,7 +97,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     const [data] = useData();
 
     const ConfirmTitle = props => (
-      i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle> 
+      i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle>
     )
 
     if (props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
@@ -152,6 +153,19 @@ export default function ShareAction(props) {
     if (props.done instanceof Function) props.done();
   };
 
+  const addShare = (event, medium) => {
+    const d = {
+      uuid: uuid(),
+      payload: { medium: medium },
+      tracking: Url.utm(),
+    };
+
+    dispatch(event.replace("_", ":"), d);
+    console.log('config', config);
+    if (config.component.share?.anonymous === true) return;
+    addAction(actionPage, event, d);
+    console.log('yay');
+  }
 
   return (
     <div className={classes.root}>
@@ -182,38 +196,72 @@ export default function ShareAction(props) {
           >
             {t("Next")}
           </Button>
-        )}
+       )}
       </Card>
     </div>
   );
 
-  function Actions(props) {
-    const { t } = useTranslation();
-    const [data] = useData();
+function Actions(props) {
+  const { t } = useTranslation();
+  const [data] = useData();
 
-    const shareText = (key, target) => {
-      const i18nKey = [
-        "campaign:" + key.replace("-", "."),
-        "campaign:share.default",
-        "share.message"
-      ];
-      let msg =
-        config.param.locales[key] ||
-        config.param.locales["share"] ||
-        t(i18nKey);
-      if (target) {
-        msg += " " + target;
-      }
-      return msg;
-    };
+  const shareText = (key, target) => {
+    const i18nKey = [
+      "campaign:" + key.replace("-", "."),
+      "campaign:share.default",
+      "share.message"
+    ];
+    let msg =
+      config.param.locales[key] ||
+      config.param.locales["share"] ||
+      t(i18nKey);
+    if (target) {
+      msg += " " + target;
+    }
+    return msg;
+  };
 
-    let twitters = [];
-    data.targets?.forEach((d) => {
-      if (d.screen_name) twitters.push("@" + d.screen_name);
-    });
-    return (
+  let twitters = [];
+  data.targets?.forEach((d) => {
+    if (d.screen_name) twitters.push("@" + d.screen_name);
+  });
+
+  let cardIcons;
+
+  const nativeShare = (component) => {
+    addShare("share_click");
+    const url = shareUrl(component); // URL NEEDS TO BE FIXED
+    shareWebAPI(url);
+    }
+
+  const shareWebAPI = (url) => {
+      navigator.share({
+      text: shareText("share.message"),
+      url: url,
+    })
+      .then(() => addShare("share_close", 'native_share'))
+      .catch((error) => console.log('Error sharing', error));
+  }
+
+  if (navigator.canShare) {
+    cardIcons = (
       <CardActions>
-        <ActionIcon
+        <Button
+          endIcon={<ShareIcon />}
+          className={classes.next}
+          variant="contained"
+          color="primary"
+          onClick={() => nativeShare( Button )}
+        >
+          {t("action.share")}
+        </Button>
+      </CardActions>
+    )
+
+  } else {
+     cardIcons = (
+      <CardActions>
+        < ActionIcon
           icon={WhatsappIcon}
           title={shareText("share-whatsapp")}
           windowWidth={715}
@@ -237,18 +285,23 @@ export default function ShareAction(props) {
           title={shareText("share-telegram")}
           component={TelegramShareButton}
         />
-        {!!config.component?.share?.email && (
-          <ActionIcon
-            icon={EmailIcon}
-            component={EmailShareButton}
-            subject={shareText("share-subject")}
-            body={shareText("share-body")}
-            separator=" "
-          />
-        )}
-        {!!config.component?.share?.reddit && (
-          <ActionIcon icon={RedditIcon} component={RedditShareButton} />
-        )}
+        {
+          !!config.component?.share?.email && (
+            <ActionIcon
+              icon={EmailIcon}
+              component={EmailShareButton}
+              subject={shareText("share-subject")}
+              body={shareText("share-body")}
+              separator=" "
+            />
+
+          )
+        }
+        {
+          !!config.component?.share?.reddit && (
+            <ActionIcon icon={RedditIcon} component={RedditShareButton} />
+          )
+        }
         <ActionIcon
           icon={LinkedinIcon}
           component={LinkedinShareButton}
@@ -256,6 +309,10 @@ export default function ShareAction(props) {
           summary={shareText("share-linkedin") || metadata.description}
         />
       </CardActions>
+    );
+  }
+  return (
+    cardIcons
     );
   }
 
@@ -267,24 +324,13 @@ export default function ShareAction(props) {
       "ShareButton-",
       ""
     );
-    function addShare(event) {
-      const d = {
-        uuid: uuid(),
-        payload: { medium: medium },
-        tracking: Url.utm(),
-      };
-
-      dispatch(event.replace("_", ":"), d);
-      if (config.component.share?.anonymous === true) return; // do not record the share if anonymous
-      addAction(actionPage, event, d);
-    }
 
     function after(props) {
-      addShare("share_close");
+      addShare("share_close", medium);
     }
 
     function before(props) {
-      addShare("share_click");
+      addShare("share_click", medium);
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
