@@ -162,10 +162,8 @@ export default function ShareAction(props) {
     };
 
     dispatch(event.replace("_", ":"), d);
-    console.log('config', config);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
-    console.log('yay');
   }
 
   return (
@@ -237,7 +235,7 @@ function Actions(props) {
 
   const shareWebAPI = (url,medium) => {
       navigator.share({
-      text: shareText("share.default"),
+      title: shareText("share.default"),
       url: url,
     })
       .then(() => addShare("share_close", medium))
