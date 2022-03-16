@@ -162,10 +162,8 @@ export default function ShareAction(props) {
     };
 
     dispatch(event.replace("_", ":"), d);
-    console.log('config', config);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
-    console.log('yay');
   }
 
   return (
