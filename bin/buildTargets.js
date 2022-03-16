@@ -83,7 +83,7 @@ const saveTargets = (campaignName, targets) => {
   const argv = process.argv.slice(2);
   const name = argv[0];
   if (!argv[0]) {
-    console.error("need buildCampaign {name} [--email]");
+    console.error("need buildCampaign {name} [--email] [--display]");
     return;
   }
   const publicEmail = argv[1] === "--email";
