@@ -69,6 +69,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+  const ConditionalDisabled = (props) =>  {
+    if (props.disabled === true)
+      return (<fieldset disabled="disabled">{props.children}</fieldset>)
+    return props.children;
+  };
 export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
@@ -265,11 +270,6 @@ export default function Register(props) {
   }
   
 
-  const ConditionalDisabled = (props) =>  {
-    if (props.disabled === true)
-      return (<fieldset disabled="disabled">{props.children}</fieldset>)
-    return props.children;
-  };
 
   return (
     <form
