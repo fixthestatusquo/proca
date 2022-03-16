@@ -20,6 +20,7 @@ import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
 import { NameField } from "@components/NameField";
 import useLayout from "../../hooks/useLayout";
+import Country from "@components/Country";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -227,6 +228,40 @@ export default function Register(props) {
               )}
             />
           </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 4}>
+            <Controller
+              control={control}
+              name="postcode"
+              render={({ onChange, value }) => (
+                <LayoutTextField
+                  name="postcode"
+                  className={classes.textField}
+                  label={t("Postal Code")}
+                  autoComplete="postal-code"
+                  error={!!(errors && errors["postcode"])}
+                  helperText={
+                    errors && errors["postcode"] && errors["postcode"].message
+                  }
+                  variant={layout.variant}
+                  margin={layout.margin}
+                  onChange={onChange}
+                  value={value}
+                  required
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12} sm={compact ? 12 : 8}>
+            <Controller
+              control={control}
+              name="country"
+              rules={{ required: true }}
+              render={({ onChange, value }) => (
+                <Country form={form} required onChange={onChange} value={value} />
+              )}
+            />
+          </Grid>
+
           {config.component?.donate?.field?.phone === true && (
             <Grid item xs={12}>
               <TextField form={form} name="phone" label={t("Phone")} />
