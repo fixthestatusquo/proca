@@ -138,12 +138,13 @@ export default function ShareAction(props) {
   const shareUrl = (component) => {
     if (config?.component?.share?.utm === false) return window.location.href;
 
+    const medium = typeof component === 'string' ? component : component.render.displayName.replace("ShareButton-", "");
     const url = new URL(window.location.href);
     let params = url.searchParams;
     params.set("utm_source", "share");
     params.set(
       "utm_medium",
-      component.render.displayName.replace("ShareButton-", "")
+      medium
     );
     params.set("utm_campaign", uuid());
 
@@ -228,19 +229,19 @@ function Actions(props) {
 
   let cardIcons;
 
-  const nativeShare = (component) => {
-    addShare("share_click");
-    const url = shareUrl(component); // URL NEEDS TO BE FIXED
-    shareWebAPI(url);
+  const nativeShare = (medium) => {
+    addShare("share_click", medium);
+    const url = shareUrl(medium);
+    shareWebAPI(url,medium);
     }
 
-  const shareWebAPI = (url) => {
+  const shareWebAPI = (url,medium) => {
       navigator.share({
-      text: shareText("share.message"),
+      text: shareText("share.default"),
       url: url,
     })
-      .then(() => addShare("share_close", 'native_share'))
-      .catch((error) => console.log('Error sharing', error));
+      .then(() => addShare("share_close", medium))
+      .catch((error) => console.error('Error sharing', error));
   }
 
   if (navigator.canShare) {
@@ -251,7 +252,8 @@ function Actions(props) {
           className={classes.next}
           variant="contained"
           color="primary"
-          onClick={() => nativeShare( Button )}
+          fullWidth
+          onClick={() => nativeShare( 'webshare_api' )}
         >
           {t("action.share")}
         </Button>
