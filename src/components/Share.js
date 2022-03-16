@@ -235,7 +235,7 @@ function Actions(props) {
 
   const shareWebAPI = (url,medium) => {
       navigator.share({
-      text: shareText("share.default"),
+      title: shareText("share.default"),
       url: url,
     })
       .then(() => addShare("share_close", medium))
