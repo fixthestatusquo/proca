@@ -91,8 +91,9 @@ const Component = (props) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
-          if (!config.component.email?.filter?.includes("country"))
+          if (!config.component.email?.filter?.includes("country")){
             setProfiles(d);
+          }
           if (config.component.email?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
             setProfiles([i]);
@@ -148,11 +149,14 @@ const Component = (props) => {
     [allProfiles,setError,clearErrors,t, setData]
   );
 
+  const countryFiltered= config.component.email?.filter?.includes("country");
   useEffect(() => {
     
+    if (!countryFiltered)
+      return;
     filterProfiles(country);
 
-  }, [country, filterProfiles]);
+  }, [country, filterProfiles, countryFiltered]);
 
 
   const send = (data) => {
