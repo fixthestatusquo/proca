@@ -249,7 +249,7 @@ const SubmitButton = (props) => {
   const stripeComplete = useRecoilValue(stripeCompleteAtom);
   const stripe = useStripe();
 
-  const [formData] = useData();
+  const [formData, setData] = useData();
 
   const elements = useElements();
 
@@ -351,21 +351,28 @@ const SubmitButton = (props) => {
       return false;
     }
 
+    const donorInput = { ...formData, ...values };
+    setData('donorInput', donorInput);
+
     const cardElement = elements.getElement(CardElement);
+
+    console.log("donorInput " . donorInput);
 
     let params = {
       actionPage: config.actionPage,
-      amount: Math.floor(formData.amount * 100),
+      amount: Math.floor(donorInput.amount * 100),
       currency: currency.code,
       contact: {
-        name: formData.firstname + " " + formData.lastname,
-        email: formData.email,
-        address: { country: formData.country, postal_code: formData.postcode },
+        name: donorInput.firstname + " " + donorInput.lastname,
+        email: donorInput.email,
+        address: { country: donorInput.country, postal_code: donorInput.postcode },
       },
       stripe_product_id: config.component.donation.stripe.productId,
+      metadata: donorInput,
     };
-    if (formData.frequency)
-      params.frequency = STRIPE_FREQUENCY[formData.frequency];
+    if (donorInput.frequency)
+      params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
+
 
     const piResponse = await stripeCreate(params);
 
