@@ -164,7 +164,7 @@ export default function ShareAction(props) {
     dispatch(event.replace("_", ":"), d);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -238,7 +238,7 @@ function Actions(props) {
       text: shareText("share.default"),
       url: url,
     })
-      .then(() => addShare("share_close", medium))
+      .then(() => addShare("share", medium))
       .catch((error) => console.error('Error sharing', error));
   }
 
@@ -325,12 +325,22 @@ function Actions(props) {
       ""
     );
 
+    let isShare = false;
+
     function after(props) {
-      addShare("share_close", medium);
+      if (isShare) {
+        addShare("share_click", medium);
+        addShare("share", medium);
+      }
+      isShare = false;
     }
 
     function before(props) {
-      addShare("share_click", medium);
+      setTimeout(() => {
+        isShare = true;
+
+      }, '500');
+
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
