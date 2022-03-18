@@ -81,9 +81,9 @@
         "weekly": "Make this a weekly donation?"
       },
       "each": {
-        "monthly": "each month",
-        "oneoff": "Once",
-        "weekly": "each year"
+        "monthly": "{{ amount }} each month",
+        "oneoff": "{{ amount }} once",
+        "weekly": "{{ amount }} each year"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
