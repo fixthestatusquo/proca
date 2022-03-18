@@ -228,7 +228,7 @@ function Actions(props) {
   let cardIcons;
 
   const nativeShare = (medium) => {
-    addShare("share_click", medium);
+    addShare("share", medium);
     const url = shareUrl(medium);
     shareWebAPI(url,medium);
     }
@@ -238,7 +238,7 @@ function Actions(props) {
       text: shareText("share.default"),
       url: url,
     })
-      .then(() => addShare("share", medium))
+      .then(() => addShare("share_confirmed", medium))
       .catch((error) => console.error('Error sharing', error));
   }
 
@@ -325,20 +325,20 @@ function Actions(props) {
       ""
     );
 
-    let isShare = false;
+    let autoClosed = true;
 
     function after(props) {
-      if (isShare) {
-        addShare("share_click", medium);
-        addShare("share", medium);
+      if (autoClosed) {
+        return;
       }
-      isShare = false;
+      addShare("share_confirmed", medium);
+      autoClosed = true;
     }
 
     function before(props) {
       setTimeout(() => {
-        isShare = true;
-
+        autoClosed = false;
+        addShare("share", medium);
       }, '500');
 
     }
