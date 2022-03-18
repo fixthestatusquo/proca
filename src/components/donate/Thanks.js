@@ -71,7 +71,10 @@ const PayPal = (formData) => {
 const Thanks = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const [formData] = useData();
+
+  const [data] = useData();
+  const formData = data.donorInput;
+
   const formatMoneyAmount = useFormatMoney();
   return (
     <Container id="proca-donate">

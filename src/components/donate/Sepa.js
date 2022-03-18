@@ -79,6 +79,8 @@ export default function Register(props) {
     setData(d);
 
     const procaRequest = { ...data, ...d };
+    setData('donorInput', { ...procaRequest });
+
     procaRequest.tracking = Url.utm();
     procaRequest.donation = {
       amount: Math.floor(amount * 100),
