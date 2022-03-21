@@ -9,11 +9,8 @@ import {
   FormHelperText,
   CircularProgress,
 } from "@material-ui/core";
+import LockIcon from "@material-ui/icons/Lock";
 
-//import TextField from "../TextField";
-// We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
-
-//import { loadStripe } from "@stripe/stripe-js";
 import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
@@ -326,6 +323,7 @@ const SubmitButton = (props) => {
     btn.disabled = true;
     setSubmitting(true);
 
+
     const form = props.form;
     form.trigger();
     if (Object.keys(form.errors).length > 0) {
@@ -355,105 +353,105 @@ const SubmitButton = (props) => {
     const donorInput = {
       ...formData,
       ...values,
-      page: campaignConfig.actionPage.name,
+      page: config.actionPage.name,
       location: utm.location,
       utm_source: utm.source,
       utm_campaign: utm.campaign,
       utm_medium: utm.medium
     }
-  };
-  setData('donorInput', donorInput);
 
-  const cardElement = elements.getElement(CardElement);
+    setData('donorInput', donorInput);
 
-  console.log("donorInput ".donorInput);
+    const cardElement = elements.getElement(CardElement);
 
-  let params = {
-    actionPage: config.actionPage,
-    amount: Math.floor(donorInput.amount * 100),
-    currency: currency.code,
-    contact: {
-      name: donorInput.firstname + " " + donorInput.lastname,
-      email: donorInput.email,
-      address: { country: donorInput.country, postal_code: donorInput.postcode },
-    },
-    stripe_product_id: config.component.donation.stripe.productId,
-    metadata: donorInput,
-  };
-  if (donorInput.frequency)
-    params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
+    console.log("donorInput ".donorInput);
 
-
-  const piResponse = await stripeCreate(params);
-
-  if (piResponse.errors) {
-    console.log("Error returned from proca backend", piResponse.errors);
-    setStripeError({
-      message: t("donation.error.general"),
-    });
-    btn.disabled = false;
-    setSubmitting(false);
-    return false;
-  }
-
-  const stripeResponse = await stripe.confirmCardPayment(
-    piResponse.client_secret,
-    {
-      payment_method: {
-        card: cardElement,
-        billing_details: {
-          name: values.name,
-          address: { country: values.country, postal_code: values.postcode },
-          email: values.email,
-        },
+    let params = {
+      actionPage: config.actionPage,
+      amount: Math.floor(donorInput.amount * 100),
+      currency: currency.code,
+      contact: {
+        name: donorInput.firstname + " " + donorInput.lastname,
+        email: donorInput.email,
+        address: { country: donorInput.country, postal_code: donorInput.postcode },
       },
-      // expand: {},
+      stripe_product_id: config.component.donation.stripe.productId,
+      metadata: donorInput,
+    };
+    if (donorInput.frequency)
+      params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
+
+
+    const piResponse = await stripeCreate(params);
+
+    if (piResponse.errors) {
+      console.log("Error returned from proca backend", piResponse.errors);
+      setStripeError({
+        message: t("donation.error.general"),
+      });
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
     }
-  );
 
-  if (stripeResponse.error) {
-    console.log("error", stripeResponse);
-    setStripeError(stripeResponse.error);
-    btn.disabled = false;
-    setSubmitting(false);
-    return false;
-  }
-
-  // console.debug("stripe confirm card payment response", stripeResponse);
-
-  orderComplete(piResponse, stripeResponse);
-
-  // leave button disabled - we're done!
-  return true;
-};
-
-return (
-  <Box mt={2}>
-    <Button
-      className="submit-button"
-      name="submit"
-      color="primary"
-      variant={
-        config.layout?.button?.submit?.variant ||
-        config.layout?.button?.variant ||
-        "contained"
+    const stripeResponse = await stripe.confirmCardPayment(
+      piResponse.client_secret,
+      {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: values.name,
+            address: { country: values.country, postal_code: values.postcode },
+            email: values.email,
+          },
+        },
+        // expand: {},
       }
-      fullWidth
-      type="submit"
-      size="large"
-      startIcon={isSubmitting ? undefined : <LockIcon />}
-      onClick={(e, data) => {
-        onSubmitButtonClick(e, data);
-      }}
-    >
-      {isSubmitting ? (
-        <CircularProgress color="inherit" />
-      ) : (
-        <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
-      )}
-    </Button>
-  </Box>
-);
+    );
+
+    if (stripeResponse.error) {
+      console.log("error", stripeResponse);
+      setStripeError(stripeResponse.error);
+      btn.disabled = false;
+      setSubmitting(false);
+      return false;
+    }
+
+    // console.debug("stripe confirm card payment response", stripeResponse);
+
+    orderComplete(piResponse, stripeResponse);
+
+    // leave button disabled - we're done!
+    return true;
+  };
+
+  return (
+    <Box mt={2}>
+      <Button
+        className="submit-button"
+        name="submit"
+        color="primary"
+        variant={
+          config.layout?.button?.submit?.variant ||
+          config.layout?.button?.variant ||
+          "contained"
+        }
+        fullWidth
+        type="submit"
+        size="large"
+        startIcon={isSubmitting ? undefined : <LockIcon />}
+        onClick={(e, data) => {
+          onSubmitButtonClick(e, data);
+        }}
+      >
+        {isSubmitting ? (
+          <CircularProgress color="inherit" />
+        ) : (
+          <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
+        )}
+      </Button>
+    </Box>
+  );
 };
 
 
