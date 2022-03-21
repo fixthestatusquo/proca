@@ -115,15 +115,12 @@ const Thanks = (props) => {
               <Grid item xs={5}>
                 Amount
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} amount={formData.amount}>
                 {
                   formData.frequency !== "oneoff"
                     ? t("donation.frequency.feedback." + formData.frequency,/* i18next-extract-disable-line */
-                      {
-                        amount: formatMoneyAmount(formData.amount),
-                        frequency: t("donation.frequency.each." + formData.frequency)
-                      })
-                    : ""}
+                      { amount: formatMoneyAmount(formData.amount), frequency: t("donation.frequency.each." + formData.frequency) })
+                    : formatMoneyAmount(formData.amount)}
               </Grid>
 
               <Grid item xs={12}></Grid>
