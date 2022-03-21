@@ -22,10 +22,10 @@ import useElementWidth from "../../hooks/useElementWidth";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
-//import SendIcon from "@material-ui/icons/Send";
-import LockIcon from "@material-ui/icons/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
+import Url from "@lib/urlparser";
+
 
 import {
   useStripe,
@@ -350,99 +350,110 @@ const SubmitButton = (props) => {
       return false;
     }
 
-    const donorInput = { ...formData, ...values };
-    setData('donorInput', donorInput);
+    const utm = Url.utm();
 
-    const cardElement = elements.getElement(CardElement);
-
-    console.log("donorInput " . donorInput);
-
-    let params = {
-      actionPage: config.actionPage,
-      amount: Math.floor(donorInput.amount * 100),
-      currency: currency.code,
-      contact: {
-        name: donorInput.firstname + " " + donorInput.lastname,
-        email: donorInput.email,
-        address: { country: donorInput.country, postal_code: donorInput.postcode },
-      },
-      stripe_product_id: config.component.donation.stripe.productId,
-      metadata: donorInput,
-    };
-    if (donorInput.frequency)
-      params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
-
-
-    const piResponse = await stripeCreate(params);
-
-    if (piResponse.errors) {
-      console.log("Error returned from proca backend", piResponse.errors);
-      setStripeError({
-        message: t("donation.error.general"),
-      });
-      btn.disabled = false;
-      setSubmitting(false);
-      return false;
+    const donorInput = {
+      ...formData,
+      ...values,
+      page: campaignConfig.actionPage.name,
+      location: utm.location,
+      utm_source: utm.source,
+      utm_campaign: utm.campaign,
+      utm_medium: utm.medium
     }
-
-    const stripeResponse = await stripe.confirmCardPayment(
-      piResponse.client_secret,
-      {
-        payment_method: {
-          card: cardElement,
-          billing_details: {
-            name: values.name,
-            address: { country: values.country, postal_code: values.postcode },
-            email: values.email,
-          },
-        },
-        // expand: {},
-      }
-    );
-
-    if (stripeResponse.error) {
-      console.log("error", stripeResponse);
-      setStripeError(stripeResponse.error);
-      btn.disabled = false;
-      setSubmitting(false);
-      return false;
-    }
-
-    // console.debug("stripe confirm card payment response", stripeResponse);
-
-    orderComplete(piResponse, stripeResponse);
-
-    // leave button disabled - we're done!
-    return true;
   };
+  setData('donorInput', donorInput);
 
-  return (
-    <Box mt={2}>
-      <Button
-        className="submit-button"
-        name="submit"
-        color="primary"
-        variant={
-          config.layout?.button?.submit?.variant ||
-          config.layout?.button?.variant ||
-          "contained"
-        }
-        fullWidth
-        type="submit"
-        size="large"
-        startIcon={isSubmitting ? undefined : <LockIcon />}
-        onClick={(e, data) => {
-          onSubmitButtonClick(e, data);
-        }}
-      >
-        {isSubmitting ? (
-          <CircularProgress color="inherit" />
-        ) : (
-          <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
-        )}
-      </Button>
-    </Box>
+  const cardElement = elements.getElement(CardElement);
+
+  console.log("donorInput ".donorInput);
+
+  let params = {
+    actionPage: config.actionPage,
+    amount: Math.floor(donorInput.amount * 100),
+    currency: currency.code,
+    contact: {
+      name: donorInput.firstname + " " + donorInput.lastname,
+      email: donorInput.email,
+      address: { country: donorInput.country, postal_code: donorInput.postcode },
+    },
+    stripe_product_id: config.component.donation.stripe.productId,
+    metadata: donorInput,
+  };
+  if (donorInput.frequency)
+    params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
+
+
+  const piResponse = await stripeCreate(params);
+
+  if (piResponse.errors) {
+    console.log("Error returned from proca backend", piResponse.errors);
+    setStripeError({
+      message: t("donation.error.general"),
+    });
+    btn.disabled = false;
+    setSubmitting(false);
+    return false;
+  }
+
+  const stripeResponse = await stripe.confirmCardPayment(
+    piResponse.client_secret,
+    {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: values.name,
+          address: { country: values.country, postal_code: values.postcode },
+          email: values.email,
+        },
+      },
+      // expand: {},
+    }
   );
+
+  if (stripeResponse.error) {
+    console.log("error", stripeResponse);
+    setStripeError(stripeResponse.error);
+    btn.disabled = false;
+    setSubmitting(false);
+    return false;
+  }
+
+  // console.debug("stripe confirm card payment response", stripeResponse);
+
+  orderComplete(piResponse, stripeResponse);
+
+  // leave button disabled - we're done!
+  return true;
+};
+
+return (
+  <Box mt={2}>
+    <Button
+      className="submit-button"
+      name="submit"
+      color="primary"
+      variant={
+        config.layout?.button?.submit?.variant ||
+        config.layout?.button?.variant ||
+        "contained"
+      }
+      fullWidth
+      type="submit"
+      size="large"
+      startIcon={isSubmitting ? undefined : <LockIcon />}
+      onClick={(e, data) => {
+        onSubmitButtonClick(e, data);
+      }}
+    >
+      {isSubmitting ? (
+        <CircularProgress color="inherit" />
+      ) : (
+        <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
+      )}
+    </Button>
+  </Box>
+);
 };
 
 
