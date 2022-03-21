@@ -24,7 +24,7 @@ import useData from "@hooks/useData";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
 import useCount from "@hooks/useCount";
-//import ProgressCounter from "@components/ProgressCounter";
+import ProgressCounter from "@components/ProgressCounter";
 import { makeStyles } from "@material-ui/core/styles";
 
 //const countries = eciLocale.common.country;
@@ -68,6 +68,7 @@ const Support = (props) => {
   const apiUrl = config.component.eci.apiUrl || process.env.REACT_APP_API_URL;
 
   const actionpage = config.component.eci.actionpage || config.actionPage;
+  const progress = config.component.eci.progress;
 
   useCount(actionpage); // TODO, make conditional to fetch the counter?
   //config.component.eci.apiUrl
@@ -224,6 +225,7 @@ const Support = (props) => {
   // todo, convert the OCS text into something that can use Trans
   return (
     <Container component="main" maxWidth="sm">
+    {progress && <ProgressCounter actionPage={config.component.eci.actionpage} />}
       <Box marginBottom={1}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
