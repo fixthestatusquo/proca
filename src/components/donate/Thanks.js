@@ -118,8 +118,11 @@ const Thanks = (props) => {
               <Grid item xs={6}>
                 {
                   formData.frequency !== "oneoff"
-                    ? t("donation.frequency.each." + formData.frequency, /* i18next-extract-disable-line */
-                      { amount: formatMoneyAmount(formData.amount) })
+                    ? t("donation.frequency.feedback." + formData.frequency,/* i18next-extract-disable-line */
+                      {
+                        amount: formatMoneyAmount(formData.amount),
+                        frequency: t("donation.frequency.each." + formData.frequency)
+                      })
                     : ""}
               </Grid>
 
