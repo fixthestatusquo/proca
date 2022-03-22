@@ -33,7 +33,12 @@ const parse = (whitelist, prefix) => {
 
 const step = (prefix) => {
   const s = parse(["go"], prefix || "proca_");
-  return s.go || null;
+  if (s.go) {
+    let go = s.go.toLowerCase();
+    go = go.charAt(0).toUpperCase() + go.slice(1);
+    return go;
+  }
+    return  null;
 };
 
 const data = (prefix) => {
@@ -117,6 +122,6 @@ const create = (base, path, params) => {
   return url;
 };
 
-const urlParser = { utm: utm, data: data, config: config } 
+const urlParser = { utm: utm, data: data, config: config }
 export { utm, data, step, config, isTest, create };
 export default urlParser;
