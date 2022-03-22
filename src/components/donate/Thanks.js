@@ -73,7 +73,7 @@ const Thanks = (props) => {
   const config = useCampaignConfig();
 
   const [data] = useData();
-  const formData = data.donorInput;
+  const formData = data.donorInput || data;
 
   const formatMoneyAmount = useFormatMoney();
   return (

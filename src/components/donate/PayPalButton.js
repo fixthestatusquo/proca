@@ -238,9 +238,11 @@ const ProcaPayPalButton = (props) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const [formData, setFormData] = useData();
-  const amount = formData.amount;
+  // const amount = formData.amount;
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
+
+  // console.log("amount in ProcaPayPalButton " + formData.amount); // this *is* changing
 
   const classes = useStyles();
 
@@ -252,15 +254,16 @@ const ProcaPayPalButton = (props) => {
   const createOrder = useCallback(
     (paypalResponse, actions) => {
       setFormData("paymentMethod", "paypal");
+      // console.log("createOrder called" + formData.amount);
       return onCreateOrder({
-        amount: amount,
+        amount: formData.amount,
         description: description,
         paypalResponse: paypalResponse,
         actions: actions,
         isTest: !!config.test,
       });
     },
-    [amount, config.test, description, setFormData]
+    [formData.amount, config.test, description, setFormData]
   );
 
   const approveOrder = useCallback(
@@ -282,15 +285,16 @@ const ProcaPayPalButton = (props) => {
   const createSubscription = useCallback(
     (data, actions) => {
       setFormData("paymentMethod", "paypal");
+      // console.log("createSubscription called" + formData.amount);
       return actions.subscription.create({
         plan_id: plan_id,
-        quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
+        quantity: Math.floor(formData.amount * 100).toString(), // PayPal wants a string
         application_context: {
           shipping_preference: "NO_SHIPPING",
         },
       });
     },
-    [amount, plan_id, setFormData]
+    [formData.amount, plan_id, setFormData]
   );
 
   const approveSubscription = useCallback(
@@ -331,6 +335,13 @@ const ProcaPayPalButton = (props) => {
 
   const buttonOptions =
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
+
+  /*
+   * THIS IS SUPER IMPORTANT ! Without it, PayPal never sees the changes in
+   * amount.
+   *
+   */
+  buttonOptions['forceReRender'] = [formData.amount];
 
   return (
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">
