@@ -97,7 +97,7 @@
     "iban": "IBAN",
     "intro": "Donate to {{campaign}}",
     "mobile": {
-      "open": "open"
+      "open": "Donate"
     },
     "payment_methods": {
       "card": "Card",
