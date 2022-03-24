@@ -8,12 +8,10 @@ const StripeInput = (props) => {
     focus: () => elementRef.current.focus,
   }));
 
-  // I don't know why but stripe is undefined / false on re-render,
-  // On the other hand, it works fine if we just ignore it's state.
-  // if (!props.stripe) {
-  //   console.log("waiting for stripe");
-  //   return null;
-  // }
+  if (!props.stripe) {
+    console.log("waiting for stripe");
+    return null;
+  }
 
   return (
     <Component
