@@ -11,8 +11,6 @@ import {
 } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 
-import useScript from "react-script-hook";
-
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
 import useElementWidth from "../../hooks/useElementWidth";
@@ -38,6 +36,8 @@ import DonateTitle from "./DonateTitle";
 import { NameField } from "../NameField";
 import { CallToAction } from "./DonateButton";
 
+
+import { loadStripe } from '@stripe/stripe-js';
 const STRIPE_FREQUENCY = {
   monthly: "month",
   weekly: "week",
@@ -489,14 +489,8 @@ const PaymentFormWrapper = (props) => {
   const publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-  const [stripe, loadStripe] = useState(null);
-  const [, error] = useScript({
-    src: "https://js.stripe.com/v3/",
-    onload: () => {
-      // the object window.Stripe exists
-      loadStripe(window.Stripe(publishableKey, { locale: config.lang }));
-    },
-  });
+
+  const stripeIsLoaded = loadStripe(publishableKey, { locale: config.lang });
 
   const form = useForm({
     defaultValues: {
@@ -508,14 +502,10 @@ const PaymentFormWrapper = (props) => {
     },
   });
 
-  const { t } = useTranslation();
-
-  if (error) return <h3>{t('donation.error.initialisation')}</h3>;
-
   return (
     <Container component="main" id="proca-donate">
-      <Elements stripe={stripe} options={config?.lang || "auto"}>
-        <PayWithStripe {...props} form={form} stripe={stripe} />
+      <Elements stripe={stripeIsLoaded} options={config?.lang || "auto"}>
+        <PayWithStripe {...props} form={form} stripe={stripeIsLoaded} />
       </Elements>
     </Container>
   );
