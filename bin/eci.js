@@ -63,9 +63,9 @@ const makeLocalAP = (mainAP, locale, eci) => {
   page.filename = filenameparts.join("/");
 
   // modify eci component config
-  page.component.eci.organisers = eci.organisers.organiser;
-  page.component.eci.registrationDate = eci.startOfTheCollectionPeriod || eci.registrationDate;
-  page.component.eci.registrationDate = page.component.eci.registrationDate.substring(0, 10);
+  campaign.eci.organisers = eci.organisers.organiser;
+  campaign.eci.registrationDate = eci.startOfTheCollectionPeriod || eci.registrationDate;
+  campaign.eci.registrationDate = page.component.eci.registrationDate.substring(0, 10);
 
   page.locales["campaign:"] = getLocale(
     page.lang.toLowerCase(),
