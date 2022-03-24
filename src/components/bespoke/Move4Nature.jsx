@@ -60,12 +60,15 @@ const Move4Nature = (props) => {
       <Grid item xs={12} sm={ 12 } className={classes.field}>
         <TextField
           form={form}
-          min={1}
           type="number"
           step="1"
           pattern="\d+"
+          
           name="distance"
           InputProps={{
+            inputProps: {
+            min:1,
+              max: 150},
             endAdornment: <InputAdornment position="end">km</InputAdornment>,
           }}
           required
