@@ -110,7 +110,7 @@ const Widget = (props) => {
     if (scrollNeeded.current) {
       _scrollTo();
       scrollNeeded.current = false;
-    } 
+    }
   });
 
   const scrollTo = () => {
@@ -312,7 +312,9 @@ const Widget = (props) => {
     if (config.component.widget?.autoStart !== false) {
       if (isMobile || !paramStep()) go(1);
       else {
-        go(paramStep());
+        let step = paramStep().toLowerCase();
+        step = step.charAt(0).toUpperCase() + step.slice(1);
+        go(step);
         _scrollTo({delay:300});
       };
       //      return null;

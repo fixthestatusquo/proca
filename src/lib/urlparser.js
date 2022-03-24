@@ -33,12 +33,7 @@ const parse = (whitelist, prefix) => {
 
 const step = (prefix) => {
   const s = parse(["go"], prefix || "proca_");
-  if (s.go) {
-    let go = s.go.toLowerCase();
-    go = go.charAt(0).toUpperCase() + go.slice(1);
-    return go;
-  }
-    return  null;
+  return s.go || null;
 };
 
 const data = (prefix) => {
