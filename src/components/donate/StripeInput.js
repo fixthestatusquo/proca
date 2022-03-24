@@ -8,11 +8,6 @@ const StripeInput = (props) => {
     focus: () => elementRef.current.focus,
   }));
 
-  if (!props.stripe) {
-    console.log("waiting for stripe");
-    return null;
-  }
-
   return (
     <Component
       stripe={props.stripe}
