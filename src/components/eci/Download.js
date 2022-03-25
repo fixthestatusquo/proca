@@ -13,7 +13,7 @@ import uuid from "@lib/uuid.js";
 const url = (data, param, config) => {
 
     let postcardUrl="https://bffa-pdf.herokuapp.com/?"
-      + "qrcode=" + uuid() + ":" + config.actionPage
+      + "qrcode=" + uuid() + ":" + config.actionPage + ":" + data.country
       + "&country=" + data.country
   ;
 
