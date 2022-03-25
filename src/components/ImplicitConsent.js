@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Grid, FormHelperText } from "@material-ui/core";
+import { Grid, FormHelperText } from "@material-ui/core";
 
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation} from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
 
@@ -41,14 +41,6 @@ const ImplicitConsent = (props) => {
   const layout = useLayout();
   const classes = useStyles();
 
-  const link =
-    config.component.consent.privacyPolicy ||
-    config.org.privacyPolicy ||
-    "https://proca.app/privacy_policy";
-  const consentProcessing =
-    config.component.country === false
-      ? "consent.processing-nocookie"
-      : "consent.processing";
   return (<>
     {config.component.consent.implicit !=="opt-out" && (
       <><Grid item xs={12}>
@@ -58,13 +50,6 @@ const ImplicitConsent = (props) => {
             campaign: config.campaign.title,
           })}
         </FormHelperText>
-      </Grid>
-      <Grid item xs={12}>
-        <Box className={classes.notice}>
-          <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
-            Consent processing according to <a href={link}>privacy policy</a>
-          </Trans>
-        </Box>
       </Grid>
       </>
     )}</>);
