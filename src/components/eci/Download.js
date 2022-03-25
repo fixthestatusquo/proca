@@ -6,17 +6,21 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import SaveIcon from '@material-ui/icons/SaveAlt';
 import { useTranslation } from "react-i18next";
-import useConfig from '../../hooks/useConfig';
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
+import uuid from "@lib/uuid.js";
 
-const url = (data, param) => {
+const url = (data, param, config) => {
 
     let postcardUrl="https://bffa-pdf.herokuapp.com/?"
-      + "qrcode=" + data.contactRef + ":" + config.actionpage
+      + "qrcode=" + uuid() + ":" + config.actionPage
       + "&country=" + data.country
   ;
-  if (param.pdfUrl)
+
+
+  if (param && param?.pdfUrl)
     postcardUrl +="&pdf="+encodeURIComponent(param.pdfUrl);
-  if (param.marginTop)
+  if (param && param?.marginTop)
     postcardUrl +="&top="+param.marginTop;
 
   return postcardUrl
@@ -24,17 +28,17 @@ const url = (data, param) => {
 
 function Download (props) {
   const { t } = useTranslation();
-  const {config} = useConfig();
+  const config = useCampaignConfig();
+  const [data] = useData();
+
   const next = () => {
     if (props.done instanceof Function) props.done();
   }
 
   const handleDownload = () => {
-    console.log(config.data);
-    let data=config.data;
-    data.actionPage = config.actionPage;
-    window.open(url(data), 'pdf', 'toolbar=0,status=0,width=548,height=775');
-    next();
+
+    window.open(url(data,{},config), 'pdf', 'toolbar=0,status=0,width=548,height=775');
+//    next();
   }
 
   return (
@@ -46,7 +50,6 @@ function Download (props) {
     </CardContent>
     <CardActions>
     <Button variant="contained" color="primary" onClick={handleDownload} startIcon={<SaveIcon />}>{t("Download")}</Button>
-    <Button onClick={next}>{t("Next")}</Button>
     </CardActions>
     </Card>
   );
