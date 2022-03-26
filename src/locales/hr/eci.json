@@ -157,7 +157,7 @@
       "street.number": "Broj",
       "country": "Zemlja",
       "postal.code": "Poštanski broj",
-      "date.of.birth": "Datum rođenja",
+      "date.of.birth": "Datum rođenja (DD/MM/YYYY)",
       "id.card": "",
       "national.id.number": "",
       "passport": "",
