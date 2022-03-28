@@ -23,13 +23,13 @@
   "Your message": "Tvoja poruka",
   "Your organisation account": "Račun vaše organizacije",
   "action": {
-    "donate": "Donirajte",
-    "email": "Pošalji email",
-    "join": "Pridružiti",
-    "register": "Registar",
-    "share": "Udio",
-    "sign": "Znak",
-    "twitter": "Cvrkut"
+    "donate": "Doniraj",
+    "email": "Pošalji e-mail",
+    "join": "Pridruži se",
+    "register": "Registriraj se",
+    "share": "Dijeli",
+    "sign": "Potpiši",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
