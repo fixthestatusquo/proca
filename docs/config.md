@@ -4,6 +4,16 @@ The configuration options are set in a json attribute on the actionPage, and the
 
 For the rest of the document, we are using 42 as the action page id, obviously replace with the real id of your widget.
 
+## having multiple servers/config folders
+you might need to switch between multiple servers (eg staging and production). Each of the yarn commands can be prefaced by PROCA_ENV=[staging|production|whatever] to specify the environment to us
+each of the ENV (eg staging) is set into a .env.staging and should contain
+
+    REACT_APP_API_URL='https://staging.url/api' # default https://api.proca.app/api
+    REACT_APP_CONFIG_FOLDER='config.staging' # default config
+    AUTH_USER=your_auth
+    AUTH_PASSWORD=your_secret
+
+
 ## working with the configuration
 
 pulls the configuration as stored on the proca server
