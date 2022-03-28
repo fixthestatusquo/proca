@@ -121,7 +121,7 @@ export default function StepperEci(props) {
       <Box p={1}>
         <SwipeableViews index={step(value)} slideStyle={{ overflow: "none" }}>
           {steps.map((s, i) => (
-            <div style={{ display: step(value) === i ? "block" : "none" }}>
+            <div style={{ display: step(value) === i ? "block" : "none" }} key={s+i}>
               {StepsComponent(s)}
             </div>
           ))}

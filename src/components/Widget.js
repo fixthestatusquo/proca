@@ -171,6 +171,13 @@ const Widget = (props) => {
 
   const go = (action) => {
     let i = null;
+    if (typeof action === "string" && action.match(/^eci/)) {
+      action = action.toLowerCase().slice(0, 4) + action.toLowerCase().charAt(4).toUpperCase() + action.toLowerCase().slice(5);
+    }
+    if (typeof action === "string" && !action.match(/^eci/)) {
+      action = action.toLowerCase().charAt(0).toUpperCase() + action.toLowerCase().slice(1);
+    }
+
     if (typeof action === "number" && action <= journey.length) {
       i = action - 1;
       if (i === current) return forceUpdate(); //trick to force refresh
@@ -312,9 +319,7 @@ const Widget = (props) => {
     if (config.component.widget?.autoStart !== false) {
       if (isMobile || !paramStep()) go(1);
       else {
-        let step = paramStep().toLowerCase();
-        step = step.charAt(0).toUpperCase() + step.slice(1);
-        go(step);
+        go(paramStep());
         _scrollTo({delay:300});
       };
       //      return null;
