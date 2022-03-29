@@ -37,7 +37,7 @@ export { useInitFromUrl };
 export default function useCounter(actionPage) {
   const [count, setCount] = useRecoilState(CountState);
   const config = useCampaignConfig();
-  const apiUrl = config.component?.useCount?.apiUrl || null;
+  const apiUrl = config.component?.counter?.apiUrl || null;
 
   if (!actionPage && actionPage !== false && !config.template)
     actionPage = config.actionPage;
