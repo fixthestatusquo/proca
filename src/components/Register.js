@@ -116,7 +116,7 @@ export default function Register(props) {
       // the email domain is checked and invalid
       return false;
     } else {
-      data.emailProvider = emailProvider.current || "undefined"
+      if (emailProvider.current) data.emailProvider = emailProvider.current;
     }
 
     data.tracking = Url.utm();
