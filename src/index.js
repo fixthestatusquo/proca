@@ -136,11 +136,12 @@ const autoRender = () => {
       document.readyState === "loading"
       // !(document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive")
     ) {
-      if (document.currentScript?.dataset.delay) {
+      if (Config.component?.widget?.delay) {
+        const delay = Config.component.widget.delay;
         document.addEventListener("DOMContentLoaded", () =>
           setTimeout(
             render,
-            parseInt(document.currentScript.dataset.delay),
+            delay,
             currentScript
           )
         );
