@@ -164,7 +164,7 @@ export default function ShareAction(props) {
     dispatch(event.replace("_", ":"), d);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -228,7 +228,7 @@ function Actions(props) {
   let cardIcons;
 
   const nativeShare = (medium) => {
-    addShare("share_click", medium);
+    addShare("share", medium);
     const url = shareUrl(medium);
     shareWebAPI(url,medium);
     }
@@ -238,7 +238,7 @@ function Actions(props) {
       text: shareText("share.default"),
       url: url,
     })
-      .then(() => addShare("share_close", medium))
+      .then(() => addShare("share_confirmed", medium))
       .catch((error) => console.error('Error sharing', error));
   }
 
@@ -325,12 +325,22 @@ function Actions(props) {
       ""
     );
 
+    let autoClosed = true;
+
     function after(props) {
-      addShare("share_close", medium);
+      if (autoClosed) {
+        return;
+      }
+      addShare("share_confirmed", medium);
+      autoClosed = true;
     }
 
     function before(props) {
-      addShare("share_click", medium);
+      setTimeout(() => {
+        autoClosed = false;
+        addShare("share", medium);
+      }, '500');
+
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
