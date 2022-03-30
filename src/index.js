@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { goStep, hook, setConfig, setGlobalState } from "./hooks/useConfig";
 import "./lib/i18n";
 import { isTest } from "./lib/urlparser";
-import {scrollTo} from './lib/scroll';
+import { scrollTo } from "./lib/scroll";
 
 import ProcaAlert from "./components/Alert.js";
 import Portals from "./components/Portals.js";
@@ -28,7 +28,7 @@ const Alert = (text, severity) => {
 
   ReactDOM.render(
     <ProcaAlert text={text} severity={severity} />,
-    document.querySelector("#" + selector),
+    document.querySelector("#" + selector)
   );
 };
 
@@ -52,7 +52,6 @@ const Widget = (args) => {
     config.journey[i] = d.replace("/", "_");
   });
 
-
   config.portal && initPortals(config.portal);
 
   let dom = document.querySelector(config.selector);
@@ -71,7 +70,6 @@ const Widget = (args) => {
       // document.body.appendChild(dom);
     }
   } else {
-    
     Array.from(dom.childNodes).forEach((d) => {
       frag.appendChild(d);
     });
@@ -82,10 +80,14 @@ const Widget = (args) => {
   rendered = true;
   ReactDOM.render(
     <ProcaWidget {...config} container={frag}>
-      {config.test && <ProcaAlert title="TEST MODE" severity="warning">Experiment freely, this action will not be counted</ProcaAlert>}
+      {config.test && (
+        <ProcaAlert title="TEST MODE" severity="warning">
+          Experiment freely, this action will not be counted
+        </ProcaAlert>
+      )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    dom,
+    dom
   );
 };
 
@@ -96,7 +98,7 @@ Widget.jump = (step) => {
 
 const go = (action) => {
   goStep(action);
-  scrollTo({delay:300});
+  scrollTo({ delay: 300 });
 };
 
 const set = (atom, key, value) => {
@@ -126,7 +128,7 @@ const render = (script) => {
 const autoRender = () => {
   if (document.currentScript) document.currentScript.id = "proca";
   if (window.proca) {
-    console.log("Powered by proca.app");
+    console.log("Powered by proca.app",Config.actionpage, Config.filename);
   }
   const currentScript = document.currentScript;
   try {
@@ -134,7 +136,19 @@ const autoRender = () => {
       document.readyState === "loading"
       // !(document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive")
     ) {
-      document.addEventListener("DOMContentLoaded", () => render(currentScript));
+      if (document.currentScript?.dataset.delay) {
+        document.addEventListener("DOMContentLoaded", () =>
+          setTimeout(
+            render,
+            parseInt(document.currentScript.dataset.delay),
+            currentScript
+          )
+        );
+      } else {
+        document.addEventListener("DOMContentLoaded", () =>
+          render(currentScript)
+        );
+      }
     } else {
       console.log("loaded", currentScript);
       render(currentScript);
@@ -152,6 +166,16 @@ const addEventListener = (type, listener) => {
   el.addEventListener(type, listener);
 };
 
-export { addEventListener, Alert, go, scrollTo, hook, React, ReactDOM, set, Widget };
+export {
+  addEventListener,
+  Alert,
+  go,
+  scrollTo,
+  hook,
+  React,
+  ReactDOM,
+  set,
+  Widget,
+};
 
 //      <SignatureForm margin= "dense" variant= "filled" />
