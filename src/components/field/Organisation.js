@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
-import { Grid } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import InputAdornment from "@material-ui/core/InputAdornment";
-import TwitterIcon from "../images/Twitter.js";
+import TwitterIcon from "../../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 import TextField from "@components/TextField";
@@ -16,6 +16,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   profile: {
@@ -34,19 +35,27 @@ const Organisation = (props) => {
   });
 
   const compact = props.compact;
-  const { setValue, setError, watch } = props.form;
-  const field = watch(["organisation", "picture", "comment"]);
+  const { setValue, getValues, setError, watch } = props.form;
+  const field = watch(["organisation", "picture", "comment","twitter"]);
 
   //variant={options.variant}
   //margin={options.margin}
   const handleBlur = (e) => {
     props.form.handleBlur && props.form.handleBlur(e);
-    if (!e.target.value) return;
+    fetchTwitter(e.target.value);
+
+   }
+
+ const fetchTwitter = (screenName) => {
+    if (!screenName) {
+      return;
+    }
+
     const api =
-      "https://twitter-proxy.tttp.workers.dev/?screen_name=" +
-      e.target.value.replace("https://twitter.com/", "");
+      "https://twitter.proca.app?screen_name=" +
+      screenName.replace("https://twitter.com/", "");
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
-    const field = e.target.attributes.name.nodeValue;
+    const field = "twitter";
     async function fetchAPI() {
       await fetch(api)
         .then((res) => {
@@ -89,18 +98,37 @@ const Organisation = (props) => {
     fetchAPI();
   };
 
+   const handleClick = (e) => {
+    console.log("click", getValues("twitter"));
+    fetchTwitter(getValues("twitter"));
+  };
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
   return (
     <>
-      <Grid item xs={12} sm={compact ? 12 : 4}>
+      <Grid item xs={12} sm={compact ? 12 : 6}>
         <TextField
           name="twitter"
           onBlur={handleBlur}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <SvgIcon>
-                  <TwitterIcon />
-                </SvgIcon>
+                {field.twitter ? (
+                  <IconButton
+                    aria-label="Fetch details from Twitter"
+                    onClick={handleClick}
+                    onMouseDown={handleMouseDown}
+                  >
+                    <SearchIcon />
+                  </IconButton>
+                ) : (
+                  <SvgIcon>
+                    <TwitterIcon />
+                  </SvgIcon>
+                )}
+
               </InputAdornment>
             ),
           }}
@@ -109,7 +137,7 @@ const Organisation = (props) => {
           form={props.form}
         />
       </Grid>
-      <Grid item xs={12} sm={compact ? 12 : 8}>
+      <Grid item xs={12} sm={compact ? 12 : 6}>
         <List className={classes.profile} dense={true} disablePadding={true}>
           <ListItem alignItems="flex-start">
             <ListItemAvatar>
@@ -117,7 +145,6 @@ const Organisation = (props) => {
             </ListItemAvatar>
             <ListItemText
               primary={field.organisation}
-              secondary={field.comment}
             />
           </ListItem>
         </List>

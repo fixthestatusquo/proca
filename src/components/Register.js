@@ -285,6 +285,7 @@ export default function Register(props) {
         <ConditionalDisabled disabled = {config.component.register?.disabled === true}>
         <Box marginBottom={1}>
           <Grid container spacing={1}>
+            {config.component.register?.custom?.top && <CustomField compact={compact} form={form} position="top" classes={classes}/>}
             <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
               <TextField
                 form={form}
@@ -307,7 +308,7 @@ export default function Register(props) {
               />
             </Grid>
             }
-            <Grid item xs={12} sm={config.component.register?.field?.lastname !== false ? 12:6} className={classes.field}>
+            <Grid item xs={12} sm={(compact || config.component.register?.field?.lastname !== false) ? 12:6} className={classes.field}>
               <TextField
                 form={form}
                 name="email"
@@ -341,7 +342,7 @@ export default function Register(props) {
               <Grid
                 item
                 xs={12}
-                sm={compact ? 12 : 9}
+                sm={(compact || config.component.register?.field?.postcode === false) ? 12 : 9}
                 className={classes.field}
               >
                 <Country form={form} required />
@@ -365,7 +366,7 @@ export default function Register(props) {
               </Grid>
             )}
             {props.extraFields && props.extraFields({form:form,classes:classes})}
-            {config.component.register?.custom && <CustomField compact={compact} form={form} classes={classes}/>}
+            {config.component.register?.custom?.bottom && <CustomField compact={compact} form={form} classes={classes}/>}
 
             <ConsentBlock
               organisation={props.organisation}

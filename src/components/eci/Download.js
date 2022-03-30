@@ -31,9 +31,6 @@ function Download (props) {
   const config = useCampaignConfig();
   const [data] = useData();
 
-  const next = () => {
-    if (props.done instanceof Function) props.done();
-  }
 
   const handleDownload = () => {
 
