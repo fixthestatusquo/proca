@@ -328,6 +328,7 @@ function Actions(props) {
     let autoClosed = true;
 
     function after(props) {
+    console.log ("autoclosed", autoClosed);
       if (autoClosed) {
         return;
       }
@@ -337,9 +338,10 @@ function Actions(props) {
 
     function before(props) {
       setTimeout(() => {
+    console.log ("timeout", autoClosed);
         autoClosed = false;
         addShare("share", medium);
-      }, '500');
+      }, 1500);
 
     }
     let drillProps = Object.assign({}, props);
