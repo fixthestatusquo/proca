@@ -110,7 +110,7 @@ const Widget = (props) => {
     if (scrollNeeded.current) {
       _scrollTo();
       scrollNeeded.current = false;
-    } 
+    }
   });
 
   const scrollTo = () => {
@@ -176,7 +176,7 @@ const Widget = (props) => {
       if (i === current) return forceUpdate(); //trick to force refresh
     } else {
       if (!action) return nextStep();
-      i = journey.indexOf(action);
+      i = journey.findIndex ( d => d.toLowerCase() === action.toLowerCase() )
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
