@@ -1,6 +1,7 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
+//const argv = require('minimist')(process.argv.slice(2));
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 

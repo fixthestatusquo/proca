@@ -82,8 +82,8 @@ const saveTargets = (campaignName, targets) => {
   return fileName;
 }
 
-const pushCampaignTargets = async (campaignName) => {
-  const targets = read ("target/source/"+campaignName);
+const pushCampaignTargets = async (campaignName, file) => {
+  const targets = read ("target/source/"+file);
   if (targets === null) {
     console.log("no local version of targets")
     return [];
@@ -118,6 +118,9 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
 }
 `;
   const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
+  if (ids.errors) {
+    console.error(ids.errors[0]);
+  }
   console.log(ids);
   return ids.upsertTargets;
 }
