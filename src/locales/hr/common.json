@@ -113,8 +113,7 @@
     "invalid_domain": "{{domain}} ne može primati e-poštu"
   },
   "progress_0": "{{count}} potpis. Idemo na {{goal}}",
-  "progress_1": "{{count}} potpisa. Idemo na {{goal}}",
-  "progress_2": "{{count}} potpisa. Idemo na {{goal}}",
+  "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",

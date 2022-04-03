@@ -113,7 +113,7 @@
     "invalid_domain": "{{domain}} não pode receber e-mails"
   },
   "progress": "{{count}} assinou. Vamos ao {{goal}}",
-  "progress_plural": "{{count}} assinaram. Vamos ao {{goal}}",
+  "progress_plural": "{{count}} assinaram. Vamos até {{goal}}",
   "register": "Acrescentar meu nome",
   "share": {
     "intro": "Ótimo, você assinou 👍. Para multiplicar o seu impacto, partilhe longe e longe para que todos vejam isto petition🙏.",

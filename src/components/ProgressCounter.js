@@ -73,9 +73,11 @@ export default function Progress(props) {
   const min = config.component.counter?.min | 0;
   if (!count || count <= min) return null;
 
+  const progress = count > 1 && t("progress_plural") !== "progress_plural" ? "progress_plural" : "progress";
+
   return (
     <Box className={classes.root}>
-      {t("progress", {
+      {t(`${progress}`, {
         count: formatNumber(count, separator),
         goal: formatNumber(goal, separator),
       })}
