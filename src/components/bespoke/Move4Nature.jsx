@@ -39,7 +39,7 @@ const Icons = (props) => {
 <Fab size="large" key={i} boxShadow={0} color={current===props.activities[i] ? "primary":"default"} title={props.activities[i]}>{d}</Fab>
   </Grid>
   <Grid item>
-    {t(props.activities[i])}
+    {t("campaign:activity."+props.activities[i],{defaultValue:props.activities[i]})}
   </Grid>
 </Grid>
     </Box>
