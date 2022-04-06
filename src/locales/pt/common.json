@@ -116,9 +116,9 @@
   "progress_plural": "{{count}} assinaram. Vamos até {{goal}}",
   "register": "Acrescentar meu nome",
   "share": {
-    "intro": "Óptimo, obrigado por ter assinado 👍. Para multiplicar o seu impacte, partilhe amplamente para que todos vejam esta petição 🙏.",
+    "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",
-    "title": "Quase pronto! Dê o próximo passo."
+    "title": "Está quase! Dá o próximo passo."
   },
   "target": {
     "country": {
