@@ -112,7 +112,7 @@
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni"
   },
-  "progress": "{{count}} aláírta. Menjünk a {{goal}} oldalra",
+  "progress": "{{count}} aláírta. Célozzuk meg a(z) {{goal}} aláírást",
   "progress_plural": "",
   "register": "Add hozzá a nevemet",
   "share": {
