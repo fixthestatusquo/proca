@@ -283,6 +283,7 @@ const SubmitButton = (props) => {
     }
 
     procaRequest.donation.payload = payload;
+    procaRequest.tracking = Url.utm();
 
     if (config.test) payload.test = true;
 
@@ -382,6 +383,7 @@ const SubmitButton = (props) => {
       params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
 
 
+    console.log("stripeCreate: ".params);
     const piResponse = await stripeCreate(params);
 
     if (piResponse.errors) {
