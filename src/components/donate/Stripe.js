@@ -381,6 +381,7 @@ const SubmitButton = (props) => {
       params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
 
 
+    console.log("stripeCreate: ".params);
     const piResponse = await stripeCreate(params);
 
     if (piResponse.errors) {
