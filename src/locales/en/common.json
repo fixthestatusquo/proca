@@ -54,6 +54,7 @@
     "button": {
       "cta": {
         "monthly": "Donate {{amount}} every month",
+        "weekly": "Donate {{amount}} every week",
         "oneoff": "Donate {{amount}}"
       }
     },
@@ -83,10 +84,11 @@
       "each": {
         "monthly": "each month",
         "oneoff": "once",
-        "weekly": "each year"
+        "weekly": "each week"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
+        "weekly": "I'm donating {{amount}} {{frequency}}",
         "oneoff": "I'm donating {{amount}}"
       },
       "monthly": "monthly",

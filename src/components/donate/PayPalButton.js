@@ -238,7 +238,6 @@ const ProcaPayPalButton = (props) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const [formData, setFormData] = useData();
-  // const amount = formData.amount;
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
 
@@ -248,8 +247,13 @@ const ProcaPayPalButton = (props) => {
 
   const [{ isPending }] = usePayPalScriptReducer();
 
-  // const frequency = props.frequency;
+  // why do we need to use the returned value?
   const frequency = useFrequencyChange(props.frequency);
+
+  let amount = formData.amount;
+  if (frequency === 'weekly') {
+    amount = amount * 4.3;
+  }
 
   const createOrder = useCallback(
     (paypalResponse, actions) => {
@@ -288,13 +292,13 @@ const ProcaPayPalButton = (props) => {
       // console.log("createSubscription called" + formData.amount);
       return actions.subscription.create({
         plan_id: plan_id,
-        quantity: Math.floor(formData.amount * 100).toString(), // PayPal wants a string
+        quantity: amount.toString(), // PayPal wants a string
         application_context: {
           shipping_preference: "NO_SHIPPING",
         },
       });
     },
-    [formData.amount, plan_id, setFormData]
+    [amount, plan_id, setFormData]
   );
 
   const approveSubscription = useCallback(

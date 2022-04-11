@@ -364,12 +364,16 @@ const SubmitButton = (props) => {
     setData('donorInput', donorInput);
 
     const cardElement = elements.getElement(CardElement);
+    let amount = Math.floor(donorInput.amount * 100);
+    if (donateConfig.weekly) {
+      amount = amount * donateConfig.weekly.multipier;
+    }
 
     console.log("donorInput ".donorInput);
 
     let params = {
       actionPage: config.actionPage,
-      amount: Math.floor(donorInput.amount * 100),
+      amount: amount,
       currency: currency.code,
       contact: {
         name: donorInput.firstname + " " + donorInput.lastname,
