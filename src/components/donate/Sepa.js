@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
-  const donateConfig = config.component.donation;
   const [data, setData] = useData();
   const { t } = useTranslation();
 
@@ -71,12 +70,14 @@ export default function Register(props) {
   const { control, errors } = form;
 
   const displayAmount = data.amount;
-  let amount = Math.floor(data.amount * 100);
-  if (donateConfig.weekly) {
-    amount = Math.floor(amount * 100) * 4.3;
-  }
   const currency = config.component.donation.currency;
   const frequency = data.frequency;
+
+  // why floor? maybe to avoid a weird user input? 1.34567 -> 134.567 -> 134
+  let amount = Math.floor(data.amount * 100);
+  if (frequency === 'weekly') {
+    amount = Math.floor(amount * 4.3);
+  }
 
   const { handleSubmit, setError } = form;
 
@@ -94,7 +95,19 @@ export default function Register(props) {
         iban: procaRequest.IBAN,
       }
     };
-    if (data.frequency) procaRequest.donation.frequencyUnit = data.frequency;
+    if (data.frequency) {
+      // weekly means amount * 4.3 monthly, but from here on out it's a monthly
+      // donation with a isWeekly flag.
+      if (data.frequency === 'weekly') {
+        procaRequest.donation.frequencyUnit = procaRequest.frequency = 'monthly';
+        procaRequest.isWeekly = true;
+        procaRequest.weeklyAmount = displayAmount;
+        procaRequest.amount = amount;
+      }
+      else {
+        procaRequest.donation.frequencyUnit = data.frequency;
+      }
+    }
     if (config.test) procaRequest.donation.payload.test = true;
 
     const result = await addDonateContact(

@@ -265,15 +265,16 @@ const SubmitButton = (props) => {
     const payload = {
       paymentConfirm: confirmedIntent,
       paymentIntent: paymentIntent,
-      formValues: values,
+      formValues: props.form.getValues(),
     };
     procaRequest.donation = {
-      amount: confirmedIntent.amount,
+      amount: confirmedIntent.amount, // actual monthly amount
       currency: confirmedIntent.currency.toUpperCase(),
     };
 
-    if (formData.frequency !== "oneoff") {
-      const intentResponse = paymentIntent.response;
+    const intentResponse = paymentIntent.response;
+
+    if (intentResponse.items.data[0]?.plan) {
       const subscriptionPlan = intentResponse.items.data[0].plan;
 
       procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
@@ -282,11 +283,18 @@ const SubmitButton = (props) => {
       payload.customerId = intentResponse.customer;
     }
 
+    if (procaRequest.frequency === 'weekly') {
+      procaRequest.frequency = 'monthly';
+      procaRequest.isWeekly = true;
+      procaRequest.weeklyAmount = procaRequest.amount;
+    }
+
     procaRequest.donation.payload = payload;
     procaRequest.tracking = Url.utm();
 
     if (config.test) payload.test = true;
 
+    console.log("proca addDonateContact request ", procaRequest)
     const procaResponse = await addDonateContact(
       "stripe",
       config.actionPage,
@@ -351,7 +359,7 @@ const SubmitButton = (props) => {
 
     const utm = Url.utm();
 
-    const donorInput = {
+    let donorInput = {
       ...formData,
       ...values,
       page: config.actionPage.name,
@@ -361,19 +369,26 @@ const SubmitButton = (props) => {
       utm_medium: utm.medium
     }
 
-    setData('donorInput', donorInput);
 
     const cardElement = elements.getElement(CardElement);
-    let amount = Math.floor(donorInput.amount * 100);
-    if (donateConfig.weekly) {
-      amount = amount * donateConfig.weekly.multipier;
+    // const displayAmount = donorInput.amount;
+
+    let amountToCharge = Math.floor(donorInput.amount * 100);
+    if (donorInput.frequency === 'weekly') {
+      amountToCharge = Math.floor(amountToCharge * 4.3);
+      // donorInput is used for Stripe metadata
+      donorInput.isWeekly = true;
+      donorInput.weeklyAmount = donorInput.amount;
     }
 
     console.log("donorInput ".donorInput);
 
-    let params = {
+    setData('donorInput', donorInput);
+
+
+    let procaRequest = {
       actionPage: config.actionPage,
-      amount: amount,
+      amount: amountToCharge,
       currency: currency.code,
       contact: {
         name: donorInput.firstname + " " + donorInput.lastname,
@@ -383,12 +398,26 @@ const SubmitButton = (props) => {
       stripe_product_id: config.component.donation.stripe.productId,
       metadata: donorInput,
     };
-    if (donorInput.frequency)
-      params.frequency = STRIPE_FREQUENCY[donorInput.frequency];
+
+    if (donorInput.frequency) {
+      // weekly means amount * 4.3 monthly, but from here on out it's a monthly
+      // donation with a isWeekly flag.
+      if (donorInput.frequency === 'weekly') {
+        procaRequest.frequency = 'month';
+        // procaRequest.isWeekly = true;
+        // procaRequest.weeklyAmount = displayAmount;
+        procaRequest.amount = amountToCharge;
+      }
+      else {
+        procaRequest.donation.frequencyUnit = donorInput.frequency;
+      }
+    }
+    // if (donorInput.frequency)
+    //   procaRequest.frequency = STRIPE_FREQUENCY[donorInput.frequency];
 
 
-    console.log("stripeCreate: ".params);
-    const piResponse = await stripeCreate(params);
+    console.log("stripeCreate: ".procaRequest);
+    const piResponse = await stripeCreate(procaRequest);
 
     if (piResponse.errors) {
       console.log("Error returned from proca backend", piResponse.errors);
