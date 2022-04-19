@@ -48,7 +48,6 @@ const DonateTitle = ({ showAverage = true }) => {
 
   if (showAverage && averages) {
     if (averages[frequency]) {
-      console.log(averages[frequency], frequency);
       subtitle = t("donation.average", {
         amount: formatMoneyAmount(averages[frequency])
       });

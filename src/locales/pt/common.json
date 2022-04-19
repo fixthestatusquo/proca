@@ -37,10 +37,10 @@
     "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo sua pasta de spam!) e confirmar sua assinatura de e-mail",
     "emailSent": "Nós lhe enviamos um e-mail para {email}!",
     "implicit": "Submeta este formulário para receber e-mails de {{name}}",
-    "intro": "Saiba mais sobre as nossas campanhas, acções e o progresso da {{campaign}}",
+    "intro": "Saiba mais sobre as nossas campanhas, acções e o progresso de {{campaign}}",
     "opt-in": "Sim, eu quero que {{partner}} me mantenha informado/a via e-mail",
     "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail",
-    "opt-out": "Não, não me envie e-mails ou me mantenha atualizado no futuro",
+    "opt-out": "Não, não me envie e-mails nem me mantenha actualizado/a no futuro",
     "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>"
   },
