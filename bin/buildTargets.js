@@ -1,7 +1,7 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
-//const argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2));
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 
@@ -31,6 +31,11 @@ const merge = (targets, twitters, options) => {
       
       r.country = target.area
     }
+    if (options.meps) {
+      r.description = target.fields.party;
+      r.eugroup = target.fields.eugroup;
+    }
+
     if (options.email) {
       r.email = target.emails[0].email;
     }
@@ -81,14 +86,14 @@ const saveTargets = (campaignName, targets) => {
 }
 
 (async () => {
-  const argv = process.argv.slice(2);
-  const name = argv[0];
-  if (!argv[0]) {
-    console.error("need buildCampaign {name} [--email] [--display]");
+  const name = argv._[0];
+  if (!name) {
+    console.error("need buildCampaign {name} [--email] [--display] [--meps[=committeeA,committeeB]]");
     return;
   }
-  const publicEmail = argv[1] === "--email";
-  const display = argv[1] === "--display";
+  const publicEmail = argv.email || false;
+  const display = argv.display || false;
+  const meps = argv.meps || false;
 
   try {
     const c = read("campaign/" + name); // the config file
@@ -99,7 +104,7 @@ const saveTargets = (campaignName, targets) => {
     } catch (e) {
       console.log("no twitter list");
     }
-    const d = merge(targets, twitters, {email: publicEmail, display: display});
+    const d = merge(targets, twitters, {email: publicEmail, display: display, meps: meps});
     //    const d = await pullCampaign(argv[0]);
     if (d) {
       const c=saveTargets(name,d);
