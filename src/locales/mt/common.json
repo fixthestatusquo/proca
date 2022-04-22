@@ -112,10 +112,8 @@
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails"
   },
-  "progress_0": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
+  "progress": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
+  "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "register": "Żid ismi",
   "share": {
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",

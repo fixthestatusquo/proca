@@ -112,10 +112,8 @@
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil"
   },
-  "progress_0": "{{count}} so se podpisali. Pojdimo v {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
+  "progress": "{{count}} so se podpisali. Pojdimo v {{goal}}",
+  "progress_plural": "{{count}} so se podpisali. Pojdimo v {{goal}}",
   "register": "Dodaj moje ime",
   "share": {
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",

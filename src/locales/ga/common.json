@@ -112,11 +112,8 @@
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil"
   },
-  "progress_0": "{{count}} sínithe. Rachaimid go {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
-  "progress_4": "",
+  "progress": "{{count}} sínithe. Rachaimid go {{goal}}",
+  "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
   "register": "Cuir m’ainm leis",
   "share": {
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",

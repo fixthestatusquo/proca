@@ -112,9 +112,8 @@
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus"
   },
-  "progress_0": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
+  "progress": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
+  "progress_plural": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "register": "Pievienojiet manu vārdu",
   "share": {
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
