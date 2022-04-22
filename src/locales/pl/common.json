@@ -112,9 +112,8 @@
   "email": {
     "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
   },
-  "progress_0": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
+  "progress": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
+  "progress_plural": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
   "register": "Dodaj moje imię",
   "share": {
     "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
