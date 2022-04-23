@@ -20,7 +20,6 @@ const component= function TwitterAction(profile) {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
-
   function addTweet (event,screenName) {
     addAction(profile.actionPage,event,{
         uuid: uuid(),
@@ -31,7 +30,8 @@ const component= function TwitterAction(profile) {
 
 
   const tweet=(e) => {
-    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
+    let t=profile.form.getValues("message");
+//    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
     if (t.indexOf("{@}") !== -1) 
       t = t.replace("{@}", "@" + profile.screen_name);

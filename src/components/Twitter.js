@@ -118,7 +118,7 @@ const Component = (props) => {
         profiles={profiles}
         actionPage={props.actionPage}
         actionUrl={actionUrl}
-        actionText={config.param.twitterText || t("campaign:twitter.message")}
+        form={form}
         done={handleDone}
       />
     </Fragment>

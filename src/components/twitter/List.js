@@ -9,7 +9,7 @@ const component = (props) => {
   return (
   <List>
     {props.profiles.map((d) => 
-      <TwitterAction key={d.id} actionPage={props.actionPage} done={props.done} actionUrl={props.actionUrl} actionText={props.actionText} {...d}></TwitterAction>
+      <TwitterAction form={props.form} key={d.id} actionPage={props.actionPage} done={props.done} actionUrl={props.actionUrl} {...d}></TwitterAction>
     )}
   </List>
   );
