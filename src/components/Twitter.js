@@ -9,6 +9,7 @@ import Message from "@components/twitter/Message";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
+import {pickOne} from '@lib/text';
 
 const Component = (props) => {
   const { t, i18n } = useTranslation();
@@ -21,7 +22,7 @@ const Component = (props) => {
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: {...data,message:t("campaign:twitter.message")},
+    defaultValues: {...data,message:pickOne(t("campaign:twitter.message"))},
   });
   const { watch } = form;
   const country = watch("country");
@@ -47,9 +48,15 @@ const Component = (props) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
+          if (config.component.email?.filter?.includes("random")) {
+            const i = d[Math.floor(Math.random() * d.length)];
+            setProfiles([i]);
+          }
+
           if (!config.component.twitter.filter?.includes("country"))
             setProfiles(d);
         })
+
         .catch((error) => {
           console.log(error);
         });
