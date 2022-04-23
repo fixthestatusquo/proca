@@ -1,26 +1,27 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
 
-import TwitterList from "@components/TwitterList";
+import TwitterList from "@components/twitter/List";
 import Dialog from "@components/Dialog";
 import Country from "@components/Country";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
+import Message from "@components/twitter/Message";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 
 const Component = (props) => {
+  const { t, i18n } = useTranslation();
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [dialog, viewDialog] = useState(false);
-  const { t, i18n } = useTranslation();
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: data,
+    defaultValues: {...data,message:t("campaign:twitter.message")},
   });
   const { watch } = form;
   const country = watch("country");
@@ -46,14 +47,14 @@ const Component = (props) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
-          if (!config.component.twitter?.filter.includes("country"))
+          if (!config.component.twitter.filter?.includes("country"))
             setProfiles(d);
         })
         .catch((error) => {
           console.log(error);
         });
     };
-    if (config.component?.twitter?.listUrl)
+    if (config.component.twitter.listUrl)
       fetchData(config.component.twitter.listUrl);
   }, [config.component, config.hook, setAllProfiles]);
 
@@ -90,8 +91,6 @@ const Component = (props) => {
   const handleClose = (d) => {
     viewDialog(false);
   };
-  //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
-  //
   return (
     <Fragment>
       <Dialog
@@ -107,11 +106,12 @@ const Component = (props) => {
       {config.component.twitter?.filter?.includes("country") && (
         <Country form={form} list={config.component?.twitter?.countries} />
       )}
+      {config.component.twitter?.message && (<Message form={form}  />)}
       <TwitterList
         profiles={profiles}
         actionPage={props.actionPage}
         actionUrl={actionUrl}
-        actionText={config.param.twitterText || t("twitter.actionText")}
+        actionText={config.param.twitterText || t("campaign:twitter.message")}
         done={handleDone}
       />
     </Fragment>

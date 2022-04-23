@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import List from '@material-ui/core/List';
 
-import TwitterAction from './TwitterAction';
+import TwitterAction from './Action';
 
 const component = (props) => {
   return (

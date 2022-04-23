@@ -10,10 +10,10 @@ import PropTypes from "prop-types";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
-import TwitterIcon from '../images/Twitter.js';
+import TwitterIcon from '../../images/Twitter.js';
 
-import {addAction} from '../lib/server';
-import uuid from '../lib/uuid';
+import {addAction} from '@lib/server';
+import uuid from '@lib/uuid';
 
 
 const component= function TwitterAction(profile) {
