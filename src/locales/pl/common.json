@@ -37,7 +37,7 @@
     "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila.",
     "emailSent": "Wysłaliśmy Ci wiadomość na adres {email}!",
     "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}.",
-    "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i {{campaign}} postępach.",
+    "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i postępach akcji {{campaign}} .",
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
     "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco za pośrednictwem poczty elektronicznej",
     "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie o nowościach w przyszłości",
@@ -112,8 +112,9 @@
   "email": {
     "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
   },
-  "progress": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-  "progress_plural": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
+  "progress_0": "{{count}} już podpisała. Dążymy do {{goal}}",
+  "progress_1": "{{count}} już podpisało. Dążymy do {{goal}}",
+  "progress_2": "",
   "register": "Dodaj moje imię",
   "share": {
     "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
