@@ -25,11 +25,11 @@
   "action": {
     "donate": "Przekaż darowiznę",
     "email": "Wyślij wiadomość e-mail",
-    "join": "Dołącz do",
-    "register": "Rejestr",
+    "join": "Dołączyć",
+    "register": "Zarejestruj",
     "share": "Udostępnij",
-    "sign": "Znak",
-    "twitter": "Tweet"
+    "sign": "Podpisz",
+    "twitter": "Tweetnij"
   },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
@@ -41,8 +41,8 @@
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
     "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie za pośrednictwem poczty elektronicznej",
     "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości",
-    "processing": "Twoje dane osobowe będą przechowywane w sposób poufny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
-    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>."
+    "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
+    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>"
   },
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
   "donation": {
@@ -110,14 +110,14 @@
     "to": "Darowizna na rzecz {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
+    "invalid_domain": "{{domain}} nie może odbierać e-maili"
   },
   "progress_0": "{{count}} już podpisała. Dążymy do {{goal}}",
   "progress_1": "{{count}} już podpisało. Dążymy do {{goal}}",
   "progress_2": "",
-  "register": "Dodaj moje imię",
+  "register": "Podpisuję petycję",
   "share": {
-    "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
+    "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",
     "title": "Prawie gotowe! Zrób następny krok."
   },
