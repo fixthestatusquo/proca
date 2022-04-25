@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import TwitterList from "@components/twitter/List";
+import {tweet} from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
 import Country from "@components/Country";
 import useData from "@hooks/useData";
@@ -63,7 +64,6 @@ const TweetButton = props => {
                 <Button
                   endIcon={<SkipNextIcon />}
                   variant="contained"
-                  onClick={props.done}
                 >
                   {t("Next")}
                 </Button>
@@ -90,6 +90,9 @@ const Component = (props) => {
   if (!actionUrl && i18n.exists("twitter.actionUrl"))
     actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
+  const handleTweet = () => {
+    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:profiles,actionUrl});
+  };
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
@@ -187,7 +190,7 @@ const Component = (props) => {
         done={handleDone}
       />
       {config.component.twitter?.message && (<Message form={form}  />)}
-    <TweetButton />
+    <TweetButton handleClick={handleTweet}/>
     </Fragment>
   );
 };

@@ -15,58 +15,69 @@ import TwitterIcon from '../../images/Twitter.js';
 import {addAction} from '@lib/server';
 import uuid from '@lib/uuid';
 
-
-const component= function TwitterAction(profile) {
-  const [disabled, disable] = useState(false);
-  const [selected, select] = useState(false);
-  const img = () => profile.profile_image_url_https;
-  function addTweet (event,screenName) {
-    addAction(profile.actionPage,event,{
+  const tweet = ({message, screen_name, actionUrl, done, actionPage}) => {
+  const addTweet = (event,actionPage,screenName) => {
+    addAction(actionPage,event,{
         uuid: uuid(),
 //        tracking: Url.utm(),
         payload: [{key:"screen_name",value:screenName}]
     });
   }
-
-
-  const tweet=(e) => {
-    let t=profile.form.getValues("message");
+    if (Array.isArray(screen_name)) {
+      const r = screen_name.map ( d => d.screen_name);
+      screen_name = r.join (' @');
+    }
+    let t=message;
 //    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
     if (t.indexOf("{@}") !== -1) 
-      t = t.replace("{@}", "@" + profile.screen_name);
-    else t = ".@" + profile.screen_name + " " + t;
+      t = t.replace("{@}", "@" + screen_name);
+    else t = ".@" + screen_name + " " + t;
 
-    if (profile.actionUrl) {
+    if (actionUrl) {
       if (t.indexOf("{url}") !== -1) 
-        t = t.replace("{url}", profile.actionUrl);
-      else t = t+ " " + profile.actionUrl;
+        t = t.replace("{url}", actionUrl);
+      else t = t+ " " + actionUrl;
     }
     const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
     let win = window.open(
       url,
-      "tweet-"+profile.screen_name,
+      "tweet-"+screen_name,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
-    select(true);
-    addTweet("twitter_click",profile.screen_name);
+    addTweet("twitter_click",screen_name);
 
     var timer = setInterval( () => {
       if(!win) return; // window popup blocked?
     const closed= win.closed ;
     if(closed) {
       clearInterval(timer);
-      disable(true);
-      select(false);
-      addTweet("twitter_close",profile.screen_name);
-      if (profile.done instanceof Function)
-        profile.done();
+      addTweet("twitter_close",screen_name);
+      if (done instanceof Function)
+        done();
     }}, 10000);
 
+  }
+
+const component= function TwitterAction(profile) {
+  const [disabled, disable] = useState(false);
+  const [selected, select] = useState(false);
+  const img = () => profile.profile_image_url_https;
+
+
+  const onClick=(e) => {
+    const done = () =>{
+      disable(true);
+      select(false);
+      profile.done && profile.done();
+    };
+    tweet ({actionPage:profile.actionPAge, message:profile.form.getValues("message"),screen_name:profile.screen_name,actionUrl:profile.actionUrl,done:done});
+    select(true);
   };
 
+
   return (
-      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={true} onClick={tweet} divider={true}>
+      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={true} onClick={onClick} divider={true}>
         <ListItemAvatar>
           <Avatar 
              src={img()} />
@@ -76,7 +87,7 @@ const component= function TwitterAction(profile) {
           secondary={profile.description}
         />
                   <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="Tweet" onClick={tweet}>
+                    <IconButton edge="end" aria-label="Tweet" onClick={onClick}>
 
                       <SvgIcon><TwitterIcon/></SvgIcon>
                     </IconButton>
@@ -103,3 +114,4 @@ component.propTypes = {
   
 };
 export default component;
+export {tweet};
