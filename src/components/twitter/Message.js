@@ -1,10 +1,8 @@
 import React from 'react';
-import InputAdornment from '@material-ui/core/InputAdornment';
 //import TextField from '@material-ui/core/TextField';
 import TextField from '@components/TextField';
 import Grid from '@material-ui/core/Grid';
 import { useTranslation } from "react-i18next";
-import EditIcon from '@material-ui/icons/Edit';
 
 export default function TwitterMessage (props) {
   const { t } = useTranslation();
@@ -15,11 +13,6 @@ export default function TwitterMessage (props) {
     name="message"
                form={props.form}
                label={props.label || t("Your message")}
-             InputProps ={{
-              startAdornment:(<InputAdornment position="start">
-              <EditIcon />
-            </InputAdornment>),
-            }}
              />
           </Grid>
         </Grid>

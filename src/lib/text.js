@@ -17,7 +17,6 @@ const pickOne = (locale) => {
   });
   variants.push(t.join("\n")); // add the last variant
 
-  console.log(variants);
   return variants[Math.floor(Math.random() * variants.length)];
 };
 

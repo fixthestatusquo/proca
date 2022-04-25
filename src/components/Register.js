@@ -21,6 +21,7 @@ import Alert from "@material-ui/lab/Alert";
 import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -33,7 +34,6 @@ import CustomField from "@components/field/CustomField";
 import { addActionContact } from "@lib/server.js";
 import dispatch from "@lib/event.js";
 import uuid from "@lib/uuid.js";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
