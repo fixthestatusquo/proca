@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -34,6 +35,7 @@ export default function FABAction(props) {
   //  const theme = useTheme();
 
   const { t } = useTranslation();
+  const config = useCampaignConfig();
 
   let counter = useCount(props.actionPage);
 
@@ -53,7 +55,8 @@ export default function FABAction(props) {
     return el;
   };
 
-  let callToAction = t("register");
+  const defaultAction = config.journey.includes("Petition") ? "Sign now!" : "register";
+  let callToAction =  t(config.component.register?.button || defaultAction);
   let isDonate = false;
 
   const nextAction = props.journey[props.current + 2];
