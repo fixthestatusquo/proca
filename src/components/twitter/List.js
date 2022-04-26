@@ -9,7 +9,7 @@ const component = (props) => {
   return (
   <List>
     {props.profiles.map((d) => 
-      <TwitterAction form={props.form} key={d.id} actionPage={props.actionPage} done={props.done} actionUrl={props.actionUrl} {...d}></TwitterAction>
+      <TwitterAction clickable={props.clickable} form={props.form} key={d.id} actionPage={props.actionPage} done={props.done} actionUrl={props.actionUrl} {...d}></TwitterAction>
     )}
   </List>
   );
@@ -18,7 +18,7 @@ const component = (props) => {
 // you can have actionText (text of function(profile))
 component.propTypes = {
   actionUrl : PropTypes.string,
-  actionText : PropTypes.string.isRequired,
+  actionText : PropTypes.string,
 };
 export default component;
 

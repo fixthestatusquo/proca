@@ -64,6 +64,7 @@ const component= function TwitterAction(profile) {
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
 
+  const clickable = profile.clickable;
 
   const onClick=(e) => {
     const done = () =>{
@@ -77,7 +78,7 @@ const component= function TwitterAction(profile) {
 
 
   return (
-      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={true} onClick={onClick} divider={true}>
+      <ListItem alignItems="flex-start" selected={selected} disabled={disabled} button={clickable} onClick={onClick} divider={false}>
         <ListItemAvatar>
           <Avatar 
              src={img()} />
@@ -86,12 +87,13 @@ const component= function TwitterAction(profile) {
           primary={profile.name}
           secondary={profile.description}
         />
-                  <ListItemSecondaryAction>
+    {clickable && <ListItemSecondaryAction>
                     <IconButton edge="end" aria-label="Tweet" onClick={onClick}>
 
                       <SvgIcon><TwitterIcon/></SvgIcon>
                     </IconButton>
                   </ListItemSecondaryAction>
+    }
       </ListItem>
   );
 }

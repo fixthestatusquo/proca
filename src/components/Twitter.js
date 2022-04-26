@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 import TwitterList from "@components/twitter/List";
 import {tweet} from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
+import Alert from "@components/Alert";
 import Country from "@components/Country";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
@@ -14,6 +15,7 @@ import {pickOne} from '@lib/text';
 import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from '../images/Twitter.js';
+import Again from '@components/twitter/Again';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import ReloadIcon from '@material-ui/icons/Cached';
 const Intro = (props) => {
@@ -25,11 +27,11 @@ const Intro = (props) => {
     return (<p>Selecting your target...</p>);
   }
   return (
-    <Grid container alignItems="flex-start">
+    <Grid container alignItems="flex-start" >
     <Grid item xs={8}>
         <p>{t("Selected one of our {{total}} most important targets",{total:props.total})}</p>
     </Grid>
-        <Grid item xs={4} justifyContent="flex-end" alignContent="flex-end">
+        <Grid item xs={4}>
 
         <Button
                 variant="contained"
@@ -76,8 +78,9 @@ const Component = (props) => {
   const { t, i18n } = useTranslation();
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
-  const [data] = useData();
+  const [data, setData] = useData();
   const [allProfiles, setAllProfiles] = useState([]);
+  const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
   const form = useForm({
     //    mode: "onBlur",
@@ -92,6 +95,10 @@ const Component = (props) => {
 
   const handleTweet = () => {
     tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:profiles,actionUrl});
+    let target = data.targets ? data.targets.concat (profiles) : profiles;
+    setTweeting(true);
+    setData ("targets",target);
+
   };
   useEffect(() => {
     const fetchData = async (url) => {
@@ -166,6 +173,16 @@ const Component = (props) => {
   const handleClose = (d) => {
     viewDialog(false);
   };
+
+  if (tweeting) {
+    return <>
+      <Again again={() => setTweeting(false)} done={props.done}/>
+      <Alert severity="info">
+            please complete sending the tweet in the new window (on twitter)
+          </Alert>
+      </>; 
+  };
+
   return (
     <Fragment>
       <Dialog
@@ -187,6 +204,7 @@ const Component = (props) => {
         actionPage={props.actionPage}
         actionUrl={actionUrl}
         form={form}
+        clickable={false}
         done={handleDone}
       />
       {config.component.twitter?.message && (<Message form={form}  />)}
