@@ -145,6 +145,10 @@ most fields can either be displayed or hidden, most fields can either be require
 - config.component.field.comment: boolean (show/hide) or {required:boolean}
 - config.component.field.phone: boolean (show/hide)
 
+### Counter
+
+The counter will automatically calculate next goals so that goal always escapes the current number (keeps being motivating but is not reached). You can set the goal "steps" - successive signature counts to reach by setting an array `config.component.counter.steps`. Set to single value (`[1000]`) to fix the goal at 1000.
+
 ## Country
 - config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 
