@@ -241,7 +241,7 @@ const PROCA_FREQUENCIES = {
   year: "YEARLY",
   yearly: "YEARLY",
 };
-async function addDonateContact(provider, actionPage, data) {
+async function addDonateContact(provider, actionPage, data, test ) {
   delete data.IBAN;
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;
@@ -258,7 +258,7 @@ async function addDonateContact(provider, actionPage, data) {
   }
   console.debug("Donation Data for Proca", data.donation);
 
-  return await addActionContact("donate", actionPage, data);
+  return await addActionContact("donate", actionPage, data, test);
 }
 
 async function addActionContact(actionType, actionPage, data, test) {

@@ -213,6 +213,8 @@ Sets the amounts to display for each frequency. If `default` is set, it will be 
 
 ### `paypal`: dict
 
+if not set, paypal isn't offered a a payment option
+
 Configures the PayPal button. See the [PayPal documentation](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) for how to get the `clientId`.
 
 The `planId` is used to create [subscriptions](https://developer.paypal.com/docs/subscriptions/). See the [documentation](https://www.paypal.com/us/brc/article/setting-up-recurring-payments-for-business) for instructions on creating a plan.
@@ -234,6 +236,7 @@ Example:
 ### `stripe`: dict
 
 Configures Stripe for card donations. See the Stripe documentation for getting the [publishable API key](https://stripe.com/docs/keys). Subscriptions rely on a Product - see the documenation for [creating a product](https://stripe.com/docs/billing/prices-guide#manage-products).
+if you want, set up the testKey too, that will be used if the widget is in test mode (?proca_test is true)
 
 Create the Product with a 1 € / month price.
 
@@ -242,6 +245,7 @@ Example:
     "stripe": {
         "productId": "prod_xyz",
         "publishableKey": "pk_xyx"
+        "testKey": "pk_test_xyx"
     }
 
 ### `sepa`: dict

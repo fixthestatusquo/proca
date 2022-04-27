@@ -294,7 +294,8 @@ const SubmitButton = (props) => {
     const procaResponse = await addDonateContact(
       "stripe",
       config.actionPage,
-      procaRequest
+      procaRequest,
+      config.test
     );
 
     if (procaResponse.errors) {
@@ -472,9 +473,12 @@ const PaymentFormWrapper = (props) => {
   const config = useCampaignConfig();
 
   const [data] = useData();
-  const publishableKey =
+  let publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+  if (config.test && config.component.donation?.stripe?.testKey )
+    publishableKey = config.component.donation.stripe.testKey;
+
   const [stripe, loadStripe] = useState(null);
   const [, error] = useScript({
     src: "https://js.stripe.com/v3/",

@@ -133,6 +133,7 @@ const Component = (props) => {
     };
     if (config.component.twitter.listUrl)
       fetchData(config.component.twitter.listUrl);
+    // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterRandomProfile = () => {
