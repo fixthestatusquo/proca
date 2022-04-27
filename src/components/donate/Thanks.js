@@ -35,7 +35,7 @@ const SEPA = ({ formData }) => {
   );
 };
 
-const Card = (formData) => {
+const Card = () => {
   const { t } = useTranslation();
 
   return (
@@ -52,7 +52,7 @@ const Card = (formData) => {
   );
 };
 
-const PayPal = (formData) => {
+const PayPal = () => {
   const { t } = useTranslation();
 
   return (
@@ -68,7 +68,7 @@ const PayPal = (formData) => {
     </>
   );
 };
-const Thanks = (props) => {
+const Thanks = () => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
 
@@ -76,6 +76,7 @@ const Thanks = (props) => {
   const formData = data.donorInput || data;
 
   const formatMoneyAmount = useFormatMoney();
+  let displayAmount = formData.amount;
   return (
     <Container id="proca-donate">
       <Grid container spacing={1}>
@@ -119,8 +120,8 @@ const Thanks = (props) => {
                 {
                   formData.frequency !== "oneoff"
                     ? t("donation.frequency.feedback." + formData.frequency,/* i18next-extract-disable-line */
-                      { amount: formatMoneyAmount(formData.amount), frequency: t("donation.frequency.each." + formData.frequency) })
-                    : formatMoneyAmount(formData.amount)}
+                      { amount: formatMoneyAmount(displayAmount), frequency: t("donation.frequency.each." + formData.frequency) })
+                    : formatMoneyAmount(displayAmount)}
               </Grid>
 
               <Grid item xs={12}></Grid>

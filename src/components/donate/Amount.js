@@ -101,6 +101,7 @@ const DonateAmount = (props) => {
             <Typography paragraph variant="h6" gutterBottom color="textPrimary">
               {t("donation.payment_methods.intro")}
             </Typography>
+
             {!config.component.donation.external && (
               <PaymentMethodButtons
                 classes={classes}

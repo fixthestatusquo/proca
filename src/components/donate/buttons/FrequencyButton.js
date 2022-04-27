@@ -1,8 +1,10 @@
-import { useData } from "../../../hooks/useData";
+import { useData } from "@hooks/useData";
 import React from "react";
 import { Button, Grid, Typography, withStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "../../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { useFormatMoney } from "@hooks/useFormatting.js";
+
 import { makeStyles } from "@material-ui/styles";
 
 const StyledButton = withStyles((theme) => ({
@@ -43,6 +45,11 @@ const useStyles = makeStyles(() => ({
   formContainers: {
     marginBottom: "1em",
   },
+  caption: {
+    fontSize: "0.75em",
+    paddingLeft: "5%",
+    paddingRight: "5%"
+  }
 }));
 
 const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
@@ -71,6 +78,21 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   );
 };
 
+
+const WeeklyDisclaimer = ({ amount }) => {
+  const formatMoneyAmount = useFormatMoney();
+  const monthlyAmount = formatMoneyAmount(amount * 4.3);
+
+  const styles = useStyles();
+
+  return <Typography variant="caption" classes={styles} paragraph gutterBottom >
+    * We'll actually charge you monthly to minimize fees -
+    one fee instead of four! When you checkout, you may
+    see the amount {monthlyAmount} - don't worry we'll
+    only charge you that amount once a month.
+  </Typography>
+};
+
 const Frequencies = (props) => {
   const { t } = useTranslation();
 
@@ -96,6 +118,8 @@ const Frequencies = (props) => {
         selected={frequency}
         setFrequency={props.setFrequency}
       />
+
+      {frequency === 'weekly' ? <WeeklyDisclaimer amount={data.amount} currency={data.currency} /> : ''}
     </>
   ) : null;
 };

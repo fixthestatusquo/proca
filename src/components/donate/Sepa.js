@@ -69,9 +69,15 @@ export default function Register(props) {
   });
   const { control, errors } = form;
 
-  const amount = data.amount;
+  const displayAmount = data.amount;
   const currency = config.component.donation.currency;
   const frequency = data.frequency;
+
+  // why floor? maybe to avoid a weird user input? 1.34567 -> 134.567 -> 134
+  let amount = Math.floor(data.amount * 100);
+  if (frequency === 'weekly') {
+    amount = Math.floor(amount * 4.3);
+  }
 
   const { handleSubmit, setError } = form;
 
@@ -96,13 +102,25 @@ export default function Register(props) {
 
     procaRequest.tracking = Url.utm();
     procaRequest.donation = {
-      amount: Math.floor(amount * 100),
+      amount: amount,
       currency: currency.code,
       payload: {
         iban: procaRequest.IBAN,
-      },
+      }
     };
-    if (data.frequency) procaRequest.donation.frequencyUnit = data.frequency;
+    if (data.frequency) {
+      // weekly means amount * 4.3 monthly, but from here on out it's a monthly
+      // donation with a isWeekly flag.
+      if (data.frequency === 'weekly') {
+        procaRequest.donation.frequencyUnit = procaRequest.frequency = 'monthly';
+        procaRequest.isWeekly = true;
+        procaRequest.weeklyAmount = displayAmount;
+        procaRequest.amount = amount;
+      }
+      else {
+        procaRequest.donation.frequencyUnit = data.frequency;
+      }
+    }
     if (config.test) procaRequest.donation.payload.test = true;
 
     const result = await addDonateContact(
@@ -141,14 +159,14 @@ export default function Register(props) {
         uuid: result.contactRef,
         test: !!config.test,
         firstname: data.firstname,
-        amount: data.amount,
+        amount: amount,
         currency: currency.code,
         frequency: data.frequency || "oneoff",
         country: data.country,
       },
       data
     );
-    console.log("props ", props);
+    // console.log("props ", props);
     props.done &&
       props.done({
         errors: result.errors,
@@ -281,7 +299,7 @@ export default function Register(props) {
           </Grid>
           <Grid item xs={12} classes={{ root: classes.submitButton }}>
             <DonateButton
-              amount={amount}
+              amount={displayAmount}
               currency={currency}
               frequency={frequency}
               config={config}

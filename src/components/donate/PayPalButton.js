@@ -76,6 +76,22 @@ async function onApproveSubscription({
     },
   };
 
+  if (formData.frequency) {
+    // weekly means amount * 4.3 monthly, but from here on out it's a monthly
+    // donation with a isWeekly flag.
+    if (formData.frequency === 'weekly') {
+
+      procaRequest.donation.frequencyUnit = procaRequest.frequency = 'monthly';
+      procaRequest.isWeekly = true;
+      procaRequest.weeklyAmount = formData.amount;
+      // hrm, already defined in donation...
+      procaRequest.amount = procaRequest.donation.amount;
+    }
+    else {
+      procaRequest.donation.frequencyUnit = formData.frequency;
+    }
+  }
+
   // if (config.test) procaRequest.donation.payload.test = true;
 
   procaRequest.tracking = Url.utm();
@@ -238,7 +254,6 @@ const ProcaPayPalButton = (props) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const [formData, setFormData] = useData();
-  // const amount = formData.amount;
   const description = config.campaign.title || "Donation";
   const actionPage = config.actionPage;
 
@@ -248,22 +263,28 @@ const ProcaPayPalButton = (props) => {
 
   const [{ isPending }] = usePayPalScriptReducer();
 
-  // const frequency = props.frequency;
+  // why do we need to use the returned value?
   const frequency = useFrequencyChange(props.frequency);
+
+  const displayAmount = formData.amount;
+  let amountToCharge = formData.amount * 100;
+  if (frequency === 'weekly') {
+    amountToCharge = Math.floor(amountToCharge * 4.3);
+  }
 
   const createOrder = useCallback(
     (paypalResponse, actions) => {
       setFormData("paymentMethod", "paypal");
       // console.log("createOrder called" + formData.amount);
       return onCreateOrder({
-        amount: formData.amount,
+        amount: amountToCharge,
         description: description,
         paypalResponse: paypalResponse,
         actions: actions,
         isTest: !!config.test,
       });
     },
-    [formData.amount, config.test, description, setFormData]
+    [amountToCharge, config.test, description, setFormData]
   );
 
   const approveOrder = useCallback(
@@ -275,9 +296,19 @@ const ProcaPayPalButton = (props) => {
         paypalResponse: paypalResponse,
         actions: actions,
         onComplete: props.onComplete,
+        amountToCharge: amountToCharge,
+        isWeekly: frequency === 'weekly',
+        weeklyAmount: displayAmount
       });
     },
-    [setFormData, formData, actionPage, props.onComplete]
+    [
+      setFormData,
+      formData,
+      actionPage,
+      props.onComplete,
+      frequency,
+      amountToCharge,
+      displayAmount]
   );
 
   const plan_id = donateConfig.paypal.planId;
@@ -288,13 +319,13 @@ const ProcaPayPalButton = (props) => {
       // console.log("createSubscription called" + formData.amount);
       return actions.subscription.create({
         plan_id: plan_id,
-        quantity: Math.floor(formData.amount * 100).toString(), // PayPal wants a string
+        quantity: amountToCharge.toString(), // PayPal wants a string
         application_context: {
           shipping_preference: "NO_SHIPPING",
         },
       });
     },
-    [formData.amount, plan_id, setFormData]
+    [amountToCharge, plan_id, setFormData]
   );
 
   const approveSubscription = useCallback(
