@@ -52,7 +52,7 @@ const Widget = (props) => {
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile();
 
-  var data = Url.data();
+  var data = Url.data(props.prefix);
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...data };
   });
@@ -67,7 +67,6 @@ const Widget = (props) => {
     console.assert("No actionPage defined. Can't continue.");
   }
   initConfigState(config);
-
   initDataState(data, config);
 
   const test = config.test;

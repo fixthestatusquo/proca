@@ -32,12 +32,13 @@ const parse = (whitelist, prefix) => {
 };
 
 const step = (prefix) => {
-  const s = parse(["go"], prefix || "proca_");
+  const s = parse(["go"], typeof prefix !== undefined ? prefix : "proca_");
   return s.go || null;
 };
 
 const data = (prefix) => {
-  prefix = prefix || "proca_";
+  prefix = typeof prefix !== undefined ? prefix : "proca_";
+
   const whitelist = [
     "amount",
     "paymentMethod",
@@ -63,7 +64,8 @@ const isTest = () => {
 };
 
 const config = (prefix) => {
-  prefix = prefix || "proca_";
+  prefix = typeof prefix !== undefined ? prefix : "proca_";
+
   const whitelist = ["comment"];
   return parse(whitelist, prefix);
 };
