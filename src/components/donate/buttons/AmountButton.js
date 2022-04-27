@@ -6,7 +6,7 @@ import {
   makeStyles,
   withStyles,
 } from "@material-ui/core";
-import useData from "../../../hooks/useData";
+import { useData, initDonationState } from "../../../hooks/useData";
 
 import React, { useState } from "react";
 import { useCampaignConfig } from "../../../hooks/useConfig";
@@ -27,7 +27,7 @@ const StyledButton = withStyles((theme) => ({
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
-  const amount = data.amount;
+  const amount = Number.parseFloat(data.amount)
   const formatMoney = useFormatMoney();
 
   const handleAmount = (e, amount) => {
@@ -83,24 +83,23 @@ const Amounts = () => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
-  // TODO: adjust for currencies?
-  const configuredAmounts = donateConfig?.amount || {
-    default: [3, 5, 10, 50, 200],
-  };
-
+  const configuredAmounts = donateConfig?.amount;
   const [data, setData] = useData();
 
-  const frequency = data.frequency;
+  // Changes made by proca:init hooks aren't reflected in initDataState, so
+  // changing amounts in proca:init requires checking for url parameters
+  // and adding those amounts again.
+  initDonationState(data, config);
 
+  const frequency = data.frequency;
   const amounts = [
-    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
+    ...(configuredAmounts[frequency] || configuredAmounts["default"]),
   ];
 
-  // const amount = data.amount;
-  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
-    amounts.push(data.initialAmount);
+  if (!amounts.find((s) => s === data.amount)) {
+    amounts.unshift(data.amount);
+    amounts.sort((a, b) => a - b);
   }
-  amounts.sort((a, b) => a - b);
 
   const form = useForm();
   const [showCustomField, toggleCustomField] = useState(false);

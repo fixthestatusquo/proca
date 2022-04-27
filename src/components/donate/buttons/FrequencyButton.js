@@ -49,13 +49,6 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  // if the widget is configured for only one frequency, we don't show any buttons
-  // and data.frequency will already be set
-
-  if (frequencies.length === 0) {
-    return null;
-  }
-
   return (
     <Grid container spacing={1} className={classes.formContainers}>
       {frequencies.map((f) => (
@@ -80,11 +73,10 @@ const Frequencies = (props) => {
 
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
-  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
+  const frequencies = donateConfig?.frequency?.options; // || ["oneoff", "monthly"];
 
   const [data] = useData();
   const frequency = data.frequency;
-
   return frequencies.length > 1 ? (
     <>
       {" "}
