@@ -1,3 +1,25 @@
+const tokenize = ( message, {profile, url} ) => {
+    let screen_name = "";
+    let t=message;
+    if (Array.isArray(profile)) {
+      const r = profile.map ( d => (d.screen_name?.startsWith('@') ? d.screen_name.slice(1) : d.screen_name));
+      screen_name = r.join (' @');
+    }
+//    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
+
+    if (t.indexOf("{@}") !== -1) 
+      t = t.replace("{@}", "@" + screen_name);
+    else t = ".@" + screen_name + " " + t;
+
+    if (url) {
+      if (t.indexOf("{url}") !== -1) 
+        t = t.replace("{url}", url);
+      else t = t+ " " + url;
+    }
+  console.log(profile,t);
+  return t;
+  };
+
 const pickOne = (locale) => {
   const text = locale;
   const v = text
@@ -20,4 +42,4 @@ const pickOne = (locale) => {
   return variants[Math.floor(Math.random() * variants.length)];
 };
 
-export { pickOne };
+export {pickOne, tokenize };

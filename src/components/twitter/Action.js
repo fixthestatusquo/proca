@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import TwitterIcon from '../../images/Twitter.js';
 
 import {addAction} from '@lib/server';
+import {tokenize} from '@lib/text';
 import uuid from '@lib/uuid';
 
   const tweet = ({message, screen_name, actionUrl, done, actionPage}) => {
@@ -23,23 +24,7 @@ import uuid from '@lib/uuid';
         payload: [{key:"screen_name",value:screenName}]
     });
   }
-    if (Array.isArray(screen_name)) {
-      const r = screen_name.map ( d => d.screen_name);
-      screen_name = r.join (' @');
-    }
-    let t=message;
-//    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
-
-    if (t.indexOf("{@}") !== -1) 
-      t = t.replace("{@}", "@" + screen_name);
-    else t = ".@" + screen_name + " " + t;
-
-    if (actionUrl) {
-      if (t.indexOf("{url}") !== -1) 
-        t = t.replace("{url}", actionUrl);
-      else t = t+ " " + actionUrl;
-    }
-    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
+    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tokenize(message,{profile:screen_name,url:actionUrl}));
     let win = window.open(
       url,
       "tweet-"+screen_name,

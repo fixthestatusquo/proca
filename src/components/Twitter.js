@@ -11,7 +11,7 @@ import Message from "@components/twitter/Message";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import {pickOne} from '@lib/text';
+import {pickOne,tokenize} from '@lib/text';
 import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from '../images/Twitter.js';
@@ -85,7 +85,7 @@ const Component = (props) => {
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: {...data,message:pickOne(t("campaign:twitter.message"))},
+    defaultValues: {...data,message:tokenize(pickOne(t("campaign:twitter.message")),{profile:profiles})},
   });
   const { watch } = form;
   const country = watch("country");
@@ -94,7 +94,7 @@ const Component = (props) => {
     actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
   const handleTweet = () => {
-    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:profiles,actionUrl});
+    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:null,actionUrl:actionUrl});
     let target = data.targets ? data.targets.concat (profiles) : profiles;
     setTweeting(true);
     setData ("targets",target);
@@ -120,6 +120,7 @@ const Component = (props) => {
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
+            form.setValue("message",tokenize(pickOne(t("campaign:twitter.message")),{profile:[i]}));
             setProfiles([i]);
           } else if (!config.component.twitter.filter?.includes("country")) {
             setProfiles(d);
@@ -137,6 +138,7 @@ const Component = (props) => {
   const filterRandomProfile = () => {
       const d = allProfiles;
             const i = d[Math.floor(Math.random() * d.length)];
+            form.setValue("message",tokenize(pickOne(t("campaign:twitter.message")),{profile:[i]}));
             setProfiles([i]);
   };
 
