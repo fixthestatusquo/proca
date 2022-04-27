@@ -15,7 +15,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import dispatch from "@lib/event";
-import { scrollTo as _scrollTo } from "@lib/scroll";
+import { scrollTo as _scrollTo } from '@lib/scroll';
 
 import { initDataState } from "@hooks/useData";
 
@@ -59,11 +59,9 @@ const Widget = (props) => {
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile();
 
-  var data = Url.data();
-  const cookies = {
-    uuid: getCookie("proca_uuid"),
-    firstname: getCookie("proca_firstname"),
-  };
+  var data = Url.data(props.prefix);
+  const cookies = { uuid: getCookie("proca_uuid"), firstname: getCookie("proca_firstname") };
+
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...cookies, ...data };
   });
@@ -78,7 +76,6 @@ const Widget = (props) => {
     console.assert("No actionPage defined. Can't continue.");
   }
   initConfigState(config);
-
   initDataState(data, config);
 
   const test = config.test;
@@ -187,7 +184,7 @@ const Widget = (props) => {
       if (i === current) return forceUpdate(); //trick to force refresh
     } else {
       if (!action) return nextStep();
-      i = journey.findIndex((d) => d.toLowerCase() === action.toLowerCase());
+      i = journey.findIndex(d => d.toLowerCase() === action.toLowerCase())
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
@@ -325,7 +322,7 @@ const Widget = (props) => {
       else {
         go(paramStep());
         _scrollTo({ delay: 300 });
-      }
+      };
       //      return null;
     }
   }
