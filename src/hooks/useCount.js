@@ -62,7 +62,7 @@ export default function useCounter(actionPage) {
     return () => {
       isCancelled = true;
     };
-  }, [actionPage, count, apiUrl, setCount, config.template]);
+  }, [actionPage, count, apiUrl, setCount, config.component.counter]);
 
   return count || null;
 }
