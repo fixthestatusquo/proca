@@ -34,7 +34,6 @@ import uuid from '@lib/uuid';
       "tweet-"+screen_name,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
-    console.log(params, screen_name);
     addTweet("twitter_click",screen_name);
 
     var timer = setInterval( () => {

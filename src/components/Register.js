@@ -33,7 +33,7 @@ import CustomField from "@components/field/CustomField";
 
 import { addActionContact } from "@lib/server.js";
 import dispatch from "@lib/event.js";
-import uuid from "@lib/uuid.js";
+import uuid, {isSet as isUuid} from "@lib/uuid.js";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -133,6 +133,9 @@ export default function Register(props) {
       data = props.beforeSubmit (data);
     }
 
+    if (isUuid()) { // they were previous actions, we associate them with the contact recorded now
+      data.uuid = uuid(); 
+    }
     const result = await addActionContact(actionType,
       config.actionPage,
       data,

@@ -10,6 +10,8 @@ import { v4 as uuid } from "uuid";
 
 let id = null;
 
+const isSet = () => id !== null;
+
 function generate() {
   const d = [];
   uuid(null, d);
@@ -35,4 +37,4 @@ const getuuid = set => {
 }
 
 export default getuuid;
-export { reset, getuuid as uuid};
+export { reset, getuuid as uuid, isSet};
