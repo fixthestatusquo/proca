@@ -12,6 +12,8 @@ const tokenize = (message, { profile, url }) => {
   }
   //    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
+  if (!screen_name) 
+    return t;
   if (t.indexOf("{@}") !== -1) t = t.replace("{@}", "@" + screen_name);
   else t = ".@" + screen_name + " " + t;
 
@@ -19,6 +21,7 @@ const tokenize = (message, { profile, url }) => {
     if (t.indexOf("{url}") !== -1) t = t.replace("{url}", url);
     else t = t + " " + url;
   }
+console.log(t);
   return t;
 };
 
