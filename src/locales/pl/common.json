@@ -6,7 +6,7 @@
   "Comment": "Komentarz",
   "Country": "Kraj",
   "Download": "Pobierz",
-  "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie.",
+  "Download explanation": "Twój dokument jest już gotowy, wysyłamy go również do Ciebie",
   "Email": "E-mail",
   "First name": "Imię",
   "Last name": "Nazwisko",
@@ -25,24 +25,24 @@
   "action": {
     "donate": "Przekaż darowiznę",
     "email": "Wyślij wiadomość e-mail",
-    "join": "Dołącz do",
-    "register": "Rejestr",
+    "join": "Dołączyć",
+    "register": "Zarejestruj",
     "share": "Udostępnij",
-    "sign": "Znak",
-    "twitter": "Tweet"
+    "sign": "Podpisz",
+    "twitter": "Tweetnij"
   },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
-    "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową na poniższy adres:\n {{email}}.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!).\n Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
-    "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila.",
-    "emailSent": "Wysłaliśmy Ci wiadomość na adres {email}!",
+    "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!). Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
+    "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila",
+    "emailSent": "Wysłaliśmy Ci wiadomość na adres {{email}}!",
     "implicit": "Prześlij ten formularz, aby otrzymywać wiadomości e-mail od {{name}}.",
-    "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i {{campaign}} postępach.",
+    "intro": "Dowiedz się więcej o naszych kampaniach, działaniach i postępach akcji {{campaign}}",
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
-    "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie na bieżąco za pośrednictwem poczty elektronicznej",
-    "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie o nowościach w przyszłości",
-    "processing": "Twoje dane osobowe będą przechowywane w sposób prywatny i bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>.",
-    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>."
+    "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie za pośrednictwem poczty elektronicznej",
+    "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości",
+    "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
+    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>"
   },
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
   "donation": {
@@ -110,13 +110,14 @@
     "to": "Darowizna na rzecz {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nie można odbierać wiadomości e-mail"
+    "invalid_domain": "{{domain}} nie może odbierać e-maili"
   },
-  "progress": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-  "progress_plural": "{{count}} zostały podpisane. Przejdźmy do {{goal}}",
-  "register": "Dodaj moje imię",
+  "progress_0": "{{count}} już podpisała. Dążymy do {{goal}}",
+  "progress_1": "{{count}} już podpisało. Dążymy do {{goal}}",
+  "progress_2": "",
+  "register": "Podpisuję petycję",
   "share": {
-    "intro": "Świetnie, podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępniaj daleko i szeroko, aby upewnić się, że każdy zobaczy tę petycję 🙏.",
+    "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",
     "title": "Prawie gotowe! Zrób następny krok."
   },
