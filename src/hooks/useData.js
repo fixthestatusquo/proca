@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 
 import { atom, useRecoilState } from "recoil";
+import { ObjectFlags } from "typescript";
 
 let formData = null;
 
@@ -47,11 +48,10 @@ const initDonationState = (formData, config) => {
     if (frequency === "default") {
       continue;
     }
-    const amounts = configuredAmounts[frequency];
+    let amounts = configuredAmounts[frequency].map((v) => v);
     if (!amounts.find((s) => s === initial)) {
       amounts.push(initial);
       amounts.sort((a, b) => a - b);
-      console.log("updating amount after adding ", initial);
       configuredAmounts[frequency] = amounts;
     }
   };
