@@ -67,7 +67,7 @@
   },
   "scripts": {
     "format": "prettier --write src/**/*.{js,css,json,md} config/**/*.json docs/*.md webpack/*.js bin/*.js",
-    "build": "nice -20 rescripts build",
+    "build": "rescripts build",
     "build@local": "NODE_OPTIONS=--openssl-legacy-provider nice -20 rescripts build",
     "deploy": "bash bin/deploy.sh",
     "eci": "bin/eci.js",
