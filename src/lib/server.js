@@ -213,12 +213,6 @@ async function addAction(actionPage, actionType, data, test) {
   };
 
   if (typeof data.payload === "object") {
-    variables.payload = {};
-    for (const [key, value] of Object.entries(data.payload)) {
-      if (value) {
-        variables.payload[key]=value;
-      }
-    }
     variables.payload = JSON.stringify(variables.payload);
   }
   if (data.tracking && Object.keys(data.tracking).length) {

@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import IconButton from '@material-ui/core/IconButton';
 import PropTypes from "prop-types";
+import Url from "@lib/urlparser";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
@@ -16,20 +17,24 @@ import {addAction} from '@lib/server';
 import {tokenize} from '@lib/text';
 import uuid from '@lib/uuid';
 
-  const tweet = ({message, screen_name, actionUrl, done, actionPage}) => {
-  const addTweet = (event,actionPage,screenName) => {
+  const tweet = params => {
+  const {message, screen_name, actionUrl, done, actionPage} = params;
+
+  const addTweet = (event,screenName) => {
     addAction(actionPage,event,{
         uuid: uuid(),
-//        tracking: Url.utm(),
-        payload: [{key:"screen_name",value:screenName}]
+        tracking: Url.utm(),
+        payload: {"screen_name":screenName}
     });
   }
+
     const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tokenize(message,{profile:screen_name,url:actionUrl}));
     let win = window.open(
       url,
       "tweet-"+screen_name,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
+    console.log(params, screen_name);
     addTweet("twitter_click",screen_name);
 
     var timer = setInterval( () => {
@@ -57,7 +62,7 @@ const component= function TwitterAction(profile) {
       select(false);
       profile.done && profile.done();
     };
-    tweet ({actionPage:profile.actionPAge, message:profile.form.getValues("message"),screen_name:profile.screen_name,actionUrl:profile.actionUrl,done:done});
+    tweet ({actionPage:profile.actionpage, message:profile.form.getValues("message"),screen_name:profile.screen_name,actionUrl:profile.actionUrl,done:done});
     select(true);
   };
 

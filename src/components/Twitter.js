@@ -94,7 +94,7 @@ const Component = (props) => {
     actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
   const handleTweet = () => {
-    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:null,actionUrl:actionUrl});
+    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:profiles.map(d=> d.screen_name).join(","),actionUrl:actionUrl});
     let target = data.targets ? data.targets.concat (profiles) : profiles;
     setTweeting(true);
     setData ("targets",target);
