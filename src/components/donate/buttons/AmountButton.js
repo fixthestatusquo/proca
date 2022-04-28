@@ -86,11 +86,6 @@ const Amounts = () => {
   const configuredAmounts = donateConfig?.amount;
   const [data, setData] = useData();
 
-  // Changes made by proca:init hooks aren't reflected in initDataState, so
-  // changing amounts in proca:init requires checking for url parameters
-  // and adding those amounts again.
-  initDonationState(data, config);
-
   const frequency = data.frequency;
   const amounts = [
     ...(configuredAmounts[frequency] || configuredAmounts["default"]),
