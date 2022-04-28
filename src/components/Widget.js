@@ -75,8 +75,14 @@ const Widget = (props) => {
   if (!config.actionPage) {
     console.assert("No actionPage defined. Can't continue.");
   }
-  initConfigState(config);
+
+  dispatch("proca:configure", {
+    config: config,
+    data: data,
+  });
+
   initDataState(data, config);
+  initConfigState(config);
 
   const test = config.test;
   useEffect(() => {
