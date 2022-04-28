@@ -3,10 +3,7 @@ const getData = (key, selector) => {
   return dom.dataset[key];
 };
 
-const getOverwriteLocales = (
-  allowed = "sign-now,register,share_title,share_intro,consent_intro,consent_opt-in,consent_opt-out,consent_processing,email_subject,email_body,twitter_actionText,button,progress"
-) => {
-  allowed = allowed.split(",");
+const getOverwriteLocales = () => {
   const converting = {
     "sign-now": "Sign now!",
     button: "Sign now!",
@@ -18,26 +15,20 @@ const getOverwriteLocales = (
   for (const t of texts) {
     for (const c of t.classList) {
       if (c === "proca-text") continue;
-      if (allowed.includes(c)) {
-        const key = c.split("_");
-        if (key.length > 1) {
-          if (!locales[key[0]]) locales[key[0]] = {};
-          locales[key[0]][key[1]] = t.textContent;
-        } else {
-          locales[c] = t.textContent;
-          if (converting[c]) locales[converting[c]] = t.textContent;
-        }
+      const key = c.split("_");
+      if (key.length > 1) {
+        if (!locales[key[0]]) locales[key[0]] = {};
+        locales[key[0]][key[1]] = t.textContent;
+      } else {
+        locales[c] = t.textContent;
+        if (converting[c]) locales[converting[c]] = t.textContent;
       }
     }
   }
   return locales;
 };
 
-const getAllData = (
-  selector,
-  allowed = "share,share-twitter,share-whatsapp,share-telegram,share-linkedin,share-subject,share-body,dialog-title,firstname,lastname,email,phone,postcode,country,comment,email-subject,email-body"
-) => {
-  allowed = allowed.split(",");
+const getAllData = (selector) => {
   const dom = document.querySelector(selector);
   const texts = document.getElementsByClassName("proca-text");
   let variants = {};
@@ -45,7 +36,6 @@ const getAllData = (
   for (const t of texts) {
     for (const c of t.classList) {
       if (c === "proca-text") continue;
-      if (!allowed.includes(c)) continue;
       if (locales[c]) {
         // we have multiple variants for the same text
         if (!variants[c]) {
