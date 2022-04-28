@@ -37,7 +37,7 @@ export { useInitFromUrl };
 export default function useCounter(actionPage) {
   const [count, setCount] = useRecoilState(CountState);
   const config = useCampaignConfig();
-  const apiUrl = config.component?.counter?.apiUrl || null;
+  const apiUrl = config.component.counter?.apiUrl || null;
 
   if (!actionPage && actionPage !== false && !config.template)
     actionPage = config.actionPage;
@@ -47,7 +47,7 @@ export default function useCounter(actionPage) {
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    if (!actionPage || config.template) return; // disabling the fetch
+    if (!actionPage || config.component.counter?.disabled) return; // disabling the fetch
     (async function () {
       if (count !== null) return;
       let options = {};
