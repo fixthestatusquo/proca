@@ -1,28 +1,19 @@
+
+import lodash_set from "lodash/set";
+
 const getData = (key, selector) => {
   const dom = document.querySelector(selector);
   return dom.dataset[key];
 };
 
 const getOverwriteLocales = () => {
-  const converting = {
-    "sign-now": "Sign now!",
-    button: "Sign now!",
-    progress: "progress_plural",
-  }; // dealing with keys that aren't classes
-
   const texts = document.getElementsByClassName("proca-text");
   let locales = {};
   for (const t of texts) {
     for (const c of t.classList) {
       if (c === "proca-text") continue;
-      const key = c.split("_");
-      if (key.length > 1) {
-        if (!locales[key[0]]) locales[key[0]] = {};
-        locales[key[0]][key[1]] = t.textContent;
-      } else {
-        locales[c] = t.textContent;
-        if (converting[c]) locales[converting[c]] = t.textContent;
-      }
+      const key = c.replaceAll("_", ".")
+      lodash_set(locales, key, t.textContent);
     }
   }
   return locales;
