@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 
 import { atom, useRecoilState } from "recoil";
-import { ObjectFlags } from "typescript";
 
 let formData = null;
 
@@ -49,10 +48,12 @@ const initDonationState = (formData, config) => {
       continue;
     }
     let amounts = configuredAmounts[frequency].map((v) => v);
-    if (!amounts.find((s) => s === initial)) {
-      amounts.push(initial);
-      amounts.sort((a, b) => a - b);
-      configuredAmounts[frequency] = amounts;
+    if (!isNaN(initial)) {
+      if (!amounts.find((s) => s === initial)) {
+        amounts.push(initial);
+        amounts.sort((a, b) => a - b);
+        configuredAmounts[frequency] = amounts;
+      }
     }
   };
 
