@@ -92,10 +92,7 @@ const Amounts = () => {
   ];
 
   if (data.amount) {
-    console.log("is amount in the list? ", data.amount);
     if (!amounts.find((s) => s === data.amount)) {
-      console.log("nope, adding it");
-
       amounts.unshift(data.amount);
       amounts.sort((a, b) => a - b);
     }
