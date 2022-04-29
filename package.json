@@ -62,7 +62,7 @@
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.0",
     "generate-json-webpack-plugin": "^1.0.0",
-    "typescript": "^4.6.3",
+    "typescript": "^4.6.4",
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "scripts": {
