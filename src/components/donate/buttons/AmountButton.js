@@ -6,10 +6,10 @@ import {
   makeStyles,
   withStyles,
 } from "@material-ui/core";
-import { useData, initDonationState } from "../../../hooks/useData";
+import { useData } from "@hooks/useData";
 
 import React, { useState } from "react";
-import { useCampaignConfig } from "../../../hooks/useConfig";
+import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import OtherAmountInput from "../OtherAmount";
 import { useTranslation } from "react-i18next";

@@ -35,14 +35,7 @@ import DonateTitle from "./DonateTitle";
 import { NameField } from "../NameField";
 import { CallToAction } from "./DonateButton";
 
-
 import { loadStripe } from '@stripe/stripe-js';
-const STRIPE_FREQUENCY = {
-  monthly: "month",
-  weekly: "week",
-  daily: "day",
-  yearly: "year",
-};
 
 const stripeErrorAtom = atom({
   key: "stripe-error",
