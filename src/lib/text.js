@@ -21,7 +21,6 @@ const tokenize = (message, { profile, url }) => {
     if (t.indexOf("{url}") !== -1) t = t.replace("{url}", url);
     else t = t + " " + url;
   }
-console.log(t);
   return t;
 };
 

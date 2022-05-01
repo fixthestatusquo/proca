@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import TwitterList from "@components/twitter/List";
-import {tweet} from "@components/twitter/Action";
+import { tweet } from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
 import Alert from "@components/Alert";
 import Country from "@components/Country";
@@ -11,68 +11,69 @@ import Message from "@components/twitter/Message";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import {pickOne,tokenize} from '@lib/text';
+import { pickOne, tokenize } from "@lib/text";
 import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import TwitterIcon from '../images/Twitter.js';
-import Again from '@components/twitter/Again';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import ReloadIcon from '@material-ui/icons/Cached';
+import TwitterIcon from "../images/Twitter.js";
+import Again from "@components/twitter/Again";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import ReloadIcon from "@material-ui/icons/Cached";
 const Intro = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  if (!config.component.twitter?.filter?.includes("random"))
-    return null;
+  if (!config.component.twitter?.filter?.includes("random")) return null;
   if (props.total === 0) {
-    return (<p>Selecting your target...</p>);
+    return <p>Selecting your target...</p>;
   }
   return (
-    <Grid container alignItems="flex-start" >
-    <Grid item xs={8}>
-        <p>{t("Selected one of our {{total}} most important targets",{total:props.total})}</p>
-    </Grid>
-        <Grid item xs={4}>
-
+    <Grid container alignItems="flex-start">
+      <Grid item xs={8}>
+        <p>
+          {t("Selected one of our {{total}} most important targets", {
+            total: props.total,
+          })}
+        </p>
+      </Grid>
+      <Grid item xs={4}>
         <Button
-                variant="contained"
-                startIcon={
-                  <ReloadIcon />
-                }
-          onClick = {props.handleClick}
-        >Another</Button>
-        </Grid>
+          variant="contained"
+          startIcon={<ReloadIcon />}
+          onClick={props.handleClick}
+        >
+          Another
+        </Button>
+      </Grid>
     </Grid>
-      )
-}
+  );
+};
 
-const TweetButton = props => {
+const TweetButton = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   return (
-            <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                onClick={props.handleClick}
-                size="large"
-                endIcon={
-                    <SvgIcon><TwitterIcon /></SvgIcon>
-                }
-              >
-    {t(config.component.tweet?.button || "Tweet")}
-              </Button>
-              {config.component.twitter?.next && (
-                <Button
-                  endIcon={<SkipNextIcon />}
-                  variant="contained"
-                >
-                  {t("Next")}
-                </Button>
-              )}
-            </Grid>
+    <Grid item xs={12}>
+      <Button
+        color="primary"
+        variant="contained"
+        fullWidth
+        onClick={props.handleClick}
+        size="large"
+        endIcon={
+          <SvgIcon>
+            <TwitterIcon />
+          </SvgIcon>
+        }
+      >
+        {t(config.component.tweet?.button || "Tweet")}
+      </Button>
+      {config.component.twitter?.next && (
+        <Button endIcon={<SkipNextIcon />} variant="contained">
+          {t("Next")}
+        </Button>
+      )}
+    </Grid>
   );
-}
+};
 
 const Component = (props) => {
   const { t, i18n } = useTranslation();
@@ -83,9 +84,11 @@ const Component = (props) => {
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
   const form = useForm({
-    //    mode: "onBlur",
-    //    nativeValidation: true,
-    defaultValues: {...data,message:tokenize(pickOne(t("campaign:twitter.message")),{profile:profiles})},
+     shouldUnregister: false,
+    defaultValues: {
+      ...data,
+    message:"",
+    },
   });
   const { watch } = form;
   const country = watch("country");
@@ -94,11 +97,15 @@ const Component = (props) => {
     actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
   const handleTweet = () => {
-    tweet ({actionPage:config.actionPage, message:form.getValues("message"),screen_name:profiles.map(d=> d.screen_name).join(","),actionUrl:actionUrl});
-    let target = data.targets ? data.targets.concat (profiles) : profiles;
+    tweet({
+      actionPage: config.actionPage,
+      message: form.getValues("message"),
+      screen_name: profiles.map((d) => d.screen_name).join(","),
+      actionUrl: actionUrl,
+    });
+    let target = data.targets ? data.targets.concat(profiles) : profiles;
     setTweeting(true);
-    setData ("targets",target);
-
+    setData("targets", target);
   };
   useEffect(() => {
     const fetchData = async (url) => {
@@ -120,7 +127,10 @@ const Component = (props) => {
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
-            form.setValue("message",tokenize(pickOne(t("campaign:twitter.message")),{profile:[i]}));
+            form.setValue(
+              "message",
+              tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] }),
+            );
             setProfiles([i]);
           } else if (!config.component.twitter.filter?.includes("country")) {
             setProfiles(d);
@@ -137,10 +147,14 @@ const Component = (props) => {
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterRandomProfile = () => {
-      const d = allProfiles;
-            const i = d[Math.floor(Math.random() * d.length)];
-            form.setValue("message",tokenize(pickOne(t("campaign:twitter.message")),{profile:[i]}));
-            setProfiles([i]);
+
+    const d = allProfiles;
+    const i = d[Math.floor(Math.random() * d.length)];
+    form.setValue(
+      "message",
+      tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] })
+    );
+    setProfiles([i]);
   };
 
   const filterProfiles = useCallback(
@@ -177,14 +191,45 @@ const Component = (props) => {
     viewDialog(false);
   };
 
-  if (tweeting) {
-    return <>
-      <Again again={() => setTweeting(false)} done={props.done}/>
-      <Alert severity="info">
-            please complete sending the tweet in the new window (on twitter)
-          </Alert>
-      </>; 
-  };
+  const FirstStep = () => {
+  return (
+    <>
+      {config.component.twitter?.filter?.includes("country") && (
+        <Country form={form} list={config.component?.twitter?.countries} />
+      )}
+      <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
+      <TwitterList
+        profiles={profiles}
+        actionPage={props.actionPage}
+        actionUrl={actionUrl}
+        form={form}
+        clickable={false}
+        done={handleDone}
+      />
+      {config.component.twitter?.message && <Message form={form} />}
+      <TweetButton handleClick={handleTweet} />
+      </>);
+  }
+
+  const SecondStep = () => {
+    if (!tweeting) 
+      return null;
+
+    return (
+      <>
+        <Again
+          again={() => {
+            filterRandomProfile();
+            setTweeting(false);
+          }}
+          done={props.done}
+        />
+        <Alert severity="info">
+          please complete sending the tweet in the new window (on twitter)
+        </Alert>
+      </>
+    );
+  }
 
   return (
     <Fragment>
@@ -198,20 +243,8 @@ const Component = (props) => {
       >
         <Register actionPage={props.actionPage} done={props.done} />
       </Dialog>
-      {config.component.twitter?.filter?.includes("country") && (
-        <Country form={form} list={config.component?.twitter?.countries} />
-      )}
-    <Intro total={allProfiles.length} handleClick={filterRandomProfile}/>
-      <TwitterList
-        profiles={profiles}
-        actionPage={props.actionPage}
-        actionUrl={actionUrl}
-        form={form}
-        clickable={false}
-        done={handleDone}
-      />
-      {config.component.twitter?.message && (<Message form={form}  />)}
-    <TweetButton handleClick={handleTweet}/>
+    {!tweeting && <FirstStep />}
+    {tweeting &&  <SecondStep />}
     </Fragment>
   );
 };
