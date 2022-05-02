@@ -11,16 +11,17 @@
   "Last name": "Prezime",
   "Locality": "Lokalitet",
   "Next": "Dalje",
+  "No Thanks": "Ne hvala",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
-  "Sign now!": "Potpišite sada!",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
   "action": {
     "donate": "Doniraj",
+    "eci": "eci",
     "email": "Pošalji e-mail",
     "join": "Pridruži se",
     "register": "Registriraj se",
@@ -117,10 +118,15 @@
     "message": "Ovo se isplati potpisati!",
     "title": "Skoro pa gotovo! Napravi sljedeći korak."
   },
+  "supporter": {
+    "not_you": "ne ti?",
+    "welcome": "Dobrodošli nazad {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
-    }
+    },
+    "random": "Odabrali smo jednu od naših najvažnijih meta {{total}}."
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
