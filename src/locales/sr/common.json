@@ -11,16 +11,17 @@
   "Last name": "Prezime",
   "Locality": "Локалитет",
   "Next": "Даље",
+  "No Thanks": "Не хвала",
   "Other": "Ostalo",
   "Phone": "Телефон",
   "Postal Code": "поштански код",
-  "Sign now!": "Potpišite!",
   "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
   "Subject": "Предмет",
   "Thank you": "Хвала вам",
   "Your message": "Ваша порука",
   "action": {
     "donate": "Донате",
+    "eci": "еци",
     "email": "Пошаљите е-маил",
     "join": "Придружити",
     "register": "Регистровати",
@@ -117,10 +118,15 @@
     "message": "Potpiši za borbu protiv biometrijskog nadzora!",
     "title": "Još malo i gotovo! Sledeći korak."
   },
+  "supporter": {
+    "not_you": "не ти?",
+    "welcome": "Добродошли назад [Кс13Кс]!"
+  },
   "target": {
     "country": {
       "empty": "Изаберите другу земљу, немате никога да контактирате у [Кс54Кс]"
-    }
+    },
+    "random": "Изабрали смо једну од наших најважнијих мета [Кс20Кс]."
   },
   "twitter": {
     "actionText": "Потписао сам. и ти би требао такође"
