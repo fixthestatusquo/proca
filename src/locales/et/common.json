@@ -11,16 +11,17 @@
   "Last name": "Perekonnanimi",
   "Locality": "Paikkond",
   "Next": "Edasi",
+  "No Thanks": "Ei tänan",
   "Other": "Teine",
   "Phone": "Telefon",
   "Postal Code": "Sihtnumber",
-  "Sign now!": "Lisa allkiri!",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
   "action": {
     "donate": "Annetada",
+    "eci": "eci",
     "email": "Saada e-kiri",
     "join": "Liitu",
     "register": "Registreeri",
@@ -117,10 +118,15 @@
     "message": "Peaksite sellele alla kirjutama!",
     "title": "Peaaegu valmis. Üks samm veel!"
   },
+  "supporter": {
+    "not_you": "mitte sina?",
+    "welcome": "Tere tulemast tagasi {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"
-    }
+    },
+    "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest."
   },
   "twitter": {
     "actionText": "Kirjutasin alla. sa peaksid ka"
