@@ -11,16 +11,17 @@
   "Last name": "שם הרשימה",
   "Locality": "יישוב",
   "Next": "הבא",
+  "No Thanks": "לא תודה",
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
-  "Sign now!": "חתמו עכשיו!",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
   "Your message": "ההודעה שלך",
   "action": {
     "donate": "לִתְרוֹם",
+    "eci": "eci",
     "email": "שלח אימייל",
     "join": "לְהִצְטַרֵף",
     "register": "להירשם",
@@ -116,10 +117,15 @@
     "message": "אתה צריך לחתום על זה!",
     "title": "כמעט סיימתי! בצע את הצעד הבא."
   },
+  "supporter": {
+    "not_you": "לא אתה?",
+    "welcome": "ברוך שובך {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "בחר מדינה אחרת, אין עם מי לפנות ב-{{country}}"
-    }
+    },
+    "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו"
   },
   "twitter": {
     "actionText": "נרשמתי. גם אתה צריך"
