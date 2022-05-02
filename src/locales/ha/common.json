@@ -11,16 +11,17 @@
   "Last name": "Sunan mahaifa",
   "Locality": "Yanki",
   "Next": "Na gaba",
+  "No Thanks": "A'a na gode",
   "Other": "Sauran",
   "Phone": "Waya",
   "Postal Code": "Lambar gidan waya",
-  "Sign now!": "Shiga yanzu!",
   "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
   "Subject": "Magana",
   "Thank you": "na gode",
   "Your message": "Sakon ku",
   "action": {
     "donate": "Ba da gudummawa",
+    "eci": "eci",
     "email": "Aika imel",
     "join": "Shiga",
     "register": "Yi rijista",
@@ -117,10 +118,15 @@
     "message": "Ya kamata ku sa hannu kan wannan!",
     "title": "Kusan an gama! Dauki mataki na gaba."
   },
+  "supporter": {
+    "not_you": "ba ka ba?",
+    "welcome": "Barka da dawowa {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"
-    }
+    },
+    "random": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}."
   },
   "twitter": {
     "actionText": "Na sanya hannu. ya kamata ku ma"
