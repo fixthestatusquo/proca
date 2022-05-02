@@ -11,16 +11,17 @@
   "Last name": "Nom de famille",
   "Locality": "Localité",
   "Next": "Suivant",
+  "No Thanks": "Non merci",
   "Other": "Autre",
   "Phone": "Téléphone",
   "Postal Code": "Code postal",
-  "Sign now!": "Signez maintenant !",
   "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauvegarder",
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
   "action": {
     "donate": "Faire un don",
+    "eci": "eci",
     "email": "Envoyer un courriel",
     "join": "Rejoignez",
     "register": "Registre",
@@ -117,10 +118,15 @@
     "message": "Vous devriez signer ça !",
     "title": "Vous avez presque terminé ! Passez à l'étape suivante."
   },
+  "supporter": {
+    "not_you": "pas vous ?",
+    "welcome": "Bienvenue à nouveau {{firstname}} !"
+  },
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"
-    }
+    },
+    "random": "Sélectionné l'une de nos {{total}} cibles les plus importantes."
   },
   "twitter": {
     "actionText": "J'ai signé. Vous devriez aussi"
