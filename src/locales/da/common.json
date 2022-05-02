@@ -11,16 +11,17 @@
   "Last name": "Efternavn",
   "Locality": "Lokalitet",
   "Next": "Next",
+  "No Thanks": "Nej tak",
   "Other": "Andre",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
-  "Sign now!": "Tilmeld nu!",
   "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
   "action": {
     "donate": "Donér",
+    "eci": "eci",
     "email": "Send en e-mail",
     "join": "Tilmeld dig",
     "register": "Registrer",
@@ -117,10 +118,15 @@
     "message": "Du skal underskrive dette!",
     "title": "Næsten færdig! Tag det næste skridt."
   },
+  "supporter": {
+    "not_you": "ikke dig?",
+    "welcome": "Velkommen tilbage {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
-    }
+    },
+    "random": "Valgte et af vores {{total}} vigtigste mål"
   },
   "twitter": {
     "actionText": "Jeg underskrev. du burde også"
