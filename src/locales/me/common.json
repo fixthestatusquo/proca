@@ -1,5 +1,4 @@
 {
-  "Account": "Račun",
   "Address": "Adresa",
   "Amount": "Iznos",
   "Birthdate": "Datum rođenja",
@@ -15,13 +14,11 @@
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
-  "Sign": "Potpišite odmah!",
   "Sign now!": "Potpišite odmah!",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli da snimimo",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Vaša poruka",
-  "Your organisation account": "Račun Vaše organizacije",
   "action": {
     "donate": "Donirajte",
     "email": "Pošaljite e-mail",
@@ -130,4 +127,3 @@
   },
   "you need to be 18 years old": "morate imati 18 godina"
 }
-

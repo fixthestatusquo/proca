@@ -1,5 +1,4 @@
 {
-  "Account": "Fiók",
   "Address": "Cím",
   "Amount": "Összeg",
   "Birthdate": "Születési dátum",
@@ -15,13 +14,11 @@
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
-  "Sign": "Aláírom!",
   "Sign now!": "Aláírom!",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
-  "Your organisation account": "A szervezeti fiók",
   "action": {
     "donate": "Adományozni",
     "email": "E-mail küldése",

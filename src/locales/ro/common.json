@@ -1,5 +1,4 @@
 {
-  "Account": "Cont",
   "Address": "Adresă",
   "Amount": "Sumă",
   "Birthdate": "Data nasterii",
@@ -15,13 +14,11 @@
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
-  "Sign": "Înscrieți-vă acum!",
   "Sign now!": "Semnați acum!",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
-  "Your organisation account": "Contul organizației dvs.",
   "action": {
     "donate": "Donează",
     "email": "Trimiteți un e-mail",

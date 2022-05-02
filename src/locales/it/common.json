@@ -1,5 +1,4 @@
 {
-  "Account": "Conto",
   "Address": "Indirizzo",
   "Amount": "Importo",
   "Birthdate": "Data di nascita",
@@ -15,13 +14,11 @@
   "Other": "Altro",
   "Phone": "Telefono",
   "Postal Code": "Codice postale",
-  "Sign": "Firma ora!",
   "Sign now!": "Firma ora!",
   "Sorry, we couldn't save": "Spiacenti, non siamo riusciti a salvare",
   "Subject": "Oggetto",
   "Thank you": "Grazie",
   "Your message": "Il tuo messaggio",
-  "Your organisation account": "Il conto della tua organizzazione",
   "action": {
     "donate": "Donare",
     "email": "Invia un'e-mail",

@@ -1,5 +1,4 @@
 {
-  "Account": "Iroyin",
   "Address": "Adirẹsi",
   "Amount": "Iye",
   "Birthdate": "Ojo ibi",
@@ -15,13 +14,11 @@
   "Other": "Omiiran",
   "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
-  "Sign": "Wọlé Bayi!",
   "Sign now!": "Wole bayi!",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
   "Your message": "Ifiranṣẹ rẹ",
-  "Your organisation account": "Account agbari rẹ",
   "action": {
     "donate": "Ṣetọrẹ",
     "email": "Fi imeeli ranṣẹ",

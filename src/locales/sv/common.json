@@ -1,5 +1,4 @@
 {
-  "Account": "Konto",
   "Address": "Adress",
   "Amount": "Belopp",
   "Birthdate": "Födelsedatum",
@@ -15,13 +14,11 @@
   "Other": "Övrigt",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
-  "Sign": "Skriv under",
   "Sign now!": "Skriv under!",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
   "Subject": "Ämne",
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
-  "Your organisation account": "Ditt organisationskonto",
   "action": {
     "donate": "Donera",
     "email": "Skicka ett e-postmeddelande",

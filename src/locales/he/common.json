@@ -1,5 +1,4 @@
 {
-  "Account": "חשבון",
   "Address": "כתובת",
   "Amount": "כמות",
   "Birthdate": "תאריך לידה",
@@ -15,13 +14,11 @@
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
-  "Sign": "היכנס עכשיו!",
   "Sign now!": "חתמו עכשיו!",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
   "Your message": "ההודעה שלך",
-  "Your organisation account": "חשבון הארגון שלך",
   "action": {
     "donate": "לִתְרוֹם",
     "email": "שלח אימייל",

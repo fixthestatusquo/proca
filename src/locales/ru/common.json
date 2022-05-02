@@ -1,5 +1,4 @@
 {
-  "Account": "Учётная запись",
   "Address": "Адрес",
   "Amount": "Сумма",
   "Birthdate": "Дата рождения",
@@ -15,13 +14,11 @@
   "Other": "Прочие",
   "Phone": "Телефон",
   "Postal Code": "Почтовый индекс",
-  "Sign": "Распишитесь сейчас!",
   "Sign now!": "Распишитесь сейчас!",
   "Sorry, we couldn't save": "Простите, мы не смогли записать",
   "Subject": "Тема",
   "Thank you": "Спасибо",
   "Your message": "Ваше сообщение",
-  "Your organisation account": "Аккаунт вашей организации",
   "action": {
     "donate": "Пожертвовать",
     "email": "Отправить письмо",

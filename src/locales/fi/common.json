@@ -1,5 +1,4 @@
 {
-  "Account": "Tili",
   "Address": "Osoite",
   "Amount": "Määrä",
   "Birthdate": "Syntymäpäivä",
@@ -15,13 +14,11 @@
   "Other": "Muu",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
-  "Sign": "Allekirjoita!",
   "Sign now!": "Allekirjoita!",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
-  "Your organisation account": "Organisaatiotilisi",
   "action": {
     "donate": "Lahjoita",
     "email": "Lähetä sähköpostia",

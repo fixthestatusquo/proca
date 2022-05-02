@@ -1,5 +1,4 @@
 {
-  "Account": "Λογαριασμός",
   "Address": "Διεύθυνση",
   "Amount": "Ποσό",
   "Birthdate": "Ημερομηνία γέννησης",
@@ -15,13 +14,11 @@
   "Other": "Άλλο",
   "Phone": "Τηλέφωνο",
   "Postal Code": "Ταχυδρομικός κώδικας",
-  "Sign": "Υπόγραψε τώρα!",
   "Sign now!": "Υπόγραψε τώρα!",
   "Sorry, we couldn't save": "Δυστυχώς, δεν ήταν δυνατή η αποθήκευση",
   "Subject": "Θέμα",
   "Thank you": "Ευχαριστώ",
   "Your message": "Το μήνυμά σας",
-  "Your organisation account": "Ο λογαριασμός του οργανισμού σας",
   "action": {
     "donate": "Δωρεά",
     "email": "Στείλτε ένα email",

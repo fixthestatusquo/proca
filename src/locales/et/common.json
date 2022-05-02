@@ -1,5 +1,4 @@
 {
-  "Account": "Konto",
   "Address": "Aadress",
   "Amount": "Summa",
   "Birthdate": "Sünnikuupäev",
@@ -15,13 +14,11 @@
   "Other": "Teine",
   "Phone": "Telefon",
   "Postal Code": "Sihtnumber",
-  "Sign": "Lisa allkiri",
   "Sign now!": "Lisa allkiri!",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
-  "Your organisation account": "Teie organisatsiooni konto",
   "action": {
     "donate": "Annetada",
     "email": "Saada e-kiri",

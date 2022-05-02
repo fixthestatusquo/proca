@@ -1,5 +1,4 @@
 {
-  "Account": "Cuntas",
   "Address": "Seoladh",
   "Amount": "Méid",
   "Birthdate": "Dáta breithe",
@@ -15,13 +14,11 @@
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
-  "Sign": "Sínigh Anois!",
   "Sign now!": "Sínigh anois!",
   "Sorry, we couldn't save": "Tá brón orm, ní raibh muid in ann sábháil",
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
-  "Your organisation account": "Do chuntas eagraíochta",
   "action": {
     "donate": "Síntiúis",
     "email": "Seol Ríomhphost",

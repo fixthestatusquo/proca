@@ -1,5 +1,4 @@
 {
-  "Account": "Účet",
   "Address": "Adresa",
   "Amount": "Částka",
   "Birthdate": "Datum narození",
@@ -15,13 +14,11 @@
   "Other": "Ostatní",
   "Phone": "Telefón",
   "Postal Code": "Poštovní směrovací číslo",
-  "Sign": "Chci podepsat!",
   "Sign now!": "Chci podepsat!",
   "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
   "Subject": "Předmět",
   "Thank you": "Děkuji ti",
   "Your message": "Vaše zpráva",
-  "Your organisation account": "Váš účet organizace",
   "action": {
     "donate": "Darovat",
     "email": "Odeslat e-mail",

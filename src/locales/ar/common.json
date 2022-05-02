@@ -1,5 +1,4 @@
 {
-  "Account": "حساب",
   "Address": "عنوان",
   "Amount": "كمية",
   "Birthdate": "تاريخ الولادة",
@@ -15,13 +14,11 @@
   "Other": "آخر",
   "Phone": "هاتف",
   "Postal Code": "رمز بريدي",
-  "Sign": "سجل الان!",
   "Sign now!": "سجل الان!",
   "Sorry, we couldn't save": "آسف ، لم نتمكن من الحفظ",
   "Subject": "موضوعات",
   "Thank you": "شكرا لك",
   "Your message": "رسالتك",
-  "Your organisation account": "حساب مؤسستك",
   "action": {
     "donate": "يتبرع",
     "email": "أرسل بريدا إلكترونيا",

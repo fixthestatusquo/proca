@@ -1,5 +1,4 @@
 {
-  "Account": "Compte",
   "Address": "Adreça",
   "Amount": "Quantitat",
   "Birthdate": "Data de naixement",
@@ -15,13 +14,11 @@
   "Other": "Altres",
   "Phone": "Telèfon",
   "Postal Code": "Codi postal",
-  "Sign": "Signa ara!",
   "Sign now!": "Signeu ara!",
   "Sorry, we couldn't save": "No hem pogut desar",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
   "Your message": "El teu missatge",
-  "Your organisation account": "El vostre compte d'organització",
   "action": {
     "donate": "Donar",
     "email": "Enviar un correu electrònic",

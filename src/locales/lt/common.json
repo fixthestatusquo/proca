@@ -1,5 +1,4 @@
 {
-  "Account": "Paskyra",
   "Address": "Adresas",
   "Amount": "Suma",
   "Birthdate": "Gimimo data",
@@ -15,13 +14,11 @@
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
-  "Sign": "Pasirašykite dabar!",
   "Sign now!": "Pasirašykite dabar!",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
   "Subject": "Tema",
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
-  "Your organisation account": "Jūsų organizacijos paskyra",
   "action": {
     "donate": "Paaukoti",
     "email": "Siųsti el. laišką",

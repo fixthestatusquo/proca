@@ -1,5 +1,4 @@
 {
-  "Account": "Налог",
   "Address": "Адреса",
   "Amount": "Износ",
   "Birthdate": "Датум рођења",
@@ -15,13 +14,11 @@
   "Other": "Ostalo",
   "Phone": "Телефон",
   "Postal Code": "поштански код",
-  "Sign": "Potpišite!",
   "Sign now!": "Potpišite!",
   "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
   "Subject": "Предмет",
   "Thank you": "Хвала вам",
   "Your message": "Ваша порука",
-  "Your organisation account": "Налог ваше организације",
   "action": {
     "donate": "Донате",
     "email": "Пошаљите е-маил",

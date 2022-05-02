@@ -1,5 +1,4 @@
 {
-  "Account": "Kont",
   "Address": "Indirizz",
   "Amount": "Ammont",
   "Birthdate": "Data tat-twelid",
@@ -15,13 +14,11 @@
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
-  "Sign": "Iffirma Issa!",
   "Sign now!": "Iffirma issa!",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
-  "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
   "action": {
     "donate": "Agħti donazzjoni",
     "email": "Ibgħat Email",

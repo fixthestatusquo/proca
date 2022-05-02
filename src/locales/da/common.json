@@ -1,5 +1,4 @@
 {
-  "Account": "Konto",
   "Address": "Adresse",
   "Amount": "Beløb",
   "Birthdate": "Fødselsdato",
@@ -15,13 +14,11 @@
   "Other": "Andre",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
-  "Sign": "Tilmeld nu!",
   "Sign now!": "Tilmeld nu!",
   "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
-  "Your organisation account": "Din organisationskonto",
   "action": {
     "donate": "Donér",
     "email": "Send en e-mail",

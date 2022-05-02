@@ -1,5 +1,4 @@
 {
-  "Account": "Account",
   "Address": "Adres",
   "Amount": "Bedrag",
   "Birthdate": "Geboortedatum",
@@ -15,13 +14,11 @@
   "Other": "Andere",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
-  "Sign": "Teken nu!",
   "Sign now!": "Teken nu!",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
-  "Your organisation account": "Uw organisatie's account",
   "action": {
     "donate": "Doneer",
     "email": "Stuur een e-mail",

@@ -1,5 +1,4 @@
 {
-  "Account": "Račun",
   "Address": "Adresa",
   "Amount": "Iznos",
   "Birthdate": "Datum rođenja",
@@ -15,13 +14,11 @@
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
-  "Sign": "Potpišite sada!",
   "Sign now!": "Potpišite sada!",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
-  "Your organisation account": "Račun vaše organizacije",
   "action": {
     "donate": "Doniraj",
     "email": "Pošalji e-mail",
