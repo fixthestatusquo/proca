@@ -11,16 +11,17 @@
   "Last name": "Apelido",
   "Locality": "Localidade",
   "Next": "Próximo",
+  "No Thanks": "Não, obrigado.",
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
-  "Sign now!": "Assine agora!",
   "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
   "Subject": "Assunto",
   "Thank you": "Obrigado",
   "Your message": "A sua mensagem",
   "action": {
     "donate": "Doe",
+    "eci": "eci",
     "email": "Envie um e-mail",
     "join": "Junte-se a",
     "register": "Registe-se",
@@ -117,10 +118,15 @@
     "message": "Devias assinar isto!",
     "title": "Está quase! Dá o próximo passo."
   },
+  "supporter": {
+    "not_you": "não você?",
+    "welcome": "Bem-vindo de volta {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Selecione outro país, não há ninguém para contactar em {{country}}"
-    }
+    },
+    "random": "Seleccionado um dos nossos {{total}} alvos mais importantes"
   },
   "twitter": {
     "actionText": "Eu assinei. Tu também devias"
