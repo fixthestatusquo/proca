@@ -34,6 +34,8 @@ const merge = (targets, twitters, options) => {
     if (options.meps) {
       r.description = target.fields.party;
       r.eugroup = target.fields.eugroup;
+      if (target.fields.epid)
+        r.profile_image_url_https = "https://www.europarl.europa.eu/mepphoto/" + target.fields.epid +".jpg";
     }
 
     if (options.email) {
@@ -98,6 +100,7 @@ const saveTargets = (campaignName, targets) => {
   try {
     const c = read("campaign/" + name); // the config file
     const targets = read("target/server/" + name); // the list of targets from proca server
+
     let twitters = null;
     try {
       twitters = read("target/twitter/" + name); // the list from twitter
@@ -107,6 +110,7 @@ const saveTargets = (campaignName, targets) => {
     const d = merge(targets, twitters, {email: publicEmail, display: display, meps: meps});
     //    const d = await pullCampaign(argv[0]);
     if (d) {
+      d.sort((a, b) => (b?.followers_count - a?.followers_count))
       const c=saveTargets(name,d);
       console.log("saved " + c);
     }

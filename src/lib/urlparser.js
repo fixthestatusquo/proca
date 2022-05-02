@@ -42,6 +42,7 @@ const data = (prefix) => {
     "amount",
     "paymentMethod",
     "firstname",
+    "uuid",
     "lastname",
     "name",
     "email",

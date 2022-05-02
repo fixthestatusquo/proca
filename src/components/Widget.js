@@ -2,7 +2,8 @@ import React, { useState, useRef, useCallback, useEffect, useLayoutEffect } from
 import ProcaRoot from "@components/ProcaRoot";
 import merge from "lodash.merge";
 import { initConfigState } from "@hooks/useConfig";
-import Url, { step as paramStep } from "@lib/urlparser.js";
+import Url, { step as paramStep } from "@lib/urlparser";
+import { getCookie } from "@lib/cookie";
 import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
@@ -53,8 +54,9 @@ const Widget = (props) => {
   let isMobile = useIsMobile();
 
   var data = Url.data();
+  const cookies = {uuid: getCookie("proca_uuid"),firstname: getCookie("proca_firstname")};
   document.querySelectorAll(props.selector).forEach((dom) => {
-    data = { ...dom.dataset, ...data };
+    data = { ...dom.dataset, ...cookies, ...data };
   });
 
   if (props) config = { ...config, ...props };

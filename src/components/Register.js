@@ -9,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser";
+import {setCookie} from "@lib/cookie";
 import {checkMail, getDomain} from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
@@ -29,9 +30,10 @@ import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
 import Country from "@components/Country";
+import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
 
-import { addActionContact } from "@lib/server.js";
+import { addActionContact, addAction } from "@lib/server.js";
 import dispatch from "@lib/event.js";
 import uuid, {isSet as isUuid} from "@lib/uuid.js";
 
@@ -39,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
+  },
+  hidden: {
+    display: 'none'
   },
   field: {
     margin: "0 !important",
@@ -103,53 +108,81 @@ export default function Register(props) {
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const comment = data.comment;
-
   useEffect(() => {
     setValue("comment", comment);
   }, [comment, setValue]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     if (emailProvider.current === false) {
       setError("email", { type: "mx", message: t("email.invalid_domain",{
         defaultValue: "{{domain}} cannot receive emails",
-        domain:getDomain(data.email)})});
+        domain:getDomain(formData.email)})});
       // the email domain is checked and invalid
       return false;
     } else {
-      if (emailProvider.current) data.emailProvider = emailProvider.current;
+      if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    data.tracking = Url.utm();
+    formData.tracking = Url.utm();
     if (config.component.consent?.implicit) {
-      data.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
+      formData.privacy = config.component.consent.implicit === true ? "opt-in" : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
     let actionType = config.component?.register?.actionType || "register";
     if (props.targets) {
-      data.targets = props.targets;
+      formData.targets = props.targets;
       actionType = "mail2target";
     }
     if (props.beforeSubmit && typeof props.beforeSubmit === 'function') {
-      data = props.beforeSubmit (data);
+      formData = props.beforeSubmit (formData);
     }
 
     if (isUuid()) { // they were previous actions, we associate them with the contact recorded now
-      data.uuid = uuid(); 
+      formData.uuid = uuid(); 
     }
-    const result = await addActionContact(actionType,
-      config.actionPage,
-      data,
-      config.test
+    
+    if (data.uuid ) { // the contact is known, but the contact details possibly not set
+      formData.uuid = data.uuid;
+    }
+
+    console.log(formData);
+    let result = null;
+    if (data.uuid) {
+      const expected =
+    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
+      ","
     );
 
+      let payload={};
+      for (let [key, value] of Object.entries(formData)) {
+        if (value && !expected.includes(key))
+           payload[key] = value;
+      };
+
+      result = await 
+      addAction (
+      config.actionPage,
+        actionType,
+        {uuid:data.uuid, tracking:Url.utm(), payload:payload},
+      config.test
+    ) 
+    } else {
+      addActionContact (actionType,
+      config.actionPage,
+      formData,
+      config.test
+      )  
+    };
+
+    
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
-          if (field.name in data) {
+          if (field.name in formData) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
-          } else if (field.name.toLowerCase() in data) {
+          } else if (field.name.toLowerCase() in formData) {
             setError(field.name.toLowerCase(), {
               type: "server",
               message: field.message,
@@ -161,20 +194,29 @@ export default function Register(props) {
       !handled && setStatus("error");
       return;
     }
+
+    if (result.addAction) {
+      result=result.addAction;
+    }
+
     dispatch(
       (config.component?.register?.actionType || "register") + ":complete",
       {
         uuid: result.contactRef,
         test: !!config.test,
-        firstname: data.firstname,
-        country: data.country,
-        comment: data.comment,
-        privacy: data.privacy
+        firstname: formData.firstname,
+        country: formData.country,
+        comment: formData.comment,
+        privacy: formData.privacy
       },
-      data
+      formData
     );
+    if (config.component.register.remember) {
+      setCookie ("proca_firstname",formData.firstname);
+      setCookie ("proca_uuid",result.contactRef);
+    }
     setStatus("success");
-    setData(data);
+    setData(formData);
     if (!config.component.share?.anonymous) {
       uuid(result.contactRef); // set the global uuid as signature's fingerprint
     }
@@ -182,9 +224,9 @@ export default function Register(props) {
       props.done({
         errors: result.errors,
         uuid: uuid(),
-        firstname: data.firstname,
-        country: data.country,
-        privacy: data.privacy
+        firstname: formData.firstname,
+        country: formData.country,
+        privacy: formData.privacy
       });
   };
 
@@ -196,8 +238,7 @@ export default function Register(props) {
     
         props.onClick(getValues()); // how to get the data updated?
       } else {
-        const r = await handleSubmit(onSubmit)();
-        console.log(r);
+        await handleSubmit(onSubmit)();
       }
 
     }
@@ -272,7 +313,7 @@ export default function Register(props) {
     // what do we do with the provider?
   }
   
-
+  const classField = data.uuid ? classes.hidden : classes.field;
 
   return (
     <form
@@ -286,10 +327,11 @@ export default function Register(props) {
       <Error display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled disabled = {config.component.register?.disabled === true}>
+    <WelcomeSupporter />
         <Box marginBottom={1}>
           <Grid container spacing={1}>
             {config.component.register?.custom?.top && <CustomField compact={compact} form={form} position="top" classes={classes}/>}
-            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
               <TextField
                 form={form}
                 name="firstname"
@@ -300,7 +342,7 @@ export default function Register(props) {
               />
             </Grid>
             {config.component.register?.field?.lastname !== false && 
-            <Grid item xs={12} sm={compact ? 12 : 6} className={classes.field}>
+            <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
               <TextField
                 form={form}
                 name="lastname"
@@ -311,7 +353,7 @@ export default function Register(props) {
               />
             </Grid>
             }
-            <Grid item xs={12} sm={(compact || config.component.register?.field?.lastname !== false) ? 12:6} className={classes.field}>
+            <Grid item xs={12} sm={(compact || config.component.register?.field?.lastname !== false) ? 12:6} className={classField}>
               <TextField
                 form={form}
                 name="email"
@@ -328,7 +370,7 @@ export default function Register(props) {
                 item
                 xs={12}
                 sm={(compact || config.component.register?.field?.country === false  ) ? 12 : 3}
-                className={classes.field}
+                className={classField}
               >
                 <TextField
                   form={form}
@@ -346,18 +388,18 @@ export default function Register(props) {
                 item
                 xs={12}
                 sm={(compact || config.component.register?.field?.postcode === false) ? 12 : 9}
-                className={classes.field}
+                className={classField}
               >
                 <Country form={form} required />
               </Grid>
             )}
             {config.component.register?.field?.phone === true && (
-              <Grid item xs={12} className={classes.field}>
+              <Grid item xs={12} className={classField}>
                 <TextField form={form} name="phone" label={t("Phone")} />
               </Grid>
             )}
             {config.component.register?.field?.comment !== false && (
-              <Grid item xs={12} className={classes.field}>
+              <Grid item xs={12} className={classField}>
                 <TextField
                   form={form}
                   name="comment"
@@ -371,11 +413,11 @@ export default function Register(props) {
             {props.extraFields && props.extraFields({form:form,classes:classes})}
             {config.component.register?.custom?.bottom && <CustomField compact={compact} form={form} classes={classes}/>}
 
-            <ConsentBlock
+    {!data.uuid && <ConsentBlock
               organisation={props.organisation}
               privacy_url={config.privacyUrl}
               form={form}
-            />
+            />}
 
             <Grid item xs={12}>
               <Button
