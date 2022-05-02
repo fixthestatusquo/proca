@@ -11,16 +11,17 @@
   "Last name": "Nazwisko",
   "Locality": "Położenie",
   "Next": "Następny",
+  "No Thanks": "Nie dziękuję",
   "Other": "Inne",
   "Phone": "Telefon",
   "Postal Code": "Kod pocztowy",
-  "Sign now!": "Podpisz teraz!",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
   "Subject": "Temat",
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
   "action": {
     "donate": "Przekaż darowiznę",
+    "eci": "eci",
     "email": "Wyślij wiadomość e-mail",
     "join": "Dołączyć",
     "register": "Zarejestruj",
@@ -117,10 +118,14 @@
     "message": "Powinieneś to podpisać!",
     "title": "Prawie gotowe! Zrób następny krok."
   },
+  "supporter": {
+    "welcome": "Witamy z powrotem {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}."
-    }
+    },
+    "random": "Wybrano jeden z naszych {{total}} najważniejszych celów"
   },
   "twitter": {
     "actionText": "Ja podpisałem. Ty też powinieneś."
