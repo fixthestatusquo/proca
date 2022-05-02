@@ -11,16 +11,17 @@
   "Last name": "Sukunimi",
   "Locality": "Sijainti",
   "Next": "Seuraava",
+  "No Thanks": "Ei kiitos",
   "Other": "Muu",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
-  "Sign now!": "Allekirjoita!",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
   "action": {
     "donate": "Lahjoita",
+    "eci": "eci",
     "email": "Lähetä sähköpostia",
     "join": "Liity",
     "register": "Rekisteröi",
@@ -117,10 +118,15 @@
     "message": "Sinun tulisi allekirjoittaa tämä!",
     "title": "Melkein valmista! Ota seuraava askel."
   },
+  "supporter": {
+    "not_you": "etkö sinä?",
+    "welcome": "Tervetuloa takaisin {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
-    }
+    },
+    "random": "Valittu yksi {{total}} tärkeimmistä kohteistamme."
   },
   "twitter": {
     "actionText": "Allekirjoitin. Sinunkin pitäisi"
