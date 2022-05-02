@@ -11,16 +11,17 @@
   "Last name": "Achternaam",
   "Locality": "Gemeente",
   "Next": "Volgende",
+  "No Thanks": "Geen dank.",
   "Other": "Andere",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
-  "Sign now!": "Teken nu!",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "action": {
     "donate": "Doneer",
+    "eci": "eci",
     "email": "Stuur een e-mail",
     "join": "Word lid van",
     "register": "Registreren",
@@ -117,10 +118,15 @@
     "message": "Teken dit!",
     "title": "Bijna klaar! Zet de volgende stap."
   },
+  "supporter": {
+    "not_you": "jij niet?",
+    "welcome": "Welkom terug {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"
-    }
+    },
+    "random": "Een van onze {{total}} belangrijkste doelen gekozen"
   },
   "twitter": {
     "actionText": "Ik heb getekend. Doe mee!"
