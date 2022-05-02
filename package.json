@@ -18,7 +18,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@paypal/react-paypal-js": "^7.6.0",
     "@stripe/react-stripe-js": "^1.7.2",
     "@stripe/stripe-js": "^1.29.0",
