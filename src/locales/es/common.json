@@ -11,16 +11,17 @@
   "Last name": "Apellidos",
   "Locality": "Localidad",
   "Next": "Siguiente",
+  "No Thanks": "No, gracias",
   "Other": "Otros",
   "Phone": "Teléfono",
   "Postal Code": "Código postal",
-  "Sign now!": "¡Firma ahora!",
   "Sorry, we couldn't save": "No se ha podido guardar",
   "Subject": "Asunto",
   "Thank you": "Gracias",
   "Your message": "Su mensaje",
   "action": {
     "donate": "Donar",
+    "eci": "eci",
     "email": "Enviar un correo electrónico",
     "join": "Únase a",
     "register": "Registro",
@@ -117,10 +118,15 @@
     "message": "¡Deberías firmar esto!",
     "title": "¡Ya casi está! Da el siguiente paso."
   },
+  "supporter": {
+    "not_you": "¿No es usted?",
+    "welcome": "¡Bienvenido de nuevo {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}"
-    }
+    },
+    "random": "Seleccionado uno de nuestros {{total}} objetivos más importantes"
   },
   "twitter": {
     "actionText": "Yo firmé. Tú también deberías hacerlo"
