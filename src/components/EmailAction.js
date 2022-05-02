@@ -35,14 +35,14 @@ const component = function EmailAction(profile) {
     let s =
       typeof profile.subject == "function"
         ? profile.subject(profile)
-        : t("email.subject");
+        : t("campaign:email.subject");
 
     if (profile.actionUrl) {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
       else s = s + " " + profile.actionUrl;
     }
 
-    const body = t("email.body");
+    const body = t("campaign:email.body");
     var url =
       "mailto:" +
       profile.email +

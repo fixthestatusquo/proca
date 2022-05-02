@@ -23,7 +23,7 @@ const WelcomeSupporter = (props) => {
     icon={<RegisteredIcon fontSize="inherit" />}
       action={
     <Button onClick = {forgetMe} color="inherit" size="small">
-      not you?
+        {t("supporter.not_you","not you?")}
     </Button>
   }
     >

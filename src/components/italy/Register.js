@@ -228,7 +228,7 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="birthplace"
-                label={t("Place of birth")}
+                label={t("eci:Place of birth")}
                 placeholder="eg. Roma"
                 required
               />

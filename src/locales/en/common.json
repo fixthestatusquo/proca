@@ -1,5 +1,4 @@
 {
-  "Account": "Account",
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birth date",
@@ -12,18 +11,17 @@
   "Last name": "Last name",
   "Locality": "Locality",
   "Next": "Next",
+  "No Thanks": "No Thanks",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
-  "Sign": "Sign Now!",
-  "Sign now!": "Sign now!",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
-  "Your organisation account": "Your organisation account",
   "action": {
     "donate": "Donate",
+    "eci": "eci",
     "email": "Send an Email",
     "join": "Join",
     "register": "Register",
@@ -120,10 +118,15 @@
     "message": "You should sign this!",
     "title": "Almost done! Take the next step."
   },
+  "supporter": {
+    "not_you": "not you?",
+    "welcome": "Welcome back {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}"
-    }
+    },
+    "random": "Selected one of our {{total}} most important targets"
   },
   "twitter": {
     "actionText": "actionText"

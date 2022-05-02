@@ -29,7 +29,7 @@ const Intro = (props) => {
     <Grid container alignItems="flex-start">
       <Grid item xs={8}>
         <p>
-          {t("Selected one of our {{total}} most important targets", {
+          {t("target.random", {
             total: props.total,
           })}
         </p>

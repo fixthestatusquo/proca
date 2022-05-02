@@ -75,7 +75,7 @@ export default function StepperEci(props) {
               onClick={handleStep("eci")}
               icon={<EciIcon color={iconColor("eci")} />}
             >
-              {t("Sign the ECI")}
+              {t("action.eci")}
             </StepButton>
           </Step>
         );
@@ -83,7 +83,7 @@ export default function StepperEci(props) {
         return (
           <Step key="register">
             <StepButton onClick={handleStep("register")}>
-              {t("Join")}
+              {t("action.join")}
             </StepButton>
           </Step>
         );
@@ -94,7 +94,7 @@ export default function StepperEci(props) {
               onClick={handleStep("share")}
               icon={<ShareIcon color={iconColor("share")} />}
             >
-              {t("Share")}
+              {t("action.share")}
             </StepButton>
           </Step>
         );

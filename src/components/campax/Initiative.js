@@ -75,7 +75,7 @@ export default function Register(props) {
     console.log(c);
     setStatus("error");
   }
-  const buttonRegister = config.buttonRegister || t("Sign");
+  const buttonRegister = config.buttonRegister || t("action.sign");
   useEffect(() => {
     if (!actionPage || actionPage === config.actionPage) return;
     setCampaignConfig((config) => {
