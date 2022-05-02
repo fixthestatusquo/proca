@@ -11,16 +11,17 @@
   "Last name": "Cognoms",
   "Locality": "Localitat",
   "Next": "Següent",
+  "No Thanks": "No gràcies",
   "Other": "Altres",
   "Phone": "Telèfon",
   "Postal Code": "Codi postal",
-  "Sign now!": "Signeu ara!",
   "Sorry, we couldn't save": "No hem pogut desar",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
   "Your message": "El teu missatge",
   "action": {
     "donate": "Donar",
+    "eci": "eci",
     "email": "Enviar un correu electrònic",
     "join": "Uneix-te",
     "register": "Registra't",
@@ -117,10 +118,15 @@
     "message": "Hauríeu de signar això!",
     "title": "Gairebé ho té! Doneu el següent pas."
   },
+  "supporter": {
+    "not_you": "no tu?",
+    "welcome": "Benvingut de nou {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"
-    }
+    },
+    "random": "Hem seleccionat un dels nostres objectius més importants {{total}}."
   },
   "twitter": {
     "actionText": "He signat. Tu també ho hauries de fer"
