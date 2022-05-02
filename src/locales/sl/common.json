@@ -11,16 +11,17 @@
   "Last name": "Priimek",
   "Locality": "Okraj",
   "Next": "Naslednja",
+  "No Thanks": "Ne, hvala.",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštna številka",
-  "Sign now!": "Podpišite peticijo!",
   "Sorry, we couldn't save": "Žal nismo mogli shraniti",
   "Subject": "Zadeva",
   "Thank you": "Hvala vam",
   "Your message": "Vaše sporočilo",
   "action": {
     "donate": "Podarite",
+    "eci": "eci",
     "email": "Pošlji e-pošto",
     "join": "Pridružite se",
     "register": "Register",
@@ -117,10 +118,15 @@
     "message": "Moral bi to podpisati!",
     "title": "Skoraj končano!"
   },
+  "supporter": {
+    "not_you": "vas ne?",
+    "welcome": "Dobrodošli nazaj {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral."
-    }
+    },
+    "random": "Izbrana ena od naših {{total}} najpomembnejših ciljev"
   },
   "twitter": {
     "actionText": "Podpisal sem. tudi vi bi morali"
