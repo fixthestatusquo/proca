@@ -11,16 +11,17 @@
   "Last name": "Vezetéknév",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
+  "No Thanks": "Nem, köszönöm.",
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
-  "Sign now!": "Aláírom!",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
   "action": {
     "donate": "Adományozni",
+    "eci": "eci",
     "email": "E-mail küldése",
     "join": "Csatlakozzon a",
     "register": "Regisztráció",
@@ -117,10 +118,15 @@
     "message": "Ezt alá kellene írnia!",
     "title": "Majdnem készen is vagyunk!"
   },
+  "supporter": {
+    "not_you": "Nem te?",
+    "welcome": "Üdvözöljük újra {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."
-    }
+    },
+    "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat."
   },
   "twitter": {
     "actionText": "Aláírtam. Neked is kellene"
