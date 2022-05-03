@@ -1,5 +1,4 @@
 {
-  "Account": "Account",
   "Address": "Address",
   "Amount": "Amount",
   "Birthdate": "Birth date",
@@ -15,11 +14,8 @@
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal code",
-  "Sign": "Sign Now!",
-  "Sign now!": "Sign now!",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
   "Thank you": "Thank you",
-  "Your organisation account": "Your organisation account",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "implicit": "Submit this form to receive emails from {{name}}",

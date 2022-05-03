@@ -1,5 +1,4 @@
 {
-  "Account": "Conto",
   "Address": "Indirizzo",
   "Amount": "Importo",
   "Birthdate": "Data di nascita",
@@ -12,18 +11,17 @@
   "Last name": "Nome e cognome",
   "Locality": "Località",
   "Next": "Prossimo",
+  "No Thanks": "No grazie",
   "Other": "Altro",
   "Phone": "Telefono",
   "Postal Code": "Codice postale",
-  "Sign": "Firma ora!",
-  "Sign now!": "Firma ora!",
   "Sorry, we couldn't save": "Spiacenti, non siamo riusciti a salvare",
   "Subject": "Oggetto",
   "Thank you": "Grazie",
   "Your message": "Il tuo messaggio",
-  "Your organisation account": "Il conto della tua organizzazione",
   "action": {
     "donate": "Donare",
+    "eci": "eci",
     "email": "Invia un'e-mail",
     "join": "Unisciti a",
     "register": "Registra",
@@ -120,10 +118,15 @@
     "message": "Dovresti firmare questo!",
     "title": "Quasi fatto! Fai il prossimo passo."
   },
+  "supporter": {
+    "not_you": "non tu?",
+    "welcome": "Bentornato {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Seleziona un altro paese, non c'è nessuno da contattare in {{country}}"
-    }
+    },
+    "random": "Selezionato uno dei nostri {{total}} obiettivi più importanti"
   },
   "twitter": {
     "actionText": "Ho firmato. dovresti farlo anche tu"

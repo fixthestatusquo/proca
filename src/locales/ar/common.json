@@ -1,5 +1,4 @@
 {
-  "Account": "حساب",
   "Address": "عنوان",
   "Amount": "كمية",
   "Birthdate": "تاريخ الولادة",
@@ -12,18 +11,17 @@
   "Last name": "الكنية",
   "Locality": "المنطقة",
   "Next": "التالي",
+  "No Thanks": "ًلا شكرا",
   "Other": "آخر",
   "Phone": "هاتف",
   "Postal Code": "رمز بريدي",
-  "Sign": "سجل الان!",
-  "Sign now!": "سجل الان!",
   "Sorry, we couldn't save": "آسف ، لم نتمكن من الحفظ",
   "Subject": "موضوعات",
   "Thank you": "شكرا لك",
   "Your message": "رسالتك",
-  "Your organisation account": "حساب مؤسستك",
   "action": {
     "donate": "يتبرع",
+    "eci": "eci",
     "email": "أرسل بريدا إلكترونيا",
     "join": "ينضم",
     "register": "يسجل",
@@ -120,10 +118,15 @@
     "message": "يجب عليك التوقيع على هذا!",
     "title": "يكاد ينتهي! اتخذ الخطوة التالية."
   },
+  "supporter": {
+    "not_you": "ليس انت؟",
+    "welcome": "مرحبًا بك مرة أخرى {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "حدد دولة أخرى ، لا يوجد أحد للاتصال به في {{country}}"
-    }
+    },
+    "random": "اخترنا أحد أهم أهدافنا {{total}}"
   },
   "twitter": {
     "actionText": "وقعت. يجب عليك أنت أيضا"

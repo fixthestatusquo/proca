@@ -1,5 +1,4 @@
 {
-  "Account": "Konto",
   "Address": "Adresse",
   "Amount": "Betrag",
   "Birthdate": "Geburtsdatum",
@@ -12,18 +11,17 @@
   "Last name": "Nachname",
   "Locality": "Ort",
   "Next": "Weiter",
+  "No Thanks": "Nein Danke",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
-  "Sign": "Jetzt unterschreiben!",
-  "Sign now!": "Jetzt unterschreiben!",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
   "Subject": "Betreff",
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
-  "Your organisation account": "Ihr Organisationskonto",
   "action": {
     "donate": "Spenden Sie",
+    "eci": "eci",
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
     "register": "Register",
@@ -120,10 +118,15 @@
     "message": "Sie sollten das unterschreiben!",
     "title": "Fast fertig! Machen Sie den nächsten Schritt."
   },
+  "supporter": {
+    "not_you": "Sie nicht?",
+    "welcome": "Willkommen zurück {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, in {{country}} ist niemand zu erreichen"
-    }
+    },
+    "random": "Eines unserer {{total}} wichtigsten Ziele ausgewählt"
   },
   "twitter": {
     "actionText": "Ich habe unterschrieben. Das sollten Sie auch."

@@ -1,5 +1,4 @@
 {
-  "Account": "Konto",
   "Address": "Adress",
   "Amount": "Belopp",
   "Birthdate": "Födelsedatum",
@@ -12,18 +11,17 @@
   "Last name": "Efternamn",
   "Locality": "Lokalitet",
   "Next": "Nästa",
+  "No Thanks": "Nej tack",
   "Other": "Övrigt",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
-  "Sign": "Skriv under",
-  "Sign now!": "Skriv under!",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
   "Subject": "Ämne",
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
-  "Your organisation account": "Ditt organisationskonto",
   "action": {
     "donate": "Donera",
+    "eci": "eci",
     "email": "Skicka ett e-postmeddelande",
     "join": "Gå med i",
     "register": "Registrera",
@@ -120,10 +118,15 @@
     "message": "Du borde underteckna detta!",
     "title": "Nästan klar! Ta nästa steg."
   },
+  "supporter": {
+    "not_you": "inte du?",
+    "welcome": "Välkommen tillbaka {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}."
-    }
+    },
+    "random": "Valde ett av våra viktigaste mål {{total}}."
   },
   "twitter": {
     "actionText": "Jag skrev under. du borde också"

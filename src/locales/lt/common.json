@@ -1,5 +1,4 @@
 {
-  "Account": "Paskyra",
   "Address": "Adresas",
   "Amount": "Suma",
   "Birthdate": "Gimimo data",
@@ -12,18 +11,17 @@
   "Last name": "Pavardė",
   "Locality": "Vietovė",
   "Next": "Toliau",
+  "No Thanks": "Ne, ačiū",
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
-  "Sign": "Pasirašykite dabar!",
-  "Sign now!": "Pasirašykite dabar!",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
   "Subject": "Tema",
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
-  "Your organisation account": "Jūsų organizacijos paskyra",
   "action": {
     "donate": "Paaukoti",
+    "eci": "eci",
     "email": "Siųsti el. laišką",
     "join": "Prisijunkite prie",
     "register": "Registruotis",
@@ -120,10 +118,15 @@
     "message": "Turėtumėte tai pasirašyti!",
     "title": "Beveik baigta! Ženkite kitą žingsnį."
   },
+  "supporter": {
+    "not_you": "ne jūs?",
+    "welcome": "Sveiki sugrįžę {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}"
-    }
+    },
+    "random": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų"
   },
   "twitter": {
     "actionText": "Aš pasirašiau. tu taip pat turėtum"
