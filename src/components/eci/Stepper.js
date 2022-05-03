@@ -54,6 +54,7 @@ export default function StepperEci(props) {
         return (
           <Email
             key={step}
+            intro={steps[0] !== 'register'}
             done={doneEmail}
             {...crumbbread}
             submitted={submitted}
