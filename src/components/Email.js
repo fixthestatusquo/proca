@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 
 import List from "@material-ui/core/List";
 
-import EmailAction from "@components/EmailAction";
+import EmailAction from "@components/email/Action";
 import ProgressCounter from "@components/ProgressCounter";
 
 import Country from "@components/Country";
@@ -15,12 +15,22 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
+import { makeStyles } from '@material-ui/core/styles';
 
 import uuid from "@lib/uuid";
 import {getCountryName} from "@lib/i18n";
 import { addAction } from "@lib/server";
 
+const useStyles = makeStyles((theme) => ({
+  list: {
+    position: 'relative',
+    overflow: 'auto',
+    maxHeight: 300,
+  },
+}));
+
 const Component = (props) => {
+  const classes = useStyles();
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data, setData] = useData();
@@ -303,7 +313,7 @@ const Component = (props) => {
         <Country form={form} list={config.component.email?.countries} />
       )}
       {config.component.email?.showTo !== false && (
-        <List>
+        <List className={classes.list} dense>
           {profiles.map((d) => (
             <EmailAction
               key={d.id || JSON.stringify(d)}

@@ -77,7 +77,7 @@ const component = function EmailAction(profile) {
       disabled={disabled}
       button={config.component?.email?.split === true}
       onClick={config.component?.email?.split === true ? mail : null}
-      divider={true}
+      divider={false}
     >
       <ListItemAvatar>
         <Avatar src={img()} />
