@@ -1,5 +1,4 @@
 {
-  "Account": "Iroyin",
   "Address": "Adirẹsi",
   "Amount": "Iye",
   "Birthdate": "Ojo ibi",
@@ -12,18 +11,17 @@
   "Last name": "Oruko idile",
   "Locality": "Agbegbe",
   "Next": "Itele",
+  "No Thanks": "Rara o se",
   "Other": "Omiiran",
   "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
-  "Sign": "Wọlé Bayi!",
-  "Sign now!": "Wole bayi!",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
   "Your message": "Ifiranṣẹ rẹ",
-  "Your organisation account": "Account agbari rẹ",
   "action": {
     "donate": "Ṣetọrẹ",
+    "eci": "eci",
     "email": "Fi imeeli ranṣẹ",
     "join": "Darapọ mọ",
     "register": "Forukọsilẹ",
@@ -119,10 +117,15 @@
     "message": "O yẹ ki o fowo si eyi!",
     "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle."
   },
+  "supporter": {
+    "not_you": "ko iwo?",
+    "welcome": "Kaabo pada {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Yan orilẹ-ede miiran, ko si ẹnikan lati kan si ni {{country}}"
-    }
+    },
+    "random": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}."
   },
   "twitter": {
     "actionText": "Mo fowo si. o yẹ ki o tun"

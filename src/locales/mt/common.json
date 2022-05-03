@@ -1,5 +1,4 @@
 {
-  "Account": "Kont",
   "Address": "Indirizz",
   "Amount": "Ammont",
   "Birthdate": "Data tat-twelid",
@@ -12,18 +11,17 @@
   "Last name": "Kunjom",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
+  "No Thanks": "Le grazzi",
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
-  "Sign": "Iffirma Issa!",
-  "Sign now!": "Iffirma issa!",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
-  "Your organisation account": "Il-kont tal-organizzazzjoni tiegħek",
   "action": {
     "donate": "Agħti donazzjoni",
+    "eci": "eci",
     "email": "Ibgħat Email",
     "join": "Jingħaqad",
     "register": "Irreġistra",
@@ -120,10 +118,15 @@
     "message": "Għandek tiffirma dan!",
     "title": "Kważi lest! Ħu l-pass li jmiss."
   },
+  "supporter": {
+    "not_you": "mhux int?",
+    "welcome": "Merħba lura {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"
-    }
+    },
+    "random": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}."
   },
   "twitter": {
     "actionText": "I ffirmat. għandek ukoll"

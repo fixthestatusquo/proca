@@ -1,5 +1,4 @@
 {
-  "Account": "Účet",
   "Address": "Adresa",
   "Amount": "Částka",
   "Birthdate": "Datum narození",
@@ -12,18 +11,17 @@
   "Last name": "Příjmení",
   "Locality": "Oblast",
   "Next": "Další",
+  "No Thanks": "Ne, díky",
   "Other": "Ostatní",
   "Phone": "Telefón",
   "Postal Code": "Poštovní směrovací číslo",
-  "Sign": "Chci podepsat!",
-  "Sign now!": "Chci podepsat!",
   "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
   "Subject": "Předmět",
   "Thank you": "Děkuji ti",
   "Your message": "Vaše zpráva",
-  "Your organisation account": "Váš účet organizace",
   "action": {
     "donate": "Darovat",
+    "eci": "eci",
     "email": "Odeslat e-mail",
     "join": "Připojte se k",
     "register": "Registrace",
@@ -120,10 +118,15 @@
     "message": "Měli byste to podepsat!",
     "title": "Téměř hotovo! Přejděte k dalšímu kroku."
   },
+  "supporter": {
+    "not_you": "ne vy?",
+    "welcome": "Vítejte zpět {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat."
-    }
+    },
+    "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů"
   },
   "twitter": {
     "actionText": "Já jsem se podepsal. měl bys také"

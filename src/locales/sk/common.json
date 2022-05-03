@@ -1,5 +1,4 @@
 {
-  "Account": "Účet",
   "Address": "Adresa",
   "Amount": "Čiastka",
   "Birthdate": "Dátum narodenia",
@@ -12,18 +11,17 @@
   "Last name": "Priezvisko",
   "Locality": "Oblasť",
   "Next": "Ďalšia",
+  "No Thanks": "Nie, vďaka",
   "Other": "Ostatné",
   "Phone": "Telefón",
   "Postal Code": "PSČ",
-  "Sign": "Odoslať!",
-  "Sign now!": "Odoslať!!",
   "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
   "Subject": "Predmet",
   "Thank you": "Ďakujeme!",
   "Your message": "Vaša správa",
-  "Your organisation account": "Váš účet organizácie",
   "action": {
     "donate": "Darujte",
+    "eci": "eci",
     "email": "Odoslať e-mail",
     "join": "Pripojte sa k",
     "register": "Registrácia",
@@ -120,10 +118,15 @@
     "message": "Toto by ste mali podpísať!",
     "title": "Skoro hotové! Urobte ďalší krok."
   },
+  "supporter": {
+    "not_you": "nie vy?",
+    "welcome": "Vitajte späť {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Vyberte inú krajinu, v {{country}} nie je nikoho, koho by ste mohli kontaktovať"
-    }
+    },
+    "random": "Vybraný jeden z našich {{total}} najdôležitejších cieľov"
   },
   "twitter": {
     "actionText": "Podpísal som sa. mali by ste tiež"

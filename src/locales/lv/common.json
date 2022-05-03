@@ -1,5 +1,4 @@
 {
-  "Account": "Konts",
   "Address": "Adrese",
   "Amount": "Daudzums",
   "Birthdate": "Dzimšanas datums",
@@ -12,18 +11,17 @@
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
+  "No Thanks": "Nē, paldies",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
-  "Sign": "Parakstieties tūlīt!",
-  "Sign now!": "Parakstieties tūlīt!",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
   "Subject": "Temats",
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
-  "Your organisation account": "Jūsu organizācijas konts",
   "action": {
     "donate": "Ziedot",
+    "eci": "eci",
     "email": "Sūtīt e-pastu",
     "join": "Pievienojies",
     "register": "Reģistrēties",
@@ -120,10 +118,15 @@
     "message": "Jums to vajadzētu parakstīt!",
     "title": "Gandrīz pabeigts! Veiciet nākamo soli."
   },
+  "supporter": {
+    "not_you": "ne jūs?",
+    "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
+  },
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
-    }
+    },
+    "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem"
   },
   "twitter": {
     "actionText": "Es parakstījos. jums arī vajadzētu"
