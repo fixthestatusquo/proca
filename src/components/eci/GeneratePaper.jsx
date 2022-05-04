@@ -6,9 +6,10 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Button,SvgIcon } from "@material-ui/core";
 import useData from "@hooks/useData";
-import { addActionContact } from "@lib/server.js";
+import { addActionContact } from "@lib/server";
+import { slugify } from "@lib/text";
 import { ReactComponent as ProcaIcon } from "../../images/Proca.svg";
-import uuid from "@lib/uuid.js";
+import uuid from "@lib/uuid";
 
 
 const GeneratePaper = (props) => {
@@ -18,8 +19,12 @@ const GeneratePaper = (props) => {
 
   const onSubmit = async (data) => {
     data.privacy = "opt-in";
-    data.email = data.country + "@paper.eci";
+    if (data.other) {
+      data.partner =  slugify(data.other);
+    }
+    data.email = data.partner + "@paper.eci.invalid";
     data.firstname = data.partner;
+    data.lastname = data.country;
     const result = await addActionContact("generatePDF",
       config.actionPage,
       data,
@@ -63,7 +68,9 @@ const GeneratePaper = (props) => {
     defaultValues: Object.assign({},data)
   });
 
-  const { formState, handleSubmit, setError } = form;
+  const { watch, formState, handleSubmit, setError } = form;
+  const partner = watch ("partner");
+
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -84,12 +91,28 @@ const GeneratePaper = (props) => {
       method="post"
       url="http://localhost"
     >
-              <TextField
+          <TextField
+            select
+            name="partner"
+                  label="Partner"
+            form={form}
+            required
+            SelectProps={{
+              native: true,
+            }}
+          >
+            <option key="" value=""></option>
+            {Object.entries(config.component.paper.partners).map( ([key, value]) => (
+              <option key={key} value={key}>{value}
+              </option>
+            ))}
+            <option key="N/A" value="N/A">None of the above</option>
+          </TextField>
+    {partner ==="N/A" && <TextField
                   form={form}
-                  name="partner"
-                 required
-                  label="Partner Widget Name"
-                />
+                  name="other"
+                  label="your partner's code"
+                />}
                 <Country form={form} required />
               <Button
                 color="primary"

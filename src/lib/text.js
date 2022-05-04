@@ -1,3 +1,10 @@
+const slugify = (text) =>
+  text
+    .replace(/[^a-z0-9 _-]/g, "")
+    .replace(/\s+/g, "_")
+    .replace(/-+/g, "_")
+    .toLowerCase();
+
 const tokenize = (message, { profile, url }) => {
   let screen_name = "";
   let t = message;
@@ -12,8 +19,7 @@ const tokenize = (message, { profile, url }) => {
   }
   //    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
-  if (!screen_name) 
-    return t;
+  if (!screen_name) return t;
   if (t.indexOf("{@}") !== -1) t = t.replace("{@}", "@" + screen_name);
   else t = ".@" + screen_name + " " + t;
 
@@ -46,4 +52,4 @@ const pickOne = (locale) => {
   return variants[Math.floor(Math.random() * variants.length)];
 };
 
-export { pickOne, tokenize };
+export { pickOne, tokenize, slugify };
