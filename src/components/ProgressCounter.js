@@ -2,19 +2,18 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
-import useCount from "@hooks/useCount.js";
+import useCount from "@hooks/useCount";
 //3,014,823 have signed. Let’s get to 4,500,000!
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-  },
-  '@keyframes procaPrimaryGrey': {
-    '0%': {
-      color:  theme.palette.text.primary,
+  "@global": {},
+  "@keyframes procaPrimaryGrey": {
+    "0%": {
+      color: theme.palette.text.primary,
     },
-    '100%': {
+    "100%": {
       color: theme.palette.primary.main,
     },
   },
@@ -71,15 +70,23 @@ export default function Progress(props) {
   const goal = nextStep(count, config.component.counter?.steps);
   const separator = config.component.counter?.separator | " "; //non breaking space
   const min = config.component.counter?.min | 0;
-  if (!count || count <= min) return null;
+  if (!config.test) {
+    if (!count || count <= min) {
+      return <Box mt={1}>&nbps;</Box>;
+    }
+  } else {
+    count = count || 0;
+  }
 
   return (
-    <Box className={classes.root}>
-      {t("progress", {
-        count: formatNumber(count, separator),
-        goal: formatNumber(goal, separator),
-      })}
-      <LinearProgress variant="determinate" value={normalise(count, goal)} />
-    </Box>
+    <>
+      <Box className={classes.root}>
+        {t("progress", {
+          count: formatNumber(count, separator),
+          goal: formatNumber(goal, separator),
+        })}
+        <LinearProgress variant="determinate" value={normalise(count, goal)} />
+      </Box>
+    </>
   );
 }
