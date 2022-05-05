@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import List from "@material-ui/core/List";
 
 import EmailAction from "@components/email/Action";
+import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 
 import Country from "@components/Country";
@@ -314,6 +315,7 @@ const Component = (props) => {
       )}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
+        {profiles.length ===0 && <SkeletonListItem />}
           {profiles.map((d) => (
             <EmailAction
               key={d.id || JSON.stringify(d)}
