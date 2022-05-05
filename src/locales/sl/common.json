@@ -27,7 +27,8 @@
     "register": "Register",
     "share": "Delite",
     "sign": "Znak",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Želim spremljati novosti"
   },
   "consent": {
     "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste seznanjeni z uspešnostjo te kampanje. Če izberete »Da«, vas bomo sproti obveščali o tej in o drugih kampanjah. </1> <2> Od prejemanja obvestil se lahko kadar koli odjavite. </2>",

@@ -27,7 +27,8 @@
     "register": "Reģistrēties",
     "share": "Dalīties",
     "sign": "Pierakstīties",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Gribu būt lietas kursā"
   },
   "consent": {
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",

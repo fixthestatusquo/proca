@@ -27,7 +27,8 @@
     "register": "Zarejestruj",
     "share": "Udostępnij",
     "sign": "Podpisz",
-    "twitter": "Tweetnij"
+    "twitter": "Tweetnij",
+    "stayInformed": "Chcę otrzymywać informacje"
   },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",

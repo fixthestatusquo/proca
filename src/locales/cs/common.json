@@ -27,7 +27,8 @@
     "register": "Registrace",
     "share": "Sdílet",
     "sign": "Podepsat",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Odebírat aktuální informace"
   },
   "consent": {
     "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",

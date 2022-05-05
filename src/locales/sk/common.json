@@ -27,7 +27,8 @@
     "register": "Registrácia",
     "share": "Zdieľať",
     "sign": "Podpísať",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Dostávať informácie"
   },
   "consent": {
     "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",

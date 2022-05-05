@@ -27,7 +27,8 @@
     "register": "Registrer",
     "share": "Del",
     "sign": "Skilt",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Hold dig opdateret"
   },
   "consent": {
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",

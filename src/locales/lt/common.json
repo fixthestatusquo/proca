@@ -27,7 +27,8 @@
     "register": "Registruotis",
     "share": "Dalintis",
     "sign": "Ženklas",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Gauti naujausią informaciją"
   },
   "consent": {
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",

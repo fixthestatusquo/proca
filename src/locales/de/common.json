@@ -27,7 +27,8 @@
     "register": "Register",
     "share": "Teilen Sie",
     "sign": "Unterschrift",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Auf dem Laufenden bleiben"
   },
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",

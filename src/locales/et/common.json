@@ -27,7 +27,8 @@
     "register": "Registreeri",
     "share": "Jaga",
     "sign": "Allkiri",
-    "twitter": "Tweet"
+    "twitter": "Tweet",
+    "stayInformed": "Olge kursis"
   },
   "consent": {
     "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
