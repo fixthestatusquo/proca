@@ -111,8 +111,9 @@
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili"
   },
-  "progress": "{{count}} już podpisała. Dążymy do {{goal}}",
-  "progress_plural": "{{count}} już podpisało. Dążymy do {{goal}}",
+  "progress_0": "{{count}} już podpisała. Dążymy do {{goal}}",
+  "progress_1": "{{count}} już podpisało. Dążymy do {{goal}}",
+  "progress_2": "{{count}} już podpisało. Dążymy do {{goal}}",
   "register": "Podpisuję petycję",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
