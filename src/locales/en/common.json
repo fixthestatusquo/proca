@@ -121,7 +121,7 @@
   },
   "supporter": {
     "not_you": "not you?",
-    "welcome": "Welcome back {{firstname}}!"
+    "welcome": "Welcome back, {{firstname}}!"
   },
   "target": {
     "country": {
