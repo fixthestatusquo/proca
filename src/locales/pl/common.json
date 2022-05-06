@@ -21,14 +21,14 @@
   "Your message": "Twoja wiadomość",
   "action": {
     "donate": "Przekaż darowiznę",
-    "eci": "eci",
+    "eci": "Podpisz EIO",
     "email": "Wyślij wiadomość e-mail",
-    "join": "Dołączyć",
+    "join": "Dołącz",
     "register": "Zarejestruj",
     "share": "Udostępnij",
     "sign": "Podpisz",
     "twitter": "Tweetnij",
-    "stayInformed": "Chcę otrzymywać informacje"
+    "stayInformed": "Bądź na bieżąco"
   },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
@@ -111,8 +111,8 @@
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili"
   },
-  "progress": "{{count}} już podpisała. Dążymy do {{goal}}",
-  "progress_plural": "{{count}} już podpisało. Dążymy do {{goal}}",
+  "progress": "{{count}} osób już podpisało. Dążymy do {{goal}}",
+  "progress_plural": "{{count}}  osób już podpisało. Dążymy do {{goal}}",
   "register": "Podpisuję petycję",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
