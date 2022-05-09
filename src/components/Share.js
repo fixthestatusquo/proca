@@ -60,6 +60,7 @@ import {
 } from "react-share";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { useIsMobile } from "../hooks/useDevice";
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -203,6 +204,7 @@ export default function ShareAction(props) {
 function Actions(props) {
   const { t } = useTranslation();
   const [data] = useData();
+  const isMobile = useIsMobile();
 
   const shareText = (key, target) => {
     const i18nKey = [
@@ -242,7 +244,7 @@ function Actions(props) {
       .catch((error) => console.error('Error sharing', error));
   }
 
-  if (navigator.canShare) {
+if (navigator.canShare && isMobile) {
     cardIcons = (
       <CardActions>
         <Button
