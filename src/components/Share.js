@@ -94,7 +94,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   const ConfirmPreviousStep = props => {
     const { t, i18n } = useTranslation();
     const [data] = useData();
-    const isMobile = useIsMobile ();
 
     const ConfirmTitle = props => (
       i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle>
@@ -203,6 +202,7 @@ export default function ShareAction(props) {
 function Actions(props) {
   const { t } = useTranslation();
   const [data] = useData();
+  const isMobile = useIsMobile ();
 
   const shareText = (key, target) => {
     const i18nKey = [
