@@ -17,11 +17,15 @@ const url = (data, param, config) => {
       + "&country=" + data.country
   ;
 
+  if (data.extra_language)
+    postcardUrl +="&lang="+data.extra_language;
 
   if (param && param?.pdfUrl)
     postcardUrl +="&pdf="+encodeURIComponent(param.pdfUrl);
   if (param && param?.marginTop)
     postcardUrl +="&top="+param.marginTop;
+
+  console.log(postcardUrl);
 
   return postcardUrl
 }

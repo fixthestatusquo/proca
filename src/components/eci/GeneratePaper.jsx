@@ -46,6 +46,9 @@ const GeneratePaper = (props) => {
             handled = true;
           }
         });
+        if (!handled) {
+          console.error(result.errors);
+        }
       }
       return;
     }
@@ -70,6 +73,14 @@ const GeneratePaper = (props) => {
 
   const { watch, formState, handleSubmit, setError } = form;
   const partner = watch ("partner");
+  const country = watch ("country");
+
+  const extraLang = {
+    "BE": ["FR","NL"],
+    "LU": ["FR","DE"]
+  };
+
+  const lang = extraLang[country];
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -114,7 +125,8 @@ const GeneratePaper = (props) => {
                   label="Group/Organisation name"
                 />}
                 <Country form={form} required />
-          <TextField
+    {lang && 
+      <TextField
             select
             name="extra_language"
                   label="Language"
@@ -124,11 +136,12 @@ const GeneratePaper = (props) => {
               native: true,
             }}
           >
-            <option key="NL" value="FR"></option>
-            <option key="FR" value="FR">FR</option>
-            <option key="DE" value="DE">FR</option>
-          </TextField>
-       <<
+              <option key="" value=""></option>
+            {lang.map( lang => 
+              <option key={lang} value={lang}>{lang}</option>
+            )}
+          </TextField>}
+
               <Button
                 color="primary"
                 variant="contained"
