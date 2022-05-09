@@ -111,9 +111,24 @@ const GeneratePaper = (props) => {
     {partner ==="N/A" && <TextField
                   form={form}
                   name="other"
-                  label="your partner's code"
+                  label="Group/Organisation name"
                 />}
                 <Country form={form} required />
+          <TextField
+            select
+            name="extra_language"
+                  label="Language"
+            form={form}
+            required
+            SelectProps={{
+              native: true,
+            }}
+          >
+            <option key="NL" value="FR"></option>
+            <option key="FR" value="FR">FR</option>
+            <option key="DE" value="DE">FR</option>
+          </TextField>
+       <<
               <Button
                 color="primary"
                 variant="contained"

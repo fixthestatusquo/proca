@@ -72,7 +72,7 @@ export default function Progress(props) {
   const min = config.component.counter?.min | 0;
   if (!config.test) {
     if (!count || count <= min) {
-      return <Box mt={1}>&nbps;</Box>;
+      return <Box mt={1}>...</Box>;
     }
   } else {
     count = count || 0;

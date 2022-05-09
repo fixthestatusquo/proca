@@ -24,7 +24,6 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
-import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import MailIcon from '@material-ui/icons/MailOutline';
@@ -317,7 +316,6 @@ function Actions(props) {
   }
 
   function ActionIcon(props) {
-    const theme = useTheme();
     const isMobile = useIsMobile ();
 
     const medium = props.component.render.displayName.replace(
