@@ -241,7 +241,7 @@ function Actions(props) {
       .catch((error) => console.error('Error sharing', error));
   }
 
-  if (navigator.canShare) {
+  if (isMobile && navigator?.canShare) {
     cardIcons = (
       <CardActions>
         <Button
