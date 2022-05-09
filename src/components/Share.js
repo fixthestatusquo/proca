@@ -94,6 +94,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   const ConfirmPreviousStep = props => {
     const { t, i18n } = useTranslation();
     const [data] = useData();
+    const isMobile = useIsMobile ();
 
     const ConfirmTitle = props => (
       i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle>
