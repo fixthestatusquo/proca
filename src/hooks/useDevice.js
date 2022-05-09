@@ -5,6 +5,7 @@ const useIsMobile = () => {
   const [isMobile, setMobile] = useState(false);
 
   const UA = navigator.userAgent;
+
   useEffect(() => {
     //TO_TEST const im=window?.matchMedia('(any-pointer:coarse)').matches;
     const im =

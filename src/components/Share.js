@@ -25,7 +25,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
 import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import MailIcon from '@material-ui/icons/MailOutline';
 
@@ -318,7 +318,7 @@ function Actions(props) {
 
   function ActionIcon(props) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const isMobile = useIsMobile ();
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
