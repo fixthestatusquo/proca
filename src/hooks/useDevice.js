@@ -17,4 +17,12 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-export { useIsMobile };
+const useIsWindows = () => {
+  const [isWin, setWin] = useState(false);
+  useEffect(() => {
+    if (navigator.userAgent.indexOf("Win") > -1) setWin(true);
+  }, []);
+  return isWin;
+}
+
+export { useIsMobile, useIsWindows };

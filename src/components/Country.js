@@ -5,6 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { useIsWindows } from "@hooks/useDevice";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
@@ -79,6 +80,8 @@ const Country = (props) => {
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
+  const isWindows = useIsWindows();
+  console.log("bbbbbbbbbbb", isWindows)
 
   const countries = useMemo ( () => {
     let countries = [];
@@ -90,6 +93,7 @@ const Country = (props) => {
     } else {
       countries = addCountries(countriesJson, t);
     }
+
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));
@@ -141,6 +145,9 @@ const Country = (props) => {
 
   if (props.list === false) return null;
 
+  // Windows doesn't support flag emojis
+
+
   return (
     <TextField
       select
@@ -152,9 +159,12 @@ const Country = (props) => {
       }}
     >
       <option key="" value=""></option>
+
       {_countries.map((option) => (
         <option key={option.iso} value={option.iso}>
-          {(emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+          { !isWindows &&  (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+          { isWindows && option.name}
+
         </option>
       ))}
     </TextField>
