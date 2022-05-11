@@ -28,8 +28,8 @@ const SEPA = ({ formData }) => {
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
           IBAN.substring(0, 2) +
-          " ............ " +
-          IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
+            " ............ " +
+            IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
       </Grid>
     </>
   );
@@ -113,11 +113,13 @@ const Thanks = (props) => {
                 Amount
               </Grid>
               <Grid item xs={6}>
-                {
-                  formData.frequency !== "oneoff"
-                    ? t("donation.frequency.each." + formData.frequency, /* i18next-extract-disable-line */
-                      { amount: formatMoneyAmount(formData.amount) })
-                    : ""}
+                {formData.frequency !== "oneoff"
+                  ? t(
+                      "donation.frequency.each." +
+                        formData.frequency /* i18next-extract-disable-line */,
+                      { amount: formatMoneyAmount(formData.amount) }
+                    )
+                  : ""}
               </Grid>
 
               <Grid item xs={12}></Grid>

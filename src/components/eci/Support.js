@@ -30,10 +30,10 @@ import { makeStyles } from "@material-ui/core/styles";
 //const countries = eciLocale.common.country;
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+  root: {
     "& .MuiInputLabel-root": {
-      color: "red"
-    }
+      color: "red",
+    },
   },
   container: {
     display: "flex",
@@ -64,7 +64,7 @@ const Support = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation(config.lang);
   const [data] = useData();
- 
+
   const apiUrl = config.component.eci.apiUrl || process.env.REACT_APP_API_URL;
 
   const actionpage = config.component.eci.actionpage || config.actionPage;
@@ -113,12 +113,11 @@ const Support = (props) => {
       }
     }
 
-    const result = await addSupport(
-      "support",
-      +actionpage,
-      data,
-      { captcha: token, apiUrl: apiUrl, test: config.test }
-    );
+    const result = await addSupport("support", +actionpage, data, {
+      captcha: token,
+      apiUrl: apiUrl,
+      test: config.test,
+    });
 
     if (result.errors) {
       let handled = false;
@@ -225,7 +224,9 @@ const Support = (props) => {
   // todo, convert the OCS text into something that can use Trans
   return (
     <Container component="main" maxWidth="sm">
-    {progress && <ProgressCounter actionPage={config.component.eci.actionpage} />}
+      {progress && (
+        <ProgressCounter actionPage={config.component.eci.actionpage} />
+      )}
       <Box marginBottom={1}>
         <Grid container spacing={1}>
           <Grid item xs={12}>

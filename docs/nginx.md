@@ -2,9 +2,9 @@ to check, can we use a regex on the referer (page that embeded the url) to autom
 
 regex WIP
 
-# /https?:\/\/(www.|)([^\?]+)(\?.*)?/
+# /https?:\/\/(www.|)([^\?]+)(\?.\*)?/
 
-# /([^\?]+)(\?.*)?/g
+# /([^\?]+)(\?.\*)?/g
 
 location /d {
 gzip_static on;

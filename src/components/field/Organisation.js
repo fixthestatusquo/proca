@@ -36,17 +36,16 @@ const Organisation = (props) => {
 
   const compact = props.compact;
   const { setValue, getValues, setError, watch } = props.form;
-  const field = watch(["organisation", "picture", "comment","twitter"]);
+  const field = watch(["organisation", "picture", "comment", "twitter"]);
 
   //variant={options.variant}
   //margin={options.margin}
   const handleBlur = (e) => {
     props.form.handleBlur && props.form.handleBlur(e);
     fetchTwitter(e.target.value);
+  };
 
-   }
-
- const fetchTwitter = (screenName) => {
+  const fetchTwitter = (screenName) => {
     if (!screenName) {
       return;
     }
@@ -98,7 +97,7 @@ const Organisation = (props) => {
     fetchAPI();
   };
 
-   const handleClick = (e) => {
+  const handleClick = (e) => {
     console.log("click", getValues("twitter"));
     fetchTwitter(getValues("twitter"));
   };
@@ -128,7 +127,6 @@ const Organisation = (props) => {
                     <TwitterIcon />
                   </SvgIcon>
                 )}
-
               </InputAdornment>
             ),
           }}
@@ -143,9 +141,7 @@ const Organisation = (props) => {
             <ListItemAvatar>
               <Avatar src={field.picture}>?</Avatar>
             </ListItemAvatar>
-            <ListItemText
-              primary={field.organisation}
-            />
+            <ListItemText primary={field.organisation} />
           </ListItem>
         </List>
       </Grid>

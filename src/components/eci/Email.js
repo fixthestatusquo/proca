@@ -9,7 +9,7 @@ import Alert from "@material-ui/lab/Alert";
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
-  console.log("intro",props.intro);
+  console.log("intro", props.intro);
   return (
     <>
       {props.submitted && (
@@ -18,10 +18,11 @@ const RegisterEmail = (props) => {
         </Alert>
       )}
       <div>
-        {!!props.intro && t("consent.intro", {
-          name: config.organisation,
-          campaign: config.campaign.title,
-        })}{" "}
+        {!!props.intro &&
+          t("consent.intro", {
+            name: config.organisation,
+            campaign: config.campaign.title,
+          })}{" "}
       </div>
 
       <Register {...props} consent-intro={false} />

@@ -10,7 +10,7 @@ async function addSupport(actionType, actionPage, data, options) {
   $tracking:TrackingInput
 ){
   addActionContact(
-    actionPageId: $actionPage, 
+    actionPageId: $actionPage,
     action: $action,
     contactRef:$contactRef,
     contact:$contact,
@@ -61,11 +61,10 @@ async function addSupport(actionType, actionPage, data, options) {
     delete variables.tracking.location; // UNTIL FIXED
   }
 
-  if (options.test)
-    variables.action.testing = true;
+  if (options.test) variables.action.testing = true;
 
   if (options.captcha.audio) {
-    variables.action.customFields = JSON.stringify({"captcha":"audio"});
+    variables.action.customFields = JSON.stringify({ captcha: "audio" });
   }
   // no custom values for ECI signatures
   //  for (let [key,value] of Object.entries(data)) {
@@ -73,21 +72,22 @@ async function addSupport(actionType, actionPage, data, options) {
   //      variables.action.fields.push({key:key,value:value})
   //  }
 
-
   if (options.captcha?.mac) {
     data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;
   }
 
   const response = await graphQL("addSupport", query, {
     variables: variables,
-    extensions: { captcha: data.captcha || "dummy", "captcha_service":"procaptcha" },
+    extensions: {
+      captcha: data.captcha || "dummy",
+      captcha_service: "procaptcha",
+    },
     apiUrl: options.apiUrl, // "https://eci.fixthestatusquo.org/api",
   });
   if (response.errors) {
-    response.errors.forEach ( d => {
-      if (d.extensions?.code === 'bad_captcha') {
-        if (!response.errors.fields) 
-          response.errors.fields = [];
+    response.errors.forEach((d) => {
+      if (d.extensions?.code === "bad_captcha") {
+        if (!response.errors.fields) response.errors.fields = [];
         response.errors.fields.push({
           name: "captcha",
           message: d.message, // error.message,

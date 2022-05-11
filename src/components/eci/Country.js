@@ -48,12 +48,11 @@ const Country = (props) => {
     .compare;
   countries.sort((a, b) => compare(a.name, b.name));
 
-//  if (props.other) {
-//    countries = useMemo(() => addMissingCountries(countries), [countries]);
-//  }
+  //  if (props.other) {
+  //    countries = useMemo(() => addMissingCountries(countries), [countries]);
+  //  }
 
   const { register, setValue, watch } = props.form;
-
 
   const country = watch("nationality") || "";
   const location = useGeoLocation({
@@ -96,8 +95,10 @@ const Country = (props) => {
             <option key="" value=""></option>
             {countries.map((option) => (
               <option key={option.iso} value={option.iso}>
-                { !isWindows &&  (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
-                { isWindows && option.name}
+                {!isWindows &&
+                  (emoji(option.iso) ? emoji(option.iso) + " " : "") +
+                    option.name}
+                {isWindows && option.name}
               </option>
             ))}
           </TextField>

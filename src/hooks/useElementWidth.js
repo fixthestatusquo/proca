@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from "react";
 
 function useElementSize(selector) {
   const delay = 250; // debounce delay
@@ -12,18 +12,16 @@ function useElementSize(selector) {
       setSize(el.scrollWidth);
     }
 
-    function debouncedUpdateSize () {
-     clearTimeout(timeout);
-     timeout = setTimeout(updateSize, delay);
+    function debouncedUpdateSize() {
+      clearTimeout(timeout);
+      timeout = setTimeout(updateSize, delay);
     }
 
-    window.addEventListener('resize', debouncedUpdateSize);
+    window.addEventListener("resize", debouncedUpdateSize);
     updateSize();
-    return () => window.removeEventListener('resize', debouncedUpdateSize);
+    return () => window.removeEventListener("resize", debouncedUpdateSize);
   }, [selector]);
   return size;
 }
-
-
 
 export default useElementSize;

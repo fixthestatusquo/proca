@@ -122,7 +122,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-      "[component.donation.stripe.productId] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -146,9 +146,7 @@ const PaymentForm = (props) => {
       <Grid container spacing={1}>
         {useTitle && (
           <Grid item xs={12}>
-            <DonateTitle
-              showAverage={false}
-            />
+            <DonateTitle showAverage={false} />
           </Grid>
         )}
 
@@ -434,13 +432,16 @@ const SubmitButton = (props) => {
         {isSubmitting ? (
           <CircularProgress color="inherit" />
         ) : (
-          <CallToAction amount={formData.amount} currency={currency} frequency={formData.frequency} />
+          <CallToAction
+            amount={formData.amount}
+            currency={currency}
+            frequency={formData.frequency}
+          />
         )}
       </Button>
     </Box>
   );
 };
-
 
 const submitButtonStyles = makeStyles((theme) => ({
   submitButton: {
@@ -476,7 +477,7 @@ const PaymentFormWrapper = (props) => {
   let publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-  if (config.test && config.component.donation?.stripe?.testKey )
+  if (config.test && config.component.donation?.stripe?.testKey)
     publishableKey = config.component.donation.stripe.testKey;
 
   const [stripe, loadStripe] = useState(null);
@@ -500,7 +501,7 @@ const PaymentFormWrapper = (props) => {
 
   const { t } = useTranslation();
 
-  if (error) return <h3>{t('donation.error.initialisation')}</h3>;
+  if (error) return <h3>{t("donation.error.initialisation")}</h3>;
 
   return (
     <Container component="main" id="proca-donate">

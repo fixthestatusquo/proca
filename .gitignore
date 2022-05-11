@@ -15,7 +15,7 @@ src/locales/**/eci.json
 /src/locales/en/campaign.json
 /build
 /dist
-/d 
+/d
 /config
 /config.*
 /src/tmp.config

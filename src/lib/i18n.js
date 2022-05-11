@@ -9,15 +9,23 @@ import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used l
 isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
-export const allCountries = isoCountries.getNames(config.lang.toLowerCase().slice(0,2), {
-  select: "official",
-});
+export const allCountries = isoCountries.getNames(
+  config.lang.toLowerCase().slice(0, 2),
+  {
+    select: "official",
+  }
+);
 
 let resources = {};
 
-export const getCountryName = iso => ( isoCountries.getName(iso.toUpperCase(),config.lang.toLowerCase().slice(0,2),{select:"official"}))
+export const getCountryName = (iso) =>
+  isoCountries.getName(
+    iso.toUpperCase(),
+    config.lang.toLowerCase().slice(0, 2),
+    { select: "official" }
+  );
 
-const lang = config.lang.length === 2 ?config.lang.toLowerCase(): config.lang;
+const lang = config.lang.length === 2 ? config.lang.toLowerCase() : config.lang;
 
 resources[lang] = { common: locales };
 i18n
@@ -28,8 +36,9 @@ i18n
     resources: resources,
     languages: lang,
     lng: lang,
-    fallbackLng: config.lang.length === 2 ? "en": config.lang.toLowerCase().slice(0,2),
-        //debug: true,
+    fallbackLng:
+      config.lang.length === 2 ? "en" : config.lang.toLowerCase().slice(0, 2),
+    //debug: true,
     // have a common namespace used around the full app
     ns: ["common"],
     defaultNS: "common",

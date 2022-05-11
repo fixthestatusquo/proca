@@ -44,8 +44,8 @@ _note: If you do not handle that event and change the page, the widget is loopin
 When there is an issue with an entry from the user
 
 window.addEventListener("proca", function (e) {
-if (e.message !== "input_error") return;
-console.log(e.message.type /_"captcha" _/, e.message.message: /_"captcha: challenge expired"_/);
+if (e.message !== "input*error") return;
+console.log(e.message.type /*"captcha" _/, e.message.message: /_"captcha: challenge expired"\_/);
 });
 
 for privacy/security reasons, we avoid returning the erroneous input, just the error

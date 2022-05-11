@@ -54,7 +54,7 @@ export default function StepperEci(props) {
         return (
           <Email
             key={step}
-            intro={steps[0] !== 'register'}
+            intro={steps[0] !== "register"}
             done={doneEmail}
             {...crumbbread}
             submitted={submitted}
@@ -122,7 +122,10 @@ export default function StepperEci(props) {
       <Box p={1}>
         <SwipeableViews index={step(value)} slideStyle={{ overflow: "none" }}>
           {steps.map((s, i) => (
-            <div style={{ display: step(value) === i ? "block" : "none" }} key={s+i}>
+            <div
+              style={{ display: step(value) === i ? "block" : "none" }}
+              key={s + i}
+            >
               {StepsComponent(s)}
             </div>
           ))}

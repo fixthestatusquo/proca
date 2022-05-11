@@ -49,7 +49,6 @@ const labelStyles = makeStyles({
 });
 
 const StyledStepLabel = (props) => {
-
   const classes = labelStyles();
   return (
     <StepLabel
@@ -69,29 +68,21 @@ const stepperStyles = makeStyles({
     textAlign: "center",
     marginLeft: "auto",
     marginRight: "auto",
-    maxWidth: "90%"
+    maxWidth: "90%",
   },
   root: {
-    padding: 0
-  }
+    padding: 0,
+  },
 });
 
 const AmountTextLabel = ({ donateStep, formData, isVeryNarrow, label }) => {
   const formatMoneyAmount = useFormatMoney();
 
   if (isVeryNarrow) {
-    return ''
+    return "";
   }
 
-  return (
-    <>
-      {donateStep === 1 ? (
-        formatMoneyAmount(formData.amount)
-      ) : (
-        label
-      )}
-    </>
-  );
+  return <>{donateStep === 1 ? formatMoneyAmount(formData.amount) : label}</>;
 };
 
 const Steps = (props) => {
@@ -117,11 +108,17 @@ const Steps = (props) => {
           }}
         >
           <StyledStepLabel>
-            <AmountTextLabel donateStep={donateStep} formData={formData} currency={currency} isVeryNarrow={isVeryNarrow} label={t("Amount")} />
+            <AmountTextLabel
+              donateStep={donateStep}
+              formData={formData}
+              currency={currency}
+              isVeryNarrow={isVeryNarrow}
+              label={t("Amount")}
+            />
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>{isVeryNarrow ? '' : 'Payment'}</StyledStepLabel>
+          <StyledStepLabel>{isVeryNarrow ? "" : "Payment"}</StyledStepLabel>
         </Step>
       </Stepper>
     </Box>

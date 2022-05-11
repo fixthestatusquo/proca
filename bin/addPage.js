@@ -9,7 +9,9 @@ const { addPage, pull } = require("./config");
   let org = null;
   if (!argv[1]) {
     console.error("missing parameters, either:");
-    console.error("addPage {campaign.name} {locale} [ page/name/to/create ] or");
+    console.error(
+      "addPage {campaign.name} {locale} [ page/name/to/create ] or"
+    );
     console.error("addPage {campaign.name} {locale} {organisation_name}");
     return;
   }
@@ -21,8 +23,8 @@ const { addPage, pull } = require("./config");
   }
 
   try {
-   //const addPage = async (name, campaignName, locale, orgName) => {
-    console.log("creating",name, campaign, locale, org);
+    //const addPage = async (name, campaignName, locale, orgName) => {
+    console.log("creating", name, campaign, locale, org);
     let d = await addPage(name, campaign, locale, org);
     d = await pull(d.id);
     console.log(d);

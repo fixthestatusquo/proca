@@ -107,9 +107,10 @@ export default function ProcaStyle(props) {
             marginDense: {},
           },
           MuiInputLabel: {
-            root: { 
+            root: {
               marginTop: 0,
-          }},
+            },
+          },
           MuiInputBase: {
             input: {
               background: "unset!important",

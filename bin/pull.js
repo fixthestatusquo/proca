@@ -1,6 +1,6 @@
 require("./dotenv.js");
 const { pull } = require("./config");
-const getId = require ('./id');
+const getId = require("./id");
 
 (async () => {
   const argv = process.argv.slice(2);

@@ -210,14 +210,14 @@ pre {background:#dede; padding: 10px}
           d.innerHTML = d.innerHTML.replace("%widget_shortcode%",widget_shortcode);
         }
 
-        
+
  //       if (urlParams.get("variant")) {
  //         params.variant = urlParams.get("variant");
  //       }
 
-        if (urlParams.get("actionPage")) 
+        if (urlParams.get("actionPage"))
           params.actionPage= urlParams.get("actionPage");
-        
+
 //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
       }
@@ -251,7 +251,7 @@ pre {background:#dede; padding: 10px}
       $('a.theme').click(function() {
         var theme=$(this).data('theme');
         $("#signature-form").removeClass().addClass("bg-"+theme);
-        
+
         proca.set("layout","theme",theme);
         $(this).data('theme', theme === "light"? "dark":"light");
       });

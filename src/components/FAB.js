@@ -55,8 +55,10 @@ export default function FABAction(props) {
     return el;
   };
 
-  const defaultAction = config.journey.includes("Petition") ? "Sign now!" : "register";
-  let callToAction =  t(config.component.register?.button || defaultAction);
+  const defaultAction = config.journey.includes("Petition")
+    ? "Sign now!"
+    : "register";
+  let callToAction = t(config.component.register?.button || defaultAction);
   let isDonate = false;
 
   const nextAction = props.journey[props.current + 2];

@@ -336,7 +336,7 @@ const ProcaPayPalButton = (props) => {
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">
       {" "}
       {isPending ? <LoadingSpinner /> : <PayPalButtons {...buttonOptions} />}
-    </Box >
+    </Box>
   );
 };
 

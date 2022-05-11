@@ -110,7 +110,8 @@ const setHook = (object, action, hook) => {
   });
   if (document.getElementById(id)) {
     document.getElementById(id).dispatchEvent(event);
-  } else { // wait until the rendering is done
+  } else {
+    // wait until the rendering is done
     setTimeout(setHook, 1, object, action, hook);
   }
 };
@@ -142,7 +143,7 @@ export const ConfigProvider = (props) => {
     (object, action, hook) => {
       _setCampaignConfig((current) => {
         const next = { ...current };
-        next.hook = {...current.hook};
+        next.hook = { ...current.hook };
         next.hook[object + ":" + action] = hook;
         return next;
       });

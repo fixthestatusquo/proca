@@ -68,9 +68,7 @@ const DonateAmount = (props) => {
 
   return (
     <Container id="proca-donate" className={classes.container}>
-      {complete && (
-        <Alert severity="success">{t("donation.thanks")}</Alert>
-      )}
+      {complete && <Alert severity="success">{t("donation.thanks")}</Alert>}
 
       <Grid container spacing={1}>
         <Grid item xs={12}>

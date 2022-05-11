@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, FormHelperText } from "@material-ui/core";
 
-import { useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
 
@@ -41,18 +41,25 @@ const ImplicitConsent = (props) => {
   const layout = useLayout();
   const classes = useStyles();
 
-  return (<>
-    {config.component.consent.implicit !=="opt-out" && (
-      <><Grid item xs={12}>
-        <FormHelperText className={classes.bigHelper} margin={layout.margin}>
-          {t("consent.implicit", {
-            name: config.organisation,
-            campaign: config.campaign.title,
-          })}
-        </FormHelperText>
-      </Grid>
-      </>
-    )}</>);
+  return (
+    <>
+      {config.component.consent.implicit !== "opt-out" && (
+        <>
+          <Grid item xs={12}>
+            <FormHelperText
+              className={classes.bigHelper}
+              margin={layout.margin}
+            >
+              {t("consent.implicit", {
+                name: config.organisation,
+                campaign: config.campaign.title,
+              })}
+            </FormHelperText>
+          </Grid>
+        </>
+      )}
+    </>
+  );
 };
 
 export default ImplicitConsent;
