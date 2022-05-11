@@ -90,6 +90,7 @@ const Country = (props) => {
     } else {
       countries = addCountries(countriesJson, t);
     }
+
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));
@@ -141,6 +142,9 @@ const Country = (props) => {
 
   if (props.list === false) return null;
 
+  // Windows doesn't support flag emojis
+  const isWindows = navigator.userAgent.indexOf("Win") > -1 ? true : false;
+
   return (
     <TextField
       select
@@ -152,9 +156,12 @@ const Country = (props) => {
       }}
     >
       <option key="" value=""></option>
+
       {_countries.map((option) => (
         <option key={option.iso} value={option.iso}>
-          {(emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+          { !isWindows &&  (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+          { isWindows && option.name}
+
         </option>
       ))}
     </TextField>

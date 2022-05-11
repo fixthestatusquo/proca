@@ -77,6 +77,9 @@ const Country = (props) => {
   }, [register]);
 
   if (props.list === false) return null;
+
+  const isWindows = navigator.userAgent.indexOf("Win") > -1 ? true : false;
+
   return (
     <Container component="main" maxWidth="sm">
       <Grid container spacing={1}>
@@ -94,8 +97,8 @@ const Country = (props) => {
             <option key="" value=""></option>
             {countries.map((option) => (
               <option key={option.iso} value={option.iso}>
-                {(emoji(option.iso) ? emoji(option.iso) + " " : "") +
-                  option.name}
+                { !isWindows &&  (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+                { isWindows && option.name}
               </option>
             ))}
           </TextField>
