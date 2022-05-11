@@ -12,7 +12,8 @@
   "Locality": "Położenie",
   "Next": "Następny",
   "No Thanks": "Nie dziękuję",
-  "Other": "Inne",
+  "Other": "Inna",
+  "Payment": "Płatność",
   "Phone": "Telefon",
   "Postal Code": "Kod pocztowy",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
@@ -52,8 +53,8 @@
     "average": "Średnia wysokość darowizny wynosi {{amount}}.",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Wpłacaj {{amount}} zł co miesiąc",
+        "oneoff": "Wpłacaj {{amount}}"
       }
     },
     "error": {

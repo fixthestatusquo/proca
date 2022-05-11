@@ -13,6 +13,7 @@
   "Next": "Next",
   "No Thanks": "No Thanks",
   "Other": "Other",
+  "Payment": "Payment",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
@@ -66,8 +67,7 @@
           "iban": "iban"
         }
       },
-      "general": "general",
-      "initialisation": "initialisation"
+      "general": "general"
     },
     "form": {
       "error": {
@@ -111,7 +111,9 @@
     "to": "Donation to {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} cannot receive emails"
+    "body": "body",
+    "invalid_domain": "{{domain}} cannot receive emails",
+    "subject": "subject"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
