@@ -1,6 +1,6 @@
 var path = require("path");
 
-module.exports = webpack => {
+module.exports = (webpack) => {
   webpack.module.rules.unshift({
     test: /actionPage\.js$/,
     use: [

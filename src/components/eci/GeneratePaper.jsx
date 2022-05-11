@@ -125,7 +125,7 @@ const GeneratePaper = (props) => {
                   label="Group/Organisation name"
                 />}
                 <Country form={form} required />
-    {lang && 
+    {lang &&
       <TextField
             select
             name="extra_language"
@@ -137,7 +137,7 @@ const GeneratePaper = (props) => {
             }}
           >
               <option key="" value=""></option>
-            {lang.map( lang => 
+            {lang.map( lang =>
               <option key={lang} value={lang}>{lang}</option>
             )}
           </TextField>}

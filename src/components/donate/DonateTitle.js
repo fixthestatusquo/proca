@@ -28,19 +28,18 @@ const DonateTitle = ({ showAverage = true }) => {
   let title = "";
 
   if (config?.component?.donation.igive) {
-
     title = donateConfig.igive;
-
   } else if (amount) {
-
-    title = t("donation.frequency.feedback." + frequency,/* i18next-extract-disable-line */
-      { amount: formatMoneyAmount(amount), frequency: t("donation.frequency.each." + frequency) }
+    title = t(
+      "donation.frequency.feedback." +
+        frequency /* i18next-extract-disable-line */,
+      {
+        amount: formatMoneyAmount(amount),
+        frequency: t("donation.frequency.each." + frequency),
+      }
     );
-
   } else if (donateConfig.title) {
-
     title = donateConfig.title;
-
   }
 
   const averages = donateConfig?.average;
@@ -49,18 +48,13 @@ const DonateTitle = ({ showAverage = true }) => {
   if (showAverage && averages) {
     if (averages[frequency]) {
       subtitle = t("donation.average", {
-        amount: formatMoneyAmount(averages[frequency])
+        amount: formatMoneyAmount(averages[frequency]),
       });
     }
   }
 
   return (
-    <CardHeader
-      className={classes.header}
-      title={title}
-      subheader={subtitle}
-    />
-
+    <CardHeader className={classes.header} title={title} subheader={subtitle} />
   );
 };
 

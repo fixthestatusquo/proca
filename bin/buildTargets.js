@@ -1,15 +1,17 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
-const argv = require('minimist')(process.argv.slice(2));
+const argv = require("minimist")(process.argv.slice(2));
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 
 const merge = (targets, twitters, options) => {
   const merged = targets.map((target) => {
-    let r = twitters && twitters.find(
-      (d) => clean(d.screen_name) === clean(target.fields?.screen_name)
-    );
+    let r =
+      twitters &&
+      twitters.find(
+        (d) => clean(d.screen_name) === clean(target.fields?.screen_name)
+      );
     if (!r) {
       // todo, some formatting
       r = {
@@ -18,24 +20,26 @@ const merge = (targets, twitters, options) => {
         country: target.area,
         description: target.fields.description,
         screenname: target.fields.screen_name,
-        followers_count : 0,
-        verified : false
+        followers_count: 0,
+        verified: false,
       };
-
     } else {
       r.procaid = target.id;
       r.name = target.name; //? not sure which one we want to keep
-     //if (r.description && target.fields.description) 
-        r.description = target.fields.description;
-     //if (r.description && target.fields.description) 
-      
-      r.country = target.area
+      //if (r.description && target.fields.description)
+      r.description = target.fields.description;
+      //if (r.description && target.fields.description)
+
+      r.country = target.area;
     }
     if (options.meps) {
       r.description = target.fields.party;
       r.eugroup = target.fields.eugroup;
       if (target.fields.epid)
-        r.profile_image_url_https = "https://www.europarl.europa.eu/mepphoto/" + target.fields.epid +".jpg";
+        r.profile_image_url_https =
+          "https://www.europarl.europa.eu/mepphoto/" +
+          target.fields.epid +
+          ".jpg";
     }
 
     if (options.email) {
@@ -46,8 +50,7 @@ const merge = (targets, twitters, options) => {
       r.display = !!target.fields.display;
     }
 
-    if (target.fields.salutation) 
-      r.salutation=target.fields.salutation;
+    if (target.fields.salutation) r.salutation = target.fields.salutation;
 
     return r;
   });
@@ -82,15 +85,17 @@ const merge = (targets, twitters, options) => {
   }
 */
 const saveTargets = (campaignName, targets) => {
-  const fileName = file("target/public/" + campaignName );
+  const fileName = file("target/public/" + campaignName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
-}
+};
 
 (async () => {
   const name = argv._[0];
   if (!name) {
-    console.error("need buildCampaign {name} [--email] [--display] [--meps[=committeeA,committeeB]]");
+    console.error(
+      "need buildCampaign {name} [--email] [--display] [--meps[=committeeA,committeeB]]"
+    );
     return;
   }
   const publicEmail = argv.email || false;
@@ -107,11 +112,15 @@ const saveTargets = (campaignName, targets) => {
     } catch (e) {
       console.log("no twitter list");
     }
-    const d = merge(targets, twitters, {email: publicEmail, display: display, meps: meps});
+    const d = merge(targets, twitters, {
+      email: publicEmail,
+      display: display,
+      meps: meps,
+    });
     //    const d = await pullCampaign(argv[0]);
     if (d) {
-      d.sort((a, b) => (b?.followers_count - a?.followers_count))
-      const c=saveTargets(name,d);
+      d.sort((a, b) => b?.followers_count - a?.followers_count);
+      const c = saveTargets(name, d);
       console.log("saved " + c);
     }
   } catch (e) {

@@ -22,7 +22,7 @@ module.exports = (webpack) => {
   iframeConfig(webpack);
   oembedConfig(webpack);
   console.log(
-    `building https://widget.proca.app${webpack.output.publicPath}index.html`,
+    `building https://widget.proca.app${webpack.output.publicPath}index.html`
   );
   return webpack;
 };
@@ -46,15 +46,15 @@ function saveVersion(config) {
   fs.writeFileSync(
     path.resolve(
       __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json",
+      "../d/" + config.filename + "/config-" + hash + ".json"
     ),
-    JSON.stringify(config, null, 2),
+    JSON.stringify(config, null, 2)
   );
 }
 
 function cleanUp(config) {
   fs.unlinkSync(
-    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map"),
+    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
   );
   // needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
 }
@@ -72,7 +72,7 @@ function widgetBuildConfig(webpack, config) {
           try {
             fs.symlinkSync(
               path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
-              path.resolve(__dirname, "../build/index.js"),
+              path.resolve(__dirname, "../build/index.js")
             );
           } catch (e) {
             console.log("already building the widget");
@@ -145,7 +145,7 @@ function iframeConfig(webpack) {
       template: `${publicDir}/iframe.html`,
       title: config.filename, // this is a hackish workaround
       proca: config, // this is a hackish workaround
-    }),
+    })
   );
 }
 
@@ -159,12 +159,11 @@ function oembedConfig(webpack) {
       provider_name: "Fix the Status Quo",
       provider_url: "https://www.fixthestatusquo.org",
 
-      html:
-        `<iframe src="https://widget.proca.app${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
+      html: `<iframe src="https://widget.proca.app${webpack.output.publicPath}iframe.html" width=\"700\" height=\"825\" scrolling=\"yes\" frameborder=\"0\" allowfullscreen></iframe>`,
       width: 700,
       height: 825,
       cache_age: 3600,
-    }),
+    })
   );
 }
 function compressionConfig(webpack) {
@@ -173,6 +172,6 @@ function compressionConfig(webpack) {
       exclude: /\*.map$/,
       test: "index.js",
       include: "index.js",
-    }),
+    })
   );
 }

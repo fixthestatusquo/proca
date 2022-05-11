@@ -11,23 +11,23 @@ const LoaderAsync = (props) => {
     let isCancelled = false;
     if (!loaders) return;
     if (loaders.json) {
-        (async function () {
-          let url = loaders.url;
-          if (!url) return null;
-          if (loaders.appendLocale === true) url += lang;
-          const d = await fetch(url).catch((e) => {
-            setData("message", e.message); // we need to guess the field, message is the most common one 
-          });
-          if (!d) return;
-          const json = await d.json();
-          if (!isCancelled) {
-            setData(json);
-//            Object.entries(json).map(([k,v]) => {
-//              setData({k, v);
-//            });
-          }
-          return null;
-        })();
+      (async function () {
+        let url = loaders.url;
+        if (!url) return null;
+        if (loaders.appendLocale === true) url += lang;
+        const d = await fetch(url).catch((e) => {
+          setData("message", e.message); // we need to guess the field, message is the most common one
+        });
+        if (!d) return;
+        const json = await d.json();
+        if (!isCancelled) {
+          setData(json);
+          //            Object.entries(json).map(([k,v]) => {
+          //              setData({k, v);
+          //            });
+        }
+        return null;
+      })();
     } else {
       Object.entries(loaders).map(([k, v]) => {
         (async function () {

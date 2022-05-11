@@ -17,8 +17,8 @@ i18nextToMo,
 gettextToI18next,
 } = require('i18next-conv');
 
-const source = path.join(__dirname, '../locales/ua-UK/translation.json');
-const options = {/* you options here */}
+const source = path.join(\_\_dirname, '../locales/ua-UK/translation.json');
+const options = {/_ you options here _/}
 
 function save(target) {
 return result => {

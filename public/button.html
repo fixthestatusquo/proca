@@ -122,14 +122,14 @@ pre {background:#dede; padding: 10px}
 
           <div class="alert alert-info" role="alert">
             <h3>  This is an example, but your can test signing </h3>
-            
+
           <p class="proca-description">
           This is the text of the campaign, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           </div>
 
           <p class="">
-          You can put a button the style you want <a href="#proca-dialog" class="btn btn-primary">SIGN</a><br> 
+          You can put a button the style you want <a href="#proca-dialog" class="btn btn-primary">SIGN</a><br>
           </p>
 
       <div class="row">
@@ -230,14 +230,14 @@ pre {background:#dede; padding: 10px}
           d.innerHTML = d.innerHTML.replace("%widget_shortcode%",widget_shortcode);
         }
 
-        
+
  //       if (urlParams.get("variant")) {
  //         params.variant = urlParams.get("variant");
  //       }
 
-        if (urlParams.get("actionPage")) 
+        if (urlParams.get("actionPage"))
           params.actionPage= urlParams.get("actionPage");
-        
+
 //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
       }
@@ -271,7 +271,7 @@ pre {background:#dede; padding: 10px}
       $('a.theme').click(function() {
         var theme=$(this).data('theme');
         $("#signature-form").removeClass().addClass("bg-"+theme);
-        
+
         proca.set("layout","theme",theme);
         $(this).data('theme', theme === "light"? "dark":"light");
       });

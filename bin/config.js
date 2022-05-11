@@ -8,16 +8,19 @@ const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
 
-const API_URL = process.env.API_URL || process.env.REACT_APP_API_URL || "https://api.proca.app/api";
+const API_URL =
+  process.env.API_URL ||
+  process.env.REACT_APP_API_URL ||
+  "https://api.proca.app/api";
 
 // mkdir -p
 const mkdirp = (pathToFile) =>
-      pathToFile.split('/').reduce((prev, curr, i) => {
-        if(prev && fs.existsSync(prev) === false) {
-          fs.mkdirSync(prev);
-        }
-        return prev + '/' + curr;
-      });
+  pathToFile.split("/").reduce((prev, curr, i) => {
+    if (prev && fs.existsSync(prev) === false) {
+      fs.mkdirSync(prev);
+    }
+    return prev + "/" + curr;
+  });
 
 const file = (id) => {
   return path.resolve(__dirname, tmp + id + ".json");
@@ -71,45 +74,50 @@ const saveCampaign = (campaign, lang = "en") => {
   console.log(file("campaign/" + campaign.name));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
-    JSON.stringify(campaign, null, 2),
+    JSON.stringify(campaign, null, 2)
   );
-  return "campaign/" + campaign.name +".json";
+  return "campaign/" + campaign.name + ".json";
 };
 
 const saveTargets = (campaignName, targets) => {
-  const fileName = file("target/server/" + campaignName );
+  const fileName = file("target/server/" + campaignName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
-}
+};
 
 const pushCampaignTargets = async (campaignName, file) => {
-  const targets = read ("target/source/"+file);
+  const targets = read("target/source/" + file);
   if (targets === null) {
-    console.log("no local version of targets")
+    console.log("no local version of targets");
     return [];
   }
-  const formattedTargets = targets.map((t) => {
-    t.fields = JSON.stringify(t.field);
-    if (!t.name) return null; //skip empty records
-    delete  t.id;
-    delete  t.field;
-    if (!t.emails) {
-      t.emails = [];
-      if (t.email) {
-        // check if multiple emails separated by ";"
-        //t.emails = [ {email: t.email.trim()}];
-        t.email.replace(",",";").split(";").forEach ( d => {
-          t.emails.push({email: d.trim()});
-        });
-        delete t.email;
+  const formattedTargets = targets
+    .map((t) => {
+      t.fields = JSON.stringify(t.field);
+      if (!t.name) return null; //skip empty records
+      delete t.id;
+      delete t.field;
+      if (!t.emails) {
+        t.emails = [];
+        if (t.email) {
+          // check if multiple emails separated by ";"
+          //t.emails = [ {email: t.email.trim()}];
+          t.email
+            .replace(",", ";")
+            .split(";")
+            .forEach((d) => {
+              t.emails.push({ email: d.trim() });
+            });
+          delete t.email;
+        }
       }
-    }
-    return t;
-  }).filter( d => d !== null);
+      return t;
+    })
+    .filter((d) => d !== null);
 
   const campaign = read("campaign/" + campaignName);
   if (campaign === null) {
-    console.log("fetch campaign so I can get its name")
+    console.log("fetch campaign so I can get its name");
     return [];
   }
   const query = `
@@ -117,13 +125,17 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
   upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
 }
 `;
-  const ids = await api(query, {id: campaign.id, targets: formattedTargets}, "UpsertTargets");
+  const ids = await api(
+    query,
+    { id: campaign.id, targets: formattedTargets },
+    "UpsertTargets"
+  );
   if (ids.errors) {
     console.error(ids.errors[0]);
   }
   console.log(ids);
   return ids.upsertTargets;
-}
+};
 
 const api = async (query, variables, name = "query") => {
   let headers = {};
@@ -136,27 +148,26 @@ const api = async (query, variables, name = "query") => {
   headers["Content-Type"] = "application/json";
 
   try {
-    const res = await crossFetch(
-      API_URL,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          query: query,
-          operationName: name,
-          variables: variables,
-        }),
-        headers: headers,
-      },
-    );
+    const res = await crossFetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        query: query,
+        operationName: name,
+        variables: variables,
+      }),
+      headers: headers,
+    });
 
     if (res.status === 401) {
-      console.error ("permission error");
-      console.log("check that your .env has the correct AUTH_USER and AUTH_PASSWORD");
+      console.error("permission error");
+      console.log(
+        "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+      );
       throw new Error(res.statusText);
     }
 
     if (res.status === 404) {
-      console.error ("invalid api url");
+      console.error("invalid api url");
       console.log("check that your .env has the correct REACT_APP_API_URL");
       throw new Error(res.statusText);
     }
@@ -168,7 +179,13 @@ const api = async (query, variables, name = "query") => {
     const resJson = await res.json();
 
     if (resJson.errors) {
-      resJson.errors.forEach(e => console.error(`${e.message}: ${e.path && e.path.join("->")} ${e.extensions ? JSON.stringify(e.extensions) : ''}`));
+      resJson.errors.forEach((e) =>
+        console.error(
+          `${e.message}: ${e.path && e.path.join("->")} ${
+            e.extensions ? JSON.stringify(e.extensions) : ""
+          }`
+        )
+      );
       return resJson;
     }
 
@@ -177,7 +194,6 @@ const api = async (query, variables, name = "query") => {
     throw err;
   }
 };
-
 
 const getCampaignTargets = async (name) => {
   const query = `
@@ -195,15 +211,14 @@ query GetCampaignTargets($name: String!) {
 }
 `;
 
-  const data = await api(query, {name}, "GetCampaignTargets");
-  if (!data.campaign)
-    throw new Error ("can't find campaign "+name);
+  const data = await api(query, { name }, "GetCampaignTargets");
+  if (!data.campaign) throw new Error("can't find campaign " + name);
   if (!data.campaign.targets || data.campaign.targets.length === 0)
     throw new Error("No targets.");
   data.campaign.targets = data.campaign.targets.map((t) => {
     if (t.fields) t.fields = JSON.parse(t.fields);
     return t;
-  })
+  });
   return data.campaign.targets;
 };
 
@@ -218,8 +233,7 @@ query getCampaign ($name:String!){
 }`;
 
   const data = await api(query, { name: name }, "getCampaign");
-  if (!data.campaign)
-    throw new Error ("can't find campaign "+name);
+  if (!data.campaign) throw new Error("can't find campaign " + name);
   data.campaign.config = JSON.parse(data.campaign.config);
   return data.campaign;
 };
@@ -239,7 +253,7 @@ query getPage ($name:String!){
 };
 
 const addPage = async (name, campaignName, locale, orgName) => {
-  let campaign= {org:{name:orgName}}; // no need to fetch the campaign if the orgName is specified
+  let campaign = { org: { name: orgName } }; // no need to fetch the campaign if the orgName is specified
 
   const query = `mutation addPage($campaign:String!,$org: String!, $name: String!, $locale: String!) {
   addActionPage(campaignName:$campaign, orgName: $org, input: {
@@ -266,11 +280,13 @@ const addPage = async (name, campaignName, locale, orgName) => {
       campaign: campaignName,
       org: campaign.org.name,
     },
-    "addPage",
+    "addPage"
   );
   if (r.errors) {
-    console.log("check that your .env has the correct AUTH_USER and AUTH_PASSWORD");
-    throw new Error (r.errors[0].message);
+    console.log(
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+    );
+    throw new Error(r.errors[0].message);
   }
   console.log({
     name: name,
@@ -280,14 +296,14 @@ const addPage = async (name, campaignName, locale, orgName) => {
   });
 
   const page = await getPage(name);
-//  if (!page) throw new Error("actionpage not found:" + name);
-//  await pull(page.id);
+  //  if (!page) throw new Error("actionpage not found:" + name);
+  //  await pull(page.id);
   console.log("action page " + name + " #" + page.id);
   return page;
 };
 
 const pullCampaign = async (name) => {
-  return await getCampaign (name);
+  return await getCampaign(name);
 };
 
 const pullCampaignTargets = async (name) => {
@@ -298,7 +314,7 @@ const pullCampaignTargets = async (name) => {
     saveTargets(name, targets);
   }
   return targets;
-}
+};
 
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
@@ -319,23 +335,20 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   let data;
 
   try {
-    const res = await crossFetch(
-      API_URL,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          query: query,
-          variables: {
-            orgName: campaign.org.name,
-            name: campaign.name,
-            title: campaign.title,
-            config: JSON.stringify(campaign.config),
-          },
-          operationName: "updateCampaign",
-        }),
-        headers: headers,
-      },
-    );
+    const res = await crossFetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        query: query,
+        variables: {
+          orgName: campaign.org.name,
+          name: campaign.name,
+          title: campaign.title,
+          config: JSON.stringify(campaign.config),
+        },
+        operationName: "updateCampaign",
+      }),
+      headers: headers,
+    });
 
     if (res.status >= 400) {
       throw new Error("Bad response from server");
@@ -353,7 +366,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     throw new Error(
       "created a new campaign instead of editing the existing one",
       data.upsertCampaign.id,
-      campaign.id,
+      campaign.id
     );
   }
   return data.upsertCampaign;
@@ -383,13 +396,13 @@ query actionPage ($id:Int!) {
   }
 }
 `;
- 
+
   try {
     data = await api(query, { id: actionPage }, "actionPage");
   } catch (err) {
     throw err;
   }
-  if (!data.actionPage) throw new Error (data.toString());
+  if (!data.actionPage) throw new Error(data.toString());
 
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
@@ -398,7 +411,13 @@ query actionPage ($id:Int!) {
   let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
-    org:{privacyPolicy : (data.actionPage.org.config.privacy && data.actionPage.org.config.privacy.policyUrl || ''), url:data.actionPage.org.config.url || ''},
+    org: {
+      privacyPolicy:
+        (data.actionPage.org.config.privacy &&
+          data.actionPage.org.config.privacy.policyUrl) ||
+        "",
+      url: data.actionPage.org.config.url || "",
+    },
     lang: data.actionPage.locale,
     filename: data.actionPage.name,
     lead: data.actionPage.campaign.org,
@@ -412,12 +431,15 @@ query actionPage ($id:Int!) {
     portal: data.actionPage.config.portal || [],
     locales: data.actionPage.config.locales || {},
   };
-  if (data.actionPage.config.test)
-    config.test = true;
+  if (data.actionPage.config.test) config.test = true;
 
   if (config.component.consent && data.actionPage.org.processing) {
     let consentEmail = {};
-    if (data.actionPage.org.processing.supporterConfirm && (data.actionPage.org.processing.supporterConfirmTemplate || data.actionpage.supporterConfirmTemplate))
+    if (
+      data.actionPage.org.processing.supporterConfirm &&
+      (data.actionPage.org.processing.supporterConfirmTemplate ||
+        data.actionpage.supporterConfirmTemplate)
+    )
       consentEmail.confirmAction = true;
     if (Boolean(data.actionPage.thankYouTemplate))
       consentEmail.confirmOptIn = true;
@@ -451,27 +473,24 @@ const apiLink = () => {
 
 const actionPageFromLocalConfig = (id, local) => {
   const config = {
-        journey: array2string(local.journey),
-        layout: local.layout,
-        component: local.component,
-        locales: local.locales,
-        portal: local.portal,
-      };
+    journey: array2string(local.journey),
+    layout: local.layout,
+    component: local.component,
+    locales: local.locales,
+    portal: local.portal,
+  };
 
-  if (local.test)
-    config.test = true;
-  if (local.template)
-      config.template= local.template;
+  if (local.test) config.test = true;
+  if (local.template) config.template = local.template;
 
-  return ({
+  return {
     id: id,
     actionPage: {
       name: local.filename,
       locale: local.lang,
       config: JSON.stringify(config),
     },
-  });
-
+  };
 };
 
 const push = async (id) => {
@@ -481,7 +500,7 @@ const push = async (id) => {
   const { data, errors } = await request(
     c,
     admin.UpdateActionPageDocument,
-    actionPage,
+    actionPage
   );
   if (errors) {
     //    console.log(actionPage);

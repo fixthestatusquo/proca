@@ -84,10 +84,10 @@ const Component = (props) => {
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
   const form = useForm({
-     shouldUnregister: false,
+    shouldUnregister: false,
     defaultValues: {
       ...data,
-    message:"",
+      message: "",
     },
   });
   const { watch } = form;
@@ -129,7 +129,7 @@ const Component = (props) => {
             const i = d[Math.floor(Math.random() * d.length)];
             form.setValue(
               "message",
-              tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] }),
+              tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] })
             );
             setProfiles([i]);
           } else if (!config.component.twitter.filter?.includes("country")) {
@@ -147,7 +147,6 @@ const Component = (props) => {
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterRandomProfile = () => {
-
     const d = allProfiles;
     const i = d[Math.floor(Math.random() * d.length)];
     form.setValue(
@@ -192,28 +191,28 @@ const Component = (props) => {
   };
 
   const FirstStep = () => {
-  return (
-    <>
-      {config.component.twitter?.filter?.includes("country") && (
-        <Country form={form} list={config.component?.twitter?.countries} />
-      )}
-      <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
-      <TwitterList
-        profiles={profiles}
-        actionPage={props.actionPage}
-        actionUrl={actionUrl}
-        form={form}
-        clickable={false}
-        done={handleDone}
-      />
-      {config.component.twitter?.message && <Message form={form} />}
-      <TweetButton handleClick={handleTweet} />
-      </>);
-  }
+    return (
+      <>
+        {config.component.twitter?.filter?.includes("country") && (
+          <Country form={form} list={config.component?.twitter?.countries} />
+        )}
+        <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
+        <TwitterList
+          profiles={profiles}
+          actionPage={props.actionPage}
+          actionUrl={actionUrl}
+          form={form}
+          clickable={false}
+          done={handleDone}
+        />
+        {config.component.twitter?.message && <Message form={form} />}
+        <TweetButton handleClick={handleTweet} />
+      </>
+    );
+  };
 
   const SecondStep = () => {
-    if (!tweeting) 
-      return null;
+    if (!tweeting) return null;
 
     return (
       <>
@@ -229,7 +228,7 @@ const Component = (props) => {
         </Alert>
       </>
     );
-  }
+  };
 
   return (
     <Fragment>
@@ -243,8 +242,8 @@ const Component = (props) => {
       >
         <Register actionPage={props.actionPage} done={props.done} />
       </Dialog>
-    {!tweeting && <FirstStep />}
-    {tweeting &&  <SecondStep />}
+      {!tweeting && <FirstStep />}
+      {tweeting && <SecondStep />}
     </Fragment>
   );
 };

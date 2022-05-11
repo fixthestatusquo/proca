@@ -9,7 +9,6 @@ import useData from "../../hooks/useData.js";
 import { CardContent, Grid } from "@material-ui/core";
 import Steps from "./Stepper";
 
-
 export default function Payment(props) {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
@@ -28,7 +27,6 @@ export default function Payment(props) {
 
       <Grid container spacing={1}>
         <Grid item xs={12} justifyContent="center">
-
           <Steps />
         </Grid>
         <Grid item xs={12}>

@@ -5,6 +5,7 @@ The configuration options are set in a json attribute on the actionPage, and the
 For the rest of the document, we are using 42 as the action page id, obviously replace with the real id of your widget.
 
 ## having multiple servers/config folders
+
 you might need to switch between multiple servers (eg staging and production). Each of the yarn commands can be prefaced by PROCA_ENV=[staging|production|whatever] to specify the environment to us
 each of the ENV (eg staging) is set into a .env.staging and should contain
 
@@ -12,7 +13,6 @@ each of the ENV (eg staging) is set into a .env.staging and should contain
     REACT_APP_CONFIG_FOLDER='config.staging' # default config
     AUTH_USER=your_auth
     AUTH_PASSWORD=your_secret
-
 
 ## working with the configuration
 
@@ -138,6 +138,7 @@ the main behaviour
 Register is the main form used to collect personal data and consent
 
 most fields can either be displayed or hidden, most fields can either be required or not. First name and emails are always displayed AND required
+
 - config.component.field.organisation: do we collect the organisation details (with prefill options using twitter)
 - config.component.field.lastname: {required:boolean}
 - config.component.field.postcode: boolean (show/hide) or {required:boolean}
@@ -150,8 +151,8 @@ most fields can either be displayed or hidden, most fields can either be require
 The counter will automatically calculate next goals so that goal always escapes the current number (keeps being motivating but is not reached). You can set the goal "steps" - successive signature counts to reach by setting an array `config.component.counter.steps`. Set to single value (`[1000]`) to fix the goal at 1000.
 
 ## Country
-- config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 
+- config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 
 ## Consent
 

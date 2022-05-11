@@ -12,7 +12,7 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
-import { AlertTitle } from '@material-ui/lab';
+import { AlertTitle } from "@material-ui/lab";
 
 import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
@@ -26,7 +26,7 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
-import MailIcon from '@material-ui/icons/MailOutline';
+import MailIcon from "@material-ui/icons/MailOutline";
 
 import {
   EmailShareButton,
@@ -91,41 +91,39 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 */
-  const ConfirmPreviousStep = props => {
-    const { t, i18n } = useTranslation();
-    const [data] = useData();
+const ConfirmPreviousStep = (props) => {
+  const { t, i18n } = useTranslation();
+  const [data] = useData();
 
-    const ConfirmTitle = props => (
-      i18n.exists("consent.emailSent") && <AlertTitle>{t("consent.emailSent",{email:props.email})}</AlertTitle>
-    )
+  const ConfirmTitle = (props) =>
+    i18n.exists("consent.emailSent") && (
+      <AlertTitle>{t("consent.emailSent", { email: props.email })}</AlertTitle>
+    );
 
-    if (props.email?.confirmOptIn && (data.privacy === 'opt-in')) {
-      return (
-        <Alert severity="info" icon={<MailIcon />}>
-          <ConfirmTitle email={data.email}/>
-          {t("consent.confirmOptIn")}
-        </Alert>
-      );
-    }
-
-    if (props.email?.confirmAction) {
-      return (
-        <Alert severity="warning" autoHideDuration={10000} icon={<MailIcon />}>
-          <ConfirmTitle email={data.email}/>
-          {t("consent.confirmAction",{email:data.email})}
-        </Alert>
-      );
-    }
-
-    if (data.privacy) { // we saved previously
-      return (
-        <Alert severity="success">
-          {t("Thank you")}
-        </Alert>
-      );
-    }
-    return null;
+  if (props.email?.confirmOptIn && data.privacy === "opt-in") {
+    return (
+      <Alert severity="info" icon={<MailIcon />}>
+        <ConfirmTitle email={data.email} />
+        {t("consent.confirmOptIn")}
+      </Alert>
+    );
   }
+
+  if (props.email?.confirmAction) {
+    return (
+      <Alert severity="warning" autoHideDuration={10000} icon={<MailIcon />}>
+        <ConfirmTitle email={data.email} />
+        {t("consent.confirmAction", { email: data.email })}
+      </Alert>
+    );
+  }
+
+  if (data.privacy) {
+    // we saved previously
+    return <Alert severity="success">{t("Thank you")}</Alert>;
+  }
+  return null;
+};
 
 export default function ShareAction(props) {
   const classes = useStyles();
@@ -137,14 +135,14 @@ export default function ShareAction(props) {
   const shareUrl = (component) => {
     if (config?.component?.share?.utm === false) return window.location.href;
 
-    const medium = typeof component === 'string' ? component : component.render.displayName.replace("ShareButton-", "");
+    const medium =
+      typeof component === "string"
+        ? component
+        : component.render.displayName.replace("ShareButton-", "");
     const url = new URL(window.location.href);
     let params = url.searchParams;
     params.set("utm_source", "share");
-    params.set(
-      "utm_medium",
-      medium
-    );
+    params.set("utm_medium", medium);
     params.set("utm_campaign", uuid());
 
     return url.toString();
@@ -167,7 +165,10 @@ export default function ShareAction(props) {
 
   return (
     <div className={classes.root}>
-      <ConfirmPreviousStep prev={props.prev} email={config.component.consent?.email} />
+      <ConfirmPreviousStep
+        prev={props.prev}
+        email={config.component.consent?.email}
+      />
       <h3>{t("share.title")}</h3>
       <p>{t("share.intro")}</p>
       <Card className={classes.root}>
@@ -194,99 +195,98 @@ export default function ShareAction(props) {
           >
             {t("Next")}
           </Button>
-       )}
+        )}
       </Card>
     </div>
   );
 
-function Actions(props) {
-  const { t } = useTranslation();
-  const [data] = useData();
-  const isMobile = useIsMobile ();
+  function Actions(props) {
+    const { t } = useTranslation();
+    const [data] = useData();
+    const isMobile = useIsMobile();
 
-  const shareText = (key, target) => {
-    const i18nKey = [
-      "campaign:" + key.replace("-", "."),
-      "campaign:share.default",
-      "share.message"
-    ];
-    let msg =
-      config.param.locales[key] ||
-      config.param.locales["share"] ||
-      t(i18nKey);
-    if (target) {
-      msg += " " + target;
-    }
-    return msg;
-  };
+    const shareText = (key, target) => {
+      const i18nKey = [
+        "campaign:" + key.replace("-", "."),
+        "campaign:share.default",
+        "share.message",
+      ];
+      let msg =
+        config.param.locales[key] ||
+        config.param.locales["share"] ||
+        t(i18nKey);
+      if (target) {
+        msg += " " + target;
+      }
+      return msg;
+    };
 
-  let twitters = [];
-  data.targets?.forEach((d) => {
-    if (d.screen_name) twitters.push("@" + d.screen_name);
-  });
+    let twitters = [];
+    data.targets?.forEach((d) => {
+      if (d.screen_name) twitters.push("@" + d.screen_name);
+    });
 
-  let cardIcons;
+    let cardIcons;
 
-  const nativeShare = (medium) => {
-    addShare("share", medium);
-    const url = shareUrl(medium);
-    shareWebAPI(url,medium);
-    }
+    const nativeShare = (medium) => {
+      addShare("share", medium);
+      const url = shareUrl(medium);
+      shareWebAPI(url, medium);
+    };
 
-  const shareWebAPI = (url,medium) => {
-      navigator.share({
-      text: shareText("share.default"),
-      url: url,
-    })
-      .then(() => addShare("share_confirmed", medium))
-      .catch((error) => console.error('Error sharing', error));
-  }
+    const shareWebAPI = (url, medium) => {
+      navigator
+        .share({
+          text: shareText("share.default"),
+          url: url,
+        })
+        .then(() => addShare("share_confirmed", medium))
+        .catch((error) => console.error("Error sharing", error));
+    };
 
-  if (isMobile && navigator?.canShare) {
-    cardIcons = (
-      <CardActions>
-        <Button
-          endIcon={<ShareIcon />}
-          className={classes.next}
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={() => nativeShare( 'webshare_api' )}
-        >
-          {t("action.share")}
-        </Button>
-      </CardActions>
-    )
-
-  } else {
-     cardIcons = (
-      <CardActions>
-        < ActionIcon
-          icon={WhatsappIcon}
-          title={shareText("share-whatsapp")}
-          windowWidth={715}
-          windowHeight={544}
-          component={WhatsappShareButton}
-        />
-        <ActionIcon
-          icon={FacebookMessengerIcon}
-          title={shareText("share-fbmessenger")}
-          appId="634127320642564"
-          component={FacebookMessengerShareButton}
-        />
-        <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
-        <ActionIcon
-          icon={TwitterIcon}
-          title={shareText("share-twitter", twitters.join(" "))}
-          component={TwitterShareButton}
-        />
-        <ActionIcon
-          icon={TelegramIcon}
-          title={shareText("share-telegram")}
-          component={TelegramShareButton}
-        />
-        {
-          !!config.component?.share?.email && (
+    if (isMobile && navigator?.canShare) {
+      cardIcons = (
+        <CardActions>
+          <Button
+            endIcon={<ShareIcon />}
+            className={classes.next}
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={() => nativeShare("webshare_api")}
+          >
+            {t("action.share")}
+          </Button>
+        </CardActions>
+      );
+    } else {
+      cardIcons = (
+        <CardActions>
+          <ActionIcon
+            icon={WhatsappIcon}
+            title={shareText("share-whatsapp")}
+            windowWidth={715}
+            windowHeight={544}
+            component={WhatsappShareButton}
+          />
+          <ActionIcon
+            icon={FacebookMessengerIcon}
+            title={shareText("share-fbmessenger")}
+            appId="634127320642564"
+            component={FacebookMessengerShareButton}
+          />
+          <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
+          <ActionIcon
+            icon={TwitterIcon}
+            title={shareText("share-twitter", twitters.join(" "))}
+            component={TwitterShareButton}
+          />
+          <ActionIcon
+            icon={TelegramIcon}
+            title={shareText("share-telegram")}
+            component={TelegramShareButton}
+          />
+          {!!config.component?.share?.email && (
             <ActionIcon
               icon={EmailIcon}
               component={EmailShareButton}
@@ -294,30 +294,24 @@ function Actions(props) {
               body={shareText("share-body")}
               separator=" "
             />
-
-          )
-        }
-        {
-          !!config.component?.share?.reddit && (
+          )}
+          {!!config.component?.share?.reddit && (
             <ActionIcon icon={RedditIcon} component={RedditShareButton} />
-          )
-        }
-        <ActionIcon
-          icon={LinkedinIcon}
-          component={LinkedinShareButton}
-          title={metadata.title}
-          summary={shareText("share-linkedin") || metadata.description}
-        />
-      </CardActions>
-    );
-  }
-  return (
-    cardIcons
-    );
+          )}
+          <ActionIcon
+            icon={LinkedinIcon}
+            component={LinkedinShareButton}
+            title={metadata.title}
+            summary={shareText("share-linkedin") || metadata.description}
+          />
+        </CardActions>
+      );
+    }
+    return cardIcons;
   }
 
   function ActionIcon(props) {
-    const isMobile = useIsMobile ();
+    const isMobile = useIsMobile();
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
@@ -327,7 +321,7 @@ function Actions(props) {
     let autoClosed = true;
 
     function after(props) {
-    console.log ("autoclosed", autoClosed);
+      console.log("autoclosed", autoClosed);
       if (autoClosed) {
         return;
       }
@@ -337,11 +331,10 @@ function Actions(props) {
 
     function before(props) {
       setTimeout(() => {
-    console.log ("timeout", autoClosed);
+        console.log("timeout", autoClosed);
         autoClosed = false;
         addShare("share", medium);
       }, 1500);
-
     }
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;

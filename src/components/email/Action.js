@@ -27,7 +27,7 @@ const component = function EmailAction(profile) {
     addAction(profile.actionPage, event, {
       uuid: uuid(),
       //        tracking: Url.utm(),
-      payload: [{id: id }],
+      payload: [{ id: id }],
     });
   }
 

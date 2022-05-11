@@ -2,8 +2,7 @@ async function graphQL(operation, query, options) {
   if (!options) options = {};
   if (!options.apiUrl)
     options.apiUrl =
-      process.env.REACT_APP_API_URL ||
-      "https://api.proca.app/api";
+      process.env.REACT_APP_API_URL || "https://api.proca.app/api";
 
   let data = null;
   let headers = {
@@ -52,11 +51,11 @@ async function graphQL(operation, query, options) {
           const field = error.path && error.path.slice(-1)[0];
           if (!field) return;
           let msg = error.message.split(":");
-        if (msg.length === 2) {
-          msg = msg[1];
-        } else  {
-          msg = error.message;
-        }
+          if (msg.length === 2) {
+            msg = msg[1];
+          } else {
+            msg = error.message;
+          }
           response.errors.fields.push({
             name: toCamel(field),
             message: msg, // error.message,
@@ -134,8 +133,7 @@ async function getCount(actionPage, options) {
       encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
   } else {
     url =
-      (process.env.REACT_APP_API_URL ||
-        "https://api.proca.app/api") +
+      (process.env.REACT_APP_API_URL || "https://api.proca.app/api") +
       "?query=" +
       encodeURIComponent(query) +
       "&variables=" +
@@ -195,14 +193,14 @@ async function getCountByName(name) {
 
 async function addAction(actionPage, actionType, data, test) {
   var query = `mutation addAction (
-  $contact: ID!, 
+  $contact: ID!,
   $actionPage: Int!,
   $actionType: String!,
   $payload: Json,
-  $tracking: TrackingInput) 
+  $tracking: TrackingInput)
 {
   addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload}
-    contactRef: $contact, tracking: $tracking) 
+    contactRef: $contact, tracking: $tracking)
   {contactRef}
 }`;
   let variables = {
@@ -235,7 +233,7 @@ const PROCA_FREQUENCIES = {
   year: "YEARLY",
   yearly: "YEARLY",
 };
-async function addDonateContact(provider, actionPage, data, test ) {
+async function addDonateContact(provider, actionPage, data, test) {
   delete data.IBAN;
   if (!data.donation.payload) data.donation.payload = {};
   data.donation.payload.provider = provider;
@@ -265,7 +263,7 @@ async function addActionContact(actionType, actionPage, data, test) {
   $tracking:TrackingInput
 ){
   addActionContact(
-    actionPageId: $actionPage, 
+    actionPageId: $actionPage,
     action: $action,
     contactRef:$contactRef,
     contact:$contact,
@@ -302,15 +300,14 @@ async function addActionContact(actionType, actionPage, data, test) {
     privacy: privacy,
   };
 
-  if (test)
-    variables.action.testing = true;
+  if (test) variables.action.testing = true;
 
   if (data.targets) {
     variables.action.mtt = {
       subject: data.subject,
       body: data.message,
-      targets: data.targets.map(d => d.procaid),
-    }
+      targets: data.targets.map((d) => d.procaid),
+    };
     delete data.targets;
     delete data.message;
     delete data.subject;
@@ -325,12 +322,11 @@ async function addActionContact(actionType, actionPage, data, test) {
     variables.tracking = data.tracking;
   }
 
-
   for (let [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
       variables.action.customFields[key] = value;
   }
-  variables.action.customFields = JSON.stringify (variables.action.customFields);
+  variables.action.customFields = JSON.stringify(variables.action.customFields);
   const response = await graphQL("addActionContact", query, {
     variables: variables,
   });

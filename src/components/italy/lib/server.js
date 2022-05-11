@@ -10,7 +10,7 @@ async function addSupport(actionType, actionPage, data, options) {
   $tracking:TrackingInput
 ){
   addActionContact(
-    actionPageId: $actionPage, 
+    actionPageId: $actionPage,
     action: $action,
     contactRef:$contactRef,
     contact:$contact,

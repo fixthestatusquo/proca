@@ -8,7 +8,7 @@ import ProgressCounter from "@components/ProgressCounter";
 
 import Country from "@components/Country";
 import useData from "@hooks/useData";
-import useToken, {extractTokens} from "@hooks/useToken";
+import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
@@ -16,16 +16,16 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 import uuid from "@lib/uuid";
-import {getCountryName} from "@lib/i18n";
+import { getCountryName } from "@lib/i18n";
 import { addAction } from "@lib/server";
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    position: 'relative',
-    overflow: 'auto',
+    position: "relative",
+    overflow: "auto",
     maxHeight: 300,
   },
 }));
@@ -39,52 +39,62 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const isMobile = useIsMobile();
   const { t } = useTranslation();
-  const emailProvider = useRef (undefined); // we don't know the email provider
+  const emailProvider = useRef(undefined); // we don't know the email provider
 
-  const  paramEmail = {subject:t(["campaign:email.subject","email.subject"],""),message:t(["campaign:email.body","email.body"],"")};
+  const paramEmail = {
+    subject: t(["campaign:email.subject", "email.subject"], ""),
+    message: t(["campaign:email.body", "email.body"], ""),
+  };
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: Object.assign({},paramEmail,data)
+    defaultValues: Object.assign({}, paramEmail, data),
   });
 
   const { watch, getValues, setValue, setError, clearErrors } = form;
 
-  const country = watch ("country");
-  const fields = getValues (["subject","message"]);
+  const country = watch("country");
+  const fields = getValues(["subject", "message"]);
 
-  const tokenKeys = extractTokens (data["message"]);
-  const tokens = watch (tokenKeys);
-  useEffect ( () => {
-    if (fields.message ==='' && paramEmail.message) {
-      setValue("message",paramEmail.message);
+  const tokenKeys = extractTokens(data["message"]);
+  const tokens = watch(tokenKeys);
+  useEffect(() => {
+    if (fields.message === "" && paramEmail.message) {
+      setValue("message", paramEmail.message);
     } // eslint-disable-next-line
-  },[paramEmail]);
+  }, [paramEmail]);
 
-  const handleMerging = text => {
-    setValue("message",text);
+  const handleMerging = (text) => {
+    setValue("message", text);
   };
 
-  if (tokenKeys.includes ("targets"))
-    tokens.targets=profiles;
-  useToken (data["message"],tokens, handleMerging); 
+  if (tokenKeys.includes("targets")) tokens.targets = profiles;
+  useToken(data["message"], tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
-
-  useEffect( () => { // not clear what it does, todo
-    ["subject","message"].map ( k => {
+  useEffect(() => {
+    // not clear what it does, todo
+    ["subject", "message"].map((k) => {
       if (data[k] && !fields[k]) {
-        if (tokenKeys.length) { // there are token in the message
-          const empty = {defaultValue:data[k], nsSeparator: false};
-          tokenKeys.forEach ( d => (empty[d] = '' ));
-          form.setValue(k,t(data[k],empty));
+        if (tokenKeys.length) {
+          // there are token in the message
+          const empty = { defaultValue: data[k], nsSeparator: false };
+          tokenKeys.forEach((d) => (empty[d] = ""));
+          form.setValue(k, t(data[k], empty));
         } else {
-          form.setValue(k,data[k]);
+          form.setValue(k, data[k]);
         }
       }
       return undefined;
     }); // eslint-disable-next-line
-  },[{firstname:tokens.firstname, country: tokens.country ? getCountryName(tokens.country):""},fields,form]);
+  }, [
+    {
+      firstname: tokens.firstname,
+      country: tokens.country ? getCountryName(tokens.country) : "",
+    },
+    fields,
+    form,
+  ]);
   // todo: clean the dependency
   //
   useEffect(() => {
@@ -102,7 +112,7 @@ const Component = (props) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
-          if (!config.component.email?.filter?.includes("country")){
+          if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
           }
           if (config.component.email?.filter?.includes("random")) {
@@ -111,15 +121,19 @@ const Component = (props) => {
           }
         })
         .catch((error) => {
-          const placeholder = {name:error.toString(),description:"Please check your internet connection and try later"};
+          const placeholder = {
+            name: error.toString(),
+            description: "Please check your internet connection and try later",
+          };
           setProfiles([placeholder]);
           setAllProfiles([placeholder]);
         });
     };
     if (config.component.email?.listUrl) {
-      const url = config.component.email.listUrl === true ? 
-        "https://widget.proca.app/t/"+config.campaign.name+".json"
-      : config.component.email.listUrl;
+      const url =
+        config.component.email.listUrl === true
+          ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+          : config.component.email.listUrl;
       fetchData(url);
     } else {
       const emails =
@@ -130,10 +144,10 @@ const Component = (props) => {
       emails.map((d) => {
         return to.push({ email: d.trim() });
       });
-//      console.log(to);
+      //      console.log(to);
       setAllProfiles(to);
       setProfiles(to);
-    }// eslint-disable-next-line 
+    } // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterProfiles = useCallback(
@@ -149,26 +163,27 @@ const Component = (props) => {
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0) {
-        setError("country",{message:t("target.country.empty",{country:getCountryName(country)}),type:"no_empty"});
+        setError("country", {
+          message: t("target.country.empty", {
+            country: getCountryName(country),
+          }),
+          type: "no_empty",
+        });
       } else {
         clearErrors("country");
       }
       setProfiles(d);
-      setData("targets",d);
-      setData("country",country);
+      setData("targets", d);
+      setData("country", country);
     },
-    [allProfiles,setError,clearErrors,t, setData]
+    [allProfiles, setError, clearErrors, t, setData]
   );
 
-  const countryFiltered= config.component.email?.filter?.includes("country");
+  const countryFiltered = config.component.email?.filter?.includes("country");
   useEffect(() => {
-    
-    if (!countryFiltered)
-      return;
+    if (!countryFiltered) return;
     filterProfiles(country);
-
   }, [country, filterProfiles, countryFiltered]);
-
 
   const send = (data) => {
     const hrefGmail = (message) => {
@@ -197,9 +212,9 @@ const Component = (props) => {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
       else s = s + " " + profile.actionUrl;
     }
-  //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
+    //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
 
-    const body = t(["campaign:email.body","email.body"],"");
+    const body = t(["campaign:email.body", "email.body"], "");
     for (var i = 0; i < profiles.length; i++) {
       if (profiles[i].email) to.push(profiles[i].email);
     }
@@ -217,7 +232,8 @@ const Component = (props) => {
     }
 
     const url = //link to gmail compose instead of the default mailto to avoid misconfiguration if we can
-      !isMobile && (data.email.includes("@gmail") || emailProvider.current === "google.com")
+      !isMobile &&
+      (data.email.includes("@gmail") || emailProvider.current === "google.com")
         ? hrefGmail({
             to: to,
             subject: encodeURIComponent(s),
@@ -256,40 +272,49 @@ const Component = (props) => {
 
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
-  const ExtraFields = props => {
-    return (<>
-      {config.component.email?.field?.subject ? <Grid item xs={12} className={props.classes.field}>
-              <TextField
-                  form={props.form}
-                  name="subject"
-                 required={config.component.email.field.subject.required}
-                  label={t("Subject")}
-                />
-              </Grid>
-            : <input type="hidden" {...props.form.register('subject')} />}
+  const ExtraFields = (props) => {
+    return (
+      <>
+        {config.component.email?.field?.subject ? (
+          <Grid item xs={12} className={props.classes.field}>
+            <TextField
+              form={props.form}
+              name="subject"
+              required={config.component.email.field.subject.required}
+              label={t("Subject")}
+            />
+          </Grid>
+        ) : (
+          <input type="hidden" {...props.form.register("subject")} />
+        )}
 
-            {config.component.email?.field?.message ?  <Grid item xs={12} className={props.classes.field}>
-              <TextField
-                  form={props.form}
-                  name="message"
-                  multiline
-                  maxRows={config.component.email.field.message.disabled ? 4: 10}
-                  disabled={!!config.component.email.field.message.disabled}
-                  required={config.component.email.field.message.required}
-                  label={t("Your message")}
-                />
-              </Grid>
-            : <input type="hidden" {...props.form.register('message')} />}
-            {config.component.email?.field?.comment &&  <Grid item xs={12}>
-              <TextField
-                  form={props.form}
-                  name="comment"
-                  multiline
-                  maxRows={3}
-                  required={config.component.email.field.comment.required}
-                  label={t("Comment")}
-                />
-              </Grid> }
+        {config.component.email?.field?.message ? (
+          <Grid item xs={12} className={props.classes.field}>
+            <TextField
+              form={props.form}
+              name="message"
+              multiline
+              maxRows={config.component.email.field.message.disabled ? 4 : 10}
+              disabled={!!config.component.email.field.message.disabled}
+              required={config.component.email.field.message.required}
+              label={t("Your message")}
+            />
+          </Grid>
+        ) : (
+          <input type="hidden" {...props.form.register("message")} />
+        )}
+        {config.component.email?.field?.comment && (
+          <Grid item xs={12}>
+            <TextField
+              form={props.form}
+              name="comment"
+              multiline
+              maxRows={3}
+              required={config.component.email.field.comment.required}
+              label={t("Comment")}
+            />
+          </Grid>
+        )}
       </>
     );
   };
@@ -297,31 +322,28 @@ const Component = (props) => {
   const onClick = config.component.email?.server !== true ? send : null;
 
   const prepareData = (data) => {
-    if (!data.message) 
-      data.message = getValues ("message"); 
-    if (data.comment)
-      data.message += "\n" + data.comment;
+    if (!data.message) data.message = getValues("message");
+    if (data.comment) data.message += "\n" + data.comment;
     return data;
-  }
+  };
 
   return (
-      <Container maxWidth="sm">
+    <Container maxWidth="sm">
       {config.component.email?.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
       {config.component.email?.filter?.includes("country") && (
-
         <Country form={form} list={config.component.email?.countries} />
       )}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
-        {profiles.length ===0 && <SkeletonListItem />}
+          {profiles.length === 0 && <SkeletonListItem />}
           {profiles.map((d) => (
             <EmailAction
               key={d.id || JSON.stringify(d)}
               actionPage={config.actionPage}
               done={props.done}
-              display = {d.display}
+              display={d.display}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               {...d}
@@ -329,7 +351,15 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register form={form} emailProvider={emailProvider} done={props.done} targets={config.component.email?.server ? profiles : null} beforeSubmit={prepareData} onClick={onClick} extraFields={ExtraFields}/>
+      <Register
+        form={form}
+        emailProvider={emailProvider}
+        done={props.done}
+        targets={config.component.email?.server ? profiles : null}
+        beforeSubmit={prepareData}
+        onClick={onClick}
+        extraFields={ExtraFields}
+      />
     </Container>
   );
 };

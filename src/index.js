@@ -128,7 +128,7 @@ const render = (script) => {
 const autoRender = () => {
   if (document.currentScript) document.currentScript.id = "proca";
   if (window.proca) {
-    console.log("Powered by proca.app",Config.actionpage, Config.filename);
+    console.log("Powered by proca.app", Config.actionpage, Config.filename);
   }
   const currentScript = document.currentScript;
   try {
@@ -139,11 +139,7 @@ const autoRender = () => {
       if (Config.component?.widget?.delay) {
         const delay = Config.component.widget.delay;
         document.addEventListener("DOMContentLoaded", () =>
-          setTimeout(
-            render,
-            delay,
-            currentScript
-          )
+          setTimeout(render, delay, currentScript)
         );
       } else {
         document.addEventListener("DOMContentLoaded", () =>

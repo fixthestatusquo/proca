@@ -6,13 +6,13 @@ import { portals } from "../actionPage";
 const Portalify = (props) => {
   let r = [];
 
-
-  const Portal = props => { // a portal that returns null doesn't overwrite the existing text
+  const Portal = (props) => {
+    // a portal that returns null doesn't overwrite the existing text
     const r = portals[props.component](props);
-    if (r ===null && props.original) 
-      return <div dangerouslySetInnerHTML={{__html: props.original}}></div>
+    if (r === null && props.original)
+      return <div dangerouslySetInnerHTML={{ __html: props.original }}></div>;
     return r;
-  }
+  };
 
   if (props.create === "prepend") {
     //if props.append?
@@ -22,11 +22,11 @@ const Portalify = (props) => {
     //node.after(...nodes or strings) –- insert nodes or strings after node,
     //node.replaceWith(...nodes or strings) –
     //document.query
-    console.log("todo") ; 
+    console.log("todo");
   }
 
-/*  
-  !props.dom && // does it happen? 
+  /*
+  !props.dom && // does it happen?
   document.querySelectorAll(props.selector).forEach((dom, i) => {
     r.push(
       ReactDOM.createPortal(<Portal {...props} key={props.selector + i} original={dom.innerHTML}/>, dom)
@@ -36,24 +36,31 @@ const Portalify = (props) => {
 */
   const dom = props.dom || document;
   let found = false;
-    dom.querySelectorAll(props.selector).forEach((dom, i) => {
-      found = true;
+  dom.querySelectorAll(props.selector).forEach((dom, i) => {
+    found = true;
+    r.push(
+      ReactDOM.createPortal(
+        <Portal {...props} key={props.selector + i} original={dom.innerHTML} />,
+        dom
+      )
+    );
+    dom.innerHTML = "";
+  });
+
+  !found &&
+    document.querySelectorAll(props.selector).forEach((dom, i) => {
       r.push(
         ReactDOM.createPortal(
-          <Portal {...props} key={props.selector + i} original={dom.innerHTML}/>,
+          <Portal
+            {...props}
+            key={props.selector + i}
+            original={dom.innerHTML}
+          />,
           dom
         )
       );
       dom.innerHTML = "";
     });
-
-  !found && 
-  document.querySelectorAll(props.selector).forEach((dom, i) => {
-    r.push(
-      ReactDOM.createPortal(<Portal {...props} key={props.selector + i} original={dom.innerHTML}/>, dom)
-    );
-    dom.innerHTML = "";
-  });
 
   return r;
 };

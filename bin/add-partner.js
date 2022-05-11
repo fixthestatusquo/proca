@@ -44,8 +44,8 @@ const copy = async (fn, org, tn) => {
         name: tn,
       });
       if (
-        existing.errors
-        && existing.errors[0].extensions.code == "not_found"
+        existing.errors &&
+        existing.errors[0].extensions.code == "not_found"
       ) {
         console.log("actionpage doesn't exist", fn);
       }
@@ -116,8 +116,11 @@ const addOrg = async (partnerOrg) => {
 };
 
 const addPartner = async (genericPage, partnerOrg) => {
-  const joinResult = await request(api, admin.JoinOrgDocument, { orgName: partnerOrg });
-  if (joinResult.errors) console.error(`Could not join ${partnerOrg} as superuser`, errors);
+  const joinResult = await request(api, admin.JoinOrgDocument, {
+    orgName: partnerOrg,
+  });
+  if (joinResult.errors)
+    console.error(`Could not join ${partnerOrg} as superuser`, errors);
 
   let org = null;
   try {
@@ -132,7 +135,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   const newAp = await copy(
     genericPage,
     partnerOrg,
-    pickName(genericPage, partnerOrg),
+    pickName(genericPage, partnerOrg)
   );
   console.log("copy:", newAp);
 
@@ -149,9 +152,10 @@ const addPartner = async (genericPage, partnerOrg) => {
   // split consent
   cfg.component.consent.split = false;
   // priv policy
-  cfg.component.consent.privacyPolicy = (org.config.privacy && org.config.privacy.policyUrl)
-    || cfg.component.consent.privacyPolicy
-    || "";
+  cfg.component.consent.privacyPolicy =
+    (org.config.privacy && org.config.privacy.policyUrl) ||
+    cfg.component.consent.privacyPolicy ||
+    "";
 
   // color
   if (org.config.brand && org.config.brand.primaryColor) {

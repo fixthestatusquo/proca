@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Snackbar from "@material-ui/core/Snackbar";
-import {Alert, AlertTitle} from "@material-ui/lab";
-import Slide from '@material-ui/core/Slide';
+import { Alert, AlertTitle } from "@material-ui/lab";
+import Slide from "@material-ui/core/Slide";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  title : {
-      fontSize: 22
+  title: {
+    fontSize: 22,
   },
   bigger: {
-      fontSize: 18
-  }
+    fontSize: 18,
+  },
 }));
 
 function Transition(props) {
@@ -29,15 +29,21 @@ const ProcaAlert = (props) => {
       open={open}
       key={props.text}
       onClose={handleClose}
-TransitionComponent={Transition}
+      TransitionComponent={Transition}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={props.autoHideDuration}
     >
-      <Alert severity={props.severity} onClose={handleClose}
-    icon={props.icon}
-    className={classes.bigger}
-    >
-    {props.title && <AlertTitle classes={{root: classes.title}}>{props.title}</AlertTitle>}
+      <Alert
+        severity={props.severity}
+        onClose={handleClose}
+        icon={props.icon}
+        className={classes.bigger}
+      >
+        {props.title && (
+          <AlertTitle classes={{ root: classes.title }}>
+            {props.title}
+          </AlertTitle>
+        )}
         {props.children || props.text}
       </Alert>
     </Snackbar>

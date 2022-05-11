@@ -81,9 +81,9 @@ const Country = (props) => {
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
   const isWindows = useIsWindows();
-  console.log("bbbbbbbbbbb", isWindows)
+  console.log("bbbbbbbbbbb", isWindows);
 
-  const countries = useMemo ( () => {
+  const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {
       countries = Object.keys(props.countries).map((iso) => ({
@@ -108,7 +108,14 @@ const Country = (props) => {
       countries = addMissingCountries(countries, compare);
     }
     return countries;
-  },[config.component.country?.all, config.component.country?.other, config.lang, props.countries, props.other, t]);
+  }, [
+    config.component.country?.all,
+    config.component.country?.other,
+    config.lang,
+    props.countries,
+    props.other,
+    t,
+  ]);
 
   const { register, setValue, watch } = props.form;
 
@@ -118,7 +125,6 @@ const Country = (props) => {
   });
   const country = watch("country") || "";
   useEffect(() => {
-
     if (location.country === country) return;
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {
@@ -134,7 +140,8 @@ const Country = (props) => {
       if (!location.country) return;
       setValue("country", location.country);
       setData("country", country);
-    } else { // geoLocation doesn't work
+    } else {
+      // geoLocation doesn't work
       setCountries(countries);
     }
   }, [location, country, countries, setValue, setData, t]);
@@ -146,7 +153,6 @@ const Country = (props) => {
   if (props.list === false) return null;
 
   // Windows doesn't support flag emojis
-
 
   return (
     <TextField
@@ -162,9 +168,9 @@ const Country = (props) => {
 
       {_countries.map((option) => (
         <option key={option.iso} value={option.iso}>
-          { !isWindows &&  (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
-          { isWindows && option.name}
-
+          {!isWindows &&
+            (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+          {isWindows && option.name}
         </option>
       ))}
     </TextField>

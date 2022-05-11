@@ -138,7 +138,7 @@ const Consent = (props) => {
                     <b>unsubscribe at any time</b>
                   </Trans>
                   <Button variant="contained" onClick={optin}>
-                    {t("consent.opt-in",{ partner: config.organisation })}
+                    {t("consent.opt-in", { partner: config.organisation })}
                   </Button>
                 </Alert>
               </Collapse>

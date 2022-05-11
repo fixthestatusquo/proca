@@ -9,7 +9,7 @@ function getConfigOverride(defaultConfig) {
     return config;
   }
   throw Error(
-    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
+    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n"
   );
 }
 
@@ -31,9 +31,9 @@ function readConfigOverride() {
           fs.readFileSync(
             path.resolve(
               __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json",
-            ),
-          ),
+              configFolder() + "/campaign/" + config.campaign.name + ".json"
+            )
+          )
         );
         if (!config.locales) config.locales = {};
         ["layout", "component"].map((k) => {
@@ -49,41 +49,46 @@ function readConfigOverride() {
           ];
         }
         if (
-          campaignConfig.config.locales
-          && campaignConfig.config.locales[config.lang]
-          && campaignConfig.config.locales[config.lang]["common:"]
+          campaignConfig.config.locales &&
+          campaignConfig.config.locales[config.lang] &&
+          campaignConfig.config.locales[config.lang]["common:"]
         ) {
           config.locales = merge(
             campaignConfig.config.locales[config.lang]["common:"],
-            config.locales,
+            config.locales
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
-
         }
         if (
-          campaignConfig.config.locales
-          && campaignConfig.config.locales[config.lang]
+          campaignConfig.config.locales &&
+          campaignConfig.config.locales[config.lang]
         ) {
-          let  campaigns = Object.assign({},campaignConfig.config.locales[config.lang]["campaign:"],config.locales["campaign:"]);
-          Object.keys(campaignConfig.config.locales[config.lang]).filter( d => d.slice(-1) !== ":")
-          .forEach ( d => {
-             campaigns[d] = campaignConfig.config.locales[config.lang][d];
-          });
+          let campaigns = Object.assign(
+            {},
+            campaignConfig.config.locales[config.lang]["campaign:"],
+            config.locales["campaign:"]
+          );
+          Object.keys(campaignConfig.config.locales[config.lang])
+            .filter((d) => d.slice(-1) !== ":")
+            .forEach((d) => {
+              campaigns[d] = campaignConfig.config.locales[config.lang][d];
+            });
 
           config.locales["campaign:"] = campaigns;
           if (campaignConfig.config.locales[config.lang].title) {
-            config.campaign.title = campaignConfig.config.locales[config.lang].title;
+            config.campaign.title =
+              campaignConfig.config.locales[config.lang].title;
           }
         }
       } else {
         console.error("can't find the campaign.name on the config", config);
       }
-//             console.log(config.locales);      process.exit(1);
+      //             console.log(config.locales);      process.exit(1);
       return [configFile, config, campaignConfig];
     } catch (e) {
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
-        e.message,
+        e.message
       );
       throw e;
     }

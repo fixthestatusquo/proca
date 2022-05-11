@@ -23,6 +23,6 @@ const useIsWindows = () => {
     if (navigator.userAgent.indexOf("Win") > -1) setWin(true);
   }, []);
   return isWin;
-}
+};
 
 export { useIsMobile, useIsWindows };

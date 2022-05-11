@@ -1,4 +1,10 @@
-import React, { useState, useRef, useCallback, useEffect, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import ProcaRoot from "@components/ProcaRoot";
 import merge from "lodash.merge";
 import { initConfigState } from "@hooks/useConfig";
@@ -9,7 +15,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import dispatch from "@lib/event";
-import {scrollTo as _scrollTo} from '@lib/scroll';
+import { scrollTo as _scrollTo } from "@lib/scroll";
 
 import { initDataState } from "@hooks/useData";
 
@@ -33,7 +39,7 @@ let init = false;
 
 const Widget = (props) => {
   const [current, _setCurrent] = useState(null);
-//  const [breadCrumb, setReturnStep] = useState({});  creates extra render
+  //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
 
   const setCurrent = (i) => {
     if (i >= 0 && journey[i])
@@ -54,7 +60,10 @@ const Widget = (props) => {
   let isMobile = useIsMobile();
 
   var data = Url.data();
-  const cookies = {uuid: getCookie("proca_uuid"),firstname: getCookie("proca_firstname")};
+  const cookies = {
+    uuid: getCookie("proca_uuid"),
+    firstname: getCookie("proca_firstname"),
+  };
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...cookies, ...data };
   });
@@ -107,8 +116,8 @@ const Widget = (props) => {
     }
   }, [props]);
 
-  const scrollNeeded = useRef (false);
-  useLayoutEffect( () => {
+  const scrollNeeded = useRef(false);
+  useLayoutEffect(() => {
     if (scrollNeeded.current) {
       _scrollTo();
       scrollNeeded.current = false;
@@ -117,7 +126,7 @@ const Widget = (props) => {
 
   const scrollTo = () => {
     scrollNeeded.current = true;
-  }
+  };
 
   if (config.component.widget?.mobileVersion === false) isMobile = false;
 
@@ -178,7 +187,7 @@ const Widget = (props) => {
       if (i === current) return forceUpdate(); //trick to force refresh
     } else {
       if (!action) return nextStep();
-      i = journey.findIndex ( d => d.toLowerCase() === action.toLowerCase() )
+      i = journey.findIndex((d) => d.toLowerCase() === action.toLowerCase());
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
@@ -315,8 +324,8 @@ const Widget = (props) => {
       if (isMobile || !paramStep()) go(1);
       else {
         go(paramStep());
-        _scrollTo({delay:300});
-      };
+        _scrollTo({ delay: 300 });
+      }
       //      return null;
     }
   }

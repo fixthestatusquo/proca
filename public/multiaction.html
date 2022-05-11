@@ -5,7 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    
+
 <meta property="og:image" content="https://placekitten.com/540/284" />
 <title>OpenLetter</title>
 <meta name="twitter:title" content="Demo of a multi-action" />
@@ -172,7 +172,7 @@ pre {background:#dede; padding: 10px}
         }
 
         params.actionPage= urlParams.get("actionPage") || 2;
-        
+
         params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
       }
@@ -207,7 +207,7 @@ pre {background:#dede; padding: 10px}
       $('a.theme').click(function() {
         var theme=$(this).data('theme');
         $("#signature-form").removeClass().addClass("bg-"+theme);
-        
+
         proca.set("layout","theme",theme);
         $(this).data('theme', theme === "light"? "dark":"light");
       });

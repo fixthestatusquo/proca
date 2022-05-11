@@ -171,9 +171,7 @@ export default function Register(props) {
         <Grid container spacing={1}>
           {useTitle && (
             <Grid item xs={12}>
-              <DonateTitle
-                showAverage={false}
-              />
+              <DonateTitle showAverage={false} />
             </Grid>
           )}
 

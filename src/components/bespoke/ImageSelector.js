@@ -7,7 +7,7 @@ import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import IconButton from "@material-ui/core/IconButton";
 import AttachIcon from "@material-ui/icons/AttachFile";
 import Backdrop from "@material-ui/core/Backdrop";
-import { InputLabel } from '@material-ui/core';
+import { InputLabel } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -25,10 +25,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
-    cursor: 'pointer'
+    cursor: "pointer",
   },
-  selected: {
-  },
+  selected: {},
 
   default: {
     opacity: "0.2",
@@ -64,7 +63,9 @@ const ImageSelector = (props) => {
 
   return (
     <>
-    <InputLabel>Attach an image :<i>{"meme #" + selected}</i></InputLabel>
+      <InputLabel>
+        Attach an image :<i>{"meme #" + selected}</i>
+      </InputLabel>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <img src={"https://static.tttp.eu/tg4/images/" + selected + ".jpeg"} />
       </Backdrop>

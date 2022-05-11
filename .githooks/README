@@ -2,5 +2,5 @@ to enable prettier on pre-commit:
 
 $ git config core.hooksPath .githooks
 
-or 
+or
 cp pre-commit  ../git/hooks/pre-commit

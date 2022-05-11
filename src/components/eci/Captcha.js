@@ -76,15 +76,15 @@ export default function Captcha(props) {
       });
     }
     if (!errors.captcha) return;
-//    setCount((c) => c + 1);
+    //    setCount((c) => c + 1);
     setFocussed(true);
-//    setValue("captcha", "");
+    //    setValue("captcha", "");
   }, [errors.captcha]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     let isLive = true;
     (async () => {
-      fetch(config.component.eci?.captcha ||  "https://captcha.proca.app")
+      fetch(config.component.eci?.captcha || "https://captcha.proca.app")
         .then((response) => response.json())
         .then((captcha) => isLive && update(captcha));
     })();

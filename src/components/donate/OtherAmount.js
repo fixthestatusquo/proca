@@ -28,7 +28,7 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
           } else {
             setOtherAmountError(
               t("donation.form.error.minimum", {
-                amount: formatMoneyAmount(1)
+                amount: formatMoneyAmount(1),
               })
             );
           }

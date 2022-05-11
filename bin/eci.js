@@ -64,12 +64,16 @@ const makeLocalAP = (mainAP, locale, eci) => {
 
   // modify eci component config
   campaign.eci.organisers = eci.organisers.organiser;
-  campaign.eci.registrationDate = eci.startOfTheCollectionPeriod || eci.registrationDate;
-  campaign.eci.registrationDate = page.component.eci.registrationDate.substring(0, 10);
+  campaign.eci.registrationDate =
+    eci.startOfTheCollectionPeriod || eci.registrationDate;
+  campaign.eci.registrationDate = page.component.eci.registrationDate.substring(
+    0,
+    10
+  );
 
   page.locales["campaign:"] = getLocale(
     page.lang.toLowerCase(),
-    eci.languages.language,
+    eci.languages.language
   );
 
   console.log(page);
@@ -99,7 +103,7 @@ const makeLocalAP = (mainAP, locale, eci) => {
     });
     if (mainAP.errors) {
       throw new Error(
-        `I cannot fetch AP data from server ap=${id} errors=${errors[0].message}`,
+        `I cannot fetch AP data from server ap=${id} errors=${errors[0].message}`
       );
     }
     const campaignName = mainAP.data.actionPage.campaign.name;
@@ -110,30 +114,28 @@ const makeLocalAP = (mainAP, locale, eci) => {
       campaign: {
         name: campaignName,
         actionPages: Object.values(pages).map(
-          (p) => actionPageFromLocalConfig(null, p).actionPage,
+          (p) => actionPageFromLocalConfig(null, p).actionPage
         ),
       },
     };
     // console.log(JSON.stringify(upsertEciVars, null, 2));
     console.log(
-      `Will UPSERT these pages to campaign ${campaignName}: ${
-        upsertEciVars.campaign.actionPages
-          .map(({ name }) => name)
-          .join(", ")
-      }`,
+      `Will UPSERT these pages to campaign ${campaignName}: ${upsertEciVars.campaign.actionPages
+        .map(({ name }) => name)
+        .join(", ")}`
     );
     console.log(
-      `The pages are not stored in ./config; you must yarn pull them if you need a local copy.`,
+      `The pages are not stored in ./config; you must yarn pull them if you need a local copy.`
     );
 
     const upsert = await api.request(
       link,
       api.admin.UpsertCampaignDocument,
-      upsertEciVars,
+      upsertEciVars
     );
     if (upsert.errors) throw upsert.errors;
     console.log(
-      `ECI campaign id ${upsert.data.upsertCampaign.id} updated. To see pages for Your org run:`,
+      `ECI campaign id ${upsert.data.upsertCampaign.id} updated. To see pages for Your org run:`
     );
     console.log(`proca-cli -o ${orgName} pages`);
   } catch (e) {

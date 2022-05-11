@@ -12,7 +12,7 @@ This generates a customised widget for a specific action page reachable under ap
 
 _TODO_:fetch automatically from our api
 
-put a new {domain-name-action-page.tld}.yaml file into the config folder (use _default as the example, it is what is used if you do not set a widget env param before runing yarn build)
+put a new {domain-name-action-page.tld}.yaml file into the config folder (use \_default as the example, it is what is used if you do not set a widget env param before runing yarn build)
 
     lang=EN
     mode=form
