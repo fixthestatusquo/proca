@@ -5,7 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
-
+import { useIsWindows } from "@hooks/useDevice";
 import { Container, Grid } from "@material-ui/core";
 
 const emoji = (country) => {
@@ -33,6 +33,7 @@ const Flag = (props) => {
 };
 
 const Country = (props) => {
+  const isWindows = useIsWindows();
   const config = useCampaignConfig();
   const [, setData] = useData();
 
@@ -77,8 +78,6 @@ const Country = (props) => {
   }, [register]);
 
   if (props.list === false) return null;
-
-  const isWindows = navigator.userAgent.indexOf("Win") > -1 ? true : false;
 
   return (
     <Container component="main" maxWidth="sm">

@@ -5,6 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { useIsWindows } from "@hooks/useDevice";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
@@ -79,6 +80,8 @@ const Country = (props) => {
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
+  const isWindows = useIsWindows();
+  console.log("bbbbbbbbbbb", isWindows)
 
   const countries = useMemo ( () => {
     let countries = [];
@@ -143,7 +146,7 @@ const Country = (props) => {
   if (props.list === false) return null;
 
   // Windows doesn't support flag emojis
-  const isWindows = navigator.userAgent.indexOf("Win") > -1 ? true : false;
+
 
   return (
     <TextField
