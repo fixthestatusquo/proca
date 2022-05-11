@@ -66,8 +66,7 @@
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "scripts": {
-    "nope.format": "prettier --write '**/*.{js,css,json,md}'",
-    "format": "nice -20 dprint fmt",
+    "format": "prettier --write 'src/*.{js,css,json,md}'",
     "build": "nice -20 rescripts build",
     "build@local": "NODE_OPTIONS=--openssl-legacy-provider nice -20 rescripts build",
     "deploy": "bash bin/deploy.sh",
