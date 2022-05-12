@@ -1,6 +1,6 @@
 import React from "react";
 import Register from "@components/Register";
-import { Button } from "@material-ui/core";
+import { Button, CardHeader } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
@@ -8,8 +8,7 @@ import Alert from "@material-ui/lab/Alert";
 
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();
-  const { t } = useTranslation();
-  console.log("intro", props.intro);
+  const { t, i18n } = useTranslation();
   return (
     <>
       {props.submitted && (
@@ -24,7 +23,7 @@ const RegisterEmail = (props) => {
             campaign: config.campaign.title,
           })}{" "}
       </div>
-
+    {i18n.exists("step.register.title") && <CardHeader subheader={t("step.register.title","")}></CardHeader>}
       <Register {...props} consent-intro={false} />
       <Button
         endIcon={<SkipNextIcon />}

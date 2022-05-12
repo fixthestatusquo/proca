@@ -4,7 +4,7 @@ import dispatch from "@lib/event";
 import { formatDate } from "@lib/date";
 
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
+import { CardHeader, Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation, countries } from "./hooks/useEciTranslation";
@@ -239,6 +239,7 @@ const Support = (props) => {
             >
               <Error display={status === "error"} />
 
+    {i18n.exists("step.eci.title") && <CardHeader subheader={t("step.eci.title","")}></CardHeader>}
               <Box
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
