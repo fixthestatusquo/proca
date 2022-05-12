@@ -26,9 +26,9 @@
     "join": "Tilmeld dig",
     "register": "Registrer",
     "share": "Del",
-    "sign": "Skilt",
-    "twitter": "Tweet",
-    "stayInformed": "Hold dig opdateret"
+    "sign": "Underskriv",
+    "stayInformed": "Hold dig opdateret",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
@@ -36,7 +36,7 @@
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
     "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
-    "intro": "Jeg accepterer at {{name}} kontakte mig om vigtige kampagner",
+    "intro": "Jeg accepterer at {{name}} kontakter mig om kampagnen og andre muligheder for at hjælpe",
     "opt-in": "Ja, hold mig informeret via e-mail",
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
@@ -115,9 +115,9 @@
   "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "register": "Tilføj mit navn",
   "share": {
-    "intro": "Godt, du har underskrevet 👍. For at formere din indvirkning skal du dele vidt og bredt for at sikre, at alle ser dette andragende🙏.",
+    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. 🙏.",
     "message": "Du skal underskrive dette!",
-    "title": "Næsten færdig! Tag det næste skridt."
+    "title": "Næsten færdig – nu mangler du blot at dele budskabet"
   },
   "supporter": {
     "not_you": "ikke dig?",
