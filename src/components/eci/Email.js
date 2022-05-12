@@ -23,7 +23,7 @@ const RegisterEmail = (props) => {
             campaign: config.campaign.title,
           })}{" "}
       </div>
-    {i18n.exists("step.register.title") && <CardHeader subheader={t("step.register.title","")}></CardHeader>}
+    {i18n.exists("step.register.title") && <CardHeader title={t("step.register.title","")}></CardHeader>}
       <Register {...props} consent-intro={false} />
       <Button
         endIcon={<SkipNextIcon />}

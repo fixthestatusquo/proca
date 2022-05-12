@@ -239,7 +239,7 @@ const Support = (props) => {
             >
               <Error display={status === "error"} />
 
-    {i18n.exists("step.eci.title") && <CardHeader subheader={t("step.eci.title","")}></CardHeader>}
+    {i18n.exists("step.eci.title") && <CardHeader subheader={t("step.eci.subheader",null)} title={t("step.eci.title","")}></CardHeader>}
               <Box
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
