@@ -31,7 +31,7 @@ const Organisation = (props) => {
   const { t } = useTranslation();
   //  const { config } = useConfig();
   const [profile, setProfile] = useState({
-    name: t("Your organisation account"),
+    name: t("twitter.organisation","Your organisation twitter account"),
   });
 
   const compact = props.compact;
@@ -102,7 +102,7 @@ const Organisation = (props) => {
     fetchTwitter(getValues("twitter"));
   };
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDown = (event ) => {
     event.preventDefault();
   };
   return (
@@ -131,7 +131,7 @@ const Organisation = (props) => {
             ),
           }}
           required
-          label={t("Account")}
+          label={t("twitter.screenName","Screen name")}
           form={props.form}
         />
       </Grid>

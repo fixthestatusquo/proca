@@ -20,6 +20,8 @@ t(
 
 // for actions
 t("action.register", { defaultValue: "Register" });
+t("action.eci", { defaultValue: "Sign the ECI" });
+t("action.stayInformed", { defaultValue: "Stay informed" });
 t("action.join", { defaultValue: "Join" });
 t("action.sign", { defaultValue: "Sign" });
 t("action.share", { defaultValue: "Share" });
@@ -52,9 +54,6 @@ t("donation.frequency.yearly");
 t("donation.frequency.monthly");
 t("donation.button.cta.monthly", "Donate {{amount}} every month");
 t("donation.button.cta.oneoff", "Donate {{amount}}");
-
-// twitter actions
-t("twitter.actionText", ".{@} you should check that!");
 
 // for campaign texts
 

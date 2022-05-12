@@ -11,7 +11,6 @@
   "Last name": "Last name",
   "Locality": "Locality",
   "Next": "Next",
-  "No Thanks": "No Thanks",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
@@ -21,14 +20,14 @@
   "Your message": "Your message",
   "action": {
     "donate": "Donate",
-    "eci": "Sign the ECI",
+    "eci": "eci",
     "email": "Send an Email",
     "join": "Join",
     "register": "Register",
     "share": "Share",
     "sign": "Sign",
-    "twitter": "Tweet",
-    "stayInformed": "Stay informed"
+    "stayInformed": "Stay informed",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -130,7 +129,9 @@
     "random": "Selected one of our {{total}} most important targets"
   },
   "twitter": {
-    "actionText": "actionText"
+    "actionText": "actionText",
+    "organisation": "Your organisation twitter account",
+    "screenName": "Screen name"
   },
   "you need to be 18 years old": "you need to be 18 years old"
 }
