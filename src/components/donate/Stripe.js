@@ -231,6 +231,12 @@ const PaymentForm = (props) => {
   );
 };
 
+const STRIPE_FREQUENCY = {
+  "monthly": "month",
+  "weekly": "month",  // not a mistake, weekly maps to monthly
+  "yearly": "year",
+}
+
 const SubmitButton = (props) => {
   const [isSubmitting, setSubmitting] = useState(false);
   const setStripeError = useSetRecoilState(stripeErrorAtom);
@@ -274,7 +280,7 @@ const SubmitButton = (props) => {
     }
 
     if (procaRequest.frequency === 'weekly') {
-      procaRequest.frequency = 'monthly';
+      procaRequest.frequency = 'month';
       procaRequest.isWeekly = true;
       procaRequest.weeklyAmount = procaRequest.amount;
     }
@@ -394,18 +400,13 @@ const SubmitButton = (props) => {
       // weekly means amount * 4.3 monthly, but from here on out it's a monthly
       // donation with a isWeekly flag.
       if (donorInput.frequency === 'weekly') {
-        procaRequest.frequency = 'month';
         // procaRequest.isWeekly = true;
         // procaRequest.weeklyAmount = displayAmount;
         procaRequest.amount = amountToCharge;
       }
-      else {
-        procaRequest.frequency = donorInput.frequency;
-      }
+      // NOTE: STRIPE_FREQUENCY maps "weely" to "month" intentionally
+      procaRequest.frequency = STRIPE_FREQUENCY[donorInput.frequency];
     }
-    // if (donorInput.frequency)
-    //   procaRequest.frequency = STRIPE_FREQUENCY[donorInput.frequency];
-
 
     console.log("stripeCreate: ".procaRequest);
     const piResponse = await stripeCreate(procaRequest);
