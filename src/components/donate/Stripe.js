@@ -400,7 +400,7 @@ const SubmitButton = (props) => {
         procaRequest.amount = amountToCharge;
       }
       else {
-        procaRequest.donation.frequencyUnit = donorInput.frequency;
+        procaRequest.frequency = donorInput.frequency;
       }
     }
     // if (donorInput.frequency)
