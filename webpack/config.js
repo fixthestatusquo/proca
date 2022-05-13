@@ -29,7 +29,7 @@ function readConfigOverride() {
       let campaignConfig = {};
       if (config.campaign.name) {
         if (!config.locales) config.locales = {};
-        ["layout", "component"].map((k) => {
+        ["layout", "component"].forEach((k) => {
           config[k] = merge(campaignConfig.config[k], config[k]);
         });
         if (!config.portal || config.portal.length === 0) {
