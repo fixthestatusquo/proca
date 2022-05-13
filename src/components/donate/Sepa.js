@@ -18,7 +18,6 @@ import dispatch from "@lib/event.js";
 import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
-import { NameField } from "@components/NameField";
 import useLayout from "../../hooks/useLayout";
 import Country from "@components/Country";
 
