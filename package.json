@@ -73,6 +73,7 @@
     "eci": "bin/eci.js",
     "fetch": "node bin/fetch.js",
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
+    "i18n:mjml": "NODE_ENV=development babel -f .babelrc.mjml 'config/email/**/*.i18n.mjml'",
     "nope.prepublish": "babel src --out-dir lib",
     "wip.deploy": "rsync -azv --no-o --no-g build/* steinem:/srv/widget/d/",
     "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",

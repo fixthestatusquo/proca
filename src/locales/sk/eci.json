@@ -142,9 +142,9 @@
     "property": {
       "full.first.names": "Úplné krstné meno/mená",
       "family.names": "Celé priezvisko",
-      "city": "Mestský",
-      "street": "Ulica",
-      "street.number": "Číslo",
+      "city": "Mesto",
+      "street.number": "Ulica",
+      "street": "Číslo",
       "country": "Štát",
       "postal.code": "PSČ",
       "date.of.birth": "Dátum narodenia",
