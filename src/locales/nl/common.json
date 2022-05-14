@@ -129,7 +129,9 @@
     "random": "Een van onze {{total}} belangrijkste doelen gekozen"
   },
   "twitter": {
-    "actionText": "Ik heb getekend. Doe mee!"
+    "actionText": "Ik heb getekend. Doe mee!",
+    "organisation": "Twitter-account van uw organisatie",
+    "screenName": "Schermnaam"
   },
   "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }
