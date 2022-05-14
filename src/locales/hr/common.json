@@ -129,7 +129,9 @@
     "random": "Odabrali smo jednu od naših najvažnijih meta {{total}}."
   },
   "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
+    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
+    "organisation": "Twitter račun vaše organizacije",
+    "screenName": "Ime ekrana"
   },
   "you need to be 18 years old": "morate imati 18 godina"
 }
