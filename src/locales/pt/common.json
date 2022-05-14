@@ -11,7 +11,6 @@
   "Last name": "Apelido",
   "Locality": "Localidade",
   "Next": "Próximo",
-  "No Thanks": "Não, obrigado.",
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
@@ -27,8 +26,8 @@
     "register": "Registe-se",
     "share": "Compartilhe",
     "sign": "Assine",
-    "twitter": "Tweet",
-    "stayInformed": "Mantenha-se informado"
+    "stayInformed": "Mantenha-se informado",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",

@@ -11,7 +11,6 @@
   "Last name": "Nachname",
   "Locality": "Ort",
   "Next": "Weiter",
-  "No Thanks": "Nein Danke",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
@@ -27,8 +26,8 @@
     "register": "Register",
     "share": "Teilen Sie",
     "sign": "Unterschrift",
-    "twitter": "Tweet",
-    "stayInformed": "Auf dem Laufenden bleiben"
+    "stayInformed": "Auf dem Laufenden bleiben",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",

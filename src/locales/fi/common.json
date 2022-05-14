@@ -11,7 +11,6 @@
   "Last name": "Sukunimi",
   "Locality": "Sijainti",
   "Next": "Seuraava",
-  "No Thanks": "Ei kiitos",
   "Other": "Muu",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
@@ -27,8 +26,8 @@
     "register": "Rekisteröi",
     "share": "Jaa",
     "sign": "Kirjaudu",
-    "twitter": "Tweet",
-    "stayInformed": "Liity jakelulistalle"
+    "stayInformed": "Liity jakelulistalle",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",

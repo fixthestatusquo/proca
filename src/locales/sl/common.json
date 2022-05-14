@@ -11,7 +11,6 @@
   "Last name": "Priimek",
   "Locality": "Okraj",
   "Next": "Naslednja",
-  "No Thanks": "Ne, hvala.",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštna številka",
@@ -27,8 +26,8 @@
     "register": "Register",
     "share": "Delite",
     "sign": "Znak",
-    "twitter": "Tweet",
-    "stayInformed": "Želim spremljati novosti"
+    "stayInformed": "Želim spremljati novosti",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste seznanjeni z uspešnostjo te kampanje. Če izberete »Da«, vas bomo sproti obveščali o tej in o drugih kampanjah. </1> <2> Od prejemanja obvestil se lahko kadar koli odjavite. </2>",
