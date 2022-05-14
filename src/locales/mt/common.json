@@ -129,7 +129,9 @@
     "random": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}."
   },
   "twitter": {
-    "actionText": "I ffirmat. għandek ukoll"
+    "actionText": "I ffirmat. għandek ukoll",
+    "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek",
+    "screenName": "Isem Elettroniku"
   },
   "you need to be 18 years old": "trid tkun 18-il sena"
 }
