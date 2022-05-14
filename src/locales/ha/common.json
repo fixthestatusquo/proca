@@ -129,7 +129,9 @@
     "random": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}."
   },
   "twitter": {
-    "actionText": "Na sanya hannu. ya kamata ku ma"
+    "actionText": "Na sanya hannu. ya kamata ku ma",
+    "organisation": "Asusun twitter kungiyar ku",
+    "screenName": "Sunan kariya"
   },
   "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }
