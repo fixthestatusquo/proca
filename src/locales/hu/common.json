@@ -129,7 +129,9 @@
     "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat."
   },
   "twitter": {
-    "actionText": "Aláírtam. Neked is kellene"
+    "actionText": "Aláírtam. Neked is kellene",
+    "organisation": "Az Ön szervezetének twitter fiókja",
+    "screenName": "Képernyő neve"
   },
   "you need to be 18 years old": "18 évesnek kell lenned"
 }
