@@ -11,7 +11,6 @@
   "Last name": "Achternaam",
   "Locality": "Gemeente",
   "Next": "Volgende",
-  "No Thanks": "Geen dank.",
   "Other": "Andere",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
@@ -27,8 +26,8 @@
     "register": "Registreren",
     "share": "Deel",
     "sign": "Teken",
-    "twitter": "Tweet",
-    "stayInformed": "Hou mij op de hoogte"
+    "stayInformed": "Hou mij op de hoogte",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",

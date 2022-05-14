@@ -11,7 +11,6 @@
   "Last name": "Ainm deireanach",
   "Locality": "Ceantar",
   "Next": "An chéad rian eile",
-  "No Thanks": "Níl sé uaim go raibh maith agat",
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
@@ -27,8 +26,8 @@
     "register": "Clár",
     "share": "Comhroinn",
     "sign": "Comhartha",
-    "twitter": "Tweet",
-    "stayInformed": "Bí ar an eolas"
+    "stayInformed": "Bí ar an eolas",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> An bhfuil tú cinnte? </0> <1> Trí 'Níl' a roghnú, ní bheidh tú in ann a fháil amach an bhfuil rath ar an bhfeachtas seo, nó an bhfuil níos mó gníomhaíochta ann a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú ‘Tá’ coinneoimid ar an eolas tú faoi seo agus faoinár bhfeachtais phráinneacha eile. </1> <2> Is féidir leat díliostáil a dhéanamh am ar bith. </2>",

@@ -11,7 +11,6 @@
   "Last name": "Příjmení",
   "Locality": "Oblast",
   "Next": "Další",
-  "No Thanks": "Ne, díky",
   "Other": "Ostatní",
   "Phone": "Telefón",
   "Postal Code": "Poštovní směrovací číslo",
@@ -27,8 +26,8 @@
     "register": "Registrace",
     "share": "Sdílet",
     "sign": "Podepsat",
-    "twitter": "Tweet",
-    "stayInformed": "Odebírat aktuální informace"
+    "stayInformed": "Odebírat aktuální informace",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Jste si jistí?</0> <1> ZZaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",

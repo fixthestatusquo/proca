@@ -11,7 +11,6 @@
   "Last name": "Kunjom",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
-  "No Thanks": "Le grazzi",
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
@@ -27,8 +26,8 @@
     "register": "Irreġistra",
     "share": "Aqsam",
     "sign": "Iffirma",
-    "twitter": "Tweet",
-    "stayInformed": "Ibqa’ infurmat"
+    "stayInformed": "Ibqa’ infurmat",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
