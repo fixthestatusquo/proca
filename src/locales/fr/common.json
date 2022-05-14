@@ -129,7 +129,9 @@
     "random": "Sélectionné l'une de nos {{total}} cibles les plus importantes."
   },
   "twitter": {
-    "actionText": "J'ai signé. Vous devriez aussi"
+    "actionText": "J'ai signé. Vous devriez aussi",
+    "organisation": "Compte twitter de votre organisation",
+    "screenName": "Nom d'écran"
   },
   "you need to be 18 years old": "vous devez avoir 18 ans"
 }
