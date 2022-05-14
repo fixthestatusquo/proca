@@ -129,7 +129,9 @@
     "random": "اخترنا أحد أهم أهدافنا {{total}}"
   },
   "twitter": {
-    "actionText": "وقعت. يجب عليك أنت أيضا"
+    "actionText": "وقعت. يجب عليك أنت أيضا",
+    "organisation": "حساب تويتر لمنظمتك",
+    "screenName": "الاسم الذي سيظهر"
   },
   "you need to be 18 years old": "يجب أن يكون عمرك 18 عامًا"
 }
