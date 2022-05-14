@@ -129,7 +129,9 @@
     "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest."
   },
   "twitter": {
-    "actionText": "Kirjutasin alla. sa peaksid ka"
+    "actionText": "Kirjutasin alla. sa peaksid ka",
+    "organisation": "Teie organisatsiooni twitteri konto",
+    "screenName": "Ekraani nimi"
   },
   "you need to be 18 years old": "peate olema 18-aastane"
 }
