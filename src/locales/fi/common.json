@@ -129,7 +129,9 @@
     "random": "Valittu yksi {{total}} tärkeimmistä kohteistamme."
   },
   "twitter": {
-    "actionText": "Allekirjoitin. Sinunkin pitäisi"
+    "actionText": "Allekirjoitin. Sinunkin pitäisi",
+    "organisation": "Organisaatiosi Twitter-tili",
+    "screenName": "Näyttönimi"
   },
   "you need to be 18 years old": "sinun on oltava 18-vuotias"
 }
