@@ -129,7 +129,9 @@
     "random": "Izbrana ena od naših {{total}} najpomembnejših ciljev"
   },
   "twitter": {
-    "actionText": "Podpisal sem. tudi vi bi morali"
+    "actionText": "Podpisal sem. tudi vi bi morali",
+    "organisation": "Račun twitter vaše organizacije",
+    "screenName": "Ime zaslona"
   },
   "you need to be 18 years old": "moraš biti star 18 let"
 }
