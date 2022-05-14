@@ -129,7 +129,9 @@
     "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem"
   },
   "twitter": {
-    "actionText": "Es parakstījos. jums arī vajadzētu"
+    "actionText": "Es parakstījos. jums arī vajadzētu",
+    "organisation": "Jūsu organizācijas tvitera konts",
+    "screenName": "Ekrānvārds"
   },
   "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }
