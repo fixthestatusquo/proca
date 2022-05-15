@@ -129,7 +129,9 @@
     "random": "Valgte et af vores {{total}} vigtigste mål"
   },
   "twitter": {
-    "actionText": "Jeg underskrev. du burde også"
+    "actionText": "Jeg underskrev. du burde også",
+    "organisation": "Din organisations twitter-konto",
+    "screenName": "Skærmenavn"
   },
   "you need to be 18 years old": "du skal være 18 år gammel"
 }

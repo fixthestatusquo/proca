@@ -129,7 +129,9 @@
     "random": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų"
   },
   "twitter": {
-    "actionText": "Aš pasirašiau. tu taip pat turėtum"
+    "actionText": "Aš pasirašiau. tu taip pat turėtum",
+    "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
+    "screenName": "Ekrano vardas"
   },
   "you need to be 18 years old": "jums reikia 18 metu"
 }

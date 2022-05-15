@@ -129,7 +129,9 @@
     "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů"
   },
   "twitter": {
-    "actionText": "Já jsem se podepsal. měl bys také"
+    "actionText": "Já jsem se podepsal. měl bys také",
+    "organisation": "Účet vaší organizace na Twitteru",
+    "screenName": "Jméno obrazovky"
   },
   "you need to be 18 years old": "musíte mít 18 let"
 }

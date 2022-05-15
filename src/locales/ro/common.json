@@ -128,7 +128,9 @@
     "random": "A selectat una dintre cele mai importante ținte ale noastre {{total}}."
   },
   "twitter": {
-    "actionText": "Am semnat. ar trebui si tu"
+    "actionText": "Am semnat. ar trebui si tu",
+    "organisation": "Contul de Twitter al organizației dvs.",
+    "screenName": "Nume de ecran"
   },
   "you need to be 18 years old": "trebuie să ai 18 ani"
 }

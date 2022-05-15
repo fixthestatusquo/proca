@@ -129,7 +129,9 @@
     "random": "Hem seleccionat un dels nostres objectius més importants {{total}}."
   },
   "twitter": {
-    "actionText": "He signat. Tu també ho hauries de fer"
+    "actionText": "He signat. Tu també ho hauries de fer",
+    "organisation": "El compte de Twitter de la vostra organització",
+    "screenName": "Nom de pantalla"
   },
   "you need to be 18 years old": "Ha de ser major d'edat"
 }

@@ -129,7 +129,9 @@
     "random": "Seleccionado uno de nuestros {{total}} objetivos más importantes"
   },
   "twitter": {
-    "actionText": "Yo firmé. Tú también deberías hacerlo"
+    "actionText": "Yo firmé. Tú también deberías hacerlo",
+    "organisation": "La cuenta de Twitter de su organización",
+    "screenName": "Nombre de la pantalla"
   },
   "you need to be 18 years old": "debes ser mayor de edad"
 }

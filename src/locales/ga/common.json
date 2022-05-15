@@ -129,7 +129,9 @@
     "random": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí"
   },
   "twitter": {
-    "actionText": "Shínigh mé. ba chóir duit freisin"
+    "actionText": "Shínigh mé. ba chóir duit freisin",
+    "organisation": "Cuntas twitter d’eagraíochta",
+    "screenName": "Ainm Scáileáin"
   },
   "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois"
 }

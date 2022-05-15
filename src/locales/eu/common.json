@@ -129,7 +129,9 @@
     "random": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu"
   },
   "twitter": {
-    "actionText": "Sinatu nuen. zuk ere egin beharko zenuke"
+    "actionText": "Sinatu nuen. zuk ere egin beharko zenuke",
+    "organisation": "Zure erakundearen twitter kontua",
+    "screenName": "Pantailaren Izena"
   },
   "you need to be 18 years old": "18 urte izan behar dituzu"
 }

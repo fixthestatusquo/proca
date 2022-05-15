@@ -129,7 +129,9 @@
     "random": "Eines unserer {{total}} wichtigsten Ziele ausgewählt"
   },
   "twitter": {
-    "actionText": "Ich habe unterschrieben. Das sollten Sie auch."
+    "actionText": "Ich habe unterschrieben. Das sollten Sie auch.",
+    "organisation": "Twitter-Konto Ihrer Organisation",
+    "screenName": "Bildschirmname"
   },
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
 }
