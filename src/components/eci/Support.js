@@ -244,7 +244,7 @@ const Support = (props) => {
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
-                    url: "https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788",
+                    url: "https://eur-lex.europa.eu/legal-content/"+conf.lang+"/TXT/PDF/?uri=CELEX:32019R0788",
                   }),
                 }}
               />
