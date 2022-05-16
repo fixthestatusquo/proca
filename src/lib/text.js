@@ -1,3 +1,19 @@
+const homoSpacify = test => { // randomly replaces one of the space by a 'non standard' space
+//  const r =Array.from("\ufeff\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009");
+  const r = Array.from("123456789");
+  let pos = []; 
+  let asArray = Array.from(text);
+  asArray.forEach ( (d,i) => {
+    if (d === ' ') pos.push (i);
+  })
+  let d = pos[Math.floor(Math.random()*pos.length)];
+  let s = r[Math.floor(Math.random()*r.length)];
+  asArray[d] = r[s];
+  
+  return asArray.join();
+}
+
+
 const slugify = (text) =>
   text
     .replace(/[^a-z0-9 _-]/g, "")
@@ -52,4 +68,4 @@ const pickOne = (locale) => {
   return variants[Math.floor(Math.random() * variants.length)];
 };
 
-export { pickOne, tokenize, slugify };
+export { pickOne, tokenize, slugify, homoSpacify };
