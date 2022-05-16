@@ -11,7 +11,6 @@
   "Last name": "Apellidos",
   "Locality": "Localidad",
   "Next": "Siguiente",
-  "No Thanks": "No, gracias",
   "Other": "Otros",
   "Phone": "Teléfono",
   "Postal Code": "Código postal",
@@ -27,8 +26,8 @@
     "register": "Registro",
     "share": "Compartir",
     "sign": "Firma",
-    "twitter": "Tweet",
-    "stayInformed": "Seguir recibiendo información"
+    "stayInformed": "Seguir recibiendo información",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones planificadas en las que podamos colaborar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes.",
@@ -130,7 +129,9 @@
     "random": "Seleccionado uno de nuestros {{total}} objetivos más importantes"
   },
   "twitter": {
-    "actionText": "Yo firmé. Tú también deberías hacerlo"
+    "actionText": "Yo firmé. Tú también deberías hacerlo",
+    "organisation": "La cuenta de Twitter de su organización",
+    "screenName": "Nombre de la pantalla"
   },
   "you need to be 18 years old": "debes ser mayor de edad"
 }

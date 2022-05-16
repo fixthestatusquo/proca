@@ -11,7 +11,6 @@
   "Last name": "Прізвище",
   "Locality": "Мова",
   "Next": "Далі",
-  "No Thanks": "Ні, дякую",
   "Other": "Інше",
   "Phone": "Телефон",
   "Postal Code": "Поштовий індекс",
@@ -130,7 +129,9 @@
     "random": "Вибрано одну з наших найважливіших цілей {{total}}."
   },
   "twitter": {
-    "actionText": "Я підписав. ви теж маєте"
+    "actionText": "Я підписав. ви теж маєте",
+    "organisation": "Ваш обліковий запис організації в Twitter",
+    "screenName": "Екранне ім'я"
   },
   "you need to be 18 years old": "вам має бути 18 років"
 }

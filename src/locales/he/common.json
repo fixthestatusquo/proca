@@ -11,7 +11,6 @@
   "Last name": "שם הרשימה",
   "Locality": "יישוב",
   "Next": "הבא",
-  "No Thanks": "לא תודה",
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
@@ -129,7 +128,9 @@
     "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו"
   },
   "twitter": {
-    "actionText": "נרשמתי. גם אתה צריך"
+    "actionText": "נרשמתי. גם אתה צריך",
+    "organisation": "חשבון הטוויטר של הארגון שלך",
+    "screenName": "שם מסך"
   },
   "you need to be 18 years old": "אתה צריך להיות בן 18"
 }

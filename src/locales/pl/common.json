@@ -11,7 +11,6 @@
   "Last name": "Nazwisko",
   "Locality": "Położenie",
   "Next": "Następny",
-  "No Thanks": "Nie dziękuję",
   "Other": "Inne",
   "Phone": "Telefon",
   "Postal Code": "Kod pocztowy",
@@ -27,8 +26,8 @@
     "register": "Zarejestruj",
     "share": "Udostępnij",
     "sign": "Podpisz",
-    "twitter": "Tweetnij",
-    "stayInformed": "Bądź na bieżąco"
+    "stayInformed": "Bądź na bieżąco",
+    "twitter": "Tweetnij"
   },
   "consent": {
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
@@ -129,7 +128,9 @@
     "random": "Wybrano jeden z naszych {{total}} najważniejszych celów"
   },
   "twitter": {
-    "actionText": "Ja podpisałem. Ty też powinieneś."
+    "actionText": "Ja podpisałem. Ty też powinieneś.",
+    "organisation": "Konto twitterowe Twojej organizacji",
+    "screenName": "Nazwa ekranu"
   },
   "you need to be 18 years old": "musisz mieć ukończone 18 lat"
 }

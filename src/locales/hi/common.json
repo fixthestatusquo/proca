@@ -11,7 +11,6 @@
   "Last name": "उपनाम",
   "Locality": "इलाका",
   "Next": "Next",
-  "No Thanks": "जी नहीं, धन्यवाद",
   "Other": "अन्य",
   "Phone": "दूरभाष",
   "Postal Code": "डाक कोड",
@@ -130,7 +129,9 @@
     "random": "हमारे {{total}} सबसे महत्वपूर्ण लक्ष्यों में से एक को चुना"
   },
   "twitter": {
-    "actionText": "मैंने हस्ताक्षर किए। तुम भी"
+    "actionText": "मैंने हस्ताक्षर किए। तुम भी",
+    "organisation": "आपका संगठन ट्विटर अकाउंट",
+    "screenName": "स्क्रीन नाम"
   },
   "you need to be 18 years old": "आपको 18 वर्ष का होना चाहिए"
 }

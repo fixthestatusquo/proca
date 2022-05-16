@@ -11,7 +11,6 @@
   "Last name": "Numele de familie",
   "Locality": "Localitate",
   "Next": "Următor",
-  "No Thanks": "Nu, mulțumesc.",
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
@@ -27,8 +26,8 @@
     "register": "Înregistrare",
     "share": "Share",
     "sign": "Semnează",
-    "twitter": "Tweet",
-    "stayInformed": "Fiți la curent"
+    "stayInformed": "Fiți la curent",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
@@ -129,7 +128,9 @@
     "random": "A selectat una dintre cele mai importante ținte ale noastre {{total}}."
   },
   "twitter": {
-    "actionText": "Am semnat. ar trebui si tu"
+    "actionText": "Am semnat. ar trebui si tu",
+    "organisation": "Contul de Twitter al organizației dvs.",
+    "screenName": "Nume de ecran"
   },
   "you need to be 18 years old": "trebuie să ai 18 ani"
 }

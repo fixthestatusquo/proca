@@ -11,7 +11,6 @@
   "Last name": "Prezime",
   "Locality": "Lokalitet",
   "Next": "Dalje",
-  "No Thanks": "Ne hvala",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
@@ -27,8 +26,8 @@
     "register": "Registriraj se",
     "share": "Dijeli",
     "sign": "Potpiši",
-    "twitter": "Tweet",
-    "stayInformed": "Ostanite u toku"
+    "stayInformed": "Ostanite u toku",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
@@ -130,7 +129,9 @@
     "random": "Odabrali smo jednu od naših najvažnijih meta {{total}}."
   },
   "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
+    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
+    "organisation": "Twitter račun vaše organizacije",
+    "screenName": "Ime ekrana"
   },
   "you need to be 18 years old": "morate imati 18 godina"
 }

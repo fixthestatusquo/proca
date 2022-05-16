@@ -11,7 +11,6 @@
   "Last name": "Vezetéknév",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
-  "No Thanks": "Nem, köszönöm.",
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
@@ -27,8 +26,8 @@
     "register": "Regisztráció",
     "share": "Megosztás",
     "sign": "Jelentkezzen a  címen.",
-    "twitter": "Tweet",
-    "stayInformed": "Tájékoztatás kérése"
+    "stayInformed": "Tájékoztatás kérése",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0>Biztos vagy benne?</0> <1> A „Nem” kiválasztásával nem fogsz értesülni róla, hogy a kampány sikeres-e, vagy lesznek-e egyéb akcióink a témában, amihez csatlakozhatsz. Ha az “Igen” lehetőséget választod, akkor folyamatosan tájékoztatunk majd erről a kampányról, és egyéb, jövőbeni kampányainkról is. </1> <2>Ezekről a levelekről bármikor leiratkozhatsz.</2>",
@@ -130,7 +129,9 @@
     "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat."
   },
   "twitter": {
-    "actionText": "Aláírtam. Neked is kellene"
+    "actionText": "Aláírtam. Neked is kellene",
+    "organisation": "Az Ön szervezetének twitter fiókja",
+    "screenName": "Képernyő neve"
   },
   "you need to be 18 years old": "18 évesnek kell lenned"
 }

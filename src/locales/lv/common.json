@@ -11,7 +11,6 @@
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
-  "No Thanks": "Nē, paldies",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
@@ -27,8 +26,8 @@
     "register": "Reģistrēties",
     "share": "Dalīties",
     "sign": "Pierakstīties",
-    "twitter": "Tweet",
-    "stayInformed": "Gribu būt lietas kursā"
+    "stayInformed": "Gribu būt lietas kursā",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",
@@ -130,7 +129,9 @@
     "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem"
   },
   "twitter": {
-    "actionText": "Es parakstījos. jums arī vajadzētu"
+    "actionText": "Es parakstījos. jums arī vajadzētu",
+    "organisation": "Jūsu organizācijas tvitera konts",
+    "screenName": "Ekrānvārds"
   },
   "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }

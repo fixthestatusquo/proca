@@ -11,7 +11,6 @@
   "Last name": "Perekonnanimi",
   "Locality": "Paikkond",
   "Next": "Edasi",
-  "No Thanks": "Ei tänan",
   "Other": "Teine",
   "Phone": "Telefon",
   "Postal Code": "Sihtnumber",
@@ -27,8 +26,8 @@
     "register": "Registreeri",
     "share": "Jaga",
     "sign": "Allkiri",
-    "twitter": "Tweet",
-    "stayInformed": "Olge kursis"
+    "stayInformed": "Olge kursis",
+    "twitter": "Tweet"
   },
   "consent": {
     "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
@@ -130,7 +129,9 @@
     "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest."
   },
   "twitter": {
-    "actionText": "Kirjutasin alla. sa peaksid ka"
+    "actionText": "Kirjutasin alla. sa peaksid ka",
+    "organisation": "Teie organisatsiooni twitteri konto",
+    "screenName": "Ekraani nimi"
   },
   "you need to be 18 years old": "peate olema 18-aastane"
 }
