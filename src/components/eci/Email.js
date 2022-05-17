@@ -24,7 +24,7 @@ const RegisterEmail = (props) => {
           })}{" "}
       </div>
     {i18n.exists("step.register.title") && <CardHeader title={t("step.register.title","")}></CardHeader>}
-      <Register {...props} consent-intro={false} />
+      <Register {...props} consentIntro={false} />
       <Button
         endIcon={<SkipNextIcon />}
         fullWidth

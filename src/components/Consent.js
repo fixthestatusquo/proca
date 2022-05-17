@@ -54,7 +54,7 @@ const Consent = (props) => {
   const config = useCampaignConfig();
   const classes = useStyles();
   const consentIntro =
-    config.component?.consent?.intro === false
+    (config.component?.consent?.intro === false || props.intro === false ) 
       ? null
       : t("consent.intro", {
           name: config.organisation,

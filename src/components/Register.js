@@ -467,6 +467,7 @@ export default function Register(props) {
                 <ConsentBlock
                   organisation={props.organisation}
                   privacy_url={config.privacyUrl}
+                  intro = {props.consentIntro}
                   form={form}
                 />
               )}
