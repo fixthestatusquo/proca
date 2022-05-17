@@ -16,9 +16,9 @@ async function graphQL(operation, query, options) {
   // console.debug("graphql: ", query, options.variables);
   await fetch(
     options.apiUrl +
-      (options.variables.actionPage
-        ? "?id=" + options.variables.actionPage
-        : ""),
+    (options.variables.actionPage
+      ? "?id=" + options.variables.actionPage
+      : ""),
     {
       method: "POST",
       referrerPolicy: "no-referrer-when-downgrade",
@@ -285,7 +285,7 @@ async function addActionContact(actionType, actionPage, data, test) {
     actionPage: actionPage,
     action: {
       actionType: actionType,
-      customFields: {}, // added below
+      // customFields: {}, // added below
     },
     contact: {
       firstName: data.firstname,
@@ -326,7 +326,8 @@ async function addActionContact(actionType, actionPage, data, test) {
     if (value && !expected.includes(key))
       variables.action.customFields[key] = value;
   }
-  variables.action.customFields = JSON.stringify(variables.action.customFields);
+  variables.action.customFields = variables.action.customFields;
+  variables
   const response = await graphQL("addActionContact", query, {
     variables: variables,
   });
