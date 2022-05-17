@@ -70,9 +70,11 @@ export default function Progress(props) {
   const goal = nextStep(count, config.component.counter?.steps);
   const separator = config.component.counter?.separator | " "; //non breaking space
   const min = config.component.counter?.min | 0;
+
+  console.log("min",min, count);
   if (!config.test) {
     if (!count || count <= min) {
-      return <Box mt={1}>...</Box>;
+      return <Box mt={1}>&nbsp;</Box>;
     }
   } else {
     count = count || 0;
