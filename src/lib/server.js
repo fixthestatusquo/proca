@@ -285,7 +285,7 @@ async function addActionContact(actionType, actionPage, data, test) {
     actionPage: actionPage,
     action: {
       actionType: actionType,
-      // customFields: {}, // added below
+      customFields: {}, // added below
     },
     contact: {
       firstName: data.firstname,
@@ -323,11 +323,13 @@ async function addActionContact(actionType, actionPage, data, test) {
   }
 
   for (let [key, value] of Object.entries(data)) {
-    if (value && !expected.includes(key))
+    if (value && !expected.includes(key)) {
+      if (key === 'consents') continue;
+      if (value instanceof Object) continue;
       variables.action.customFields[key] = value;
+    }
   }
-  variables.action.customFields = variables.action.customFields;
-  variables
+  variables.action.customFields = JSON.stringify(variables.action.customFields);
   const response = await graphQL("addActionContact", query, {
     variables: variables,
   });
