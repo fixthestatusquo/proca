@@ -267,7 +267,7 @@ const ProcaPayPalButton = (props) => {
   const frequency = useFrequencyChange(props.frequency);
 
   const displayAmount = formData.amount;
-  let amountToCharge = formData.amount * 100;
+  let amountToCharge = formData.amount;
   if (frequency === 'weekly') {
     amountToCharge = Math.floor(amountToCharge * 4.3);
   }
@@ -319,7 +319,7 @@ const ProcaPayPalButton = (props) => {
       // console.log("createSubscription called" + formData.amount);
       return actions.subscription.create({
         plan_id: plan_id,
-        quantity: amountToCharge.toString(), // PayPal wants a string
+        quantity: Number.parseInt(amountToCharge * 100).toString(), // PayPal wants a string
         application_context: {
           shipping_preference: "NO_SHIPPING",
         },
