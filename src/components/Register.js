@@ -83,7 +83,6 @@ export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   let emailProvider = useRef(undefined); // we don't know the email provider
   const { t } = useTranslation();
 
