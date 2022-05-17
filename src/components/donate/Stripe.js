@@ -270,7 +270,7 @@ const SubmitButton = (props) => {
 
     const intentResponse = paymentIntent.response;
 
-    if (intentResponse.items.data[0]?.plan) {
+    if (intentResponse.items?.data[0]?.plan) {
       const subscriptionPlan = intentResponse.items.data[0].plan;
 
       procaRequest.donation.frequencyUnit = subscriptionPlan.interval;
