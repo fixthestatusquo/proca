@@ -12,6 +12,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "@hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
+import dispatch from "@lib/event";
 
 import ProgressCounter from "@components/ProgressCounter";
 
@@ -31,12 +32,22 @@ export default function StepperEci(props) {
 
   const doneEmail = (result) => {
     setCrumbbread(result);
-    setValue(steps[step("register") + 1]);
+    const next = steps[step("register") + 1];
+    setValue(next);
+    dispatch(next.toLowerCase() + ":init", {
+        step: next.toLowerCase(),
+        journey: steps,
+      });
   };
 
   const doneEci = () => {
     setSubmitted(true);
-    setValue(steps[step("eci") + 1]);
+    const next = steps[step("eci") + 1];
+    setValue(next);
+    dispatch(next.toLowerCase() + ":init", {
+        step: next,
+        journey: steps,
+      });
   };
   const handleStep = (s) => () => {
     setValue(s);
