@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs");
 require("./dotenv.js");
 const { read, file, save } = require("./config");
