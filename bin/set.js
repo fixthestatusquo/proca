@@ -5,10 +5,6 @@ const { read, file, save, push, pull } = require("./config");
 const argv = require("minimist")(process.argv.slice(2));
 const merge = require("lodash.merge");
 
-console.log(1, argv);
-
-
-
 const help = () => {
   console.log(
     [
@@ -26,6 +22,20 @@ const help = () => {
       "--forcewidth=54 (force the width)",
       "--lastnameRequired=true (is lastname field required?)",
       "--orgdata=true ()",
+      "--lastnamerequired=true (is lastname field required?)",
+      "--postcodeshown=true (is postcode field shown?)",
+      "--postcoderequired=true (is postcode field required?)",
+      "--countryshow=true (is country field shown?)",
+      "--countryrequired=true (is country field required?)",
+      "--commentshow=true (is comment field shown?)",
+      "--commentrequired=true (is comment field required?)",
+      "--phoneshown=true (is phone field shown?)",
+      "--goal=666 (set the goal)",
+      "--country=GB or bool, set component.country",
+      "--implicit=true (set the implicit consent)",
+      "--confirmoptin=true (set the confirm optin)",
+      "--test=true (set the test mode)",
+      "--locales.component.consent=whatever (set the locales, carefully - no validation)",
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
     ].join("\n")
@@ -213,6 +223,13 @@ ids.map(id => {
     if (argv.test) {
       const bool = isBoolean(argv.test, 'test');
       update(id, { test: bool });
+    }
+
+    // CHANGE LOCALES
+    // DANGER: no validation!!
+
+    if (argv.locales) {
+      update(id, argv.locales);
     }
 
     if (argv.push) {
