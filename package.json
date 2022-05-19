@@ -79,6 +79,7 @@
     "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
     "pull": "node bin/pull.js",
     "push": "node bin/push.js",
+    "set": "node bin/set.js",
     "pushCampaign": "node bin/pushCampaign.js",
     "pullCampaign": "node bin/pullCampaign.js",
     "start:stg": "PROCA_ENV=staging rescripts start",
