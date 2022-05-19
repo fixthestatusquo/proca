@@ -35,7 +35,7 @@
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
     "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
-    "intro": "Jeg accepterer at {{name}} kontakter mig om kampagnen og andre muligheder for at hjælpe",
+    "intro": "{{name}} må kontakte mig om vigtige kampagner",
     "opt-in": "Ja, hold mig informeret via e-mail",
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
