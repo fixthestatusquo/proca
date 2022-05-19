@@ -71,18 +71,6 @@ ids.map(id => {
       }
     }
 
-    if (argv.push) {
-      // must be the last one
-      try {
-        const d = await push(id);
-      } catch (errors) {
-        Array.isArray(errors) &&
-          errors.map((e) => {
-            console.error("\x1b[31m", e.message);
-          });
-      }
-    }
-
     if (argv.url) {
       update(id, { org: { url: argv.url } });
     }
@@ -113,8 +101,6 @@ ids.map(id => {
       }
       update(id, { layout: { variant: argv.variant } });
     }
-
-    // TO DO HTMLTEMPLATE
 
     // COMPONENT.WIDGET SETTINGS
 
@@ -183,17 +169,63 @@ ids.map(id => {
       update(id, { component: { field: { phone: show } } });
     }
 
-    // COUNTER SETTINGS
+
+    // COMPONENT.COUNTER SETTINGS
 
     if (argv.goal) {
       if (!(typeof argv.goal === 'number')) {
         console.error("goal must be a number");
         process.exit(0);
       }
-      update(id, { component: { counter: { steps: argv.goal } } });
+      update(id, { component: { counter: { steps: [`${argv.goal}`] } } });
     }
 
-    // console.error("missing or incorrect parameter");
-    // help();
+    // COMPONENT.COUNTRY SETTINGS
+
+    if (argv.country) {
+      if (!(typeof argv.country === 'string') || argv.country.length > 5) {
+        console.error("country must be a string or boolean");
+        process.exit(0);
+      }
+      const country = argv.country;
+      if (country === "true" || country === "false") {
+        country = isBoolean(country, 'country');
+      }
+      update(id, { component: { country: country } });
+    }
+
+    // COMPONENT.CONSENT SETTINGS
+
+    if (argv.implicit) {
+      const bool = isBoolean(argv.implicit, 'implicit');
+      update(id, { component: { consent: { implicit: bool } } });
+    }
+
+    // CONFIRM OPT-IN
+
+    if (argv.confirmoptin) {
+      const bool = isBoolean(argv.confirmoptin, 'confirmoptin');
+      update(id, { component: { consent: { email: { confirmOptIn: bool } } } });
+    }
+
+    // TEST MODE
+
+    if (argv.test) {
+      const bool = isBoolean(argv.test, 'test');
+      update(id, { test: bool });
+    }
+
+    if (argv.push) {
+      // must be the last one
+      try {
+        const d = await push(id);
+      } catch (errors) {
+        Array.isArray(errors) &&
+          errors.map((e) => {
+            console.error("\x1b[31m", e.message);
+          });
+      }
+    }
+
   })();
 });
