@@ -6,7 +6,7 @@ const merge = require("lodash.merge");
 
 console.log(argv);
 
-if (argv.help) {
+const help = () => {
   console.log (["options"
     ,"--help (this command"
     ,"--color=#cafebebe (set the primary color)"
@@ -14,11 +14,13 @@ if (argv.help) {
     ," {id} (actionpage id)"
   ].join ("\n"));
   process.exit (0);
-}
+};
+if (argv.help) {help();}
 
 const id = argv._[0];
 if (!id) {
   console.error("actionpage id missing");
+  help();
   process.exit (1);
 }
 if (argv.color) {
@@ -33,4 +35,6 @@ function update (id, d) {
   save (next);
 }
 
+console.error("missing or incorrect parameter");
+help();
 
