@@ -23,6 +23,9 @@ const help = () => {
       "--variant=light (set the variant)",
       "--mobile=true (set the mobile version)",
       "--autostart=true (set the autostart)",
+      "--forcewidth=54 (force the width)",
+      "--lastnameRequired=true (is lastname field required?)",
+      "--orgdata=true ()",
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
     ].join("\n")
@@ -133,6 +136,64 @@ ids.map(id => {
       update(id, { component: { widget: { forceWidth: argv.forcewidth } } });
     }
 
+    // COMPONENT.REGISTER (FIELD) SETTINGS
 
+    if (argv.orgdata) {
+      const isRequired = isBoolean(argv.orgdata, 'orgdata');
+      update(id, { component: { field: { organisation: isRequired } } });
+    }
+
+    if (argv.lastnamerequired) {
+      const isRequired = isBoolean(argv.lastnamerequired, 'lastnameRequired');
+      update(id, { component: { field: { lastname: { required: isRequired } } } });
+    }
+
+    if (argv.poscodeshow) {
+      const show = isBoolean(argv.poscodeshow, 'poscodeshow');
+      update(id, { component: { field: { poscode: show } } });
+    }
+
+    if (argv.poscoderequired) {
+      const isRequired = isBoolean(argv.poscoderequired, 'poscoderequired');
+      update(id, { component: { field: { poscode: { required: isRequired } } } });
+    }
+
+    if (argv.countryshow) {
+      const show = isBoolean(argv.countryshow, 'countryshow');
+      update(id, { component: { field: { country: show } } });
+    }
+
+    if (argv.countryrequired) {
+      const isRequired = isBoolean(argv.countryrequired, 'countryrequired');
+      update(id, { component: { field: { country: { required: isRequired } } } });
+    }
+
+    if (argv.commentshow) {
+      const show = isBoolean(argv.commentshow, 'commentshow');
+      update(id, { component: { field: { comment: show } } });
+    }
+
+    if (argv.commentrequired) {
+      const isRequired = isBoolean(argv.commentrequired, 'commentrequired');
+      update(id, { component: { field: { comment: { required: isRequired } } } });
+    }
+
+    if (argv.phoneshow) {
+      const show = isBoolean(argv.phoneshow, 'phoneshow');
+      update(id, { component: { field: { phone: show } } });
+    }
+
+    // COUNTER SETTINGS
+
+    if (argv.goal) {
+      if (!(typeof argv.goal === 'number')) {
+        console.error("goal must be a number");
+        process.exit(0);
+      }
+      update(id, { component: { counter: { steps: argv.goal } } });
+    }
+
+    // console.error("missing or incorrect parameter");
+    // help();
   })();
 });
