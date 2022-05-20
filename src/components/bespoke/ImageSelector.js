@@ -6,14 +6,24 @@ import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import IconButton from "@material-ui/core/IconButton";
 import AttachIcon from "@material-ui/icons/AttachFile";
+import { Grid, Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
 import { InputLabel } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: "#fff",
-  },
+   selected: {
+        position: "relative",
+        height: "100%"
+    },
+    image: {
+        zIndex: 1,
+      weigth:"100%",
+    },
+    MuiCardActionArea:{
+        height: "inherit",
+        zIndex: 1
+    },
+
   root: {
     display: "flex",
     flexWrap: "wrap",
@@ -26,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
     cursor: "pointer",
+    height: "100px",
   },
   selected: {},
 
@@ -47,45 +58,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const ImageSelected = props => {
+  const classes = useStyles();
+  return (
+      <Card className={classes.selected}>
+    <CardActionArea classes={{root: classes.MuiCardActionArea}} >
+    <img src={props.original} className={classes.image} />
+    </CardActionArea>
+      </Card>
+  );
+}
+
 const ImageSelector = (props) => {
   const classes = useStyles();
   const [selected, _select] = useState(1);
-  const [open, setOpen] = useState(false);
-  const ids = [1, 2, 3];
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const select = (i) => {
-    setOpen(true);
     _select(i);
   };
 
+  const Selected = props.Selected || ImageSelected;
   return (
     <>
-      <InputLabel>
-        Attach an image :<i>{"meme #" + selected}</i>
-      </InputLabel>
-      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <img src={"https://static.tttp.eu/tg4/images/" + selected + ".jpeg"} />
-      </Backdrop>
-      <ImageList className={classes.imageList} cols={2.2} rows={1}>
-        {ids.map((d) => (
+    <Selected {...props.items[selected]} />
+      <ImageList className={classes.imageList} cols={3.7} rows={1}>
+        {props.items.map((d, i) => (
           <ImageListItem
-            key={d}
+            key={i}
             className={d === selected ? classes.selected : classes.default}
-            onClick={() => select(d)}
+            onClick={() => select(i)}
           >
-            <img src={"https://static.tttp.eu/tg4/images/" + d + ".jpeg"} />
-            <ImageListItemBar
-              title={"meme #" + d}
-              position={d === selected ? "top" : "bottom"}
-              actionIcon={
-                <IconButton aria-label={`attach ${d}`} className={classes.icon}>
-                  <AttachIcon />
-                </IconButton>
-              }
-            />
+            <img src={props.items[i].original} />
           </ImageListItem>
         ))}
       </ImageList>
