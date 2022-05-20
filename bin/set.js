@@ -4,6 +4,11 @@ require("./dotenv.js");
 const { read, file, save, push, pull } = require("./config");
 const argv = require("minimist")(process.argv.slice(2));
 const merge = require("lodash.merge");
+console.log(argv);
+
+const locales = ["ar", "bg", "ca", "ce", "cs", "da", "de", "el", "en", "en_GB", "es", "et", "eu",
+                  "fi", "fr", "fr_CA", "fr@informal", "ga", "ha", "he", "hi", "hr", "hu", "it", "lt",
+                  "lv", "me", "mt", "nl", "pl", "pt", "ro", "rom", "ru", "sk", "sl", "sr", "sv", "uk", "yo"];
 
 const help = () => {
   console.log(
@@ -21,7 +26,7 @@ const help = () => {
       "--autostart=true (set the autostart)",
       "--forcewidth=54 (force the width)",
       "--lastnameRequired=true (is lastname field required?)",
-      "--orgdata=true ()",
+      "--orgdata=true (do we collect the organisation details)",
       "--lastnamerequired=true (is lastname field required?)",
       "--postcodeshown=true (is postcode field shown?)",
       "--postcoderequired=true (is postcode field required?)",
@@ -38,6 +43,7 @@ const help = () => {
       "--locales.component.consent=whatever (set the locales, carefully - no validation)",
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
+      "input id, ids or range of ids"
     ].join("\n")
   );
   process.exit(0);
@@ -52,14 +58,6 @@ function update (id, d) {
   const next = merge (current, d);
   save (next);
 }
-
-const ids = argv._;
-if (ids.length === 0) {
-  console.error("actionpage id(s) missing");
-  help();
-  process.exit(1);
-}
-
 const isBoolean = (arg, flag) => {
   if (!["true", "false"].includes(arg)) {
     console.error(`${flag} must be true or false`);
@@ -67,6 +65,26 @@ const isBoolean = (arg, flag) => {
   }
  return arg === "true" ? true : false;
 };
+
+const args = argv._;
+const ids = [];
+
+if (args[0].match(/^[0-9]+[-][0-9]+$/)) {
+  const range = args[0].split('-');
+  let i = parseInt(range[0]);
+  while (i <= parseInt(range[1])) {
+    ids.push(i);
+    i++;
+  }
+} else {
+    ids = args;
+  }
+
+if (ids.length === 0) {
+  console.error("actionpage id(s) missing");
+  help();
+  process.exit(1);
+}
 
 ids.map(id => {
   (async () => {
@@ -82,16 +100,27 @@ ids.map(id => {
     }
 
     if (argv.url) {
+
+      //TO DO: validate url
+
       update(id, { org: { url: argv.url } });
     }
 
     if (argv.lang) {
+      if (!locales.includes(argv.lang)) {
+        console.error(`${argv.lang} is not a valid language code`);
+        process.exit(0);
+      }
       update(id, { lang: argv.lang });
     }
 
     // LAYOUT SETTINGS
 
     if (argv.color) {
+      if (!argv.color.match(/^#([0-9a-f]{6})$/i)) {
+        console.log("color must be a hex code");
+        process.exit(0);
+      }
       // todo, add some QA if the color is an hex
       update(id, { layout: { primaryColor: argv.color } });
     }
