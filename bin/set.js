@@ -4,7 +4,6 @@ require("./dotenv.js");
 const { read, file, save, push, pull } = require("./config");
 const argv = require("minimist")(process.argv.slice(2));
 const merge = require("lodash.merge");
-console.log(argv);
 
 const locales = ["ar", "bg", "ca", "ce", "cs", "da", "de", "el", "en", "en_GB", "es", "et", "eu",
                   "fi", "fr", "fr_CA", "fr@informal", "ga", "ha", "he", "hi", "hr", "hu", "it", "lt",
@@ -67,9 +66,9 @@ const isBoolean = (arg, flag) => {
 };
 
 const args = argv._;
-const ids = [];
+let ids = [];
 
-if (args[0].match(/^[0-9]+[-][0-9]+$/)) {
+if (typeof args[0] !== 'number' && args[0].match(/^[0-9]+[-][0-9]+$/)) {
   const range = args[0].split('-');
   let i = parseInt(range[0]);
   while (i <= parseInt(range[1])) {
