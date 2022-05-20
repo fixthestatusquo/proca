@@ -6,6 +6,12 @@ import locales from "locales/common.json"; // locales is an alias to src/locales
 import isoCountries from "i18n-iso-countries";
 import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used locales
 
+const languages = [{ be: ['fr', 'nl'] }, { el: 'el' }, { lt: 'lt' }, { pt: 'pt' }, { bg: 'bg' }, { es: 'es' },
+                    { lu: ["de", "fr"] }, { ro: 'ro' }, { cz: 'cs' }, { fr: 'fr' }, { hu: 'hu' }, { si: 'sl' },
+                    { sk: 'sk' }, { dk: 'da' }, { hr: 'hr' }, { mt: ['mt', 'en'] }, { de: 'de' }, { it: 'it' },
+                    { nl: 'nl' }, { fi: 'fi' }, { ee: 'et' }, { cy: 'cy' }, { at: 'de' }, { se: 'sv' },
+                    { ie: ['ga', 'en'] }, { lv: 'lv' }, { pl: 'pl' }];
+
 isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
@@ -59,5 +65,10 @@ i18n
       escapeValue: false,
     },
   });
+
+const mainLanguage = (countryCode) => {
+    const langArray = languages.filter((lang) =>  Object.keys(lang)[0] === countryCode.toLowerCase());
+    return langArray.length > 0 ? Object.values(langArray[0])[0] : null;
+  }
 
 export default i18n;
