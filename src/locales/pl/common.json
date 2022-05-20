@@ -119,6 +119,7 @@
     "title": "Prawie gotowe! Zrób następny krok."
   },
   "supporter": {
+    "not_you": "nie ty?",
     "welcome": "Witamy z powrotem {{firstname}}!"
   },
   "target": {
