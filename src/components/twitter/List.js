@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const component = (props) => {
+const Component = (props) => {
   const classes = useStyles();
 
   return (
@@ -32,9 +32,4 @@ const component = (props) => {
   );
 };
 
-// you can have actionText (text of function(profile))
-component.propTypes = {
-  actionUrl: PropTypes.string,
-  actionText: PropTypes.string,
-};
-export default component;
+export default Component;

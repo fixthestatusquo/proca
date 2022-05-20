@@ -38,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     height: "100px",
   },
-  selected: {},
+  selected: {
+    width:"100%"
+  },
 
   default: {
     opacity: "0.2",

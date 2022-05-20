@@ -5,6 +5,7 @@ const UploadFile = props => {
   const [message,setMessage] = useState ();
 return (<>
   <div>{message}</div>
+  <div>TODO: add checkbox [] I have the right to share this image isn't containing inapropritate or illegal content </div>
   <DropzoneArea
   fileLimit={1}
   acceptedFiles={['image/*']}

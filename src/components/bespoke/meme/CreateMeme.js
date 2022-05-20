@@ -3,15 +3,25 @@ import { Button, Grid, Card, CardMedia, Typography } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+   selected: {
+        position: "relative",
+        height: 250,
+        width:"100%"
+    }
+}));
 
 const Item = (props) => {
+  const classes = useStyles();
   console.log(props);
   //<Grid item  xs={12 / props.total}>
   return (
     <Grid item xs={12}>
       <CardMedia
-        style={{ height: "350px" }}
-        className="Media"
+       
+        className={classes.selected}
         image={props.original}
         title={props.name}
       ></CardMedia>

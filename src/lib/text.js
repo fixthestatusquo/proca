@@ -1,4 +1,4 @@
-const homoSpacify = test => { // randomly replaces one of the space by a 'non standard' space
+const homoSpacify = text => { // randomly replaces one of the space by a 'non standard' space
 //  const r =Array.from("\ufeff\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009");
   const r = Array.from("123456789");
   let pos = []; 
