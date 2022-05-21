@@ -20,7 +20,7 @@
   "Your message": "Tvoja poruka",
   "action": {
     "donate": "Doniraj",
-    "eci": "eci",
+    "eci": "Potpiši ECI",
     "email": "Pošalji e-mail",
     "join": "Pridruži se",
     "register": "Registriraj se",
@@ -119,8 +119,8 @@
     "title": "Skoro pa gotovo! Napravi sljedeći korak."
   },
   "supporter": {
-    "not_you": "ne ti?",
-    "welcome": "Dobrodošli nazad {{firstname}}!"
+    "not_you": "nisi ti?",
+    "welcome": "Dobro došao, dobro došla {{firstname}}!"
   },
   "target": {
     "country": {
@@ -130,7 +130,7 @@
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
-    "organisation": "Twitter račun vaše organizacije",
+    "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },
   "you need to be 18 years old": "morate imati 18 godina"
