@@ -94,4 +94,5 @@ const mainLanguage = (countryCode) => {
   return languages[countryCode];
 };
 
+export {mainLanguage};
 export default i18n;

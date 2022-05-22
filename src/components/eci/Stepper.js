@@ -13,6 +13,7 @@ import { useTranslation } from "./hooks/useEciTranslation";
 import { useIsMobile } from "@hooks/useLayout";
 import SwipeableViews from "react-swipeable-views";
 import dispatch from "@lib/event";
+import { scrollTo } from "@lib/scroll";
 
 import ProgressCounter from "@components/ProgressCounter";
 
@@ -38,6 +39,7 @@ export default function StepperEci(props) {
         step: next.toLowerCase(),
         journey: steps,
       });
+    scrollTo();
   };
 
   const doneEci = () => {
@@ -48,6 +50,7 @@ export default function StepperEci(props) {
         step: next,
         journey: steps,
       });
+    scrollTo();
   };
   const handleStep = (s) => () => {
     setValue(s);
