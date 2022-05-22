@@ -2,7 +2,7 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { read, file, save, push, pull } = require("./config");
-const argv = require("minimist")(process.argv.slice(2));
+const argv = require("minimist")(process.argv.slice(2), {boolean:["pull","push","test","mobile",]});
 const merge = require("lodash.merge");
 
 console.log(argv);
@@ -16,8 +16,8 @@ const help = () => {
     [
       "options",
       "--help (this command)",
-      "--push=push (push the modified config to the server)",
-      "--pull=pull (pull the config from the server before doing the modification)",
+      "--push (push the modified config to the server)",
+      "--pull (pull the config from the server before doing the modification)",
       "--color=#cafebebe (set the primary color)",
       "--url=http://example.com (set the url)",
       "--lang=en (set the language)",
