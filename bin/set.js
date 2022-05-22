@@ -2,7 +2,7 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { read, file, save, push, pull } = require("./config");
-const argv = require("minimist")(process.argv.slice(2), {boolean:["pull","push","test","mobile",]});
+const argv = require("minimist")(process.argv.slice(2), {boolean:["pull","push","test","mobile","autoStart"]});
 const merge = require("lodash.merge");
 
 console.log(argv);
@@ -122,7 +122,6 @@ ids.map(id => {
         console.log("color must be a hex code");
         process.exit(0);
       }
-      // todo, add some QA if the color is an hex
       update(id, { layout: { primaryColor: argv.color } });
     }
 
