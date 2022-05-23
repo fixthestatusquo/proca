@@ -492,7 +492,7 @@ export default function Register(props) {
                 >
                   {" "}
                   {props.buttonText ||
-                    t(config.component.register?.button || "register")}
+                    t(config.component.register?.button || "action.register")}
                 </Button>
                 {config.component.register?.next && (
                   <Button

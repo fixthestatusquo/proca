@@ -11,7 +11,7 @@ export default function SignatureForm(props) {
   const config = useCampaignConfig();
   if (config.component.widget?.closed) return <Closed />;
 
-  const buttonLabel = config.component.register?.button || "Sign now!";
+  const buttonLabel = config.component.register?.button || "action.sign";
   return (
     <React.Fragment>
       <ProgressCounter actionPage={props.actionPage} />
