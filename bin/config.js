@@ -14,7 +14,7 @@ const API_URL =
   "https://api.proca.app/api";
 
 const checked = (fileName,type) => {
-  if (fileName.includes("/")) {
+  if (fileName.includes("..")) {
     console.error ("the filename is invalid ",fileName);
     throw new Error ("invalid filename ",fileName);
   }
