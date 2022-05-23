@@ -99,7 +99,7 @@
       "open": "aprire"
     },
     "payment_methods": {
-      "card": "Scheda",
+      "card": "Carta di credito",
       "intro": "Come vuoi donare?",
       "paypal": "PayPal",
       "sepa": "SEPA",
