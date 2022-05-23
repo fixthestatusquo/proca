@@ -77,7 +77,6 @@ const Component = (props) => {
   }, [country, filterProfiles]);
 
   const handleDone = (d) => {
-    console.log("close");
     viewDialog(true);
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>

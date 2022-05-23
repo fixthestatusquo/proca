@@ -31,7 +31,6 @@ function Download(props) {
   };
 
   const handleDownload = () => {
-    console.log(config.data);
     let data = config.data;
     data.actionPage = config.actionPage;
     window.open(url(data), "pdf", "toolbar=0,status=0,width=548,height=775");
