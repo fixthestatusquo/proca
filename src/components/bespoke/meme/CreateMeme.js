@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Item = (props) => {
   const classes = useStyles();
-  console.log(props);
   //<Grid item  xs={12 / props.total}>
   return (
     <Grid item xs={12}>

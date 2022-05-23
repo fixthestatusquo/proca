@@ -4,7 +4,6 @@ import ImageSelector from "../ImageSelector";
 
 const Item = (props) =>
 {
-  console.log(props);
                  //<Grid item  xs={12 / props.total}>
     return (
                  <Grid item xs={12} >
