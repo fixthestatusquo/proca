@@ -24,6 +24,7 @@ const TextFieldProca = (props) => {
   const classes = useStyles();
 
   const handleBlur = (e) => {
+    console.log("testing blur");
     e.target.checkValidity();
     if (e.target.validity.valid) {
       clearErrors(e.target.attributes.name.nodeValue);

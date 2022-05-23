@@ -119,6 +119,7 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
+
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -256,7 +257,7 @@ export default function Register(props) {
     }
   };
 
-  useEffect(() => {
+/*  useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
@@ -268,6 +269,7 @@ export default function Register(props) {
       };
     });
   }, [setError]);
+*/
 
   function Error(props) {
     if (props.display)

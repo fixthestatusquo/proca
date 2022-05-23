@@ -13,6 +13,13 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
 
+const checked = (fileName,type) => {
+  if (fileName.includes("/")) {
+    console.error ("the filename is invalid ",fileName);
+    throw new Error ("invalid filename ",fileName);
+  }
+
+}
 // mkdir -p
 const mkdirp = (pathToFile) =>
   pathToFile.split("/").reduce((prev, curr, i) => {
@@ -23,7 +30,7 @@ const mkdirp = (pathToFile) =>
   });
 
 const file = (id) => {
-  return path.resolve(__dirname, tmp + id + ".json");
+  return path.resolve(__dirname, tmp + checked(id) + ".json");
 };
 
 const read = (id) => {
@@ -76,7 +83,7 @@ const saveCampaign = (campaign, lang = "en") => {
     file("campaign/" + campaign.name),
     JSON.stringify(campaign, null, 2)
   );
-  return "campaign/" + campaign.name + ".json";
+  return "campaign/" + checked(campaign.name) + ".json";
 };
 
 const saveTargets = (campaignName, targets) => {
