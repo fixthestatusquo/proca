@@ -114,6 +114,7 @@
   "progress": "{{count}} podepsali. Přejděme k {{goal}}",
   "progress_plural": "{{count}} podepsali. Přejděme k {{goal}}",
   "register": "Přidejte mé jméno",
+  "required": "Vyplňte prosím toto pole",
   "share": {
     "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
     "message": "Měli byste to podepsat!",
