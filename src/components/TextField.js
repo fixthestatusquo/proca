@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,28 +23,39 @@ const TextFieldProca = (props) => {
   const { t } = useTranslation();
   const layout = useLayout();
   const classes = useStyles();
+  const ref = useRef();
 
-  const handleBlur = (e) => {
-    console.log("testing blur");
-    e.target.checkValidity();
-    if (e.target.validity.valid) {
-      clearErrors(e.target.attributes.name.nodeValue);
-      return;
+  const handleValidate = (value, name, dom) => {
+    dom.checkValidity();
+    if (dom.validity.valid) {
+      clearErrors(name); // synchronise the status to material-ui
+      return true;
     }
+    return dom.validationMessage;
   };
+
   const { errors, control, clearErrors, watch } = props.form;
   const value = watch(props.name) || "";
+
+  let validation = {
+         html5: (v) => handleValidate(v,props.name,ref.current),
+  };
+  if (props.validate) 
+    validation.props = props.validate;
 
   return (
     <Controller
     defaultValue=""
     as ={TextField}
       id={"proca_" + props.name}
+    inputRef={ref}
     control = {control}
-     rules={{ required: props.required }}
+     rules= {{ 
+       validate: validation,
+//       required: props.required // uncomment to bypass html5 native required 
+     }}
       name={props.name}
       label={/* i18next-extract-disable-line */ t(props.name)}
-      onBlur={handleBlur}
       InputLabelProps={{ shrink: value.length > 0 }}
       className={classes.textField}
       error={!!(errors && errors[props.name])}
