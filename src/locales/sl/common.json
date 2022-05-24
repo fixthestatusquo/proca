@@ -114,6 +114,7 @@
   "progress": "{{count}} so se podpisali. Pojdimo v {{goal}}",
   "progress_plural": "{{count}} so se podpisali. Pojdimo v {{goal}}",
   "register": "Dodaj moje ime",
+  "required": "Izpolnite to polje",
   "share": {
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",
