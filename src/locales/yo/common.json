@@ -113,6 +113,7 @@
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
+  "required": "Jọwọ fọwọsi aaye yii",
   "share": {
     "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
     "message": "O yẹ ki o fowo si eyi!",
