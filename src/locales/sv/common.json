@@ -114,6 +114,7 @@
   "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
   "progress_plural": "",
   "register": "Lägg till mitt namn",
+  "required": "Fyll i det här fältet",
   "share": {
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
