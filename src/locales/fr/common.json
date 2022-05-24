@@ -114,6 +114,7 @@
   "progress": "{{count}} ont signé. Passons à {{goal}}",
   "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
   "register": "Ajouter mon nom",
+  "required": "Veuillez remplir ce champ",
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "message": "Vous devriez signer ça !",

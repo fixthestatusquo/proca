@@ -113,6 +113,7 @@
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",
+  "required": "נא למלא שדה זה",
   "share": {
     "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
     "message": "אתה צריך לחתום על זה!",

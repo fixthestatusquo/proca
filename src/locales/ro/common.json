@@ -113,6 +113,7 @@
   },
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
+  "required": "Vă rugăm să completați acest câmp",
   "share": {
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
