@@ -114,6 +114,7 @@
   "progress": "{{count}} potpis. Idemo na {{goal}}",
   "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
+  "required": "Molimo popunite ovo polje",
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
     "message": "Ovo se isplati potpisati!",
