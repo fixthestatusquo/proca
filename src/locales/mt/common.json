@@ -114,6 +114,7 @@
   "progress": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "register": "Żid ismi",
+  "required": "Jekk jogħġbok imla dan il-qasam",
   "share": {
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
     "message": "Għandek tiffirma dan!",
