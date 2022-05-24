@@ -114,6 +114,7 @@
   "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "register": "Tilføj mit navn",
+  "required": "Udfyld venligst dette felt",
   "share": {
     "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. 🙏.",
     "message": "Du skal underskrive dette!",
