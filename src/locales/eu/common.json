@@ -114,6 +114,7 @@
   "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
   "progress_plural": "",
   "register": "Gehitu nire izena",
+  "required": "Mesedez, bete eremu hau",
   "share": {
     "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
     "message": "Hau sinatu beharko zenuke!",

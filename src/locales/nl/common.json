@@ -114,6 +114,7 @@
   "progress": "{{count}} hebben getekend. Laten we voor {{goal}} gaan.",
   "progress_plural": "",
   "register": "Mijn naam toevoegen",
+  "required": "Gelieve dit veld in te vullen",
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
