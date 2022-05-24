@@ -114,6 +114,7 @@
   "progress": "{{count}} pasirašė. Eikime į {{goal}}",
   "progress_plural": "{{count}} pasirašė. Eikime į {{goal}}",
   "register": "Pridėti mano vardą",
+  "required": "Užpildykite šį laukelį",
   "share": {
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",
