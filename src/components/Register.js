@@ -106,7 +106,6 @@ export default function Register(props) {
     trigger,
     handleSubmit,
     setError,
-    clearErrors,
     formState,
     getValues,
     setValue,
@@ -311,20 +310,15 @@ export default function Register(props) {
 
 
   const validateEmail = async (email) => {
+    if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
-     console.log("validate",email,provider,emailProvider.current);
     emailProvider.current = provider;
     if (provider === false) {
-    console.log("nok provider",t("email.invalid_domain", {
-          defaultValue: "{{domain}} cannot receive emails",
-          domain: getDomain(email),
-        }));
       return t("email.invalid_domain", {
           defaultValue: "{{domain}} cannot receive emails",
           domain: getDomain(email),
         });
     }
-    console.log("ok provider");
     return true;
   }
 

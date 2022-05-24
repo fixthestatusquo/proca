@@ -40,9 +40,11 @@ const TextFieldProca = (props) => {
   let validation = {
          html5: (v) => handleValidate(v,props.name,ref.current),
   };
-  if (props.validate) 
+  let drillProps = {...props};
+  if (props.validate)  {
     validation.props = props.validate;
-
+    delete drillProps.validate;
+  }
   return (
     <Controller
     defaultValue=""
@@ -62,7 +64,7 @@ const TextFieldProca = (props) => {
       helperText={errors && errors[props.name] && errors[props.name].message}
       variant={layout.variant}
       margin={layout.margin}
-      {...props}
+      {...drillProps}
     />
   );
 };
