@@ -96,7 +96,7 @@ const Thanks = () => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Name :
+                {t("Name")}
               </Grid>
               <Grid item xs={6}>
                 {formData.firstname} {formData.lastname}
@@ -105,7 +105,7 @@ const Thanks = () => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Email
+                {t("Email")}
               </Grid>
               <Grid item xs={6}>
                 {formData.email}
@@ -114,7 +114,7 @@ const Thanks = () => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Amount
+                {t("Amount")}
               </Grid>
               <Grid item xs={6} amount={formData.amount}>
                 {
@@ -127,7 +127,7 @@ const Thanks = () => {
               <Grid item xs={12}></Grid>
               <Grid item xs={1}></Grid>
               <Grid item xs={5}>
-                Date
+                {t("Date")}
               </Grid>
               <Grid item xs={6}>
                 {new Date().toLocaleDateString(config.locale)}
