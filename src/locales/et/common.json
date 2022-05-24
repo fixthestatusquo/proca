@@ -114,6 +114,7 @@
   "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "register": "Lisage minu nimi",
+  "required": "Palun täitke see väli",
   "share": {
     "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
     "message": "Peaksite sellele alla kirjutama!",
