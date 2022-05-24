@@ -35,7 +35,6 @@ const TextFieldProca = (props) => {
   const { errors, control, clearErrors, watch } = props.form;
   const value = watch(props.name) || "";
 
-  console.log (props.name,props.required);
   return (
     <Controller
     defaultValue=""
