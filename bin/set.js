@@ -70,7 +70,7 @@ const isBoolean = (arg, flag) => {
 const args = argv._;
 let ids = [];
 
-if (typeof args[0] !== 'number' && args[0].match(/^[0-9]+[-][0-9]+$/)) {
+if (argv[0] && typeof args[0] !== 'number' && args[0].match(/^[0-9]+[-][0-9]+$/)) {
   const range = args[0].split('-');
   let i = parseInt(range[0]);
   while (i <= parseInt(range[1])) {
