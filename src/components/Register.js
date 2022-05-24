@@ -241,6 +241,7 @@ export default function Register(props) {
         firstname: formData.firstname,
         country: formData.country,
         privacy: formData.privacy,
+        comment: formData.comment,
       });
   };
 
@@ -256,8 +257,8 @@ export default function Register(props) {
       }
     }
   };
-
-/*  useEffect(() => {
+/*
+  useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {

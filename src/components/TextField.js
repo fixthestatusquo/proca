@@ -2,8 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { TextField } from "@material-ui/core";
+import {  Controller } from "react-hook-form";
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -31,15 +32,19 @@ const TextFieldProca = (props) => {
       return;
     }
   };
-  const { errors, register, clearErrors, watch } = props.form;
+  const { errors, control, clearErrors, watch } = props.form;
   const value = watch(props.name) || "";
 
+  console.log (props.name,props.required);
   return (
-    <TextField
+    <Controller
+    defaultValue=""
+    as ={TextField}
       id={"proca_" + props.name}
+    control = {control}
+     rules={{ required: props.required }}
       name={props.name}
       label={/* i18next-extract-disable-line */ t(props.name)}
-      inputRef={register(props.register)}
       onBlur={handleBlur}
       InputLabelProps={{ shrink: value.length > 0 }}
       className={classes.textField}
