@@ -114,6 +114,7 @@
   "progress": "{{count}} sínithe. Rachaimid go {{goal}}",
   "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
   "register": "Cuir m’ainm leis",
+  "required": "Líon isteach an réimse seo le do thoil",
   "share": {
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",
     "message": "Ba chóir duit é seo a shíniú!",
