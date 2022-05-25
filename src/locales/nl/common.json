@@ -12,7 +12,8 @@
   "Locality": "Gemeente",
   "Next": "Volgende",
   "No Thanks": "Geen dank.",
-  "Other": "Andere",
+  "Other": "Anders",
+  "Payment": "Betaling",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
@@ -99,7 +100,7 @@
       "open": "open"
     },
     "payment_methods": {
-      "card": "Kaart",
+      "card": "Bankpas",
       "intro": "Hoe wil je doneren?",
       "paypal": "PayPal",
       "sepa": "SEPA",
