@@ -26,20 +26,22 @@ const help = () => {
       "--mobile=true (set the mobile version)",
       "--autostart=true (set the autostart)",
       "--forcewidth=54 (force the width)",
-      "--lastnameRequired=true (is lastname field required?)",
-      "--orgdata=true (do we collect the organisation details)",
-      "--lastnamerequired=true (is lastname field required?)",
-      "--postcodeshown=true (is postcode field shown?)",
-      "--postcoderequired=true (is postcode field required?)",
-      "--countryshow=true (is country field shown?)",
-      "--countryrequired=true (is country field required?)",
-      "--commentshow=true (is comment field shown?)",
-      "--commentrequired=true (is comment field required?)",
-      "--phoneshown=true (is phone field shown?)",
+//      "--lastnameRequired=true (is lastname field required?)",
+//      "--orgdata=true (do we collect the organisation details)",
+//      "--lastnamerequired=true (is lastname field required?)",
+//      "--postcodeshown=true (is postcode field shown?)",
+//      "--postcoderequired=true (is postcode field required?)",
+//      "--countryshow=true (is country field shown?)",
+//      "--countryrequired=true (is country field required?)",
+//      "--commentshow=true (is comment field shown?)",
+//      "--commentrequired=true (is comment field required?)",
+//      "--phoneshown=true (is phone field shown?)",
       "--goal=666 (set the goal)",
       "--country=GB or bool, set component.country",
       "--implicit=true (set the implicit consent)",
       "--confirmoptin=true (set the confirm optin)",
+      '--show={field} // lastname,postalcode,comment,phone,country',
+      '--hide={field} // lastname,postalcode,comment,phone,country',
       "--test=true (set the test mode)",
       "--locales.component.consent=whatever (set the locales, carefully - no validation)",
      // "--journey=[] (set the journey)",
@@ -163,6 +165,18 @@ ids.map(id => {
 
     // COMPONENT.REGISTER (FIELD) SETTINGS
 
+    if (argv.show) {
+      let field = {};
+      field[argv.show] = true;
+      update(id, { component: { field: field } });
+    }
+
+    if (argv.hide) {
+      let field = {};
+      field[argv.show] = hide;
+      update(id, { component: { field: field } });
+    }
+
     if (argv.orgdata) {
       const isRequired = isBoolean(argv.orgdata, 'orgdata');
       update(id, { component: { field: { organisation: isRequired } } });
@@ -173,8 +187,8 @@ ids.map(id => {
       update(id, { component: { field: { lastname: { required: isRequired } } } });
     }
 
-    if (argv.poscodeshow) {
-      const show = isBoolean(argv.poscodeshow, 'poscodeshow');
+    if (argv.postcodeshown) {
+      const show = isBoolean(argv.poscodeshow, 'poscodeshown');
       update(id, { component: { field: { poscode: show } } });
     }
 
