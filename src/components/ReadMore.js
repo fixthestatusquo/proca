@@ -5,9 +5,8 @@ import { useTranslation } from "./eci/hooks/useEciTranslation";
 
 import TTag from "@components/TTag";
 import Dialog from "@components/Dialog";
-import T from "@components/T";
-import More  from "@components/eci/More";
-export default function ReadMore(props) {
+import More from "@components/eci/More";
+ const ReadMore = () => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -25,13 +24,15 @@ export default function ReadMore(props) {
         close={handleClose}
         name={t("eci:common.head-title.home")}
       >
-        <T props={{ message: props.title }}/>
-        <TTag props={{ message: props.message }} />
+        <h1>{t("campaign:title")}</h1>
+        <TTag message="campaign:description" />
         <More />
       </Dialog>
       <Button variant="contained" onClick={handleClick}>
-        {t("eci:common.read_more")}
+        {t("eci:howsupport.s1_text")}
       </Button>
     </>
   );
 }
+
+export default ReadMore;
