@@ -2,10 +2,13 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { read, file, save, push, pull } = require("./config");
-const argv = require("minimist")(process.argv.slice(2), {boolean:["pull","push","test","mobile","autoStart"]});
+const argv = require("minimist")(process.argv.slice(2),
+  {
+    boolean: ["pull", "push", "test", "mobile", "autostart", "confirmoptin", "implicit",
+      "lastnamerequired", "orgdata", "poscodeshow", "poscoderequired", "countryshow",
+      "countryrequired", "commentshow", "commentrequired", "phoneshown"],
+  });
 const merge = require("lodash.merge");
-
-console.log(argv);
 
 const locales = ["ar", "bg", "ca", "ce", "cs", "da", "de", "el", "en", "en_GB", "es", "et", "eu",
                   "fi", "fr", "fr_CA", "fr@informal", "ga", "ha", "he", "hi", "hr", "hu", "it", "lt",
@@ -23,30 +26,29 @@ const help = () => {
       "--lang=en (set the language)",
       "--theme=dark (set the theme)",
       "--variant=light (set the variant)",
-      "--mobile=true (set the mobile version)",
-      "--autostart=true (set the autostart)",
-      "--forcewidth=54 (force the width)",
-//      "--lastnameRequired=true (is lastname field required?)",
-//      "--orgdata=true (do we collect the organisation details)",
-//      "--lastnamerequired=true (is lastname field required?)",
-//      "--postcodeshown=true (is postcode field shown?)",
-//      "--postcoderequired=true (is postcode field required?)",
-//      "--countryshow=true (is country field shown?)",
-//      "--countryrequired=true (is country field required?)",
-//      "--commentshow=true (is comment field shown?)",
-//      "--commentrequired=true (is comment field required?)",
-//      "--phoneshown=true (is phone field shown?)",
       "--goal=666 (set the goal)",
       "--country=GB or bool, set component.country",
-      "--implicit=true (set the implicit consent)",
-      "--confirmoptin=true (set the confirm optin)",
-      '--show={field} // lastname,postalcode,comment,phone,country',
-      '--hide={field} // lastname,postalcode,comment,phone,country',
-      "--test=true (set the test mode)",
+      "--mobile=true (set the mobile version)*",
+      "--autostart=true (set the autostart)*",
+      "--forcewidth=54 (force the width)",
+      "--lastnameRequired=true (is lastname field required?)*",
+      "--orgdata=true (do we collect the organisation details)*",
+      "--lastnamerequired=true (is lastname field required?)*",
+      "--postcodeshown=true (is postcode field shown?)*",
+      "--postcoderequired=true (is postcode field required?)*",
+      "--countryshow=true (is country field shown?)*",
+      "--countryrequired=true (is country field required?)*",
+      "--commentshow=true (is comment field shown?)*",
+      "--commentrequired=true (is comment field required?)*",
+      "--phoneshown=true (is phone field shown?)*",
+      "--implicit=true (set the implicit consent)*",
+      "--confirmoptin=true (set the confirm optin)*",
+      "--test=true (set the test mode)*",
       "--locales.component.consent=whatever (set the locales, carefully - no validation)",
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
-      "input id, ids or range of ids"
+      "input id, ids or range of ids",
+      "boolean inputs, no validatiton, except 'false', everything else will be set to 'true'"
     ].join("\n")
   );
   process.exit(0);
@@ -61,27 +63,23 @@ function update (id, d) {
   const next = merge (current, d);
   save (next);
 }
-const isBoolean = (arg, flag) => {
-  if (!["true", "false"].includes(arg)) {
-    console.error(`${flag} must be true or false`);
-    process.exit(0);
-  }
- return arg === "true" ? true : false;
-};
 
 const args = argv._;
+
 let ids = [];
 
-if (argv[0] && typeof args[0] !== 'number' && args[0].match(/^[0-9]+[-][0-9]+$/)) {
-  const range = args[0].split('-');
-  let i = parseInt(range[0]);
-  while (i <= parseInt(range[1])) {
-    ids.push(i);
-    i++;
+args.map(arg => {
+  if (typeof arg !== 'number' && arg.match(/^[0-9]+[-][0-9]+$/)) {
+    const range = arg.split('-');
+    let i = parseInt(range[0]);
+    while (i <= parseInt(range[1])) {
+      ids.push(i);
+      i++;
+    }
+  } else {
+    ids.push(arg);
   }
-} else {
-    ids = args;
-  }
+});
 
 if (ids.length === 0) {
   console.error("actionpage id(s) missing");
@@ -146,17 +144,15 @@ ids.map(id => {
     // COMPONENT.WIDGET SETTINGS
 
     if (argv.mobile) {
-      const mobile = isBoolean(argv.mobile, 'mobile');
-      update(id, { component: { widget: { mobileVersion: mobile } } });
+      update(id, { component: { widget: { mobileVersion: argv.mobile } } });
     }
 
     if (argv.autostart) {
-       const autostart = isBoolean(argv.autostart, 'autostart');
-      update(id, { component: { widget: { autoStart: autostart } } });
+      update(id, { component: { widget: { autoStart: argv.autostart } } });
     }
 
     if (argv.forcewidth) {
-      if(!(typeof argv.forcewidth === 'number')) {
+      if (!(typeof argv.forcewidth === 'number')) {
         console.error("forcewidth must be true or number");
         process.exit(0);
       }
@@ -178,50 +174,40 @@ ids.map(id => {
     }
 
     if (argv.orgdata) {
-      const isRequired = isBoolean(argv.orgdata, 'orgdata');
-      update(id, { component: { field: { organisation: isRequired } } });
+      update(id, { component: { register: { field: { organisation: argv.orgdata } } } });
     }
 
     if (argv.lastnamerequired) {
-      const isRequired = isBoolean(argv.lastnamerequired, 'lastnameRequired');
-      update(id, { component: { field: { lastname: { required: isRequired } } } });
+      update(id, { component: { register: { field: { lastname: { required: argv.lastnamerequired } } } } });
     }
 
-    if (argv.postcodeshown) {
-      const show = isBoolean(argv.poscodeshow, 'poscodeshown');
-      update(id, { component: { field: { poscode: show } } });
+    if (argv.poscodeshow) {
+      update(id, { component: { register: { field: { poscode: poscodeshow } } } });
     }
 
     if (argv.poscoderequired) {
-      const isRequired = isBoolean(argv.poscoderequired, 'poscoderequired');
-      update(id, { component: { field: { poscode: { required: isRequired } } } });
+      update(id, { component: { register: { field: { poscode: { required: poscoderequired } } } } });
     }
 
     if (argv.countryshow) {
-      const show = isBoolean(argv.countryshow, 'countryshow');
-      update(id, { component: { field: { country: show } } });
+      update(id, { component: { register: { field: { country: argv.countryshow } } } });
     }
 
     if (argv.countryrequired) {
-      const isRequired = isBoolean(argv.countryrequired, 'countryrequired');
-      update(id, { component: { field: { country: { required: isRequired } } } });
+      update(id, { component: { register: { field: { country: { required: argv.countryrequired } } } } });
     }
 
     if (argv.commentshow) {
-      const show = isBoolean(argv.commentshow, 'commentshow');
-      update(id, { component: { field: { comment: show } } });
+      update(id, { component: { register: { field: { comment: argv.commentshow } } } });
     }
 
     if (argv.commentrequired) {
-      const isRequired = isBoolean(argv.commentrequired, 'commentrequired');
-      update(id, { component: { field: { comment: { required: isRequired } } } });
+      update(id, { component: { register: { field: { comment: { required: argv.commentrequired } } } } });
     }
 
     if (argv.phoneshow) {
-      const show = isBoolean(argv.phoneshow, 'phoneshow');
-      update(id, { component: { field: { phone: show } } });
+      update(id, { component: { register: { field: { phone: argv.phoneshow } } } });
     }
-
 
     // COMPONENT.COUNTER SETTINGS
 
@@ -237,12 +223,20 @@ ids.map(id => {
 
     if (argv.country) {
       if (!(typeof argv.country === 'string') || argv.country.length > 5) {
-        console.error("country must be a string or boolean");
+        console.error("country must be a two char string or boolean");
         process.exit(0);
       }
       const country = argv.country;
-      if (country === "true" || country === "false") {
-        country = isBoolean(country, 'country');
+      if (country === "true") {
+      country = true;
+      } else
+      if (country === "false") {
+      country = false;
+      } else {
+        if (country.length > 2) {
+          console.error("Invalig country code");
+          process.exit(0);
+        }
       }
       update(id, { component: { country: country } });
     }
@@ -250,22 +244,19 @@ ids.map(id => {
     // COMPONENT.CONSENT SETTINGS
 
     if (argv.implicit) {
-      const bool = isBoolean(argv.implicit, 'implicit');
-      update(id, { component: { consent: { implicit: bool } } });
+      update(id, { component: { consent: { implicit: argv.implicit } } });
     }
 
     // CONFIRM OPT-IN
 
     if (argv.confirmoptin) {
-      const bool = isBoolean(argv.confirmoptin, 'confirmoptin');
-      update(id, { component: { consent: { email: { confirmOptIn: bool } } } });
+      update(id, { component: { consent: { email: { confirmOptIn: argv.confirmoptin } } } });
     }
 
     // TEST MODE
 
     if (argv.test) {
-      const bool = isBoolean(argv.test, 'test');
-      update(id, { test: bool });
+      update(id, { test: argv.test });
     }
 
     // CHANGE LOCALES
@@ -286,6 +277,5 @@ ids.map(id => {
           });
       }
     }
-
   })();
 });
