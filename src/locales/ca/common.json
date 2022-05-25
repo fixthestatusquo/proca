@@ -114,6 +114,7 @@
   "progress": "{{count}} han signat. Volem arribar a {{goal}}",
   "progress_plural": "",
   "register": "Afegeix el meu nom",
+  "required": "Si us plau, ompliu aquest camp",
   "share": {
     "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
     "message": "Hauríeu de signar això!",

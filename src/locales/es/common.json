@@ -114,6 +114,7 @@
   "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
   "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
   "register": "Añade mi nombre",
+  "required": "Por favor, rellene este campo",
   "share": {
     "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",

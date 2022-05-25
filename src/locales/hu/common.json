@@ -114,6 +114,7 @@
   "progress": "{{count}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
   "progress_plural": "",
   "register": "Add hozzá a nevemet",
+  "required": "Kérjük, töltse ki ezt a mezőt",
   "share": {
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",

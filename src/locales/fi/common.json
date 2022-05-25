@@ -114,6 +114,7 @@
   "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "register": "Lisää nimeni",
+  "required": "Täytä tämä kenttä",
   "share": {
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
