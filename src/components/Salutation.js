@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const Salutation = (props) => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
-  const options = t("salutation_text").split(',');
+  const options = Object.values(t('salutations', { returnObjects: true }));
   const sal = watch("salutation") || "";
   const other = watch("salutation-other") || "";
   const [open, setOpen] = useState(false);
@@ -14,11 +14,11 @@ const Salutation = (props) => {
   const { classField } = props.classes;
 
   useEffect(() => {
-    if (sal === "Weitere...") {
+    if (sal === options[options.length-1]) {
       setOpen(true);
     } else
       setOpen(false);
-  }, [sal]);
+  }, [sal, options]);
 
   console.log("sal", sal);
 
@@ -28,9 +28,7 @@ const Salutation = (props) => {
       <TextField
         select
         name="salutation"
-        label={
-          t("Salutation")
-        }
+        label={t("Salutation")}
         form={props.form}
         SelectProps={{
           native: true,
@@ -52,9 +50,7 @@ const Salutation = (props) => {
       <Grid item xs={12} sm={props.compact ? 12 : 6} className={classField}>
       {open && <TextField
         name="salutation-other"
-        label={
-          'Other'
-        }
+        label={t('Other')}
         form={props.form}
         onChange={(e) => {
           setValue("salutation-other", e.target.value);
