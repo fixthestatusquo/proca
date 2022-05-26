@@ -23,6 +23,7 @@ import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import Salutation from "@components/Salutation";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -354,6 +355,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
+              <Salutation form={form}  compact={compact} classes={classes} />
               <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
                 <TextField
                   form={form}
