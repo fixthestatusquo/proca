@@ -114,6 +114,7 @@
   "progress": "{{count}} су потписали. Идемо на {{goal}}",
   "progress_plural": "{{count}} су потписали. Идемо на {{goal}}",
   "register": "Додај моје име",
+  "required": "Молимо попуните ово поље",
   "share": {
     "intro": "Odlično, potpisali ste 👍. Podelite peticiju kako bi je videlo što više ljudi 🙏.",
     "message": "Potpiši za borbu protiv biometrijskog nadzora!",

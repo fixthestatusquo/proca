@@ -96,7 +96,7 @@ export default function Register(props) {
 
   const [status, setStatus] = useState("default");
   const _form = useForm({
-    //    mode: "onBlur",
+        mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: props.form ? null : data,
   });
@@ -107,7 +107,6 @@ export default function Register(props) {
     trigger,
     handleSubmit,
     setError,
-    clearErrors,
     formState,
     getValues,
     setValue,
@@ -120,6 +119,7 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
+
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -161,7 +161,6 @@ export default function Register(props) {
       formData.uuid = data.uuid;
     }
 
-    console.log(formData);
     let result = null;
     if (data.uuid) {
       const expected =
@@ -241,6 +240,7 @@ export default function Register(props) {
         firstname: formData.firstname,
         country: formData.country,
         privacy: formData.privacy,
+        comment: formData.comment,
       });
   };
 
@@ -257,6 +257,8 @@ export default function Register(props) {
     }
   };
 
+
+/*  
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -269,6 +271,7 @@ export default function Register(props) {
       };
     });
   }, [setError]);
+*/
 
   function Error(props) {
     if (props.display)
@@ -306,27 +309,19 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
-  const validateEmail = async (e) => {
-    const email = e.target.value;
-    if (!e.target.checkValidity()) return; // html5 errors are handled elsewhere
+
+  const validateEmail = async (email) => {
+    if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
     emailProvider.current = provider;
     if (provider === false) {
-      setError("email", {
-        type: "mx",
-        message: t("email.invalid_domain", {
+      return t("email.invalid_domain", {
           defaultValue: "{{domain}} cannot receive emails",
           domain: getDomain(email),
-        }),
-      });
-      return false;
-    } else {
-      clearErrors("email");
+        });
     }
-    //todo, create a hook and save, and handle properly the validation ;)
     return true;
-    // what do we do with the provider?
-  };
+  }
 
   const classField = data.uuid ? classes.hidden : classes.field;
 
@@ -394,7 +389,7 @@ export default function Register(props) {
                 <TextField
                   form={form}
                   name="email"
-                  onBlur={validateEmail} // todo: implement it as react hook form validation rules
+                  validate={validateEmail}
                   type="email"
                   label={t("Email")}
                   autoComplete="email"

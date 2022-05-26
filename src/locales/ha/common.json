@@ -114,6 +114,7 @@
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",
   "register": "Ƙara sunana",
+  "required": "Da fatan za a cika wannan filin",
   "share": {
     "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
     "message": "Ya kamata ku sa hannu kan wannan!",

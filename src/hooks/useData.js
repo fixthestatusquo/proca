@@ -47,7 +47,7 @@ export const initDataState = (urlData, config) => {
   formData = atom({
     key: "data",
     default: {
-      ...{ comment: config.param.locales?.comment },
+      ...{ comment: config.param.locales?.comment || "" },
       ...urlData,
     },
   });

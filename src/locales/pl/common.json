@@ -114,6 +114,7 @@
   "progress": "{{count}} osób już podpisało. Dążymy do {{goal}}",
   "progress_plural": "{{count}}  osób już podpisało. Dążymy do {{goal}}",
   "register": "Podpisuję petycję",
+  "required": "Proszę wypełnić to pole",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",

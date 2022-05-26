@@ -48,8 +48,7 @@ const help = () => {
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
       "input id, ids or range of ids",
-      "boolean inputs, no validatiton, except 'false', everything else will be set to 'true'",
-
+      "boolean inputs, no validatiton, except 'false', everything else will be set to 'true'"
     ].join("\n")
   );
   process.exit(0);
@@ -161,6 +160,18 @@ ids.map(id => {
     }
 
     // COMPONENT.REGISTER (FIELD) SETTINGS
+
+    if (argv.show) {
+      let field = {};
+      field[argv.show] = true;
+      update(id, { component: { field: field } });
+    }
+
+    if (argv.hide) {
+      let field = {};
+      field[argv.show] = hide;
+      update(id, { component: { field: field } });
+    }
 
     if (argv.orgdata) {
       update(id, { component: { register: { field: { organisation: argv.orgdata } } } });

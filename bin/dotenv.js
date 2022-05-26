@@ -1,5 +1,5 @@
 const env = require("dotenv").config({
   path: process.env.PROCA_ENV ? ".env." + process.env.PROCA_ENV : ".env",
-  debug: true,
+  debug: false,
 });
 module.exports = env;

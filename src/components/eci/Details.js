@@ -13,7 +13,8 @@ export default function Details(props) {
   const config = useCampaignConfig();
   const eci = Object.assign({}, config.component.eci);
   const { t } = useTranslation();
-  const r = /REQ.ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
+  const r = /ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
+  console.log(r,eci.registrationNumber);
   eci.registrationUrl = r
     ? "https://europa.eu/citizens-initiative/initiatives/details/" +
       r[1] +
