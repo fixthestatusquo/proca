@@ -8,9 +8,7 @@ const Salutation = (props) => {
   const { setValue, watch } = props.form;
   const options = Object.values(t('salutations', { returnObjects: true }));
   const sal = watch("salutation") || "";
-  const other = watch("salutation-other") || "";
   const [open, setOpen] = useState(false);
-  console.log("other", other);
   const { classField } = props.classes;
 
   useEffect(() => {
@@ -19,8 +17,6 @@ const Salutation = (props) => {
     } else
       setOpen(false);
   }, [sal, options]);
-
-  console.log("sal", sal);
 
   return (
     <>
@@ -33,11 +29,6 @@ const Salutation = (props) => {
         SelectProps={{
           native: true,
         }}
-        onChange={(e) => {
-          setValue("salutation", e.target.value);
-        }
-        }
-
     >
       <option key="empty" value=""></option>
       {options.map(option => {
@@ -52,10 +43,6 @@ const Salutation = (props) => {
         name="salutation-other"
         label={t('Other')}
         form={props.form}
-        onChange={(e) => {
-          setValue("salutation-other", e.target.value);
-        }
-        }
       >
         </TextField>}
         </Grid>
