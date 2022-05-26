@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const Salutation = (props) => {
   const { t } = useTranslation();
-  const { setValue, watch } = props.form;
+  const { watch } = props.form;
   const options = Object.values(t('salutations', { returnObjects: true }));
   const sal = watch("salutation") || "";
   const [open, setOpen] = useState(false);
