@@ -10,23 +10,16 @@ export default function More(props) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <>
       <Dialog
         dialog={open}
-        close={handleClose}
+        close={() => setOpen(false)}
         name={t("eci:common.head-title.home")}
       >
         <Details />
       </Dialog>
-      <Button variant="contained" onClick={handleClick}>
+      <Button variant="contained" onClick={()=> setOpen(true)}>
         {t("eci:common.more_info")}
       </Button>
     </>

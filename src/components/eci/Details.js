@@ -26,7 +26,7 @@ export default function Details(props) {
   eci.apiUrl = eci.apiUrl.replace("/api", "");
   return (
     <>
-      <h4>{t("eci:form.title")}</h4>
+      <h4 id="eci-details">{t("eci:form.title")}</h4>
       <List component="nav">
         <ListItem>
           <ListItemText

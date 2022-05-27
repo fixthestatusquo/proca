@@ -26,7 +26,7 @@ const help = () => {
       "--lang=en (set the language)",
       "--theme=dark (set the theme)",
       "--variant=light (set the variant)",
-      "--goal=666 (set the goal)",
+      "--goal=666 or [100,200,500] (set the next steps goal)",
       "--country=GB or bool, set component.country",
       "--mobile=true (set the mobile version)*",
       "--autostart=true (set the autostart)*",
