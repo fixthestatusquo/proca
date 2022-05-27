@@ -14,6 +14,7 @@
   "Other": "Altres",
   "Phone": "Telèfon",
   "Postal Code": "Codi postal",
+  "Salutation": "Salutació",
   "Sorry, we couldn't save": "No hem pogut desar",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
@@ -115,6 +116,11 @@
   "progress_plural": "",
   "register": "Afegeix el meu nom",
   "required": "Si us plau, ompliu aquest camp",
+  "salutations": {
+    "f": "Senyora.",
+    "m": "Sr.",
+    "other": "Altres"
+  },
   "share": {
     "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
     "message": "Hauríeu de signar això!",
