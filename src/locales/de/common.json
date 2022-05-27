@@ -14,6 +14,7 @@
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
+  "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
   "Subject": "Betreff",
   "Thank you": "Danke",
@@ -29,6 +30,11 @@
     "stayInformed": "Auf dem Laufenden bleiben",
     "takeAction": "Handeln Sie!",
     "twitter": "Tweet"
+  },
+  "salutations": {
+    "male": "Herr",
+    "female": "Frau",
+    "other": "Weitere..."
   },
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
