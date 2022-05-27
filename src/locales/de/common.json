@@ -31,11 +31,6 @@
     "takeAction": "Handeln Sie!",
     "twitter": "Tweet"
   },
-  "salutations": {
-    "male": "Herr",
-    "female": "Frau",
-    "other": "Weitere..."
-  },
   "consent": {
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
@@ -121,6 +116,10 @@
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "required": "Bitte füllen Sie dieses Feld aus",
+  "salutations": {
+    "female": "Frau",
+    "other": "Weitere..."
+  },
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Sie sollten das unterschreiben!",
