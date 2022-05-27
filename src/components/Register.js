@@ -30,7 +30,7 @@ import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
 import Country from "@components/Country";
-import Salutation from "@components/field/Salutation";
+import Salutation from "@components/Salutation";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
 
