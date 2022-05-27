@@ -14,6 +14,7 @@
   "Other": "Omiiran",
   "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
+  "Salutation": "Ìkíni",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
@@ -114,6 +115,11 @@
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
   "required": "Jọwọ fọwọsi aaye yii",
+  "salutations": {
+    "f": "Iyaafin",
+    "m": "Ọgbẹni.",
+    "other": "Omiiran"
+  },
   "share": {
     "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
     "message": "O yẹ ki o fowo si eyi!",
