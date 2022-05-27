@@ -11,6 +11,7 @@
   "Last name": "Last name",
   "Locality": "Locality",
   "Next": "Next",
+  "Salutation": "Salutation",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
@@ -30,6 +31,11 @@
     "takeAction": "Take Action!",
     "stayInformed": "Stay informed",
     "twitter": "Tweet"
+  },
+  "salutations": {
+    "m": "Mr.",
+    "f": "Ms.",
+    "other": "Other"
   },
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
@@ -135,5 +141,6 @@
     "organisation": "Your organisation twitter account",
     "screenName": "Screen name"
   },
+  "salutation_text": "",
   "you need to be 18 years old": "you need to be 18 years old"
 }

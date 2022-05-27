@@ -30,6 +30,7 @@ import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
 import Country from "@components/Country";
+import Salutation from "@components/field/Salutation";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
 
@@ -118,7 +119,7 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
-
+console.log("formData", formData);
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -257,7 +258,7 @@ export default function Register(props) {
   };
 
 
-/*  
+/*
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -349,6 +350,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
+              {config.component?.register?.field?.salutation && <Salutation form={form} compact={compact} classes={classes} />}
               <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
                 <TextField
                   form={form}
