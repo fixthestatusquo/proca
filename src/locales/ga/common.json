@@ -14,6 +14,7 @@
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
+  "Salutation": "Beannacht",
   "Sorry, we couldn't save": "Tá brón orm, ní raibh muid in ann sábháil",
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
   "register": "Cuir m’ainm leis",
   "required": "Líon isteach an réimse seo le do thoil",
+  "salutations": {
+    "f": "Ms.",
+    "m": "An tUasal.",
+    "other": "Eile"
+  },
   "share": {
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",
     "message": "Ba chóir duit é seo a shíniú!",
