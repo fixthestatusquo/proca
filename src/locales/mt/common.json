@@ -14,6 +14,7 @@
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
+  "Salutation": "Tislima",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "register": "Żid ismi",
   "required": "Jekk jogħġbok imla dan il-qasam",
+  "salutations": {
+    "f": "Sinjorina.",
+    "m": "Mr.",
+    "other": "Oħrajn"
+  },
   "share": {
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
     "message": "Għandek tiffirma dan!",
