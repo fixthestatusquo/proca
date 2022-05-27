@@ -23,7 +23,6 @@ import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import Salutation from "@components/Salutation";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -31,6 +30,7 @@ import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
 import Country from "@components/Country";
+import Salutation from "@components/field/Salutation";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
 
