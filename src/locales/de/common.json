@@ -117,7 +117,8 @@
   "register": "Meinen Namen hinzufügen",
   "required": "Bitte füllen Sie dieses Feld aus",
   "salutations": {
-    "female": "Frau",
+    "f": "Frau",
+    "m": "Herr",
     "other": "Weitere..."
   },
   "share": {
