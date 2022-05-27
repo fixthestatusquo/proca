@@ -119,7 +119,7 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
-
+console.log("formData", formData);
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -258,7 +258,7 @@ export default function Register(props) {
   };
 
 
-/*  
+/*
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -350,7 +350,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
-              <Salutation form={form}  compact={compact} classes={classes} />
+              {config.component?.register?.field?.salutation && <Salutation form={form} compact={compact} classes={classes} />}
               <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
                 <TextField
                   form={form}
