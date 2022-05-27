@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 const fs = require("fs");
 require("./dotenv.js");
-const { read, file, save, push, pull } = require("./config");
+const { read, save, push, pull } = require("./config");
 const argv = require("minimist")(process.argv.slice(2),
   {
-    boolean: ["pull", "push", "test", "mobile", "autostart", "confirmoptin", "implicit",
-      "lastnamerequired", "orgdata", "poscodeshow", "poscoderequired", "countryshow",
-      "countryrequired", "commentshow", "commentrequired", "phoneshown"],
+    boolean: ["pull", "push", "test", "mobile", "autostart", "confirmoptin",
+              "implicit", "orgdata", "poscodeshow", "countryshow", "commentshow",  "phoneshown"],
   });
 const merge = require("lodash.merge");
 
@@ -31,15 +30,12 @@ const help = () => {
       "--mobile=true (set the mobile version)*",
       "--autostart=true (set the autostart)*",
       "--forcewidth=54 (force the width)",
-      "--lastnameRequired=true (is lastname field required?)*",
       "--orgdata=true (do we collect the organisation details)*",
-      "--lastnamerequired=true (is lastname field required?)*",
+      "--required=lastname (postcode, country, comment...) set the field(s) required",
+      "--notrequired=lastname (postcode, country, comment...) changes required field(s) to unrequired",
       "--postcodeshown=true (is postcode field shown?)*",
-      "--postcoderequired=true (is postcode field required?)*",
       "--countryshow=true (is country field shown?)*",
-      "--countryrequired=true (is country field required?)*",
       "--commentshow=true (is comment field shown?)*",
-      "--commentrequired=true (is comment field required?)*",
       "--phoneshown=true (is phone field shown?)*",
       "--implicit=true (set the implicit consent)*",
       "--confirmoptin=true (set the confirm optin)*",
@@ -48,7 +44,7 @@ const help = () => {
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
       "input id, ids or range of ids",
-      "boolean inputs, no validatiton, except 'false', everything else will be set to 'true'"
+      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
   );
   process.exit(0);
@@ -64,6 +60,15 @@ function update (id, d) {
   save (next);
 }
 
+const isRequired = (arg, bool) => {
+  const changes = typeof arg === 'string' ? arg.split(" ") : arg;
+  changes.map(change => {
+    const field = {}
+    field[change] = { required: bool };
+    update(id, { component: { register: { field: field } } });
+  });
+}
+
 const args = argv._;
 
 let ids = [];
@@ -73,7 +78,7 @@ args.map(arg => {
     const range = arg.split('-');
     let i = parseInt(range[0]);
     while (i <= parseInt(range[1])) {
-      ids.push(i);
+      ids.push(parseInt(i));
       i++;
     }
   } else {
@@ -169,40 +174,33 @@ ids.map(id => {
 
     if (argv.hide) {
       let field = {};
-      field[argv.show] = hide;
+      field[argv.show] = false;
       update(id, { component: { field: field } });
+    }
+
+    if (argv.required) {
+      isRequired(argv.required, true);
+    }
+
+    if (argv.notrequired) {
+      isRequired(argv.notrequired, false);
     }
 
     if (argv.orgdata) {
       update(id, { component: { register: { field: { organisation: argv.orgdata } } } });
     }
 
-    if (argv.lastnamerequired) {
-      update(id, { component: { register: { field: { lastname: { required: argv.lastnamerequired } } } } });
-    }
 
     if (argv.poscodeshow) {
       update(id, { component: { register: { field: { poscode: poscodeshow } } } });
-    }
-
-    if (argv.poscoderequired) {
-      update(id, { component: { register: { field: { poscode: { required: poscoderequired } } } } });
     }
 
     if (argv.countryshow) {
       update(id, { component: { register: { field: { country: argv.countryshow } } } });
     }
 
-    if (argv.countryrequired) {
-      update(id, { component: { register: { field: { country: { required: argv.countryrequired } } } } });
-    }
-
     if (argv.commentshow) {
       update(id, { component: { register: { field: { comment: argv.commentshow } } } });
-    }
-
-    if (argv.commentrequired) {
-      update(id, { component: { register: { field: { comment: { required: argv.commentrequired } } } } });
     }
 
     if (argv.phoneshow) {
