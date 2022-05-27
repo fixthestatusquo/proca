@@ -14,6 +14,7 @@
   "Other": "Altro",
   "Phone": "Telefono",
   "Postal Code": "Codice postale",
+  "Salutation": "Saluto",
   "Sorry, we couldn't save": "Spiacenti, non siamo riusciti a salvare",
   "Subject": "Oggetto",
   "Thank you": "Grazie",
@@ -115,6 +116,11 @@
   "progress_plural": "",
   "register": "Aggiungi il mio nome",
   "required": "Compilare questo campo",
+  "salutations": {
+    "f": "Ms.",
+    "m": "Il Sig.",
+    "other": "Altro"
+  },
   "share": {
     "intro": "Grande, hai firmato 👍. Per moltiplicare il tuo impatto, condividi in lungo e in largo per assicurarti che tutti vedano questa petizione 🙏.",
     "message": "Dovresti firmare questo!",
