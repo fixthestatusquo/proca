@@ -14,7 +14,6 @@ export default function Details(props) {
   const eci = Object.assign({}, config.component.eci);
   const { t } = useTranslation();
   const r = /ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
-  console.log(r,eci.registrationNumber);
   eci.registrationUrl = r
     ? "https://europa.eu/citizens-initiative/initiatives/details/" +
       r[1] +
