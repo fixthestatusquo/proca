@@ -121,6 +121,11 @@
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "required": "Bitte füllen Sie dieses Feld aus",
+  "salutations": {
+    "f": "Frau",
+    "m": "Herr",
+    "other": "Weitere..."
+  },
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Sie sollten das unterschreiben!",

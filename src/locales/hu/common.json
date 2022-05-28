@@ -14,6 +14,7 @@
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
+  "Salutation": "Üdvözlés",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
@@ -115,6 +116,11 @@
   "progress_plural": "",
   "register": "Add hozzá a nevemet",
   "required": "Kérjük, töltse ki ezt a mezőt",
+  "salutations": {
+    "f": "Ms.",
+    "m": "Mr.",
+    "other": "Egyéb"
+  },
   "share": {
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",

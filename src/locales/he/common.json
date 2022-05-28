@@ -14,6 +14,7 @@
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
+  "Salutation": "דִברֵי בְּרָכָה",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
@@ -114,6 +115,11 @@
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",
   "required": "נא למלא שדה זה",
+  "salutations": {
+    "f": "גברת.",
+    "m": "אדון.",
+    "other": "אַחֵר"
+  },
   "share": {
     "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
     "message": "אתה צריך לחתום על זה!",

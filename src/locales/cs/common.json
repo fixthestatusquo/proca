@@ -14,6 +14,7 @@
   "Other": "Ostatní",
   "Phone": "Telefon",
   "Postal Code": "Poštovní směrovací číslo",
+  "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Litujeme, nemohli jsme uložit",
   "Subject": "Předmět",
   "Thank you": "Děkuji ti",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} podepsali. Přejděme k {{goal}}",
   "register": "Přidejte mé jméno",
   "required": "Vyplňte prosím toto pole",
+  "salutations": {
+    "f": "Paní",
+    "m": "Pan.",
+    "other": "Další"
+  },
   "share": {
     "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
     "message": "Měli byste to podepsat!",

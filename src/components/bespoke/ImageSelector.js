@@ -79,10 +79,10 @@ const ImageSelector = (props) => {
   };
 
   const Selected = props.Selected || ImageSelected;
+    //<Selected {...props.items[selected]} />
   return (
     <>
-    <Selected {...props.items[selected]} />
-      <ImageList className={classes.imageList} cols={3.7} rows={1}>
+      <ImageList className={classes.imageList} cols={2} rows={1}>
         {props.items.map((d, i) => (
           <ImageListItem
             key={i}

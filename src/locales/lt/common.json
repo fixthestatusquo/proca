@@ -14,6 +14,7 @@
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
+  "Salutation": "Pasveikinimas",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
   "Subject": "Tema",
   "Thank you": "Ačiū",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} pasirašė. Eikime į {{goal}}",
   "register": "Pridėti mano vardą",
   "required": "Užpildykite šį laukelį",
+  "salutations": {
+    "f": "M.",
+    "m": "Mr.",
+    "other": "Kita"
+  },
   "share": {
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",

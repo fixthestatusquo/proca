@@ -14,6 +14,7 @@
   "Other": "Muu",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
+  "Salutation": "Tervehdys",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "register": "Lisää nimeni",
   "required": "Täytä tämä kenttä",
+  "salutations": {
+    "f": "Ms.",
+    "m": "Mr.",
+    "other": "Muut"
+  },
   "share": {
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",

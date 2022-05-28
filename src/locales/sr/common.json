@@ -14,6 +14,7 @@
   "Other": "Ostalo",
   "Phone": "Телефон",
   "Postal Code": "поштански код",
+  "Salutation": "Поздрав",
   "Sorry, we couldn't save": "Жао нам је, нисмо успели да сачувамо",
   "Subject": "Предмет",
   "Thank you": "Хвала вам",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} су потписали. Идемо на {{goal}}",
   "register": "Додај моје име",
   "required": "Молимо попуните ово поље",
+  "salutations": {
+    "f": "Госпођа.",
+    "m": "Господин.",
+    "other": "Остало"
+  },
   "share": {
     "intro": "Odlično, potpisali ste 👍. Podelite peticiju kako bi je videlo što više ljudi 🙏.",
     "message": "Potpiši za borbu protiv biometrijskog nadzora!",

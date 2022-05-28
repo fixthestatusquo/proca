@@ -14,6 +14,7 @@
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
+  "Salutation": "Salutare",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
@@ -114,6 +115,11 @@
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
   "required": "Vă rugăm să completați acest câmp",
+  "salutations": {
+    "f": "Dna.",
+    "m": "Dl.",
+    "other": "Altele"
+  },
   "share": {
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",

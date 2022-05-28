@@ -16,7 +16,7 @@ import SelectMeme from "./meme/Select";
 
 const Together4Forests = (props) => {
   const [state, setState] = React.useState({
-    meme: false,
+    meme: true,
     create: false,
     picture: false,
   });
@@ -47,6 +47,7 @@ const Together4Forests = (props) => {
     <SelectMeme />
         </AccordionDetails>
       </Accordion>
+    {/*
       <Accordion expanded={state.create}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -95,6 +96,7 @@ const Together4Forests = (props) => {
     </div>
         </AccordionDetails>
       </Accordion>
+          */}
     </div>
   );
 };

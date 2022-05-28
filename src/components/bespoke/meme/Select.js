@@ -1,19 +1,26 @@
 import React from 'react';
 import { Grid, Card, CardMedia, Typography } from '@material-ui/core';
 import ImageSelector from "../ImageSelector";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles((theme) => ({
+  responsive: {
+    width: '100%'
+  },
+  Media: {
+    "& img": {
+      width:'100%',
+    },
+  },
+}));
+
 
 const Item = (props) =>
 {
+  const classes = useStyles();
                  //<Grid item  xs={12 / props.total}>
     return (
                  <Grid item xs={12} >
-                <CardMedia
-      style={{ height: "350px"}}
-                    className="Media"
-                    image={props.original}
-                    title={props.name}
-                >
-                </CardMedia>
+      <img src={props.original} className={classes.responsive}/>
                     <Typography className="MediaCaption">
                         {props.name}
                     </Typography>
@@ -37,6 +44,7 @@ const CreateMeme = props => {
         }
     ]
 
+//  return (<Item {...items[0]}/>);
     return (
       <Grid container>
             <ImageSelector items= {items} Selected= {Item}/>

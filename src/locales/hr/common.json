@@ -14,6 +14,7 @@
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
+  "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Subject": "Predmet",
   "Thank you": "Hvala",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
   "required": "Molimo popunite ovo polje",
+  "salutations": {
+    "f": "gđa.",
+    "m": "gosp.",
+    "other": "Ostalo"
+  },
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
     "message": "Ovo se isplati potpisati!",
