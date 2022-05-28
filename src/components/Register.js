@@ -119,7 +119,6 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
-console.log("formData", formData);
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -325,6 +324,13 @@ console.log("formData", formData);
 
   const classField = data.uuid ? classes.hidden : classes.field;
 
+  const withSalutation = config.component?.register?.field?.salutation;
+  const nameWidth= (field) => {
+    if (compact) return 12;
+    if (withSalutation && field === 'firstname') return 4;
+    if (withSalutation) return 5;
+    return 6;
+  };
   return (
     <form
       className={classes.container}
@@ -350,8 +356,8 @@ console.log("formData", formData);
                   classes={classes}
                 />
               )}
-              {config.component?.register?.field?.salutation && <Salutation form={form} compact={compact} classes={classes} />}
-              <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
+              {withSalutation && <Salutation form={form} compact={compact} classes={classes} />}
+              <Grid item xs={12} sm={nameWidth("firstname")} className={classField}>
                 <TextField
                   form={form}
                   name="firstname"
@@ -362,7 +368,7 @@ console.log("formData", formData);
                 />
               </Grid>
               {config.component.register?.field?.lastname !== false && (
-                <Grid item xs={12} sm={compact ? 12 : 6} className={classField}>
+                <Grid item xs={12} sm={nameWidth()} className={classField}>
                   <TextField
                     form={form}
                     name="lastname"

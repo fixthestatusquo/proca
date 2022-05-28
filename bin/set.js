@@ -60,7 +60,7 @@ function update (id, d) {
   save (next);
 }
 
-const isRequired = (arg, bool) => {
+const isRequired = (id, arg, bool) => {
   const changes = typeof arg === 'string' ? arg.split(" ") : arg;
   changes.map(change => {
     const field = {}
@@ -179,11 +179,11 @@ ids.map(id => {
     }
 
     if (argv.required) {
-      isRequired(argv.required, true);
+      isRequired(id, argv.required, true);
     }
 
     if (argv.notrequired) {
-      isRequired(argv.notrequired, false);
+      isRequired(id, argv.notrequired, false);
     }
 
     if (argv.orgdata) {

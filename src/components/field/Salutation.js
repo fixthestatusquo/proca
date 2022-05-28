@@ -1,32 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 const Salutation = (props) => {
   const { t } = useTranslation();
-  const { watch } = props.form;
-  const options = Object.values(
-    t("salutations", {
-      returnObjects: true,
-      defaultValues: [("m": "Mr"), ("f": "Ms."), ("other": "Other")],
-    })
-  );
+  const { setValue, watch } = props.form;
+
+  let options = t("salutations", {
+    returnObjects: true,
+    defaultValues: [("m": "Mr"), ("f": "Ms."), ("other": "Other")],
+  });
   const sal = watch("salutation") || "";
   const [open, setOpen] = useState(false);
   const { classField } = props.classes;
 
   useEffect(() => {
-    if (sal === options[options.length - 1]) {
+    if (sal === "") return;
+    if (sal === "other") {
       setOpen(true);
     } else setOpen(false);
-  }, [sal, options]);
+  }, [sal]);
+
+  const width = () => {
+    if (!props.compact) return 3;
+    //    if (open) return 6;
+    return 12;
+  };
+
+  const handleClick = () => {
+    setOpen(false);
+    setValue("salutation", "");
+  };
 
   return (
     <>
-      <Grid item xs={12} sm={props.compact ? 12 : 6} className={classField}>
+      <Grid item xs={width()} sm={width()} className={classField}>
         <TextField
-          select
+          hidden={open}
+          select={!open}
+          type={open ? "hidden" : undefined}
           name="salutation"
           label={t("Salutation")}
           form={props.form}
@@ -35,22 +49,32 @@ const Salutation = (props) => {
           }}
         >
           <option key="empty" value=""></option>
-          {options.map((option) => {
+          {Object.entries(options).map(([k, v]) => {
             return (
-              <option key={option} value={option}>
-                {option}
+              <option key={k} value={k}>
+                {v}
               </option>
             );
           })}
         </TextField>
-      </Grid>
-      <Grid item xs={12} sm={props.compact ? 12 : 6} className={classField}>
-        {open && (
-          <TextField
-            name="salutation-other"
-            label={t("Other")}
-            form={props.form}
-          ></TextField>
+        {open && ( // open
+          <>
+            <TextField
+              name="salutation-other"
+              label={t("Salutation") + " (" + options["other"] + ")"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton aria-label="Cancel" onClick={handleClick}>
+                      <CancelIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              autoFocus
+              form={props.form}
+            />
+          </>
         )}
       </Grid>
     </>
