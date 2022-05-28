@@ -32,8 +32,8 @@
     "twitter": "Tweet"
   },
   "salutations": {
-    "male": "Herr",
-    "female": "Frau",
+    "m": "Herr",
+    "f": "Frau",
     "other": "Weitere..."
   },
   "consent": {
