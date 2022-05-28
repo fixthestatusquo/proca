@@ -65,7 +65,11 @@ const Salutation = (props) => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton aria-label="Cancel" onClick={handleClick}>
+                    <IconButton
+                      aria-label="Cancel"
+                      onClick={handleClick}
+                      edge="end"
+                    >
                       <CancelIcon />
                     </IconButton>
                   </InputAdornment>
