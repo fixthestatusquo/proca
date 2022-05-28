@@ -61,7 +61,7 @@ const Salutation = (props) => {
           <>
             <TextField
               name="salutation-other"
-              label={t("Salutation") + " (" + options["other"] + ")"}
+              label={options["other"]}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
