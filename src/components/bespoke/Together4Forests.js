@@ -48,6 +48,7 @@ const Together4Forests = (props) => {
         </AccordionDetails>
       </Accordion>
     {/*
+          */}
       <Accordion expanded={state.create}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -96,7 +97,6 @@ const Together4Forests = (props) => {
     </div>
         </AccordionDetails>
       </Accordion>
-          */}
     </div>
   );
 };

@@ -6,7 +6,10 @@ import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-   selected: {
+  responsive: {
+     width:'100%'
+  },
+   aaselected: {
         position: "relative",
         height: 250,
         width:"100%"
@@ -17,13 +20,8 @@ const Item = (props) => {
   const classes = useStyles();
   //<Grid item  xs={12 / props.total}>
   return (
-    <Grid item xs={12}>
-      <CardMedia
-       
-        className={classes.selected}
-        image={props.original}
-        title={props.name}
-      ></CardMedia>
+    <Grid container>
+      <img src={props.original} className={classes.responsive}/>
       <Typography className="MediaCaption">{props.name}</Typography>
     </Grid>
   );
@@ -31,26 +29,36 @@ const Item = (props) => {
 const CreateMeme = (props) => {
   const { t } = useTranslation();
   const form = props.form;
+  const { setValue } = form;
+
   var items = [
     {
-      name: "Random Meme #1 trying to put it wide",
+      top:"My options when I look for",
+      bottom:"Deforestation-free food",
       original: "https://static.tttp.eu/tg4/images/back1.jpeg",
     },
     {
-      name: "Random Meme #2",
+      top:"A good law on deforestation",
+      bottom:"must please companies",
       original: "https://static.tttp.eu/tg4/images/back2.jpeg",
     },
     {
+      top:"MEPs wanting to really stop deforestation",
+      bottom:"the rest of the EP?",
       name: "Random Meme #3",
       original: "https://static.tttp.eu/tg4/images/back3.jpeg",
     },
   ];
 
   const handleClick = () => {
-
   }
+  const selectOne = i => {
+    setValue ("topText",items[i].top);
+    setValue ("bottomText",items[i].bottom);
+  }
+
   return (
-    <Grid container>
+    <Grid item xs={12}>
       <Grid item xs={12}>
         <TextField
           form={form}
@@ -77,7 +85,7 @@ const CreateMeme = (props) => {
         >{t("meme.generate", "Generate your Meme")}</Button>
     </Grid>
 
-      <ImageSelector items={items} Selected={Item} />
+      <ImageSelector items={items} onClick={selectOne} Selected={Item} />
     </Grid>
   );
 };

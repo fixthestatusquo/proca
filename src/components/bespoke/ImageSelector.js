@@ -8,41 +8,39 @@ import IconButton from "@material-ui/core/IconButton";
 import AttachIcon from "@material-ui/icons/AttachFile";
 import { Grid, Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
-import { InputLabel } from "@material-ui/core";
+import { InputLabel, List, ListItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
    selected: {
+      opacity: "0.8",
         position: "relative",
-        height: "100%"
+    width:'100%',
     },
     image: {
         zIndex: 1,
-      weigth:"100%",
+      width:"100%",
     },
     MuiCardActionArea:{
         height: "inherit",
         zIndex: 1
     },
-
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-  },
   imageList: {
+    display: "flex",
+    padding: 0,
+    flexDirection: "row",
     flexWrap: "nowrap",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
     cursor: "pointer",
-    height: "100px",
+    height: "150px",
   },
-  selected: {
+  selectedImage: {
     width:"100%"
   },
 
   default: {
+      position: "relative",
+    width:'100%',
     opacity: "0.2",
     "&:hover": {
       opacity: "0.8",
@@ -63,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 const ImageSelected = props => {
   const classes = useStyles();
   return (
-      <Card className={classes.selected}>
+      <Card className={classes.selectedImage}>
     <CardActionArea classes={{root: classes.MuiCardActionArea}} >
     <img src={props.original} className={classes.image} />
     </CardActionArea>
@@ -76,23 +74,26 @@ const ImageSelector = (props) => {
   const [selected, _select] = useState(1);
   const select = (i) => {
     _select(i);
+    if (props.onClick)
+       props.onClick (i);
   };
 
   const Selected = props.Selected || ImageSelected;
-    //<Selected {...props.items[selected]} />
   return (
     <>
-      <ImageList className={classes.imageList} cols={2} rows={1}>
+      <Selected {...props.items[selected]} />
+      <List className={classes.imageList}>
         {props.items.map((d, i) => (
-          <ImageListItem
+          <ListItem
+          disableGutters={true} dense={true}
             key={i}
-            className={d === selected ? classes.selected : classes.default}
+            className={i === selected ? classes.selected : classes.default}
             onClick={() => select(i)}
           >
-            <img src={props.items[i].original} />
-          </ImageListItem>
+            <img src={props.items[i].original} className = {classes.image}/>
+          </ListItem>
         ))}
-      </ImageList>
+      </List>
     </>
   );
 };

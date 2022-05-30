@@ -6,11 +6,6 @@ const useStyles = makeStyles((theme) => ({
   responsive: {
     width: '100%'
   },
-  Media: {
-    "& img": {
-      width:'100%',
-    },
-  },
 }));
 
 
