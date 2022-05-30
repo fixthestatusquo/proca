@@ -14,6 +14,7 @@
   "Other": "Övrigt",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
+  "Salutation": "Hälsning",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
   "Subject": "Ämne",
   "Thank you": "Tack.",
@@ -115,6 +116,11 @@
   "progress_plural": "",
   "register": "Lägg till mitt namn",
   "required": "Fyll i det här fältet",
+  "salutations": {
+    "f": "Ms.",
+    "m": "Herr.",
+    "other": "Övriga"
+  },
   "share": {
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",

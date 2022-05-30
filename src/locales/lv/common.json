@@ -14,6 +14,7 @@
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
+  "Salutation": "Sveiciens",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
   "Subject": "Temats",
   "Thank you": "Paldies",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "register": "Pievienojiet manu vārdu",
   "required": "Lūdzu, aizpildiet šo lauku",
+  "salutations": {
+    "f": "kundze.",
+    "m": "M.",
+    "other": "Citi"
+  },
   "share": {
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",

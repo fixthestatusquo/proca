@@ -14,6 +14,7 @@
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
+  "Salutation": "Saudação",
   "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
   "Subject": "Assunto",
   "Thank you": "Obrigado",
@@ -115,6 +116,11 @@
   "progress_plural": "{{count}} assinaram. Vamos até {{goal}}",
   "register": "Acrescentar meu nome",
   "required": "Por favor preencha este campo",
+  "salutations": {
+    "f": "Sra.",
+    "m": "Sr.",
+    "other": "Outros"
+  },
   "share": {
     "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",

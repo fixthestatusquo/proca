@@ -14,6 +14,7 @@
   "Other": "Andere",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
+  "Salutation": "Salutatie",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
@@ -115,6 +116,11 @@
   "progress_plural": "",
   "register": "Mijn naam toevoegen",
   "required": "Gelieve dit veld in te vullen",
+  "salutations": {
+    "f": "Mevrouw.",
+    "m": "Mr.",
+    "other": "Andere"
+  },
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
