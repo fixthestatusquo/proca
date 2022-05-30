@@ -112,8 +112,8 @@
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų"
   },
-  "progress": "{{count}} pasirašė. Eikime į {{goal}}",
-  "progress_plural": "{{count}} pasirašė. Eikime į {{goal}}",
+  "progress": "{{count}} pasirašė. Pasiekime {{goal}}",
+  "progress_plural": "{{count}} pasirašė. Pasiekime {{goal}}",
   "register": "Pridėti mano vardą",
   "required": "Užpildykite šį laukelį",
   "salutations": {
