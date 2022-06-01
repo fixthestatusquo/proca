@@ -24,10 +24,15 @@ if (argv.help) {
 }
 
 const id = argv._[0];
+const current = read('campaign/' + id);
+if (!current) {
+  console.error ("can't read campaign ",id);
+  process.exit(1)
+}
+
 
 if (argv.lang) {
   if (languages.includes(argv.lang)) {
-    const current = read('campaign/' + id);
     const next = merge(current, { lang: argv.lang });
     saveCampaign(next);
   } else {
