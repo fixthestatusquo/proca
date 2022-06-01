@@ -126,6 +126,7 @@
     "message": "You should sign this!",
     "title": "Almost done! Take the next step."
   },
+  "No Thanks": "No Thanks",
   "supporter": {
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
