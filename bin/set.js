@@ -20,28 +20,24 @@ const help = () => {
       "--help (this command)",
       "--push (push the modified config to the server)",
       "--pull (pull the config from the server before doing the modification)",
-      "--color=#cafebebe (set the primary color)",
+      "--color=#cafebebe",
       "--url=http://example.com",
       "--lang=en (set the language)",
 //      "--theme=dark/light",
-      "--variant=standard/filled/outlined,
-      "--goal=666 or [100,200,500] (set the next steps goal)",
+      "--variant=standard/filled/outlined",
+      "--goal=666 or '100,200,500', overwrites the goal",
       "--country=GB or bool, set component.country",
-      "--mobile=true,
-      "--autostart=true (set the autostart)*",
+      "--mobile=true",
+      "--autostart=true",
 //      "--forcewidth=54 (force the width)",
 //      "--orgdata=true (do we collect the organisation details)*",
       "--required=lastname (postcode, country, comment...) set the field(s) required",
       "--notrequired=lastname (postcode, country, comment...) changes required field(s) to unrequired",
-      "--show=lastname (postcode, country, comment...) changes required field(s) to unrequired",
-      "--hide=lastname (postcode, country, comment...) changes required field(s) to unrequired",
-//      "--postcodeshown=true (is postcode field shown?)*",
-//      "--countryshow=true (is country field shown?)*",
-//      "--commentshow=true (is comment field shown?)*",
-//      "--phoneshown=true (is phone field shown?)*",
+      "--show=lastname (postcode, country, comment...) show optional field(s)",
+      "--hide=lastname (postcode, country, comment...) hide optional field(s)",
       "--implicit=true (set the implicit consent)*",
-      "--confirmoptin=true (set the confirm optin)*",
-      "--test=true (set the test mode)*",
+      "--confirmoptin=true*",
+      "--test=true*",
       "--locales.component.consent=whatever (set the locales, carefully - no validation)",
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
@@ -51,6 +47,8 @@ const help = () => {
   );
   process.exit(0);
 };
+
+console.log("argv", argv);
 
 if (argv.help) {
   help();
@@ -192,31 +190,22 @@ ids.map(id => {
       update(id, { component: { register: { field: { organisation: argv.orgdata } } } });
     }
 
-
-    if (argv.poscodeshow) {
-      update(id, { component: { register: { field: { poscode: poscodeshow } } } });
-    }
-
-    if (argv.countryshow) {
-      update(id, { component: { register: { field: { country: argv.countryshow } } } });
-    }
-
-    if (argv.commentshow) {
-      update(id, { component: { register: { field: { comment: argv.commentshow } } } });
-    }
-
-    if (argv.phoneshow) {
-      update(id, { component: { register: { field: { phone: argv.phoneshow } } } });
-    }
-
     // COMPONENT.COUNTER SETTINGS
 
     if (argv.goal) {
-      if (!(typeof argv.goal === 'number')) {
-        console.error("goal must be a number");
+      let steps = [];
+      if (typeof argv.goal === 'string' && argv.goal.indexOf(",") > -1) {
+        steps = argv.goal.split(",").map(g => parseInt(g));
+      } else if (typeof argv.goal === 'number') {
+        steps.push(argv.goal);
+      } else {
+        console.error("goal must be a number or numbers separated by commas (no spaces)");
         process.exit(0);
       }
-      update(id, { component: { counter: { steps: [`${argv.goal}`] } } });
+      let current = read(id);
+      const next = current;
+      next.component.counter.steps = steps;
+      save (next);
     }
 
     // COMPONENT.COUNTRY SETTINGS
