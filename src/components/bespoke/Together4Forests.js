@@ -16,8 +16,8 @@ import SelectMeme from "./meme/Select";
 
 const Together4Forests = (props) => {
   const [state, setState] = React.useState({
-    meme: true,
-    create: false,
+    meme: false,
+    create: true,
     picture: false,
   });
   const handleChange = (event) => {
@@ -26,6 +26,7 @@ const Together4Forests = (props) => {
   return (
     <div>
       Do you want to
+    {/*
       <Accordion expanded={state.meme}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -47,7 +48,6 @@ const Together4Forests = (props) => {
     <SelectMeme />
         </AccordionDetails>
       </Accordion>
-    {/*
           */}
       <Accordion expanded={state.create}>
         <AccordionSummary
