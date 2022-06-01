@@ -48,8 +48,6 @@ const help = () => {
   process.exit(0);
 };
 
-console.log("argv", argv);
-
 if (argv.help) {
   help();
 }

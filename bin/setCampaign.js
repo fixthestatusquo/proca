@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { read, saveCampaign, pullCampaign } = require("./config");
-const argv = require("minimist")(process.argv.slice(2), { boolean: ["pull", "push", "test", "mobile"]});
+const { read, saveCampaign, pullCampaign, pushCampaign } = require("./config");
+const argv = require("minimist")(process.argv.slice(2), { boolean: ["pull", "push"]});
 const merge = require("lodash.merge");
 
 const languages = [
@@ -118,6 +118,7 @@ const update = (id, change) => {
   }
 
   if (argv.push) {
+    console.log("here");
     // must be the last one
     try {
       const d = await pushCampaign(id);
