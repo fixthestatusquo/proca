@@ -202,7 +202,7 @@ const Component = (props) => {
           actionPage={props.actionPage}
           actionUrl={actionUrl}
           form={form}
-          clickable={false}
+          clickable={config.component.twitter?.clickable}
           done={handleDone}
         />
         {config.component.twitter?.message && <Message form={form} />}
