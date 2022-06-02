@@ -12,6 +12,7 @@ import Url from "@lib/urlparser";
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import TwitterIcon from "../../images/Twitter.js";
+import { useTranslation } from "react-i18next";
 
 import { addAction } from "@lib/server";
 import { tokenize } from "@lib/text";
@@ -55,6 +56,7 @@ const component = function TwitterAction(profile) {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
+  const { t } = useTranslation();
 
   const clickable = profile.clickable;
 
@@ -66,7 +68,7 @@ const component = function TwitterAction(profile) {
     };
     tweet({
       actionPage: profile.actionpage,
-      message: profile.form.getValues("message"),
+      message: profile.form.getValues("message") || t(["campaign:twitter.actionText","twitter.actionText"],""),
       screen_name: profile.screen_name,
       actionUrl: profile.actionUrl,
       done: done,
