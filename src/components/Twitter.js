@@ -92,7 +92,7 @@ const Component = (props) => {
   });
   const { watch } = form;
   const country = watch("country");
-  let actionUrl = props.actionUrl || data?.actionUrl;
+  let actionUrl = props.actionUrl || data?.actionUrl || window.location.href;
   if (!actionUrl && i18n.exists("twitter.actionUrl"))
     actionUrl = t("twitter.actionUrl"); /* i18next-extract-disable-line */
 
