@@ -97,6 +97,28 @@ const Together4Forests = (props) => {
     </div>
         </AccordionDetails>
       </Accordion>
+    <div>
+          <FormControlLabel
+       control={       <Checkbox
+                inputRef={props.form.register}
+                color="primary"
+                name="certify"
+                required
+              />}
+    label="I confirm that the opinions expressed do not intend to cause offence or instigate violence" 
+    />
+          <FormControlLabel
+       control={       <Checkbox
+                inputRef={props.form.register}
+                color="primary"
+                name="certify"
+                required
+              />}
+    label="I take responsibility for the use of the image" 
+    />
+    <div><small>WWF or the #Together4Forests NGOs are not responsible for any content that I create.</small></div>
+       
+    </div>
     </div>
   );
 };

@@ -233,7 +233,6 @@ const CreateMeme = (props) => {
       <div className={classes.bottomPreview}>{bottomText}</div>
       <img src={items[current].original} className={classes.responsive}/>
       </div>
-    */}
       <Grid item xs={12}>
         <Button
           form={form}
@@ -247,6 +246,7 @@ const CreateMeme = (props) => {
           {t("meme.generate", "Generate your Meme")}
         </Button>
       </Grid>
+    */}
 
       <ImageSelector items={items} onClick={selectOne} Selected={EmptyItem} />
     </Grid>

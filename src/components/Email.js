@@ -206,7 +206,7 @@ const Component = (props) => {
     let s =
       typeof profile.subject == "function"
         ? profile.subject(profile)
-        : t("campaign:email.subject");
+        : t("campaign:email.subject","");
 
     if (profile.actionUrl) {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
