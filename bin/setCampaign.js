@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { read, saveCampaign } = require("./config");
+const { read, saveCampaign, pushCampaign } = require("./config");
 const argv = require("minimist")(process.argv.slice(2));
 const merge = require("lodash.merge");
 
@@ -52,6 +52,8 @@ const help = () => {
       "--help (options list)",
       "--lang=en (set the language of the campaign)",
       "--locales=en or en,es,el (set empty locales of the campaign)",
+      "--push (push the modified config to the server)",
+      "--pull (pull the config from the server before doing the modification)",
       "input name of json file",
     ].join("\n")
   );
@@ -70,6 +72,17 @@ if (!current) {
 }
 
 (async () => {
+    if (argv.pull) {
+      try {
+        const d = await pullCampaign(id);
+      } catch (errors) {
+        Array.isArray(errors) &&
+          errors.map((e) => {
+            console.error("\x1b[31m", e.message);
+          });
+      }
+    }
+
   if (argv.lang) {
     if (languages.includes(argv.lang)) {
       const next = merge(current, { lang: argv.lang });
@@ -100,8 +113,10 @@ if (!current) {
   }
   if (argv.push) {
     // must be the last one
+    console.log("pushing to server",id);
     try {
       const d = await pushCampaign(id);
+      console.log(d);
     } catch (errors) {
       Array.isArray(errors) &&
         errors.map((e) => {
