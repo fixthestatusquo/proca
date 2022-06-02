@@ -41,10 +41,14 @@ const Component = (props) => {
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
 
+
+
   const paramEmail = {
     subject: t(["campaign:email.subject", "email.subject"], ""),
     message: t(["campaign:email.body", "email.body"], ""),
   };
+
+
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
@@ -200,13 +204,15 @@ const Component = (props) => {
     };
 
     const profile = profiles[0] || { subject: null };
+    
     let to = [];
     let cc = null;
     const bcc = config.component.email?.bcc;
     let s =
       typeof profile.subject == "function"
         ? profile.subject(profile)
-        : t("campaign:email.subject","");
+        : paramEmail.subject;
+  
 
     if (profile.actionUrl) {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
@@ -214,7 +220,7 @@ const Component = (props) => {
     }
     //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
 
-    const body = t(["campaign:email.body", "email.body"], "");
+    const body = paramEmail.message;
     for (var i = 0; i < profiles.length; i++) {
       if (profiles[i].email) to.push(profiles[i].email);
     }
