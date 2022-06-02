@@ -247,9 +247,13 @@ export default function Register(props) {
     const result = await trigger();
     if (result) {
       if (props.onClick) {
-        handleSubmit(onSubmit)(); // do not await it, it will open a warning 'firefox prevented this page to open a pop up window...
+        // do not await it, it would open a warning 'firefox prevented this page to open a pop up window...
+        setTimeout(
+           () => (handleSubmit(onSubmit)())
+       , 1);
 
         props.onClick(getValues()); // how to get the data updated?
+
       } else {
         await handleSubmit(onSubmit)();
       }
