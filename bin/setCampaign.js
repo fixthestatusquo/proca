@@ -1,12 +1,8 @@
 #!/usr/bin/env node
-<<<<<<< HEAD
-const { read, saveCampaign, pushCampaign } = require("./config");
-const argv = require("minimist")(process.argv.slice(2));
-=======
 const { read, saveCampaign, pullCampaign, pushCampaign } = require("./config");
 const argv = require("minimist")(process.argv.slice(2), { boolean: ["pull", "push"]});
->>>>>>> ea87c3ea4e781a2bb66015fc1a808411730b53ca
 const merge = require("lodash.merge");
+require("./dotenv.js");
 
 const languages = [
   "ar",
@@ -87,7 +83,6 @@ const update = (id, change) => {
 
 
 (async () => {
-<<<<<<< HEAD
     if (argv.pull) {
       try {
         const d = await pullCampaign(id);
@@ -135,14 +130,13 @@ const update = (id, change) => {
   }
 
   if (argv.push) {
-    console.log("here");
     // must be the last one
     console.log("pushing to server",id);
     try {
       const d = await pushCampaign(id);
       console.log(d);
-      console.log("does not work??? " + id);
     } catch (errors) {
+      console.log(errors);
       Array.isArray(errors) &&
         errors.map((e) => {
           console.error("\x1b[31m", e.message);
