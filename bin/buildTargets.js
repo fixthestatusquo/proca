@@ -105,6 +105,8 @@ const saveTargets = (campaignName, targets) => {
   try {
     const c = read("campaign/" + name); // the config file
     const targets = read("target/server/" + name); // the list of targets from proca server
+    if (argv.source)
+       const source = read("target/source/" + name); // the list of targets from proca server
 
     let twitters = null;
     try {
