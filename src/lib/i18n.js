@@ -6,36 +6,45 @@ import locales from "locales/common.json"; // locales is an alias to src/locales
 import isoCountries from "i18n-iso-countries";
 import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used locales
 
-const languages = [
-  { be: ["fr", "nl"] },
-  { el: "el" },
-  { lt: "lt" },
-  { pt: "pt" },
-  { bg: "bg" },
-  { es: "es" },
-  { lu: ["de", "fr"] },
-  { ro: "ro" },
-  { cz: "cs" },
-  { fr: "fr" },
-  { hu: "hu" },
-  { si: "sl" },
-  { sk: "sk" },
-  { dk: "da" },
-  { hr: "hr" },
-  { mt: "en" },
-  { de: "de" },
-  { it: "it" },
-  { nl: "nl" },
-  { fi: "fi" },
-  { ee: "et" },
-  { cy: "cy" },
-  { at: "de" },
-  { se: "sv" },
-  { ie: "en" },
-  { lv: "lv" },
-  { pl: "pl" },
-];
+// DUPLICATION WARNING require and import compatibility: any update needs to be done as well into ./bin
+const languages = {
+  be: ["fr", "nl"],
+  el: "el",
+  lt: "lt",
+  pt: "pt",
+  bg: "bg",
+  es: "es",
+  lu: ["de", "fr"],
+  ro: "ro",
+  cz: "cs",
+  fr: "fr",
+  hu: "hu",
+  si: "sl",
+  sk: "sk",
+  dk: "da",
+  hr: "hr",
+  mt: "en",
+  de: "de",
+  it: "it",
+  nl: "nl",
+  fi: "fi",
+  ee: "et",
+  cy: "cy",
+  at: "de",
+  se: "sv",
+  ie: "en",
+  lv: "lv",
+  pl: "pl",
+};
 
+const mainLanguage = (countryCode, single = true) => {
+  // single: remove countries with multiple languages
+  const l = languages[countryCode.toLowerCase()];
+  if (single && Array.isArray(l)) return null;
+  return l;
+};
+
+ 
 isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
@@ -89,10 +98,6 @@ i18n
       escapeValue: false,
     },
   });
-
-const mainLanguage = (countryCode) => {
-  return languages[countryCode];
-};
 
 export {mainLanguage};
 export default i18n;
