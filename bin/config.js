@@ -92,58 +92,6 @@ const saveTargets = (campaignName, targets) => {
   return fileName;
 };
 
-const pushCampaignTargets = async (campaignName, file) => {
-  const targets = read("target/source/" + file);
-  if (targets === null) {
-    console.log("no local version of targets");
-    return [];
-  }
-  const formattedTargets = targets
-    .map((t) => {
-      t.fields = JSON.stringify(t.field);
-      if (!t.name) return null; //skip empty records
-      delete t.id;
-      delete t.field;
-      if (!t.emails) {
-        t.emails = [];
-        if (t.email) {
-          // check if multiple emails separated by ";"
-          //t.emails = [ {email: t.email.trim()}];
-          t.email
-            .replace(",", ";")
-            .split(";")
-            .forEach((d) => {
-              t.emails.push({ email: d.trim() });
-            });
-          delete t.email;
-        }
-      }
-      return t;
-    })
-    .filter((d) => d !== null);
-
-  const campaign = read("campaign/" + campaignName);
-  if (campaign === null) {
-    console.log("fetch campaign so I can get its name");
-    return [];
-  }
-  const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!) {
-  upsertTargets(campaignId: $id, replace: true, targets: $targets) {id}
-}
-`;
-  const ids = await api(
-    query,
-    { id: campaign.id, targets: formattedTargets },
-    "UpsertTargets"
-  );
-  if (ids.errors) {
-    console.error(ids.errors[0]);
-  }
-  console.log(ids);
-  return ids.upsertTargets;
-};
-
 const api = async (query, variables, name = "query") => {
   let headers = {};
   if (process.env.AUTH_USER) {
@@ -541,7 +489,7 @@ module.exports = {
   pushCampaign,
   pullCampaign,
   pullCampaignTargets,
-  pushCampaignTargets,
+//  pushCampaignTargets,
   saveTargets,
   saveCampaign,
   addPage,

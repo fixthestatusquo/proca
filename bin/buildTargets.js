@@ -104,9 +104,18 @@ const saveTargets = (campaignName, targets) => {
 
   try {
     const c = read("campaign/" + name); // the config file
-    const targets = read("target/server/" + name); // the list of targets from proca server
-    if (argv.source)
-       const source = read("target/source/" + name); // the list of targets from proca server
+    let targets = read("target/server/" + name); // the list of targets from proca server
+    if (argv.source){
+      const sources = read("target/source/" + name); // the list of targets from proca server
+      const c = targets.filter (t => 
+
+        -1 !== sources.findIndex(
+        (d) => d.externalId === t.externalId
+        )
+      )
+      console.log("total server vs source",targets.length,c.length);
+      targets=c;
+    }
 
     let twitters = null;
     try {
