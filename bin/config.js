@@ -13,13 +13,13 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
 
-const checked = (fileName,type) => {
+const checked = (fileName, type) => {
   if (fileName.toString().includes("..")) {
-    console.error ("the filename is invalid ",fileName);
-    throw new Error ("invalid filename ",fileName);
+    console.error("the filename is invalid ", fileName);
+    throw new Error("invalid filename ", fileName);
   }
   return fileName;
-}
+};
 // mkdir -p
 const mkdirp = (pathToFile) =>
   pathToFile.split("/").reduce((prev, curr, i) => {
@@ -86,12 +86,6 @@ const saveCampaign = (campaign, lang = "en") => {
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
-const saveTargets = (campaignName, targets) => {
-  const fileName = file("target/server/" + campaignName);
-  fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
-  return fileName;
-};
-
 const api = async (query, variables, name = "query") => {
   let headers = {};
   if (process.env.AUTH_USER) {
@@ -148,33 +142,6 @@ const api = async (query, variables, name = "query") => {
   } catch (err) {
     throw err;
   }
-};
-
-const getCampaignTargets = async (name) => {
-  const query = `
-query GetCampaignTargets($name: String!) {
-  campaign(name:$name) {
-  ... on PrivateCampaign {
-    targets {
-      id name area fields externalId
-      ... on PrivateTarget {
-          emails { email, emailStatus }
-        }
-      }
-    }
-  }
-}
-`;
-
-  const data = await api(query, { name }, "GetCampaignTargets");
-  if (!data.campaign) throw new Error("can't find campaign " + name);
-  if (!data.campaign.targets || data.campaign.targets.length === 0)
-    throw new Error("No targets.");
-  data.campaign.targets = data.campaign.targets.map((t) => {
-    if (t.fields) t.fields = JSON.parse(t.fields);
-    return t;
-  });
-  return data.campaign.targets;
 };
 
 const getCampaign = async (name) => {
@@ -259,16 +226,6 @@ const addPage = async (name, campaignName, locale, orgName) => {
 
 const pullCampaign = async (name) => {
   return await getCampaign(name);
-};
-
-const pullCampaignTargets = async (name) => {
-  const targets = await getCampaignTargets(name);
-  if (targets.length === 0) {
-    console.log("not storing empty targets");
-  } else {
-    saveTargets(name, targets);
-  }
-  return targets;
 };
 
 const pushCampaign = async (name) => {
@@ -488,9 +445,6 @@ module.exports = {
   actionPageFromLocalConfig,
   pushCampaign,
   pullCampaign,
-  pullCampaignTargets,
-//  pushCampaignTargets,
-  saveTargets,
   saveCampaign,
   addPage,
 };
