@@ -22,6 +22,7 @@
     "@paypal/react-paypal-js": "^7.8.0",
     "@stripe/react-stripe-js": "^1.8.0",
     "@stripe/stripe-js": "^1.31.0",
+    "@supabase/supabase-js": "^1.35.3",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^7.4.0",
     "i18next": "^21.8.3",
@@ -46,7 +47,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "prettier": "^2.6.2",
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.17.10",
     "@babel/node": "^7.17.10",
@@ -63,6 +63,7 @@
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.1",
     "generate-json-webpack-plugin": "^1.0.0",
+    "prettier": "^2.6.2",
     "typescript": "^4.6.4",
     "webpack-bundle-analyzer": "^4.5.0"
   },

@@ -1,29 +1,23 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ImageList from "@material-ui/core/ImageList";
-import ImageListItem from "@material-ui/core/ImageListItem";
-import ImageListItemBar from "@material-ui/core/ImageListItemBar";
-import IconButton from "@material-ui/core/IconButton";
-import AttachIcon from "@material-ui/icons/AttachFile";
-import { Grid, Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
-import Backdrop from "@material-ui/core/Backdrop";
+import { Card, CardActionArea, CardMedia } from "@material-ui/core";
 import { InputLabel, List, ListItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-   selected: {
-      opacity: "0.8",
-        position: "relative",
-    width:'100%',
-    },
-    image: {
-        zIndex: 1,
-      width:"100%",
-    },
-    MuiCardActionArea:{
-        height: "inherit",
-        zIndex: 1
-    },
+  selected: {
+    opacity: "0.8",
+    position: "relative",
+    width: "100%",
+  },
+  image: {
+    zIndex: 1,
+    width: "100%",
+  },
+  MuiCardActionArea: {
+    height: "inherit",
+    zIndex: 1,
+  },
   imageList: {
     display: "flex",
     padding: 0,
@@ -35,12 +29,12 @@ const useStyles = makeStyles((theme) => ({
     height: "150px",
   },
   selectedImage: {
-    width:"100%"
+    width: "100%",
   },
 
   default: {
-      position: "relative",
-    width:'100%',
+    position: "relative",
+    width: "100%",
     opacity: "0.2",
     "&:hover": {
       opacity: "0.8",
@@ -58,24 +52,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageSelected = props => {
+const ImageSelected = (props) => {
   const classes = useStyles();
   return (
-      <Card className={classes.selectedImage}>
-    <CardActionArea classes={{root: classes.MuiCardActionArea}} >
-    <img src={props.original} className={classes.image} />
-    </CardActionArea>
-      </Card>
+    <Card className={classes.selectedImage}>
+      <CardActionArea classes={{ root: classes.MuiCardActionArea }}>
+        <img src={props.original} className={classes.image} />
+      </CardActionArea>
+    </Card>
   );
-}
+};
 
 const ImageSelector = (props) => {
   const classes = useStyles();
   const [selected, _select] = useState(1);
   const select = (i) => {
     _select(i);
-    if (props.onClick)
-       props.onClick (i);
+    if (props.onClick) props.onClick(i);
   };
 
   const Selected = props.Selected || ImageSelected;
@@ -85,12 +78,13 @@ const ImageSelector = (props) => {
       <List className={classes.imageList}>
         {props.items.map((d, i) => (
           <ListItem
-          disableGutters={true} dense={true}
+            disableGutters={true}
+            dense={true}
             key={i}
             className={i === selected ? classes.selected : classes.default}
             onClick={() => select(i)}
           >
-            <img src={props.items[i].original} className = {classes.image}/>
+            <img src={props.items[i].original} className={classes.image} />
           </ListItem>
         ))}
       </List>

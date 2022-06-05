@@ -10,9 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import UploadImage from "./UploadImage";
-import ImageSelector from "./ImageSelector";
 import CreateMeme from "./meme/CreateMeme";
-import SelectMeme from "./meme/Select";
+//import SelectMeme from "./meme/Select";
 
 const Together4Forests = (props) => {
   const [state, setState] = React.useState({
@@ -26,7 +25,7 @@ const Together4Forests = (props) => {
   return (
     <div>
       Do you want to
-    {/*
+      {/*
       <Accordion expanded={state.meme}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -70,7 +69,7 @@ const Together4Forests = (props) => {
           />
         </AccordionSummary>
         <AccordionDetails>
-    <CreateMeme form={props.form}/>
+          <CreateMeme form={props.form} />
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={state.picture}>
@@ -89,36 +88,45 @@ const Together4Forests = (props) => {
           />
         </AccordionSummary>
         <AccordionDetails>
-    <div>
-          <Typography color="textSecondary">
-    Upload a picture of yourself in the forest or a drawing from your child.
-          </Typography>
-    <UploadImage />
-    </div>
+          <div>
+            <Typography color="textSecondary">
+              Upload a picture of yourself in the forest or a drawing from your
+              child.
+            </Typography>
+            <UploadImage />
+          </div>
         </AccordionDetails>
       </Accordion>
-    <div>
-          <FormControlLabel
-       control={       <Checkbox
-                inputRef={props.form.register}
-                color="primary"
-                name="certify"
-                required
-              />}
-    label="I confirm that the opinions expressed do not intend to cause offence or instigate violence" 
-    />
-          <FormControlLabel
-       control={       <Checkbox
-                inputRef={props.form.register}
-                color="primary"
-                name="certify"
-                required
-              />}
-    label="I take responsibility for the use of the image" 
-    />
-    <div><small>WWF or the #Together4Forests NGOs are not responsible for any content that I create.</small></div>
-       
-    </div>
+      <div>
+        <FormControlLabel
+          control={
+            <Checkbox
+              inputRef={props.form.register}
+              color="primary"
+              name="certify"
+              required
+            />
+          }
+          label="I confirm that the opinions expressed do not intend to cause offence or instigate violence"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              inputRef={props.form.register}
+              color="primary"
+              name="certify"
+              required
+            />
+          }
+          label="I take responsibility for the use of the image"
+        />
+        <div>
+          <small>
+            WWF or the #Together4Forests NGOs are not responsible for any
+            content that I create.
+          </small>
+        </div>
+      </div>
     </div>
   );
 };
