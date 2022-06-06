@@ -171,7 +171,7 @@ const CreateMeme = (props) => {
     d.hash = hash;
     d.lang = config.lang;
     //const { meme, merror } = await supabase.from("meme")
-    let r = await supabase.from("meme_template").insert([d]);
+    let r = await supabase.from("meme").insert([d]);
     if (r.status === 409) {
       console.log("already set");
       //      return hash;
