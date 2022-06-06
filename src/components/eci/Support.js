@@ -4,7 +4,14 @@ import dispatch from "@lib/event";
 import { formatDate } from "@lib/date";
 
 import React, { useState, useEffect } from "react";
-import { CardHeader, Button, Grid, Snackbar, Box, Container } from "@material-ui/core";
+import {
+  CardHeader,
+  Button,
+  Grid,
+  Snackbar,
+  Box,
+  Container,
+} from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import { useTranslation, countries } from "./hooks/useEciTranslation";
@@ -59,6 +66,7 @@ const Support = (props) => {
   const [require, setRequire] = useState(false);
   const [acceptableIds, setIds] = useState({});
   const [status, setStatus] = useState("default");
+  const [reload, setReload] = useState("false");
   const [errorDetails, setErrorDetails] = useState("");
 
   const config = useCampaignConfig();
@@ -77,10 +85,33 @@ const Support = (props) => {
     defaultValues: data,
   });
 
-  const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
-    form;
+  const {
+    handleSubmit,
+    setError,
+    clearErrors,
+    formState,
+    watch,
+    setValue,
+    getValues,
+  } = form;
 
-  const { nationality, country } = watch(["nationality", "country"]) || "";
+  const { nationality, country, firstname } =
+    watch(["nationality", "country", "firstname"]) || "";
+
+  if (data.firstname && !firstname && !reload) {
+    setReload("true");
+  }
+
+  useEffect(() => {
+    console.log("reloading", reload);
+    if (reload) {
+      data.firstname && setValue("firstname", data.firstname);
+      data.country && setValue("nationality", data.country);
+      data.country && setValue("country", data.country);
+      setReload(false);
+    }
+  }, [reload, setValue]);
+
   useEffect(() => {
     if (nationality && nationality !== "ZZ") {
       const ids = documents[nationality.toLowerCase()];
@@ -239,12 +270,20 @@ const Support = (props) => {
             >
               <Error display={status === "error"} />
 
-    {i18n.exists("step.eci.title") && <CardHeader subheader={t("step.eci.subheader","")} title={t("step.eci.title","")}></CardHeader>}
+              {i18n.exists("step.eci.title") && (
+                <CardHeader
+                  subheader={t("step.eci.subheader", "")}
+                  title={t("step.eci.title", "")}
+                ></CardHeader>
+              )}
               <Box
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
-                    url: "https://eur-lex.europa.eu/legal-content/"+config.lang+"/TXT/PDF/?uri=CELEX:32019R0788",
+                    url:
+                      "https://eur-lex.europa.eu/legal-content/" +
+                      config.lang +
+                      "/TXT/PDF/?uri=CELEX:32019R0788",
                   }),
                 }}
               />

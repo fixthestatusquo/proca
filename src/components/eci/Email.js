@@ -9,6 +9,7 @@ import Alert from "@material-ui/lab/Alert";
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
+
   return (
     <>
       {props.submitted && (
@@ -23,16 +24,10 @@ const RegisterEmail = (props) => {
             campaign: config.campaign.title,
           })}{" "}
       </div>
-    {i18n.exists("step.register.title") && <CardHeader title={t("step.register.title","")}></CardHeader>}
-      <Register {...props} consentIntro={false} />
-      <Button
-        endIcon={<SkipNextIcon />}
-        fullWidth
-        variant="contained"
-        onClick={props.done}
-      >
-        {t("No Thanks")}
-      </Button>
+      {i18n.exists("step.register.title") && (
+        <CardHeader title={t("step.register.title", "")}></CardHeader>
+      )}
+      <Register {...props} consentIntro={false} buttonNext="No Thanks" />
     </>
   );
 };

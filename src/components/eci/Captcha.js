@@ -160,7 +160,7 @@ export default function Captcha(props) {
                 size="small"
                 aria-label={t("eci:form.captcha-button-arialabel-image")}
               >
-                {t("eci:form.captcha-button-arialabel-image")}
+                {t("eci:form.captcha-button-arialabel-image", "image 🖼")}
               </Button>
             </Grid>
             <TextField
@@ -218,13 +218,13 @@ export default function Captcha(props) {
                 required
               />
             </Grid>
-            <Grid item xs={compact ? 11 : 5}>
+            <Grid item xs={compact ? 10 : 5}>
               <Box py={1} className={isFocussed ? classes.focus : null}>
                 <Svg />
               </Box>
             </Grid>
             {withAudioCaptcha && (
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                 <IconButton
                   aria-label={t("eci:form.captcha-button-arialabel-audio")}
                   onClick={() => setAudioCaptcha(true)}

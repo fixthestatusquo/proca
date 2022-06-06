@@ -90,27 +90,22 @@ export default function Register(props) {
   if (props.emailProvider) emailProvider = props.emailProvider; // use case: if Register is called from a parent component that wants to store the email provider
 
   const width = useElementWidth("#proca-register");
+  let buttonNext = "Next";
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
   const _form = useForm({
-        mode: "onBlur",
+    mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: props.form ? null : data,
   });
 
   const form = props.form || _form;
 
-  const {
-    trigger,
-    handleSubmit,
-    setError,
-    formState,
-    getValues,
-    setValue,
-  } = form;
+  const { trigger, handleSubmit, setError, formState, getValues, setValue } =
+    form;
   //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
   //const values = getValues() || {};
   const comment = data.comment;
@@ -248,20 +243,16 @@ export default function Register(props) {
     if (result) {
       if (props.onClick) {
         // do not await it, it would open a warning 'firefox prevented this page to open a pop up window...
-        setTimeout(
-           () => (handleSubmit(onSubmit)())
-       , 1);
+        setTimeout(() => handleSubmit(onSubmit)(), 1);
 
         props.onClick(getValues()); // how to get the data updated?
-
       } else {
         await handleSubmit(onSubmit)();
       }
     }
   };
 
-
-/*
+  /*
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
@@ -312,29 +303,38 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
-
   const validateEmail = async (email) => {
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
     emailProvider.current = provider;
     if (provider === false) {
       return t("email.invalid_domain", {
-          defaultValue: "{{domain}} cannot receive emails",
-          domain: getDomain(email),
-        });
+        defaultValue: "{{domain}} cannot receive emails",
+        domain: getDomain(email),
+      });
     }
     return true;
-  }
+  };
 
   const classField = data.uuid ? classes.hidden : classes.field;
 
   const withSalutation = config.component?.register?.field?.salutation;
-  const nameWidth= (field) => {
+  const nameWidth = (field) => {
     if (compact) return 12;
-    if (withSalutation && field === 'firstname') return 4;
+    if (withSalutation && field === "firstname") return 4;
     if (withSalutation) return 5;
     return 6;
   };
+
+  if (typeof props.buttonNext === "string") {
+    buttonNext = props.buttonNext;
+  }
+  const next = (e) => {
+    const d = getValues();
+    setData(d);
+    props.done();
+  };
+
   return (
     <form
       className={classes.container}
@@ -360,8 +360,15 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
-              {withSalutation && <Salutation form={form} compact={compact} classes={classes} />}
-              <Grid item xs={12} sm={nameWidth("firstname")} className={classField}>
+              {withSalutation && (
+                <Salutation form={form} compact={compact} classes={classes} />
+              )}
+              <Grid
+                item
+                xs={12}
+                sm={nameWidth("firstname")}
+                className={classField}
+              >
                 <TextField
                   form={form}
                   name="firstname"
@@ -474,7 +481,7 @@ export default function Register(props) {
                 <ConsentBlock
                   organisation={props.organisation}
                   privacy_url={config.privacyUrl}
-                  intro = {props.consentIntro}
+                  intro={props.consentIntro}
                   form={form}
                 />
               )}
@@ -501,18 +508,20 @@ export default function Register(props) {
                   {props.buttonText ||
                     t(config.component.register?.button || "action.register")}
                 </Button>
-                {config.component.register?.next && (
+              </Grid>
+              <Grid item xs={12}>
+                <ConsentProcessing />
+                {(props.buttonNext || config.component.register?.next) && (
                   <Button
                     endIcon={<SkipNextIcon />}
                     className={classes.next}
                     variant="contained"
-                    onClick={props.done}
+                    onClick={next}
                   >
-                    {t("Next")}
+                    {t([buttonNext])}
                   </Button>
                 )}
               </Grid>
-              <ConsentProcessing />
             </Grid>
           </Box>
         </ConditionalDisabled>
