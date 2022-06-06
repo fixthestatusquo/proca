@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Card, CardActionArea, CardMedia } from "@material-ui/core";
-import { InputLabel, List, ListItem } from "@material-ui/core";
+import { Card, CardActionArea } from "@material-ui/core";
+import { List, ListItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   selected: {
@@ -57,7 +57,11 @@ const ImageSelected = (props) => {
   return (
     <Card className={classes.selectedImage}>
       <CardActionArea classes={{ root: classes.MuiCardActionArea }}>
-        <img src={props.original} className={classes.image} />
+        <img
+          src={props.original}
+          alt={props.name || props.topText || "meme"}
+          className={classes.image}
+        />
       </CardActionArea>
     </Card>
   );
@@ -84,7 +88,11 @@ const ImageSelector = (props) => {
             className={i === selected ? classes.selected : classes.default}
             onClick={() => select(i)}
           >
-            <img src={props.items[i].original} className={classes.image} />
+            <img
+              src={props.items[i].original}
+              alt={props.items[i].name || props.items[i].topText || "meme"}
+              className={classes.image}
+            />
           </ListItem>
         ))}
       </List>

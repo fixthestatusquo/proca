@@ -75,7 +75,8 @@ const CreateMeme = (props) => {
 
   useEffect(() => {
     selectOne(0);
-  }, []);
+    // eslint-disable-next-line
+  }, []); //calling only once
 
   const EmptyItem = (props) => null;
 
@@ -186,10 +187,11 @@ const CreateMeme = (props) => {
     console.log(data, error);
   };
 
+  const item = items[current].original;
   useEffect(() => {
     const base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
-    base_image.src = items[current].original;
+    base_image.src = item;
     base_image.addEventListener(
       "load",
       function () {
@@ -209,7 +211,8 @@ const CreateMeme = (props) => {
       },
       false
     );
-  }, [current, topText, bottomText]);
+    // eslint-disable-next-line
+  }, [item, topText, bottomText]);
 
   return (
     <Grid item xs={12}>
