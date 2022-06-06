@@ -74,7 +74,16 @@ const CreateMeme = (props) => {
   };
 
   useEffect(() => {
-    selectOne(0);
+    if (document && document.fonts) {
+      setTimeout(function () {
+        document.fonts.load("20px Anton").then(() => {
+          console.log("font loaded");
+          selectOne(0);
+        });
+      }, 0);
+    } else {
+      setCurrent(0);
+    }
     // eslint-disable-next-line
   }, []); //calling only once
 
@@ -177,14 +186,14 @@ const CreateMeme = (props) => {
       //      return hash;
     }
     console.log(blob);
-    const { data, error } = await supabase.storage
+    r = await supabase.storage
       .from("together4forests")
-      .upload("meme/" + f[f.length - 1], blob, {
+      .upload("meme/" + hash + ".jpeg", blob, {
         cacheControl: "3600",
-        upsert: true,
+        upsert: false,
       });
 
-    console.log(data, error);
+    console.log(r);
   };
 
   const item = items[current].original;
