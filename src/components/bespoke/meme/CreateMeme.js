@@ -173,7 +173,7 @@ const CreateMeme = (props) => {
     let r = await supabase.from("meme_template").insert([d]);
     if (r.status === 409) {
       console.log("already set");
-      return hash;
+      //      return hash;
     }
 
     console.log(r);
