@@ -5,6 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSupabase } from "@lib/supabase";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
   /*  const theme = createTheme({
@@ -57,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CreateMeme = (props) => {
   const { t } = useTranslation();
+  const config = useCampaignConfig();
   const [current, setCurrent] = useState(0);
   const canvasRef = useRef();
   const classes = useStyles();
@@ -153,7 +155,28 @@ const CreateMeme = (props) => {
     const blob = await toBlob();
 
     const f = items[current].original.split("/");
-    console.log(blob, f[f.length - 1]);
+    let d = {
+      image: items[current].original,
+      top_text: topText,
+      bottom_text: bottomText,
+    };
+
+    const encoder = new TextEncoder();
+    const m = JSON.stringify(d, Object.keys(d).sort());
+    const hashBuffer = await crypto.subtle.digest("SHA-256", encoder.encode(m));
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+    console.log(d, hash, m);
+    d.hash = hash;
+    d.lang = config.lang;
+    //const { meme, merror } = await supabase.from("meme")
+    let r = await supabase.from("meme_template").insert([d]);
+    if (r.status === 409) {
+      console.log("already set");
+      return hash;
+    }
+
+    console.log(r);
     const { data, error } = await supabase.storage
       .from("together4forests")
       .upload("meme/" + f[f.length - 1], canvasRef.current.blob, {
@@ -172,7 +195,7 @@ const CreateMeme = (props) => {
       "load",
       function () {
         const wrh = base_image.width / base_image.height;
-        const width = 600;
+        const width = 300;
         const height = width / wrh;
 
         const length = Math.max(topText?.length, bottomText?.length);
