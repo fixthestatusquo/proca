@@ -85,15 +85,8 @@ const Support = (props) => {
     defaultValues: data,
   });
 
-  const {
-    handleSubmit,
-    setError,
-    clearErrors,
-    formState,
-    watch,
-    setValue,
-    getValues,
-  } = form;
+  const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
+    form;
 
   const { nationality, country, firstname } =
     watch(["nationality", "country", "firstname"]) || "";
@@ -111,6 +104,7 @@ const Support = (props) => {
       data.country && setValue("country", data.country);
       setReload(false);
     }
+    // eslint-disable-next-line
   }, [reload, setValue]);
 
   useEffect(() => {
