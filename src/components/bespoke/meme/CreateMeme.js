@@ -175,11 +175,10 @@ const CreateMeme = (props) => {
       console.log("already set");
       //      return hash;
     }
-
-    console.log(r);
+    console.log(blob);
     const { data, error } = await supabase.storage
       .from("together4forests")
-      .upload("meme/" + f[f.length - 1], canvasRef.current.blob, {
+      .upload("meme/" + f[f.length - 1], blob, {
         cacheControl: "3600",
         upsert: true,
       });
