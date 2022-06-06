@@ -131,9 +131,17 @@ export default function Captcha(props) {
   };
 
   //  return parse(captcha.data);
-  const handlePlay = () => {
-    var audio = document.getElementById("audio");
-    audio.play();
+  const handlePlay = (lang) => {
+    const d = process.env.REACT_APP_AUDIO_CAPTCHA;
+    if (!d) {
+      var audio = document.getElementById("audio");
+      audio.play();
+      return;
+    }
+    let utterThis = new SpeechSynthesisUtterance(d);
+    utterThis.rate = 0.9;
+    utterThis.lang = lang || "en";
+    window.speechSynthesis?.speak(utterThis);
   };
 
   return (
@@ -161,14 +169,14 @@ export default function Captcha(props) {
               name="captcha"
               required
               InputProps={{
-                "aria-label": t("eci:form.captcha-audio-download") + ": MAMA",
+                "aria-label": t("eci:form.captcha-audio-download"),
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
                       aria-label={t(
                         "eci:form.captcha-button-arialabel-refresh"
                       )}
-                      onClick={handlePlay}
+                      onClick={() => handlePlay(config.lang)}
                     >
                       <PlayCircleOutlineIcon />
                     </IconButton>
