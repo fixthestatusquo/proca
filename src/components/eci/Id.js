@@ -22,7 +22,6 @@ export default function Register(props) {
 
   useEffect(() => {
     if (id < 2) return null;
-    const d = getValues("documentType");
     setValue("documentType", Object.keys(props.ids)[0]);
   }, [id, country]);
 
