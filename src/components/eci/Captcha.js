@@ -188,6 +188,8 @@ export default function Captcha(props) {
                 helperText={errors.captcha && t("eci:form.captcha-image-title")}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
