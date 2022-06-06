@@ -106,6 +106,7 @@ const Support = (props) => {
     console.log("reloading", reload);
     if (reload) {
       data.firstname && setValue("firstname", data.firstname);
+      data.lastname && setValue("lastname", data.lastname);
       data.country && setValue("nationality", data.country);
       data.country && setValue("country", data.country);
       setReload(false);
