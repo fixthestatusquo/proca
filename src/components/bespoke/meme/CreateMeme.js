@@ -183,7 +183,7 @@ const CreateMeme = (props) => {
     let r = await supabase.from("meme").insert([d]);
     if (r.status === 409) {
       console.log("already set");
-      //      return hash;
+      return hash;
     }
     console.log(blob);
     r = await supabase.storage
@@ -192,8 +192,14 @@ const CreateMeme = (props) => {
         cacheControl: "3600",
         upsert: false,
       });
-
-    console.log(r);
+    if (r.error) {
+      if (r.error.statusCode === "23505") {
+        //duplicated
+        return hash;
+      }
+      console.log(r.error);
+    }
+    return hash;
   };
 
   const item = items[current].original;
