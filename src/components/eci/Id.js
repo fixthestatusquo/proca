@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -17,8 +17,15 @@ export default function Register(props) {
   const { t, i18n } = useTranslation();
 
   const country = props.country;
-
   const id = Object.keys(props.ids).length; // number of different ids accepted
+  const { getValues, setValue } = props.form;
+
+  useEffect(() => {
+    if (id < 2) return null;
+    const d = getValues("documentType");
+    setValue("documentType", Object.keys(props.ids)[0]);
+  }, [id, country]);
+
   const label = () => {
     if (id > 1) return null;
     const type =
