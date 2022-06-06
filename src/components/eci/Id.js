@@ -18,11 +18,12 @@ export default function Register(props) {
 
   const country = props.country;
   const id = Object.keys(props.ids).length; // number of different ids accepted
-  const { getValues, setValue } = props.form;
+  const { setValue } = props.form;
 
   useEffect(() => {
     if (id < 2) return null;
     setValue("documentType", Object.keys(props.ids)[0]);
+    // eslint-disable-next-line
   }, [id, country]);
 
   const label = () => {
