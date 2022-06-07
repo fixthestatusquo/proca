@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Button, IconButton, Card, CardActionArea } from "@material-ui/core";
+import { Button, Card, CardActionArea } from "@material-ui/core";
 import { List, ListItem } from "@material-ui/core";
-import { ImageListItem, ImageList } from "@material-ui/core";
 
 //import UploadIcon from '@material-ui/icons/CloudUploadTwoTone';
 import UploadIcon from "@material-ui/icons/PhotoCamera";
@@ -126,7 +125,6 @@ const ImageSelector = (props) => {
     if (props.onClick) props.onClick(i);
   };
 
-  console.log(selected, items[selected]);
   const Selected = props.Selected || ImageSelected;
 
   const addImage = (data) => {

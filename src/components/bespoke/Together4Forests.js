@@ -6,10 +6,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Switch from "@material-ui/core/Switch";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import UploadImage from "./UploadImage";
 import CreateMeme from "./meme/CreateMeme";
 //import SelectMeme from "./meme/Select";
 

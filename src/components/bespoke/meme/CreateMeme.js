@@ -170,7 +170,7 @@ const CreateMeme = (props) => {
 
     const blob = await toBlob();
 
-    const f = items[current].original.split("/");
+    //const f = items[current].original.split("/");
     let d = {
       image: items[current].original,
       top_text: topText,
