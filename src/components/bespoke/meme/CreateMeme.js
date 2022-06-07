@@ -67,17 +67,42 @@ const CreateMeme = (props) => {
   const { topText, bottomText } = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
+  const [items, setItems] = useState([
+    {
+      top: "My options when I look for",
+      bottom: "Deforestation-free food",
+      original: "https://static.proca.app/tg4/images/back3.jpeg",
+    },
+    {
+      top: "A good law on deforestation",
+      bottom: "must please companies",
+      original: "https://static.proca.app/tg4/images/back1.jpeg",
+    },
+    {
+      top: "MEPs wanting to really stop deforestation",
+      bottom: "the rest of the EP?",
+      name: "Random Meme #3",
+      original: "https://static.proca.app/tg4/images/back2.jpeg",
+    },
+  ]);
+
   const selectOne = (i) => {
     setValue("topText", items[i].top);
     setValue("bottomText", items[i].bottom);
     setCurrent(i);
   };
 
+  const addImage = (newImage) => {
+    setItems([...items, newImage]);
+    setValue("topText", newImage.top);
+    setValue("bottomText", newImage.bottom);
+    setCurrent(items.length);
+  };
+
   useEffect(() => {
     if (document && document.fonts) {
       setTimeout(function () {
         document.fonts.load("20px Anton").then(() => {
-          console.log("font loaded");
           selectOne(0);
         });
       }, 0);
@@ -91,7 +116,7 @@ const CreateMeme = (props) => {
 
   const generateCanvasMeme = (image, param) => {
     const canvas = canvasRef.current;
-    if (!canvas || !image || !topText || !bottomText) return;
+    if (!canvas || !image) return;
     const ctx = canvas.getContext("2d");
 
     canvas.width = param.width;
@@ -136,25 +161,6 @@ const CreateMeme = (props) => {
         );
       });
   };
-
-  var items = [
-    {
-      top: "My options when I look for",
-      bottom: "Deforestation-free food",
-      original: "https://static.proca.app/tg4/images/back3.jpeg",
-    },
-    {
-      top: "A good law on deforestation",
-      bottom: "must please companies",
-      original: "https://static.proca.app/tg4/images/back1.jpeg",
-    },
-    {
-      top: "MEPs wanting to really stop deforestation",
-      bottom: "the rest of the EP?",
-      name: "Random Meme #3",
-      original: "https://static.proca.app/tg4/images/back2.jpeg",
-    },
-  ];
 
   const handleClick = async () => {
     const toBlob = () =>
@@ -254,48 +260,6 @@ const CreateMeme = (props) => {
         />
       </Grid>
       <canvas ref={canvasRef} className={classes.responsive} />
-
-      {/*      <svg
-        ref={svgRef}
-        className={classes.responsive}
-        viewBox={"0 0 " + param.width + " " + param.height}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <filter id="proca-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="10 10" result="proca-glow" />
-            <feMerge>
-              <feMergeNode in="glow" />
-            </feMerge>
-          </filter>
-        </defs>
-        <image 
-        ref={imgRef}
-    href={items[current].original} height={param.height} width={param.width} />
-        {["previewShadow", "preview"].map((d) => (
-          <text
-            className={classes[d]}
-            textAnchor="middle"
-            fontSize={param.fontSize}
-            y={10 + param.fontSize}
-            x={param.width / 2}
-          >
-            {topText}
-          </text>
-        ))}
-        {["previewShadow", "preview"].map((d) => (
-          <text
-            className={classes[d]}
-            textAnchor="middle"
-            fontSize={param.fontSize}
-            y={param.height - param.fontSize + 20}
-            x={param.width / 2}
-          >
-            {bottomText}
-          </text>
-        ))}
-      </svg>
-*/}
       <Grid item xs={12}>
         <Button
           form={form}
@@ -309,7 +273,12 @@ const CreateMeme = (props) => {
           Generate your Meme
         </Button>
       </Grid>
-      <ImageSelector items={items} onClick={selectOne} Selected={EmptyItem} />
+      <ImageSelector
+        items={items}
+        onClick={selectOne}
+        Selected={EmptyItem}
+        addImage={addImage}
+      />
     </Grid>
   );
 };

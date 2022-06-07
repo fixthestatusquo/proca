@@ -72,7 +72,7 @@ const Together4Forests = (props) => {
           <CreateMeme form={props.form} />
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={state.picture}>
+      {/*      <Accordion expanded={state.picture}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <FormControlLabel
             onClick={(event) => event.stopPropagation()}
@@ -96,7 +96,7 @@ const Together4Forests = (props) => {
             <UploadImage />
           </div>
         </AccordionDetails>
-      </Accordion>
+      </Accordion>*/}
       <div>
         <FormControlLabel
           control={
