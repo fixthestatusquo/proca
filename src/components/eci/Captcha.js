@@ -188,7 +188,7 @@ export default function Captcha(props) {
         )}
         {!audioCaptcha && (
           <>
-            <Grid item xs={compact ? 12 : 6}>
+            <Grid item xs={compact ? 12 : 5}>
               <TextField
                 form={props.form}
                 name="captcha"
