@@ -111,7 +111,12 @@
     "to": "Donazzjoni lil {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ma tistax tirċievi emails"
+    "invalid_domain": "{{domain}} ma tistax tirċievi emails",
+    "salutation": "Għażiż {{target.name}}",
+    "salutation_female": "Għażiż {{target.name}}",
+    "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
+    "salutation_male": "Għażiż {{target.name}}",
+    "salutation_placeholder": "Għażiż [riċevitur],"
   },
   "progress": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
