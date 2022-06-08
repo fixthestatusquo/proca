@@ -133,33 +133,36 @@ const CreateMeme = (props) => {
     ctx.lineWidth = param.fontSize / 20;
 
     ctx.textBaseline = "top";
-    topText
-      .toUpperCase()
-      .split("\n")
-      .forEach((t, i) => {
-        ctx.fillText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
-        ctx.strokeText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
-      });
+
+    topText &&
+      topText
+        .toUpperCase()
+        .split("\n")
+        .forEach((t, i) => {
+          ctx.fillText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
+          ctx.strokeText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
+        });
 
     ctx.textBaseline = "bottom";
-    bottomText
-      .toUpperCase()
-      .split("\n")
-      .reverse()
-      .forEach((t, i) => {
-        ctx.fillText(
-          t,
-          canvas.width / 2,
-          -20 + canvas.height - i * fontSize,
-          canvas.width
-        );
-        ctx.strokeText(
-          t,
-          canvas.width / 2,
-          -20 + canvas.height - i * fontSize,
-          canvas.width
-        );
-      });
+    bottomText &&
+      bottomText
+        .toUpperCase()
+        .split("\n")
+        .reverse()
+        .forEach((t, i) => {
+          ctx.fillText(
+            t,
+            canvas.width / 2,
+            -20 + canvas.height - i * fontSize,
+            canvas.width
+          );
+          ctx.strokeText(
+            t,
+            canvas.width / 2,
+            -20 + canvas.height - i * fontSize,
+            canvas.width
+          );
+        });
   };
 
   const handleClick = async () => {
@@ -187,11 +190,11 @@ const CreateMeme = (props) => {
     d.lang = config.lang;
     //const { meme, merror } = await supabase.from("meme")
     let r = await supabase.from("meme").insert([d]);
+    //   let r = await supabase.from("meme_template").insert([d]);
     if (r.status === 409) {
       console.log("already set");
-      return hash;
+      //      return hash;
     }
-    console.log(blob);
     r = await supabase.storage
       .from("together4forests")
       .upload("meme/" + hash + ".jpeg", blob, {

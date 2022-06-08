@@ -116,7 +116,12 @@
     "to": "Donation to {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} cannot receive emails"
+    "invalid_domain": "{{domain}} cannot receive emails",
+  "salutation_placeholder": "Dear [recipient],",
+  "salutation_info": "(the name will be put before sending)",
+  "salutation": "Dear {{target.name}}",
+  "salutation_male": "Dear {{target.name}}",
+  "salutation_female": "Dear {{target.name}}"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",

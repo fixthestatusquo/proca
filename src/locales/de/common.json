@@ -111,7 +111,12 @@
     "to": "Spende an {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kann keine E-Mails empfangen"
+    "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
+  "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r",
+  "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
+  "salutation": "Sehr geehrte:r {{target.name}}",
+  "salutation_male": "Sehr geehrte Herr {{target.name}}",
+  "salutation_female": "Sehr geehrte Frau  {{target.name}}"
   },
   "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",

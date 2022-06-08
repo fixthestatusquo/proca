@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
-import List from "@material-ui/core/List";
+import {
+  List,
+  FilledInput,
+  FormHelperText,
+  FormControl,
+} from "@material-ui/core";
 
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
@@ -41,13 +46,10 @@ const Component = (props) => {
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
 
-
-
   const paramEmail = {
     subject: t(["campaign:email.subject", "email.subject"], ""),
     message: t(["campaign:email.body", "email.body"], ""),
   };
-
 
   const form = useForm({
     //    mode: "onBlur",
@@ -204,7 +206,7 @@ const Component = (props) => {
     };
 
     const profile = profiles[0] || { subject: null };
-    
+
     let to = [];
     let cc = null;
     const bcc = config.component.email?.bcc;
@@ -212,7 +214,6 @@ const Component = (props) => {
       typeof profile.subject == "function"
         ? profile.subject(profile)
         : paramEmail.subject;
-  
 
     if (profile.actionUrl) {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
@@ -296,6 +297,16 @@ const Component = (props) => {
 
         {config.component.email?.field?.message ? (
           <Grid item xs={12} className={props.classes.field}>
+            {config.component.email.salutation && (
+              <FormControl fullWidth>
+                <FilledInput
+                  fullWidth={true}
+                  placeholder={t("email.salutation_placeholder")}
+                  readOnly
+                />
+                <FormHelperText>{t("email.salutation_info")}</FormHelperText>
+              </FormControl>
+            )}
             <TextField
               form={props.form}
               name="message"
