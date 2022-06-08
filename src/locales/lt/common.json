@@ -111,7 +111,12 @@
     "to": "Dovanojimas {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} negalima gauti el. laiškų"
+    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
+    "salutation": "Gerbiamasis {{target.name}}",
+    "salutation_female": "Gerbiamasis {{target.name}}",
+    "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
+    "salutation_male": "Gerbiamasis {{target.name}}",
+    "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "progress": "{{count}} pasirašė. Pasiekime {{goal}}",
   "progress_plural": "{{count}} pasirašė. Pasiekime {{goal}}",
