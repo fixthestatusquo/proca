@@ -111,7 +111,12 @@
     "to": "Ziedojums {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nevar saņemt e-pastus"
+    "invalid_domain": "{{domain}} nevar saņemt e-pastus",
+    "salutation": "Cienījamie {{target.name}}",
+    "salutation_female": "Cienījamie {{target.name}}",
+    "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
+    "salutation_male": "Cienījamie {{target.name}}",
+    "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "progress": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "progress_plural": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
