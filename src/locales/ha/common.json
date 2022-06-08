@@ -111,7 +111,12 @@
     "to": "Kyauta ga {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba"
+    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
+    "salutation": "Masoyi {{target.name}}",
+    "salutation_female": "Masoyi {{target.name}}",
+    "salutation_info": "(za'a sanya sunan kafin aikawa)",
+    "salutation_male": "Masoyi {{target.name}}",
+    "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
   "progress_plural": "",
