@@ -111,7 +111,12 @@
     "to": "Síntiús do {{organisation}}"
   },
   "email": {
-    "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil"
+    "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
+    "salutation": "A chara {{target.name}}",
+    "salutation_female": "A chara {{target.name}}",
+    "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
+    "salutation_male": "A chara {{target.name}}",
+    "salutation_placeholder": "A chara [faighteoir],"
   },
   "progress": "{{count}} sínithe. Rachaimid go {{goal}}",
   "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
