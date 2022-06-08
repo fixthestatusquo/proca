@@ -111,7 +111,12 @@
     "to": "التبرع لـ {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني"
+    "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
+    "salutation": "عزيزي {{target.name}}",
+    "salutation_female": "عزيزي {{target.name}}",
+    "salutation_info": "(سيتم وضع الاسم قبل الإرسال)",
+    "salutation_male": "عزيزي {{target.name}}",
+    "salutation_placeholder": "عزيزي [المستلم] ،"
   },
   "progress": "وقعت {{count}}. دعنا نذهب إلى {{goal}}",
   "progress_plural": "وقعت {{count}}. دعنا نذهب إلى {{goal}}",
