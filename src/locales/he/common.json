@@ -111,7 +111,12 @@
     "to": "תרומה ל-{{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים"
+    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
+    "salutation": "היקר {{target.name}}",
+    "salutation_female": "היקר {{target.name}}",
+    "salutation_info": "(השם יופיע לפני השליחה)",
+    "salutation_male": "היקר {{target.name}}",
+    "salutation_placeholder": "[נמען], יקר"
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
   "register": "הוסף את שמי",
