@@ -111,7 +111,12 @@
     "to": "Ẹbun si {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ko le gba awọn imeeli"
+    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
+    "salutation": "Eyin {{target.name}}",
+    "salutation_female": "Eyin {{target.name}}",
+    "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
+    "salutation_male": "Eyin {{target.name}}",
+    "salutation_placeholder": "Eyin [olugba],"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
