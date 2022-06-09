@@ -111,7 +111,12 @@
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ne može primati e-poštu"
+    "invalid_domain": "{{domain}} ne može primati e-poštu",
+    "salutation": "Poštovani {{target.name}}",
+    "salutation_female": "Poštovani {{target.name}}",
+    "salutation_info": "(ime će biti stavljeno prije slanja)",
+    "salutation_male": "Poštovani {{target.name}}",
+    "salutation_placeholder": "Poštovani [primatelj],"
   },
   "progress": "{{count}} potpis. Idemo na {{goal}}",
   "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",

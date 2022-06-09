@@ -111,7 +111,12 @@
     "to": "Donació a {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} no pot rebre correus electrònics"
+    "invalid_domain": "{{domain}} no pot rebre correus electrònics",
+    "salutation": "Benvolgut {{target.name}}",
+    "salutation_female": "Benvolgut {{target.name}}",
+    "salutation_info": "(el nom es posarà abans de l'enviament)",
+    "salutation_male": "Benvolgut {{target.name}}",
+    "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "progress": "{{count}} han signat. Volem arribar a {{goal}}",
   "progress_plural": "",

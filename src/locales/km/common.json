@@ -111,7 +111,12 @@
     "to": "ការបរិច្ចាគទៅ {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។"
+    "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
+    "salutation": "សូមគោរព {{target.name}}",
+    "salutation_female": "សូមគោរព {{target.name}}",
+    "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
+    "salutation_male": "សូមគោរព {{target.name}}",
+    "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
   "progress": "{{count}} បានចុះហត្ថលេខា។ តោះទៅ {{goal}}",
   "register": "បន្ថែមឈ្មោះរបស់ខ្ញុំ",

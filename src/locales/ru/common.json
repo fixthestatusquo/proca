@@ -111,7 +111,12 @@
     "to": "Пожертвование на {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} не может получать электронные письма"
+    "invalid_domain": "{{domain}} не может получать электронные письма",
+    "salutation": "Уважаемый {{target.name}}",
+    "salutation_female": "Уважаемый {{target.name}}",
+    "salutation_info": "(имя будет проставлено перед отправкой)",
+    "salutation_male": "Уважаемый {{target.name}}",
+    "salutation_placeholder": "Уважаемый [получатель],"
   },
   "progress": "{{count}} подписали. Переходим к {{goal}}",
   "progress_plural": "{{count}} подписали. Переходим к {{goal}}",

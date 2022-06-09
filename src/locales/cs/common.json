@@ -111,7 +111,12 @@
     "to": "Příspěvek na {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nelze přijímat e-maily"
+    "invalid_domain": "{{domain}} nelze přijímat e-maily",
+    "salutation": "Vážený {{target.name}}",
+    "salutation_female": "Vážený {{target.name}}",
+    "salutation_info": "(jméno bude uvedeno před odesláním)",
+    "salutation_male": "Vážený {{target.name}}",
+    "salutation_placeholder": "Vážený [příjemce],"
   },
   "progress": "{{count}} podepsali. Přejděme k {{goal}}",
   "progress_plural": "{{count}} podepsali. Přejděme k {{goal}}",

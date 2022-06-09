@@ -111,7 +111,12 @@
     "to": "Doação para {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} não pode receber e-mails"
+    "invalid_domain": "{{domain}} não pode receber e-mails",
+    "salutation": "Caro {{target.name}}",
+    "salutation_female": "Caro {{target.name}}",
+    "salutation_info": "(o nome será colocado antes do envio)",
+    "salutation_male": "Caro {{target.name}}",
+    "salutation_placeholder": "Caro [destinatário],"
   },
   "progress": "{{count}} assinaram. Vamos até {{goal}}",
   "progress_plural": "{{count}} assinaram. Vamos até {{goal}}",

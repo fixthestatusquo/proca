@@ -111,7 +111,12 @@
     "to": "Donatie aan {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kan geen emails ontvangen"
+    "invalid_domain": "{{domain}} kan geen emails ontvangen",
+    "salutation": "Beste {{target.name}}",
+    "salutation_female": "Beste {{target.name}}",
+    "salutation_info": "(de naam zal voor het verzenden worden gezet)",
+    "salutation_male": "Beste {{target.name}}",
+    "salutation_placeholder": "Geachte [ontvanger],"
   },
   "progress": "{{count}} hebben getekend. Laten we voor {{goal}} gaan.",
   "progress_plural": "",

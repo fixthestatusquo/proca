@@ -111,7 +111,12 @@
     "to": "Donación a {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} no puede recibir correos electrónicos"
+    "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
+    "salutation": "Estimado {{target.name}}",
+    "salutation_female": "Estimado {{target.name}}",
+    "salutation_info": "(el nombre se pondrá antes del envío)",
+    "salutation_male": "Estimado {{target.name}}",
+    "salutation_placeholder": "Estimado [destinatario],"
   },
   "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
   "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
