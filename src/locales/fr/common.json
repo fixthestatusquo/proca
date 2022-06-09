@@ -112,10 +112,10 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "salutation": "Cher {{target.name}}",
-    "salutation_female": "Cher {{target.name}}",
-    "salutation_info": "(le nom sera mis avant l'envoi)",
-    "salutation_male": "Cher {{target.name}}",
+    "salutation": "Cher·e {{target.name}}",
+    "salutation_female": "Chère Madame {{target.name}}",
+    "salutation_info": "(le nom sera ajouté avant l'envoi)",
+    "salutation_male": "Cher Monsieur {{target.name}}",
     "salutation_placeholder": "Cher [destinataire],"
   },
   "progress": "{{count}} ont signé. Passons à {{goal}}",
