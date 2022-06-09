@@ -7,9 +7,11 @@ import {
   RadioGroup,
   FormHelperText,
   FormLabel,
+  FormGroup,
   FormControl,
   FormControlLabel,
   Collapse,
+  Checkbox,
 } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
 
@@ -19,6 +21,17 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  check: {
+    display: "inline-flex",
+    alignItems: "center",
+    cursor: "pointer",
+    // For correct alignment with the text.
+    verticalAlign: "middle",
+    WebkitTapHighlightColor: "transparent",
+    marginLeft: -11,
+    marginRight: 16, // used for row presentation of radio/checkbox
+    "& span": { fontSize: theme.typography.pxToRem(13) },
+  },
   bigHelper: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -42,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     "& a": {
       color: theme.palette.text.secondary,
-      textDecoration : "underline!important"
+      textDecoration: "underline!important",
     },
   },
 }));
@@ -54,7 +67,7 @@ const Consent = (props) => {
   const config = useCampaignConfig();
   const classes = useStyles();
   const consentIntro =
-    (config.component?.consent?.intro === false || props.intro === false ) 
+    config.component?.consent?.intro === false || props.intro === false
       ? null
       : t("consent.intro", {
           name: config.organisation,
@@ -67,6 +80,9 @@ const Consent = (props) => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+  };
+  const handleCheck = (event) => {
+    setValue(event.target.name, event.target.checked, { shouldValidate: true });
   };
 
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
@@ -147,6 +163,26 @@ const Consent = (props) => {
           </RadioGroup>
           <FormHelperText>{errors?.privacy?.message}</FormHelperText>
         </FormControl>
+        {config.component.consent?.confirmProcessing && (
+          <>
+            <FormGroup>
+              <FormLabel
+                className={classes.check}
+                placement="end"
+                error={!!(errors && errors.consentProcessing)}
+              >
+                <Checkbox
+                  required
+                  name="consentProcessing"
+                  color="primary"
+                  onChange={handleCheck}
+                  inputRef={register}
+                />
+                <ConsentProcessing checkbox={true} />
+              </FormLabel>
+            </FormGroup>
+          </>
+        )}
       </Grid>
     </Fragment>
   );
@@ -155,6 +191,8 @@ const Consent = (props) => {
 export const ConsentProcessing = (props) => {
   const config = useCampaignConfig();
   const classes = useStyles();
+  if (!props.checkbox && config.component.consent?.confirmProcessing === true)
+    return null;
   const link =
     config.component?.consent?.privacyPolicy ||
     config.org?.privacyPolicy ||
