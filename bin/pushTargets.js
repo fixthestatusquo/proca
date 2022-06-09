@@ -1,4 +1,6 @@
 require("dotenv").config();
+const i18nInit = require("./lang").i18nInit;
+const i18n = require("./lang").i18next;
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run"],
 });
@@ -18,43 +20,60 @@ if (!argv._.length || argv.help) {
   );
   process.exit(0);
 }
-
 const pushCampaignTargets = async (campaignName, file) => {
   const targets = read("target/source/" + file);
   if (targets === null) {
     console.log("no local version of targets");
     return [];
   }
-  const formattedTargets = targets
-    .map((t) => {
-      t.fields = JSON.stringify(t.field);
-      if (!t.name) return null; //skip empty records
-      delete t.id;
-      delete t.field;
-      if (t.fields.lang) {
-        t.locale = t.fields.lang;
-      } else {
-        const l = mainLanguage(t.area);
-        if (l) t.locale = l;
-      }
+  const formatTargets = async () => {
+    const r = await Promise.all(
+      targets.map(async (t) => {
+        if (!t.name) return null; //skip empty records
+        delete t.id;
 
-      if (!t.emails) {
-        t.emails = [];
-        if (t.email) {
-          // check if multiple emails separated by ";"
-          //t.emails = [ {email: t.email.trim()}];
-          t.email
-            .replace(",", ";")
-            .split(";")
-            .forEach((d) => {
-              t.emails.push({ email: d.trim() });
-            });
-          delete t.email;
+        if (t.lang) {
+          t.locale = t.lang;
+        } else {
+          const l = mainLanguage(t.area);
+          if (l) t.locale = l;
         }
-      }
-      return t;
-    })
-    .filter((d) => d !== null);
+
+        if (!t.emails) {
+          t.emails = [];
+          if (t.email) {
+            // check if multiple emails separated by ";"
+            //t.emails = [ {email: t.email.trim()}];
+            t.email
+              .replace(",", ";")
+              .split(";")
+              .forEach((d) => {
+                t.emails.push({ email: d.trim() });
+              });
+            delete t.email;
+          }
+        }
+        if (!t.salutation) {
+          let gender = null;
+          if (t.field.gender) {
+            if (t.field.gender === "M") gender = "male";
+            if (t.field.gender === "F") gender = "female";
+          }
+          const d = await i18n.changeLanguage(t.locale);
+          t.field.salutation = i18n.t("email.salutation", {
+            context: gender,
+            target: { name: t.name },
+          });
+        }
+        t.fields = JSON.stringify(t.field);
+        delete t.field;
+        return t;
+      })
+    );
+    console.log(r);
+    return r.filter((d) => d !== null);
+  };
+  const formattedTargets = await formatTargets();
 
   const campaign = read("campaign/" + campaignName);
   if (campaign === null) {
@@ -67,12 +86,13 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
   upsertTargets(campaignId: $id, replace: $replace, targets: $targets) {id}
 }
 `;
+
   if (formattedTargets.length === 0) {
     console.error("No targets found");
     process.exit(1);
   }
   if (argv["dry-run"]) {
-    console.log(formattedTargets);
+    console.log(await formattedTargets);
     process.exit(1);
   }
 
@@ -90,6 +110,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
 
 (async () => {
   const name = argv._[0];
+  const i = await i18nInit;
   if (!name) throw Error("need pushTargets {campaignName} [--source=file]");
   try {
     await pushCampaignTargets(name, argv.source || name);

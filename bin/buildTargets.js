@@ -94,7 +94,7 @@ const saveTargets = (campaignName, targets) => {
   const name = argv._[0];
   if (!name) {
     console.error(
-      "need buildCampaign {name} [--email] [--display] [--meps[=committeeA,committeeB]]"
+      "need buildTarget {name} [--email] [--display] [--source] [--meps[=committeeA,committeeB]]"
     );
     return;
   }
@@ -105,16 +105,13 @@ const saveTargets = (campaignName, targets) => {
   try {
     const c = read("campaign/" + name); // the config file
     let targets = read("target/server/" + name); // the list of targets from proca server
-    if (argv.source){
+    if (argv.source) {
       const sources = read("target/source/" + name); // the list of targets from proca server
-      const c = targets.filter (t => 
-
-        -1 !== sources.findIndex(
-        (d) => d.externalId === t.externalId
-        )
-      )
-      console.log("total server vs source",targets.length,c.length);
-      targets=c;
+      const c = targets.filter(
+        (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId)
+      );
+      console.log("total server vs source", targets.length, c.length);
+      targets = c;
     }
 
     let twitters = null;

@@ -1,3 +1,8 @@
+const { join } = require("path");
+const { readdirSync, lstatSync } = require("fs");
+const i18next = require("i18next");
+const Backend = require("i18next-fs-backend");
+
 const languages = {
   be: ["fr", "nl"],
   el: "el",
@@ -28,6 +33,23 @@ const languages = {
   pl: "pl",
 };
 
+const i18nInit = i18next.use(Backend).init({
+  preload: readdirSync(join(__dirname, "../src/locales")).filter((fileName) => {
+    const joinedPath = join(join(__dirname, "../src/locales"), fileName);
+    const isDirectory = lstatSync(joinedPath).isDirectory();
+    return isDirectory;
+  }),
+  backend: {
+    loadPath: join(__dirname, "../src/locales/{{lng}}/{{ns}}.json"),
+  },
+  lng: Object.keys(languages),
+  fallbackLng: "en",
+  //    debug: true,
+  // have a common namespace used around the full app
+  ns: ["common"],
+  defaultNS: "common",
+});
+
 const mainLanguage = (countryCode, single = true) => {
   // single: remove countries with multiple languages
   const l = languages[countryCode.toLowerCase()];
@@ -37,4 +59,6 @@ const mainLanguage = (countryCode, single = true) => {
 
 module.exports = {
   mainLanguage,
+  i18next,
+  i18nInit,
 };
