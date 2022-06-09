@@ -116,7 +116,7 @@
   "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
   "salutation": "Sehr geehrte:r {{target.name}}",
   "salutation_male": "Sehr geehrte Herr {{target.name}}",
-  "salutation_female": "Sehr geehrte Frau  {{target.name}}"
+  "salutation_female": "Sehr geehrte Frau {{target.name}}"
   },
   "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
