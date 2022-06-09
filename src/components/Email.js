@@ -301,7 +301,7 @@ const Component = (props) => {
               <FormControl fullWidth>
                 <FilledInput
                   fullWidth={true}
-                  placeholder={t("email.salutation_placeholder")}
+                  placeholder={t("email.salutation_placeholder") + ","}
                   readOnly
                 />
                 <FormHelperText>{t("email.salutation_info")}</FormHelperText>
@@ -341,6 +341,9 @@ const Component = (props) => {
   const prepareData = (data) => {
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += "\n" + data.comment;
+    if (config.component.email?.salutation) {
+      data.message = "{{target.salutation}},\n" + data.message;
+    }
     return data;
   };
 
