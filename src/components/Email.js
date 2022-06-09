@@ -92,13 +92,18 @@ const Component = (props) => {
         }
       }
       return undefined;
-    }); // eslint-disable-next-line
+    });
   }, [
+    // eslint-disable-next-line
     {
       firstname: tokens.firstname,
       country: tokens.country ? getCountryName(tokens.country) : "",
     },
+    // eslint-disable-next-line
     fields,
+    tokenKeys,
+    data,
+    t,
     form,
   ]);
   // todo: clean the dependency
