@@ -16,7 +16,7 @@ const checkMail = async (email) => {
     return r;
   } catch (e) {
     console.log(e);
-    return false;
+    return ""; // don't block submission if the service isn't reachable
   }
 };
 
