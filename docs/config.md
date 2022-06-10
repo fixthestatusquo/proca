@@ -161,6 +161,7 @@ to collect the consent of being contacted
 - config.component.consent.implicit: boolean. default false. Beside when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
 - config.component.consent.privacyPolicy: **very important**: the privacy policy of the organisation embedding the widget
 - config.component.consent.split: if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
+- confirm.component.consent.confirmProcessing. Add a checkbox (required) with the text of the consent processing
 
 ## Share
 

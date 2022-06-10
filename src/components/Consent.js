@@ -17,6 +17,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { Controller } from "react-hook-form";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Consent = (props) => {
-  const { errors, register } = props.form;
+  const { errors, register, control } = props.form;
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
   const config = useCampaignConfig();
@@ -81,12 +82,8 @@ const Consent = (props) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  const handleCheck = (event) => {
-    setValue(event.target.name, event.target.checked, { shouldValidate: true });
-  };
 
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
-
   return (
     <Fragment>
       <Grid item xs={12}>
@@ -164,24 +161,29 @@ const Consent = (props) => {
           <FormHelperText>{errors?.privacy?.message}</FormHelperText>
         </FormControl>
         {config.component.consent?.confirmProcessing && (
-          <>
+          <FormControl error={!!(errors && errors.consentProcessing)}>
             <FormGroup>
-              <FormLabel
-                className={classes.check}
-                placement="end"
-                error={!!(errors && errors.consentProcessing)}
-              >
-                <Checkbox
-                  required
+              <FormLabel className={classes.check} placement="end">
+                <Controller
                   name="consentProcessing"
-                  color="primary"
-                  onChange={handleCheck}
-                  inputRef={register}
+                  control={control}
+                  defaultValue={false}
+                  rules={{ required: t("Mandatory field") }}
+                  render={(props) => (
+                    <Checkbox
+                      color="primary"
+                      onChange={(e) => props.onChange(e.target.checked)}
+                      checked={props.value}
+                    />
+                  )}
                 />
-                <ConsentProcessing checkbox={true} />
+                <ConsentProcessing checkboxLabel={true} />
               </FormLabel>
+              <FormHelperText>
+                {errors.consentProcessing?.message}
+              </FormHelperText>
             </FormGroup>
-          </>
+          </FormControl>
         )}
       </Grid>
     </Fragment>
@@ -191,7 +193,10 @@ const Consent = (props) => {
 export const ConsentProcessing = (props) => {
   const config = useCampaignConfig();
   const classes = useStyles();
-  if (!props.checkbox && config.component.consent?.confirmProcessing === true)
+  if (
+    !props.checkboxLabel &&
+    config.component.consent?.confirmProcessing === true
+  )
     return null;
   const link =
     config.component?.consent?.privacyPolicy ||
@@ -205,7 +210,7 @@ export const ConsentProcessing = (props) => {
 
   return (
     <Grid item xs={12}>
-      <Box className={classes.notice}>
+      <Box className={props.checkboxLabel ? "" : classes.notice}>
         <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
           Consent processing according to <a href={link}>privacy policy</a>
         </Trans>
