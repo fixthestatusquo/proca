@@ -147,7 +147,7 @@
       "street.number": "Numeris",
       "country": "Šalis",
       "postal.code": "Pašto kodas",
-      "date.of.birth": "Gimimo data",
+      "date-of-birth": "Gimimo data",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

@@ -147,7 +147,7 @@
       "street.number": "Majanumber",
       "country": "Riik",
       "postal.code": "Sihtnumber",
-      "date.of.birth": "Sünniaeg",
+      "date-of-birth": "Sünniaeg",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

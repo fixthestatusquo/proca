@@ -148,7 +148,7 @@
       "address": "Adress (gata, nummer m.m.)",
       "country": "Land",
       "postal.code": "Postnummer",
-      "date.of.birth": "Födelsedatum",
+      "date-of-birth": "Födelsedatum",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

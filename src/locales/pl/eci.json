@@ -148,7 +148,7 @@
       "street.number": "Numer domu",
       "country": "Państwo",
       "postal.code": "Kod pocztowy",
-      "date.of.birth": "Data urodzenia",
+      "date-of-birth": "Data urodzenia",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

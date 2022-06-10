@@ -148,7 +148,7 @@
       "address": "Adresa (strada, numărul, altele)",
       "country": "Țara",
       "postal.code": "Codul poștal",
-      "date.of.birth": "Data de naștere",
+      "date-of-birth": "Data de naștere",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

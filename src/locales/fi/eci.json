@@ -147,7 +147,7 @@
       "street.number": "Talon/asunnon numero",
       "country": "Maa",
       "postal.code": "Postinumero",
-      "date.of.birth": "Syntymäaika",
+      "date-of-birth": "Syntymäaika",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

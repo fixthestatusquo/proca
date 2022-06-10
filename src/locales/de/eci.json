@@ -151,7 +151,7 @@
       "street.number": "Hausnummer",
       "country": "Land",
       "postal.code": "Postleitzahl",
-      "date.of.birth": "Geburtsdatum",
+      "date-of-birth": "Geburtsdatum",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

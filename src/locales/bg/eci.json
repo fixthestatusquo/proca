@@ -147,7 +147,7 @@
       "street.number": "Номер",
       "country": "Държава",
       "postal.code": "Пощенски код",
-      "date.of.birth": "Дата на раждане",
+      "date-of-birth": "Дата на раждане (ДД/ММ/ГГГГ)",
       "id.card": "",
       "national.id.number": "",
       "passport": "",
