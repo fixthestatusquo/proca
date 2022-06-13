@@ -40,12 +40,12 @@
     "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails von {{name}} zu erhalten.",
     "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
-    "required":"Zustimmung erforderlich zur Teilnahme",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten",
     "opt-out": "Nein, senden Sie mir keine E-Mails und halten Sie mich in Zukunft nicht auf dem Laufenden",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden."
+    "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
+    "required": "Zustimmung erforderlich zur Teilnahme"
   },
   "dialogTitle": "Informieren Sie mich über die Kampagne",
   "donation": {
@@ -114,16 +114,17 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-  "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r",
-  "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
-  "salutation": "Sehr geehrte:r {{target.name}}",
-  "salutation_male": "Sehr geehrte Herr {{target.name}}",
-  "salutation_female": "Sehr geehrte Frau {{target.name}}"
+    "salutation": "Sehr geehrte:r {{target.name}}",
+    "salutation_female": "Sehr geehrte Frau {{target.name}}",
+    "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
+    "salutation_male": "Sehr geehrte Herr {{target.name}}",
+    "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
   "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "required": "Bitte füllen Sie dieses Feld aus",
+  "required field": "Erforderliches Feld",
   "salutations": {
     "f": "Frau",
     "m": "Herr",
