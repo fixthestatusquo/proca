@@ -347,7 +347,7 @@ const Component = (props) => {
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += "\n" + data.comment;
     if (config.component.email?.salutation) {
-      data.message = "{{target.salutation}},\n" + data.message;
+      data.message = "{{target.fields.salutation}},\n" + data.message;
     }
     return data;
   };

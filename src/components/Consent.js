@@ -148,7 +148,7 @@ const Consent = (props) => {
               checked={value === "opt-out"}
               control={<Radio />}
               className={classes.label}
-              inputRef={register({ required: t("Mandatory field") })}
+              inputRef={register({ required: t("required field") })}
               label={t("consent.opt-out")}
             />
             {confirmOptOut && (

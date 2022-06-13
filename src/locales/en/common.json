@@ -20,6 +20,7 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
+  "required field": "Required field",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -38,6 +39,7 @@
     "other": "Other"
   },
   "consent": {
+    "required": "Your consent is needed to participate",
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "confirmAction": "Please retrieve the email right now and click on the link it contains (check your spam folder!).\n Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there is a real person behind every submission. We’ll await your confirmation...",
     "confirmOptIn": "Don’t forget to check your mailbox (including your spam folder!) and confirm your email subscription",

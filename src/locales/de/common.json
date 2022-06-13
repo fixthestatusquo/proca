@@ -39,6 +39,7 @@
     "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails von {{name}} zu erhalten.",
     "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
+    "required":"Zustimmung erforderlich zur Teilnahme",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten",
     "opt-out": "Nein, senden Sie mir keine E-Mails und halten Sie mich in Zukunft nicht auf dem Laufenden",
