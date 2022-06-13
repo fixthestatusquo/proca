@@ -43,7 +43,8 @@
     "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
     "opt-out": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
-    "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara."
+    "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
+    "required": "Cal el vostre consentiment per participar"
   },
   "dialogTitle": "Mantingueu-me informat de la campanya",
   "donation": {
@@ -122,6 +123,7 @@
   "progress_plural": "",
   "register": "Afegeix el meu nom",
   "required": "Si us plau, ompliu aquest camp",
+  "required field": "Camp necessari",
   "salutations": {
     "f": "Senyora.",
     "m": "Sr.",
