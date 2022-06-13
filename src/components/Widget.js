@@ -57,7 +57,7 @@ const Widget = (props) => {
   let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
-  let isMobile = useIsMobile();
+  let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
 
   var data = Url.data();
   const cookies = {
