@@ -45,15 +45,23 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "1.3em",
   },
   label: {
-    fontSize: theme.typography.pxToRem(13),
+    "& span": {
+      color: theme.palette.text.primary,
+      marginBottom: theme.spacing(0),
+      lineHeight: "1.1em!important",
+    },
+  },
+  consentProcessing: {
     color: theme.palette.text.primary,
-    marginBottom: theme.spacing(0),
+    hyphens: "auto",
+    lineHeight: "1.1em",
   },
   notice: {
     fontSize: theme.typography.pxToRem(13),
     fontWeight: "fontWeightLight",
-    lineHeight: "1.3em",
+    lineHeight: "1.1em",
     color: theme.palette.text.secondary,
+    hyphens: "auto",
     "& a": {
       color: theme.palette.text.secondary,
       textDecoration: "underline!important",
@@ -168,7 +176,7 @@ const Consent = (props) => {
                   name="consentProcessing"
                   control={control}
                   defaultValue={false}
-                  rules={{ required: t("Mandatory field") }}
+                  rules={{ required: t("consent.required") }}
                   render={(props) => (
                     <Checkbox
                       color="primary"
@@ -210,7 +218,11 @@ export const ConsentProcessing = (props) => {
 
   return (
     <Grid item xs={12}>
-      <Box className={props.checkboxLabel ? "" : classes.notice}>
+      <Box
+        className={
+          props.checkboxLabel ? classes.consentProcessing : classes.notice
+        }
+      >
         <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
           Consent processing according to <a href={link}>privacy policy</a>
         </Trans>
