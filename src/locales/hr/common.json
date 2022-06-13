@@ -44,7 +44,8 @@
     "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
     "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka"
+    "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
+    "required": "Za sudjelovanje je potreban vaš pristanak"
   },
   "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
   "required": "Molimo popunite ovo polje",
+  "required field": "Obavezno polje",
   "salutations": {
     "f": "gđa.",
     "m": "gosp.",
