@@ -44,7 +44,8 @@
     "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem",
     "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
-    "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően"
+    "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
+    "required": "A részvételhez az Ön hozzájárulása szükséges"
   },
   "dialogTitle": "Tájékoztasson a kampányról",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "",
   "register": "Add hozzá a nevemet",
   "required": "Kérjük, töltse ki ezt a mezőt",
+  "required field": "Kötelező mező",
   "salutations": {
     "f": "Ms.",
     "m": "Mr.",
