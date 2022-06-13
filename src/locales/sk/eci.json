@@ -147,7 +147,7 @@
       "street": "Číslo",
       "country": "Štát",
       "postal.code": "PSČ",
-      "date.of.birth": "Dátum narodenia",
+      "date-of-birth": "Dátum narodenia",
       "place.of.birth": "Miesto narodenia",
       "id.card": "",
       "national.id.number": "",

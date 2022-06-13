@@ -147,7 +147,7 @@
       "street.number": "Mājas numurs",
       "country": "Valsts",
       "postal.code": "Pasta indekss",
-      "date.of.birth": "Dzimšanas datums",
+      "date-of-birth": "Dzimšanas datums",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

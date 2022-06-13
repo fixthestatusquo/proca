@@ -151,7 +151,7 @@
       "street.number": "číslo",
       "country": "Země",
       "postal.code": "PSČ",
-      "date.of.birth": "Datum narození (DD/MM/RRRR)",
+      "date-of-birth": "Datum narození (DD/MM/RRRR)",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

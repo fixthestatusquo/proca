@@ -147,7 +147,7 @@
       "street.number": "Številka",
       "country": "Država",
       "postal.code": "Poštna številka",
-      "date.of.birth": "Datum rojstva",
+      "date-of-birth": "Datum rojstva",
       "id.card": "",
       "national.id.number": "",
       "passport": "",

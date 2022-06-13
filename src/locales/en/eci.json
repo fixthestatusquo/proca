@@ -245,7 +245,7 @@
       "citizens.card": "",
       "city": "City",
       "country": "Country",
-      "date.of.birth": "Date of birth (DD/MM/YYYY)",
+      "date-of-birth": "Date of birth (DD/MM/YYYY)",
       "date_of_birth": "date_of_birth",
       "family.names": "Family names",
       "family_names": "family_names",

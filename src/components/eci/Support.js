@@ -108,7 +108,7 @@ const Support = (props) => {
   }, [reload, setValue]);
 
   useEffect(() => {
-    if (nationality && nationality !== "ZZ") {
+    if (nationality && nationality !== "ZZ" && documents[nationality.toLowerCase()]) {
       const ids = documents[nationality.toLowerCase()];
       setIds(documents[nationality.toLowerCase()]);
       clearErrors("documentNumber");

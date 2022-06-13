@@ -61,7 +61,7 @@ export default function Register(props) {
               form={form}
               name="birthDate"
               onBlur={handleBlur}
-              label={t("eci:form.property.date_of_birth")}
+              label={t("eci:form.property.date-of-birth")}
               placeholder="dd/mm/jjjj"
               required
             />
