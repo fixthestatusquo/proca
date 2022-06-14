@@ -40,7 +40,6 @@ export default function Register(props) {
             form={form}
             name="firstname"
             label={t("eci:form.property.full_first_names")}
-            placeholder="eg. Leonardo"
             autoComplete="given-name"
             required
           />
@@ -51,7 +50,6 @@ export default function Register(props) {
             name="lastname"
             label={t("eci:form.property.family_names")}
             autoComplete="family-name"
-            placeholder="eg. Da Vinci"
             required
           />
         </Grid>
@@ -62,7 +60,6 @@ export default function Register(props) {
               name="birthDate"
               onBlur={handleBlur}
               label={t("eci:form.property.date-of-birth")}
-              placeholder="dd/mm/jjjj"
               required
             />
           </Grid>

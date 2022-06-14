@@ -75,7 +75,6 @@ export default function Register(props) {
               " & " +
               t("eci:form.property.street")
             }
-            placeholder="42 via Europa"
             required
           />
         </Grid>
