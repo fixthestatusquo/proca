@@ -169,7 +169,6 @@ const Consent = (props) => {
           <FormHelperText>{errors?.privacy?.message}</FormHelperText>
         </FormControl>
         <ConfirmProcessing form={props.form} />
-        )}
       </Grid>
     </Fragment>
   );
@@ -180,30 +179,29 @@ export const ConfirmProcessing = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
+  if (!config.component.consent?.confirmProcessing) return null;
   return (
-    config.component.consent?.confirmProcessing && (
-      <FormControl error={!!(errors && errors.consentProcessing)}>
-        <FormGroup>
-          <FormLabel className={classes.check} placement="end">
-            <Controller
-              name="consentProcessing"
-              control={control}
-              defaultValue={false}
-              rules={{ required: t("consent.required") }}
-              render={(props) => (
-                <Checkbox
-                  color="primary"
-                  onChange={(e) => props.onChange(e.target.checked)}
-                  checked={props.value}
-                />
-              )}
-            />
-            <ConsentProcessing checkboxLabel={true} />
-          </FormLabel>
-          <FormHelperText>{errors.consentProcessing?.message}</FormHelperText>
-        </FormGroup>
-      </FormControl>
-    )
+    <FormControl error={!!(errors && errors.consentProcessing)}>
+      <FormGroup>
+        <FormLabel className={classes.check} placement="end">
+          <Controller
+            name="consentProcessing"
+            control={control}
+            defaultValue={false}
+            rules={{ required: t("consent.required") }}
+            render={(props) => (
+              <Checkbox
+                color="primary"
+                onChange={(e) => props.onChange(e.target.checked)}
+                checked={props.value}
+              />
+            )}
+          />
+          <ConsentProcessing checkboxLabel={true} />
+        </FormLabel>
+        <FormHelperText>{errors.consentProcessing?.message}</FormHelperText>
+      </FormGroup>
+    </FormControl>
   );
 };
 
