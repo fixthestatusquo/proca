@@ -1,7 +1,9 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
-const argv = require("minimist")(process.argv.slice(2));
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: ["help", "keep", "dry-run"],
+});
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
 
@@ -50,7 +52,14 @@ const merge = (targets, twitters, options) => {
       r.display = !!target.fields.display;
     }
 
-    if (target.fields.salutation) r.salutation = target.fields.salutation;
+    if (argv.fields) {
+      const extraFields = argv.fields.split(",");
+      r.fields = {};
+      extraFields.forEach((key) => {
+        r.fields[key] = target.fields[key] || "";
+      });
+    }
+    //    if (target.fields.salutation) r.salutation = target.fields.salutation;
 
     return r;
   });
@@ -86,18 +95,31 @@ const merge = (targets, twitters, options) => {
 */
 const saveTargets = (campaignName, targets) => {
   const fileName = file("target/public/" + campaignName);
+  if (argv["dry-run"]) return console.log(fileName, targets);
+
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
 };
 
+if (!argv._.length || argv.help) {
+  console.log(
+    [
+      "options",
+      "--help (this command)",
+      "--dry-run (show the parsed targets but don't push)",
+      "--email (for campaigns sending client side)",
+      "--display (filters based on the display field)",
+      "--source (filter the server list based on source - if the server has more targets than the source)",
+      "--meps[=committeeA,committeeB] if meps, special formatting",
+      "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
+      "buildTarget {campaign name}",
+    ].join("\n")
+  );
+  process.exit(0);
+}
+
 (async () => {
   const name = argv._[0];
-  if (!name) {
-    console.error(
-      "need buildTarget {name} [--email] [--display] [--source] [--meps[=committeeA,committeeB]]"
-    );
-    return;
-  }
   const publicEmail = argv.email || false;
   const display = argv.display || false;
   const meps = argv.meps || false;
