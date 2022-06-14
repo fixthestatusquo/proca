@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
-import {  Controller } from "react-hook-form";
-
+import { Controller } from "react-hook-form";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -23,9 +22,10 @@ const TextFieldProca = (props) => {
   const { t } = useTranslation();
   const layout = useLayout();
   const classes = useStyles();
-  const ref = useRef();
+  const refA = useRef();
 
   const handleValidate = (value, name, dom) => {
+    console.log(value, name, dom);
     dom.checkValidity();
     if (dom.validity.valid) {
       clearErrors(name); // synchronise the status to material-ui
@@ -35,36 +35,63 @@ const TextFieldProca = (props) => {
   };
 
   const { errors, control, clearErrors, watch } = props.form;
-  const value = watch(props.name) || "";
-
+  //  const value = watch(props.name) || "";
   let validation = {
-         html5: (v) => handleValidate(v,props.name,ref.current),
+    html5: (v) => handleValidate(v, props.name, refA.current),
   };
-  let drillProps = {...props};
-  if (props.validate)  {
+  let drillProps = { ...props };
+  if (props.validate) {
     validation.props = props.validate;
     delete drillProps.validate;
   }
+  delete drillProps.onChange;
+  delete drillProps.onBlur;
   return (
     <Controller
-    defaultValue=""
-    as ={TextField}
+      defaultValue=""
+      render={({ onChange, onBlur, value, name, ref }) => {
+        let handleChange = onChange;
+        //let handleBlur = onBlur;
+        let handleBlur = (e) => {
+          console.log("blur", e);
+          onBlur(e);
+        };
+        if (props.onBlur) {
+          console.log("blur", name);
+          handleBlur = (e) => onBlur(e) || props.onBlur(e);
+        }
+
+        if (props.onChange) {
+          handleChange = (e) => onChange(e) || props.onChange(e);
+        }
+        return (
+          <TextField
+            InputLabelProps={{ shrink: value.length > 0 }}
+            onChange={handleChange}
+            value={value}
+            onBlur={handleBlur}
+            className={classes.textField}
+            error={!!(errors && errors[props.name])}
+            helperText={
+              errors && errors[props.name] && errors[props.name].message
+            }
+            variant={layout.variant}
+            margin={layout.margin}
+            a
+            inputRef={refA}
+            {...drillProps}
+          />
+        );
+      }}
       id={"proca_" + props.name}
-    inputRef={ref}
-    control = {control}
-     rules= {{ 
-       validate: validation,
-//       required: props.required // uncomment to bypass html5 native required 
-     }}
+      control={control}
+      rules={{
+        validate: validation,
+        //       required: props.required // uncomment to bypass html5 native required
+      }}
+      inputRef={refA}
       name={props.name}
       label={/* i18next-extract-disable-line */ t(props.name)}
-      InputLabelProps={{ shrink: value.length > 0 }}
-      className={classes.textField}
-      error={!!(errors && errors[props.name])}
-      helperText={errors && errors[props.name] && errors[props.name].message}
-      variant={layout.variant}
-      margin={layout.margin}
-      {...drillProps}
     />
   );
 };

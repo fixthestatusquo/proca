@@ -35,6 +35,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Filter = (props) => {
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
+  let r = {};
+  if (config.component.email?.filter?.includes("country"))
+    r = <Country form={props.form} list={config.component.email?.countries} />;
+
+  if (Array.isArray(config.component.email?.filter)) {
+    config.component.email.filter.forEach((d) => {
+      const data = config.component.email?.data[d];
+      if (!data) return null;
+      r = (
+        <TextField
+          select
+          name={d}
+          label={t(d)}
+          form={props.form}
+          onChange={(e) => {
+            props.selecting(d, e.target.value);
+          }}
+          SelectProps={{
+            native: true,
+          }}
+        >
+          <option key="" value=""></option>
+
+          {data.map((option) => (
+            <option key={option.key} value={option.key}>
+              {option.value}
+            </option>
+          ))}
+        </TextField>
+      );
+    });
+  }
+  return r;
+};
+
 const Component = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
@@ -52,7 +90,7 @@ const Component = (props) => {
   };
 
   const form = useForm({
-    //    mode: "onBlur",
+    mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: Object.assign({}, paramEmail, data),
   });
@@ -352,14 +390,31 @@ const Component = (props) => {
     return data;
   };
 
+  const filterTarget = (key, value) => {
+    console.log(allProfiles);
+    const d = allProfiles.filter((d) => {
+      return d.fields[key] === value;
+    });
+
+    if (d.length === 0) {
+      setError(key, {
+        message: t("target.country.empty", {
+          country: value,
+        }),
+        type: "no_empty",
+      });
+    } else {
+      clearErrors(key);
+    }
+    setProfiles(d);
+  };
+
   return (
     <Container maxWidth="sm">
       {config.component.email?.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
-      {config.component.email?.filter?.includes("country") && (
-        <Country form={form} list={config.component.email?.countries} />
-      )}
+      <Filter form={form} selecting={filterTarget} />
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
           {profiles.length === 0 && <SkeletonListItem />}
