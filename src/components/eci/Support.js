@@ -82,6 +82,7 @@ const Support = (props) => {
   //config.component.eci.apiUrl
 
   const form = useForm({
+    mode: "onBlur",
     defaultValues: data,
   });
 
@@ -108,7 +109,11 @@ const Support = (props) => {
   }, [reload, setValue]);
 
   useEffect(() => {
-    if (nationality && nationality !== "ZZ" && documents[nationality.toLowerCase()]) {
+    if (
+      nationality &&
+      nationality !== "ZZ" &&
+      documents[nationality.toLowerCase()]
+    ) {
       const ids = documents[nationality.toLowerCase()];
       setIds(documents[nationality.toLowerCase()]);
       clearErrors("documentNumber");
