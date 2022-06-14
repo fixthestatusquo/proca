@@ -391,7 +391,6 @@ const Component = (props) => {
   };
 
   const filterTarget = (key, value) => {
-    console.log(allProfiles);
     const d = allProfiles.filter((d) => {
       return d.fields[key] === value;
     });

@@ -25,7 +25,6 @@ const TextFieldProca = (props) => {
   const refA = useRef();
 
   const handleValidate = (value, name, dom) => {
-    console.log(value, name, dom);
     dom.checkValidity();
     if (dom.validity.valid) {
       clearErrors(name); // synchronise the status to material-ui
@@ -52,12 +51,7 @@ const TextFieldProca = (props) => {
       render={({ onChange, onBlur, value, name, ref }) => {
         let handleChange = onChange;
         //let handleBlur = onBlur;
-        let handleBlur = (e) => {
-          console.log("blur", e);
-          onBlur(e);
-        };
         if (props.onBlur) {
-          console.log("blur", name);
           handleBlur = (e) => onBlur(e) || props.onBlur(e);
         }
 
