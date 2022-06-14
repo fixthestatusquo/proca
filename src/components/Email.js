@@ -167,8 +167,13 @@ const Component = (props) => {
             setProfiles(d);
           }
           if (config.component.email?.filter?.includes("random")) {
-            const i = d[Math.floor(Math.random() * d.length)];
-            setProfiles([i]);
+            if (!config.component.email.sample) {
+              const i = d[Math.floor(Math.random() * d.length)];
+              setProfiles([i]);
+            } else {
+              const shuffled = d.sort(() => 0.5 - Math.random());
+              setProfiles(shuffled.slice(0, config.component.email.sample - 1));
+            }
           }
         })
         .catch((error) => {
