@@ -511,7 +511,7 @@ export default function Register(props) {
               </Grid>
               <Grid item xs={12}>
                 <ConsentProcessing />
-                {(props.buttonNext || config.component.register?.next) && (
+                {config.component.register?.next && (
                   <Button
                     endIcon={<SkipNextIcon />}
                     className={classes.next}

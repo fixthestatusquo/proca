@@ -4,6 +4,7 @@ import { Grid, FormHelperText } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
+import { ConfirmProcessing } from "@components/Consent";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -43,6 +44,9 @@ const ImplicitConsent = (props) => {
 
   return (
     <>
+      <Grid item xs={12}>
+        <ConfirmProcessing form={props.form} />
+      </Grid>
       {config.component.consent.implicit !== "opt-out" && (
         <>
           <Grid item xs={12}>

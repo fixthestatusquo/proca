@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Consent = (props) => {
-  const { errors, register, control } = props.form;
+  const { errors, register } = props.form;
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
   const config = useCampaignConfig();
@@ -168,33 +168,42 @@ const Consent = (props) => {
           </RadioGroup>
           <FormHelperText>{errors?.privacy?.message}</FormHelperText>
         </FormControl>
-        {config.component.consent?.confirmProcessing && (
-          <FormControl error={!!(errors && errors.consentProcessing)}>
-            <FormGroup>
-              <FormLabel className={classes.check} placement="end">
-                <Controller
-                  name="consentProcessing"
-                  control={control}
-                  defaultValue={false}
-                  rules={{ required: t("consent.required") }}
-                  render={(props) => (
-                    <Checkbox
-                      color="primary"
-                      onChange={(e) => props.onChange(e.target.checked)}
-                      checked={props.value}
-                    />
-                  )}
-                />
-                <ConsentProcessing checkboxLabel={true} />
-              </FormLabel>
-              <FormHelperText>
-                {errors.consentProcessing?.message}
-              </FormHelperText>
-            </FormGroup>
-          </FormControl>
+        <ConfirmProcessing form={props.form} />
         )}
       </Grid>
     </Fragment>
+  );
+};
+
+export const ConfirmProcessing = (props) => {
+  const { errors, control } = props.form;
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
+  const classes = useStyles();
+  return (
+    config.component.consent?.confirmProcessing && (
+      <FormControl error={!!(errors && errors.consentProcessing)}>
+        <FormGroup>
+          <FormLabel className={classes.check} placement="end">
+            <Controller
+              name="consentProcessing"
+              control={control}
+              defaultValue={false}
+              rules={{ required: t("consent.required") }}
+              render={(props) => (
+                <Checkbox
+                  color="primary"
+                  onChange={(e) => props.onChange(e.target.checked)}
+                  checked={props.value}
+                />
+              )}
+            />
+            <ConsentProcessing checkboxLabel={true} />
+          </FormLabel>
+          <FormHelperText>{errors.consentProcessing?.message}</FormHelperText>
+        </FormGroup>
+      </FormControl>
+    )
   );
 };
 
