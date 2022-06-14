@@ -60,7 +60,7 @@ const TextFieldProca = (props) => {
         }
         return (
           <TextField
-            InputLabelProps={{ shrink: value.length > 0 }}
+            InputLabelProps={{ shrink: value && value.length > 0 }}
             onChange={handleChange}
             value={value}
             onBlur={handleBlur}

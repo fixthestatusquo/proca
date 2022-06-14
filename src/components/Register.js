@@ -373,7 +373,6 @@ export default function Register(props) {
                   form={form}
                   name="firstname"
                   label={t("First name")}
-                  placeholder="eg. Leonardo"
                   autoComplete="given-name"
                   required
                 />
@@ -385,7 +384,6 @@ export default function Register(props) {
                     name="lastname"
                     label={t("Last name")}
                     autoComplete="family-name"
-                    placeholder="eg. Da Vinci"
                     required={
                       config.component.register?.field?.lastname?.required
                     }
@@ -411,7 +409,6 @@ export default function Register(props) {
                   label={t("Email")}
                   autoComplete="email"
                   required
-                  placeholder="your.email@example.org"
                 />
               </Grid>
               {config.component.register?.field?.postcode !== false && (
