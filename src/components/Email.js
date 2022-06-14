@@ -172,7 +172,7 @@ const Component = (props) => {
               setProfiles([i]);
             } else {
               const shuffled = d.sort(() => 0.5 - Math.random());
-              setProfiles(shuffled.slice(0, config.component.email.sample - 1));
+              setProfiles(shuffled.slice(0, config.component.email.sample));
             }
           }
         })
