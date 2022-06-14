@@ -50,7 +50,7 @@ const TextFieldProca = (props) => {
       defaultValue=""
       render={({ onChange, onBlur, value, name, ref }) => {
         let handleChange = onChange;
-        //let handleBlur = onBlur;
+        let handleBlur = onBlur;
         if (props.onBlur) {
           handleBlur = (e) => onBlur(e) || props.onBlur(e);
         }
