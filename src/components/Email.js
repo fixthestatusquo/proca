@@ -38,13 +38,14 @@ const useStyles = makeStyles((theme) => ({
 const Filter = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  let r = {};
+  let r = null;
   if (config.component.email?.filter?.includes("country"))
     r = <Country form={props.form} list={config.component.email?.countries} />;
 
   if (Array.isArray(config.component.email?.filter)) {
     config.component.email.filter.forEach((d) => {
-      const data = config.component.email?.data[d];
+      const data =
+        config.component.email?.data && config.component.email?.data[d];
       if (!data) return null;
       r = (
         <TextField
@@ -70,6 +71,7 @@ const Filter = (props) => {
       );
     });
   }
+  console.log(r);
   return r;
 };
 

@@ -33,7 +33,7 @@ const TextFieldProca = (props) => {
     return dom.validationMessage;
   };
 
-  const { errors, control, clearErrors, watch } = props.form;
+  const { errors, control, clearErrors } = props.form;
   //  const value = watch(props.name) || "";
   let validation = {
     html5: (v) => handleValidate(v, props.name, refA.current),
