@@ -52,7 +52,6 @@ const useSetLayout = () => {
 const useIsMobile = (never = null) => {
   //never !== null means never be mobile
   // there is another useIsMobile, based on the userAgent at src/hooks/useDevice
-  console.log("step", never);
   const mobile = useMediaQuery("(max-width:768px)", { noSsr: true });
   return never === null && mobile;
 };
