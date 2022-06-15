@@ -44,7 +44,8 @@
     "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti",
     "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
     "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
-    "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>."
+    "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
+    "required": "Za sodelovanje je potrebno vaše soglasje."
   },
   "dialogTitle": "Obveščajte me o kampanji",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} so se podpisali. Pojdimo v {{goal}}",
   "register": "Dodaj moje ime",
   "required": "Izpolnite to polje",
+  "required field": "Obvezno polje",
   "salutations": {
     "f": "gospa.",
     "m": "Gospod.",
