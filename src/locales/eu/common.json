@@ -46,6 +46,7 @@
     "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
     "required": "Zure baimena behar da parte hartzeko"
   },
+  "dateFormat": "MM/DD/AAAA",
   "dialogTitle": "Jarrai nazazu kanpainaren berri",
   "donation": {
     "amount": {
