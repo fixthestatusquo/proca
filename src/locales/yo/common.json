@@ -46,6 +46,7 @@
     "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
     "required": "A nilo igbanilaaye lati kopa"
   },
+  "dateFormat": "MM/DD/ỌDÚN",
   "dialogTitle": "Pa mi mọ nipa ipolongo naa",
   "donation": {
     "amount": {
