@@ -43,7 +43,8 @@
     "opt-in-both": "Bẹẹni, Mo fẹ {{partner}} ati {{lead}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
     "opt-out": "Rara, maṣe fi imeeli ranṣẹ si mi tabi jẹ ki n ṣe imudojuiwọn ni ọjọ iwaju",
     "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
-    "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>"
+    "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
+    "required": "A nilo igbanilaaye lati kopa"
   },
   "dialogTitle": "Pa mi mọ nipa ipolongo naa",
   "donation": {
@@ -121,6 +122,7 @@
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
   "register": "Fi orukọ mi kun",
   "required": "Jọwọ fọwọsi aaye yii",
+  "required field": "Aaye ti a beere",
   "salutations": {
     "f": "Iyaafin",
     "m": "Ọgbẹni.",
