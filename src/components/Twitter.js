@@ -76,7 +76,7 @@ const TweetButton = (props) => {
 };
 
 const Component = (props) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data, setData] = useData();

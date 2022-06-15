@@ -88,13 +88,19 @@ const CreateMeme = (props) => {
         const response = await r.json();
         response.forEach((d) => {
           templates.push({
-            top: t("campaign:meme" + d.top_text, ""),
-            bottom: t("campaign:meme" + d.bottom_text, ""),
+            top: t("campaign:meme." + d.top_text.replaceAll("_", "-"), ""),
+            bottom: t(
+              "campaign:meme." + d.bottom_text.replaceAll("_", "-"),
+              ""
+            ),
             name: d.top_text.split(".")[0],
             original: d.image,
           });
         });
         setItems(templates);
+        //force update here, otherwise the selection is done before the items are set
+        setValue("topText", templates[0].top);
+        setValue("bottomText", templates[0].bottom);
       }
     })(setItems);
 
@@ -104,9 +110,7 @@ const CreateMeme = (props) => {
   }, []);
 
   const selectOne = (i) => {
-    console.log(i);
     if (!items[i]) {
-      console.log("loading...");
       return false;
     }
     setValue("topText", items[i].top);
@@ -205,17 +209,17 @@ const CreateMeme = (props) => {
     const encoder = new TextEncoder();
     const m = JSON.stringify(d, Object.keys(d).sort());
     const hashBuffer = await crypto.subtle.digest("SHA-256", encoder.encode(m));
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-    console.log(d, hash, m);
+    const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
+      .replace(/\+/g, "_")
+      .replace(/\//g, "-")
+      .replace(/=+$/g, "");
+    // hash = base64url of the sha256
     d.hash = hash;
     d.lang = config.lang;
-    //const { meme, merror } = await supabase.from("meme")
     let r = await supabase.from("meme").insert([d]);
-    //   let r = await supabase.from("meme_template").insert([d]);
     if (r.status === 409) {
       console.log("already set");
-      //      return hash;
+      return hash;
     }
     r = await supabase.storage
       .from("together4forests")
@@ -242,11 +246,11 @@ const CreateMeme = (props) => {
       "load",
       function () {
         const wrh = base_image.width / base_image.height;
-        const width = 300;
+        const width = 300; //might be too small?
         const height = width / wrh;
 
         const length = Math.max(topText?.length, bottomText?.length);
-        let fontSize = (2 * width) / length;
+        let fontSize = 2 + (2 * width) / length;
         if (fontSize > 50) fontSize = 50;
 
         generateCanvasMeme(base_image, {
@@ -273,6 +277,7 @@ const CreateMeme = (props) => {
         </style>
         <TextField
           form={form}
+          multiline
           name="topText"
           label={t("meme.toptext", "Text at the top")}
         />
@@ -281,6 +286,7 @@ const CreateMeme = (props) => {
         <TextField
           form={form}
           name="bottomText"
+          multiline
           label={t("meme.bottomtext", "Text at the bottom")}
         />
       </Grid>

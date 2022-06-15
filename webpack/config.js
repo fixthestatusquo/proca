@@ -84,7 +84,7 @@ function readConfigOverride() {
         console.error("can't find the campaign.name on the config", config);
       }
       if (process.env.debug || process.env.DEBUG) {
-        console.log(config);
+        console.log(JSON.stringify(config, null, 2));
         process.exit(1);
       }
       return [configFile, config, campaignConfig];
