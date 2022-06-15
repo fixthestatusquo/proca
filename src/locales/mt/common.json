@@ -20,6 +20,7 @@
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
+  "dateFormat": "JJ/SS/XXXX",
   "action": {
     "donate": "Agħti donazzjoni",
     "eci": "eci",

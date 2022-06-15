@@ -20,6 +20,7 @@
   "Subject": "Betreff",
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
+  "dateFormat": "TT/MM/JJJJ",
   "action": {
     "donate": "Spenden Sie",
     "eci": "Initiative unterschreiben",

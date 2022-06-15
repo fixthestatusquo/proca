@@ -20,6 +20,7 @@
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
+  "dateFormat": "DD/MM/BBBB",
   "action": {
     "donate": "Síntiúis",
     "eci": "eci",

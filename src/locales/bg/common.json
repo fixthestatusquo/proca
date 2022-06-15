@@ -20,6 +20,7 @@
   "Subject": "Тема",
   "Thank you": "Благодарим ви",
   "Your message": "Вашето съобщение",
+  "dateFormat": "ДД/ММ/ГГГГ",
   "action": {
     "donate": "Дарете",
     "eci": "eci",

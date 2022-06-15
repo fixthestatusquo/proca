@@ -20,6 +20,7 @@
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
+  "dateFormat": "MM/DD/ÅÅÅÅ",
   "action": {
     "donate": "Donér",
     "eci": "Skriv under her",

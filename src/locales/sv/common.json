@@ -20,6 +20,7 @@
   "Subject": "Ämne",
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
+  "dateFormat": "DD/MM/åååå",
   "action": {
     "donate": "Donera",
     "eci": "eci",

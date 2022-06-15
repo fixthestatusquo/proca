@@ -20,6 +20,7 @@
   "Subject": "Asunto",
   "Thank you": "Gracias",
   "Your message": "Su mensaje",
+  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donar",
     "eci": "eci",

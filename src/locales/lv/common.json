@@ -20,6 +20,7 @@
   "Subject": "Temats",
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
+  "dateFormat": "DD/MM/GGGG",
   "action": {
     "donate": "Ziedot",
     "eci": "Paraksti EPI",

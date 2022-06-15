@@ -20,6 +20,7 @@
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
+  "dateFormat": "NN/HH/EEEE",
   "action": {
     "donate": "Adományozni",
     "eci": "eci",
