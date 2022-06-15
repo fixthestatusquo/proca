@@ -13,7 +13,8 @@ if (!argv._.length || argv.help) {
       "options",
       "--help (this command)",
       "--dry-run(show the parsed targets but don't write)",
-      "pullTargets {campaign name} (file config/target/source/{campaign name}.json",
+      "--file=file (by default, config/target/server/{campaign name}.json",
+      "pullTargets {campaign name}",
     ].join("\n")
   );
   process.exit(0);
@@ -59,7 +60,7 @@ const pullCampaignTargets = async (name) => {
   }
   if (argv["dry-run"]) return console.log(targets);
 
-  saveTargets(name, targets);
+  saveTargets(argv.file || name, targets);
   return targets;
 };
 

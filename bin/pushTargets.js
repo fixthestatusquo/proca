@@ -15,7 +15,8 @@ if (!argv._.length || argv.help) {
       "--help (this command)",
       "--dry-run (show the parsed targets but don't push)",
       "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
-      "pushTarget {campaign name} (file config/target/source/{campaign name}.json",
+      "--file=file (by default, config/target/source/{campaign name}.json",
+      "pushTarget {campaign name}",
     ].join("\n")
   );
   process.exit(0);
@@ -111,9 +112,9 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
 (async () => {
   const name = argv._[0];
   const i = await i18nInit;
-  if (!name) throw Error("need pushTargets {campaignName} [--source=file]");
+  if (!name) help();
   try {
-    await pushCampaignTargets(name, argv.source || name);
+    await pushCampaignTargets(name, argv.file || name);
   } catch (e) {
     console.error(e);
     // Deal with the fact the chain failed
