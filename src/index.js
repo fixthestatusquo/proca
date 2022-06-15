@@ -35,10 +35,10 @@ const Alert = (text, severity) => {
 const initPortals = (portals) => {
   portals.forEach((d, i) => {
     if (typeof d === "string") {
-      portals[i] = d.replace("/", "_");
+      portals[i] = d.replaceAll("/", "_");
       return;
     }
-    portals[i].component = d.component.replace("/", "_");
+    portals[i].component = d.component.replaceAll("/", "_");
   });
 };
 
@@ -49,7 +49,7 @@ const Widget = (args) => {
   config.actionPage = config.actionPage || config.actionpage;
   config.journey.forEach((d, i) => {
     if (typeof d !== "string") return;
-    config.journey[i] = d.replace("/", "_");
+    config.journey[i] = d.replaceAll("/", "_");
   });
 
   config.portal && initPortals(config.portal);

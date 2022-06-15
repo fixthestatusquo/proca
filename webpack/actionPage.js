@@ -34,7 +34,7 @@ module.exports = (defaultCode) => {
   if (process.env["SHOW_ACTIONPAGE_CODE"]) {
     console.debug(`===== The code generated for actionPage.js:`);
     console.debug(code);
-    //    process.exit(1);
+    process.exit(1);
   }
 
   return code;
@@ -118,7 +118,7 @@ function stepToFilename(step) {
 }
 
 function componentFilenameToModulename(compPath) {
-  return compPath.replace("/", "_");
+  return compPath.replaceAll("/", "_");
 }
 
 function unique(value, index, self) {

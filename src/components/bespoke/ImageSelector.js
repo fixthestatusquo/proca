@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     "& img": {
       aminWidth: "200px",
+      maxHeight: 120,
       width: 100,
     },
   },
