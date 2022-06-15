@@ -46,6 +46,7 @@
     "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
     "required": "Cal el vostre consentiment per participar"
   },
+  "dateFormat": "DD/MM/AAAA",
   "dialogTitle": "Mantingueu-me informat de la campanya",
   "donation": {
     "amount": {
