@@ -43,7 +43,8 @@
     "opt-in-both": "Ee, ina son {{partner}} da {{lead}} su ci gaba da sanar da ni ta imel",
     "opt-out": "A'a, kar ku aiko min da imel ko ci gaba da sabunta ni nan gaba",
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
-    "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>"
+    "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
+    "required": "Ana buƙatar izinin ku don shiga"
   },
   "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
   "donation": {
@@ -122,6 +123,7 @@
   "progress_plural": "",
   "register": "Ƙara sunana",
   "required": "Da fatan za a cika wannan filin",
+  "required field": "Filin da ake buƙata",
   "salutations": {
     "f": "Ms.",
     "m": "Mr.",
