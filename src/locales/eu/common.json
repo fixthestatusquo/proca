@@ -43,7 +43,8 @@
     "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
     "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
-    "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu"
+    "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
+    "required": "Zure baimena behar da parte hartzeko"
   },
   "dialogTitle": "Jarrai nazazu kanpainaren berri",
   "donation": {
@@ -122,6 +123,7 @@
   "progress_plural": "",
   "register": "Gehitu nire izena",
   "required": "Mesedez, bete eremu hau",
+  "required field": "Beharrezko eremua",
   "salutations": {
     "f": "Anderea.",
     "m": "Jauna.",
