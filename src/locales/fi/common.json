@@ -44,7 +44,8 @@
     "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse",
     "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minua ajan tasalla tulevaisuudessa",
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
-    "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti"
+    "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
+    "required": "Osallistuminen edellyttää suostumustasi"
   },
   "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
   "register": "Lisää nimeni",
   "required": "Täytä tämä kenttä",
+  "required field": "Pakollinen kenttä",
   "salutations": {
     "f": "Ms.",
     "m": "Mr.",
