@@ -44,7 +44,8 @@
     "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
     "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
     "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-    "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>"
+    "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
+    "required": "Consimțământul dumneavoastră este necesar pentru a participa"
   },
   "dialogTitle": "Păstrați-mă la curent cu campania",
   "donation": {
@@ -122,6 +123,7 @@
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",
   "register": "Adaugă numele meu",
   "required": "Vă rugăm să completați acest câmp",
+  "required field": "Câmp obligatoriu",
   "salutations": {
     "f": "Dna.",
     "m": "Dl.",
