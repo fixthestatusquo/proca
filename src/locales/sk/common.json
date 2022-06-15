@@ -44,7 +44,8 @@
     "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
     "opt-out": "Nie, nechcem, aby mi boli v budúcnosti zasielané e-maily alebo aby som bol informovaný",
     "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
-    "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>"
+    "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+    "required": "Na účasť je potrebný váš súhlas"
   },
   "dialogTitle": "Informujte ma o kampani",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
   "register": "Pridajte moje meno",
   "required": "Vyplňte toto pole",
+  "required field": "Povinné pole",
   "salutations": {
     "f": "Pani.",
     "m": "Pán.",
