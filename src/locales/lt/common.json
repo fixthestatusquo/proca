@@ -44,7 +44,8 @@
     "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
     "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
-    "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>"
+    "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
+    "required": "Norint dalyvauti, reikia jūsų sutikimo."
   },
   "dialogTitle": "Informuokite mane apie kampaniją",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} pasirašė. Pasiekime {{goal}}",
   "register": "Pridėti mano vardą",
   "required": "Užpildykite šį laukelį",
+  "required field": "Privalomas laukas",
   "salutations": {
     "f": "M.",
     "m": "Mr.",
