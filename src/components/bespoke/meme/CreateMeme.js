@@ -160,8 +160,8 @@ const CreateMeme = (props) => {
 
     ctx.textBaseline = "top";
 
-    topText &&
-      topText
+    param.topText &&
+      param.topText
         .toUpperCase()
         .split("\n")
         .forEach((t, i) => {
@@ -170,8 +170,8 @@ const CreateMeme = (props) => {
         });
 
     ctx.textBaseline = "bottom";
-    bottomText &&
-      bottomText
+    param.bottomText &&
+      param.bottomText
         .toUpperCase()
         .split("\n")
         .reverse()
@@ -179,13 +179,13 @@ const CreateMeme = (props) => {
           ctx.fillText(
             t,
             canvas.width / 2,
-            -20 + canvas.height - i * fontSize,
+            canvas.height - i * fontSize,
             canvas.width
           );
           ctx.strokeText(
             t,
             canvas.width / 2,
-            -20 + canvas.height - i * fontSize,
+            canvas.height - i * fontSize,
             canvas.width
           );
         });
@@ -245,15 +245,28 @@ const CreateMeme = (props) => {
     base_image.addEventListener(
       "load",
       function () {
+        const lineLength = (
+          text // returns the max line Length if multiline text
+        ) =>
+          text &&
+          text
+            .split("\n")
+            .reduce((max, d) => (d.length > max ? d.length : max), 0);
+        //let result = text.match(/\b[\w']+(?:[^\w\n]+[\w']+){0,5}\b/g);
+        const autoSplit = (text) => text.replace(/[\s\S]{1,35}(?!\S)/g, "$&\n");
         const wrh = base_image.width / base_image.height;
         const width = 300; //might be too small?
         const height = width / wrh;
+        const top = autoSplit(topText);
+        const bottom = autoSplit(bottomText);
 
-        const length = Math.max(topText?.length, bottomText?.length);
+        const length = Math.max(lineLength(top), lineLength(bottom));
         let fontSize = 2 + (2 * width) / length;
         if (fontSize > 50) fontSize = 50;
 
         generateCanvasMeme(base_image, {
+          topText: top,
+          bottomText: bottom,
           width: width,
           height: height,
           fontSize: fontSize,
