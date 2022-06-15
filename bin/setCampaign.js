@@ -83,16 +83,6 @@ const update = (id, change) => {
 
 
 (async () => {
-    if (argv.pull) {
-      try {
-        const d = await pullCampaign(id);
-      } catch (errors) {
-        Array.isArray(errors) &&
-          errors.map((e) => {
-            console.error("\x1b[31m", e.message);
-          });
-      }
-    }
 
   if (argv.pull) {
     try {
@@ -134,7 +124,7 @@ const update = (id, change) => {
     console.log("pushing to server",id);
     try {
       const d = await pushCampaign(id);
-      console.log(d);
+      console.log("pushed", d);
     } catch (errors) {
       console.log(errors);
       Array.isArray(errors) &&
