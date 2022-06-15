@@ -13,7 +13,10 @@ const WallOfMeme = (props) => {
     (async () => {
       let { data, error } = await supabase
         .from("meme")
-        .select("hash,image,top_text,bottom_text,lang");
+        .select("hash,image,top_text,bottom_text,lang")
+        .order("id", { ascending: false })
+        .eq("enabled", true);
+
       if (error) {
         console.error(error);
         return;
