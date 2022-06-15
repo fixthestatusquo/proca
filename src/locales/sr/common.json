@@ -46,6 +46,7 @@
     "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
     "required": "За учешће је потребна ваша сагласност"
   },
+  "dateFormat": "ММ/ДД/ГГГГ",
   "dialogTitle": "Potpiši peticiju za zabranu biometrijskog nadzora",
   "donation": {
     "amount": {
