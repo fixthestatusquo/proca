@@ -71,7 +71,6 @@ const Filter = (props) => {
       );
     });
   }
-  console.log(r);
   return r;
 };
 

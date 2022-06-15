@@ -67,26 +67,48 @@ const CreateMeme = (props) => {
   const { topText, bottomText } = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
-  const [items, setItems] = useState([
-    {
-      top: "My options when I look for",
-      bottom: "Deforestation-free food",
-      original: "https://static.proca.app/tg4/images/back3.jpeg",
-    },
-    {
-      top: "A good law on deforestation",
-      bottom: "must please companies",
-      original: "https://static.proca.app/tg4/images/back1.jpeg",
-    },
-    {
-      top: "MEPs wanting to really stop deforestation",
-      bottom: "the rest of the EP?",
-      name: "Random Meme #3",
-      original: "https://static.proca.app/tg4/images/back2.jpeg",
-    },
-  ]);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    let isCancelled = false;
+    let templates = [];
+    (async function () {
+      const r = await fetch(
+        "https://widget.proca.app/t/meme/template.json",
+        {}
+      );
+      if (!r.ok) {
+        return {
+          errors: [
+            { message: r.statusText, code: "http_error", status: r.status },
+          ],
+        };
+      }
+      if (!isCancelled) {
+        const response = await r.json();
+        response.forEach((d) => {
+          templates.push({
+            top: t("campaign:meme" + d.top_text, ""),
+            bottom: t("campaign:meme" + d.bottom_text, ""),
+            name: d.top_text.split(".")[0],
+            original: d.image,
+          });
+        });
+        setItems(templates);
+      }
+    })(setItems);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
 
   const selectOne = (i) => {
+    console.log(i);
+    if (!items[i]) {
+      console.log("loading...");
+      return false;
+    }
     setValue("topText", items[i].top);
     setValue("bottomText", items[i].bottom);
     setCurrent(i);
@@ -211,7 +233,7 @@ const CreateMeme = (props) => {
     return hash;
   };
 
-  const item = items[current].original;
+  const item = (items[current] && items[current].original) || "";
   useEffect(() => {
     const base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");

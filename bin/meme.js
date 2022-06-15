@@ -3,7 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 require("./dotenv.js");
-const argv = require("minimist")(process.argv.slice(2));
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: ["help", "dry-run"],
+});
+const { file } = require("./config");
 
 const createClient = require("@supabase/supabase-js").createClient;
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
@@ -86,6 +89,8 @@ const help = () => {
       "options",
       "--help (this command)",
       "--upsert (force replace)",
+      "--dry-run (show the result but don't pull)",
+      "--pull (get a list of templates in config/target/public/meme/template.json)",
       "{image file}.jpg upload the image as a meme template",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
@@ -106,9 +111,32 @@ const hash = (obj) => {
   return hash;
 };
 
+const pullTemplates = async () => {
+  let { data: templates, error } = await supabase
+    .from("meme_template")
+    .select("hash,image,top_text,bottom_text");
+
+  if (argv["dry-run"]) return console.log(templates, error);
+  const fileName = file("target/public/meme/template");
+
+  fs.writeFileSync(fileName, JSON.stringify(templates, null, 2));
+  let labels = {};
+  templates.forEach((d) => {
+    const name = d.top_text.split(".")[0];
+    labels[name] = { top_text: "", bottom_text: "" };
+  });
+  console.log(JSON.stringify({ meme: labels }, null, 2));
+  return fileName;
+};
+
 (async function () {
   const name = argv._[0];
   console.log(name);
+  if (argv.pull) {
+    pullTemplates();
+    return;
+  }
+
   if (!name) {
     console.error("missing option of image to upload");
     help();

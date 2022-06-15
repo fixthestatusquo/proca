@@ -24,20 +24,7 @@ const Item = (props) => {
   );
 };
 const CreateMeme = (props) => {
-  var items = [
-    {
-      name: "Random Meme #1 trying to put it wide",
-      original: "https://static.proca.app/tg4/images/1.jpeg",
-    },
-    {
-      name: "Random Meme #2",
-      original: "https://static.proca.app/tg4/images/2.jpeg",
-    },
-    {
-      name: "Random Meme #3",
-      original: "https://static.proca.app/tg4/images/3.jpeg",
-    },
-  ];
+  var items = [];
 
   //  return (<Item {...items[0]}/>);
   return (

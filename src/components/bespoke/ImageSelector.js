@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Button, Card, CardActionArea } from "@material-ui/core";
@@ -125,6 +125,9 @@ const ImageSelector = (props) => {
     if (props.onClick) props.onClick(i);
   };
 
+  useEffect(() => {
+    if (items.length === 0 && props.items.length > 0) setItems(props.items);
+  }, [props.items]);
   const Selected = props.Selected || ImageSelected;
 
   const addImage = (data) => {
