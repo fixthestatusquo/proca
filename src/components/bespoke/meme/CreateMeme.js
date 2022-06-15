@@ -165,8 +165,18 @@ const CreateMeme = (props) => {
         .toUpperCase()
         .split("\n")
         .forEach((t, i) => {
-          ctx.fillText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
-          ctx.strokeText(t, canvas.width / 2, 20 + i * fontSize, canvas.width);
+          ctx.fillText(
+            t,
+            canvas.width / 2,
+            fontSize * 0.4 + i * fontSize,
+            canvas.width
+          );
+          ctx.strokeText(
+            t,
+            canvas.width / 2,
+            fontSize * 0.4 + i * fontSize,
+            canvas.width
+          );
         });
 
     ctx.textBaseline = "bottom";
@@ -179,13 +189,13 @@ const CreateMeme = (props) => {
           ctx.fillText(
             t,
             canvas.width / 2,
-            canvas.height - i * fontSize,
+            canvas.height - i * fontSize + fontSize * 0.8,
             canvas.width
           );
           ctx.strokeText(
             t,
             canvas.width / 2,
-            canvas.height - i * fontSize,
+            canvas.height - i * fontSize + fontSize * 0.8,
             canvas.width
           );
         });
