@@ -56,10 +56,12 @@ export default function Register(props) {
         {props.birthdate && (
           <Grid item xs={12}>
             <TextField
+              InputLabelProps={{ shrink: true }}
               form={form}
               name="birthDate"
               onBlur={handleBlur}
               label={t("eci:form.property.date-of-birth")}
+              placeholder={t("dateFormat")}
               required
             />
           </Grid>

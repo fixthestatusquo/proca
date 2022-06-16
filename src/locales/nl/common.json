@@ -20,6 +20,7 @@
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
+  "dateFormat": "DD/MM/JJJJ",
   "action": {
     "donate": "Doneer",
     "eci": "eci",

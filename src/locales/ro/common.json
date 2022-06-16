@@ -20,6 +20,7 @@
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
+  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donează",
     "eci": "eci",

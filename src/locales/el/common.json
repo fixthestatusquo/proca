@@ -20,6 +20,7 @@
   "Subject": "Θέμα",
   "Thank you": "Ευχαριστώ",
   "Your message": "Το μήνυμά σας",
+  "dateFormat": "ηη/μμ/εεεε",
   "action": {
     "donate": "Δωρεά",
     "eci": "eci",

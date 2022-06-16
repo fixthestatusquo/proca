@@ -20,6 +20,7 @@
   "Subject": "Temat",
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
+  "dateFormat": "MM/DD/RRRR",
   "action": {
     "donate": "Przekaż darowiznę",
     "eci": "Podpisz EIO",

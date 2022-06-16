@@ -18,6 +18,7 @@
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Vaša poruka",
+  "dateFormat": "DD/MM/GGGG",
   "action": {
     "donate": "Donirajte",
     "email": "Pošaljite e-mail",

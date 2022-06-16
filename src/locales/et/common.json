@@ -20,6 +20,7 @@
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
+  "dateFormat": "PP/KK/AAAA",
   "action": {
     "donate": "Annetada",
     "eci": "eci",

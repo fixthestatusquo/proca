@@ -20,6 +20,7 @@
   "Subject": "Zadeva",
   "Thank you": "Hvala vam",
   "Your message": "Vaše sporočilo",
+  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Podarite",
     "eci": "eci",

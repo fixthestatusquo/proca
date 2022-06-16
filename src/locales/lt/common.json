@@ -20,6 +20,7 @@
   "Subject": "Tema",
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
+  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Paaukoti",
     "eci": "eci",
