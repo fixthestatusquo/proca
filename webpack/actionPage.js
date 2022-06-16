@@ -118,7 +118,7 @@ function stepToFilename(step) {
 }
 
 function componentFilenameToModulename(compPath) {
-  return compPath.replaceAll("/", "_");
+  return compPath.replace(/\//g, "_");
 }
 
 function unique(value, index, self) {
