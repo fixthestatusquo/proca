@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Grid } from "@material-ui/core";
+import { Typography, Button, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
@@ -294,6 +294,9 @@ const CreateMeme = (props) => {
   return (
     <Grid item xs={12}>
       <Grid item xs={12}>
+        <Typography variant="h6" element="div" gutterBottom>
+          {t("campaign:meme.explain")}
+        </Typography>
         <style>
           {`
         @font-face {
@@ -331,6 +334,9 @@ const CreateMeme = (props) => {
           Generate your Meme
         </Button>
       </Grid>
+      <Typography variant="h6" element="div" gutterBottom>
+        {t("campaign:meme.gallery")}
+      </Typography>
       <ImageSelector
         items={items}
         onClick={selectOne}
