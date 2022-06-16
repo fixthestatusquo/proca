@@ -18,6 +18,7 @@ import TwitterIcon from "../images/Twitter.js";
 import Again from "@components/twitter/Again";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import ReloadIcon from "@material-ui/icons/Cached";
+
 const Intro = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
@@ -112,22 +113,36 @@ const Component = (props) => {
           if (!res.ok) throw res.error();
           return res.json();
         })
-        .then((d) => {
+        .then((targets) => {
           if (
             config.hook &&
             typeof config.hook["twitter:load"] === "function"
           ) {
-            config.hook["twitter:load"](d);
+            config.hook["twitter:load"](targets);
           }
+          let d = targets.filter(
+            (c) => c.screen_name && c.screen_name.length > 0
+          );
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
+            if (data.country) {
+              console.log("filter", data.contry);
+              d = d.filter((c) => !c.country || c.country === data.country);
+              setAllProfiles(d);
+            }
+
             const i = d[Math.floor(Math.random() * d.length)];
             form.setValue(
               "message",
-              tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] })
+              tokenize(
+                pickOne(
+                  t(["campaign:twitter.message", "campaign:share.twitter"])
+                ),
+                { profile: [i] }
+              )
             );
             setProfiles([i]);
           } else if (!config.component.twitter.filter?.includes("country")) {
@@ -149,7 +164,10 @@ const Component = (props) => {
     const i = d[Math.floor(Math.random() * d.length)];
     form.setValue(
       "message",
-      tokenize(pickOne(t("campaign:twitter.message")), { profile: [i] })
+      tokenize(
+        pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
+        { profile: [i] }
+      )
     );
     setProfiles([i]);
   };
@@ -171,6 +189,7 @@ const Component = (props) => {
   );
 
   useEffect(() => {
+    console.log("country");
     //    setFilter({country:config.country});
     filterProfiles(country);
     /*    if (typeof config.hook["twitter:load"] === "function") {
@@ -204,10 +223,17 @@ const Component = (props) => {
           done={handleDone}
         />
         {config.component.twitter?.message && <Message form={form} />}
+        <ShowCard />
         <TweetButton handleClick={handleTweet} />
       </>
     );
   };
+
+  const ShowCard = (props) => {
+    return "AAA";
+  };
+  //          "addLink": true,
+  //          "showCard": true
 
   const SecondStep = () => {
     if (!tweeting) return null;

@@ -21,7 +21,7 @@ const merge = (targets, twitters, options) => {
         name: target.name,
         country: target.area,
         description: target.fields.description,
-        screenname: target.fields.screen_name,
+        screen_name: target.fields.screen_name,
         followers_count: 0,
         verified: false,
       };
@@ -51,6 +51,7 @@ const merge = (targets, twitters, options) => {
     if (options.display) {
       r.display = !!target.fields.display;
     }
+    if (target.locale) r.locale = target.locale;
 
     if (argv.fields) {
       const extraFields = argv.fields.split(",");

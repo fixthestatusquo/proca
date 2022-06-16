@@ -32,7 +32,7 @@ query GetCampaignTargets($name: String!) {
   campaign(name:$name) {
   ... on PrivateCampaign {
     targets {
-      id name area fields externalId
+      id name area fields locale externalId
       ... on PrivateTarget {
           emails { email, emailStatus }
         }
