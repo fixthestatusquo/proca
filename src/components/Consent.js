@@ -230,7 +230,10 @@ export const ConsentProcessing = (props) => {
           props.checkboxLabel ? classes.consentProcessing : classes.notice
         }
       >
-        <Trans i18nKey={/* i18next-extract-disable-line */ consentProcessing}>
+        <Trans
+          i18nKey={/* i18next-extract-disable-line */ consentProcessing}
+          values={{ organisation: config.organisation }}
+        >
           Consent processing according to <a href={link}>privacy policy</a>
         </Trans>
       </Box>

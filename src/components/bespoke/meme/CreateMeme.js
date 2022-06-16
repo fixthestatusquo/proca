@@ -189,13 +189,13 @@ const CreateMeme = (props) => {
           ctx.fillText(
             t,
             canvas.width / 2,
-            canvas.height - i * fontSize + fontSize * 0.8,
+            canvas.height - i * fontSize + fontSize * 0.0,
             canvas.width
           );
           ctx.strokeText(
             t,
             canvas.width / 2,
-            canvas.height - i * fontSize + fontSize * 0.8,
+            canvas.height - i * fontSize + fontSize * 0.0,
             canvas.width
           );
         });
@@ -262,8 +262,12 @@ const CreateMeme = (props) => {
           text
             .split("\n")
             .reduce((max, d) => (d.length > max ? d.length : max), 0);
-        //let result = text.match(/\b[\w']+(?:[^\w\n]+[\w']+){0,5}\b/g);
-        const autoSplit = (text) => text.replace(/[\s\S]{1,35}(?!\S)/g, "$&\n");
+        const autoSplit = (
+          text // split if not split already
+        ) =>
+          text.includes("\n")
+            ? text
+            : text.replace(/[\s\S]{1,35}(?!\S)/g, "$&\n");
         const wrh = base_image.width / base_image.height;
         const width = 300; //might be too small?
         const height = width / wrh;
@@ -302,7 +306,7 @@ const CreateMeme = (props) => {
           form={form}
           multiline
           name="topText"
-          label={t("meme.toptext", "Text at the top")}
+          label={t("campaign:meme.topText", "top")}
         />
       </Grid>
       <Grid item xs={12}>
@@ -310,7 +314,7 @@ const CreateMeme = (props) => {
           form={form}
           name="bottomText"
           multiline
-          label={t("meme.bottomtext", "Text at the bottom")}
+          label={t("campaign:meme.bottomText", "bottom")}
         />
       </Grid>
       <canvas ref={canvasRef} className={classes.responsive} />
