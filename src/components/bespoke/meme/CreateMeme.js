@@ -294,7 +294,7 @@ const CreateMeme = (props) => {
   return (
     <Grid item xs={12}>
       <Grid item xs={12}>
-        <Typography variant="h6" element="div" gutterBottom>
+        <Typography variant="subtitle1" element="div" color="textSecondary">
           {t("campaign:meme.explain")}
         </Typography>
         <style>
@@ -321,7 +321,7 @@ const CreateMeme = (props) => {
         />
       </Grid>
       <canvas ref={canvasRef} className={classes.responsive} />
-      <Grid item xs={12}>
+      {/*      <Grid item xs={12}>
         <Button
           form={form}
           name="generate"
@@ -333,8 +333,8 @@ const CreateMeme = (props) => {
         >
           Generate your Meme
         </Button>
-      </Grid>
-      <Typography variant="h6" element="div" gutterBottom>
+      </Grid>*/}
+      <Typography variant="subtitle1" element="div" color="textSecondary">
         {t("campaign:meme.gallery")}
       </Typography>
       <ImageSelector
