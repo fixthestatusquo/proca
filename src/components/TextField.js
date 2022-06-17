@@ -71,7 +71,6 @@ const TextFieldProca = (props) => {
             }
             variant={layout.variant}
             margin={layout.margin}
-            a
             inputRef={refA}
             {...drillProps}
           />

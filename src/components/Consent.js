@@ -186,7 +186,6 @@ export const ConfirmProcessing = (props) => {
         <FormControlLabel
           className={classes.check}
           placement="end"
-          error={true}
           control={
             <Controller
               name="consentProcessing"
