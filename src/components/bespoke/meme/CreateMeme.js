@@ -8,6 +8,9 @@ import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
+  memeText: {
+    minHeight: "0!important",
+  },
   /*  const theme = createTheme({
   typography: {
     fontFamily: 'Anton, Arial',
@@ -306,6 +309,8 @@ const CreateMeme = (props) => {
       `}
         </style>
         <TextField
+          className={classes.memeText}
+          fullWidth
           form={form}
           multiline
           name="topText"
@@ -314,6 +319,8 @@ const CreateMeme = (props) => {
       </Grid>
       <Grid item xs={12}>
         <TextField
+          fullWidth
+          className={classes.memeText}
           form={form}
           name="bottomText"
           multiline
