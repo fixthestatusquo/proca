@@ -16,8 +16,15 @@ import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from "../images/Twitter.js";
 import Again from "@components/twitter/Again";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import { CardMedia, SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  media: {
+    width: "100%",
+  },
+}));
 
 const Intro = (props) => {
   const { t } = useTranslation();
@@ -84,6 +91,9 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
+  let hash =
+    props.hash ||
+    "08db305dd84671a8b4b384508877d939cbb24087c423b7774a2b2fce55e86196";
   const form = useForm({
     shouldUnregister: false,
     defaultValues: {
@@ -94,7 +104,7 @@ const Component = (props) => {
   const { watch } = form;
   const country = watch("country");
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
-
+  console.log("actionUrl", actionUrl);
   const handleTweet = () => {
     tweet({
       actionPage: config.actionPage,
@@ -129,9 +139,10 @@ const Component = (props) => {
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             if (data.country) {
-              console.log("filter", data.contry);
-              d = d.filter((c) => !c.country || c.country === data.country);
-              setAllProfiles(d);
+              const r = d.filter(
+                (c) => !c.country || c.country === data.country
+              );
+              if (r.length > 0) setAllProfiles(r);
             }
 
             const i = d[Math.floor(Math.random() * d.length)];
@@ -149,7 +160,6 @@ const Component = (props) => {
             setProfiles(d);
           }
         })
-
         .catch((error) => {
           console.log(error);
         });
@@ -207,7 +217,7 @@ const Component = (props) => {
     viewDialog(false);
   };
 
-  const FirstStep = () => {
+  const FirstStep = (props) => {
     return (
       <>
         {config.component.twitter?.filter?.includes("country") && (
@@ -223,14 +233,20 @@ const Component = (props) => {
           done={handleDone}
         />
         {config.component.twitter?.message && <Message form={form} />}
-        <ShowCard />
+        <ShowCard hash={hash} />
         <TweetButton handleClick={handleTweet} />
       </>
     );
   };
 
   const ShowCard = (props) => {
-    return "AAA";
+    const classes = useStyles();
+    const image =
+      process.env.REACT_APP_SUPABASE_URL +
+      "/storage/v1/object/public/together4forests/meme/" +
+      props.hash +
+      ".jpeg";
+    return <img src={image} className={classes.media} />;
   };
   //          "addLink": true,
   //          "showCard": true
