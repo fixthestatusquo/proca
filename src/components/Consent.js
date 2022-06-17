@@ -183,22 +183,28 @@ export const ConfirmProcessing = (props) => {
   return (
     <FormControl error={!!(errors && errors.consentProcessing)}>
       <FormGroup>
-        <FormLabel className={classes.check} placement="end">
-          <Controller
-            name="consentProcessing"
-            control={control}
-            defaultValue={false}
-            rules={{ required: t("consent.required") }}
-            render={(props) => (
-              <Checkbox
-                color="primary"
-                onChange={(e) => props.onChange(e.target.checked)}
-                checked={props.value}
-              />
-            )}
-          />
-          <ConsentProcessing checkboxLabel={true} />
-        </FormLabel>
+        <FormControlLabel
+          className={classes.check}
+          placement="end"
+          error={true}
+          control={
+            <Controller
+              name="consentProcessing"
+              control={control}
+              defaultValue={false}
+              rules={{ required: t(["consent.required", "required"]) }}
+              render={(props) => (
+                <Checkbox
+                  {...props}
+                  color="primary"
+                  onChange={(e) => props.onChange(e.target.checked)}
+                  checked={props.value}
+                />
+              )}
+            />
+          }
+          label={<ConsentProcessing checkboxLabel={true} />}
+        />
         <FormHelperText>{errors.consentProcessing?.message}</FormHelperText>
       </FormGroup>
     </FormControl>
