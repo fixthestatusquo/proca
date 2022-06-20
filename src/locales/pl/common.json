@@ -20,7 +20,6 @@
   "Subject": "Temat",
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
-  "dateFormat": "MM/DD/RRRR",
   "action": {
     "donate": "Przekaż darowiznę",
     "eci": "Podpisz EIO",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
     "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
   },
+  "dateFormat": "MM/DD/RRRR",
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Ja podpisałem. Ty też powinieneś.",
+    "again": "Tweet do innej osoby",
+    "choice": "Co chciałbyś robić dalej?",
+    "instruction": "Proszę dokończyć wysyłanie tweeta w nowym oknie (na twitter.com)",
     "organisation": "Konto twitterowe Twojej organizacji",
     "screenName": "Nazwa ekranu"
   },
