@@ -13,8 +13,7 @@ t("dateFormat");
 t("required");
 t("Salutation");
 t("salutation_male");
-t"salutation_female");
-
+t("salutation_female");
 
 t(
   "consent.processing",
@@ -40,8 +39,7 @@ t("action.takeAction");
 t("salutations.m");
 t("salutations.f");
 t("salutations.other");
-t("consent.required","Your consent is needed to participate");
-
+t("consent.required", "Your consent is needed to participate");
 
 // for donations
 //
