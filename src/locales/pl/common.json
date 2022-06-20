@@ -113,10 +113,10 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
-    "salutation": "Droga {{target.name}}.",
-    "salutation_female": "Droga {{target.name}}.",
+    "salutation": "Droga {{target.name}},",
+    "salutation_female": "Droga {{target.name}},",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
-    "salutation_male": "Droga {{target.name}}.",
+    "salutation_male": "Drogi {{target.name}},",
     "salutation_placeholder": "Szanowny [adresat],"
   },
   "progress": "{{count}} osób już podpisało. Dążymy do {{goal}}",
