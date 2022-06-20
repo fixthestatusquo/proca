@@ -20,7 +20,6 @@
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
-  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donează",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "required": "Consimțământul dumneavoastră este necesar pentru a participa"
   },
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Păstrați-mă la curent cu campania",
   "donation": {
     "amount": {
@@ -146,6 +146,9 @@
   },
   "twitter": {
     "actionText": "Am semnat. ar trebui si tu",
+    "again": "Tweet către o altă persoană",
+    "choice": "Ce ați dori să faceți în continuare?",
+    "instruction": "Vă rugăm să completați trimiterea tweet-ului în fereastra nouă (pe twitter.com)",
     "organisation": "Contul de Twitter al organizației dvs.",
     "screenName": "Nume de ecran"
   },
