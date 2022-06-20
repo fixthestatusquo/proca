@@ -79,6 +79,7 @@ const UploadButton = (props) => {
     props.addImage(d);
   };
 
+  return null; // disable addImage
   return (
     <div className={classes.root}>
       <input
