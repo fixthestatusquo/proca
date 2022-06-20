@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Button, Card, CardActionArea } from "@material-ui/core";
 import { List, ListItem } from "@material-ui/core";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 //import UploadIcon from '@material-ui/icons/CloudUploadTwoTone';
 import UploadIcon from "@material-ui/icons/PhotoCamera";
@@ -37,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 350,
     overflow: "auto",
     "& img": {
-      aminWidth: "200px",
       maxHeight: 120,
       width: 100,
     },
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 const UploadButton = (props) => {
   const classes = useStyles();
-  return null; // disable addImage TODO: as a config
+  const config = useCampaignConfig();
 
   const getData = async (file) => {
     return new Promise((resolve, reject) => {
@@ -80,6 +80,7 @@ const UploadButton = (props) => {
     props.addImage(d);
   };
 
+  if (!config.component.meme?.upload) return null; // disable addImage
   return (
     <div className={classes.root}>
       <input
@@ -122,10 +123,21 @@ const ImageSelector = (props) => {
   const classes = useStyles();
   const [items, setItems] = useState(props.items);
   const [selected, _select] = useState(0);
+  const [width, setWidth] = useState(350);
+
   const select = (i) => {
     _select(i);
     if (props.onClick) props.onClick(i);
   };
+
+  useLayoutEffect(() => {
+    setTimeout(function () {
+      const canvas = document.getElementById("proca-meme");
+      const width = canvas?.offsetWidth;
+      console.log(canvas, width);
+      if (width) setWidth(width);
+    }, 2000);
+  }, [setWidth]);
 
   useEffect(() => {
     if (items.length === 0 && props.items.length > 0) setItems(props.items);
@@ -141,7 +153,7 @@ const ImageSelector = (props) => {
   return (
     <>
       <Selected {...items[selected]} />
-      <List className={classes.imageList}>
+      <List className={classes.imageList} style={{ "max-width": width }}>
         {items.map((d, i) => (
           <ListItem
             disableGutters={true}

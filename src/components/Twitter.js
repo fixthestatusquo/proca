@@ -271,7 +271,10 @@ const Component = (props) => {
           done={props.done}
         />
         <Alert severity="info">
-          please complete sending the tweet in the new window (on twitter)
+          {t(
+            "twitter.instruction",
+            "Please complete sending the tweet in the new window (on twitter.com)"
+          )}
         </Alert>
       </>
     );

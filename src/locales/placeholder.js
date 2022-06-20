@@ -9,6 +9,13 @@ t(
   "Don’t forget to check your mailbox (including your  spam folder!) and confirm your email subscription"
 );
 
+t("dateFormat");
+t("required");
+t("Salutation");
+t("salutation_male");
+t"salutation_female");
+
+
 t(
   "consent.processing",
   "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>"
@@ -28,6 +35,13 @@ t("action.share", { defaultValue: "Share" });
 t("action.donate", { defaultValue: "Donate" });
 t("action.email", { defaultValue: "Send an Email" });
 t("action.twitter", { defaultValue: "Tweet" });
+t("action.takeAction");
+
+t("salutations.m");
+t("salutations.f");
+t("salutations.other");
+t("consent.required","Your consent is needed to participate");
+
 
 // for donations
 //

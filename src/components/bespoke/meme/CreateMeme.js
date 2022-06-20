@@ -70,13 +70,6 @@ const CreateMeme = (props) => {
   const { topText, bottomText } = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
-  console.log(
-    "in meme",
-    current,
-    props.myref,
-    props.name,
-    props.myref.current[props.name]
-  );
   if (props.myref && props.name && !props.myref.current[props.name]) {
     console.log("registering in meme ", props.name);
     const fct = async (data) => {
@@ -170,6 +163,7 @@ const CreateMeme = (props) => {
 
     canvas.width = param.width;
     canvas.height = param.height;
+    canvas.id = "proca-meme";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0, param.width, param.height);
     ctx.fillStyle = "white";

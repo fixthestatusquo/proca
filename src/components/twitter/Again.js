@@ -1,27 +1,35 @@
 import { Button } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import NextIcon from "@material-ui/icons/SkipNext";
+import { useTranslation } from "react-i18next";
+import { useCampaignConfig } from "@hooks/useConfig";
 const Again = (props) => {
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
   return (
     <>
-      <p>Thank you!</p>
-      <p> What would you like to do?</p>
+      <p>{t("Thank you")}!</p>
+      <p>{t("twitter.choice", "What would you like to do next?")}</p>
       <Button
         variant="contained"
+        color="primary"
         fullWidth
         endIcon={<ReloadIcon />}
         onClick={props.again}
       >
-        Tweet another target!
+        {t("twitter.again", "Tweet to another person")}
       </Button>
-      <div>or</div>
       <Button
         variant="contained"
         fullWidth
         onClick={props.done}
         endIcon={<NextIcon />}
       >
-        Keep me informed of the progress
+        {t(
+          config.component.twitter?.next
+            ? config.component.twitter.next
+            : "Next"
+        )}
       </Button>
     </>
   );
