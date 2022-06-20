@@ -44,7 +44,8 @@
     "opt-in-both": "Iva, irrid {{partner}} u {{lead}} iżommuni infurmat permezz tal-email",
     "opt-out": "Le, tibgħatx email jew żommni aġġornat fil-futur",
     "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
-    "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna"
+    "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
+    "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
   },
   "dialogTitle": "Żommni infurmat dwar il-kampanja",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
   "register": "Żid ismi",
   "required": "Jekk jogħġbok imla dan il-qasam",
+  "required field": "Qasam meħtieġ",
   "salutations": {
     "f": "Sinjorina.",
     "m": "Mr.",

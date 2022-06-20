@@ -44,7 +44,8 @@
     "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
     "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
     "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
-    "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte"
+    "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
+    "required": "K účasti je nutný váš souhlas"
   },
   "dialogTitle": "Informujte mě o kampani",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} podepsali. Přejděme k {{goal}}",
   "register": "Přidejte mé jméno",
   "required": "Vyplňte prosím toto pole",
+  "required field": "Povinné pole",
   "salutations": {
     "f": "Paní",
     "m": "Pan.",

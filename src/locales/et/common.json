@@ -44,7 +44,8 @@
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
     "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-    "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>"
+    "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+    "required": "Osalemiseks on vaja teie nõusolekut"
   },
   "dialogTitle": "Hoidke mind kampaaniaga kursis",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
   "register": "Lisage minu nimi",
   "required": "Palun täitke see väli",
+  "required field": "Kohustuslik väli",
   "salutations": {
     "f": "Ms.",
     "m": "Hr.",

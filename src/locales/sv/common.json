@@ -44,7 +44,8 @@
     "opt-in-both": "Ja, jag vill att {{partner}} och {{lead}} ska hålla mig informerad via e-post",
     "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
     "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
-    "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>"
+    "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
+    "required": "Ditt samtycke krävs för att delta"
   },
   "dialogTitle": "Håll mig informerad om kampanjen",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "",
   "register": "Lägg till mitt namn",
   "required": "Fyll i det här fältet",
+  "required field": "Obligatoriskt fält",
   "salutations": {
     "f": "Ms.",
     "m": "Herr.",

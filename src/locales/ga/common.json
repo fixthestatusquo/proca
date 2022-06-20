@@ -44,7 +44,8 @@
     "opt-in-both": "Sea, ba mhaith liom {{partner}} agus {{lead}} mé a choinneáil ar an eolas trí ríomhphost",
     "opt-out": "Níl, ná seol ríomhphoist chugam nó coinnigh suas chun dáta mé amach anseo",
     "processing": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí agus fianáin de réir ár mbeartas príobháideachta <1> </1>",
-    "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>"
+    "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
+    "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh"
   },
   "dialogTitle": "Coinnigh ar an eolas mé faoin bhfeachtas",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
   "register": "Cuir m’ainm leis",
   "required": "Líon isteach an réimse seo le do thoil",
+  "required field": "Réimse riachtanach",
   "salutations": {
     "f": "Ms.",
     "m": "An tUasal.",
