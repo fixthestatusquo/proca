@@ -20,7 +20,6 @@
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
-  "dateFormat": "NN/HH/EEEE",
   "action": {
     "donate": "Adományozni",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
     "required": "A részvételhez az Ön hozzájárulása szükséges"
   },
+  "dateFormat": "NN/HH/EEEE",
   "dialogTitle": "Tájékoztasson a kampányról",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Aláírtam. Neked is kellene",
+    "again": "Tweet egy másik személynek",
+    "choice": "Mit szeretnél legközelebb csinálni?",
+    "instruction": "Kérjük, töltse ki a tweet elküldését az új ablakban (a twitter.com-on)",
     "organisation": "Az Ön szervezetének twitter fiókja",
     "screenName": "Képernyő neve"
   },
