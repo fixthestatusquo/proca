@@ -91,9 +91,8 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
-  let hash =
-    props.hash ||
-    "08db305dd84671a8b4b384508877d939cbb24087c423b7774a2b2fce55e86196";
+  let hash = props.hash || "fckD2IvUmiA01Mv-5pj5s842lEakJ5TWKpcZlCPXtPQ";
+
   const form = useForm({
     shouldUnregister: false,
     defaultValues: {
