@@ -20,7 +20,6 @@
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
-  "dateFormat": "JJ/MM/AAAA",
   "action": {
     "donate": "Faire un don",
     "eci": "Signez l'ICE",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
     "required": "Votre consentement est nécessaire pour participer"
   },
+  "dateFormat": "JJ/MM/AAAA",
   "dialogTitle": "Tenez-moi informé de la campagne",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "J'ai signé. Vous devriez aussi",
+    "again": "Tweet à une autre personne",
+    "choice": "Que voulez-vous faire ensuite ?",
+    "instruction": "Veuillez terminer l'envoi du tweet dans la nouvelle fenêtre (sur twitter.com)",
     "organisation": "Compte twitter de votre organisation",
     "screenName": "Nom d'écran"
   },
