@@ -2,7 +2,7 @@ require("dotenv").config();
 const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "keep", "dry-run"],
+  boolean: ["help", "keep", "dry-run", "salutation"],
 });
 
 const { read, api } = require("./config");
@@ -14,6 +14,7 @@ if (!argv._.length || argv.help) {
       "options",
       "--help (this command)",
       "--dry-run (show the parsed targets but don't push)",
+      "--salutation(add a salutation column based on the )",
       "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
       "--file=file (by default, config/target/source/{campaign name}.json",
       "pushTarget {campaign name}",
@@ -22,6 +23,15 @@ if (!argv._.length || argv.help) {
   process.exit(0);
 }
 const pushCampaignTargets = async (campaignName, file) => {
+  const campaign = read("campaign/" + campaignName);
+  const salutations = {};
+  if (argv.salutation) {
+    Object.keys(campaign.config.locales).forEach((lang) => {
+      const common = campaign.config.locales[lang]["common:"];
+      const salutation = common?.salutation;
+      if (salutation) salutations[lang] = salutation;
+    });
+  }
   const targets = read("target/source/" + file);
   if (targets === null) {
     console.log("no local version of targets");
@@ -54,17 +64,23 @@ const pushCampaignTargets = async (campaignName, file) => {
             delete t.email;
           }
         }
-        if (!t.salutation) {
+        if (!t.salutation && argv.salutation) {
           let gender = null;
           if (t.field.gender) {
             if (t.field.gender === "M") gender = "male";
             if (t.field.gender === "F") gender = "female";
           }
-          const d = await i18n.changeLanguage(t.locale);
-          t.field.salutation = i18n.t("email.salutation", {
-            context: gender,
-            target: { name: t.name },
-          });
+          if (salutations[t.locale]) {
+            t.field.salutation = i18n.t(salutations[t.locale][gender], {
+              name: t.name,
+            });
+          } else {
+            const d = await i18n.changeLanguage(t.locale);
+            t.field.salutation = i18n.t("email.salutation", {
+              context: gender,
+              target: { name: t.name },
+            });
+          }
         }
         t.fields = JSON.stringify(t.field);
         delete t.field;
@@ -76,7 +92,6 @@ const pushCampaignTargets = async (campaignName, file) => {
   };
   const formattedTargets = await formatTargets();
 
-  const campaign = read("campaign/" + campaignName);
   if (campaign === null) {
     console.log("fetch campaign so I can get its name");
     return [];
