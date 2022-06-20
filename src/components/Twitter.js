@@ -48,7 +48,7 @@ const Intro = (props) => {
           startIcon={<ReloadIcon />}
           onClick={props.handleClick}
         >
-          Another
+          {t("Another")}
         </Button>
       </Grid>
     </Grid>
@@ -74,9 +74,13 @@ const TweetButton = (props) => {
       >
         {t(config.component.tweet?.button || "Tweet")}
       </Button>
-      {config.component.twitter?.next && (
-        <Button endIcon={<SkipNextIcon />} variant="contained">
-          {t("Next")}
+      {config.component.twitter?.skip && (
+        <Button endIcon={<SkipNextIcon />} onClick={props.done}>
+          {t(
+            config.component.twitter?.next
+              ? config.component.twitter.next
+              : "Next"
+          )}
         </Button>
       )}
     </Grid>
@@ -241,7 +245,7 @@ const Component = (props) => {
         />
         {config.component.twitter?.message && <Message form={form} />}
         <ShowCard hash={hash} />
-        <TweetButton handleClick={handleTweet} />
+        <TweetButton handleClick={handleTweet} done={props.done} />
       </>
     );
   };
@@ -292,8 +296,8 @@ const Component = (props) => {
       >
         <Register actionPage={props.actionPage} done={props.done} />
       </Dialog>
-      {!tweeting && <FirstStep />}
-      {tweeting && <SecondStep />}
+      {!tweeting && <FirstStep done={props.done} />}
+      {tweeting && <SecondStep done={props.done} />}
     </Fragment>
   );
 };
