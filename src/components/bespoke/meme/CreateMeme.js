@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     fill: "#000",
     strokeWidth: 0.5,
     userSelect: "none",
-    fontFamily: "Anton",
+    fontFamily: "Anton, sans-serif",
   },
   preview: {
     textTransform: "uppercase",
@@ -72,6 +72,7 @@ const CreateMeme = (props) => {
 
   console.log(
     "in meme",
+    current,
     props.myref,
     props.name,
     props.myref.current[props.name]
@@ -177,7 +178,7 @@ const CreateMeme = (props) => {
 
     // Top text font size
     let fontSize = param.fontSize;
-    ctx.font = `${fontSize}px Anton`;
+    ctx.font = `${fontSize}px Anton, sans-serif`;
     ctx.lineWidth = param.fontSize / 20;
 
     ctx.textBaseline = "top";
@@ -223,29 +224,19 @@ const CreateMeme = (props) => {
         });
   };
 
-  const handleBeforeSubmit = async (data) => {
-    console.log("handebeforesubmit", current, items);
+  const validateMeme = async (image) => {
+    console.log(
+      "time to save the meme",
+      current,
+      items,
+      image,
+      canvasRef.current
+    );
     if (items.length === 0) return console.error("context lost");
-    const hash = await handleClick();
-    data.image =
-      process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/together4forests/meme/" +
-      hash +
-      ".jpeg";
-    console.log(hash, data.image);
-    data.hash = hash;
-    return data;
+    return saveMeme();
   };
 
-  const handleClick = async () => {
-    const toBlob = () =>
-      new Promise((resolve) => {
-        canvasRef.current.toBlob(resolve, "image/jpeg", 81);
-      });
-
-    const blob = await toBlob();
-
-    //const f = items[current].original.split("/");
+  const getHash = async () => {
     let d = {
       image: items[current].original,
       top_text: topText,
@@ -260,12 +251,30 @@ const CreateMeme = (props) => {
       .replace(/\//g, "-")
       .replace(/=+$/g, "");
     // hash = base64url of the sha256
-    d.hash = hash;
-    d.lang = config.lang;
+    return hash;
+  };
+  const saveMeme = async () => {
+    const toBlob = () =>
+      new Promise((resolve) => {
+        canvasRef.current.toBlob(resolve, "image/jpeg", 81);
+      });
+
+    const blob = await toBlob();
+
+    const hash = await getHash();
+
+    let d = {
+      image: items[current].original,
+      top_text: topText,
+      bottom_text: bottomText,
+      hash: hash,
+      lang: config.lang,
+    };
+    //const f = items[current].original.split("/");
     let r = await supabase.from("meme").insert([d]);
     if (r.status === 409) {
       console.log("already set");
-      return hash;
+      return true;
     }
     r = await supabase.storage
       .from("together4forests")
@@ -276,11 +285,12 @@ const CreateMeme = (props) => {
     if (r.error) {
       if (r.error.statusCode === "23505") {
         //duplicated
-        return hash;
+        return true;
       }
       console.log(r.error);
+      return false;
     }
-    return hash;
+    return true;
   };
 
   const item = (items[current] && items[current].original) || "";
@@ -290,7 +300,7 @@ const CreateMeme = (props) => {
     base_image.src = item;
     base_image.addEventListener(
       "load",
-      function () {
+      async function () {
         const lineLength = (
           text // returns the max line Length if multiline text
         ) =>
@@ -321,6 +331,16 @@ const CreateMeme = (props) => {
           height: height,
           fontSize: fontSize,
         });
+        const hash = await getHash();
+        setValue(
+          "image",
+          process.env.REACT_APP_SUPABASE_URL +
+            "/storage/v1/object/public/together4forests/meme/" +
+            hash +
+            ".jpeg"
+        );
+        setValue("hash", hash);
+        setValue("dimension", "[" + width + "," + height + "]");
       },
       false
     );
@@ -331,7 +351,10 @@ const CreateMeme = (props) => {
     <Grid item xs={12}>
       <Grid item xs={12}>
         <input type="hidden" {...props.form.register("hash")} />
-        <input type="hidden" {...props.form.register("image")} />
+        <input
+          type="hidden"
+          {...props.form.register("image", { validate: validateMeme })}
+        />
         <input type="hidden" {...props.form.register("dimension")} />
         <Typography variant="subtitle1" element="div" color="textSecondary">
           {t("campaign:meme.explain")}

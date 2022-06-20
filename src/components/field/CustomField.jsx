@@ -22,10 +22,8 @@ const CustomFields = (props) => {
       console.log(data);
       return data;
     };
-    console.log("ref", props.myref.current);
   }
 
-  console.log("customfields", customFields.current);
   let components = config.component.register?.custom[position];
   if (!components)
     return "ERROR missing config.component.register.custom." + position;
@@ -33,7 +31,6 @@ const CustomFields = (props) => {
 
   return components.map((d) => {
     const Custom = portals[d];
-    console.log(d, customFields.current);
     return <Custom myref={customFields} name={d} key={d} {...props} />;
   });
 };

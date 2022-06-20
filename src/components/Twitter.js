@@ -91,7 +91,7 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
-  let hash = props.hash || "fckD2IvUmiA01Mv-5pj5s842lEakJ5TWKpcZlCPXtPQ";
+  let hash = data.hash || "fckD2IvUmiA01Mv-5pj5s842lEakJ5TWKpcZlCPXtPQ";
 
   const form = useForm({
     shouldUnregister: false,
@@ -103,6 +103,14 @@ const Component = (props) => {
   const { watch } = form;
   const country = watch("country");
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
+  if (data.hash && data.image) {
+    // it's a meme
+    actionUrl =
+      "https://meme.fixthestatusquo.org/meme/" +
+      data.hash +
+      "?url=" +
+      encodeURIComponent(document.location.origin + document.location.pathname);
+  }
   console.log("actionUrl", actionUrl);
   const handleTweet = () => {
     tweet({
