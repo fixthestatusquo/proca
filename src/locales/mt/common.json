@@ -20,7 +20,6 @@
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
-  "dateFormat": "JJ/SS/XXXX",
   "action": {
     "donate": "Agħti donazzjoni",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
     "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
   },
+  "dateFormat": "JJ/SS/XXXX",
   "dialogTitle": "Żommni infurmat dwar il-kampanja",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "I ffirmat. għandek ukoll",
+    "again": "Tweet lil persuna oħra",
+    "choice": "X'tixtieq tagħmel wara?",
+    "instruction": "Jekk jogħġbok imla ibgħat it-tweet fit-tieqa l-ġdida (fuq twitter.com)",
     "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek",
     "screenName": "Isem Elettroniku"
   },

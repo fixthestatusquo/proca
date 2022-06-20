@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "J'ai signé. Tu devrais aussi",
+    "again": "Tweet à une autre personne",
+    "choice": "Que voulez-vous faire ensuite ?",
+    "instruction": "Veuillez terminer l'envoi du tweet dans la nouvelle fenêtre (sur twitter.com)",
     "organisation": "Compte twitter de votre organisation",
     "screenName": "Nom d'écran"
   },

@@ -20,7 +20,6 @@
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
-  "dateFormat": "PP/KK/AAAA",
   "action": {
     "donate": "Annetada",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "required": "Osalemiseks on vaja teie nõusolekut"
   },
+  "dateFormat": "PP/KK/AAAA",
   "dialogTitle": "Hoidke mind kampaaniaga kursis",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Kirjutasin alla. sa peaksid ka",
+    "again": "Tweet teisele inimesele",
+    "choice": "Mida te tahaksite teha järgmisena?",
+    "instruction": "Palun lõpetage säutsu saatmine uues aknas (twitter.com)",
     "organisation": "Teie organisatsiooni twitteri konto",
     "screenName": "Ekraani nimi"
   },

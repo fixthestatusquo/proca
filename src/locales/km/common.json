@@ -146,6 +146,9 @@
   },
   "twitter": {
     "actionText": "អត្ថបទសកម្មភាព",
+    "again": "Tweet ទៅមនុស្សម្នាក់ទៀត។",
+    "choice": "តើអ្នកចង់ធ្វើអ្វីបន្ទាប់?",
+    "instruction": "សូម​បញ្ចប់​ការ​ផ្ញើ tweet ក្នុង​វិនដូថ្មី (នៅលើ twitter.com)",
     "organisation": "គណនី Twitter ស្ថាប័នរបស់អ្នក។",
     "screenName": "ឈ្មោះ​អេក្រង់"
   },

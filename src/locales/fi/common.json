@@ -20,7 +20,6 @@
   "Subject": "Aihe",
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
-  "dateFormat": "PP/KK/VVVV",
   "action": {
     "donate": "Lahjoita",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
     "required": "Osallistuminen edellyttää suostumustasi"
   },
+  "dateFormat": "PP/KK/VVVV",
   "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Allekirjoitin. Sinunkin pitäisi",
+    "again": "Twiittaa toiselle henkilölle",
+    "choice": "Mitä haluaisit tehdä seuraavaksi?",
+    "instruction": "Suorita twiitin lähettäminen loppuun uudessa ikkunassa (twitter.com)",
     "organisation": "Organisaatiosi Twitter-tili",
     "screenName": "Näyttönimi"
   },

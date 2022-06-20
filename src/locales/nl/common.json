@@ -20,7 +20,6 @@
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
-  "dateFormat": "DD/MM/JJJJ",
   "action": {
     "donate": "Doneer",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
     "required": "Uw toestemming is nodig om deel te nemen"
   },
+  "dateFormat": "DD/MM/JJJJ",
   "dialogTitle": "Hou me op de hoogte van de campagne",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Ik heb getekend. Doe mee!",
+    "again": "Tweet naar een andere persoon",
+    "choice": "Wat zou je hierna willen doen?",
+    "instruction": "Voltooi het verzenden van de tweet in het nieuwe venster (op twitter.com)",
     "organisation": "Twitter-account van uw organisatie",
     "screenName": "Schermnaam"
   },
