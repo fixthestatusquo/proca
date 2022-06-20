@@ -20,7 +20,6 @@
   "Subject": "Predmet",
   "Thank you": "Ďakujeme!",
   "Your message": "Vaša správa",
-  "dateFormat": "DD/MM/RRRR",
   "action": {
     "donate": "Darujte",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "required": "Na účasť je potrebný váš súhlas"
   },
+  "dateFormat": "DD/MM/RRRR",
   "dialogTitle": "Informujte ma o kampani",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Podpísal som sa. mali by ste tiež",
+    "again": "Tweet inej osobe",
+    "choice": "Čo by ste chceli robiť ďalej?",
+    "instruction": "Dokončite odoslanie tweetu v novom okne (na twitter.com)",
     "organisation": "Účet vašej organizácie na Twitteri",
     "screenName": "Meno obrazovky"
   },
