@@ -20,7 +20,6 @@
   "Subject": "Předmět",
   "Thank you": "Děkuji ti",
   "Your message": "Vaše zpráva",
-  "dateFormat": "DD/MM/RRRR",
   "action": {
     "donate": "Darovat",
     "eci": "Podepsat ECI",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
     "required": "K účasti je nutný váš souhlas"
   },
+  "dateFormat": "DD/MM/RRRR",
   "dialogTitle": "Informujte mě o kampani",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Já jsem se podepsal. měl bys také",
+    "again": "Tweetování jiné osobě",
+    "choice": "Co byste chtěli dělat dál?",
+    "instruction": "Dokončete prosím odeslání tweetu v novém okně (na twitter.com).",
     "organisation": "Účet vaší organizace na Twitteru",
     "screenName": "Jméno obrazovky"
   },
