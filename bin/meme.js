@@ -114,7 +114,9 @@ const hash = (obj) => {
 const pullTemplates = async () => {
   let { data: templates, error } = await supabase
     .from("meme_template")
-    .select("hash,image,top_text,bottom_text");
+    .select("hash,image,top_text,bottom_text")
+    .order("id", { ascending: false })
+    .eq("enabled", true);
 
   if (argv["dry-run"]) return console.log(templates, error);
   const fileName = file("target/public/meme/template");

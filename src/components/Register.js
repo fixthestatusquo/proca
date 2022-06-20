@@ -84,6 +84,13 @@ export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
   const [data, setData] = useData();
+  const [beforeSubmit, _setBeforeSubmit] = useState(null);
+  const customField = React.useRef({});
+  const setBeforeSubmit = (fct) => {
+    if (!beforeSubmit) {
+      _setBeforeSubmit(() => fct); // you can't put a function or promise in useState directly, it's taken as a setter instead
+    }
+  };
   let emailProvider = useRef(undefined); // we don't know the email provider
   const { t } = useTranslation();
 
@@ -142,7 +149,18 @@ export default function Register(props) {
       actionType = "mail2target";
     }
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
-      formData = props.beforeSubmit(formData);
+      formData = await props.beforeSubmit(formData);
+      console.log(formData);
+    }
+    console.log(customField.current);
+    if (customField.current.beforeSubmit) {
+      console.log("calling additional processors", formData);
+      formData = await customField.current.beforeSubmit(formData);
+    }
+
+    if (!formData) {
+      console.error("missing data");
+      return false;
     }
 
     if (isUuid()) {
@@ -357,6 +375,8 @@ export default function Register(props) {
                   compact={compact}
                   form={form}
                   position="top"
+                  myref={customField}
+                  handleBeforeSubmit={setBeforeSubmit}
                   classes={classes}
                 />
               )}
@@ -471,7 +491,12 @@ export default function Register(props) {
               {props.extraFields &&
                 props.extraFields({ form: form, classes: classes })}
               {config.component.register?.custom?.bottom && (
-                <CustomField compact={compact} form={form} classes={classes} />
+                <CustomField
+                  compact={compact}
+                  form={form}
+                  classes={classes}
+                  myref={customField}
+                />
               )}
 
               {!data.uuid && (

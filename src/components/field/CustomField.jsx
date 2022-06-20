@@ -1,23 +1,31 @@
+import React, { useRef, useEffect } from "react";
 import { portals } from "../../actionPage";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const CustomFields = (props) => {
   const position = props.position || "bottom";
   const config = useCampaignConfig();
-  const dataPreparers = [];
+  const customFields = useRef({});
+  if (props.myref && !props.myref.current.beforeSubmit) {
+    props.myref.current.beforeSubmit = async (data) => {
+      console.log("prepareData in custom field", data);
 
-  const registerProcessor = (fct) => {
-    console.log("customfield going to prepareDate");
-    dataPreparers.push(fct);
-  };
+      if (!data) return null;
+      const names = Object.keys(customFields.current);
+      console.log(customFields.current, names);
+      for (const name in names) {
+        const fct = customFields.current[name];
 
-  const prepareData = (data) => {
-    dataPreparers.forEarch((fct) => {
-      data = fct(data);
-    });
-    return data;
-  };
+        console.log(fct);
+        if (fct) data = await fct(data);
+      }
+      console.log(data);
+      return data;
+    };
+    console.log("ref", props.myref.current);
+  }
 
+  console.log("customfields", customFields.current);
   let components = config.component.register?.custom[position];
   if (!components)
     return "ERROR missing config.component.register.custom." + position;
@@ -25,7 +33,8 @@ const CustomFields = (props) => {
 
   return components.map((d) => {
     const Custom = portals[d];
-    return <Custom registerProcessor={registerProcessor} key={d} {...props} />;
+    console.log(d, customFields.current);
+    return <Custom myref={customFields} name={d} key={d} {...props} />;
   });
 };
 

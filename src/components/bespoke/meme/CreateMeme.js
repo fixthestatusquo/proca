@@ -70,6 +70,25 @@ const CreateMeme = (props) => {
   const { topText, bottomText } = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
+  console.log(
+    "in meme",
+    props.myref,
+    props.name,
+    props.myref.current[props.name]
+  );
+  if (props.myref && props.name && !props.myref.current[props.name]) {
+    console.log("registering in meme ", props.name);
+    const fct = async (data) => {
+      console.log("prepareData in meme", data, items);
+
+      if (!data) return null;
+      console.log(data);
+      return data;
+    };
+    props.myref.current[props.name] = fct;
+    console.log("ref", props.myref.current);
+  }
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -204,6 +223,20 @@ const CreateMeme = (props) => {
         });
   };
 
+  const handleBeforeSubmit = async (data) => {
+    console.log("handebeforesubmit", current, items);
+    if (items.length === 0) return console.error("context lost");
+    const hash = await handleClick();
+    data.image =
+      process.env.REACT_APP_SUPABASE_URL +
+      "/storage/v1/object/public/together4forests/meme/" +
+      hash +
+      ".jpeg";
+    console.log(hash, data.image);
+    data.hash = hash;
+    return data;
+  };
+
   const handleClick = async () => {
     const toBlob = () =>
       new Promise((resolve) => {
@@ -297,6 +330,9 @@ const CreateMeme = (props) => {
   return (
     <Grid item xs={12}>
       <Grid item xs={12}>
+        <input type="hidden" {...props.form.register("hash")} />
+        <input type="hidden" {...props.form.register("image")} />
+        <input type="hidden" {...props.form.register("dimension")} />
         <Typography variant="subtitle1" element="div" color="textSecondary">
           {t("campaign:meme.explain")}
         </Typography>
