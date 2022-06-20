@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
           font-style: normal;
           font-display: swap;
           font-weight: 400;
-          src: url('http://static.proca.app/font/anton.woff2') format('woff2');
+          src: url('http://static.proca.app/font/anton-regular.woff2') format('woff2');
         }
       `,
     },
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     stroke: "#000",
     strokeWidth: 1.5,
     userSelect: "none",
-    fontFamily: "Anton",
+    fontFamily: "Anton, sans-serif",
   },
   aaselected: {
     position: "relative",
@@ -363,7 +363,7 @@ const CreateMeme = (props) => {
           {`
         @font-face {
           font-family: 'Anton';
-          src: url('https://static.proca.app/font/anton.woff2') format('woff2');
+          src: url('https://static.proca.app/font/anton-regular.woff2') format('woff2');
         }
       `}
         </style>
