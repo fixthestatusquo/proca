@@ -20,7 +20,6 @@
   "Subject": "Zadeva",
   "Thank you": "Hvala vam",
   "Your message": "Vaše sporočilo",
-  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Podarite",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "required": "Za sodelovanje je potrebno vaše soglasje."
   },
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Obveščajte me o kampanji",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Podpisal sem. tudi vi bi morali",
+    "again": "Tweet drugi osebi",
+    "choice": "Kaj bi radi storili naprej?",
+    "instruction": "Dokončajte pošiljanje tvita v novem oknu (na twitter.com)",
     "organisation": "Račun twitter vaše organizacije",
     "screenName": "Ime zaslona"
   },
