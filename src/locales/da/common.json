@@ -44,7 +44,8 @@
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
     "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>"
+    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+    "required": "Dit samtykke er nødvendigt for at deltage"
   },
   "dialogTitle": "Hold mig informeret om kampagnen",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
   "register": "Tilføj mit navn",
   "required": "Udfyld venligst dette felt",
+  "required field": "Obligatorisk felt",
   "salutations": {
     "f": "Ms.",
     "m": "Hr.",

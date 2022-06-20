@@ -43,8 +43,10 @@
     "opt-in-both": "Dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a",
     "opt-out": "Ne šaljite mi mejlove i nemojte me obaveštavati ubuduće",
     "processing": "Ваши лични подаци ће бити приватни и безбедни. Слањем информација пристајете на употребу података и колачића у складу са нашом <1> политиком приватности </1>",
-    "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>"
+    "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
+    "required": "За учешће је потребна ваша сагласност"
   },
+  "dateFormat": "ММ/ДД/ГГГГ",
   "dialogTitle": "Potpiši peticiju za zabranu biometrijskog nadzora",
   "donation": {
     "amount": {
@@ -122,6 +124,7 @@
   "progress_plural": "{{count}} су потписали. Идемо на {{goal}}",
   "register": "Додај моје име",
   "required": "Молимо попуните ово поље",
+  "required field": "Обавезно поље",
   "salutations": {
     "f": "Госпођа.",
     "m": "Господин.",

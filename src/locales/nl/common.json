@@ -44,7 +44,8 @@
     "opt-in-both": "Ja, ik wil dat {{partner}} en {{lead}} mij via e-mail op de hoogte houden",
     "opt-out": "Nee, stuur me geen e-mails - hou me niet op de hoogte in de toekomst",
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
-    "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>"
+    "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
+    "required": "Uw toestemming is nodig om deel te nemen"
   },
   "dialogTitle": "Hou me op de hoogte van de campagne",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "",
   "register": "Mijn naam toevoegen",
   "required": "Gelieve dit veld in te vullen",
+  "required field": "Verplicht veld",
   "salutations": {
     "f": "Mevrouw.",
     "m": "Mr.",

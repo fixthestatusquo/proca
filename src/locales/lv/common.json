@@ -44,7 +44,8 @@
     "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
     "opt-out": "Nē, es nevēlos saņemt kampaņas jaunumus",
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-    "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>"
+    "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
+    "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana."
   },
   "dialogTitle": "Informējiet mani par kampaņu",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
   "register": "Pievienojiet manu vārdu",
   "required": "Lūdzu, aizpildiet šo lauku",
+  "required field": "Obligātais lauks",
   "salutations": {
     "f": "kundze.",
     "m": "M.",

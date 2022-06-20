@@ -44,7 +44,8 @@
     "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi tengano informato via e-mail",
     "opt-out": "No, non mandarmi e-mail o tenermi aggiornato in futuro",
     "processing": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando le informazioni si accetta l'uso dei dati e dei cookie in conformità con la nostra <1>politica sulla privacy</1>.",
-    "processing-nocookie": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando informazioni si accetta l'uso dei dati in conformità con la nostra <1>politica sulla privacy</1>."
+    "processing-nocookie": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando informazioni si accetta l'uso dei dati in conformità con la nostra <1>politica sulla privacy</1>.",
+    "required": "Per partecipare è necessario il vostro consenso"
   },
   "dialogTitle": "Tienimi informato sulla campagna",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "",
   "register": "Aggiungi il mio nome",
   "required": "Compilare questo campo",
+  "required field": "Campo obbligatorio",
   "salutations": {
     "f": "Ms.",
     "m": "Il Sig.",

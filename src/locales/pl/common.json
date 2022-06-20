@@ -44,7 +44,8 @@
     "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie za pośrednictwem poczty elektronicznej",
     "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości",
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
-    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>"
+    "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
+    "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
   },
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
   "donation": {
@@ -123,6 +124,7 @@
   "progress_plural": "{{count}}  osób już podpisało. Dążymy do {{goal}}",
   "register": "Podpisuję petycję",
   "required": "Proszę wypełnić to pole",
+  "required field": "Wymagane pole",
   "salutations": {
     "f": "Pani.",
     "m": "Pan.",
