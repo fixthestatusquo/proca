@@ -30,6 +30,8 @@ const pushCampaignTargets = async (campaignName, file) => {
       const common = campaign.config.locales[lang]["common:"];
       const salutation = common?.salutation;
       if (salutation) salutations[lang] = salutation;
+      if (!salutation)
+        salutations[lang] = campaign.config.locales.en["common:"].salutation; //WORKAROUND to default to en
     });
   }
   const targets = read("target/source/" + file);
