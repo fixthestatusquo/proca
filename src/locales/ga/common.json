@@ -20,7 +20,6 @@
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
-  "dateFormat": "DD/MM/BBBB",
   "action": {
     "donate": "Síntiúis",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
     "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh"
   },
+  "dateFormat": "DD/MM/BBBB",
   "dialogTitle": "Coinnigh ar an eolas mé faoin bhfeachtas",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Shínigh mé. ba chóir duit freisin",
+    "again": "Tweet chuig duine eile",
+    "choice": "Cad ba mhaith leat a dhéanamh ina dhiaidh sin?",
+    "instruction": "Comhlánaigh le do thoil an tweet a sheoladh sa bhfuinneog nua (ar twitter.com)",
     "organisation": "Cuntas twitter d’eagraíochta",
     "screenName": "Ainm Scáileáin"
   },

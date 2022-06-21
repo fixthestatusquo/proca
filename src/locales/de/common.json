@@ -20,7 +20,6 @@
   "Subject": "Betreff",
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
-  "dateFormat": "TT/MM/JJJJ",
   "action": {
     "donate": "Spenden Sie",
     "eci": "Initiative unterschreiben",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Zustimmung erforderlich zur Teilnahme"
   },
+  "dateFormat": "TT/MM/JJJJ",
   "dialogTitle": "Informieren Sie mich über die Kampagne",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Ich habe unterschrieben. Das sollten Sie auch.",
+    "again": "Tweet an eine andere Person",
+    "choice": "Was würden Sie als Nächstes tun wollen?",
+    "instruction": "Bitte senden Sie den Tweet in einem neuen Fenster ab (auf twitter.com)",
     "organisation": "Twitter-Konto Ihrer Organisation",
     "screenName": "Bildschirmname"
   },

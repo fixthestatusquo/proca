@@ -20,7 +20,6 @@
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
-  "dateFormat": "DD/MM/GGGG",
   "action": {
     "donate": "Doniraj",
     "eci": "Potpiši ECI",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potreban vaš pristanak"
   },
+  "dateFormat": "DD/MM/GGGG",
   "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
+    "again": "Tweetajte drugoj osobi",
+    "choice": "Što bi htio sljedeće raditi?",
+    "instruction": "Molimo dovršite slanje tweeta u novom prozoru (na twitter.com)",
     "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },

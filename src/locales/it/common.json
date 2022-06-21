@@ -20,7 +20,6 @@
   "Subject": "Oggetto",
   "Thank you": "Grazie",
   "Your message": "Il tuo messaggio",
-  "dateFormat": "GG/MM/AAAA",
   "action": {
     "donate": "Donare",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando informazioni si accetta l'uso dei dati in conformità con la nostra <1>politica sulla privacy</1>.",
     "required": "Per partecipare è necessario il vostro consenso"
   },
+  "dateFormat": "GG/MM/AAAA",
   "dialogTitle": "Tienimi informato sulla campagna",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Ho firmato. dovresti farlo anche tu",
+    "again": "Twittare a un'altra persona",
+    "choice": "Cosa vorresti fare dopo?",
+    "instruction": "Completare l'invio del tweet nella nuova finestra (su twitter.com)",
     "organisation": "L'account Twitter della vostra organizzazione",
     "screenName": "Nome dello schermo"
   },

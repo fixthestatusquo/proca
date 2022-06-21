@@ -20,7 +20,6 @@
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
-  "dateFormat": "MM/DD/ÅÅÅÅ",
   "action": {
     "donate": "Donér",
     "eci": "Skriv under her",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage"
   },
+  "dateFormat": "MM/DD/ÅÅÅÅ",
   "dialogTitle": "Hold mig informeret om kampagnen",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Jeg underskrev. du burde også",
+    "again": "Tweet til en anden person",
+    "choice": "Hvad vil du gerne gøre som det næste?",
+    "instruction": "Afslut venligst afsendelsen af tweetet i det nye vindue (på twitter.com)",
     "organisation": "Din organisations twitter-konto",
     "screenName": "Skærmenavn"
   },

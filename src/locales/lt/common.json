@@ -20,7 +20,6 @@
   "Subject": "Tema",
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
-  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Paaukoti",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
     "required": "Norint dalyvauti, reikia jūsų sutikimo."
   },
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Informuokite mane apie kampaniją",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Aš pasirašiau. tu taip pat turėtum",
+    "again": "Tweet kitam asmeniui",
+    "choice": "Ką norėtumėte daryti toliau?",
+    "instruction": "Užpildykite tweet siuntimą naujame lange (twitter.com)",
     "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
     "screenName": "Ekrano vardas"
   },

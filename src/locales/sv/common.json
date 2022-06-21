@@ -20,7 +20,6 @@
   "Subject": "Ämne",
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
-  "dateFormat": "DD/MM/åååå",
   "action": {
     "donate": "Donera",
     "eci": "eci",
@@ -47,6 +46,7 @@
     "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "required": "Ditt samtycke krävs för att delta"
   },
+  "dateFormat": "DD/MM/åååå",
   "dialogTitle": "Håll mig informerad om kampanjen",
   "donation": {
     "amount": {
@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Jag skrev under. du borde också",
+    "again": "Twittra till en annan person",
+    "choice": "Vad skulle du vilja göra härnäst?",
+    "instruction": "Slutför sändningen av tweeten i det nya fönstret (på twitter.com).",
     "organisation": "Din organisations twitterkonto",
     "screenName": "Skärmnamn"
   },

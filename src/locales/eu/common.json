@@ -147,6 +147,9 @@
   },
   "twitter": {
     "actionText": "Sinatu nuen. zuk ere egin beharko zenuke",
+    "again": "Txio egin beste pertsona bati",
+    "choice": "Zer egin nahiko zenuke hurrengoan?",
+    "instruction": "Mesedez, osatu txioa leiho berrian bidaltzen (twitter.com-en)",
     "organisation": "Zure erakundearen twitter kontua",
     "screenName": "Pantailaren Izena"
   },
