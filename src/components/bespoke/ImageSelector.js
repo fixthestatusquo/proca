@@ -134,7 +134,6 @@ const ImageSelector = (props) => {
     setTimeout(function () {
       const canvas = document.getElementById("proca-meme");
       const width = canvas?.offsetWidth;
-      console.log(canvas, width);
       if (width) setWidth(width);
     }, 2000);
   }, [setWidth]);
@@ -153,9 +152,14 @@ const ImageSelector = (props) => {
   return (
     <>
       <Selected {...items[selected]} />
-      <List className={classes.imageList} style={{ "max-width": width }}>
+      <List
+        component="div"
+        className={classes.imageList}
+        style={{ "max-width": width }}
+      >
         {items.map((d, i) => (
           <ListItem
+            component="div"
             disableGutters={true}
             dense={true}
             key={i}

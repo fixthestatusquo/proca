@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { portals } from "../../actionPage";
 import { useCampaignConfig } from "@hooks/useConfig";
 
