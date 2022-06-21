@@ -288,9 +288,11 @@ const CreateMeme = (props) => {
   };
 
   const item = (items[current] && items[current].original) || "";
+
   useEffect(() => {
-    const base_image = new Image();
+    let base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
+    console.log("loading image", item);
     base_image.src = item;
     base_image.addEventListener(
       "load",

@@ -155,7 +155,7 @@ const ImageSelector = (props) => {
       <List
         component="div"
         className={classes.imageList}
-        style={{ "max-width": width }}
+        style={{ maxWidth: width }}
       >
         {items.map((d, i) => (
           <ListItem

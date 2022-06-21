@@ -107,7 +107,7 @@ const Component = (props) => {
   const { watch } = form;
   const country = watch("country");
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
-  if (data.hash && data.image) {
+  if (hash) {
     // it's a meme
     actionUrl =
       "https://meme.fixthestatusquo.org/meme/" +
@@ -115,7 +115,6 @@ const Component = (props) => {
       "?url=" +
       encodeURIComponent(document.location.origin + document.location.pathname);
   }
-  console.log("actionUrl", actionUrl);
   const handleTweet = () => {
     tweet({
       actionPage: config.actionPage,
