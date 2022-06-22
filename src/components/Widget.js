@@ -43,10 +43,15 @@ const Widget = (props) => {
 
   const setCurrent = (i) => {
     if (i >= 0 && journey[i])
-      dispatch(journey[i].toLowerCase() + ":init", {
-        step: journey[i],
-        journey: journey,
-      });
+      dispatch(
+        journey[i].toLowerCase() + ":init",
+        {
+          step: journey[i],
+          journey: journey,
+        },
+        null,
+        config
+      );
     _setCurrent(i);
   };
   const [, updateState] = useState();
@@ -151,12 +156,16 @@ const Widget = (props) => {
     return;
   }
   if (!init) {
-    dispatch("proca:init", {
-      config: config,
-      data: data,
-      isMobile: isMobile,
-      step: journey[current ? current : 0],
-    });
+    dispatch(
+      "proca:init",
+      {
+        config: config,
+        data: data,
+        isMobile: isMobile,
+        step: journey[current ? current : 0],
+      },
+      config
+    );
     init = true;
   }
 
@@ -245,7 +254,12 @@ const Widget = (props) => {
       setCurrent(current + 1);
     } else {
       // we're done - check what to do next!
-      dispatch("proca:complete", { elem: "journey", journey: journey });
+      dispatch(
+        "proca:complete",
+        { elem: "journey", journey: journey },
+        null,
+        config
+      );
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
       // make users think their submission didn't work.

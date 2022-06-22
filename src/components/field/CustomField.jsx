@@ -12,14 +12,10 @@ const CustomFields = (props) => {
 
       if (!data) return null;
       const names = Object.keys(customFields.current);
-      console.log(customFields.current, names);
       for (const name in names) {
         const fct = customFields.current[name];
-
-        console.log(fct);
         if (fct) data = await fct(data);
       }
-      console.log(data);
       return data;
     };
   }

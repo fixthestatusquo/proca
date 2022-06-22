@@ -158,7 +158,7 @@ export default function ShareAction(props) {
       tracking: Url.utm(),
     };
 
-    dispatch(event.replace("_", ":"), d);
+    dispatch(event.replace("_", ":"), d, null, config);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
   };

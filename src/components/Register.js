@@ -234,7 +234,8 @@ export default function Register(props) {
         comment: formData.comment,
         privacy: formData.privacy,
       },
-      formData
+      formData,
+      config
     );
     if (config.component.register.remember) {
       setCookie("proca_firstname", formData.firstname);
