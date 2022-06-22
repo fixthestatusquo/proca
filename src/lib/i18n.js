@@ -6,9 +6,10 @@ import locales from "locales/common.json"; // locales is an alias to src/locales
 import isoCountries from "i18n-iso-countries";
 import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used locales
 
-// DUPLICATION WARNING require and import compatibility: any update needs to be done as well into ./bin
+// DUPLICATION WARNING require and import compatibility: any update needs to be done as well into ./bin/lang.js
 const languages = {
   be: ["fr", "nl"],
+  gr: "el",
   el: "el",
   lt: "lt",
   pt: "pt",
@@ -44,7 +45,6 @@ const mainLanguage = (countryCode, single = true) => {
   return l;
 };
 
- 
 isoCountries.registerLocale(isoCountriesLang);
 
 // XXX maybe refactor to use some useMemo?
@@ -99,5 +99,5 @@ i18n
     },
   });
 
-export {mainLanguage};
+export { mainLanguage };
 export default i18n;
