@@ -86,6 +86,7 @@
     "set": "node bin/set.js",
     "pushCampaign": "node bin/pushCampaign.js",
     "pullCampaign": "node bin/pullCampaign.js",
+    "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging rescripts start",
     "start": "rescripts start",
     "test": "rescripts test",
