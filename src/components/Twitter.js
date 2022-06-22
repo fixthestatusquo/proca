@@ -21,6 +21,9 @@ import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  skip: {
+    marginTop: theme.spacing(1),
+  },
   media: {
     width: "100%",
   },
@@ -58,32 +61,43 @@ const Intro = (props) => {
 const TweetButton = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
+  const classes = useStyles();
   return (
-    <Grid item xs={12}>
-      <Button
-        color="primary"
-        variant="contained"
-        fullWidth
-        onClick={props.handleClick}
-        size="large"
-        endIcon={
-          <SvgIcon>
-            <TwitterIcon />
-          </SvgIcon>
-        }
-      >
-        {t(config.component.tweet?.button || "Tweet")}
-      </Button>
-      {config.component.twitter?.skip && (
-        <Button endIcon={<SkipNextIcon />} onClick={props.done}>
-          {t(
-            config.component.twitter?.next
-              ? config.component.twitter.next
-              : "Next"
-          )}
+    <>
+      <Grid item xs={12}>
+        <Button
+          color="primary"
+          variant="contained"
+          fullWidth
+          onClick={props.handleClick}
+          size="large"
+          endIcon={
+            <SvgIcon>
+              <TwitterIcon />
+            </SvgIcon>
+          }
+        >
+          {t(config.component.tweet?.button || "Tweet")}
         </Button>
+      </Grid>
+      {config.component.twitter?.skip && (
+        <Grid item xs={12} className={classes.skip}>
+          <Button
+            fullWidth
+            variant="contained"
+            disableElevation
+            endIcon={<SkipNextIcon />}
+            onClick={props.done}
+          >
+            {t(
+              config.component.twitter?.next
+                ? config.component.twitter.next
+                : "Next"
+            )}
+          </Button>
+        </Grid>
       )}
-    </Grid>
+    </>
   );
 };
 
