@@ -4,7 +4,6 @@ const dispatchAnalytics = (message, value) => {
     event: "proca_" + message.replace(":", "_"),
   };
   const action = message.split(":");
-  console.log(action);
   if (value?.test) {
     param.testMode = true;
   }
@@ -14,7 +13,6 @@ const dispatchAnalytics = (message, value) => {
   if (action[1] && action[1] === "complete") {
     param.event = "proca_" + action[1];
   }
-  console.log(param, window.dataLayer);
   window.dataLayer?.push(param);
 };
 
@@ -24,7 +22,6 @@ const dispatch = (event, data, pii, config) => {
     console.error("#proca missing");
     elem = window;
   }
-  console.log(config?.component, event);
   if (config?.component?.widget?.analytics) {
     dispatchAnalytics(event, data);
   }
