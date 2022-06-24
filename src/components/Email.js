@@ -170,7 +170,7 @@ const Component = (props) => {
               const i = d[Math.floor(Math.random() * d.length)];
               setProfiles([i]);
             } else {
-              const shuffled = d.sort(() => 0.5 - Math.random());
+              const shuffled = d.sort(() => 0.5 - Math.random()); // biased, but good enough
               setProfiles(shuffled.slice(0, config.component.email.sample));
             }
           }

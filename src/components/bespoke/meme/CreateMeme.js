@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Typography, Button, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
+import { shuffle } from "@lib/array";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
@@ -102,6 +103,7 @@ const CreateMeme = (props) => {
       }
       if (!isCancelled) {
         const response = await r.json();
+        shuffle(response);
         response.forEach((d) => {
           templates.push({
             top: t("campaign:meme." + d.top_text.replaceAll("_", "-"), ""),
@@ -292,7 +294,6 @@ const CreateMeme = (props) => {
   useEffect(() => {
     let base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
-    console.log("loading image", item);
     base_image.src = item;
     base_image.addEventListener(
       "load",

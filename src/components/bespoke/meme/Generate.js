@@ -5,7 +5,6 @@ import useData from "@hooks/useData";
 const GenerateMeme = (props) => {
   const [data, setData] = useData();
   useEffect(() => {
-    console.log(data);
     if (data.actionUrl) return;
     /*    setData(
       "actionUrl",
