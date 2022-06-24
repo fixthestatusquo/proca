@@ -12,6 +12,16 @@ const useStyles = makeStyles((theme) => ({
   memeText: {
     minHeight: "0!important",
   },
+  components: {
+    inputMultiline: {
+      minHeight: "2px!important",
+    },
+  },
+  overrides: {
+    inputMultiline: {
+      minHeight: "1px!important",
+    },
+  },
   /*  const theme = createTheme({
   typography: {
     fontFamily: 'Anton, Arial',
