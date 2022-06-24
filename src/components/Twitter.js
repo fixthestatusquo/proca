@@ -16,7 +16,7 @@ import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from "../images/Twitter.js";
 import Again from "@components/twitter/Again";
-import { CardMedia, SvgIcon } from "@material-ui/core";
+import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -270,7 +270,7 @@ const Component = (props) => {
       "/storage/v1/object/public/together4forests/meme/" +
       props.hash +
       ".jpeg";
-    return <img src={image} className={classes.media} />;
+    return <img src={image} alt="meme" className={classes.media} />;
   };
   //          "addLink": true,
   //          "showCard": true

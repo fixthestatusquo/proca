@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Typography, Button, Grid } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import { shuffle } from "@lib/array";
 import TextField from "@components/TextField";
@@ -221,13 +221,6 @@ const CreateMeme = (props) => {
   };
 
   const validateMeme = async (image) => {
-    console.log(
-      "time to save the meme",
-      current,
-      items,
-      image,
-      canvasRef.current
-    );
     if (items.length === 0) return console.error("context lost");
     return saveMeme();
   };
@@ -290,7 +283,6 @@ const CreateMeme = (props) => {
   };
 
   const item = (items[current] && items[current].original) || "";
-
   useEffect(() => {
     let base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
@@ -315,7 +307,7 @@ const CreateMeme = (props) => {
         const width = 300; //might be too small?
         const height = width / wrh;
         const top = autoSplit(topText);
-        const bottom = autoSplit(bottomText);
+        const bottom = autoSplit(bottomText || items[current].bottom); //workaround, sometimes the bottomText isnt' set
 
         const length = Math.max(lineLength(top), lineLength(bottom));
         let fontSize = 2 + (2 * width) / length;
