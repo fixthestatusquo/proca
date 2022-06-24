@@ -154,7 +154,6 @@ export default function Register(props) {
     }
     console.log(customField.current);
     if (customField.current.beforeSubmit) {
-      console.log("calling additional processors", formData);
       formData = await customField.current.beforeSubmit(formData);
     }
 
@@ -351,6 +350,15 @@ export default function Register(props) {
   const next = (e) => {
     const d = getValues();
     setData(d);
+    dispatch(
+      (config.component?.register?.actionType || "register") + ":skip",
+      {
+        test: !!config.test,
+        country: d.country,
+      },
+      d,
+      config
+    );
     props.done();
   };
 

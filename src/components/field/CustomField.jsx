@@ -8,8 +8,6 @@ const CustomFields = (props) => {
   const customFields = useRef({});
   if (props.myref && !props.myref.current.beforeSubmit) {
     props.myref.current.beforeSubmit = async (data) => {
-      console.log("prepareData in custom field", data);
-
       if (!data) return null;
       const names = Object.keys(customFields.current);
       for (const name in names) {

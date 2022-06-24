@@ -140,6 +140,7 @@ const Component = (props) => {
     setTweeting(true);
     setData("targets", target);
   };
+
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
@@ -164,7 +165,7 @@ const Component = (props) => {
           if (config.component.twitter?.filter?.includes("random")) {
             if (data.country) {
               const r = d.filter(
-                (c) => !c.country || c.country === data.country
+                (c) => !c.country || c.country.toUpperCase() === data.country
               );
               if (r.length > 0) setAllProfiles(r);
             }
@@ -223,7 +224,6 @@ const Component = (props) => {
   );
 
   useEffect(() => {
-    console.log("country");
     //    setFilter({country:config.country});
     filterProfiles(country);
     /*    if (typeof config.hook["twitter:load"] === "function") {
