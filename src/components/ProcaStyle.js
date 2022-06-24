@@ -100,6 +100,7 @@ export default function ProcaStyle(props) {
               paddingTop: "23px!important",
               paddingBottom: "6px!important",
               "& textarea": {
+                minHeight: "23px!important",
                 paddingTop: "0!important",
                 paddingBottom: "0!important",
               },
