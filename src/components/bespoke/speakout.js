@@ -32,6 +32,7 @@ const SpeakoutCheck = (props) => {
       return r[0] || {};
     };
     const data = getCookie();
+    if (data.country) data.country = data.country.toUpperCase();
     if (data.firstname) {
       setData(data);
       setRefresh(false);
