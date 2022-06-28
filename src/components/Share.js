@@ -222,9 +222,10 @@ export default function ShareAction(props) {
     };
 
     let twitters = [];
-    data.targets?.forEach((d) => {
-      if (d.screen_name) twitters.push("@" + d.screen_name);
-    });
+    data.targets &&
+      data.targets.forEach((d) => {
+        if (d.screen_name) twitters.push("@" + d.screen_name);
+      });
 
     let cardIcons;
 
