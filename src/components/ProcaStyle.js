@@ -64,6 +64,9 @@ export default function ProcaStyle(props) {
           //    fontSize: 14,
         },
         overrides: {
+          MuiSnackbar-root: {
+            zIndex: 30003
+          },
           MuiContainer: {
             root: {
               fontFamily: "unset!important",
