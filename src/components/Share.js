@@ -223,6 +223,7 @@ export default function ShareAction(props) {
 
     let twitters = [];
     data.targets &&
+      data.targets.length < 2 &&
       data.targets.forEach((d) => {
         if (d.screen_name) twitters.push("@" + d.screen_name);
       });
