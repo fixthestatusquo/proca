@@ -82,12 +82,10 @@ const CreateMeme = (props) => {
   const supabase = useSupabase();
 
   if (props.myref && props.name && !props.myref.current[props.name]) {
-    console.log("registering in meme ", props.name);
     const fct = async (data) => {
       console.log("prepareData in meme", data, items);
 
       if (!data) return null;
-      console.log(data);
       return data;
     };
     props.myref.current[props.name] = fct;
@@ -273,7 +271,6 @@ const CreateMeme = (props) => {
     //const f = items[current].original.split("/");
     let r = await supabase.from("meme").insert([d]);
     if (r.status === 409) {
-      console.log("already set");
       return true;
     }
     r = await supabase.storage
