@@ -9,6 +9,7 @@ import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
+  /*  const theme = createTheme({
   memeText: {
     minHeight: "0!important",
   },
@@ -22,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
       minHeight: "1px!important",
     },
   },
-  /*  const theme = createTheme({
   typography: {
     fontFamily: 'Anton, Arial',
   },
@@ -101,7 +101,8 @@ const CreateMeme = (props) => {
     let templates = [];
     (async function () {
       const r = await fetch(
-        "https://widget.proca.app/t/meme/template.json",
+        config.component.meme?.list ||
+          "https://widget.proca.app/t/meme/template.json",
         {}
       );
       if (!r.ok) {

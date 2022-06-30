@@ -54,6 +54,7 @@ const i18nInit = i18next.use(Backend).init({
 
 const mainLanguage = (countryCode, single = true) => {
   // single: remove countries with multiple languages
+  if (!countryCode) return null;
   const l = languages[countryCode.toLowerCase()];
   if (single && Array.isArray(l)) return null;
   return l;

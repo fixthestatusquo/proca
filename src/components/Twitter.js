@@ -189,8 +189,11 @@ const Component = (props) => {
           console.log(error);
         });
     };
-    if (config.component.twitter.listUrl)
-      fetchData(config.component.twitter.listUrl);
+    const url =
+      config.component.twitter?.listUrl !== true
+        ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+        : config.component.twitter.listUrl;
+    fetchData(url);
     // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
@@ -242,6 +245,7 @@ const Component = (props) => {
   };
 
   const FirstStep = (props) => {
+    console.log("profiles", profiles);
     return (
       <>
         {config.component.twitter?.filter?.includes("country") && (
