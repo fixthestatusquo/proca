@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-component";
 import { useSupabase } from "@lib/supabase";
-
-const masonryOptions = {
-  transitionDuration: 0,
-};
+import ProgressCounter from "@components/ProgressCounter";
 
 const WallOfMeme = (props) => {
   const supabase = useSupabase();
@@ -26,21 +23,24 @@ const WallOfMeme = (props) => {
   }, []);
 
   return (
-    <Masonry>
-      {memes.map((d) => (
-        <>
-          <img
-            key={d.hash}
-            src={
-              "https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/" +
-              d.hash +
-              ".jpeg"
-            }
-            alt={d.top + " " + d.bottom}
-          />
-        </>
-      ))}
-    </Masonry>
+    <>
+      <ProgressCounter />
+      <Masonry>
+        {memes.map((d) => (
+          <>
+            <img
+              key={d.hash}
+              src={
+                "https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/" +
+                d.hash +
+                ".jpeg"
+              }
+              alt={d.top + " " + d.bottom}
+            />
+          </>
+        ))}
+      </Masonry>
+    </>
   );
 };
 
