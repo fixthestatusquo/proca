@@ -31,8 +31,8 @@ const help = () => {
       "--autostart=true",
 //      "--forcewidth=54 (force the width)",
 //      "--orgdata=true (do we collect the organisation details)*",
-      "--required=lastname (postcode, country, comment...) set the field(s) required",
-      "--notrequired=lastname (postcode, country, comment...) changes required field(s) to unrequired",
+      "--required=lastname (postcode, country, comment...) set the field(s) required. If more than one, type fieldnames with commas, no spaces, eg: --required=lastname,country",
+      "--notrequired=lastname (postcode, country, comment...) changes required field(s) to unrequired. Type fieldnames with commas, no spaces",
       "--show=lastname (postcode, country, comment...) show optional field(s)",
       "--hide=lastname (postcode, country, comment...) hide optional field(s)",
       "--implicit=true (set the implicit consent)*",
@@ -59,7 +59,7 @@ function update (id, d) {
 }
 
 const isRequired = (id, arg, bool) => {
-  const changes = typeof arg === 'string' ? arg.split(" ") : arg;
+  const changes = arg.split(",");
   changes.map(change => {
     const field = {}
     field[change] = { required: bool };
