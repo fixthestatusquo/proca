@@ -31,10 +31,10 @@ const help = () => {
       "--autostart=true",
 //      "--forcewidth=54 (force the width)",
 //      "--orgdata=true (do we collect the organisation details)*",
-      "--required=lastname (postcode, country, comment...) set the field(s) required. If more than one, type fieldnames with commas, no spaces, eg: --required=lastname,country",
-      "--notrequired=lastname (postcode, country, comment...) changes required field(s) to unrequired. Type fieldnames with commas, no spaces",
-      "--show=lastname (postcode, country, comment...) show optional field(s)",
-      "--hide=lastname (postcode, country, comment...) hide optional field(s)",
+      "--required=lastname (postcode, country, comment...)* set the field(s) required. If more than one, type fieldnames with commas, no spaces, eg: --required=lastname,country",
+      "--notrequired=lastname (postcode, country, comment...)* changes required field(s) to unrequired. Type fieldnames with commas, no spaces",
+      "--show=lastname (postcode, country, comment...)* show optional field(s). If more than one, type fieldnames with commas, no spaces, eg: --hide=lastname,country",
+      "--hide=lastname (postcode, country, comment...)* hide optional field(s). Type fieldnames with commas, no spaces",
       "--implicit=true (set the implicit consent)*",
       "--confirmoptin=true*",
       "--test=true*",
@@ -42,6 +42,7 @@ const help = () => {
      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
       "input id, ids or range of ids",
+      "don't use -required/notrequired and -show/hide for the same fields in the same command"
 //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
   );
@@ -63,6 +64,15 @@ const isRequired = (id, arg, bool) => {
   changes.map(change => {
     const field = {}
     field[change] = { required: bool };
+    update(id, { component: { register: { field: field } } });
+  });
+}
+
+const showHide = (id, arg, bool) => {
+  const changes = arg.split(",");
+  changes.map(change => {
+    const field = {}
+    field[change] = bool;
     update(id, { component: { register: { field: field } } });
   });
 }
@@ -165,15 +175,11 @@ ids.map(id => {
     // COMPONENT.REGISTER (FIELD) SETTINGS
 
     if (argv.show) {
-      let field = {};
-      field[argv.show] = true;
-      update(id, { component: { field: field } });
+      showHide(id, argv.show, true);
     }
 
     if (argv.hide) {
-      let field = {};
-      field[argv.show] = false;
-      update(id, { component: { field: field } });
+      showHide(id, argv.hide, false);
     }
 
     if (argv.required) {
