@@ -46,7 +46,7 @@
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage"
   },
-  "dateFormat": "MM/DD/ÅÅÅÅ",
+  "dateFormat": "DD/MM/ÅÅÅÅ",
   "dialogTitle": "Hold mig informeret om kampagnen",
   "donation": {
     "amount": {
