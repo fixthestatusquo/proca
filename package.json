@@ -51,7 +51,7 @@
     "simple-git": "^3.10.0",
     "cli-color": "^2.0.2",
     "@alienfast/i18next-loader": "^1.1.4",
-    "@babel/cli": "^7.17.10",
+    "@babel/cli": "^7.18.6",
     "@babel/node": "^7.18.6",
     "@babel/plugin-transform-react-jsx": "^7.17.12",
     "@proca/api": "2.3.4",
