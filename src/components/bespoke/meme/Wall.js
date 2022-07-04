@@ -68,7 +68,7 @@ const WallOfMeme = (props) => {
         .order("id", { ascending: false })
         .eq("enabled", true);
 
-      if (language) {
+      if (language && language !== "?") {
         query = query.eq("lang", language);
       }
       let { data, error } = await query;
