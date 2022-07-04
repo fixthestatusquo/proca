@@ -119,5 +119,5 @@ const create = (base, path, params) => {
 };
 
 const urlParser = { utm: utm, data: data, config: config };
-export { utm, data, step, config, isTest, create };
+export { utm, data, step, config, isTest, create, parse };
 export default urlParser;
