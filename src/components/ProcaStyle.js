@@ -66,7 +66,7 @@ export default function ProcaStyle(props) {
         overrides: {
           MuiSnackbar: {
             root: {
-              zIndex: 30003,
+              zIndex: 6666666666666666,
             },
           },
           MuiContainer: {
