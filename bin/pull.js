@@ -17,7 +17,7 @@ const getId = require("./id");
   }
   try {
     const d = await pull(id);
-    console.log(d);
+    console.log(JSON.stringify(d, null, 2));
   } catch (e) {
     console.error(e);
     // Deal with the fact the chain failed

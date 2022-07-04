@@ -319,7 +319,6 @@ query actionPage ($id:Int!) {
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
-  console.log(data.actionPage.org);
   let config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
@@ -346,14 +345,18 @@ query actionPage ($id:Int!) {
   if (data.actionPage.config.test) config.test = true;
 
   if (config.component.consent && data.actionPage.org.processing) {
-    let consentEmail = {};
+    let consentEmail = config.component.consent.email;
     if (
       data.actionPage.org.processing.supporterConfirm &&
       (data.actionPage.org.processing.supporterConfirmTemplate ||
         data.actionpage.supporterConfirmTemplate)
     )
       consentEmail.confirmAction = true;
-    if (Boolean(data.actionPage.thankYouTemplate))
+
+    if (
+      !consentEmail.confirmAction &&
+      Boolean(data.actionPage.thankYouTemplate)
+    )
       consentEmail.confirmOptIn = true;
     if (Object.keys(consentEmail).length > 0)
       config.component.consent.email = consentEmail; // we always overwrite based on the templates
