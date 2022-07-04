@@ -48,6 +48,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "simple-git": "^3.10.0",
+    "cli-color": "^2.0.2",
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.17.10",
     "@babel/node": "^7.17.10",
