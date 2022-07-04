@@ -111,7 +111,7 @@ const ConfirmPreviousStep = (props) => {
 
   if (props.email?.confirmAction && data.privacy) {
     return (
-      <Alert severity="warning" autoHideDuration={10000} icon={<MailIcon />}>
+      <Alert severity="warning" autoHideDuration={15000} icon={<MailIcon />}>
         <ConfirmTitle email={data.email} />
         {t("consent.confirmAction", { email: data.email })}
       </Alert>
