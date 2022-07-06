@@ -86,9 +86,10 @@ const saveCampaign = (campaign, lang = "en") => {
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
-const api = async (query, variables, name = "query") => {
+const api = async (query, variables, name = "query", anonymous = false) => {
   let headers = {};
-  if (process.env.AUTH_USER) {
+  if (!anonymous && process.env.AUTH_USER) {
+    console.log("not anonymously");
     headers = basicAuth({
       username: process.env.AUTH_USER,
       password: process.env.AUTH_PASSWORD,
@@ -284,7 +285,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   return data.upsertCampaign;
 };
 
-const fetch = async (actionPage) => {
+const fetch = async (actionPage, anonymous) => {
   let data = undefined;
 
   const query = `
@@ -310,7 +311,7 @@ query actionPage ($id:Int!) {
 `;
 
   try {
-    data = await api(query, { id: actionPage }, "actionPage");
+    data = await api(query, { id: actionPage }, "actionPage", anonymous);
   } catch (err) {
     throw err;
   }
@@ -425,10 +426,10 @@ const push = async (id) => {
   return data;
 };
 
-const pull = async (actionPage) => {
+const pull = async (actionPage, anonymous) => {
   //  console.log("file",file(actionPage));
   const local = read(actionPage);
-  const config = await fetch(actionPage);
+  const config = await fetch(actionPage, anonymous);
   if (local && JSON.stringify(local) !== JSON.stringify(config)) {
     backup(actionPage);
   }

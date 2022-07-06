@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const { read, saveCampaign, pullCampaign, pushCampaign } = require("./config");
-const argv = require("minimist")(process.argv.slice(2), { boolean: ["pull", "push"]});
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: ["pull", "push"],
+});
 const merge = require("lodash.merge");
 require("./dotenv.js");
 
@@ -47,8 +49,6 @@ const languages = [
   "yo",
 ];
 
-console.log("argv", argv);
-
 const help = () => {
   console.log(
     [
@@ -62,7 +62,6 @@ const help = () => {
   );
   process.exit(0);
 };
-
 
 if (argv.help) {
   help();
@@ -81,15 +80,13 @@ const update = (id, change) => {
   console.log("updated", id);
 };
 
-
 (async () => {
-
   if (argv.pull) {
     try {
       const campaign = await pullCampaign(id);
       saveCampaign(campaign);
-       console.log("pulled " + id);
-      } catch (error) {
+      console.log("pulled " + id);
+    } catch (error) {
       console.error(error);
     }
   }
@@ -121,7 +118,7 @@ const update = (id, change) => {
 
   if (argv.push) {
     // must be the last one
-    console.log("pushing to server",id);
+    console.log("pushing to server", id);
     try {
       const d = await pushCampaign(id);
       console.log("pushed", d);
