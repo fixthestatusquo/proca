@@ -40,17 +40,17 @@ You can edit them, run
 
 ### using the UI
 
-for the "simplier" changes, use the admin interface at dash.proca.app (for the hosted version)
+for the "simpler" changes, use the admin interface at dash.proca.app (for the hosted version)
 
 ### changing the configuration file
 
-the main way of changing the configuration is changing the json configuration into thhe config folder and building the widget
+the main way of changing the configuration is changing the json configuration into the config folder and building the widget
 
 ### in javascript
 
 _check the [documentation on the widget too](./widget.md)_
 
-if present on the page, the function procaReady () is called during the initialisation of the widget.
+if present on the page, the function procaReady () is called during the initialization of the widget.
 
 Putting calls to change the layout there is best because it prevents the widget to be displayed with the old layout first and then with the one you want.
 
@@ -112,10 +112,10 @@ if true (or set from the url as a get param ?proca_test
 
 ## layout
 
-- primaryColor: #rgb it will set the color for the buttons, progress bar and wherever material-ui is using the primary color ;)
-- secondaryColor: not sure how it works/where it is used, never changed the default
-- theme: "standard", "filled", "outlined". Check the material-ui doc for examples
-- HtmlTemplate: "eci.html" it's for the "demo" page, it takes as a template the file public/{HtmlTemplate}.html
+- `primaryColor: #rgb`. It will set the color for the buttons, progress bar and wherever material-ui is using the primary color ;)
+- `secondaryColor`. Not sure how it works/where it is used, never changed the default
+- `theme: "standard", "filled", "outlined"`. Check the material-ui doc for examples
+- `HtmlTemplate: "eci.html"`. It's for the "demo" page, it takes as a template the file public/{HtmlTemplate}.html
 
 # component
 
@@ -129,50 +129,63 @@ _Tip: When developing, always have a sensible default behaviour even if the spec
 
 the main behaviour
 
-- config.component.widget.mobileVersion: boolean. if true, a floating action button is displayed instead of the normal widget, and the widget steps are displayed (after the click) on full screen
-- config.component.widget?.autoStart: boolean, default true. used to not automatically display the widget. see portal Clickify below
-- config.component.widget.forceWidth: number. by default, the width of the widget is the width available on the page (reactive). Can be used to force a width, for instance to embed into broken or weird html pages ;)
+- `config.component.widget.mobileVersion: boolean`. if true, a floating action button is displayed instead of the normal widget, and the widget steps are displayed (after the click) on full screen
+- `config.component.widget?.autoStart: boolean`. default true. used to not automatically display the widget. see portal Clickify below
+- `config.component.widget.forceWidth: number`. by default, the width of the widget is the width available on the page (reactive). Can be used to force a width, for instance to embed into broken or weird html pages ;)
 
 ## Register
 
-Register is the main form used to collect personal data and consent
+Register is the main form used to collect personal data and consent.
+
+### Field (config.component.register.field)
 
 most fields can either be displayed or hidden, most fields can either be required or not. First name and emails are always displayed AND required
 
-- config.component.register.field.organisation: do we collect the organisation details (with prefill options using twitter)
-- config.component.register.field.lastname: {required:boolean}
-- config.component.register.field.postcode: boolean (show/hide) or {required:boolean}
-- config.component.register.field.country: boolean (show/hide) or {required:boolean}
-- config.component.register.field.comment: boolean (show/hide) or {required:boolean}
-- config.component.register.field.phone: boolean (show/hide)
+- `config.component.register.field.organisation`. do we collect the organisation details (with prefill options using twitter)
+- `config.component.register.field.lastname: {required:boolean}`
+- `config.component.register.field.postcode: boolean (show/hide) or {required:boolean}`
+- `config.component.register.field.country: boolean (show/hide) or {required:boolean}`
+- `config.component.register.field.comment: boolean (show/hide) or {required:boolean}`
+- `config.component.register.field.phone: boolean`. (show/hide)
 
-### Counter
+## Counter
 
 The counter will automatically calculate next goals so that goal always escapes the current number (keeps being motivating but is not reached). You can set the goal "steps" - successive signature counts to reach by setting an array `config.component.counter.steps`. Set to single value (`[1000]`) to fix the goal at 1000.
 
 ## Country
 
-- config.component.country: 2 char iso code (default country), or boolean (disable/enable ip geolooup)
+- `config.component.country`. 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 
 ## Consent
 
 to collect the consent of being contacted
 
-- config.component.consent.implicit: boolean. default false. Beside when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
-- config.component.consent.privacyPolicy: **very important**: the privacy policy of the organisation embedding the widget
-- config.component.consent.split: if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
-- confirm.component.consent.confirmProcessing. Add a checkbox (required) with the text of the consent processing
+- `config.component.consent.implicit: boolean`. default false. Besides when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
+- `config.component.consent.privacyPolicy`. **very important**: the privacy policy of the organization embedding the widget
+- `config.component.consent.split`. if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
+- `confirm.component.consent.confirmProcessing`. Add a checkbox (required) with the text of the consent processing.
+
+### Email (config.component.consent.email)
+
+- `confirm.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
+- `confirm.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
 ## Share
 
-- config.component.share.anonymous: boolean. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?
-- config.component.share.top: boolean. Are the share button above or below image+text shared (taken from meta data)
-- config.component.share.email: boolean. Enable the share by email. Brocken now (on some config)
-- config.component.share.reddit: boolean: Enable share on reddit
+- `config.component.share.anonymous: boolean`. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?
+- `config.component.share.top: boolean`. Are the share button above or below image+text shared (taken from meta data)
+- `config.component.share.email: boolean`. Enable the share by email. Brocken now (on some config)
+- `config.component.share.reddit: boolean`: Enable share on reddit
 
 ## Donate
 
 The Donate steps are configured under the `config.component.donation` key.
+
+## Email
+
+### Field (config.component.email.field)
+
+- `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.
 
 ### `currency`: dict
 
@@ -219,7 +232,7 @@ Sets the amounts to display for each frequency. If `default` is set, it will be 
 
 ### `paypal`: dict
 
-if not set, paypal isn't offered a a payment option
+if not set, paypal isn't offered a payment option
 
 Configures the PayPal button. See the [PayPal documentation](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) for how to get the `clientId`.
 
@@ -241,8 +254,8 @@ Example:
 
 ### `stripe`: dict
 
-Configures Stripe for card donations. See the Stripe documentation for getting the [publishable API key](https://stripe.com/docs/keys). Subscriptions rely on a Product - see the documenation for [creating a product](https://stripe.com/docs/billing/prices-guide#manage-products).
-if you want, set up the testKey too, that will be used if the widget is in test mode (?proca_test is true)
+Configures Stripe for card donations. See the Stripe documentation for getting the [publishable API key](https://stripe.com/docs/keys). Subscriptions rely on a Product - see the documentation for [creating a product](https://stripe.com/docs/billing/prices-guide#manage-products).
+if you want, set up the testKey too, which will be used if the widget is in test mode (?proca_test is true)
 
 Create the Product with a 1 € / month price.
 
@@ -278,7 +291,7 @@ Set a title to display when no amount is selected.
 
 This allows the widget to interact with other elements on the page (beside the "main" widget)
 
-display the number of signatures into the page into the dom class="proca-counter"
+display the number of signatures on the page into the dom class="proca-counter"
 
     {
       "component": "Counter",
@@ -301,7 +314,7 @@ this is used to have the widget activated on a button (the widget first step is 
 
 ## locales
 
-allows to overwrite any of the standard text. It can also we used with the "T" component in portals above to automatically display the text of the petition (used to put the official text of the ECI for instance)
+allows overwriting any of the standard text. It can also be used with the "T" component in portals above to automatically display the text of the petition (used to put the official text of the ECI for instance)
 
 ## grep config.component
 

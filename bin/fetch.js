@@ -7,7 +7,7 @@ const { fetch } = require("./config.js");
   if (!id) throw "need actionpage={id} or fetch {id}";
   try {
     const d = await fetch(parseInt(id, 10));
-    console.log(d);
+    console.log(JSON.stringify(d, null, 2));
   } catch (e) {
     console.error(e);
     // Deal with the fact the chain failed

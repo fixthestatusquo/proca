@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Typography, Button, Grid } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
+import { shuffle } from "@lib/array";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,10 +9,20 @@ import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const useStyles = makeStyles((theme) => ({
+  /*  const theme = createTheme({
   memeText: {
     minHeight: "0!important",
   },
-  /*  const theme = createTheme({
+  components: {
+    inputMultiline: {
+      minHeight: "2px!important",
+    },
+  },
+  overrides: {
+    inputMultiline: {
+      minHeight: "1px!important",
+    },
+  },
   typography: {
     fontFamily: 'Anton, Arial',
   },
@@ -71,12 +82,10 @@ const CreateMeme = (props) => {
   const supabase = useSupabase();
 
   if (props.myref && props.name && !props.myref.current[props.name]) {
-    console.log("registering in meme ", props.name);
     const fct = async (data) => {
       console.log("prepareData in meme", data, items);
 
       if (!data) return null;
-      console.log(data);
       return data;
     };
     props.myref.current[props.name] = fct;
@@ -90,7 +99,8 @@ const CreateMeme = (props) => {
     let templates = [];
     (async function () {
       const r = await fetch(
-        "https://widget.proca.app/t/meme/template.json",
+        config.component.meme?.list ||
+          "https://widget.proca.app/t/meme/template.json",
         {}
       );
       if (!r.ok) {
@@ -102,6 +112,7 @@ const CreateMeme = (props) => {
       }
       if (!isCancelled) {
         const response = await r.json();
+        shuffle(response);
         response.forEach((d) => {
           templates.push({
             top: t("campaign:meme." + d.top_text.replaceAll("_", "-"), ""),
@@ -219,13 +230,6 @@ const CreateMeme = (props) => {
   };
 
   const validateMeme = async (image) => {
-    console.log(
-      "time to save the meme",
-      current,
-      items,
-      image,
-      canvasRef.current
-    );
     if (items.length === 0) return console.error("context lost");
     return saveMeme();
   };
@@ -267,7 +271,6 @@ const CreateMeme = (props) => {
     //const f = items[current].original.split("/");
     let r = await supabase.from("meme").insert([d]);
     if (r.status === 409) {
-      console.log("already set");
       return true;
     }
     r = await supabase.storage
@@ -288,11 +291,9 @@ const CreateMeme = (props) => {
   };
 
   const item = (items[current] && items[current].original) || "";
-
   useEffect(() => {
     let base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
-    console.log("loading image", item);
     base_image.src = item;
     base_image.addEventListener(
       "load",
@@ -314,7 +315,7 @@ const CreateMeme = (props) => {
         const width = 300; //might be too small?
         const height = width / wrh;
         const top = autoSplit(topText);
-        const bottom = autoSplit(bottomText);
+        const bottom = autoSplit(bottomText || items[current].bottom); //workaround, sometimes the bottomText isnt' set
 
         const length = Math.max(lineLength(top), lineLength(bottom));
         let fontSize = 2 + (2 * width) / length;
@@ -366,6 +367,7 @@ const CreateMeme = (props) => {
         <TextField
           className={classes.memeText}
           fullWidth
+          inputProps={{ maxlength: 65 }}
           form={form}
           multiline
           name="topText"
@@ -375,6 +377,7 @@ const CreateMeme = (props) => {
       <Grid item xs={12}>
         <TextField
           fullWidth
+          inputProps={{ maxlength: 65 }}
           className={classes.memeText}
           form={form}
           name="bottomText"

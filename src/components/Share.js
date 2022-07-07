@@ -109,9 +109,9 @@ const ConfirmPreviousStep = (props) => {
     );
   }
 
-  if (props.email?.confirmAction) {
+  if (props.email?.confirmAction && data.privacy) {
     return (
-      <Alert severity="warning" autoHideDuration={10000} icon={<MailIcon />}>
+      <Alert severity="warning" autoHideDuration={15000} icon={<MailIcon />}>
         <ConfirmTitle email={data.email} />
         {t("consent.confirmAction", { email: data.email })}
       </Alert>
@@ -158,7 +158,7 @@ export default function ShareAction(props) {
       tracking: Url.utm(),
     };
 
-    dispatch(event.replace("_", ":"), d);
+    dispatch(event.replace("_", ":"), d, null, config);
     if (config.component.share?.anonymous === true) return;
     addAction(actionPage, event, d);
   };
@@ -222,9 +222,11 @@ export default function ShareAction(props) {
     };
 
     let twitters = [];
-    data.targets?.forEach((d) => {
-      if (d.screen_name) twitters.push("@" + d.screen_name);
-    });
+    data.targets &&
+      data.targets.length < 2 &&
+      data.targets.forEach((d) => {
+        if (d.screen_name) twitters.push("@" + d.screen_name);
+      });
 
     let cardIcons;
 

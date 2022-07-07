@@ -18,7 +18,7 @@ const getId = require("./id");
   }
   try {
     const d = await push(id);
-    console.log(d);
+    console.log(JSON.stringify(d, null, 2));
   } catch (errors) {
     console.log(errors);
     Array.isArray(errors) &&

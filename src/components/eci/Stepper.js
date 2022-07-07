@@ -35,10 +35,15 @@ export default function StepperEci(props) {
     setCrumbbread(result);
     const next = steps[step("register") + 1];
     setValue(next);
-    dispatch(next.toLowerCase() + ":init", {
+    dispatch(
+      next.toLowerCase() + ":init",
+      {
         step: next.toLowerCase(),
         journey: steps,
-      });
+      },
+      null,
+      config
+    );
     scrollTo();
   };
 
@@ -46,10 +51,15 @@ export default function StepperEci(props) {
     setSubmitted(true);
     const next = steps[step("eci") + 1];
     setValue(next);
-    dispatch(next.toLowerCase() + ":init", {
+    dispatch(
+      next.toLowerCase() + ":init",
+      {
         step: next,
         journey: steps,
-      });
+      },
+      null,
+      config
+    );
     scrollTo();
   };
   const handleStep = (s) => () => {
@@ -87,7 +97,7 @@ export default function StepperEci(props) {
         return (
           <Step key="eci">
             <StepButton
-          component="div"
+              component="div"
               onClick={handleStep("eci")}
               icon={<EciIcon color={iconColor("eci")} />}
             >
@@ -98,9 +108,7 @@ export default function StepperEci(props) {
       case "register":
         return (
           <Step key="register">
-            <StepButton onClick={handleStep("register")}
-          component="div"
-          >
+            <StepButton onClick={handleStep("register")} component="div">
               {t("action.join")}
             </StepButton>
           </Step>
@@ -109,7 +117,7 @@ export default function StepperEci(props) {
         return (
           <Step key="share">
             <StepButton
-          component="div"
+              component="div"
               onClick={handleStep("share")}
               icon={<ShareIcon color={iconColor("share")} />}
             >

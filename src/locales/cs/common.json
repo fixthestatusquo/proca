@@ -9,7 +9,7 @@
   "Email": "E-mail",
   "First name": "Jméno",
   "Last name": "Příjmení",
-  "Locality": "Oblast",
+  "Locality": "Lokalita",
   "Next": "Další",
   "No Thanks": "Ne, díky",
   "Other": "Ostatní",
@@ -35,14 +35,14 @@
   "consent": {
     "confirm": "<0>Jste si jistí?</0> <1> Zaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
     "confirmAction": "Vyhledejte si prosím tento e-mail a klikněte na odkaz, který obsahuje (zkontrolujte si složku se spamem!).\n Teprve pak bude vaše akce započítána!\nVaše potvrzení je pro politickou váhu akce klíčové. Tím zaručíte, že za každým podáním stojí skutečná osoba. Budeme čekat na vaše potvrzení...",
-    "confirmOptIn": "Nezapomeňte zkontrolovat svou e-mailovou schránku (včetně složky se spamem!) a potvrdit přihlášení k odběru e-mailu.",
+    "confirmOptIn": "Nezapomeňte zkontrolovat svou e-mailovou schránku (včetně složky se spamem!) a potvrdit přihlášení k odběru e-mailu",
     "emailSent": "Poslali jsme vám e-mail na adresu {{email}}!",
     "implicit": "Odesláním tohoto formuláře získáte e-maily od {{name}}",
     "intro": "Souhlasím, že {{campaign}} mě bude kontaktovat ohledně důležitých kampaní",
     "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
     "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
     "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
-    "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>.",
+    "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>",
     "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
     "required": "K účasti je nutný váš souhlas"
   },
@@ -50,10 +50,10 @@
   "dialogTitle": "Informujte mě o kampani",
   "donation": {
     "amount": {
-      "change": "Částka změny",
-      "intro": "Vyberte si částku :"
+      "change": "Částka",
+      "intro": "Vyberte si částku"
     },
-    "average": "Průměrný příspěvek je {{amount}}",
+    "average": "Průměrný dar je {{amount}}",
     "button": {
       "cta": {
         "monthly": "Donate {{amount}} every month",
@@ -69,41 +69,41 @@
           "iban": "iban"
         }
       },
-      "general": "obecně",
+      "general": "obecné",
       "initialisation": "inicializace"
     },
     "form": {
       "error": {
-        "minimum": "Minimální příspěvek je {{ampount}}"
+        "minimum": "Minimální dar je {{amount}}"
       }
     },
     "frequency": {
       "ask": {
         "monthly": "Měsíčně?",
         "oneoff": "Darovat",
-        "weekly": "Udělat z toho týdenní příspěvek?"
+        "weekly": "Udělat z toho týdenní dar?"
       },
       "each": {
         "monthly": "každý měsíc",
-        "oneoff": "Jakmile",
+        "oneoff": "Jednou",
         "weekly": "každý rok"
       },
       "feedback": {
         "monthly": "Přispívám {{amount}} {{frequency}}",
         "oneoff": "Přispívám {{amount}}"
       },
-      "monthly": "měsíční",
+      "monthly": "měsíčně",
       "oneoff": "jednorázově",
       "weekly": "týdně",
-      "yearly": "roční"
+      "yearly": "ročně"
     },
-    "iban": "iban",
+    "iban": "IBAN",
     "intro": "Přispějte na {{campaign}}",
     "mobile": {
       "open": "otevřít"
     },
     "payment_methods": {
-      "card": "Karta",
+      "card": "Kartou",
       "intro": "Jak chcete přispět?",
       "paypal": "PayPal",
       "sepa": "SEPA",
@@ -113,25 +113,26 @@
     "to": "Příspěvek na {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nelze přijímat e-maily",
+    "invalid_domain": "{{domain}} nepřijímá e-maily",
     "salutation": "Vážený {{target.name}}",
     "salutation_female": "Vážený {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
     "salutation_male": "Vážený {{target.name}}",
-    "salutation_placeholder": "Vážený [příjemce],"
+    "salutation_placeholder": "Vážený [recipient]"
   },
-  "progress": "{{count}} podepsali. Přejděme k {{goal}}",
-  "progress_plural": "{{count}} podepsali. Přejděme k {{goal}}",
+  "progress_0": "{{count}} podepsal. Přejděme k {{goal}}",
+  "progress_1": "{{count}} podepsalo. Přejděme k {{goal}}",
+  "progress_2": "{{count}} podepsali. Přejděme k {{goal}}",
   "register": "Přidejte mé jméno",
   "required": "Vyplňte prosím toto pole",
   "required field": "Povinné pole",
   "salutations": {
     "f": "Paní",
-    "m": "Pan.",
+    "m": "Pan",
     "other": "Další"
   },
   "share": {
-    "intro": "Skvělé, máte podepsáno 👍. Váš dopad ještě zvýšíte, pokud petici rozšíříte všemi možnými i nemožnými prostředky mezi ostatní: vaši rodinu, přátele i nepřátele 🙏.",
+    "intro": "Skvělé, podepsali jste 👍. Abyste znásobili svůj dopad, sdílejte ji široko daleko, aby tuto petici viděl každý 🙏.",
     "message": "Měli byste to podepsat!",
     "title": "Téměř hotovo! Přejděte k dalšímu kroku."
   },
@@ -141,7 +142,7 @@
   },
   "target": {
     "country": {
-      "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat."
+      "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat"
     },
     "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů"
   },
@@ -149,9 +150,9 @@
     "actionText": "Já jsem se podepsal. měl bys také",
     "again": "Tweetování jiné osobě",
     "choice": "Co byste chtěli dělat dál?",
-    "instruction": "Dokončete prosím odeslání tweetu v novém okně (na twitter.com).",
+    "instruction": "Dokončete prosím odeslání tweetu v novém okně (na twitter.com)",
     "organisation": "Účet vaší organizace na Twitteru",
-    "screenName": "Jméno obrazovky"
+    "screenName": "Jméno na obrazovce"
   },
   "you need to be 18 years old": "musíte mít 18 let"
 }

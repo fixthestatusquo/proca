@@ -16,11 +16,14 @@ import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from "../images/Twitter.js";
 import Again from "@components/twitter/Again";
-import { CardMedia, SvgIcon } from "@material-ui/core";
+import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  skip: {
+    marginTop: theme.spacing(1),
+  },
   media: {
     width: "100%",
   },
@@ -58,32 +61,43 @@ const Intro = (props) => {
 const TweetButton = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
+  const classes = useStyles();
   return (
-    <Grid item xs={12}>
-      <Button
-        color="primary"
-        variant="contained"
-        fullWidth
-        onClick={props.handleClick}
-        size="large"
-        endIcon={
-          <SvgIcon>
-            <TwitterIcon />
-          </SvgIcon>
-        }
-      >
-        {t(config.component.tweet?.button || "Tweet")}
-      </Button>
-      {config.component.twitter?.skip && (
-        <Button endIcon={<SkipNextIcon />} onClick={props.done}>
-          {t(
-            config.component.twitter?.next
-              ? config.component.twitter.next
-              : "Next"
-          )}
+    <>
+      <Grid item xs={12}>
+        <Button
+          color="primary"
+          variant="contained"
+          fullWidth
+          onClick={props.handleClick}
+          size="large"
+          endIcon={
+            <SvgIcon>
+              <TwitterIcon />
+            </SvgIcon>
+          }
+        >
+          {t(config.component.tweet?.button || "Tweet")}
         </Button>
+      </Grid>
+      {config.component.twitter?.skip && (
+        <Grid item xs={12} className={classes.skip}>
+          <Button
+            fullWidth
+            variant="contained"
+            disableElevation
+            endIcon={<SkipNextIcon />}
+            onClick={props.done}
+          >
+            {t(
+              config.component.twitter?.next
+                ? config.component.twitter.next
+                : "Next"
+            )}
+          </Button>
+        </Grid>
       )}
-    </Grid>
+    </>
   );
 };
 
@@ -126,6 +140,7 @@ const Component = (props) => {
     setTweeting(true);
     setData("targets", target);
   };
+
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
@@ -150,7 +165,7 @@ const Component = (props) => {
           if (config.component.twitter?.filter?.includes("random")) {
             if (data.country) {
               const r = d.filter(
-                (c) => !c.country || c.country === data.country
+                (c) => !c.country || c.country.toUpperCase() === data.country
               );
               if (r.length > 0) setAllProfiles(r);
             }
@@ -174,8 +189,11 @@ const Component = (props) => {
           console.log(error);
         });
     };
-    if (config.component.twitter.listUrl)
-      fetchData(config.component.twitter.listUrl);
+    const url =
+      config.component.twitter?.listUrl !== true
+        ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+        : config.component.twitter.listUrl;
+    fetchData(url);
     // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
@@ -209,7 +227,6 @@ const Component = (props) => {
   );
 
   useEffect(() => {
-    console.log("country");
     //    setFilter({country:config.country});
     filterProfiles(country);
     /*    if (typeof config.hook["twitter:load"] === "function") {
@@ -228,6 +245,7 @@ const Component = (props) => {
   };
 
   const FirstStep = (props) => {
+    console.log("profiles", profiles);
     return (
       <>
         {config.component.twitter?.filter?.includes("country") && (
@@ -256,7 +274,7 @@ const Component = (props) => {
       "/storage/v1/object/public/together4forests/meme/" +
       props.hash +
       ".jpeg";
-    return <img src={image} className={classes.media} />;
+    return <img src={image} alt="meme" className={classes.media} />;
   };
   //          "addLink": true,
   //          "showCard": true

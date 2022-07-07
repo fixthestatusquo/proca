@@ -64,6 +64,11 @@ export default function ProcaStyle(props) {
           //    fontSize: 14,
         },
         overrides: {
+          MuiSnackbar: {
+            root: {
+              zIndex: 30003,
+            },
+          },
           MuiContainer: {
             root: {
               fontFamily: "unset!important",
@@ -100,6 +105,7 @@ export default function ProcaStyle(props) {
               paddingTop: "23px!important",
               paddingBottom: "6px!important",
               "& textarea": {
+                minHeight: "23px!important",
                 paddingTop: "0!important",
                 paddingBottom: "0!important",
               },
