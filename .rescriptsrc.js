@@ -1,6 +1,7 @@
 require("dotenv").config( {path: process.env.PROCA_ENV ? '.env.'+process.env.PROCA_ENV:'.env', debug: true });
 
 module.exports = [
+  require.resolve("./webpack/chroot"),
   require.resolve("./webpack/rules"),
   require.resolve("./webpack/alias"),
   require.resolve("./webpack/output"),
