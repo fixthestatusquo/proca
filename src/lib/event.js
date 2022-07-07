@@ -11,7 +11,7 @@ const dispatchAnalytics = (message, value) => {
     param.gdpr = value.privacy;
   }
   if (action[1] && action[1] === "complete") {
-    param.event = "proca_" + action[1];
+    param.event = "proca_" + action[0];
   }
   window.dataLayer?.push(param);
 };
