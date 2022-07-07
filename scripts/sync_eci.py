@@ -145,11 +145,11 @@ def sync_ap(ap, campaign_name):
         build(ap_id)
 
 def fetch(ap_id):
-    call(f"/usr/bin/docker exec widgetbuilder yarn pull {ap_id}".split(' '))
+    call(f"yarn pull {ap_id}".split(' '))
 
 
 def build(ap_id):
-    call(f"/usr/bin/docker exec widgetbuilder yarn build {ap_id}".split(' '))
+    call(f"yarn build {ap_id}".split(' '))
 
 def patch(ap_id, eci_ap_id):
     fn = f'config/{ap_id}.json'
