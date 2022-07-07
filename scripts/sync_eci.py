@@ -37,8 +37,14 @@ log.setLevel(DEBUG)
 #DEST_API='http://localhost:4000/api'
 DEST_API="http://localhost:4001/private/api"
 
+AUTH_USER=environ['AUTH_USER']
+AUTH_PASSWORD=environ['AUTH_PASSWORD']
+# so we do not propagate it when executing subcommands
+del environ['AUTH_USER']
+del environ['AUTH_PASSWORD']
+
 def upsert(org_name, campaign_name, ap_attrs, campaign_attrs):
-    auth=BasicAuth(environ["AUTH_USER"], environ['AUTH_PASSWORD'])
+    auth=BasicAuth(AUTH_USER, AUTH_PASSWORD)
     transport = AIOHTTPTransport(url=DEST_API, auth=auth)
     client = Client(transport=transport)
 
