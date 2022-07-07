@@ -4027,13 +4027,6 @@ chrome-trace-event@^1.0.2:
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz#1015eced4741e15d06664a957dbbf50d041e26ac"
   integrity sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==
 
-chroot@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/chroot/-/chroot-1.0.11.tgz#e886be9c3c6fe550b2358bb1cf2f18b6a12d30b4"
-  integrity sha512-9LntX/1TXG9mcwJvPOOo9PlfUrdVCrcEVEnPP9sB9GDUI/DHe3+TE/7OrxIcG5/Yc6VNxlS26onVbbghQVZvPw==
-  dependencies:
-    posix ">=1.0.x <=4.x"
-
 ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
@@ -9708,7 +9701,7 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-"posix@>=1.0.x <=4.x":
+posix@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/posix/-/posix-4.2.0.tgz#cd9945101070b89900293055105cf85e7205a022"
   integrity sha512-JbxfT0Fxy/SG10LSkKX1C75iULYfAJqYCwwmM6J0+zh2vl/bE51CqaqvSpdZWg7YAwiuDIoBI6j7in+n3GgXSw==
