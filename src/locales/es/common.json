@@ -38,7 +38,7 @@
     "confirmOptIn": "No olvide revisar su buzón de correo (incluida la carpeta de spam) y confirmar su suscripción al correo electrónico",
     "emailSent": "¡Te hemos enviado un correo electrónico a {email}!",
     "implicit": "Envía este formulario para recibir correos electrónicos de {{name}}",
-    "intro": "Estoy de acuerdo que {{campaign}} me contacte acerca de campañas importantes",
+    "intro": "Te mantendremos informado/a de los avances de la campaña",
     "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
     "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
     "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
