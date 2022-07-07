@@ -36,6 +36,8 @@ const ReadMore = () => {
       </Dialog>
       <Button
         variant="contained"
+        color="primary"
+        fullWidth
         onClick={() => setOpen(true)}
         endIcon={<MoreIcon />}
       >

@@ -26,6 +26,7 @@ import Address from "./Address";
 import Consent from "./Consent";
 import Id from "./Id";
 import Captcha from "./Captcha";
+import ReadMore from "./ReadMore";
 import useElementWidth from "@hooks/useElementWidth";
 import useData from "@hooks/useData";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -276,6 +277,7 @@ const Support = (props) => {
                   title={t("step.eci.title", "")}
                 ></CardHeader>
               )}
+              {config.component.eci.readMore && <ReadMore />}
               <Box
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
