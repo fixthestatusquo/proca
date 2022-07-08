@@ -346,7 +346,7 @@ query actionPage ($id:Int!) {
   if (data.actionPage.config.test) config.test = true;
 
   if (config.component.consent && data.actionPage.org.processing) {
-    let consentEmail = config.component.consent.email;
+    let consentEmail = config.component.consent.email || {};
     if (
       data.actionPage.org.processing.supporterConfirm &&
       (data.actionPage.org.processing.supporterConfirmTemplate ||
