@@ -109,7 +109,7 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
-  let hash = data.hash || "fckD2IvUmiA01Mv-5pj5s842lEakJ5TWKpcZlCPXtPQ";
+  let hash = data.hash;
 
   const form = useForm({
     shouldUnregister: false,
@@ -261,7 +261,7 @@ const Component = (props) => {
           done={handleDone}
         />
         {config.component.twitter?.message && <Message form={form} />}
-        <ShowCard hash={hash} />
+        {hash && <ShowCard hash={hash} />}
         <TweetButton handleClick={handleTweet} done={props.done} />
       </>
     );
