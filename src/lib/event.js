@@ -13,7 +13,7 @@ const dispatchAnalytics = (message, value) => {
   if (action[1] && action[1] === "complete") {
     param.event = "proca_" + action[0];
   }
-  window.dataLayer?.push(param);
+  window.dataLayer && window.dataLayer.push(param);
 };
 
 const dispatch = (event, data, pii, config) => {
