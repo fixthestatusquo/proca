@@ -90,19 +90,15 @@ const socialiseReferrer = (domain, utm) => {
 
 const utm = () => {
   const whitelist = ["source", "medium", "campaign", "content"];
-  let utm = parse(whitelist, "utm_");
+  let utm = { source: "", medium: "", campaign: "" };
+  Object.assign(utm, parse(whitelist, "utm_"));
+  if (!utm.source && document.referrer) {
+    const u = new URL(document.referrer);
 
-  if (0 === Object.keys(utm).length) {
-    if (document.referrer) {
-      const u = new URL(document.referrer);
-
-      utm.source = "referrer";
-      utm.medium = u.hostname;
-      utm.campaign = u.hostname + u.pathname;
-      socialiseReferrer(u.hostname, utm);
-    } else {
-      utm = { source: "", medium: "", campaign: "" };
-    }
+    utm.source = "referrer";
+    utm.medium = u.hostname;
+    utm.campaign = u.hostname + u.pathname;
+    socialiseReferrer(u.hostname, utm);
   }
   utm.location = document.location.origin + document.location.pathname;
   return utm;
