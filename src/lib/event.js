@@ -1,18 +1,20 @@
 const dispatchAnalytics = (message, value) => {
-  console.log(message, value);
   let param = {
-    event: "proca_" + message.replace(":", "_"),
+    event: "GenericEvent", //proca
+    EventCategory: "proca widget",
+    EventAction: message.replace(":", "_"),
   };
   const action = message.split(":");
   if (value?.test) {
-    param.testMode = true;
+    param.EventCategory = "proca widget test mode";
   }
   if (value?.privacy) {
-    param.gdpr = value.privacy;
+    param.EventLabel = value.privacy;
   }
   if (action[1] && action[1] === "complete") {
-    param.event = "proca_" + action[0];
+    param.EventAction = action[0];
   }
+  console.log("proca_event", message, value, param);
   window.dataLayer && window.dataLayer.push(param);
 };
 
@@ -20,6 +22,7 @@ const dispatch = (event, data, pii, config) => {
   let elem = document.getElementById("proca");
   if (!elem) {
     console.error("#proca missing");
+    dispatchAnalytics("error", "missing #proca");
     elem = window;
   }
   if (config?.component?.widget?.analytics) {
