@@ -98,7 +98,6 @@ const Support = (props) => {
   }
 
   useEffect(() => {
-    console.log("reloading", reload);
     if (reload) {
       data.firstname && setValue("firstname", data.firstname);
       data.lastname && setValue("lastname", data.lastname);
