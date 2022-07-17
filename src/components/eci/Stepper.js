@@ -54,6 +54,7 @@ export default function StepperEci(props) {
     dispatch(
       next.toLowerCase() + ":init",
       {
+        test: !!config.test,
         step: next,
         journey: steps,
       },
