@@ -207,11 +207,13 @@ const Support = (props) => {
         setStatus("error");
       return;
     }
-    dispatch("eci:complete", {
-      uuid: result.contactRef,
-      test: !!config.test,
-      country: data.nationality,
-    }
+    dispatch(
+      "eci:complete",
+      {
+        uuid: result.contactRef,
+        test: !!config.test,
+        country: data.nationality,
+      },
       null,
       config
     );
