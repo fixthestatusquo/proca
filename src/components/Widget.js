@@ -46,6 +46,7 @@ const Widget = (props) => {
       dispatch(
         journey[i].toLowerCase() + ":init",
         {
+          test: !!config.test,
           step: journey[i],
           journey: journey,
         },
