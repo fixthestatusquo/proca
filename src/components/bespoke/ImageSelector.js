@@ -78,7 +78,6 @@ const UploadButton = (props) => {
   const addImage = async (event) => {
     const file = event.target.files[0];
     const d = await getData(file);
-    console.log("d", d);
     props.addImage(d);
   };
 

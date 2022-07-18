@@ -149,7 +149,6 @@ const Support = (props) => {
       apiUrl: apiUrl,
       test: config.test,
     });
-
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
@@ -201,10 +200,15 @@ const Support = (props) => {
           }
         });
       }
-      !handled &&
-        setErrorDetails(errorMessages(result.errors)) &&
+      if (!handled) {
+        setErrorDetails(errorMessages(result.errors));
         setStatus("error");
+      }
       return;
+    }
+    if (status === "error") {
+      setErrorDetails("");
+      setStatus("default");
     }
     dispatch(
       "eci:complete",

@@ -132,12 +132,11 @@ export default function Captcha(props) {
 
   //  return parse(captcha.data);
   const handlePlay = (lang) => {
-    const d = process.env.REACT_APP_AUDIO_CAPTCHA;
-    if (!d) {
-      var audio = document.getElementById("audio");
-      audio.play();
-      return;
-    }
+    const d = captcha.mac
+      .substr(captcha.expiry % 10, 4)
+      .split("")
+      .join(" ")
+      .toLowerCase();
     let utterThis = new SpeechSynthesisUtterance(d);
     utterThis.rate = 0.9;
     utterThis.lang = lang || "en";
@@ -149,10 +148,6 @@ export default function Captcha(props) {
       <Grid container spacing={1}>
         {audioCaptcha && (
           <Grid item xs={12}>
-            <audio
-              id="audio"
-              src="https://sign.fossilfreerevolution.org/d/audiocaptcha.mp3"
-            />
             <Grid>
               <Button
                 variant="contained"

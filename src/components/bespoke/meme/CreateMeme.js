@@ -146,10 +146,11 @@ const CreateMeme = (props) => {
   };
 
   const addImage = (newImage) => {
+    console.log(newImage);
     setItems([...items, newImage]);
     setValue("topText", newImage.top);
     setValue("bottomText", newImage.bottom);
-    setCurrent(items.length);
+    setCurrent(items.length + 1);
   };
 
   useEffect(() => {

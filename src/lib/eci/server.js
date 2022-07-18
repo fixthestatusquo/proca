@@ -63,9 +63,6 @@ async function addSupport(actionType, actionPage, data, options) {
 
   if (options.test) variables.action.testing = true;
 
-  if (options.captcha.audio) {
-    variables.action.customFields = JSON.stringify({ captcha: "audio" });
-  }
   // no custom values for ECI signatures
   //  for (let [key,value] of Object.entries(data)) {
   //    if (value && !(expected.includes(key)))
@@ -74,6 +71,13 @@ async function addSupport(actionType, actionPage, data, options) {
 
   if (options.captcha?.mac) {
     data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;
+  }
+
+  if (options.captcha.audio) {
+    data.captcha += ":audio";
+    variables.action.customFields = JSON.stringify({ captcha: "audio" });
+  } else {
+    data.captcha += ":image";
   }
 
   const response = await graphQL("addSupport", query, {
