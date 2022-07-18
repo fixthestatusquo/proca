@@ -5,4 +5,9 @@ const shuffle = (array) => {
   }
 };
 
-export { shuffle };
+const sample = (array, sampleSize) => {
+  const copy = [...array];
+  shuffle(copy);
+  return copy.slice(0, sampleSize);
+};
+export { shuffle, sample };

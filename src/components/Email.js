@@ -15,6 +15,7 @@ import Country from "@components/Country";
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
+import { shuffle, sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -209,7 +210,7 @@ const Component = (props) => {
     (country) => {
       if (!country) return;
       country = country.toLowerCase();
-      const d = allProfiles.filter((d) => {
+      let d = allProfiles.filter((d) => {
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
@@ -218,6 +219,9 @@ const Component = (props) => {
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0) {
+        if (config.component.email.fallbackRandom) {
+          d = sample(allProfiles, config.component.email.fallbackRandom);
+        }
         setError("country", {
           message: t("target.country.empty", {
             country: getCountryName(country),
