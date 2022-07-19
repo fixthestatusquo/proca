@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Stepper, Step, StepButton } from "@material-ui/core";
+import { Container, Stepper, Step, StepButton } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import EciIcon from "@material-ui/icons/HowToVote";
 import ShareIcon from "@material-ui/icons/Share";
@@ -132,7 +132,7 @@ export default function StepperEci(props) {
   };
 
   return (
-    <>
+    <Container component="div" maxWidth="md">
       <ProgressCounter actionPage={config.component.eci.actionpage} />
       {submitted && (
         <Alert severity="success">
@@ -158,6 +158,6 @@ export default function StepperEci(props) {
           ))}
         </SwipeableViews>
       </Box>
-    </>
+    </Container>
   );
 }

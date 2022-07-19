@@ -3,6 +3,7 @@ import React from "react";
 //import { Container, Grid } from "@material-ui/core";
 
 import {
+  Container,
   IconButton,
   //  ButtonGroup,
   Button,
@@ -164,7 +165,7 @@ export default function ShareAction(props) {
   };
 
   return (
-    <div className={classes.root}>
+    <Container component="div" maxWidth="sm" className={classes.root}>
       <ConfirmPreviousStep
         prev={props.prev}
         email={config.component.consent?.email}
@@ -197,7 +198,7 @@ export default function ShareAction(props) {
           </Button>
         )}
       </Card>
-    </div>
+    </Container>
   );
 
   function Actions(props) {
