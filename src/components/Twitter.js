@@ -245,7 +245,6 @@ const Component = (props) => {
   };
 
   const FirstStep = (props) => {
-    console.log("profiles", profiles);
     return (
       <>
         {config.component.twitter?.filter?.includes("country") && (

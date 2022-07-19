@@ -93,7 +93,6 @@ const CreateMeme = (props) => {
   }
 
   const [items, setItems] = useState([]);
-
   useEffect(() => {
     let isCancelled = false;
     let templates = [];
@@ -146,11 +145,10 @@ const CreateMeme = (props) => {
   };
 
   const addImage = (newImage) => {
-    console.log(newImage);
     setItems([...items, newImage]);
     setValue("topText", newImage.top);
     setValue("bottomText", newImage.bottom);
-    setCurrent(items.length + 1);
+    setCurrent(items.length);
   };
 
   useEffect(() => {

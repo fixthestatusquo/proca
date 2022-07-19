@@ -32,7 +32,10 @@ const tweet = (params) => {
   const url =
     "https://twitter.com/intent/tweet?text=" +
     encodeURIComponent(
-      tokenize(message, { profile: {screen_name:screen_name}, url: actionUrl })
+      tokenize(message, {
+        profile: { screen_name: screen_name },
+        url: actionUrl,
+      })
     );
   let win = window.open(
     url,
@@ -58,7 +61,6 @@ const component = function TwitterAction(profile) {
   const img = () => profile.profile_image_url_https;
   const { t } = useTranslation();
 
-
   const clickable = profile.clickable;
 
   const onClick = (e) => {
@@ -69,7 +71,9 @@ const component = function TwitterAction(profile) {
     };
     tweet({
       actionPage: profile.actionpage,
-      message: profile.form.getValues("message") || t(["campaign:twitter.actionText","twitter.actionText"],""),
+      message:
+        profile.form.getValues("message") ||
+        t(["campaign:twitter.actionText", "twitter.actionText"], ""),
       screen_name: profile.screen_name,
       actionUrl: profile.actionUrl,
       done: done,
@@ -80,6 +84,7 @@ const component = function TwitterAction(profile) {
   return (
     <ListItem
       alignItems="flex-start"
+      key={profile.screen_name}
       selected={selected}
       disabled={disabled}
       button={clickable}

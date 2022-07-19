@@ -150,9 +150,7 @@ export default function Register(props) {
     }
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
-      console.log(formData);
     }
-    console.log(customField.current);
     if (customField.current.beforeSubmit) {
       formData = await customField.current.beforeSubmit(formData);
     }
