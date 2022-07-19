@@ -24,6 +24,7 @@ export default function Register(props) {
     PL: 5,
     CA: 5,
     DK: 4,
+    NL: 4,
   };
 
   const geocountries = props.geocountries || Object.keys(postcodeLength);
