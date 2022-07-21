@@ -46,7 +46,7 @@
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
     "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
   },
-  "dateFormat": "MM/DD/RRRR",
+  "dateFormat": "DD/MM/RRRR",
   "dialogTitle": "Informuj mnie na bieżąco o kampanii",
   "donation": {
     "amount": {

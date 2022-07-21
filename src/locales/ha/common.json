@@ -46,7 +46,7 @@
     "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
     "required": "Ana buƙatar izinin ku don shiga"
   },
-  "dateFormat": "MM/DD/YYYY",
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
   "donation": {
     "amount": {

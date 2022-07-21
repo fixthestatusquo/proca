@@ -46,7 +46,7 @@
     "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
     "required": "Votre consentement est nécessaire pour participer"
   },
-  "dateFormat": "MM/DD/YYYY",
+  "dateFormat": "JJ/MM/AAAA",
   "dialogTitle": "Tenez-moi informé·e de la campagne",
   "donation": {
     "amount": {

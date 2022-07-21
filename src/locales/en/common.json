@@ -21,7 +21,7 @@
   "Thank you": "Thank you",
   "Your message": "Your message",
   "required field": "Required field",
-  "dateFormat": "MM/DD/YYYY",
+  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
