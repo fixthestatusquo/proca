@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 require("./dotenv.js");
+var babel = require("@babel/core");
+
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run"],
 });
@@ -44,7 +46,10 @@ const mjml2html = (tpl) => {
       __dirname,
       tmp + "email/mjml/" + name + ".mjml"
     );
-    const tpl = fs.readFileSync(fileName, "utf8");
+    let tpl = fs.readFileSync(fileName, "utf8");
+    var result = babel.transformSync("code();");
+    console.log(result);
+    return;
     mjml2html(tpl);
   } catch (e) {
     console.log(e);
