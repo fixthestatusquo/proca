@@ -63,6 +63,7 @@ export default function Register(props) {
             form={props.form}
             name="documentNumber"
             label={label() || t("eci:form.document-number")}
+            customValidity={props.customValidity}
             required
           />
         </Grid>

@@ -19,13 +19,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TextFieldProca = (props) => {
+  const { errors, control, clearErrors, setError } = props.form;
   const { t } = useTranslation();
   const layout = useLayout();
   const classes = useStyles();
   const refA = useRef();
 
+  if (refA.current) {
+    refA.current.oninvalid = (e) => {
+      if (e.target.validity.valueMissing && props.customValidity)
+        e.target.setCustomValidity(props.customValidity);
+      setError(e.target.attributes.name.nodeValue, {
+        type: e.type,
+        message: e.target.validationMessage,
+      });
+    };
+  }
+
   const handleValidate = (value, name, dom) => {
+    if (
+      props.customValidity &&
+      dom.hasAttribute("required") &&
+      dom.value.length > 0
+    ) {
+      //remove the custom error message
+      dom.setCustomValidity("");
+    }
     dom.checkValidity();
+    console.log("handle Validate", dom.validity);
     if (dom.validity.valid) {
       clearErrors(name); // synchronise the status to material-ui
       return true;
@@ -33,7 +54,6 @@ const TextFieldProca = (props) => {
     return dom.validationMessage;
   };
 
-  const { errors, control, clearErrors } = props.form;
   //  const value = watch(props.name) || "";
   let validation = {
     html5: (v) => handleValidate(v, props.name, refA.current),

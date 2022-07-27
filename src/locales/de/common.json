@@ -124,7 +124,7 @@
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "required": "Bitte füllen Sie dieses Feld aus",
-  "required field": "Erforderliches Feld",
+  "required field": "Bitte füllen Sie dieses Feld aus",
   "salutations": {
     "f": "Frau",
     "m": "Herr",

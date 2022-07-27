@@ -41,6 +41,7 @@ export default function Register(props) {
             name="firstname"
             label={t("eci:form.property.full_first_names")}
             autoComplete="given-name"
+            customValidity={props.customValidity}
             required
           />
         </Grid>
@@ -50,6 +51,7 @@ export default function Register(props) {
             name="lastname"
             label={t("eci:form.property.family_names")}
             autoComplete="family-name"
+            customValidity={props.customValidity}
             required
           />
         </Grid>
@@ -62,6 +64,7 @@ export default function Register(props) {
               onBlur={handleBlur}
               label={t("eci:form.property.date-of-birth")}
               placeholder={t("dateFormat")}
+              customValidity={props.customValidity}
               required
             />
           </Grid>

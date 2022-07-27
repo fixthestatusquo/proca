@@ -230,11 +230,16 @@ const Support = (props) => {
   };
 
   useEffect(() => {
+    // TO BE REMOVED
     const inputs = document.querySelectorAll("input, select, textarea");
+    console.log("validity for ", nationality, inputs.length);
+    return;
     //    register({ name: "country" });
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
+      //input.setCustomValidity(t("required field"));
       input.oninvalid = (e) => {
+        e.target.setCustomValidity(t("required field"));
         setError(e.target.attributes.name.nodeValue, {
           type: e.type,
           message: e.target.validationMessage,
@@ -260,6 +265,12 @@ const Support = (props) => {
       );
     return null;
   }
+
+  let customValidity = undefined;
+  if (config.lang !== "en") {
+    customValidity = t("required field");
+  }
+  customValidity = t("required field");
 
   // todo, convert the OCS text into something that can use Trans
   return (
@@ -302,6 +313,7 @@ const Support = (props) => {
                 form={form}
                 birthdate={require === "address"}
                 compact={compact}
+                customValidity={customValidity}
               />
               {require === "address" && (
                 <Address
@@ -310,6 +322,7 @@ const Support = (props) => {
                   country={nationality}
                   countries={countries}
                   geocountries={config.component.eci.geocountries}
+                  customValidity={customValidity}
                 />
               )}
               {require === "id" && (
@@ -318,6 +331,7 @@ const Support = (props) => {
                   compact={compact}
                   ids={acceptableIds}
                   country={nationality}
+                  customValidity={customValidity}
                 />
               )}
               <Grid item xs={12}>

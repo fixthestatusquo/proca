@@ -77,6 +77,7 @@ export default function Register(props) {
               t("eci:form.property.street")
             }
             required
+            customValidity={props.customValidity}
           />
         </Grid>
         <Grid item xs={12} sm={compact ? 12 : 3}>
@@ -86,6 +87,7 @@ export default function Register(props) {
             name="postcode"
             label={t("eci:form.property.postal_code")}
             required
+            customValidity={props.customValidity}
           />
         </Grid>
         <Grid item xs={12} sm={compact ? 12 : 9}>
@@ -94,6 +96,7 @@ export default function Register(props) {
             name="city"
             label={t("eci:form.property.city")}
             required
+            customValidity={props.customValidity}
           />
         </Grid>
         <Country

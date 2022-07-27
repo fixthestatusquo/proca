@@ -20,7 +20,7 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
-  "required field": "Required field",
+  "required field": "Please fill in this field",
   "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donate",
