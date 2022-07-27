@@ -1,7 +1,8 @@
 import React, {useRef} from "react";
-import { isDate } from "@lib/date";
+import { isValidDate } from "@lib/date";
 import { Container, Grid, Typography, TextField as TField } from "@material-ui/core";
 import InputMask from 'react-input-mask';
+
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -13,29 +14,6 @@ import TextField from "@components/TextField";
 import { useTranslation } from "./hooks/useEciTranslation";
 import { useLayout } from "@hooks/useLayout";
 
-// const beforeMaskedValueChange = (newState, oldState, userInput) => {
-
-//   const { value } = newState;
-// console.log('beforeMaskedValueChange 4444444444444444444444444444444', newState, value);
-//   const datee = value.split('/');
-//   const D = datee[0];
-//   const M = datee[1];
-
-//   // Conditional mask
-//   if(D.startsWith('3'))
-//     formatChars['D'] = '[0-1]';
-//   else if(D.startsWith('0'))
-//     formatChars['D'] = '[1-9]';
-//   else
-//     formatChars['D'] = '[0-9]';
-
-//   if(M.startsWith('1'))
-//     formatChars['M'] = '[0-2]';
-//   else
-//     formatChars['M'] = '[1-9]';
-
-//   return {value, selection: newState.selection};
-// }
 
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -46,12 +24,13 @@ export default function Register(props) {
   const form = props.form;
 
   const handleBlur = (e) => {
-    if (isDate(e.target.value)) {
+    if (isValidDate(e.target.value)) {
       form.clearErrors(e.target.attributes.name.nodeValue);
       form.setValue(e.target.name, e.target.value);
       console.log('0000000000000000', form.getValues());
     }
     else {
+      console.log('not valid date', e.target.value);
       form.setError(e.target.attributes.name.nodeValue, {
         type: "format",
         message: t("eci:form.error.oct_error_invaliddateformat"),
@@ -98,7 +77,6 @@ export default function Register(props) {
             <InputMask
             mask={mask}
             formatChars={formatChars}
-            // beforeMaskedValueChange={beforeMaskedValueChange}
             placeholder='DD/MM/YYYY'
             form={form}
             onBlur={handleBlur}

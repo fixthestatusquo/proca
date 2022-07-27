@@ -16,4 +16,9 @@ const isDate = (date) => {
   return /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.test(date);
 };
 
-export { formatDate, isDate };
+const isValidDate = (value) => {
+  const [ d, m, y ] = value.split('/');
+  const date = new Date(`${m}/${d}/${y}`);
+  return date.getDate() === date.getDate() && date <= new Date();
+}
+export { formatDate, isDate, isValidDate };
