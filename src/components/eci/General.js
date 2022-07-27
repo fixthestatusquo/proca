@@ -13,6 +13,30 @@ import TextField from "@components/TextField";
 import { useTranslation } from "./hooks/useEciTranslation";
 import { useLayout } from "@hooks/useLayout";
 
+// const beforeMaskedValueChange = (newState, oldState, userInput) => {
+
+//   const { value } = newState;
+// console.log('beforeMaskedValueChange 4444444444444444444444444444444', newState, value);
+//   const datee = value.split('/');
+//   const D = datee[0];
+//   const M = datee[1];
+
+//   // Conditional mask
+//   if(D.startsWith('3'))
+//     formatChars['D'] = '[0-1]';
+//   else if(D.startsWith('0'))
+//     formatChars['D'] = '[1-9]';
+//   else
+//     formatChars['D'] = '[0-9]';
+
+//   if(M.startsWith('1'))
+//     formatChars['M'] = '[0-2]';
+//   else
+//     formatChars['M'] = '[1-9]';
+
+//   return {value, selection: newState.selection};
+// }
+
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const refBirthdate = useRef(null);
@@ -20,8 +44,6 @@ export default function Register(props) {
   const layout = useLayout();
   const compact = props.compact;
   const form = props.form;
-
-  //const { setValue, getValues } = form;
 
   const handleBlur = (e) => {
     if (isDate(e.target.value)) {
@@ -35,6 +57,16 @@ export default function Register(props) {
         message: t("eci:form.error.oct_error_invaliddateformat"),
       });
     }
+  };
+
+  const mask = 'dD/mM/yYYY';
+  const formatChars = {
+    'y': '[1-2]',
+    'Y': '[0-9]',
+    'd': '[0-3]',
+    'D': '[0-9]',
+    'm': '[0-1]',
+    'M': '[1-9]'
   };
 
   return (
@@ -64,7 +96,9 @@ export default function Register(props) {
         {/* {props.birthdate && ( */}
         <Grid item xs={12}>
             <InputMask
-            mask="99/99/9999"
+            mask={mask}
+            formatChars={formatChars}
+            // beforeMaskedValueChange={beforeMaskedValueChange}
             placeholder='DD/MM/YYYY'
             form={form}
             onBlur={handleBlur}
