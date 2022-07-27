@@ -140,7 +140,7 @@ export default function Captcha(props) {
     let utterThis = new SpeechSynthesisUtterance(d);
     utterThis.rate = 0.9;
     utterThis.lang = lang || "en";
-    window.speechSynthesis?.speak(utterThis);
+    window.speechSynthesis && window.speechSynthesis.speak(utterThis);
   };
 
   return (
