@@ -37,6 +37,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.5",
     "react-i18next": "^11.18.0",
+    "react-input-mask": "^2.0.4",
     "react-ipgeolocation": "^1.4.0",
     "react-masonry-component": "^6.3.0",
     "react-script-hook": "^1.6.0",
@@ -48,7 +49,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "mjml": "^4.13.0",
     "@alienfast/i18next-loader": "^1.1.4",
     "@babel/cli": "^7.17.10",
     "@babel/node": "^7.18.6",
@@ -67,6 +67,7 @@
     "dotenv": "^16.0.1",
     "generate-json-webpack-plugin": "^1.0.0",
     "i18next-fs-backend": "^1.1.4",
+    "mjml": "^4.13.0",
     "prettier": "^2.7.1",
     "simple-git": "^3.10.0",
     "typescript": "^4.7.4",

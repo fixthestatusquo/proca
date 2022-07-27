@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useRef} from "react";
 import { isDate } from "@lib/date";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography, TextField as TField } from "@material-ui/core";
+import InputMask from 'react-input-mask';
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -10,23 +11,30 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 */
 import TextField from "@components/TextField";
 import { useTranslation } from "./hooks/useEciTranslation";
+import { useLayout } from "@hooks/useLayout";
 
 export default function Register(props) {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
-
+  const refBirthdate = useRef(null);
   const { t } = useTranslation();
-
+  const layout = useLayout();
   const compact = props.compact;
   const form = props.form;
 
+  //const { setValue, getValues } = form;
+
   const handleBlur = (e) => {
-    if (isDate(e.target.value))
+    if (isDate(e.target.value)) {
       form.clearErrors(e.target.attributes.name.nodeValue);
-    else
+      form.setValue(e.target.name, e.target.value);
+      console.log('0000000000000000', form.getValues());
+    }
+    else {
       form.setError(e.target.attributes.name.nodeValue, {
         type: "format",
         message: t("eci:form.error.oct_error_invaliddateformat"),
       });
+    }
   };
 
   return (
@@ -53,19 +61,29 @@ export default function Register(props) {
             required
           />
         </Grid>
-        {props.birthdate && (
-          <Grid item xs={12}>
-            <TextField
+        {/* {props.birthdate && ( */}
+        <Grid item xs={12}>
+            <InputMask
+            mask="99/99/9999"
+            placeholder='DD/MM/YYYY'
+            form={form}
+            onBlur={handleBlur}
+            >
+              {(inputProps) => (
+              <TField
+                {...inputProps}
+              ref={refBirthdate}
               InputLabelProps={{ shrink: true }}
-              form={form}
-              name="birthDate"
-              onBlur={handleBlur}
+              variant={layout.variant}
+              margin={layout.margin}
               label={t("eci:form.property.date-of-birth")}
-              placeholder={t("dateFormat")}
-              required
-            />
+              name="birthDate"
+                {...form.register("birthDate", {required: true})}
+
+                />)}
+            </InputMask>
           </Grid>
-        )}
+        {/* )} */}
       </Grid>
     </Container>
   );
