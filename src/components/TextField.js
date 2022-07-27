@@ -46,7 +46,6 @@ const TextFieldProca = (props) => {
       dom.setCustomValidity("");
     }
     dom.checkValidity();
-    console.log("handle Validate", dom.validity);
     if (dom.validity.valid) {
       clearErrors(name); // synchronise the status to material-ui
       return true;

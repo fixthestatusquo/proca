@@ -1,6 +1,36 @@
 import { useLayoutEffect, useState } from "react";
 
-function useElementSize(selector) {
+const useElementSize = (selector) => {
+  //changes everytime the element changes
+  const delay = 250; // debounce delay
+  const [size, _setSize] = useState({ width: 333, height: 333 }); // easier to debug than 0
+
+  const setSize = (state) => {
+    _setSize((prev) => {
+      if (prev.width === state.width && prev.height === state.height)
+        return prev; // do not update
+      return state;
+    });
+  };
+  useLayoutEffect(() => {
+    let timeout = false;
+    const el = document.querySelector(selector);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.contentBoxSize && entry.contentBoxSize.length) {
+          setSize(entry.contentBoxSize[0]);
+          return;
+        }
+        setSize(entry.contentRect);
+      }
+    });
+    resizeObserver.observe(el);
+  }, [selector]);
+  return size;
+};
+
+function useElementWidth(selector) {
+  // changes only when the window size changes
   const delay = 250; // debounce delay
 
   const [size, setSize] = useState(0);
@@ -24,4 +54,5 @@ function useElementSize(selector) {
   return size;
 }
 
-export default useElementSize;
+export { useElementWidth, useElementSize };
+export default useElementWidth;

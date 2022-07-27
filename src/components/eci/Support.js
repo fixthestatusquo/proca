@@ -229,25 +229,6 @@ const Support = (props) => {
     return false;
   };
 
-  useEffect(() => {
-    // TO BE REMOVED
-    const inputs = document.querySelectorAll("input, select, textarea");
-    console.log("validity for ", nationality, inputs.length);
-    return;
-    //    register({ name: "country" });
-    // todo: workaround until the feature is native react-form ?
-    inputs.forEach((input) => {
-      //input.setCustomValidity(t("required field"));
-      input.oninvalid = (e) => {
-        e.target.setCustomValidity(t("required field"));
-        setError(e.target.attributes.name.nodeValue, {
-          type: e.type,
-          message: e.target.validationMessage,
-        });
-      };
-    });
-  }, [setError, nationality]);
-
   const handleCaptcha = (token) => {
     setToken(token);
   };
