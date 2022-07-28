@@ -5,23 +5,22 @@
     "thanks": "Thank you for signing the {{campaign.title}}. Your support is appreciated!",
     "about": "",
     "share": "Help us reach our goal by spreading the word.",
-    "follow": "",
-    "donate": "",
-    "closing": ""
+    "follow": "Follow us on:",
+    "donate": "Please consider making a donation to help us achieve our mission",
+    "closing": "With your help, we’re one step closer to our goal"
     },
     "thankyou": {
-      "subject": ""
+      "subject": "Thank you, here's what else you can do"
     },
     "doi": {
-      "subject": "",
-      "confirm": "",
-      "confirmButton": ""
+      "subject": "One more step: confirm your subscription",
+      "confirm": "Click on the link below to confirm your subscription",
+      "confirmButton": "Confirm"
     },
     "actionConfirm": {
-      "subject": "",
-      "confirm": "",
-      "confirmButton": ""
-
+      "subject": "One more step: confirm your signature",
+      "confirm":  "Click on the link below to confirm your action",
+      "confirmButton": "Confirm"
     }
   }
 }
