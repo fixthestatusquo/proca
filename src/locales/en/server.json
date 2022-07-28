@@ -1,0 +1,27 @@
+{
+  "email": {
+    "common": {
+    "greeting": "Hello {{firstName}}",
+    "thanks": "Thank you for signing the {{campaign.title}}. Your support is appreciated!",
+    "about": "",
+    "share": "Help us reach our goal by spreading the word.",
+    "follow": "",
+    "donate": "",
+    "closing": ""
+    },
+    "thankyou": {
+      "subject": ""
+    },
+    "doi": {
+      "subject": "",
+      "confirm": "",
+      "confirmButton": ""
+    },
+    "actionConfirm": {
+      "subject": "",
+      "confirm": "",
+      "confirmButton": ""
+
+    }
+  }
+}
