@@ -21,7 +21,7 @@
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
   "action": {
-    "donate": "Spenden Sie",
+    "donate": "Spenden du",
     "eci": "Initiative unterschreiben",
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
@@ -29,29 +29,29 @@
     "share": "Jetzt teilen",
     "sign": "Unterschrift",
     "stayInformed": "Auf dem Laufenden bleiben",
-    "takeAction": "Handeln Sie!",
+    "takeAction": "Handeln du!",
     "twitter": "Tweet"
   },
   "consent": {
-    "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
-    "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
-    "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
+    "confirm": "<0>Bist du sicher?</0><1>Wenn du 'Nein' wählen, werden du nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn du \"Ja\" wählen, werden wir du über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>du können sich jederzeit abmelden.</2>",
+    "confirmAction": "Bitte rufen du die E-Mail sofort ab und klicken du auf den darin enthaltenen Link (überprüfen du Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
+    "confirmOptIn": "Vergessen du nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
     "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
-    "implicit": "Senden Sie dieses Formular, um E-Mails von {{name}} zu erhalten.",
-    "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
+    "implicit": "Senden du dieses Formular, um E-Mails von {{name}} zu erhalten.",
+    "intro": "Erfahren du mehr über unsere Kampagnen, Aktionen und Fortschritte bei {{campaign}}",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten",
-    "opt-out": "Nein, senden Sie mir keine E-Mails und halten Sie mich in Zukunft nicht auf dem Laufenden",
-    "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
+    "opt-out": "Nein, senden du mir keine E-Mails und halten du mich in Zukunft nicht auf dem Laufenden",
+    "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären du sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
+    "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären du sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Zustimmung erforderlich zur Teilnahme"
   },
   "dateFormat": "TT/MM/JJJJ",
-  "dialogTitle": "Informieren Sie mich über die Kampagne",
+  "dialogTitle": "Informieren du mich über die Kampagne",
   "donation": {
     "amount": {
       "change": "Betrag ändern",
-      "intro": "Wählen Sie einen Betrag"
+      "intro": "Wählen du einen Betrag"
     },
     "average": "Die durchschnittliche Spende beträgt {{amount}}",
     "button": {
@@ -98,13 +98,13 @@
       "yearly": "Jährlich"
     },
     "iban": "IBAN",
-    "intro": "Spenden Sie an {{campaign}}",
+    "intro": "Spenden du an {{campaign}}",
     "mobile": {
       "open": "öffnen"
     },
     "payment_methods": {
       "card": "Karte",
-      "intro": "Wie möchten Sie spenden?",
+      "intro": "Wie möchten du spenden?",
       "paypal": "PayPal",
       "sepa": "SEPA",
       "title": "Zahlungsmethode"
@@ -123,35 +123,35 @@
   "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
-  "required": "Bitte füllen Sie dieses Feld aus",
-  "required field": "Bitte füllen Sie dieses Feld aus",
+  "required": "Bitte füllen du dieses Feld aus",
+  "required field": "Bitte füllen du dieses Feld aus",
   "salutations": {
     "f": "Frau",
     "m": "Herr",
     "other": "Weitere..."
   },
   "share": {
-    "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie diese Petition überall, damit alle sie sehen 🙏.",
-    "message": "Sie sollten das unterschreiben!",
-    "title": "Fast fertig! Machen Sie den nächsten Schritt."
+    "intro": "Toll, du haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen du diese Petition überall, damit alle sie sehen 🙏.",
+    "message": "du sollten das unterschreiben!",
+    "title": "Fast fertig! Machen du den nächsten Schritt."
   },
   "supporter": {
-    "not_you": "Sie nicht?",
+    "not_you": "du nicht?",
     "welcome": "Willkommen zurück {{firstname}}!"
   },
   "target": {
     "country": {
-      "empty": "Wählen Sie ein anderes Land, in {{country}} ist niemand zu erreichen"
+      "empty": "Wählen du ein anderes Land, in {{country}} ist niemand zu erreichen"
     },
     "random": "Eines unserer {{total}} wichtigsten Ziele ausgewählt"
   },
   "twitter": {
-    "actionText": "Ich habe unterschrieben. Das sollten Sie auch.",
+    "actionText": "Ich habe unterschrieben. Das sollten du auch.",
     "again": "Tweet an eine andere Person",
-    "choice": "Was würden Sie als Nächstes tun wollen?",
-    "instruction": "Bitte senden Sie den Tweet in einem neuen Fenster ab (auf twitter.com)",
+    "choice": "Was würden du als Nächstes tun wollen?",
+    "instruction": "Bitte senden du den Tweet in einem neuen Fenster ab (auf twitter.com)",
     "organisation": "Twitter-Konto Ihrer Organisation",
     "screenName": "Bildschirmname"
   },
-  "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
+  "you need to be 18 years old": "du müssen 18 Jahre alt sein"
 }
