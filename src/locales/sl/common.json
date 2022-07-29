@@ -143,7 +143,7 @@
     "country": {
       "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral."
     },
-    "random": "Izbrana ena od naših {{total}} najpomembnejših ciljev"
+    "random": "Izbran je eden od {{total}} poslancev"
   },
   "twitter": {
     "actionText": "Podpisal sem. tudi vi bi morali",
