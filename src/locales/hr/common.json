@@ -27,9 +27,9 @@
     "join": "Pridruži se",
     "register": "Registriraj se",
     "share": "Dijeli",
-    "sign": "Potpiši",
-    "stayInformed": "Ostanite u toku",
-    "takeAction": "Poduzmite akciju!",
+    "sign": "Potpiši sada!",
+    "stayInformed": "Ostani u toku",
+    "takeAction": "Poduzmi radnju!",
     "twitter": "Tweet"
   },
   "consent": {
@@ -46,7 +46,7 @@
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potreban vaš pristanak"
   },
-  "dateFormat": "DD/MM/GGGG",
+  "dateFormat": "DD./MM./GGGG.",
   "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
     "amount": {
@@ -118,17 +118,18 @@
     "salutation_female": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
     "salutation_male": "Poštovani {{target.name}}",
-    "salutation_placeholder": "Poštovani [primatelj],"
+    "salutation_placeholder": "Poštovani [recipient],"
   },
-  "progress": "{{count}} potpis. Idemo na {{goal}}",
-  "progress_plural": "{{count}} potpisa. Idemo na {{goal}}",
+  "progress_0": "{{count}} potpis. Idemo na {{goal}}",
+  "progress_1": "{{count}} potpisa. Idemo na {{goal}}",
+  "progress_2": "{{count}} potpisa. Idemo na {{goal}}",
   "register": "Dodaj moje ime",
-  "required": "Molimo popunite ovo polje",
-  "required field": "Obavezno polje",
+  "required": "Ispuni ovo polje",
+  "required field": "Ispuni ovo polje",
   "salutations": {
-    "f": "gđa.",
-    "m": "gosp.",
-    "other": "Ostalo"
+    "f": "Gđa.",
+    "m": "Gosp.",
+    "other": "Drugi"
   },
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
@@ -143,13 +144,13 @@
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
     },
-    "random": "Odabrali smo jednu od naših najvažnijih meta {{total}}."
+    "random": "Odabrali smo jedan od naših {{total}} najvažnijih ciljeva"
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
-    "again": "Tweetajte drugoj osobi",
-    "choice": "Što bi htio sljedeće raditi?",
-    "instruction": "Molimo dovršite slanje tweeta u novom prozoru (na twitter.com)",
+    "again": "Pošalji tweet drugoj osobi",
+    "choice": "Što bi htio/htjela sljedeće raditi?",
+    "instruction": "Dovrši slanje tweeta u novom prozoru (na twitter.com)",
     "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },
