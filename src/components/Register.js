@@ -135,7 +135,8 @@ export default function Register(props) {
       if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    formData.tracking = Url.utm();
+    formData.tracking = Url.utm(config.component?.register?.source);
+
     if (config.component.consent?.implicit) {
       formData.privacy =
         config.component.consent.implicit === true
@@ -181,11 +182,14 @@ export default function Register(props) {
       for (let [key, value] of Object.entries(formData)) {
         if (value && !expected.includes(key)) payload[key] = value;
       }
-
       result = await addAction(
         config.actionPage,
         actionType,
-        { uuid: data.uuid, tracking: Url.utm(), payload: payload },
+        {
+          uuid: data.uuid,
+          tracking: Url.utm(config.component?.register?.source),
+          payload: payload,
+        },
         config.test
       );
     } else {
@@ -320,6 +324,7 @@ export default function Register(props) {
     : Consent;
 
   const validateEmail = async (email) => {
+    if (config.component?.register?.validateEmail === false) return true;
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
     emailProvider.current = provider;

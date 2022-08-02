@@ -88,8 +88,11 @@ const socialiseReferrer = (domain, utm) => {
   return false;
 };
 
-const utm = () => {
+const utm = (record = true) => {
   const whitelist = ["source", "medium", "campaign", "content"];
+  if (record === false) {
+    return {};
+  }
   let utm = { source: "", medium: "", campaign: "" };
   Object.assign(utm, parse(whitelist, "utm_"));
   if (!utm.source && document.referrer) {

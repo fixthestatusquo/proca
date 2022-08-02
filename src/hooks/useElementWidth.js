@@ -2,7 +2,6 @@ import { useLayoutEffect, useState } from "react";
 
 const useElementSize = (selector) => {
   //changes everytime the element changes
-  const delay = 250; // debounce delay
   const [size, _setSize] = useState({ width: 333, height: 333 }); // easier to debug than 0
 
   const setSize = (state) => {
@@ -13,7 +12,6 @@ const useElementSize = (selector) => {
     });
   };
   useLayoutEffect(() => {
-    let timeout = false;
     const el = document.querySelector(selector);
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
