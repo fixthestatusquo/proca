@@ -137,6 +137,9 @@ the main behaviour
 
 Register is the main form used to collect personal data and consent.
 
+- validateEmail: (default:true) do not use the micro-service that validates that the domain is valid and able to receive emails
+- source: (default: true) do not register the utm parameters or the location
+
 ### Field (config.component.register.field)
 
 most fields can either be displayed or hidden, most fields can either be required or not. First name and emails are always displayed AND required
