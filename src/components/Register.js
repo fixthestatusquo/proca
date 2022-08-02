@@ -135,7 +135,7 @@ export default function Register(props) {
       if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    formData.tracking = Url.utm(config.component?.register?.source);
+    formData.tracking = Url.utm(config.component?.register?.tracking);
 
     if (config.component.consent?.implicit) {
       formData.privacy =
@@ -187,7 +187,7 @@ export default function Register(props) {
         actionType,
         {
           uuid: data.uuid,
-          tracking: Url.utm(config.component?.register?.source),
+          tracking: Url.utm(config.component?.register?.tracking),
           payload: payload,
         },
         config.test
