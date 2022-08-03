@@ -8,7 +8,7 @@ export const NameField = ({ name, label, form, classes, autoComplete }) => {
   const layout = useLayout();
   const [, setData] = useData();
 
-  const { control, errors } = form;
+  const { control, formState: { errors } } = form; // in react-hook-form 7, errors are stored in formState
 
   return (
     <Controller

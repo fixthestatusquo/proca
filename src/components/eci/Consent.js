@@ -34,7 +34,7 @@ export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { errors, register, setValue } = props.form;
+  const { formState: { errors }, register, setValue } = props.form; // in react-hook-form 7, errors are stored in formState
 
   const handleCheck = (event) => {
     setValue(event.target.name, event.target.checked, { shouldValidate: true });

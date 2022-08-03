@@ -129,7 +129,8 @@ const PaymentForm = (props) => {
   const [, setData] = useData();
 
   const form = props.form;
-  const { control, errors } = form;
+  const { control, formState: { errors } } = form; // in react-hook-form 7, errors are stored in formState
+
   const [compact, setCompact] = useState(true);
 
   const width = useElementWidth("#proca-donate");

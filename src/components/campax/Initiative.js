@@ -100,7 +100,7 @@ export default function Register(props) {
     register,
     handleSubmit,
     setValue,
-    errors,
+    formState: {errors}, // in react-hook-form 7, errors are stored in formState
     setError,
     clearErrors,
     watch,

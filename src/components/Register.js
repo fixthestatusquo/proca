@@ -113,8 +113,7 @@ export default function Register(props) {
 
   const { trigger, handleSubmit, setError, formState, getValues, setValue } =
     form;
-  //  const { register, handleSubmit, setValue, errors } = useForm({ mode: 'onBlur', defaultValues: defaultValues });
-  //const values = getValues() || {};
+
   const comment = data.comment;
   useEffect(() => {
     setValue("comment", comment);
