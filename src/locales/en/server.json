@@ -10,6 +10,7 @@
       "closing": "With your help, we’re one step closer to our goal"
     },
     "thankyou": {
+      "intro": "Thank you for \"{{campaign.title}}\". Your support is appreciated!",
       "subject": "Thank you, here's what else you can do"
     },
     "doi": {
@@ -22,5 +23,6 @@
       "confirm": "Click on the link below to confirm your action",
       "confirmButton": "Confirm"
     }
-  }
+  },
+  "poweredBy": "POWERED BY"
 }

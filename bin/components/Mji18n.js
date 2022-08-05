@@ -16,8 +16,11 @@ class MjI18nComponent extends BodyComponent {
     // Tell the validator which tags are allowed as our component's parent
     "mj-hero": ["mj-i18n"],
     "mj-column": ["mj-i18n"],
+    "mj-attributes": ["mj-i18n"],
     "mj-section": ["mj-i18n"],
     "mj-group": ["mj-i18n"],
+    "mj-section": ["mj-i18n"],
+    "mj-wrapper": ["mj-i18n"],
     // Tell the validator which tags are allowed as our component's children
     "mj-i18n": [],
   };
