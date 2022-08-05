@@ -7,11 +7,15 @@ const _set = require("lodash/set");
 const _merge = require("lodash/merge");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run", "extract", "verbose"],
+  alias: { v: "verbose", l: "lang" },
+  default: { lang: "en" },
 });
 const { read, file } = require("./config");
 const mjmlEngine = require("mjml");
 const htmlparser2 = require("htmlparser2");
-//const render = require("dom-serializer").default;
+const render = require("dom-serializer").default;
+const i18nInit = require("./lang").i18nInit;
+const i18n = require("./lang").i18next;
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -45,71 +49,72 @@ const updateTranslation = (namespace, parsed) => {
   }
   fs.writeFileSync(file, JSON.stringify(updated, null, 2));
 };
-const extracti18n = (string) => {
+
+const deepify = (keys) => {
+  // convert an array of keys for the t function to the translation json
   let trans = {};
-  let keys = {};
-  let currentKey = null; // or current key to extract the text into
-
-  const parser = new htmlparser2.Parser({
-    onopentag(name, attributes) {
-      if (attributes.i18n) {
-        currentKey = attributes.i18n;
-      }
-    },
-    ontext(text) {
-      if (currentKey) {
-        keys[currentKey] = text.trim();
-        currentKey = null;
-      }
-    },
-    onclosetag(tagname) {},
-  });
-  parser.write(string);
-  parser.end();
-
   for (let nskey in keys) {
     let key = "";
     if (nskey.includes(":")) key = nskey.replace(":", ".");
     else key = "server." + nskey;
     _set(trans, key, keys[nskey]);
   }
-  if (argv["dry-run"]) {
-    console.log(JSON.stringify(trans, null, 2));
-    return;
-  }
-  if (argv.extract) {
-    updateTranslation("server", trans);
-  }
   return trans;
 };
 
-const parsei18n = (json) => {
-  console.log("parsei18n", json.tagName);
-  if (Array.isArray(json)) {
-    console.log("in array");
-    for (const item in json) {
-      console.log("array", item);
-      parsei18n(item);
-    }
-  } else {
-    //    console.log(json);process.exit(1);
-  }
-  if (json.children) {
-    for (const child in json.children) {
-      //      console.log("parse child",json.children [child]);
-      parsei18n(json.children[child]);
-    }
-  }
-  //  console.log(json.tagName,json.attributes);
-};
+const translateTpl = (tpl, lang) =>
+  new Promise((resolve, reject) => {
+    const keys = {};
+    const util = htmlparser2.DomUtils;
+    const handler = new htmlparser2.DomHandler((error, dom) => {
+      if (error) {
+        console.log(error);
+        reject(error);
+      }
+      const i18node = util.find(
+        (e) => util.getAttributeValue(e, "i18n"),
+        dom,
+        true,
+        999
+      );
+      i18node.forEach((d) => {
+        const text = util.getChildren(d)[0];
+        if (text.type !== "text") {
+          console.log("wrong children", d);
+          reject({ error: "wrong child, was expecting text", elem: d });
+        }
+        keys[d.attribs.i18n] = text.data;
+        text.data = i18n.t(d.attribs.i18n); // translation to the new language
+      });
+      const trans = deepify(keys);
+      if (argv.extract) {
+        if (argv["dry-run"]) {
+          console.log("i18n keys", keys, JSON.stringify(trans, null, 2));
+        } else updateTranslation("server", trans);
+      }
+      resolve(render(dom));
+    });
+    const parser = new htmlparser2.Parser(handler);
+    const dom = parser.write(tpl);
+    parser.end();
+  });
 
-const mjml2html = (tpl) => {
+const mjml2html = (name, lang, tpl) => {
   const render = mjmlEngine(tpl, {});
 
-  if (argv["dry-run"]) {
-    console.log(render);
-    //parsei18n(render.json);
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/html/" + name + "." + lang + ".html"
+  );
+  if (argv.verbose) {
+    console.log(JSON.stringify(render.errors, null, 2));
   }
+  if (argv["dry-run"]) {
+    console.log("would write in ", fileName, render.html);
+    return;
+  }
+
+  fs.writeFileSync(fileName, render.html);
 
   //render.html is the one we need to update?
 };
@@ -117,18 +122,21 @@ const mjml2html = (tpl) => {
 (async () => {
   const name = argv._[0];
   //const display = argv.display || false;
-
+  const i = await i18nInit;
+  await i18n.setDefaultNamespace("server");
+  if (argv.lang.length !== 2) {
+    console.error("invalid language", argv.lang);
+    process.exit(1);
+  }
+  const d = await i18n.changeLanguage(argv.lang);
   try {
     const fileName = path.resolve(
       __dirname,
       tmp + "email/mjml/" + name + ".mjml"
     );
     let tpl = fs.readFileSync(fileName, "utf8");
-    const trans = extracti18n(tpl);
-    if (argv.verbose) {
-      console.log("i18n keys found", JSON.stringify(trans, null, 2));
-    }
-    mjml2html(tpl);
+    const newTpl = await translateTpl(tpl, argv.lang);
+    mjml2html(name, argv.lang, newTpl);
   } catch (e) {
     console.log(e);
   }
