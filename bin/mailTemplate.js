@@ -8,8 +8,13 @@ const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run"],
 });
 const { read, file } = require("./config");
+const mjmlCore = require("mjml-core");
 const mjmlEngine = require("mjml");
+const registerComponent = mjmlCore.registerComponent;
 
+const Mji18nComponent = require("./components/Mji18n.js").default;
+registerComponent(Mji18nComponent);
+console.log(mjmlCore);
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
