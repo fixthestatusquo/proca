@@ -57,7 +57,7 @@
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
     "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^14.3.0",
+    "@testing-library/user-event": "^14.4.2",
     "babel-plugin-i18next-extract": "^0.8.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "cli-color": "^2.0.3",
