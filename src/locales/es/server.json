@@ -1,1 +1,27 @@
-{}
+{
+    "email": {
+        "common": {
+            "thanks": "Gracias por firmar el {{campaign.title}}. ¡Su apoyo es apreciado!",
+            "share": "Ayúdanos a alcanzar nuestro objetivo corriendo la voz.",
+            "follow": "Síganos en:",
+            "greeting": "Hola {{firstName}}",
+            "donate": "Por favor, considere hacer una donación para ayudarnos a cumplir nuestra misión",
+            "closing": "Con su ayuda, estamos un paso más cerca de nuestro objetivo"
+        },
+        "thankyou": {
+            "intro": "Gracias por \"{{campaign.title}}\". Apreciamos su apoyo.",
+            "subject": "Gracias, esto es lo que puedes hacer"
+        },
+        "doi": {
+            "confirmButton": "Confirmar",
+            "subject": "Un paso más: confirmar la suscripción",
+            "confirm": "Haga clic en el siguiente enlace para confirmar su suscripción"
+        },
+        "actionConfirm": {
+            "confirmButton": "Confirmar",
+            "subject": "Un paso más: confirme su firma",
+            "confirm": "Haga clic en el siguiente enlace para confirmar su acción"
+        }
+    },
+    "poweredBy": "CONTINÚA"
+}
