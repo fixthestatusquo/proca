@@ -1,1 +1,27 @@
-{}
+{
+    "email": {
+        "common": {
+            "follow": "Volg ons op:",
+            "greeting": "Hallo {{firstName}}",
+            "thanks": "Dank u voor het ondertekenen van de {{campaign.title}}. Uw steun wordt op prijs gesteld!",
+            "share": "Help ons ons doel te bereiken door het woord te verspreiden.",
+            "donate": "Overweeg alstublieft een donatie om ons te helpen onze missie te bereiken",
+            "closing": "Met uw hulp, zijn we een stap dichter bij ons doel"
+        },
+        "thankyou": {
+            "intro": "Dank u voor \"{{campaign.title}}\". Uw steun wordt op prijs gesteld!",
+            "subject": "Dank je. Hier is wat je nog meer kunt doen"
+        },
+        "doi": {
+            "subject": "Nog één stap: bevestig uw inschrijving",
+            "confirm": "Klik op de link hieronder om uw inschrijving te bevestigen",
+            "confirmButton": "Bevestig"
+        },
+        "actionConfirm": {
+            "subject": "Nog één stap: bevestig uw handtekening",
+            "confirm": "Klik op de link hieronder om uw actie te bevestigen",
+            "confirmButton": "Bevestig"
+        }
+    },
+    "poweredBy": "GEVOED DOOR"
+}
