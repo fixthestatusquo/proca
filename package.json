@@ -22,7 +22,7 @@
     "@paypal/react-paypal-js": "^7.8.1",
     "@stripe/react-stripe-js": "^1.10.0",
     "@stripe/stripe-js": "^1.34.0",
-    "@supabase/supabase-js": "^1.35.4",
+    "@supabase/supabase-js": "^1.35.5",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^7.5.0",
     "i18next": "^21.8.16",
