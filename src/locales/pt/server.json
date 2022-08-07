@@ -1,1 +1,27 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Olá {{firstName}}",
+            "thanks": "Obrigado por assinar o {{campaign.title}}. O seu apoio é apreciado!",
+            "share": "Ajude-nos a alcançar o nosso objectivo, espalhando a palavra.",
+            "follow": "Siga-nos em frente:",
+            "donate": "Por favor, considere fazer uma doação para nos ajudar a alcançar a nossa missão",
+            "closing": "Com a sua ajuda, estamos um passo mais perto do nosso objectivo"
+        },
+        "thankyou": {
+            "intro": "Obrigado por \"{{campaign.title}}\". O vosso apoio é apreciado!",
+            "subject": "Obrigado, aqui está o que mais pode fazer"
+        },
+        "doi": {
+            "subject": "Mais um passo: confirme a sua subscrição",
+            "confirm": "Clique no link abaixo para confirmar a sua subscrição",
+            "confirmButton": "Confirme"
+        },
+        "actionConfirm": {
+            "subject": "Mais um passo: confirme a sua assinatura",
+            "confirm": "Clique no link abaixo para confirmar a sua acção",
+            "confirmButton": "Confirme"
+        }
+    },
+    "poweredBy": "POWERED BY"
+}

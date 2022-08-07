@@ -1,1 +1,27 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Hej {{firstName}}",
+            "thanks": "Tack för att du skrev under {{campaign.title}}. Ditt stöd är uppskattat!",
+            "share": "Hjälp oss att nå vårt mål genom att sprida ordet.",
+            "follow": "Följ oss på:",
+            "donate": "Överväg att göra en donation för att hjälpa oss att uppnå vårt uppdrag.",
+            "closing": "Med din hjälp är vi ett steg närmare vårt mål."
+        },
+        "thankyou": {
+            "intro": "Tack för \"{{campaign.title}}\". Ditt stöd är uppskattat!",
+            "subject": "Tack, så här kan du göra mer"
+        },
+        "doi": {
+            "subject": "Ytterligare ett steg: bekräfta din prenumeration",
+            "confirm": "Klicka på länken nedan för att bekräfta din prenumeration",
+            "confirmButton": "Bekräfta"
+        },
+        "actionConfirm": {
+            "subject": "Ytterligare ett steg: bekräfta din signatur",
+            "confirm": "Klicka på länken nedan för att bekräfta din åtgärd",
+            "confirmButton": "Bekräfta"
+        }
+    },
+    "poweredBy": "KRAFTVERKTURERAD AV"
+}
