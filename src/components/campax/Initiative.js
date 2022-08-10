@@ -205,7 +205,7 @@ export default function Register(props) {
   };
 
   useEffect(() => {
-    register({ name: "postcode" });
+    register("postcode");
   }, [postcode, register]);
 
   useEffect(() => {
@@ -348,7 +348,7 @@ export default function Register(props) {
                 onBlur={handleBlur}
                 variant={options.variant}
                 margin={options.margin}
-                inputRef={register({
+                {...register({
                   validate: (value) => {
                     //not useful anymore now that we have the html5 validation?
                     if (!value) return;
@@ -391,7 +391,7 @@ export default function Register(props) {
                 helperText={
                   errors && errors.postcode && errors.postcode.message
                 }
-                inputRef={register}
+                {...register}
                 className={classes.textField}
                 variant={options.variant}
                 margin={options.margin}
