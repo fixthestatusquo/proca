@@ -9,19 +9,19 @@
             "closing": "Con su ayuda, estamos un paso más cerca de nuestro objetivo"
         },
         "thankyou": {
-            "intro": "Gracias por \"{{campaign.title}}\". Apreciamos su apoyo.",
+            "intro": "Gracias por \"{{campaign.title}}\". Apreciamos su apoyo!",
             "subject": "Gracias, esto es lo que puedes hacer"
         },
         "doi": {
             "confirmButton": "Confirmar",
             "subject": "Un paso más: confirmar la suscripción",
-            "confirm": "Haga clic en el siguiente enlace para confirmar su suscripción"
+            "confirm": "Haga clic en el siguiente enlace para confirmar la suscripción"
         },
         "actionConfirm": {
             "confirmButton": "Confirmar",
-            "subject": "Un paso más: confirme su firma",
+            "subject": "Un paso más: confirmar su firma",
             "confirm": "Haga clic en el siguiente enlace para confirmar su acción"
         }
     },
-    "poweredBy": "CONTINÚA"
+    "poweredBy": "DESARROLLADO POR"
 }
