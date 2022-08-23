@@ -2,15 +2,15 @@
     "email": {
         "common": {
             "greeting": "Bonjour {{firstName}}",
-            "thanks": "Merci d'avoir signé {{campaign.title}}. Votre soutien est apprécié !",
+            "thanks": "Merci d'avoir signé {{campaign.title}}. Votre soutien est apprécié !",
             "share": "Aidez-nous à atteindre notre objectif en faisant passer le mot.",
             "follow": "Suivez-nous sur :",
-            "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission.",
-            "closing": "Avec votre aide, nous nous rapprochons de notre objectif."
+            "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission",
+            "closing": "Avec votre aide, nous nous rapprochons de notre objectif"
         },
         "thankyou": {
-            "intro": "Merci pour \"{{campaign.title}}\". Votre soutien est apprécié !",
-            "subject": "Merci, voici ce que vous pouvez faire de plus"
+            "intro": "Merci pour « {{campaign.title}} ». Votre soutien est apprécié !",
+            "subject": "Merci, voici ce que vous pouvez faire d'autre"
         },
         "doi": {
             "subject": "Encore une étape : confirmez votre inscription",
