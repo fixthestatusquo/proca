@@ -4,13 +4,12 @@ import Country from "@components/Country";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import { Button,SvgIcon } from "@material-ui/core";
+import { Button, SvgIcon } from "@material-ui/core";
 import useData from "@hooks/useData";
 import { addActionContact } from "@lib/server";
 import { slugify } from "@lib/text";
 import { ReactComponent as ProcaIcon } from "../../images/Proca.svg";
 import uuid from "@lib/uuid";
-
 
 const GeneratePaper = (props) => {
   const config = useCampaignConfig();
@@ -20,12 +19,13 @@ const GeneratePaper = (props) => {
   const onSubmit = async (data) => {
     data.privacy = "opt-in";
     if (data.other) {
-      data.partner =  slugify(data.other);
+      data.partner = slugify(data.other.toLowerCase(), "-");
     }
     data.email = data.partner + "@paper.eci.invalid";
     data.firstname = data.partner;
     data.lastname = data.country;
-    const result = await addActionContact("generatePDF",
+    const result = await addActionContact(
+      "generatePDF",
       config.actionPage,
       data,
       config.test
@@ -60,24 +60,23 @@ const GeneratePaper = (props) => {
         uuid: uuid(),
         firstname: data.firstname,
         country: data.country,
-        privacy: data.privacy
+        privacy: data.privacy,
       });
-  }
-
+  };
 
   const form = useForm({
     //    mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: Object.assign({},data)
+    defaultValues: Object.assign({}, data),
   });
 
   const { watch, formState, handleSubmit, setError } = form;
-  const partner = watch ("partner");
-  const country = watch ("country");
+  const partner = watch("partner");
+  const country = watch("country");
 
   const extraLang = {
-    "BE": ["FR","NL"],
-    "LU": ["FR","DE"]
+    BE: ["FR", "NL"],
+    LU: ["FR", "DE"],
   };
 
   const lang = extraLang[country];
@@ -102,64 +101,67 @@ const GeneratePaper = (props) => {
       method="post"
       url="http://localhost"
     >
-          <TextField
-            select
-            name="partner"
-                  label="Partner"
-            form={form}
-            required
-            SelectProps={{
-              native: true,
-            }}
-          >
-            <option key="" value=""></option>
-            {Object.entries(config.component.paper.partners).map( ([key, value]) => (
-              <option key={key} value={key}>{value}
-              </option>
-            ))}
-            <option key="N/A" value="N/A">None of the above</option>
-          </TextField>
-    {partner ==="N/A" && <TextField
-                  form={form}
-                  name="other"
-                  label="Group/Organisation name"
-                />}
-                <Country form={form} required />
-    {lang &&
       <TextField
-            select
-            name="extra_language"
-                  label="Language"
-            form={form}
-            required
-            SelectProps={{
-              native: true,
-            }}
-          >
-              <option key="" value=""></option>
-            {lang.map( lang =>
-              <option key={lang} value={lang}>{lang}</option>
-            )}
-          </TextField>}
+        select
+        name="partner"
+        label="Partner"
+        form={form}
+        required
+        SelectProps={{
+          native: true,
+        }}
+      >
+        <option key="" value=""></option>
+        {Object.entries(config.component.paper.partners).map(([key, value]) => (
+          <option key={key} value={key}>
+            {value}
+          </option>
+        ))}
+        <option key="N/A" value="N/A">
+          None of the above
+        </option>
+      </TextField>
+      {partner === "N/A" && (
+        <TextField form={form} name="other" label="Group/Organisation name" />
+      )}
+      <Country form={form} required />
+      {lang && (
+        <TextField
+          select
+          name="extra_language"
+          label="Language"
+          form={form}
+          required
+          SelectProps={{
+            native: true,
+          }}
+        >
+          <option key="" value=""></option>
+          {lang.map((lang) => (
+            <option key={lang} value={lang}>
+              {lang}
+            </option>
+          ))}
+        </TextField>
+      )}
 
-              <Button
-                color="primary"
-                variant="contained"
-    type="submit"
-                fullWidth
-                size="large"
-                disabled={formState.isSubmitting}
-                endIcon={
-                  <SvgIcon>
-                    <ProcaIcon />
-                  </SvgIcon>
-                }
-              >
-                {" "}
-                {props.buttonText ||
-                  t(config.component.register?.button || "register")}
-              </Button>
+      <Button
+        color="primary"
+        variant="contained"
+        type="submit"
+        fullWidth
+        size="large"
+        disabled={formState.isSubmitting}
+        endIcon={
+          <SvgIcon>
+            <ProcaIcon />
+          </SvgIcon>
+        }
+      >
+        {" "}
+        {props.buttonText || t(config.component.register?.button || "register")}
+      </Button>
     </form>
   );
 };
-export default GeneratePaper
+export default GeneratePaper;
