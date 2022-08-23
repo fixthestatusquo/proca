@@ -161,15 +161,15 @@ const Component = (props) => {
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
+          // if the country of the visitor is set, filter the list of targets t4g_meps
+          if (data.country) {
+            const country = data.country.toLowerCase();
+            const filtered = d.filter((c) => c.country === country);
+            if (filtered.length > 0) d = filtered;
+          }
+
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
-            if (data.country) {
-              const r = d.filter(
-                (c) => !c.country || c.country.toUpperCase() === data.country
-              );
-              if (r.length > 0) setAllProfiles(r);
-            }
-
             const i = d[Math.floor(Math.random() * d.length)];
             form.setValue(
               "message",
@@ -180,8 +180,10 @@ const Component = (props) => {
                 { profile: [i] }
               )
             );
+            console.debug("set profile random", i.country);
             setProfiles([i]);
-          } else if (!config.component.twitter.filter?.includes("country")) {
+          } else {
+            //if (!config.component.twitter.filter?.includes("country")) {
             setProfiles(d);
           }
         })
@@ -195,7 +197,7 @@ const Component = (props) => {
         : config.component.twitter.listUrl;
     fetchData(url);
     // eslint-disable-next-line
-  }, [config.component, config.hook, setAllProfiles]);
+  }, [data.country]);
 
   const filterRandomProfile = () => {
     const d = allProfiles;

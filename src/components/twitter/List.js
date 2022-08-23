@@ -13,14 +13,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Component = (props) => {
   const classes = useStyles();
-
+  console.log(
+    props.profiles.length,
+    props.profiles[0] && props.profiles[0].country
+  );
   return (
     <List className={classes.root}>
       {props.profiles.map((d) => (
         <TwitterAction
           clickable={props.clickable}
           form={props.form}
-          key={d.id}
+          key={d.procaid}
           actionPage={props.actionPage}
           done={props.done}
           actionUrl={props.actionUrl}

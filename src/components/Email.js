@@ -15,7 +15,7 @@ import Country from "@components/Country";
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
-import { shuffle, sample } from "@lib/array";
+import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -206,6 +206,7 @@ const Component = (props) => {
     } // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
+  const fallbackRandom = config.component.email.fallbackRandom;
   const filterProfiles = useCallback(
     (country) => {
       if (!country) return;
@@ -219,8 +220,8 @@ const Component = (props) => {
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0) {
-        if (config.component.email.fallbackRandom) {
-          d = sample(allProfiles, config.component.email.fallbackRandom);
+        if (fallbackRandom) {
+          d = sample(allProfiles, fallbackRandom);
         }
         setError("country", {
           message: t("target.country.empty", {
@@ -235,7 +236,7 @@ const Component = (props) => {
       setData("targets", d);
       setData("country", country);
     },
-    [allProfiles, setError, clearErrors, t, setData]
+    [allProfiles, setError, clearErrors, t, setData, fallbackRandom]
   );
 
   const countryFiltered = config.component.email?.filter?.includes("country");
