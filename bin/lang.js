@@ -48,7 +48,7 @@ const i18nInit = i18next.use(Backend).init({
   fallbackLng: "en",
   //    debug: true,
   // have a common namespace used around the full app
-  ns: ["common"],
+  ns: ["common", "server"],
   defaultNS: "common",
 });
 

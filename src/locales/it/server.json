@@ -1,0 +1,27 @@
+{
+    "poweredBy": "ALIMENTATO DA",
+    "email": {
+        "common": {
+            "greeting": "Ciao {{firstName}}",
+            "thanks": "Grazie per aver firmato il sito {{campaign.title}}. Il vostro sostegno è molto apprezzato!",
+            "share": "Aiutateci a raggiungere il nostro obiettivo diffondendo la notizia.",
+            "follow": "Seguiteci su:",
+            "donate": "Considerate l'opportunità di fare una donazione per aiutarci a realizzare la nostra missione.",
+            "closing": "Con il vostro aiuto, siamo un passo più vicini al nostro obiettivo"
+        },
+        "thankyou": {
+            "intro": "Grazie per \"{{campaign.title}}\". Il vostro sostegno è apprezzato!",
+            "subject": "Grazie, ecco cos'altro si può fare"
+        },
+        "doi": {
+            "subject": "Ancora un passo: confermare l'iscrizione",
+            "confirm": "Cliccare sul link sottostante per confermare l'iscrizione",
+            "confirmButton": "Confermare"
+        },
+        "actionConfirm": {
+            "subject": "Ancora un passo: confermare la firma",
+            "confirm": "Cliccate sul link sottostante per confermare la vostra azione",
+            "confirmButton": "Confermare"
+        }
+    }
+}

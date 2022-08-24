@@ -14,11 +14,11 @@ const homoSpacify = (text) => {
   return asArray.join();
 };
 
-const slugify = (text) =>
+const slugify = (text, placeholder = "_") =>
   text
     .replace(/[^a-z0-9 _-]/g, "")
-    .replace(/\s+/g, "_")
-    .replace(/-+/g, "_")
+    .replace(/\s+/g, placeholder)
+    .replace(/-+/g, placeholder)
     .toLowerCase();
 
 const tokenize = (message, { profile, url }) => {

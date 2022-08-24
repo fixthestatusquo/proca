@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     "& img": {
       maxHeight: 120,
       width: 100,
+      maxWidth: "unset",
       padding: "0!important",
       marging: "0!important",
     },

@@ -366,7 +366,7 @@ const CreateMeme = (props) => {
         <TextField
           className={classes.memeText}
           fullWidth
-          inputProps={{ maxlength: 65 }}
+          inputProps={{ maxLength: 65 }}
           form={form}
           multiline
           name="topText"
@@ -376,7 +376,7 @@ const CreateMeme = (props) => {
       <Grid item xs={12}>
         <TextField
           fullWidth
-          inputProps={{ maxlength: 65 }}
+          inputProps={{ maxLength: 65 }}
           className={classes.memeText}
           form={form}
           name="bottomText"
