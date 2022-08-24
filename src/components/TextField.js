@@ -68,7 +68,7 @@ const TextFieldProca = (props) => {
   return (
     <Controller
       defaultValue=""
-      render={({ onChange, onBlur, value, name, ref }) => {
+      render={({ field: { onChange, onBlur, value, name, ref }, fieldState }) => {
         let handleChange = onChange;
         let handleBlur = onBlur;
         if (props.onBlur) {

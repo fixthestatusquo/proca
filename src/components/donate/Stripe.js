@@ -175,7 +175,7 @@ const PaymentForm = (props) => {
             name="email"
             // KISS for email validation - something@something\.something
             rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
-            render={({ onChange, onBlur, value }) => (
+            render={({ field: { onChange, onBlur, value }, fieldState }) => (
               <LayoutTextField
                 className={classes.textField}
                 label={t("Email")}
@@ -204,7 +204,7 @@ const PaymentForm = (props) => {
           <Controller
             control={control}
             name="postcode"
-            render={({ onChange, value }) => (
+            render={({ field: { onChange, value }, fieldState }) => (
               <LayoutTextField
                 name="postcode"
                 className={classes.textField}
@@ -227,7 +227,7 @@ const PaymentForm = (props) => {
             control={control}
             name="country"
             rules={{ required: true }}
-            render={({ onChange, value }) => (
+            render={({ field: { onChange, value }, fieldState }) => (
               <Country form={form} required onChange={onChange} value={value} />
             )}
           />

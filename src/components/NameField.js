@@ -15,7 +15,7 @@ export const NameField = ({ name, label, form, classes, autoComplete }) => {
       control={control}
       name={name}
       rules={{ required: true }}
-      render={({ onChange, onBlur, value }) => (
+      render={({ field: { onChange, onBlur, value }, fieldState }) => (
         <LayoutTextField
           name={name}
           label={label}
