@@ -342,13 +342,12 @@ export default function Register(props) {
                   errors && errors.birthdate && errors.birthdate.message
                 }
                 id="birthdate"
-                name="birthdate"
                 label={t("Birthdate")}
                 className={classes.textField}
                 onBlur={handleBlur}
                 variant={options.variant}
                 margin={options.margin}
-                {...register({
+                {...register("birthdate", {
                   validate: (value) => {
                     //not useful anymore now that we have the html5 validation?
                     if (!value) return;
@@ -391,7 +390,7 @@ export default function Register(props) {
                 helperText={
                   errors && errors.postcode && errors.postcode.message
                 }
-                {...register}
+                {...register("postcode")}
                 className={classes.textField}
                 variant={options.variant}
                 margin={options.margin}

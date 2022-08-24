@@ -52,7 +52,7 @@ export default function Register(props) {
               error={!!(errors && errors.certify)}
             >
               <Checkbox
-                inputRef={register}
+                {...register("certify")}
                 color="primary"
                 onChange={handleCheck}
                 name="certify"
@@ -66,7 +66,7 @@ export default function Register(props) {
               error={!!(errors && errors.privacy)}
             >
               <Checkbox
-                inputRef={register}
+                {register("contentPrivacy")}
                 onChange={handleCheck}
                 color="primary"
                 name="contentPrivacy"

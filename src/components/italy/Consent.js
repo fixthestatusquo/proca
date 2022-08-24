@@ -58,10 +58,9 @@ export default function Register(props) {
               error={!!(errors && errors.certify)}
             >
               <Checkbox
-                inputRef={register}
+                {...register("certify")}
                 color="primary"
                 onChange={handleCheck}
-                name="certify"
                 required
               />
               <span>{t("eci:form.certify-info")}</span>
@@ -72,10 +71,9 @@ export default function Register(props) {
               error={!!(errors && errors.contentPrivacy)}
             >
               <Checkbox
-                inputRef={register}
+                {...register("contentPrivacy")}
                 onChange={handleCheck}
                 color="primary"
-                name="contentPrivacy"
                 required
               />
               <span

@@ -115,9 +115,9 @@ const Consent = (props) => {
               <FormControlLabel
                 value="opt-in"
                 checked={value === "opt-in"}
-                inputRef={register}
+
                 className={classes.label}
-                control={<Radio color="primary" required />}
+                control={<Radio color="primary" {...register(t("consent.opt-in"))} required />}
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
             )}
@@ -125,17 +125,15 @@ const Consent = (props) => {
               <>
                 <FormControlLabel
                   value="opt-in"
-                  inputRef={register}
                   className={classes.label}
                   checked={value === "opt-in"}
-                  control={<Radio color="primary" required />}
+                  control={<Radio color="primary"  {...register(t("consent.opt-in")) } required />}
                   label={t("consent.opt-in", { partner: config.organisation })}
                 />
                 <FormControlLabel
                   value="opt-in-both"
-                  inputRef={register}
                   className={classes.label}
-                  control={<Radio color="primary" />}
+                  control={<Radio {...register(t("consent.opt-in-both"))} color="primary" />}
                   label={t("consent.opt-in-both", {
                     lead: config.lead.title,
                     partner: config.organisation,
@@ -143,17 +141,16 @@ const Consent = (props) => {
                 />
               </>
             )}
-
-            <FormControlLabel
+            {/* <FormControlLabel
               value="opt-out"
               checked={value === "opt-out"}
               control={<Radio />}
               className={classes.label}
-              inputRef={register({
+              {...register(t("consent.opt-out"), {
                 required: t(["consent.required", "required field"]),
               })}
               label={t("consent.opt-out")}
-            />
+            /> */}
             {confirmOptOut && (
               <Collapse in={value === "opt-out"}>
                 <Alert severity="warning">
@@ -189,18 +186,20 @@ export const ConfirmProcessing = (props) => {
         <FormControlLabel
           className={classes.check}
           placement="end"
+
+
           control={
             <Controller
               name="consentProcessing"
               control={control}
               defaultValue={false}
               rules={{ required: t(["consent.required", "required"]) }}
-              render={(props) => (
+              render={({ field, fieldState }) => (
                 <Checkbox
-                  {...props}
+                  {...field}
                   color="primary"
-                  onChange={(e) => props.onChange(e.target.checked)}
-                  checked={props.value}
+                  onChange={(e) => field.onChange(e.target.checked)}
+                  checked={field.value}
                 />
               )}
             />
