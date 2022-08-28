@@ -239,7 +239,7 @@ const Component = (props) => {
   }, [country, filterProfiles]);
 
   const handleDone = (d) => {
-    viewDialog(true);
+    if (!data.firstname) viewDialog(true);
   };
 
   const handleClose = (d) => {
