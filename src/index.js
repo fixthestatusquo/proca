@@ -61,7 +61,7 @@ const Widget = (args) => {
     dom.id = "proca-widget";
     dom.className = "proca-widget";
     const script = document.getElementById("proca");
-    if (document.body.contains(script)) {
+    if (document.body.includes(script)) {
       // dom.insertAdjacentElement("beforeBegin",script);
       script.parentNode.insertBefore(dom, script);
     } else {

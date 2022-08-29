@@ -57,6 +57,8 @@ const getTwitter = async (org) => {
     }
 
     const twitter = await res.json();
+    twitter.picture = twitter.profile_image_url_https;
+    delete twitter.profile_image_url_https;
     if (twitter) org.config.twitter = twitter;
     if (!org.config.description) org.config.description = twitter.description;
     if (!org.config.location) org.config.location = twitter.location;
