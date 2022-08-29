@@ -76,7 +76,7 @@ const socialiseReferrer = (domain, utm) => {
     utm.medium = "facebook";
     return true;
   }
-  if (domain.contains("org.telegram.messenger")) {
+  if (domain.includes("org.telegram.messenger")) {
     utm.source = "social";
     utm.medium = "telegram";
     return true;
