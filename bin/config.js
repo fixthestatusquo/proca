@@ -89,7 +89,6 @@ const saveCampaign = (campaign, lang = "en") => {
 const api = async (query, variables, name = "query", anonymous = false) => {
   let headers = {};
   if (!anonymous && process.env.AUTH_USER) {
-    console.log("not anonymously");
     headers = basicAuth({
       username: process.env.AUTH_USER,
       password: process.env.AUTH_PASSWORD,
