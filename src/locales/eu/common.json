@@ -1,6 +1,7 @@
 {
   "Address": "Helbidea",
   "Amount": "Kopurua",
+  "Another": "Beste bat",
   "Birthdate": "Urtebetetze data",
   "Comment": "Iruzkina utzi",
   "Country": "Herrialdea",
@@ -16,6 +17,7 @@
   "Postal Code": "Posta kodea",
   "Salutation": "Agurra",
   "Sorry, we couldn't save": "Ezin izan dugu gorde",
+  "Street": "Kalea",
   "Subject": "Gaia",
   "Thank you": "Eskerrik asko!",
   "Your message": "Zure mezua",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
-    "salutation_female": "Maitea {{target.name}}",
     "salutation_info": "(izena bidali aurretik jarriko da)",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
