@@ -1,6 +1,7 @@
 {
   "Address": "Adres",
   "Amount": "Bedrag",
+  "Another": "Nog een",
   "Birthdate": "Geboortedatum",
   "Comment": "Opmerkingen",
   "Country": "Land",
@@ -16,6 +17,7 @@
   "Postal Code": "Postcode",
   "Salutation": "Salutatie",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
+  "Street": "Straat",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
-    "salutation_female": "Beste {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
