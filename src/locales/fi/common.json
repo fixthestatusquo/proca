@@ -1,6 +1,7 @@
 {
   "Address": "Osoite",
   "Amount": "Määrä",
+  "Another": "Toinen",
   "Birthdate": "Syntymäpäivä",
   "Comment": "Kommentti",
   "Country": "Maa",
@@ -16,6 +17,7 @@
   "Postal Code": "Postinumero",
   "Salutation": "Tervehdys",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
+  "Street": "Street",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
-    "salutation_female": "Hyvä {{target.name}}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
