@@ -1,6 +1,7 @@
 {
   "Address": "Adirẹsi",
   "Amount": "Iye",
+  "Another": "Omiiran",
   "Birthdate": "Ojo ibi",
   "Comment": "Ọrọìwòye",
   "Country": "Orilẹ -ede",
@@ -16,6 +17,7 @@
   "Postal Code": "Koodu ifiweranse",
   "Salutation": "Ìkíni",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
+  "Street": "opopona",
   "Subject": "Koko-ọrọ",
   "Thank you": "e dupe",
   "Your message": "Ifiranṣẹ rẹ",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
-    "salutation_female": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
     "salutation_placeholder": "Eyin [olugba],"
   },
