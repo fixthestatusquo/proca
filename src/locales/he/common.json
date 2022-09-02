@@ -1,6 +1,7 @@
 {
   "Address": "כתובת",
   "Amount": "כמות",
+  "Another": "אַחֵר",
   "Birthdate": "תאריך לידה",
   "Comment": "הערה",
   "Country": "ארץ",
@@ -16,6 +17,7 @@
   "Postal Code": "מיקוד",
   "Salutation": "דִברֵי בְּרָכָה",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
+  "Street": "רְחוֹב",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
   "Your message": "ההודעה שלך",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "salutation_female": "היקר {{target.name}}",
     "salutation_info": "(השם יופיע לפני השליחה)",
     "salutation_placeholder": "[נמען], יקר"
   },
