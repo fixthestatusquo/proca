@@ -1,6 +1,7 @@
 {
   "Address": "អាស័យដ្ឋាន",
   "Amount": "ចំនួនទឹកប្រាក់",
+  "Another": "មួយទៀត",
   "Birthdate": "ថ្ងៃខែ​ឆ្នាំ​កំណើត",
   "Comment": "មតិយោបល់",
   "Country": "ប្រទេស",
@@ -16,6 +17,7 @@
   "Postal Code": "លេខ​កូដ​ប្រៃ​ស​ណី​យ",
   "Salutation": "ជំរាបសួរ",
   "Sorry, we couldn't save": "សូមអភ័យទោស យើងមិនអាចរក្សាទុកបានទេ។",
+  "Street": "ផ្លូវ",
   "Subject": "ប្រធានបទ",
   "Thank you": "សូមអរគុណ",
   "Your message": "សារ​របស់​អ្នក",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
-    "salutation_female": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
