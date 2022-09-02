@@ -1,6 +1,7 @@
 {
   "Address": "Адреса",
   "Amount": "Сума",
+  "Another": "інший",
   "Birthdate": "Дата народження",
   "Comment": "Коментар",
   "Country": "Країна",
@@ -16,6 +17,7 @@
   "Postal Code": "Поштовий індекс",
   "Salutation": "Привітання",
   "Sorry, we couldn't save": "На жаль, нам не вдалося зберегти",
+  "Street": "вул",
   "Subject": "Тема",
   "Thank you": "Дякую.",
   "Your message": "Ваше повідомлення",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може отримувати електронні листи",
-    "salutation_female": "Шановний {{target.name}}",
     "salutation_info": "(ім'я буде вказано перед відправленням)",
     "salutation_placeholder": "Шановний [одержувач]"
   },
