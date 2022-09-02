@@ -1,6 +1,7 @@
 {
   "Address": "Adresse",
   "Amount": "Betrag",
+  "Another": "Eine weitere",
   "Birthdate": "Geburtsdatum",
   "Comment": "Kommentar",
   "Country": "Land",
@@ -16,6 +17,7 @@
   "Postal Code": "Postleitzahl",
   "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
+  "Street": "Straße",
   "Subject": "Betreff",
   "Thank you": "Danke",
   "Your message": "Ihre Nachricht",
