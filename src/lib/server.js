@@ -278,7 +278,7 @@ async function addActionContact(actionType, actionPage, data, test) {
   };
 
   let expected =
-    "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
+    "uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
       ","
     );
   let variables = {
@@ -295,6 +295,7 @@ async function addActionContact(actionType, actionPage, data, test) {
       address: {
         country: data.country || "",
         postcode: data.postcode || "",
+        street: data.street || "",
       },
     },
     privacy: privacy,

@@ -1,6 +1,7 @@
 {
   "Address": "Address",
   "Amount": "Amount",
+  "Another": "Another",
   "Birthdate": "Birth date",
   "Comment": "Comment",
   "Country": "Country",
@@ -11,17 +12,15 @@
   "Last name": "Last name",
   "Locality": "Locality",
   "Next": "Next",
-  "Salutation": "Salutation",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
+  "Salutation": "Salutation",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
-  "required":"Please fill in this field",
+  "Street": "Street",
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
-  "required field": "Please fill in this field",
-  "dateFormat": "DD/MM/YYYY",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -30,17 +29,11 @@
     "register": "Register",
     "share": "Share",
     "sign": "Sign Now!",
-    "takeAction": "Take Action!",
     "stayInformed": "Stay informed",
+    "takeAction": "takeAction",
     "twitter": "Tweet"
   },
-  "salutations": {
-    "m": "Mr.",
-    "f": "Ms.",
-    "other": "Other"
-  },
   "consent": {
-    "required": "Your consent is needed to participate",
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "confirmAction": "Please retrieve the email right now and click on the link it contains (check your spam folder!).\n Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there is a real person behind every submission. We’ll await your confirmation...",
     "confirmOptIn": "Don’t forget to check your mailbox (including your spam folder!) and confirm your email subscription",
@@ -51,8 +44,10 @@
     "opt-in-both": "Yes, I want {{partner}} and {{lead}} to keep me informed via email",
     "opt-out": "No, don't send me emails or keep me updated in future",
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
-    "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>"
+    "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
+    "required": "Your consent is needed to participate"
   },
+  "dateFormat": "dateFormat",
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
     "amount": {
@@ -85,14 +80,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Make it monthly?",
+        "monthly": "Make this a weekly donation?",
         "oneoff": "Donate",
-        "weekly": "Make this a weekly donation?"
+        "weekly": "Make it monthly?"
       },
       "each": {
-        "monthly": "each month",
+        "monthly": "each week",
         "oneoff": "Once",
-        "weekly": "each year"
+        "weekly": "each month"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
@@ -120,21 +115,33 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-  "salutation_placeholder": "Dear [recipient]",
-  "salutation_info": "(the name will be put before sending)",
-  "salutation": "Dear {{target.name}}",
-  "salutation_male": "Dear {{target.name}}",
-  "salutation_female": "Dear {{target.name}}"
+    "salutation_info": "(the name will be put before sending)",
+    "salutation_placeholder": "Dear [recipient]"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
   "register": "Add my name",
+  "required": "required",
+  "required field": "required field",
+  "salutations": {
+    "f": "Dear {{name}}",
+    "m": "Dear {{name}}",
+    "other": "Dear {{name}}"
+  },
   "share": {
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
     "message": "You should sign this!",
     "title": "Almost done! Take the next step."
   },
-  "No Thanks": "No Thanks",
+  "step": {
+    "eci": {
+      "subheader": "",
+      "title": ""
+    },
+    "register": {
+      "title": ""
+    }
+  },
   "supporter": {
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
@@ -146,14 +153,12 @@
     "random": "Selected one of our {{total}} most important targets"
   },
   "twitter": {
+    "actionText": "actionText",
     "again": "Tweet to another person",
     "choice": "What would you like to do next?",
     "instruction": "Please complete sending the tweet in the new window (on twitter.com)",
-
-    "actionText": "actionText",
     "organisation": "Your organisation twitter account",
     "screenName": "Screen name"
   },
-  "salutation_text": "",
   "you need to be 18 years old": "you need to be 18 years old"
 }
