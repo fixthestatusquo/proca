@@ -142,7 +142,8 @@ if (!argv._.length || argv.help) {
     } catch (e) {
       console.log("no twitter list");
     }
-    const d = merge(targets, twitters, {
+
+    const d = merge(targets, twitters || [], {
       email: publicEmail,
       display: display,
       meps: meps,
