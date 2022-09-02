@@ -1,6 +1,7 @@
 {
   "Address": "Adresă",
   "Amount": "Sumă",
+  "Another": "Un alt",
   "Birthdate": "Data nasterii",
   "Comment": "Comentariu",
   "Country": "Țara",
@@ -16,6 +17,7 @@
   "Postal Code": "Cod poștal",
   "Salutation": "Salutare",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
+  "Street": "Strada",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
-    "salutation_female": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },
