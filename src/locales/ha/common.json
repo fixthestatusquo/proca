@@ -1,6 +1,7 @@
 {
   "Address": "Adireshin",
   "Amount": "Adadi",
+  "Another": "Wani",
   "Birthdate": "Ranar haifuwa",
   "Comment": "Sharhi",
   "Country": "Ƙasa",
@@ -16,6 +17,7 @@
   "Postal Code": "Lambar gidan waya",
   "Salutation": "Sallama",
   "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
+  "Street": "Titin",
   "Subject": "Magana",
   "Thank you": "na gode",
   "Your message": "Sakon ku",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
-    "salutation_female": "Masoyi {{target.name}}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
