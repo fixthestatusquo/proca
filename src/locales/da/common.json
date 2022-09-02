@@ -1,6 +1,7 @@
 {
   "Address": "Adresse",
   "Amount": "Beløb",
+  "Another": "En anden",
   "Birthdate": "Fødselsdato",
   "Comment": "Kommentar",
   "Country": "Land",
@@ -16,6 +17,7 @@
   "Postal Code": "Postnummer",
   "Salutation": "Hilsen",
   "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
+  "Street": "Gade",
   "Subject": "Emneord",
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
-    "salutation_female": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
     "salutation_placeholder": "Kære [modtager],"
   },
