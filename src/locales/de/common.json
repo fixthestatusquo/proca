@@ -113,7 +113,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation_female": "Sehr geehrte Frau {{target.name}}",
     "salutation_info": "die Begrüßungszeile wird in den E-Mails durch den MdEP-Namen ersetzt",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
