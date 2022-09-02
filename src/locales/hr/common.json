@@ -1,6 +1,7 @@
 {
   "Address": "Adresa",
   "Amount": "Iznos",
+  "Another": "Još",
   "Birthdate": "Datum rođenja",
   "Comment": "Komentar",
   "Country": "Zemlja",
@@ -16,6 +17,7 @@
   "Postal Code": "Poštanski broj",
   "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
+  "Street": "Ulica",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "salutation_female": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
     "salutation_placeholder": "Poštovani [recipient],"
   },
