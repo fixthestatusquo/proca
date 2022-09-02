@@ -1,6 +1,7 @@
 {
   "Address": "Cím",
   "Amount": "Összeg",
+  "Another": "Egy másik",
   "Birthdate": "Születési dátum",
   "Comment": "Megjegyzés",
   "Country": "Ország",
@@ -16,6 +17,7 @@
   "Postal Code": "irányítószám",
   "Salutation": "Üdvözlés",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
+  "Street": "Street",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
-    "salutation_female": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
     "salutation_placeholder": "Kedves [címzett],"
   },
