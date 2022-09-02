@@ -11,7 +11,6 @@
   "Last name": "Pavardė",
   "Locality": "Vietovė",
   "Next": "Toliau",
-  "No Thanks": "Ne, ačiū",
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
-    "salutation": "Gerbiamasis {{target.name}}",
     "salutation_female": "Gerbiamasis {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
-    "salutation_male": "Gerbiamasis {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "progress": "{{count}} pasirašė. Pasiekime {{goal}}",

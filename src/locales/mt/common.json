@@ -11,7 +11,6 @@
   "Last name": "Kunjom",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
-  "No Thanks": "Le grazzi",
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
-    "salutation": "Għażiż {{target.name}}",
     "salutation_female": "Għażiż {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
-    "salutation_male": "Għażiż {{target.name}}",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
   "progress": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",

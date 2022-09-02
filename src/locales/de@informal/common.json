@@ -11,7 +11,6 @@
   "Last name": "Nachname",
   "Locality": "Ort",
   "Next": "Weiter",
-  "No Thanks": "Nein Danke",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation": "Sehr geehrte:r {{target.name}}",
     "salutation_female": "Sehr geehrte Frau {{target.name}}",
     "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
-    "salutation_male": "Sehr geehrte Herr {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
   "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",

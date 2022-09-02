@@ -11,7 +11,6 @@
   "Last name": "Επίθετο",
   "Locality": "Κοινότητα",
   "Next": "Next",
-  "No Thanks": "Όχι ευχαριστώ",
   "Other": "Άλλο",
   "Phone": "Τηλέφωνο",
   "Postal Code": "Ταχυδρομικός κώδικας",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
-    "salutation": "Αγαπητέ {{target.name}}",
     "salutation_female": "Αγαπητέ {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
-    "salutation_male": "Αγαπητέ {{target.name}}",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },
   "progress": "{{count}} υπέγραψαν. Ας πάμε στο {{goal}}",

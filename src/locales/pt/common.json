@@ -11,7 +11,6 @@
   "Last name": "Apelido",
   "Locality": "Localidade",
   "Next": "Próximo",
-  "No Thanks": "Não, obrigado.",
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} não pode receber e-mails",
-    "salutation": "Caro {{target.name}}",
     "salutation_female": "Caro {{target.name}}",
     "salutation_info": "(o nome será colocado antes do envio)",
-    "salutation_male": "Caro {{target.name}}",
     "salutation_placeholder": "Caro [destinatário],"
   },
   "progress": "{{count}} assinaram. Vamos até {{goal}}",

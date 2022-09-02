@@ -11,7 +11,6 @@
   "Last name": "Oruko idile",
   "Locality": "Agbegbe",
   "Next": "Itele",
-  "No Thanks": "Rara o se",
   "Other": "Omiiran",
   "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
-    "salutation": "Eyin {{target.name}}",
     "salutation_female": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
-    "salutation_male": "Eyin {{target.name}}",
     "salutation_placeholder": "Eyin [olugba],"
   },
   "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",

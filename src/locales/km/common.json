@@ -11,7 +11,6 @@
   "Last name": "នាមត្រកូល",
   "Locality": "មូលដ្ឋាន",
   "Next": "បន្ទាប់",
-  "No Thanks": "អត់អី​ទេ​អរគុណ​ហើយ",
   "Other": "ផ្សេងទៀត",
   "Phone": "ទូរស័ព្ទ",
   "Postal Code": "លេខ​កូដ​ប្រៃ​ស​ណី​យ",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
-    "salutation": "សូមគោរព {{target.name}}",
     "salutation_female": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
-    "salutation_male": "សូមគោរព {{target.name}}",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
   "progress": "{{count}} បានចុះហត្ថលេខា។ តោះទៅ {{goal}}",

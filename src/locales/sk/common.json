@@ -11,7 +11,6 @@
   "Last name": "Priezvisko",
   "Locality": "Oblasť",
   "Next": "Ďalšia",
-  "No Thanks": "Nie, vďaka",
   "Other": "Ostatné",
   "Phone": "Telefón",
   "Postal Code": "PSČ",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nemôže prijímať e-maily",
-    "salutation": "Vážený {{target.name}}",
     "salutation_female": "Vážený {{target.name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
-    "salutation_male": "Vážený {{target.name}}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
   "progress": "{{count}} podpísali. Poďme na {{goal}}",

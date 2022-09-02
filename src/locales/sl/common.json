@@ -11,7 +11,6 @@
   "Last name": "Priimek",
   "Locality": "Okraj",
   "Next": "Naslednja",
-  "No Thanks": "Ne, hvala.",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštna številka",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
-    "salutation": "Spoštovani {{target.name}}",
     "salutation_female": "Spoštovani {{target.name}}",
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
-    "salutation_male": "Spoštovani {{target.name}}",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
   "progress": "{{count}} so se podpisali. Pojdimo v {{goal}}",

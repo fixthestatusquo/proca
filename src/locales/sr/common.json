@@ -11,7 +11,6 @@
   "Last name": "Prezime",
   "Locality": "Локалитет",
   "Next": "Даље",
-  "No Thanks": "Не хвала",
   "Other": "Ostalo",
   "Phone": "Телефон",
   "Postal Code": "поштански код",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може да прима е-поруке",
-    "salutation": "Поштовани [Кс5Кс]",
     "salutation_female": "Поштовани [Кс5Кс]",
     "salutation_info": "(име ће бити стављено пре слања)",
-    "salutation_male": "Поштовани [Кс5Кс]",
     "salutation_placeholder": "Поштовани [прималац],"
   },
   "progress": "{{count}} су потписали. Идемо на {{goal}}",

@@ -11,7 +11,6 @@
   "Last name": "उपनाम",
   "Locality": "इलाका",
   "Next": "Next",
-  "No Thanks": "जी नहीं, धन्यवाद",
   "Other": "अन्य",
   "Phone": "दूरभाष",
   "Postal Code": "डाक कोड",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
-    "salutation": "प्रिय {{target.name}}",
     "salutation_female": "प्रिय {{target.name}}",
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
-    "salutation_male": "प्रिय {{target.name}}",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },
   "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",

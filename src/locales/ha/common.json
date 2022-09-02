@@ -11,7 +11,6 @@
   "Last name": "Sunan mahaifa",
   "Locality": "Yanki",
   "Next": "Na gaba",
-  "No Thanks": "A'a na gode",
   "Other": "Sauran",
   "Phone": "Waya",
   "Postal Code": "Lambar gidan waya",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
-    "salutation": "Masoyi {{target.name}}",
     "salutation_female": "Masoyi {{target.name}}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
-    "salutation_male": "Masoyi {{target.name}}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",

@@ -11,7 +11,6 @@
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
-  "No Thanks": "Nē, paldies",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
-    "salutation": "Cienījamie {{target.name}}",
     "salutation_female": "Cienījamie {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
-    "salutation_male": "Cienījamie {{target.name}}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "progress": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",

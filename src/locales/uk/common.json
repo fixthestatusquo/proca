@@ -11,7 +11,6 @@
   "Last name": "Прізвище",
   "Locality": "Мова",
   "Next": "Далі",
-  "No Thanks": "Ні, дякую",
   "Other": "Інше",
   "Phone": "Телефон",
   "Postal Code": "Поштовий індекс",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може отримувати електронні листи",
-    "salutation": "Шановний {{target.name}}",
     "salutation_female": "Шановний {{target.name}}",
     "salutation_info": "(ім'я буде вказано перед відправленням)",
-    "salutation_male": "Шановний {{target.name}}",
     "salutation_placeholder": "Шановний [одержувач]"
   },
   "progress": "{{count}} підписали. Давайте перейдемо до {{goal}}",

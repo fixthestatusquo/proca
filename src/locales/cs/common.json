@@ -11,7 +11,6 @@
   "Last name": "Příjmení",
   "Locality": "Lokalita",
   "Next": "Další",
-  "No Thanks": "Ne, díky",
   "Other": "Ostatní",
   "Phone": "Telefon",
   "Postal Code": "Poštovní směrovací číslo",
@@ -114,10 +113,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nepřijímá e-maily",
-    "salutation": "Vážený {{target.name}}",
     "salutation_female": "Vážený {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
-    "salutation_male": "Vážený {{target.name}}",
     "salutation_placeholder": "Vážený [recipient]"
   },
   "progress_0": "{{count}} podepsal. Přejděme k {{goal}}",
