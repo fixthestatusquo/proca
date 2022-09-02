@@ -1,6 +1,7 @@
 {
   "Address": "Адрес",
   "Amount": "Сумма",
+  "Another": "Еще один",
   "Birthdate": "Дата рождения",
   "Comment": "Коментарий",
   "Country": "Страна",
@@ -16,6 +17,7 @@
   "Postal Code": "Почтовый индекс",
   "Salutation": "Приветствие",
   "Sorry, we couldn't save": "Простите, мы не смогли записать",
+  "Street": "Улица",
   "Subject": "Тема",
   "Thank you": "Спасибо",
   "Your message": "Ваше сообщение",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не может получать электронные письма",
-    "salutation_female": "Уважаемый {{target.name}}",
     "salutation_info": "(имя будет проставлено перед отправкой)",
     "salutation_placeholder": "Уважаемый [получатель],"
   },
