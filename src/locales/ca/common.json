@@ -1,6 +1,7 @@
 {
   "Address": "Adreça",
   "Amount": "Quantitat",
+  "Another": "Un altre",
   "Birthdate": "Data de naixement",
   "Comment": "Comentari",
   "Country": "País",
@@ -16,6 +17,7 @@
   "Postal Code": "Codi postal",
   "Salutation": "Salutació",
   "Sorry, we couldn't save": "No hem pogut desar",
+  "Street": "carrer",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
   "Your message": "El teu missatge",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} no pot rebre correus electrònics",
-    "salutation_female": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
