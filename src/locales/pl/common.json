@@ -1,6 +1,7 @@
 {
   "Address": "Adres",
   "Amount": "Kwota",
+  "Another": "Kolejny",
   "Birthdate": "Data urodzenia",
   "Comment": "Komentarz",
   "Country": "Kraj",
@@ -16,6 +17,7 @@
   "Postal Code": "Kod pocztowy",
   "Salutation": "Salutation",
   "Sorry, we couldn't save": "Przykro nam, nie mogliśmy zapisać",
+  "Street": "Ulica",
   "Subject": "Temat",
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
-    "salutation_female": "Droga {{target.name}},",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowny [adresat],"
   },
