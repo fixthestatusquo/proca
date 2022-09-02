@@ -64,7 +64,7 @@
     "compression-webpack-plugin": "^6.0.2",
     "craco-alias": "^3.0.1",
     "cross-fetch": "^3.1.5",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "generate-json-webpack-plugin": "^1.0.0",
     "i18next-fs-backend": "^1.1.5",
     "prettier": "^2.7.1",
