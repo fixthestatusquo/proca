@@ -1,6 +1,7 @@
 {
   "Address": "Адрес",
   "Amount": "Сумма",
+  "Another": "Еще один",
   "Birthdate": "Дата рождения",
   "Comment": "Коментарий",
   "Country": "Страна",
@@ -11,12 +12,12 @@
   "Last name": "Фамилия",
   "Locality": "Язык",
   "Next": "Дальше",
-  "No Thanks": "Без благодарности",
   "Other": "Прочие",
   "Phone": "Телефон",
   "Postal Code": "Почтовый индекс",
   "Salutation": "Приветствие",
   "Sorry, we couldn't save": "Простите, мы не смогли записать",
+  "Street": "Улица",
   "Subject": "Тема",
   "Thank you": "Спасибо",
   "Your message": "Ваше сообщение",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не может получать электронные письма",
-    "salutation": "Уважаемый {{target.name}}",
-    "salutation_female": "Уважаемый {{target.name}}",
     "salutation_info": "(имя будет проставлено перед отправкой)",
-    "salutation_male": "Уважаемый {{target.name}}",
     "salutation_placeholder": "Уважаемый [получатель],"
   },
   "progress": "{{count}} подписали. Переходим к {{goal}}",

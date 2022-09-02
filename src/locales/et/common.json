@@ -1,6 +1,7 @@
 {
   "Address": "Aadress",
   "Amount": "Summa",
+  "Another": "Teine",
   "Birthdate": "Sünnikuupäev",
   "Comment": "Kommentaar",
   "Country": "Riik",
@@ -11,12 +12,12 @@
   "Last name": "Perekonnanimi",
   "Locality": "Paikkond",
   "Next": "Edasi",
-  "No Thanks": "Ei tänan",
   "Other": "Teine",
   "Phone": "Telefon",
   "Postal Code": "Sihtnumber",
   "Salutation": "Tervitus",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
+  "Street": "Street",
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
-    "salutation": "Lugupeetud {{target.name}}",
-    "salutation_female": "Lugupeetud {{target.name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
-    "salutation_male": "Lugupeetud {{target.name}}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
   "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",

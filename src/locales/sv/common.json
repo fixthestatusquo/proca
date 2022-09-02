@@ -1,6 +1,7 @@
 {
   "Address": "Adress",
   "Amount": "Belopp",
+  "Another": "En annan",
   "Birthdate": "Födelsedatum",
   "Comment": "Kommentar",
   "Country": "Land",
@@ -11,12 +12,12 @@
   "Last name": "Efternamn",
   "Locality": "Lokalitet",
   "Next": "Nästa",
-  "No Thanks": "Nej tack",
   "Other": "Övrigt",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
   "Salutation": "Hälsning",
   "Sorry, we couldn't save": "Vi kunde tyvärr inte spara",
+  "Street": "Street",
   "Subject": "Ämne",
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
-    "salutation": "Kära {{target.name}}",
-    "salutation_female": "Kära {{target.name}}",
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
-    "salutation_male": "Kära {{target.name}}",
     "salutation_placeholder": "Kära [mottagare],"
   },
   "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",

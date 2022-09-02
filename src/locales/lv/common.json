@@ -1,6 +1,7 @@
 {
   "Address": "Adrese",
   "Amount": "Daudzums",
+  "Another": "Vēl viens",
   "Birthdate": "Dzimšanas datums",
   "Comment": "Komentārs",
   "Country": "Valsts",
@@ -11,12 +12,12 @@
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
-  "No Thanks": "Nē, paldies",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
   "Salutation": "Sveiciens",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
+  "Street": "Ielas",
   "Subject": "Temats",
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
-    "salutation": "Cienījamie {{target.name}}",
-    "salutation_female": "Cienījamie {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
-    "salutation_male": "Cienījamie {{target.name}}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "progress": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",

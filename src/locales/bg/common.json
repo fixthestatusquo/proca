@@ -1,6 +1,7 @@
 {
   "Address": "Адрес",
   "Amount": "Сума",
+  "Another": "Друг",
   "Birthdate": "Раждане",
   "Comment": "Коментар",
   "Country": "Държава",
@@ -11,12 +12,12 @@
   "Last name": "Фамилно име",
   "Locality": "Местност",
   "Next": "Следващ",
-  "No Thanks": "Не благодаря",
   "Other": "Други",
   "Phone": "Телефон",
   "Postal Code": "Пощенски код",
   "Salutation": "Поздрав",
   "Sorry, we couldn't save": "За съжаление не можахме да запазим",
+  "Street": "Улица",
   "Subject": "Тема",
   "Thank you": "Благодарим ви",
   "Your message": "Вашето съобщение",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не мога да получавам имейли",
-    "salutation": "Уважаеми {{target.name}}",
-    "salutation_female": "Уважаеми {{target.name}}",
     "salutation_info": "(името ще бъде въведено преди изпращане)",
-    "salutation_male": "Уважаеми {{target.name}}",
     "salutation_placeholder": "Уважаеми [получател],"
   },
   "progress": "{{count}} са подписали. Да достигнем {{goal}}",

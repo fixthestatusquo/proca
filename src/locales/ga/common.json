@@ -1,6 +1,7 @@
 {
   "Address": "Seoladh",
   "Amount": "Méid",
+  "Another": "Eile",
   "Birthdate": "Dáta breithe",
   "Comment": "Tráchtaireacht",
   "Country": "Tír",
@@ -11,12 +12,12 @@
   "Last name": "Ainm deireanach",
   "Locality": "Ceantar",
   "Next": "An chéad rian eile",
-  "No Thanks": "Níl sé uaim go raibh maith agat",
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
   "Salutation": "Beannacht",
   "Sorry, we couldn't save": "Tá brón orm, ní raibh muid in ann sábháil",
+  "Street": "Sráid",
   "Subject": "Ábhar",
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
-    "salutation": "A chara {{target.name}}",
-    "salutation_female": "A chara {{target.name}}",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
-    "salutation_male": "A chara {{target.name}}",
     "salutation_placeholder": "A chara [faighteoir],"
   },
   "progress": "{{count}} sínithe. Rachaimid go {{goal}}",

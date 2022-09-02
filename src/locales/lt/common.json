@@ -1,6 +1,7 @@
 {
   "Address": "Adresas",
   "Amount": "Suma",
+  "Another": "Kitas",
   "Birthdate": "Gimimo data",
   "Comment": "Komentaras",
   "Country": "Šalis",
@@ -11,12 +12,12 @@
   "Last name": "Pavardė",
   "Locality": "Vietovė",
   "Next": "Toliau",
-  "No Thanks": "Ne, ačiū",
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
   "Salutation": "Pasveikinimas",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
+  "Street": "Gatvė",
   "Subject": "Tema",
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
-    "salutation": "Gerbiamasis {{target.name}}",
-    "salutation_female": "Gerbiamasis {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
-    "salutation_male": "Gerbiamasis {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "progress": "{{count}} pasirašė. Pasiekime {{goal}}",
