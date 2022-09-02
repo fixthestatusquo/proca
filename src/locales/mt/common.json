@@ -1,6 +1,7 @@
 {
   "Address": "Indirizz",
   "Amount": "Ammont",
+  "Another": "Ieħor",
   "Birthdate": "Data tat-twelid",
   "Comment": "Kumment",
   "Country": "Pajjiż",
@@ -16,6 +17,7 @@
   "Postal Code": "Kodiċi postali",
   "Salutation": "Tislima",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
+  "Street": "Triq",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
@@ -113,7 +115,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
-    "salutation_female": "Għażiż {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
