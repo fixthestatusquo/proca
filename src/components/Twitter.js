@@ -192,7 +192,7 @@ const Component = (props) => {
         });
     };
     const url =
-      config.component.twitter?.listUrl !== true
+      config.component.twitter?.listUrl === true
         ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
         : config.component.twitter.listUrl;
     fetchData(url);
