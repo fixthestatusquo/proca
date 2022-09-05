@@ -14,7 +14,6 @@ import {
   CardMedia,
 } from "@material-ui/core";
 import { AlertTitle } from "@material-ui/lab";
-
 import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";
@@ -28,6 +27,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import MailIcon from "@material-ui/icons/MailOutline";
+import EmailConfirm from "@components/EmailConfirm";
 
 import {
   EmailShareButton,
@@ -92,6 +92,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 */
+
 const ConfirmPreviousStep = (props) => {
   const { t, i18n } = useTranslation();
   const [data] = useData();
@@ -166,6 +167,7 @@ export default function ShareAction(props) {
 
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
+      <EmailConfirm />
       <ConfirmPreviousStep
         prev={props.prev}
         email={config.component.consent?.email}
