@@ -15,14 +15,14 @@ const EmailConfirm = () => {
       ? t("consent.actionConfirmed")
       : t("consent.optInConfirmed")
     return (
-      <Alert severity="warning" autoHideDuration={15000} icon={<CheckIcon />}>
+      <Alert severity="success" autoHideDuration={15000} icon={<CheckIcon />}>
       <AlertTitle>{msg}</AlertTitle>
       </Alert>
     )
     }
   if (params.get("proca_confirm") === "reject") {
       return(
-      <Alert severity="warning" autoHideDuration={15000} icon={<NotInterestedIcon />}>
+      <Alert severity="error" autoHideDuration={15000} icon={<NotInterestedIcon />}>
         <AlertTitle> {t("consent.actionRejected")}</AlertTitle>
       </Alert>)
     }
