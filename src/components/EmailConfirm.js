@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import DeleteIcon from '@material-ui/icons/Delete';
 import CheckIcon from '@material-ui/icons/CheckCircleOutline';
 import { AlertTitle } from "@material-ui/lab";
 import Alert from "@components/Alert";
@@ -22,7 +22,7 @@ const EmailConfirm = () => {
     }
   if (params.get("proca_confirm") === "reject") {
       return(
-      <Alert severity="error" autoHideDuration={15000} icon={<NotInterestedIcon />}>
+      <Alert severity="success" autoHideDuration={15000} icon={<DeleteIcon />}>
         <AlertTitle> {t("consent.actionRejected")}</AlertTitle>
       </Alert>)
     }
