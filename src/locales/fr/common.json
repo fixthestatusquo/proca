@@ -1,22 +1,23 @@
 {
   "Address": "Adresse",
   "Amount": "Montant",
+  "Another": "Un autre",
   "Birthdate": "Date de naissance",
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
-  "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par e-mail",
+  "Download explanation": "Votre document est maintenant prêt, nous vous l'envoyons également par courriel",
   "Email": "Courriel",
   "First name": "Prénom",
   "Last name": "Nom de famille",
   "Locality": "Localité",
   "Next": "Suivant",
-  "No Thanks": "Non merci",
   "Other": "Autre",
   "Phone": "Téléphone",
   "Postal Code": "Code postal",
   "Salutation": "Salutation",
   "Sorry, we couldn't save": "Désolé, nous n'avons pas pu sauvegarder",
+  "Street": "Rue",
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
@@ -25,23 +26,23 @@
     "eci": "Signez l'ICE",
     "email": "Envoyer un courriel",
     "join": "Rejoignez",
-    "register": "Registre",
+    "register": "S'inscrire",
     "share": "Partager",
-    "sign": "Signe",
+    "sign": "Signez !",
     "stayInformed": "Rester informé(e)",
-    "takeAction": "Passez à l'action !",
-    "twitter": "Tweet"
+    "takeAction": "Passez à l'action !",
+    "twitter": "Tweetter"
   },
   "consent": {
     "confirm": "<0>Êtes-vous sûr·e ? </0><1>En sélectionnant « Non », vous ne pourrez pas savoir si cette campagne est réussie, ou s'il y a d'autres actions que nous devons mener ensemble pour la gagner. Si vous sélectionnez « Oui », nous vous tiendrons au courant de cette campagne et de nos autres campagnes urgentes.</1><2>Vous pouvez vous désinscrire à tout moment.</2>",
     "confirmAction": "Veuillez récupérer le courriel dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier Indésirables !).\n Ce n'est qu'à ce moment-là que votre action comptera !\nVotre confirmation est cruciale pour le poids politique de l'action. Ceci garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation…",
     "confirmOptIn": "N'oubliez pas de vérifier votre boîte de réception (y compris votre dossier Indésirables !) et de confirmer votre abonnement aux courriels",
     "emailSent": "Nous vous avons envoyé un courriel à {{email}} !",
-    "implicit": "Soumettez ce formulaire pour recevoir des messages électroniques de {{name}}",
+    "implicit": "Soumettez ce formulaire pour recevoir des courriels de {{name}}",
     "intro": "Découvrez nos campagnes, actions et les progrès de {{campaign}}",
-    "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par e-mail",
-    "opt-in-both": "Oui, je souhaite que {{partner}} et {{lead}} me tiennent informé·e par e-mail",
-    "opt-out": "Non, ne m'envoyez pas d'e-mails et ne me tenez pas au courant à l'avenir",
+    "opt-in": "Oui, je veux que {{partner}} me tienne informé·e par courriel",
+    "opt-in-both": "Oui, je souhaite que {{partner}} et {{lead}} me tiennent informé·e par courriel",
+    "opt-out": "Non, ne m'envoyez pas de courriels et ne me tenez pas au courant à l'avenir",
     "processing": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données et des cookies conformément à notre <1>politique de confidentialité</1>",
     "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
     "required": "Votre consentement est nécessaire pour participer"
@@ -66,7 +67,7 @@
       },
       "form": {
         "invalid": {
-          "iban": "iban"
+          "iban": "IBAN"
         }
       },
       "general": "général",
@@ -79,9 +80,9 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Le rendre mensuel ?",
+        "monthly": "Le rendre mensuel ?",
         "oneoff": "Faire un don",
-        "weekly": "En faire un don hebdomadaire ?"
+        "weekly": "En faire un don hebdomadaire ?"
       },
       "each": {
         "monthly": "chaque mois",
@@ -114,44 +115,41 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "salutation": "Cher·e {{target.name}}",
-    "salutation_female": "Chère Madame {{target.name}}",
     "salutation_info": "(le nom sera ajouté avant l'envoi)",
-    "salutation_male": "Cher Monsieur {{target.name}}",
-    "salutation_placeholder": "Cher [destinataire],"
+    "salutation_placeholder": "Cher/chère [destinataire]"
   },
   "progress": "{{count}} ont signé. Passons à {{goal}}",
   "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
   "register": "Ajouter mon nom",
-  "required": "Veuillez remplir ce champ",
-  "required field": "Champ obligatoire",
+  "required": "Veuillez compléter ce champ",
+  "required field": "Veuillez compléter ce champ",
   "salutations": {
-    "f": "Mme.",
-    "m": "Monsieur.",
+    "f": "Mme",
+    "m": "M.",
     "other": "Autre"
   },
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
-    "message": "Vous devriez signer ça !",
+    "message": "Vous devriez signer ceci !",
     "title": "Vous avez presque terminé ! Passez à l'étape suivante."
   },
   "supporter": {
-    "not_you": "pas vous ?",
-    "welcome": "Bienvenue à nouveau {{firstname}} !"
+    "not_you": "pas vous ?",
+    "welcome": "Bienvenue à nouveau {{firstname}} !"
   },
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"
     },
-    "random": "Sélectionné l'une de nos {{total}} cibles les plus importantes."
+    "random": "Sélectionné l'une de nos {{total}} cibles les plus importantes"
   },
   "twitter": {
     "actionText": "J'ai signé. Vous devriez aussi",
     "again": "Tweet à une autre personne",
-    "choice": "Que voulez-vous faire ensuite ?",
+    "choice": "Que voulez-vous faire ensuite ?",
     "instruction": "Veuillez terminer l'envoi du tweet dans la nouvelle fenêtre (sur twitter.com)",
-    "organisation": "Compte twitter de votre organisation",
-    "screenName": "Nom d'écran"
+    "organisation": "Compte Twitter de votre organisation",
+    "screenName": "Nom d'affichage"
   },
   "you need to be 18 years old": "vous devez avoir 18 ans"
 }

@@ -66,7 +66,9 @@ const Widget = (args) => {
       script.parentNode.insertBefore(dom, script);
     } else {
       //
-      console.log("proca script isn't in the body, but no proca-widget");
+      alert(
+        "proca script isn't in the body, but no object with 'proca-widget' class"
+      );
       // document.body.appendChild(dom);
     }
   } else {

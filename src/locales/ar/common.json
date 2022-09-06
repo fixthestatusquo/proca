@@ -1,6 +1,7 @@
 {
   "Address": "عنوان",
   "Amount": "كمية",
+  "Another": "اخر",
   "Birthdate": "تاريخ الولادة",
   "Comment": "تعليق",
   "Country": "دولة",
@@ -11,12 +12,12 @@
   "Last name": "الكنية",
   "Locality": "المنطقة",
   "Next": "التالي",
-  "No Thanks": "ًلا شكرا",
   "Other": "آخر",
   "Phone": "هاتف",
   "Postal Code": "رمز بريدي",
   "Salutation": "تحية",
   "Sorry, we couldn't save": "آسف ، لم نتمكن من الحفظ",
+  "Street": "شارع",
   "Subject": "موضوعات",
   "Thank you": "شكرا لك",
   "Your message": "رسالتك",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
-    "salutation": "عزيزي {{target.name}}",
-    "salutation_female": "عزيزي {{target.name}}",
     "salutation_info": "(سيتم وضع الاسم قبل الإرسال)",
-    "salutation_male": "عزيزي {{target.name}}",
     "salutation_placeholder": "عزيزي [المستلم] ،"
   },
   "progress": "وقعت {{count}}. دعنا نذهب إلى {{goal}}",

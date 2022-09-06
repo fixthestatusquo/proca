@@ -1,6 +1,7 @@
 {
   "Address": "כתובת",
   "Amount": "כמות",
+  "Another": "אַחֵר",
   "Birthdate": "תאריך לידה",
   "Comment": "הערה",
   "Country": "ארץ",
@@ -11,12 +12,12 @@
   "Last name": "שם הרשימה",
   "Locality": "יישוב",
   "Next": "הבא",
-  "No Thanks": "לא תודה",
   "Other": "אחר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
   "Salutation": "דִברֵי בְּרָכָה",
   "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
+  "Street": "רְחוֹב",
   "Subject": "נושא",
   "Thank you": "תודה רבה לך!",
   "Your message": "ההודעה שלך",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "salutation": "היקר {{target.name}}",
-    "salutation_female": "היקר {{target.name}}",
     "salutation_info": "(השם יופיע לפני השליחה)",
-    "salutation_male": "היקר {{target.name}}",
     "salutation_placeholder": "[נמען], יקר"
   },
   "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",

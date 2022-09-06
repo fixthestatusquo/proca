@@ -12,8 +12,8 @@ t(
 t("dateFormat");
 t("required");
 t("Salutation");
-t("salutation_male");
-t("salutation_female");
+//t("salutation_male");
+//t("salutation_female");
 
 t(
   "consent.processing",
@@ -36,9 +36,9 @@ t("action.email", { defaultValue: "Send an Email" });
 t("action.twitter", { defaultValue: "Tweet" });
 t("action.takeAction");
 
-t("salutations.m");
-t("salutations.f");
-t("salutations.other");
+t("salutations.m", "Dear {{name}}");
+t("salutations.f", "Dear {{name}}");
+t("salutations.other", "Dear {{name}}");
 t("consent.required", "Your consent is needed to participate");
 
 // for donations

@@ -14,7 +14,6 @@ import {
   CardMedia,
 } from "@material-ui/core";
 import { AlertTitle } from "@material-ui/lab";
-
 import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";

@@ -10,7 +10,11 @@ const Salutation = (props) => {
 
   let options = t("salutations", {
     returnObjects: true,
-    defaultValues: [("m": "Mr"), ("f": "Ms."), ("other": "Other")],
+    defaultValues: [
+      { m: "Dear {{name}}" },
+      { f: "Dear {{name}}" },
+      { other: "Dear {{name}}" },
+    ],
   });
   const sal = watch("salutation") || "";
   const [open, setOpen] = useState(false);

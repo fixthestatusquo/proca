@@ -1,6 +1,7 @@
 {
   "Address": "Cím",
   "Amount": "Összeg",
+  "Another": "Egy másik",
   "Birthdate": "Születési dátum",
   "Comment": "Megjegyzés",
   "Country": "Ország",
@@ -11,12 +12,12 @@
   "Last name": "Vezetéknév",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
-  "No Thanks": "Nem, köszönöm.",
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
   "Salutation": "Üdvözlés",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
+  "Street": "Street",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
-    "salutation": "Kedves {{target.name}}",
-    "salutation_female": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
-    "salutation_male": "Kedves {{target.name}}",
     "salutation_placeholder": "Kedves [címzett],"
   },
   "progress": "{{count}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",

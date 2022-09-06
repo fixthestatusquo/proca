@@ -1,6 +1,7 @@
 {
   "Address": "Adresa",
   "Amount": "Iznos",
+  "Another": "Još",
   "Birthdate": "Datum rođenja",
   "Comment": "Komentar",
   "Country": "Zemlja",
@@ -11,12 +12,12 @@
   "Last name": "Prezime",
   "Locality": "Lokalitet",
   "Next": "Dalje",
-  "No Thanks": "Ne hvala",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
   "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
+  "Street": "Ulica",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "salutation": "Poštovani {{target.name}}",
-    "salutation_female": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
-    "salutation_male": "Poštovani {{target.name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "progress_0": "{{count}} potpis. Idemo na {{goal}}",

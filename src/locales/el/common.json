@@ -1,6 +1,7 @@
 {
   "Address": "Διεύθυνση",
   "Amount": "Ποσό",
+  "Another": "Ένα άλλο",
   "Birthdate": "Ημερομηνία γέννησης",
   "Comment": "Σχόλιο",
   "Country": "Χώρα",
@@ -11,12 +12,12 @@
   "Last name": "Επίθετο",
   "Locality": "Κοινότητα",
   "Next": "Next",
-  "No Thanks": "Όχι ευχαριστώ",
   "Other": "Άλλο",
   "Phone": "Τηλέφωνο",
   "Postal Code": "Ταχυδρομικός κώδικας",
   "Salutation": "Χαιρετισμός",
   "Sorry, we couldn't save": "Δυστυχώς, δεν ήταν δυνατή η αποθήκευση",
+  "Street": "Οδός",
   "Subject": "Θέμα",
   "Thank you": "Ευχαριστώ",
   "Your message": "Το μήνυμά σας",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
-    "salutation": "Αγαπητέ {{target.name}}",
-    "salutation_female": "Αγαπητέ {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
-    "salutation_male": "Αγαπητέ {{target.name}}",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },
   "progress": "{{count}} υπέγραψαν. Ας πάμε στο {{goal}}",

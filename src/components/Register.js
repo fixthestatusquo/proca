@@ -442,6 +442,11 @@ export default function Register(props) {
                   required
                 />
               </Grid>
+              {config.component.register?.field?.street && (
+                <Grid item xs={12} className={classField}>
+                  <TextField form={form} name="street" label={t("Street")} />
+                </Grid>
+              )}
               {config.component.register?.field?.postcode !== false && (
                 <Grid
                   item

@@ -1,6 +1,7 @@
 {
   "Address": "Dirección",
   "Amount": "Cantidad",
+  "Another": "Otro",
   "Birthdate": "Fecha de nacimiento",
   "Comment": "Comentario",
   "Country": "País",
@@ -11,12 +12,12 @@
   "Last name": "Apellidos",
   "Locality": "Localidad",
   "Next": "Siguiente",
-  "No Thanks": "No, gracias",
   "Other": "Otros",
   "Phone": "Teléfono",
   "Postal Code": "Código postal",
   "Salutation": "Saludo",
   "Sorry, we couldn't save": "No se ha podido guardar",
+  "Street": "Calle",
   "Subject": "Asunto",
   "Thank you": "Gracias",
   "Your message": "Su mensaje",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
-    "salutation": "Estimado {{target.name}}",
-    "salutation_female": "Estimado {{target.name}}",
     "salutation_info": "(el nombre se pondrá antes del envío)",
-    "salutation_male": "Estimado {{target.name}}",
     "salutation_placeholder": "Estimado [destinatario],"
   },
   "progress": "{{count}} ha firmado. Vamos a por {{goal}}",

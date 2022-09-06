@@ -1,6 +1,7 @@
 {
   "Address": "Adresă",
   "Amount": "Sumă",
+  "Another": "Un alt",
   "Birthdate": "Data nasterii",
   "Comment": "Comentariu",
   "Country": "Țara",
@@ -11,12 +12,12 @@
   "Last name": "Numele de familie",
   "Locality": "Localitate",
   "Next": "Următor",
-  "No Thanks": "Nu, mulțumesc.",
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
   "Salutation": "Salutare",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
+  "Street": "Strada",
   "Subject": "Subiect",
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
@@ -114,10 +115,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
-    "salutation": "Dragă {{target.name}}",
-    "salutation_female": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
-    "salutation_male": "Dragă {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "progress": "{{count}} au semnat. Să mergem la {{goal}}",

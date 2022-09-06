@@ -76,15 +76,47 @@ const socialiseReferrer = (domain, utm) => {
     utm.medium = "facebook";
     return true;
   }
+  if (domain.includes("org.telegram.messenger")) {
+    utm.source = "social";
+    utm.medium = "telegram";
+    return true;
+  }
+
   if (domain === "twitter.com" || domain === "t.co") {
     utm.source = "social";
     utm.medium = "twitter";
     return true;
   }
-  if (domain === "youtu.be" || domain === "youtube.com") {
+  if (
+    domain === "youtu.be" ||
+    domain === "youtube.com" ||
+    domain === "www.youtube.com"
+  ) {
     utm.source = "social";
     utm.medium = "youtube";
+    return true;
   }
+  if (domain === "com.google.android.gm") {
+    utm.source = "email";
+    utm.medium = "gmail";
+    return true;
+  }
+  if (domain === "www.google.com") {
+    utm.source = "search";
+    utm.medium = "google";
+    return true;
+  }
+  if (domain === "l.instagram.com") {
+    utm.source = "social";
+    utm.medium = "instagram";
+    return true;
+  }
+  if (domain === "outlook.live.com") {
+    utm.source = "email";
+    utm.medium = "outlook";
+    return true;
+  }
+
   return false;
 };
 
