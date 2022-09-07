@@ -34,7 +34,6 @@
     "twitter": "Txio egin"
   },
   "consent": {
-    "actionRejected": "Ekintza baztertua",
     "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
     "confirmAction": "Berrespen-esteka bat bidali dugu posta elektronikoz helbide honetara:\n {{email}}\nMesedez, berreskuratu e-posta oraintxe bertan eta egin klik daukan estekan (begiratu zure spam karpeta!).\n Orduan bakarrik balioko du zure ekintzak!\nZure baieztapena funtsezkoa da ekintzaren pisu politikorako. Honek bidalketa bakoitzaren atzean benetako pertsona bat dagoela bermatzen du. Zure baieztapenaren zain egongo gara...",
     "confirmOptIn": "Ez ahaztu zure postontzia egiaztatzea (zure spam karpeta barne!) eta berretsi zure posta elektronikoko harpidetza",

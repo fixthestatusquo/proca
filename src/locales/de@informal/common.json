@@ -34,7 +34,6 @@
     "twitter": "Tweet"
   },
   "consent": {
-    "actionRejected": "Aktion abgelehnt",
     "confirm": "<0>Bist du sicher?</0><1>Wenn du 'Nein' wählen, werden du nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn du \"Ja\" wählen, werden wir du über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>du können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen du die E-Mail sofort ab und klicken du auf den darin enthaltenen Link (überprüfen du Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
     "confirmOptIn": "Vergessen du nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",

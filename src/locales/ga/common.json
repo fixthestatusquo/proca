@@ -34,7 +34,6 @@
     "twitter": "Tweet"
   },
   "consent": {
-    "actionRejected": "Gníomh diúltaithe",
     "confirm": "<0> An bhfuil tú cinnte? </0> <1> Trí 'Níl' a roghnú, ní bheidh tú in ann a fháil amach an bhfuil rath ar an bhfeachtas seo, nó an bhfuil níos mó gníomhaíochta ann a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú ‘Tá’ coinneoimid ar an eolas tú faoi seo agus faoinár bhfeachtais phráinneacha eile. </1> <2> Is féidir leat díliostáil a dhéanamh am ar bith. </2>",
     "confirmAction": "Tá nasc deimhnithe seolta againn trí ríomhphost chuig an seoladh seo a leanas:\n {{email}}\nAisghabh an ríomhphost anois le do thoil agus cliceáil ar an nasc atá ann (seiceáil d’fhillteán turscair!).\n Ní bheidh do ghníomhaíocht san áireamh ach ansin!\nTá do dheimhniú ríthábhachtach maidir le meáchan polaitiúil na gníomhaíochta. Cinntíonn sé seo go bhfuil duine fíor taobh thiar de gach aighneacht. Beidh muid ag fanacht le do dheimhniú...",
     "confirmOptIn": "Ná déan dearmad do bhosca ríomhphoist a sheiceáil (lena n-áirítear d’fhillteán turscair!) agus deimhnigh do shíntiús ríomhphoist",
