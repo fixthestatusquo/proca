@@ -12,8 +12,14 @@ const CameraField = (props) => {
 
   const startCamera = async () => {
     let video = document.querySelector("#video");
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    const videoDevices = devices.filter(
+      (device) => device.kind === "videoinput"
+    );
+    console.log(videoDevices);
     let stream = await navigator.mediaDevices.getUserMedia({
       video: true,
+      facingMode: "environment", // prefer the rear camera
       audio: false,
     });
     video.srcObject = stream;
