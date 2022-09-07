@@ -271,7 +271,7 @@ const Support = (props) => {
               {i18n.exists("step.eci.secure") && (
                 <Grid container spacing={4}>
                   <Grid item xs={10}>
-                    {t(step.eci.secure)}
+                    {t("step.eci.secure")}
                   </Grid>
                   <Grid item xs={2}>
                     <SecureLogo />
