@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
   const [picture, _takePicture] = useState(undefined);
 
-  console.log(camera, picture);
+  const width = 640,
+    height = 480;
+
   const startCamera = async () => {
-    console.log("start");
     let video = document.querySelector("#video");
     let stream = await navigator.mediaDevices.getUserMedia({
       video: true,
@@ -18,7 +19,6 @@ const CameraField = (props) => {
   };
 
   const takePicture = () => {
-    console.log("take Picture");
     let video = document.querySelector("#video");
     let canvas = document.querySelector("#canvas");
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -35,19 +35,20 @@ const CameraField = (props) => {
           fullWidth
           variant="contained"
           color="primary"
-          aonClick={() => console.log("click")}
           onClick={startCamera}
         >
           Start Camera
         </Button>
       )}
-      <video
-        hidden={!camera || picture}
-        id="video"
-        width="320"
-        height="240"
-        autoPlay
-      ></video>
+      <Box fullWidth style={{ maxWidth: "100%" }}>
+        <video
+          hidden={!camera || picture}
+          id="video"
+          width="100%"
+          height="auto"
+          autoPlay
+        ></video>
+      </Box>
       {camera && !picture && (
         <>
           <Button
@@ -60,7 +61,12 @@ const CameraField = (props) => {
           </Button>
         </>
       )}
-      <canvas hidden={!picture} id="canvas" width="320" height="240"></canvas>
+      <canvas
+        hidden={!picture}
+        id="canvas"
+        width={width}
+        height={height}
+      ></canvas>
       {picture && (
         <>
           <Button
