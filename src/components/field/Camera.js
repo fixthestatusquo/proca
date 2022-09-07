@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Box } from "@material-ui/core";
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import VideocamIcon from "@material-ui/icons/Videocam";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
@@ -33,6 +35,7 @@ const CameraField = (props) => {
       {!camera && (
         <Button
           fullWidth
+          startIcon={<VideocamIcon />}
           variant="contained"
           color="primary"
           onClick={startCamera}
@@ -40,7 +43,11 @@ const CameraField = (props) => {
           Start Camera
         </Button>
       )}
-      <Box fullWidth style={{ maxWidth: "100%" }}>
+      <Box
+        fullWidth
+        style={{ maxWidth: "100%", cursor: "pointer" }}
+        onClick={takePicture}
+      >
         <video
           hidden={!camera || picture}
           id="video"
@@ -56,22 +63,31 @@ const CameraField = (props) => {
             variant="contained"
             onClick={takePicture}
             color="primary"
+            startIcon={<PhotoCameraIcon />}
           >
-            Click Photo
+            Take picture
           </Button>
         </>
       )}
-      <canvas
+      <Box
         hidden={!picture}
-        id="canvas"
-        width={width}
-        height={height}
-      ></canvas>
+        fullWidth
+        style={{ maxWidth: "100%", cursor: "pointer" }}
+        onClick={takePicture}
+      >
+        <canvas
+          id="canvas"
+          width={width}
+          style={{ maxWidth: "100%" }}
+          height={height}
+        ></canvas>
+      </Box>
       {picture && (
         <>
           <Button
             fullWidth
             variant="contained"
+            startIcon={<PhotoCameraIcon />}
             onClick={() => _takePicture(undefined)}
           >
             Take another one
