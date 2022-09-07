@@ -22,6 +22,7 @@ const useInitFromUrl = (actionUrl) => {
         alert("404 fatal error: campaign " + actionUrl + " not found");
         setId(0);
         setCount(404);
+        return;
       }
       if (!isCancelled) {
         setId(c.actionPage);
