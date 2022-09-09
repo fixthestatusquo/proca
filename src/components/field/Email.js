@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 
 const EmailField = ({ form }) => {
   let emailProvider = useRef(undefined); // we don't know the email provider
-  console.log(emailProvider.current);
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
@@ -16,26 +15,35 @@ const EmailField = ({ form }) => {
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
     emailProvider.current = provider;
-    console.log(provider);
     if (provider === false) {
+      form.setValue("emailProvider", "");
       return t("email.invalid_domain", {
         defaultValue: "{{domain}} cannot receive emails",
         domain: getDomain(email),
       });
     }
+    form.setValue("emailProvider", provider);
     return true;
   };
 
   return (
-    <TextField
-      form={form}
-      name="email"
-      validate={validateEmail}
-      type="email"
-      label={t("Email")}
-      autoComplete="email"
-      required
-    />
+    <>
+      <input
+        type="hidden"
+        name="emailProvider"
+        defaultValue=""
+        ref={form.register}
+      />
+      <TextField
+        form={form}
+        name="email"
+        validate={validateEmail}
+        type="email"
+        label={t("Email")}
+        autoComplete="email"
+        required
+      />
+    </>
   );
 };
 

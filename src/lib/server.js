@@ -272,10 +272,14 @@ async function addActionContact(actionType, actionPage, data, test) {
   ){contactRef,firstName}
   }
 `;
-  const privacy = {
+  let privacy = {
     optIn: data.privacy === "opt-in" || data.privacy === "opt-in-both",
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
+
+  if (!data.privacy)
+    // case where the consent wasn't given because not asked
+    privacy = {};
 
   let expected =
     "uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(

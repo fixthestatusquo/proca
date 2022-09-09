@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import Alert from "@material-ui/lab/Alert";
 import EmailField from "@components/field/Email";
 import SendIcon from "@material-ui/icons/Send";
 import Dialog from "@components/Dialog";
 import { useForm } from "react-hook-form";
-import { Button, Snackbar, Grid } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import uuid, { isSet as isUuid } from "@lib/uuid.js";
 import { useTranslation } from "react-i18next";
 import { addActionContact } from "@lib/server.js";
@@ -89,8 +88,6 @@ const RemindMeLater = (props) => {
     }
   };
 
-  console.log(data);
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -107,6 +104,12 @@ const RemindMeLater = (props) => {
         {t("action.reminder", "Remind me later")}
       </Button>
       <Dialog dialog={displayed} close={() => setDisplayed(false)}>
+        <p>
+          {t(
+            "reminder.intro",
+            "We know, your government is asking a lot of information. We will send you a reminder to fill it when it's convenient for you."
+          )}
+        </p>
         <EmailField form={form} />
         <Button
           color="primary"

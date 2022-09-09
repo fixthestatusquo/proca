@@ -279,7 +279,7 @@ const Support = (props) => {
                   </Grid>
                 </Grid>
               )}
-              {config.component.reminder && <Reminder />}
+              {config.component.reminder && <Reminder done={props.done} />}
               {i18n.exists("step.eci.title") && (
                 <CardHeader
                   subheader={t("step.eci.subheader", "")}
