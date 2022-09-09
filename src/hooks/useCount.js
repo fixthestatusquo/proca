@@ -17,6 +17,13 @@ const useInitFromUrl = (actionUrl) => {
     (async function () {
       if (count !== null) return;
       c = await getCountByName(actionUrl);
+      console.log("counter", c);
+      if (c.errors) {
+        alert("404 fatal error: campaign " + actionUrl + " not found");
+        setId(0);
+        setCount(404);
+        return;
+      }
       if (!isCancelled) {
         setId(c.actionPage);
         setCount(c.total);

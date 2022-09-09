@@ -47,7 +47,7 @@ const ImplicitConsent = (props) => {
       <Grid item xs={12}>
         <ConfirmProcessing form={props.form} />
       </Grid>
-      {config.component.consent.implicit !== "opt-out" && (
+      {config.component.consent.implicit === "opt-in" && (
         <>
           <Grid item xs={12}>
             <FormHelperText

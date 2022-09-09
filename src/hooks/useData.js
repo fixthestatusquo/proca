@@ -40,7 +40,7 @@ export const initDataState = (urlData, config) => {
       urlData.frequency = config.component.donation?.frequency?.default;
     } catch (e) {
       // noop
-      console.debug("Error reading frequency from config", e);
+      //console.debug("Error reading frequency from config", e);
     }
   }
 

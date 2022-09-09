@@ -2,7 +2,8 @@ import i18n from "@lib/i18n";
 import Url from "@lib/urlparser";
 import dispatch from "@lib/event";
 import { formatDate } from "@lib/date";
-
+import { ReactComponent as ECLogo } from "@images/logo_eu.svg";
+import { ReactComponent as SecureLogo } from "@images/secure.svg";
 import React, { useState, useEffect } from "react";
 import {
   CardHeader,
@@ -247,11 +248,7 @@ const Support = (props) => {
     return null;
   }
 
-  let customValidity = undefined;
-  if (config.lang !== "en") {
-    customValidity = t("required field");
-  }
-  customValidity = t("required field");
+  const customValidity = t("required field");
 
   // todo, convert the OCS text into something that can use Trans
   return (
@@ -271,6 +268,16 @@ const Support = (props) => {
             >
               <Error display={status === "error"} />
 
+              {i18n.exists("step.eci.secure") && (
+                <Grid container spacing={4}>
+                  <Grid item xs={10}>
+                    {t("step.eci.secure")}
+                  </Grid>
+                  <Grid item xs={2}>
+                    <SecureLogo />
+                  </Grid>
+                </Grid>
+              )}
               {i18n.exists("step.eci.title") && (
                 <CardHeader
                   subheader={t("step.eci.subheader", "")}
@@ -340,9 +347,16 @@ const Support = (props) => {
                 </Button>
               </Grid>
               <Box className={classes.notice} m={1}>
-                <div>{t("eci:form.support-footer1")}</div>
-                <div>{t("eci:form.support-footer2")}</div>
-                <div>{t("eci:form.support-footer3")}</div>
+                <Grid container spacing={2}>
+                  <Grid xs={3} item>
+                    <ECLogo />
+                  </Grid>
+                  <Grid xs={9} item>
+                    <div>{t("eci:form.support-footer1")}</div>
+                    <div>{t("eci:form.support-footer2")}</div>
+                    <div>{t("eci:form.support-footer3")}</div>
+                  </Grid>
+                </Grid>
               </Box>
             </form>
           </Grid>
