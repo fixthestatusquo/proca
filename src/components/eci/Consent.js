@@ -66,10 +66,9 @@ export default function Register(props) {
               error={!!(errors && errors.privacy)}
             >
               <Checkbox
-                {register("contentPrivacy")}
+                {...register("contentPrivacy")}
                 onChange={handleCheck}
                 color="primary"
-                name="contentPrivacy"
                 required
               />
               <EciDialog />
