@@ -98,6 +98,7 @@ export default function StepperEci(props) {
         return (
           <Step key="eci">
             <StepButton
+              id="proca_eci_step"
               component="div"
               onClick={handleStep("eci")}
               icon={<EciIcon color={iconColor("eci")} />}
@@ -108,7 +109,7 @@ export default function StepperEci(props) {
         );
       case "register":
         return (
-          <Step key="register">
+          <Step key="register" id="proca_register_step">
             <StepButton onClick={handleStep("register")} component="div">
               {t("action.join")}
             </StepButton>
@@ -116,7 +117,7 @@ export default function StepperEci(props) {
         );
       case "share":
         return (
-          <Step key="share">
+          <Step key="share" id="proca_share_step">
             <StepButton
               component="div"
               onClick={handleStep("share")}
