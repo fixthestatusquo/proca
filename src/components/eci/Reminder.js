@@ -5,11 +5,12 @@ import EmailField from "@components/field/Email";
 import SendIcon from "@material-ui/icons/Send";
 import Dialog from "@components/Dialog";
 import { useForm } from "react-hook-form";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import uuid, { isSet as isUuid } from "@lib/uuid.js";
 import { useTranslation } from "react-i18next";
 import { addActionContact } from "@lib/server.js";
 import RemindIcon from "@material-ui/icons/AccessAlarms";
+import { ConsentProcessing } from "@components/Consent";
 
 const RemindMeLater = (props) => {
   const config = useCampaignConfig();
@@ -84,7 +85,12 @@ const RemindMeLater = (props) => {
           }
         });
       }
-      //      !handled && setStatus("error");
+
+      !handled &&
+        setError("email", {
+          type: "server",
+          message: "fatal error, please try later",
+        });
     }
   };
 
@@ -107,7 +113,7 @@ const RemindMeLater = (props) => {
         <p>
           {t(
             "reminder.intro",
-            "We know, your government is asking a lot of information. We will send you a reminder to fill it when it's convenient for you."
+            "We know, your government is asking a lot of information. We will send you a single email to remind you to fill it later"
           )}
         </p>
         <EmailField form={form} />
@@ -122,6 +128,9 @@ const RemindMeLater = (props) => {
         >
           {t("action.reminderEmail", "Remind me by email")}
         </Button>
+        <Box mt={2}>
+          <ConsentProcessing />
+        </Box>
       </Dialog>
     </form>
   );
