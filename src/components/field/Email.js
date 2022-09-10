@@ -25,15 +25,9 @@ const EmailField = ({ form }) => {
     form.setValue("emailProvider", provider);
     return true;
   };
-
   return (
     <>
-      <input
-        type="hidden"
-        name="emailProvider"
-        defaultValue=""
-        ref={form.register}
-      />
+      <input type="hidden" {...form.register("emailProvider")} />
       <TextField
         form={form}
         name="email"

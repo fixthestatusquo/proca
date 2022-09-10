@@ -117,7 +117,6 @@ const ConfirmPreviousStep = (props) => {
       </Alert>
     );
   }
-
   if (data.privacy) {
     // we saved previously
     return <Alert severity="success">{t("Thank you")}</Alert>;

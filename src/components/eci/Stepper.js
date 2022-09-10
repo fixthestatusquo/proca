@@ -47,8 +47,10 @@ export default function StepperEci(props) {
     scrollTo();
   };
 
-  const doneEci = () => {
-    setSubmitted(true);
+  const doneEci = (result) => {
+    if (result !== false) {
+      setSubmitted(true);
+    }
     const next = steps[step("eci") + 1];
     setValue(next);
     dispatch(

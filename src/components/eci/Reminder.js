@@ -11,21 +11,23 @@ import { useTranslation } from "react-i18next";
 import { addActionContact } from "@lib/server.js";
 import RemindIcon from "@material-ui/icons/AccessAlarms";
 import { ConsentProcessing } from "@components/Consent";
+import MailIcon from "@material-ui/icons/MailOutline";
+import Alert from "@material-ui/lab/Alert";
 
 const RemindMeLater = (props) => {
   const config = useCampaignConfig();
   const [data] = useData();
   const { t } = useTranslation();
   const [displayed, setDisplayed] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   //if (!config.component.reminder) return null;
   const form = useForm({
     mode: "onBlur",
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { handleSubmit, setError, formState } = form;
+  const { handleSubmit, trigger, setError, formState } = form;
   const onSubmit = async (formData) => {
-    console.log("on submit");
     /*    if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -58,7 +60,7 @@ const RemindMeLater = (props) => {
       formData.uuid = data.uuid;
     }
     const payload = {
-      firstname: data.firstname || "-",
+      firstname: data.firstname || "supporter",
       email: formData.email,
     };
 
@@ -91,29 +93,48 @@ const RemindMeLater = (props) => {
           type: "server",
           message: "fatal error, please try later",
         });
+    } else {
+      setSubmitted(true);
+      setDisplayed(false);
+    }
+  };
+
+  const handleClick = async (event) => {
+    const result = await trigger();
+    if (result) {
+      await handleSubmit(onSubmit)();
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      method="post"
-      url="http://localhost"
-      style={{ width: "100%" }}
-    >
-      <Button
-        variant="contained"
-        fullWidth
-        onClick={() => setDisplayed(true)}
-        endIcon={<RemindIcon />}
-      >
-        {t("action.reminder", "Remind me later")}
-      </Button>
+    <>
+      {submitted && (
+        <Alert
+          style={{ width: "100%" }}
+          onClose={() => {
+            props.done && props.done(false);
+          }}
+          severity="success"
+          icon={<MailIcon />}
+        >
+          {t("action.remindeSent", "Reminder sent")}
+        </Alert>
+      )}
+      {!submitted && (
+        <Button
+          variant="contained"
+          fullWidth
+          onClick={() => setDisplayed(true)}
+          endIcon={<RemindIcon />}
+        >
+          {t("action.reminder", "Remind me later")}
+        </Button>
+      )}
       <Dialog dialog={displayed} close={() => setDisplayed(false)}>
         <p>
           {t(
             "reminder.intro",
-            "We know, your government is asking a lot of information. We will send you a single email to remind you to fill it later"
+            "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
           )}
         </p>
         <EmailField form={form} />
@@ -125,6 +146,7 @@ const RemindMeLater = (props) => {
           endIcon={<SendIcon />}
           size="large"
           disabled={formState.isSubmitting}
+          onClick={handleClick}
         >
           {t("action.reminderEmail", "Remind me by email")}
         </Button>
@@ -132,7 +154,7 @@ const RemindMeLater = (props) => {
           <ConsentProcessing />
         </Box>
       </Dialog>
-    </form>
+    </>
   );
 };
 export default RemindMeLater;
