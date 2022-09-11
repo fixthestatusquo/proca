@@ -32,7 +32,6 @@ const CameraField = (props) => {
       //what do do ?
       return;
     }
-    const tracks = stream.getTracks();
     const devices = await navigator.mediaDevices.enumerateDevices();
     const videoDevices = devices
       .filter((device) => device.kind === "videoinput")
