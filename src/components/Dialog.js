@@ -43,7 +43,8 @@ function OpenDialog(props) {
   useEffect(() => setOpen(props.dialog), [props.dialog]);
 
   const handleClose = () => {
-    //    setOpen(false);
+    if (!props.dialog) setOpen(false);
+
     if (props.close instanceof Function) {
       props.close();
     } else {

@@ -27,6 +27,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import MailIcon from "@material-ui/icons/MailOutline";
+import EmailConfirm from "@components/EmailConfirm";
 
 import {
   EmailShareButton,
@@ -117,7 +118,6 @@ const ConfirmPreviousStep = (props) => {
       </Alert>
     );
   }
-
   if (data.privacy) {
     // we saved previously
     return <Alert severity="success">{t("Thank you")}</Alert>;
@@ -165,6 +165,7 @@ export default function ShareAction(props) {
 
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
+      <EmailConfirm />
       <ConfirmPreviousStep
         prev={props.prev}
         email={config.component.consent?.email}

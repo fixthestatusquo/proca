@@ -21,6 +21,7 @@ import { useForm } from "react-hook-form";
 import documents from "@data/document_number_formats.json";
 import { addSupport, errorMessages } from "@lib/eci/server.js";
 
+import Reminder from "./Reminder";
 import Country from "./Country";
 import General from "./General";
 import Address from "./Address";
@@ -278,6 +279,7 @@ const Support = (props) => {
                   </Grid>
                 </Grid>
               )}
+              {config.component.reminder && <Reminder done={props.done} />}
               {i18n.exists("step.eci.title") && (
                 <CardHeader
                   subheader={t("step.eci.subheader", "")}
