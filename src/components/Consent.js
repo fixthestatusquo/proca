@@ -175,7 +175,7 @@ const Consent = (props) => {
 };
 
 export const ConfirmProcessing = (props) => {
-  const { errors, control } = props.form;
+  const { formState: { errors }, control } = props.form; // errors are in formState in React Hook Form 7
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
