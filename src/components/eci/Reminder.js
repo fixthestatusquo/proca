@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Url from "@lib/urlparser";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import EmailField from "@components/field/Email";
@@ -62,6 +63,7 @@ const RemindMeLater = (props) => {
     const payload = {
       firstname: data.firstname || "supporter",
       email: formData.email,
+      tracking: Url.utm(),
     };
 
     const result = await addActionContact(
@@ -151,7 +153,7 @@ const RemindMeLater = (props) => {
           {t("action.reminderEmail", "Remind me by email")}
         </Button>
         <Box mt={2}>
-          <ConsentProcessing />
+          <ConsentProcessing checkboxLabel />
         </Box>
       </Dialog>
     </>
