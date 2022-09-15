@@ -79,7 +79,7 @@ const Country = (props) => {
   if (props.list === false) return null;
 
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField

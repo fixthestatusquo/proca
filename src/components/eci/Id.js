@@ -35,7 +35,7 @@ export default function Register(props) {
     return type[i18n.language] ? type[i18n.language] : type["fr"]; //fr is the first language on their list
   };
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       <Typography variant="subtitle1" component="legend">
         {t("eci:form.group-document")}
       </Typography>
