@@ -27,6 +27,7 @@ if (!argv._.length || argv.help) {
       "--pages (fetch the action pages of the org)",
       "--users(fetch the users of the org)",
       "--pull (by default)",
+      "--push (update the server)",
       "org {org name}",
     ].join("\n")
   );
