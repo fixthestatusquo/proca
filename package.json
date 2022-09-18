@@ -92,6 +92,7 @@
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging rescripts start",
     "start": "rescripts start",
+    "starts": "HTTPS=true rescripts start",
     "test": "rescripts test",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"
   },

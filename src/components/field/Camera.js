@@ -1,18 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button, IconButton, Box } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
 import CameraRearIcon from "@material-ui/icons/CameraRear";
+import { useSupabase } from "@lib/supabase";
+import { useCampaignConfig } from "@hooks/useConfig";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
   const [cameras, setCameras] = useState([]);
   const [dimension, setDimension] = useState({});
   const [picture, _takePicture] = useState(undefined);
+  const [cDim, setcDim] = useState({ width: 480 * 2, height: 640 * 2 });
+  const canvasRef = useRef();
+  const videoRef = useRef();
+  const config = useCampaignConfig();
+  const supabase = useSupabase();
 
-  const width = 640,
-    height = 480;
+  const upload = async () => {
+    const toBlob = () =>
+      new Promise((resolve) => {
+        canvasRef.current.toBlob(resolve, "image/jpeg", 81);
+      });
+
+    const blob = await toBlob();
+    const encoder = new TextEncoder();
+    const hashBuffer = await crypto.subtle.digest(
+      "SHA-256",
+      encoder.encode(blob)
+    );
+    const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
+      .replace(/\+/g, "_")
+      .replace(/\//g, "-")
+      .replace(/=+$/g, "");
+    // hash = base64url of the sha256
+
+    let d = {
+      campaign: config.campaign.name,
+      actionpage_id: config.actionPage,
+      legend: "",
+      hash: hash,
+      lang: config.lang,
+    };
+    //const f = items[current].original.split("/");
+    const { data, error } = await supabase.from("pictures").insert([d]);
+    console.log(data);
+    if (error) return false;
+    const r = await supabase.storage
+      .from(config.campaign.name)
+      .upload("picture/" + hash + ".jpg", blob, {
+        cacheControl: "3600",
+        upsert: false,
+      });
+    if (r.error) {
+      if (r.error.statusCode === "23505") {
+        //duplicated
+        return { id: data[0].id, hash: hash };
+      }
+      console.log(r.error);
+      return false;
+    }
+    return { id: data[0].id, hash: hash };
+  };
 
   const startCamera = async (facingMode) => {
     let video = document.querySelector("#video");
@@ -20,8 +70,8 @@ const CameraField = (props) => {
     let constraint = {
       audio: false,
       video: {
-        width: width,
-        height: height,
+        //        width: cDim.width,
+        //        height: cDim.height,
         facingMode: facingMode || "environment", // prefer the rear camera
       },
     };
@@ -44,12 +94,7 @@ const CameraField = (props) => {
         height: video.videoHeight,
       };
       dim.vertical = dim.width < dim.height;
-      if (dim.vertical) {
-        dim.ratioHeight = 0.3;
-      } else {
-        dim.ratioHeight = width / height / (dim.width / dim.height);
-      }
-      dim.ratioHeight = dim.ratioHeight * 100 + "%";
+      if (!dim.vertical) setcDim(dim);
       setDimension(dim);
     };
     switchCamera(constraint.video.facingMode);
@@ -69,52 +114,61 @@ const CameraField = (props) => {
       }
     };
 
-    console.log("check permissions");
     if (cameras.length === 0) {
       checkPermissions();
     }
-  }, []);
+  }, [cameras.length]);
 
-  const takePicture = () => {
-    let video = document.querySelector("#video");
-    let canvas = document.querySelector("#canvas");
-    console.log(dimension);
-    if (false && dimension.vertical) {
-      const ctx = canvas.getContext("2d");
-      ctx.translate(canvas.width / 2, canvas.height / 2);
-      ctx.rotate(Math.PI / 2);
-      ctx.drawImage(video, 0, 0, -canvas.width / 2, -canvas.height / 2);
-      //      ctx.rotate(-Math.PI/2);
-      //      ctx.translate(-canvas.width / 2, -canvas.height / 2);
-    } else {
-      canvas
-        .getContext("2d")
-        .drawImage(
-          video,
-          0,
-          0,
-          dimension.width,
-          dimension.height,
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-      //      canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    }
+  const takePicture = async () => {
+    let video = videoRef.current;
+    let canvas = canvasRef.current;
+    canvas
+      .getContext("2d")
+      .drawImage(
+        video,
+        0,
+        0,
+        dimension.width,
+        dimension.height,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
     let image_data_url = canvas.toDataURL("image/jpeg");
-    //_takePicture (image_data_url);
     _takePicture(image_data_url);
     // data url of the image
-    console.log(image_data_url);
   };
 
   const switchCam = () => {
     startCamera(camera === "environment" ? "user" : "environment");
   };
 
+  const validateImage = async (image) => {
+    const r = await upload();
+    props.form.setValue("hash", r.hash);
+    props.form.setValue("imageId", r.id);
+    props.form.setValue(
+      "image",
+      process.env.REACT_APP_SUPABASE_URL +
+        "/storage/v1/object/public/" +
+        config.campaign.name +
+        "/picture/" +
+        r.hash +
+        ".jpg"
+    );
+    if (r === false) return false;
+    return true;
+  };
+
   return (
     <>
+      <input
+        type="hidden"
+        {...props.form.register("image", { validate: validateImage })}
+      />
+      <input type="hidden" {...props.form.register("hash")} />
+      <input type="hidden" {...props.form.register("imageId")} />
       {!camera && (
         <Button
           fullWidth
@@ -131,6 +185,7 @@ const CameraField = (props) => {
           hidden={!camera || picture}
           onClick={takePicture}
           id="video"
+          ref={videoRef}
           width="100%"
           height="auto"
           autoPlay
@@ -169,9 +224,10 @@ const CameraField = (props) => {
       >
         <canvas
           id="canvas"
-          width={width}
+          ref={canvasRef}
+          width={cDim.width}
           style={{ maxWidth: "100%" }}
-          height={height}
+          height={cDim.height}
         ></canvas>
       </Box>
       {picture && (
