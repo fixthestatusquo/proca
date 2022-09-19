@@ -13,10 +13,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Component = (props) => {
   const classes = useStyles();
-  console.log(
-    props.profiles.length,
-    props.profiles[0] && props.profiles[0].country
-  );
   return (
     <List className={classes.root}>
       {props.profiles.map((d) => (

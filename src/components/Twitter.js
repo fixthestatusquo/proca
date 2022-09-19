@@ -118,8 +118,9 @@ const Component = (props) => {
       message: "",
     },
   });
-  const { watch } = form;
+  const { watch, setValue } = form;
   const country = watch("country");
+
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
   if (hash) {
     // it's a meme
@@ -140,6 +141,10 @@ const Component = (props) => {
     setTweeting(true);
     setData("targets", target);
   };
+  const url =
+    config.component.twitter?.listUrl === true
+      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+      : config.component.twitter.listUrl;
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -161,17 +166,17 @@ const Component = (props) => {
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
-          // if the country of the visitor is set, filter the list of targets t4g_meps
-          if (data.country) {
-            const country = data.country.toLowerCase();
-            const filtered = d.filter((c) => c.country === country);
+          // if the country of the visitor is set, filter the list of targets
+          if (country) {
+            const country2l = country.toLowerCase();
+            const filtered = d.filter((c) => c.country === country2l);
             if (filtered.length > 0) d = filtered;
           }
 
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
-            form.setValue(
+            setValue(
               "message",
               tokenize(
                 pickOne(
@@ -180,7 +185,6 @@ const Component = (props) => {
                 { profile: [i] }
               )
             );
-            console.debug("set profile random", i.country);
             setProfiles([i]);
           } else {
             //if (!config.component.twitter.filter?.includes("country")) {
@@ -191,13 +195,17 @@ const Component = (props) => {
           console.log(error);
         });
     };
-    const url =
-      config.component.twitter?.listUrl === true
-        ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
-        : config.component.twitter.listUrl;
     fetchData(url);
-    // eslint-disable-next-line
-  }, [data.country]);
+  }, [
+    url,
+    country,
+    setValue,
+    config.campaign.name,
+    config.component,
+    config.hook,
+    t,
+  ]);
+  // eslint-disable-next-line
 
   const filterRandomProfile = () => {
     const d = allProfiles;
