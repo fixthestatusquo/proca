@@ -21,7 +21,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@paypal/react-paypal-js": "^7.8.1",
     "@stripe/react-stripe-js": "^1.10.0",
-    "@stripe/stripe-js": "^1.35.0",
+    "@stripe/stripe-js": "^1.36.0",
     "@supabase/supabase-js": "^1.35.6",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^7.5.0",
@@ -36,7 +36,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.5",
-    "react-i18next": "^11.18.5",
+    "react-i18next": "^11.18.6",
     "react-ipgeolocation": "^1.4.0",
     "react-masonry-component": "^6.3.0",
     "react-script-hook": "^1.6.0",
@@ -69,7 +69,7 @@
     "i18next-fs-backend": "^1.1.5",
     "prettier": "^2.7.1",
     "simple-git": "^3.14.0",
-    "typescript": "^4.7.4",
+    "typescript": "^4.8.3",
     "webpack-bundle-analyzer": "^4.6.1"
   },
   "scripts": {
