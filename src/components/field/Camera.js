@@ -67,7 +67,10 @@ const CameraField = (props) => {
   };
 
   const startCamera = async (facingMode) => {
-    let video = document.querySelector("#video");
+    let video = videoRef.current;
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
     let stream = null;
     let constraint = {
       audio: false,
