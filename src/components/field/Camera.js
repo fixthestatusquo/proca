@@ -189,6 +189,8 @@ const CameraField = (props) => {
           width="100%"
           height="auto"
           autoPlay
+          playinline
+          muted
         ></video>
         {camera && !picture && (
           <Box display="flex">
