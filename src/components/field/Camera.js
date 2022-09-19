@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button, IconButton, Box } from "@material-ui/core";
+import { FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
@@ -17,25 +18,27 @@ const CameraField = (props) => {
   const videoRef = useRef();
   const config = useCampaignConfig();
   const supabase = useSupabase();
-
-  const upload = async () => {
+  const { errors, getValues, register, setValue } = props.form;
+  const upload = async (params) => {
     const toBlob = () =>
       new Promise((resolve) => {
         canvasRef.current.toBlob(resolve, "image/jpeg", 81);
       });
 
     const blob = await toBlob();
-    const encoder = new TextEncoder();
-    const hashBuffer = await crypto.subtle.digest(
-      "SHA-256",
-      encoder.encode(blob)
-    );
+    const blobA = await blob.arrayBuffer();
+    const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
     const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
       .replace(/\+/g, "_")
       .replace(/\//g, "-")
       .replace(/=+$/g, "");
     // hash = base64url of the sha256
+    //    console.log(hash,encoder.encode(blob),blob);
 
+    if (hash === params.hash) {
+      // already uploaded
+      return true;
+    }
     let d = {
       campaign: config.campaign.name,
       actionpage_id: config.actionPage,
@@ -45,11 +48,10 @@ const CameraField = (props) => {
     };
     //const f = items[current].original.split("/");
     const { data, error } = await supabase.from("pictures").insert([d]);
-    console.log(data);
-    if (error) return false;
+    if (error) return error;
     const r = await supabase.storage
-      .from(config.campaign.name)
-      .upload("picture/" + hash + ".jpg", blob, {
+      .from(config.campaign.name.replaceAll("_", "-"))
+      .upload("public/" + hash + ".jpg", blob, {
         cacheControl: "3600",
         upsert: false,
       });
@@ -59,7 +61,7 @@ const CameraField = (props) => {
         return { id: data[0].id, hash: hash };
       }
       console.log(r.error);
-      return false;
+      if (r.error) return r.error;
     }
     return { id: data[0].id, hash: hash };
   };
@@ -145,19 +147,23 @@ const CameraField = (props) => {
   };
 
   const validateImage = async (image) => {
-    const r = await upload();
-    props.form.setValue("hash", r.hash);
-    props.form.setValue("imageId", r.id);
-    props.form.setValue(
+    if (!camera) return "Start the camera and take a picture";
+    if (!picture) return "Take a picture";
+    const r = await upload({ hash: getValues("hash") });
+    if (r.message) {
+      return r.message;
+    }
+    setValue("hash", r.hash);
+    setValue("imageId", r.id);
+    setValue(
       "image",
       process.env.REACT_APP_SUPABASE_URL +
         "/storage/v1/object/public/" +
-        config.campaign.name +
+        config.campaign.name.replaceAll("_", "-") +
         "/picture/" +
         r.hash +
         ".jpg"
     );
-    if (r === false) return false;
     return true;
   };
 
@@ -165,10 +171,10 @@ const CameraField = (props) => {
     <>
       <input
         type="hidden"
-        {...props.form.register("image", { validate: validateImage })}
+        {...register("image", { validate: validateImage })}
       />
-      <input type="hidden" {...props.form.register("hash")} />
-      <input type="hidden" {...props.form.register("imageId")} />
+      <input type="hidden" {...register("hash")} />
+      <input type="hidden" {...register("imageId")} />
       {!camera && (
         <Button
           fullWidth
@@ -244,6 +250,11 @@ const CameraField = (props) => {
           </Button>
         </>
       )}
+      <div>
+        <FormHelperText error={!!(errors && errors.image)}>
+          {errors && errors.image && errors.image.message}
+        </FormHelperText>
+      </div>
     </>
   );
 };
