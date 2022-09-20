@@ -247,6 +247,7 @@ const Component = (props) => {
   }, [country, filterProfiles]);
 
   const handleDone = (d) => {
+    if (config.component.twitter?.anonymous === true) return;
     if (!data.firstname) viewDialog(true);
   };
 
