@@ -19,7 +19,7 @@ import Again from "@components/twitter/Again";
 import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { get } from "lodash";
 const useStyles = makeStyles((theme) => ({
   skip: {
     marginTop: theme.spacing(1),
@@ -176,15 +176,7 @@ const Component = (props) => {
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
-            setValue(
-              "message",
-              tokenize(
-                pickOne(
-                  t(["campaign:twitter.message", "campaign:share.twitter"])
-                ),
-                { profile: [i] }
-              )
-            );
+            setMessage([i]);
             setProfiles([i]);
           } else {
             //if (!config.component.twitter.filter?.includes("country")) {
@@ -205,18 +197,33 @@ const Component = (props) => {
     config.hook,
     t,
   ]);
-  // eslint-disable-next-line
 
-  const filterRandomProfile = () => {
-    const d = allProfiles;
-    const i = d[Math.floor(Math.random() * d.length)];
-    form.setValue(
+  const setMessage = (profile) => {
+    if (config.component.twitter.multilingual && profile[0].locale) {
+      const locale = profile[0].locale;
+      const source = data[config.component.twitter.data][locale];
+      const msg = get(source, config.component.twitter.key);
+
+      console.log(msg);
+      if (msg) {
+        setValue("message", tokenize(pickOne(msg), { profile: profile }));
+        return;
+      }
+    }
+    setValue(
       "message",
       tokenize(
         pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
-        { profile: [i] }
+        { profile: profile }
       )
     );
+  };
+
+  // eslint-disable-next-line
+  const filterRandomProfile = () => {
+    const d = allProfiles;
+    const i = d[Math.floor(Math.random() * d.length)];
+    setMessage([i]);
     setProfiles([i]);
   };
 

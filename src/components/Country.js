@@ -126,6 +126,10 @@ const Country = (props) => {
         config.component.country) ||
       undefined,
   });
+
+  const switchCountry = (e) => {
+    setData("country", e.target.value);
+  };
   useEffect(() => {
     const country = getValues("country") || "";
 
@@ -162,6 +166,7 @@ const Country = (props) => {
     <TextField
       select
       name="country"
+      onChange={switchCountry}
       label={t("Country")}
       form={props.form}
       SelectProps={{

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
+import { get } from "lodash";
 
 const LoaderAsync = (props) => {
   const config = useCampaignConfig();
@@ -21,6 +22,10 @@ const LoaderAsync = (props) => {
         if (!d) return;
         const json = await d.json();
         if (!isCancelled) {
+          if (loaders.key) {
+            setData(loaders.key, get(json, loaders.path));
+            return;
+          }
           setData(json);
           //            Object.entries(json).map(([k,v]) => {
           //              setData({k, v);
