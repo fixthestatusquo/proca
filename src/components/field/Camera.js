@@ -132,7 +132,7 @@ const CameraField = (props) => {
     if (cameras.length === 0) {
       checkPermissions();
     }
-  }, [cameras.length, startCamera]);
+  }, [cameras.length]);
 
   const takePicture = async () => {
     let video = videoRef.current;
