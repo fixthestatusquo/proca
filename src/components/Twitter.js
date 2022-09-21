@@ -146,6 +146,39 @@ const Component = (props) => {
       ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
       : config.component.twitter.listUrl;
 
+  const setMessage = useCallback(
+    (profile) => {
+      if (config.component.twitter.multilingual && profile[0].locale) {
+        const locale = profile[0].locale;
+        const source =
+          (config.component.twitter.data &&
+            data[config.component.twitter.data][locale]) ||
+          {};
+        const msg = get(source, config.component.twitter.key);
+
+        if (msg) {
+          setValue("message", tokenize(pickOne(msg), { profile: profile }));
+          return;
+        }
+      }
+      setValue(
+        "message",
+        tokenize(
+          pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
+          { profile: profile }
+        )
+      );
+    },
+    [
+      config.component.twitter.data,
+      config.component.twitter.key,
+      config.component.twitter.multilingual,
+      data,
+      setValue,
+      t,
+    ]
+  );
+
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
@@ -192,32 +225,12 @@ const Component = (props) => {
     url,
     country,
     setValue,
+    setMessage,
     config.campaign.name,
     config.component,
     config.hook,
     t,
   ]);
-
-  const setMessage = (profile) => {
-    if (config.component.twitter.multilingual && profile[0].locale) {
-      const locale = profile[0].locale;
-      const source = data[config.component.twitter.data][locale];
-      const msg = get(source, config.component.twitter.key);
-
-      console.log(msg);
-      if (msg) {
-        setValue("message", tokenize(pickOne(msg), { profile: profile }));
-        return;
-      }
-    }
-    setValue(
-      "message",
-      tokenize(
-        pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
-        { profile: profile }
-      )
-    );
-  };
 
   // eslint-disable-next-line
   const filterRandomProfile = () => {
@@ -240,7 +253,8 @@ const Component = (props) => {
       });
       setProfiles(d);
     },
-    [allProfiles]
+    [allProfiles],
+    []
   );
 
   useEffect(() => {
