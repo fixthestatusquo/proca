@@ -43,16 +43,21 @@ const CameraField = (props) => {
       campaign: config.campaign.name,
       actionpage_id: config.actionPage,
       legend: "",
+      width: canvasRef.current.width,
+      height: canvasRef.current.height,
       hash: hash,
       lang: config.lang,
     };
     //const f = items[current].original.split("/");
     const { data, error } = await supabase.from("pictures").insert([d]);
-    if (error) return error;
+    if (error && error.statusCode !== "23505") {
+      //error different than duplicated
+      return error;
+    }
     const r = await supabase.storage
       .from(config.campaign.name.replaceAll("_", "-"))
       .upload("public/" + hash + ".jpg", blob, {
-        cacheControl: "3600",
+        cacheControl: "31536000",
         upsert: false,
       });
     if (r.error) {
