@@ -120,7 +120,11 @@ const Country = (props) => {
 
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country: config.data.country || config.component.country,
+    country:
+      config.data.country ||
+      (typeof config.component.country === "string" &&
+        config.component.country) ||
+      undefined,
   });
   useEffect(() => {
     const country = getValues("country") || "";
