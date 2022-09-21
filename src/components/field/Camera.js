@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button, IconButton, Box } from "@material-ui/core";
 import { FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
@@ -66,54 +66,50 @@ const CameraField = (props) => {
     return { id: data[0].id, hash: hash };
   };
 
-  const startCamera = async (facingMode) => {
-    setError("image", { type: "js", message: "trying to start camera..." });
-    let video = videoRef.current;
-    video.setAttribute("autoplay", "");
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    let stream = null;
-    let constraint = {
-      audio: false,
-      video: {
-        //        width: cDim.width,
-        //        height: cDim.height,
-        facingMode: facingMode || "environment", // prefer the rear camera
-      },
-    };
-    try {
-      stream = await navigator.mediaDevices.getUserMedia(constraint);
-      console.log(stream);
-      setError("image", {
-        type: "js",
-        message: "camera:" + stream.id + " active " + stream.active,
-      });
-    } catch (err) {
-      setError("image", {
-        type: "js",
-        message: "can't get camera" + err.toString(),
-      });
-      console.log("can't get camera", err);
-      return;
-    }
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    const videoDevices = devices
-      .filter((device) => device.kind === "videoinput")
-      .map((d) => ({ id: d.deviceId, name: d.label }));
-    setCameras(videoDevices);
-    setValue("firstname", JSON.stringify(videoDevices));
-    video.srcObject = stream;
-    video.onloadedmetadata = () => {
-      let dim = {
-        width: video.videoWidth,
-        height: video.videoHeight,
+  const startCamera = useCallback(
+    async (facingMode) => {
+      let video = videoRef.current;
+      video.setAttribute("autoplay", "");
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      let stream = null;
+      let constraint = {
+        audio: false,
+        video: {
+          //        width: cDim.width,
+          //        height: cDim.height,
+          facingMode: facingMode || "environment", // prefer the rear camera
+        },
       };
-      dim.vertical = dim.width < dim.height;
-      if (!dim.vertical) setcDim(dim);
-      setDimension(dim);
-    };
-    switchCamera(constraint.video.facingMode);
-  };
+      try {
+        stream = await navigator.mediaDevices.getUserMedia(constraint);
+      } catch (err) {
+        setError("image", {
+          type: "js",
+          message: "camera error, check your permissions\n" + err.toString(),
+        });
+        console.log("can't get camera", err);
+        return;
+      }
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices
+        .filter((device) => device.kind === "videoinput")
+        .map((d) => ({ id: d.deviceId, name: d.label }));
+      setCameras(videoDevices);
+      video.srcObject = stream;
+      video.onloadedmetadata = () => {
+        let dim = {
+          width: video.videoWidth,
+          height: video.videoHeight,
+        };
+        dim.vertical = dim.width < dim.height;
+        if (!dim.vertical) setcDim(dim);
+        setDimension(dim);
+      };
+      switchCamera(constraint.video.facingMode);
+    },
+    [setError, setValue]
+  );
 
   useEffect(() => {
     // declare the data fetching function
@@ -132,7 +128,7 @@ const CameraField = (props) => {
     if (cameras.length === 0) {
       checkPermissions();
     }
-  }, [cameras.length]);
+  }, [cameras.length, startCamera]);
 
   const takePicture = async () => {
     let video = videoRef.current;
