@@ -18,7 +18,7 @@ const CameraField = (props) => {
   const videoRef = useRef();
   const config = useCampaignConfig();
   const supabase = useSupabase();
-  const { errors, getValues, register, setValue } = props.form;
+  const { errors, getValues, register, setError, setValue } = props.form;
   const upload = async (params) => {
     const toBlob = () =>
       new Promise((resolve) => {
@@ -67,6 +67,7 @@ const CameraField = (props) => {
   };
 
   const startCamera = async (facingMode) => {
+    setError("image", { type: "js", message: "trying to start camera..." });
     let video = videoRef.current;
     video.setAttribute("autoplay", "");
     video.setAttribute("muted", "");
@@ -82,9 +83,17 @@ const CameraField = (props) => {
     };
     try {
       stream = await navigator.mediaDevices.getUserMedia(constraint);
+      console.log(stream);
+      setError("image", {
+        type: "js",
+        message: "camera:" + stream.id + " active " + stream.active,
+      });
     } catch (err) {
+      setError("image", {
+        type: "js",
+        message: "can't get camera" + err.toString(),
+      });
       console.log("can't get camera", err);
-      //what do do ?
       return;
     }
     const devices = await navigator.mediaDevices.enumerateDevices();
@@ -92,6 +101,7 @@ const CameraField = (props) => {
       .filter((device) => device.kind === "videoinput")
       .map((d) => ({ id: d.deviceId, name: d.label }));
     setCameras(videoDevices);
+    setValue("firstname", JSON.stringify(videoDevices));
     video.srcObject = stream;
     video.onloadedmetadata = () => {
       let dim = {
@@ -122,7 +132,7 @@ const CameraField = (props) => {
     if (cameras.length === 0) {
       checkPermissions();
     }
-  }, [cameras.length]);
+  }, [cameras.length, startCamera]);
 
   const takePicture = async () => {
     let video = videoRef.current;
