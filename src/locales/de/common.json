@@ -15,7 +15,7 @@
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
-  "Salutation": "Begrüßung",
+  "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
   "Street": "Straße",
   "Subject": "Thema",
@@ -127,9 +127,9 @@
   "required": "erforderlich",
   "required field": "Pflichtfeld",
   "salutations": {
-    "f": "Liebe",
-    "m": "Lieber",
-    "other": "Hallo"
+    "f": "Frau",
+    "m": "Herr",
+    "other": "Weitere..."
   },
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
