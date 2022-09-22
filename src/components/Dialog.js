@@ -59,7 +59,6 @@ function OpenDialog(props) {
       open={open}
       onClose={handleClose}
       TransitionComponent={Transition}
-      aria-labelledby="sign-dialog-title"
       fullScreen={fullScreen}
     >
       {title ? (
