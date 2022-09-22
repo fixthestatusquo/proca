@@ -124,9 +124,9 @@
   "required": "erforderlich",
   "required field": "Pflichtfeld",
   "salutations": {
-    "f": "Liebe {{name}}",
-    "m": "Liebe {{name}}",
-    "other": "Liebe {{name}}"
+    "f": "Liebe",
+    "m": "Lieber",
+    "other": "Hallo"
   },
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
