@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     maxWidth: "100%",
     cursor: "pointer",
+    borderRadius: 5,
   },
 }));
 
@@ -143,7 +144,7 @@ const PictureWall = (props) => {
       </Dialog>
       {false && <ProgressCounter />}
       <LanguageSelect options={languages} />
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid container spacing={1} justifyContent="center" alignItems="center">
         {pictures.map((d, i) => (
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
