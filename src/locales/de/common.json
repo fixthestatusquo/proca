@@ -8,7 +8,7 @@
   "Download": "Herunterladen",
   "Download explanation": "Ihr Dokument ist jetzt fertig, wir senden es Ihnen auch per E-Mail zu",
   "Email": "E-Mail",
-  "First name": "Vornamen",
+  "First name": "Vorname",
   "Last name": "Nachname",
   "Locality": "Ortschaft",
   "Next": "Weiter",
@@ -121,7 +121,7 @@
     "salutation_info": "(der Name wird vor dem Absenden eingefügt)",
     "salutation_placeholder": "Sehr geehrter [Empfänger]"
   },
-  "progress": "{{count}} unterzeichnet haben. Gehen wir zu {{goal}}",
+  "progress": "{{count}} haben unterzeichnet. Gehen wir auf {{goal}}",
   "progress_plural": "",
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",
