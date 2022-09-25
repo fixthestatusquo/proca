@@ -113,7 +113,7 @@ const CameraField = (props) => {
       };
       switchCamera(constraint.video.facingMode);
     },
-    [setError, setValue]
+    [setError]
   );
 
   useEffect(() => {
