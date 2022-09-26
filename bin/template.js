@@ -162,25 +162,44 @@ const mjml2html = (name, id, tpl) => {
     return;
   }
   console.log("saved in", fileName);
+  fs.writeFileSync(fileName, render.html);
 
-  /*
-  const fileTextName = path.resolve(
-    __dirname,
-    tmp + "email/actionpage/" + id + ".txt"
-  );
-  fs.writeFileSync(fileTextName, render.text);
-  */
   return render;
+};
+
+const saveConfig = (id) => {
+  const jsonFile = path.resolve(
+    __dirname,
+    tmp + "email/actionpage/" + id + ".json"
+  );
+
+  const type = "thankyou";
+  fs.writeFileSync(
+    jsonFile,
+    JSON.stringify(
+      {
+        meta: {
+          subject: i18n.t("email." + type + ".subject"),
+          from: argv.from || "sender@example.org",
+          type: type,
+        },
+      },
+      null,
+      2
+    )
+  );
+  console.log("saved in", jsonFile);
 };
 
 (async () => {
   const id = argv._[0];
-  const name = argv.mjml;
+  const tplName = argv.mjml;
   let lang = null;
   //const display = argv.display || false;
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
   const [file, config, campaign] = getConfigOverride(id);
+  let mailConfig = read("email/actionpage/" + id);
   console.log("widget ", config.filename);
   lang = config.lang;
   if (argv.lang) {
@@ -193,21 +212,30 @@ const mjml2html = (name, id, tpl) => {
   }
 
   const d = await i18n.changeLanguage(lang);
+
   configOverride(config);
+
+  if (!mailConfig) {
+    saveConfig(id);
+  }
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/mjml/" + tplName + ".mjml"
+  );
 
   try {
     const fileName = path.resolve(
       __dirname,
-      tmp + "email/mjml/" + name + ".mjml"
+      tmp + "email/mjml/" + tplName + ".mjml"
     );
     let tpl = fs.readFileSync(fileName, "utf8");
     const newTpl = await translateTpl(tpl, lang);
-    const render = mjml2html(name, id, newTpl);
-    if (argv.push) {
-      const r = await pushTemplate(config, render.html);
-      console.log(r);
-    }
+    const render = mjml2html(tplName, id, newTpl);
   } catch (e) {
     console.log(e);
+  }
+  if (argv.push) {
+    const r = await pushTemplate(config, render.html);
+    console.log(r);
   }
 })();
