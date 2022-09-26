@@ -6,6 +6,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 const Again = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
+  const replay = props.again || (() => window.proca.go("Register"));
   return (
     <>
       <p>{t("Thank you")}!</p>
@@ -15,7 +16,7 @@ const Again = (props) => {
         color="primary"
         fullWidth
         endIcon={<ReloadIcon />}
-        onClick={props.again}
+        onClick={replay}
       >
         {t("twitter.again", "Tweet to another person")}
       </Button>

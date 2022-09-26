@@ -26,6 +26,7 @@ const help = () => {
     [
       "options",
       "--help (this command)",
+      "--lang=fr (default en)",
       "--dry-run (show the result but don't write)",
       "--extract",
       "mjml file to process (in config/mjml/...",
