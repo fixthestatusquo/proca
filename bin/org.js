@@ -39,6 +39,7 @@ const readOrg = (orgName) => {
   const org = JSON.parse(fs.readFileSync(fileName));
   return org;
 };
+
 const saveOrg = (orgName, org) => {
   const fileName = file("org/" + orgName);
   fs.writeFileSync(fileName, JSON.stringify(org, null, 2));
@@ -100,7 +101,7 @@ const getOrg = async (name) => {
 query GetOrg($name: String!) {
   org(name:$name) {
   ... on PrivateOrg {
-      id name title config ` +
+      id name title processing {emailFrom,supporterConfirm,doiThankYou} config ` +
     extraQuery +
     `
     }
@@ -132,19 +133,28 @@ const pullOrg = async (name) => {
   return org;
 };
 
-(async () => {
-  try {
-    const name = argv._[0];
-    let org = null;
-    if (!argv.push || argv.pull) org = await pullOrg(name);
-    if (argv.push) {
-      if (!org) {
-        org = readOrg(name);
+if (require.main === module) {
+  // this is run directly from the command line as in node xxx.js
+  (async () => {
+    try {
+      const name = argv._[0];
+      let org = null;
+      if (!argv.push || argv.pull) org = await pullOrg(name);
+      if (argv.push) {
+        if (!org) {
+          org = readOrg(name);
+        }
+        await pushOrg(org);
       }
-      await pushOrg(org);
+    } catch (e) {
+      console.error(e);
+      // Deal with the fact the chain failed
     }
-  } catch (e) {
-    console.error(e);
-    // Deal with the fact the chain failed
-  }
-})();
+  })();
+} else {
+  //export a bunch
+  module.exports = {
+    pullOrg,
+    readOrg,
+  };
+}

@@ -18,6 +18,8 @@ const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
+const org = require("./org");
+
 // todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -73,7 +75,9 @@ const pushTemplate = async (config, html) => {
     orgName: config.org.name || config.lead.name,
     locale: config.lang,
     html: html,
-    subject: "subject",
+    subject:
+      config.locales["server:"].meta.subject ||
+      i18n.t("email.subject.thankyou"),
     id: config.actionpage,
   };
   const data = await api(query, variables, "upsertTemplate");
@@ -174,31 +178,38 @@ const saveConfig = (id) => {
   );
 
   const type = "thankyou";
-  fs.writeFileSync(
-    jsonFile,
-    JSON.stringify(
-      {
-        meta: {
-          subject: i18n.t("email." + type + ".subject"),
-          from: argv.from || "sender@example.org",
-          type: type,
-        },
-      },
-      null,
-      2
-    )
-  );
+  const json = {
+    meta: {
+      subject: i18n.t("email." + type + ".subject"),
+      type: type,
+    },
+  };
+
+  fs.writeFileSync(jsonFile, JSON.stringify(json, null, 2));
   console.log("saved in", jsonFile);
+  return json;
 };
 
 (async () => {
   const id = argv._[0];
   const tplName = argv.mjml;
   let lang = null;
+  let render = null;
   //const display = argv.display || false;
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
   const [file, config, campaign] = getConfigOverride(id);
+  let orgConfig = null;
+  try {
+    try {
+      orgConfig = org.readOrg(config.org.name);
+    } catch (e) {
+      orgConfig = await org.pullOrg(config.org.name);
+    }
+  } catch (e) {
+    console.log("you need to be a member of", config.org.name);
+    process.exit(1);
+  }
   let mailConfig = read("email/actionpage/" + id);
   console.log("widget ", config.filename);
   lang = config.lang;
@@ -216,8 +227,11 @@ const saveConfig = (id) => {
   configOverride(config);
 
   if (!mailConfig) {
-    saveConfig(id);
+    mailConfig = saveConfig(id);
+    console.log("config", mailConfig);
   }
+  config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
+
   const fileName = path.resolve(
     __dirname,
     tmp + "email/mjml/" + tplName + ".mjml"
@@ -230,12 +244,11 @@ const saveConfig = (id) => {
     );
     let tpl = fs.readFileSync(fileName, "utf8");
     const newTpl = await translateTpl(tpl, lang);
-    const render = mjml2html(tplName, id, newTpl);
+    render = mjml2html(tplName, id, newTpl);
   } catch (e) {
     console.log(e);
   }
-  if (argv.push) {
+  if (argv.push && !argv["dry-run"]) {
     const r = await pushTemplate(config, render.html);
-    console.log(r);
   }
 })();

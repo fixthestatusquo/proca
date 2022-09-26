@@ -61,6 +61,7 @@ function cleanUp(config) {
 
 function widgetBuildConfig(webpack, config) {
   // with yarn build, put the output in dedicated widget directory
+  console.log("building");
   if (webpack.mode === "production") {
     webpack.output.filename = "index.js";
     webpack.output.path = path.resolve(__dirname, "../d/" + config.filename);
