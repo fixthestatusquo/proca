@@ -174,7 +174,7 @@ const CameraField = (props) => {
       process.env.REACT_APP_SUPABASE_URL +
         "/storage/v1/object/public/" +
         config.campaign.name.replaceAll("_", "-") +
-        "/picture/" +
+        "/public/" +
         r.hash +
         ".jpg"
     );
