@@ -7,8 +7,8 @@ const _set = require("lodash/set");
 const _merge = require("lodash/merge");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run", "extract", "verbose"],
-  alias: { v: "verbose", l: "lang" },
-  default: { lang: "en" },
+  alias: { v: "verbose" },
+  default: { mjml: "default/thankyou" },
 });
 const { read, file } = require("./config");
 const mjmlEngine = require("mjml");
@@ -16,6 +16,8 @@ const htmlparser2 = require("htmlparser2");
 const render = require("dom-serializer").default;
 const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
+const configOverride = require("./lang").configOverride;
+const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -29,7 +31,8 @@ const help = () => {
       "--lang=fr (default en)",
       "--dry-run (show the result but don't write)",
       "--extract",
-      "mjml file to process (in config/mjml/...",
+      "--id (actionpageid)",
+      "--mjml {template to use in config/mjml, default default/thankyou)",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
   );
@@ -100,12 +103,12 @@ const translateTpl = (tpl, lang) =>
     parser.end();
   });
 
-const mjml2html = (name, lang, tpl) => {
+const mjml2html = (name, id, tpl) => {
   const render = mjmlEngine(tpl, {});
 
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/html/" + name + "." + lang + ".html"
+    tmp + "email/actionpage/" + id + ".html"
   );
   if (argv.verbose) {
     console.log(JSON.stringify(render.errors, null, 2));
@@ -114,6 +117,7 @@ const mjml2html = (name, lang, tpl) => {
     console.log("would write in ", fileName, render.html);
     return;
   }
+  console.log("saved in", fileName);
 
   fs.writeFileSync(fileName, render.html);
 
@@ -121,23 +125,35 @@ const mjml2html = (name, lang, tpl) => {
 };
 
 (async () => {
-  const name = argv._[0];
+  const id = argv._[0];
+  const name = argv.mjml;
+  let lang = null;
   //const display = argv.display || false;
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
-  if (argv.lang.length !== 2) {
-    console.error("invalid language", argv.lang);
-    process.exit(1);
+  const [file, config, campaign] = getConfigOverride(id);
+  console.log("widget ", config.filename);
+  lang = config.lang;
+  if (argv.lang) {
+    if (argv.lang.length !== 2) {
+      console.error("invalid language", argv.lang);
+      process.exit(1);
+    }
+    lang = argv.lang;
+    console.warn("overriding language with ", lang);
   }
-  const d = await i18n.changeLanguage(argv.lang);
+
+  const d = await i18n.changeLanguage(lang);
+  configOverride(config);
+
   try {
     const fileName = path.resolve(
       __dirname,
       tmp + "email/mjml/" + name + ".mjml"
     );
     let tpl = fs.readFileSync(fileName, "utf8");
-    const newTpl = await translateTpl(tpl, argv.lang);
-    mjml2html(name, argv.lang, newTpl);
+    const newTpl = await translateTpl(tpl, lang);
+    mjml2html(name, id, newTpl);
   } catch (e) {
     console.log(e);
   }

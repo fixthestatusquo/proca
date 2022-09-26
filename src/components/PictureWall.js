@@ -130,6 +130,7 @@ const PictureWall = (props) => {
         {selected !== false && (
           <img
             className={classes.img}
+            loading="lazy"
             src={
               process.env.REACT_APP_SUPABASE_URL +
               "/storage/v1/object/public/" +

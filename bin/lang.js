@@ -60,7 +60,48 @@ const mainLanguage = (countryCode, single = true) => {
   return l;
 };
 
+const configOverride = (config) => {
+  if (config.locales) {
+    let campaignTitle = false;
+    Object.keys(config.locales).map((k) => {
+      if (k.charAt(k.length - 1) === ":") {
+        const ns = k.slice(0, -1);
+        if (ns === "campaign") {
+          config.locales[k].title =
+            config.locales[k].title || config.campaign.title;
+          campaignTitle = true;
+        }
+        i18next.addResourceBundle(
+          config.lang,
+          ns,
+          config.locales[k],
+          true,
+          true
+        );
+        delete config.locales[k];
+      }
+      return true;
+    });
+    if (!campaignTitle) {
+      i18next.addResourceBundle(
+        config.lang,
+        "campaign",
+        config.campaign,
+        true,
+        true
+      );
+    }
+    i18next.addResourceBundle(
+      config.lang,
+      "common",
+      config.locales,
+      true,
+      true
+    );
+  }
+};
 module.exports = {
+  configOverride,
   mainLanguage,
   i18next,
   i18nInit,
