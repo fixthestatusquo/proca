@@ -69,7 +69,7 @@ const pushTemplate = async (config, html) => {
     process.exit(1);
   }
   const variables = {
-    name: config.filename.replaceAll("/", "_"),
+    name: config.filename.replaceAll("/", " "),
     orgName: config.org.name || config.lead.name,
     locale: config.lang,
     html: html,
