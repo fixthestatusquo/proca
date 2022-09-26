@@ -6,11 +6,11 @@ require("./dotenv.js");
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "extract", "verbose"],
+  boolean: ["help", "dry-run", "extract", "verbose", "push"],
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou" },
 });
-const { read, file } = require("./config");
+const { read, file, api } = require("./config");
 const mjmlEngine = require("mjml");
 const htmlparser2 = require("htmlparser2");
 const render = require("dom-serializer").default;
@@ -18,7 +18,7 @@ const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
-
+// todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
@@ -42,6 +42,50 @@ const help = () => {
 if (!argv._.length || argv.help) {
   return help();
 }
+
+const pushTemplate = async (config, html) => {
+  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String,$id: Int!) {
+    template: upsertTemplate (orgName:$orgName, input: {
+      html: $html,
+      subject: $subject,
+      locale: $locale,
+      name: $name,
+    })
+    actionPage: updateActionPage (id: $id, input: {
+      thankYouTemplate: $name
+    }) {
+    thankYouTemplate
+    }
+  }`;
+  const query2 = `mutation updateActionPage ($id: Int!, $template: String!) {
+    actionPage: updateActionPage (id: $id, input: {
+      thankYouTemplate: $template
+    }) {
+    thankYouTemplate
+    }
+  }`;
+  if (!config.filename) {
+    console.log("config json invalid, check it first");
+    process.exit(1);
+  }
+  const variables = {
+    name: config.filename.replaceAll("/", "_"),
+    orgName: config.org.name || config.lead.name,
+    locale: config.lang,
+    html: html,
+    subject: "subject",
+    id: config.actionpage,
+  };
+  const data = await api(query, variables, "upsertTemplate");
+  console.log(
+    "pushing ",
+    variables.name,
+    variables.orgName,
+    variables.locale,
+    data
+  );
+  return data;
+};
 
 const updateTranslation = (namespace, parsed) => {
   const file = path.resolve(__dirname, "../src/locales/en/server.json");
@@ -119,9 +163,14 @@ const mjml2html = (name, id, tpl) => {
   }
   console.log("saved in", fileName);
 
-  fs.writeFileSync(fileName, render.html);
-
-  //render.html is the one we need to update?
+  /*
+  const fileTextName = path.resolve(
+    __dirname,
+    tmp + "email/actionpage/" + id + ".txt"
+  );
+  fs.writeFileSync(fileTextName, render.text);
+  */
+  return render;
 };
 
 (async () => {
@@ -153,7 +202,11 @@ const mjml2html = (name, id, tpl) => {
     );
     let tpl = fs.readFileSync(fileName, "utf8");
     const newTpl = await translateTpl(tpl, lang);
-    mjml2html(name, id, newTpl);
+    const render = mjml2html(name, id, newTpl);
+    if (argv.push) {
+      const r = await pushTemplate(config, render.html);
+      console.log(r);
+    }
   } catch (e) {
     console.log(e);
   }
