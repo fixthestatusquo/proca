@@ -10,7 +10,7 @@ module.exports = (webpack) => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
   } else {
-    const [configFile, config] = getConfigOverride({ filename: "_example" });
+    const [configFile, config] = getConfigOverride();
     widgetBuildConfig(webpack, config);
   }
 
@@ -74,6 +74,11 @@ function widgetBuildConfig(webpack, config) {
               path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
               path.resolve(__dirname, "../build/index.js")
             );
+            fs.symlinkSync(
+              path.resolve(__dirname, "../d/" + config.filename + "/static/js"),
+              path.resolve(__dirname, "../build/satic/js")
+            );
+            console.log("trying to fix the error on file size");
           } catch (e) {
             console.log("already building the widget");
           }

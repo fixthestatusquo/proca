@@ -24,10 +24,7 @@ const stepComponent = {
 };
 
 module.exports = (defaultCode) => {
-  const [filename, config, campaign] = getConfigOverride({
-    journey: ["Petition", "Share"],
-    lang: "en",
-  });
+  const [filename, config, campaign] = getConfigOverride();
 
   const code = createCode(filename, config);
 

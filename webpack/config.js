@@ -19,7 +19,10 @@ function configFolder() {
     : "../config/";
 }
 function readConfigOverride(id) {
+  //  console.log(id);console.trace("Here I am!")
+
   let apId = id || process.env[envVar] || process.argv[2];
+
   if (apId) {
     const configFile = apId + ".json";
     const fn = path.resolve(__dirname, configFolder() + configFile);

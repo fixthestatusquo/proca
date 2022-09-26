@@ -20,7 +20,6 @@ const help = () => {
 };
 
 (async () => {
-  console.log(argv);
   if (!argv._[0]) {
     console.error("missing actionpage id");
     help();

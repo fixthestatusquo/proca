@@ -422,8 +422,7 @@ const push = async (id) => {
     //    console.log(actionPage);
     throw errors;
   }
-  console.log(actionPage);
-  return data;
+  return actionPage;
 };
 
 const pull = async (actionPage, anonymous) => {
