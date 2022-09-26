@@ -323,6 +323,7 @@ query actionPage ($id:Int!) {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     org: {
+      name: data.actionPage.org.name,
       privacyPolicy:
         (data.actionPage.org.config.privacy &&
           data.actionPage.org.config.privacy.policyUrl) ||
