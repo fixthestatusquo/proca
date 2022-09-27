@@ -180,6 +180,10 @@ to collect the consent of being contacted
 - `config.component.share.email: boolean`. Enable the share by email. Brocken now (on some config)
 - `config.component.share.reddit: boolean`: Enable share on reddit
 
+## Change Register button label
+
+- `config.component.register.button: 'whateverLabel'`
+
 ## Donate
 
 The Donate steps are configured under the `config.component.donation` key.
