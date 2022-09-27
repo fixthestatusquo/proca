@@ -7,6 +7,7 @@ import CameraFrontIcon from "@material-ui/icons/CameraFront";
 import CameraRearIcon from "@material-ui/icons/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
@@ -18,6 +19,7 @@ const CameraField = (props) => {
   const videoRef = useRef();
   const config = useCampaignConfig();
   const supabase = useSupabase();
+  const { t } = useTranslation();
   const { errors, getValues, register, setError, setValue } = props.form;
   const upload = async (params) => {
     const toBlob = () =>
@@ -197,7 +199,7 @@ const CameraField = (props) => {
           color="primary"
           onClick={() => startCamera("environment")}
         >
-          Start Camera
+          {t("camera.start", "start the camera")}
         </Button>
       )}
       <Box fullWidth style={{ maxWidth: "100%", cursor: "pointer" }}>
