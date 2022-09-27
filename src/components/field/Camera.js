@@ -8,6 +8,7 @@ import CameraRearIcon from "@material-ui/icons/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
+import { encode } from "blurhash";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
@@ -21,6 +22,7 @@ const CameraField = (props) => {
   const supabase = useSupabase();
   const { t } = useTranslation();
   const { errors, getValues, register, setError, setValue } = props.form;
+
   const upload = async (params) => {
     const toBlob = () =>
       new Promise((resolve) => {
@@ -48,6 +50,7 @@ const CameraField = (props) => {
       width: canvasRef.current.width,
       height: canvasRef.current.height,
       hash: hash,
+      blurhash: getBlurhash(),
       lang: config.lang,
     };
     //const f = items[current].original.split("/");
@@ -137,6 +140,19 @@ const CameraField = (props) => {
     }
   }, [cameras.length, startCamera]);
 
+  const getBlurhash = () => {
+    const canvas = canvasRef.current;
+    const blurHash = encode(
+      canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
+        .data,
+      canvas.width,
+      canvas.height,
+      9,
+      9
+    );
+    return blurHash;
+  };
+
   const takePicture = async () => {
     let video = videoRef.current;
     let canvas = canvasRef.current;
@@ -153,7 +169,9 @@ const CameraField = (props) => {
         canvas.width,
         canvas.height
       );
+
     let image_data_url = canvas.toDataURL("image/jpeg");
+
     _takePicture(image_data_url);
     // data url of the image
   };
@@ -171,6 +189,7 @@ const CameraField = (props) => {
     }
     setValue("hash", r.hash);
     setValue("imageId", r.id);
+    setValue("blurhash", getBlurhash());
     setValue(
       "image",
       process.env.REACT_APP_SUPABASE_URL +

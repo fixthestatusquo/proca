@@ -103,11 +103,12 @@ function widgetBuildConfig(webpack, config) {
     }
   }
   if (config.layout && config.layout.HtmlTemplate) {
+    const template = config.layout.HtmlTemplate || config.layout.template;
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
         if (plug.options.filename === "index.html") {
-          plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
+          plug.options.template = `${publicDir}/${template}`;
         }
         plug.options.title = `${config.organisation} - ${config.campaign.title}`;
         plug.options.config = config;

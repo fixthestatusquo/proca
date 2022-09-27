@@ -6,6 +6,30 @@ import Dialog from "@components/Dialog";
 import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
+import { decode } from "blurhash";
+
+const backgroundImage = () => {
+  const hash = getBlurhash();
+  const w = 600,
+    h = 600;
+  const pixels = decode(hash, w, h);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+
+  const ctx = canvas.getContext("2d");
+  const imageData = ctx.createImageData(w, h);
+  imageData.data.set(pixels);
+  ctx.putImageData(imageData, 0, 0);
+
+  const dataUrl = canvas.toDataURL();
+
+  //return canvas.toDataURL();
+
+  const dom = document.getElementById("widget-demo");
+  dom.style.background = "url(" + dataUrl + ")";
+};
 
 export const localeName = {
   cs: "čeština",
