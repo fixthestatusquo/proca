@@ -46,7 +46,7 @@
     "react-swipeable-views": "^0.14.0",
     "recoil": "^0.5.2",
     "snarkdown": "^2.0.0",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
