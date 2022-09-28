@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import { useSupabase } from "@lib/supabase";
 import ProgressCounter from "@components/ProgressCounter";
@@ -7,29 +7,6 @@ import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import { decode } from "blurhash";
-
-const backgroundImage = () => {
-  const hash = getBlurhash();
-  const w = 600,
-    h = 600;
-  const pixels = decode(hash, w, h);
-
-  const canvas = document.createElement("canvas");
-  canvas.width = w;
-  canvas.height = h;
-
-  const ctx = canvas.getContext("2d");
-  const imageData = ctx.createImageData(w, h);
-  imageData.data.set(pixels);
-  ctx.putImageData(imageData, 0, 0);
-
-  const dataUrl = canvas.toDataURL();
-
-  //return canvas.toDataURL();
-
-  const dom = document.getElementById("widget-demo");
-  dom.style.background = "url(" + dataUrl + ")";
-};
 
 export const localeName = {
   cs: "čeština",
@@ -70,10 +47,53 @@ export const localeName = {
 const useStyles = makeStyles((theme) => ({
   img: {
     maxWidth: "100%",
+    maxHeight: "100%",
+    height: "auto",
+    width: "auto",
     cursor: "pointer",
     borderRadius: 5,
   },
 }));
+
+const setBlurhash = (event, picture) => {
+  event.target.onError = null;
+  event.target.srcset = event.target.src;
+};
+
+const getBackground = (picture) => {
+  if (!picture.blurhash) return null;
+
+  const w = picture.width,
+    h = picture.height;
+  const pixels = decode(picture.blurhash, w, h);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+
+  const ctx = canvas.getContext("2d");
+  const imageData = ctx.createImageData(w, h);
+  imageData.data.set(pixels);
+  ctx.putImageData(imageData, 0, 0);
+
+  const dataUrl = canvas.toDataURL();
+  return dataUrl;
+  //  return "url(" + dataUrl + ")";
+};
+
+const usePlaceholder = (width, height) =>
+  useMemo(() => {
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "lightgrey";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const dataUrl = canvas.toDataURL();
+    return dataUrl;
+  }, [width, height]);
 
 const PictureWall = (props) => {
   const classes = useStyles();
@@ -84,12 +104,13 @@ const PictureWall = (props) => {
   const [languages, setLanguages] = useState([]);
   const config = useCampaignConfig();
   const campaign = config.campaign.name.replaceAll("_", "-");
-
+  const placeholder = usePlaceholder(600, 800);
   const handleClose = (d) => {
     select(false);
   };
 
   useEffect(() => {
+    console.log("WIP");
     (async () => {
       if (config.component.wall.language !== true) return;
       let { data, error } = await supabase
@@ -108,7 +129,7 @@ const PictureWall = (props) => {
     (async () => {
       let query = supabase
         .from("pictures")
-        .select("hash,legend,lang")
+        .select("hash,legend,lang,blurhash,width,height")
         .order("id", { ascending: false })
         .eq("campaign", config.campaign.name)
         .eq("enabled", true);
@@ -174,7 +195,11 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
-              src={
+              onError={(e) => setBlurhash(e, d)}
+              style={{ backgroundImage: getBackground(d) }}
+              src={getBackground(d) || placeholder}
+              size="100px"
+              srcset={
                 process.env.REACT_APP_SUPABASE_URL +
                 "/storage/v1/object/public/" +
                 campaign +
