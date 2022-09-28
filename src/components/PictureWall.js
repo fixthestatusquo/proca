@@ -57,14 +57,15 @@ const useStyles = makeStyles((theme) => ({
 
 const setBlurhash = (event, picture) => {
   event.target.onError = null;
-  event.target.srcset = event.target.src;
+  event.target.src = getBackground(picture);
+  //  event.target.srcset = event.target.src;
 };
 
 const getBackground = (picture) => {
   if (!picture.blurhash) return null;
 
-  const w = picture.width,
-    h = picture.height;
+  const w = picture.width / 10,
+    h = picture.height / 10;
   const pixels = decode(picture.blurhash, w, h);
 
   const canvas = document.createElement("canvas");
@@ -74,6 +75,7 @@ const getBackground = (picture) => {
   const ctx = canvas.getContext("2d");
   const imageData = ctx.createImageData(w, h);
   imageData.data.set(pixels);
+  ctx.scale(10, 10);
   ctx.putImageData(imageData, 0, 0);
 
   const dataUrl = canvas.toDataURL();
@@ -83,6 +85,7 @@ const getBackground = (picture) => {
 
 const usePlaceholder = (width, height) =>
   useMemo(() => {
+    console.log("yyy");
     const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
@@ -175,7 +178,6 @@ const PictureWall = (props) => {
         {selected !== false && (
           <img
             className={classes.img}
-            loading="lazy"
             src={
               process.env.REACT_APP_SUPABASE_URL +
               "/storage/v1/object/public/" +
@@ -195,12 +197,9 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
-              loaded="lazy"
               onError={(e) => setBlurhash(e, d)}
-              style={{ backgroundImage: getBackground(d) }}
-              src={getBackground(d) || placeholder}
-              size="1vw"
-              srcSet={
+              loaded="lazy"
+              src={
                 process.env.REACT_APP_SUPABASE_URL +
                 "/storage/v1/object/public/" +
                 campaign +
