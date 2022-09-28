@@ -195,11 +195,12 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
+              loaded="lazy"
               onError={(e) => setBlurhash(e, d)}
               style={{ backgroundImage: getBackground(d) }}
               src={getBackground(d) || placeholder}
-              size="100px"
-              srcset={
+              size="1vw"
+              srcSet={
                 process.env.REACT_APP_SUPABASE_URL +
                 "/storage/v1/object/public/" +
                 campaign +
