@@ -15,7 +15,8 @@ const CameraField = (props) => {
   const [cameras, setCameras] = useState([]);
   const [dimension, setDimension] = useState({});
   const [picture, _takePicture] = useState(undefined);
-  const [cDim, setcDim] = useState({ width: 480 * 2, height: 640 * 2 });
+  const max_size = 640;
+  const [cDim, _setcDim] = useState({ width: max_size, height: max_size }); // it will be adjusted based on the camera
   const canvasRef = useRef();
   const videoRef = useRef();
   const config = useCampaignConfig();
@@ -76,6 +77,23 @@ const CameraField = (props) => {
     return { id: data[0].id, hash: hash };
   };
 
+  const setcDim = (dim) => {
+    let { width, height } = dim;
+    if (width > height) {
+      if (width > max_size) {
+        height *= max_size / width;
+        width = max_size;
+      }
+    } else {
+      if (height > max_size) {
+        width *= max_size / height;
+        height = max_size;
+      }
+    }
+    _setcDim({ width: dim.width, height: dim.height });
+    alert(width + ":" + height);
+  };
+
   const startCamera = useCallback(
     async (facingMode) => {
       let video = videoRef.current;
@@ -112,8 +130,7 @@ const CameraField = (props) => {
           width: video.videoWidth,
           height: video.videoHeight,
         };
-        dim.vertical = dim.width < dim.height;
-        if (!dim.vertical) setcDim(dim);
+        setcDim(dim);
         setDimension(dim);
       };
       switchCamera(constraint.video.facingMode);
@@ -147,8 +164,8 @@ const CameraField = (props) => {
         .data,
       canvas.width,
       canvas.height,
-      9,
-      9
+      3,
+      4
     );
     return blurHash;
   };

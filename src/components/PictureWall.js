@@ -7,7 +7,8 @@ import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import { decode } from "blurhash";
-
+//import { decodeBlurHash as decode } from  "fast-blurhash";
+//
 export const localeName = {
   cs: "čeština",
   sv: "svenska",
