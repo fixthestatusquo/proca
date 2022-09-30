@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Button, IconButton, Box } from "@material-ui/core";
+import { Button, IconButton, Box, LinearProgress } from "@material-ui/core";
 import { FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
@@ -12,6 +12,7 @@ import { encode } from "blurhash";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
+  const [isValidating, validating] = useState(false);
   const [cameras, setCameras] = useState([]);
   const [dimension, setDimension] = useState({});
   const [picture, _takePicture] = useState(undefined);
@@ -91,7 +92,6 @@ const CameraField = (props) => {
       }
     }
     _setcDim({ width: dim.width, height: dim.height });
-    alert(width + ":" + height);
   };
 
   const startCamera = useCallback(
@@ -198,8 +198,14 @@ const CameraField = (props) => {
   };
 
   const validateImage = async (image) => {
+    //    const delay = ms => new Promise(res => setTimeout(res, ms));
+    //await delay (1500);
     if (!camera) return "Start the camera and take a picture";
-    if (!picture) return "Take a picture";
+    if (!picture) {
+      await takePicture();
+      //if (!picture) return "Take a picture";
+    }
+    validating(true);
     const r = await upload({ hash: getValues("hash") });
     if (r.message) {
       return r.message;
@@ -216,6 +222,7 @@ const CameraField = (props) => {
         r.hash +
         ".jpg"
     );
+    validating(false);
     return true;
   };
 
@@ -289,6 +296,7 @@ const CameraField = (props) => {
           style={{ maxWidth: "100%" }}
           height={cDim.height}
         ></canvas>
+        {isValidating && <LinearProgress fullWidth />}
       </Box>
       {picture && (
         <>
