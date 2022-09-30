@@ -46,13 +46,29 @@ export const localeName = {
 };
 
 const useStyles = makeStyles((theme) => ({
+  bimg: {
+    width: "100%",
+    objectFit: "contain",
+  },
   img: {
+    animation: `$showImg 1300ms`,
     maxWidth: "100%",
     maxHeight: "100%",
-    height: "auto",
-    width: "auto",
+    background: "lightgrey",
+    objectFit: "contain",
+    height: 0,
+    //    height: "auto",
+    //    width: "auto",
     cursor: "pointer",
     borderRadius: 5,
+  },
+  "@keyframes showImg": {
+    "0%": {
+      opacity: 0.4,
+    },
+    "100%": {
+      opacity: 1,
+    },
   },
 }));
 
@@ -62,11 +78,18 @@ const setBlurhash = (event, picture) => {
   //  event.target.srcset = event.target.src;
 };
 
+const replaceBlur = (event) => {
+  event.target.nextElementSibling.remove();
+  event.target.style.height = "auto";
+  //  event.target.srcset = event.target.src;
+};
+
 const getBackground = (picture) => {
   if (!picture.blurhash) return null;
 
-  const w = picture.width / 10,
-    h = picture.height / 10;
+  const ratio = 8;
+  const w = picture.width / ratio,
+    h = picture.height / ratio;
   const pixels = decode(picture.blurhash, w, h);
 
   const canvas = document.createElement("canvas");
@@ -76,7 +99,7 @@ const getBackground = (picture) => {
   const ctx = canvas.getContext("2d");
   const imageData = ctx.createImageData(w, h);
   imageData.data.set(pixels);
-  ctx.scale(10, 10);
+  ctx.scale(ratio, ratio);
   ctx.putImageData(imageData, 0, 0);
 
   const dataUrl = canvas.toDataURL();
@@ -86,7 +109,6 @@ const getBackground = (picture) => {
 
 const usePlaceholder = (width, height) =>
   useMemo(() => {
-    console.log("yyy");
     const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
@@ -114,7 +136,6 @@ const PictureWall = (props) => {
   };
 
   useEffect(() => {
-    console.log("WIP");
     (async () => {
       if (config.component.wall.language !== true) return;
       let { data, error } = await supabase
@@ -198,7 +219,9 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
+              display="none"
               onError={(e) => setBlurhash(e, d)}
+              onLoad={(e) => replaceBlur(e)}
               loaded="lazy"
               src={
                 process.env.REACT_APP_SUPABASE_URL +
@@ -208,6 +231,11 @@ const PictureWall = (props) => {
                 d.hash +
                 ".jpg"
               }
+              alt={d.legend}
+            />
+            <img
+              src={getBackground(d) || placeholder}
+              className={classes.bimg}
               alt={d.legend}
             />
           </Grid>
