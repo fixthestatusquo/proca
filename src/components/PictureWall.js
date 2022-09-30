@@ -49,6 +49,15 @@ const useStyles = makeStyles((theme) => ({
   bimg: {
     width: "100%",
     objectFit: "contain",
+    borderRadius: 5,
+  },
+  timg: {
+    animation: `$showImg 1300ms`,
+    width: "100%",
+    height: "auto",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    borderRadius: 5,
   },
   img: {
     animation: `$showImg 1300ms`,
@@ -199,7 +208,7 @@ const PictureWall = (props) => {
       <Dialog dialog={selected !== false} close={handleClose}>
         {selected !== false && (
           <img
-            className={classes.img}
+            className={classes.timg}
             src={
               process.env.REACT_APP_SUPABASE_URL +
               "/storage/v1/object/public/" +
@@ -219,7 +228,6 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
-              display="none"
               onError={(e) => setBlurhash(e, d)}
               onLoad={(e) => replaceBlur(e)}
               loaded="lazy"
