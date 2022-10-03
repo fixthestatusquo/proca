@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@alienfast/i18next-loader": "^1.1.4",
-    "@babel/cli": "^7.18.10",
+    "@babel/cli": "^7.19.3",
     "@babel/node": "^7.19.1",
     "@babel/plugin-transform-react-jsx": "^7.19.0",
     "@proca/api": "2.3.4",
