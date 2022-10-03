@@ -44,7 +44,7 @@
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
     "react-swipeable-views": "^0.14.0",
-    "recoil": "^0.5.2",
+    "recoil": "^0.7.5",
     "snarkdown": "^2.0.0",
     "uuid": "^9.0.0"
   },
