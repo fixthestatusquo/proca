@@ -57,7 +57,7 @@ const CameraField = (props) => {
     };
     //const f = items[current].original.split("/");
     const { data, error } = await supabase.from("pictures").insert([d]);
-    if (error && error.statusCode !== "23505") {
+    if (error && error.code !== "23505") {
       //error different than duplicated
       return error;
     }
@@ -70,12 +70,11 @@ const CameraField = (props) => {
     if (r.error) {
       if (r.error.statusCode === "23505") {
         //duplicated
-        return { id: data[0].id, hash: hash };
+        return { id: data && data[0].id, hash: hash };
       }
-      console.log(r.error);
-      if (r.error) return r.error;
+      return r.error?.message || "error uploading file";
     }
-    return { id: data[0].id, hash: hash };
+    return { id: data && data[0].id, hash: hash };
   };
 
   const setcDim = (dim) => {
@@ -158,6 +157,7 @@ const CameraField = (props) => {
   }, [cameras.length, startCamera]);
 
   const getBlurhash = () => {
+    console.time("blurhash");
     const canvas = canvasRef.current;
     const blurHash = encode(
       canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
@@ -167,6 +167,7 @@ const CameraField = (props) => {
       3,
       4
     );
+    console.timeEnd("blurhash", blurHash);
     return blurHash;
   };
 

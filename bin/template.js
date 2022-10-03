@@ -136,6 +136,7 @@ const translateTpl = (tpl, lang) =>
           reject({ error: "wrong child, was expecting text", elem: d });
         }
         keys[d.attribs.i18n] = text.data;
+        console.log("key", d.attribs.i18n, i18n.t(d.attribs.i18n));
         text.data = i18n.t(d.attribs.i18n); // translation to the new language
       });
       const trans = deepify(keys);
@@ -199,6 +200,8 @@ const saveConfig = (id) => {
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
   const [file, config, campaign] = getConfigOverride(id);
+  const server = campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
+  if (server) config.locales["server:"] = server;
   let orgConfig = null;
   try {
     try {
@@ -225,13 +228,13 @@ const saveConfig = (id) => {
   const d = await i18n.changeLanguage(lang);
 
   configOverride(config);
+  console.log("key", "email.thankyou.intro", i18n.t("email.thankyou.intro"));
 
   if (!mailConfig) {
     mailConfig = saveConfig(id);
     console.log("config", mailConfig);
   }
   config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
-
   const fileName = path.resolve(
     __dirname,
     tmp + "email/mjml/" + tplName + ".mjml"

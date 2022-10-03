@@ -63,7 +63,7 @@ const mainLanguage = (countryCode, single = true) => {
 const configOverride = (config) => {
   if (config.locales) {
     let campaignTitle = false;
-    Object.keys(config.locales).map((k) => {
+    Object.keys(config.locales).forEach((k) => {
       if (k.charAt(k.length - 1) === ":") {
         const ns = k.slice(0, -1);
         if (ns === "campaign") {
@@ -78,9 +78,9 @@ const configOverride = (config) => {
           true,
           true
         );
+        //        console.log(ns,config.lang,config.locales[k]);
         delete config.locales[k];
       }
-      return true;
     });
     if (!campaignTitle) {
       i18next.addResourceBundle(
