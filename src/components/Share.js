@@ -133,8 +133,6 @@ export default function ShareAction(props) {
   const { t } = useTranslation();
 
   const shareUrl = (component) => {
-    if (config?.component?.share?.utm === false) return window.location.href;
-
     const medium =
       typeof component === "string"
         ? component
@@ -144,7 +142,17 @@ export default function ShareAction(props) {
     params.set("utm_source", "share");
     params.set("utm_medium", medium);
     params.set("utm_campaign", uuid());
-
+    let garbage = [];
+    for (const key of params.keys()) {
+      if (key === "doi") garbage.push(key);
+      if (key.startsWith("proca_")) garbage.push(key);
+    }
+    if (config?.component?.share?.utm === false) {
+      ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
+        garbage.push(d)
+      );
+    }
+    garbage.forEach((key) => params.delete(key));
     return url.toString();
   };
   const next = () => {
