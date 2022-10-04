@@ -75,9 +75,7 @@ const pushTemplate = async (config, html) => {
     orgName: config.org.name || config.lead.name,
     locale: config.lang,
     html: html,
-    subject:
-      config.locales["server:"].meta.subject ||
-      i18n.t("email.subject.thankyou"),
+    subject: i18n.t("email.thankyou.subject", "missing [email subject]"),
     id: config.actionpage,
   };
   const data = await api(query, variables, "upsertTemplate");
@@ -86,8 +84,10 @@ const pushTemplate = async (config, html) => {
     variables.name,
     variables.orgName,
     variables.locale,
+    variables.subject,
     data
   );
+  console.log(data);
   return data;
 };
 
@@ -228,7 +228,6 @@ const saveConfig = (id) => {
   const d = await i18n.changeLanguage(lang);
 
   configOverride(config);
-  console.log("key", "email.thankyou.intro", i18n.t("email.thankyou.intro"));
 
   if (!mailConfig) {
     mailConfig = saveConfig(id);
