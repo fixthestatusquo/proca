@@ -62,6 +62,7 @@ const TextFieldProca = (props) => {
     validation.props = props.validate;
     delete drillProps.validate;
   }
+  delete drillProps.customValidity;
   delete drillProps.onChange;
   delete drillProps.onBlur;
   return (
@@ -81,7 +82,7 @@ const TextFieldProca = (props) => {
           <TextField
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
             onChange={handleChange}
-            value={value}
+            value={value || ""}
             onBlur={handleBlur}
             className={classes.textField}
             error={!!(errors && errors[props.name])}
