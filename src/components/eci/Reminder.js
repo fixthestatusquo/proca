@@ -14,6 +14,7 @@ import RemindIcon from "@material-ui/icons/AccessAlarms";
 import { ConsentProcessing } from "@components/Consent";
 import MailIcon from "@material-ui/icons/MailOutline";
 import Alert from "@material-ui/lab/Alert";
+import dispatch from "@lib/event";
 
 const RemindMeLater = (props) => {
   const config = useCampaignConfig();
@@ -96,6 +97,7 @@ const RemindMeLater = (props) => {
           message: "fatal error, please try later",
         });
     } else {
+      dispatch("reminder:sent");
       setSubmitted(true);
       setDisplayed(false);
     }
@@ -106,6 +108,11 @@ const RemindMeLater = (props) => {
     if (result) {
       await handleSubmit(onSubmit)();
     }
+  };
+
+  const open = (event) => {
+    dispatch("reminder:open");
+    setDisplayed(true);
   };
 
   return (
@@ -126,7 +133,7 @@ const RemindMeLater = (props) => {
         <Button
           variant="contained"
           fullWidth
-          onClick={() => setDisplayed(true)}
+          onClick={() => open()}
           endIcon={<RemindIcon />}
         >
           {t("action.reminder", "Remind me later")}
