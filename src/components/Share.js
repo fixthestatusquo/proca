@@ -130,7 +130,7 @@ export default function ShareAction(props) {
   const config = useCampaignConfig();
   const actionPage = config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const shareUrl = (component) => {
     const medium =
@@ -297,16 +297,18 @@ export default function ShareAction(props) {
             title={shareText("share-telegram")}
             component={TelegramShareButton}
           />
-          {!!config.component?.share?.email && (
-            <ActionIcon
-              icon={EmailIcon}
-              component={EmailShareButton}
-              subject={shareText("share-subject")}
-              body={shareText("share-body")}
-              separator=" "
-            />
-          )}
-          {!!config.component?.share?.reddit && (
+          {config.component.share?.email !== false &&
+            i18n.exists("campaign:share.email.subject") && (
+              <ActionIcon
+                icon={EmailIcon}
+                onClick={(e, link) => (window.location.href = link)}
+                component={EmailShareButton}
+                subject={t("campaign:share.email.subject", "")}
+                body={shareText("share.email.body")}
+                separator=" "
+              />
+            )}
+          {!!config.component.share?.reddit && (
             <ActionIcon icon={RedditIcon} component={RedditShareButton} />
           )}
           <ActionIcon
@@ -354,6 +356,7 @@ export default function ShareAction(props) {
         {...drillProps}
         component={props.component}
         url={shareUrl(props.component)}
+        onClick={props.onClick}
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
