@@ -29,10 +29,10 @@ import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
-import Country from "@components/Country";
 import Salutation from "@components/field/Salutation";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
+import Address from "@components/field/Address";
 
 import { addActionContact, addAction } from "@lib/server.js";
 import dispatch from "@lib/event.js";
@@ -443,12 +443,8 @@ export default function Register(props) {
                   required
                 />
               </Grid>
-              {config.component.register?.field?.street && (
-                <Grid item xs={12} className={classField}>
-                  <TextField form={form} name="street" label={t("Street")} />
-                </Grid>
-              )}
-              {config.component.register?.field?.postcode !== false && (
+              <Address form={form} campact={compact} classField={classField} />
+              {false && config.component.register?.field?.postcode !== false && (
                 <Grid
                   item
                   xs={12}
@@ -469,21 +465,6 @@ export default function Register(props) {
                       config.component.register?.field?.postcode?.required
                     }
                   />
-                </Grid>
-              )}
-              {config.component.register?.field?.country !== false && (
-                <Grid
-                  item
-                  xs={12}
-                  sm={
-                    compact ||
-                    config.component.register?.field?.postcode === false
-                      ? 12
-                      : 9
-                  }
-                  className={classField}
-                >
-                  <Country form={form} required />
                 </Grid>
               )}
               {config.component.register?.field?.phone === true && (
