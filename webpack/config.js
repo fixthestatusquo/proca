@@ -66,8 +66,7 @@ function readConfigOverride(id) {
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang]
         ) {
-          let campaigns = Object.assign(
-            {},
+          let campaigns = merge(
             campaignConfig.config.locales[config.lang]["campaign:"],
             config.locales["campaign:"]
           );
