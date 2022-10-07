@@ -5,7 +5,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run"],
 });
 
-const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
+const clean = (screenName) => screenName?.replace("@", "").toLowerCase().trim();
 
 const merge = (targets, twitters, options) => {
   const merged = targets.map((target) => {
