@@ -271,6 +271,10 @@ export default function ShareAction(props) {
         </CardActions>
       );
     } else {
+      console.log(
+        config.component.share?.email !== false,
+        i18n.exists("campaign:share.email.subject")
+      );
       cardIcons = (
         <CardActions>
           <ActionIcon

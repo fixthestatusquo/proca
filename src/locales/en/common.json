@@ -119,8 +119,11 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-    "salutation_info": "(the name will be put before sending)",
-    "salutation_placeholder": "Dear [recipient]"
+    "salutation_info": "(the recipient's name will be put before sending)",
+    "salutation_placeholder": "Dear [recipient]",
+    "salutation": "Dear {{target.name}}",
+    "salutationFemale": "Dear {{target.name}}",
+    "salutationMale": "Dear {{target.name}}"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",

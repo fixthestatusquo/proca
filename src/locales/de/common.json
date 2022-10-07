@@ -120,7 +120,12 @@
   "email": {
     "invalid_domain": "{{domain}} keine E-Mails empfangen kann",
     "salutation_info": "(der Name wird vor dem Absenden eingefügt)",
-    "salutation_placeholder": "Sehr geehrter [Empfänger]"
+            "salutation": "Sehr geehrte:r {{target.name}}",
+            "salutationFemale": "Sehr geehrte  {{target.name}}",
+            "salutationInfo": "die Begrüßungszeile wird in den Emails durch den Namen ersetzt",
+            "salutationMale": "Sehr geehrter{{target.name}}",
+            "salutationPlaceholder": "Sehr geehrte:r",
+    "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "progress": "{{count}} haben unterzeichnet. Erreichen wir {{goal}}",
   "progress_plural": "",
