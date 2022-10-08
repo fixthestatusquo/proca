@@ -18,7 +18,7 @@ import { useIsMobile } from "@hooks/useDevice";
 import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
@@ -40,7 +40,10 @@ const Filter = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   let r = null;
-  if (config.component.email?.filter?.includes("country"))
+  if (
+    config.component.email?.filter?.includes("country") &&
+    typeof config.component.country !== "string"
+  )
     r = <Country form={props.form} list={config.component.email?.countries} />;
 
   if (Array.isArray(config.component.email?.filter)) {
@@ -78,6 +81,7 @@ const Filter = (props) => {
 const Component = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
+  const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
@@ -121,7 +125,10 @@ const Component = (props) => {
   useEffect(() => {
     // not clear what it does, todo
     ["subject", "message"].map((k) => {
-      if (data[k] && !fields[k]) {
+      if (
+        data[k] &&
+        (!fields[k] || config.component.email?.multilingual === true)
+      ) {
         if (tokenKeys.length) {
           // there are token in the message
           const empty = { defaultValue: data[k], nsSeparator: false };
@@ -211,7 +218,18 @@ const Component = (props) => {
     (country) => {
       if (!country) return;
       country = country.toLowerCase();
+      let lang = undefined;
       let d = allProfiles.filter((d) => {
+        if (d.lang && d.country === country) {
+          if (lang === undefined) {
+            lang = d.lang;
+          } else {
+            if (d.lang !== lang) {
+              console.log(d, lang);
+              lang = false;
+            }
+          }
+        }
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
@@ -231,6 +249,15 @@ const Component = (props) => {
         });
       } else {
         clearErrors("country");
+      }
+      if (lang && config.lang !== lang) {
+        console.log("switch to lang", lang);
+
+        setConfig((current) => {
+          let next = { ...current };
+          next.lang = lang;
+          return next;
+        });
       }
       setProfiles(d);
       setData("targets", d);
