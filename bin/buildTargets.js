@@ -50,7 +50,10 @@ const merge = (targets, twitters, options) => {
     if (options.display) {
       r.display = !!target.fields.display;
     }
-    if (target.locale) r.locale = target.locale;
+    if (target.locale) {
+      r.locale = target.locale;
+      r.lang = target.locale;
+    }
 
     if (argv.fields) {
       const extraFields = argv.fields.split(",");

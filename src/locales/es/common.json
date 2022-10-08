@@ -119,7 +119,10 @@
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "salutation_info": "(el nombre se pondrá antes del envío)",
-    "salutation_placeholder": "Estimado [destinatario],"
+    "salutation_placeholder": "Estimado/a [destinatario]",
+            "salutation_female": "Estimada señora {{target.name}}",
+            "salutation_male": "Estimado señor {{target.name}}",
+            "salutation": "Estimado/a {{target.name}}"
   },
   "progress": "{{count}} han firmado. Vamos a por {{goal}}",
   "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
