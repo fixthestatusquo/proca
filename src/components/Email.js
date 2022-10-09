@@ -123,7 +123,6 @@ const Component = (props) => {
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   useEffect(() => {
-    // not clear what it does, todo
     ["subject", "message"].map((k) => {
       if (
         data[k] &&
@@ -250,12 +249,11 @@ const Component = (props) => {
       } else {
         clearErrors("country");
       }
-      if (lang && config.lang !== lang) {
-        console.log("switch to lang", lang);
-
+      //if (lang && config.lang !== lang) {
+      if (true) {
         setConfig((current) => {
           let next = { ...current };
-          next.lang = lang;
+          next.lang = lang || "en";
           return next;
         });
       }

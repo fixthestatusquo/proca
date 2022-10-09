@@ -8,6 +8,7 @@ const LoaderAsync = (props) => {
   const loaders = config.component.loader;
   const lang = config.lang;
   const [, setData] = useData();
+  //  console.log ("loading",lang);
   useEffect(() => {
     let isCancelled = false;
     if (!loaders) return;
