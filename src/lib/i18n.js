@@ -8,16 +8,14 @@ import isoCountriesLang from "@i18n-iso-countries/lang"; // alias to just used l
 
 // DUPLICATION WARNING require and import compatibility: any update needs to be done as well into ./bin/lang.js
 const languages = {
-  _be: ["fr", "nl"],
-  be: "fr_be",
+  be: ["fr", "nl"],
   gr: "el",
   el: "el",
   lt: "lt",
   pt: "pt",
   bg: "bg",
   es: "es",
-  _lu: ["fr", "de"],
-  lu: "fr_lu",
+  lu: ["fr", "de"],
   ro: "ro",
   cz: "cs",
   fr: "fr",
