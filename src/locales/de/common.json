@@ -120,6 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} keine E-Mails empfangen kann",
     "salutation": "Sehr geehrte:r {{target.name}}",
+    "salutationFemale": "Liebe {{target.name}}",
+    "salutationMale": "Liebe {{target.name}}",
     "salutation_info": "die Begrüßungszeile wird in den Emails durch den Namen ersetzt",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
