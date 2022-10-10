@@ -25,6 +25,7 @@ import TextField from "@components/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 import uuid from "@lib/uuid";
+import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
 import { addAction } from "@lib/server";
 
@@ -224,7 +225,6 @@ const Component = (props) => {
             lang = d.lang;
           } else {
             if (d.lang !== lang) {
-              console.log(d, lang);
               lang = false;
             }
           }
@@ -234,6 +234,14 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
+      if (!lang) {
+        // more than one lang in the country
+        lang = mainLanguage(country, false);
+        if (typeof lang === "object") {
+          //TODO, fix quick hack
+          lang = "fr_" + country;
+        }
+      }
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0) {

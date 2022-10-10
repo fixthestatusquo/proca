@@ -17,6 +17,7 @@ const LoaderAsync = (props) => {
         let url = loaders.url;
         if (!url) return null;
         if (loaders.appendLocale === true) url += lang;
+
         let d = null;
         let json = null;
         try {
