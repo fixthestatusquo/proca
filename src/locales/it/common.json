@@ -119,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} non può ricevere e-mail",
+    "salutation": "Caro {{target.name}}",
+    "salutationFemale": "Caro {{target.name}}",
+    "salutationMale": "Caro {{target.name}}",
     "salutation_info": "(il nome verrà inserito prima dell'invio)",
     "salutation_placeholder": "Caro [destinatario],"
   },
