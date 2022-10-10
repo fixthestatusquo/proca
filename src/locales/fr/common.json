@@ -119,11 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "salutation_placeholder": "Cher/chère [destinataire]",
-            "salutation_female": "Chère {{target.name}}",
-            "salutation_info": "Le nom sera automatiquement remplacé",
-            "salutation_male": "Cher {{target.name}}",
-            "salutation": "Cher/chère {{target.name}}"
+    "salutation": "Cher/chère {{target.name}}",
+    "salutation_info": "Le nom sera automatiquement remplacé",
+    "salutation_placeholder": "Cher/chère [destinataire]"
   },
   "progress": "{{count}} ont signé. Passons à {{goal}}",
   "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
