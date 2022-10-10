@@ -119,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
+    "salutation": "Gerbiamas {{target.name}}",
+    "salutationFemale": "Gerbiamas {{target.name}}",
+    "salutationMale": "Gerbiamas {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
