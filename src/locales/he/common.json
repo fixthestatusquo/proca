@@ -119,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
+    "salutation": "היקר {{target.name}}",
+    "salutationFemale": "היקר {{target.name}}",
+    "salutationMale": "היקר {{target.name}}",
     "salutation_info": "(השם יופיע לפני השליחה)",
     "salutation_placeholder": "[נמען], יקר"
   },
