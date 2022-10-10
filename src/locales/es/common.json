@@ -120,8 +120,9 @@
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "salutation": "Estimado/a {{target.name}}",
+    "salutationFemale": "Estimado {{target.name}}",
+    "salutationMale": "Estimado {{target.name}}",
     "salutation_info": "(el nombre se pondrá antes del envío)",
-    "salutation_male": "Estimado señor {{target.name}}",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
   "progress": "{{count}} han firmado. Vamos a por {{goal}}",
