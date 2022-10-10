@@ -119,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може да прима е-поруке",
+    "salutation": "Поштовани [Кс5Кс]",
+    "salutationFemale": "Поштовани [Кс5Кс]",
+    "salutationMale": "Поштовани [Кс5Кс]",
     "salutation_info": "(име ће бити стављено пре слања)",
     "salutation_placeholder": "Поштовани [прималац],"
   },
