@@ -3,6 +3,7 @@
   "Amount": "Összeg",
   "Another": "Egy másik",
   "Birthdate": "Születési dátum",
+  "City": "Város",
   "Comment": "Megjegyzés",
   "Country": "Ország",
   "Download": "Letöltés",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
+    "salutation": "Kedves {{target.name}}",
+    "salutationFemale": "Kedves {{target.name}}",
+    "salutationMale": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
     "salutation_placeholder": "Kedves [címzett],"
   },

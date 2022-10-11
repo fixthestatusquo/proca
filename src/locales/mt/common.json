@@ -3,6 +3,7 @@
   "Amount": "Ammont",
   "Another": "Ieħor",
   "Birthdate": "Data tat-twelid",
+  "City": "Belt",
   "Comment": "Kumment",
   "Country": "Pajjiż",
   "Download": "Niżżel",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
+    "salutation": "Għażiż {{target.name}}",
+    "salutationFemale": "Għażiż {{target.name}}",
+    "salutationMale": "Għażiż {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },

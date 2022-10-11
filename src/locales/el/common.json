@@ -3,6 +3,7 @@
   "Amount": "Ποσό",
   "Another": "Ένα άλλο",
   "Birthdate": "Ημερομηνία γέννησης",
+  "City": "Πόλη",
   "Comment": "Σχόλιο",
   "Country": "Χώρα",
   "Download": "Λήψη",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
+    "salutation": "Αγαπητή {{target.name}}",
+    "salutationFemale": "Αγαπητή {{target.name}}",
+    "salutationMale": "Αγαπητή {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },

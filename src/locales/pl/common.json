@@ -3,6 +3,7 @@
   "Amount": "Kwota",
   "Another": "Kolejny",
   "Birthdate": "Data urodzenia",
+  "City": "Miasto",
   "Comment": "Komentarz",
   "Country": "Kraj",
   "Download": "Pobierz",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
+    "salutation": "Droga {{target.name}}",
+    "salutationFemale": "Droga {{target.name}}",
+    "salutationMale": "Droga {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowny [adresat],"
   },

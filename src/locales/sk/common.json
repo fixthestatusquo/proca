@@ -3,6 +3,7 @@
   "Amount": "Čiastka",
   "Another": "Ďalšia stránka",
   "Birthdate": "Dátum narodenia",
+  "City": "Mesto",
   "Comment": "Komentár",
   "Country": "Krajina",
   "Download": "Stiahnuť",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nemôže prijímať e-maily",
+    "salutation": "Vážený {{target.name}}",
+    "salutationFemale": "Vážený {{target.name}}",
+    "salutationMale": "Vážený {{target.name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
     "salutation_placeholder": "Vážený [príjemca],"
   },

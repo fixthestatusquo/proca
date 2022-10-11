@@ -3,6 +3,7 @@
   "Amount": "Iznos",
   "Another": "Još",
   "Birthdate": "Datum rođenja",
+  "City": "Grad",
   "Comment": "Komentar",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
+    "salutation": "Poštovani {{target.name}}",
+    "salutationFemale": "Poštovani {{target.name}}",
+    "salutationMale": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
     "salutation_placeholder": "Poštovani [recipient],"
   },

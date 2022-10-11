@@ -3,6 +3,7 @@
   "Amount": "ចំនួនទឹកប្រាក់",
   "Another": "មួយទៀត",
   "Birthdate": "ថ្ងៃខែ​ឆ្នាំ​កំណើត",
+  "City": "ទីក្រុង",
   "Comment": "មតិយោបល់",
   "Country": "ប្រទេស",
   "Download": "ទាញយក",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
+    "salutation": "សូមគោរព {{target.name}}",
+    "salutationFemale": "សូមគោរព {{target.name}}",
+    "salutationMale": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },

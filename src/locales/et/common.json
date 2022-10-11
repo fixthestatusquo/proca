@@ -3,6 +3,7 @@
   "Amount": "Summa",
   "Another": "Teine",
   "Birthdate": "Sünnikuupäev",
+  "City": "Linn",
   "Comment": "Kommentaar",
   "Country": "Riik",
   "Download": "Laadi alla",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
+    "salutation": "Lugupeetud {{target.name}}",
+    "salutationFemale": "Lugupeetud {{target.name}}",
+    "salutationMale": "Lugupeetud {{target.name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },

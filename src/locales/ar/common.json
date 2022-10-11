@@ -3,6 +3,7 @@
   "Amount": "كمية",
   "Another": "اخر",
   "Birthdate": "تاريخ الولادة",
+  "City": "مدينة",
   "Comment": "تعليق",
   "Country": "دولة",
   "Download": "تحميل",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
+    "salutation": "عزيزي {{target.name}}",
+    "salutationFemale": "عزيزي {{target.name}}",
+    "salutationMale": "عزيزي {{target.name}}",
     "salutation_info": "(سيتم وضع الاسم قبل الإرسال)",
     "salutation_placeholder": "عزيزي [المستلم] ،"
   },

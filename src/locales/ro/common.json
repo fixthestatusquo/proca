@@ -3,6 +3,7 @@
   "Amount": "Sumă",
   "Another": "Un alt",
   "Birthdate": "Data nasterii",
+  "City": "Orașul",
   "Comment": "Comentariu",
   "Country": "Țara",
   "Download": "Descarcă",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
+    "salutation": "Dragă {{target.name}}",
+    "salutationFemale": "Dragă {{target.name}}",
+    "salutationMale": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },

@@ -3,6 +3,7 @@
   "Amount": "Montant",
   "Another": "Un autre",
   "Birthdate": "Date de naissance",
+  "City": "Ville",
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
+    "salutation": "Cher {{target.name}}",
+    "salutationFemale": "Cher {{target.name}}",
+    "salutationMale": "Cher {{target.name}}",
     "salutation_info": "(le nom sera mis avant l'envoi)",
     "salutation_placeholder": "Cher [destinataire],"
   },

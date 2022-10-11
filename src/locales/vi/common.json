@@ -3,6 +3,7 @@
   "Amount": "Số lượng",
   "Another": "Nữa",
   "Birthdate": "Ngày sinh",
+  "City": "Thành phố",
   "Comment": "Bình luận",
   "Country": "Quốc gia",
   "Download": "Tải xuống",
@@ -118,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} không thể nhận email",
+    "salutation": "Kính gửi {{name}}",
+    "salutationFemale": "Kính gửi {{name}}",
+    "salutationMale": "Kính gửi {{name}}",
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
