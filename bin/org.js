@@ -117,8 +117,11 @@ query GetOrg($name: String!) {
 };
 
 const pullOrg = async (name) => {
-  const org = await getOrg(name);
-  if (org.length === 0) {
+  let org = undefined;
+  if (!argv.push || argv.pull) org = await getOrg(name);
+  else org = readOrg(name);
+
+  if (!org) {
     return console.error("not storing empty orgs");
   }
   if (argv.twitter) {
@@ -139,7 +142,7 @@ if (require.main === module) {
     try {
       const name = argv._[0];
       let org = null;
-      if (!argv.push || argv.pull) org = await pullOrg(name);
+      org = await pullOrg(name);
       if (argv.push) {
         if (!org) {
           org = readOrg(name);
