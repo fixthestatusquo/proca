@@ -118,8 +118,13 @@ query GetOrg($name: String!) {
 
 const pullOrg = async (name) => {
   let org = undefined;
-  if (!argv.push || argv.pull) org = await getOrg(name);
-  else org = readOrg(name);
+  try {
+    if (!argv.push || argv.pull) org = await getOrg(name);
+    else org = readOrg(name);
+  } catch (e) {
+    console.error(e.message);
+    process.exit(1);
+  }
 
   if (!org) {
     return console.error("not storing empty orgs");
