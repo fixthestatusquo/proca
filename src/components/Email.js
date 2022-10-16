@@ -87,6 +87,9 @@ const Component = (props) => {
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
+  const [alwaysUpdate, setAlwaysUpdate] = useState(
+    config.component.email?.multilingual === true
+  );
   const isMobile = useIsMobile();
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
@@ -123,12 +126,13 @@ const Component = (props) => {
   useToken(data["message"], tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
+  const checkUpdated = (e) => {
+    // we do not automatically update the message as soon as the user starts changing it
+    setAlwaysUpdate(false);
+  };
   useEffect(() => {
     ["subject", "message"].map((k) => {
-      if (
-        data[k] &&
-        (!fields[k] || config.component.email?.multilingual === true)
-      ) {
+      if (data[k] && (!fields[k] || alwaysUpdate)) {
         if (tokenKeys.length) {
           // there are token in the message
           const empty = { defaultValue: data[k], nsSeparator: false };
@@ -152,6 +156,7 @@ const Component = (props) => {
     data,
     t,
     form,
+    alwaysUpdate,
   ]);
   // todo: clean the dependency
   //
@@ -269,7 +274,7 @@ const Component = (props) => {
       setData("targets", d);
       setData("country", country);
     },
-    [allProfiles, setError, clearErrors, t, setData, fallbackRandom]
+    [allProfiles, setError, clearErrors, t, setData, fallbackRandom, setConfig]
   );
 
   const countryFiltered = config.component.email?.filter?.includes("country");
@@ -376,6 +381,7 @@ const Component = (props) => {
               name="subject"
               required={config.component.email.field.subject.required}
               label={t("Subject")}
+              onChange={checkUpdated}
             />
           </Grid>
         ) : (
@@ -401,6 +407,7 @@ const Component = (props) => {
               maxRows={config.component.email.field.message.disabled ? 4 : 10}
               disabled={!!config.component.email.field.message.disabled}
               required={config.component.email.field.message.required}
+              onChange={checkUpdated}
               label={t("Your message")}
             />
           </Grid>
