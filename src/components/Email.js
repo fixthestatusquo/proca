@@ -113,29 +113,44 @@ const Component = (props) => {
   const tokenKeys = extractTokens(data["message"]);
   const tokens = watch(tokenKeys);
   useEffect(() => {
+    if (!alwaysUpdate) {
+      return;
+    }
+
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
     } // eslint-disable-next-line
-  }, [paramEmail]);
+  }, [paramEmail, alwaysUpdate]);
 
   const handleMerging = (text) => {
+    if (!alwaysUpdate) {
+      return;
+    }
+
     setValue("message", text);
   };
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
+
   useToken(data["message"], tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   const checkUpdated = (e) => {
     // we do not automatically update the message as soon as the user starts changing it
+    console.log("check updated");
     setAlwaysUpdate(false);
   };
   useEffect(() => {
     ["subject", "message"].map((k) => {
       if (data[k] && (!fields[k] || alwaysUpdate)) {
+        const defaultValue = form.getValues();
         if (tokenKeys.length) {
           // there are token in the message
-          const empty = { defaultValue: data[k], nsSeparator: false };
+          //          const empty = { defaultValue: data[k], nsSeparator: false };
+          const empty = {
+            defaultValue: defaultValue[k] || data[k],
+            nsSeparator: false,
+          };
           tokenKeys.forEach((d) => (empty[d] = ""));
           form.setValue(k, t(data[k], empty));
         } else {
