@@ -1,1 +1,161 @@
-{}
+{
+  "Address": "주소",
+  "Amount": "양",
+  "Another": "또 다른",
+  "Birthdate": "생일",
+  "City": "도시",
+  "Comment": "논평",
+  "Country": "국가",
+  "Download": "다운로드",
+  "Download explanation": "이제 문서가 준비되었습니다. 이메일로도 보내드립니다.",
+  "Email": "이메일",
+  "First name": "이름",
+  "Last name": "성",
+  "Locality": "소재지",
+  "Next": "다음",
+  "Other": "다른",
+  "Phone": "핸드폰",
+  "Postal Code": "우편 번호",
+  "Salutation": "인사말",
+  "Sorry, we couldn't save": "죄송합니다. 저장할 수 없습니다.",
+  "Street": "거리",
+  "Subject": "주제",
+  "Thank you": "고맙습니다",
+  "Your message": "당신의 메시지",
+  "action": {
+    "donate": "기부",
+    "eci": "ECI 서명",
+    "email": "이메일을 보내다",
+    "join": "가입하다",
+    "register": "등록하다",
+    "share": "공유하다",
+    "sign": "지금 서명하세요!",
+    "stayInformed": "최신 정보 유지",
+    "takeAction": "행동을 취하다",
+    "twitter": "트위터"
+  },
+  "consent": {
+    "actionConfirmed": "작업 확인됨",
+    "actionRejected": "작업이 성공적으로 취소되었습니다.",
+    "confirm": "<0>계속하시겠습니까?</0><1>'아니요'를 선택하면 이 캠페인이 성공적인지 또는 캠페인에서 승리하기 위해 함께 취해야 할 추가 조치가 있는지 알 수 없습니다. '예'를 선택하면 이 캠페인과 기타 긴급 캠페인에 대한 최신 소식을 알려드립니다.</1><2>언제든지 구독을 취소할 수 있습니다.</2>",
+    "confirmAction": "지금 이메일을 검색하고 포함된 링크를 클릭하십시오(스팸 폴더를 확인하십시오!).\n 그래야만 당신의 행동이 계산됩니다!\n귀하의 확인은 조치의 정치적 무게에 매우 중요합니다. 이것은 모든 제출 뒤에 실제 사람이 있음을 보장합니다. 확인을 기다리겠습니다...",
+    "confirmOptIn": "사서함(스팸 폴더 포함!)을 확인하고 이메일 구독을 확인하는 것을 잊지 마십시오.",
+    "emailSent": "{{email}}로 이메일을 보냈습니다!",
+    "implicit": "{{name}}에서 이메일을 수신하려면 이 양식을 제출하세요.",
+    "intro": "캠페인, 작업 및 {{campaign}} 진행 상황에 대해 자세히 알아보십시오.",
+    "opt-in": "예, {{partner}}가 이메일을 통해 계속 알려 주기를 원합니다.",
+    "opt-in-both": "예, {{partner}} 및 {{lead}}가 이메일을 통해 계속 알려 주기를 원합니다.",
+    "opt-out": "아니요, 나에게 이메일을 보내거나 앞으로 업데이트하지 마십시오.",
+    "optInConfirmed": "구독 확인됨",
+    "processing": "귀하의 개인 정보는 비공개로 유지되며 안전하게 보관됩니다. 정보를 제출하면 <1>개인정보취급방침</1>에 따라 데이터 및 쿠키 사용에 동의하는 것입니다.",
+    "processing-nocookie": "귀하의 개인 정보는 비공개로 유지되며 안전하게 보관됩니다. 정보를 제출하면 <1>개인정보 보호정책</1>에 따른 데이터 사용에 동의하는 것입니다.",
+    "required": "참여하려면 귀하의 동의가 필요합니다"
+  },
+  "dateFormat": "DD/MM/YYYY",
+  "dialogTitle": "캠페인에 대한 정보 제공",
+  "donation": {
+    "amount": {
+      "change": "금액 변경",
+      "intro": "금액 선택"
+    },
+    "average": "평균 기부금은 {{amount}}입니다.",
+    "button": {
+      "cta": {
+        "monthly": "매월 {{amount}} 기부",
+        "oneoff": "기부 {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "신용카드 번호가 누락되었습니다."
+      },
+      "form": {
+        "invalid": {
+          "iban": "아이반"
+        }
+      },
+      "general": "일반",
+      "initialisation": "초기화"
+    },
+    "form": {
+      "error": {
+        "minimum": "최소 기부금은 {{amount}}입니다."
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "매주 기부를 하시겠습니까?",
+        "oneoff": "기부",
+        "weekly": "월간으로 할까?"
+      },
+      "each": {
+        "monthly": "매주",
+        "oneoff": "한 번",
+        "weekly": "매달"
+      },
+      "feedback": {
+        "monthly": "기부합니다 {{amount}} {{frequency}}",
+        "oneoff": "기부합니다 {{amount}}"
+      },
+      "monthly": "월간 간행물",
+      "oneoff": "한 번",
+      "weekly": "주간",
+      "yearly": "매년"
+    },
+    "iban": "이반",
+    "intro": "{{campaign}}에 기부",
+    "mobile": {
+      "open": "열려 있는"
+    },
+    "payment_methods": {
+      "card": "카드",
+      "intro": "어떻게 기부하시겠습니까?",
+      "paypal": "페이팔",
+      "sepa": "세파",
+      "title": "지불 방법"
+    },
+    "thanks": "기부해주셔서 감사합니다!",
+    "to": "{{organisation}} 기부"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} 이메일을 받을 수 없습니다",
+    "salutation": "친애하는 {{target.name}}",
+    "salutationFemale": "친애하는 {{target.name}}",
+    "salutationMale": "친애하는 {{target.name}}",
+    "salutation_info": "(수취인의 이름은 보내기 전에 입력됩니다)",
+    "salutation_placeholder": "친애하는 [받는 사람]"
+  },
+  "progress": "{{count}}이(가) 서명했습니다. {{goal}}로 가자",
+  "register": "내 이름 추가",
+  "required": "필수의",
+  "required field": "필수 필드",
+  "salutations": {
+    "f": "친애하는 {{target.name}}",
+    "m": "친애하는 {{target.name}}",
+    "other": "친애하는 {{target.name}}"
+  },
+  "share": {
+    "intro": "좋습니다. 서명했습니다. 영향력을 배가시키려면 널리 퍼뜨려 모든 사람이 이 청원을 볼 수 있도록 해주세요 🙏.",
+    "message": "이 서명을 해야 합니다!",
+    "title": "거의 완료! 다음 단계를 수행하십시오."
+  },
+  "supporter": {
+    "not_you": "너 말고?",
+    "welcome": "다시 오신 것을 환영합니다, {{firstname}}!"
+  },
+  "target": {
+    "country": {
+      "empty": "다른 국가를 선택하세요. {{country}}에 연락할 사람이 없습니다."
+    },
+    "random": "{{total}} 가장 중요한 타겟 중 하나 선택"
+  },
+  "twitter": {
+    "actionText": "액션텍스트",
+    "again": "다른 사람에게 트윗하기",
+    "choice": "다음엔 뭘하고 싶어?",
+    "instruction": "새 창(twitter.com에서)에서 트윗 보내기를 완료하세요.",
+    "organisation": "조직 트위터 계정",
+    "screenName": "화면 이름"
+  },
+  "you need to be 18 years old": "당신은 18 세가되어야합니다"
+}
