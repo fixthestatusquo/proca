@@ -51,7 +51,7 @@
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich"
   },
-  "dateFormat": "dateFormat",
+  "dateFormat": "TT.MM.JJJJ",
   "dialogTitle": "Informieren Sie mich über die Kampagne",
   "donation": {
     "amount": {
