@@ -24,7 +24,7 @@
   "Your message": "Vaše sporočilo",
   "action": {
     "donate": "Podarite",
-    "eci": "eci",
+    "eci": "Podpišite ECI",
     "email": "Pošlji e-pošto",
     "join": "Pridružite se",
     "register": "Register",
@@ -125,8 +125,8 @@
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
-  "progress": "{{count}} so se podpisali. Pojdimo v {{goal}}",
-  "progress_plural": "{{count}} so se podpisali. Pojdimo v {{goal}}",
+  "progress": "{{count}} oseb se je podpisalo.. Pojdimo do {{goal}}",
+  "progress_plural": "{{count}} oseb se je podpisalo. Pojdimo do {{goal}}",
   "register": "Dodaj moje ime",
   "required": "Izpolnite to polje",
   "required field": "Obvezno polje",
