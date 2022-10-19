@@ -144,6 +144,7 @@ if (!argv._.length || argv.help) {
       twitters = read("target/twitter/" + name); // the list from twitter
     } catch (e) {
       console.log("no twitter list");
+      twitters = [];
     }
 
     const d = merge(targets, twitters || [], {

@@ -83,10 +83,13 @@ const Frequencies = (props) => {
 
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
-  const frequencies = donateConfig?.frequency?.options || ["oneoff", "monthly"];
+  const frequencies = donateConfig?.frequency?.options || ["oneoff"];
 
   const [data] = useData();
-  const frequency = data.frequency;
+  const frequency =
+    data.frequency ||
+    config.component.donation?.frequency?.default ||
+    "default";
 
   return frequencies.length > 1 ? (
     <>

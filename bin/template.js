@@ -200,7 +200,10 @@ const saveConfig = (id) => {
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
   const [file, config, campaign] = getConfigOverride(id);
-  const server = campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
+  const server =
+    campaign.config.locales &&
+    campaign.config.locales[config.lang] &&
+    campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
   if (server) config.locales["server:"] = server;
   let orgConfig = null;
   try {

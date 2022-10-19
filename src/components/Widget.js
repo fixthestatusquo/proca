@@ -236,7 +236,11 @@ const Widget = (props) => {
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
     scrollTo();
-    if (typeof steps[journey[current]].after === "function") {
+    console.log(journey[current], steps[journey[current]]);
+    if (
+      steps[journey[current]] &&
+      typeof steps[journey[current]].after === "function"
+    ) {
       if (steps[journey[current]].after(result) === false) {
         console.log(
           "the custom 'after' returned false, we do not go to the next step"
