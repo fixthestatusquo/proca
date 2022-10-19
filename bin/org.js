@@ -18,21 +18,23 @@ const argv = require("minimist")(process.argv.slice(2), {
 
 const { file, api } = require("./config");
 
-if (!argv._.length || argv.help) {
-  console.log(
-    [
-      "options",
-      "--help (this command)",
-      "--dry-run (show the parsed org but don't write)",
-      "--pages (fetch the action pages of the org)",
-      "--users(fetch the users of the org)",
-      "--pull (by default)",
-      "--push (update the server)",
-      "org {org name}",
-    ].join("\n")
-  );
-  process.exit(0);
-}
+const help = () => {
+  if (!argv._.length || argv.help) {
+    console.log(
+      [
+        "options",
+        "--help (this command)",
+        "--dry-run (show the parsed org but don't write)",
+        "--pages (fetch the action pages of the org)",
+        "--users(fetch the users of the org)",
+        "--pull (by default)",
+        "--push (update the server)",
+        "org {org name}",
+      ].join("\n")
+    );
+    process.exit(0);
+  }
+};
 
 const readOrg = (orgName) => {
   const fileName = file("org/" + orgName);
@@ -143,6 +145,7 @@ const pullOrg = async (name) => {
 
 if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
+  help();
   (async () => {
     try {
       const name = argv._[0];
