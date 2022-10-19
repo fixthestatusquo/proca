@@ -18,10 +18,12 @@
             "confirm": "Klicken Sie auf den unten stehenden Link, um Ihr Abonnement zu bestätigen",
             "confirmButton": "Bestätigen Sie"
         },
-        "actionConfirm": {
-            "subject": "Ein weiterer Schritt: Bestätigen Sie Ihre Unterschrift",
-            "confirm": "Klicken Sie auf den folgenden Link, um Ihre Aktion zu bestätigen",
-            "confirmButton": "Bestätigen Sie"
-        }
+    "actionConfirm": {
+      "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
+      "intro": "Bitte bestätigen Sie Ihre Teilnahme an der Aktion {{campaign.title}}",
+      "confirmButton": "Ja, ich bestätige meine Teilnahme",
+      "extra":"Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
+
+    }
     }
 }
