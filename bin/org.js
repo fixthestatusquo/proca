@@ -165,6 +165,7 @@ if (require.main === module) {
 } else {
   //export a bunch
   module.exports = {
+    getOrg,
     pullOrg,
     readOrg,
   };

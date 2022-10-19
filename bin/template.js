@@ -205,15 +205,25 @@ const saveConfig = (id) => {
     campaign.config.locales[config.lang] &&
     campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
   if (server) config.locales["server:"] = server;
-  let orgConfig = null;
+  let orgConfig = {};
   try {
     try {
       orgConfig = org.readOrg(config.org.name);
     } catch (e) {
-      orgConfig = await org.pullOrg(config.org.name);
+      try {
+        orgConfig = await org.getOrg(config.org.name);
+      } catch (e) {
+        console.log(
+          "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
+          config.org.name
+        );
+      }
     }
   } catch (e) {
-    console.log("you need to be a member of", config.org.name);
+    console.log(
+      "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
+      config.org.name
+    );
     process.exit(1);
   }
   let mailConfig = read("email/actionpage/" + id);
