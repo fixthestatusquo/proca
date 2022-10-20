@@ -7,7 +7,7 @@
 - ### 1.1 Attach thankyou template to the page (only for thankyou emails)
 &nbsp;&nbsp;&nbsp;&nbsp;  `proca page:set -t TEMPLATENAME ORGNAME`
 
-## 2 Set mail backend
+## 2 Set mail backend (optional, defaults to system)
 `proca service:set -n mailjet -o ORGNAME -u SECRETNUMBER  -p ANOTHERSECRETNUMBER`
 
 - ### 2.a. Set from and reply to to  whatever@proca.app
