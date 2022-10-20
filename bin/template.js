@@ -30,10 +30,10 @@ const help = () => {
     [
       "options",
       "--help (this command)",
-      "--lang=fr (default en)",
+      "--lang=fr (to overwrite the language in the actionpage)",
       "--dry-run (show the result but don't write)",
       "--extract",
-      "--id (actionpageid)",
+      "actionpage_id",
       "--mjml {template to use in config/mjml, default default/thankyou)",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
