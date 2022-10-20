@@ -39,7 +39,7 @@
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion zählen!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine reale Person steht. Wir warten auf Ihre Bestätigung...",
-    "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
+    "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail zu bestätigen",
     "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails zu erhalten von {{name}}",
     "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte {{campaign}}",
