@@ -45,7 +45,7 @@ const readOrg = (orgName) => {
 const saveOrg = (orgName, org) => {
   const fileName = file("org/" + orgName);
   fs.writeFileSync(fileName, JSON.stringify(org, null, 2));
-  console.log("wrote " + "org/" + orgName);
+  console.log("wrote config/" + "org/" + orgName + ".json");
   return fileName;
 };
 
