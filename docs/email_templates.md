@@ -43,3 +43,6 @@
 ### Action confirm
 (works for action+DOI case)
 `confirm.component.consent.email.confirmAction: true`
+
+### Link to the guide
+Consent and double opt-in [guide](https://proca.app/guide/double-opt-in/).
