@@ -42,7 +42,7 @@
     "react-masonry-component": "^6.3.0",
     "react-script-hook": "^1.6.0",
     "react-scripts": "^4.0.3",
-    "react-share": "^4.4.0",
+    "react-share": "^4.4.1",
     "react-swipeable-views": "^0.14.0",
     "recoil": "^0.5.2",
     "snarkdown": "^2.0.0",
