@@ -3,6 +3,7 @@
   "Amount": "Summa",
   "Another": "Teine",
   "Birthdate": "Sünnikuupäev",
+  "City": "Linn",
   "Comment": "Kommentaar",
   "Country": "Riik",
   "Download": "Laadi alla",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Tegevus kinnitatud",
+    "actionRejected": "Meede tühistati edukalt",
     "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
     "confirmAction": "Oleme saatnud kinnituse lingi e-posti teel järgmisele aadressile:\n {{email}}.\nPalun võtke e-kiri kohe kätte ja klõpsake selles sisalduvale lingile (kontrollige oma rämpsposti kausta!).\n Ainult siis loeb teie tegevus!\nTeie kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame teie kinnitust...",
     "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh rämpsposti kausta!) ja kinnitada oma e-posti tellimust.",
@@ -43,6 +46,7 @@
     "opt-in": "Jah, hoia mind e-posti teel kursis",
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
+    "optInConfirmed": "Tellimus kinnitatud",
     "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "required": "Osalemiseks on vaja teie nõusolekut"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
+    "salutation": "Lugupeetud {{target.name}}",
+    "salutationFemale": "Lugupeetud {{target.name}}",
+    "salutationMale": "Lugupeetud {{target.name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },

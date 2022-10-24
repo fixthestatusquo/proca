@@ -3,6 +3,7 @@
   "Amount": "Znesek",
   "Another": "Še en",
   "Birthdate": "Rojstni datum",
+  "City": "Mesto",
   "Comment": "Komentar",
   "Country": "Država",
   "Download": "Prenos",
@@ -23,7 +24,7 @@
   "Your message": "Vaše sporočilo",
   "action": {
     "donate": "Podarite",
-    "eci": "eci",
+    "eci": "Podpišite ECI",
     "email": "Pošlji e-pošto",
     "join": "Pridružite se",
     "register": "Register",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Potrjen ukrep",
+    "actionRejected": "Akcija je bila uspešno preklicana",
     "confirm": "<0> Ali ste prepričani? </0> <1> Če izberete »Ne«, ne boste seznanjeni z uspešnostjo te kampanje. Če izberete »Da«, vas bomo sproti obveščali o tej in o drugih kampanjah. </1> <2> Od prejemanja obvestil se lahko kadar koli odjavite. </2>",
     "confirmAction": "Povezavo za potrditev smo poslali po e-pošti na naslednji naslov:\n {{email}}.\nZdaj preberite e-poštno sporočilo in kliknite na povezavo, ki jo vsebuje (preverite mapo za neželeno pošto!).\n Le tako bo vaše dejanje štelo!\nVaša potrditev je ključnega pomena za politično težo akcije. S tem je zagotovljeno, da za vsako predložitvijo stoji resnična oseba. Čakali bomo na vašo potrditev...",
     "confirmOptIn": "Ne pozabite preveriti svojega poštnega predala (vključno z mapo za nezaželeno pošto!) in potrditi prijavo na e-pošto.",
@@ -43,6 +46,7 @@
     "opt-in": "Da, obveščajte me po e-pošti",
     "opt-in-both": "Da, želim, da me {{partner}} in {{lead}} obveščata po e-pošti",
     "opt-out": "Ne pošiljajte mi e-poštnih sporočil",
+    "optInConfirmed": "Potrjena naročnina",
     "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "required": "Za sodelovanje je potrebno vaše soglasje."
@@ -115,11 +119,14 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
+    "salutation": "Spoštovani {{target.name}}",
+    "salutationFemale": "Spoštovani {{target.name}}",
+    "salutationMale": "Spoštovani {{target.name}}",
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
-  "progress": "{{count}} so se podpisali. Pojdimo v {{goal}}",
-  "progress_plural": "{{count}} so se podpisali. Pojdimo v {{goal}}",
+  "progress": "{{count}} oseb se je podpisalo. Pojdimo do {{goal}}",
+  "progress_plural": "{{count}} oseb se je podpisalo. Pojdimo do {{goal}}",
   "register": "Dodaj moje ime",
   "required": "Izpolnite to polje",
   "required field": "Obvezno polje",

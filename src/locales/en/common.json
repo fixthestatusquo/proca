@@ -4,6 +4,7 @@
   "Another": "Another",
   "Birthdate": "Birth date",
   "Comment": "Comment",
+  "City": "City",
   "Country": "Country",
   "Download": "Download",
   "Download explanation": "Your document is now ready, we are emailing it to you too",
@@ -50,7 +51,7 @@
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
     "required": "Your consent is needed to participate"
   },
-  "dateFormat": "dateFormat",
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
     "amount": {
@@ -118,8 +119,11 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-    "salutation_info": "(the name will be put before sending)",
-    "salutation_placeholder": "Dear [recipient]"
+    "salutation_info": "(the recipient's name will be put before sending)",
+    "salutation_placeholder": "Dear [recipient]",
+    "salutation": "Dear {{target.name}}",
+    "salutationFemale": "Dear {{target.name}}",
+    "salutationMale": "Dear {{target.name}}"
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",

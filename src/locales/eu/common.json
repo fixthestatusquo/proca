@@ -3,6 +3,7 @@
   "Amount": "Kopurua",
   "Another": "Beste bat",
   "Birthdate": "Urtebetetze data",
+  "City": "Hiria",
   "Comment": "Iruzkina utzi",
   "Country": "Herrialdea",
   "Download": "Deskargatu",
@@ -34,6 +35,8 @@
     "twitter": "Txio egin"
   },
   "consent": {
+    "actionConfirmed": "Ekintza berretsi da",
+    "actionRejected": "Ekintza behar bezala bertan behera utzi da",
     "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
     "confirmAction": "Berrespen-esteka bat bidali dugu posta elektronikoz helbide honetara:\n {{email}}\nMesedez, berreskuratu e-posta oraintxe bertan eta egin klik daukan estekan (begiratu zure spam karpeta!).\n Orduan bakarrik balioko du zure ekintzak!\nZure baieztapena funtsezkoa da ekintzaren pisu politikorako. Honek bidalketa bakoitzaren atzean benetako pertsona bat dagoela bermatzen du. Zure baieztapenaren zain egongo gara...",
     "confirmOptIn": "Ez ahaztu zure postontzia egiaztatzea (zure spam karpeta barne!) eta berretsi zure posta elektronikoko harpidetza",
@@ -43,6 +46,7 @@
     "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
     "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
     "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
+    "optInConfirmed": "Harpidetza berretsi da",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
     "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
     "required": "Zure baimena behar da parte hartzeko"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
+    "salutation": "Maitea {{target.name}}",
+    "salutationFemale": "Maitea {{target.name}}",
+    "salutationMale": "Maitea {{target.name}}",
     "salutation_info": "(izena bidali aurretik jarriko da)",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },

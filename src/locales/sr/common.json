@@ -3,6 +3,7 @@
   "Amount": "Износ",
   "Another": "Други",
   "Birthdate": "Датум рођења",
+  "City": "Цити",
   "Comment": "Komentar",
   "Country": "Država",
   "Download": "Преузимање",
@@ -34,6 +35,8 @@
     "twitter": "Твеет"
   },
   "consent": {
+    "actionConfirmed": "Акција потврђена",
+    "actionRejected": "Акција је успешно отказана",
     "confirm": "<0> Da li ste sigurni? </0> <1> Ako izaberete \"Ne\", nećete moći da saznate da li je kampanja uspešna i da li je potrebno još zajedničkih napora da bi uspela. Ako izaberete \"Da\", obaveštavaćemo vas o ovoj i drugim bitnim kampanjama. </1> <2> Možete se odjaviti u svakom trenutku.</2>",
     "confirmAction": "Послали смо везу за потврду имејлом на следећу адресу:\n [Кс69Кс]\nПреузмите е-пошту одмах и кликните на линк који садржи (проверите своју спам фасциклу!).\n Тек тада ће се ваша акција рачунати!\nВаша потврда је кључна за политичку тежину акције. Ово гарантује да иза сваког поднеска стоји стварна особа. Чекамо вашу потврду...",
     "confirmOptIn": "Не заборавите да проверите своје поштанско сандуче (укључујући фасциклу за нежељену пошту!) и потврдите своју претплату на е-пошту",
@@ -43,6 +46,7 @@
     "opt-in": "Dajem pristanak da me {{partner}} informiše putem email-a",
     "opt-in-both": "Dajem pristanak da me {{partner}} i {{lead}} informišu putem email-a",
     "opt-out": "Ne šaljite mi mejlove i nemojte me obaveštavati ubuduće",
+    "optInConfirmed": "Претплата је потврђена",
     "processing": "Ваши лични подаци ће бити приватни и безбедни. Слањем информација пристајете на употребу података и колачића у складу са нашом <1> политиком приватности </1>",
     "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
     "required": "За учешће је потребна ваша сагласност"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може да прима е-поруке",
+    "salutation": "Поштовани [Кс5Кс]",
+    "salutationFemale": "Поштовани [Кс5Кс]",
+    "salutationMale": "Поштовани [Кс5Кс]",
     "salutation_info": "(име ће бити стављено пре слања)",
     "salutation_placeholder": "Поштовани [прималац],"
   },

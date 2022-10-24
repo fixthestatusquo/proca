@@ -3,6 +3,7 @@
   "Amount": "Sumă",
   "Another": "Un alt",
   "Birthdate": "Data nasterii",
+  "City": "Orașul",
   "Comment": "Comentariu",
   "Country": "Țara",
   "Download": "Descarcă",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Acțiune confirmată",
+    "actionRejected": "Acțiunea a fost anulată cu succes",
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
     "confirmAction": "Am trimis un link de confirmare prin e-mail la următoarea adresă:\n {{email}}.\nVă rugăm să preluați e-mailul chiar acum și să faceți clic pe link-ul pe care îl conține (verificați dosarul de spam!).\n Doar atunci acțiunea dumneavoastră va conta!\nConfirmarea dvs. este crucială pentru greutatea politică a acțiunii. Acest lucru garantează că în spatele fiecărei propuneri se află o persoană reală. Așteptăm confirmarea dumneavoastră...",
     "confirmOptIn": "Nu uitați să vă verificați căsuța poștală (inclusiv folderul de spam!) și să confirmați abonarea la e-mail.",
@@ -43,6 +46,7 @@
     "opt-in": "Da, ține-mă informat prin e-mail",
     "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
     "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
+    "optInConfirmed": "Abonament confirmat",
     "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "required": "Consimțământul dumneavoastră este necesar pentru a participa"
@@ -115,10 +119,13 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
+    "salutation": "Dragă {{target.name}}",
+    "salutationFemale": "Dragă {{target.name}}",
+    "salutationMale": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },
-  "progress": "{{count}} au semnat. Să mergem la {{goal}}",
+  "progress": "{{count}} au semnat. Hai să strângem {{goal}}",
   "register": "Adaugă numele meu",
   "required": "Vă rugăm să completați acest câmp",
   "required field": "Câmp obligatoriu",

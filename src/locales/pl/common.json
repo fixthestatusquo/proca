@@ -3,6 +3,7 @@
   "Amount": "Kwota",
   "Another": "Kolejny",
   "Birthdate": "Data urodzenia",
+  "City": "Miasto",
   "Comment": "Komentarz",
   "Country": "Kraj",
   "Download": "Pobierz",
@@ -34,6 +35,8 @@
     "twitter": "Tweetnij"
   },
   "consent": {
+    "actionConfirmed": "Działanie potwierdzone",
+    "actionRejected": "Akcja została pomyślnie anulowana.",
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
     "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!). Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
     "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila",
@@ -43,6 +46,7 @@
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
     "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie za pośrednictwem poczty elektronicznej",
     "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości",
+    "optInConfirmed": "Subskrypcja potwierdzona",
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
     "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
+    "salutation": "Droga {{target.name}}",
+    "salutationFemale": "Droga {{target.name}}",
+    "salutationMale": "Droga {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowny [adresat],"
   },

@@ -3,8 +3,8 @@ const fs = require("graceful-fs");
 const path = require("path");
 const merge = require("lodash").merge;
 
-function getConfigOverride(defaultConfig) {
-  const config = readConfigOverride();
+function getConfigOverride(id) {
+  const config = readConfigOverride(id);
   if (config) {
     return config;
   }
@@ -18,8 +18,11 @@ function configFolder() {
     ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
     : "../config/";
 }
-function readConfigOverride() {
-  let apId = process.env[envVar] || process.argv[2];
+function readConfigOverride(id) {
+  //  console.log(id);console.trace("Here I am!")
+
+  let apId = id || process.env[envVar] || process.argv[2];
+
   if (apId) {
     const configFile = apId + ".json";
     const fn = path.resolve(__dirname, configFolder() + configFile);
@@ -63,8 +66,7 @@ function readConfigOverride() {
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang]
         ) {
-          let campaigns = Object.assign(
-            {},
+          let campaigns = merge(
             campaignConfig.config.locales[config.lang]["campaign:"],
             config.locales["campaign:"]
           );

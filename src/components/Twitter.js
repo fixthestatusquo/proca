@@ -19,7 +19,7 @@ import Again from "@components/twitter/Again";
 import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { get } from "lodash";
 const useStyles = makeStyles((theme) => ({
   skip: {
     marginTop: theme.spacing(1),
@@ -118,8 +118,9 @@ const Component = (props) => {
       message: "",
     },
   });
-  const { watch } = form;
+  const { watch, setValue } = form;
   const country = watch("country");
+
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
   if (hash) {
     // it's a meme
@@ -140,6 +141,43 @@ const Component = (props) => {
     setTweeting(true);
     setData("targets", target);
   };
+  const url =
+    config.component.twitter?.listUrl === true
+      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+      : config.component.twitter.listUrl;
+
+  const setMessage = useCallback(
+    (profile) => {
+      if (config.component.twitter.multilingual && profile[0].locale) {
+        const locale = profile[0].locale;
+        const source =
+          (config.component.twitter.data &&
+            data[config.component.twitter.data][locale]) ||
+          {};
+        const msg = get(source, config.component.twitter.key);
+
+        if (msg) {
+          setValue("message", tokenize(pickOne(msg), { profile: profile }));
+          return;
+        }
+      }
+      setValue(
+        "message",
+        tokenize(
+          pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
+          { profile: profile }
+        )
+      );
+    },
+    [
+      config.component.twitter.data,
+      config.component.twitter.key,
+      config.component.twitter.multilingual,
+      data,
+      setValue,
+      t,
+    ]
+  );
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -161,26 +199,17 @@ const Component = (props) => {
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
           });
-          // if the country of the visitor is set, filter the list of targets t4g_meps
-          if (data.country) {
-            const country = data.country.toLowerCase();
-            const filtered = d.filter((c) => c.country === country);
+          // if the country of the visitor is set, filter the list of targets
+          if (country) {
+            const country2l = country.toLowerCase();
+            const filtered = d.filter((c) => c.country === country2l);
             if (filtered.length > 0) d = filtered;
           }
 
           setAllProfiles(d);
           if (config.component.twitter?.filter?.includes("random")) {
             const i = d[Math.floor(Math.random() * d.length)];
-            form.setValue(
-              "message",
-              tokenize(
-                pickOne(
-                  t(["campaign:twitter.message", "campaign:share.twitter"])
-                ),
-                { profile: [i] }
-              )
-            );
-            console.debug("set profile random", i.country);
+            setMessage([i]);
             setProfiles([i]);
           } else {
             //if (!config.component.twitter.filter?.includes("country")) {
@@ -191,24 +220,23 @@ const Component = (props) => {
           console.log(error);
         });
     };
-    const url =
-      config.component.twitter?.listUrl === true
-        ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
-        : config.component.twitter.listUrl;
     fetchData(url);
-    // eslint-disable-next-line
-  }, [data.country]);
+  }, [
+    url,
+    country,
+    setValue,
+    setMessage,
+    config.campaign.name,
+    config.component,
+    config.hook,
+    t,
+  ]);
 
+  // eslint-disable-next-line
   const filterRandomProfile = () => {
     const d = allProfiles;
     const i = d[Math.floor(Math.random() * d.length)];
-    form.setValue(
-      "message",
-      tokenize(
-        pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
-        { profile: [i] }
-      )
-    );
+    setMessage([i]);
     setProfiles([i]);
   };
 
@@ -225,7 +253,8 @@ const Component = (props) => {
       });
       setProfiles(d);
     },
-    [allProfiles]
+    [allProfiles],
+    []
   );
 
   useEffect(() => {
@@ -239,6 +268,7 @@ const Component = (props) => {
   }, [country, filterProfiles]);
 
   const handleDone = (d) => {
+    if (config.component.twitter?.anonymous === true) return;
     if (!data.firstname) viewDialog(true);
   };
 

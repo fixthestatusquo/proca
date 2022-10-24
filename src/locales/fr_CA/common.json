@@ -3,6 +3,7 @@
   "Amount": "Montant",
   "Another": "Un autre",
   "Birthdate": "Date de naissance",
+  "City": "Ville",
   "Comment": "Commentaire",
   "Country": "Pays",
   "Download": "Télécharger",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Action confirmée",
+    "actionRejected": "L'action a été annulée avec succès",
     "confirm": "<0> Êtes-vous sûr·e?</0><1> En choisissant Non, vous ne saurez pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant Oui, nous vous tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1><2> Vous pouvez vous désabonner à tout moment.</2>",
     "confirmAction": "Veuillez récupérer le courriel dès maintenant et cliquer sur le lien qu'il contient (vérifiez votre dossier Indésirables!).\n Ce n'est qu'à ce moment-là que votre action comptera!\nVotre confirmation est cruciale pour le poids politique de l'action. Ceci garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons votre confirmation…",
     "confirmOptIn": "N'oubliez pas de vérifier votre boîte de réception (y compris votre dossier Indésirables !) et de confirmer votre abonnement aux courriels",
@@ -43,6 +46,7 @@
     "opt-in": "Oui, je veux que {{partner}} me garde informé·e par courriel",
     "opt-in-both": "Oui, je veux que {{partner}} et que {{lead}} me gardent informé·e par courriel",
     "opt-out": "Non, je ne souhaite pas recevoir de mises à jours sur le progrès de cette campagne",
+    "optInConfirmed": "Abonnement confirmé",
     "processing": "Tes données sont transmises de manière sécurisée et chiffrées. Avec ta contribution tu accepte nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
     "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
     "required": "Votre consentement est nécessaire pour participer"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
+    "salutation": "Cher {{target.name}}",
+    "salutationFemale": "Cher {{target.name}}",
+    "salutationMale": "Cher {{target.name}}",
     "salutation_info": "(le nom sera mis avant l'envoi)",
     "salutation_placeholder": "Cher [destinataire],"
   },

@@ -3,6 +3,7 @@
   "Amount": "Iznos",
   "Another": "Još",
   "Birthdate": "Datum rođenja",
+  "City": "Grad",
   "Comment": "Komentar",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Akcija potvrđena",
+    "actionRejected": "Akcija je uspješno otkazana",
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
     "confirmAction": "Pregledajte e-poštu odmah i kliknite na poveznicu koja sadrži (provjerite svoju mapu neželjene pošte!).\n Tek tada će se vaša akcija računati!\nVaša je potvrda ključna za političku težinu akcije. To jamči da iza svakog podnošenja stoji stvarna osoba. Čekamo vašu potvrdu...",
     "confirmOptIn": "Ne zaboravite provjeriti svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrditi pretplatu na e-poštu",
@@ -43,6 +46,7 @@
     "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
     "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
     "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
+    "optInConfirmed": "Pretplata potvrđena",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potreban vaš pristanak"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
+    "salutation": "Poštovani {{target.name}}",
+    "salutationFemale": "Poštovani {{target.name}}",
+    "salutationMale": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
     "salutation_placeholder": "Poštovani [recipient],"
   },

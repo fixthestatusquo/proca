@@ -3,6 +3,7 @@
   "Amount": "Importo",
   "Another": "Un altro",
   "Birthdate": "Data di nascita",
+  "City": "Città",
   "Comment": "Commento",
   "Country": "Paese",
   "Download": "Scaricare",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Azione confermata",
+    "actionRejected": "L'azione è stata annullata con successo",
     "confirm": "<0>Sei sicuro/a? </0><1>Selezionando «No», non sarai in grado di scoprire se questa campagna ha successo, o se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se selezioni «Sì» ti terremo aggiornato su questa e sulle altre nostre campagne urgenti.</1><2>Puoi cancellarti in qualsiasi momento.</2>",
     "confirmAction": "Per favore, recupera subito l'e-mail e clicca sul collegamento che contiene (controlla la tua cartella spam!).\n Solo allora la vostra azione conterà!\nLa tua conferma è fondamentale per il peso politico dell'azione. Questo garantisce che c'è una persona reale dietro ogni presentazione. Aspettiamo la tua conferma…",
     "confirmOptIn": "Non dimenticare di controllare la tua casella di posta elettronica (compresa la cartella dello spam!) e confermare la tua iscrizione alle e-mail",
@@ -43,6 +46,7 @@
     "opt-in": "Sì, voglio che {{partner}} mi tenga informato via e-mail",
     "opt-in-both": "Sì, voglio che {{partner}} e {{lead}} mi tengano informato via e-mail",
     "opt-out": "No, non mandarmi e-mail o tenermi aggiornato in futuro",
+    "optInConfirmed": "Abbonamento confermato",
     "processing": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando le informazioni si accetta l'uso dei dati e dei cookie in conformità con la nostra <1>politica sulla privacy</1>.",
     "processing-nocookie": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando informazioni si accetta l'uso dei dati in conformità con la nostra <1>politica sulla privacy</1>.",
     "required": "Per partecipare è necessario il vostro consenso"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} non può ricevere e-mail",
+    "salutation": "Caro {{target.name}}",
+    "salutationFemale": "Caro {{target.name}}",
+    "salutationMale": "Caro {{target.name}}",
     "salutation_info": "(il nome verrà inserito prima dell'invio)",
     "salutation_placeholder": "Caro [destinatario],"
   },

@@ -3,6 +3,7 @@
   "Amount": "Beløb",
   "Another": "En anden",
   "Birthdate": "Fødselsdato",
+  "City": "By",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Download",
@@ -34,15 +35,18 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Aktion bekræftet",
+    "actionRejected": "Handlingen blev annulleret med succes",
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
     "confirmAction": "Vi har sendt et bekræftelseslink pr. e-mail til følgende adresse:\n {{email}}\nDu bedes hente e-mailen nu og klikke på linket (tjek din spam-mappe!).\n Først da vil din handling tælle!\nDin bekræftelse er afgørende for aktionens politiske vægt. Det garanterer, at der er en rigtig person bag hver indsendelse. Vi afventer din bekræftelse...",
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
     "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
-    "intro": "{{name}} må kontakte mig om vigtige kampagner",
+    "intro": "Jeg accepterer at {{name}} kontakte mig om kampagnen og andre muligheder for at hjælpe",
     "opt-in": "Ja, hold mig informeret via e-mail",
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
+    "optInConfirmed": "Abonnement bekræftet",
     "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
+    "salutation": "Kære {{target.name}}",
+    "salutationFemale": "Kære {{target.name}}",
+    "salutationMale": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
     "salutation_placeholder": "Kære [modtager],"
   },
@@ -129,7 +136,7 @@
     "other": "Andre"
   },
   "share": {
-    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. 🙏.",
+    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. Hvis vi er nok, der skriver under, er EU forpligtet til at lytte 🙏.",
     "message": "Du skal underskrive dette!",
     "title": "Næsten færdig – nu mangler du blot at dele budskabet"
   },

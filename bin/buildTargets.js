@@ -5,7 +5,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run"],
 });
 
-const clean = (screenName) => screenName?.replace("@", "").toLowerCase();
+const clean = (screenName) => screenName?.replace("@", "").toLowerCase().trim();
 
 const merge = (targets, twitters, options) => {
   const merged = targets.map((target) => {
@@ -50,7 +50,10 @@ const merge = (targets, twitters, options) => {
     if (options.display) {
       r.display = !!target.fields.display;
     }
-    if (target.locale) r.locale = target.locale;
+    if (target.locale) {
+      r.locale = target.locale;
+      r.lang = target.locale;
+    }
 
     if (argv.fields) {
       const extraFields = argv.fields.split(",");
@@ -141,6 +144,7 @@ if (!argv._.length || argv.help) {
       twitters = read("target/twitter/" + name); // the list from twitter
     } catch (e) {
       console.log("no twitter list");
+      twitters = [];
     }
 
     const d = merge(targets, twitters || [], {

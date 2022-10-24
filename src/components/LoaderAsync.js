@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
+import { get } from "lodash";
 
 const LoaderAsync = (props) => {
   const config = useCampaignConfig();
   const loaders = config.component.loader;
   const lang = config.lang;
   const [, setData] = useData();
+  //  console.log ("loading",lang);
   useEffect(() => {
     let isCancelled = false;
     if (!loaders) return;
@@ -15,12 +17,28 @@ const LoaderAsync = (props) => {
         let url = loaders.url;
         if (!url) return null;
         if (loaders.appendLocale === true) url += lang;
-        const d = await fetch(url).catch((e) => {
-          setData("message", e.message); // we need to guess the field, message is the most common one
-        });
+
+        let d = null;
+        let json = null;
+        try {
+          d = await fetch(url).catch((e) => {
+            setData("message", e.message); // we need to guess the field, message is the most common one
+          });
+        } catch (e) {
+          console.log("no message in", lang);
+        }
         if (!d) return;
-        const json = await d.json();
+        try {
+          json = await d.json();
+        } catch (e) {
+          console.log("no message in", lang);
+          return;
+        }
         if (!isCancelled) {
+          if (loaders.key) {
+            setData(loaders.key, get(json, loaders.path));
+            return;
+          }
           setData(json);
           //            Object.entries(json).map(([k,v]) => {
           //              setData({k, v);

@@ -116,14 +116,23 @@ const Country = (props) => {
     t,
   ]);
 
-  const { register, setValue, watch } = props.form;
+  const { setValue, getValues } = props.form;
 
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country: config.data.country || config.component.country,
+    country:
+      config.data.country ||
+      (typeof config.component.country === "string" &&
+        config.component.country) ||
+      undefined,
   });
-  const country = watch("country") || "";
+
+  const switchCountry = (e) => {
+    setData("country", e.target.value);
+  };
   useEffect(() => {
+    const country = getValues("country") || "";
+
     if (location.country === country) return;
     if (location.country && !country) {
       if (!countries.find((d) => d.iso === location.country)) {
@@ -136,18 +145,18 @@ const Country = (props) => {
       } else {
       }
       setCountries(countries);
-      if (!location.country) return;
+      if (!location.country) return; // not sure how it can happend, remove?
       setValue("country", location.country);
       setData("country", country);
     } else {
       // geoLocation doesn't work
       setCountries(countries);
     }
-  }, [location, country, countries, setValue, setData, t]);
+  }, [location, getValues, countries, setValue, setData, t]);
 
-  useEffect(() => {
-    register("country");
-  }, [register]);
+  //  useEffect(() => {
+  //    register({ name: "country" });
+  //  }, [register]);
 
   if (props.list === false) return null;
 
@@ -157,6 +166,7 @@ const Country = (props) => {
     <TextField
       select
       name="country"
+      onChange={switchCountry}
       label={t("Country")}
       form={props.form}
       SelectProps={{

@@ -253,7 +253,7 @@ const Support = (props) => {
 
   // todo, convert the OCS text into something that can use Trans
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       {progress && (
         <ProgressCounter actionPage={config.component.eci.actionpage} />
       )}

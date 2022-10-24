@@ -15,7 +15,7 @@ const languages = {
   pt: "pt",
   bg: "bg",
   es: "es",
-  lu: ["de", "fr"],
+  lu: ["fr", "de"],
   ro: "ro",
   cz: "cs",
   fr: "fr",

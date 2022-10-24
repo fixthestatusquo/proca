@@ -10,7 +10,7 @@ module.exports = (webpack) => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
   } else {
-    const [configFile, config] = getConfigOverride({ filename: "_example" });
+    const [configFile, config] = getConfigOverride();
     widgetBuildConfig(webpack, config);
   }
 
@@ -61,6 +61,7 @@ function cleanUp(config) {
 
 function widgetBuildConfig(webpack, config) {
   // with yarn build, put the output in dedicated widget directory
+  console.log("building");
   if (webpack.mode === "production") {
     webpack.output.filename = "index.js";
     webpack.output.path = path.resolve(__dirname, "../d/" + config.filename);
@@ -74,6 +75,11 @@ function widgetBuildConfig(webpack, config) {
               path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
               path.resolve(__dirname, "../build/index.js")
             );
+            fs.symlinkSync(
+              path.resolve(__dirname, "../d/" + config.filename + "/static/js"),
+              path.resolve(__dirname, "../build/satic/js")
+            );
+            console.log("trying to fix the error on file size");
           } catch (e) {
             console.log("already building the widget");
           }
@@ -97,11 +103,12 @@ function widgetBuildConfig(webpack, config) {
     }
   }
   if (config.layout && config.layout.HtmlTemplate) {
+    const template = config.layout.HtmlTemplate || config.layout.template;
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {
         const publicDir = path.resolve(__dirname, "../public");
         if (plug.options.filename === "index.html") {
-          plug.options.template = `${publicDir}/${config.layout.HtmlTemplate}`;
+          plug.options.template = `${publicDir}/${template}`;
         }
         plug.options.title = `${config.organisation} - ${config.campaign.title}`;
         plug.options.config = config;

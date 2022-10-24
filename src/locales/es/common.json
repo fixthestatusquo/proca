@@ -3,6 +3,7 @@
   "Amount": "Cantidad",
   "Another": "Otro",
   "Birthdate": "Fecha de nacimiento",
+  "City": "Ciudad",
   "Comment": "Comentario",
   "Country": "País",
   "Download": "Descargar",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Acción confirmada",
+    "actionRejected": "La acción fue cancelada con éxito",
     "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones planificadas en las que podamos colaborar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes.",
     "confirmAction": "Hemos enviado un enlace de confirmación por correo electrónico a la siguiente dirección:\n {{email}}\nPor favor, recupera el correo electrónico ahora mismo y haz clic en el enlace que contiene (¡comprueba tu carpeta de spam!).\n ¡Sólo así su acción contará!\nSu confirmación es crucial para el peso político de la acción. Esto garantiza que hay una persona real detrás de cada envío. Esperamos tu confirmación...",
     "confirmOptIn": "No olvide revisar su buzón de correo (incluida la carpeta de spam) y confirmar su suscripción al correo electrónico",
@@ -43,6 +46,7 @@
     "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
     "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
     "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
+    "optInConfirmed": "Suscripción confirmada",
     "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
     "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
     "required": "Su consentimiento es necesario para participar"
@@ -115,10 +119,13 @@
   },
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
+    "salutation": "Estimado/a {{target.name}}",
+    "salutationFemale": "Estimado {{target.name}}",
+    "salutationMale": "Estimado {{target.name}}",
     "salutation_info": "(el nombre se pondrá antes del envío)",
-    "salutation_placeholder": "Estimado [destinatario],"
+    "salutation_placeholder": "Estimado/a [destinatario]"
   },
-  "progress": "{{count}} ha firmado. Vamos a por {{goal}}",
+  "progress": "{{count}} han firmado. Vamos a por {{goal}}",
   "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
   "register": "Añade mi nombre",
   "required": "Por favor, rellene este campo",

@@ -81,7 +81,7 @@ export default function Progress(props) {
 
   return (
     <>
-      <Box className={classes.root}>
+      <Box className={classes.root + " proca-progress"}>
         {t("progress", {
           count: formatNumber(count, separator),
           goal: formatNumber(goal, separator),

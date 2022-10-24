@@ -3,6 +3,7 @@
   "Amount": "Bedrag",
   "Another": "Nog een",
   "Birthdate": "Geboortedatum",
+  "City": "Stad",
   "Comment": "Opmerkingen",
   "Country": "Land",
   "Download": "Download",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Actie bevestigd",
+    "actionRejected": "De actie werd met succes geannuleerd",
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
     "confirmAction": "Wij hebben een bevestigingslink per e-mail naar het volgende adres gestuurd:\n {{email}}\nGelieve de e-mail nu op te halen en op de link te klikken die erin staat (controleer uw spam-map!).\n Alleen dan telt uw actie!\nUw bevestiging is cruciaal voor het politieke gewicht van de actie. Dit garandeert dat er een echt persoon achter elke inzending staat. We wachten op je bevestiging...",
     "confirmOptIn": "Vergeet niet uw mailbox te controleren (ook uw spam-map!) en uw e-mailabonnement te bevestigen",
@@ -43,6 +46,7 @@
     "opt-in": "Ja, ik wil dat {{partner}} mij via e-mail op de hoogte houdt",
     "opt-in-both": "Ja, ik wil dat {{partner}} en {{lead}} mij via e-mail op de hoogte houden",
     "opt-out": "Nee, stuur me geen e-mails - hou me niet op de hoogte in de toekomst",
+    "optInConfirmed": "Abonnement bevestigd",
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
     "required": "Uw toestemming is nodig om deel te nemen"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
+    "salutation": "Beste {{target.name}}",
+    "salutationFemale": "Beste {{target.name}}",
+    "salutationMale": "Beste {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_placeholder": "Geachte [ontvanger],"
   },

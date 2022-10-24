@@ -1,0 +1,161 @@
+{
+  "Address": "Địa chỉ nhà",
+  "Amount": "Số lượng",
+  "Another": "Nữa",
+  "Birthdate": "Ngày sinh",
+  "City": "Thành phố",
+  "Comment": "Bình luận",
+  "Country": "Quốc gia",
+  "Download": "Tải xuống",
+  "Download explanation": "Tài liệu của bạn hiện đã sẵn sàng, chúng tôi cũng đang gửi nó qua email cho bạn",
+  "Email": "E-mail",
+  "First name": "Họ",
+  "Last name": "Họ",
+  "Locality": "Địa phương",
+  "Next": "Tiếp theo",
+  "Other": "Khác",
+  "Phone": "Điện thoại",
+  "Postal Code": "Mã bưu điện",
+  "Salutation": "Lời chào",
+  "Sorry, we couldn't save": "Xin lỗi, chúng tôi không thể lưu",
+  "Street": "Đường phố",
+  "Subject": "Môn học",
+  "Thank you": "Cảm ơn bạn",
+  "Your message": "Tin nhắn của bạn",
+  "action": {
+    "donate": "Quyên tặng",
+    "eci": "Ký ECI",
+    "email": "Gửi Email",
+    "join": "Tham gia",
+    "register": "Đăng ký",
+    "share": "Đăng lại",
+    "sign": "Ký ngay bây giờ!",
+    "stayInformed": "Thông báo lưu trú",
+    "takeAction": "takeAction",
+    "twitter": "tiếng riu ríu"
+  },
+  "consent": {
+    "actionConfirmed": "Đã xác nhận hành động",
+    "actionRejected": "Hành động đã được hủy thành công",
+    "confirm": "<0> Bạn có chắc chắn không? </0> <1> Bằng cách chọn 'Không', bạn sẽ không thể tìm hiểu xem chiến dịch này có thành công hay không hay chúng ta cần phải thực hiện thêm hành động nào để giành chiến thắng. Nếu bạn chọn 'Có', chúng tôi sẽ cập nhật cho bạn về điều này và các chiến dịch khẩn cấp khác của chúng tôi. </1> <2> Bạn có thể hủy đăng ký bất kỳ lúc nào. </2>",
+    "confirmAction": "Vui lòng truy xuất email ngay bây giờ và nhấp vào liên kết trong đó (kiểm tra thư mục thư rác của bạn!).\n Chỉ khi đó hành động của bạn mới có giá trị!\nXác nhận của bạn là rất quan trọng đối với sức nặng chính trị của hành động. Điều này đảm bảo rằng có một người thực sự đứng sau mỗi lần gửi. Chúng tôi sẽ chờ xác nhận của bạn ...",
+    "confirmOptIn": "Đừng quên kiểm tra hộp thư của bạn (bao gồm cả thư mục spam của bạn!) Và xác nhận đăng ký email của bạn",
+    "emailSent": "Chúng tôi đã gửi cho bạn một email tới {{email}}!",
+    "implicit": "Gửi biểu mẫu này để nhận email từ {{name}}",
+    "intro": "Tìm hiểu thêm về các chiến dịch, hành động và tiến trình {{campaign}} của chúng tôi",
+    "opt-in": "Có, tôi muốn {{partner}} thông báo cho tôi qua email",
+    "opt-in-both": "Có, tôi muốn {{partner}} và {{lead}} thông báo cho tôi qua email",
+    "opt-out": "Không, đừng gửi cho tôi email hoặc cập nhật cho tôi trong tương lai",
+    "optInConfirmed": "Đăng ký đã được xác nhận",
+    "processing": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu và cookie theo <1> chính sách bảo mật </1> của chúng tôi",
+    "processing-nocookie": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu theo <1> chính sách bảo mật </1> của chúng tôi",
+    "required": "Cần có sự đồng ý của bạn để tham gia"
+  },
+  "dateFormat": "DD / MM / YYYY",
+  "dialogTitle": "Thông báo cho tôi về chiến dịch",
+  "donation": {
+    "amount": {
+      "change": "Thay đổi nhiều",
+      "intro": "Chọn một số tiền"
+    },
+    "average": "Khoản đóng góp trung bình là {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Quyên góp {{amount}} hàng tháng",
+        "oneoff": "Đóng góp {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Số thẻ tín dụng bị thiếu"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "chung",
+      "initialisation": "khởi tạo"
+    },
+    "form": {
+      "error": {
+        "minimum": "Khoản đóng góp tối thiểu là {{amount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Thực hiện khoản đóng góp này hàng tuần?",
+        "oneoff": "Quyên tặng",
+        "weekly": "Thực hiện hàng tháng?"
+      },
+      "each": {
+        "monthly": "mỗi tuần",
+        "oneoff": "Một lần",
+        "weekly": "mỗi tháng"
+      },
+      "feedback": {
+        "monthly": "Tôi đang quyên góp {{amount}} {{frequency}}",
+        "oneoff": "Tôi đang quyên góp {{amount}}"
+      },
+      "monthly": "hàng tháng",
+      "oneoff": "Một lần",
+      "weekly": "hàng tuần",
+      "yearly": "hàng năm"
+    },
+    "iban": "IBAN",
+    "intro": "Quyên góp cho {0}",
+    "mobile": {
+      "open": "mở"
+    },
+    "payment_methods": {
+      "card": "Thẻ",
+      "intro": "Bạn muốn tặng như thế nào?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Phương thức thanh toán"
+    },
+    "thanks": "Cảm ơn tặng phẩm của bạn!",
+    "to": "Quyên góp cho {{organisation}}"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} không thể nhận email",
+    "salutation": "Kính gửi {{name}}",
+    "salutationFemale": "Kính gửi {{name}}",
+    "salutationMale": "Kính gửi {{name}}",
+    "salutation_info": "(tên sẽ được đặt trước khi gửi)",
+    "salutation_placeholder": "Kính gửi [người nhận]"
+  },
+  "progress": "{{count}} đã ký. Hãy chuyển đến {{goal}}",
+  "register": "Thêm tên của tôi",
+  "required": "yêu cầu",
+  "required field": "phần bắt buộc",
+  "salutations": {
+    "f": "Kính gửi {{name}}",
+    "m": "Kính gửi {{name}}",
+    "other": "Kính gửi {{name}}"
+  },
+  "share": {
+    "intro": "Tuyệt vời, bạn đã ký kết 👍. Để nhân rộng tầm ảnh hưởng của bạn, hãy chia sẻ rộng rãi để đảm bảo mọi người đều nhìn thấy kiến nghị này 🙏.",
+    "message": "Bạn nên ký tên này!",
+    "title": "Sắp xong! Thực hiện bước tiếp theo."
+  },
+  "supporter": {
+    "not_you": "không phải bạn?",
+    "welcome": "Chào mừng bạn trở lại, {{firstname}}!"
+  },
+  "target": {
+    "country": {
+      "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}"
+    },
+    "random": "Đã chọn một trong những mục tiêu quan trọng nhất {{total}} của chúng tôi"
+  },
+  "twitter": {
+    "actionText": "actionText",
+    "again": "Tweet cho người khác",
+    "choice": "Bạn thich lam gi tiêp theo?",
+    "instruction": "Vui lòng hoàn tất việc gửi tweet trong cửa sổ mới (trên twitter.com)",
+    "organisation": "Tài khoản twitter tổ chức của bạn",
+    "screenName": "Tên hiển thị"
+  },
+  "you need to be 18 years old": "bạn cần đủ 18 tuổi"
+}

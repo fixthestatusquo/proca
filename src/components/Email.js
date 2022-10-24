@@ -18,13 +18,14 @@ import { useIsMobile } from "@hooks/useDevice";
 import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 import uuid from "@lib/uuid";
+import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
 import { addAction } from "@lib/server";
 
@@ -40,7 +41,10 @@ const Filter = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   let r = null;
-  if (config.component.email?.filter?.includes("country"))
+  if (
+    config.component.email?.filter?.includes("country") &&
+    typeof config.component.country !== "string"
+  )
     r = <Country form={props.form} list={config.component.email?.countries} />;
 
   if (Array.isArray(config.component.email?.filter)) {
@@ -78,10 +82,14 @@ const Filter = (props) => {
 const Component = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
+  const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
+  const [alwaysUpdate, setAlwaysUpdate] = useState(
+    config.component.email?.multilingual === true
+  );
   const isMobile = useIsMobile();
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
@@ -105,26 +113,44 @@ const Component = (props) => {
   const tokenKeys = extractTokens(data["message"]);
   const tokens = watch(tokenKeys);
   useEffect(() => {
+    if (!alwaysUpdate) {
+      return;
+    }
+
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
     } // eslint-disable-next-line
-  }, [paramEmail]);
+  }, [paramEmail, alwaysUpdate]);
 
   const handleMerging = (text) => {
+    if (!alwaysUpdate) {
+      return;
+    }
+
     setValue("message", text);
   };
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
+
   useToken(data["message"], tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
+  const checkUpdated = (e) => {
+    // we do not automatically update the message as soon as the user starts changing it
+    console.log("check updated");
+    setAlwaysUpdate(false);
+  };
   useEffect(() => {
-    // not clear what it does, todo
     ["subject", "message"].map((k) => {
-      if (data[k] && !fields[k]) {
+      if (data[k] && (!fields[k] || alwaysUpdate)) {
+        const defaultValue = form.getValues();
         if (tokenKeys.length) {
           // there are token in the message
-          const empty = { defaultValue: data[k], nsSeparator: false };
+          //          const empty = { defaultValue: data[k], nsSeparator: false };
+          const empty = {
+            defaultValue: defaultValue[k] || data[k],
+            nsSeparator: false,
+          };
           tokenKeys.forEach((d) => (empty[d] = ""));
           form.setValue(k, t(data[k], empty));
         } else {
@@ -145,6 +171,7 @@ const Component = (props) => {
     data,
     t,
     form,
+    alwaysUpdate,
   ]);
   // todo: clean the dependency
   //
@@ -211,12 +238,30 @@ const Component = (props) => {
     (country) => {
       if (!country) return;
       country = country.toLowerCase();
+      let lang = undefined;
       let d = allProfiles.filter((d) => {
+        if (d.lang && d.country === country) {
+          if (lang === undefined) {
+            lang = d.lang;
+          } else {
+            if (d.lang !== lang) {
+              lang = false;
+            }
+          }
+        }
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
         );
       });
+      if (!lang) {
+        // more than one lang in the country
+        lang = mainLanguage(country, false);
+        if (typeof lang === "object") {
+          //TODO, fix quick hack
+          lang = "fr_" + country;
+        }
+      }
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0) {
@@ -232,11 +277,19 @@ const Component = (props) => {
       } else {
         clearErrors("country");
       }
+      //if (lang && config.lang !== lang) {
+      if (true) {
+        setConfig((current) => {
+          let next = { ...current };
+          next.lang = lang || "en";
+          return next;
+        });
+      }
       setProfiles(d);
       setData("targets", d);
       setData("country", country);
     },
-    [allProfiles, setError, clearErrors, t, setData, fallbackRandom]
+    [allProfiles, setError, clearErrors, t, setData, fallbackRandom, setConfig]
   );
 
   const countryFiltered = config.component.email?.filter?.includes("country");
@@ -343,6 +396,7 @@ const Component = (props) => {
               name="subject"
               required={config.component.email.field.subject.required}
               label={t("Subject")}
+              onChange={checkUpdated}
             />
           </Grid>
         ) : (
@@ -368,6 +422,7 @@ const Component = (props) => {
               maxRows={config.component.email.field.message.disabled ? 4 : 10}
               disabled={!!config.component.email.field.message.disabled}
               required={config.component.email.field.message.required}
+              onChange={checkUpdated}
               label={t("Your message")}
             />
           </Grid>

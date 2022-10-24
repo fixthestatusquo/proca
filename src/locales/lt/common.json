@@ -3,6 +3,7 @@
   "Amount": "Suma",
   "Another": "Kitas",
   "Birthdate": "Gimimo data",
+  "City": "Miestas",
   "Comment": "Komentaras",
   "Country": "Šalis",
   "Download": "Parsiųst",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Patvirtintas veiksmas",
+    "actionRejected": "Veiksmas sėkmingai atšauktas",
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
     "confirmAction": "Patvirtinimo nuorodą išsiuntėme el. paštu šiuo adresu:\n {{email}}.\nPrašome dabar atsiimti laišką ir spustelėti jame esančią nuorodą (patikrinkite nepageidaujamų laiškų aplanką!).\n Tik tada jūsų veiksmas bus įskaitytas!\nJūsų patvirtinimas yra labai svarbus veiksmo politiniam svoriui. Taip užtikrinama, kad už kiekvieno pateikto dokumento slypi tikras asmuo. Lauksime jūsų patvirtinimo...",
     "confirmOptIn": "Nepamirškite patikrinti savo pašto dėžutės (įskaitant nepageidaujamų laiškų aplanką!) ir patvirtinti el. pašto prenumeratą.",
@@ -43,6 +46,7 @@
     "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
     "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
     "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
+    "optInConfirmed": "Prenumerata patvirtinta",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
     "required": "Norint dalyvauti, reikia jūsų sutikimo."
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
+    "salutation": "Gerbiamas {{target.name}}",
+    "salutationFemale": "Gerbiamas {{target.name}}",
+    "salutationMale": "Gerbiamas {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },

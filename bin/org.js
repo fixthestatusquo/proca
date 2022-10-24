@@ -18,30 +18,34 @@ const argv = require("minimist")(process.argv.slice(2), {
 
 const { file, api } = require("./config");
 
-if (!argv._.length || argv.help) {
-  console.log(
-    [
-      "options",
-      "--help (this command)",
-      "--dry-run (show the parsed org but don't write)",
-      "--pages (fetch the action pages of the org)",
-      "--users(fetch the users of the org)",
-      "--pull (by default)",
-      "org {org name}",
-    ].join("\n")
-  );
-  process.exit(0);
-}
+const help = () => {
+  if (!argv._.length || argv.help) {
+    console.log(
+      [
+        "options",
+        "--help (this command)",
+        "--dry-run (show the parsed org but don't write)",
+        "--pages (fetch the action pages of the org)",
+        "--users(fetch the users of the org)",
+        "--pull (by default)",
+        "--push (update the server)",
+        "org {org name}",
+      ].join("\n")
+    );
+    process.exit(0);
+  }
+};
 
 const readOrg = (orgName) => {
   const fileName = file("org/" + orgName);
   const org = JSON.parse(fs.readFileSync(fileName));
   return org;
 };
+
 const saveOrg = (orgName, org) => {
   const fileName = file("org/" + orgName);
   fs.writeFileSync(fileName, JSON.stringify(org, null, 2));
-  console.log("wrote " + "org/" + orgName);
+  console.log("wrote config/" + "org/" + orgName + ".json");
   return fileName;
 };
 
@@ -99,7 +103,7 @@ const getOrg = async (name) => {
 query GetOrg($name: String!) {
   org(name:$name) {
   ... on PrivateOrg {
-      id name title config ` +
+      id name title processing {emailFrom,supporterConfirm,doiThankYou} config ` +
     extraQuery +
     `
     }
@@ -115,8 +119,16 @@ query GetOrg($name: String!) {
 };
 
 const pullOrg = async (name) => {
-  const org = await getOrg(name);
-  if (org.length === 0) {
+  let org = undefined;
+  try {
+    if (!argv.push || argv.pull) org = await getOrg(name);
+    else org = readOrg(name);
+  } catch (e) {
+    console.error(e.message);
+    process.exit(1);
+  }
+
+  if (!org) {
     return console.error("not storing empty orgs");
   }
   if (argv.twitter) {
@@ -131,19 +143,30 @@ const pullOrg = async (name) => {
   return org;
 };
 
-(async () => {
-  try {
-    const name = argv._[0];
-    let org = null;
-    if (!argv.push || argv.pull) org = await pullOrg(name);
-    if (argv.push) {
-      if (!org) {
-        org = readOrg(name);
+if (require.main === module) {
+  // this is run directly from the command line as in node xxx.js
+  help();
+  (async () => {
+    try {
+      const name = argv._[0];
+      let org = null;
+      org = await pullOrg(name);
+      if (argv.push) {
+        if (!org) {
+          org = readOrg(name);
+        }
+        await pushOrg(org);
       }
-      await pushOrg(org);
+    } catch (e) {
+      console.error(e);
+      // Deal with the fact the chain failed
     }
-  } catch (e) {
-    console.error(e);
-    // Deal with the fact the chain failed
-  }
-})();
+  })();
+} else {
+  //export a bunch
+  module.exports = {
+    getOrg,
+    pullOrg,
+    readOrg,
+  };
+}

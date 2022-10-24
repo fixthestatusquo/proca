@@ -30,7 +30,7 @@ export default function Register(props) {
   };
 
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       <Typography variant="subtitle1" component="legend">
         {t("eci:form.group-personal")}
       </Typography>

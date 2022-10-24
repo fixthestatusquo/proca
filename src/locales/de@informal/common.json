@@ -3,6 +3,7 @@
   "Amount": "Betrag",
   "Another": "Eine weitere",
   "Birthdate": "Geburtsdatum",
+  "City": "Stadt",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Herunterladen",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Aktion bestätigt",
+    "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
     "confirm": "<0>Bist du sicher?</0><1>Wenn du 'Nein' wählen, werden du nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn du \"Ja\" wählen, werden wir du über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>du können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen du die E-Mail sofort ab und klicken du auf den darin enthaltenen Link (überprüfen du Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gewertet!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung …",
     "confirmOptIn": "Vergessen du nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail-Abonnement zu bestätigen",
@@ -43,6 +46,7 @@
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten",
     "opt-out": "Nein, senden du mir keine E-Mails und halten du mich in Zukunft nicht auf dem Laufenden",
+    "optInConfirmed": "Abonnement bestätigt",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären du sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären du sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Zustimmung erforderlich zur Teilnahme"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
+    "salutation": "Liebe {{target.name}}",
+    "salutationFemale": "Liebe {{target.name}}",
+    "salutationMale": "Liebe {{target.name}}",
     "salutation_info": "die Begrüßungszeile wird in den Emails durch den MdEP-Namen ersetzt",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },

@@ -42,7 +42,7 @@ export default function Register(props) {
 
   // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <FormGroup className={classes.root}>

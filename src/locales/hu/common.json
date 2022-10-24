@@ -3,6 +3,7 @@
   "Amount": "Összeg",
   "Another": "Egy másik",
   "Birthdate": "Születési dátum",
+  "City": "Város",
   "Comment": "Megjegyzés",
   "Country": "Ország",
   "Download": "Letöltés",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Megerősített intézkedés",
+    "actionRejected": "A művelet sikeresen törlésre került",
     "confirm": "<0>Biztos vagy benne?</0> <1> A „Nem” kiválasztásával nem fogsz értesülni róla, hogy a kampány sikeres-e, vagy lesznek-e egyéb akcióink a témában, amihez csatlakozhatsz. Ha az “Igen” lehetőséget választod, akkor folyamatosan tájékoztatunk majd erről a kampányról, és egyéb, jövőbeni kampányainkról is. </1> <2>Ezekről a levelekről bármikor leiratkozhatsz.</2>",
     "confirmAction": "Küldtünk egy megerősítő linket e-mailben az alábbi címre:\n {{email}}\nKérjük, hogy most azonnal hívja le az e-mailt, és kattintson a benne található linkre (ellenőrizze a spam mappát!).\n Csak akkor számít az akciója!\nAz Ön megerősítése döntő fontosságú az akció politikai súlya szempontjából. Ez garantálja, hogy minden beadvány mögött egy valós személy áll. Várjuk a megerősítésedet...",
     "confirmOptIn": "Ne felejtse el ellenőrizni postafiókját (beleértve a spam mappát is!) és erősítse meg e-mail feliratkozását!",
@@ -43,6 +46,7 @@
     "opt-in": "Igen, szeretném, hogy a {{partner}} e-mailben értesítéseket küldjön Nekem",
     "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem",
     "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
+    "optInConfirmed": "Előfizetés megerősítve",
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
     "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
     "required": "A részvételhez az Ön hozzájárulása szükséges"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
+    "salutation": "Kedves {{target.name}}",
+    "salutationFemale": "Kedves {{target.name}}",
+    "salutationMale": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
     "salutation_placeholder": "Kedves [címzett],"
   },

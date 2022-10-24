@@ -3,6 +3,7 @@
   "Amount": "Částka",
   "Another": "Další",
   "Birthdate": "Datum narození",
+  "City": "Město",
   "Comment": "Komentář",
   "Country": "Stát",
   "Download": "Stáhnout",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Akce potvrzena",
+    "actionRejected": "Akce byla úspěšně zrušena",
     "confirm": "<0>Jste si jistí?</0> <1> Zaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
     "confirmAction": "Vyhledejte si prosím tento e-mail a klikněte na odkaz, který obsahuje (zkontrolujte si složku se spamem!).\n Teprve pak bude vaše akce započítána!\nVaše potvrzení je pro politickou váhu akce klíčové. Tím zaručíte, že za každým podáním stojí skutečná osoba. Budeme čekat na vaše potvrzení...",
     "confirmOptIn": "Nezapomeňte zkontrolovat svou e-mailovou schránku (včetně složky se spamem!) a potvrdit přihlášení k odběru e-mailu",
@@ -43,6 +46,7 @@
     "opt-in": "Ano, souhlasím s tím, aby mě organizace {{partner}} nadále informovala prostřednictvím e-mailu.",
     "opt-in-both": "Ano, souhlasím s tím, aby mě organizace {{partner}} a {{lead}} informovaly prostřednictvím e-mailu",
     "opt-out": "Ne, nestojím o zasílání e-mailů ani o další informace",
+    "optInConfirmed": "Předplatné potvrzeno",
     "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>",
     "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
     "required": "K účasti je nutný váš souhlas"
@@ -115,9 +119,13 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nepřijímá e-maily",
+    "salutation": "Vážení {{target.name}}",
+    "salutationFemale": "Vážení {{target.name}}",
+    "salutationMale": "Vážení {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
     "salutation_placeholder": "Vážený [recipient]"
   },
+  "progress": "{{count}} podepsali. Přejděme k {{goal}}",
   "progress_0": "{{count}} podepsal. Přejděme k {{goal}}",
   "progress_1": "{{count}} podepsalo. Přejděme k {{goal}}",
   "progress_2": "{{count}} podepsali. Přejděme k {{goal}}",

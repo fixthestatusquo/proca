@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useCount from "@hooks/useCount";
@@ -7,12 +7,26 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
+  "@global": {
+    ".proca-progress": {
+      display: "none",
+    },
+  },
   root: {
     top: 100,
     right: 0,
     width: 800,
     position: "fixed",
     zIndex: 70000,
+  },
+  widget: {
+    margin: "10px",
+  },
+  box: {
+    opacity: 0.8,
+    padding: "10px",
+    color: "white",
+    backgroundColor: theme.palette.primary.main,
   },
   ribbon: {
     backgroundColor: theme.palette.primary.main,
@@ -50,10 +64,26 @@ const Closed = (props) => {
   const count = useCount(config.actionPage);
   const classes = useStyles();
 
+  useEffect(() => {
+    if (config.component.notice?.widget === true) {
+      const ribbon = document.getElementById("ribbon");
+      const widget = document.getElementsByClassName("proca-widget")[0];
+
+      widget.before(ribbon);
+    }
+  }, []);
+
+  let root = classes.root;
+  let box = classes.ribbon;
+  if (config.component.notice?.widget === true) {
+    root = classes.widget;
+    box = classes.box;
+  }
+
   if (config.component.widget?.closed !== true) return null;
   return ReactDOM.createPortal(
-    <div className={classes.root}>
-      <Box className={classes.ribbon} boxShadow={3}>
+    <div className={root}>
+      <Box className={box} boxShadow={3}>
         <h3>{formatNumber(count)}</h3>
         <span className={classes.span}>
           Thank you - Благодаря ти - Hvala vam - Děkujib – Tack – Bedankt –

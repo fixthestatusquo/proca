@@ -323,6 +323,7 @@ query actionPage ($id:Int!) {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     org: {
+      name: data.actionPage.org.name,
       privacyPolicy:
         (data.actionPage.org.config.privacy &&
           data.actionPage.org.config.privacy.policyUrl) ||
@@ -421,8 +422,7 @@ const push = async (id) => {
     //    console.log(actionPage);
     throw errors;
   }
-  console.log(actionPage);
-  return data;
+  return actionPage;
 };
 
 const pull = async (actionPage, anonymous) => {

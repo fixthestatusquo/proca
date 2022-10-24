@@ -3,6 +3,7 @@
   "Amount": "Belopp",
   "Another": "En annan",
   "Birthdate": "Födelsedatum",
+  "City": "Staden",
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Hämta",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Åtgärd bekräftad",
+    "actionRejected": "Åtgärden har avbrutits.",
     "confirm": "<0> Är du säker? </0> <1> Genom att välja \"Nej\" kan du inte ta reda på om den här kampanjen lyckas, eller om det finns fler åtgärder vi måste vidta för att vinna den. Om du väljer \"Ja\" håller vi dig uppdaterad om detta och våra andra brådskande kampanjer. </1> <2> Du kan när som helst avsluta prenumerationen. </2>",
     "confirmAction": "Vi har skickat en bekräftelselänk via e-post till följande adress:\n {{email}}\nVänligen hämta e-postmeddelandet nu och klicka på länken som det innehåller (kontrollera din skräppostmapp!).\n Först då räknas din insats!\nDin bekräftelse är avgörande för åtgärdens politiska tyngd. Detta garanterar att det finns en verklig person bakom varje inlämning. Vi väntar på din bekräftelse...",
     "confirmOptIn": "Glöm inte att kontrollera din brevlåda (även din skräppostmapp!) och bekräfta din e-postprenumeration.",
@@ -43,6 +46,7 @@
     "opt-in": "Ja, håll mig informerad via e-post",
     "opt-in-both": "Ja, jag vill att {{partner}} och {{lead}} ska hålla mig informerad via e-post",
     "opt-out": "Nej, skicka inte mejl eller håll mig uppdaterad i framtiden",
+    "optInConfirmed": "Prenumeration bekräftad",
     "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "required": "Ditt samtycke krävs för att delta"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
+    "salutation": "Kära {{target.name}}",
+    "salutationFemale": "Kära {{target.name}}",
+    "salutationMale": "Kära {{target.name}}",
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
     "salutation_placeholder": "Kära [mottagare],"
   },

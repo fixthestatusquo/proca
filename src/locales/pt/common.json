@@ -3,6 +3,7 @@
   "Amount": "Quantia",
   "Another": "Outro",
   "Birthdate": "Data de nascimento",
+  "City": "Cidade",
   "Comment": "Comentário",
   "Country": "País",
   "Download": "Transferências",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Acção confirmada",
+    "actionRejected": "A acção foi cancelada com sucesso",
     "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
     "confirmAction": "Enviamos um link de confirmação por e-mail para o seguinte endereço:\n {{email}}\nPor favor, recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Só então a sua acção contará!\nA sua confirmação é crucial para o peso político da acção. Isto garante que há uma pessoa real por trás de cada envio. Nós aguardaremos a sua confirmação...",
     "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo sua pasta de spam!) e confirmar sua assinatura de e-mail",
@@ -43,6 +46,7 @@
     "opt-in": "Sim, eu quero que {{partner}} me mantenha informado/a via e-mail",
     "opt-in-both": "Sim, eu quero {{partner}} e {{lead}} me manter informado via e-mail",
     "opt-out": "Não, não me envie e-mails nem me mantenha actualizado/a no futuro",
+    "optInConfirmed": "Subscrição confirmada",
     "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "required": "O seu consentimento é necessário para participar"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} não pode receber e-mails",
+    "salutation": "Caro {{target.name}}",
+    "salutationFemale": "Caro {{target.name}}",
+    "salutationMale": "Caro {{target.name}}",
     "salutation_info": "(o nome será colocado antes do envio)",
     "salutation_placeholder": "Caro [destinatário],"
   },

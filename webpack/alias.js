@@ -8,9 +8,7 @@ const fs = require("fs");
 const { getConfigOverride, configFolder } = require("./config");
 
 module.exports = (webpack) => {
-  const [configFile, config] = getConfigOverride({
-    lang: "en",
-  });
+  const [configFile, config] = getConfigOverride();
 
   const lang = config.lang.substring(0, 2).toLowerCase();
 

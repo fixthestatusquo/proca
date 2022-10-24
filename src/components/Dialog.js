@@ -39,7 +39,9 @@ function OpenDialog(props) {
     config.param.locales["dialog-title"] ||
     config.campaign?.title;
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("xs"), {
+    noSsr: true,
+  });
   useEffect(() => setOpen(props.dialog), [props.dialog]);
 
   const handleClose = () => {
@@ -59,7 +61,6 @@ function OpenDialog(props) {
       open={open}
       onClose={handleClose}
       TransitionComponent={Transition}
-      aria-labelledby="sign-dialog-title"
       fullScreen={fullScreen}
     >
       {title ? (

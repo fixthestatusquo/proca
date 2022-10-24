@@ -3,6 +3,7 @@
   "Amount": "Ammont",
   "Another": "Ieħor",
   "Birthdate": "Data tat-twelid",
+  "City": "Belt",
   "Comment": "Kumment",
   "Country": "Pajjiż",
   "Download": "Niżżel",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Azzjoni kkonfermata",
+    "actionRejected": "L-azzjoni ġiet ikkanċellata b'suċċess",
     "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
     "confirmAction": "Bgħatna link ta' konferma bl-email fl-indirizz li ġej:\n {{email}}\nJekk jogħġbok irkupra l-email dritt issa u kklikkja fuq il-link li fiha (iċċekkja l-folder tal-ispam tiegħek!).\n Hekk biss se tgħodd l-azzjoni tiegħek!\nIl-konferma tiegħek hija kruċjali għall-piż politiku tal-azzjoni. Dan jiggarantixxi li hemm persuna reali wara kull sottomissjoni. Nistennew il-konferma tiegħek...",
     "confirmOptIn": "Tinsiex tiċċekkja l-kaxxa postali tiegħek (inkluż il-folder tal-ispam tiegħek!) U tikkonferma l-abbonament tal-email tiegħek",
@@ -43,6 +46,7 @@
     "opt-in": "Iva, irrid {{partner}} li jżommni infurmat permezz tal-email",
     "opt-in-both": "Iva, irrid {{partner}} u {{lead}} iżommuni infurmat permezz tal-email",
     "opt-out": "Le, tibgħatx email jew żommni aġġornat fil-futur",
+    "optInConfirmed": "Abbonament ikkonfermat",
     "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
     "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
     "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
+    "salutation": "Għażiż {{target.name}}",
+    "salutationFemale": "Għażiż {{target.name}}",
+    "salutationMale": "Għażiż {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },

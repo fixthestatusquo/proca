@@ -103,7 +103,7 @@ const ConfirmPreviousStep = (props) => {
 
   if (props.email?.confirmOptIn && data.privacy === "opt-in") {
     return (
-      <Alert severity="info" icon={<MailIcon />}>
+      <Alert severity="info" autoHideDuration={15000} icon={<MailIcon />}>
         <ConfirmTitle email={data.email} />
         {t("consent.confirmOptIn")}
       </Alert>
@@ -130,11 +130,9 @@ export default function ShareAction(props) {
   const config = useCampaignConfig();
   const actionPage = config.actionPage;
   const metadata = metadataparser.getMetadata(window.document, window.location);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const shareUrl = (component) => {
-    if (config?.component?.share?.utm === false) return window.location.href;
-
     const medium =
       typeof component === "string"
         ? component
@@ -144,7 +142,17 @@ export default function ShareAction(props) {
     params.set("utm_source", "share");
     params.set("utm_medium", medium);
     params.set("utm_campaign", uuid());
-
+    let garbage = [];
+    for (const key of params.keys()) {
+      if (key === "doi") garbage.push(key);
+      if (key.startsWith("proca_")) garbage.push(key);
+    }
+    if (config?.component?.share?.utm === false) {
+      ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
+        garbage.push(d)
+      );
+    }
+    garbage.forEach((key) => params.delete(key));
     return url.toString();
   };
   const next = () => {
@@ -263,6 +271,10 @@ export default function ShareAction(props) {
         </CardActions>
       );
     } else {
+      console.log(
+        config.component.share?.email !== false,
+        i18n.exists("campaign:share.email.subject")
+      );
       cardIcons = (
         <CardActions>
           <ActionIcon
@@ -289,16 +301,18 @@ export default function ShareAction(props) {
             title={shareText("share-telegram")}
             component={TelegramShareButton}
           />
-          {!!config.component?.share?.email && (
-            <ActionIcon
-              icon={EmailIcon}
-              component={EmailShareButton}
-              subject={shareText("share-subject")}
-              body={shareText("share-body")}
-              separator=" "
-            />
-          )}
-          {!!config.component?.share?.reddit && (
+          {config.component.share?.email !== false &&
+            i18n.exists("campaign:share.email.subject") && (
+              <ActionIcon
+                icon={EmailIcon}
+                onClick={(e, link) => (window.location.href = link)}
+                component={EmailShareButton}
+                subject={t("campaign:share.email.subject", "")}
+                body={shareText("share.email.body")}
+                separator=" "
+              />
+            )}
+          {!!config.component.share?.reddit && (
             <ActionIcon icon={RedditIcon} component={RedditShareButton} />
           )}
           <ActionIcon
@@ -346,6 +360,7 @@ export default function ShareAction(props) {
         {...drillProps}
         component={props.component}
         url={shareUrl(props.component)}
+        onClick={props.onClick}
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}

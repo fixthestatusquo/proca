@@ -62,7 +62,7 @@ export default function Register(props) {
   }, [postcode, country, setValue]);
 
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="div" maxWidth="sm">
       <Typography variant="subtitle1" component="legend">
         {t("eci:form.group-address")}
       </Typography>

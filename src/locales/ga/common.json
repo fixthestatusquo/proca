@@ -3,6 +3,7 @@
   "Amount": "Méid",
   "Another": "Eile",
   "Birthdate": "Dáta breithe",
+  "City": "Cathair",
   "Comment": "Tráchtaireacht",
   "Country": "Tír",
   "Download": "Íoslódáil",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Gníomh dearbhaithe",
+    "actionRejected": "Cuireadh an gníomh ar ceal go rathúil",
     "confirm": "<0> An bhfuil tú cinnte? </0> <1> Trí 'Níl' a roghnú, ní bheidh tú in ann a fháil amach an bhfuil rath ar an bhfeachtas seo, nó an bhfuil níos mó gníomhaíochta ann a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú ‘Tá’ coinneoimid ar an eolas tú faoi seo agus faoinár bhfeachtais phráinneacha eile. </1> <2> Is féidir leat díliostáil a dhéanamh am ar bith. </2>",
     "confirmAction": "Tá nasc deimhnithe seolta againn trí ríomhphost chuig an seoladh seo a leanas:\n {{email}}\nAisghabh an ríomhphost anois le do thoil agus cliceáil ar an nasc atá ann (seiceáil d’fhillteán turscair!).\n Ní bheidh do ghníomhaíocht san áireamh ach ansin!\nTá do dheimhniú ríthábhachtach maidir le meáchan polaitiúil na gníomhaíochta. Cinntíonn sé seo go bhfuil duine fíor taobh thiar de gach aighneacht. Beidh muid ag fanacht le do dheimhniú...",
     "confirmOptIn": "Ná déan dearmad do bhosca ríomhphoist a sheiceáil (lena n-áirítear d’fhillteán turscair!) agus deimhnigh do shíntiús ríomhphoist",
@@ -43,6 +46,7 @@
     "opt-in": "Sea, ba mhaith liom {{partner}} mé a choinneáil ar an eolas trí ríomhphost",
     "opt-in-both": "Sea, ba mhaith liom {{partner}} agus {{lead}} mé a choinneáil ar an eolas trí ríomhphost",
     "opt-out": "Níl, ná seol ríomhphoist chugam nó coinnigh suas chun dáta mé amach anseo",
+    "optInConfirmed": "Deimhníodh an síntiús",
     "processing": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí agus fianáin de réir ár mbeartas príobháideachta <1> </1>",
     "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
     "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
+    "salutation": "A chara {{target.name}}",
+    "salutationFemale": "A chara {{target.name}}",
+    "salutationMale": "A chara {{target.name}}",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
     "salutation_placeholder": "A chara [faighteoir],"
   },

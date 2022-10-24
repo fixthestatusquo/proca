@@ -3,6 +3,7 @@
   "Amount": "Daudzums",
   "Another": "Vēl viens",
   "Birthdate": "Dzimšanas datums",
+  "City": "Pilsēta",
   "Comment": "Komentārs",
   "Country": "Valsts",
   "Download": "Lejupielādēt",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Rīcība apstiprināta",
+    "actionRejected": "Darbība tika veiksmīgi atcelta",
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",
     "confirmAction": "Mēs esam nosūtījuši apstiprinājuma saiti uz šādu e-pasta adresi:\n {{email}}.\nLūdzu, saņemiet e-pastu tieši tagad un noklikšķiniet uz tajā esošās saites (pārbaudiet savu surogātpasta mapi!).\n Tikai tad jūsu darbība tiks ieskaitīta!\nJūsu apstiprinājumam ir izšķiroša nozīme, lai akcija būtu politiski nozīmīga. Tas garantē, ka aiz katra iesnieguma stāv reāla persona. Mēs gaidīsim jūsu apstiprinājumu...",
     "confirmOptIn": "Neaizmirstiet pārbaudīt savu pastkasti (ieskaitot surogātpasta mapi!) un apstiprināt e-pasta abonēšanu.",
@@ -43,6 +46,7 @@
     "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu e-pastā",
     "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
     "opt-out": "Nē, es nevēlos saņemt kampaņas jaunumus",
+    "optInConfirmed": "Apstiprināta abonēšana",
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana."
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
+    "salutation": "Dārgais {{target.name}}",
+    "salutationFemale": "Dārgais {{target.name}}",
+    "salutationMale": "Dārgais {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },

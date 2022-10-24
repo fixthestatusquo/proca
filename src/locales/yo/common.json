@@ -3,6 +3,7 @@
   "Amount": "Iye",
   "Another": "Omiiran",
   "Birthdate": "Ojo ibi",
+  "City": "Ilu",
   "Comment": "Ọrọìwòye",
   "Country": "Orilẹ -ede",
   "Download": "Gbaa lati ayelujara",
@@ -34,6 +35,8 @@
     "twitter": "Tweet"
   },
   "consent": {
+    "actionConfirmed": "Action timo",
+    "actionRejected": "Iṣẹ naa ti fagile ni aṣeyọri",
     "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa.",
     "confirmAction": "A ti fi ọna asopọ ijẹrisi ranṣẹ nipasẹ imeeli si adirẹsi atẹle yii:\n {{email}}\nJọwọ gba imeeli pada ni bayi ki o tẹ ọna asopọ ti o wa ninu (ṣayẹwo folda àwúrúju rẹ!).\n Nikan lẹhinna iṣẹ rẹ yoo ka!\nIjẹrisi rẹ ṣe pataki fun iwuwo iṣelu ti iṣe naa. Eyi ṣe iṣeduro pe eniyan gidi wa lẹhin gbogbo ifakalẹ. A yoo duro de ijẹrisi rẹ...",
     "confirmOptIn": "Maṣe gbagbe lati ṣayẹwo apoti leta rẹ (pẹlu folda àwúrúju rẹ!) Ati jẹrisi ṣiṣe alabapin imeeli rẹ",
@@ -43,6 +46,7 @@
     "opt-in": "Bẹẹni, Mo fẹ {{partner}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
     "opt-in-both": "Bẹẹni, Mo fẹ {{partner}} ati {{lead}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
     "opt-out": "Rara, maṣe fi imeeli ranṣẹ si mi tabi jẹ ki n ṣe imudojuiwọn ni ọjọ iwaju",
+    "optInConfirmed": "Ṣiṣe alabapin timo",
     "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
     "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
     "required": "A nilo igbanilaaye lati kopa"
@@ -115,6 +119,9 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
+    "salutation": "Eyin {{target.name}}",
+    "salutationFemale": "Eyin {{target.name}}",
+    "salutationMale": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
     "salutation_placeholder": "Eyin [olugba],"
   },

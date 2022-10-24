@@ -81,17 +81,17 @@ const amountStyles = makeStyles(() => ({
 
 const Amounts = () => {
   const config = useCampaignConfig();
+  const [data, setData] = useData();
   const donateConfig = config.component.donation;
   const currency = donateConfig.currency;
   // TODO: adjust for currencies?
+  const frequency =
+    data.frequency || config.component.donation?.frequency?.default || "oneoff";
   const configuredAmounts = donateConfig?.amount || {
-    default: [3, 5, 10, 50, 200],
+    oneoff: [3, 5, 10, 50, 200],
   };
 
-  const [data, setData] = useData();
-
-  const frequency = data.frequency;
-
+  console.log(donateConfig, frequency, configuredAmounts);
   const amounts = [
     ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
   ];

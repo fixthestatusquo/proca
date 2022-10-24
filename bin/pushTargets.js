@@ -30,7 +30,7 @@ const pushCampaignTargets = async (campaignName, file) => {
       const common = campaign.config.locales[lang]["common:"];
       const salutation = common?.salutation;
       if (salutation) salutations[lang] = salutation;
-      if (!salutation)
+      if (!salutation && campaign.config.locales.en["common:"])
         salutations[lang] = campaign.config.locales.en["common:"].salutation; //WORKAROUND to default to en
     });
   }
@@ -40,58 +40,57 @@ const pushCampaignTargets = async (campaignName, file) => {
     return [];
   }
   const formatTargets = async () => {
-    const r = await Promise.all(
-      targets.map(async (t) => {
-        if (!t.name) return null; //skip empty records
-        delete t.id;
+    const results = [];
+    for (t of targets) {
+      if (!t.name) return null; //skip empty records
+      delete t.id;
 
-        if (t.lang) {
-          t.locale = t.lang;
+      if (t.lang) {
+        t.locale = t.lang;
+      } else {
+        const l = mainLanguage(t.area);
+        if (l) t.locale = l;
+      }
+
+      if (!t.emails) {
+        t.emails = [];
+        if (t.email) {
+          // check if multiple emails separated by ";"
+          //t.emails = [ {email: t.email.trim()}];
+          t.email
+            .replace(",", ";")
+            .split(";")
+            .forEach((d) => {
+              t.emails.push({ email: d.trim() });
+            });
+          delete t.email;
+        }
+      }
+      if (!t.salutation && argv.salutation) {
+        let gender = null;
+        if (t.field.gender) {
+          if (t.field.gender === "M") gender = "male";
+          if (t.field.gender === "F") gender = "female";
+        }
+        if (salutations[t.locale]) {
+          t.field.salutation = i18n.t(salutations[t.locale][gender], {
+            name: t.name,
+          });
         } else {
-          const l = mainLanguage(t.area);
-          if (l) t.locale = l;
+          await i18n.changeLanguage(t.locale);
+          t.field.salutation = i18n.t("email.salutation", {
+            context: gender,
+            target: { name: t.name },
+          });
         }
-
-        if (!t.emails) {
-          t.emails = [];
-          if (t.email) {
-            // check if multiple emails separated by ";"
-            //t.emails = [ {email: t.email.trim()}];
-            t.email
-              .replace(",", ";")
-              .split(";")
-              .forEach((d) => {
-                t.emails.push({ email: d.trim() });
-              });
-            delete t.email;
-          }
-        }
-        if (!t.salutation && argv.salutation) {
-          let gender = null;
-          if (t.field.gender) {
-            if (t.field.gender === "M") gender = "male";
-            if (t.field.gender === "F") gender = "female";
-          }
-          if (salutations[t.locale]) {
-            t.field.salutation = i18n.t(salutations[t.locale][gender], {
-              name: t.name,
-            });
-          } else {
-            const d = await i18n.changeLanguage(t.locale);
-            t.field.salutation = i18n.t("email.salutation", {
-              context: gender,
-              target: { name: t.name },
-            });
-          }
-        }
-        t.fields = JSON.stringify(t.field);
-        delete t.field;
-        return t;
-      })
-    );
-    console.log(r);
-    return r.filter((d) => d !== null);
+      }
+      t.fields = JSON.stringify(t.field);
+      delete t.field;
+      results.push(t);
+    }
+    return results;
   };
+
   const formattedTargets = await formatTargets();
 
   if (campaign === null) {
