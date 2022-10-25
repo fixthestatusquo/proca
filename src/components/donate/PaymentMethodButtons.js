@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useData from "@hooks/useData";
 
 import { Button, FormHelperText, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,6 +15,36 @@ const useStyles = makeStyles({
     "& svg": { marginRight: "0.5em" },
   },
 });
+
+const ExternalPayment = (props) => {
+  const { t } = useTranslation();
+  const classes = useStyles();
+  const [formData] = useData();
+  //  const frequency = formData.frequency;
+  const config = useCampaignConfig();
+  const donateConfig = config.component.donation;
+
+  const onClickExternal = () => {
+    const url = donateConfig.external.url.replace("{amount}", formData.amount);
+    window.open(url, "_blank");
+  };
+
+  return (
+    <Grid item xs={12}>
+      <Button
+        size="large"
+        fullWidth
+        variant="contained"
+        color="primary"
+        classes={{ root: classes.button }}
+        onClick={onClickExternal}
+      >
+        <PaymentIcon />
+        {t("donation.payment_methods.card", { defaultvalue: "Card" })}
+      </Button>
+    </Grid>
+  );
+};
 
 const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
   const classes = useStyles();
@@ -31,6 +62,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
       aria-label="payment method"
       classes={classes.formContainers}
     >
+      {donateConfig.external && <ExternalPayment />}
       {donateConfig.stripe ? (
         <Grid item xs={12}>
           <Button
