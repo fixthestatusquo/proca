@@ -91,7 +91,6 @@ const Amounts = () => {
     oneoff: [3, 5, 10, 50, 200],
   };
 
-  console.log(donateConfig, frequency, configuredAmounts);
   const amounts = [
     ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
   ];

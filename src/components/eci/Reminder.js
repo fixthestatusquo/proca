@@ -97,7 +97,7 @@ const RemindMeLater = (props) => {
           message: "fatal error, please try later",
         });
     } else {
-      dispatch("reminder:sent");
+      dispatch("reminder:sent", null, null, config);
       setSubmitted(true);
       setDisplayed(false);
     }
@@ -111,7 +111,7 @@ const RemindMeLater = (props) => {
   };
 
   const open = (event) => {
-    dispatch("reminder:open");
+    dispatch("reminder:open", null, null, config);
     setDisplayed(true);
   };
 
