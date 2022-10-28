@@ -206,10 +206,7 @@ ids.map(id => {
         console.error("goal must be a number or numbers separated by commas (no spaces)");
         process.exit(0);
       }
-      let current = read(id);
-      const next = current;
-      next.component.counter.steps = steps;
-      save (next);
+      update(id, { component: { counter: {steps: steps }}});
     }
 
     // COMPONENT.COUNTRY SETTINGS
