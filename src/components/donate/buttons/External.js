@@ -19,12 +19,12 @@ const ExternalPayment = (props) => {
     console.log(config);
     const url = donateConfig.external.url
       .replace("{lang}", config.lang)
-      .replace("{email}", formData.firstname)
-      .replace("{lastname}", formData.firstname)
-      .replace("{firstname}", formData.firstname)
-      .replace("{postcode}", formData.postcode)
-      .replace("{locality}", formData.locality)
-      .replace("{amount}", formData.amount);
+      .replace("{email}", formData.email || "")
+      .replace("{lastname}", formData.lastname || "")
+      .replace("{firstname}", formData.firstname || "")
+      .replace("{postcode}", formData.postcode || "")
+      .replace("{locality}", formData.locality || "")
+      .replace("{amount}", formData.amount || "");
     window.open(url, "_blank");
   };
 
