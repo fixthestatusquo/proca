@@ -10,19 +10,17 @@ const { getConfigOverride, configFolder } = require("./config");
 module.exports = (webpack) => {
   const [configFile, config] = getConfigOverride();
 
-  const lang = config.lang.substring(0, 2).toLowerCase();
+  const lang = config.lang; //config.lang ="de" vs config.locale "de@informal or de_AT"
+  let locales = path.resolve(__dirname, "../src/locales/" + config.locale);
 
-  let locales = path.resolve(
-    __dirname,
-    "../src/locales/" + config.lang
-  );
-
-  if (!fs.existsSync (locales)) {
-    // aiming as a variant/locales that doesn't exist - eg de@informal or de_CH -, take the default de
-    locales = path.resolve(
-    __dirname,
-    "../src/locales/" + lang
-  );
+  if (!fs.existsSync(locales)) {
+    console.warn(
+      config.lang,
+      " aiming as a variant/locales that doesn't exist - eg de@informal or de_CH -, take the default",
+      lang
+    );
+    locales = path.resolve(__dirname, "../src/locales/" + lang);
+  }
 
   webpack.resolve.alias["locales"] = locales;
 

@@ -7,7 +7,7 @@
   "Comment": "Kommentar",
   "Country": "Land",
   "Download": "Herunterladen",
-  "Download explanation": "Ihr Dokument ist jetzt fertig, wir schicken es Ihnen auch per E-Mail zu",
+  "Download explanation": "Dein Dokument ist jetzt fertig, wir senden es Dir auch per E-Mail zu",
   "Email": "E-Mail",
   "First name": "Vorname",
   "Last name": "Nachname",
@@ -21,7 +21,7 @@
   "Street": "Straße",
   "Subject": "Betreff",
   "Thank you": "Danke",
-  "Your message": "Ihre Nachricht",
+  "Your message": "Dein Nachricht",
   "action": {
     "donate": "Spenden du",
     "eci": "Initiative unterschreiben",

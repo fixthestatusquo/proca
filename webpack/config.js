@@ -87,6 +87,8 @@ function readConfigOverride(id) {
       } else {
         console.error("can't find the campaign.name on the config", config);
       }
+      config.locale = config.lang;
+      config.lang = config.lang.substring(0, 2).toLowerCase();
       if (process.env.debug || process.env.DEBUG) {
         console.log(JSON.stringify(config, null, 2));
         process.exit(1);

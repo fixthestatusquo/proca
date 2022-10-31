@@ -3,7 +3,6 @@ import useData from "@hooks/useData";
 
 import { Button, Grid } from "@material-ui/core";
 
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -23,6 +22,8 @@ const ExternalPayment = (props) => {
       .replace("{email}", formData.firstname)
       .replace("{lastname}", formData.firstname)
       .replace("{firstname}", formData.firstname)
+      .replace("{postcode}", formData.postcode)
+      .replace("{locality}", formData.locality)
       .replace("{amount}", formData.amount);
     window.open(url, "_blank");
   };
