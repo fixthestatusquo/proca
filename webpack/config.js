@@ -77,9 +77,11 @@ function readConfigOverride(id) {
             });
 
           config.locales["campaign:"] = campaigns;
-          if (campaignConfig.config.locales[config.lang].title) {
-            config.campaign.title =
-              campaignConfig.config.locales[config.lang].title;
+          if (
+            config.locales["campaign:"] &&
+            config.locales["campaign:"].title
+          ) {
+            config.campaign.title = config.locales["campaign:"].title;
           }
         }
       } else {

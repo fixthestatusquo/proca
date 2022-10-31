@@ -12,10 +12,19 @@ module.exports = (webpack) => {
 
   const lang = config.lang.substring(0, 2).toLowerCase();
 
-  webpack.resolve.alias["locales"] = path.resolve(
+  let locales = path.resolve(
+    __dirname,
+    "../src/locales/" + config.lang
+  );
+
+  if (!fs.existsSync (locales)) {
+    // aiming as a variant/locales that doesn't exist - eg de@informal or de_CH -, take the default de
+    locales = path.resolve(
     __dirname,
     "../src/locales/" + lang
   );
+
+  webpack.resolve.alias["locales"] = locales;
 
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
   webpack.resolve.alias["@components"] = path.resolve(
