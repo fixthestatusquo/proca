@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 require("./dotenv.js");
 const { api } = require("./config");
 

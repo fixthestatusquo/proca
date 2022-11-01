@@ -13,6 +13,8 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
 
+const pathConfig = () => path.resolve(__dirname, tmp);
+
 const checked = (fileName, type) => {
   if (fileName.toString().includes("..")) {
     console.error("the filename is invalid ", fileName);
@@ -31,6 +33,10 @@ const mkdirp = (pathToFile) =>
 
 const file = (id) => {
   return path.resolve(__dirname, tmp + checked(id) + ".json");
+};
+
+const fileExists = (id) => {
+  return fs.existsSync(file(id));
 };
 
 const read = (id) => {
@@ -72,8 +78,9 @@ const backup = (actionPage) => {
 
 const save = (config, suffix = "") => {
   const id = config.actionpage;
-  console.log(file(id) + suffix);
+  //  console.log(file(id) + suffix);
   fs.writeFileSync(file(id) + suffix, JSON.stringify(config, null, 2));
+  return file(id) + suffix;
 };
 
 const saveCampaign = (campaign, lang = "en") => {
@@ -284,7 +291,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   return data.upsertCampaign;
 };
 
-const fetch = async (actionPage, anonymous) => {
+const fetch = async (actionPage, { anonymous, save }) => {
   let data = undefined;
 
   const query = `
@@ -365,8 +372,10 @@ query actionPage ($id:Int!) {
   if (!config.journey) {
     delete config.journey;
   }
-  save(config, ".remote");
-  saveCampaign(data.actionPage.campaign, config.lang);
+  if (save) {
+    save(config, ".remote");
+    saveCampaign(data.actionPage.campaign, config.lang);
+  }
   return config;
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
 
@@ -437,12 +446,14 @@ const pull = async (actionPage, anonymous) => {
 };
 
 module.exports = {
+  pathConfig,
   api,
   pull,
   push,
   fetch,
   read,
   file,
+  fileExists,
   save,
   apiLink,
   actionPageFromLocalConfig,
