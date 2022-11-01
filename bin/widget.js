@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { link, admin, request, basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const { fetch, read, file, apiLink, fileExists, save } = require("./config");
+const { api, read, file, apiLink, fileExists, save } = require("./config");
 const { commit, add, onGit } = require("./git");
 const getId = require("./id");
 const color = require("cli-color");
@@ -30,6 +30,19 @@ const help = () => {
     );
     process.exit(0);
   }
+};
+
+const string2array = (s) => {
+  if (!s || s.length === 0 || s[0] === "") {
+    return null;
+  }
+  s.forEach((d, i) => {
+    if (typeof d !== "string") return;
+    const sub = d.split("+");
+    if (sub.length === 1) return;
+    s[i] = sub;
+  });
+  return s;
 };
 
 const array2string = (s) => {
@@ -63,6 +76,98 @@ const actionPageFromLocalConfig = (id, local) => {
   };
 };
 
+const fetch = async (actionPage, { anonymous, save }) => {
+  let data = undefined;
+
+  const query = `
+query actionPage ($id:Int!) {
+  actionPage (id:$id) {
+    id, name, locale,
+    thankYouTemplate,
+    ... on PrivateActionPage { supporterConfirmTemplate },
+    campaign {
+      id,
+      title,name,config,
+      org {name,title}
+    },
+    org {
+      title,
+      name,
+      config,
+      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
+    }
+    , config
+  }
+}
+`;
+
+  try {
+    data = await api(query, { id: actionPage }, "actionPage", anonymous);
+  } catch (err) {
+    throw err;
+  }
+  if (!data.actionPage) throw new Error(data.toString());
+
+  data.actionPage.config = JSON.parse(data.actionPage.config);
+  data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
+  data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
+  let config = {
+    actionpage: data.actionPage.id,
+    organisation: data.actionPage.org.title,
+    org: {
+      name: data.actionPage.org.name,
+      privacyPolicy:
+        (data.actionPage.org.config.privacy &&
+          data.actionPage.org.config.privacy.policyUrl) ||
+        "",
+      url: data.actionPage.org.config.url || "",
+    },
+    lang: data.actionPage.locale,
+    filename: data.actionPage.name,
+    lead: data.actionPage.campaign.org,
+    campaign: {
+      title: data.actionPage.campaign.title,
+      name: data.actionPage.campaign.name,
+    },
+    journey: string2array(data.actionPage.config.journey),
+    layout: data.actionPage.config.layout || {},
+    component: data.actionPage.config.component || {},
+    portal: data.actionPage.config.portal || [],
+    locales: data.actionPage.config.locales || {},
+  };
+  if (data.actionPage.config.test) config.test = true;
+
+  if (config.component.consent && data.actionPage.org.processing) {
+    let consentEmail = config.component.consent.email || {};
+    if (
+      data.actionPage.org.processing.supporterConfirm &&
+      (data.actionPage.org.processing.supporterConfirmTemplate ||
+        data.actionpage.supporterConfirmTemplate)
+    )
+      consentEmail.confirmAction = true;
+
+    if (
+      !consentEmail.confirmAction &&
+      Boolean(data.actionPage.thankYouTemplate)
+    )
+      consentEmail.confirmOptIn = true;
+    if (Object.keys(consentEmail).length > 0)
+      config.component.consent.email = consentEmail; // we always overwrite based on the templates
+  }
+  if (!config.journey) {
+    delete config.journey;
+  }
+  if (save) {
+    save(config, ".remote");
+    saveCampaign(data.actionPage.campaign, config.lang);
+  }
+  return config;
+  //  const ap = argv.public ? data.actionPage : data.org.actionPage
+
+  //  let t = null
+  //  t = fmt.actionPage(ap, data.org)
+  //  console.log(t)
+};
 const pull = async (actionPage, anonymous) => {
   //  console.log("file",file(actionPage));
   const local = read(actionPage);
