@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
+const { link, admin, request, basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const { pull, push, fetch, read, file, fileExists, save } = require("./config");
+const { fetch, read, file, apiLink, fileExists, save } = require("./config");
 const { commit, add, onGit } = require("./git");
 const getId = require("./id");
 const color = require("cli-color");
@@ -11,7 +12,6 @@ const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },
   alias: { v: "verbose" },
 });
-//const { read, file, api } = require("./config");
 
 const help = () => {
   if (!argv._.length || argv.help) {
@@ -30,6 +30,61 @@ const help = () => {
     );
     process.exit(0);
   }
+};
+
+const array2string = (s) => {
+  if (!s) return "";
+  s.forEach((d, i) => {
+    if (typeof s[i] === "string") return;
+    s[i] = s[i].join("+");
+  });
+  return s;
+};
+
+const actionPageFromLocalConfig = (id, local) => {
+  const config = {
+    journey: array2string(local.journey),
+    layout: local.layout,
+    component: local.component,
+    locales: local.locales,
+    portal: local.portal,
+  };
+
+  if (local.test) config.test = true;
+  if (local.template) config.template = local.template;
+
+  return {
+    id: id,
+    actionPage: {
+      name: local.filename,
+      locale: local.lang,
+      config: JSON.stringify(config),
+    },
+  };
+};
+
+const pull = async (actionPage, anonymous) => {
+  //  console.log("file",file(actionPage));
+  const local = read(actionPage);
+  const config = await fetch(actionPage, anonymous);
+  save(config);
+  return config;
+};
+
+const push = async (id) => {
+  const local = read(id);
+  const c = apiLink();
+  const actionPage = actionPageFromLocalConfig(id, local);
+  const { data, errors } = await request(
+    c,
+    admin.UpdateActionPageDocument,
+    actionPage
+  );
+  if (errors) {
+    //    console.log(actionPage);
+    throw errors;
+  }
+  return actionPage;
 };
 
 if (require.main === module) {
@@ -54,6 +109,16 @@ if (require.main === module) {
         //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
         //    backup(actionPage);
         // }
+        const msg =
+          widget.filename +
+          " for " +
+          widget.org.name +
+          " (" +
+          widget.organisation +
+          ") in " +
+          widget.lang +
+          " part of " +
+          widget.campaign.title;
         if (!argv["dry-run"]) {
           const exists = fileExists(id);
           const fileName = save(widget);
@@ -66,10 +131,12 @@ if (require.main === module) {
             color.green.bold("saved", fileName),
             color.blue(widget.filename)
           );
-          r = argv.git && (await commit(id + ".json"));
+          r = argv.git && (await commit(id + ".json", msg));
           if (argv.git && !r) {
             // no idea,
-            console.log("something went wrong, trying to git add");
+            console.warn(
+              console.red("something went wrong, trying to git add")
+            );
             r = await add(id + ".json");
             console.log(r);
             r = await commit(id + ".json");
@@ -78,12 +145,14 @@ if (require.main === module) {
         }
       }
       if (argv.push && !argv["dry-run"]) {
+        const r = argv.git && (await commit(id + ".json"));
         const result = await push(id);
 
         console.log(
           color.green.bold("pushed", id),
           color.blue(result.actionPage && result.actionPage.name)
         );
+        if (r.summary) console.log(r.summary);
       }
       if (argv["dry-run"] || argv.verbose) {
         if (!widget) {
@@ -98,5 +167,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = {};
+  module.exports = { pull };
 }

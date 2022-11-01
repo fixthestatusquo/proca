@@ -48,15 +48,6 @@ const read = (id) => {
   }
 };
 
-const array2string = (s) => {
-  if (!s) return "";
-  s.forEach((d, i) => {
-    if (typeof s[i] === "string") return;
-    s[i] = s[i].join("+");
-  });
-  return s;
-};
-
 const string2array = (s) => {
   if (!s || s.length === 0 || s[0] === "") {
     return null;
@@ -396,54 +387,14 @@ const apiLink = () => {
   return c;
 };
 
-const actionPageFromLocalConfig = (id, local) => {
-  const config = {
-    journey: array2string(local.journey),
-    layout: local.layout,
-    component: local.component,
-    locales: local.locales,
-    portal: local.portal,
-  };
-
-  if (local.test) config.test = true;
-  if (local.template) config.template = local.template;
-
-  return {
-    id: id,
-    actionPage: {
-      name: local.filename,
-      locale: local.lang,
-      config: JSON.stringify(config),
-    },
-  };
+const obsolete = () => {
+  console.log("import from bin/widget");
+  process.exit(1);
 };
 
-const push = async (id) => {
-  const local = read(id);
-  const c = apiLink();
-  const actionPage = actionPageFromLocalConfig(id, local);
-  const { data, errors } = await request(
-    c,
-    admin.UpdateActionPageDocument,
-    actionPage
-  );
-  if (errors) {
-    //    console.log(actionPage);
-    throw errors;
-  }
-  return actionPage;
-};
-
-const pull = async (actionPage, anonymous) => {
-  //  console.log("file",file(actionPage));
-  const local = read(actionPage);
-  const config = await fetch(actionPage, anonymous);
-  if (local && JSON.stringify(local) !== JSON.stringify(config)) {
-    backup(actionPage);
-  }
-  save(config);
-  return config;
-};
+const push = obsolete;
+const pull = obsolete;
+//const fetch = obsolete;
 
 module.exports = {
   pathConfig,
@@ -456,7 +407,7 @@ module.exports = {
   fileExists,
   save,
   apiLink,
-  actionPageFromLocalConfig,
+  //  actionPageFromLocalConfig,
   pushCampaign,
   pullCampaign,
   saveCampaign,
