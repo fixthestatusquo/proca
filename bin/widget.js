@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 require("./dotenv.js");
 const { pull, push, fetch, read, file, fileExists, save } = require("./config");
-const { commit, add } = require("./git");
+const { commit, add, onGit } = require("./git");
 const getId = require("./id");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
@@ -16,15 +16,17 @@ const argv = require("minimist")(process.argv.slice(2), {
 const help = () => {
   if (!argv._.length || argv.help) {
     console.log(
-      [
-        "options",
-        "--help (this command)",
-        "--dry-run (show the parsed widget but don't write)",
-        "--pull (by default)",
-        "--git (git update [add]+commit the local /config",
-        "--push (update the server)",
-        "widget {actionpage id}",
-      ].join("\n")
+      color.yellow(
+        [
+          "options",
+          "--help (this command)",
+          "--dry-run (show the parsed widget but don't write)",
+          "--pull (by default)",
+          "--git (git update [add]+commit the local /config) || --no-git",
+          "--push (update the server)",
+          "widget {actionpage id}",
+        ].join("\n")
+      )
     );
     process.exit(0);
   }
@@ -33,6 +35,14 @@ const help = () => {
 if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
   help();
+  if (!onGit()) {
+    console.warn(
+      color.italic.yellow(
+        "git integration disabled because the config folder isn't on git"
+      )
+    );
+    argv.git = false;
+  }
   (async () => {
     const anonymous = true;
     try {
@@ -46,10 +56,9 @@ if (require.main === module) {
         // }
         if (!argv["dry-run"]) {
           const exists = fileExists(id);
-          console.log("should we create it?", exists);
           const fileName = save(widget);
           let r = null;
-          if (!exists) {
+          if (!exists && argv.git) {
             r = await add(id + ".json");
             console.log("adding", r);
           }
@@ -57,15 +66,15 @@ if (require.main === module) {
             color.green.bold("saved", fileName),
             color.blue(widget.filename)
           );
-          r = await commit(id + ".json");
-          if (!r) {
+          r = argv.git && (await commit(id + ".json"));
+          if (argv.git && !r) {
             // no idea,
             console.log("something went wrong, trying to git add");
             r = await add(id + ".json");
             console.log(r);
             r = await commit(id + ".json");
           }
-          console.log(r);
+          if (r.summary) console.log(r.summary);
         }
       }
       if (argv.push && !argv["dry-run"]) {

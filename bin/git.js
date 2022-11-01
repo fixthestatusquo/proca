@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const fs = require("fs");
 const { pathConfig } = require("./config");
 const simpleGit = require("simple-git");
 require("./dotenv.js");
@@ -18,10 +19,14 @@ const argv = require("minimist")(process.argv.slice(2), {
 });
 
 const changeDir = () => {
-  console.log(pathConfig());
   process.chdir(pathConfig());
 };
 changeDir();
+
+const onGit = () => {
+  console.log(pathConfig() + "/.git");
+  return fs.existsSync(pathConfig() + "/.git");
+};
 
 const help = () => {
   if (
@@ -186,5 +191,6 @@ if (require.main === module) {
     commit,
     push,
     pull,
+    onGit,
   };
 }
