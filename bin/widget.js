@@ -8,7 +8,7 @@ const { commit, add, onGit } = require("./git");
 const getId = require("./id");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "pull", "verbose", "push"],
+  boolean: ["help", "dry-run", "pull", "verbose", "push", "git"],
   default: { git: true },
   alias: { v: "verbose" },
 });

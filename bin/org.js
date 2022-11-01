@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const fetch = require("cross-fetch");
-
 require("dotenv").config();
+const { commit, add, onGit } = require("./git");
+const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
+  default: { git: true },
   boolean: [
     "help",
     "keep",
     "dry-run",
     "pull",
+    "git",
     "push",
     "twitter",
     "pages",
@@ -16,21 +19,23 @@ const argv = require("minimist")(process.argv.slice(2), {
   ],
 });
 
-const { file, api } = require("./config");
+const { file, api, fileExists } = require("./config");
 
 const help = () => {
   if (!argv._.length || argv.help) {
     console.log(
-      [
-        "options",
-        "--help (this command)",
-        "--dry-run (show the parsed org but don't write)",
-        "--pages (fetch the action pages of the org)",
-        "--users(fetch the users of the org)",
-        "--pull (by default)",
-        "--push (update the server)",
-        "org {org name}",
-      ].join("\n")
+      color.yellow(
+        [
+          "options",
+          "--help (this command)",
+          "--dry-run (show the parsed org but don't write)",
+          "--pages (fetch the action pages of the org)",
+          "--users(fetch the users of the org)",
+          "--pull (by default)",
+          "--push (update the server)",
+          "org {org name}",
+        ].join("\n")
+      )
     );
     process.exit(0);
   }
@@ -42,10 +47,30 @@ const readOrg = (orgName) => {
   return org;
 };
 
-const saveOrg = (orgName, org) => {
+const saveOrg = async (orgName, org) => {
   const fileName = file("org/" + orgName);
+  const exists = fileExists("org/" + orgName);
   fs.writeFileSync(fileName, JSON.stringify(org, null, 2));
-  console.log("wrote config/" + "org/" + orgName + ".json");
+  console.log(color.green.bold("wrote " + fileName));
+  let r = null;
+  const msg =
+    "#" +
+    org.id +
+    " " +
+    org.name +
+    (org.config.twitter &&
+      " " +
+        org.config.twitter.screen_name +
+        " followers:" +
+        org.config.twitter.followers_count);
+  if (argv.git) {
+    if (!exists) {
+      r = await add(fileName);
+      console.log("adding", fileName);
+    }
+    r = argv.git && (await commit(fileName, msg));
+    console.log(r.summary);
+  }
   return fileName;
 };
 
@@ -89,8 +114,9 @@ const pushOrg = async (org) => {
     config: JSON.stringify(org.config),
     //    description: org.description || org.config.twitter.description
   };
-  console.log(variables);
   const data = await api(query, variables, "updateOrg");
+  console.log(color.green.bold("pushed", org.name), color.blue(org.id));
+  return data;
 };
 
 const getOrg = async (name) => {
@@ -124,7 +150,7 @@ const pullOrg = async (name) => {
     if (!argv.push || argv.pull) org = await getOrg(name);
     else org = readOrg(name);
   } catch (e) {
-    console.error(e.message);
+    console.error(color.red(e.message));
     process.exit(1);
   }
 
@@ -139,7 +165,7 @@ const pullOrg = async (name) => {
     process.exit(1);
   }
 
-  saveOrg(name, org);
+  await saveOrg(name, org);
   return org;
 };
 

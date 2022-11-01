@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const crossFetch = require("cross-fetch");
 const { link, admin, request, basicAuth } = require("@proca/api");
 require("cross-fetch/polyfill"); // for the push
 
