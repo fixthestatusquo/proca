@@ -221,5 +221,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pushCampaign, pullCampaign };
+  module.exports = { saveCampaign, pushCampaign, pullCampaign };
 }

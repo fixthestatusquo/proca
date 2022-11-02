@@ -5,6 +5,7 @@ const { link, admin, request, basicAuth } = require("@proca/api");
 require("./dotenv.js");
 const { api, read, file, apiLink, fileExists, save } = require("./config");
 const { commit, add, onGit } = require("./git");
+const { saveCampaign } = require("./campaign");
 const getId = require("./id");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
@@ -158,7 +159,6 @@ query actionPage ($id:Int!) {
     delete config.journey;
   }
   if (save) {
-    save(config, ".remote");
     saveCampaign(data.actionPage.campaign, config.lang);
   }
   return config;
@@ -171,7 +171,7 @@ query actionPage ($id:Int!) {
 const pull = async (actionPage, anonymous) => {
   //  console.log("file",file(actionPage));
   const local = read(actionPage);
-  const config = await fetch(actionPage, anonymous);
+  const config = await fetch(actionPage, { anonymous: anonymous, save: true });
   save(config);
   return config;
 };
@@ -209,7 +209,11 @@ if (require.main === module) {
       const id = argv._[0];
       let widget = null;
       if (argv.pull || !argv.push) {
-        widget = await fetch(id, anonymous);
+        const exists = fileExists(id);
+        widget = await fetch(id, {
+          anonymous: anonymous,
+          save: !argv["dry-run"],
+        });
         //const local = read(actionPage);
         //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
         //    backup(actionPage);
@@ -225,8 +229,7 @@ if (require.main === module) {
           " part of " +
           widget.campaign.title;
         if (!argv["dry-run"]) {
-          const exists = fileExists(id);
-          const fileName = save(widget);
+          const fileName = save(widget); // don't need to save twice, but easier to get the fileName
           let r = null;
           if (!exists && argv.git) {
             r = await add(id + ".json");
