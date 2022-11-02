@@ -10,10 +10,10 @@ import {
 } from "@material-ui/core";
 
 import { atom, useRecoilState } from "recoil";
-import { goStep, useCampaignConfig } from "../../hooks/useConfig";
-import useData from "../../hooks/useData";
+import { goStep, useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData.js";
 import { useTranslation } from "react-i18next";
-import { useIsVeryNarrow } from "../../hooks/useLayout";
+import { useIsVeryNarrow } from "@hooks/useLayout";
 import { useFormatMoney } from "@hooks/useFormatting.js";
 
 const donateStepAtom = atom({ key: "donateStep", default: 0 });

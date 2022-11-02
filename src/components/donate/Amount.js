@@ -98,10 +98,15 @@ const DonateAmount = (props) => {
 
             <Frequencies />
 
-            <Typography paragraph variant="h6" gutterBottom color="textPrimary">
-              {t("donation.payment_methods.intro")}
-            </Typography>
-            {!config.component.donation.external && (
+            <>
+              <Typography
+                paragraph
+                variant="h6"
+                gutterBottom
+                color="textPrimary"
+              >
+                {t("donation.payment_methods.intro")}
+              </Typography>
               <PaymentMethodButtons
                 classes={classes}
                 onClickStripe={() => {
@@ -119,7 +124,7 @@ const DonateAmount = (props) => {
                   props.go("donate_Thanks");
                 }}
               />
-            )}
+            </>
           </CardContent>
         </Grid>
       </Grid>

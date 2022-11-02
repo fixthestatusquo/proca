@@ -1,17 +1,68 @@
 #!/usr/bin/env node
 const fs = require("fs");
 require("./dotenv.js");
-const { read, save, push, pull } = require("./config");
-const argv = require("minimist")(process.argv.slice(2),
-  {
-    boolean: ["pull", "push", "test", "mobile", "autostart", "confirmoptin",
-              "implicit", "orgdata", "poscodeshow", "countryshow", "commentshow",  "phoneshown"],
-  });
+const { read, save } = require("./config");
+const { push, pull } = require("./widget");
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: [
+    "pull",
+    "push",
+    "test",
+    "mobile",
+    "autostart",
+    "confirmoptin",
+    "implicit",
+    "orgdata",
+    "poscodeshow",
+    "countryshow",
+    "commentshow",
+    "phoneshown",
+  ],
+});
 const merge = require("lodash.merge");
 
-const locales = ["ar", "bg", "ca", "ce", "cs", "da", "de", "el", "en", "en_GB", "es", "et", "eu",
-                  "fi", "fr", "fr_CA", "fr@informal", "ga", "ha", "he", "hi", "hr", "hu", "it", "lt",
-                  "lv", "me", "mt", "nl", "pl", "pt", "ro", "rom", "ru", "sk", "sl", "sr", "sv", "uk", "yo"];
+const locales = [
+  "ar",
+  "bg",
+  "ca",
+  "ce",
+  "cs",
+  "da",
+  "de",
+  "el",
+  "en",
+  "en_GB",
+  "es",
+  "et",
+  "eu",
+  "fi",
+  "fr",
+  "fr_CA",
+  "fr@informal",
+  "ga",
+  "ha",
+  "he",
+  "hi",
+  "hr",
+  "hu",
+  "it",
+  "lt",
+  "lv",
+  "me",
+  "mt",
+  "nl",
+  "pl",
+  "pt",
+  "ro",
+  "rom",
+  "ru",
+  "sk",
+  "sl",
+  "sr",
+  "sv",
+  "uk",
+  "yo",
+];
 
 const help = () => {
   console.log(
@@ -23,14 +74,14 @@ const help = () => {
       "--color=#cafebebe",
       "--url=http://example.com",
       "--lang=en (set the language)",
-//      "--theme=dark/light",
+      //      "--theme=dark/light",
       "--variant=standard/filled/outlined",
       "--goal=666 or '100,200,500', overwrites the goal",
       "--country=GB or bool, set component.country",
       "--mobile=true",
       "--autostart=true",
-//      "--forcewidth=54 (force the width)",
-//      "--orgdata=true (do we collect the organisation details)*",
+      //      "--forcewidth=54 (force the width)",
+      //      "--orgdata=true (do we collect the organisation details)*",
       "--required=lastname (postcode, country, comment...)* set the field(s) required. If more than one, type fieldnames with commas, no spaces, eg: --required=lastname,country",
       "--notrequired=lastname (postcode, country, comment...)* changes required field(s) to unrequired. Type fieldnames with commas, no spaces",
       "--show=lastname (postcode, country, comment...)* show optional field(s). If more than one, type fieldnames with commas, no spaces, eg: --hide=lastname,country",
@@ -39,11 +90,11 @@ const help = () => {
       "--confirmoptin=true*",
       "--test=true*",
       "--locales.component.consent=whatever (set the locales, carefully - no validation)",
-     // "--journey=[] (set the journey)",
+      // "--journey=[] (set the journey)",
       " {id} (actionpage id)",
       "input id, ids or range of ids",
-      "don't use -required/notrequired and -show/hide for the same fields in the same command"
-//      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
+      "don't use -required/notrequired and -show/hide for the same fields in the same command",
+      //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
   );
   process.exit(0);
@@ -53,37 +104,37 @@ if (argv.help) {
   help();
 }
 
-function update (id, d) {
-  let current = read (id);
-  const next = merge (current, d);
-  save (next);
+function update(id, d) {
+  let current = read(id);
+  const next = merge(current, d);
+  save(next);
 }
 
 const isRequired = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map(change => {
-    const field = {}
+  changes.map((change) => {
+    const field = {};
     field[change] = { required: bool };
     update(id, { component: { register: { field: field } } });
   });
-}
+};
 
 const showHide = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map(change => {
-    const field = {}
+  changes.map((change) => {
+    const field = {};
     field[change] = bool;
     update(id, { component: { register: { field: field } } });
   });
-}
+};
 
 const args = argv._;
 
 let ids = [];
 
-args.map(arg => {
-  if (typeof arg !== 'number' && arg.match(/^[0-9]+[-][0-9]+$/)) {
-    const range = arg.split('-');
+args.map((arg) => {
+  if (typeof arg !== "number" && arg.match(/^[0-9]+[-][0-9]+$/)) {
+    const range = arg.split("-");
     let i = parseInt(range[0]);
     while (i <= parseInt(range[1])) {
       ids.push(parseInt(i));
@@ -100,7 +151,7 @@ if (ids.length === 0) {
   process.exit(1);
 }
 
-ids.map(id => {
+ids.map((id) => {
   (async () => {
     if (argv.pull) {
       try {
@@ -114,7 +165,6 @@ ids.map(id => {
     }
 
     if (argv.url) {
-
       //TO DO: validate url
 
       update(id, { org: { url: argv.url } });
@@ -165,7 +215,7 @@ ids.map(id => {
     }
 
     if (argv.forcewidth) {
-      if (!(typeof argv.forcewidth === 'number')) {
+      if (!(typeof argv.forcewidth === "number")) {
         console.error("forcewidth must be true or number");
         process.exit(0);
       }
@@ -191,40 +241,40 @@ ids.map(id => {
     }
 
     if (argv.orgdata) {
-      update(id, { component: { register: { field: { organisation: argv.orgdata } } } });
+      update(id, {
+        component: { register: { field: { organisation: argv.orgdata } } },
+      });
     }
 
     // COMPONENT.COUNTER SETTINGS
 
     if (argv.goal) {
       let steps = [];
-      if (typeof argv.goal === 'string' && argv.goal.indexOf(",") > -1) {
-        steps = argv.goal.split(",").map(g => parseInt(g));
-      } else if (typeof argv.goal === 'number') {
+      if (typeof argv.goal === "string" && argv.goal.indexOf(",") > -1) {
+        steps = argv.goal.split(",").map((g) => parseInt(g));
+      } else if (typeof argv.goal === "number") {
         steps.push(argv.goal);
       } else {
-        console.error("goal must be a number or numbers separated by commas (no spaces)");
+        console.error(
+          "goal must be a number or numbers separated by commas (no spaces)"
+        );
         process.exit(0);
       }
-      let current = read(id);
-      const next = current;
-      next.component.counter.steps = steps;
-      save (next);
+      update(id, { component: { counter: { steps: steps } } });
     }
 
     // COMPONENT.COUNTRY SETTINGS
 
     if (argv.country) {
-      if (!(typeof argv.country === 'string') || argv.country.length > 5) {
+      if (!(typeof argv.country === "string") || argv.country.length > 5) {
         console.error("country must be a two char string or boolean");
         process.exit(0);
       }
       const country = argv.country;
       if (country === "true") {
-      country = true;
-      } else
-      if (country === "false") {
-      country = false;
+        country = true;
+      } else if (country === "false") {
+        country = false;
       } else {
         if (country.length > 2) {
           console.error("Invalig country code");
@@ -243,7 +293,9 @@ ids.map(id => {
     // CONFIRM OPT-IN
 
     if (argv.confirmoptin) {
-      update(id, { component: { consent: { email: { confirmOptIn: argv.confirmoptin } } } });
+      update(id, {
+        component: { consent: { email: { confirmOptIn: argv.confirmoptin } } },
+      });
     }
 
     // TEST MODE

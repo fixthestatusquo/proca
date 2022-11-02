@@ -77,14 +77,18 @@ function readConfigOverride(id) {
             });
 
           config.locales["campaign:"] = campaigns;
-          if (campaignConfig.config.locales[config.lang].title) {
-            config.campaign.title =
-              campaignConfig.config.locales[config.lang].title;
+          if (
+            config.locales["campaign:"] &&
+            config.locales["campaign:"].title
+          ) {
+            config.campaign.title = config.locales["campaign:"].title;
           }
         }
       } else {
         console.error("can't find the campaign.name on the config", config);
       }
+      config.locale = config.lang;
+      config.lang = config.lang.substring(0, 2).toLowerCase();
       if (process.env.debug || process.env.DEBUG) {
         console.log(JSON.stringify(config, null, 2));
         process.exit(1);

@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
 import Paypal from "./Paypal";
+import ExternalPayment from "@components/donate/buttons/External";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
@@ -31,6 +32,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
       aria-label="payment method"
       classes={classes.formContainers}
     >
+      {donateConfig.external && <ExternalPayment classes={classes} />}
       {donateConfig.stripe ? (
         <Grid item xs={12}>
           <Button
