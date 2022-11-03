@@ -24,7 +24,6 @@ const changeDir = () => {
 changeDir();
 
 const onGit = () => {
-  console.log(pathConfig() + "/.git");
   return fs.existsSync(pathConfig() + "/.git");
 };
 
