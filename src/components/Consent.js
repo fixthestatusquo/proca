@@ -141,16 +141,13 @@ const Consent = (props) => {
                 />
               </>
             )}
-            {/* <FormControlLabel
+            <FormControlLabel
               value="opt-out"
               checked={value === "opt-out"}
-              control={<Radio />}
+              control={<Radio {...register("privacy")}  required/>}
               className={classes.label}
-              {...register(t("consent.opt-out"), {
-                required: t(["consent.required", "required field"]),
-              })}
               label={t("consent.opt-out")}
-            /> */}
+            />
             {confirmOptOut && (
               <Collapse in={value === "opt-out"}>
                 <Alert severity="warning">
