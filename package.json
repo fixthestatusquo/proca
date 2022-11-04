@@ -67,7 +67,7 @@
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.3",
     "generate-json-webpack-plugin": "^1.0.0",
-    "i18next-fs-backend": "^1.1.5",
+    "i18next-fs-backend": "^2.0.0",
     "mjml": "^4.13.0",
     "prettier": "^2.7.1",
     "simple-git": "^3.14.1",
