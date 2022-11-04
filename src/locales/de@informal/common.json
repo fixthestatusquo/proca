@@ -84,14 +84,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Wöchentliche Spende?",
+        "monthly": "monatliche Spende?",
         "oneoff": "Spenden",
-        "weekly": "Eine monatliche Spende?"
+        "weekly": "Eine wöchentliche Spende?"
       },
       "each": {
-        "monthly": "jede Woche",
+        "monthly": "jeden Monat",
         "oneoff": "Einmal",
-        "weekly": "jeden monat"
+        "weekly": "jede Woche"
       },
       "feedback": {
         "monthly": "Ich spende {{amount}} {{frequency}}",
