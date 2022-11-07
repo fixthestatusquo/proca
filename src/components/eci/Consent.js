@@ -51,11 +51,12 @@ export default function Register(props) {
               placement="end"
               error={!!(errors && errors.certify)}
             >
+
+              {/* TO DO: CHECK IF IT IS REALY REQUIRED */}
               <Checkbox
                 {...register("certify")}
                 color="primary"
                 onChange={handleCheck}
-                name="certify"
                 required
               />
               <span>{t("eci:form.certify-info")}</span>
