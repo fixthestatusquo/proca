@@ -86,7 +86,7 @@
     "push": "node bin/widget.js --push",
     "widget": "node bin/widget.js",
     "fetch": "node bin/fetch.js",
-    "config": "node bin/git.js",
+    "git": "node bin/git.js",
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "i18n:mjml": "NODE_ENV=development babel -f .babelrc.mjml 'config/email/**/*.mjml'",
     "nope.prepublish": "babel src --out-dir lib",
