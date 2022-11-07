@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TextFieldProca = (props) => {
-  const { formState: { errors }, control, clearErrors, setError } = props.form; // in react-hook-form 7, errors are stored in formState
+  const { formState: { errors }, control, clearErrors, setError } = props.form;
 
   const { t } = useTranslation();
   const layout = useLayout();

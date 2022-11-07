@@ -112,7 +112,6 @@ const Component = (props) => {
   let hash = data.hash;
 
   const form = useForm({
-    // shouldUnregister: false, shoudUnregister is false by default in V7
     defaultValues: {
       ...data,
       message: "",

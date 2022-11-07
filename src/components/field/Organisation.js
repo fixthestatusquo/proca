@@ -37,7 +37,7 @@ const Organisation = (props) => {
   const compact = props.compact;
   const { setValue, getValues, setError, watch } = props.form;
 
-  const array = watch(["organisation", "picture", "comment", "twitter"]);  // react-hook-form 7: array of inputs returns array instead of object
+  const array = watch(["organisation", "picture", "comment", "twitter"]);
   const field = { "organisation": array[0], "picture": array[1], "comment": array[2], "twitter": array[3] };
 
   //variant={options.variant}

@@ -53,7 +53,7 @@ export default function Captcha(props) {
   const withAudioCaptcha = config.component.captcha?.audio !== false;
   const { t } = useTranslation();
 
-  const { setValue, formState: { errors } } = props.form; // in react-hook-form 7, errors are stored in formState
+  const { setValue, formState: { errors } } = props.form;
 
   const compact = props.compact || false;
 

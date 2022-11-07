@@ -15,7 +15,7 @@ export default function Register(props) {
 
   const { setValue, watch } = props.form;
 
-  const [postcode, country] = watch(["postcode", "country"]);// react-hook-form 7: array of inputs returns array instead of object
+  const [postcode, country] = watch(["postcode", "country"]);
 
   const postcodeLength = {
     DE: 5,
