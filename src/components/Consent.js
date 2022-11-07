@@ -117,7 +117,7 @@ const Consent = (props) => {
                 checked={value === "opt-in"}
 
                 className={classes.label}
-                control={<Radio color="primary" {...register("privacy")} required />}
+                control={<Radio color="primary" {...register("privacy", {required: true}) } />}
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
             )}
@@ -127,7 +127,7 @@ const Consent = (props) => {
                   value="opt-in"
                   className={classes.label}
                   checked={value === "opt-in"}
-                  control={<Radio color="primary"  {...register("privacy") } required />}
+                  control={<Radio color="primary"  {...register("privacy", {required: true}) } />}
                   label={t("consent.opt-in", { partner: config.organisation })}
                 />
                 <FormControlLabel
@@ -144,7 +144,7 @@ const Consent = (props) => {
             <FormControlLabel
               value="opt-out"
               checked={value === "opt-out"}
-              control={<Radio {...register("privacy")}  required/>}
+              control={<Radio {...register("privacy", {required: t(["consent.required", "required field"])})} />}
               className={classes.label}
               label={t("consent.opt-out")}
             />
