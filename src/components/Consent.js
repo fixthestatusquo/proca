@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Consent = (props) => {
-  const { formState: { errors }, register } = props.form; // in react-hook-form 7, errors are stored in formState
+  const { formState: { errors }, register } = props.form;
 
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
