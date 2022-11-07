@@ -205,10 +205,6 @@ export default function Register(props) {
   };
 
   useEffect(() => {
-    register("postcode");
-  }, [postcode, register]);
-
-  useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
