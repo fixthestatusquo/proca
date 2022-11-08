@@ -125,7 +125,7 @@
     "salutation_info": "(Der Name des Empfängers wird vor dem Senden eingefügt)",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
-  "progress": "{{count}} hat unterzeichnet. Nächstes Ziel: {{goal}}",
+  "progress": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "progress_plural": "{{count}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",

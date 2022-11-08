@@ -42,7 +42,7 @@ const help = () => {
   }
 };
 
-const saveCampaign = (campaign, lang = "en") => {
+const saveCampaign = (campaign, { git = true, message = null }) => {
   console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
@@ -179,7 +179,7 @@ if (require.main === module) {
 
         if (!argv["dry-run"]) {
           const exists = fileExists("campaign/" + name);
-          const result = saveCampaign(campaign);
+          const result = saveCampaign(campaign, { git: false });
           let r = null;
           if (!exists && argv.git) {
             r = await add(fileName);

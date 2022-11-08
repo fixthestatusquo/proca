@@ -72,7 +72,6 @@ export default function Register(props) {
     domparser("campaignId", config.selector);
   const [c, actionPage] = useInitFromUrl(actionUrl);
   if (status !== "error" && c && c.errors && c.errors.length >= 0) {
-    console.log(c);
     setStatus("error");
   }
   const buttonRegister = config.buttonRegister || t("action.sign");
@@ -100,7 +99,7 @@ export default function Register(props) {
     register,
     handleSubmit,
     setValue,
-    errors,
+    formState: {errors},
     setError,
     clearErrors,
     watch,
@@ -163,12 +162,10 @@ export default function Register(props) {
       return;
     }
 
-    console.log("submit", config, data);
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
       let handled = false;
-      console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
@@ -205,10 +202,6 @@ export default function Register(props) {
   };
 
   useEffect(() => {
-    register({ name: "postcode" });
-  }, [postcode, register]);
-
-  useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
     inputs.forEach((input) => {
@@ -232,7 +225,6 @@ export default function Register(props) {
   function formatDate(date) {
     if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(date)) return date;
     if (date.length > 0) {
-      console.log(date, date.length);
       if (date.length !== 10) {
         return false;
       }
@@ -342,17 +334,16 @@ export default function Register(props) {
                   errors && errors.birthdate && errors.birthdate.message
                 }
                 id="birthdate"
-                name="birthdate"
                 label={t("Birthdate")}
                 className={classes.textField}
                 onBlur={handleBlur}
                 variant={options.variant}
                 margin={options.margin}
-                inputRef={register({
+                {...register("birthdate", {
                   validate: (value) => {
                     //not useful anymore now that we have the html5 validation?
                     if (!value) return;
-                    console.log(value);
+
                     value = formatDate(value);
                     if (value === false) {
                       setError("birthdate", {
@@ -391,7 +382,7 @@ export default function Register(props) {
                 helperText={
                   errors && errors.postcode && errors.postcode.message
                 }
-                inputRef={register}
+                {...register("postcode")}
                 className={classes.textField}
                 variant={options.variant}
                 margin={options.margin}

@@ -10,7 +10,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-//import TextField from "../TextField";
+import TextField from "@components/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 
 //import { loadStripe } from "@stripe/stripe-js";
@@ -39,7 +39,6 @@ import StripeInput from "./StripeInput";
 import Country from "../Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
-import { NameField } from "../NameField";
 import { CallToAction } from "./DonateButton";
 
 const STRIPE_FREQUENCY = {
@@ -129,7 +128,8 @@ const PaymentForm = (props) => {
   const [, setData] = useData();
 
   const form = props.form;
-  const { control, errors } = form;
+  const { control, formState: { errors } } = form;
+
   const [compact, setCompact] = useState(true);
 
   const width = useElementWidth("#proca-donate");
@@ -151,7 +151,7 @@ const PaymentForm = (props) => {
         )}
 
         <Grid item xs={12} sm={compact ? 12 : 6}>
-          <NameField
+        <TextField
             form={form}
             classes={classes}
             name="firstname"
@@ -160,7 +160,7 @@ const PaymentForm = (props) => {
           />
         </Grid>
         <Grid item xs={12} sm={compact ? 12 : 6}>
-          <NameField
+          <TextField
             form={form}
             classes={classes}
             name="lastname"
@@ -174,7 +174,7 @@ const PaymentForm = (props) => {
             name="email"
             // KISS for email validation - something@something\.something
             rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
-            render={({ onChange, onBlur, value }) => (
+            render={({ field: { onChange, onBlur, value }, fieldState }) => (
               <LayoutTextField
                 className={classes.textField}
                 label={t("Email")}
@@ -203,7 +203,7 @@ const PaymentForm = (props) => {
           <Controller
             control={control}
             name="postcode"
-            render={({ onChange, value }) => (
+            render={({ field: { onChange, value }, fieldState }) => (
               <LayoutTextField
                 name="postcode"
                 className={classes.textField}
@@ -226,7 +226,7 @@ const PaymentForm = (props) => {
             control={control}
             name="country"
             rules={{ required: true }}
-            render={({ onChange, value }) => (
+            render={({ field: { onChange, value }, fieldState }) => (
               <Country form={form} required onChange={onChange} value={value} />
             )}
           />

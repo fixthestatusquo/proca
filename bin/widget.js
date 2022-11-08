@@ -3,7 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const { link, admin, request, basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const { api, read, file, apiLink, fileExists, save } = require("./config");
+const {
+  api,
+  read,
+  file,
+  apiLink,
+  fileExists,
+  save: saveWidget,
+} = require("./config");
 const { commit, add, onGit } = require("./git");
 const { saveCampaign } = require("./campaign");
 const getId = require("./id");
@@ -77,7 +84,7 @@ const actionPageFromLocalConfig = (id, local) => {
   };
 };
 
-const fetch = async (actionPage, { anonymous, save }) => {
+const fetch = async (actionPage, { anonymous, campaign = true }) => {
   let data = undefined;
 
   const query = `
@@ -158,8 +165,9 @@ query actionPage ($id:Int!) {
   if (!config.journey) {
     delete config.journey;
   }
-  if (save) {
-    saveCampaign(data.actionPage.campaign, config.lang);
+  if (campaign) {
+    console.log("campaign", campaign);
+    return [config, data.actionPage.campaign];
   }
   return config;
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
@@ -168,12 +176,23 @@ query actionPage ($id:Int!) {
   //  t = fmt.actionPage(ap, data.org)
   //  console.log(t)
 };
-const pull = async (actionPage, anonymous) => {
+const pull = async (
+  actionPage,
+  { anonymous = true, campaign = true, save = true }
+) => {
   //  console.log("file",file(actionPage));
   const local = read(actionPage);
-  const config = await fetch(actionPage, { anonymous: anonymous, save: true });
-  save(config);
-  return config;
+  const [config, campaignData] = await fetch(actionPage, {
+    anonymous: anonymous,
+    campaign: campaign,
+  });
+  console.log("pull ", campaignData);
+  if (save) {
+    console.log("save");
+    saveWidget(config);
+    saveCampaign(campaignData, config.lang);
+  }
+  return campaign ? [config, campaign] : campaign;
 };
 
 const push = async (id) => {
@@ -210,8 +229,9 @@ if (require.main === module) {
       let widget = null;
       if (argv.pull || !argv.push) {
         const exists = fileExists(id);
-        widget = await fetch(id, {
+        const [widget, campaign] = await pull(id, {
           anonymous: anonymous,
+          campaign: true,
           save: !argv["dry-run"],
         });
         //const local = read(actionPage);
@@ -229,7 +249,7 @@ if (require.main === module) {
           " part of " +
           widget.campaign.title;
         if (!argv["dry-run"]) {
-          const fileName = save(widget); // don't need to save twice, but easier to get the fileName
+          const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
           let r = null;
           if (!exists && argv.git) {
             r = await add(id + ".json");
