@@ -3,7 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const { link, admin, request, basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const { api, read, file, apiLink, fileExists, save as saveWidget } = require("./config");
+const {
+  api,
+  read,
+  file,
+  apiLink,
+  fileExists,
+  save: saveWidget,
+} = require("./config");
 const { commit, add, onGit } = require("./git");
 const { saveCampaign } = require("./campaign");
 const getId = require("./id");
@@ -159,7 +166,8 @@ query actionPage ($id:Int!) {
     delete config.journey;
   }
   if (campaign) {
-    return [config,campaign];
+    console.log("campaign", campaign);
+    return [config, data.actionPage.campaign];
   }
   return config;
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
@@ -168,17 +176,23 @@ query actionPage ($id:Int!) {
   //  t = fmt.actionPage(ap, data.org)
   //  console.log(t)
 };
-const pull = async (actionPage, {anonymous=true, campaign=true, save=true}) => {
+const pull = async (
+  actionPage,
+  { anonymous = true, campaign = true, save = true }
+) => {
   //  console.log("file",file(actionPage));
   const local = read(actionPage);
-  const [config, campaignData] = await fetch(actionPage, { anonymous: anonymous, campaign: campaign });
-  console.log("pull ", save);
+  const [config, campaignData] = await fetch(actionPage, {
+    anonymous: anonymous,
+    campaign: campaign,
+  });
+  console.log("pull ", campaignData);
   if (save) {
     console.log("save");
     saveWidget(config);
     saveCampaign(campaignData, config.lang);
   }
-  return campaign? [config,campaign]: campaign;
+  return campaign ? [config, campaign] : campaign;
 };
 
 const push = async (id) => {
@@ -217,7 +231,7 @@ if (require.main === module) {
         const exists = fileExists(id);
         const [widget, campaign] = await pull(id, {
           anonymous: anonymous,
-          campaign:true,
+          campaign: true,
           save: !argv["dry-run"],
         });
         //const local = read(actionPage);
