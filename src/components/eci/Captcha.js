@@ -52,7 +52,8 @@ export default function Captcha(props) {
   const [audioCaptcha, _setAudioCaptcha] = useState(false);
   const withAudioCaptcha = config.component.captcha?.audio !== false;
   const { t } = useTranslation();
-  const { setValue, errors } = props.form;
+
+  const { setValue, formState: { errors } } = props.form;
 
   const compact = props.compact || false;
 

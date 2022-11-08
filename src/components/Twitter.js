@@ -112,7 +112,6 @@ const Component = (props) => {
   let hash = data.hash;
 
   const form = useForm({
-    shouldUnregister: false,
     defaultValues: {
       ...data,
       message: "",

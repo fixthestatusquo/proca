@@ -73,7 +73,7 @@ const Country = (props) => {
   }, [location, country, countries, setValue, setData]);
 
   useEffect(() => {
-    register({ name: "nationality" });
+    register("nationality");
   }, [register]);
 
   if (props.list === false) return null;

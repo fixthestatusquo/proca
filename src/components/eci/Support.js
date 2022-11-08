@@ -92,7 +92,7 @@ const Support = (props) => {
   const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
     form;
 
-  const { nationality, country, firstname } =
+  const [ nationality, country, firstname ] =
     watch(["nationality", "country", "firstname"]) || "";
 
   if (data.firstname && !firstname && !reload) {

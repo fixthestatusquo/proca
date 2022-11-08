@@ -78,7 +78,7 @@ const CreateMeme = (props) => {
   const classes = useStyles();
   const form = props.form;
   const { setValue, watch } = form;
-  const { topText, bottomText } = watch(["topText", "bottomText"]);
+  const [ topText, bottomText ] = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
   if (props.myref && props.name && !props.myref.current[props.name]) {

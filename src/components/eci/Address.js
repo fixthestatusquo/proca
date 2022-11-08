@@ -15,7 +15,7 @@ export default function Register(props) {
 
   const { setValue, watch } = props.form;
 
-  const { postcode, country } = watch(["postcode", "country"]);
+  const [postcode, country] = watch(["postcode", "country"]);
 
   const postcodeLength = {
     DE: 5,

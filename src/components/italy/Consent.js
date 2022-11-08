@@ -35,7 +35,7 @@ export default function Register(props) {
   const { t } = useTranslation();
   const config = useCampaignConfig();
 
-  const { errors, register, setValue } = props.form;
+  const { formState: { errors }, register, setValue } = props.form;
 
   const handleCheck = (event) => {
     setValue(event.target.name, event.target.checked, { shouldValidate: true });
@@ -58,10 +58,9 @@ export default function Register(props) {
               error={!!(errors && errors.certify)}
             >
               <Checkbox
-                inputRef={register}
+                {...register("certify")}
                 color="primary"
                 onChange={handleCheck}
-                name="certify"
                 required
               />
               <span>{t("eci:form.certify-info")}</span>
@@ -72,10 +71,9 @@ export default function Register(props) {
               error={!!(errors && errors.contentPrivacy)}
             >
               <Checkbox
-                inputRef={register}
+                {...register("contentPrivacy")}
                 onChange={handleCheck}
                 color="primary"
-                name="contentPrivacy"
                 required
               />
               <span

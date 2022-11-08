@@ -36,7 +36,9 @@ const Organisation = (props) => {
 
   const compact = props.compact;
   const { setValue, getValues, setError, watch } = props.form;
-  const field = watch(["organisation", "picture", "comment", "twitter"]);
+
+  const array = watch(["organisation", "picture", "comment", "twitter"]);
+  const field = { "organisation": array[0], "picture": array[1], "comment": array[2], "twitter": array[3] };
 
   //variant={options.variant}
   //margin={options.margin}
@@ -149,13 +151,12 @@ const Organisation = (props) => {
         <>
           <Grid item xs={12} sm={compact ? 12 : 12}>
             <TextField name="organisation" required form={props.form} />
-            <input type="hidden" ref={props.form.register} name="comment" />
-            <input type="hidden" ref={props.form.register} name="picture" />
-            <input type="hidden" ref={props.form.register} name="url" />
+            <input type="hidden" {...props.form.register("comment")} />
+            <input type="hidden" {...props.form.register("picture")} />
+            <input type="hidden" {...props.form.register("url")} />
             <input
               type="hidden"
-              ref={props.form.register}
-              name="followers_count"
+              ref={...props.form.register("followers_count")}
             />
           </Grid>
         </>
