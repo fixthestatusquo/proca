@@ -72,7 +72,6 @@ export default function Register(props) {
     domparser("campaignId", config.selector);
   const [c, actionPage] = useInitFromUrl(actionUrl);
   if (status !== "error" && c && c.errors && c.errors.length >= 0) {
-    console.log(c);
     setStatus("error");
   }
   const buttonRegister = config.buttonRegister || t("action.sign");
@@ -163,12 +162,10 @@ export default function Register(props) {
       return;
     }
 
-    console.log("submit", config, data);
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
       let handled = false;
-      console.log(result.errors.fields, data);
       if (result.errors.fields) {
         result.errors.fields.forEach((field) => {
           if (field.name in data) {
@@ -228,7 +225,6 @@ export default function Register(props) {
   function formatDate(date) {
     if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(date)) return date;
     if (date.length > 0) {
-      console.log(date, date.length);
       if (date.length !== 10) {
         return false;
       }
@@ -347,7 +343,7 @@ export default function Register(props) {
                   validate: (value) => {
                     //not useful anymore now that we have the html5 validation?
                     if (!value) return;
-                    console.log(value);
+
                     value = formatDate(value);
                     if (value === false) {
                       setError("birthdate", {
