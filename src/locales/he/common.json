@@ -4,65 +4,65 @@
   "Another": "אַחֵר",
   "Birthdate": "תאריך לידה",
   "City": "עִיר",
-  "Comment": "הערה",
-  "Country": "ארץ",
+  "Comment": "תגובה",
+  "Country": "מדינה",
   "Download": "הורד",
-  "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם בדוא\"ל.",
-  "Email": "דוא״ל",
+  "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם אליך",
+  "Email": "אימייל",
   "First name": "שם פרטי",
-  "Last name": "שם הרשימה",
-  "Locality": "יישוב",
-  "Next": "הבא",
-  "Other": "אחר",
+  "Last name": "שם משפחה",
+  "Locality": "מָקוֹם",
+  "Next": "הַבָּא",
+  "Other": "אַחֵר",
   "Phone": "טלפון",
   "Postal Code": "מיקוד",
   "Salutation": "דִברֵי בְּרָכָה",
-  "Sorry, we couldn't save": "לא הצלחנו לשמור, עמך הסליחה",
+  "Sorry, we couldn't save": "מצטערים, לא הצלחנו לשמור",
   "Street": "רְחוֹב",
   "Subject": "נושא",
-  "Thank you": "תודה רבה לך!",
+  "Thank you": "תודה",
   "Your message": "ההודעה שלך",
   "action": {
     "donate": "לִתְרוֹם",
-    "eci": "eci",
+    "eci": "חתום על ECI",
     "email": "שלח אימייל",
     "join": "לְהִצְטַרֵף",
-    "register": "להירשם",
+    "register": "הירשם",
     "share": "לַחֲלוֹק",
-    "sign": "סִימָן",
+    "sign": "חתום עכשיו!",
     "stayInformed": "להישאר מעודכן",
-    "takeAction": "לפעול!",
+    "takeAction": "לפעול",
     "twitter": "צִיוּץ"
   },
   "consent": {
     "actionConfirmed": "הפעולה אושרה",
     "actionRejected": "הפעולה בוטלה בהצלחה",
-    "confirm": "<0> האם אתה בטוח? </ 0> <1> על ידי בחירה באפשרות 'לא', לא תוכל לגלות אם מסע פרסום זה מוצלח, או אם נצטרך לבצע פעולות נוספות יחד כדי לזכות בו. אם תבחר 'כן' אנו נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו. </ 1> <2> תוכל לבטל את הרישום בכל עת. </ 2>",
-    "confirmAction": "שלחנו קישור אישור בדוא\"ל לכתובת הבאה:\n {{email}}\nנא לאחזר את האימייל כבר עכשיו ולחץ על הקישור שהוא מכיל (בדוק את תיקיית הספאם שלך!).\n רק אז הפעולה שלך תיחשב!\nהאישור שלך הוא קריטי למשקל הפוליטי של הפעולה. זה מבטיח שמאחורי כל הגשה עומד אדם אמיתי. נמתין לאישורך...",
+    "confirm": "<0>האם אתה בטוח?</0><1>על ידי בחירה ב'לא', לא תוכל לגלות אם מסע הפרסום הזה הצליח, או אם יש עוד פעולה שעלינו לנקוט יחד כדי לזכות בו. אם תבחר 'כן', נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו.</1><2>תוכל לבטל את הרישום בכל עת.</2>",
+    "confirmAction": "נא לאחזר את המייל כבר עכשיו ולחץ על הקישור שהוא מכיל (בדוק בתיקיית הספאם שלך!).\n רק אז הפעולה שלך תיחשב!\nהאישור שלך הוא קריטי למשקל הפוליטי של הפעולה. זה מבטיח שיש אדם אמיתי מאחורי כל הגשה. נמתין לאישורך...",
     "confirmOptIn": "אל תשכח לבדוק את תיבת הדואר שלך (כולל תיקיית הספאם שלך!) ולאשר את מנוי הדוא\"ל שלך",
-    "emailSent": "שלחנו לך אימייל אל {email}!",
-    "implicit": "שלח טופס זה לקבלת אימיילים מאת {{name}}",
-    "intro": "אני מסכים {{name}} ליצור איתי קשר בקמפיינים חשובים",
-    "opt-in": "כן, עדכן אותי באמצעות דוא\"ל",
-    "opt-in-both": "כן, אני רוצה ש- {{partner}} ו- {{lead}} יידעו אותי באמצעות דוא\"ל",
-    "opt-out": "לא, אל תשלח לי דוא\"ל או תעדכן אותי בעתיד",
+    "emailSent": "שלחנו לך אימייל אל {{email}}!",
+    "implicit": "שלח טופס זה כדי לקבל אימיילים מ-{{name}}",
+    "intro": "למידע נוסף על מסעות הפרסום, הפעולות וההתקדמות {{campaign}} שלנו",
+    "opt-in": "כן, אני רוצה ש-{{partner}} יעדכן אותי בדוא\"ל",
+    "opt-in-both": "כן, אני רוצה ש-{{partner}} ו-{{lead}} יעדכנו אותי בדוא\"ל",
+    "opt-out": "לא, אל תשלח לי אימיילים ואל תעדכן אותי בעתיד",
     "optInConfirmed": "המנוי אושר",
-    "processing": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
-    "processing-nocookie": "המידע האישי שלך יישמר בפרטי ויוחזק בצורה מאובטחת. על ידי מסירת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל <1> מדיניות הפרטיות שלנו </ 1>",
+    "processing": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
+    "processing-nocookie": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
     "required": "יש צורך בהסכמתך כדי להשתתף"
   },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "עדכן אותי לגבי הקמפיין",
+  "dialogTitle": "עדכן אותי על הקמפיין",
   "donation": {
     "amount": {
       "change": "שנה כמות",
-      "intro": "בחר כמות:"
+      "intro": "בחר כמות"
     },
     "average": "התרומה הממוצעת היא {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "תרום {{amount}} כל חודש",
+        "oneoff": "תרומה {{amount}}"
       }
     },
     "error": {
@@ -79,30 +79,30 @@
     },
     "form": {
       "error": {
-        "minimum": "התרומה המינימלית היא {{ampount}}"
+        "minimum": "התרומה המינימלית היא {{amount}}"
       }
     },
     "frequency": {
       "ask": {
-        "monthly": "לעשות את זה חודשי?",
+        "monthly": "האם לעשות זאת כתרומה שבועית?",
         "oneoff": "לִתְרוֹם",
-        "weekly": "האם לעשות זאת כתרומה שבועית?"
+        "weekly": "לעשות את זה חודשי?"
       },
       "each": {
-        "monthly": "כל חודש",
+        "monthly": "כל שבוע",
         "oneoff": "פַּעַם",
-        "weekly": "כל שנה"
+        "weekly": "כל חודש"
       },
       "feedback": {
         "monthly": "אני תורם {{amount}} {{frequency}}",
         "oneoff": "אני תורם {{amount}}"
       },
       "monthly": "יַרחוֹן",
-      "oneoff": "חד פעמי",
+      "oneoff": "פַּעַם",
       "weekly": "שְׁבוּעִי",
       "yearly": "שְׁנָתִי"
     },
-    "iban": "איבן",
+    "iban": "IBAN",
     "intro": "תרומה ל-{{campaign}}",
     "mobile": {
       "open": "לִפְתוֹחַ"
@@ -119,29 +119,32 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "salutation": "היקר {{target.name}}",
-    "salutationFemale": "היקר {{target.name}}",
-    "salutationMale": "היקר {{target.name}}",
-    "salutation_info": "(השם יופיע לפני השליחה)",
-    "salutation_placeholder": "[נמען], יקר"
+    "salutation": "היקר {{name}}",
+    "salutationFemale": "היקר {{name}}",
+    "salutationMale": "היקר {{name}}",
+    "salutation_info": "(שם הנמען יופיע לפני השליחה)",
+    "salutation_placeholder": "[נמען] יקר"
   },
-  "progress": "{{count}} חתמו. בוא נלך אל {{goal}}",
+  "progress_0": "{{count}} חתמו. בוא נלך אל {{goal}}",
+  "progress_1": "",
+  "progress_2": "",
+  "progress_3": "",
   "register": "הוסף את שמי",
-  "required": "נא למלא שדה זה",
+  "required": "נדרש",
   "required field": "שדה נדרש",
   "salutations": {
-    "f": "גברת.",
-    "m": "אדון.",
-    "other": "אַחֵר"
+    "f": "היקר {{name}}",
+    "m": "היקר {{name}}",
+    "other": "היקר {{name}}"
   },
   "share": {
-    "intro": "נהדר, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף רחוק כדי לוודא שכולם רואים את העצומה הזו🙏.",
+    "intro": "מעולה, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף למרחקים כדי לוודא שכולם רואים את העצומה הזו 🙏.",
     "message": "אתה צריך לחתום על זה!",
-    "title": "כמעט סיימתי! בצע את הצעד הבא."
+    "title": "כמעט סיימתי! קח את הצעד הבא."
   },
   "supporter": {
     "not_you": "לא אתה?",
-    "welcome": "ברוך שובך {{firstname}}!"
+    "welcome": "ברוך שובך, {{firstname}}!"
   },
   "target": {
     "country": {
@@ -150,7 +153,7 @@
     "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו"
   },
   "twitter": {
-    "actionText": "נרשמתי. גם אתה צריך",
+    "actionText": "actionText",
     "again": "ציוץ לאדם אחר",
     "choice": "מה ברצונך לעשות לאחר מכן?",
     "instruction": "נא להשלים את שליחת הציוץ בחלון החדש (ב-twitter.com)",
