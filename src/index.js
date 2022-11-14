@@ -112,6 +112,7 @@ const set = (atom, key, value) => {
 };
 
 const render = (script) => {
+  console.log("delayed render", Config.component.widget.delay);
   try {
     //    var script = document.getElementById("proca");
     //  we are the ones setting the id=proc of the script now in autoRender
@@ -140,9 +141,9 @@ const autoRender = () => {
     ) {
       if (Config.component?.widget?.delay) {
         const delay = Config.component.widget.delay;
-        document.addEventListener("DOMContentLoaded", () =>
-          setTimeout(render, delay, currentScript)
-        );
+        document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(render, delay, currentScript);
+        });
       } else {
         document.addEventListener("DOMContentLoaded", () =>
           render(currentScript)
@@ -150,6 +151,11 @@ const autoRender = () => {
       }
     } else {
       console.log("loaded", currentScript);
+      if (Config.component?.widget?.delay) {
+        const delay = Config.component.widget.delay;
+        setTimeout(render, delay, currentScript);
+        return;
+      }
       render(currentScript);
     }
   } catch (e) {
