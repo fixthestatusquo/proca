@@ -112,7 +112,6 @@ const set = (atom, key, value) => {
 };
 
 const render = (script) => {
-  console.log("delayed render", Config.component.widget.delay);
   try {
     //    var script = document.getElementById("proca");
     //  we are the ones setting the id=proc of the script now in autoRender

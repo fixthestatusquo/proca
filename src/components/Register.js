@@ -237,7 +237,7 @@ export default function Register(props) {
       formData,
       config
     );
-    if (config.component.register.remember) {
+    if (config.component.register?.remember) {
       setCookie("proca_firstname", formData.firstname);
       setCookie("proca_uuid", result.contactRef);
     }
