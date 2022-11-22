@@ -21,7 +21,7 @@ const argv = require("minimist")(process.argv.slice(2), {
 const changeDir = () => {
   process.chdir(pathConfig());
 };
-changeDir();
+// changeDir();
 
 const onGit = () => {
   return fs.existsSync(pathConfig() + "/.git");

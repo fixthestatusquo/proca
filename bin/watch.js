@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-const { pull } = require("./config");
+const { pull } = require("./widget");
 const getId = require("./id");
 
 const _build = (id) => {
   process.env.actionpage = id;
   process.env.NODE_ENV = process.env.BABEL_ENV = "production";
+  //  process.chdir(path.resolve(__dirname));
 
   const gatherPipes = require("@rescripts/cli/loader");
   const { webpack: transforms } = gatherPipes(["webpack"]);
@@ -45,11 +46,11 @@ const readJsonFromStdin = () => {
 
 const main = async () => {
   const json = await readJsonFromStdin();
-  const id = json.id;
+  const id = json.id || json.actionpage; // second to make it easier to cat config/xxx.json
   const campaign = json.campaign.id;
   const org = json.org.name;
   console.log("building page for ", id, campaign, org);
-  await pull(id);
+  await pull(id, { campaign: true });
   await _build(id);
 };
 
