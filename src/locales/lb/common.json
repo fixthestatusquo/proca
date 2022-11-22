@@ -1,1 +1,162 @@
-{}
+{
+  "Address": "Adress",
+  "Amount": "Betrag",
+  "Another": "Eng aner",
+  "Birthdate": "Gebuertsdatum",
+  "City": "Stad",
+  "Comment": "Kommentéieren",
+  "Country": "Land",
+  "Download": "Download",
+  "Download explanation": "Ären Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
+  "Email": "E-Mail",
+  "First name": "Virnumm",
+  "Last name": "Familljennumm",
+  "Locality": "Uertschaft",
+  "Next": "Nächst",
+  "Other": "Aner",
+  "Phone": "Telefon",
+  "Postal Code": "Postleitzuel",
+  "Salutation": "Salut",
+  "Sorry, we couldn't save": "Sorry, mir konnten net späicheren",
+  "Street": "Strooss",
+  "Subject": "Sujet",
+  "Thank you": "Merci",
+  "Your message": "Äre Message",
+  "action": {
+    "donate": "Spenden",
+    "eci": "Ënnerschreift den ECI",
+    "email": "Schéckt eng E-Mail",
+    "join": "Maacht mat",
+    "register": "Aschreiwen",
+    "share": "Deelen",
+    "sign": "Zeechen Elo!",
+    "stayInformed": "Bleift informéiert",
+    "takeAction": "huelen Aktioun",
+    "twitter": "Tweet"
+  },
+  "consent": {
+    "actionConfirmed": "Aktioun confirméiert",
+    "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
+    "confirm": "<0>Sidd Dir sécher?</0><1> Andeems Dir 'Nee' auswielt, kënnt Dir net erausfannen ob dës Kampagne erfollegräich ass, oder ob et méi Aktioune musse mir zesummen huelen fir se ze gewannen. Wann Dir 'Jo' auswielt, halen mir Iech iwwer dës an eis aner dréngend Kampagnen um Lafenden.</1><2>Dir kënnt Iech zu all Moment ofmellen.</2>",
+    "confirmAction": "Gitt w.e.g. d'E-Mail direkt zréck a klickt op de Link deen se enthält (kuckt Äre Spam-Dossier!).\n Nëmmen da wäert Är Aktioun zielen!\nÄr Bestätegung ass entscheedend fir d'politesch Gewiicht vun der Aktioun. Dëst garantéiert datt et eng richteg Persoun hannert all Soumissioun ass. Mir waarden op Är Bestätegung ...",
+    "confirmOptIn": "Vergiesst net Är Mailbox ze kontrolléieren (inklusiv Äre Spam-Dossier!)",
+    "emailSent": "Mir hunn Iech eng E-Mail op {{email}} geschéckt!",
+    "implicit": "Gitt dëse Formulaire of fir E-Maile vum {{name}} ze kréien",
+    "intro": "Fannt méi iwwer eis Kampagnen, Aktiounen an {{campaign}} Fortschrëtter eraus",
+    "opt-in": "Jo, ech wëll {{partner}} mech iwwer E-Mail informéiert ze halen",
+    "opt-in-both": "Jo, ech wëll datt {{partner}} an {{lead}} mech per E-Mail informéiert halen",
+    "opt-out": "Nee, schéckt mir keng E-Mail oder haal mech an Zukunft um Lafenden",
+    "optInConfirmed": "Abonnement confirméiert",
+    "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun ofgitt, averstanen Dir d'Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
+    "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir d'Informatioun ofginn, averstanen Dir d'Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
+    "required": "Är Zoustëmmung ass néideg fir matzemaachen"
+  },
+  "dateFormat": "DD/MM/JJJJ",
+  "dialogTitle": "Halt mech iwwer d'Campagne informéiert",
+  "donation": {
+    "amount": {
+      "change": "Betrag änneren",
+      "intro": "Wielt e Betrag"
+    },
+    "average": "Den Duerchschnëttsdon ass {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Spenden {{amount}} all Mount",
+        "oneoff": "Spenden {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Kreditkaart Zuel fehlt"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "allgemeng",
+      "initialisation": "Initialiséierung"
+    },
+    "form": {
+      "error": {
+        "minimum": "De Minimum Don ass {{amount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Maacht dëst e wëchentlechen Don?",
+        "oneoff": "Spenden",
+        "weekly": "Maacht et all Mount?"
+      },
+      "each": {
+        "monthly": "all Woch",
+        "oneoff": "Eemol",
+        "weekly": "all Mount"
+      },
+      "feedback": {
+        "monthly": "Ech spenden {{amount}} {{frequency}}",
+        "oneoff": "Ech spenden {{amount}}"
+      },
+      "monthly": "monatlecht",
+      "oneoff": "eemol",
+      "weekly": "wöchentlech",
+      "yearly": "jäerlech"
+    },
+    "iban": "IBAN",
+    "intro": "Spenden op {{campaign}}",
+    "mobile": {
+      "open": "oppen"
+    },
+    "payment_methods": {
+      "card": "Kaart",
+      "intro": "Wéi wëllt Dir spenden?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Bezuelmethod"
+    },
+    "thanks": "Merci fir Ären Don!",
+    "to": "Don un {{organisation}}"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} kann net E-Maile kréien",
+    "salutation": "Léif {{target.name}}",
+    "salutationFemale": "Léif {{target.name}}",
+    "salutationMale": "Léif {{target.name}}",
+    "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand gesat)",
+    "salutation_placeholder": "Léif [Empfänger]"
+  },
+  "progress": "{{count}} ënnerschriwwen hunn. Loosst eis op {{goal}}",
+  "progress_plural": "",
+  "register": "Füügt mäi Numm",
+  "required": "néideg",
+  "required field": "néideg Feld",
+  "salutations": {
+    "f": "Léif {{target.name}}",
+    "m": "Léif {{target.name}}",
+    "other": "Léif {{target.name}}"
+  },
+  "share": {
+    "intro": "Super, du hues ënnerschriwwen 👍. Fir Ären Impakt ze multiplizéieren, deelt wäit a breet fir sécherzestellen datt jiddereen dës Petitioun gesäit 🙏.",
+    "message": "Dir sollt dëst ënnerschreiwen!",
+    "title": "Bal fäerdeg! Huelt de nächste Schrëtt."
+  },
+  "supporter": {
+    "not_you": "net du?",
+    "welcome": "Wëllkomm zréck, {{firstname}}!"
+  },
+  "target": {
+    "country": {
+      "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"
+    },
+    "random": "Wielt ee vun eise {{total}} wichtegsten Ziler"
+  },
+  "twitter": {
+    "actionText": "actionText",
+    "again": "Tweet op eng aner Persoun",
+    "choice": "Wat wëllt Dir als nächst maachen?",
+    "instruction": "Fëllt w.e.g. den Tweet an der neier Fënster of (op twitter.com)",
+    "organisation": "Är Organisatioun Twitter Kont",
+    "screenName": "Kënschtlernumm"
+  },
+  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
+}
