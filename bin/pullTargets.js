@@ -64,11 +64,19 @@ const pullCampaignTargets = async (name) => {
   return targets;
 };
 
-(async () => {
-  try {
-    await pullCampaignTargets(argv._[0]);
-  } catch (e) {
-    console.error(e);
-    // Deal with the fact the chain failed
-  }
-})();
+if (require.main === module) {
+  (async () => {
+    try {
+      await pullCampaignTargets(argv._[0]);
+    } catch (e) {
+      console.error(e);
+      // Deal with the fact the chain failed
+    }
+  })();
+} else {
+  //export a bunch
+  const pullTarget = pullCampaignTargets;
+  module.exports = {
+    pullTarget,
+  };
+}
