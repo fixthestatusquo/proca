@@ -47,7 +47,7 @@ const readJsonFromStdin = () => {
 const main = async () => {
   const json = await readJsonFromStdin();
   const id = json.id || json.actionpage; // second to make it easier to cat config/xxx.json
-  const campaign = json.campaign.id;
+  const campaign = json.campaign.id || json.campaign.name;
   const org = json.org.name;
   console.log("building page for ", id, campaign, org);
   await pull(id, { campaign: true });
