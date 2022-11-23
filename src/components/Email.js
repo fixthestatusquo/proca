@@ -23,11 +23,11 @@ import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-
 import uuid from "@lib/uuid";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
 import { addAction } from "@lib/server";
+import { pickOne } from "@lib/text";
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -95,9 +95,15 @@ const Component = (props) => {
   const emailProvider = useRef(undefined); // we don't know the email provider
 
   const paramEmail = {
-    subject: t(["campaign:email.subject", "email.subject"], ""),
+    subject: pickOne(t(["campaign:email.subject", "email.subject"], "")),
     message: t(["campaign:email.body", "email.body"], ""),
   };
+
+  useEffect(() => {
+    if (!data.subject && (paramEmail.subject || paramEmail.message)) {
+      setData(paramEmail);
+    }
+  }, [paramEmail, setData]);
 
   const form = useForm({
     mode: "onBlur",
@@ -110,7 +116,7 @@ const Component = (props) => {
   const country = watch("country");
   const fields = getValues(["subject", "message"]);
 
-  const tokenKeys = extractTokens(data["message"]);
+  const tokenKeys = extractTokens(data["message"] || paramEmail.message);
   const tokens = watch(tokenKeys);
   useEffect(() => {
     if (!alwaysUpdate) {
@@ -148,10 +154,12 @@ const Component = (props) => {
           // there are token in the message
           //          const empty = { defaultValue: data[k], nsSeparator: false };
           const empty = {
-            defaultValue: defaultValue[k] || data[k],
+            defaultValue: data[k] || defaultValue[k],
             nsSeparator: false,
           };
-          tokenKeys.forEach((d) => (empty[d] = ""));
+          tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
+          empty.name = defaultValue.firstname + " " + defaultValue.lastname;
+
           form.setValue(k, t(data[k], empty));
         } else {
           form.setValue(k, data[k]);
@@ -220,7 +228,7 @@ const Component = (props) => {
       fetchData(url);
     } else {
       const emails =
-        typeof config.component.email.to === "string"
+        typeof config.component.email?.to === "string"
           ? config.component.email.to?.split(",")
           : [];
       let to = [];
@@ -233,7 +241,7 @@ const Component = (props) => {
     } // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
-  const fallbackRandom = config.component.email.fallbackRandom;
+  const fallbackRandom = config.component.email?.fallbackRandom;
   const filterProfiles = useCallback(
     (country) => {
       if (!country) return;
@@ -394,7 +402,7 @@ const Component = (props) => {
             <TextField
               form={props.form}
               name="subject"
-              required={config.component.email.field.subject.required}
+              required={config.component.email?.field?.subject?.required}
               label={t("Subject")}
               onChange={checkUpdated}
             />
