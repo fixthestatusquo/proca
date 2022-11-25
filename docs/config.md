@@ -184,6 +184,16 @@ to collect the consent of being contacted
 
 - `config.component.register.button: 'whateverLabel'`
 
+## Change the order of steps (start with email)
+
+- `component.eci.starts: step ("email")`
+
+## Close the campaign
+
+- `"portal": ["layout/ClosedNotice"]`
+- `component.register.disabled: true`
+- `component.widget.closed: true`
+
 ## Donate
 
 The Donate steps are configured under the `config.component.donation` key.
