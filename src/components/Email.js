@@ -158,7 +158,9 @@ const Component = (props) => {
             nsSeparator: false,
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
-          empty.name = defaultValue.firstname + " " + defaultValue.lastname;
+          empty.name = defaultValue.firstname
+            ? defaultValue.firstname + " " + defaultValue.lastname
+            : "";
 
           form.setValue(k, t(data[k], empty));
         } else {
