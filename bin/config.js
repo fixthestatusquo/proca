@@ -119,56 +119,6 @@ const api = async (query, variables, name = "query", anonymous = false) => {
   }
 };
 
-const addPage = async (name, campaignName, locale, orgName) => {
-  let campaign = { org: { name: orgName } }; // no need to fetch the campaign if the orgName is specified
-
-  const query = `mutation addPage($campaign:String!,$org: String!, $name: String!, $locale: String!) {
-  addActionPage(campaignName:$campaign, orgName: $org, input: {
-    name: $name, locale:$locale
-  }) {
-    id
-  }
-}
-`;
-
-  if (!orgName) {
-    campaign = await getCampaign(campaignName);
-  }
-
-  if (!campaign) {
-    throw new Error("campaign not found: " + campaignName);
-  }
-
-  const r = await api(
-    query,
-    {
-      name: name,
-      locale: locale,
-      campaign: campaignName,
-      org: campaign.org.name,
-    },
-    "addPage"
-  );
-  if (r.errors) {
-    console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
-    );
-    throw new Error(r.errors[0].message);
-  }
-  console.log({
-    name: name,
-    locale: locale,
-    campaignName: campaignName,
-    orgName: campaign.org.name,
-  });
-
-  const page = await getPage(name);
-  //  if (!page) throw new Error("actionpage not found:" + name);
-  //  await pull(page.id);
-  console.log("action page " + name + " #" + page.id);
-  return page;
-};
-
 const apiLink = () => {
   const a = basicAuth({
     username: process.env.AUTH_USER,
@@ -204,5 +154,5 @@ module.exports = {
   //  pushCampaign,
   //  pullCampaign,
   //  saveCampaign,
-  addPage,
+  //addPage,
 };

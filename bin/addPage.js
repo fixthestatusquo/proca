@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require("./dotenv.js");
 
-const { addPage, pull } = require("./config");
+const { addPage, pull } = require("./widget");
 
 (async () => {
   const argv = process.argv.slice(2);
@@ -27,6 +27,7 @@ const { addPage, pull } = require("./config");
     //const addPage = async (name, campaignName, locale, orgName) => {
     console.log("creating", name, campaign, locale, org);
     let d = await addPage(name, campaign, locale, org);
+    console.log(d);
     d = await pull(d.id);
     console.log(d);
   } catch (e) {

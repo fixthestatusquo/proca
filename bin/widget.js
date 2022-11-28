@@ -12,7 +12,7 @@ const {
   save: saveWidget,
 } = require("./config");
 const { commit, add, onGit } = require("./git");
-const { saveCampaign } = require("./campaign");
+const { saveCampaign, pullCampaign } = require("./campaign");
 const getId = require("./id");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
@@ -82,6 +82,55 @@ const actionPageFromLocalConfig = (id, local) => {
       config: JSON.stringify(config),
     },
   };
+};
+
+const addPage = async (name, campaignName, locale, orgName) => {
+  let campaign = { org: { name: orgName } }; // no need to fetch the campaign if the orgName is specified
+
+  const query = `mutation addPage($campaign:String!,$org: String!, $name: String!, $locale: String!) {
+  addActionPage(campaignName:$campaign, orgName: $org, input: {
+    name: $name, locale:$locale
+  }) {
+    id
+  }
+}
+`;
+
+  if (!orgName) {
+    campaign = await pullCampaign(campaignName);
+  }
+
+  if (!campaign) {
+    throw new Error("campaign not found: " + campaignName);
+  }
+
+  const r = await api(
+    query,
+    {
+      name: name,
+      locale: locale,
+      campaign: campaignName,
+      org: campaign.org.name,
+    },
+    "addPage"
+  );
+  if (r.errors) {
+    console.log(
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+    );
+    throw new Error(r.errors[0].message);
+  }
+  console.log({
+    name: name,
+    locale: locale,
+    campaignName: campaignName,
+    orgName: campaign.org.name,
+  });
+  const page = await pull(name);
+  //  if (!page) throw new Error("actionpage not found:" + name);
+  //  await pull(page.id);
+  console.log("action page " + name + " #" + page.id);
+  return page;
 };
 
 const fetch = async (actionPage, { anonymous, campaign = true }) => {
@@ -224,76 +273,77 @@ if (require.main === module) {
   }
   (async () => {
     const anonymous = true;
-    try {
-      const id = argv._[0];
-      let widget = null;
-      if (argv.pull || !argv.push) {
-        const exists = fileExists(id);
-        const [widget, campaign] = await pull(id, {
-          anonymous: anonymous,
-          campaign: true,
-          save: !argv["dry-run"],
-        });
-        //const local = read(actionPage);
-        //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
-        //    backup(actionPage);
-        // }
-        const msg =
-          widget.filename +
-          " for " +
-          widget.org.name +
-          " (" +
-          widget.organisation +
-          ") in " +
-          widget.lang +
-          " part of " +
-          widget.campaign.title;
-        if (!argv["dry-run"]) {
-          const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
-          let r = null;
-          if (!exists && argv.git) {
-            r = await add(id + ".json");
-            console.log("adding", r);
-          }
-          console.log(
-            color.green.bold("saved", fileName),
-            color.blue(widget.filename)
-          );
-          r = argv.git && (await commit(id + ".json", msg));
-          if (argv.git && !r) {
-            // no idea,
-            console.warn(
-              console.red("something went wrong, trying to git add")
+    for (const id of argv._) {
+      try {
+        let widget = null;
+        if (argv.pull || !argv.push) {
+          const exists = fileExists(id);
+          const [widget, campaign] = await pull(id, {
+            anonymous: anonymous,
+            campaign: true,
+            save: !argv["dry-run"],
+          });
+          //const local = read(actionPage);
+          //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
+          //    backup(actionPage);
+          // }
+          const msg =
+            widget.filename +
+            " for " +
+            widget.org.name +
+            " (" +
+            widget.organisation +
+            ") in " +
+            widget.lang +
+            " part of " +
+            widget.campaign.title;
+          if (!argv["dry-run"]) {
+            const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
+            let r = null;
+            if (!exists && argv.git) {
+              r = await add(id + ".json");
+              console.log("adding", r);
+            }
+            console.log(
+              color.green.bold("saved", fileName),
+              color.blue(widget.filename)
             );
-            r = await add(id + ".json");
-            console.log(r);
-            r = await commit(id + ".json");
+            r = argv.git && (await commit(id + ".json", msg));
+            if (argv.git && !r) {
+              // no idea,
+              console.warn(
+                console.red("something went wrong, trying to git add")
+              );
+              r = await add(id + ".json");
+              console.log(r);
+              r = await commit(id + ".json");
+            }
+            if (r.summary) console.log(r.summary);
           }
+        }
+        if (argv.push && !argv["dry-run"]) {
+          const r = argv.git && (await commit(id + ".json"));
+          const result = await push(id);
+
+          console.log(
+            color.green.bold("pushed", id),
+            color.blue(result.actionPage && result.actionPage.name)
+          );
           if (r.summary) console.log(r.summary);
         }
-      }
-      if (argv.push && !argv["dry-run"]) {
-        const r = argv.git && (await commit(id + ".json"));
-        const result = await push(id);
-
-        console.log(
-          color.green.bold("pushed", id),
-          color.blue(result.actionPage && result.actionPage.name)
-        );
-        if (r.summary) console.log(r.summary);
-      }
-      if (argv["dry-run"] || argv.verbose) {
-        if (!widget) {
-          widget = await read(id);
+        if (argv["dry-run"] || argv.verbose) {
+          if (!widget) {
+            widget = await read(id);
+          }
+          console.log(widget);
         }
-        console.log(widget);
+      } catch (e) {
+        console.error(e);
+        // Deal with the fact the chain failed
       }
-    } catch (e) {
-      console.error(e);
-      // Deal with the fact the chain failed
     }
   })();
 } else {
   //export a bunch
-  module.exports = { pull };
+  module.exports = { pull, addPage };
 }
