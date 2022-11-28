@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  useMemo,
+} from "react";
 
 import {
   List,
@@ -94,16 +100,19 @@ const Component = (props) => {
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
 
-  const paramEmail = {
-    subject: pickOne(t(["campaign:email.subject", "email.subject"], "")),
-    message: t(["campaign:email.body", "email.body"], ""),
-  };
+  const paramEmail = useMemo(
+    () => ({
+      subject: pickOne(t(["campaign:email.subject", "email.subject"], "")),
+      message: t(["campaign:email.body", "email.body"], ""),
+    }),
+    [t]
+  );
 
   useEffect(() => {
     if (!data.subject && (paramEmail.subject || paramEmail.message)) {
       setData(paramEmail);
     }
-  }, [paramEmail, setData]);
+  }, [paramEmail, setData, data.subject]);
 
   const form = useForm({
     mode: "onBlur",
