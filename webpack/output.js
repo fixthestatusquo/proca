@@ -176,7 +176,8 @@ function oembedConfig(webpack) {
 function compressionConfig(webpack) {
   webpack.plugins.push(
     new CompressionPlugin({
-      exclude: /\*.map$/,
+      exclude: /.map$/,
+      threshold: 8192,
       test: "index.js",
       include: "index.js",
     })
