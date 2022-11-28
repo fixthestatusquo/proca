@@ -1,13 +1,13 @@
 {
   "Address": "Adress",
   "Amount": "Betrag",
-  "Another": "Eng aner",
+  "Another": "En aneren",
   "Birthdate": "Gebuertsdatum",
   "City": "Stad",
   "Comment": "Kommentéieren",
   "Country": "Land",
   "Download": "Download",
-  "Download explanation": "Ären Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
+  "Download explanation": "Ärt Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
   "Email": "E-Mail",
   "First name": "Virnumm",
   "Last name": "Familljennumm",
@@ -17,38 +17,38 @@
   "Phone": "Telefon",
   "Postal Code": "Postleitzuel",
   "Salutation": "Salut",
-  "Sorry, we couldn't save": "Sorry, mir konnten net späicheren",
+  "Sorry, we couldn't save": "Pardon, mir konnten net späicheren",
   "Street": "Strooss",
   "Subject": "Sujet",
   "Thank you": "Merci",
   "Your message": "Äre Message",
   "action": {
     "donate": "Spenden",
-    "eci": "Ënnerschreift den ECI",
+    "eci": "Ënnerschreift d'ECI",
     "email": "Schéckt eng E-Mail",
     "join": "Maacht mat",
     "register": "Aschreiwen",
     "share": "Deelen",
-    "sign": "Zeechen Elo!",
+    "sign": "Ënnerschreift elo!",
     "stayInformed": "Bleift informéiert",
-    "takeAction": "huelen Aktioun",
+    "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
   "consent": {
     "actionConfirmed": "Aktioun confirméiert",
     "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
-    "confirm": "<0>Sidd Dir sécher?</0><1> Andeems Dir 'Nee' auswielt, kënnt Dir net erausfannen ob dës Kampagne erfollegräich ass, oder ob et méi Aktioune musse mir zesummen huelen fir se ze gewannen. Wann Dir 'Jo' auswielt, halen mir Iech iwwer dës an eis aner dréngend Kampagnen um Lafenden.</1><2>Dir kënnt Iech zu all Moment ofmellen.</2>",
-    "confirmAction": "Gitt w.e.g. d'E-Mail direkt zréck a klickt op de Link deen se enthält (kuckt Äre Spam-Dossier!).\n Nëmmen da wäert Är Aktioun zielen!\nÄr Bestätegung ass entscheedend fir d'politesch Gewiicht vun der Aktioun. Dëst garantéiert datt et eng richteg Persoun hannert all Soumissioun ass. Mir waarden op Är Bestätegung ...",
+    "confirm": "<0>Sidd Dir sécher?</0><1> Andeems Dir 'Nee' auswielt, kënnt Dir net erausfannen ob dës Campagne erfollegräich ass, oder ob et méi Aktioune gëtt, déi mir zesumme mussen ënnerhuelen fir ze gewannen. Wann Dir 'Jo' auswielt, halen mir Iech iwwer dës an eis aner dréngend Campagnen um Lafenden.</1><2>Dir kënnt Iech zu all Moment ofmellen.</2>",
+    "confirmAction": "Rufft w.e.g. d'E-Mail direkt ob a klickt op de Link deen se enthält (kuckt Äre Spam-Dossier!).\n Nëmmen da wäert Är Aktioun zielen!\nÄr Bestätegung ass entscheedend fir d'politesch Gewiicht vun der Aktioun. Dëst garantéiert datt et eng real Persoun hannert all Soumissioun ass. Mir waarden op Är Bestätegung ...",
     "confirmOptIn": "Vergiesst net Är Mailbox ze kontrolléieren (inklusiv Äre Spam-Dossier!)",
     "emailSent": "Mir hunn Iech eng E-Mail op {{email}} geschéckt!",
-    "implicit": "Gitt dëse Formulaire of fir E-Maile vum {{name}} ze kréien",
-    "intro": "Fannt méi iwwer eis Kampagnen, Aktiounen an {{campaign}} Fortschrëtter eraus",
-    "opt-in": "Jo, ech wëll {{partner}} mech iwwer E-Mail informéiert ze halen",
-    "opt-in-both": "Jo, ech wëll datt {{partner}} an {{lead}} mech per E-Mail informéiert halen",
-    "opt-out": "Nee, schéckt mir keng E-Mail oder haal mech an Zukunft um Lafenden",
-    "optInConfirmed": "Abonnement confirméiert",
-    "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun ofgitt, averstanen Dir d'Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
-    "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir d'Informatioun ofginn, averstanen Dir d'Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
+    "implicit": "Schéckt dëse Formulaire of fir E-Maile vum {{name}} ze kréien",
+    "intro": "Fannt méi iwwer eis Campagnen, Aktiounen an {{campaign}} Fortschrëtter eraus",
+    "opt-in": "Jo, ech wëll datt {{partner}} mech per E-Mail informéiert",
+    "opt-in-both": "Jo, ech wëll datt {{partner}} an {{lead}} mech per E-Mail informéieren",
+    "opt-out": "Nee, schéckt mir keng E-Mail oder haalt mech an Zukunft um Lafenden",
+    "optInConfirmed": "Aschreiwung confirméiert",
+    "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun iwwermëttelt, weist Dir Iech averstanen mat der Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
+    "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Mat der Iwwermëttlung vun Informatiounen weist Dir Iech averstanen mat der Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
     "required": "Är Zoustëmmung ass néideg fir matzemaachen"
   },
   "dateFormat": "DD/MM/JJJJ",
@@ -67,7 +67,7 @@
     },
     "error": {
       "card": {
-        "missing": "Kreditkaart Zuel fehlt"
+        "missing": "Kreditkaartnummer fehlt"
       },
       "form": {
         "invalid": {
@@ -84,7 +84,7 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Maacht dëst e wëchentlechen Don?",
+        "monthly": "Maacht dëst zu engem wëchentlechen Don?",
         "oneoff": "Spenden",
         "weekly": "Maacht et all Mount?"
       },
@@ -118,21 +118,21 @@
     "to": "Don un {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kann net E-Maile kréien",
+    "invalid_domain": "{{domain}} kann kéng E-Maile kréien",
     "salutation": "Léif {{target.name}}",
     "salutationFemale": "Léif {{target.name}}",
-    "salutationMale": "Léif {{target.name}}",
-    "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand gesat)",
+    "salutationMale": "Léiwen {{target.name}}",
+    "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
     "salutation_placeholder": "Léif [Empfänger]"
   },
-  "progress": "{{count}} ënnerschriwwen hunn. Loosst eis op {{goal}}",
+  "progress": "{{count}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
   "progress_plural": "",
-  "register": "Füügt mäi Numm",
+  "register": "Füügt mäi Numm dobäi",
   "required": "néideg",
-  "required field": "néideg Feld",
+  "required field": "néidegt Feld",
   "salutations": {
     "f": "Léif {{target.name}}",
-    "m": "Léif {{target.name}}",
+    "m": "Léiwen {{target.name}}",
     "other": "Léif {{target.name}}"
   },
   "share": {
@@ -141,7 +141,7 @@
     "title": "Bal fäerdeg! Huelt de nächste Schrëtt."
   },
   "supporter": {
-    "not_you": "net du?",
+    "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
   "target": {
@@ -152,10 +152,10 @@
   },
   "twitter": {
     "actionText": "actionText",
-    "again": "Tweet op eng aner Persoun",
+    "again": "Tweet un eng aner Persoun",
     "choice": "Wat wëllt Dir als nächst maachen?",
-    "instruction": "Fëllt w.e.g. den Tweet an der neier Fënster of (op twitter.com)",
-    "organisation": "Är Organisatioun Twitter Kont",
+    "instruction": "Vervollstännegt w.e.g. den Tweet an enger neier Fënster (op twitter.com)",
+    "organisation": "Twitter Account vun Ärer Organisatioun",
     "screenName": "Kënschtlernumm"
   },
   "you need to be 18 years old": "Dir musst 18 Joer al sinn"
