@@ -509,6 +509,7 @@ const Component = (props) => {
         form={form}
         emailProvider={emailProvider}
         done={props.done}
+        buttonText={t(config.component.register?.button || "action.email")}
         targets={config.component.email?.server ? profiles : null}
         beforeSubmit={prepareData}
         onClick={onClick}
