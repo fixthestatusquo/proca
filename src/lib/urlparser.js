@@ -126,7 +126,15 @@ const utm = (record = true) => {
     return {};
   }
   let utm = { source: "", medium: "", campaign: "" };
-  Object.assign(utm, parse(whitelist, "utm_"));
+  let shortcut = parse(["utm"]).utm;
+  if (shortcut) {
+    // instead of having utm_xxx, we can have utm=campaign.source.medium
+    const [campaign, source, medium] = shortcut.split(".");
+    shortcut = { source, medium, campaign };
+  }
+
+  Object.assign(utm, shortcut, parse(whitelist, "utm_"));
+  console.log(utm);
   if (!utm.source && document.referrer) {
     const u = new URL(document.referrer);
 
