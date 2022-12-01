@@ -55,19 +55,20 @@ export default function FABAction(props) {
     return el;
   };
 
-  const defaultAction = config.journey.includes("Petition")
-    ? "Sign now!"
-    : "register";
-  let callToAction = t(config.component.register?.button || defaultAction);
-  let isDonate = false;
+  let defaultAction = "action.default";
+  if (config.journey.includes("Donate")) defaultAction = "action.donate";
+  if (config.journey.includes("Petition")) defaultAction = "action.sign";
+  if (config.journey.includes("Email")) defaultAction = "action.email";
 
-  const nextAction = props.journey[props.current + 2];
-  if (nextAction.startsWith("donate")) {
-    isDonate = true;
-    callToAction = t("donation.mobile.open");
-  }
+  let callToAction = t(config.component.register?.button || defaultAction);
 
   const dom = createDom("proca-fab");
+
+  const min = config.component.counter?.min || 0;
+
+  if (!counter || counter <= min) {
+    counter = 0;
+  }
 
   return (
     dom &&
@@ -87,7 +88,7 @@ export default function FABAction(props) {
                 aria-label={callToAction}
                 onClick={handleClickOpen}
               >
-                {!isDonate && <CreateIcon />}
+                <CreateIcon />
                 {callToAction}&nbsp;
               </Fab>
             </Badge>
