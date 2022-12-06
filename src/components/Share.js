@@ -133,6 +133,7 @@ export default function ShareAction(props) {
   const { t, i18n } = useTranslation();
 
   const shareUrl = (component) => {
+    if (component.render.displayName.includes("email")) return "";
     const medium =
       typeof component === "string"
         ? component
