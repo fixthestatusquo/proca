@@ -15,7 +15,7 @@ const Address = (props) => {
   const compact = props.compact;
   const { setValue, watch, classField } = props.form;
 
-  const { postcode, country } = watch(["postcode", "country"]);
+  const [postcode, country] = watch(["postcode", "country"]);
 
   const postcodeLength = {
     DE: 5,
