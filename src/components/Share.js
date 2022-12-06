@@ -133,6 +133,7 @@ export default function ShareAction(props) {
   const { t, i18n } = useTranslation();
 
   const shareUrl = (component) => {
+    // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
     if (component.render.displayName.includes("email")) return "";
     const medium =
       typeof component === "string"
