@@ -312,7 +312,7 @@ if (require.main === module) {
             if (argv.git && !r) {
               // no idea,
               console.warn(
-                console.red("something went wrong, trying to git add")
+                color.red("something went wrong, trying to git add")
               );
               r = await add(id + ".json");
               console.log(r);
