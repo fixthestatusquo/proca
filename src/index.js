@@ -1,4 +1,5 @@
 import React from "react";
+import "./polyfill";
 import ReactDOM from "react-dom";
 import { goStep, hook, setConfig, setGlobalState } from "./hooks/useConfig";
 import "./lib/i18n";
