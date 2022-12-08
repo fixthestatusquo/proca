@@ -5,9 +5,12 @@ import {
   createTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { makeStyles, createStyles } from "@material-ui/core";
+import { makeStyles, createStyles, jssPreset } from "@material-ui/core";
 //import CssBaseline from '@material-ui/core/ScopedCssBaseline';
 //import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+
 import { useLayout } from "@hooks/useLayout";
 
 const generateClassName = createGenerateClassName({
@@ -53,6 +56,7 @@ export default function ProcaStyle(props) {
           secondary: { main: layout.secondaryColor },
           type: layout.theme,
         },
+        direction: 'rtl',
         typography: {
           fontFamily: "unset!important",
           htmlFontSize: parseInt(
@@ -72,6 +76,7 @@ export default function ProcaStyle(props) {
           MuiContainer: {
             root: {
               fontFamily: "unset!important",
+              textAlign: 'right!important',
               paddingLeft: "0!important",
               paddingRight: "0!important",
               backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
@@ -137,8 +142,12 @@ export default function ProcaStyle(props) {
     // force the widget on the top
     theme.zIndex[d] += 100000;
   }
+  const jss = create({
+    plugins: [...jssPreset().plugins, rtl()],
+  });
+
   return (
-    <StylesProvider generateClassName={generateClassName}>
+    <StylesProvider generateClassName={generateClassName} jss={jss} >
       <GlobalStyles />
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
     </StylesProvider>
