@@ -10,7 +10,7 @@ const Snowflake = (props) => { // if translation is missing, nothing will be loa
   useEffect(() => {
     const randomize = () => {
       const subjects = t("campaign:letter:subject", "");
-      let subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
+      const subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
       let letter = [];
       let i = 1;
       while (t(`campaign:letter:part-${i}`, "end") !== "end") {
