@@ -9,7 +9,7 @@ const Snowflake = (props) => { // if translation is missing, nothing will be loa
 
   useEffect(() => {
     const randomize = () => {
-      const subjects = t("letter:subject");
+      const subjects = t("letter:subject", "");
       const subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
       let letter = [];
       let i = 1;
