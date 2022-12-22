@@ -1,12 +1,9 @@
-
 import { useEffect } from "react";
 import useData from "@hooks/useData";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
 
-// if translation is missing, nothing will be loaded
-
-const Snowflake = (props) => {
+const Snowflake = (props) => { // if translation is missing, nothing will be loaded
   const { t } = useTranslation();
   const [, setData] = useData();
 
@@ -23,7 +20,6 @@ const Snowflake = (props) => {
       }
       return { subject: subject, message: letter.join('\n\n') };
     };
-
     const { subject, message } = randomize();
     setData("message", message);
     setData("subject", subject);
