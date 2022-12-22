@@ -69,7 +69,7 @@ function readConfigOverride(id) {
         ) {
           config.locales = merge(
             { "letter:": campaignConfig.config.locales[config.lang]["letter:"] },
-            config.locales["letter:"]
+            config.locales
           );
           delete campaignConfig.config.locales[config.lang]["letter:"];
         }
