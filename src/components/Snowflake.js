@@ -4,12 +4,7 @@ import useData from "@hooks/useData";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
 
-// to do or test
-// when locale missing, fallback to default
-// when text missing...
-// if subject missing...
-// if body missing...
-// what's happening when chaging text
+// if translation is missing, nothing will be loaded
 
 const Snowflake = (props) => {
   const { t } = useTranslation();
@@ -17,7 +12,7 @@ const Snowflake = (props) => {
 
   useEffect(() => {
     const randomize = () => {
-      const subjects = t("campaign:letter:subject") || "";
+      const subjects = t("campaign:letter:subject", "");
       let subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
       let letter = [];
       let i = 1;
