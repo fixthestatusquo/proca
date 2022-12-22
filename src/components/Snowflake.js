@@ -13,7 +13,7 @@ const Snowflake = (props) => { // if translation is missing, nothing will be loa
       const subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
       let letter = [];
       let i = 1;
-      while (t(`campaign:letter:part-${i}`, "end") !== "end") {
+      while (t(`campaign:letter:part-${i}`, "%%end%%") !== "%%end%%") {
         let message = t(`campaign:letter:part-${i}`);
         letter.push(_.sample(message.split("- ").filter(m => m.length > 0)));
         i += 1;
