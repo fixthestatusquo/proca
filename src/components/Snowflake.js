@@ -9,16 +9,16 @@ const Snowflake = (props) => { // if translation is missing, nothing will be loa
 
   useEffect(() => {
     const randomize = () => {
-      const subjects = t("campaign:letter:subject", "");
+      const subjects = t("letter:subject", "");
       const subject = _.sample(subjects.split("- ").filter(m => m.length > 0));
       let letter = [];
       let i = 1;
-      while (t(`campaign:letter:part-${i}`, "%%end%%") !== "%%end%%") {
-        let message = t(`campaign:letter:part-${i}`);
+      while (t(`letter:part-${i}`, "%%end%%") !== "%%end%%") {
+        let message = t(`letter:part-${i}`);
         letter.push(_.sample(message.split("- ").filter(m => m.length > 0)));
         i += 1;
       }
-      return { subject: subject, message: letter.join('\n\n') };
+      return { subject: subject, message: letter.join('\n\n').replace('\n\n', '') };
     };
     const { subject, message } = randomize();
     setData("message", message);
