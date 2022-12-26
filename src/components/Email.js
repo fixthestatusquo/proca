@@ -475,6 +475,12 @@ const Component = (props) => {
     if (config.component.email?.salutation) {
       data.message = "{{target.fields.salutation}},\n" + data.message;
     }
+
+    // to add {{target.salutation}} to a msg, used in palmaysoja campaign
+    if (config.component.email?.serverSalutation) {
+      data.message = "{{target.salutation}},\n" + data.message;
+    }
+
     if (props.prepareData) data = props.prepareData(data);
     return data;
   };
