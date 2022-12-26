@@ -162,8 +162,11 @@ const Component = (props) => {
         if (tokenKeys.length) {
           // there are token in the message
           //          const empty = { defaultValue: data[k], nsSeparator: false };
+
           const empty = {
-            defaultValue: data[k] || defaultValue[k],
+
+            // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
+            defaultValue: defaultValue[k] || data[k],
             nsSeparator: false,
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
