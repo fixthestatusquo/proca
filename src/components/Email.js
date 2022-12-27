@@ -96,6 +96,7 @@ const Component = (props) => {
   const [alwaysUpdate, setAlwaysUpdate] = useState(
     config.component.email?.multilingual === true
   );
+  const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
@@ -156,6 +157,8 @@ const Component = (props) => {
     setAlwaysUpdate(false);
   };
   useEffect(() => {
+    if (blockUpdate) return;
+
     ["subject", "message"].map((k) => {
       if (data[k] && (!fields[k] || alwaysUpdate)) {
         const defaultValue = form.getValues();
@@ -166,7 +169,7 @@ const Component = (props) => {
           const empty = {
 
             // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
-            defaultValue: defaultValue[k] || data[k],
+            defaultValue:  data[k] || defaultValue[k],
             nsSeparator: false,
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
@@ -194,6 +197,7 @@ const Component = (props) => {
     t,
     form,
     alwaysUpdate,
+    blockUpdate
   ]);
   // todo: clean the dependency
   //
@@ -445,6 +449,9 @@ const Component = (props) => {
               disabled={!!config.component.email.field.message.disabled}
               required={config.component.email.field.message.required}
               onChange={checkUpdated}
+              onClick = {() => {
+                setBlock(true);
+                }              }
               label={t("Your message")}
             />
           </Grid>
@@ -473,11 +480,6 @@ const Component = (props) => {
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += "\n" + data.comment;
     if (config.component.email?.salutation) {
-      data.message = "{{target.fields.salutation}},\n" + data.message;
-    }
-
-    // to add {{target.salutation}} to a msg, used in palmaysoja campaign
-    if (config.component.email?.serverSalutation) {
       data.message = "{{target.fields.salutation}},\n" + data.message;
     }
 
