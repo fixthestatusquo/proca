@@ -1,4 +1,3 @@
-
 # Actions with targets
 
 As opposed to petitions, some actions will have each supporter choosing a specific target, for instance their member of the parliament or their nearest petrol station.
@@ -81,6 +80,7 @@ mtt {
   country? -> in area or duplicate?
 }
 ```
+
 # workflow
 
 the source of truth is on an airtable (in general)
@@ -92,18 +92,18 @@ the first step it to pull the airtable list into the proca-config into config/ta
 
 once it's on the target/source, you need to push it to proca server
 
-- node bin/pushTargets.js {campaign} 
-there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
+- node bin/pushTargets.js {campaign}
+  there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
 
 now you need to pull the targets from the server, mostly so you can have the internal proca-server reference for each target
 
-- node bin/pullTargets.js {campaign} 
+- node bin/pullTargets.js {campaign}
 
 there are various options (run with --help). it creates or update the list under config/target/server/{campaign}.json
 
 now you need to generate the list of targets as it will be used by the widget (tip: it can be a subset of the list of targets on the server, eg you can generate one list without the far right and one with them, and have different lists for different widgets.
 
-- node bin/buildTarget.js {campaign}
+- node bin/buildTargets.js {campaign}
 
 there are various options (run with --help). it creates or update the list under config/target/public/{campaign}.json
 
@@ -112,10 +112,6 @@ at any point in the process, you can check with git if the lists are looking how
 the last step is to publish that list on the https server so it can be fetched by the widget. That process is git based
 
 - cd config
-- git commit * -m "update list of targets for campaigns..."
+- git commit \* -m "update list of targets for campaigns..."
 - git push
 - bash bin/n8npull.sh
-
-
-
-
