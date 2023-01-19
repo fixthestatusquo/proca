@@ -1,3 +1,4 @@
+
 # Actions with targets
 
 As opposed to petitions, some actions will have each supporter choosing a specific target, for instance their member of the parliament or their nearest petrol station.
@@ -80,3 +81,10 @@ mtt {
   country? -> in area or duplicate?
 }
 ```
+# workflow
+
+- change on airtable
+- use n8n to fetch the api and push it to proca-config
+ 
+
+
