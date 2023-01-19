@@ -1,6 +1,7 @@
 require("dotenv").config();
 const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
+const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run", "salutation"],
 });
@@ -119,9 +120,16 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
     "UpsertTargets"
   );
   if (ids.errors) {
-    console.error(ids.errors[0]);
+    ids.errors.forEach((d) => {
+      const line = d.path[2];
+      console.log(
+        "error record",
+        line,
+        formattedTargets[line].name,
+        color.red(formattedTargets[line].emails[0].email)
+      );
+    });
   }
-  console.log(ids);
   return ids.upsertTargets;
 };
 
