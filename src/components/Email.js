@@ -96,6 +96,7 @@ const Component = (props) => {
   const [alwaysUpdate, setAlwaysUpdate] = useState(
     config.component.email?.multilingual === true
   );
+  const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
   const { t } = useTranslation();
   const emailProvider = useRef(undefined); // we don't know the email provider
@@ -156,14 +157,19 @@ const Component = (props) => {
     setAlwaysUpdate(false);
   };
   useEffect(() => {
+    if (blockUpdate) return;
+
     ["subject", "message"].map((k) => {
       if (data[k] && (!fields[k] || alwaysUpdate)) {
         const defaultValue = form.getValues();
         if (tokenKeys.length) {
           // there are token in the message
           //          const empty = { defaultValue: data[k], nsSeparator: false };
+
           const empty = {
-            defaultValue: data[k] || defaultValue[k],
+
+            // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
+            defaultValue:  data[k] || defaultValue[k],
             nsSeparator: false,
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
@@ -191,6 +197,7 @@ const Component = (props) => {
     t,
     form,
     alwaysUpdate,
+    blockUpdate
   ]);
   // todo: clean the dependency
   //
@@ -442,6 +449,9 @@ const Component = (props) => {
               disabled={!!config.component.email.field.message.disabled}
               required={config.component.email.field.message.required}
               onChange={checkUpdated}
+              onClick = {() => {
+                setBlock(true);
+                }              }
               label={t("Your message")}
             />
           </Grid>
@@ -472,6 +482,7 @@ const Component = (props) => {
     if (config.component.email?.salutation) {
       data.message = "{{target.fields.salutation}},\n" + data.message;
     }
+
     if (props.prepareData) data = props.prepareData(data);
     return data;
   };
