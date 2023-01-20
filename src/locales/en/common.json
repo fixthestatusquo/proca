@@ -127,6 +127,7 @@
   },
   "progress": "{{count}} have signed. Let's go to {{goal}}",
   "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
+  "progressMTT": "{{count}} have sent an email. Let's go to {{goal}}",
   "register": "Add my name",
   "required": "required",
   "required field": "required field",
