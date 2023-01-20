@@ -62,10 +62,12 @@ export const formatNumber = (value, separator) => {
 };
 
 export default function Progress(props) {
+  console.log("props", props)
   const { t } = useTranslation();
   let count = props.count;
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
+  console.log("config", config)
   const classes = useStyles();
   const goal = nextStep(count, config.component.counter?.steps);
   const separator = config.component.counter?.separator | " "; //non breaking space
@@ -79,10 +81,12 @@ export default function Progress(props) {
     count = count || 0;
   }
 
+  const progressKey = config.component.register?.actionType === "email" ? "progressMTT" : "progress";
+
   return (
     <>
       <Box className={classes.root + " proca-progress"}>
-        {t("progress", {
+        {t(progressKey, {
           count: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
