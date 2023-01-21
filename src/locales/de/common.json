@@ -115,14 +115,14 @@
       "title": "Zahlungsmethode"
     },
     "thanks": "Vielen Dank für Ihre Spende!",
-    "to": "Spende an {{organisation}}"
+    "to": "An {{organisation}} spenden"
   },
   "email": {
-    "invalid_domain": "{{domain}} keine E-Mails empfangen kann",
+    "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "salutation": "Sehr geehrte:r {{target.name}}",
-    "salutationFemale": "Liebe {{target.name}}",
-    "salutationMale": "Liebe {{target.name}}",
-    "salutation_info": "die Begrüßungszeile wird in den Emails durch den Namen ersetzt",
+    "salutationFemale": "Sehr geehrte(r) {{target.name}}",
+    "salutationMale": "Sehr geehrte:r {{target.name}}",
+    "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "progress": "{{count}} haben unterzeichnet. Erreichen wir {{goal}}",
