@@ -126,7 +126,12 @@
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
   "progress": {
-    "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera"
+    "donate": "{{total}} dohaintza egin dute. Goazen {{goal}}",
+    "email": "{{total}}-ek mezu elektroniko bat bidali du. Goazen {{goal}}",
+    "register": "{{total}} erregistratu dira. Goazen {{goal}}",
+    "share": "{{total}} partekatu dute. Goazen {{goal}}",
+    "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera",
+    "twitter": "{{total}} twitteatu dute. Goazen {{goal}}"
   },
   "register": "Gehitu nire izena",
   "required": "Mesedez, bete eremu hau",
