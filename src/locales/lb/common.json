@@ -125,8 +125,9 @@
     "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
     "salutation_placeholder": "Léif [Empfänger]"
   },
-  "progress": "{{count}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen"
+  },
   "register": "Füügt mäi Numm dobäi",
   "required": "néideg",
   "required field": "néidegt Feld",

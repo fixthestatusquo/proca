@@ -125,7 +125,9 @@
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
-  "progress": "{{count}} đã ký. Hãy chuyển đến {{goal}}",
+  "progress": {
+    "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}"
+  },
   "register": "Thêm tên của tôi",
   "required": "yêu cầu",
   "required field": "phần bắt buộc",

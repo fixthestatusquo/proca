@@ -125,8 +125,9 @@
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
-  "progress": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
-  "progress_plural": "{{count}} iffirmaw. Ejja mmorru għal {{goal}}",
+  "progress": {
+    "sign": "{{total}} iffirmaw. Ejja mmorru għal {{goal}}"
+  },
   "register": "Żid ismi",
   "required": "Jekk jogħġbok imla dan il-qasam",
   "required field": "Qasam meħtieġ",

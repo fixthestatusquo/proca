@@ -125,7 +125,9 @@
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
     "salutation_placeholder": "Eyin [olugba],"
   },
-  "progress": "{{count}} ti fowo si. Jẹ ki a lọ si {{goal}}",
+  "progress": {
+    "sign": "{{total}} ti fowo si. Jẹ ki a lọ si {{goal}}"
+  },
   "register": "Fi orukọ mi kun",
   "required": "Jọwọ fọwọsi aaye yii",
   "required field": "Aaye ti a beere",

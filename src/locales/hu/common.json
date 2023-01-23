@@ -125,8 +125,9 @@
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
     "salutation_placeholder": "Kedves [címzett],"
   },
-  "progress": "{{count}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást"
+  },
   "register": "Add hozzá a nevemet",
   "required": "Kérjük, töltse ki ezt a mezőt",
   "required field": "Kötelező mező",

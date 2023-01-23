@@ -76,3 +76,29 @@ t("campaign:share.generic", { defaultValue: "I signed this, you should too!" });
 t("campaign:share.twitter", {
   defaultValue: "Worthwhile campaign, support it to #activism",
 });
+
+// for counter
+t("progress.sign", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})
+t("progress.register", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})
+t("progress.email", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})
+t("progress.donate", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})
+t("progress.share", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})
+t("progress.twitter", {
+  total: formatNumber(count, separator),
+  goal: formatNumber(goal, separator),
+})

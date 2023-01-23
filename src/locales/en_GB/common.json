@@ -125,8 +125,9 @@
     "salutation_info": "(the recipient's name will be put before sending)",
     "salutation_placeholder": "Dear [recipient]"
   },
-  "progress": "{{count}} has signed. Let's go to {{goal}}",
-  "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
+  "progress": {
+    "sign": "{{total}} has signed. Let's go to {{goal}}"
+  },
   "register": "Add my name",
   "required": "required",
   "required field": "required field",

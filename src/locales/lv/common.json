@@ -125,8 +125,9 @@
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
-  "progress": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
-  "progress_plural": "{{count}} ir parakstījušies. Dodamies uz {{goal}}",
+  "progress": {
+    "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}"
+  },
   "register": "Pievienojiet manu vārdu",
   "required": "Lūdzu, aizpildiet šo lauku",
   "required field": "Obligātais lauks",

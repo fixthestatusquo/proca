@@ -125,8 +125,9 @@
     "salutation_info": "(le nom sera mis avant l'envoi)",
     "salutation_placeholder": "Cher [destinataire],"
   },
-  "progress": "{{count}} Signature. Objectif : {{goal}}",
-  "progress_plural": "{{count}} Signatures. Objectif : {{goal}}",
+  "progress": {
+    "sign": "{{total}} Signatures. Objectif : {{goal}}"
+  },
   "register": "Ajouter mon nom",
   "required": "Veuillez remplir ce champ",
   "required field": "Champ obligatoire",

@@ -125,8 +125,9 @@
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowny [adresat],"
   },
-  "progress": "{{count}} osób już podpisało. Dążymy do {{goal}}",
-  "progress_plural": "{{count}}  osób już podpisało. Dążymy do {{goal}}",
+  "progress": {
+    "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}"
+  },
   "register": "Podpisuję petycję",
   "required": "Proszę wypełnić to pole",
   "required field": "Wymagane pole",

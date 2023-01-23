@@ -62,7 +62,7 @@ export const formatNumber = (value, separator) => {
 };
 
 export default function Progress(props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   let count = props.count;
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
@@ -79,11 +79,16 @@ export default function Progress(props) {
     count = count || 0;
   }
 
+  // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
+  const progressKey = i18n.exists(`progress.${config.component?.register?.button?.split(".")[1]}`) ?
+    `progress.${config.component.register.button.split(".")[1]}`
+    : 'progress.sign';
+
   return (
     <>
       <Box className={classes.root + " proca-progress"}>
-        {t("progress", {
-          count: formatNumber(count, separator),
+        {t(progressKey, {
+          total: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
         <LinearProgress variant="determinate" value={normalise(count, goal)} />

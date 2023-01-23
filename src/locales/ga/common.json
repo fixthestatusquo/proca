@@ -125,8 +125,9 @@
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
     "salutation_placeholder": "A chara [faighteoir],"
   },
-  "progress": "{{count}} sínithe. Rachaimid go {{goal}}",
-  "progress_plural": "{{count}} sínithe. Rachaimid go {{goal}}",
+  "progress": {
+    "sign": "{{total}} sínithe. Rachaimid go {{goal}}"
+  },
   "register": "Cuir m’ainm leis",
   "required": "Líon isteach an réimse seo le do thoil",
   "required field": "Réimse riachtanach",

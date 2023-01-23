@@ -125,8 +125,9 @@
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
-  "progress": "{{count}} haben unterzeichnet. Erreichen wir {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}"
+  },
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",
   "required field": "Pflichtfeld",

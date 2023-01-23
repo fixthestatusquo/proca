@@ -125,7 +125,9 @@
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
-  "progress": "{{count}} បានចុះហត្ថលេខា។ តោះទៅ {{goal}}",
+  "progress": {
+    "sign": "{{total}} បានចុះហត្ថលេខា។ តោះទៅ {{goal}}"
+  },
   "register": "បន្ថែមឈ្មោះរបស់ខ្ញុំ",
   "required": "សូមបំពេញក្នុងវាលនេះ។",
   "required field": "វាលដែលត្រូវការ",

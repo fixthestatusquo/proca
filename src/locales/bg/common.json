@@ -125,8 +125,9 @@
     "salutation_info": "(името ще бъде въведено преди изпращане)",
     "salutation_placeholder": "Уважаеми [получател],"
   },
-  "progress": "{{count}} са подписали. Да достигнем {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} са подписали. Да достигнем {{goal}}"
+  },
   "register": "Добавяне на моето име",
   "required": "Моля, попълнете това поле",
   "required field": "Задължително поле",

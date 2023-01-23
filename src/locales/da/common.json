@@ -125,8 +125,9 @@
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
     "salutation_placeholder": "Kære [modtager],"
   },
-  "progress": "{{count}} har underskrevet. Lad os gå til {{goal}}",
-  "progress_plural": "{{count}} har underskrevet. Lad os gå til {{goal}}",
+  "progress": {
+    "sign": "{{total}} har underskrevet. Lad os gå til {{goal}}"
+  },
   "register": "Tilføj mit navn",
   "required": "Udfyld venligst dette felt",
   "required field": "Obligatorisk felt",

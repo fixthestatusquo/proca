@@ -125,8 +125,14 @@
     "salutationFemale": "Dear {{target.name}}",
     "salutationMale": "Dear {{target.name}}"
   },
-  "progress": "{{count}} have signed. Let's go to {{goal}}",
-  "progress_plural": "{{count}} have signed. Let's go to {{goal}}",
+  "progress": {
+    "register": "{{total}} have registered. Let's go to {{goal}}",
+    "email": "{{total}} have sent an email. Let's go to {{goal}}",
+    "donate": "{{total}} have donated. Let's go to {{goal}}",
+    "share": "{{total}} have shared. Let's go to {{goal}}",
+    "sign": "{{total}} have signed. Let's go to {{goal}}",
+    "twitter": "{{total}} have twitted. Let's go to {{goal}}"
+  },
   "register": "Add my name",
   "required": "required",
   "required field": "required field",

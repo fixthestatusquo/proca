@@ -125,8 +125,9 @@
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
-  "progress": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
-  "progress_plural": "{{count}} on allekirjoittanut. Tavoite: {{goal}}",
+  "progress": {
+    "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}"
+  },
   "register": "Lisää nimeni",
   "required": "Täytä tämä kenttä",
   "required field": "Pakollinen kenttä",

@@ -125,8 +125,9 @@
     "salutation_info": "(meno sa uvedie pred odoslaním)",
     "salutation_placeholder": "Vážený [príjemca],"
   },
-  "progress": "{{count}} podpísali. Poďme na {{goal}}",
-  "progress_plural": "{{count}} podpísali. Poďme na {{goal}}",
+  "progress": {
+    "sign": "{{total}} podpísali. Poďme na {{goal}}"
+  },
   "register": "Pridajte moje meno",
   "required": "Vyplňte toto pole",
   "required field": "Povinné pole",
