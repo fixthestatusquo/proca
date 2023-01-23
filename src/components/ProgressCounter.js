@@ -67,9 +67,9 @@ export default function Progress(props) {
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
   const classes = useStyles();
-  const goal = nextStep(count, config.component.progress?.steps);
-  const separator = config.component.progress?.separator | " "; //non breaking space
-  const min = config.component.progress?.min | 0;
+  const goal = nextStep(count, config.component.counter?.steps);
+  const separator = config.component.counter?.separator | " "; //non breaking space
+  const min = config.component.counter?.min | 0;
 
   if (!config.test) {
     if (!count || count <= min) {
