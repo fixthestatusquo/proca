@@ -126,7 +126,12 @@
     "salutation_placeholder": "Vážený [recipient]"
   },
   "progress": {
-    "sign": "{{total}} podepsali. Přejděme k {{goal}}"
+    "donate": "{{total}} darovali. Pojďme na {{goal}}",
+    "email": "{{total}} odeslali e-mail. Pojďme na {{goal}}",
+    "register": "{{total}} se zaregistrovali. Pojďme na {{goal}}",
+    "share": "{{total}} sdíleli. Pojďme na {{goal}}",
+    "sign": "{{total}} podepsali. Přejděme k {{goal}}",
+    "twitter": "{{total}} napsali na twitteru. Pojďme na {{goal}}"
   },
   "register": "Přidejte mé jméno",
   "required": "Vyplňte prosím toto pole",
