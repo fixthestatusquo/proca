@@ -125,8 +125,9 @@
     "salutation_info": "Le nom sera automatiquement remplacé",
     "salutation_placeholder": "Cher/chère [destinataire]"
   },
-  "progress": "{{count}} ont signé. Passons à {{goal}}",
-  "progress_plural": "{{count}} ont signé. Passons à {{goal}}",
+  "progress": {
+    "sign": "{{total}} ont signé. Passons à {{goal}}"
+  },
   "register": "Ajouter mon nom",
   "required": "Veuillez compléter ce champ",
   "required field": "Veuillez compléter ce champ",
