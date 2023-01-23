@@ -126,7 +126,12 @@
     "salutation_placeholder": "عزيزي [المستلم]"
   },
   "progress": {
-    "sign": "وقعت {{total}}. دعنا نذهب إلى {{goal}}"
+    "donate": "تبرعت {{total}}. دعنا نذهب إلى {{goal}}",
+    "email": "أرسل {{total}} بريدًا إلكترونيًا. دعنا نذهب إلى {{goal}}",
+    "register": "تم تسجيل {{total}}. دعنا نذهب إلى {{goal}}",
+    "share": "شارك {{total}}. دعنا نذهب إلى {{goal}}",
+    "sign": "وقعت {{total}}. دعنا نذهب إلى {{goal}}",
+    "twitter": "توأمت {{total}}. دعنا نذهب إلى {{goal}}"
   },
   "register": "أضف اسمي",
   "required": "مطلوب",
