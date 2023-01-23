@@ -125,8 +125,9 @@
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
-  "progress": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
-  "progress_plural": "{{count}} allkirja on kogutud. Eesmärk: {{goal}}",
+  "progress": {
+    "sign": "{{total}} allkirja on kogutud. Eesmärk: {{goal}}"
+  },
   "register": "Lisage minu nimi",
   "required": "Palun täitke see väli",
   "required field": "Kohustuslik väli",

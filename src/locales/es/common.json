@@ -125,8 +125,9 @@
     "salutation_info": "(El nombre se pondrá antes del envío)",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
-  "progress": "{{count}} han firmado. Vamos a por {{goal}}",
-  "progress_plural": "{{count}} han firmado. Vamos a por {{goal}}",
+  "progress": {
+    "sign": "{{total}} han firmado. Vamos a por {{goal}}"
+  },
   "register": "Añade mi nombre",
   "required": "Por favor, rellene este campo",
   "required field": "Campo obligatorio",

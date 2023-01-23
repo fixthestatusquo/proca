@@ -125,8 +125,9 @@
     "salutation_info": "(izena bidali aurretik jarriko da)",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
-  "progress": "{{count}} sinatu dute. Goazen {{goal}} atalera",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera"
+  },
   "register": "Gehitu nire izena",
   "required": "Mesedez, bete eremu hau",
   "required field": "Beharrezko eremua",
