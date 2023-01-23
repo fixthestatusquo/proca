@@ -126,7 +126,12 @@
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "progress": {
-    "sign": "{{total}} han signat. Volem arribar a {{goal}}"
+    "donate": "{{total}} han donat. Anem a {{goal}}",
+    "email": "{{total}} han enviat un correu electrònic. Anem a {{goal}}",
+    "register": "{{total}} s'han registrat. Anem a {{goal}}",
+    "share": "{{total}} han compartit. Anem a {{goal}}",
+    "sign": "{{total}} han signat. Volem arribar a {{goal}}",
+    "twitter": "{{total}} han twitteat. Anem a {{goal}}"
   },
   "register": "Afegeix el meu nom",
   "required": "Si us plau, ompliu aquest camp",
