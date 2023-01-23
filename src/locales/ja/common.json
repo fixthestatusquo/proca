@@ -125,7 +125,9 @@
     "salutation_info": "(送信前に受信者の名前が入ります）。",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
-  "progress": "{{count}} がサインしました。に行ってみよう。{{goal}}",
+  "progress": {
+    "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}"
+  },
   "register": "私の名前を追加",
   "required": "要",
   "required field": "必須項目",
