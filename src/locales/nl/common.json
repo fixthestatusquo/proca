@@ -126,7 +126,12 @@
     "salutation_placeholder": "Geachte [ontvanger],"
   },
   "progress": {
-    "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan."
+    "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
+    "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
+    "register": "{{total}} hebben zich geregistreerd. Laten we naar {{goal}}",
+    "share": "{{total}} hebben gedeeld. Laten we naar {{goal}}",
+    "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan.",
+    "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
   "register": "Mijn naam toevoegen",
   "required": "Gelieve dit veld in te vullen",
