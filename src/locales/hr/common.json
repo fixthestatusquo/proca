@@ -125,9 +125,9 @@
     "salutation_info": "(ime će biti stavljeno prije slanja)",
     "salutation_placeholder": "Poštovani [recipient],"
   },
-  "progress_0": "{{count}} potpis. Idemo na {{goal}}",
-  "progress_1": "{{count}} potpisa. Idemo na {{goal}}",
-  "progress_2": "{{count}} potpisa. Idemo na {{goal}}",
+  "progress": {
+    "sign": "{{total}} potpisa. Idemo na {{goal}}"
+  },
   "register": "Dodaj moje ime",
   "required": "Ispuni ovo polje",
   "required field": "Ispuni ovo polje",

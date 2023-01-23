@@ -125,10 +125,9 @@
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
     "salutation_placeholder": "[נמען] יקר"
   },
-  "progress_0": "{{count}} חתמו. בוא נלך אל {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
+  "progress": {
+    "sign": "{{total}} חתמו. בוא נלך אל {{goal}}"
+  },
   "register": "הוסף את שמי",
   "required": "נדרש",
   "required field": "שדה נדרש",

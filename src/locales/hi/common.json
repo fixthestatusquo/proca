@@ -125,8 +125,9 @@
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },
-  "progress": "{{count}} ने हस्ताक्षर किए। चलो {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} ने हस्ताक्षर किए। चलो {{goal}}"
+  },
   "register": "मेरा नाम जोड़ें",
   "required": "कृपया इस क्षेत्र को भरें",
   "required field": "आवश्यक क्षेत्र",

@@ -125,8 +125,9 @@
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
-  "progress": "{{count}} sun sanya hannu. Bari mu je {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}"
+  },
   "register": "Ƙara sunana",
   "required": "Da fatan za a cika wannan filin",
   "required field": "Filin da ake buƙata",
