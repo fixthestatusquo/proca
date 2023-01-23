@@ -125,8 +125,9 @@
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
-  "progress": "{{count}} hebben getekend. Laten we voor {{goal}} gaan.",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan."
+  },
   "register": "Mijn naam toevoegen",
   "required": "Gelieve dit veld in te vullen",
   "required field": "Verplicht veld",

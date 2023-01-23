@@ -125,7 +125,9 @@
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },
-  "progress": "{{count}} au semnat. Hai să strângem {{goal}}",
+  "progress": {
+    "sign": "{{total}} au semnat. Hai să strângem {{goal}}"
+  },
   "register": "Adaugă numele meu",
   "required": "Vă rugăm să completați acest câmp",
   "required field": "Câmp obligatoriu",
