@@ -125,12 +125,9 @@
     "salutation_info": "(سيتم وضع اسم المستلم قبل الإرسال)",
     "salutation_placeholder": "عزيزي [المستلم]"
   },
-  "progress_0": "وقعت {{count}}. دعنا نذهب إلى {{goal}}",
-  "progress_1": "",
-  "progress_2": "",
-  "progress_3": "",
-  "progress_4": "",
-  "progress_5": "",
+  "progress": {
+    "sign": "وقعت {{total}}. دعنا نذهب إلى {{goal}}"
+  },
   "register": "أضف اسمي",
   "required": "مطلوب",
   "required field": "يتطلب حقلا",

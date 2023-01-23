@@ -125,8 +125,9 @@
     "salutation_info": "(el nom es posarà abans de l'enviament)",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
-  "progress": "{{count}} han signat. Volem arribar a {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} han signat. Volem arribar a {{goal}}"
+  },
   "register": "Afegeix el meu nom",
   "required": "Si us plau, ompliu aquest camp",
   "required field": "Camp necessari",
