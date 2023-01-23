@@ -126,7 +126,12 @@
     "salutation_placeholder": "拝啓 [受取人]様"
   },
   "progress": {
-    "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}"
+    "donate": "{{total}} が寄付をしました。に行ってみよう。{{goal}}",
+    "email": "{{total}} はメールを送信しました。に行ってみましょう。{{goal}}",
+    "register": "{{total}} が登録されています。に行ってみましょう。{{goal}}",
+    "share": "{{total}} が共有しました。に行ってみましょう。{{goal}}",
+    "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}",
+    "twitter": "{{total}} がツッコミを入れました。に行ってみましょう。{{goal}}"
   },
   "register": "私の名前を追加",
   "required": "要",
