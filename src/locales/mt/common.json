@@ -126,7 +126,12 @@
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
   "progress": {
-    "sign": "{{total}} iffirmaw. Ejja mmorru għal {{goal}}"
+    "donate": "{{total}} taw donazzjoni. Ejja mmorru għal {{goal}}",
+    "email": "{{total}} bagħtu email. Ejja mmorru għal {{goal}}",
+    "register": "{{total}} irreġistraw. Ejja mmorru għal {{goal}}",
+    "share": "{{total}} qasmu. Ejja mmorru għal {{goal}}",
+    "sign": "{{total}} iffirmaw. Ejja mmorru għal {{goal}}",
+    "twitter": "{{total}} twitted. Ejja mmorru għal {{goal}}"
   },
   "register": "Żid ismi",
   "required": "Jekk jogħġbok imla dan il-qasam",
