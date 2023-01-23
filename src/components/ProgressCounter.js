@@ -63,7 +63,7 @@ export const formatNumber = (value, separator) => {
 
 export default function Progress(props) {
   console.log("props", props)
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   let count = props.count;
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
@@ -81,12 +81,14 @@ export default function Progress(props) {
     count = count || 0;
   }
 
-  const progressKey = config.component.register?.actionType === "email" ? "progressMTT" : "progress";
+  const counterKey = i18n.exists(`counter.${config.component.register?.button.split(".")[1]}`) ?
+    `counter.${config.component.register?.button.split(".")[1]}`
+    : "counter.sign";
 
   return (
     <>
       <Box className={classes.root + " proca-progress"}>
-        {t(progressKey, {
+        {t(counterKey, {
           count: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
