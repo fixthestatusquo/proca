@@ -126,7 +126,12 @@
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "progress": {
-    "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}"
+    "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
+    "email": "{{total}} haben eine E-Mail geschickt. Gehen wir zu {{goal}}",
+    "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
+    "share": "{{total}} geteilt haben. Gehen wir zu {{goal}}",
+    "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",
+    "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
   },
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",
