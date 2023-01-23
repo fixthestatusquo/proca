@@ -125,8 +125,9 @@
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
-  "progress": "{{count}} pasirašė. Pasiekime {{goal}}",
-  "progress_plural": "{{count}} pasirašė. Pasiekime {{goal}}",
+  "progress": {
+    "sign": "{{total}} pasirašė. Pasiekime {{goal}}"
+  },
   "register": "Pridėti mano vardą",
   "required": "Užpildykite šį laukelį",
   "required field": "Privalomas laukas",
