@@ -34,7 +34,7 @@ t("action.share", { defaultValue: "Share" });
 t("action.donate", { defaultValue: "Donate" });
 t("action.email", { defaultValue: "Send an Email" });
 t("action.twitter", { defaultValue: "Tweet" });
-t("action.takeAction");
+t("action.takeAction", { defaultValue: "Take action" });
 
 t("salutations.m", "Dear {{name}}");
 t("salutations.f", "Dear {{name}}");
