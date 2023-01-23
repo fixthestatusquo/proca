@@ -126,7 +126,12 @@
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
   "progress": {
-    "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}"
+    "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
+    "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
+    "register": "{{total}} ovat rekisteröityneet. Mennään osoitteeseen {{goal}}",
+    "share": "{{total}} ovat jakaneet. Mennään {{goal}}",
+    "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",
+    "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
   },
   "register": "Lisää nimeni",
   "required": "Täytä tämä kenttä",
