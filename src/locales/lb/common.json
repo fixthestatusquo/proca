@@ -126,7 +126,12 @@
     "salutation_placeholder": "Léif [Empfänger]"
   },
   "progress": {
-    "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen"
+    "donate": "{{total}} hunn gespent. Loosst eis op {{goal}}",
+    "email": "{{total}} hunn eng E-Mail geschéckt. Loosst eis op {{goal}}",
+    "register": "{{total}} registréiert hunn. Loosst eis op {{goal}}",
+    "share": "{{total}} gedeelt hunn. Loosst eis op {{goal}}",
+    "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
+    "twitter": "{{total}} hunn twitted. Loosst eis op {{goal}}"
   },
   "register": "Füügt mäi Numm dobäi",
   "required": "néideg",
