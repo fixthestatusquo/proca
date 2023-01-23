@@ -126,7 +126,12 @@
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "progress": {
-    "sign": "{{total}} pasirašė. Pasiekime {{goal}}"
+    "donate": "{{total}} paaukojo. Eikime į {{goal}}",
+    "email": "{{total}} išsiuntė el. laišką. Eikime į {{goal}}",
+    "register": "{{total}} užsiregistravo. Eikime į {{goal}}",
+    "share": "{{total}} dalijosi. Eikime į {{goal}}",
+    "sign": "{{total}} pasirašė. Pasiekime {{goal}}",
+    "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
   "register": "Pridėti mano vardą",
   "required": "Užpildykite šį laukelį",
