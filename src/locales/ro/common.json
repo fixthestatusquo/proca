@@ -126,7 +126,12 @@
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "progress": {
-    "sign": "{{total}} au semnat. Hai să strângem {{goal}}"
+    "donate": "{{total}} au donat. Să mergem la {{goal}}",
+    "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
+    "register": "{{total}} s-au înregistrat. Să mergem la {{goal}}",
+    "share": "{{total}} au împărtășit. Să mergem la {{goal}}",
+    "sign": "{{total}} au semnat. Hai să strângem {{goal}}",
+    "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
   },
   "register": "Adaugă numele meu",
   "required": "Vă rugăm să completați acest câmp",
