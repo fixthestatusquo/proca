@@ -126,7 +126,12 @@
     "salutation_placeholder": "Eyin [olugba],"
   },
   "progress": {
-    "sign": "{{total}} ti fowo si. Jẹ ki a lọ si {{goal}}"
+    "donate": "{{total}} ti ṣetọrẹ. Jẹ ki a lọ si {{goal}}",
+    "email": "{{total}} ti fi imeeli ranṣẹ. Jẹ ki a lọ si {{goal}}",
+    "register": "{{total}} ti forukọsilẹ. Jẹ ki a lọ si {{goal}}",
+    "share": "{{total}} ti pin. Jẹ ki a lọ si {{goal}}",
+    "sign": "{{total}} ti fowo si. Jẹ ki a lọ si {{goal}}",
+    "twitter": "{{total}} ti twitter. Jẹ ki a lọ si {{goal}}"
   },
   "register": "Fi orukọ mi kun",
   "required": "Jọwọ fọwọsi aaye yii",
