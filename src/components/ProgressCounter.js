@@ -62,16 +62,14 @@ export const formatNumber = (value, separator) => {
 };
 
 export default function Progress(props) {
-  console.log("props", props)
   const { t, i18n } = useTranslation();
   let count = props.count;
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
-  console.log("config", config)
   const classes = useStyles();
-  const goal = nextStep(count, config.component.counter?.steps);
-  const separator = config.component.counter?.separator | " "; //non breaking space
-  const min = config.component.counter?.min | 0;
+  const goal = nextStep(count, config.component.progress?.steps);
+  const separator = config.component.progress?.separator | " "; //non breaking space
+  const min = config.component.progress?.min | 0;
 
   if (!config.test) {
     if (!count || count <= min) {
@@ -81,15 +79,15 @@ export default function Progress(props) {
     count = count || 0;
   }
 
-  const counterKey = i18n.exists(`counter.${config.component.register?.button.split(".")[1]}`) ?
-    `counter.${config.component.register?.button.split(".")[1]}`
-    : "counter.sign";
+  const progressKey = i18n.exists(`progress.${config.component?.register?.button?.split(".")[1]}`) ?
+    `progress.${config.component.register.button.split(".")[1]}`
+    : 'progress.sign';
 
   return (
     <>
       <Box className={classes.root + " proca-progress"}>
-        {t(counterKey, {
-          count: formatNumber(count, separator),
+        {t(progressKey, {
+          total: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
         <LinearProgress variant="determinate" value={normalise(count, goal)} />
