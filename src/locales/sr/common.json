@@ -125,14 +125,15 @@
     "salutation_info": "(име ће бити стављено пре слања)",
     "salutation_placeholder": "Поштовани [прималац],"
   },
-  "progress": "{{count}} су потписали. Идемо на {{goal}}",
-  "progress_plural": "{{count}} су потписали. Идемо на {{goal}}",
+  "progress": {
+    "sign": "{{total}} су потписали. Идемо на {{goal}}"
+  },
   "register": "Додај моје име",
   "required": "Молимо попуните ово поље",
   "required field": "Обавезно поље",
   "salutations": {
-    "f": "Госпођа.",
-    "m": "Господин.",
+    "f": "Госпођа",
+    "m": "Господин",
     "other": "Остало"
   },
   "share": {

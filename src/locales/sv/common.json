@@ -125,8 +125,9 @@
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
     "salutation_placeholder": "Kära [mottagare],"
   },
-  "progress": "{{count}} har undertecknat. Låt oss gå till {{goal}}",
-  "progress_plural": "",
+  "progress": {
+    "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}"
+  },
   "register": "Lägg till mitt namn",
   "required": "Fyll i det här fältet",
   "required field": "Obligatoriskt fält",
