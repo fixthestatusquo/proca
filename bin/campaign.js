@@ -203,7 +203,7 @@ if (require.main === module) {
         }
       }
       if (argv.push && !argv["dry-run"]) {
-        const r = argv.git && (await commit(fileName));
+        const r = argv.git && (await commit(fileName, null, 1));
         const result = await pushCampaign(name);
         console.log(color.green.bold("pushed", name), color.blue(result.id));
         if (r.summary) console.log(r.summary);

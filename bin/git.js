@@ -55,7 +55,7 @@ const help = () => {
 
 const git = simpleGit({ baseDir: pathConfig() });
 
-const commit = async (file, message) => {
+const commit = async (file, message, createIfNotExist) => {
   const cmd = process.argv.slice(1).join(" ");
   let result = null;
   if (!message) {
@@ -68,8 +68,14 @@ const commit = async (file, message) => {
       result = await git.commit(message);
     }
   } catch (e) {
-    console.error("git commit", color.red(e));
-    return false;
+    if (createIfNotExist) {
+      result = await add(file);
+      console.log(result);
+      result = await commit(file, message, false);
+    } else {
+      console.error("git commit", color.red(e));
+      return false;
+    }
   }
   return result;
 };

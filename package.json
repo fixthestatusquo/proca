@@ -93,6 +93,7 @@
     "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
     "set": "node bin/set.js",
     "campaign": "node bin/campaign.js",
+    "target": "node bin/target.js",
     "pushCampaign": "node bin/campaign.js --push",
     "pullCampaign": "node bin/campaign.js --pull",
     "pullTargets": "node bin/pullTargets.js",

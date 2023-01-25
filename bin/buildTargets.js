@@ -1,8 +1,10 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
+const { commit } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "keep", "dry-run"],
+  boolean: ["help", "keep", "dry-run", "git"],
+  default: { git: true },
 });
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase().trim();
@@ -104,25 +106,8 @@ const saveTargets = (campaignName, targets) => {
   return fileName;
 };
 
-if (!argv._.length || argv.help) {
-  console.log(
-    [
-      "options",
-      "--help (this command)",
-      "--dry-run (show the parsed targets but don't push)",
-      "--email (for campaigns sending client side)",
-      "--display (filters based on the display field)",
-      "--source (filter the server list based on source - if the server has more targets than the source)",
-      "--meps[=committeeA,committeeB] if meps, special formatting",
-      "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
-      "buildTarget {campaign name}",
-    ].join("\n")
-  );
-  process.exit(0);
-}
-
-(async () => {
-  const name = argv._[0];
+const publishTarget = async (campaignName, arvg) => {
+  const name = campaignName;
   const publicEmail = argv.email || false;
   const display = argv.display || false;
   const meps = argv.meps || false;
@@ -157,9 +142,42 @@ if (!argv._.length || argv.help) {
       d.sort((a, b) => b?.followers_count - a?.followers_count);
       const c = saveTargets(name, d);
       console.log("saved " + c);
+      const msg = "saving " + d.length + " targets";
+      r = argv.git && (await commit(c, msg, true));
+      r?.summary && console.log(r.summary);
+      return d;
     }
   } catch (e) {
     console.error(e);
+    return e;
     // Deal with the fact the chain failed
   }
-})();
+};
+
+if (require.main === module) {
+  // this is run directly from the command line as in node xxx.js
+  if (!argv._.length || argv.help) {
+    console.log(
+      [
+        "options",
+        "--help (this command)",
+        "--dry-run (show the parsed targets but don't push)",
+        "--email (for campaigns sending client side)",
+        "--display (filters based on the display field)",
+        "--source (filter the server list based on source - if the server has more targets than the source)",
+        "--meps[=committeeA,committeeB] if meps, special formatting",
+        "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
+        "buildTarget {campaign name}",
+      ].join("\n")
+    );
+    process.exit(0);
+  }
+
+  (async () => {
+    publishTarget(argv._[0], argv);
+  })();
+} else {
+  module.exports = {
+    publishTarget,
+  };
+}
