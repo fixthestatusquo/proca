@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} 이메일을 받을 수 없습니다",
     "salutation": "친애하는 {{target.name}}",
-    "salutationFemale": "친애하는 {{target.name}}",
-    "salutationMale": "친애하는 {{target.name}}",
+    "salutation_female": "친애하는 {{target.name}}",
+    "salutation_male": "친애하는 {{target.name}}",
     "salutation_info": "(수취인의 이름은 보내기 전에 입력됩니다)",
     "salutation_placeholder": "친애하는 [받는 사람]"
   },

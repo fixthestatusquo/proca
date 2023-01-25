@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
     "salutation": "Dragă {{target.name}}",
-    "salutationFemale": "Dragă {{target.name}}",
-    "salutationMale": "Dragă {{target.name}}",
+    "salutation_female": "Dragă {{target.name}}",
+    "salutation_male": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },

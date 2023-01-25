@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
     "salutation": "Spoštovani {{target.name}}",
-    "salutationFemale": "Spoštovani {{target.name}}",
-    "salutationMale": "Spoštovani {{target.name}}",
+    "salutation_female": "Spoštovani {{target.name}}",
+    "salutation_male": "Spoštovani {{target.name}}",
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },

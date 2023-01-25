@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
     "salutation": "Cher/chère {{target.name}}",
-    "salutationFemale": "Cher {{target.name}}",
-    "salutationMale": "Cher {{target.name}}",
+    "salutation_female": "Chère {{target.name}}",
+    "salutation_male": "Cher {{target.name}}",
     "salutation_info": "Le nom sera automatiquement remplacé",
     "salutation_placeholder": "Cher/chère [destinataire]"
   },

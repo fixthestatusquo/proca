@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
     "salutation": "Eyin {{target.name}}",
-    "salutationFemale": "Eyin {{target.name}}",
-    "salutationMale": "Eyin {{target.name}}",
+    "salutation_female": "Eyin {{target.name}}",
+    "salutation_male": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
     "salutation_placeholder": "Eyin [olugba],"
   },

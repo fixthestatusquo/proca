@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "salutation": "Liebe*r {{target.name}}",
-    "salutationFemale": "Liebe*r {{target.name}}",
-    "salutationMale": "Liebe*r {{target.name}}",
+    "salutation_female": "Liebe*r {{target.name}}",
+    "salutation_male": "Liebe*r {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Senden eingefügt)",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },

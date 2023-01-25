@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} không thể nhận email",
     "salutation": "Kính gửi {{name}}",
-    "salutationFemale": "Kính gửi {{name}}",
-    "salutationMale": "Kính gửi {{name}}",
+    "salutation_female": "Kính gửi {{name}}",
+    "salutation_male": "Kính gửi {{name}}",
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },

@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
     "salutation": "Maitea {{target.name}}",
-    "salutationFemale": "Maitea {{target.name}}",
-    "salutationMale": "Maitea {{target.name}}",
+    "salutation_female": "Maitea {{target.name}}",
+    "salutation_male": "Maitea {{target.name}}",
     "salutation_info": "(izena bidali aurretik jarriko da)",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },

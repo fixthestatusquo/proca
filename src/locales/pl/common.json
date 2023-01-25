@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
     "salutation": "Droga {{target.name}}",
-    "salutationFemale": "Droga {{target.name}}",
-    "salutationMale": "Droga {{target.name}}",
+    "salutation_female": "Droga {{target.name}}",
+    "salutation_male": "Droga {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowny [adresat],"
   },

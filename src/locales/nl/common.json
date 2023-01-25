@@ -120,8 +120,8 @@
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
     "salutation": "Beste {{target.name}}",
-    "salutationFemale": "Beste {{target.name}}",
-    "salutationMale": "Beste {{target.name}}",
+    "salutation_female": "Beste {{target.name}}",
+    "salutation_male": "Beste {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_placeholder": "Geachte [ontvanger],"
   },

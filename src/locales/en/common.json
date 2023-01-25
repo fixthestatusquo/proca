@@ -122,8 +122,8 @@
     "salutation_info": "(The recipient's name will be put before sending)",
     "salutation_placeholder": "Dear [recipient]",
     "salutation": "Dear {{target.name}}",
-    "salutationFemale": "Dear {{target.name}}",
-    "salutationMale": "Dear {{target.name}}"
+    "salutation_female": "Dear {{target.name}}",
+    "salutation_male": "Dear {{target.name}}"
   },
   "progress": {
     "register": "{{total}} have registered. Let's go to {{goal}}",

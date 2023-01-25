@@ -12,8 +12,8 @@ t(
 t("dateFormat");
 t("required");
 t("Salutation");
-//t("salutation_male");
-//t("salutation_female");
+t("salutation_male");
+t("salutation_female");
 
 t(
   "consent.processing",
@@ -81,24 +81,24 @@ t("campaign:share.twitter", {
 t("progress.sign", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
 t("progress.register", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
 t("progress.email", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
 t("progress.donate", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
 t("progress.share", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
 t("progress.twitter", {
   total: formatNumber(count, separator),
   goal: formatNumber(goal, separator),
-})
+});
