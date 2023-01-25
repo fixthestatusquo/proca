@@ -126,7 +126,12 @@
     "salutation_placeholder": "Szanowny [adresat],"
   },
   "progress": {
-    "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}"
+    "donate": "{{total}} oddali. Chodźmy do {{goal}}",
+    "email": "{{total}} wysłali maila. Wejdźmy na stronę {{goal}}",
+    "register": "{{total}} zarejestrowali się. Przejdźmy do {{goal}}",
+    "share": "{{total}} podzielili się. Chodźmy do {{goal}}",
+    "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}",
+    "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
   },
   "register": "Podpisuję petycję",
   "required": "Proszę wypełnić to pole",

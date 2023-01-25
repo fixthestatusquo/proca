@@ -126,7 +126,12 @@
     "salutation_placeholder": "Kära [mottagare],"
   },
   "progress": {
-    "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}"
+    "donate": "{{total}} har donerat. Vi går till {{goal}}",
+    "email": "{{total}} har skickat ett e-postmeddelande. Vi går till {{goal}}",
+    "register": "{{total}} har registrerat sig. Vi går till {{goal}}",
+    "share": "{{total}} har delat med sig av. Vi går till {{goal}}",
+    "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}",
+    "twitter": "{{total}} har twittrat. Vi går till {{goal}}"
   },
   "register": "Lägg till mitt namn",
   "required": "Fyll i det här fältet",

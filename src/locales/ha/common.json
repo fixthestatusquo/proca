@@ -126,7 +126,12 @@
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "progress": {
-    "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}"
+    "donate": "{{total}} sun ba da gudummawa. Mu je zuwa {{goal}}",
+    "email": "{{total}} sun aika imel. Mu je zuwa {{goal}}",
+    "register": "{{total}} sun yi rajista. Mu je zuwa {{goal}}",
+    "share": "{{total}} sun raba. Mu je zuwa {{goal}}",
+    "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}",
+    "twitter": "{{total}} sun yi sharhi. Mu je zuwa {{goal}}"
   },
   "register": "Ƙara sunana",
   "required": "Da fatan za a cika wannan filin",

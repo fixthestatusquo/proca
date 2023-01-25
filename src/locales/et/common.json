@@ -126,7 +126,12 @@
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
   "progress": {
-    "sign": "{{total}} allkirja on kogutud. Eesmärk: {{goal}}"
+    "donate": "{{total}} on annetanud. Läheme {{goal}}",
+    "email": "{{total}} on saatnud e-kirja. Läheme {{goal}}",
+    "register": "{{total}} on registreerunud. Läheme {{goal}}",
+    "share": "{{total}} on jagatud. Läheme {{goal}}",
+    "sign": "{{total}} allkirja on kogutud. Eesmärk: {{goal}}",
+    "twitter": "{{total}} on twitted. Läheme {{goal}}"
   },
   "register": "Lisage minu nimi",
   "required": "Palun täitke see väli",

@@ -126,7 +126,12 @@
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
   "progress": {
-    "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}"
+    "donate": "{{total}} đã quyên góp. Hãy chuyển đến {{goal}}",
+    "email": "{{total}} đã gửi email. Hãy chuyển đến {{goal}}",
+    "register": "{{total}} đã đăng ký. Hãy chuyển đến {{goal}}",
+    "share": "{{total}} đã chia sẻ. Hãy đến với {{goal}}",
+    "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}",
+    "twitter": "{{total}} đã twitted. Hãy chuyển đến {{goal}}"
   },
   "register": "Thêm tên của tôi",
   "required": "yêu cầu",

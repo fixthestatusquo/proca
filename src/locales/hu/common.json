@@ -126,7 +126,12 @@
     "salutation_placeholder": "Kedves [címzett],"
   },
   "progress": {
-    "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást"
+    "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
+    "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
+    "register": "{{total}} regisztráltak. Menjünk a {{goal}}",
+    "share": "{{total}} megosztották. Menjünk a {{goal}}",
+    "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
+    "twitter": "{{total}} twitteltek. Menjünk a {{goal}}"
   },
   "register": "Add hozzá a nevemet",
   "required": "Kérjük, töltse ki ezt a mezőt",

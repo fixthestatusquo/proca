@@ -126,7 +126,12 @@
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
   "progress": {
-    "sign": "{{total}} haben unterzeichnet. Nächstes Ziel: {{goal}}"
+    "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
+    "email": "{{total}} haben eine E-Mail geschickt. Gehen wir zu {{goal}}",
+    "register": "{{total}} haben sich angemeldet. Gehen wir zu {{goal}}",
+    "share": "{{total}} geteilt haben. Gehen wir zu {{goal}}",
+    "sign": "{{total}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
+    "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
   },
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",

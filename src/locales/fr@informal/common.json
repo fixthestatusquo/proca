@@ -126,7 +126,12 @@
     "salutation_placeholder": "Cher [destinataire],"
   },
   "progress": {
-    "sign": "{{total}} signatures. Objectif : {{goal}}"
+    "donate": "{{total}} ont fait un don. Allons sur {{goal}}",
+    "email": "{{total}} ont envoyé un email. Allons sur {{goal}}",
+    "register": "{{total}} se sont inscrits. Allons sur {{goal}}",
+    "share": "{{total}} ont partagé. Allons à {{goal}}",
+    "sign": "{{total}} signatures. Objectif : {{goal}}",
+    "twitter": "{{total}} ont twitté. Allons sur {{goal}}"
   },
   "register": "Ajouter mon nom",
   "required": "Veuillez remplir ce champ",

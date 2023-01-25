@@ -126,7 +126,12 @@
     "salutation_placeholder": "A chara [faighteoir],"
   },
   "progress": {
-    "sign": "{{total}} sínithe. Rachaimid go {{goal}}"
+    "donate": "{{total}} bhronn. Rachaimid go {{goal}}",
+    "email": "Tá ríomhphost seolta ag {{total}}. Rachaimid go {{goal}}",
+    "register": "{{total}} cláraithe. Rachaimid go {{goal}}",
+    "share": "{{total}} roinnte. Rachaimid go {{goal}}",
+    "sign": "{{total}} sínithe. Rachaimid go {{goal}}",
+    "twitter": "{{total}} tar éis casadh. Rachaimid go {{goal}}"
   },
   "register": "Cuir m’ainm leis",
   "required": "Líon isteach an réimse seo le do thoil",

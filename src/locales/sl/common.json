@@ -126,7 +126,12 @@
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
   "progress": {
-    "sign": "{{total}}  oseb se je podpisalo. Pojdimo do {{goal}}"
+    "donate": "{{total}} darovali. Pojdimo na {{goal}}",
+    "email": "{{total}} poslali e-poštno sporočilo. Pojdimo na {{goal}}",
+    "register": "{{total}} so se registrirali. Pojdimo na {{goal}}",
+    "share": "{{total}} so delili. Pojdimo na {{goal}}",
+    "sign": "{{total}}  oseb se je podpisalo. Pojdimo do {{goal}}",
+    "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
   },
   "register": "Dodaj moje ime",
   "required": "Izpolnite to polje",

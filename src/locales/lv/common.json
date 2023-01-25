@@ -126,7 +126,12 @@
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "progress": {
-    "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}"
+    "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
+    "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
+    "register": "{{total}} ir reģistrējušies. Dodamies uz {{goal}}",
+    "share": "{{total}} ir dalījušies. Dosimies uz {{goal}}",
+    "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",
+    "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
   },
   "register": "Pievienojiet manu vārdu",
   "required": "Lūdzu, aizpildiet šo lauku",

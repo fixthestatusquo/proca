@@ -126,7 +126,12 @@
     "salutation_placeholder": "[נמען] יקר"
   },
   "progress": {
-    "sign": "{{total}} חתמו. בוא נלך אל {{goal}}"
+    "donate": "{{total}} תרמו. בוא נלך אל {{goal}}",
+    "email": "{{total}} שלחו אימייל. בוא נלך אל {{goal}}",
+    "register": "{{total}} נרשמו. בוא נלך אל {{goal}}",
+    "share": "{{total}} שיתפו. בוא נלך אל {{goal}}",
+    "sign": "{{total}} חתמו. בוא נלך אל {{goal}}",
+    "twitter": "{{total}} צייצו. בוא נלך אל {{goal}}"
   },
   "register": "הוסף את שמי",
   "required": "נדרש",
