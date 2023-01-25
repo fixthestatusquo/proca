@@ -4,6 +4,41 @@ As opposed to petitions, some actions will have each supporter choosing a specif
 
 This document describes more specifically a MTT (mail to target) action, but the concepts should be mostly similar for other type of actions (phone to target, twitter storm...) with multiple targets and some kind of rules on how to associate a supporter to a specific target.
 
+# workflow
+
+the source of truth is on an airtable (in general)
+
+the first step it to pull the airtable list into the proca-config into config/target/source/{name_campaign}.json, we are using n8n for that (check n8n tagged at mtt, each source has slightly different format)
+
+- change on airtable
+- use n8n to fetch the api and push it to proca-config
+
+once it's on the target/source, you need to push it to proca server
+
+     node bin/target.js {campaign} --push
+
+  there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
+
+now you need to pull the targets from the server, mostly so you can have the internal proca-server reference for each target
+
+    node bin/target.js {campaign} --pull
+
+there are various options (run with --help). it creates or update the list under config/target/server/{campaign}.json
+
+now you need to generate the list of targets as it will be used by the widget (tip: it can be a subset of the list of targets on the server, eg you can generate one list without the far right and one with them, and have different lists for different widgets.
+
+    node bin/target.js {campaign} --deploy
+
+there are various options (run with --help). it creates or update the list under config/target/public/{campaign}.json
+
+at any point in the process, you can check with git if the lists are looking how you want them
+
+the last command push to github AND triggers the git pull on our server so the updated file is published under widget.proca.app/t/{campaign}.json so it can be used by the widget
+
+you can combine all the options, so
+
+    node bin/target.js {campaign} --push --pull --deploy
+
 ## Defining the targets
 
 The total list of targets are defined at the campaign level. Each widget might display only a subset of that list, but there is no widget that will have a target that isn't defined in the campaign.
@@ -81,37 +116,3 @@ mtt {
 }
 ```
 
-# workflow
-
-the source of truth is on an airtable (in general)
-
-the first step it to pull the airtable list into the proca-config into config/target/source/{name_campaign}.json, we are using n8n for that (check n8n tagged at mtt, each source has slightly different format
-
-- change on airtable
-- use n8n to fetch the api and push it to proca-config
-
-once it's on the target/source, you need to push it to proca server
-
-- node bin/pushTargets.js {campaign}
-  there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
-
-now you need to pull the targets from the server, mostly so you can have the internal proca-server reference for each target
-
-- node bin/pullTargets.js {campaign}
-
-there are various options (run with --help). it creates or update the list under config/target/server/{campaign}.json
-
-now you need to generate the list of targets as it will be used by the widget (tip: it can be a subset of the list of targets on the server, eg you can generate one list without the far right and one with them, and have different lists for different widgets.
-
-- node bin/buildTargets.js {campaign}
-
-there are various options (run with --help). it creates or update the list under config/target/public/{campaign}.json
-
-at any point in the process, you can check with git if the lists are looking how you want them
-
-the last step is to publish that list on the https server so it can be fetched by the widget. That process is git based
-
-- cd config
-- git commit \* -m "update list of targets for campaigns..."
-- git push
-- bash bin/n8npull.sh
