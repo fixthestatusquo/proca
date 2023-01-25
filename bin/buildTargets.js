@@ -1,7 +1,7 @@
 const fs = require("fs");
 require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
-const { commit } = require("./git");
+const { commit, push, deploy } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run", "git"],
   default: { git: true },
@@ -144,7 +144,11 @@ const publishTarget = async (campaignName, arvg) => {
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
       r = argv.git && (await commit(c, msg, true));
-      r?.summary && console.log(r.summary);
+      if (r?.summary) {
+        console.log(r.summary);
+        await push();
+        await deploy();
+      }
       return d;
     }
   } catch (e) {

@@ -11,7 +11,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "pull",
     "commit",
     "add",
-    "sync",
+    "publish",
     "status",
     "push",
   ],
@@ -34,6 +34,7 @@ const help = () => {
       argv.status ||
       argv.commit ||
       argv.pull ||
+      argv.deploy ||
       argv.push
     ) ||
     argv.help
@@ -44,6 +45,7 @@ const help = () => {
         "--help (this command)",
         "--dry-run (verbose, but don't write)",
         "--pull (by default)",
+        "--deploy (assuming there is a N8N configured for that)",
         "--status (show if local files are created/updated)",
         "--push (update the server)",
         "git",
@@ -54,6 +56,24 @@ const help = () => {
 };
 
 const git = simpleGit({ baseDir: pathConfig() });
+
+const deploy = async () => {
+  const N8N_TOKEN = process.env.N8N_TOKEN;
+  const url =
+    process.env.N8N_URL ||
+    "https://workflow.proca.app/webhook/proca-config/pull";
+  console.log("token", N8N_TOKEN);
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + N8N_TOKEN,
+    },
+  });
+  const body = await response.json();
+  console.log(body);
+  return body;
+  //curl -X POST https://workflow.proca.app/webhook/proca-config/pull -H "Authorization: Bearer $N8N_TOKEN"
+};
 
 const commit = async (file, message, createIfNotExist) => {
   const cmd = process.argv.slice(1).join(" ");
@@ -184,6 +204,9 @@ if (require.main === module) {
       if (argv.push) {
         const p = await push(files);
       }
+      if (argv.deploy) {
+        const p = await deploy();
+      }
     } catch (e) {
       console.error(e);
       // Deal with the fact the chain failed
@@ -194,6 +217,7 @@ if (require.main === module) {
   module.exports = {
     add,
     commit,
+    deploy,
     push,
     pull,
     onGit,
