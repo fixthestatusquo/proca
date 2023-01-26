@@ -6,7 +6,12 @@ const MaskImage = (props) => {
   const config = useCampaignConfig();
   const url = config.component.camera?.mask;
   return (
-    <img id="mask" src={url} style={{ position: "absolute", width: "100%" }} />
+    <img
+      id="mask"
+      alt=""
+      src={url}
+      style={{ position: "absolute", width: "100%" }}
+    />
   );
 };
 
