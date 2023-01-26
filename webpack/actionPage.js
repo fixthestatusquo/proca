@@ -20,8 +20,7 @@ const stepComponent = {
   html: "Html",
   register: "Register",
   "register.CH": "bespoke/Register-CH",
-  download: "bespoke/Download",
-  redirect: "Redirect"
+  download: "bespoke/Download"
 };
 
 module.exports = (defaultCode) => {
