@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button, IconButton, Box, LinearProgress } from "@material-ui/core";
 import { FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import ImageIcon from "@material-ui/icons/Image";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
 import CameraRearIcon from "@material-ui/icons/CameraRear";
@@ -9,6 +10,7 @@ import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import { encode } from "blurhash";
+import MaskImage from "@components/field/MaskImage";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
@@ -246,7 +248,10 @@ const CameraField = (props) => {
           {t("camera.start", "start the camera")}
         </Button>
       )}
-      <Box fullWidth style={{ maxWidth: "100%", cursor: "pointer" }}>
+      <Box
+        fullWidth
+        style={{ position: "relative", maxWidth: "100%", cursor: "pointer" }}
+      >
         <video
           hidden={!camera || picture}
           onClick={takePicture}
@@ -287,9 +292,10 @@ const CameraField = (props) => {
       <Box
         hidden={!picture}
         fullWidth
-        style={{ maxWidth: "100%", cursor: "pointer" }}
+        style={{ maxWidth: "100%", cursor: "pointer", position: "relative" }}
         onClick={takePicture}
       >
+        {config.component.camera?.mask && <MaskImage />}
         <canvas
           id="canvas"
           ref={canvasRef}
@@ -316,6 +322,16 @@ const CameraField = (props) => {
           {errors && errors.image && errors.image.message}
         </FormHelperText>
       </div>
+      <Box fullWidth style={{ width: "100%" }}>
+        <Button
+          fullWidth
+          disabled
+          variant="contained"
+          startIcon={<ImageIcon />}
+        >
+          Upload a picture
+        </Button>
+      </Box>
     </>
   );
 };
