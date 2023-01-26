@@ -119,11 +119,11 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
-    "salutation": "Droga {{target.name}}",
-    "salutation_female": "Droga {{target.name}}",
-    "salutation_male": "Droga {{target.name}}",
+    "salutation": "Szanowna:y {{target.name}}",
+    "salutation_female": "Szanowna Pani {{target.name}}",
+    "salutation_male": ""Szanowny Panie {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
-    "salutation_placeholder": "Szanowny [adresat],"
+    "salutation_placeholder": "Szanowna:y [adresat],"
   },
   "progress": {
     "donate": "{{total}} oddali. Chodźmy do {{goal}}",
