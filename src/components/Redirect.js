@@ -12,7 +12,7 @@ const Redirect = () => {
       </Alert>
     );
   }
-  document.location = url;
+  document.location.href = url;
   return null;
 }
 
