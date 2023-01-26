@@ -21,6 +21,7 @@ const stepComponent = {
   register: "Register",
   "register.CH": "bespoke/Register-CH",
   download: "bespoke/Download",
+  redirect: "Redirect"
 };
 
 module.exports = (defaultCode) => {
@@ -41,6 +42,7 @@ function createCode(filename, config) {
   const nl = "\n";
   let steps = [];
   let portals = [];
+  console.log("000000000000000000", config.journey)
 
   if (config.journey) {
     if (!(config.journey instanceof Array)) {
@@ -53,6 +55,7 @@ function createCode(filename, config) {
       .reduce((acc, val) => acc.concat(val), [])
       .map(stepToFilename); // XXX journey is flat array in the backend
   }
+  console.log("steps", steps, "config.journey", config.journey)
 
   if (config.portal) {
     if (!(config.portal instanceof Array)) {
