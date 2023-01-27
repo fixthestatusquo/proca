@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -18,13 +18,6 @@ export default function Register(props) {
 
   const country = props.country;
   const id = Object.keys(props.ids).length; // number of different ids accepted
-  const { setValue } = props.form;
-
-  useEffect(() => {
-    if (id < 2) return null;
-    setValue("documentType", Object.keys(props.ids)[0]);
-    // eslint-disable-next-line
-  }, [id, country]);
 
   const label = () => {
     if (id > 1) return null;
@@ -51,6 +44,7 @@ export default function Register(props) {
                 native: true,
               }}
             >
+              <option key="emptyoption%%%%" value=""></option>
               {Object.entries(props.ids).map((id) => (
                 <option key={id[0]} value={id[0]}>
                   {documentType[country.toLowerCase() + "." + id[0]]}
