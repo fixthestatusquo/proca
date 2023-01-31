@@ -105,8 +105,8 @@ const CameraField = (props) => {
       let constraint = {
         audio: false,
         video: {
-          //        width: cDim.width,
-          //        height: cDim.height,
+          width: 640,
+          height: 360,
           facingMode: facingMode || "environment", // prefer the rear camera
         },
       };
