@@ -153,10 +153,20 @@ const Component = (props) => {
           (config.component.twitter.data &&
             data[config.component.twitter.data][locale]) ||
           {};
-        const msg = get(source, config.component.twitter.key);
+        const msg = get(
+          source,
+          config.component.twitter.key || "campaign:.twitter.message"
+        );
 
         if (msg) {
           setValue("message", tokenize(pickOne(msg), { profile: profile }));
+          return;
+        }
+        if (!msg && data.twitter) {
+          setValue(
+            "message",
+            tokenize(pickOne(data.twitter), { profile: profile })
+          );
           return;
         }
       }

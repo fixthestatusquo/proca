@@ -134,7 +134,6 @@ const utm = (record = true) => {
   }
 
   Object.assign(utm, shortcut, parse(whitelist, "utm_"));
-  console.log(utm);
   if (!utm.source && document.referrer) {
     const u = new URL(document.referrer);
 
