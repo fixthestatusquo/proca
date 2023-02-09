@@ -34,6 +34,7 @@
     "takeAction": "Ħu Azzjoni!",
     "twitter": "Tweet"
   },
+  "closed": "##grazzi lill-partitarji ta' {{total}}!\n\nGħalaqna din l-azzjoni, iżda x-xogħol tagħna ma jintemmx hawn, għalhekk jekk jogħġbok **ħalli l-email tiegħek biex tibqa’ infurmata dwar il-passi li jmiss**",
   "consent": {
     "actionConfirmed": "Azzjoni kkonfermata",
     "actionRejected": "L-azzjoni ġiet ikkanċellata b'suċċess",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
     "salutation": "Għażiż {{target.name}}",
     "salutation_female": "Għażiż {{target.name}}",
-    "salutation_male": "Għażiż {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
+    "salutation_male": "Għażiż {{target.name}}",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
   "progress": {
