@@ -34,6 +34,7 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
+  "closed": "## dank aan {{total}} supporters!\n\nWe hebben deze actie afgesloten, maar ons werk eindigt hier niet, dus laat uw e-mail achter om op de hoogte te blijven van de volgende stappen**.",
   "consent": {
     "actionConfirmed": "Actie bevestigd",
     "actionRejected": "De actie werd met succes geannuleerd",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
     "salutation": "Beste {{target.name}}",
     "salutation_female": "Beste {{target.name}}",
-    "salutation_male": "Beste {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
+    "salutation_male": "Beste {{target.name}}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
   "progress": {
