@@ -34,6 +34,7 @@
     "takeAction": "Предприемете действия!",
     "twitter": "Tweet"
   },
+  "closed": "##благодарности на поддръжниците на {{total}}!\n\nПриключихме тази акция, но работата ни не свършва дотук, затова моля **оставете имейла си, за да сте информирани за следващите стъпки**.",
   "consent": {
     "actionConfirmed": "Потвърдено действие",
     "actionRejected": "Действието е успешно отменено",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} не мога да получавам имейли",
     "salutation": "Уважаеми {{target.name}}",
     "salutation_female": "Уважаеми {{target.name}}",
-    "salutation_male": "Уважаеми {{target.name}}",
     "salutation_info": "(името ще бъде въведено преди изпращане)",
+    "salutation_male": "Уважаеми {{target.name}}",
     "salutation_placeholder": "Уважаеми [получател],"
   },
   "progress": {
