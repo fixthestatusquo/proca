@@ -34,6 +34,7 @@
     "takeAction": "לפעול",
     "twitter": "צִיוּץ"
   },
+  "closed": "##תודה לתומכי {{total}}!\n\nסגרנו את הפעולה הזו, אבל העבודה שלנו לא מסתיימת כאן, אז אנא **השאירו את האימייל שלכם כדי להישאר מעודכן לגבי השלבים הבאים**",
   "consent": {
     "actionConfirmed": "הפעולה אושרה",
     "actionRejected": "הפעולה בוטלה בהצלחה",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
     "salutation": "היקר {{name}}",
     "salutation_female": "היקר {{name}}",
-    "salutation_male": "היקר {{name}}",
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
+    "salutation_male": "היקר {{name}}",
     "salutation_placeholder": "[נמען] יקר"
   },
   "progress": {
