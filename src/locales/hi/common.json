@@ -34,6 +34,7 @@
     "takeAction": "कार्रवाई करें!",
     "twitter": "कलरव"
   },
+  "closed": "## {{total}} समर्थकों को धन्यवाद!\n\nहमने इस कार्रवाई को बंद कर दिया है, लेकिन हमारा काम यहीं समाप्त नहीं होता है, इसलिए कृपया **अगले चरणों के बारे में सूचित रहने के लिए अपना ईमेल छोड़ दें**",
   "consent": {
     "actionConfirmed": "कार्रवाई की पुष्टि",
     "actionRejected": "कार्रवाई सफलतापूर्वक रद्द कर दी गई",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
     "salutation": "प्रिय {{target.name}}",
     "salutation_female": "प्रिय {{target.name}}",
-    "salutation_male": "प्रिय {{target.name}}",
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
+    "salutation_male": "प्रिय {{target.name}}",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },
   "progress": {
