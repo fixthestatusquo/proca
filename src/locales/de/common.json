@@ -34,6 +34,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasst eure E-Mail, um über die nächsten Schritte informiert zu bleiben**.",
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "salutation": "Sehr geehrte:r {{target.name}}",
     "salutation_female": "Sehr geehrte {{target.name}}",
-    "salutation_male": "Sehr geehrter {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
+    "salutation_male": "Sehr geehrter {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "progress": {
