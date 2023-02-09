@@ -10,7 +10,7 @@ export default function SignatureForm(props) {
   return (
     <React.Fragment>
       <TTag message="campaign:closed" dangerouslySet={true} />
-      <Register {...props} buttonText={t("register")} />
+      <Register {...props} buttonText={t("action.stayInformed")} />
     </React.Fragment>
   );
 }
