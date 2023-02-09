@@ -23,7 +23,7 @@ const TTag = (props) => {
     return (
       <div
         dangerouslySetInnerHTML={{
-          __html: snarkdown(t(props.message)),
+          __html: snarkdown(t(props.message, props)),
         }}
       ></div>
     );
