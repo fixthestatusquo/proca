@@ -34,8 +34,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
-        "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
-"closed":,
+  "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
   "consent": {
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "confirmAction": "Please retrieve the email right now and click on the link it contains (check your spam folder!).\n Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there is a real person behind every submission. We’ll await your confirmation...",
