@@ -34,6 +34,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
   "consent": {
     "actionConfirmed": "Action confirmed",
     "actionRejected": "The action was successfully cancelled",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} cannot receive emails",
     "salutation": "Dear {{name}}",
     "salutation_female": "Dear {{name}}",
-    "salutation_male": "Dear {{name}}",
     "salutation_info": "(the recipient's name will be put before sending)",
+    "salutation_male": "Dear {{name}}",
     "salutation_placeholder": "Dear [recipient]"
   },
   "progress": {
