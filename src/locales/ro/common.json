@@ -34,6 +34,7 @@
     "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
+  "closed": "##multumim pentru {{total}} susținători!\n\nAm încheiat această acțiune, dar munca noastră nu se termină aici, așa că vă rugăm să **să vă lăsați adresa de e-mail pentru a fi informați despre următorii pași**.",
   "consent": {
     "actionConfirmed": "Acțiune confirmată",
     "actionRejected": "Acțiunea a fost anulată cu succes",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
     "salutation": "Dragă {{target.name}}",
     "salutation_female": "Dragă {{target.name}}",
-    "salutation_male": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
+    "salutation_male": "Dragă {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "progress": {
