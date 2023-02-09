@@ -34,6 +34,7 @@
     "takeAction": "Dauki Mataki!",
     "twitter": "Tweet"
   },
+  "closed": "## godiya ga magoya bayan {{total}}!\n\nMun rufe wannan aikin, amma aikinmu bai ƙare a nan ba, don haka don Allah ** bar imel ɗin ku don sanar da ku game da matakai na gaba ***",
   "consent": {
     "actionConfirmed": "An tabbatar da aikin",
     "actionRejected": "An yi nasarar soke matakin",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
     "salutation": "Masoyi {{target.name}}",
     "salutation_female": "Masoyi {{target.name}}",
-    "salutation_male": "Masoyi {{target.name}}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
+    "salutation_male": "Masoyi {{target.name}}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "progress": {
