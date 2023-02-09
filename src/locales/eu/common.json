@@ -34,6 +34,7 @@
     "takeAction": "Hartu ekintza!",
     "twitter": "Txio egin"
   },
+  "closed": "##esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
   "consent": {
     "actionConfirmed": "Ekintza berretsi da",
     "actionRejected": "Ekintza behar bezala bertan behera utzi da",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
     "salutation": "Maitea {{target.name}}",
     "salutation_female": "Maitea {{target.name}}",
-    "salutation_male": "Maitea {{target.name}}",
     "salutation_info": "(izena bidali aurretik jarriko da)",
+    "salutation_male": "Maitea {{target.name}}",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
   "progress": {
