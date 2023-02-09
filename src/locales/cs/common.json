@@ -34,6 +34,7 @@
     "takeAction": "Podnikněte kroky!",
     "twitter": "Tweet"
   },
+  "closed": "##děkujeme příznivcům {{total}}!\n\nTuto akci jsme uzavřeli, ale naše práce tím nekončí, proto prosím **zanechte svůj e-mail, abyste byli informováni o dalších krocích**.",
   "consent": {
     "actionConfirmed": "Akce potvrzena",
     "actionRejected": "Akce byla úspěšně zrušena",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nepřijímá e-maily",
     "salutation": "Vážení {{target.name}}",
     "salutation_female": "Vážení {{target.name}}",
-    "salutation_male": "Vážení {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
+    "salutation_male": "Vážení {{target.name}}",
     "salutation_placeholder": "Vážený [recipient]"
   },
   "progress": {
