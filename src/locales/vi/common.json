@@ -34,6 +34,7 @@
     "takeAction": "takeAction",
     "twitter": "tiếng riu ríu"
   },
+  "closed": "##cảm ơn những người ủng hộ {{total}}!\n\nChúng tôi đã đóng hành động này, nhưng công việc của chúng tôi không kết thúc ở đây, vì vậy vui lòng **để lại email của bạn để được thông báo về các bước tiếp theo**",
   "consent": {
     "actionConfirmed": "Đã xác nhận hành động",
     "actionRejected": "Hành động đã được hủy thành công",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} không thể nhận email",
     "salutation": "Kính gửi {{name}}",
     "salutation_female": "Kính gửi {{name}}",
-    "salutation_male": "Kính gửi {{name}}",
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
+    "salutation_male": "Kính gửi {{name}}",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
   "progress": {
