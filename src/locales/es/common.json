@@ -34,6 +34,7 @@
     "takeAction": "¡Actúa!",
     "twitter": "Tweet"
   },
+  "closed": "#¡Gracias a los seguidores de {{total}}!\n\nHemos cerrado esta acción, pero nuestro trabajo no termina aquí, así que por favor **deja tu correo electrónico para mantenerte informado sobre los próximos pasos**.",
   "consent": {
     "actionConfirmed": "Acción confirmada",
     "actionRejected": "La acción fue cancelada con éxito",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "salutation": "Estimado/a {{target.name}}",
     "salutation_female": "Estimada {{target.name}}",
-    "salutation_male": "Estimado {{target.name}}",
     "salutation_info": "(El nombre se pondrá antes del envío)",
+    "salutation_male": "Estimado {{target.name}}",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
   "progress": {
