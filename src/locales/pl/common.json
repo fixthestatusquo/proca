@@ -34,6 +34,7 @@
     "takeAction": "Podejmij działania!",
     "twitter": "Tweetnij"
   },
+  "closed": "##podziękowania dla {{total}} wspierających!\n\nZamknęliśmy tę akcję, ale nasza praca nie kończy się tutaj, więc prosimy o **zostawienie swojego maila, aby być informowanym o kolejnych krokach**.",
   "consent": {
     "actionConfirmed": "Działanie potwierdzone",
     "actionRejected": "Akcja została pomyślnie anulowana.",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
     "salutation": "Szanowna:y {{target.name}}",
     "salutation_female": "Szanowna Pani {{target.name}}",
-    "salutation_male": "Szanowny Panie {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
+    "salutation_male": "Szanowny Panie {{target.name}}",
     "salutation_placeholder": "Szanowna:y [adresat],"
   },
   "progress": {
