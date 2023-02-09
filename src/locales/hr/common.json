@@ -34,6 +34,7 @@
     "takeAction": "Poduzmi radnju!",
     "twitter": "Tweet"
   },
+  "closed": "##hvala {{total}} podržavateljima!\n\nZavršili smo ovu akciju, ali naš posao ne završava ovdje, stoga vas molimo da **ostavite svoju e-poštu kako biste bili informirani o sljedećim koracima**",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
     "actionRejected": "Akcija je uspješno otkazana",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ne može primati e-poštu",
     "salutation": "Poštovani {{target.name}}",
     "salutation_female": "Poštovani {{target.name}}",
-    "salutation_male": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
+    "salutation_male": "Poštovani {{target.name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "progress": {
