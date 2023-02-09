@@ -34,6 +34,7 @@
     "takeAction": "행동하기",
     "twitter": "트위터"
   },
+  "closed": "## {{total}} 서포터즈 여러분께 감사드립니다!\n\n이 활동은 종료되었지만, 우리의 작업은 여기서 끝나지 않으므로 다음 단계에 대한 정보를 계속 받으려면 **이메일을 남겨 주세요**.",
   "consent": {
     "actionConfirmed": "작업 확인됨",
     "actionRejected": "작업이 성공적으로 취소되었습니다.",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} 이메일을 받을 수 없습니다",
     "salutation": "친애하는 {{target.name}}",
     "salutation_female": "친애하는 {{target.name}}",
-    "salutation_male": "친애하는 {{target.name}}",
     "salutation_info": "(수취인의 이름은 보내기 전에 입력됩니다)",
+    "salutation_male": "친애하는 {{target.name}}",
     "salutation_placeholder": "친애하는 [받는 사람]"
   },
   "progress": {
