@@ -34,6 +34,7 @@
     "takeAction": "Actuar!",
     "twitter": "Tuitejar"
   },
+  "closed": "##gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
   "consent": {
     "actionConfirmed": "Acció confirmada",
     "actionRejected": "L'acció s'ha cancel·lat correctament",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} no pot rebre correus electrònics",
     "salutation": "Benvolgut {{target.name}}",
     "salutation_female": "Benvolgut {{target.name}}",
-    "salutation_male": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
+    "salutation_male": "Benvolgut {{target.name}}",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "progress": {
