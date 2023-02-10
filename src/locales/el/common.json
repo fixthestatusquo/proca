@@ -34,6 +34,7 @@
     "takeAction": "Αναλάβετε δράση!",
     "twitter": "Tweet"
   },
+  "closed": "##ευχαριστούμε τους υποστηρικτές του {{total}}!\n\nΚλείσαμε αυτή τη δράση, αλλά η δουλειά μας δεν τελειώνει εδώ, γι' αυτό παρακαλούμε **αφήστε το email σας για να ενημερώνεστε για τα επόμενα βήματα**",
   "consent": {
     "actionConfirmed": "Επιβεβαίωση δράσης",
     "actionRejected": "Η ενέργεια ακυρώθηκε επιτυχώς",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
     "salutation": "Αγαπητή {{target.name}}",
     "salutation_female": "Αγαπητή {{target.name}}",
-    "salutation_male": "Αγαπητή {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
+    "salutation_male": "Αγαπητή {{target.name}}",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },
   "progress": {

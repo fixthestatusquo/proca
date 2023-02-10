@@ -34,6 +34,7 @@
     "takeAction": "Podniknite kroky!",
     "twitter": "Tweet"
   },
+  "closed": "##ďakujeme podporovateľom {{total}}!\n\nTúto akciu sme uzavreli, ale naša práca sa tu nekončí, preto vás prosíme, aby ste **zanechali svoj e-mail, aby ste boli informovaní o ďalších krokoch**",
   "consent": {
     "actionConfirmed": "Akcia potvrdená",
     "actionRejected": "Akcia bola úspešne zrušená",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nemôže prijímať e-maily",
     "salutation": "Vážený {{target.name}}",
     "salutation_female": "Vážený {{target.name}}",
-    "salutation_male": "Vážený {{target.name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
+    "salutation_male": "Vážený {{target.name}}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
   "progress": {

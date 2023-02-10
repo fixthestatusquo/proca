@@ -34,6 +34,7 @@
     "takeAction": "Примите меры!",
     "twitter": "Твитнуть"
   },
+  "closed": "##спасибо сторонникам {{total}}!\n\nМы закрыли эту акцию, но наша работа на этом не заканчивается, поэтому, пожалуйста, **оставьте свой email, чтобы быть в курсе следующих шагов**.",
   "consent": {
     "actionConfirmed": "Действие подтверждено",
     "actionRejected": "Действие было успешно отменено",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} не может получать электронные письма",
     "salutation": "Уважаемый {{target.name}}",
     "salutation_female": "Уважаемый {{target.name}}",
-    "salutation_male": "Уважаемый {{target.name}}",
     "salutation_info": "(имя будет проставлено перед отправкой)",
+    "salutation_male": "Уважаемый {{target.name}}",
     "salutation_placeholder": "Уважаемый [получатель],"
   },
   "progress": {

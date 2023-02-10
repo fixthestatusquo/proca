@@ -34,6 +34,7 @@
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
+  "closed": "##tak til {{total}} supportere!\n\nVi har afsluttet denne aktion, men vores arbejde slutter ikke her, så **læs venligst din e-mail for at blive holdt orienteret om de næste skridt**",
   "consent": {
     "actionConfirmed": "Aktion bekræftet",
     "actionRejected": "Handlingen blev annulleret med succes",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
     "salutation": "Kære {{target.name}}",
     "salutation_female": "Kære {{target.name}}",
-    "salutation_male": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
+    "salutation_male": "Kære {{target.name}}",
     "salutation_placeholder": "Kære [modtager],"
   },
   "progress": {

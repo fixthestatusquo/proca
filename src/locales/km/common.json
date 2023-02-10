@@ -34,6 +34,7 @@
     "takeAction": "ចាត់វិធានការ!",
     "twitter": "ធ្វីត"
   },
+  "closed": "##អរគុណដល់អ្នកគាំទ្រ {{total}}!\n\nយើង​បាន​បិទ​សកម្មភាព​នេះ ប៉ុន្តែ​ការងារ​របស់​យើង​មិន​បញ្ចប់​នៅ​ទីនេះ​ទេ ដូច្នេះ​សូម ** ទុក​អ៊ីមែល​របស់​អ្នក​ដើម្បី​ទទួល​បាន​ព័ត៌មាន​អំពី​ជំហាន​បន្ទាប់​ **",
   "consent": {
     "actionConfirmed": "សកម្មភាពត្រូវបានបញ្ជាក់",
     "actionRejected": "សកម្មភាពនេះត្រូវបានលុបចោលដោយជោគជ័យ",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
     "salutation": "សូមគោរព {{target.name}}",
     "salutation_female": "សូមគោរព {{target.name}}",
-    "salutation_male": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
+    "salutation_male": "សូមគោរព {{target.name}}",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
   "progress": {

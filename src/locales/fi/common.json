@@ -34,6 +34,7 @@
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
+  "closed": "##kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",
     "actionRejected": "Toimenpide peruutettiin onnistuneesti",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
     "salutation": "Rakas {{target.name}}",
     "salutation_female": "Rakas {{target.name}}",
-    "salutation_male": "Rakas {{target.name}}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
+    "salutation_male": "Rakas {{target.name}}",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
   "progress": {

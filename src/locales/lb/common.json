@@ -34,6 +34,7 @@
     "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
+  "closed": "##Merci un {{total}} Supporter!\n\nMir hunn dës Aktioun zougemaach, awer eis Aarbecht ass net hei op en Enn, also **Loosst w.e.g. Är E-Mail fir iwwer déi nächst Schrëtt informéiert ze bleiwen**",
   "consent": {
     "actionConfirmed": "Aktioun confirméiert",
     "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kann kéng E-Maile kréien",
     "salutation": "Léif {{target.name}}",
     "salutation_female": "Léif {{target.name}}",
-    "salutation_male": "Léiwen {{target.name}}",
     "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
+    "salutation_male": "Léiwen {{target.name}}",
     "salutation_placeholder": "Léif [Empfänger]"
   },
   "progress": {

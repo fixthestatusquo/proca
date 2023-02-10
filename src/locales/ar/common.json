@@ -34,6 +34,7 @@
     "takeAction": "أبدي فعل",
     "twitter": "سقسقة"
   },
+  "closed": "## بفضل أنصار {{total}}!\n\nلقد أغلقنا هذا الإجراء ، لكن عملنا لا ينتهي هنا ، لذا يرجى ** ترك بريدك الإلكتروني للبقاء على اطلاع بالخطوات التالية **",
   "consent": {
     "actionConfirmed": "تم تأكيد الإجراء",
     "actionRejected": "تم إلغاء الإجراء بنجاح",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
     "salutation": "عزيزي {{name}}",
     "salutation_female": "عزيزي {{name}}",
-    "salutation_male": "عزيزي {{name}}",
     "salutation_info": "(سيتم وضع اسم المستلم قبل الإرسال)",
+    "salutation_male": "عزيزي {{name}}",
     "salutation_placeholder": "عزيزي [المستلم]"
   },
   "progress": {

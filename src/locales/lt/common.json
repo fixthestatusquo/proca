@@ -34,6 +34,7 @@
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
+  "closed": "##Dėkojame {{total}} rėmėjams!\n\nŠią akciją užbaigėme, tačiau mūsų darbas čia nesibaigia, todėl prašome **palikti savo el. paštą, kad būtumėte informuoti apie tolesnius veiksmus**.",
   "consent": {
     "actionConfirmed": "Patvirtintas veiksmas",
     "actionRejected": "Veiksmas sėkmingai atšauktas",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
     "salutation": "Gerbiamas {{target.name}}",
     "salutation_female": "Gerbiamas {{target.name}}",
-    "salutation_male": "Gerbiamas {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
+    "salutation_male": "Gerbiamas {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "progress": {

@@ -34,6 +34,7 @@
     "takeAction": "Werde aktiv",
     "twitter": "Tweet"
   },
+  "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasse deine E-Mail, um über die nächsten Schritte informiert zu werden**",
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "salutation": "Liebe*r {{target.name}}",
     "salutation_female": "Liebe*r {{target.name}}",
-    "salutation_male": "Liebe*r {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Senden eingefügt)",
+    "salutation_male": "Liebe*r {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
   "progress": {

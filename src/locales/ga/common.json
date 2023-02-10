@@ -34,6 +34,7 @@
     "takeAction": "Déan Gníomh!",
     "twitter": "Tweet"
   },
+  "closed": "##buíochas le {{total}} lucht tacaíochta!\n\nTá an gníomh seo dúnta againn, ach níl deireadh lenár gcuid oibre anseo, mar sin **fág do ríomhphost le do thoil chun fanacht ar an eolas faoi na chéad chéimeanna eile**",
   "consent": {
     "actionConfirmed": "Gníomh dearbhaithe",
     "actionRejected": "Cuireadh an gníomh ar ceal go rathúil",
@@ -121,8 +122,8 @@
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
     "salutation": "A chara {{target.name}}",
     "salutation_female": "A chara {{target.name}}",
-    "salutation_male": "A chara {{target.name}}",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
+    "salutation_male": "A chara {{target.name}}",
     "salutation_placeholder": "A chara [faighteoir],"
   },
   "progress": {

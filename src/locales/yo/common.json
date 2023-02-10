@@ -34,6 +34,7 @@
     "takeAction": "Gbe igbese!",
     "twitter": "Tweet"
   },
+  "closed": "## o ṣeun si awọn alatilẹyin {{total}}!\n\nA ti paade iṣe yii, ṣugbọn iṣẹ wa ko pari nihin, nitorinaa jọwọ fi imeeli rẹ silẹ lati jẹ ki alaye nipa awọn igbesẹ ti n bọ ***",
   "consent": {
     "actionConfirmed": "Action timo",
     "actionRejected": "Iṣẹ naa ti fagile ni aṣeyọri",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
     "salutation": "Eyin {{target.name}}",
     "salutation_female": "Eyin {{target.name}}",
-    "salutation_male": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
+    "salutation_male": "Eyin {{target.name}}",
     "salutation_placeholder": "Eyin [olugba],"
   },
   "progress": {

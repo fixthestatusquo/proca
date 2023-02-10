@@ -34,6 +34,7 @@
     "takeAction": "Tome medidas!",
     "twitter": "Tweet"
   },
+  "closed": "##graças aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não acaba aqui, então por favor **deixe seu e-mail para ficar informado sobre os próximos passos**",
   "consent": {
     "actionConfirmed": "Acção confirmada",
     "actionRejected": "A acção foi cancelada com sucesso",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} não pode receber e-mails",
     "salutation": "Caro {{target.name}}",
     "salutation_female": "Caro {{target.name}}",
-    "salutation_male": "Caro {{target.name}}",
     "salutation_info": "(o nome será colocado antes do envio)",
+    "salutation_male": "Caro {{target.name}}",
     "salutation_placeholder": "Caro [destinatário],"
   },
   "progress": {

@@ -34,6 +34,7 @@
     "takeAction": "Võtke meetmeid!",
     "twitter": "Tweet"
   },
+  "closed": "##Kiitus {{total}} toetajatele!\n\nMe oleme selle aktsiooni lõpetanud, kuid meie töö ei lõpe siinkohal, seega palun **jätke oma e-post, et olla kursis järgmiste sammudega**.",
   "consent": {
     "actionConfirmed": "Tegevus kinnitatud",
     "actionRejected": "Meede tühistati edukalt",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
     "salutation": "Lugupeetud {{target.name}}",
     "salutation_female": "Lugupeetud {{target.name}}",
-    "salutation_male": "Lugupeetud {{target.name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
+    "salutation_male": "Lugupeetud {{target.name}}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
   "progress": {

@@ -34,6 +34,7 @@
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
   },
+  "closed": "##Tack till {{total}} supportrar!\n\nVi har avslutat denna aktion, men vårt arbete slutar inte här, så **lämna din e-postadress för att hålla dig informerad om nästa steg**.",
   "consent": {
     "actionConfirmed": "Åtgärd bekräftad",
     "actionRejected": "Åtgärden har avbrutits.",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
     "salutation": "Kära {{target.name}}",
     "salutation_female": "Kära {{target.name}}",
-    "salutation_male": "Kära {{target.name}}",
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
+    "salutation_male": "Kära {{target.name}}",
     "salutation_placeholder": "Kära [mottagare],"
   },
   "progress": {

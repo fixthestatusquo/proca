@@ -34,6 +34,7 @@
     "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
+  "closed": "##pateicība {{total}} atbalstītājiem!\n\nMēs esam noslēguši šo akciju, bet mūsu darbs ar to nebeidzas, tāpēc, lūdzu, **atstājiet savu e-pastu, lai saņemtu informāciju par nākamajiem soļiem**.",
   "consent": {
     "actionConfirmed": "Rīcība apstiprināta",
     "actionRejected": "Darbība tika veiksmīgi atcelta",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
     "salutation": "Dārgais {{target.name}}",
     "salutation_female": "Dārgais {{target.name}}",
-    "salutation_male": "Dārgais {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
+    "salutation_male": "Dārgais {{target.name}}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "progress": {

@@ -34,6 +34,7 @@
     "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
   },
+  "closed": "##köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
   "consent": {
     "actionConfirmed": "Megerősített intézkedés",
     "actionRejected": "A művelet sikeresen törlésre került",
@@ -121,8 +122,8 @@
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
     "salutation": "Kedves {{target.name}}",
     "salutation_female": "Kedves {{target.name}}",
-    "salutation_male": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
+    "salutation_male": "Kedves {{target.name}}",
     "salutation_placeholder": "Kedves [címzett],"
   },
   "progress": {
