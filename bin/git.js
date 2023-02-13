@@ -4,19 +4,26 @@ const { pathConfig } = require("./config");
 const simpleGit = require("simple-git");
 require("./dotenv.js");
 const color = require("cli-color");
+const actions = [
+  "help",
+  "dry-run",
+  "pull",
+  "commit",
+  "add",
+  "publish",
+  "status",
+  "push",
+];
+
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: [
-    "help",
-    "dry-run",
-    "pull",
-    "commit",
-    "add",
-    "publish",
-    "status",
-    "push",
-  ],
+  boolean: actions,
   alias: { v: "verbose" },
 });
+
+if (argv._[0] && actions.includes(argv._[0])) {
+  argv[argv._[0]] = true;
+  argv._.shift();
+}
 
 const changeDir = () => {
   process.chdir(pathConfig());
