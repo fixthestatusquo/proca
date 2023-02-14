@@ -2590,6 +2590,13 @@
   dependencies:
     "@types/react" "^17"
 
+"@types/react-reconciler@^0.28.0":
+  version "0.28.2"
+  resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.2.tgz#f16b0e8cc4748af70ca975eaaace0d79582c71fa"
+  integrity sha512-8tu6lHzEgYPlfDf/J6GOQdIc+gs+S2yAqlby3zTsB3SP2svlqTYe5fwZNtZyfactP74ShooP2vvi1BOp9ZemWw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.2.0":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.1.tgz#e1a3cb278df7f47f17b5082b1b3da17170bd44b1"
@@ -7986,6 +7993,13 @@ iterall@^1.2.2:
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
   integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
 
+its-fine@^1.0.6:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-1.0.9.tgz#f4ca0ad5bdbf896764d35f7cf24c16287b6c6d31"
+  integrity sha512-Ph+vcp1R100JOM4raXmDx/wCTi4kMkMXiFE108qGzsLdghXFPqad82UJJtqT1jwdyWYkTU6eDpDnol/ZIzW+1g==
+  dependencies:
+    "@types/react-reconciler" "^0.28.0"
+
 jest-changed-files@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-26.6.2.tgz#f6198479e1cc66f22f9ae1e22acaa0b429c042d0"
@@ -8722,6 +8736,11 @@ klona@^2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
+
+konva@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/konva/-/konva-8.4.2.tgz#6de2b9d54f2b56b8c7c76eba66955f7255dd9afb"
+  integrity sha512-4VQcrgj/PI8ydJjtLcTuinHBE8o0WGX0YoRwbiN5mpYQiC52aOzJ0XbpKNDJdRvORQphK5LP+jeM0hQJEYIuUA==
 
 language-subtag-registry@~0.3.2:
   version "0.3.21"
@@ -11657,6 +11676,15 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-konva@^18.2.4:
+  version "18.2.4"
+  resolved "https://registry.yarnpkg.com/react-konva/-/react-konva-18.2.4.tgz#f5f63d07bb287d3edf7eee35612282ddc55a6d6f"
+  integrity sha512-cVo0+L8PjUSrSAMLlutwRiI1t8koU4Z6EOsbrWxuXvTwNXG3qd0wFoNBBVGjOQgZX9hqufbK7NEQdfqlKve9jQ==
+  dependencies:
+    its-fine "^1.0.6"
+    react-reconciler "~0.29.0"
+    scheduler "^0.23.0"
+
 react-masonry-component@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/react-masonry-component/-/react-masonry-component-6.3.0.tgz#edd7593f9f0d4bfa29249ea1e4d2d07757eba65d"
@@ -11668,6 +11696,14 @@ react-masonry-component@^6.3.0:
     lodash "^4.17.4"
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
+
+react-reconciler@~0.29.0:
+  version "0.29.0"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.29.0.tgz#ee769bd362915076753f3845822f2d1046603de7"
+  integrity sha512-wa0fGj7Zht1EYMRhKWwoo1H9GApxYLBuhoAuXN0TlltESAjDssB+Apf0T/DngVqaMyPypDmabL37vw/2aRM98Q==
+  dependencies:
+    loose-envify "^1.1.0"
+    scheduler "^0.23.0"
 
 react-refresh@^0.8.3:
   version "0.8.3"
@@ -12298,6 +12334,13 @@ scheduler@^0.20.2:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+scheduler@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.0.tgz#ba8041afc3d30eb206a487b6b384002e4e61fdfe"
+  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
+  dependencies:
+    loose-envify "^1.1.0"
 
 schema-utils@^1.0.0:
   version "1.0.0"
@@ -13682,6 +13725,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-image@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/use-image/-/use-image-1.1.0.tgz#dc244c34506d3cf3a8177c1f0bbfb158b9beefe5"
+  integrity sha512-+cBHRR/44ZyMUS873O0vbVylgMM0AbdTunEplAWXvIQ2p69h2sIo2Qq74zeUsq6AMo+27e5lERQvXzd1crGiMg==
 
 use@^3.1.0:
   version "3.1.1"

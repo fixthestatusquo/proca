@@ -80,9 +80,10 @@ export default function Progress(props) {
   }
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
-  const progressKey = i18n.exists(`progress.${config.component?.register?.button?.split(".")[1]}`) ?
-    `progress.${config.component.register.button.split(".")[1]}`
-    : 'progress.sign';
+  const actionName = config.component.register?.button?.split(".")[1] || "sign";
+  const progressKey = i18n.exists("progress." + actionName)
+    ? "progress." + actionName
+    : "progress.sign";
 
   return (
     <>
