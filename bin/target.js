@@ -180,7 +180,7 @@ const pushTarget = async (campaignName, file) => {
   const formatTargets = async () => {
     const results = [];
     for (t of targets) {
-      if (!t.name) return null; //skip empty records
+      if (!t.name) continue; //skip empty records
       delete t.id;
 
       if (t.lang) {
@@ -236,20 +236,22 @@ const pushTarget = async (campaignName, file) => {
     return [];
   }
 
-  const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
-  upsertTargets(campaignId: $id, replace: $replace, targets: $targets) {id}
-}
-`;
-
   if (!formattedTargets || formattedTargets.length === 0) {
     console.error("No targets found");
+    console.log(targets);
+
     process.exit(1);
   }
   if (argv["dry-run"]) {
     console.log(formattedTargets);
     process.exit(1);
   }
+
+  const query = `
+mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
+  upsertTargets(campaignId: $id, replace: $replace, targets: $targets) {id}
+}
+`;
 
   const ids = await api(
     query,
