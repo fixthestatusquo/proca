@@ -105,6 +105,7 @@ const pullTarget = async (name) => {
   if (argv["dry-run"]) return console.log(targets);
 
   saveTargets(argv.file || name, targets);
+  console.log("save target");
   return targets;
 };
 
@@ -119,7 +120,7 @@ const saveTargets = async (targetName, targets) => {
   const exists = fileExists("target/server/" + targetName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("wrote " + targets.length + " targets into", fileName)
+    color.green.bold("pulled " + targets.length + " targets into", fileName)
   );
   let r = null;
   const msg = "saving " + targets.length + " targets";
@@ -269,7 +270,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
       );
     });
   }
-  console.log(color.green.bold("pushed", formattedTargets.length));
+  console.log(color.green.bold("...pushed", formattedTargets.length));
   return ids.upsertTargets;
 };
 
@@ -317,7 +318,8 @@ if (require.main === module) {
         await pushTarget(name, argv.file || name);
       }
       if (argv.pull || !(argv.push || argv.publish)) {
-        target = await pullTarget(name);
+        //        await pullTarget(name, argv.file || name);
+        target = await pullTarget(name, argv.file || name);
       }
       if (argv.publish && !argv["dry-run"]) {
         await publishTarget(name, argv);
