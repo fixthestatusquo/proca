@@ -12,38 +12,30 @@ import { useTranslation } from "react-i18next";
 import { encode } from "blurhash";
 import MaskImage from "@components/field/MaskImage";
 
-const CameraField = (props) => {
-  const [camera, switchCamera] = useState(false);
-  const [isValidating, validating] = useState(false);
-  const [cameras, setCameras] = useState([]);
-  const [dimension, setDimension] = useState({});
-  const [picture, _takePicture] = useState(undefined);
-  const max_size = 640;
-  const [cDim, _setcDim] = useState({ width: max_size, height: max_size }); // it will be adjusted based on the camera
-  const canvasRef = useRef();
-  const videoRef = useRef();
+export const useUpload = (canvasRef, max_size) => {
   const config = useCampaignConfig();
   const supabase = useSupabase();
-  const { t } = useTranslation();
-  const { errors, getValues, register, setError, setValue } = props.form;
+  const canvas = canvasRef.current && getCanvas(canvasRef);
+  //upload
+  return async (params) => {
+    const toBlob = () => {
+      return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
+    };
 
-  const upload = async (params) => {
-    const toBlob = () =>
-      new Promise((resolve) => {
-        canvasRef.current.toBlob(resolve, "image/jpeg", 81);
-      });
-
+    console.log("upload A");
     const blob = await toBlob();
+    console.log("upload B", blob);
     const blobA = await blob.arrayBuffer();
     const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
     const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
       .replace(/\+/g, "_")
       .replace(/\//g, "-")
       .replace(/=+$/g, "");
+    console.log("hash", hash, getBlurhash(canvasRef));
     // hash = base64url of the sha256
     //    console.log(hash,encoder.encode(blob),blob);
 
-    if (hash === params.hash) {
+    if (hash === params?.hash) {
       // already uploaded
       return true;
     }
@@ -51,10 +43,10 @@ const CameraField = (props) => {
       campaign: config.campaign.name,
       actionpage_id: config.actionPage,
       legend: "",
-      width: canvasRef.current.width,
-      height: canvasRef.current.height,
+      width: canvas.width,
+      height: canvas.height,
       hash: hash,
-      blurhash: getBlurhash(),
+      blurhash: getBlurhash(canvasRef),
       lang: config.lang,
     };
     //const f = items[current].original.split("/");
@@ -64,8 +56,10 @@ const CameraField = (props) => {
       return error;
     }
     const r = await supabase.storage
-      .from(config.campaign.name.replaceAll("_", "-"))
-      .upload("public/" + hash + ".jpg", blob, {
+      //.from(config.campaign.name.replaceAll("_", "-"))
+      //.upload("public/" + hash + ".jpg", blob, {
+      .from("picture")
+      .upload(config.campaign.name + "/" + hash + ".jpg", blob, {
         cacheControl: "31536000",
         upsert: false,
       });
@@ -78,6 +72,40 @@ const CameraField = (props) => {
     }
     return { id: data && data[0].id, hash: hash };
   };
+};
+
+export const getCanvas = (canvasRef) => {
+  return canvasRef.current.bufferCanvas
+    ? canvasRef.current.toCanvas() //canvasRef.current.bufferCanvas._canvas
+    : canvasRef.current;
+};
+export const getBlurhash = (canvasRef) => {
+  const canvas = getCanvas(canvasRef);
+  const blurHash = encode(
+    canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
+      .data,
+    canvas.width,
+    canvas.height,
+    3,
+    4
+  );
+  return blurHash;
+};
+
+const CameraField = (props) => {
+  const [camera, switchCamera] = useState(false);
+  const [isValidating, validating] = useState(false);
+  const [cameras, setCameras] = useState([]);
+  const [dimension, setDimension] = useState({});
+  const [picture, _takePicture] = useState(undefined);
+  const max_size = 640;
+  const [cDim, _setcDim] = useState({ width: max_size, height: max_size }); // it will be adjusted based on the camera
+  const canvasRef = useRef();
+  const videoRef = useRef();
+  const config = useCampaignConfig();
+  const { t } = useTranslation();
+  const { errors, getValues, register, setError, setValue } = props.form;
+  const upload = useUpload(canvasRef, max_size);
 
   const setcDim = (dim) => {
     let { width, height } = dim;
@@ -94,7 +122,6 @@ const CameraField = (props) => {
     }
     _setcDim({ width: dim.width, height: dim.height });
   };
-
   const startCamera = useCallback(
     async (facingMode) => {
       let video = videoRef.current;
@@ -158,21 +185,6 @@ const CameraField = (props) => {
     }
   }, [cameras.length, startCamera]);
 
-  const getBlurhash = () => {
-    console.time("blurhash");
-    const canvas = canvasRef.current;
-    const blurHash = encode(
-      canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
-        .data,
-      canvas.width,
-      canvas.height,
-      3,
-      4
-    );
-    console.timeEnd("blurhash", blurHash);
-    return blurHash;
-  };
-
   const takePicture = async () => {
     let video = videoRef.current;
     let canvas = canvasRef.current;
@@ -215,7 +227,7 @@ const CameraField = (props) => {
     }
     setValue("hash", r.hash);
     setValue("imageId", r.id);
-    setValue("blurhash", getBlurhash());
+    setValue("blurhash", getBlurhash(canvasRef));
     setValue(
       "image",
       process.env.REACT_APP_SUPABASE_URL +
