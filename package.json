@@ -49,7 +49,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@alienfast/i18next-loader": "^1.1.4",
+    "@alienfast/i18next-loader": "^2.0.1",
     "@babel/cli": "^7.20.7",
     "@babel/node": "^7.20.7",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
