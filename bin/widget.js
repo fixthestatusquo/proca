@@ -115,22 +115,69 @@ const addPage = async (name, campaignName, locale, orgName) => {
     "addPage"
   );
   if (r.errors) {
+    try {
+      if (r.errors[0].path[1] === "name") {
+      }
+      const page = await fetchByName(name);
+      console.warn("duplicate of widget", page.id);
+      throw new Error(r.errors[0].message);
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
     console.log(
       "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
     );
     throw new Error(r.errors[0].message);
   }
-  console.log({
-    name: name,
-    locale: locale,
-    campaignName: campaignName,
-    orgName: campaign.org.name,
-  });
-  const page = await pull(name);
+  console.log(
+    {
+      name: name,
+      locale: locale,
+      campaignName: campaignName,
+      orgName: campaign.org.name,
+    },
+    r
+  );
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
   console.log("action page " + name + " #" + page.id);
   return page;
+};
+
+const fetchByName = async (name) => {
+  let data = undefined;
+
+  const query = `
+query actionPage ($name:String!) {
+  actionPage (name:$name) {
+    id, name, locale,
+    thankYouTemplate,
+    ... on PrivateActionPage { supporterConfirmTemplate },
+    campaign {
+      id,
+      title,name,config,
+      org {name,title}
+    },
+    org {
+      title,
+      name,
+      config,
+      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
+    }
+    , config
+  }
+}
+`;
+
+  try {
+    data = await api(query, { name: name }, "actionPage", true);
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+  if (!data.actionPage) throw new Error(data.toString());
+  return data.actionPage;
 };
 
 const fetch = async (actionPage, { anonymous, campaign = true }) => {
