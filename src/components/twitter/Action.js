@@ -20,7 +20,6 @@ import uuid from "@lib/uuid";
 
 const tweet = (params) => {
   const { message, screen_name, actionUrl, done, actionPage } = params;
-
   const addTweet = (event, screenName) => {
     addAction(actionPage, event, {
       uuid: uuid(),

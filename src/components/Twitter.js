@@ -222,6 +222,7 @@ const Component = (props) => {
             setProfiles([i]);
           } else {
             //if (!config.component.twitter.filter?.includes("country")) {
+            setMessage(d);
             setProfiles(d);
           }
         })
