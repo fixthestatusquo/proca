@@ -7,6 +7,7 @@ import {
 import useImage from "use-image";
 import { useUpload } from "./Camera";
 import { IndividualSticker } from "./image/IndividualStickers";
+import UploadPicture from "./image/Upload";
 import Camera from "./Camera";
 import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
@@ -35,11 +36,11 @@ export default function ImageStickerComplete(props) {
   const { t } = useTranslation();
   const [draw, setDraw] = useState(false);
   const [image, setImage] = useState(undefined);
+  const [canvas, setCanvas] = useState(undefined);
   const handleClose = () => setDraw(false);
   const [activeStep, setActiveStep] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
 
-  const canvasRef = useRef();
   const handleChange =
     (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
@@ -48,33 +49,9 @@ export default function ImageStickerComplete(props) {
     setActiveStep(step);
   };
 
-  const uploadImage = (e) => {
-    const resize = (img) => {
-      const max_size = 640;
-      let width = max_size;
-      let height = max_size;
-      const isPortrait = img.height > img.width;
-      if (isPortrait) {
-        width = (max_size / img.height) * img.width;
-      } else {
-        height = (max_size / img.width) * img.height;
-      }
-      return { width: width, height: height };
-    };
-    const draw = (e) => {
-      const img = e.target;
-      let canvas = canvasRef.current;
-      const size = resize(img);
-      canvas.width = size.width;
-      canvas.height = size.height;
-      var ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, size.width, size.height);
-    };
-
-    var img = new Image();
-    img.onload = draw;
-    //  img.onerror = failed;
-    img.src = URL.createObjectURL(e.target.files[0]);
+  const uploadedCanvas = (canvas) => {
+    setCanvas(canvas);
+    setActiveStep(1);
   };
 
   return (
@@ -105,27 +82,7 @@ export default function ImageStickerComplete(props) {
                   Upload a picture
                 </AccordionSummary>
                 <AccordionDetails>
-                  <div>
-                    <div>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        fullWidth
-                        component="label"
-                      >
-                        Upload
-                        <input
-                          hidden
-                          accept="image/*"
-                          onChange={(e) => uploadImage(e)}
-                          type="file"
-                        />
-                      </Button>
-                    </div>
-                    <div>
-                      <canvas height={1} ref={canvasRef}></canvas>
-                    </div>
-                  </div>
+                  <UploadPicture uploadedCanvas={uploadedCanvas} />
                 </AccordionDetails>
               </Accordion>
               <Accordion
@@ -159,7 +116,11 @@ export default function ImageStickerComplete(props) {
               <StepLabel>{t("image.addSticker", "add stickers")}</StepLabel>
             </StepButton>
             <StepContent>
-              <ImageStickerKonva setImage={setImage} setDraw={setDraw} />
+              <ImageStickerKonva
+                setImage={setImage}
+                setDraw={setDraw}
+                backgroundCanvas={canvas}
+              />
             </StepContent>
           </Step>
         </Stepper>
@@ -185,6 +146,12 @@ const ImageStickerKonva = (props) => {
     "anonymous",
     "origin"
   );
+  let image = undefined;
+  if (props.backgroundCanvas) {
+    image = new Image();
+    image.src = props.backgroundCanvas.toDataURL();
+  }
+
   const [images, setImages] = useState([]);
   const canvasRef = useRef();
   const upload = useUpload(canvasRef, max_size);
@@ -249,12 +216,22 @@ const ImageStickerKonva = (props) => {
         ref={canvasRef}
       >
         <Layer>
-          <KonvaImage
-            image={background}
-            height={400}
-            width={600}
-            id="backgroundImage"
-          />
+          {!!image && (
+            <KonvaImage
+              image={image}
+              height={400}
+              width={600}
+              id="backgroundImage"
+            />
+          )}
+          {!image && (
+            <KonvaImage
+              image={background}
+              height={400}
+              width={600}
+              id="backgroundImage"
+            />
+          )}
           {images.map((image, i) => {
             return (
               <IndividualSticker
