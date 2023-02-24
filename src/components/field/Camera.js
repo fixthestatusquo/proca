@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button, IconButton, Box, LinearProgress } from "@material-ui/core";
 import { FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import ImageIcon from "@material-ui/icons/Image";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
 import CameraRearIcon from "@material-ui/icons/CameraRear";
@@ -334,16 +333,6 @@ const CameraField = (props) => {
           {errors && errors.image && errors.image.message}
         </FormHelperText>
       </div>
-      <Box fullWidth style={{ width: "100%" }}>
-        <Button
-          fullWidth
-          disabled
-          variant="contained"
-          startIcon={<ImageIcon />}
-        >
-          Upload a picture
-        </Button>
-      </Box>
     </>
   );
 };

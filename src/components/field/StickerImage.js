@@ -7,20 +7,75 @@ import {
 import useImage from "use-image";
 import { useUpload } from "./Camera";
 import { IndividualSticker } from "./image/IndividualStickers";
+import Camera from "./Camera";
+import ImageIcon from "@material-ui/icons/Image";
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
 import {
+  Step,
+  Stepper,
+  StepLabel,
+  StepContent,
+  StepButton,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Button,
   ButtonGroup,
   CardContent,
   Card,
   CardHeader,
 } from "@material-ui/core";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Dialog from "@components/Dialog";
+import { useTranslation } from "react-i18next";
 
 export default function ImageStickerComplete(props) {
+  const { t } = useTranslation();
   const [draw, setDraw] = useState(false);
   const [image, setImage] = useState(undefined);
   const handleClose = () => setDraw(false);
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [expanded, setExpanded] = React.useState(false);
+
+  const canvasRef = useRef();
+  const handleChange =
+    (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+  const handleStep = (step: number) => () => {
+    setActiveStep(step);
+  };
+
+  const uploadImage = (e) => {
+    const resize = (img) => {
+      const max_size = 640;
+      let width = max_size;
+      let height = max_size;
+      const isPortrait = img.height > img.width;
+      if (isPortrait) {
+        width = (max_size / img.height) * img.width;
+      } else {
+        height = (max_size / img.width) * img.height;
+      }
+      return { width: width, height: height };
+    };
+    const draw = (e) => {
+      const img = e.target;
+      let canvas = canvasRef.current;
+      const size = resize(img);
+      canvas.width = size.width;
+      canvas.height = size.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, size.width, size.height);
+    };
+
+    var img = new Image();
+    img.onload = draw;
+    //  img.onerror = failed;
+    img.src = URL.createObjectURL(e.target.files[0]);
+  };
 
   return (
     <div>
@@ -32,7 +87,82 @@ export default function ImageStickerComplete(props) {
         dialog={draw !== false}
         close={handleClose}
       >
-        <ImageStickerKonva setImage={setImage} setDraw={setDraw} />
+        <Stepper activeStep={activeStep} nonLinear orientation="vertical">
+          <Step key={0}>
+            <StepButton onClick={handleStep(0)}>
+              <StepLabel>{t("image.select", "choose your picture")}</StepLabel>
+            </StepButton>
+
+            <StepContent>
+              Would you like to :
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "upload"}
+                onChange={handleChange("upload")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <ImageIcon color="primary" />
+                  Upload a picture
+                </AccordionSummary>
+                <AccordionDetails>
+                  <div>
+                    <div>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        component="label"
+                      >
+                        Upload
+                        <input
+                          hidden
+                          accept="image/*"
+                          onChange={(e) => uploadImage(e)}
+                          type="file"
+                        />
+                      </Button>
+                    </div>
+                    <div>
+                      <canvas height={1} ref={canvasRef}></canvas>
+                    </div>
+                  </div>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "webcam"}
+                onChange={handleChange("webcam")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <PhotoCameraIcon color="primary" />
+                  Take a picture with your phone now
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Camera form={props.form} />
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "select"}
+                onChange={handleChange("select")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <PhotoLibraryIcon color="primary" />
+                  Select one of our pictures
+                </AccordionSummary>
+                <AccordionDetails>Coming soon...</AccordionDetails>
+              </Accordion>
+            </StepContent>
+          </Step>
+          <Step key={1} onClick={handleStep(1)}>
+            <StepButton onClick={handleStep(0)}>
+              <StepLabel>{t("image.addSticker", "add stickers")}</StepLabel>
+            </StepButton>
+            <StepContent>
+              <ImageStickerKonva setImage={setImage} setDraw={setDraw} />
+            </StepContent>
+          </Step>
+        </Stepper>
       </Dialog>
       {image && (
         <img
@@ -48,6 +178,7 @@ export default function ImageStickerComplete(props) {
 const ImageStickerKonva = (props) => {
   const config = useCampaignConfig();
   const max_size = 640;
+  const { t } = useTranslation();
 
   const [background] = useImage(
     config.component.sticker.baseUrl + "/" + config.component.sticker.picture,
@@ -144,7 +275,11 @@ const ImageStickerKonva = (props) => {
         </Layer>
       </Stage>
       <Card>
-        <CardHeader subheader="Click/Tap to add sticker to photo" />
+        <CardHeader
+          subheader={t("image.addsticker", {
+            defaultValue: "Click/Tap to add sticker to photo",
+          })}
+        />
         <CardContent>
           {stickersData.map((sticker) => {
             return (
@@ -192,16 +327,17 @@ const ImageStickerKonva = (props) => {
 
 const ImageOption = (props) => {
   const { image, setImage, setDraw } = props;
+  const { t } = useTranslation();
   return (
     <>
-      Do you want to add a image?
+      {t("image.wanttoadd", { defaultValue: "Do you want to add a image?" })}
       <ButtonGroup variant="contained" color="primary">
         <Button
           disableElevation={image}
           color={image === false ? "default" : "primary"}
           onClick={(e) => setDraw(true)}
         >
-          yes
+          {t("yes")}
         </Button>
 
         <Button
@@ -209,7 +345,7 @@ const ImageOption = (props) => {
           onClick={(e) => setImage(false)}
           color={image ? "default" : "primary"}
         >
-          no
+          {t("no")}
         </Button>
       </ButtonGroup>
     </>
