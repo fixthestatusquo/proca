@@ -163,10 +163,15 @@ The counter will automatically calculate next goals so that goal always escapes 
 
 to collect the consent of being contacted
 
-- `config.component.consent.implicit: boolean`. default false. Besides when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
+- `config.component.consent.implicit: boolean or "opt-in"`. default false. Besides when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
 - `config.component.consent.privacyPolicy`. **very important**: the privacy policy of the organization embedding the widget
 - `config.component.consent.split`. if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
-- `confirm.component.consent.confirmProcessing`. Add a checkbox (required) with the text of the consent processing.
+- `confirm.component.consent.confirmProcessing`. Add radio buttons (required) with the text of the consent processing.
+
+### consent visual
+
+`config.component.consent.implicit: true` and `confirm.component.consent.confirmProcessing: true` - adds a checkbox.
+`config.component.implicit: "opt-in" - adds a line 'Submit this form to receive emails from {{org}}'
 
 ### Email (config.component.consent.email)
 
