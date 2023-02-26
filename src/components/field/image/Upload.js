@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Button } from "@material-ui/core";
 
 export default function UploadPicture(props) {

@@ -14,6 +14,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
 import {
+  Grid,
   Step,
   Stepper,
   StepLabel,
@@ -64,66 +65,65 @@ export default function ImageStickerComplete(props) {
         dialog={draw !== false}
         close={handleClose}
       >
-        <Stepper activeStep={activeStep} nonLinear orientation="vertical">
+        <Stepper activeStep={activeStep} nonLinear>
           <Step key={0}>
             <StepButton onClick={handleStep(0)}>
               <StepLabel>{t("image.select", "choose your picture")}</StepLabel>
             </StepButton>
-
-            <StepContent>
-              Would you like to :
-              <Accordion
-                TransitionProps={{ unmountOnExit: true }}
-                expanded={expanded === "upload"}
-                onChange={handleChange("upload")}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <ImageIcon color="primary" />
-                  Upload a picture
-                </AccordionSummary>
-                <AccordionDetails>
-                  <UploadPicture uploadedCanvas={uploadedCanvas} />
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                TransitionProps={{ unmountOnExit: true }}
-                expanded={expanded === "webcam"}
-                onChange={handleChange("webcam")}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <PhotoCameraIcon color="primary" />
-                  Take a picture with your phone now
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Camera form={props.form} />
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                TransitionProps={{ unmountOnExit: true }}
-                expanded={expanded === "select"}
-                onChange={handleChange("select")}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <PhotoLibraryIcon color="primary" />
-                  Select one of our pictures
-                </AccordionSummary>
-                <AccordionDetails>Coming soon...</AccordionDetails>
-              </Accordion>
-            </StepContent>
           </Step>
           <Step key={1} onClick={handleStep(1)}>
-            <StepButton onClick={handleStep(0)}>
+            <StepButton onClick={handleStep(1)}>
               <StepLabel>{t("image.addSticker", "add stickers")}</StepLabel>
             </StepButton>
-            <StepContent>
-              <ImageStickerKonva
-                setImage={setImage}
-                setDraw={setDraw}
-                backgroundCanvas={canvas}
-              />
-            </StepContent>
           </Step>
         </Stepper>
+        <div hidden={activeStep !== 0}>
+          Would you like to :
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            expanded={expanded === "upload"}
+            onChange={handleChange("upload")}
+          >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <ImageIcon color="primary" />
+              Upload a picture
+            </AccordionSummary>
+            <AccordionDetails>
+              <UploadPicture uploadedCanvas={uploadedCanvas} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            expanded={expanded === "webcam"}
+            onChange={handleChange("webcam")}
+          >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <PhotoCameraIcon color="primary" />
+              Take a picture with your phone now
+            </AccordionSummary>
+            <AccordionDetails>
+              <Camera form={props.form} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            expanded={expanded === "select"}
+            onChange={handleChange("select")}
+          >
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <PhotoLibraryIcon color="primary" />
+              Select one of our pictures
+            </AccordionSummary>
+            <AccordionDetails>Coming soon...</AccordionDetails>
+          </Accordion>
+        </div>
+        <div hidden={activeStep !== 1}>
+          <ImageStickerKonva
+            setImage={setImage}
+            setDraw={setDraw}
+            backgroundCanvas={canvas}
+          />
+        </div>
       </Dialog>
       {image && (
         <img
@@ -306,25 +306,29 @@ const ImageOption = (props) => {
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
   return (
-    <>
-      {t("image.wanttoadd", { defaultValue: "Do you want to add a image?" })}
-      <ButtonGroup variant="contained" color="primary">
-        <Button
-          disableElevation={image}
-          color={image === false ? "default" : "primary"}
-          onClick={(e) => setDraw(true)}
-        >
-          {t("yes")}
-        </Button>
+    <Grid container spacing={24} justifyContent="space-between">
+      <Grid item alignContent="stetch">
+        {t("image.wanttoadd", { defaultValue: "Do you want to add a image?" })}
+      </Grid>
+      <Grid item>
+        <ButtonGroup variant="contained" color="primary">
+          <Button
+            disableElevation={image}
+            color={image === false ? "default" : "primary"}
+            onClick={(e) => setDraw(true)}
+          >
+            {t("yes")}
+          </Button>
 
-        <Button
-          variant="contained"
-          onClick={(e) => setImage(false)}
-          color={image ? "default" : "primary"}
-        >
-          {t("no")}
-        </Button>
-      </ButtonGroup>
-    </>
+          <Button
+            variant="contained"
+            onClick={(e) => setImage(false)}
+            color={image ? "default" : "primary"}
+          >
+            {t("no")}
+          </Button>
+        </ButtonGroup>
+      </Grid>
+    </Grid>
   );
 };
