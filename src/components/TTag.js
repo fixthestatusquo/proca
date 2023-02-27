@@ -17,7 +17,6 @@ const snarkdown = (md) => {
 const TTag = (props) => {
   const { t, i18n } = useTranslation();
   //const tbr = (key) => t(key).replace(/\n- /g, "<li>").replace(/\n/g, "<br>");
-  console.log("message", props.message);
   if (!i18n.exists(props.message)) return null;
   const tbr = (key) => snarkdown(t(key));
   if (props.dangerouslySet === true) {

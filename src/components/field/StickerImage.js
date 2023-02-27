@@ -18,7 +18,6 @@ import {
   Step,
   Stepper,
   StepLabel,
-  StepContent,
   StepButton,
   Accordion,
   AccordionSummary,
@@ -33,8 +32,17 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Dialog from "@components/Dialog";
 import { useTranslation } from "react-i18next";
 
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  dialog: {
+    minWidth: theme.breakpoints.values.sm,
+  },
+}));
+
 export default function ImageStickerComplete(props) {
   const { t } = useTranslation();
+  const classes = useStyles();
   const [draw, setDraw] = useState(false);
   const [image, setImage] = useState(undefined);
   const [canvas, setCanvas] = useState(undefined);
@@ -60,7 +68,6 @@ export default function ImageStickerComplete(props) {
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
         name="Restore nature"
-        fullScreen={false}
         maxWidth="lg"
         dialog={draw !== false}
         close={handleClose}
@@ -77,7 +84,7 @@ export default function ImageStickerComplete(props) {
             </StepButton>
           </Step>
         </Stepper>
-        <div hidden={activeStep !== 0}>
+        <div hidden={activeStep !== 0} className={classes.dialog}>
           Would you like to :
           <Accordion
             TransitionProps={{ unmountOnExit: true }}
@@ -117,7 +124,7 @@ export default function ImageStickerComplete(props) {
             <AccordionDetails>Coming soon...</AccordionDetails>
           </Accordion>
         </div>
-        <div hidden={activeStep !== 1}>
+        <div hidden={activeStep !== 1} className={classes.dialog}>
           <ImageStickerKonva
             setImage={setImage}
             setDraw={setDraw}
@@ -306,8 +313,8 @@ const ImageOption = (props) => {
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
   return (
-    <Grid container spacing={24} justifyContent="space-between">
-      <Grid item alignContent="stetch">
+    <Grid container spacing={1} justifyContent="space-between">
+      <Grid item>
         {t("image.wanttoadd", { defaultValue: "Do you want to add a image?" })}
       </Grid>
       <Grid item>
