@@ -102,6 +102,13 @@ or to any step with
 
 it can also be set from the url as a get param ?proca_go=Petition
 
+### Redirection
+
+To redirect to some URL after submitting:
+
+- "Redirect" in journey
+- `config.component.redirect.url: "whateverURL"`
+
 ## test
 
 if true (or set from the url as a get param ?proca_test
