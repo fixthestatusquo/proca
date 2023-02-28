@@ -29,6 +29,7 @@ const help = () => {
           "options",
           "--help (this command)",
           "--dry-run (show the parsed org but don't write)",
+          "--twitter (fetch the twitter api)",
           "--pages (fetch the action pages of the org)",
           "--users(fetch the users of the org)",
           "--pull (by default)",
