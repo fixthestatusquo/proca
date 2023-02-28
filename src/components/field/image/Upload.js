@@ -24,8 +24,8 @@ export default function UploadPicture(props) {
       canvas.height = size.height;
       var ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0, size.width, size.height);
-      if (props.uploadedCanvas) {
-        props.uploadedCanvas(canvas);
+      if (props.setCanvas) {
+        props.setCanvas(canvas);
       }
     };
 

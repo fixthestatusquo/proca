@@ -35,6 +35,9 @@ import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  accordion: {
+    display: "block!important",
+  },
   dialog: {
     minWidth: theme.breakpoints.values.sm,
   },
@@ -62,7 +65,6 @@ export default function ImageStickerComplete(props) {
     setCanvas(canvas);
     setActiveStep(1);
   };
-
   return (
     <div>
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
@@ -93,10 +95,10 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <ImageIcon color="primary" />
-              Upload a picture
+              {t("picture.upload", "Upload a picture")}
             </AccordionSummary>
-            <AccordionDetails>
-              <UploadPicture uploadedCanvas={uploadedCanvas} />
+            <AccordionDetails classes={{ root: classes.accordion }}>
+              <UploadPicture setCanvas={uploadedCanvas} />
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -106,10 +108,10 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoCameraIcon color="primary" />
-              Take a picture with your phone now
+              {t("picture", "Take a picture with your phone now")}
             </AccordionSummary>
-            <AccordionDetails>
-              <Camera form={props.form} />
+            <AccordionDetails classes={{ root: classes.accordion }}>
+              <Camera setCanvas={uploadedCanvas} />
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -251,7 +253,7 @@ const ImageStickerKonva = (props) => {
                   image.x = event.target.x();
                   image.y = event.target.y();
                 }}
-                key={i}
+                key={i + image}
                 image={image}
               />
             );
@@ -265,9 +267,10 @@ const ImageStickerKonva = (props) => {
           })}
         />
         <CardContent>
-          {stickersData.map((sticker) => {
+          {stickersData.map((sticker, i) => {
             return (
               <span
+                key={"sticker_" + i}
                 onMouseDown={() => {
                   addStickerToPanel({
                     src: sticker.url,

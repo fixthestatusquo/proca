@@ -103,8 +103,11 @@ const CameraField = (props) => {
   const videoRef = useRef();
   const config = useCampaignConfig();
   const { t } = useTranslation();
-  const { errors, getValues, register, setError, setValue } = props.form;
   const upload = useUpload(canvasRef, max_size);
+
+  const { errors, getValues, register, setError, setValue } = props.form
+    ? props.form
+    : {};
 
   const setcDim = (dim) => {
     let { width, height } = dim;
@@ -204,6 +207,7 @@ const CameraField = (props) => {
     let image_data_url = canvas.toDataURL("image/jpeg");
 
     _takePicture(image_data_url);
+    if (props.setCanvas) props.setCanvas(canvas);
     // data url of the image
   };
 
@@ -242,12 +246,16 @@ const CameraField = (props) => {
 
   return (
     <>
-      <input
-        type="hidden"
-        {...register("image", { validate: validateImage })}
-      />
-      <input type="hidden" {...register("hash")} />
-      <input type="hidden" {...register("imageId")} />
+      {register && (
+        <>
+          <input
+            type="hidden"
+            {...register("image", { validate: validateImage })}
+          />
+          <input type="hidden" {...register("hash")} />
+          <input type="hidden" {...register("imageId")} />
+        </>
+      )}
       {!camera && (
         <Button
           fullWidth
@@ -271,7 +279,7 @@ const CameraField = (props) => {
           width="100%"
           height="auto"
           autoPlay
-          playinline
+          playinline="true"
           muted
         ></video>
         {camera && !picture && (
@@ -284,7 +292,7 @@ const CameraField = (props) => {
                 color="primary"
                 startIcon={<PhotoCameraIcon />}
               >
-                Take picture
+                {t("picture.take", "Take picture")}
               </Button>
             </Box>
             <Box>
@@ -317,16 +325,16 @@ const CameraField = (props) => {
         {isValidating && <LinearProgress fullWidth />}
       </Box>
       {picture && (
-        <>
+        <Box>
           <Button
             fullWidth
             variant="contained"
             startIcon={<PhotoCameraIcon />}
             onClick={() => _takePicture(undefined)}
           >
-            Take another one
+            {t("picture.take-another", "Take another one")}
           </Button>
-        </>
+        </Box>
       )}
       <div>
         <FormHelperText error={!!(errors && errors.image)}>
