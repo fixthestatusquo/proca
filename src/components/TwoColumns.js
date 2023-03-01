@@ -25,7 +25,7 @@ const TwoColumns = (props) => {
     content && content.appendChild(dom.cloneNode(true));
   }, [dom]);
 
-  if (leftContent.length > 0) {
+  if (leftContent && leftContent.length > 0) {
     return (
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12 - width} id={id}>
