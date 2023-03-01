@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Donér til {{campaign}}",
-    "mobile": {
-      "open": "åben"
-    },
     "payment_methods": {
       "card": "Kort",
       "intro": "Hvordan ønsker du at donere?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
-    "salutation": "Kære {{target.name}}",
     "salutation_female": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
-    "salutation_male": "Kære {{target.name}}",
     "salutation_placeholder": "Kære [modtager],"
   },
   "progress": {

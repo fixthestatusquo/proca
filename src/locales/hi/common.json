@@ -105,9 +105,6 @@
     },
     "iban": "इबन",
     "intro": "{{campaign}} को दान करें",
-    "mobile": {
-      "open": "खोलना"
-    },
     "payment_methods": {
       "card": "कार्ड",
       "intro": "आप कैसे दान करना चाहते हैं?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
-    "salutation": "प्रिय {{target.name}}",
     "salutation_female": "प्रिय {{target.name}}",
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
-    "salutation_male": "प्रिय {{target.name}}",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },
   "progress": {

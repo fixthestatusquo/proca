@@ -18,7 +18,6 @@
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Vaša poruka",
-  "dateFormat": "DD/MM/GGGG",
   "action": {
     "donate": "Donirajte",
     "email": "Pošaljite e-mail",
@@ -41,6 +40,7 @@
     "processing": "Vaši lični podaci će biti privatni i sigurni. Slanjem pristajete na korištenje podataka i kolačića u skladu sa našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Vaši lični podaci će biti privatni i sigurni. Slanjem pristajete na korištenje podataka u skladu sa našim <1>pravilima o privatnosti</1> podataka"
   },
+  "dateFormat": "DD/MM/GGGG",
   "dialogTitle": "Želim da primam informacije o napretku kampanje",
   "donation": {
     "amount": {
@@ -93,9 +93,6 @@
     },
     "iban": "IBAN",
     "intro": "Donirajte za {{campaign}}",
-    "mobile": {
-      "open": "otvorena"
-    },
     "payment_methods": {
       "card": "Kartica",
       "intro": "Kako želite da donirate?",

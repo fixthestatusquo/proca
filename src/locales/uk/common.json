@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "Одарувати для {{campaign}}",
-    "mobile": {
-      "open": "відчинено"
-    },
     "payment_methods": {
       "card": "Картка",
       "intro": "Як ви хочете подарувати?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може отримувати електронні листи",
-    "salutation": "Шановний {{target.name}}",
     "salutation_female": "Шановний {{target.name}}",
     "salutation_info": "(ім'я буде вказано перед відправленням)",
-    "salutation_male": "Шановний {{target.name}}",
     "salutation_placeholder": "Шановний [одержувач]"
   },
   "progress": {

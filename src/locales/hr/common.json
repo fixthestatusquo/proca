@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "Doniraj za {{campaign}}",
-    "mobile": {
-      "open": "otvorena"
-    },
     "payment_methods": {
       "card": "Kartica",
       "intro": "Kako želiš donirati?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "salutation": "Poštovani {{target.name}}",
     "salutation_female": "Poštovani {{target.name}}",
     "salutation_info": "(ime će biti stavljeno prije slanja)",
-    "salutation_male": "Poštovani {{target.name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "progress": {

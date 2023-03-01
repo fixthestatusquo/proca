@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "寄付先{{campaign}}",
-    "mobile": {
-      "open": "かいほうてき"
-    },
     "payment_methods": {
       "card": "カード",
       "intro": "どのように寄付をしますか？",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} メール受信不可",
-    "salutation": "拝啓{{target.name}}",
     "salutation_female": "拝啓{{target.name}}",
     "salutation_info": "(送信前に受信者の名前が入ります）。",
-    "salutation_male": "拝啓{{target.name}}",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
   "progress": {

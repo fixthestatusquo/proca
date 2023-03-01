@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Donează la {{campaign}}",
-    "mobile": {
-      "open": "deschis"
-    },
     "payment_methods": {
       "card": "Card",
       "intro": "Cum doriți să donați?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
-    "salutation": "Dragă {{target.name}}",
     "salutation_female": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
-    "salutation_male": "Dragă {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "progress": {
