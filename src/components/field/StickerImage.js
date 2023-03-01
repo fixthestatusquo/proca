@@ -37,6 +37,9 @@ import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  sticker: {
+    cursor: "copy",
+  },
   accordion: {
     display: "block!important",
   },
@@ -167,6 +170,7 @@ const ImageStickerKonva = (props) => {
   const [images, setImages] = useState([]);
   const canvasRef = useRef();
   const upload = useUpload(canvasRef, max_size);
+  const classes = useStyles();
 
   let stickersData = config.component.sticker.data;
   if (config.component.sticker.baseUrl) {
@@ -266,7 +270,7 @@ const ImageStickerKonva = (props) => {
       <Card>
         <CardHeader
           subheader={t("image.addStickerTitle", {
-            defaultValue: "Click/Tap to add sticker to photo",
+            defaultValue: "Click/Tap to add a sticker",
           })}
         />
         <CardContent>
@@ -274,6 +278,7 @@ const ImageStickerKonva = (props) => {
             return (
               <span
                 key={"sticker_" + i}
+                className={classes.sticker}
                 onMouseDown={() => {
                   addStickerToPanel({
                     src: sticker.url,

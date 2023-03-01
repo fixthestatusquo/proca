@@ -99,7 +99,7 @@ export default function Register(props) {
     register,
     handleSubmit,
     setValue,
-    formState: {errors},
+    formState: { errors },
     setError,
     clearErrors,
     watch,
@@ -158,7 +158,11 @@ export default function Register(props) {
 
     data.birthdate = formatDate(data.birthdate);
     if (data.birthdate === false) {
-      setError("birthdate", "manual", t("invalid date. format: DD.MM.YYYY"));
+      setError(
+        "birthdate",
+        "manual",
+        t("date.error", "invalid date. format: DD.MM.YYYY")
+      );
       return;
     }
 
