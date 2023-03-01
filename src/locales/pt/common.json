@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Doe para {{campaign}}",
-    "mobile": {
-      "open": "aberto"
-    },
     "payment_methods": {
       "card": "Cartão",
       "intro": "Como você quer doar?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} não pode receber e-mails",
-    "salutation": "Caro {{target.name}}",
     "salutation_female": "Caro {{target.name}}",
     "salutation_info": "(o nome será colocado antes do envio)",
-    "salutation_male": "Caro {{target.name}}",
     "salutation_placeholder": "Caro [destinatário],"
   },
   "progress": {

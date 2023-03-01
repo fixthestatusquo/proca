@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "Faire un don à {{campaign}}",
-    "mobile": {
-      "open": "ouvrir"
-    },
     "payment_methods": {
       "card": "Carte",
       "intro": "Comment voulez-vous faire un don?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "salutation": "Cher {{target.name}}",
     "salutation_female": "Cher {{target.name}}",
     "salutation_info": "(le nom sera mis avant l'envoi)",
-    "salutation_male": "Cher {{target.name}}",
     "salutation_placeholder": "Cher [destinataire],"
   },
   "progress": {

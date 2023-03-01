@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "បរិច្ចាគទៅ {{campaign}}",
-    "mobile": {
-      "open": "បើក"
-    },
     "payment_methods": {
       "card": "កាត",
       "intro": "តើអ្នកចង់បរិច្ចាគដោយរបៀបណា?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
-    "salutation": "សូមគោរព {{target.name}}",
     "salutation_female": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
-    "salutation_male": "សូមគោរព {{target.name}}",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
   "progress": {
