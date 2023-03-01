@@ -105,9 +105,6 @@
     },
     "iban": "ибан",
     "intro": "Донирајте за [Кс10Кс]",
-    "mobile": {
-      "open": "отворен"
-    },
     "payment_methods": {
       "card": "Цард",
       "intro": "Како желите да донирате?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може да прима е-поруке",
-    "salutation": "Поштовани [Кс5Кс]",
     "salutation_female": "Поштовани [Кс5Кс]",
     "salutation_info": "(име ће бити стављено пре слања)",
-    "salutation_male": "Поштовани [Кс5Кс]",
     "salutation_placeholder": "Поштовани [прималац],"
   },
   "progress": {

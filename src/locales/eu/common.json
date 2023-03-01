@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Dohaintza egin {{campaign}}",
-    "mobile": {
-      "open": "irekia"
-    },
     "payment_methods": {
       "card": "Txartela",
       "intro": "Nola eman nahi duzu dohaintza?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
-    "salutation": "Maitea {{target.name}}",
     "salutation_female": "Maitea {{target.name}}",
     "salutation_info": "(izena bidali aurretik jarriko da)",
-    "salutation_male": "Maitea {{target.name}}",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
   "progress": {

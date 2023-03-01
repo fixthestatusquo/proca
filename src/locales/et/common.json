@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Annetada {{campaign}}",
-    "mobile": {
-      "open": "avatud"
-    },
     "payment_methods": {
       "card": "Kaart",
       "intro": "Kuidas soovite annetada?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
-    "salutation": "Lugupeetud {{target.name}}",
     "salutation_female": "Lugupeetud {{target.name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
-    "salutation_male": "Lugupeetud {{target.name}}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
   "progress": {

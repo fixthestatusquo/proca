@@ -105,9 +105,6 @@
     },
     "iban": "ибан",
     "intro": "Пожертвовать на {{campaign}}",
-    "mobile": {
-      "open": "открыть"
-    },
     "payment_methods": {
       "card": "Карта",
       "intro": "Как вы хотите пожертвовать?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не может получать электронные письма",
-    "salutation": "Уважаемый {{target.name}}",
     "salutation_female": "Уважаемый {{target.name}}",
     "salutation_info": "(имя будет проставлено перед отправкой)",
-    "salutation_male": "Уважаемый {{target.name}}",
     "salutation_placeholder": "Уважаемый [получатель],"
   },
   "progress": {

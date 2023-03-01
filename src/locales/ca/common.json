@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Dona a {{campaign}}",
-    "mobile": {
-      "open": "obert"
-    },
     "payment_methods": {
       "card": "Targeta",
       "intro": "Com vols donar?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} no pot rebre correus electrònics",
-    "salutation": "Benvolgut {{target.name}}",
     "salutation_female": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
-    "salutation_male": "Benvolgut {{target.name}}",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "progress": {

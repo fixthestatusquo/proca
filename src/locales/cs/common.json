@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "Přispějte na {{campaign}}",
-    "mobile": {
-      "open": "otevřít"
-    },
     "payment_methods": {
       "card": "Kartou",
       "intro": "Jak chcete přispět?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nepřijímá e-maily",
-    "salutation": "Vážení {{target.name}}",
     "salutation_female": "Vážení {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
-    "salutation_male": "Vážení {{target.name}}",
     "salutation_placeholder": "Vážený [recipient]"
   },
   "progress": {

@@ -105,9 +105,6 @@
     },
     "iban": "iban",
     "intro": "Lahjoita osoitteeseen {{campaign}}",
-    "mobile": {
-      "open": "avoin"
-    },
     "payment_methods": {
       "card": "Kortti",
       "intro": "Miten haluat lahjoittaa?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
-    "salutation": "Rakas {{target.name}}",
     "salutation_female": "Rakas {{target.name}}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
-    "salutation_male": "Rakas {{target.name}}",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
   "progress": {
