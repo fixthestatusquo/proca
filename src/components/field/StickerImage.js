@@ -5,11 +5,10 @@ import {
   Stage,
 } from "react-konva/lib/ReactKonvaCore";
 import useImage from "use-image";
-import { useUpload } from "./Camera";
+import Camera, { useUpload } from "./Camera";
 import { IndividualSticker } from "./image/IndividualStickers";
 import UploadPicture from "./image/Upload";
 import SelectPicture from "./image/Select";
-import Camera from "./Camera";
 import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
@@ -99,7 +98,7 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <ImageIcon color="primary" />
-              {t("picture.upload", "Upload a picture")}
+              {t("image.upload", "Upload a picture")}
             </AccordionSummary>
             <AccordionDetails classes={{ root: classes.accordion }}>
               <UploadPicture setCanvas={uploadedCanvas} />
@@ -112,7 +111,7 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoCameraIcon color="primary" />
-              {t("picture", "Take a picture with your phone")}
+              {t("image.takeTitle", "Take a picture with your phone")}
             </AccordionSummary>
             <AccordionDetails classes={{ root: classes.accordion }}>
               <Camera setCanvas={uploadedCanvas} />

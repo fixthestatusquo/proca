@@ -138,14 +138,11 @@
     "addSticker": "add stickers",
     "addStickerTitle": "Click/Tap to add sticker to photo",
     "select": "choose your picture",
+    "takeTitle": "Take a picture with your phone",
+    "upload": "Upload a picture",
     "wanttoadd": "Do you want to add a image?"
   },
   "no": "no",
-  "picture": {
-    "select": "Select one of our pictures",
-    "take": "Take picture",
-    "take-another": "Take another one"
-  },
   "progress": {
     "donate": "{{total}} have donated. Let's go to {{goal}}",
     "email": "{{total}} have sent an email. Let's go to {{goal}}",
