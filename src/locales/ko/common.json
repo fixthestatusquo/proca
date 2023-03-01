@@ -105,9 +105,6 @@
     },
     "iban": "국제은행계좌번호",
     "intro": "{{campaign}}에 기부",
-    "mobile": {
-      "open": "열려 있는"
-    },
     "payment_methods": {
       "card": "카드",
       "intro": "어떻게 기부하시겠습니까?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} 이메일을 받을 수 없습니다",
-    "salutation": "친애하는 {{target.name}}",
     "salutation_female": "친애하는 {{target.name}}",
     "salutation_info": "(수취인의 이름은 보내기 전에 입력됩니다)",
-    "salutation_male": "친애하는 {{target.name}}",
     "salutation_placeholder": "친애하는 [받는 사람]"
   },
   "progress": {

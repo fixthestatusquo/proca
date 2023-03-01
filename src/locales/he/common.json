@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "תרומה ל-{{campaign}}",
-    "mobile": {
-      "open": "לִפְתוֹחַ"
-    },
     "payment_methods": {
       "card": "כַּרְטִיס",
       "intro": "איך אתה רוצה לתרום?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
-    "salutation": "היקר {{name}}",
     "salutation_female": "היקר {{name}}",
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
-    "salutation_male": "היקר {{name}}",
     "salutation_placeholder": "[נמען] יקר"
   },
   "progress": {

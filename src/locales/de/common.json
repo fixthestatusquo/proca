@@ -105,9 +105,6 @@
     },
     "iban": "IBAN",
     "intro": "Spenden Sie an {{campaign}}",
-    "mobile": {
-      "open": "öffnen"
-    },
     "payment_methods": {
       "card": "Karte",
       "intro": "Wie möchten Sie spenden?",
@@ -120,10 +117,8 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation": "Sehr geehrte:r {{target.name}}",
     "salutation_female": "Sehr geehrte {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
-    "salutation_male": "Sehr geehrter {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "progress": {
