@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   thumb: {
+    cursor: "pointer",
     display: "inline-block",
     maxWidth: "230px",
     maxHeight: "95px",

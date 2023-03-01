@@ -31,14 +31,19 @@ const Organisation = (props) => {
   const { t } = useTranslation();
   //  const { config } = useConfig();
   const [profile, setProfile] = useState({
-    name: t("twitter.organisation","Your organisation twitter account"),
+    name: t("twitter.organisation", "Your organisation twitter account"),
   });
 
   const compact = props.compact;
-  const { setValue, getValues, setError, watch } = props.form;
+  const { setValue, getValues, setError, watch, register } = props.form;
 
   const array = watch(["organisation", "picture", "comment", "twitter"]);
-  const field = { "organisation": array[0], "picture": array[1], "comment": array[2], "twitter": array[3] };
+  const field = {
+    organisation: array[0],
+    picture: array[1],
+    comment: array[2],
+    twitter: array[3],
+  };
 
   //variant={options.variant}
   //margin={options.margin}
@@ -104,9 +109,10 @@ const Organisation = (props) => {
     fetchTwitter(getValues("twitter"));
   };
 
-  const handleMouseDown = (event ) => {
+  const handleMouseDown = (event) => {
     event.preventDefault();
   };
+
   return (
     <>
       <Grid item xs={12} sm={compact ? 12 : 6}>
@@ -133,7 +139,7 @@ const Organisation = (props) => {
             ),
           }}
           required
-          label={t("twitter.screenName","Screen name")}
+          label={t("twitter.screenName", "Screen name")}
           form={props.form}
         />
       </Grid>
@@ -151,13 +157,10 @@ const Organisation = (props) => {
         <>
           <Grid item xs={12} sm={compact ? 12 : 12}>
             <TextField name="organisation" required form={props.form} />
-            <input type="hidden" {...props.form.register("comment")} />
-            <input type="hidden" {...props.form.register("picture")} />
-            <input type="hidden" {...props.form.register("url")} />
-            <input
-              type="hidden"
-              ref={...props.form.register("followers_count")}
-            />
+            <input type="hidden" {...register("comment")} />
+            <input type="hidden" {...register("picture")} />
+            <input type="hidden" {...register("url")} />
+            <input type="hidden" {...register("followers_count")} />
           </Grid>
         </>
       ) : null}

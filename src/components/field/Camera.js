@@ -292,7 +292,7 @@ const CameraField = (props) => {
                 color="primary"
                 startIcon={<PhotoCameraIcon />}
               >
-                {t("picture.take", "Take picture")}
+                {t("camera.take", "Take picture")}
               </Button>
             </Box>
             <Box>
@@ -332,7 +332,7 @@ const CameraField = (props) => {
             startIcon={<PhotoCameraIcon />}
             onClick={() => _takePicture(undefined)}
           >
-            {t("picture.take-another", "Take another one")}
+            {t("camera.take-another", "Take another one")}
           </Button>
         </Box>
       )}

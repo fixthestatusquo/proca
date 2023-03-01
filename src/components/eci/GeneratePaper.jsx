@@ -159,7 +159,10 @@ const GeneratePaper = (props) => {
         }
       >
         {" "}
-        {props.buttonText || t(config.component.register?.button || "register")}
+        {
+          /* i18next-extract-disable-line */ props.buttonText ||
+            t(config.component.register?.button || "register")
+        }
       </Button>
     </form>
   );

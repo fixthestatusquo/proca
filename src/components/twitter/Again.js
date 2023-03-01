@@ -26,11 +26,13 @@ const Again = (props) => {
         onClick={props.done}
         endIcon={<NextIcon />}
       >
-        {t(
-          config.component.twitter?.next
-            ? config.component.twitter.next
-            : "Next"
-        )}
+        {
+          /* i18next-extract-disable-line */ t(
+            config.component.twitter?.next
+              ? config.component.twitter.next
+              : "Next"
+          )
+        }
       </Button>
     </>
   );

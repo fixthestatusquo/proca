@@ -292,7 +292,9 @@ export default function Register(props) {
               >
                 {" "}
                 {props.buttonText ||
-                  t(config.component.register?.button || "register")}
+                  /* i18next-extract-disable-line */ t(
+                    config.component.register?.button || "register"
+                  )}
               </Button>
             </Grid>
           </Grid>

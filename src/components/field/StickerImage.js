@@ -55,11 +55,10 @@ export default function ImageStickerComplete(props) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange =
-    (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
-  const handleStep = (step: number) => () => {
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+  const handleStep = (step) => () => {
     setActiveStep(step);
   };
 
@@ -110,7 +109,7 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoCameraIcon color="primary" />
-              {t("picture", "Take a picture with your phone now")}
+              {t("picture", "Take a picture with your phone")}
             </AccordionSummary>
             <AccordionDetails classes={{ root: classes.accordion }}>
               <Camera setCanvas={uploadedCanvas} />
@@ -123,7 +122,7 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoLibraryIcon color="primary" />
-              {t("picture.select", "Select one of our pictures")}
+              {t("image.select", "Select one of our pictures")}
             </AccordionSummary>
             <AccordionDetails classes={{ root: classes.accordion }}>
               <SelectPicture setCanvas={uploadedCanvas} />
@@ -266,7 +265,7 @@ const ImageStickerKonva = (props) => {
       </Stage>
       <Card>
         <CardHeader
-          subheader={t("image.addsticker", {
+          subheader={t("image.addStickerTitle", {
             defaultValue: "Click/Tap to add sticker to photo",
           })}
         />

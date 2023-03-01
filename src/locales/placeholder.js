@@ -14,7 +14,10 @@ t("required");
 t("Salutation");
 t("salutation_male");
 t("salutation_female");
-
+t(
+  "closed",
+  "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**"
+);
 t(
   "consent.processing",
   "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>"

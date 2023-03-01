@@ -134,7 +134,11 @@ export default function ShareAction(props) {
 
   const shareUrl = (component) => {
     // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
-    if (component.render?.displayName && component.render.displayName.includes("email")) return "";
+    if (
+      component.render?.displayName &&
+      component.render.displayName.includes("email")
+    )
+      return "";
     const medium =
       typeof component === "string"
         ? component
@@ -225,7 +229,7 @@ export default function ShareAction(props) {
       let msg =
         config.param.locales[key] ||
         config.param.locales["share"] ||
-        t(i18nKey);
+        /* i18next-extract-disable-line */ t(i18nKey);
       if (target) {
         msg += " " + target;
       }

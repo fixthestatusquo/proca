@@ -62,7 +62,7 @@ const Filter = (props) => {
         <TextField
           select
           name={d}
-          label={t(d)}
+          label={/* i18next-extract-disable-line */ t(d)}
           form={props.form}
           onChange={(e) => {
             props.selecting(d, e.target.value);
@@ -167,9 +167,8 @@ const Component = (props) => {
           //          const empty = { defaultValue: data[k], nsSeparator: false };
 
           const empty = {
-
             // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
-            defaultValue:  data[k] || defaultValue[k],
+            defaultValue: data[k] || defaultValue[k],
             nsSeparator: false,
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
@@ -197,7 +196,7 @@ const Component = (props) => {
     t,
     form,
     alwaysUpdate,
-    blockUpdate
+    blockUpdate,
   ]);
   // todo: clean the dependency
   //
@@ -449,9 +448,9 @@ const Component = (props) => {
               disabled={!!config.component.email.field.message.disabled}
               required={config.component.email.field.message.required}
               onChange={checkUpdated}
-              onClick = {() => {
+              onClick={() => {
                 setBlock(true);
-                }              }
+              }}
               label={t("Your message")}
             />
           </Grid>
