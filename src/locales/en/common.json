@@ -128,7 +128,10 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
+    "salutation": "Dear sir/madam",
+    "salutation_female": "Dear {target_name}",
     "salutation_info": "(The recipient's name will be put before sending)",
+    "salutation_male": "Dear {target name}",
     "salutation_placeholder": "Dear [recipient]"
   },
   "image": {
@@ -157,8 +160,6 @@
   },
   "required": "required",
   "required field": "required field",
-  "salutation_female": "salutation_female",
-  "salutation_male": "salutation_male",
   "salutations": {
     "f": "Dear {{name}}",
     "m": "Dear {{name}}",

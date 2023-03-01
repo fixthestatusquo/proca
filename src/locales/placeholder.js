@@ -11,9 +11,9 @@ t(
 
 t("dateFormat");
 t("required");
-t("Salutation");
-t("salutation_male");
-t("salutation_female");
+t("email.salutation", "Dear sir/madam");
+t("email.salutation_male", "Dear {target name}");
+t("email.salutation_female", "Dear {target_name}");
 t(
   "closed",
   "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**"
