@@ -8,11 +8,13 @@ import useImage from "use-image";
 import { useUpload } from "./Camera";
 import { IndividualSticker } from "./image/IndividualStickers";
 import UploadPicture from "./image/Upload";
+import SelectPicture from "./image/Select";
 import Camera from "./Camera";
 import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { resize } from "@lib/image";
 import {
   Grid,
   Step,
@@ -121,9 +123,11 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoLibraryIcon color="primary" />
-              Select one of our pictures
+              {t("picture.select", "Select one of our pictures")}
             </AccordionSummary>
-            <AccordionDetails>Coming soon...</AccordionDetails>
+            <AccordionDetails classes={{ root: classes.accordion }}>
+              <SelectPicture setCanvas={uploadedCanvas} />
+            </AccordionDetails>
           </Accordion>
         </div>
         <div hidden={activeStep !== 1} className={classes.dialog}>
@@ -317,9 +321,7 @@ const ImageOption = (props) => {
   const { t } = useTranslation();
   return (
     <Grid container spacing={1} justifyContent="space-between">
-      <Grid item>
-        {t("image.wanttoadd", { defaultValue: "Do you want to add a image?" })}
-      </Grid>
+      <Grid item>{t("image.wanttoadd", "Do you want to add a image?")}</Grid>
       <Grid item>
         <ButtonGroup variant="contained" color="primary">
           <Button
