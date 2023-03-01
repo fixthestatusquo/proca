@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-    "salutation_female": "Dear {{name}}",
     "salutation_info": "(the recipient's name will be put before sending)",
     "salutation_placeholder": "Dear [recipient]"
   },

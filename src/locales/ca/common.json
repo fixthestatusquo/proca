@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} no pot rebre correus electrònics",
-    "salutation_female": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },

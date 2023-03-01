@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
-    "salutation_female": "Szanowna Pani {{target.name}}",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
     "salutation_placeholder": "Szanowna:y [adresat],"
   },

@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} メール受信不可",
-    "salutation_female": "拝啓{{target.name}}",
     "salutation_info": "(送信前に受信者の名前が入ります）。",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
