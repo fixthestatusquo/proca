@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation_female": "Sehr geehrte {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
