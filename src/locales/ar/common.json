@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} لا يمكنه استقبال رسائل البريد الإلكتروني",
-    "salutation_female": "عزيزي {{name}}",
     "salutation_info": "(سيتم وضع اسم المستلم قبل الإرسال)",
     "salutation_placeholder": "عزيزي [المستلم]"
   },
