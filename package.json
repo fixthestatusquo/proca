@@ -47,7 +47,7 @@
     "react-share": "^4.4.1",
     "react-swipeable-views": "^0.14.0",
     "react-use": "^17.4.0",
-    "recoil": "^0.5.2",
+    "recoil": "^0.7.7",
     "snarkdown": "^2.0.0",
     "use-image": "^1.1.0",
     "uuid": "^9.0.0"
