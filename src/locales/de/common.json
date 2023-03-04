@@ -28,11 +28,17 @@
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
     "register": "Register",
+    "remindeSent": "Erinnerung gesendet",
+    "reminder": "Später erinnern",
+    "reminderEmail": "Mich per E-Mail erinnern",
     "share": "Teilen Sie",
     "sign": "Jetzt unterschreiben!",
     "stayInformed": "Informiert bleiben",
     "takeAction": "takeAction",
     "twitter": "Tweet"
+  },
+  "camera": {
+    "take": "Foto machen"
   },
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasst eure E-Mail, um über die nächsten Schritte informiert zu bleiben**.",
   "consent": {
@@ -51,6 +57,9 @@
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich"
+  },
+  "date": {
+    "error": "ungültiges Datum. Format: TT.MM.JJJJ"
   },
   "dateFormat": "TT.MM.JJJJ",
   "dialogTitle": "Informieren Sie mich über die Kampagne",
@@ -117,16 +126,25 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
+    "salutation": "Sehr geehrte Damen und Herren",
+    "salutation_female": "Sehr geehrte(r) {target_name}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
+    "salutation_male": "Sehr geehrte(r) {target name}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
+  "image": {
+    "addSticker": "Aufkleber hinzufügen",
+    "takeTitle": "Machen Sie ein Foto mit Ihrem Telefon",
+    "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
+  },
+  "no": "nein",
   "progress": {
-    "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
-    "email": "{{total}} haben eine E-Mail geschickt. Gehen wir zu {{goal}}",
+    "donate": "{{total}} haben gespendet. Gehen wir zu {{goal}}",
+    "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
     "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
-    "share": "{{total}} geteilt haben. Gehen wir zu {{goal}}",
+    "share": "{{total}} haben es geteilt. Gehen wir zu {{goal}}",
     "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",
-    "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
+    "twitter": "{{total}} haben getwittert. Gehen wir zu {{goal}}"
   },
   "register": "Meinen Namen hinzufügen",
   "required": "erforderlich",
@@ -140,6 +158,11 @@
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
     "message": "Sie sollten das unterschreiben!",
     "title": "Fast fertig! Machen Sie den nächsten Schritt."
+  },
+  "step": {
+    "eci": {
+      "secure": "sicher"
+    }
   },
   "supporter": {
     "not_you": "Sie nicht?",
@@ -159,5 +182,6 @@
     "organisation": "Twitter-Konto Ihrer Organisation",
     "screenName": "Bildschirmname"
   },
+  "yes": "ja",
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
 }
