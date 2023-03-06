@@ -21,9 +21,7 @@ export const useUpload = (canvasRef, max_size) => {
       return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
     };
 
-    console.log("upload A");
     const blob = await toBlob();
-    console.log("upload B", blob);
     const blobA = await blob.arrayBuffer();
     const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
     const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
