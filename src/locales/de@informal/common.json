@@ -43,6 +43,7 @@
     "take-another": "Nimm noch einen"
   },
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasse deine E-Mail, um über die nächsten Schritte informiert zu werden**",
+  "confirm": "Bist du sicher?",
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
@@ -137,6 +138,7 @@
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um Sticker zum Foto hinzuzufügen",
+    "benefit": "Das Hinzufügen eines Bildes zum Versenden - und das du im nächsten Schritt teilen kannst - würde deine Aktion noch wirkungsvoller machen",
     "select": "Wähle dein Bild",
     "takeTitle": "Mach ein Foto mit deinem Telefon",
     "upload": "Ein Bild hochladen",
