@@ -13,7 +13,8 @@ import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { resize } from "@lib/image";
+//import { resize } from "@lib/image";
+
 import {
   Grid,
   Step,
@@ -28,7 +29,9 @@ import {
   CardContent,
   Card,
   CardHeader,
+  Collapse,
 } from "@material-ui/core";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Dialog from "@components/Dialog";
 import { useTranslation } from "react-i18next";
@@ -344,6 +347,17 @@ const ImageOption = (props) => {
           </Button>
         </ButtonGroup>
       </Grid>
+      <Collapse in={image === false}>
+        <Alert severity="info" icon={<ImageIcon />}>
+          <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
+          <span>
+            {t(
+              "image.benefit",
+              "Adding an image to send to your MEPs and minister -and that you can share at the next step- would make your action more impactful"
+            )}
+          </span>
+        </Alert>
+      </Collapse>
     </Grid>
   );
 };

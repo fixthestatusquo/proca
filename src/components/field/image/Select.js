@@ -45,6 +45,7 @@ const PictureSelector = (props) => {
         <img
           src={base + d}
           crossorigin="anonymous"
+          alt={d}
           onClick={handleClick}
           className={classes.thumb}
           key={d}
