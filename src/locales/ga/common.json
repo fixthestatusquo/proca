@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
-    "salutation_female": "A chara {{target.name}}",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
     "salutation_placeholder": "A chara [faighteoir],"
   },

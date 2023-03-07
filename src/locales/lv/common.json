@@ -117,7 +117,6 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
-    "salutation_female": "Dārgais {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
