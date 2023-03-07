@@ -28,13 +28,22 @@
     "email": "Send an Email",
     "join": "Join",
     "register": "Register",
+    "remindeSent": "Reminder sent",
+    "reminder": "Remind me later",
+    "reminderEmail": "Remind me by email",
     "share": "Share",
     "sign": "Sign Now!",
     "stayInformed": "Stay informed",
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "start the camera",
+    "take": "Take picture",
+    "take-another": "Take another one"
+  },
   "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
+  "confirm": "Are you sure?",
   "consent": {
     "actionConfirmed": "Action confirmed",
     "actionRejected": "The action was successfully cancelled",
@@ -51,6 +60,9 @@
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
     "required": "Your consent is needed to participate"
+  },
+  "date": {
+    "error": "invalid date. format: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Keep me informed about the campaign",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
+    "salutation": "Dear sir/madam",
+    "salutation_female": "Dear {target_name}",
     "salutation_info": "(the recipient's name will be put before sending)",
+    "salutation_male": "Dear {target name}",
     "salutation_placeholder": "Dear [recipient]"
   },
+  "image": {
+    "addSticker": "add stickers",
+    "addStickerTitle": "Click/Tap to add sticker to photo",
+    "benefit": "Adding an image to send -and that you can share at the next step- would make your action more impactful",
+    "select": "choose your picture",
+    "takeTitle": "Take a picture with your phone",
+    "upload": "Upload a picture",
+    "wanttoadd": "Do you want to add a image?"
+  },
+  "no": "no",
   "progress": {
     "donate": "{{total}} have donated. Let's go to {{goal}}",
     "email": "{{total}} have sent an email. Let's go to {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} have twitted. Let's go to {{goal}}"
   },
   "register": "Add my name",
+  "reminder": {
+    "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
+  },
   "required": "required",
   "required field": "required field",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
     "message": "You should sign this!",
     "title": "Almost done! Take the next step."
+  },
+  "step": {
+    "eci": {
+      "secure": "secure"
+    }
   },
   "supporter": {
     "not_you": "not you?",
@@ -159,5 +192,6 @@
     "organisation": "Your organisation twitter account",
     "screenName": "Screen name"
   },
+  "yes": "yes",
   "you need to be 18 years old": "you need to be 18 years old"
 }
