@@ -40,7 +40,7 @@
   "camera": {
     "start": "démarrer la caméra",
     "take": "Prenez une photo",
-    "take-another": "Prends-en un autre."
+    "take-another": "Prends-en une autre"
   },
   "closed": "##Merci à {{total}} supporters !\n\nNous avons clôturé cette action, mais notre travail ne s'arrête pas là, alors s'il vous plaît **laissez votre email pour rester informé des prochaines étapes**.",
   "confirm": "Vous êtes sûr ?",
@@ -97,14 +97,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Le rendre mensuel ?",
+        "monthly": "Le rendre hebdomadaire?",
         "oneoff": "Faire un don",
-        "weekly": "En faire un don hebdomadaire ?"
+        "weekly": "En faire un don mensuel?"
       },
       "each": {
-        "monthly": "chaque mois",
+        "monthly": "chaque semaine",
         "oneoff": "Une fois",
-        "weekly": "chaque année"
+        "weekly": "chaque mois"
       },
       "feedback": {
         "monthly": "Je fais un don {{amount}} {{frequency}}",
@@ -130,8 +130,8 @@
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
     "salutation": "Cher monsieur/madame",
-    "salutation_female": "Cher {nom de la cible}",
-    "salutation_info": "Le nom sera automatiquement remplacé",
+    "salutation_female": "Chère {nom de la cible}",
+    "salutation_info": "(Le nom sera automatiquement remplacé)",
     "salutation_male": "Cher {nom de la cible}",
     "salutation_placeholder": "Cher/chère [destinataire]"
   },
@@ -144,7 +144,7 @@
     "upload": "Télécharger une image",
     "wanttoadd": "Voulez-vous ajouter une image ?"
   },
-  "no": "pas de",
+  "no": "non",
   "progress": {
     "donate": "{{total}} ont fait des dons. Allons à {{goal}}",
     "email": "{{total}} ont envoyé un e-mail. Allons à {{goal}}",
