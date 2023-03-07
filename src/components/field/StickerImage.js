@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   dialog: {
     minWidth: theme.breakpoints.values.sm,
   },
+   stickers: {
+    maxWidth: theme.breakpoints.values.sm
+  }
 }));
 
 export default function ImageStickerComplete(props) {
@@ -275,7 +278,7 @@ const ImageStickerKonva = (props) => {
             defaultValue: "Click/Tap to add a sticker",
           })}
         />
-        <CardContent>
+        <CardContent className={classes.stickers}>
           {stickersData.map((sticker, i) => {
             return (
               <span
