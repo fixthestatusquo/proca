@@ -28,13 +28,22 @@
     "email": "Lähetä sähköpostia",
     "join": "Liity",
     "register": "Rekisteröi",
+    "remindeSent": "Muistutus lähetetty",
+    "reminder": "Muistuta minua myöhemmin",
+    "reminderEmail": "Muistuta minua sähköpostitse",
     "share": "Jaa",
     "sign": "Kirjaudu",
     "stayInformed": "Liity jakelulistalle",
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "käynnistä kamera",
+    "take": "Ota kuva",
+    "take-another": "Ota toinen"
+  },
   "closed": "##kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
+  "confirm": "Oletko varma?",
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",
     "actionRejected": "Toimenpide peruutettiin onnistuneesti",
@@ -51,6 +60,9 @@
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
     "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
     "required": "Osallistuminen edellyttää suostumustasi"
+  },
+  "date": {
+    "error": "virheellinen päivämäärä. format: MM.VVVV"
   },
   "dateFormat": "PP/KK/VVVV",
   "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
+    "salutation": "Hyvä herra/rouva",
+    "salutation_female": "Hyvä {kohde_nimi}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
+    "salutation_male": "Hyvä {kohteen nimi}",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
+  "image": {
+    "addSticker": "lisätä tarroja",
+    "addStickerTitle": "Lisää tarra valokuvaan napsauttamalla sitä",
+    "benefit": "Lähetettävän kuvan lisääminen - jonka voit jakaa seuraavassa vaiheessa - tekisi toiminnastasi vaikuttavamman.",
+    "select": "valitse kuvasi",
+    "takeTitle": "Ota kuva puhelimella",
+    "upload": "Lataa kuva",
+    "wanttoadd": "Haluatko lisätä kuvan?"
+  },
+  "no": "ei",
   "progress": {
     "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
     "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
   },
   "register": "Lisää nimeni",
+  "reminder": {
+    "intro": "Tiedämme, että hallituksenne pyytää paljon tietoja. Lähetämme sinulle yhden sähköpostiviestin, joka muistuttaa sinua täyttämään lomakkeen myöhemmin."
+  },
   "required": "Täytä tämä kenttä",
   "required field": "Pakollinen kenttä",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
     "title": "Melkein valmista! Ota seuraava askel."
+  },
+  "step": {
+    "eci": {
+      "secure": "turvallinen"
+    }
   },
   "supporter": {
     "not_you": "etkö sinä?",
@@ -159,5 +192,6 @@
     "organisation": "Organisaatiosi Twitter-tili",
     "screenName": "Näyttönimi"
   },
+  "yes": "kyllä",
   "you need to be 18 years old": "sinun on oltava 18-vuotias"
 }
