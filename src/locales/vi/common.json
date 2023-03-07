@@ -28,13 +28,22 @@
     "email": "Gửi Email",
     "join": "Tham gia",
     "register": "Đăng ký",
+    "remindeSent": "đã gửi lời nhắc",
+    "reminder": "Nhắc tôi sau",
+    "reminderEmail": "Nhắc tôi qua email",
     "share": "Đăng lại",
     "sign": "Ký ngay bây giờ!",
     "stayInformed": "Thông báo lưu trú",
     "takeAction": "takeAction",
     "twitter": "tiếng riu ríu"
   },
+  "camera": {
+    "start": "khởi động máy ảnh",
+    "take": "Chụp ảnh",
+    "take-another": "Lấy cái khác"
+  },
   "closed": "##cảm ơn những người ủng hộ {{total}}!\n\nChúng tôi đã đóng hành động này, nhưng công việc của chúng tôi không kết thúc ở đây, vì vậy vui lòng **để lại email của bạn để được thông báo về các bước tiếp theo**",
+  "confirm": "Bạn có chắc không?",
   "consent": {
     "actionConfirmed": "Đã xác nhận hành động",
     "actionRejected": "Hành động đã được hủy thành công",
@@ -51,6 +60,9 @@
     "processing": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu và cookie theo <1> chính sách bảo mật </1> của chúng tôi",
     "processing-nocookie": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu theo <1> chính sách bảo mật </1> của chúng tôi",
     "required": "Cần có sự đồng ý của bạn để tham gia"
+  },
+  "date": {
+    "error": "ngày không hợp lệ. định dạng: DD.MM.YYYY"
   },
   "dateFormat": "DD / MM / YYYY",
   "dialogTitle": "Thông báo cho tôi về chiến dịch",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} không thể nhận email",
+    "salutation": "Thưa ông / bà",
+    "salutation_female": "Kính gửi {target_name}",
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
+    "salutation_male": "Kính gửi {tên mục tiêu}",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
+  "image": {
+    "addSticker": "thêm nhãn dán",
+    "addStickerTitle": "Nhấp/Nhấn để thêm nhãn dán vào ảnh",
+    "benefit": "Thêm hình ảnh để gửi -và bạn có thể chia sẻ ở bước tiếp theo- sẽ làm cho hành động của bạn có tác động hơn",
+    "select": "chọn hình ảnh của bạn",
+    "takeTitle": "Chụp ảnh bằng điện thoại của bạn",
+    "upload": "Tải ảnh lên",
+    "wanttoadd": "Bạn có muốn thêm một hình ảnh?"
+  },
+  "no": "KHÔNG",
   "progress": {
     "donate": "{{total}} đã quyên góp. Hãy chuyển đến {{goal}}",
     "email": "{{total}} đã gửi email. Hãy chuyển đến {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} đã twitted. Hãy chuyển đến {{goal}}"
   },
   "register": "Thêm tên của tôi",
+  "reminder": {
+    "intro": "Chúng tôi biết, chính phủ của bạn đang hỏi rất nhiều thông tin. Chúng tôi sẽ gửi cho bạn một email để nhắc bạn điền vào biểu mẫu sau"
+  },
   "required": "yêu cầu",
   "required field": "phần bắt buộc",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Tuyệt vời, bạn đã ký kết 👍. Để nhân rộng tầm ảnh hưởng của bạn, hãy chia sẻ rộng rãi để đảm bảo mọi người đều nhìn thấy kiến nghị này 🙏.",
     "message": "Bạn nên ký tên này!",
     "title": "Sắp xong! Thực hiện bước tiếp theo."
+  },
+  "step": {
+    "eci": {
+      "secure": "chắc chắn"
+    }
   },
   "supporter": {
     "not_you": "không phải bạn?",
@@ -159,5 +192,6 @@
     "organisation": "Tài khoản twitter tổ chức của bạn",
     "screenName": "Tên hiển thị"
   },
+  "yes": "Đúng",
   "you need to be 18 years old": "bạn cần đủ 18 tuổi"
 }

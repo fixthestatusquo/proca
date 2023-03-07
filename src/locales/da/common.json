@@ -28,13 +28,22 @@
     "email": "Send en e-mail",
     "join": "Tilmeld dig",
     "register": "Registrer",
+    "remindeSent": "Påmindelse sendt",
+    "reminder": "Mind mig om det senere",
+    "reminderEmail": "Påmind mig via e-mail",
     "share": "Del",
     "sign": "Skriv under",
     "stayInformed": "Hold dig opdateret",
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "starte kameraet",
+    "take": "Tag et billede",
+    "take-another": "Tag en til"
+  },
   "closed": "##tak til {{total}} supportere!\n\nVi har afsluttet denne aktion, men vores arbejde slutter ikke her, så **læs venligst din e-mail for at blive holdt orienteret om de næste skridt**",
+  "confirm": "Er du sikker?",
   "consent": {
     "actionConfirmed": "Aktion bekræftet",
     "actionRejected": "Handlingen blev annulleret med succes",
@@ -51,6 +60,9 @@
     "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage"
+  },
+  "date": {
+    "error": "ugyldig dato. format: DD.MM.YYYYYY"
   },
   "dateFormat": "DD/MM/ÅÅÅÅ",
   "dialogTitle": "Hold mig informeret om kampagnen",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
+    "salutation": "Kære hr/frue",
+    "salutation_female": "Kære {target_name}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
+    "salutation_male": "Kære {målsnavn}",
     "salutation_placeholder": "Kære [modtager],"
   },
+  "image": {
+    "addSticker": "tilføje klistermærker",
+    "addStickerTitle": "Klik/tryk for at tilføje et klistermærke til et foto",
+    "benefit": "Hvis du tilføjer et billede, som du kan sende - og som du kan dele i næste trin - vil det gøre din aktion mere effektfuld.",
+    "select": "vælg dit billede",
+    "takeTitle": "Tag et billede med din telefon",
+    "upload": "Upload et billede",
+    "wanttoadd": "Ønsker du at tilføje et billede?"
+  },
+  "no": "ingen",
   "progress": {
     "donate": "{{total}} har doneret. Lad os gå til {{goal}}",
     "email": "{{total}} har sendt en e-mail. Lad os gå til {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} har twittet. Lad os gå til {{goal}}"
   },
   "register": "Tilføj mit navn",
+  "reminder": {
+    "intro": "Vi ved, at din regering beder om mange oplysninger. Vi sender dig en enkelt e-mail for at minde dig om, at du skal udfylde formularen senere."
+  },
   "required": "Udfyld venligst dette felt",
   "required field": "Obligatorisk felt",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. Hvis vi er nok, der skriver under, er EU forpligtet til at lytte 🙏.",
     "message": "Du skal underskrive dette!",
     "title": "Næsten færdig – nu mangler du blot at dele budskabet"
+  },
+  "step": {
+    "eci": {
+      "secure": "sikker"
+    }
   },
   "supporter": {
     "not_you": "ikke dig?",
@@ -159,5 +192,6 @@
     "organisation": "Din organisations twitter-konto",
     "screenName": "Skærmenavn"
   },
+  "yes": "ja",
   "you need to be 18 years old": "du skal være 18 år gammel"
 }

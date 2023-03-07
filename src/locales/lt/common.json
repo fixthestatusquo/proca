@@ -28,13 +28,22 @@
     "email": "Siųsti el. laišką",
     "join": "Prisijunkite prie",
     "register": "Registruotis",
+    "remindeSent": "Išsiųstas priminimas",
+    "reminder": "Primink man vėliau",
+    "reminderEmail": "Priminkite man el. paštu",
     "share": "Dalintis",
     "sign": "Ženklas",
     "stayInformed": "Gauti naujausią informaciją",
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "įjungti fotoaparatą",
+    "take": "Nufotografuokite",
+    "take-another": "Paimkite dar vieną"
+  },
   "closed": "##Dėkojame {{total}} rėmėjams!\n\nŠią akciją užbaigėme, tačiau mūsų darbas čia nesibaigia, todėl prašome **palikti savo el. paštą, kad būtumėte informuoti apie tolesnius veiksmus**.",
+  "confirm": "Ar tikrai?",
   "consent": {
     "actionConfirmed": "Patvirtintas veiksmas",
     "actionRejected": "Veiksmas sėkmingai atšauktas",
@@ -51,6 +60,9 @@
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
     "required": "Norint dalyvauti, reikia jūsų sutikimo."
+  },
+  "date": {
+    "error": "negaliojanti data. formatas: DD.MM.MM.YYYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Informuokite mane apie kampaniją",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
+    "salutation": "Gerbiamasis ponas (ponia)",
+    "salutation_female": "Gerbiamasis {tikslo_vardas}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
+    "salutation_male": "Gerbiamas {tikslo pavadinimas}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
+  "image": {
+    "addSticker": "pridėti lipdukų",
+    "addStickerTitle": "Spustelėkite / bakstelėkite, jei norite pridėti lipduką prie nuotraukos",
+    "benefit": "Pridėjus siunčiamą paveikslėlį, kuriuo galėsite pasidalyti kitame žingsnyje, jūsų veiksmas taptų paveikesnis.",
+    "select": "pasirinkite nuotrauką",
+    "takeTitle": "Nufotografuokite nuotrauką telefonu",
+    "upload": "Įkelti nuotrauką",
+    "wanttoadd": "Ar norite pridėti paveikslėlį?"
+  },
+  "no": "ne",
   "progress": {
     "donate": "{{total}} paaukojo. Eikime į {{goal}}",
     "email": "{{total}} išsiuntė el. laišką. Eikime į {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
   "register": "Pridėti mano vardą",
+  "reminder": {
+    "intro": "Žinome, kad jūsų vyriausybė prašo daug informacijos. Išsiųsime jums vieną el. laišką, kad primintume užpildyti formą vėliau."
+  },
   "required": "Užpildykite šį laukelį",
   "required field": "Privalomas laukas",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",
     "title": "Beveik baigta! Ženkite kitą žingsnį."
+  },
+  "step": {
+    "eci": {
+      "secure": "saugus"
+    }
   },
   "supporter": {
     "not_you": "ne jūs?",
@@ -159,5 +192,6 @@
     "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
     "screenName": "Ekrano vardas"
   },
+  "yes": "taip",
   "you need to be 18 years old": "jums reikia 18 metu"
 }

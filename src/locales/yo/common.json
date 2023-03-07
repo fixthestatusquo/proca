@@ -28,13 +28,22 @@
     "email": "Fi imeeli ranṣẹ",
     "join": "Darapọ mọ",
     "register": "Forukọsilẹ",
+    "remindeSent": "Olurannileti rán",
+    "reminder": "Ranmi leti toba se die",
+    "reminderEmail": "Ṣe iranti mi nipasẹ imeeli",
     "share": "Pin",
     "sign": "wole",
     "stayInformed": "Duro alaye",
     "takeAction": "Gbe igbese!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "bẹrẹ kamẹra",
+    "take": "Ya aworan",
+    "take-another": "Gba ọkan miiran"
+  },
   "closed": "## o ṣeun si awọn alatilẹyin {{total}}!\n\nA ti paade iṣe yii, ṣugbọn iṣẹ wa ko pari nihin, nitorinaa jọwọ fi imeeli rẹ silẹ lati jẹ ki alaye nipa awọn igbesẹ ti n bọ ***",
+  "confirm": "Ṣe o da ọ loju?",
   "consent": {
     "actionConfirmed": "Action timo",
     "actionRejected": "Iṣẹ naa ti fagile ni aṣeyọri",
@@ -51,6 +60,9 @@
     "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
     "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
     "required": "A nilo igbanilaaye lati kopa"
+  },
+  "date": {
+    "error": "ọjọ ti ko tọ. ọna kika: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/ỌDÚN",
   "dialogTitle": "Pa mi mọ nipa ipolongo naa",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ko le gba awọn imeeli",
+    "salutation": "Eyin sir/ iyaafin",
+    "salutation_female": "Eyin {oruko_afojusun}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
+    "salutation_male": "Eyin {oruko afojusun}",
     "salutation_placeholder": "Eyin [olugba],"
   },
+  "image": {
+    "addSticker": "fi awọn ohun ilẹmọ",
+    "addStickerTitle": "Tẹ/Fọwọ ba lati ṣafikun sitika si fọto",
+    "benefit": "Ṣafikun aworan kan lati firanṣẹ -ati pe o le pin ni igbesẹ ti nbọ- yoo jẹ ki iṣe rẹ ni ipa diẹ sii",
+    "select": "yan aworan rẹ",
+    "takeTitle": "Ya aworan kan pẹlu foonu rẹ",
+    "upload": "Po si aworan kan",
+    "wanttoadd": "Ṣe o fẹ lati fi aworan kun?"
+  },
+  "no": "rara",
   "progress": {
     "donate": "{{total}} ti ṣetọrẹ. Jẹ ki a lọ si {{goal}}",
     "email": "{{total}} ti fi imeeli ranṣẹ. Jẹ ki a lọ si {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} ti twitter. Jẹ ki a lọ si {{goal}}"
   },
   "register": "Fi orukọ mi kun",
+  "reminder": {
+    "intro": "A mọ, ijọba rẹ n beere alaye pupọ. A yoo fi imeeli kan ranṣẹ si ọ lati leti lati kun fọọmu naa nigbamii"
+  },
   "required": "Jọwọ fọwọsi aaye yii",
   "required field": "Aaye ti a beere",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
     "message": "O yẹ ki o fowo si eyi!",
     "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle."
+  },
+  "step": {
+    "eci": {
+      "secure": "ni aabo"
+    }
   },
   "supporter": {
     "not_you": "ko iwo?",
@@ -159,5 +192,6 @@
     "organisation": "Akọọlẹ twitter rẹ agbari",
     "screenName": "Orukọ iboju"
   },
+  "yes": "beeni",
   "you need to be 18 years old": "o nilo lati jẹ ọdun 18"
 }

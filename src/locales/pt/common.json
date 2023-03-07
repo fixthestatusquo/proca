@@ -28,13 +28,22 @@
     "email": "Envie um e-mail",
     "join": "Junte-se a",
     "register": "Registe-se",
+    "remindeSent": "Lembrete enviado",
+    "reminder": "Lembre-me mais tarde",
+    "reminderEmail": "Lembre-me por e-mail",
     "share": "Compartilhe",
     "sign": "Assine",
     "stayInformed": "Mantenha-se informado",
     "takeAction": "Tome medidas!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "iniciar a câmera",
+    "take": "Tire uma foto",
+    "take-another": "pegue outro"
+  },
   "closed": "##graças aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não acaba aqui, então por favor **deixe seu e-mail para ficar informado sobre os próximos passos**",
+  "confirm": "Tem certeza?",
   "consent": {
     "actionConfirmed": "Acção confirmada",
     "actionRejected": "A acção foi cancelada com sucesso",
@@ -51,6 +60,9 @@
     "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "required": "O seu consentimento é necessário para participar"
+  },
+  "date": {
+    "error": "data inválida. formato: DD.MM.AAAA"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Mantenha-me informado sobre a campanha",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} não pode receber e-mails",
+    "salutation": "Caro senhor/senhora",
+    "salutation_female": "Prezado {target_name}",
     "salutation_info": "(o nome será colocado antes do envio)",
+    "salutation_male": "Prezado {nome do alvo}",
     "salutation_placeholder": "Caro [destinatário],"
   },
+  "image": {
+    "addSticker": "adicionar adesivos",
+    "addStickerTitle": "Clique/toque para adicionar adesivo à foto",
+    "benefit": "Adicionar uma imagem para enviar - e que você pode compartilhar na próxima etapa - tornaria sua ação mais impactante",
+    "select": "escolha sua foto",
+    "takeTitle": "Tire uma foto com seu telefone",
+    "upload": "Carregar uma foto",
+    "wanttoadd": "Deseja adicionar uma imagem?"
+  },
+  "no": "não",
   "progress": {
     "donate": "{{total}} doaram. Vamos para {{goal}}",
     "email": "{{total}} enviou um e-mail. Vamos para {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} tuitou. Vamos para {{goal}}"
   },
   "register": "Acrescentar meu nome",
+  "reminder": {
+    "intro": "Sabemos que seu governo está pedindo muitas informações. Enviaremos um único e-mail para lembrá-lo de preencher o formulário posteriormente"
+  },
   "required": "Por favor preencha este campo",
   "required field": "Campo obrigatório",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",
     "title": "Está quase! Dá o próximo passo."
+  },
+  "step": {
+    "eci": {
+      "secure": "seguro"
+    }
   },
   "supporter": {
     "not_you": "não você?",
@@ -159,5 +192,6 @@
     "organisation": "A sua conta no twitter da organização",
     "screenName": "Nome do ecrã"
   },
+  "yes": "sim",
   "you need to be 18 years old": "você precisa ter 18 anos de idade"
 }

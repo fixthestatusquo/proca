@@ -28,13 +28,22 @@
     "email": "Stuur een e-mail",
     "join": "Word lid van",
     "register": "Registreren",
+    "remindeSent": "Herinnering verzonden",
+    "reminder": "Herinner me er later aan",
+    "reminderEmail": "Herinner mij per e-mail",
     "share": "Deel",
     "sign": "Teken",
     "stayInformed": "Hou mij op de hoogte",
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "start de camera",
+    "take": "Maak een foto",
+    "take-another": "Neem er nog een."
+  },
   "closed": "## dank aan {{total}} supporters!\n\nWe hebben deze actie afgesloten, maar ons werk eindigt hier niet, dus laat uw e-mail achter om op de hoogte te blijven van de volgende stappen**.",
+  "confirm": "Weet je het zeker?",
   "consent": {
     "actionConfirmed": "Actie bevestigd",
     "actionRejected": "De actie werd met succes geannuleerd",
@@ -51,6 +60,9 @@
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
     "required": "Uw toestemming is nodig om deel te nemen"
+  },
+  "date": {
+    "error": "ongeldige datum. formaat: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/JJJJ",
   "dialogTitle": "Hou me op de hoogte van de campagne",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
+    "salutation": "Geachte heer/mevrouw",
+    "salutation_female": "Beste {doel_naam}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
+    "salutation_male": "Beste {doelnaam}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
+  "image": {
+    "addSticker": "stickers toevoegen",
+    "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
+    "benefit": "Het toevoegen van een afbeelding om te verzenden -en die u bij de volgende stap kunt delen- zou uw actie meer impact geven.",
+    "select": "kies uw foto",
+    "takeTitle": "Maak een foto met je telefoon",
+    "upload": "Een foto uploaden",
+    "wanttoadd": "Wilt u een afbeelding toevoegen?"
+  },
+  "no": "geen",
   "progress": {
     "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
     "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
   "register": "Mijn naam toevoegen",
+  "reminder": {
+    "intro": "We weten dat uw regering veel informatie vraagt. We sturen u een enkele e-mail om u eraan te herinneren het formulier later in te vullen"
+  },
   "required": "Gelieve dit veld in te vullen",
   "required field": "Verplicht veld",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
     "title": "Bijna klaar! Zet de volgende stap."
+  },
+  "step": {
+    "eci": {
+      "secure": "beveiligde"
+    }
   },
   "supporter": {
     "not_you": "jij niet?",
@@ -159,5 +192,6 @@
     "organisation": "Twitter-account van uw organisatie",
     "screenName": "Schermnaam"
   },
+  "yes": "ja",
   "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }

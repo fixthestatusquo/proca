@@ -28,13 +28,22 @@
     "email": "Envoyer un courriel",
     "join": "Rejoignez",
     "register": "S'inscrire",
+    "remindeSent": "Rappel envoyé",
+    "reminder": "Rappelez-moi plus tard",
+    "reminderEmail": "Rappelez-moi par e-mail",
     "share": "Partager",
     "sign": "Signez !",
     "stayInformed": "Rester informé(e)",
     "takeAction": "Passez à l'action !",
     "twitter": "Tweetter"
   },
+  "camera": {
+    "start": "démarrer la caméra",
+    "take": "Prenez une photo",
+    "take-another": "Prends-en une autre"
+  },
   "closed": "##Merci à {{total}} supporters !\n\nNous avons clôturé cette action, mais notre travail ne s'arrête pas là, alors s'il vous plaît **laissez votre email pour rester informé des prochaines étapes**.",
+  "confirm": "Vous êtes sûr ?",
   "consent": {
     "actionConfirmed": "Action confirmée",
     "actionRejected": "L'action a été annulée avec succès",
@@ -51,6 +60,9 @@
     "processing": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données et des cookies conformément à notre <1>politique de confidentialité</1>",
     "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
     "required": "Votre consentement est nécessaire pour participer"
+  },
+  "date": {
+    "error": "date invalide. format : JJ.MM.AAAA"
   },
   "dateFormat": "JJ/MM/AAAA",
   "dialogTitle": "Tenez-moi informé de la campagne",
@@ -85,14 +97,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Le rendre mensuel ?",
+        "monthly": "Le rendre hebdomadaire?",
         "oneoff": "Faire un don",
-        "weekly": "En faire un don hebdomadaire ?"
+        "weekly": "En faire un don mensuel?"
       },
       "each": {
-        "monthly": "chaque mois",
+        "monthly": "chaque semaine",
         "oneoff": "Une fois",
-        "weekly": "chaque année"
+        "weekly": "chaque mois"
       },
       "feedback": {
         "monthly": "Je fais un don {{amount}} {{frequency}}",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
-    "salutation_info": "Le nom sera automatiquement remplacé",
+    "salutation": "Cher monsieur/madame",
+    "salutation_female": "Chère {nom de la cible}",
+    "salutation_info": "(Le nom sera automatiquement remplacé)",
+    "salutation_male": "Cher {nom de la cible}",
     "salutation_placeholder": "Cher/chère [destinataire]"
   },
+  "image": {
+    "addSticker": "ajouter des autocollants",
+    "addStickerTitle": "Cliquez/tapez pour ajouter un autocollant à la photo",
+    "benefit": "L'ajout d'une image à envoyer - et que vous pourrez partager à l'étape suivante - rendrait votre action plus percutante.",
+    "select": "choisissez votre photo",
+    "takeTitle": "Prenez une photo avec votre téléphone",
+    "upload": "Télécharger une image",
+    "wanttoadd": "Voulez-vous ajouter une image ?"
+  },
+  "no": "non",
   "progress": {
     "donate": "{{total}} ont fait des dons. Allons à {{goal}}",
     "email": "{{total}} ont envoyé un e-mail. Allons à {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} ont twitté. Allons à {{goal}}"
   },
   "register": "Ajouter mon nom",
+  "reminder": {
+    "intro": "Nous savons que votre gouvernement vous demande beaucoup d'informations. Nous vous enverrons un seul courriel pour vous rappeler de remplir le formulaire ultérieurement."
+  },
   "required": "Veuillez compléter ce champ",
   "required field": "Veuillez compléter ce champ",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "message": "Vous devriez signer ceci !",
     "title": "Vous avez presque terminé ! Passez à l'étape suivante."
+  },
+  "step": {
+    "eci": {
+      "secure": "sécurisé"
+    }
   },
   "supporter": {
     "not_you": "pas vous ?",
@@ -159,5 +192,6 @@
     "organisation": "Compte Twitter de votre organisation",
     "screenName": "Nom d'affichage"
   },
+  "yes": "oui",
   "you need to be 18 years old": "vous devez avoir 18 ans"
 }

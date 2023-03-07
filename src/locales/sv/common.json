@@ -28,13 +28,22 @@
     "email": "Skicka ett e-postmeddelande",
     "join": "Gå med i",
     "register": "Registrera",
+    "remindeSent": "Påminnelse skickad",
+    "reminder": "Påminn mig senare",
+    "reminderEmail": "Påminn mig via e-post",
     "share": "Dela",
     "sign": "Skylt",
     "stayInformed": "Håll dig uppdaterad",
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "starta kameran",
+    "take": "Ta en bild",
+    "take-another": "Ta en till"
+  },
   "closed": "##Tack till {{total}} supportrar!\n\nVi har avslutat denna aktion, men vårt arbete slutar inte här, så **lämna din e-postadress för att hålla dig informerad om nästa steg**.",
+  "confirm": "Är du säker?",
   "consent": {
     "actionConfirmed": "Åtgärd bekräftad",
     "actionRejected": "Åtgärden har avbrutits.",
@@ -51,6 +60,9 @@
     "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "required": "Ditt samtycke krävs för att delta"
+  },
+  "date": {
+    "error": "ogiltigt datum. format: DD.MM.YYYYY"
   },
   "dateFormat": "DD/MM/åååå",
   "dialogTitle": "Håll mig informerad om kampanjen",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
+    "salutation": "Kära herr/fru",
+    "salutation_female": "Kära {target_name}",
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
+    "salutation_male": "Kära {målnamn}",
     "salutation_placeholder": "Kära [mottagare],"
   },
+  "image": {
+    "addSticker": "lägga till klistermärken",
+    "addStickerTitle": "Klicka/trycka för att lägga till klistermärke i fotot",
+    "benefit": "Om du lägger till en bild som du skickar - och som du kan dela med dig av i nästa steg - kan du göra din åtgärd mer effektfull.",
+    "select": "välj din bild",
+    "takeTitle": "Ta en bild med din telefon",
+    "upload": "Ladda upp en bild",
+    "wanttoadd": "Vill du lägga till en bild?"
+  },
+  "no": "ingen",
   "progress": {
     "donate": "{{total}} har donerat. Vi går till {{goal}}",
     "email": "{{total}} har skickat ett e-postmeddelande. Vi går till {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} har twittrat. Vi går till {{goal}}"
   },
   "register": "Lägg till mitt namn",
+  "reminder": {
+    "intro": "Vi vet att er regering begär mycket information. Vi kommer att skicka ett enda e-postmeddelande för att påminna dig om att fylla i formuläret senare."
+  },
   "required": "Fyll i det här fältet",
   "required field": "Obligatoriskt fält",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
     "title": "Nästan klar! Ta nästa steg."
+  },
+  "step": {
+    "eci": {
+      "secure": "säker"
+    }
   },
   "supporter": {
     "not_you": "inte du?",
@@ -159,5 +192,6 @@
     "organisation": "Din organisations twitterkonto",
     "screenName": "Skärmnamn"
   },
+  "yes": "ja",
   "you need to be 18 years old": "du måste vara 18 år gammal"
 }

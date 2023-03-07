@@ -28,13 +28,22 @@
     "email": "Aika imel",
     "join": "Shiga",
     "register": "Yi rijista",
+    "remindeSent": "An aika da tunatarwa",
+    "reminder": "Tunatar da ni daga baya",
+    "reminderEmail": "Tunatar da ni ta imel",
     "share": "Raba",
     "sign": "Alama",
     "stayInformed": "Kasance da labari",
     "takeAction": "Dauki Mataki!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "fara kamara",
+    "take": "Ɗauki hoto",
+    "take-another": "Dauki wani"
+  },
   "closed": "## godiya ga magoya bayan {{total}}!\n\nMun rufe wannan aikin, amma aikinmu bai ƙare a nan ba, don haka don Allah ** bar imel ɗin ku don sanar da ku game da matakai na gaba ***",
+  "confirm": "Ka tabbata?",
   "consent": {
     "actionConfirmed": "An tabbatar da aikin",
     "actionRejected": "An yi nasarar soke matakin",
@@ -51,6 +60,9 @@
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
     "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
     "required": "Ana buƙatar izinin ku don shiga"
+  },
+  "date": {
+    "error": "kwanan wata. format: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
+    "salutation": "Yallabai/ madam",
+    "salutation_female": "Masoyi {sunan_ manufa}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
+    "salutation_male": "Masoyi {sunan manufa}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
+  "image": {
+    "addSticker": "ƙara lambobi",
+    "addStickerTitle": "Danna/Taɓa don ƙara sitika zuwa hoto",
+    "benefit": "Ƙara hoto don aikawa - kuma za ku iya rabawa a mataki na gaba - zai sa aikinku ya fi tasiri",
+    "select": "zabi hoton ku",
+    "takeTitle": "Ɗauki hoto da wayarka",
+    "upload": "Loda hoto",
+    "wanttoadd": "Kuna son ƙara hoto?"
+  },
+  "no": "a'a",
   "progress": {
     "donate": "{{total}} sun ba da gudummawa. Mu je zuwa {{goal}}",
     "email": "{{total}} sun aika imel. Mu je zuwa {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} sun yi sharhi. Mu je zuwa {{goal}}"
   },
   "register": "Ƙara sunana",
+  "reminder": {
+    "intro": "Mun sani, gwamnatin ku tana neman bayanai da yawa. Za mu aiko muku da imel ɗaya don tunatar da ku cika fom daga baya"
+  },
   "required": "Da fatan za a cika wannan filin",
   "required field": "Filin da ake buƙata",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
     "message": "Ya kamata ku sa hannu kan wannan!",
     "title": "Kusan an gama! Dauki mataki na gaba."
+  },
+  "step": {
+    "eci": {
+      "secure": "amintacce"
+    }
   },
   "supporter": {
     "not_you": "ba ka ba?",
@@ -159,5 +192,6 @@
     "organisation": "Asusun twitter kungiyar ku",
     "screenName": "Sunan kariya"
   },
+  "yes": "iya",
   "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }

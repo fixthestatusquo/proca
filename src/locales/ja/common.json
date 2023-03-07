@@ -28,13 +28,22 @@
     "email": "電子メールを送信する",
     "join": "参加",
     "register": "登録",
+    "remindeSent": "リマインダーを送信",
+    "reminder": "後で思い出してください",
+    "reminderEmail": "メールでリマインドする",
     "share": "シェア",
     "sign": "今すぐサイン",
     "stayInformed": "情報提供",
     "takeAction": "テイクアクション",
     "twitter": "ツイート"
   },
+  "camera": {
+    "start": "カメラを起動する",
+    "take": "写真を撮る",
+    "take-another": "もう一枚"
+  },
   "closed": "##thanks to{{total}} supporters!\n\nこのアクションは終了しましたが、私たちの活動はここで終わりませんので、**次のステップについて情報を得るためにメールを残してください**。",
+  "confirm": "本当にいいんですか？",
   "consent": {
     "actionConfirmed": "アクションの確認",
     "actionRejected": "アクションは正常にキャンセルされました",
@@ -51,6 +60,9 @@
     "processing": "お客様の個人情報は、非公開で安全に保管されます。情報を送信することにより、当社の<1>プライバシーポリシー</1>に従ったデータおよびクッキーの使用に同意したものとみなされます。",
     "processing-nocookie": "お客様の個人情報は、非公開で安全に保管されます。情報を送信することにより、お客様は当社の<1>プライバシーポリシー</1>に従ったデータの使用に同意したものとみなされます。",
     "required": "参加にはご本人の同意が必要です"
+  },
+  "date": {
+    "error": "無効な日付のフォーマットです。DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYYY",
   "dialogTitle": "キャンペーンに関する情報を教えてください",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} メール受信不可",
+    "salutation": "拝啓",
+    "salutation_female": "Dear {target_name}様",
     "salutation_info": "(送信前に受信者の名前が入ります）。",
+    "salutation_male": "親愛なる｛ターゲット名｝へ",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
+  "image": {
+    "addSticker": "シールを貼る",
+    "addStickerTitle": "クリック/タップで写真にステッカーを追加",
+    "benefit": "次のステップで共有できる画像を追加して送信すると、よりインパクトのあるアクションになります。",
+    "select": "絵を選ぶ",
+    "takeTitle": "スマホで撮影する",
+    "upload": "写真をアップロードする",
+    "wanttoadd": "画像を追加しますか？"
+  },
+  "no": "ノー",
   "progress": {
     "donate": "{{total}} が寄付をしました。に行ってみよう。{{goal}}",
     "email": "{{total}} はメールを送信しました。に行ってみましょう。{{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} がツッコミを入れました。に行ってみましょう。{{goal}}"
   },
   "register": "私の名前を追加",
+  "reminder": {
+    "intro": "私たちは、あなたの政府が多くの情報を求めていることを知っています。後日、フォームへの記入を促すメールを1通お送りします。"
+  },
   "required": "要",
   "required field": "必須項目",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "素晴らしい、あなたは署名しました👍。あなたの影響力を倍増させるために、この請願書🙏を皆に見てもらうために、広く共有してください。",
     "message": "これにサインしてください",
     "title": "もう少しで完成です次のステップに進んでください。"
+  },
+  "step": {
+    "eci": {
+      "secure": "確保"
+    }
   },
   "supporter": {
     "not_you": "じゃなくて？",
@@ -159,5 +192,6 @@
     "organisation": "あなたの組織のTwitterアカウント",
     "screenName": "スクリーン名"
   },
+  "yes": "はあ",
   "you need to be 18 years old": "18歳以上である必要があります"
 }

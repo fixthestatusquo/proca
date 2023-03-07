@@ -28,13 +28,22 @@
     "email": "Odoslať e-mail",
     "join": "Pripojte sa k",
     "register": "Registrácia",
+    "remindeSent": "Odoslané pripomenutie",
+    "reminder": "Pripomeňte mi to neskôr",
+    "reminderEmail": "Pripomeňte mi to e-mailom",
     "share": "Zdieľať",
     "sign": "Podpísať",
     "stayInformed": "Dostávať informácie",
     "takeAction": "Podniknite kroky!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "spustenie fotoaparátu",
+    "take": "Urobte si obrázok",
+    "take-another": "Vezmite si ďalšiu"
+  },
   "closed": "##ďakujeme podporovateľom {{total}}!\n\nTúto akciu sme uzavreli, ale naša práca sa tu nekončí, preto vás prosíme, aby ste **zanechali svoj e-mail, aby ste boli informovaní o ďalších krokoch**",
+  "confirm": "Ste si istý?",
   "consent": {
     "actionConfirmed": "Akcia potvrdená",
     "actionRejected": "Akcia bola úspešne zrušená",
@@ -51,6 +60,9 @@
     "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "required": "Na účasť je potrebný váš súhlas"
+  },
+  "date": {
+    "error": "neplatný dátum. formát: MM.RRRR"
   },
   "dateFormat": "DD/MM/RRRR",
   "dialogTitle": "Informujte ma o kampani",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nemôže prijímať e-maily",
+    "salutation": "Vážený pán/pani",
+    "salutation_female": "Vážený {názov_cieľa}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
+    "salutation_male": "Vážený {názov cieľa}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
+  "image": {
+    "addSticker": "pridať nálepky",
+    "addStickerTitle": "Kliknutím/poklepaním pridáte nálepku na fotografiu",
+    "benefit": "Ak pridáte obrázok, ktorý chcete odoslať a ktorý môžete zdieľať v ďalšom kroku, vaša akcia bude pôsobivejšia.",
+    "select": "vyberte si obrázok",
+    "takeTitle": "Odfoťte sa telefónom",
+    "upload": "Nahrať obrázok",
+    "wanttoadd": "Chcete pridať obrázok?"
+  },
+  "no": "nie",
   "progress": {
     "donate": "{{total}} darovali. Poďme na {{goal}}",
     "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} twitted. Poďme na {{goal}}"
   },
   "register": "Pridajte moje meno",
+  "reminder": {
+    "intro": "Vieme, že vaša vláda žiada veľa informácií. Pošleme vám jeden e-mail, ktorý vám pripomenie, aby ste formulár vyplnili neskôr"
+  },
   "required": "Vyplňte toto pole",
   "required field": "Povinné pole",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
     "title": "Skoro hotové! Urobte ďalší krok."
+  },
+  "step": {
+    "eci": {
+      "secure": "Zabezpečený"
+    }
   },
   "supporter": {
     "not_you": "nie vy?",
@@ -159,5 +192,6 @@
     "organisation": "Účet vašej organizácie na Twitteri",
     "screenName": "Meno obrazovky"
   },
+  "yes": "áno",
   "you need to be 18 years old": "musíte mať 18 rokov"
 }

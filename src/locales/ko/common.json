@@ -28,13 +28,22 @@
     "email": "이메일 보내기",
     "join": "가입하다",
     "register": "등록하다",
+    "remindeSent": "알림 전송",
+    "reminder": "나중에 알림",
+    "reminderEmail": "이메일로 알림 받기",
     "share": "공유하다",
     "sign": "지금 서명하세요!",
     "stayInformed": "최신 정보 유지",
     "takeAction": "행동하기",
     "twitter": "트위터"
   },
+  "camera": {
+    "start": "카메라 시작",
+    "take": "사진 찍기",
+    "take-another": "하나 더 가져가세요."
+  },
   "closed": "## {{total}} 서포터즈 여러분께 감사드립니다!\n\n이 활동은 종료되었지만, 우리의 작업은 여기서 끝나지 않으므로 다음 단계에 대한 정보를 계속 받으려면 **이메일을 남겨 주세요**.",
+  "confirm": "확실하신가요?",
   "consent": {
     "actionConfirmed": "작업 확인됨",
     "actionRejected": "작업이 성공적으로 취소되었습니다.",
@@ -51,6 +60,9 @@
     "processing": "귀하의 개인 정보는 비공개로 유지되며 안전하게 보관됩니다. 정보를 제출하면 <1>개인정보취급방침</1>에 따라 데이터 및 쿠키 사용에 동의하는 것입니다.",
     "processing-nocookie": "귀하의 개인 정보는 비공개로 유지되며 안전하게 보관됩니다. 정보를 제출하면 <1>개인정보 보호정책</1>에 따른 데이터 사용에 동의하는 것입니다.",
     "required": "참여하려면 귀하의 동의가 필요합니다"
+  },
+  "date": {
+    "error": "잘못된 날짜 형식입니다: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "캠페인에 대한 정보 제공",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} 이메일을 받을 수 없습니다",
+    "salutation": "친애하는 선생님/여사님",
+    "salutation_female": "대상 이름}님께",
     "salutation_info": "(수취인의 이름은 보내기 전에 입력됩니다)",
+    "salutation_male": "대상 이름}님께",
     "salutation_placeholder": "친애하는 [받는 사람]"
   },
+  "image": {
+    "addSticker": "스티커 추가",
+    "addStickerTitle": "사진에 스티커를 추가하려면 클릭/탭하세요.",
+    "benefit": "전송할 이미지를 추가하고 다음 단계에서 공유할 수 있다면 더욱 영향력 있는 작업이 될 것입니다.",
+    "select": "사진 선택",
+    "takeTitle": "휴대폰으로 사진 찍기",
+    "upload": "사진 업로드",
+    "wanttoadd": "이미지를 추가하시겠습니까?"
+  },
+  "no": "아니요",
   "progress": {
     "donate": "{{total}}가 기부했습니다. {{goal}}로 가자",
     "email": "{{total}}가 이메일을 보냈습니다. {{goal}}로 가자",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} 님이 트윗했습니다. {{goal}}로 가자"
   },
   "register": "내 이름 추가",
+  "reminder": {
+    "intro": "정부에서 많은 정보를 요구하고 있다는 것을 알고 있습니다. 나중에 양식을 작성하도록 안내하는 이메일을 한 번 보내드리겠습니다."
+  },
   "required": "필수의",
   "required field": "필수 필드",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "좋습니다. 서명했습니다. 영향력을 배가시키려면 널리 퍼뜨려 모든 사람이 이 청원을 볼 수 있도록 해주세요 🙏.",
     "message": "이 서명을 해야 합니다!",
     "title": "거의 완료! 다음 단계를 수행하십시오."
+  },
+  "step": {
+    "eci": {
+      "secure": "보안"
+    }
   },
   "supporter": {
     "not_you": "너 말고?",
@@ -159,5 +192,6 @@
     "organisation": "귀하 단체의 트위터 계정",
     "screenName": "화면 이름"
   },
+  "yes": "yes",
   "you need to be 18 years old": "당신은 18 세가되어야합니다"
 }
