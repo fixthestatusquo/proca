@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nepřijímá e-maily",
+    "salutation_female": "Vážení {{target.name}}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
     "salutation_placeholder": "Vážený [recipient]"
   },

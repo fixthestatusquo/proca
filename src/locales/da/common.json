@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke modtage e-mails",
+    "salutation_female": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
     "salutation_placeholder": "Kære [modtager],"
   },

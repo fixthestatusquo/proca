@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails",
+    "salutation_female": "Cher {{target.name}}",
     "salutation_info": "(le nom sera mis avant l'envoi)",
     "salutation_placeholder": "Cher [destinataire],"
   },

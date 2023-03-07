@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann kéng E-Maile kréien",
+    "salutation_female": "Léif {{target.name}}",
     "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
     "salutation_placeholder": "Léif [Empfänger]"
   },

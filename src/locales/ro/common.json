@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
+    "salutation_female": "Dragă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
     "salutation_placeholder": "Stimate [destinatar],"
   },

@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
+    "salutation_female": "प्रिय {{target.name}}",
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },

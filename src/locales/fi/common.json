@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
+    "salutation_female": "Rakas {{target.name}}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },

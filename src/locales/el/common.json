@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
+    "salutation_female": "Αγαπητή {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },

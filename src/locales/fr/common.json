@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
+    "salutation_female": "Chère {{target.name}}",
     "salutation_info": "Le nom sera automatiquement remplacé",
     "salutation_placeholder": "Cher/chère [destinataire]"
   },

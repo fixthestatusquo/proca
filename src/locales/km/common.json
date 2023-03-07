@@ -117,6 +117,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
+    "salutation_female": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
