@@ -28,11 +28,19 @@
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
     "register": "Registrieren",
+    "remindeSent": "Erinnerung gesendet",
+    "reminder": "Erinnere mich später",
+    "reminderEmail": "Erinnere mich per E-Mail",
     "share": "Jetzt teilen",
     "sign": "Jetzt unterschreiben!",
     "stayInformed": "Auf dem Laufenden bleiben",
     "takeAction": "Werde aktiv",
     "twitter": "Tweet"
+  },
+  "camera": {
+    "start": "die Kamera starten",
+    "take": "Foto machen",
+    "take-another": "Nimm noch einen"
   },
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasse deine E-Mail, um über die nächsten Schritte informiert zu werden**",
   "consent": {
@@ -51,6 +59,9 @@
     "processing": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten und Cookies gemäss unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Zustimmung erforderlich zur Teilnahme"
+  },
+  "date": {
+    "error": "Ungültiges Datum. Format: TT.MM.JJJJ"
   },
   "dateFormat": "TT/MM/JJJJ",
   "dialogTitle": "Informiert mich über die Kampagne",
@@ -117,9 +128,21 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
+    "salutation": "Sehr geehrte Herren/Frauen",
+    "salutation_female": "Lieber {Zielname}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Senden eingefügt)",
+    "salutation_male": "Lieber {Zielname}",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
+  "image": {
+    "addSticker": "Aufkleber hinzufügen",
+    "addStickerTitle": "Klicken/Tippen, um Sticker zum Foto hinzuzufügen",
+    "select": "Wähle dein Bild",
+    "takeTitle": "Mach ein Foto mit deinem Telefon",
+    "upload": "Ein Bild hochladen",
+    "wanttoadd": "Willst du ein Bild hinzufügen?"
+  },
+  "no": "keine",
   "progress": {
     "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail geschickt. Gehen wir zu {{goal}}",
@@ -129,6 +152,9 @@
     "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
   },
   "register": "Meinen Namen hinzufügen",
+  "reminder": {
+    "intro": "Wir wissen, dass deine Regierung eine Menge Informationen verlangt. Wir schicken dir eine einzige E-Mail, um dich daran zu erinnern, das Formular später auszufüllen"
+  },
   "required": "erforderlich",
   "required field": "erforderliches Feld",
   "salutations": {
@@ -140,6 +166,11 @@
     "intro": "Toll, Du hast unterschrieben 👍. Um Deine Wirkung zu vervielfachen, teile diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Das solltest Du unterschreiben!",
     "title": "Fast fertig! Mach den nächsten Schritt."
+  },
+  "step": {
+    "eci": {
+      "secure": "sicher"
+    }
   },
   "supporter": {
     "not_you": "Nicht Du?",
@@ -159,5 +190,6 @@
     "organisation": "Twitter-Konto Deiner Organisation",
     "screenName": "Bildschirmname"
   },
+  "yes": "ja",
   "you need to be 18 years old": "Du musst 18 Jahre alt sein"
 }
