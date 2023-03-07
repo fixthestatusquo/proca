@@ -43,6 +43,7 @@
     "take-another": "Vegyél még egyet"
   },
   "closed": "##köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
+  "confirm": "Biztos vagy benne?",
   "consent": {
     "actionConfirmed": "Megerősített intézkedés",
     "actionRejected": "A művelet sikeresen törlésre került",
@@ -137,6 +138,7 @@
   "image": {
     "addSticker": "matricák hozzáadása",
     "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",
+    "benefit": "Egy kép hozzáadása a küldéshez - amit a következő lépésben megoszthatsz - még hatásosabbá tenné az akciódat.",
     "select": "válasszon képet",
     "takeTitle": "Készítsen egy képet a telefonjával",
     "upload": "Kép feltöltése",
