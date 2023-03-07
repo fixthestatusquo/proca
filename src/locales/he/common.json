@@ -28,13 +28,22 @@
     "email": "שלח אימייל",
     "join": "לְהִצְטַרֵף",
     "register": "הירשם",
+    "remindeSent": "תזכורת נשלחה",
+    "reminder": "תזכיר לי אחר כך",
+    "reminderEmail": "תזכיר לי במייל",
     "share": "לַחֲלוֹק",
     "sign": "חתום עכשיו!",
     "stayInformed": "להישאר מעודכן",
     "takeAction": "לפעול",
     "twitter": "צִיוּץ"
   },
+  "camera": {
+    "start": "להפעיל את המצלמה",
+    "take": "צלם תמונה",
+    "take-another": "קח עוד אחד"
+  },
   "closed": "##תודה לתומכי {{total}}!\n\nסגרנו את הפעולה הזו, אבל העבודה שלנו לא מסתיימת כאן, אז אנא **השאירו את האימייל שלכם כדי להישאר מעודכן לגבי השלבים הבאים**",
+  "confirm": "האם אתה בטוח?",
   "consent": {
     "actionConfirmed": "הפעולה אושרה",
     "actionRejected": "הפעולה בוטלה בהצלחה",
@@ -51,6 +60,9 @@
     "processing": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
     "processing-nocookie": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
     "required": "יש צורך בהסכמתך כדי להשתתף"
+  },
+  "date": {
+    "error": "תאריך לא חוקי. פורמט: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "עדכן אותי על הקמפיין",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
+    "salutation": "אדון / גברת יקרים",
+    "salutation_female": "{target_name} יקר",
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
+    "salutation_male": "היקר {target name}",
     "salutation_placeholder": "[נמען] יקר"
   },
+  "image": {
+    "addSticker": "להוסיף מדבקות",
+    "addStickerTitle": "לחץ/הקש כדי להוסיף מדבקה לתמונה",
+    "benefit": "הוספת תמונה לשליחה - ושתוכל לשתף בשלב הבא - תהפוך את הפעולה שלך למשפיעה יותר",
+    "select": "בחר את התמונה שלך",
+    "takeTitle": "צלם תמונה עם הטלפון שלך",
+    "upload": "תעלה תמונה",
+    "wanttoadd": "האם אתה רוצה להוסיף תמונה?"
+  },
+  "no": "לא",
   "progress": {
     "donate": "{{total}} תרמו. בוא נלך אל {{goal}}",
     "email": "{{total}} שלחו אימייל. בוא נלך אל {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} צייצו. בוא נלך אל {{goal}}"
   },
   "register": "הוסף את שמי",
+  "reminder": {
+    "intro": "אנחנו יודעים, הממשלה שלך שואלת הרבה מידע. אנו נשלח לך אימייל בודד כדי להזכיר לך למלא את הטופס מאוחר יותר"
+  },
   "required": "נדרש",
   "required field": "שדה נדרש",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "מעולה, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף למרחקים כדי לוודא שכולם רואים את העצומה הזו 🙏.",
     "message": "אתה צריך לחתום על זה!",
     "title": "כמעט סיימתי! קח את הצעד הבא."
+  },
+  "step": {
+    "eci": {
+      "secure": "לבטח"
+    }
   },
   "supporter": {
     "not_you": "לא אתה?",
@@ -159,5 +192,6 @@
     "organisation": "חשבון הטוויטר של הארגון שלך",
     "screenName": "שם מסך"
   },
+  "yes": "כן",
   "you need to be 18 years old": "אתה צריך להיות בן 18"
 }
