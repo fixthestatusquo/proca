@@ -28,13 +28,22 @@
     "email": "Odeslat e-mail",
     "join": "Připojte se",
     "register": "Registrace",
+    "remindeSent": "Odeslána upomínka",
+    "reminder": "Připomeňte mi to později",
+    "reminderEmail": "Připomeňte mi to e-mailem",
     "share": "Sdílet",
     "sign": "Podepsat!",
     "stayInformed": "Odebírat aktuální informace",
     "takeAction": "Podnikněte kroky!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "spuštění fotoaparátu",
+    "take": "Vyfotografujte se",
+    "take-another": "Vezměte si další"
+  },
   "closed": "##děkujeme příznivcům {{total}}!\n\nTuto akci jsme uzavřeli, ale naše práce tím nekončí, proto prosím **zanechte svůj e-mail, abyste byli informováni o dalších krocích**.",
+  "confirm": "Jste si jistý?",
   "consent": {
     "actionConfirmed": "Akce potvrzena",
     "actionRejected": "Akce byla úspěšně zrušena",
@@ -51,6 +60,9 @@
     "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>",
     "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
     "required": "K účasti je nutný váš souhlas"
+  },
+  "date": {
+    "error": "neplatné datum. formát: MM.RRRR"
   },
   "dateFormat": "DD/MM/RRRR",
   "dialogTitle": "Informujte mě o kampani",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nepřijímá e-maily",
+    "salutation": "Vážený pane/paní",
+    "salutation_female": "Vážený {jméno_cíle}",
     "salutation_info": "(jméno bude uvedeno před odesláním)",
+    "salutation_male": "Vážený {jméno cíle}",
     "salutation_placeholder": "Vážený [recipient]"
   },
+  "image": {
+    "addSticker": "přidat samolepky",
+    "addStickerTitle": "Kliknutím/poklepáním přidáte nálepku k fotografii",
+    "benefit": "Přidáním obrázku, který můžete odeslat a který můžete sdílet v dalším kroku, by vaše akce byla působivější.",
+    "select": "vyberte si obrázek",
+    "takeTitle": "Vyfoťte se telefonem",
+    "upload": "Nahrát obrázek",
+    "wanttoadd": "Chcete přidat obrázek?"
+  },
+  "no": "ne",
   "progress": {
     "donate": "{{total}} darovali. Pojďme na {{goal}}",
     "email": "{{total}} odeslali e-mail. Pojďme na {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} napsali na twitteru. Pojďme na {{goal}}"
   },
   "register": "Přidejte mé jméno",
+  "reminder": {
+    "intro": "Víme, že vaše vláda požaduje mnoho informací. Pošleme vám jeden e-mail, který vám připomene, abyste formulář vyplnili později."
+  },
   "required": "Vyplňte prosím toto pole",
   "required field": "Povinné pole",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Skvělé, podepsali jste 👍. Abyste znásobili svůj dopad, sdílejte ji široko daleko, aby tuto petici viděl každý 🙏.",
     "message": "Měli byste to podepsat!",
     "title": "Téměř hotovo! Přejděte k dalšímu kroku."
+  },
+  "step": {
+    "eci": {
+      "secure": "zabezpečené"
+    }
   },
   "supporter": {
     "not_you": "ne vy?",
@@ -159,5 +192,6 @@
     "organisation": "Účet vaší organizace na Twitteru",
     "screenName": "Jméno na obrazovce"
   },
+  "yes": "ano",
   "you need to be 18 years old": "musíte mít 18 let"
 }
