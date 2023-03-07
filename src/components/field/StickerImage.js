@@ -333,7 +333,10 @@ const ImageOption = (props) => {
           <Button
             disableElevation={image}
             color={image === false ? "default" : "primary"}
-            onClick={(e) => setDraw(true)}
+            onClick={(e) => {
+              setImage(undefined);
+              setDraw(true);
+            }}
           >
             {t("yes")}
           </Button>
