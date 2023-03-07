@@ -28,13 +28,22 @@
     "email": "Schéckt eng E-Mail",
     "join": "Maacht mat",
     "register": "Aschreiwen",
+    "remindeSent": "Erënnerung geschéckt",
+    "reminder": "Erënnert mech méi spéit",
+    "reminderEmail": "Erënnert mech per E-Mail",
     "share": "Deelen",
     "sign": "Ënnerschreift elo!",
     "stayInformed": "Bleift informéiert",
     "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "Start der Kamera",
+    "take": "Foto maachen",
+    "take-another": "Huelt eng aner"
+  },
   "closed": "##Merci un {{total}} Supporter!\n\nMir hunn dës Aktioun zougemaach, awer eis Aarbecht ass net hei op en Enn, also **Loosst w.e.g. Är E-Mail fir iwwer déi nächst Schrëtt informéiert ze bleiwen**",
+  "confirm": "Bass du secher?",
   "consent": {
     "actionConfirmed": "Aktioun confirméiert",
     "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
@@ -51,6 +60,9 @@
     "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun iwwermëttelt, weist Dir Iech averstanen mat der Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
     "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Mat der Iwwermëttlung vun Informatiounen weist Dir Iech averstanen mat der Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
     "required": "Är Zoustëmmung ass néideg fir matzemaachen"
+  },
+  "date": {
+    "error": "ongëlteg Datum. Format: DD.MM.JJJJ"
   },
   "dateFormat": "DD/MM/JJJJ",
   "dialogTitle": "Halt mech iwwer d'Campagne informéiert",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann kéng E-Maile kréien",
+    "salutation": "Léif Här / Madame",
+    "salutation_female": "Léif {target_name}",
     "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
+    "salutation_male": "Léif {Zilnumm}",
     "salutation_placeholder": "Léif [Empfänger]"
   },
+  "image": {
+    "addSticker": "addéiere Stickeren",
+    "addStickerTitle": "Klickt / Tippen fir Sticker op d'Foto ze addéieren",
+    "benefit": "E Bild bäizefügen fir ze schécken - an dat Dir kënnt um nächste Schrëtt deelen - géif Är Handlung méi beaflosst maachen",
+    "select": "wielt Är Bild",
+    "takeTitle": "Maacht eng Foto mat Ärem Telefon",
+    "upload": "Eroplueden eng Foto",
+    "wanttoadd": "Wëllt Dir e Bild addéieren?"
+  },
+  "no": "Nee",
   "progress": {
     "donate": "{{total}} hunn gespent. Loosst eis op {{goal}}",
     "email": "{{total}} hunn eng E-Mail geschéckt. Loosst eis op {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} hunn twitted. Loosst eis op {{goal}}"
   },
   "register": "Füügt mäi Numm dobäi",
+  "reminder": {
+    "intro": "Mir wëssen, Är Regierung freet vill Informatioun. Mir schécken Iech eng eenzeg E-Mail fir Iech drun ze erënneren de Formulaire méi spéit auszefëllen"
+  },
   "required": "néideg",
   "required field": "néidegt Feld",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Super, du hues ënnerschriwwen 👍. Fir Ären Impakt ze multiplizéieren, deelt wäit a breet fir sécherzestellen datt jiddereen dës Petitioun gesäit 🙏.",
     "message": "Dir sollt dëst ënnerschreiwen!",
     "title": "Bal fäerdeg! Huelt de nächste Schrëtt."
+  },
+  "step": {
+    "eci": {
+      "secure": "sécher"
+    }
   },
   "supporter": {
     "not_you": "net Dir?",
@@ -159,5 +192,6 @@
     "organisation": "Twitter Account vun Ärer Organisatioun",
     "screenName": "Kënschtlernumm"
   },
+  "yes": "Jo",
   "you need to be 18 years old": "Dir musst 18 Joer al sinn"
 }
