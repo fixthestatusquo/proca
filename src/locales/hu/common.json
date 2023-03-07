@@ -28,11 +28,19 @@
     "email": "E-mail küldése",
     "join": "Csatlakozzon a",
     "register": "Regisztráció",
+    "remindeSent": "Emlékeztető küldött",
+    "reminder": "Emlékeztess később",
+    "reminderEmail": "Emlékeztessen e-mailben",
     "share": "Megosztás",
     "sign": "Jelentkezzen a  címen.",
     "stayInformed": "Tájékoztatás kérése",
     "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
+  },
+  "camera": {
+    "start": "indítsa el a kamerát",
+    "take": "Fényképezzen",
+    "take-another": "Vegyél még egyet"
   },
   "closed": "##köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
   "consent": {
@@ -51,6 +59,9 @@
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
     "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
     "required": "A részvételhez az Ön hozzájárulása szükséges"
+  },
+  "date": {
+    "error": "érvénytelen dátum. formátum: MM.YYYY"
   },
   "dateFormat": "NN/HH/EEEE",
   "dialogTitle": "Tájékoztasson a kampányról",
@@ -117,9 +128,21 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
+    "salutation": "Tisztelt Uram/hölgyem",
+    "salutation_female": "Kedves {célpont_név}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
+    "salutation_male": "Kedves {célpont neve}",
     "salutation_placeholder": "Kedves [címzett],"
   },
+  "image": {
+    "addSticker": "matricák hozzáadása",
+    "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",
+    "select": "válasszon képet",
+    "takeTitle": "Készítsen egy képet a telefonjával",
+    "upload": "Kép feltöltése",
+    "wanttoadd": "Szeretne egy képet hozzáadni?"
+  },
+  "no": "nincs",
   "progress": {
     "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
     "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
@@ -129,6 +152,9 @@
     "twitter": "{{total}} twitteltek. Menjünk a {{goal}}"
   },
   "register": "Add hozzá a nevemet",
+  "reminder": {
+    "intro": "Tudjuk, hogy a kormányuk sok információt kér. Egyetlen e-mailt küldünk Önnek, hogy emlékeztessük, hogy később töltse ki az űrlapot."
+  },
   "required": "Kérjük, töltse ki ezt a mezőt",
   "required field": "Kötelező mező",
   "salutations": {
@@ -140,6 +166,11 @@
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",
     "title": "Majdnem készen is vagyunk!"
+  },
+  "step": {
+    "eci": {
+      "secure": "biztonságos"
+    }
   },
   "supporter": {
     "not_you": "Nem te?",
@@ -159,5 +190,6 @@
     "organisation": "Az Ön szervezetének twitter fiókja",
     "screenName": "Képernyő neve"
   },
+  "yes": "igen",
   "you need to be 18 years old": "18 évesnek kell lenned"
 }
