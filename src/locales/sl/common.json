@@ -28,13 +28,22 @@
     "email": "Pošlji e-pošto",
     "join": "Pridružite se",
     "register": "Register",
+    "remindeSent": "Poslan opomnik",
+    "reminder": "Spomni me pozneje",
+    "reminderEmail": "Opomni me po e-pošti",
     "share": "Delite",
     "sign": "Znak",
     "stayInformed": "Želim spremljati novosti",
     "takeAction": "Ukrepajte!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "zagon fotoaparata",
+    "take": "Fotografirajte",
+    "take-another": "Vzemite še enega."
+  },
   "closed": "## zahvaljujemo se podpornikom {{total}}!\n\nTo akcijo smo zaključili, vendar se naše delo tu ne konča, zato vas prosimo, da **opustite svoj e-poštni naslov, da boste obveščeni o naslednjih korakih**.",
+  "confirm": "Ste prepričani?",
   "consent": {
     "actionConfirmed": "Potrjen ukrep",
     "actionRejected": "Akcija je bila uspešno preklicana",
@@ -51,6 +60,9 @@
     "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "required": "Za sodelovanje je potrebno vaše soglasje."
+  },
+  "date": {
+    "error": "neveljaven datum. format: MM.RRRR"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Obveščajte me o kampanji",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
+    "salutation": "Spoštovani gospod/madam",
+    "salutation_female": "Spoštovani {naslov_cilja}",
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
+    "salutation_male": "Spoštovani {naslov cilja}",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
+  "image": {
+    "addSticker": "dodajanje nalepk",
+    "addStickerTitle": "Kliknite/tipnite za dodajanje nalepke na fotografijo",
+    "benefit": "Če bi dodali sliko, ki jo pošljete - in jo lahko delite v naslednjem koraku -, bi bilo vaše dejanje še bolj učinkovito.",
+    "select": "izberite svojo sliko",
+    "takeTitle": "Fotografirajte s telefonom",
+    "upload": "Naložite sliko",
+    "wanttoadd": "Želite dodati sliko?"
+  },
+  "no": "ne",
   "progress": {
     "donate": "{{total}} darovali. Pojdimo na {{goal}}",
     "email": "{{total}} poslali e-poštno sporočilo. Pojdimo na {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
   },
   "register": "Dodaj moje ime",
+  "reminder": {
+    "intro": "Vemo, da vaša vlada zahteva veliko informacij. Poslali vam bomo eno elektronsko sporočilo, ki vas bo opomnilo, da morate obrazec izpolniti pozneje."
+  },
   "required": "Izpolnite to polje",
   "required field": "Obvezno polje",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",
     "title": "Skoraj končano!"
+  },
+  "step": {
+    "eci": {
+      "secure": "varno"
+    }
   },
   "supporter": {
     "not_you": "vas ne?",
@@ -159,5 +192,6 @@
     "organisation": "Račun twitter vaše organizacije",
     "screenName": "Ime zaslona"
   },
+  "yes": "da",
   "you need to be 18 years old": "moraš biti star 18 let"
 }
