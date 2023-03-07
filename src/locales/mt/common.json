@@ -28,13 +28,22 @@
     "email": "Ibgħat Email",
     "join": "Jingħaqad",
     "register": "Irreġistra",
+    "remindeSent": "Tifkira mibgħuta",
+    "reminder": "Fakkarni aktar tard",
+    "reminderEmail": "Fakkarni bl-email",
     "share": "Aqsam",
     "sign": "Iffirma",
     "stayInformed": "Ibqa’ infurmat",
     "takeAction": "Ħu Azzjoni!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "ibda l-kamera",
+    "take": "Ħu stampa",
+    "take-another": "Ħu ieħor"
+  },
   "closed": "##grazzi lill-partitarji ta' {{total}}!\n\nGħalaqna din l-azzjoni, iżda x-xogħol tagħna ma jintemmx hawn, għalhekk jekk jogħġbok **ħalli l-email tiegħek biex tibqa’ infurmata dwar il-passi li jmiss**",
+  "confirm": "Żgur?",
   "consent": {
     "actionConfirmed": "Azzjoni kkonfermata",
     "actionRejected": "L-azzjoni ġiet ikkanċellata b'suċċess",
@@ -51,6 +60,9 @@
     "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
     "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
     "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
+  },
+  "date": {
+    "error": "data invalida. format: JJ.XX.SSSS"
   },
   "dateFormat": "JJ/SS/XXXX",
   "dialogTitle": "Żommni infurmat dwar il-kampanja",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
+    "salutation": "Għażiż Sinjur/Sinjura",
+    "salutation_female": "Għeżież {target_name}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
+    "salutation_male": "Għeżież {target name}",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
+  "image": {
+    "addSticker": "żid stikers",
+    "addStickerTitle": "Ikklikkja/ Tektek biex iżżid stiker mar-ritratt",
+    "benefit": "Iż-żieda ta 'immaġni biex tibgħat - u li tista' taqsam fil-pass li jmiss - tagħmel l-azzjoni tiegħek aktar impatt",
+    "select": "agħżel l-istampa tiegħek",
+    "takeTitle": "Ħu stampa bit-telefon tiegħek",
+    "upload": "Ittella' stampa",
+    "wanttoadd": "Trid iżżid immaġini?"
+  },
+  "no": "le",
   "progress": {
     "donate": "{{total}} taw donazzjoni. Ejja mmorru għal {{goal}}",
     "email": "{{total}} bagħtu email. Ejja mmorru għal {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} twitted. Ejja mmorru għal {{goal}}"
   },
   "register": "Żid ismi",
+  "reminder": {
+    "intro": "Nafu, il-gvern tiegħek qed jitlob ħafna informazzjoni. Nibagħtulek email waħda biex infakkruk biex timla l-formola aktar tard"
+  },
   "required": "Jekk jogħġbok imla dan il-qasam",
   "required field": "Qasam meħtieġ",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
     "message": "Għandek tiffirma dan!",
     "title": "Kważi lest! Ħu l-pass li jmiss."
+  },
+  "step": {
+    "eci": {
+      "secure": "sigur"
+    }
   },
   "supporter": {
     "not_you": "mhux int?",
@@ -159,5 +192,6 @@
     "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek",
     "screenName": "Isem Elettroniku"
   },
+  "yes": "iva",
   "you need to be 18 years old": "trid tkun 18-il sena"
 }
