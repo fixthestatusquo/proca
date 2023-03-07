@@ -44,7 +44,7 @@ const PictureSelector = (props) => {
       {config.component.sticker?.background?.map((d) => (
         <img
           src={base + d}
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
           alt={d}
           onClick={handleClick}
           className={classes.thumb}

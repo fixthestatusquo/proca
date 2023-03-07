@@ -33,7 +33,7 @@
     "reminderEmail": "Rappelez-moi par e-mail",
     "share": "Partager",
     "sign": "Signez !",
-    "stayInformed": "Rester informé(e)",
+    "stayInformed": "Rester informé·e",
     "takeAction": "Passez à l'action !",
     "twitter": "Tweetter"
   },
@@ -43,7 +43,7 @@
     "take-another": "Prends-en une autre"
   },
   "closed": "##Merci à {{total}} supporters !\n\nNous avons clôturé cette action, mais notre travail ne s'arrête pas là, alors s'il vous plaît **laissez votre email pour rester informé des prochaines étapes**.",
-  "confirm": "Vous êtes sûr ?",
+  "confirm": "Vous êtes sûr·e ?",
   "consent": {
     "actionConfirmed": "Action confirmée",
     "actionRejected": "L'action a été annulée avec succès",
@@ -133,7 +133,7 @@
     "salutation_female": "Chère {nom de la cible}",
     "salutation_info": "(Le nom sera automatiquement remplacé)",
     "salutation_male": "Cher {nom de la cible}",
-    "salutation_placeholder": "Cher/chère [destinataire]"
+    "salutation_placeholder": "Cher·e [destinataire]"
   },
   "image": {
     "addSticker": "ajouter des autocollants",

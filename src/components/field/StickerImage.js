@@ -48,9 +48,9 @@ const useStyles = makeStyles((theme) => ({
   dialog: {
     minWidth: theme.breakpoints.values.sm,
   },
-   stickers: {
-    maxWidth: theme.breakpoints.values.sm
-  }
+  stickers: {
+    maxWidth: theme.breakpoints.values.sm,
+  },
 }));
 
 export default function ImageStickerComplete(props) {
@@ -142,6 +142,7 @@ export default function ImageStickerComplete(props) {
             setImage={setImage}
             setDraw={setDraw}
             backgroundCanvas={canvas}
+            form={props.form}
           />
         </div>
       </Dialog>
@@ -158,7 +159,6 @@ export default function ImageStickerComplete(props) {
 
 const ImageStickerKonva = (props) => {
   const config = useCampaignConfig();
-  const max_size = 640;
   const { t } = useTranslation();
 
   const [background] = useImage(
@@ -174,7 +174,8 @@ const ImageStickerKonva = (props) => {
 
   const [images, setImages] = useState([]);
   const canvasRef = useRef();
-  const upload = useUpload(canvasRef, max_size);
+  const data = props.form?.getValues();
+  const upload = useUpload(canvasRef, data);
   const classes = useStyles();
 
   let stickersData = config.component.sticker.data;

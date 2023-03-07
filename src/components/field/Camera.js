@@ -11,12 +11,15 @@ import { useTranslation } from "react-i18next";
 import { encode } from "blurhash";
 import MaskImage from "@components/field/MaskImage";
 
-export const useUpload = (canvasRef, max_size) => {
+export const useUpload = (canvasRef, formData = {}) => {
   const config = useCampaignConfig();
   const supabase = useSupabase();
   const canvas = canvasRef.current && getCanvas(canvasRef);
+  console.log(formData);
+
   //upload
   return async (params) => {
+    console.log(formData);
     const toBlob = () => {
       return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
     };
@@ -46,6 +49,15 @@ export const useUpload = (canvasRef, max_size) => {
       blurhash: getBlurhash(canvasRef),
       lang: config.lang,
     };
+    if (formData.country) d.area = formData.country;
+    if (formData.firstname) {
+      d.creator = formData.firstname.trim();
+      if (formData.lastname) {
+        d.creator += " " + formData.lastname.charAt(0).toUpperCase().trim();
+      }
+      d.legend = d.creator;
+    }
+
     //const f = items[current].original.split("/");
     const { data, error } = await supabase.from("pictures").insert([d]);
     if (error && error.code !== "23505") {
