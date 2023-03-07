@@ -28,13 +28,22 @@
     "email": "Saada e-kiri",
     "join": "Liitu",
     "register": "Registreeri",
+    "remindeSent": "Saadetud meeldetuletus",
+    "reminder": "Meenuta mulle hiljem",
+    "reminderEmail": "Meenuta mulle e-posti teel",
     "share": "Jaga",
     "sign": "Allkiri",
     "stayInformed": "Olge kursis",
     "takeAction": "Võtke meetmeid!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "käivitada kaamera",
+    "take": "Pildistage",
+    "take-another": "Võtke veel üks"
+  },
   "closed": "##Kiitus {{total}} toetajatele!\n\nMe oleme selle aktsiooni lõpetanud, kuid meie töö ei lõpe siinkohal, seega palun **jätke oma e-post, et olla kursis järgmiste sammudega**.",
+  "confirm": "Oled sa kindel?",
   "consent": {
     "actionConfirmed": "Tegevus kinnitatud",
     "actionRejected": "Meede tühistati edukalt",
@@ -51,6 +60,9 @@
     "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "required": "Osalemiseks on vaja teie nõusolekut"
+  },
+  "date": {
+    "error": "kehtetu kuupäev. formaat: KK.MM.AAAA"
   },
   "dateFormat": "PP/KK/AAAA",
   "dialogTitle": "Hoidke mind kampaaniaga kursis",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
+    "salutation": "Lugupeetud härra/naine",
+    "salutation_female": "Lugupeetud {eesmärk_nimi}",
     "salutation_info": "(nimi pannakse enne saatmist)",
+    "salutation_male": "Lugupeetud {sihtasutuse nimi}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
+  "image": {
+    "addSticker": "lisada kleebiseid",
+    "addStickerTitle": "Klõpsake / koputage fotole kleebise lisamiseks",
+    "benefit": "Kui lisate saatmiseks pildi, mida saate järgmises etapis jagada, muudab see teie tegevuse mõjusamaks.",
+    "select": "vali oma pilt",
+    "takeTitle": "Tee oma telefoniga pilt",
+    "upload": "Pildi üleslaadimine",
+    "wanttoadd": "Kas soovite lisada pildi?"
+  },
+  "no": "ei",
   "progress": {
     "donate": "{{total}} on annetanud. Läheme {{goal}}",
     "email": "{{total}} on saatnud e-kirja. Läheme {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} on twitted. Läheme {{goal}}"
   },
   "register": "Lisage minu nimi",
+  "reminder": {
+    "intro": "Me teame, et teie valitsus küsib palju teavet. Saadame teile ühe e-kirja, et tuletada teile meelde, et täidate vormi hiljem"
+  },
   "required": "Palun täitke see väli",
   "required field": "Kohustuslik väli",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
     "message": "Peaksite sellele alla kirjutama!",
     "title": "Peaaegu valmis. Üks samm veel!"
+  },
+  "step": {
+    "eci": {
+      "secure": "turvaline"
+    }
   },
   "supporter": {
     "not_you": "mitte sina?",
@@ -159,5 +192,6 @@
     "organisation": "Teie organisatsiooni twitteri konto",
     "screenName": "Ekraani nimi"
   },
+  "yes": "jah",
   "you need to be 18 years old": "peate olema 18-aastane"
 }
