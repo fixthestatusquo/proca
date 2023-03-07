@@ -307,7 +307,7 @@ const ImageStickerKonva = (props) => {
           onClick={handleSave}
           size="large"
         >
-          Looks good!
+          {t("image.publish", "Looks good, publish!")}
         </Button>
         <Button
           color="secondary"
