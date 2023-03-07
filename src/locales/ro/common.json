@@ -28,13 +28,22 @@
     "email": "Trimiteți un e-mail",
     "join": "Alăturați-vă",
     "register": "Înregistrare",
+    "remindeSent": "Trimitere de memento",
+    "reminder": "Adu-mi aminte mai târziu.",
+    "reminderEmail": "Amintește-mi prin e-mail",
     "share": "Share",
     "sign": "Semnează",
     "stayInformed": "Fiți la curent",
     "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "porniți camera",
+    "take": "Faceți o fotografie",
+    "take-another": "Mai ia una."
+  },
   "closed": "##multumim pentru {{total}} susținători!\n\nAm încheiat această acțiune, dar munca noastră nu se termină aici, așa că vă rugăm să **să vă lăsați adresa de e-mail pentru a fi informați despre următorii pași**.",
+  "confirm": "Ești sigur?",
   "consent": {
     "actionConfirmed": "Acțiune confirmată",
     "actionRejected": "Acțiunea a fost anulată cu succes",
@@ -51,6 +60,9 @@
     "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "required": "Consimțământul dumneavoastră este necesar pentru a participa"
+  },
+  "date": {
+    "error": "dată invalidă. format: DD.MM.AAAA"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Păstrați-mă la curent cu campania",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
+    "salutation": "Stimate domnule/doamnă",
+    "salutation_female": "Stimate {destinatarul_nume}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
+    "salutation_male": "Stimate {numele persoanei vizate}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
+  "image": {
+    "addSticker": "adăugați autocolante",
+    "addStickerTitle": "Faceți clic/Tap pentru a adăuga autocolant la fotografie",
+    "benefit": "Adăugarea unei imagini pe care să o trimiți - și pe care să o poți împărtăși la pasul următor - ar face ca acțiunea ta să aibă un impact mai mare.",
+    "select": "alegeți-vă imaginea",
+    "takeTitle": "Faceți o fotografie cu telefonul dvs.",
+    "upload": "Încărcați o imagine",
+    "wanttoadd": "Doriți să adăugați o imagine?"
+  },
+  "no": "nu",
   "progress": {
     "donate": "{{total}} au donat. Să mergem la {{goal}}",
     "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
   },
   "register": "Adaugă numele meu",
+  "reminder": {
+    "intro": "Știm că guvernul dvs. solicită multe informații. Vă vom trimite un singur e-mail pentru a vă reaminti să completați formularul mai târziu."
+  },
   "required": "Vă rugăm să completați acest câmp",
   "required field": "Câmp obligatoriu",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
     "title": "Aproape gata! Faceți următorul pas."
+  },
+  "step": {
+    "eci": {
+      "secure": "securizat"
+    }
   },
   "supporter": {
     "not_you": "Nu tu?",
@@ -159,5 +192,6 @@
     "organisation": "Contul de Twitter al organizației dvs.",
     "screenName": "Nume de ecran"
   },
+  "yes": "da",
   "you need to be 18 years old": "trebuie să ai 18 ani"
 }
