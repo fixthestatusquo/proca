@@ -43,6 +43,7 @@
     "take-another": "Take another one"
   },
   "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
+  "confirm": "Are you sure?",
   "consent": {
     "actionConfirmed": "Action confirmed",
     "actionRejected": "The action was successfully cancelled",
@@ -137,6 +138,7 @@
   "image": {
     "addSticker": "add stickers",
     "addStickerTitle": "Click/Tap to add sticker to photo",
+    "benefit": "Adding an image to send -and that you can share at the next step- would make your action more impactful",
     "select": "choose your picture",
     "takeTitle": "Take a picture with your phone",
     "upload": "Upload a picture",
