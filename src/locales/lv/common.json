@@ -28,13 +28,22 @@
     "email": "Sūtīt e-pastu",
     "join": "Pievienojies",
     "register": "Reģistrēties",
+    "remindeSent": "Nosūtīts atgādinājums",
+    "reminder": "Atgādini man vēlāk",
+    "reminderEmail": "Atgādiniet man par to pa e-pastu",
     "share": "Dalies",
     "sign": "Pierakstīties",
     "stayInformed": "Gribu būt lietas kursā",
     "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
+  "camera": {
+    "start": "palaidiet kameru",
+    "take": "Uzņemiet attēlu",
+    "take-another": "Paņemiet vēl vienu"
+  },
   "closed": "##pateicība {{total}} atbalstītājiem!\n\nMēs esam noslēguši šo akciju, bet mūsu darbs ar to nebeidzas, tāpēc, lūdzu, **atstājiet savu e-pastu, lai saņemtu informāciju par nākamajiem soļiem**.",
+  "confirm": "Vai esat pārliecināts?",
   "consent": {
     "actionConfirmed": "Rīcība apstiprināta",
     "actionRejected": "Darbība tika veiksmīgi atcelta",
@@ -51,6 +60,9 @@
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana."
+  },
+  "date": {
+    "error": "nederīgs datums. formāts: DD.MM.GGGGG"
   },
   "dateFormat": "DD/MM/GGGG",
   "dialogTitle": "Informējiet mani par kampaņu",
@@ -117,9 +129,22 @@
   },
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
+    "salutation": "Cienījamais kungs/cienītā kundze",
+    "salutation_female": "Cienījamais {mērķa_vārds}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
+    "salutation_male": "Cienījamais {mērķa vārds}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
+  "image": {
+    "addSticker": "pievienot uzlīmes",
+    "addStickerTitle": "Noklikšķiniet/pieskarieties, lai pievienotu uzlīmi fotoattēlam",
+    "benefit": "Pievienojot attēlu, ko vēlaties nosūtīt un ar kuru varat dalīties nākamajā solī, jūsu rīcība būtu vēl iedarbīgāka.",
+    "select": "izvēlieties savu attēlu",
+    "takeTitle": "Uzņemiet fotoattēlu ar tālruni",
+    "upload": "Ielādēt attēlu",
+    "wanttoadd": "Vai vēlaties pievienot attēlu?"
+  },
+  "no": "nav",
   "progress": {
     "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
     "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
@@ -129,6 +154,9 @@
     "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
   },
   "register": "Pievienojiet manu vārdu",
+  "reminder": {
+    "intro": "Mēs zinām, ka jūsu valdība pieprasa daudz informācijas. Mēs nosūtīsim jums vienu e-pasta vēstuli, lai atgādinātu, ka veidlapa jāaizpilda vēlāk."
+  },
   "required": "Lūdzu, aizpildiet šo lauku",
   "required field": "Obligātais lauks",
   "salutations": {
@@ -140,6 +168,11 @@
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",
     "title": "Gandrīz pabeigts! Veiciet nākamo soli."
+  },
+  "step": {
+    "eci": {
+      "secure": "drošs"
+    }
   },
   "supporter": {
     "not_you": "ne jūs?",
@@ -159,5 +192,6 @@
     "organisation": "Jūsu organizācijas tvitera konts",
     "screenName": "Ekrānvārds"
   },
+  "yes": "jā",
   "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }
