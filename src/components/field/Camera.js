@@ -14,8 +14,7 @@ import MaskImage from "@components/field/MaskImage";
 export const useUpload = (canvasRef, formData = {}) => {
   const config = useCampaignConfig();
   const supabase = useSupabase();
-  const canvas = canvasRef.current && getCanvas(canvasRef);
-  console.log(formData);
+  const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
 
   //upload
   return async (params) => {

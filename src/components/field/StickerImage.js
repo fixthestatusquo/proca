@@ -62,6 +62,8 @@ export default function ImageStickerComplete(props) {
   const handleClose = () => setDraw(false);
   const [activeStep, setActiveStep] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
+  const data = props.form?.getValues();
+  const upload = useUpload(canvas, data);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -74,8 +76,20 @@ export default function ImageStickerComplete(props) {
     setCanvas(canvas);
     setActiveStep(1);
   };
+
+  const validatePicture = () => {
+    //do the upload
+    return true;
+  };
+
   return (
     <div>
+      <input type="hidden" {...props.form.register("hash")} />
+      <input
+        type="hidden"
+        {...props.form.register("image", { validate: validatePicture })}
+      />
+      <input type="hidden" {...props.form.register("dimension")} />
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
         name="Restore nature"
