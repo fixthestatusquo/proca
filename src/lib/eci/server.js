@@ -52,11 +52,9 @@ async function addSupport(actionType, actionPage, data, options) {
     },
     privacy: privacy,
   };
-  if (data.birthDate) {
-    variable.contact.birthDate = data.birthDate;
-  }
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;
+  if (data.birthDate) variables.contact.birthDate = data.birthDate;
 
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
