@@ -45,7 +45,7 @@ const merge = (targets, twitters, options) => {
           ".jpg";
     }
 
-    if (options.email) {
+    if (options.email && target.emails && target.emails[0]) {
       r.email = target.emails[0].email;
     }
 
