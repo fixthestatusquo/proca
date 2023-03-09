@@ -306,8 +306,8 @@ async function addActionContact(actionType, actionPage, data, test) {
   };
 
   if (test) variables.action.testing = true;
-
-  if (data.targets) {
+  console.log(data);
+  if (data.targets && !data.mtt_processing) {
     variables.action.mtt = {
       subject: data.subject,
       body: data.message,

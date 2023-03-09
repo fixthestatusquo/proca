@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ImageStickerComplete(props) {
+  const config = useCampaignConfig();
   const { t } = useTranslation();
   const classes = useStyles();
   const [draw, setDraw] = useState(false);
@@ -62,8 +63,8 @@ export default function ImageStickerComplete(props) {
   const handleClose = () => setDraw(false);
   const [activeStep, setActiveStep] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
-  const data = props.form?.getValues();
-  const upload = useUpload(canvas, data);
+  //  const data = props.form?.getValues();
+  const { register } = props.form;
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -84,15 +85,11 @@ export default function ImageStickerComplete(props) {
 
   return (
     <div>
-      <input type="hidden" {...props.form.register("hash")} />
-      <input
-        type="hidden"
-        {...props.form.register("image", { validate: validatePicture })}
-      />
-      <input type="hidden" {...props.form.register("dimension")} />
+      <input type="hidden" {...register("hash")} />
+      <input type="hidden" {...register("dimension")} />
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
-        name="Restore nature"
+        name={config.campaign.title}
         maxWidth="lg"
         dialog={draw !== false}
         close={handleClose}
@@ -110,7 +107,7 @@ export default function ImageStickerComplete(props) {
           </Step>
         </Stepper>
         <div hidden={activeStep !== 0} className={classes.dialog}>
-          Would you like to :
+          {t("image.options", "Would you like to")}
           <Accordion
             TransitionProps={{ unmountOnExit: true }}
             expanded={expanded === "upload"}
@@ -163,7 +160,7 @@ export default function ImageStickerComplete(props) {
       {image && (
         <img
           alt="to send to the recipients"
-          style={{ "max-width": "100%" }}
+          style={{ maxWidth: "100%" }}
           src={image}
         />
       )}
@@ -174,6 +171,7 @@ export default function ImageStickerComplete(props) {
 const ImageStickerKonva = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
+  const { setValue } = props.form;
 
   const [background] = useImage(
     config.component.sticker.baseUrl + "/" + config.component.sticker.picture,
@@ -181,18 +179,18 @@ const ImageStickerKonva = (props) => {
     "origin"
   );
   let image = undefined;
-  if (props.backgroundCanvas) {
-    image = new Image();
-    image.src = props.backgroundCanvas.toDataURL();
-  }
-
   const [images, setImages] = useState([]);
   const canvasRef = useRef();
   const data = props.form?.getValues();
   const upload = useUpload(canvasRef, data);
   const classes = useStyles();
-
   let stickersData = config.component.sticker.data;
+
+  if (props.backgroundCanvas) {
+    image = new Image();
+    image.src = props.backgroundCanvas.toDataURL();
+  }
+
   if (config.component.sticker.baseUrl) {
     stickersData = stickersData.map((image) =>
       Object.assign({}, image, {
@@ -231,15 +229,15 @@ const ImageStickerKonva = (props) => {
     [resetAllButtons]
   );
 
-  const handlePublish = async () => {
+  const handleSave = async (close: true) => {
     const r = await upload();
     console.log("uploaded", r);
-  };
-
-  const handleSave = async () => {
+    //    r.hash;
+    setValue("hash", r.hash);
+    setValue("dimension", "[" + r.width + "," + r.height + "]");
     props.setImage(canvasRef.current.toCanvas().toDataURL("image/jpeg", 0.8));
     //    console.log(canvasRef.current.toDataUrl("jpeg",81));
-    props.setDraw(false);
+    props.setDraw(!close);
   };
 
   return (
@@ -289,9 +287,7 @@ const ImageStickerKonva = (props) => {
       </Stage>
       <Card>
         <CardHeader
-          subheader={t("image.addStickerTitle", {
-            defaultValue: "Click/Tap to add a sticker",
-          })}
+          subheader={t("image.addStickerTitle", "Click/Tap to add a sticker")}
         />
         <CardContent className={classes.stickers}>
           {stickersData.map((sticker, i) => {
@@ -327,14 +323,16 @@ const ImageStickerKonva = (props) => {
         >
           {t("image.publish", "Looks good, publish!")}
         </Button>
-        <Button
-          color="secondary"
-          variant="contained"
-          onClick={handlePublish}
-          size="large"
-        >
-          Publish (debug)
-        </Button>
+        {config.test && (
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={() => handleSave(false)}
+            size="large"
+          >
+            Publish (debug)
+          </Button>
+        )}
       </div>
     </>
   );
@@ -345,7 +343,7 @@ const ImageOption = (props) => {
   const { t } = useTranslation();
   return (
     <Grid container spacing={1} justifyContent="space-between">
-      <Grid item>{t("image.wanttoadd", "Do you want to add a image?")}</Grid>
+      <Grid item>{t("image.wanttoadd", "add an image?")}</Grid>
       <Grid item>
         <ButtonGroup variant="contained" color="primary">
           <Button

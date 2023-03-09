@@ -6,7 +6,7 @@ require("./dotenv.js");
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "extract", "verbose", "push"],
+  boolean: ["help", "dry-run", "extract", "verbose", "push", "markdown"],
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou" },
 });
@@ -19,6 +19,7 @@ const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 const org = require("./org");
+const snarkdown = require("./snarkdown");
 
 // todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -32,6 +33,7 @@ const help = () => {
       "--help (this command)",
       "--lang=fr (to overwrite the language in the actionpage)",
       "--dry-run (show the result but don't write)",
+      "--markdown (handle i18n as markdown)",
       "--extract",
       "actionpage_id",
       "--mjml {template to use in config/mjml, default default/thankyou)",
@@ -135,7 +137,7 @@ const translateTpl = (tpl, lang) =>
           console.log("wrong children", d);
           reject({ error: "wrong child, was expecting text", elem: d });
         }
-        keys[d.attribs.i18n] = text.data;
+        keys[d.attribs.i18n] = argv.markdown ? snarkdown(text.data) : text.data;
         console.log("key", d.attribs.i18n, i18n.t(d.attribs.i18n));
         text.data = i18n.t(d.attribs.i18n); // translation to the new language
       });

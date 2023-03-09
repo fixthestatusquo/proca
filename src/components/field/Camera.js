@@ -58,11 +58,12 @@ export const useUpload = (canvasRef, formData = {}) => {
     }
 
     //const f = items[current].original.split("/");
-    const { data, error } = await supabase.from("pictures").insert([d]);
+    const { error } = await supabase.from("pictures").insert([d]);
     if (error && error.code !== "23505") {
       //error different than duplicated
       return error;
     }
+
     const r = await supabase.storage
       //.from(config.campaign.name.replaceAll("_", "-"))
       //.upload("public/" + hash + ".jpg", blob, {
@@ -74,11 +75,11 @@ export const useUpload = (canvasRef, formData = {}) => {
     if (r.error) {
       if (r.error.statusCode === "23505") {
         //duplicated
-        return { id: data && data[0].id, hash: hash };
+        return { hash: hash, width: canvas.width, height: canvas.height };
       }
       return r.error?.message || "error uploading file";
     }
-    return { id: data && data[0].id, hash: hash };
+    return { hash: hash, width: canvas.width, height: canvas.height };
   };
 };
 

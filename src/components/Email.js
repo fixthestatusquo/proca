@@ -109,6 +109,12 @@ const Component = (props) => {
     [t]
   );
 
+  const mttProcessing = config.component.email?.server?.processing;
+  //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
+  useEffect(() => {
+    if (mttProcessing) setData("mttProcessing", false);
+  }, [setData, mttProcessing]);
+
   useEffect(() => {
     if (!data.subject && (paramEmail.subject || paramEmail.message)) {
       setData(paramEmail);
@@ -259,6 +265,7 @@ const Component = (props) => {
   }, [config.component, config.hook, setAllProfiles]);
 
   const fallbackRandom = config.component.email?.fallbackRandom;
+
   const filterProfiles = useCallback(
     (country) => {
       if (!country) return;
@@ -389,6 +396,10 @@ const Component = (props) => {
           "&body=" +
           encodeURIComponent(body);
 
+    if (!to) {
+      console.warn("no target, skip sending");
+      return false;
+    }
     var win = window.open(url, "_blank");
     //TODO: display fallback using  Clipboard.writeText()
     var timer = setInterval(() => {

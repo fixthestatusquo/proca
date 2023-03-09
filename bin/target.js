@@ -21,6 +21,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "source",
     "salutation",
     "meps",
+    "email",
   ],
 });
 
