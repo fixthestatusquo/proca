@@ -132,18 +132,18 @@
     "salutation": "Dear sir/madam",
     "salutation_female": "Dear {target_name}",
     "salutation_info": "(The recipient's name will be put before sending)",
-    "salutation_male": "Dear {target name}",
+    "salutation_male": "Dear {target_name}",
     "salutation_placeholder": "Dear [recipient]"
   },
   "image": {
     "addSticker": "add stickers",
-    "addStickerTitle": "Click/Tap to add sticker to photo",
+    "addStickerTitle": "Click/Tap to add a sticker to the picture",
     "benefit": "Adding an image to send -and that you can share at the next step- would make your action more impactful",
     "publish": "Looks good, publish!",
-    "select": "choose your picture",
+    "select": "choose of of our pictures",
     "takeTitle": "Take a picture with your phone",
     "upload": "Upload a picture",
-    "wanttoadd": "Do you want to add a image?"
+    "wanttoadd": "Do you want to add an image?"
   },
   "no": "no",
   "progress": {
