@@ -141,7 +141,7 @@ export default function ImageStickerComplete(props) {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <PhotoLibraryIcon color="primary" />
-              {t("image.select", "Select one of our pictures")}
+              {t("image.select")}
             </AccordionSummary>
             <AccordionDetails classes={{ root: classes.accordion }}>
               <SelectPicture setCanvas={uploadedCanvas} />
@@ -229,7 +229,8 @@ const ImageStickerKonva = (props) => {
     [resetAllButtons]
   );
 
-  const handleSave = async (close: true) => {
+  const handleSave = async (close) => {
+    if (!close) close = true;
     const r = await upload();
     console.log("uploaded", r);
     //    r.hash;
@@ -343,7 +344,7 @@ const ImageOption = (props) => {
   const { t } = useTranslation();
   return (
     <Grid container spacing={1} justifyContent="space-between">
-      <Grid item>{t("image.wanttoadd", "add an image?")}</Grid>
+      <Grid item>{t("image.wanttoadd")}</Grid>
       <Grid item>
         <ButtonGroup variant="contained" color="primary">
           <Button
@@ -369,12 +370,7 @@ const ImageOption = (props) => {
       <Collapse in={image === false}>
         <Alert severity="info" icon={<ImageIcon />}>
           <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
-          <span>
-            {t(
-              "image.benefit",
-              "Adding an image to send to your MEPs and minister -and that you can share at the next step- would make your action more impactful"
-            )}
-          </span>
+          <span>{t("image.benefit")}</span>
         </Alert>
       </Collapse>
     </Grid>
