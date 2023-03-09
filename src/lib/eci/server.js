@@ -55,7 +55,7 @@ async function addSupport(actionType, actionPage, data, options) {
   if (data.birthDate) variables.contact.birthDate = data.birthDate;
   if (data.documentNumber) {
     variables.contact.nationality.documentNumber = data.documentNumber;
-    variables.contact.nationality.documentType: data.documentType,
+    variables.contact.nationality.documentType= data.documentType,
   }
 
   if (Object.keys(data.tracking).length) {
