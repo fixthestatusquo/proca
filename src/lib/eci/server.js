@@ -39,7 +39,6 @@ async function addSupport(actionType, actionPage, data, options) {
       last_name: data.lastname,
       nationality: {
         country: data.nationality,
-        documentNumber: data.documentNumber,
         documentType: data.documentType,
       },
       address: {
@@ -55,6 +54,8 @@ async function addSupport(actionType, actionPage, data, options) {
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.locality) variables.contact.address.locality = data.locality;
   if (data.birthDate) variables.contact.birthDate = data.birthDate;
+  if (data.documentNumber)
+    variables.contact.nationality.documentNumber = data.documentNumber;
 
   if (Object.keys(data.tracking).length) {
     variables.tracking = data.tracking;
