@@ -19,8 +19,3 @@ export default function TwitterMessage(props) {
     </Grid>
   );
 }
-
-TwitterMessage.defaultProps = {
-  handleChange: () =>
-    console.log("Warning: you should set a change event handler"),
-};
