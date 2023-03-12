@@ -22,7 +22,7 @@
     "@paypal/react-paypal-js": "^7.8.2",
     "@shopify/react-intersection-observer": "^4.0.2",
     "@stripe/react-stripe-js": "^1.16.5",
-    "@stripe/stripe-js": "^1.46.0",
+    "@stripe/stripe-js": "^1.48.0",
     "@supabase/supabase-js": "^2.10.0",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^7.5.0",
