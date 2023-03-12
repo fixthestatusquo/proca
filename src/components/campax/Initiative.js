@@ -161,7 +161,7 @@ export default function Register(props) {
       setError(
         "birthdate",
         "manual",
-        t("date.error", "invalid date. format: DD.MM.YYYY")
+        t("date.error", "format should be DD.MM.YYYY")
       );
       return;
     }
