@@ -19,7 +19,7 @@ const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 const org = require("./org");
-const snarkdown = require("./snarkdown");
+const _snarkdown = require("snarkdown");
 
 // todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -32,7 +32,8 @@ const help = () => {
       "options",
       "--help (this command)",
       "--lang=fr (to overwrite the language in the actionpage)",
-      "--dry-run (show the result but don't write)",
+      "--dry-run (don't write)",
+      "--verbose (show the result)",
       "--markdown (handle i18n as markdown)",
       "--extract",
       "actionpage_id",
@@ -46,6 +47,18 @@ const help = () => {
 if (!argv._.length || argv.help) {
   return help();
 }
+
+const snarkdown = (md) => {
+  const htmls = md
+    .split(/(?:\r?\n){2,}/)
+    .map((l) =>
+      [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
+        ? _snarkdown(l)
+        : `<p>${_snarkdown(l)}</p>`
+    );
+
+  return htmls.join("\n\n");
+};
 
 const pushTemplate = async (config, html) => {
   const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String,$id: Int!) {
@@ -89,7 +102,7 @@ const pushTemplate = async (config, html) => {
     variables.subject,
     data
   );
-  console.log(data);
+  if (argv.verbose) console.log(data);
   return data;
 };
 
@@ -137,9 +150,11 @@ const translateTpl = (tpl, lang) =>
           console.log("wrong children", d);
           reject({ error: "wrong child, was expecting text", elem: d });
         }
-        keys[d.attribs.i18n] = argv.markdown ? snarkdown(text.data) : text.data;
+        keys[d.attribs.i18n] = text.data;
         console.log("key", d.attribs.i18n, i18n.t(d.attribs.i18n));
-        text.data = i18n.t(d.attribs.i18n); // translation to the new language
+        text.data = argv.markdown
+          ? snarkdown(i18n.t(d.attribs.i18n))
+          : i18n.t(d.attribs.i18n); // translation to the new language
       });
       const trans = deepify(keys);
       if (argv.extract) {
