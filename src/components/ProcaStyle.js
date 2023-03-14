@@ -77,6 +77,9 @@ export default function ProcaStyle(props) {
               backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
             },
           },
+          MuiButton: {
+            root: { backgroundImage: "none!important" },
+          },
           MuiIconButton: {
             root: { width: "auto!important", minWidth: "auto!important" },
           },
