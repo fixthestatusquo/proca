@@ -142,7 +142,8 @@ const Component = (props) => {
     setData("targets", target);
   };
   const url =
-    config.component.twitter?.listUrl === true
+    config.component.twitter?.listUrl === true ||
+    !config.component.twitter?.listUrl
       ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
       : config.component.twitter.listUrl;
 
