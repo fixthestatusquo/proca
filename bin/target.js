@@ -263,10 +263,11 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
   if (ids.errors) {
     ids.errors.forEach((d) => {
       const line = d.path[2];
+      console.log(d.path);
       console.log(
         "error record",
         line,
-        formattedTargets[line].name,
+        formattedTargets[line]?.name,
         color.red(formattedTargets[line].emails[0].email)
       );
     });

@@ -62,6 +62,13 @@ const TweetButton = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
+  const handleClick = (e) => {
+    props.handleClick(e);
+    if (!config.component.twitter?.filter?.includes("random")) {
+      props.done(e);
+    }
+  };
+
   return (
     <>
       <Grid item xs={12}>
@@ -69,7 +76,7 @@ const TweetButton = (props) => {
           color="primary"
           variant="contained"
           fullWidth
-          onClick={props.handleClick}
+          onClick={handleClick}
           size="large"
           endIcon={
             <SvgIcon>
