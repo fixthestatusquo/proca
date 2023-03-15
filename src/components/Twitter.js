@@ -134,7 +134,7 @@ const Component = (props) => {
     tweet({
       actionPage: config.actionPage,
       message: form.getValues("message"),
-      screen_name: profiles.map((d) => d.screen_name).join(","),
+      screen_name: profiles.map((d) => d.screen_name).join(" @"),
       actionUrl: actionUrl,
     });
     let target = data.targets ? data.targets.concat(profiles) : profiles;
