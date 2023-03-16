@@ -211,84 +211,94 @@ const saveConfig = (id) => {
   return json;
 };
 
-(async () => {
-  const id = argv._[0];
-  const tplName = argv.mjml;
-  let lang = null;
-  let render = null;
-  //const display = argv.display || false;
-  const i = await i18nInit;
-  await i18n.setDefaultNamespace("server");
-  const [file, config, campaign] = getConfigOverride(id);
-  const server =
-    campaign.config.locales &&
-    campaign.config.locales[config.lang] &&
-    campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
-  if (server) config.locales["server:"] = server;
-  let orgConfig = {};
-  try {
+if (require.main === module) {
+  (async () => {
+    const id = argv._[0];
+    const tplName = argv.mjml;
+    let lang = null;
+    let render = null;
+    //const display = argv.display || false;
+    const i = await i18nInit;
+    await i18n.setDefaultNamespace("server");
+    const [file, config, campaign] = getConfigOverride(id);
+    const server =
+      campaign.config.locales &&
+      campaign.config.locales[config.lang] &&
+      campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
+    if (server) config.locales["server:"] = server;
+    let orgConfig = {};
     try {
-      orgConfig = org.readOrg(config.org.name);
-    } catch (e) {
       try {
-        orgConfig = await org.getOrg(config.org.name);
+        orgConfig = org.readOrg(config.org.name);
       } catch (e) {
-        console.log(
-          "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-          config.org.name
-        );
+        try {
+          orgConfig = await org.getOrg(config.org.name);
+        } catch (e) {
+          console.log(
+            "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
+            config.org.name
+          );
+        }
       }
-    }
-  } catch (e) {
-    console.log(
-      "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-      config.org.name
-    );
-    process.exit(1);
-  }
-  let mailConfig = read("email/actionpage/" + id);
-  console.log("widget ", config.filename, argv.mjml);
-  lang = config.lang;
-  if (argv.lang) {
-    if (argv.lang.length !== 2) {
-      console.error("invalid language", argv.lang);
+    } catch (e) {
+      console.log(
+        "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
+        config.org.name
+      );
       process.exit(1);
     }
-    lang = argv.lang;
-    console.warn("overriding language with ", lang);
-  }
+    let mailConfig = read("email/actionpage/" + id);
+    console.log("widget ", config.filename, argv.mjml);
+    lang = config.lang;
+    if (argv.lang) {
+      if (argv.lang.length !== 2) {
+        console.error("invalid language", argv.lang);
+        process.exit(1);
+      }
+      lang = argv.lang;
+      console.warn("overriding language with ", lang);
+    }
 
-  const d = await i18n.changeLanguage(lang);
+    const d = await i18n.changeLanguage(lang);
 
-  configOverride(config);
+    configOverride(config);
 
-  if (!mailConfig) {
-    mailConfig = saveConfig(id);
-    console.log("config", mailConfig);
-  }
-  config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
-  const fileName = path.resolve(
-    __dirname,
-    tmp + "email/mjml/" + tplName + ".mjml"
-  );
-
-  try {
+    if (!mailConfig) {
+      mailConfig = saveConfig(id);
+      console.log("config", mailConfig);
+    }
+    config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
     const fileName = path.resolve(
       __dirname,
       tmp + "email/mjml/" + tplName + ".mjml"
     );
-    let tpl = fs.readFileSync(fileName, "utf8");
-    const newTpl = await translateTpl(tpl, lang);
-    render = mjml2html(tplName, id, newTpl);
-    if (argv.markdown) {
-      for (const key in keys) {
-        render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
+
+    try {
+      const fileName = path.resolve(
+        __dirname,
+        tmp + "email/mjml/" + tplName + ".mjml"
+      );
+      let tpl = fs.readFileSync(fileName, "utf8");
+      const newTpl = await translateTpl(tpl, lang);
+      render = mjml2html(tplName, id, newTpl);
+      if (argv.markdown) {
+        for (const key in keys) {
+          render.html = render.html.replace(
+            needle + key,
+            snarkdown(i18n.t(key))
+          );
+        }
       }
+    } catch (e) {
+      console.log(e);
     }
-  } catch (e) {
-    console.log(e);
-  }
-  if (argv.push && !argv["dry-run"]) {
-    const r = await pushTemplate(config, render.html);
-  }
-})();
+    if (argv.push && !argv["dry-run"]) {
+      const r = await pushTemplate(config, render.html);
+    }
+  })();
+} else {
+  //export a bunch
+  module.exports = {
+    render,
+  };
+}
