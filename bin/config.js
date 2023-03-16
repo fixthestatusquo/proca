@@ -24,17 +24,13 @@ const checked = (fileName, type) => {
 };
 // mkdir -p
 const mkdirp = (pathToFile) => {
+  if (!pathToFile) {
+    console.log("need a path to folder to create");
+    process.exit(1);
+  }
   pathToFile = "config/" + pathToFile;
+  console.log("creating", pathToFile);
   fs.mkdirSync(pathToFile, { recursive: true });
-  return;
-  pathToFile.split("/").reduce((prev, curr, i) => {
-    console.log(pathToFile, prev, curr, i);
-    if (prev && fs.existsSync(prev) === false) {
-      console.log("create", prev);
-      fs.mkdirSync(prev);
-    }
-    return prev + "/" + curr;
-  });
 };
 const file = (id) => {
   return path.resolve(__dirname, tmp + checked(id) + ".json");

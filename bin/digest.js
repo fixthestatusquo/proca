@@ -7,8 +7,10 @@ const argv = require("minimist")(process.argv.slice(2), {
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou" },
 });
-const { read, fileExists, save } = require("./config");
+const { mkdirp, read, fileExists, save } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
+const configOverride = require("./lang").configOverride;
+
 // todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -34,14 +36,7 @@ if (!argv._.length || argv.help) {
 const saveConfig = (templateName, campaignName, lang, subject) => {
   const jsonFile = path.resolve(
     __dirname,
-    tmp +
-      "email/digest/" +
-      campaignName +
-      "/" +
-      templateName +
-      "." +
-      lang +
-      ".json"
+    tmp + "email/digest/" + templateName + "/" + lang + ".json"
   );
   const type = "digest";
   const json = {
@@ -55,8 +50,36 @@ const saveConfig = (templateName, campaignName, lang, subject) => {
   return json;
 };
 
+const saveTemplate = (render, templateName, campaignName, lang) => {
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/digest/" + templateName + "/" + lang + ".html"
+  );
+  if (argv.verbose) {
+    console.log(JSON.stringify(render.errors, null, 2));
+  }
+  if (argv["dry-run"]) {
+    console.log("would write in ", fileName, render.html);
+    return;
+  }
+  console.log("saved in", fileName);
+  fs.writeFileSync(fileName, render.html);
+
+  return render;
+};
+
+const subject = (tplName, config) => {
+  const configTpl = config.locales["server:"];
+  console.log(tplName);
+  return "digest";
+};
+
 (async () => {
   const tplName = argv.mjml;
+  if (!tplName) {
+    console.log("missing --mjml=template/to/use");
+    process.exit(1);
+  }
   const campaignName = argv._[0];
   let render = null;
 
@@ -67,13 +90,17 @@ const saveConfig = (templateName, campaignName, lang, subject) => {
     console.error("no language in", campaignName);
     process.exit(1);
   }
-  const server = await i18nTplInit(campaign);
-  const r = i18nRender(tplName, "en", true);
-  console.log(r.html);
 
+  mkdirp("email/digest/" + tplName);
   for (const lang in locales) {
     try {
       console.log("generate ", lang);
+      let config = { lang: lang, locales: locales[lang] };
+      config.locales.server = await i18nTplInit(campaign);
+      configOverride(config);
+      render = await i18nRender(tplName, lang, true);
+      saveConfig(tplName, campaignName, lang, subject(tplName, config));
+      saveTemplate(render, tplName, campaignName, lang);
     } catch (e) {
       console.log(e);
     }

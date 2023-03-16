@@ -212,10 +212,10 @@ const i18nRender = async (tplName, lang, markdown) => {
   );
   let tpl = fs.readFileSync(fileName, "utf8");
   if (lang) {
+    //only switch if different than current?
     const d = await i18n.changeLanguage(lang);
     //    configOverride(config); what does it do?
   }
-  console.log(tpl);
   const newTpl = await translateTpl(tpl, lang, markdown);
   const render = mjmlEngine(newTpl, {});
   if (markdown) {
