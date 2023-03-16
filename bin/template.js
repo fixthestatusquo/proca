@@ -26,6 +26,9 @@ const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
 
+const keys = {};
+const needle = "[{|}]";
+
 const help = () => {
   console.log(
     [
@@ -131,7 +134,6 @@ const deepify = (keys) => {
 
 const translateTpl = (tpl, lang) =>
   new Promise((resolve, reject) => {
-    const keys = {};
     const util = htmlparser2.DomUtils;
     const handler = new htmlparser2.DomHandler((error, dom) => {
       if (error) {
@@ -151,9 +153,10 @@ const translateTpl = (tpl, lang) =>
           reject({ error: "wrong child, was expecting text", elem: d });
         }
         keys[d.attribs.i18n] = text.data;
-        console.log("key", d.attribs.i18n, i18n.t(d.attribs.i18n));
+
         text.data = argv.markdown
-          ? snarkdown(i18n.t(d.attribs.i18n))
+          ? //? snarkdown(i18n.t(d.attribs.i18n))
+            needle + d.attribs.i18n
           : i18n.t(d.attribs.i18n); // translation to the new language
       });
       const trans = deepify(keys);
@@ -244,7 +247,7 @@ const saveConfig = (id) => {
     process.exit(1);
   }
   let mailConfig = read("email/actionpage/" + id);
-  console.log("widget ", config.filename);
+  console.log("widget ", config.filename, argv.mjml);
   lang = config.lang;
   if (argv.lang) {
     if (argv.lang.length !== 2) {
@@ -277,6 +280,11 @@ const saveConfig = (id) => {
     let tpl = fs.readFileSync(fileName, "utf8");
     const newTpl = await translateTpl(tpl, lang);
     render = mjml2html(tplName, id, newTpl);
+    if (argv.markdown) {
+      for (const key in keys) {
+        render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
+      }
+    }
   } catch (e) {
     console.log(e);
   }
