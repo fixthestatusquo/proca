@@ -23,14 +23,19 @@ const checked = (fileName, type) => {
   return fileName;
 };
 // mkdir -p
-const mkdirp = (pathToFile) =>
+const mkdirp = (pathToFile) => {
+  pathToFile = "config/" + pathToFile;
+  fs.mkdirSync(pathToFile, { recursive: true });
+  return;
   pathToFile.split("/").reduce((prev, curr, i) => {
+    console.log(pathToFile, prev, curr, i);
     if (prev && fs.existsSync(prev) === false) {
+      console.log("create", prev);
       fs.mkdirSync(prev);
     }
     return prev + "/" + curr;
   });
-
+};
 const file = (id) => {
   return path.resolve(__dirname, tmp + checked(id) + ".json");
 };
@@ -150,6 +155,7 @@ module.exports = {
   save,
   apiLink,
   checked,
+  mkdirp,
   //  actionPageFromLocalConfig,
   //  pushCampaign,
   //  pullCampaign,
