@@ -132,7 +132,7 @@ const deepify = (keys) => {
   return trans;
 };
 
-const translateTpl = (tpl, lang) =>
+const translateTpl = (tpl, lang, markdown) =>
   new Promise((resolve, reject) => {
     const util = htmlparser2.DomUtils;
     const handler = new htmlparser2.DomHandler((error, dom) => {
@@ -153,11 +153,7 @@ const translateTpl = (tpl, lang) =>
           reject({ error: "wrong child, was expecting text", elem: d });
         }
         keys[d.attribs.i18n] = text.data;
-
-        text.data = argv.markdown
-          ? //? snarkdown(i18n.t(d.attribs.i18n))
-            needle + d.attribs.i18n
-          : i18n.t(d.attribs.i18n); // translation to the new language
+        text.data = markdown ? needle + d.attribs.i18n : i18n.t(d.attribs.i18n); // translation to the new language
       });
       const trans = deepify(keys);
       if (argv.extract) {
@@ -172,9 +168,7 @@ const translateTpl = (tpl, lang) =>
     parser.end();
   });
 
-const mjml2html = (name, id, tpl) => {
-  const render = mjmlEngine(tpl, {});
-
+const saveTemplate = (render, id) => {
   const fileName = path.resolve(
     __dirname,
     tmp + "email/actionpage/" + id + ".html"
@@ -211,6 +205,28 @@ const saveConfig = (id) => {
   return json;
 };
 
+const i18nRender = async (fileName, lang, markdown) => {
+  let tpl = fs.readFileSync(fileName, "utf8");
+  const newTpl = await translateTpl(tpl, lang, markdown);
+  const render = mjmlEngine(newTpl, {});
+  if (markdown) {
+    for (const key in keys) {
+      render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
+    }
+  }
+  return render;
+};
+
+const i18nTplInit = async (campaign, lang = "en") => {
+  const i = await i18nInit;
+  await i18n.setDefaultNamespace("server");
+  const server =
+    campaign.config.locales &&
+    campaign.config.locales[lang] &&
+    campaign.config.locales[lang]["server:"]; // only campaign and common namespaces are handled by default
+  return server;
+};
+
 if (require.main === module) {
   (async () => {
     const id = argv._[0];
@@ -218,13 +234,8 @@ if (require.main === module) {
     let lang = null;
     let render = null;
     //const display = argv.display || false;
-    const i = await i18nInit;
-    await i18n.setDefaultNamespace("server");
     const [file, config, campaign] = getConfigOverride(id);
-    const server =
-      campaign.config.locales &&
-      campaign.config.locales[config.lang] &&
-      campaign.config.locales[config.lang]["server:"]; // only campaign and common namespaces are handled by default
+    const server = await i18nTplInit(campaign, config.lang);
     if (server) config.locales["server:"] = server;
     let orgConfig = {};
     try {
@@ -260,7 +271,6 @@ if (require.main === module) {
     }
 
     const d = await i18n.changeLanguage(lang);
-
     configOverride(config);
 
     if (!mailConfig) {
@@ -268,27 +278,14 @@ if (require.main === module) {
       console.log("config", mailConfig);
     }
     config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
-    const fileName = path.resolve(
-      __dirname,
-      tmp + "email/mjml/" + tplName + ".mjml"
-    );
 
     try {
       const fileName = path.resolve(
         __dirname,
         tmp + "email/mjml/" + tplName + ".mjml"
       );
-      let tpl = fs.readFileSync(fileName, "utf8");
-      const newTpl = await translateTpl(tpl, lang);
-      render = mjml2html(tplName, id, newTpl);
-      if (argv.markdown) {
-        for (const key in keys) {
-          render.html = render.html.replace(
-            needle + key,
-            snarkdown(i18n.t(key))
-          );
-        }
-      }
+      render = await i18nRender(fileName, lang, argv.markdown);
+      saveTemplate(render, id);
     } catch (e) {
       console.log(e);
     }
@@ -298,7 +295,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = {
-    render,
-  };
+  module.exports = { i18nRender, i18nTplInit };
 }
