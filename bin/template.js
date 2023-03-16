@@ -205,8 +205,17 @@ const saveConfig = (id) => {
   return json;
 };
 
-const i18nRender = async (fileName, lang, markdown) => {
+const i18nRender = async (tplName, lang, markdown) => {
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/mjml/" + tplName + ".mjml"
+  );
   let tpl = fs.readFileSync(fileName, "utf8");
+  if (lang) {
+    const d = await i18n.changeLanguage(lang);
+    //    configOverride(config); what does it do?
+  }
+  console.log(tpl);
   const newTpl = await translateTpl(tpl, lang, markdown);
   const render = mjmlEngine(newTpl, {});
   if (markdown) {
@@ -280,11 +289,7 @@ if (require.main === module) {
     config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
 
     try {
-      const fileName = path.resolve(
-        __dirname,
-        tmp + "email/mjml/" + tplName + ".mjml"
-      );
-      render = await i18nRender(fileName, lang, argv.markdown);
+      render = await i18nRender(tplName, null, argv.markdown);
       saveTemplate(render, id);
     } catch (e) {
       console.log(e);
