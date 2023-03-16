@@ -5,6 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/Country";
+import HiddenField from "@components/field/Hidden";
 
 const Address = (props) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -98,6 +99,14 @@ const Address = (props) => {
           />
         </Grid>
       )}
+      {config.component.register?.field?.country === false &&
+        config.component.country && (
+          <HiddenField
+            form={props.form}
+            name="country"
+            value={config.component.country}
+          />
+        )}
       {config.component.register?.field?.country !== false && (
         <Grid
           item
