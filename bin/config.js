@@ -29,7 +29,6 @@ const mkdirp = (pathToFile) => {
     process.exit(1);
   }
   pathToFile = "config/" + pathToFile;
-  console.log("creating", pathToFile);
   fs.mkdirSync(pathToFile, { recursive: true });
 };
 const file = (id) => {
