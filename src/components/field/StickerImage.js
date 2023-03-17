@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
   accordion: {
     display: "block!important",
   },
+  buttonGroup: {
+    marginRight: theme.spacing(1),
+  },
   dialog: {
     minWidth: theme.breakpoints.values.sm,
   },
@@ -342,11 +345,16 @@ const ImageStickerKonva = (props) => {
 const ImageOption = (props) => {
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
+  const classes = useStyles();
   return (
     <Grid container spacing={1} justifyContent="space-between">
       <Grid item>{t("image.wanttoadd")}</Grid>
       <Grid item>
-        <ButtonGroup variant="contained" color="primary">
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          className={classes.buttonGroup}
+        >
           <Button
             disableElevation={image}
             color={image === false ? "default" : "primary"}
