@@ -27,7 +27,9 @@ const tokenize = (message, { profile, url }) => {
   if (!profile) return message;
   if (Array.isArray(profile)) {
     const r = profile.map((d) =>
-      d.screen_name?.startsWith("@") ? d.screen_name.slice(1) : d.screen_name
+      d?.screen_name?.startsWith("@")
+        ? d.screen_name.slice(1)
+        : d?.screen_name || ""
     );
     screen_name = r.join(" @");
   } else {

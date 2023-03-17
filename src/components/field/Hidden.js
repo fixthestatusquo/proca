@@ -1,4 +1,4 @@
-import REACT, { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const HiddenField = (props) => {
   const { register, setValue } = props.form;

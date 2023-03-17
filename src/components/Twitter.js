@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, Fragment } from "react";
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+  Fragment,
+} from "react";
 
 import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
@@ -131,28 +137,12 @@ const Component = (props) => {
   if (hash) {
     // it has a picture
     actionUrl =
-      (config.component.twitter?.shadowmeta ||
+      (config.component.twitter?.metaproxy ||
         "https://w.proca.app/" + config.campaign.name + "/") +
       hash +
       "?url=" +
       encodeURIComponent(document.location.origin + document.location.pathname);
   }
-  const handleTweet = () => {
-    tweet({
-      actionPage: config.actionPage,
-      message: form.getValues("message"),
-      screen_name: profiles.map((d) => d.screen_name).join(" @"),
-      actionUrl: actionUrl,
-    });
-    let target = data.targets ? data.targets.concat(profiles) : profiles;
-    setTweeting(true);
-    setData("targets", target);
-  };
-  const url =
-    config.component.twitter?.listUrl === true ||
-    !config.component.twitter?.listUrl
-      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
-      : config.component.twitter.listUrl;
 
   const setMessage = useCallback(
     (profile) => {
@@ -197,6 +187,37 @@ const Component = (props) => {
     ]
   );
 
+  // eslint-disable-next-line
+  const filterRandomProfile = useCallback(() => {
+    const d = allProfiles;
+    const i = d[Math.floor(Math.random() * d.length)];
+    setMessage([i]);
+    setProfiles([i]);
+  }, [allProfiles, setMessage]);
+
+  const randomize = config.component.twitter?.filter?.includes("random");
+  useLayoutEffect(() => {
+    if (allProfiles.length < 2) return;
+    filterRandomProfile();
+  }, [randomize, allProfiles, filterRandomProfile]);
+
+  const handleTweet = () => {
+    tweet({
+      actionPage: config.actionPage,
+      message: form.getValues("message"),
+      screen_name: profiles.map((d) => d.screen_name).join(" @"),
+      actionUrl: actionUrl,
+    });
+    let target = data.targets ? data.targets.concat(profiles) : profiles;
+    setTweeting(true);
+    setData("targets", target);
+  };
+  const url =
+    config.component.twitter?.listUrl === true ||
+    !config.component.twitter?.listUrl
+      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+      : config.component.twitter.listUrl;
+
   useEffect(() => {
     const fetchData = async (url) => {
       await fetch(url)
@@ -225,7 +246,9 @@ const Component = (props) => {
           }
 
           setAllProfiles(d);
+
           if (config.component.twitter?.filter?.includes("random")) {
+            // not sure if it's useful, there is a useLayoutEffect that should do the same
             const i = d[Math.floor(Math.random() * d.length)];
             setMessage([i]);
             setProfiles([i]);
@@ -250,14 +273,6 @@ const Component = (props) => {
     config.hook,
     t,
   ]);
-
-  // eslint-disable-next-line
-  const filterRandomProfile = () => {
-    const d = allProfiles;
-    const i = d[Math.floor(Math.random() * d.length)];
-    setMessage([i]);
-    setProfiles([i]);
-  };
 
   const filterProfiles = useCallback(
     (country) => {
@@ -371,7 +386,7 @@ const Component = (props) => {
       >
         <Register actionPage={props.actionPage} done={props.done} />
       </Dialog>
-      {!tweeting && <FirstStep done={props.done} />}
+      {!tweeting && <FirstStep done={props.done} profiles={profiles} />}
       {tweeting && <SecondStep done={props.done} />}
     </Fragment>
   );
