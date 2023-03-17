@@ -155,6 +155,7 @@
     "sign": "{{total}} au semnat. Hai să strângem {{goal}}",
     "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
   },
+  "read more": "citește mai mult",
   "register": "Adaugă numele meu",
   "reminder": {
     "intro": "Știm că guvernul dvs. solicită multe informații. Vă vom trimite un singur e-mail pentru a vă reaminti să completați formularul mai târziu."
