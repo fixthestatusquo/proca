@@ -155,6 +155,7 @@
     "sign": "{{total}} podepsali. Přejděme k {{goal}}",
     "twitter": "{{total}} napsali na twitteru. Pojďme na {{goal}}"
   },
+  "read more": "Přečtěte si více",
   "register": "Přidejte mé jméno",
   "reminder": {
     "intro": "Víme, že vaše vláda požaduje mnoho informací. Pošleme vám jeden e-mail, který vám připomene, abyste formulář vyplnili později."
