@@ -9,7 +9,8 @@ import React, {
 import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
-import Alert from "@components/Alert";
+import ProcaAlert from "@components/Alert";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import Country from "@components/Country";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
@@ -70,9 +71,9 @@ const TweetButton = (props) => {
   const classes = useStyles();
   const handleClick = (e) => {
     props.handleClick(e);
-    if (!config.component.twitter?.filter?.includes("random")) {
-      props.done(e);
-    }
+    //    if (!config.component.twitter?.filter?.includes("random")) {
+    //      props.done(e);
+    //    }
   };
 
   return (
@@ -354,7 +355,14 @@ const Component = (props) => {
 
   const SecondStep = () => {
     if (!tweeting) return null;
-
+    if (profiles.length == allProfiles.length) {
+      return (
+        <Alert severity="info">
+          <AlertTitle>{t("twitter.instruction")}</AlertTitle>
+          To increase your impact, please personalise it!
+        </Alert>
+      );
+    }
     return (
       <>
         <Again
@@ -364,12 +372,12 @@ const Component = (props) => {
           }}
           done={props.done}
         />
-        <Alert severity="info">
+        <ProcaAlert severity="info">
           {t(
             "twitter.instruction",
             "Please complete sending the tweet in the new window (on twitter.com)"
           )}
-        </Alert>
+        </ProcaAlert>
       </>
     );
   };
