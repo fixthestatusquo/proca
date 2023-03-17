@@ -138,8 +138,10 @@ const Component = (props) => {
   if (hash) {
     // it has a picture
     actionUrl =
-      (config.component.twitter?.metaproxy ||
-        "https://w.proca.app/" + config.campaign.name + "/") +
+      (config.component.twitter?.metaproxy || "https://w.proca.app") +
+      "/" +
+      config.campaign.name +
+      "/" +
       hash +
       "?url=" +
       encodeURIComponent(document.location.origin + document.location.pathname);
@@ -355,11 +357,11 @@ const Component = (props) => {
 
   const SecondStep = () => {
     if (!tweeting) return null;
-    if (profiles.length == allProfiles.length) {
+    if (profiles.length === allProfiles.length) {
       return (
         <Alert severity="info">
           <AlertTitle>{t("twitter.instruction")}</AlertTitle>
-          To increase your impact, please personalise it!
+          <b>To increase your impact, please personalise it!</b>
         </Alert>
       );
     }
