@@ -2,6 +2,8 @@ const resize = (img) => {
   const max_size = 640;
   let width = max_size;
   let height = max_size;
+  if (!img.width) return { width: width, height: height };
+
   const isPortrait = img.height > img.width;
   if (isPortrait) {
     width = (max_size / img.height) * img.width;

@@ -27,7 +27,6 @@ export const Next = (props) => {
 
 const Again = (props) => {
   const { t } = useTranslation();
-  const config = useCampaignConfig();
   const replay = props.again || (() => window.proca.go("Register"));
   return (
     <>

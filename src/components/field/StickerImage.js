@@ -13,7 +13,7 @@ import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
-//import { resize } from "@lib/image";
+import { resize } from "@lib/image";
 
 import {
   Grid,
@@ -244,11 +244,12 @@ const ImageStickerKonva = (props) => {
     props.setDraw(!close);
   };
 
+  const { width, height } = resize(props.backgroundCanvas);
   return (
     <>
       <Stage
-        width={600}
-        height={400}
+        width={width}
+        height={height}
         onClick={handleCanvasClick}
         onTap={handleCanvasClick}
         ref={canvasRef}
@@ -257,8 +258,8 @@ const ImageStickerKonva = (props) => {
           {!!image && (
             <KonvaImage
               image={image}
-              height={400}
-              width={600}
+              height={height}
+              width={width}
               id="backgroundImage"
             />
           )}

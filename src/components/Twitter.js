@@ -20,7 +20,6 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { pickOne, tokenize } from "@lib/text";
 import { Grid, Button } from "@material-ui/core";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from "../images/Twitter.js";
 import Again, { Next } from "@components/twitter/Again";
 import { SvgIcon } from "@material-ui/core";
@@ -145,9 +144,8 @@ const Component = (props) => {
           {};
         const msg = get(
           source,
-          config.component.twitter.key || "campaign:.twitter.message"
+          config.component.twitter.key || "campaign:twitter.message"
         );
-
         if (msg) {
           setValue("message", tokenize(pickOne(msg), { profile: profile }));
           return;
@@ -160,6 +158,7 @@ const Component = (props) => {
           return;
         }
       }
+      console.log(t("campaign:twitter.message"));
       setValue(
         "message",
         tokenize(
