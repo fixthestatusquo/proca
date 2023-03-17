@@ -155,6 +155,7 @@
     "sign": "{{total}}  oseb se je podpisalo. Pojdimo do {{goal}}",
     "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
   },
+  "read more": "preberi več",
   "register": "Dodaj moje ime",
   "reminder": {
     "intro": "Vemo, da vaša vlada zahteva veliko informacij. Poslali vam bomo eno elektronsko sporočilo, ki vas bo opomnilo, da morate obrazec izpolniti pozneje."
