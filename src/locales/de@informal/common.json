@@ -155,6 +155,7 @@
     "sign": "{{total}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
     "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
   },
+  "read more": "mehr lesen",
   "register": "Meinen Namen hinzufügen",
   "reminder": {
     "intro": "Wir wissen, dass deine Regierung eine Menge Informationen verlangt. Wir schicken dir eine einzige E-Mail, um dich daran zu erinnern, das Formular später auszufüllen"
