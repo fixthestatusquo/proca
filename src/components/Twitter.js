@@ -10,7 +10,7 @@ import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
 import ProcaAlert from "@components/Alert";
-import { Alert, AlertTitle } from "@material-ui/lab";
+import { Alert } from "@material-ui/lab";
 import Country from "@components/Country";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
@@ -22,7 +22,7 @@ import { pickOne, tokenize } from "@lib/text";
 import { Grid, Button } from "@material-ui/core";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import TwitterIcon from "../images/Twitter.js";
-import Again from "@components/twitter/Again";
+import Again, { Next } from "@components/twitter/Again";
 import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
@@ -96,19 +96,7 @@ const TweetButton = (props) => {
       </Grid>
       {config.component.twitter?.skip && (
         <Grid item xs={12} className={classes.skip}>
-          <Button
-            fullWidth
-            variant="contained"
-            disableElevation
-            endIcon={<SkipNextIcon />}
-            onClick={props.done}
-          >
-            {t(
-              config.component.twitter?.next
-                ? config.component.twitter.next
-                : "Next"
-            )}
-          </Button>
+          <Next done={props.done} />
         </Grid>
       )}
     </>
@@ -359,10 +347,10 @@ const Component = (props) => {
     if (!tweeting) return null;
     if (profiles.length === allProfiles.length) {
       return (
-        <Alert severity="info">
-          <AlertTitle>{t("twitter.instruction")}</AlertTitle>
-          <b>To increase your impact, please personalise it!</b>
-        </Alert>
+        <>
+          <Alert severity="info">{t("twitter.instruction")}</Alert>
+          <Next done={props.done} />
+        </>
       );
     }
     return (

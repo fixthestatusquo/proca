@@ -3,6 +3,28 @@ import ReloadIcon from "@material-ui/icons/Cached";
 import NextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
+
+export const Next = (props) => {
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
+  return (
+    <Button
+      variant="contained"
+      fullWidth
+      onClick={props.done}
+      endIcon={<NextIcon />}
+    >
+      {
+        /* i18next-extract-disable-line */ t(
+          config.component.twitter?.next
+            ? config.component.twitter.next
+            : "Next"
+        )
+      }
+    </Button>
+  );
+};
+
 const Again = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
@@ -20,20 +42,7 @@ const Again = (props) => {
       >
         {t("twitter.again", "Tweet to another person")}
       </Button>
-      <Button
-        variant="contained"
-        fullWidth
-        onClick={props.done}
-        endIcon={<NextIcon />}
-      >
-        {
-          /* i18next-extract-disable-line */ t(
-            config.component.twitter?.next
-              ? config.component.twitter.next
-              : "Next"
-          )
-        }
-      </Button>
+      <Next done={props.done} />
     </>
   );
   //success
