@@ -155,6 +155,7 @@
     "sign": "{{total}} har underskrevet. Lad os gå til {{goal}}",
     "twitter": "{{total}} har twittet. Lad os gå til {{goal}}"
   },
+  "read more": "Læs mere",
   "register": "Tilføj mit navn",
   "reminder": {
     "intro": "Vi ved, at din regering beder om mange oplysninger. Vi sender dig en enkelt e-mail for at minde dig om, at du skal udfylde formularen senere."
