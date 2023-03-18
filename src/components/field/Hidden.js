@@ -5,9 +5,9 @@ const HiddenField = (props) => {
   const { name, value } = props;
 
   useEffect(() => {
-    console.log(name, value);
+    if (!value) return;
     setValue(name, value);
-  }, [name, value]);
+  }, [name, value, setValue]);
   return <input type="hidden" {...register(props.name)} />;
 };
 

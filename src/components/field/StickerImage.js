@@ -6,6 +6,7 @@ import {
 } from "react-konva/lib/ReactKonvaCore";
 import useImage from "use-image";
 import Camera, { useUpload } from "./Camera";
+import Hidden from "./Hidden";
 import { IndividualSticker } from "./image/IndividualStickers";
 import UploadPicture from "./image/Upload";
 import SelectPicture from "./image/Select";
@@ -67,7 +68,6 @@ export default function ImageStickerComplete(props) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
   //  const data = props.form?.getValues();
-  const { register } = props.form;
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -81,15 +81,10 @@ export default function ImageStickerComplete(props) {
     setActiveStep(1);
   };
 
-  const validatePicture = () => {
-    //do the upload
-    return true;
-  };
-
   return (
     <div>
-      <input type="hidden" {...register("hash")} />
-      <input type="hidden" {...register("dimension")} />
+      <Hidden name="hash" form={props.form} />
+      <Hidden name="dimension" form={props.form} />
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
         name={config.campaign.title}
@@ -266,8 +261,8 @@ const ImageStickerKonva = (props) => {
           {!image && (
             <KonvaImage
               image={background}
-              height={400}
-              width={600}
+              height={height}
+              width={height}
               id="backgroundImage"
             />
           )}
@@ -304,8 +299,8 @@ const ImageStickerKonva = (props) => {
                   addStickerToPanel({
                     src: sticker.url,
                     width: sticker.width,
-                    x: Math.floor(Math.random() * 550 + 20),
-                    y: Math.floor(Math.random() * 300 + 20),
+                    x: 20 + Math.floor(Math.random() * width - 20),
+                    y: 20 + Math.floor(Math.random() * height - 20),
                   });
                 }}
               >

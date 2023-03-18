@@ -76,4 +76,10 @@ const pickOne = (locale) => {
   return variants[Math.floor(Math.random() * variants.length)];
 };
 
-export { pickOne, tokenize, slugify, homoSpacify };
+const truncate = (text, nbParagraphs) => {
+  const max = nbParagraphs || 3;
+  const paragraphs = text.split("\n");
+  if (paragraphs.length <= max) return text;
+  return paragraphs.slice(0, max).join("\n");
+};
+export { pickOne, tokenize, slugify, homoSpacify, truncate };
