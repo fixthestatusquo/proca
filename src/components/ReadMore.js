@@ -22,10 +22,10 @@ const ReadMore = (props) => {
         <TTag message={props.message} />
       </Dialog>
       <Markdown text={truncate(t(props.message), props.length)} />
+      <br />
       <Button
         variant="contained"
         color="primary"
-        fullWidth
         onClick={() => setOpen(true)}
         endIcon={<MoreIcon />}
       >
