@@ -181,6 +181,7 @@
     "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
+  "supporterHint": "{vārds} no {apgabala}",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
