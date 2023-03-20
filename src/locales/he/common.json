@@ -181,6 +181,7 @@
     "not_you": "לא אתה?",
     "welcome": "ברוך שובך, {{firstname}}!"
   },
+  "supporterHint": "{name} מ-{area}",
   "target": {
     "country": {
       "empty": "בחר מדינה אחרת, אין עם מי לפנות ב-{{country}}"
