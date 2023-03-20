@@ -181,6 +181,7 @@
     "not_you": "nisi ti?",
     "welcome": "Dobro došao, dobro došla {{firstname}}!"
   },
+  "supporterHint": "{name} iz {area}",
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
