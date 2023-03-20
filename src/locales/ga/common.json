@@ -181,6 +181,7 @@
     "not_you": "Ní tusa?",
     "welcome": "Fáilte ar ais {{firstname}}!"
   },
+  "supporterHint": "{name} ó {area}",
   "target": {
     "country": {
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}"
