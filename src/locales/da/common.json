@@ -181,6 +181,7 @@
     "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
+  "supporterHint": "{name} fra {område}",
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
