@@ -2222,10 +2222,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@shopify/react-intersection-observer@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@shopify/react-intersection-observer/-/react-intersection-observer-4.0.2.tgz#c05d30938ca6cd9cd9d492e98ef3c445ee4eb827"
-  integrity sha512-GE/hAXFBTd/Fx22P55XaHYWvbEXzkfQSHhLeUqVb0owgGie+Nd1c7PRxf9lAb7b9Y+uGNxYd/Rly5ZUEBgXDLA==
+"@shopify/react-intersection-observer@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@shopify/react-intersection-observer/-/react-intersection-observer-4.0.3.tgz#08c61d240d14a4bc83176d0a6e95cba075a46696"
+  integrity sha512-+OXBoN5PLAFzcnSZDinUe+2sO3/iMCjicpIAt+ZxjK8Kr7mwuPKlDxgQsS+FemqAvWv4HQbv0yPaqGSR8RkoKQ==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
