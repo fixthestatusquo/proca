@@ -181,6 +181,7 @@
     "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
+  "supporterHint": "{nimi} {alueelta}",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
