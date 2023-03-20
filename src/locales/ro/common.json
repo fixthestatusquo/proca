@@ -181,6 +181,7 @@
     "not_you": "Nu tu?",
     "welcome": "Bine ați revenit {{firstname}}!"
   },
+  "supporterHint": "{name} din {zona}",
   "target": {
     "country": {
       "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}."
