@@ -181,6 +181,7 @@
     "not_you": "không phải bạn?",
     "welcome": "Chào mừng bạn trở lại, {{firstname}}!"
   },
+  "supporterHint": "{name} từ {area}",
   "target": {
     "country": {
       "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}"
