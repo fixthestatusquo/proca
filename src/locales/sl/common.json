@@ -181,6 +181,7 @@
     "not_you": "vas ne?",
     "welcome": "Dobrodošli nazaj {{firstname}}!"
   },
+  "supporterHint": "{ime} iz {območja}",
   "target": {
     "country": {
       "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral."
