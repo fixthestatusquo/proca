@@ -181,6 +181,7 @@
     "not_you": "ne vy?",
     "welcome": "Vítejte zpět {{firstname}}!"
   },
+  "supporterHint": "{jméno} z {oblasti}",
   "target": {
     "country": {
       "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat"
