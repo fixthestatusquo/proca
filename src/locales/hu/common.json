@@ -181,6 +181,7 @@
     "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
+  "supporterHint": "{név} a {területről}",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."
