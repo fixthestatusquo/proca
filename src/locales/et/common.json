@@ -155,6 +155,7 @@
     "sign": "{{total}} allkirja on kogutud. Eesmärk: {{goal}}",
     "twitter": "{{total}} on twitted. Läheme {{goal}}"
   },
+  "read more": "loe edasi",
   "register": "Lisage minu nimi",
   "reminder": {
     "intro": "Me teame, et teie valitsus küsib palju teavet. Saadame teile ühe e-kirja, et tuletada teile meelde, et täidate vormi hiljem"
@@ -180,6 +181,7 @@
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
+  "supporterHint": "{nimi} {piirkonnast}",
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"

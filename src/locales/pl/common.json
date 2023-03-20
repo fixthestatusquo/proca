@@ -155,6 +155,7 @@
     "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}",
     "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
   },
+  "read more": "więcej",
   "register": "Podpisuję petycję",
   "reminder": {
     "intro": "Wiemy, że Twój rząd prosi o wiele informacji. Wyślemy ci jeden e-mail, aby przypomnieć ci o wypełnieniu formularza później."
@@ -180,6 +181,7 @@
     "not_you": "nie ty?",
     "welcome": "Witamy z powrotem {{firstname}}!"
   },
+  "supporterHint": "{nazwa} z {obszaru}",
   "target": {
     "country": {
       "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}."

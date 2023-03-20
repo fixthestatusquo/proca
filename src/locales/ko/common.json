@@ -155,6 +155,7 @@
     "sign": "{{total}}이(가) 서명했습니다. {{goal}}로 가자",
     "twitter": "{{total}} 님이 트윗했습니다. {{goal}}로 가자"
   },
+  "read more": "자세히 보기",
   "register": "내 이름 추가",
   "reminder": {
     "intro": "정부에서 많은 정보를 요구하고 있다는 것을 알고 있습니다. 나중에 양식을 작성하도록 안내하는 이메일을 한 번 보내드리겠습니다."
@@ -180,6 +181,7 @@
     "not_you": "너 말고?",
     "welcome": "다시 오신 것을 환영합니다, {{firstname}}!"
   },
+  "supporterHint": "{영역}의 {이름}",
   "target": {
     "country": {
       "empty": "다른 국가를 선택하세요. {{country}}에 연락할 사람이 없습니다."

@@ -155,6 +155,7 @@
     "sign": "{{total}} has signed. Let's go to {{goal}}",
     "twitter": "{{total}} have twitted. Let's go to {{goal}}"
   },
+  "read more": "read more",
   "register": "Add my name",
   "reminder": {
     "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
@@ -180,6 +181,7 @@
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
   },
+  "supporterHint": "{name} from {area}",
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}"

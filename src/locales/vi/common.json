@@ -155,6 +155,7 @@
     "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}",
     "twitter": "{{total}} đã twitted. Hãy chuyển đến {{goal}}"
   },
+  "read more": "đọc thêm",
   "register": "Thêm tên của tôi",
   "reminder": {
     "intro": "Chúng tôi biết, chính phủ của bạn đang hỏi rất nhiều thông tin. Chúng tôi sẽ gửi cho bạn một email để nhắc bạn điền vào biểu mẫu sau"
@@ -180,6 +181,7 @@
     "not_you": "không phải bạn?",
     "welcome": "Chào mừng bạn trở lại, {{firstname}}!"
   },
+  "supporterHint": "{name} từ {area}",
   "target": {
     "country": {
       "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}"

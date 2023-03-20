@@ -155,6 +155,7 @@
     "sign": "{{total}} podpísali. Poďme na {{goal}}",
     "twitter": "{{total}} twitted. Poďme na {{goal}}"
   },
+  "read more": "čítaj viac",
   "register": "Pridajte moje meno",
   "reminder": {
     "intro": "Vieme, že vaša vláda žiada veľa informácií. Pošleme vám jeden e-mail, ktorý vám pripomenie, aby ste formulár vyplnili neskôr"
@@ -180,6 +181,7 @@
     "not_you": "nie vy?",
     "welcome": "Vitajte späť {{firstname}}!"
   },
+  "supporterHint": "{name} od {area}",
   "target": {
     "country": {
       "empty": "Vyberte inú krajinu, v {{country}} nie je nikoho, koho by ste mohli kontaktovať"

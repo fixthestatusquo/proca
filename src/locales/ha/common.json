@@ -155,6 +155,7 @@
     "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}",
     "twitter": "{{total}} sun yi sharhi. Mu je zuwa {{goal}}"
   },
+  "read more": "kara karantawa",
   "register": "Ƙara sunana",
   "reminder": {
     "intro": "Mun sani, gwamnatin ku tana neman bayanai da yawa. Za mu aiko muku da imel ɗaya don tunatar da ku cika fom daga baya"
@@ -180,6 +181,7 @@
     "not_you": "ba ka ba?",
     "welcome": "Barka da dawowa {{firstname}}!"
   },
+  "supporterHint": "{suna} daga {yanki}",
   "target": {
     "country": {
       "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"

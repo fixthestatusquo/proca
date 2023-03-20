@@ -155,6 +155,7 @@
     "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",
     "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
   },
+  "read more": "lasīt vairāk",
   "register": "Pievienojiet manu vārdu",
   "reminder": {
     "intro": "Mēs zinām, ka jūsu valdība pieprasa daudz informācijas. Mēs nosūtīsim jums vienu e-pasta vēstuli, lai atgādinātu, ka veidlapa jāaizpilda vēlāk."
@@ -180,6 +181,7 @@
     "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
+  "supporterHint": "{vārds} no {apgabala}",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"

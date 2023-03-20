@@ -155,6 +155,7 @@
     "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan.",
     "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
+  "read more": "lees meer",
   "register": "Mijn naam toevoegen",
   "reminder": {
     "intro": "We weten dat uw regering veel informatie vraagt. We sturen u een enkele e-mail om u eraan te herinneren het formulier later in te vullen"
@@ -180,6 +181,7 @@
     "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
+  "supporterHint": "{naam} van {gebied}",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"

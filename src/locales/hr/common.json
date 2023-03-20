@@ -155,6 +155,7 @@
     "sign": "{{total}} potpisa. Idemo na {{goal}}",
     "twitter": "{{total}} su twittali. Idemo na {{goal}}"
   },
+  "read more": "Čitaj više",
   "register": "Dodaj moje ime",
   "reminder": {
     "intro": "Znamo da vaša vlada traži mnogo informacija. Poslat ćemo vam jednu e-poruku da vas podsjetimo da ispunite obrazac kasnije"
@@ -180,6 +181,7 @@
     "not_you": "nisi ti?",
     "welcome": "Dobro došao, dobro došla {{firstname}}!"
   },
+  "supporterHint": "{name} iz {area}",
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"

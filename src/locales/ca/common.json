@@ -155,6 +155,7 @@
     "sign": "{{total}} han signat. Volem arribar a {{goal}}",
     "twitter": "{{total}} han twitteat. Anem a {{goal}}"
   },
+  "read more": "Llegeix més",
   "register": "Afegeix el meu nom",
   "reminder": {
     "intro": "Sabem que el vostre govern demana molta informació. T'enviarem un únic correu electrònic per recordar-te que has d'omplir el formulari més endavant"
@@ -180,6 +181,7 @@
     "not_you": "no tu?",
     "welcome": "Benvingut de nou {{firstname}}!"
   },
+  "supporterHint": "{name} de {àrea}",
   "target": {
     "country": {
       "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"

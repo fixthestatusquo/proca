@@ -155,6 +155,7 @@
     "sign": "{{total}} Signatures. Objectif : {{goal}}",
     "twitter": "{{total}} ont twitté. Allons à {{goal}}"
   },
+  "read more": "en savoir plus",
   "register": "Ajouter mon nom",
   "reminder": {
     "intro": "Nous savons que votre gouvernement vous demande beaucoup d'informations. Nous vous enverrons un seul courriel pour vous rappeler de remplir le formulaire ultérieurement."
@@ -180,6 +181,7 @@
     "not_you": "pas vous ?",
     "welcome": "Bienvenue à nouveau {{firstname}} !"
   },
+  "supporterHint": "{nom} de {zone}",
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"

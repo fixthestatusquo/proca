@@ -155,6 +155,7 @@
     "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
     "twitter": "{{total}} hunn twitted. Loosst eis op {{goal}}"
   },
+  "read more": "liesen méi",
   "register": "Füügt mäi Numm dobäi",
   "reminder": {
     "intro": "Mir wëssen, Är Regierung freet vill Informatioun. Mir schécken Iech eng eenzeg E-Mail fir Iech drun ze erënneren de Formulaire méi spéit auszefëllen"
@@ -180,6 +181,7 @@
     "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
+  "supporterHint": "{Numm} aus {Beräich}",
   "target": {
     "country": {
       "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"

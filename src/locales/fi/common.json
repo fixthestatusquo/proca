@@ -155,6 +155,7 @@
     "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",
     "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
   },
+  "read more": "Lue lisää",
   "register": "Lisää nimeni",
   "reminder": {
     "intro": "Tiedämme, että hallituksenne pyytää paljon tietoja. Lähetämme sinulle yhden sähköpostiviestin, joka muistuttaa sinua täyttämään lomakkeen myöhemmin."
@@ -180,6 +181,7 @@
     "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
+  "supporterHint": "{nimi} {alueelta}",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."

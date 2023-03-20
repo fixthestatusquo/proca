@@ -155,6 +155,7 @@
     "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
     "twitter": "{{total}} twitteltek. Menjünk a {{goal}}"
   },
+  "read more": "tovább",
   "register": "Add hozzá a nevemet",
   "reminder": {
     "intro": "Tudjuk, hogy a kormányuk sok információt kér. Egyetlen e-mailt küldünk Önnek, hogy emlékeztessük, hogy később töltse ki az űrlapot."
@@ -180,6 +181,7 @@
     "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
+  "supporterHint": "{név} a {területről}",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."

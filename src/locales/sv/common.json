@@ -155,6 +155,7 @@
     "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}",
     "twitter": "{{total}} har twittrat. Vi går till {{goal}}"
   },
+  "read more": "Läs mer",
   "register": "Lägg till mitt namn",
   "reminder": {
     "intro": "Vi vet att er regering begär mycket information. Vi kommer att skicka ett enda e-postmeddelande för att påminna dig om att fylla i formuläret senare."
@@ -180,6 +181,7 @@
     "not_you": "inte du?",
     "welcome": "Välkommen tillbaka {{firstname}}!"
   },
+  "supporterHint": "{name} från {område}",
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}."

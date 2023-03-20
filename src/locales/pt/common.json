@@ -155,6 +155,7 @@
     "sign": "{{total}} assinaram. Vamos até {{goal}}",
     "twitter": "{{total}} tuitou. Vamos para {{goal}}"
   },
+  "read more": "consulte Mais informação",
   "register": "Acrescentar meu nome",
   "reminder": {
     "intro": "Sabemos que seu governo está pedindo muitas informações. Enviaremos um único e-mail para lembrá-lo de preencher o formulário posteriormente"
@@ -180,6 +181,7 @@
     "not_you": "não você?",
     "welcome": "Bem-vindo de volta {{firstname}}!"
   },
+  "supporterHint": "{nome} de {área}",
   "target": {
     "country": {
       "empty": "Selecione outro país, não há ninguém para contactar em {{country}}"

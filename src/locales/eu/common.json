@@ -155,6 +155,7 @@
     "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera",
     "twitter": "{{total}} twitteatu dute. Goazen {{goal}}"
   },
+  "read more": "Irakurri gehiago",
   "register": "Gehitu nire izena",
   "reminder": {
     "intro": "Badakigu zure gobernuak informazio asko eskatzen duela. Mezu elektroniko bakarra bidaliko dizugu geroago formularioa bete behar duzula gogorarazteko"
@@ -180,6 +181,7 @@
     "not_you": "zu ez?",
     "welcome": "Ongi etorri berriro {{firstname}}!"
   },
+  "supporterHint": "{izena} {eremutik}",
   "target": {
     "country": {
       "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"

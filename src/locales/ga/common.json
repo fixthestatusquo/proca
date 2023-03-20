@@ -155,6 +155,7 @@
     "sign": "{{total}} sínithe. Rachaimid go {{goal}}",
     "twitter": "{{total}} tar éis casadh. Rachaimid go {{goal}}"
   },
+  "read more": "Leigh Nios mo",
   "register": "Cuir m’ainm leis",
   "reminder": {
     "intro": "Tá a fhios againn, tá go leor eolais á iarraidh ag do rialtas. Seolfaimid ríomhphost amháin chugat chun a mheabhrú duit an fhoirm a líonadh níos déanaí"
@@ -180,6 +181,7 @@
     "not_you": "Ní tusa?",
     "welcome": "Fáilte ar ais {{firstname}}!"
   },
+  "supporterHint": "{name} ó {area}",
   "target": {
     "country": {
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}"

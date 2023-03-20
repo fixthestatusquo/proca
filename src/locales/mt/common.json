@@ -155,6 +155,7 @@
     "sign": "{{total}} iffirmaw. Ejja mmorru għal {{goal}}",
     "twitter": "{{total}} twitted. Ejja mmorru għal {{goal}}"
   },
+  "read more": "Aqra iktar",
   "register": "Żid ismi",
   "reminder": {
     "intro": "Nafu, il-gvern tiegħek qed jitlob ħafna informazzjoni. Nibagħtulek email waħda biex infakkruk biex timla l-formola aktar tard"
@@ -180,6 +181,7 @@
     "not_you": "mhux int?",
     "welcome": "Merħba lura {{firstname}}!"
   },
+  "supporterHint": "{isem} minn {żona}",
   "target": {
     "country": {
       "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"
