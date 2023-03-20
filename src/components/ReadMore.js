@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "@material-ui/core";
+import { Box, Button, Paper } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import TTag, { Markdown } from "@components/TTag";
@@ -13,7 +13,7 @@ const ReadMore = (props) => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <>
+    <Box id="proca-block" boxShadow={2} p={2}>
       <Dialog
         dialog={open}
         close={() => setOpen(false)}
@@ -22,16 +22,17 @@ const ReadMore = (props) => {
         <TTag message={props.message} />
       </Dialog>
       <Markdown text={truncate(t(props.message), props.length)} />
-      <br />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setOpen(true)}
-        endIcon={<MoreIcon />}
-      >
-        {t("read more")}
-      </Button>
-    </>
+      <Box mt={2}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setOpen(true)}
+          endIcon={<MoreIcon />}
+        >
+          {t("read more")}
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

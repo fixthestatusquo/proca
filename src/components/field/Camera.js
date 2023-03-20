@@ -15,6 +15,7 @@ export const useUpload = (canvasRef, formData = {}) => {
   const config = useCampaignConfig();
   const supabase = useSupabase();
   const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
+  const { t } = useTranslation();
 
   //upload
   return async (params) => {
@@ -53,6 +54,9 @@ export const useUpload = (canvasRef, formData = {}) => {
       d.creator = formData.firstname.trim();
       if (formData.lastname) {
         d.creator += " " + formData.lastname.charAt(0).toUpperCase().trim();
+      }
+      if (d.locality) {
+        d.creator = t("supporterHint", { name: d.creator, area: d.locality });
       }
       d.legend = d.creator;
     }

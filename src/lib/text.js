@@ -77,9 +77,9 @@ const pickOne = (locale) => {
 };
 
 const truncate = (text, nbParagraphs) => {
-  const max = nbParagraphs || 3;
-  const paragraphs = text.split("\n");
+  const max = 3; //nbParagraph
+  const paragraphs = text.split("\n\n");
   if (paragraphs.length <= max) return text;
-  return paragraphs.slice(0, max).join("\n");
+  return paragraphs.slice(0, max).join("\n\n");
 };
 export { pickOne, tokenize, slugify, homoSpacify, truncate };
