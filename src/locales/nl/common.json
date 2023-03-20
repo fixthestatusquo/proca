@@ -181,6 +181,7 @@
     "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
+  "supporterHint": "{naam} van {gebied}",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"
