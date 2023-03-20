@@ -181,6 +181,7 @@
     "not_you": "ko iwo?",
     "welcome": "Kaabo pada {{firstname}}!"
   },
+  "supporterHint": "{oruko} lati {agbegbe}",
   "target": {
     "country": {
       "empty": "Yan orilẹ-ede miiran, ko si ẹnikan lati kan si ni {{country}}"
