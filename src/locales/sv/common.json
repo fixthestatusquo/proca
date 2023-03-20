@@ -181,6 +181,7 @@
     "not_you": "inte du?",
     "welcome": "Välkommen tillbaka {{firstname}}!"
   },
+  "supporterHint": "{name} från {område}",
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}."
