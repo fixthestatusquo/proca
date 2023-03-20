@@ -181,6 +181,7 @@
     "not_you": "не ты?",
     "welcome": "С возвращением {{firstname}}!"
   },
+  "supporterHint": "{имя} из {района}",
   "target": {
     "country": {
       "empty": "Выберите другую страну, в {{country}} не с кем связаться."
