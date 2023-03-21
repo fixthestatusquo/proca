@@ -15,7 +15,7 @@ if [ -n "$CAMPAIGN" -a ! "$CAMPAIGN_NAME"="$CAMPAIGN" ]; then
   exit 0
 fi
 
-if [ '${GIT_PULL:-}' ]; then git pull; fi
+#if [ '${GIT_PULL:-}' ]; then git pull; fi
 
 yarn pull $ID
 yarn build $ID

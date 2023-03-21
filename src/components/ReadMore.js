@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Box, Button, Paper } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import TTag, { Markdown } from "@components/TTag";
