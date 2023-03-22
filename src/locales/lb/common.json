@@ -181,7 +181,7 @@
     "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
-  "supporterHint": "{Numm} aus {Beräich}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"

@@ -181,7 +181,7 @@
     "not_you": "no tu?",
     "welcome": "Benvingut de nou {{firstname}}!"
   },
-  "supporterHint": "{name} de {àrea}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"

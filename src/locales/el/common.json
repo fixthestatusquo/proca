@@ -181,7 +181,7 @@
     "not_you": "όχι εσύ;",
     "welcome": "Καλώς ήρθατε πίσω {{firstname}}!"
   },
-  "supporterHint": "{όνομα} από {περιοχή}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Επιλέξτε μια άλλη χώρα, δεν υπάρχει κανείς για να επικοινωνήσετε στο {{country}}"

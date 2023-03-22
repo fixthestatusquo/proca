@@ -181,7 +181,7 @@
     "not_you": "មែនទេ?",
     "welcome": "សូមស្វាគមន៍ការត្រឡប់មកវិញ {{firstname}}!"
   },
-  "supporterHint": "{name} ពី {area}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "ជ្រើសរើស​ប្រទេស​ផ្សេង គ្មាន​នរណា​អាច​ទាក់ទង​បាន​ក្នុង {{country}}"

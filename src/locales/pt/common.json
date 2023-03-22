@@ -181,7 +181,7 @@
     "not_you": "não você?",
     "welcome": "Bem-vindo de volta {{firstname}}!"
   },
-  "supporterHint": "{nome} de {área}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Selecione outro país, não há ninguém para contactar em {{country}}"

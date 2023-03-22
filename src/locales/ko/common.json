@@ -181,7 +181,7 @@
     "not_you": "너 말고?",
     "welcome": "다시 오신 것을 환영합니다, {{firstname}}!"
   },
-  "supporterHint": "{영역}의 {이름}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "다른 국가를 선택하세요. {{country}}에 연락할 사람이 없습니다."

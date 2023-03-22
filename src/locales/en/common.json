@@ -12,7 +12,7 @@
   "First name": "First name",
   "Last name": "Last name",
   "Locality": "Locality",
-  "supporterHint": "{{name}} from {{area}}",
+  "supporterHint" : "{{name}}, {{area}}",
   "Next": "Next",
   "Other": "Other",
   "Phone": "Phone",

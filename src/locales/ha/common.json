@@ -181,7 +181,7 @@
     "not_you": "ba ka ba?",
     "welcome": "Barka da dawowa {{firstname}}!"
   },
-  "supporterHint": "{suna} daga {yanki}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"

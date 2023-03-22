@@ -181,7 +181,7 @@
     "not_you": "zu ez?",
     "welcome": "Ongi etorri berriro {{firstname}}!"
   },
-  "supporterHint": "{izena} {eremutik}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"

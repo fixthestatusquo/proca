@@ -181,7 +181,7 @@
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
-  "supporterHint": "{nimi} {piirkonnast}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"

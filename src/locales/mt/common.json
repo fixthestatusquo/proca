@@ -181,7 +181,7 @@
     "not_you": "mhux int?",
     "welcome": "Merħba lura {{firstname}}!"
   },
-  "supporterHint": "{isem} minn {żona}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"

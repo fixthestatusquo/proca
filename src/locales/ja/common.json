@@ -181,7 +181,7 @@
     "not_you": "じゃなくて？",
     "welcome": "おかえりなさい、{{firstname}}!"
   },
-  "supporterHint": "{地域}から{名前}。",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "他の国を選択し、連絡する人がいない。{{country}}"

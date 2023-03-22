@@ -181,7 +181,7 @@
     "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
-  "supporterHint": "{name} iš {area}",
+  "supporterHint" : "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}"
