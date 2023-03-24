@@ -1,7 +1,7 @@
 {
   "Address": "Adresse",
   "Amount": "Betrag",
-  "Another": "Eine weitere",
+  "Another": "Neu wählen",
   "Birthdate": "Geburtsdatum",
   "City": "Stadt",
   "Comment": "Kommentar",
@@ -186,7 +186,7 @@
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
     },
-    "random": "Eines der wichtigsten Ziele unserer {{total}} ausgewählt"
+    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*Innen ausgewählt"
   },
   "twitter": {
     "actionText": "actionText",
