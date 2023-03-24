@@ -186,7 +186,7 @@
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
     },
-    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*Innen ausgewählt"
+    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt."
   },
   "twitter": {
     "actionText": "actionText",
