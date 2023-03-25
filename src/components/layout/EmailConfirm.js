@@ -4,7 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CheckIcon from "@material-ui/icons/CheckCircleOutline";
 import { AlertTitle } from "@material-ui/lab";
 import Alert from "@components/Alert";
-
+// used when returning from email confirmation (double opt-in or action confirm)
 const EmailConfirm = () => {
   const { t } = useTranslation();
   const params = new URL(window.location.href).searchParams;
