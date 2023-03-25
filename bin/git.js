@@ -69,7 +69,6 @@ const deploy = async () => {
   const url =
     process.env.N8N_URL ||
     "https://workflow.proca.app/webhook/proca-config/pull";
-  console.log("token", N8N_TOKEN);
   const response = await fetch(url, {
     method: "POST",
     headers: {
