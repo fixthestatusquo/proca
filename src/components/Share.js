@@ -141,10 +141,7 @@ export default function ShareAction(props) {
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
       <EmailConfirm />
-      <PreviousStepConfirm
-        prev={props.prev}
-        email={config.component.consent?.email}
-      />
+      <PreviousStepConfirm email={config.component.consent?.email} />
       <h3>{t("share.title")}</h3>
       <p>{t("share.intro")}</p>
       <Card className={classes.root}>

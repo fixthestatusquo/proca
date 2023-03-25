@@ -35,7 +35,11 @@ const PreviousStepConfirm = (props) => {
     // we saved previously
     return (
       <Alert severity="success">
-        {t(["campaign:thanks_after_action", "Thank you"])}
+        {t([
+          "campaign:thanksAfterAction",
+          "campaign:thanks_after_action",
+          "Thank you",
+        ])}
       </Alert>
     );
   }

@@ -26,6 +26,9 @@ import { SvgIcon } from "@material-ui/core";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
 import { get } from "lodash";
+import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
+//TODO should be moved to widget and change logic
+
 const useStyles = makeStyles((theme) => ({
   skip: {
     marginTop: theme.spacing(1),
@@ -303,6 +306,7 @@ const Component = (props) => {
   const FirstStep = (props) => {
     return (
       <>
+        <PreviousStepConfirm email={config.component.consent?.email} />
         {config.component.twitter?.filter?.includes("country") && (
           <Country form={form} list={config.component?.twitter?.countries} />
         )}
