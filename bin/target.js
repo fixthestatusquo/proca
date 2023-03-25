@@ -103,7 +103,7 @@ const pullTarget = async (name) => {
   if (targets.length === 0) {
     return console.error("not storing empty targets");
   }
-  if (argv["dry-run"]) return console.log(targets);
+  if (argv["dry-run"]) return console.log(JSON.stringify(targets, null, 2));
 
   saveTargets(argv.file || name, targets);
   console.log("save target");
@@ -245,7 +245,7 @@ const pushTarget = async (campaignName, file) => {
     process.exit(1);
   }
   if (argv["dry-run"]) {
-    console.log(formattedTargets);
+    console.log(JSON.stringify(formattedTargets, null, 2));
     process.exit(1);
   }
 
@@ -268,7 +268,9 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
         "error record",
         line,
         formattedTargets[line]?.name,
-        color.red(formattedTargets[line].emails[0].email)
+        formattedTargets[line]?.emails
+          ? color.red(formattedTargets[line]?.emails[0].email)
+          : color.red(formattedTargets[line])
       );
     });
   }
