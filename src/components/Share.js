@@ -13,8 +13,6 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
-import { AlertTitle } from "@material-ui/lab";
-import Alert from "@components/Alert";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
@@ -26,8 +24,8 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
-import MailIcon from "@material-ui/icons/MailOutline";
-import EmailConfirm from "@components/EmailConfirm";
+import EmailConfirm from "@components/layout/EmailConfirm";
+import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 
 import {
   EmailShareButton,
@@ -87,43 +85,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-/*
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-*/
-const ConfirmPreviousStep = (props) => {
-  const { t, i18n } = useTranslation();
-  const [data] = useData();
-
-  const ConfirmTitle = (props) =>
-    i18n.exists("consent.emailSent") && (
-      <AlertTitle>{t("consent.emailSent", { email: props.email })}</AlertTitle>
-    );
-
-  if (props.email?.confirmOptIn && data.privacy === "opt-in") {
-    return (
-      <Alert severity="info" autoHideDuration={15000} icon={<MailIcon />}>
-        <ConfirmTitle email={data.email} />
-        {t("consent.confirmOptIn")}
-      </Alert>
-    );
-  }
-
-  if (props.email?.confirmAction && data.privacy) {
-    return (
-      <Alert severity="warning" autoHideDuration={15000} icon={<MailIcon />}>
-        <ConfirmTitle email={data.email} />
-        {t("consent.confirmAction", { email: data.email })}
-      </Alert>
-    );
-  }
-  if (data.privacy) {
-    // we saved previously
-    return <Alert severity="success">{t("Thank you")}</Alert>;
-  }
-  return null;
-};
 
 export default function ShareAction(props) {
   const classes = useStyles();
@@ -180,7 +141,7 @@ export default function ShareAction(props) {
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
       <EmailConfirm />
-      <ConfirmPreviousStep
+      <PreviousStepConfirm
         prev={props.prev}
         email={config.component.consent?.email}
       />

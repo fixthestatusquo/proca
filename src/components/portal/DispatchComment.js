@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useData from "@hooks/useData";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import { isSet, uuid as getuuid } from "@lib/uuid";
 import { useTranslation } from "react-i18next";
+
 const DispatchPublicComment = (props) => {
   const [dispatched, setDispatched] = useState(false);
   const [data] = useData();
   const supabase = useSupabase();
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const campaign = config?.campaign.name;
-  const actionpage = config?.actionpage;
   let uuid = undefined;
 
   useEffect(() => {
     const saveComment = async (data) => {
       let d = {
-        campaign: campaign,
-        widget_id: actionpage,
+        campaign: config.campaign.name,
+        widget_id: config.actionpage,
         uuid: getuuid(),
         lang: config.locale,
         comment: data.comment,
@@ -50,7 +49,7 @@ const DispatchPublicComment = (props) => {
 
     if (dispatched || !data.comment) return null;
     saveComment(data);
-  }, [data, uuid, campaign, actionpage, supabase, dispatched]);
+  }, [data, uuid, config, supabase, dispatched, t]);
 
   if (dispatched || !data.comment) return null;
   uuid = isSet() && getuuid();
