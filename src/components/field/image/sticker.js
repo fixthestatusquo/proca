@@ -33,7 +33,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
     //need resize?
     const nsize = resize(stickerImage, image.width);
     setSize({ width: nsize.width, height: nsize.height });
-  }, [size, setSize, stickerImage]);
+  }, [size, setSize, stickerImage, image.width]);
 
   image.resetButtonRef.current = () => {
     setShowDeleteButton(false);
@@ -114,12 +114,10 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
         // add hover styling
         onMouseOver={function (e) {
           // can't be arrow function for this to work
-          var layer = this.getLayer();
           document.body.style.cursor = "nwse-resize";
           this.strokeWidth(4);
         }}
         onMouseOut={function (e) {
-          var layer = this.getLayer();
           document.body.style.cursor = "default";
           this.strokeWidth(2);
         }}
