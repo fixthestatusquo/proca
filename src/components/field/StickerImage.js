@@ -7,7 +7,7 @@ import {
 import useImage from "use-image";
 import Camera, { useUpload } from "./Camera";
 import Hidden from "./Hidden";
-import { IndividualSticker } from "./image/IndividualStickers";
+import { IndividualSticker } from "./image/sticker";
 import UploadPicture from "./image/Upload";
 import SelectPicture from "./image/Select";
 import ImageIcon from "@material-ui/icons/Image";
@@ -219,7 +219,6 @@ const ImageStickerKonva = (props) => {
 
   const handleCanvasClick = useCallback(
     (event) => {
-      console.log(event.target.attrs);
       if (event.target.attrs.id === "backgroundImage") {
         resetAllButtons();
       }
@@ -239,7 +238,9 @@ const ImageStickerKonva = (props) => {
     props.setDraw(!close);
   };
 
-  const { width, height } = resize(props.backgroundCanvas);
+  const { width, height } = props.backgroundCanvas
+    ? resize(props.backgroundCanvas)
+    : resize(background);
   return (
     <>
       <Stage
@@ -278,7 +279,7 @@ const ImageStickerKonva = (props) => {
                   image.x = event.target.x();
                   image.y = event.target.y();
                 }}
-                key={i + image}
+                key={"sticker_" + i}
                 image={image}
               />
             );
