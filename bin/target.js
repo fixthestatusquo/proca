@@ -5,7 +5,7 @@ require("dotenv").config();
 const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
-const { publishTarget } = require("./buildTargets");
+const { publishTarget } = require("./publishTargets");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },

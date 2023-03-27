@@ -25,11 +25,13 @@ const merge = (targets, twitters, options) => {
         description: target.fields.description,
         screen_name: target.fields.screen_name,
         followers_count: 0,
+        sort: target.fields.sort || target.name.toLowerCase(),
         verified: false,
       };
     } else {
       r.procaid = target.id;
       r.name = target.name; //? not sure which one we want to keep
+      r.sort = target.fields.sort || target.name.toLowerCase();
       if (target.fields.description) {
         r.description = target.fields.description;
       }
@@ -139,7 +141,11 @@ const publishTarget = async (campaignName, arvg) => {
     });
     //    const d = await pullCampaign(argv[0]);
     if (d) {
-      d.sort((a, b) => b?.followers_count - a?.followers_count);
+      //if (argv.sort) {
+      const sort = argv.sort || "sort";
+      //d.sort((a, b) => b?.followers_count - a?.followers_count); still need to figure out the order
+      //d.sort((a, b) => a[sort] - b[sort]);
+      d.sort((a, b) => a[sort].localeCompare(b[sort]));
       const c = saveTargets(name, d);
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
