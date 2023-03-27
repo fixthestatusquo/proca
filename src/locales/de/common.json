@@ -42,7 +42,7 @@
     "take": "Foto machen",
     "take-another": "Nimm noch eins"
   },
-  "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlasst eure E-Mail, um über die nächsten Schritte informiert zu bleiben**.",
+  "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlassen Sie Ihre E-Mail-Adresse, um über die nächsten Schritte informiert zu werden**",
   "confirm": "Sind Sie sicher?",
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
@@ -132,16 +132,16 @@
     "salutation": "Sehr geehrte Damen und Herren",
     "salutation_female": "Sehr geehrte {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
-    "salutation_male": "Sehr geehrter {target name}",
+    "salutation_male": "Sehr geehrter {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "image": {
     "addSticker": "Aufkleber hinzufügen",
-    "addStickerTitle": "Klicken/Tippen, um Sticker zum Foto hinzuzufügen",
+    "addStickerTitle": "Klicken/Tippen, um einen Sticker zum Bild hinzuzufügen",
     "benefit": "Das Hinzufügen eines Bildes zum Versenden - und das Sie im nächsten Schritt weitergeben können - würde Ihre Aktion noch wirkungsvoller machen",
-    "options": "Würden Sie gerne",
+    "options": "Möchten Sie eine dieser Aktionen durchführen?",
     "publish": "Sieht gut aus, veröffentlichen!",
-    "select": "Wählen Sie Ihr Bild",
+    "select": "Wählen Sie eines unserer Bilder aus",
     "takeTitle": "Machen Sie ein Foto mit Ihrem Telefon",
     "upload": "Ein Bild hochladen",
     "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
@@ -158,7 +158,7 @@
   "read more": "mehr lesen",
   "register": "Meinen Namen hinzufügen",
   "reminder": {
-    "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail schicken, um Sie daran zu erinnern, das Formular später auszufüllen"
+    "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail senden, um Sie daran zu erinnern, dass Sie das Formular später ausfüllen müssen"
   },
   "required": "erforderlich",
   "required field": "Pflichtfeld",
@@ -181,7 +181,7 @@
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
