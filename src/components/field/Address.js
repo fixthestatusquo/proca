@@ -17,8 +17,9 @@ const Address = (props) => {
   const { setValue, watch, classField } = props.form;
 
   const [postcode, country] = watch(["postcode", "country"]);
-
+  console.log(country);
   const postcodeLength = {
+    BE: 4,
     CH: 4,
     DE: 5,
     FR: 5,
