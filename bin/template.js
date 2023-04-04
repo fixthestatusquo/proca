@@ -47,10 +47,6 @@ const help = () => {
   process.exit(0);
 };
 
-if (!argv._.length || argv.help) {
-  return help();
-}
-
 const snarkdown = (md) => {
   const htmls = md
     .split(/(?:\r?\n){2,}/)
@@ -237,6 +233,10 @@ const i18nTplInit = async (campaign, lang = "en") => {
 };
 
 if (require.main === module) {
+  if (!argv._.length || argv.help) {
+    return help();
+  }
+
   (async () => {
     const id = argv._[0];
     const tplName = argv.mjml;
