@@ -161,7 +161,6 @@ const Component = (props) => {
           return;
         }
       }
-      console.log(t("campaign:twitter.message"));
       setValue(
         "message",
         tokenize(
