@@ -161,6 +161,16 @@ const getTwitter = async (target) => {
   }
 };
 
+const summary = (campaign) => {
+  const source = read("target/source/" + campaign);
+  const server = read("target/server/" + campaign);
+  const publict = read("target/public/" + campaign);
+
+  console.log("source :", source.length);
+  console.log("server :", server.length);
+  console.log("public :", publict.length);
+};
+
 const pushTarget = async (campaignName, file) => {
   const campaign = read("campaign/" + campaignName);
   const salutations = {};
@@ -185,8 +195,8 @@ const pushTarget = async (campaignName, file) => {
       if (!t.name) continue; //skip empty records
       delete t.id;
 
-      if (t.lang) {
-        t.locale = t.lang;
+      if (t.field.lang) {
+        t.locale = t.field.lang;
       } else {
         const l = mainLanguage(t.area);
         if (l) t.locale = l;
@@ -246,7 +256,7 @@ const pushTarget = async (campaignName, file) => {
   }
   if (argv["dry-run"]) {
     console.log(JSON.stringify(formattedTargets, null, 2));
-    process.exit(1);
+    process.exit(0);
   }
 
   const query = `
@@ -318,10 +328,17 @@ if (require.main === module) {
       const name = argv._[0];
       help();
       let target = null;
+      if (!(argv.push || argv.pull || argv.publish)) {
+        summary(name);
+        console.error(
+          color.red("missing action, either --push --pull --publish")
+        );
+        process.exit(1);
+      }
       if (argv.push) {
         await pushTarget(name, argv.file || name);
       }
-      if (argv.pull || !(argv.push || argv.publish)) {
+      if (argv.pull) {
         //        await pullTarget(name, argv.file || name);
         target = await pullTarget(name, argv.file || name);
       }
