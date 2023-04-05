@@ -282,7 +282,8 @@ async function addActionContact(actionType, actionPage, data, test) {
     privacy = {};
 
   let expected =
-    "uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
+    //"uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
+    "uuid,firstname,lastname,email,phone,country,postcode,street,address,region,birthdate,privacy,tracking,donation".split(
       ","
     );
   let variables = {
@@ -320,7 +321,7 @@ async function addActionContact(actionType, actionPage, data, test) {
   if (data.donation) variables.action.donation = data.donation;
   if (data.uuid) variables.contactRef = data.uuid;
   if (data.region) variables.contact.address.region = data.region;
-  if (data.locality) variables.contact.address.locality = data.locality;
+  //if (data.locality) variables.contact.address.locality = data.locality;
   if (data.birthdate) variables.contact.birthDate = data.birthdate;
 
   if (data.tracking && Object.keys(data.tracking).length) {
