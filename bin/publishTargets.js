@@ -22,9 +22,9 @@ const merge = (targets, twitters, options) => {
         procaid: target.id,
         name: target.name,
         country: target.area,
-        description: target.fields.description,
+        description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
-        followers_count: 0,
+        //        followers_count: 0,
         sort: target.fields.sort || target.name.toLowerCase(),
         verified: false,
       };
@@ -58,15 +58,22 @@ const merge = (targets, twitters, options) => {
       r.locale = target.locale;
       r.lang = target.locale;
     }
+    if (target.lang) {
+      r.lang = target.lang;
+    }
+    if (target.fields.constituency) {
+      r.constituency = target.fields.constituency;
+      r.area = target.area;
+      delete r.country;
+    }
 
     if (argv.fields) {
       const extraFields = argv.fields.split(",");
-      r.fields = {};
       extraFields.forEach((key) => {
-        r.fields[key] = target.fields[key] || "";
+        r[key] = target.fields[key] || ""; // beware, can overwrite a default field
       });
     }
-    //    if (target.fields.salutation) r.salutation = target.fields.salutation;
+    if (target.fields.salutation) r.salutation = target.fields.salutation;
 
     return r;
   });

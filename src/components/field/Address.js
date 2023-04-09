@@ -14,10 +14,9 @@ const Address = (props) => {
   const { t } = useTranslation();
 
   const compact = props.compact;
-  const { setValue, watch, classField } = props.form;
+  const { setValue, watch, classField, getValues } = props.form;
 
   const [postcode, country] = watch(["postcode", "country"]);
-  console.log(country);
   const postcodeLength = {
     BE: 4,
     CH: 4,
@@ -36,13 +35,27 @@ const Address = (props) => {
     if (!geocountries.includes(country)) {
       return;
     }
-    if (!postcode || postcode.length !== postcodeLength[country]) return;
+    if (!postcode || postcode.length !== postcodeLength[country]) {
+      const [area, constituency, locality] = getValues([
+        "area",
+        "constituency",
+        "locality",
+      ]);
+      if (area) setValue("area", "");
+      if (locality) setValue("locality", "");
+      if (constituency) setValue("constituency", "");
+      return;
+    }
     const api = "https://" + country + ".proca.app/" + postcode;
 
     async function fetchAPI() {
       await fetch(api)
         .then((res) => {
           if (!res.ok) {
+            setValue("locality", "");
+            setValue("area", "");
+            setValue("constituency", "");
+
             throw Error(res.statusText);
           }
           return res.json();
@@ -50,6 +63,15 @@ const Address = (props) => {
         .then((res) => {
           if (res && res.name) {
             setValue("locality", res.name);
+            setValue("constituency", "");
+            setValue("area", "");
+          }
+          if (res && res.area) {
+            setValue("area", res.area);
+            setValue("constituency", "");
+          }
+          if (res && res.constituency) {
+            setValue("constituency", res.constituency);
           }
         })
         .catch((err) => {
@@ -62,7 +84,7 @@ const Address = (props) => {
     }
     fetchAPI();
     // eslint-disable-next-line
-  }, [postcode, country, setValue]);
+  }, [postcode, country, setValue, getValues]);
 
   // xor postcode + locality?
   const hasPostcode = config.component.register?.field?.postcode !== false;

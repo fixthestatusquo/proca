@@ -7,7 +7,10 @@ import React, {
 } from "react";
 
 import {
+  Collapse,
   List,
+  IconButton,
+  InputAdornment,
   FilledInput,
   FormHelperText,
   FormControl,
@@ -16,6 +19,7 @@ import {
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
+import SearchIcon from "@material-ui/icons/Search";
 
 import Country from "@components/Country";
 import useData from "@hooks/useData";
@@ -50,14 +54,72 @@ const Filter = (props) => {
   if (
     config.component.email?.filter?.includes("country") &&
     typeof config.component.country !== "string"
-  )
+  ) {
     r = <Country form={props.form} list={config.component.email?.countries} />;
+  }
 
+  if (config.component.email?.filter?.includes("postcode")) {
+    r = (
+      <>
+        <TextField
+          form={props.form}
+          autoComplete="postal-code"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="Fetch postcode details"
+                  onClick={() => {}}
+                >
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          label={t("Postal Code")}
+          name="postcode"
+        />
+        <input type="hidden" {...props.form.register("area")} />
+        <input type="hidden" {...props.form.register("constituency")} />
+      </>
+    );
+  }
+  if (
+    config.component.email?.filter?.includes("multilingual") &&
+    props.country
+  ) {
+    const ml = mainLanguage(props.country, false);
+    if (Array.isArray(ml)) {
+      r = (
+        <TextField
+          select
+          name="language"
+          label={t("Language")}
+          form={props.form}
+          onChange={(e) => {
+            //  props.selecting(d, e.target.value);
+          }}
+          SelectProps={{
+            native: true,
+          }}
+        >
+          <option key="" value=""></option>
+
+          {ml.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </TextField>
+      );
+    }
+  }
   if (Array.isArray(config.component.email?.filter)) {
     config.component.email.filter.forEach((d) => {
       const data =
         config.component.email?.data && config.component.email?.data[d];
       if (!data) return null;
+
       r = (
         <TextField
           select
@@ -90,6 +152,7 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState([]);
+
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
@@ -110,6 +173,12 @@ const Component = (props) => {
   );
 
   const mttProcessing = config.component.email?.server?.processing;
+  const fallbackRandom = config.component.email?.fallbackRandom;
+  const fallbackArea = config.component.email?.fallbackArea;
+  const countryFiltered = config.component.email?.filter?.includes("country");
+  const postcodeFiltered = config.component.email?.filter?.includes("postcode");
+  const sampleSize = config.component.email?.sample || 1;
+
   //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
   useEffect(() => {
     if (mttProcessing) setData("mttProcessing", false);
@@ -131,6 +200,11 @@ const Component = (props) => {
 
   const country = watch("country");
   const fields = getValues(["subject", "message"]);
+  const [constituency, postcode, area] = watch([
+    "constituency",
+    "postcode",
+    "area",
+  ]);
 
   const tokenKeys = extractTokens(data["message"] || paramEmail.message);
   const tokens = watch(tokenKeys);
@@ -224,6 +298,9 @@ const Component = (props) => {
           if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
           }
+          if (config.component.email?.filter?.includes("postcode")) {
+            setProfiles([]);
+          }
           if (config.component.email?.filter?.includes("random")) {
             if (!config.component.email.sample) {
               const i = d[Math.floor(Math.random() * d.length)];
@@ -264,14 +341,35 @@ const Component = (props) => {
     } // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
-  const fallbackRandom = config.component.email?.fallbackRandom;
+  const filterArea = useCallback(
+    (area) => {
+      if (!area) {
+        return [];
+      }
+      let d = allProfiles.filter((d) => {
+        //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
+        return d.area === area && d.constituency === -1;
+      });
+      if (d.length === 0) {
+        d = sample(allProfiles, sampleSize || fallbackRandom);
+      }
+      return d;
+    },
+    [sampleSize, fallbackRandom, allProfiles]
+  );
 
   const filterProfiles = useCallback(
-    (country) => {
+    (country, constituency, area) => {
+      if (constituency || area) {
+        country = country || "?";
+      }
       if (!country) return;
       country = country.toLowerCase();
       let lang = undefined;
       let d = allProfiles.filter((d) => {
+        if (constituency) {
+          return d.constituency === constituency;
+        }
         if (d.lang && d.country === country) {
           if (lang === undefined) {
             lang = d.lang;
@@ -296,21 +394,36 @@ const Component = (props) => {
       }
       // display error if empty
       //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
-      if (d.length === 0) {
-        if (fallbackRandom) {
-          d = sample(allProfiles, fallbackRandom);
-        }
+      if (d.length === 0 && fallbackArea) {
+        d = filterArea(area);
+      }
+      if (d.length === 0 && fallbackRandom && !fallbackArea) {
+        d = sample(allProfiles, sampleSize || fallbackRandom);
+      }
+      if (d.length === 0 && postcodeFiltered && (!!constituency || !!area)) {
+        setError("postcode", {
+          message: t("target.postcode.empty", {
+            defaultValue: "there is no-one to contact in {{area}}",
+            area: area || postcode,
+          }),
+          type: "no_empty",
+        });
+      }
+
+      if (d.length && countryFiltered) {
         setError("country", {
           message: t("target.country.empty", {
             country: getCountryName(country),
           }),
           type: "no_empty",
         });
-      } else {
+      }
+      if (d.length > 0) {
         clearErrors("country");
+        clearErrors("postcode");
       }
       //if (lang && config.lang !== lang) {
-      if (true) {
+      if (lang) {
         setConfig((current) => {
           let next = { ...current };
           next.lang = lang || "en";
@@ -319,16 +432,37 @@ const Component = (props) => {
       }
       setProfiles(d);
       setData("targets", d);
-      setData("country", country);
+      if (countryFiltered) {
+        setData("country", country);
+      }
     },
-    [allProfiles, setError, clearErrors, t, setData, fallbackRandom, setConfig]
+    [
+      allProfiles,
+      setProfiles,
+      setError,
+      clearErrors,
+      t,
+      setData,
+      fallbackRandom,
+      fallbackArea,
+      filterArea,
+      sampleSize,
+      setConfig,
+      countryFiltered,
+      postcodeFiltered,
+      postcode,
+    ]
   );
 
-  const countryFiltered = config.component.email?.filter?.includes("country");
   useEffect(() => {
     if (!countryFiltered) return;
     filterProfiles(country);
   }, [country, filterProfiles, countryFiltered]);
+
+  useEffect(() => {
+    if (!postcodeFiltered) return;
+    filterProfiles(country, constituency, area);
+  }, [country, constituency, area, filterProfiles, postcodeFiltered]);
 
   const send = (data) => {
     const hrefGmail = (message) => {
@@ -498,6 +632,7 @@ const Component = (props) => {
   };
 
   const filterTarget = (key, value) => {
+    console.log("filterTarget");
     const d = allProfiles.filter((d) => {
       return d.fields[key] === value;
     });
@@ -520,10 +655,17 @@ const Component = (props) => {
       {config.component.email?.progress && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
-      <Filter form={form} selecting={filterTarget} />
+      <Filter
+        form={form}
+        selecting={filterTarget}
+        country={country}
+        constituency={constituency}
+      />
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
-          {profiles.length === 0 && <SkeletonListItem />}
+          {profiles.length === 0 &&
+            !config.component.email?.filter?.includes("postcode") &&
+            !constituency && <SkeletonListItem />}
           {profiles.map((d) => (
             <EmailAction
               key={d.id || JSON.stringify(d)}
@@ -537,16 +679,18 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Register
-        form={form}
-        emailProvider={emailProvider}
-        done={props.done}
-        buttonText={t(config.component.register?.button || "action.email")}
-        targets={config.component.email?.server ? profiles : null}
-        beforeSubmit={prepareData}
-        onClick={onClick}
-        extraFields={ExtraFields}
-      />
+      <Collapse in={profiles.length > 0}>
+        <Register
+          form={form}
+          emailProvider={emailProvider}
+          done={props.done}
+          buttonText={t(config.component.register?.button || "action.email")}
+          targets={config.component.email?.server ? profiles : null}
+          beforeSubmit={prepareData}
+          onClick={onClick}
+          extraFields={ExtraFields}
+        />
+      </Collapse>
     </Container>
   );
 };
