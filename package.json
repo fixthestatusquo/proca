@@ -70,7 +70,7 @@
     "craco-alias": "^3.0.1",
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.3",
-    "generate-json-webpack-plugin": "^1.0.0",
+    "generate-json-webpack-plugin": "^2.0.0",
     "i18next-fs-backend": "^2.1.1",
     "mjml": "^4.13.0",
     "prettier": "^2.8.7",
