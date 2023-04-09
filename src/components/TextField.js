@@ -19,7 +19,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TextFieldProca = (props) => {
-  const { formState: { errors }, control, clearErrors, setError } = props.form;
+  const {
+    formState: { errors },
+    control,
+    clearErrors,
+    setError,
+  } = props.form;
 
   const { t } = useTranslation();
   const layout = useLayout();
@@ -69,7 +74,10 @@ const TextFieldProca = (props) => {
   return (
     <Controller
       defaultValue=""
-      render={({ field: { onChange, onBlur, value, name, ref }, fieldState }) => {
+      render={({
+        field: { onChange, onBlur, value, name, ref },
+        fieldState,
+      }) => {
         let handleChange = onChange;
         let handleBlur = onBlur;
         if (props.onBlur) {
@@ -77,7 +85,10 @@ const TextFieldProca = (props) => {
         }
 
         if (props.onChange) {
-          handleChange = (e) => onChange(e) || props.onChange(e);
+          handleChange = async (e) => {
+            await onChange(e);
+            props.onChange(e);
+          };
         }
         return (
           <TextField

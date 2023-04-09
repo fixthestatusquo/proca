@@ -150,13 +150,19 @@ const Component = (props) => {
           config.component.twitter.key || "campaign:twitter.message"
         );
         if (msg) {
-          setValue("message", tokenize(pickOne(msg), { profile: profile }));
+          setValue(
+            "message",
+            tokenize(pickOne(msg), { profile: profile, url: window.location })
+          );
           return;
         }
         if (!msg && data.twitter) {
           setValue(
             "message",
-            tokenize(pickOne(data.twitter), { profile: profile })
+            tokenize(pickOne(data.twitter), {
+              profile: profile,
+              url: window.location,
+            })
           );
           return;
         }
@@ -165,7 +171,7 @@ const Component = (props) => {
         "message",
         tokenize(
           pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
-          { profile: profile }
+          { profile: profile, url: window.location }
         )
       );
     },
@@ -318,7 +324,7 @@ const Component = (props) => {
           clickable={config.component.twitter?.clickable}
           done={handleDone}
         />
-        {config.component.twitter?.message && <Message form={form} />}
+        {(true || config.component.twitter?.message) && <Message form={form} />}
         {hash && <ShowCard hash={hash} />}
         <TweetButton handleClick={handleTweet} done={props.done} />
       </>

@@ -97,6 +97,7 @@ const Filter = (props) => {
           label={t("Language")}
           form={props.form}
           onChange={(e) => {
+            props.filterLocale(e.target.value);
             //  props.selecting(d, e.target.value);
           }}
           SelectProps={{
@@ -177,7 +178,10 @@ const Component = (props) => {
   const fallbackArea = config.component.email?.fallbackArea;
   const countryFiltered = config.component.email?.filter?.includes("country");
   const postcodeFiltered = config.component.email?.filter?.includes("postcode");
+  const localeFiltered =
+    config.component.email?.filter?.includes("multilingual");
   const sampleSize = config.component.email?.sample || 1;
+  const locale = config.locale;
 
   //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
   useEffect(() => {
@@ -193,7 +197,9 @@ const Component = (props) => {
   const form = useForm({
     mode: "onBlur",
     //    nativeValidation: true,
-    defaultValues: Object.assign({}, paramEmail, data),
+    defaultValues: Object.assign({}, paramEmail, data, {
+      language: config.locale,
+    }),
   });
 
   const { watch, getValues, setValue, setError, clearErrors } = form;
@@ -341,6 +347,21 @@ const Component = (props) => {
     } // eslint-disable-next-line
   }, [config.component, config.hook, setAllProfiles]);
 
+  const filterLocale = useCallback(
+    (locale) => {
+      if (!locale) {
+        return [];
+      }
+      let d = allProfiles.filter((d) => {
+        //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
+        return d.locale === locale;
+      });
+      setProfiles(d);
+      return d;
+    },
+    [allProfiles]
+  );
+
   const filterArea = useCallback(
     (area) => {
       if (!area) {
@@ -463,6 +484,11 @@ const Component = (props) => {
     if (!postcodeFiltered) return;
     filterProfiles(country, constituency, area);
   }, [country, constituency, area, filterProfiles, postcodeFiltered]);
+
+  useEffect(() => {
+    if (!localeFiltered) return;
+    filterLocale(locale);
+  }, [filterLocale, localeFiltered, locale]);
 
   const send = (data) => {
     const hrefGmail = (message) => {
@@ -660,6 +686,7 @@ const Component = (props) => {
         selecting={filterTarget}
         country={country}
         constituency={constituency}
+        filterLocale={filterLocale}
       />
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
