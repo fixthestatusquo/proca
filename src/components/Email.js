@@ -348,6 +348,7 @@ const Component = (props) => {
           setLanguages(languages);
           if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
+          } else {
           }
           if (config.component.email?.filter?.includes("postcode")) {
             setProfiles([]);
@@ -443,6 +444,7 @@ const Component = (props) => {
         if (constituency) {
           return d.constituency === constituency;
         }
+
         if (d.lang && d.country === country) {
           if (lang === undefined) {
             lang = d.lang;
@@ -464,7 +466,6 @@ const Component = (props) => {
         } else {
           lang = mainLanguage(country, false);
         }
-        return;
       }
       if (d.length === 0 && fallbackArea) {
         d = filterArea(area);
@@ -495,7 +496,8 @@ const Component = (props) => {
         clearErrors("postcode");
       }
       //if (lang && config.lang !== lang) {
-      if (lang) {
+      if (lang && typeof lang === "string") {
+        console.log(lang, locale, languages);
         setConfig((current) => {
           let next = { ...current };
           next.lang = lang || "en";
