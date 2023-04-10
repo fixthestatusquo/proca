@@ -697,7 +697,7 @@ const Component = (props) => {
     );
   };
 
-  const onClick = config.component.email?.server !== true ? send : null;
+  const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = (data) => {
     if (!data.message) data.message = getValues("message");
@@ -766,7 +766,7 @@ const Component = (props) => {
           emailProvider={emailProvider}
           done={props.done}
           buttonText={t(config.component.register?.button || "action.email")}
-          targets={config.component.email?.server ? profiles : null}
+          targets={config.component.email?.server !== false ? profiles : null}
           beforeSubmit={prepareData}
           onClick={onClick}
           extraFields={ExtraFields}
