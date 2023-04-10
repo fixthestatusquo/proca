@@ -58,6 +58,44 @@ const Filter = (props) => {
     r = <Country form={props.form} list={config.component.email?.countries} />;
   }
 
+  const handleSearch = async () => {
+    const postcode = props.form.getValues("postcode");
+    const api = "https://" + props.country + ".proca.app/" + postcode;
+    if (props.constituency) return;
+    const setValue = props.form.setValue;
+    const fetchAPI = async (postcode) => {
+      await fetch(api)
+        .then((res) => {
+          if (!res.ok) {
+            setValue("locality", "");
+            setValue("area", "");
+            setValue("constituency", "");
+
+            props.form.setError("postcode", {
+              type: "network",
+              message:
+                res.status === 404
+                  ? t("unknown postcode")
+                  : res.statusText || "Network error",
+            });
+          }
+          return res.json();
+        })
+        .then((res) => {
+          console.warn("should be handled into the address");
+        })
+        .catch((err) => {
+          props.form.setError("postcode", {
+            type: "network",
+            message: (err && err.toString()) || "Network error",
+          });
+        });
+    };
+    fetchAPI(postcode);
+
+    console.log(postcode);
+  };
+
   if (config.component.email?.filter?.includes("postcode")) {
     r = (
       <>
@@ -69,7 +107,7 @@ const Filter = (props) => {
               <InputAdornment position="end">
                 <IconButton
                   aria-label="Fetch postcode details"
-                  onClick={() => {}}
+                  onClick={handleSearch}
                 >
                   <SearchIcon />
                 </IconButton>
