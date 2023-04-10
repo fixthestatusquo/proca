@@ -110,7 +110,7 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [data, setData] = useData();
-  const [allProfiles, setAllProfiles] = useState([]);
+  const [allProfiles, setAllProfiles] = useState(data.targets || []);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
   let hash = data.hash || config.component.twitter?.hash;
@@ -195,6 +195,7 @@ const Component = (props) => {
 
   const randomize = config.component.twitter?.filter?.includes("random");
   useLayoutEffect(() => {
+    if (!randomize) return;
     if (allProfiles.length < 2) return;
     filterRandomProfile();
   }, [randomize, allProfiles, filterRandomProfile]);
@@ -217,6 +218,19 @@ const Component = (props) => {
       : config.component.twitter.listUrl;
 
   useEffect(() => {
+    const filterRandom = (d) => {
+      if (config.component.twitter?.filter?.includes("random")) {
+        // not sure if it's useful, there is a useLayoutEffect that should do the same
+        const i = d[Math.floor(Math.random() * d.length)];
+        setMessage([i]);
+        setProfiles([i]);
+      } else {
+        //if (!config.component.twitter.filter?.includes("country")) {
+        setMessage(d);
+        setProfiles(d);
+      }
+    };
+
     const fetchData = async (url) => {
       await fetch(url)
         .then((res) => {
@@ -244,24 +258,23 @@ const Component = (props) => {
           }
 
           setAllProfiles(d);
-
-          if (config.component.twitter?.filter?.includes("random")) {
-            // not sure if it's useful, there is a useLayoutEffect that should do the same
-            const i = d[Math.floor(Math.random() * d.length)];
-            setMessage([i]);
-            setProfiles([i]);
-          } else {
-            //if (!config.component.twitter.filter?.includes("country")) {
-            setMessage(d);
-            setProfiles(d);
-          }
+          filterRandom(d);
         })
         .catch((error) => {
           console.log(error);
         });
     };
-    fetchData(url);
+    if (data.targets) {
+      let d = data.targets.filter(
+        (c) => c.screen_name && c.screen_name.length > 0
+      );
+      setAllProfiles(d);
+      filterRandom(d);
+    } else {
+      fetchData(url);
+    }
   }, [
+    data.targets,
     url,
     country,
     setValue,

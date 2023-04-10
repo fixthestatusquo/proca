@@ -126,8 +126,9 @@ const Filter = (props) => {
     config.component.email?.filter?.includes("multilingual") &&
     props.country
   ) {
-    const ml = mainLanguage(props.country, false);
-    if (Array.isArray(ml)) {
+    //    const ml = mainLanguage(props.country, false);
+    if (props.languages.length > 1) {
+      const names = config.component?.email?.locale || [];
       r = (
         <TextField
           select
@@ -136,17 +137,17 @@ const Filter = (props) => {
           form={props.form}
           onChange={(e) => {
             props.filterLocale(e.target.value);
-            //  props.selecting(d, e.target.value);
           }}
           SelectProps={{
             native: true,
           }}
         >
-          <option key="" value=""></option>
-
-          {ml.map((option) => (
+          {!props.languages.includes(config.locale) && (
+            <option key="" value=""></option>
+          )}
+          {props.languages.map((option) => (
             <option key={option} value={option}>
-              {option}
+              {names[option] || option}
             </option>
           ))}
         </TextField>
@@ -195,6 +196,7 @@ const Component = (props) => {
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
+  const [languages, setLanguages] = useState([]);
   const [alwaysUpdate, setAlwaysUpdate] = useState(
     config.component.email?.multilingual === true
   );
@@ -332,13 +334,18 @@ const Component = (props) => {
           return res.json();
         })
         .then((d) => {
+          let languages = [];
           if (config.hook && typeof config.hook["target:load"] === "function") {
             d = config.hook["target:load"](d);
           }
           d.forEach((c) => {
+            if (c.locale && !languages.includes(c.locale)) {
+              languages.push(c.locale);
+            }
             if (c.country) c.country = c.country.toLowerCase();
           });
           setAllProfiles(d);
+          setLanguages(languages);
           if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
           }
@@ -395,9 +402,16 @@ const Component = (props) => {
         return d.locale === locale;
       });
       setProfiles(d);
+      setData("targets", d);
+      setConfig((current) => {
+        let next = { ...current };
+        next.lang = locale;
+        return next;
+      });
+
       return d;
     },
-    [allProfiles]
+    [allProfiles, setConfig, setData]
   );
 
   const filterArea = useCallback(
@@ -445,14 +459,13 @@ const Component = (props) => {
       });
       if (!lang) {
         // more than one lang in the country
-        lang = mainLanguage(country, false);
-        if (typeof lang === "object") {
-          //TODO, fix quick hack
-          lang = "fr_" + country;
+        if (languages.includes(locale)) {
+          lang = locale;
+        } else {
+          lang = mainLanguage(country, false);
         }
+        return;
       }
-      // display error if empty
-      //    <p>{t("Select another country, there is no-one to contact in {{country}}",{country:country})}</p>
       if (d.length === 0 && fallbackArea) {
         d = filterArea(area);
       }
@@ -510,6 +523,8 @@ const Component = (props) => {
       countryFiltered,
       postcodeFiltered,
       postcode,
+      languages,
+      locale,
     ]
   );
 
@@ -725,6 +740,7 @@ const Component = (props) => {
         country={country}
         constituency={constituency}
         filterLocale={filterLocale}
+        languages={languages}
       />
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>

@@ -24,7 +24,6 @@ const slugify = (text, placeholder = "_") =>
 const tokenize = (message, { profile, url }) => {
   let screen_name = "";
   let t = message;
-  console.log(profile, t);
   if (!profile) return message;
   if (Array.isArray(profile)) {
     const r = profile.map((d) =>
@@ -46,7 +45,6 @@ const tokenize = (message, { profile, url }) => {
   }
 
   if (t.includes("{image}")) {
-    console.log(profile);
     t = t.replace(
       "{image}",
       profile.reduce((acc, d) => (d.image ? acc + "\n" + d.image : acc), "")
