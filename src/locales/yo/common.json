@@ -10,6 +10,7 @@
   "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
   "Email": "Imeeli",
   "First name": "Orukọ akọkọ",
+  "Language": "Ede",
   "Last name": "Oruko idile",
   "Locality": "Agbegbe",
   "Next": "Itele",
@@ -181,12 +182,17 @@
     "not_you": "ko iwo?",
     "welcome": "Kaabo pada {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Yan orilẹ-ede miiran, ko si ẹnikan lati kan si ni {{country}}"
     },
-    "random": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}."
+    "missing": "Yan o kere ju ọkan ninu {{total}}",
+    "postcode": {
+      "empty": "ko si ẹnikan lati kan si ni {{area}}"
+    },
+    "random": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}.",
+    "selected": "{{total}} ti yan"
   },
   "twitter": {
     "actionText": "Mo fowo si. o yẹ ki o tun",
@@ -196,6 +202,7 @@
     "organisation": "Akọọlẹ twitter rẹ agbari",
     "screenName": "Orukọ iboju"
   },
+  "unknown postcode": "aimọ koodu ifiweranṣẹ",
   "yes": "beeni",
   "you need to be 18 years old": "o nilo lati jẹ ọdun 18"
 }
