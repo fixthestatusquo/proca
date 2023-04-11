@@ -10,6 +10,7 @@
   "Download explanation": "Uw document is nu klaar, we mailen het ook naar u",
   "Email": "E-mail",
   "First name": "Voornaam",
+  "Language": "Taal",
   "Last name": "Achternaam",
   "Locality": "Gemeente",
   "Next": "Volgende",
@@ -186,7 +187,12 @@
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"
     },
-    "random": "Een van onze {{total}} belangrijkste doelen gekozen"
+    "missing": "Kies ten minste één van de {{total}}",
+    "postcode": {
+      "empty": "is er niemand om contact mee op te nemen in {{area}}"
+    },
+    "random": "Een van onze {{total}} belangrijkste doelen gekozen",
+    "selected": "{{total}} geselecteerde"
   },
   "twitter": {
     "actionText": "Ik heb getekend. Doe mee!",
@@ -196,6 +202,7 @@
     "organisation": "Twitter-account van uw organisatie",
     "screenName": "Schermnaam"
   },
+  "unknown postcode": "onbekende postcode",
   "yes": "ja",
   "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }
