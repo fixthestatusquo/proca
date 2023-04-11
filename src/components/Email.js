@@ -417,6 +417,7 @@ const Component = (props) => {
 
   const filterArea = useCallback(
     (area) => {
+      console.log("filter Area");
       if (!area) {
         return [];
       }
@@ -459,6 +460,7 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
+
       if (!lang) {
         // more than one lang in the country
         if (languages.includes(locale)) {
@@ -467,7 +469,9 @@ const Component = (props) => {
           lang = mainLanguage(country, false);
         }
       }
+      console.log("targets", d.length, lang, fallbackArea);
       if (d.length === 0 && fallbackArea) {
+        console.log("fallback area");
         d = filterArea(area);
       }
       if (d.length === 0 && fallbackRandom && !fallbackArea) {
@@ -492,6 +496,7 @@ const Component = (props) => {
         });
       }
       if (d.length > 0) {
+        console.log("clear error");
         clearErrors("country");
         clearErrors("postcode");
       }

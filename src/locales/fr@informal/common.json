@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir d'e-mails",
     "salutation": "Cher monsieur/madame",
-    "salutation_female": "Cher {nom_cible}",
+    "salutation_female": "Chère {{target.name}}",
     "salutation_info": "(le nom sera mis avant l'envoi)",
-    "salutation_male": "Cher {nom de la cible}",
+    "salutation_male": "Cher {{target.name}}",
     "salutation_placeholder": "Cher [destinataire],"
   },
   "image": {

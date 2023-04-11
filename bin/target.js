@@ -8,7 +8,7 @@ const { commit, add, onGit } = require("./git");
 const { publishTarget } = require("./publishTargets");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
-  default: { git: true },
+  default: { git: true, salutation: true },
   boolean: [
     "help",
     "keep",
@@ -197,6 +197,7 @@ const pushTarget = async (campaignName, file) => {
 
       if (t.field.lang) {
         t.locale = t.field.lang;
+        delete t.field.lang;
       } else {
         const l = mainLanguage(t.area);
         if (l) t.locale = l;
