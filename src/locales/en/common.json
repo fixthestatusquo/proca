@@ -10,9 +10,9 @@
   "Download explanation": "Your document is now ready, we are emailing it to you too",
   "Email": "Email",
   "First name": "First name",
+  "Language": "Language",
   "Last name": "Last name",
   "Locality": "Locality",
-  "supporterHint" : "{{name}}, {{area}}",
   "Next": "Next",
   "Other": "Other",
   "Phone": "Phone",
@@ -43,7 +43,6 @@
     "take": "Take picture",
     "take-another": "Take another one"
   },
-  "read more": "read more",
   "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
   "confirm": "Are you sure?",
   "consent": {
@@ -157,6 +156,7 @@
     "sign": "{{total}} have signed. Let's go to {{goal}}",
     "twitter": "{{total}} have twitted. Let's go to {{goal}}"
   },
+  "read more": "read more",
   "register": "Add my name",
   "reminder": {
     "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
@@ -187,11 +187,17 @@
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
   },
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}"
     },
-    "random": "Selected one of our {{total}} most important targets"
+    "missing": "Select at least one out of {{total}}",
+    "postcode": {
+      "empty": "there is no-one to contact in {{area}}"
+    },
+    "random": "Selected one of our {{total}} most important targets",
+    "selected": "{{total}} selected"
   },
   "twitter": {
     "actionText": "actionText",
@@ -201,6 +207,7 @@
     "organisation": "Your organisation twitter account",
     "screenName": "Screen name"
   },
+  "unknown postcode": "unknown postcode",
   "yes": "yes",
   "you need to be 18 years old": "you need to be 18 years old"
 }
