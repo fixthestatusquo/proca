@@ -10,6 +10,7 @@
   "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
   "Email": "E-mail",
   "First name": "Prenume",
+  "Language": "Limba",
   "Last name": "Numele de familie",
   "Locality": "Localitate",
   "Next": "Următor",
@@ -181,12 +182,17 @@
     "not_you": "Nu tu?",
     "welcome": "Bine ați revenit {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}."
     },
-    "random": "A selectat una dintre cele mai importante ținte ale noastre {{total}}."
+    "missing": "Selectați cel puțin unul dintre {{total}}",
+    "postcode": {
+      "empty": "nu există nimeni de contactat în {{area}}"
+    },
+    "random": "A selectat una dintre cele mai importante ținte ale noastre {{total}}.",
+    "selected": "{{total}} selectat"
   },
   "twitter": {
     "actionText": "Am semnat. ar trebui si tu",
@@ -196,6 +202,7 @@
     "organisation": "Contul de Twitter al organizației dvs.",
     "screenName": "Nume de ecran"
   },
+  "unknown postcode": "cod poștal necunoscut",
   "yes": "da",
   "you need to be 18 years old": "trebuie să ai 18 ani"
 }
