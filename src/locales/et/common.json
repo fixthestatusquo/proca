@@ -10,6 +10,7 @@
   "Download explanation": "Teie dokument on nüüd valmis, me saadame selle ka teile e-kirjaga.",
   "Email": "E-posti aadress",
   "First name": "Eesnimi",
+  "Language": "Keel",
   "Last name": "Perekonnanimi",
   "Locality": "Paikkond",
   "Next": "Edasi",
@@ -181,12 +182,17 @@
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"
     },
-    "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest."
+    "missing": "Valige vähemalt üks järgmistest {{total}}",
+    "postcode": {
+      "empty": "ei ole kedagi, kellega ühendust võtta {{area}}"
+    },
+    "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest.",
+    "selected": "{{total}} valitud"
   },
   "twitter": {
     "actionText": "Kirjutasin alla. sa peaksid ka",
@@ -196,6 +202,7 @@
     "organisation": "Teie organisatsiooni twitteri konto",
     "screenName": "Ekraani nimi"
   },
+  "unknown postcode": "tundmatu postiindeks",
   "yes": "jah",
   "you need to be 18 years old": "peate olema 18-aastane"
 }
