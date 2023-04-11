@@ -10,6 +10,7 @@
   "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
   "Email": "Emailadresse",
   "First name": "Fornavn",
+  "Language": "Sprog",
   "Last name": "Efternavn",
   "Locality": "Lokalitet",
   "Next": "Next",
@@ -181,12 +182,17 @@
     "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
     },
-    "random": "Valgte et af vores {{total}} vigtigste mål"
+    "missing": "Vælg mindst en af følgende {{total}}",
+    "postcode": {
+      "empty": "der er ingen at kontakte i {{area}}"
+    },
+    "random": "Valgte et af vores {{total}} vigtigste mål",
+    "selected": "{{total}} udvalgt"
   },
   "twitter": {
     "actionText": "Jeg underskrev. du burde også",
@@ -196,6 +202,7 @@
     "organisation": "Din organisations twitter-konto",
     "screenName": "Skærmenavn"
   },
+  "unknown postcode": "ukendt postnummer",
   "yes": "ja",
   "you need to be 18 years old": "du skal være 18 år gammel"
 }
