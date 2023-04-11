@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} nemôže prijímať e-maily",
     "salutation": "Vážený pán/pani",
-    "salutation_female": "Vážený {názov_cieľa}",
+    "salutation_female": "Vážený {{target.name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
-    "salutation_male": "Vážený {názov cieľa}",
+    "salutation_male": "Vážený {{target.name}}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
   "image": {
