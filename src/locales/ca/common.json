@@ -10,6 +10,7 @@
   "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
   "Email": "Correu electrònic",
   "First name": "Nom",
+  "Language": "Llenguatge",
   "Last name": "Cognoms",
   "Locality": "Localitat",
   "Next": "Següent",
@@ -181,12 +182,17 @@
     "not_you": "no tu?",
     "welcome": "Benvingut de nou {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"
     },
-    "random": "Hem seleccionat un dels nostres objectius més importants {{total}}."
+    "missing": "Seleccioneu almenys un de {{total}}",
+    "postcode": {
+      "empty": "no hi ha ningú amb qui contactar a {{area}}"
+    },
+    "random": "Hem seleccionat un dels nostres objectius més importants {{total}}.",
+    "selected": "{{total}} seleccionat"
   },
   "twitter": {
     "actionText": "He signat. Tu també ho hauries de fer",
@@ -196,6 +202,7 @@
     "organisation": "El compte de Twitter de la vostra organització",
     "screenName": "Nom de pantalla"
   },
+  "unknown postcode": "codi postal desconegut",
   "yes": "sí",
   "you need to be 18 years old": "Ha de ser major d'edat"
 }
