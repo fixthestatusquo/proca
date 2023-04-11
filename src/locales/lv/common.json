@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
     "salutation": "Cienījamais kungs/cienītā kundze",
-    "salutation_female": "Cienījamais {mērķa_vārds}",
+    "salutation_female": "Cienījamais {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
-    "salutation_male": "Cienījamais {mērķa vārds}",
+    "salutation_male": "Cienījamais {{target.name}}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "image": {

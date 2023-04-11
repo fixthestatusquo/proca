@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} negalima gauti el. laiškų",
     "salutation": "Gerbiamasis ponas (ponia)",
-    "salutation_female": "Gerbiamasis {tikslo_vardas}",
+    "salutation_female": "Gerbiamasis {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
-    "salutation_male": "Gerbiamas {tikslo pavadinimas}",
+    "salutation_male": "Gerbiamas {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "image": {

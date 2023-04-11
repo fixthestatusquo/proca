@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} no pot rebre correus electrònics",
     "salutation": "Estimat Senyor / a",
-    "salutation_female": "Benvolgut {target_name}",
+    "salutation_female": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
-    "salutation_male": "Benvolgut {target name}",
+    "salutation_male": "Benvolgut {{target.name}}",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "image": {

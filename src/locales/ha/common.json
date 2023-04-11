@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
     "salutation": "Yallabai/ madam",
-    "salutation_female": "Masoyi {sunan_ manufa}",
+    "salutation_female": "Masoyi {{target.name}}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
-    "salutation_male": "Masoyi {sunan manufa}",
+    "salutation_male": "Masoyi {{target.name}}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "image": {

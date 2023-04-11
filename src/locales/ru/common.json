@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} не может получать электронные письма",
     "salutation": "Уважаемый господин/госпожа",
-    "salutation_female": "Уважаемый {имя_цели}",
+    "salutation_female": "Уважаемый {{target.name}}",
     "salutation_info": "(имя будет проставлено перед отправкой)",
-    "salutation_male": "Уважаемый {имя адресата}",
+    "salutation_male": "Уважаемый {{target.name}}",
     "salutation_placeholder": "Уважаемый [получатель],"
   },
   "image": {

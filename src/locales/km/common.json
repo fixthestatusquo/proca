@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} មិនអាចទទួលអ៊ីមែលបានទេ។",
     "salutation": "សូមគោរពលោក/លោកស្រី",
-    "salutation_female": "សូមគោរព {target_name}",
+    "salutation_female": "សូមគោរព {{target.name}}",
     "salutation_info": "(ឈ្មោះនឹងត្រូវបានដាក់មុនពេលផ្ញើ)",
-    "salutation_male": "សូមគោរព {ឈ្មោះគោលដៅ}",
+    "salutation_male": "សូមគោរព {{target.name}}",
     "salutation_placeholder": "សូមគោរព [អ្នកទទួល]"
   },
   "image": {

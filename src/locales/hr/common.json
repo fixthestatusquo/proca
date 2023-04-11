@@ -129,19 +129,19 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "salutation": "Dragi Gospodine / Gospođo",
-    "salutation_female": "Poštovani {target_name}",
-    "salutation_info": "(ime će biti stavljeno prije slanja)",
-    "salutation_male": "Poštovani {target name}",
+    "salutation": "Dragi Gospodine/ Gospođo",
+    "salutation_female": "Poštovana {{target.name}}",
+    "salutation_info": "(Ime će biti stavljeno prije slanja)",
+    "salutation_male": "Poštovani {{target.name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "image": {
-    "addSticker": "dodajte naljepnice",
+    "addSticker": "Dodajte naljepnice",
     "addStickerTitle": "Kliknite/Dodirnite za dodavanje naljepnice na fotografiju",
-    "benefit": "Dodavanje slike za slanje - i koju možete podijeliti u sljedećem koraku - učinit će vaš postupak utjecajnijim",
+    "benefit": "Dodavanje slike za slanje - koju možete podijeliti u sljedećem koraku - učinit će vaš postupak utjecajnijim",
     "options": "Želite li",
     "publish": "Izgleda dobro, objavi!",
-    "select": "odaberite svoju sliku",
+    "select": "Odaberite svoju sliku",
     "takeTitle": "Snimite sliku telefonom",
     "upload": "Učitajte sliku",
     "wanttoadd": "Želite li dodati sliku?"

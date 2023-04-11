@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} ma tistax tirċievi emails",
     "salutation": "Għażiż Sinjur/Sinjura",
-    "salutation_female": "Għeżież {target_name}",
+    "salutation_female": "Għeżież {{target.name}}",
     "salutation_info": "(l-isem jitpoġġa qabel ma jintbagħat)",
-    "salutation_male": "Għeżież {target name}",
+    "salutation_male": "Għeżież {{target.name}}",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
   "image": {

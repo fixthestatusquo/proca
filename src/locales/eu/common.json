@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
     "salutation": "Jaun/andrea agurgarria",
-    "salutation_female": "{target_name} maitea",
+    "salutation_female": "{{target.name}} maitea",
     "salutation_info": "(izena bidali aurretik jarriko da)",
-    "salutation_male": "{helburuko izena} maitea",
+    "salutation_male": "{{target.name}} maitea",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
   "image": {

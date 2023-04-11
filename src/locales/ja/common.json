@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} メール受信不可",
     "salutation": "拝啓",
-    "salutation_female": "Dear {target_name}様",
+    "salutation_female": "Dear {{target.name}}様",
     "salutation_info": "(送信前に受信者の名前が入ります）。",
-    "salutation_male": "親愛なる｛ターゲット名｝へ",
+    "salutation_male": "親愛なる {{target.name}}へ",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
   "image": {

@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} не може да прима е-поруке",
     "salutation": "Драги господине / госпођо",
-    "salutation_female": "Поштовани {таргет_наме}",
+    "salutation_female": "Поштовани {{target.name}}",
     "salutation_info": "(име ће бити стављено пре слања)",
-    "salutation_male": "Поштовани {таргет наме}",
+    "salutation_male": "Поштовани {{target.name}}",
     "salutation_placeholder": "Поштовани [прималац],"
   },
   "image": {
