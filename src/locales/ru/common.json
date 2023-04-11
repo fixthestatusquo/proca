@@ -10,6 +10,7 @@
   "Download explanation": "Ваш документ уже готов, мы тоже отправим его вам по электронной почте.",
   "Email": "Эл. почта",
   "First name": "Имя",
+  "Language": "Язык",
   "Last name": "Фамилия",
   "Locality": "Язык",
   "Next": "Дальше",
@@ -181,12 +182,17 @@
     "not_you": "не ты?",
     "welcome": "С возвращением {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Выберите другую страну, в {{country}} не с кем связаться."
     },
-    "random": "Выбрана одна из наших {{total}} наиболее важных целей"
+    "missing": "Выберите хотя бы один из {{total}}",
+    "postcode": {
+      "empty": "не с кем связаться в {{area}}"
+    },
+    "random": "Выбрана одна из наших {{total}} наиболее важных целей",
+    "selected": "{{total}} выбранный"
   },
   "twitter": {
     "actionText": "Я подписал. Ты тоже должен",
@@ -196,6 +202,7 @@
     "organisation": "Твиттер-аккаунт вашей организации",
     "screenName": "Название экрана"
   },
+  "unknown postcode": "неизвестный почтовый индекс",
   "yes": "да",
   "you need to be 18 years old": "тебе должно быть 18 лет"
 }
