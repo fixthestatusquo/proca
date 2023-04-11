@@ -10,6 +10,7 @@
   "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
   "Email": "El. paštas",
   "First name": "Pirmas vardas",
+  "Language": "Kalba",
   "Last name": "Pavardė",
   "Locality": "Vietovė",
   "Next": "Toliau",
@@ -181,12 +182,17 @@
     "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}"
     },
-    "random": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų"
+    "missing": "Pasirinkite bent vieną iš {{total}}",
+    "postcode": {
+      "empty": "nėra su kuo susisiekti {{area}}"
+    },
+    "random": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų",
+    "selected": "{{total}} pasirinktas"
   },
   "twitter": {
     "actionText": "Aš pasirašiau. tu taip pat turėtum",
@@ -196,6 +202,7 @@
     "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
     "screenName": "Ekrano vardas"
   },
+  "unknown postcode": "nežinomas pašto indeksas",
   "yes": "taip",
   "you need to be 18 years old": "jums reikia 18 metu"
 }
