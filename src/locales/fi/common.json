@@ -10,6 +10,7 @@
   "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle sähköpostitse.",
   "Email": "Sähköpostiosoite",
   "First name": "Etunimi",
+  "Language": "Kieli",
   "Last name": "Sukunimi",
   "Locality": "Sijainti",
   "Next": "Seuraava",
@@ -181,12 +182,17 @@
     "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
     },
-    "random": "Valittu yksi {{total}} tärkeimmistä kohteistamme."
+    "missing": "Valitse vähintään yksi seuraavista {{total}}",
+    "postcode": {
+      "empty": "ei ole ketään, johon ottaa yhteyttä {{area}}"
+    },
+    "random": "Valittu yksi {{total}} tärkeimmistä kohteistamme.",
+    "selected": "{{total}} valitut"
   },
   "twitter": {
     "actionText": "Allekirjoitin. Sinunkin pitäisi",
@@ -196,6 +202,7 @@
     "organisation": "Organisaatiosi Twitter-tili",
     "screenName": "Näyttönimi"
   },
+  "unknown postcode": "tuntematon postinumero",
   "yes": "kyllä",
   "you need to be 18 years old": "sinun on oltava 18-vuotias"
 }
