@@ -10,6 +10,7 @@
   "Download explanation": "Ditt dokument är nu klart, vi skickar det också till dig via e-post.",
   "Email": "E-post",
   "First name": "Förnamn",
+  "Language": "Språk",
   "Last name": "Efternamn",
   "Locality": "Lokalitet",
   "Next": "Nästa",
@@ -181,12 +182,17 @@
     "not_you": "inte du?",
     "welcome": "Välkommen tillbaka {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}."
     },
-    "random": "Valde ett av våra viktigaste mål {{total}}."
+    "missing": "Välj minst en av följande {{total}}",
+    "postcode": {
+      "empty": "Det finns ingen att kontakta i {{area}}"
+    },
+    "random": "Valde ett av våra viktigaste mål {{total}}.",
+    "selected": "{{total}} utvalda"
   },
   "twitter": {
     "actionText": "Jag skrev under. du borde också",
@@ -196,6 +202,7 @@
     "organisation": "Din organisations twitterkonto",
     "screenName": "Skärmnamn"
   },
+  "unknown postcode": "okänt postnummer",
   "yes": "ja",
   "you need to be 18 years old": "du måste vara 18 år gammal"
 }
