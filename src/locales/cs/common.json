@@ -10,6 +10,7 @@
   "Download explanation": "Váš dokument je nyní připraven, pošleme vám jej také e-mailem",
   "Email": "E-mail",
   "First name": "Jméno",
+  "Language": "Jazyk",
   "Last name": "Příjmení",
   "Locality": "Lokalita",
   "Next": "Další",
@@ -181,12 +182,17 @@
     "not_you": "ne vy?",
     "welcome": "Vítejte zpět {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat"
     },
-    "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů"
+    "missing": "Vyberte alespoň jednu z těchto možností {{total}}",
+    "postcode": {
+      "empty": "není na koho se obrátit {{area}}"
+    },
+    "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů",
+    "selected": "{{total}} vybrané"
   },
   "twitter": {
     "actionText": "Já jsem se podepsal. měl bys také",
@@ -196,6 +202,7 @@
     "organisation": "Účet vaší organizace na Twitteru",
     "screenName": "Jméno na obrazovce"
   },
+  "unknown postcode": "neznámé PSČ",
   "yes": "ano",
   "you need to be 18 years old": "musíte mít 18 let"
 }
