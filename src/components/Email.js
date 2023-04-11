@@ -15,6 +15,7 @@ import {
   FormHelperText,
   FormControl,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
@@ -192,7 +193,13 @@ const Component = (props) => {
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState([]);
+  const [selection, _setSelection] = useState(
+    config.component.email?.selectable ? [] : false
+  );
 
+  const setSelection = (selection) => {
+    _setSelection(selection);
+  };
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
@@ -242,7 +249,14 @@ const Component = (props) => {
     }),
   });
 
-  const { watch, getValues, setValue, setError, clearErrors } = form;
+  const {
+    watch,
+    getValues,
+    setValue,
+    setError,
+    clearErrors,
+    formState: { errors },
+  } = form;
 
   const country = watch("country");
   const fields = getValues(["subject", "message"]);
@@ -279,7 +293,6 @@ const Component = (props) => {
 
   const checkUpdated = (e) => {
     // we do not automatically update the message as soon as the user starts changing it
-    console.log("check updated");
     setAlwaysUpdate(false);
   };
   useEffect(() => {
@@ -468,8 +481,8 @@ const Component = (props) => {
         } else {
           lang = mainLanguage(country, false);
         }
+        d = allProfiles.filter((d) => d.locale === locale);
       }
-      console.log("targets", d.length, lang, fallbackArea);
       if (d.length === 0 && fallbackArea) {
         console.log("fallback area");
         d = filterArea(area);
@@ -496,13 +509,11 @@ const Component = (props) => {
         });
       }
       if (d.length > 0) {
-        console.log("clear error");
         clearErrors("country");
         clearErrors("postcode");
       }
       //if (lang && config.lang !== lang) {
       if (lang && typeof lang === "string") {
-        console.log(lang, locale, languages);
         setConfig((current) => {
           let next = { ...current };
           next.lang = lang || "en";
@@ -717,6 +728,11 @@ const Component = (props) => {
     return data;
   };
 
+  const getTargets = () => {
+    if (!selection) return profiles;
+    return profiles.filter((d) => selection.includes(d.procaid));
+  };
+
   const filterTarget = (key, value) => {
     console.log("filterTarget");
     const d = allProfiles.filter((d) => {
@@ -749,20 +765,51 @@ const Component = (props) => {
         filterLocale={filterLocale}
         languages={languages}
       />
+      {selection && (
+        <>
+          <input
+            type="hidden"
+            {...form.register("selection", {
+              validate: (value, formValues) => {
+                selection.length > 0 && setValue("selection", selection.length);
+                return selection !== 0;
+              },
+            })}
+          />
+
+          {selection.length === 0 ? (
+            <Alert severity={errors?.selection ? "error" : "info"}>
+              {t("target.missing", {
+                defaultValue: "Select at least one out of {{total}}",
+                total: profiles.length,
+              })}
+            </Alert>
+          ) : (
+            <Alert severity="success">
+              {t("target.selected", {
+                defaultValue: "{{total}} selected",
+                total: selection.length,
+              })}
+            </Alert>
+          )}
+        </>
+      )}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense>
           {profiles.length === 0 &&
             !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}
-          {profiles.map((d) => (
+          {profiles.map((d, i) => (
             <EmailAction
-              key={d.id || JSON.stringify(d)}
+              key={d.procaid || d.id || i}
               actionPage={config.actionPage}
               done={props.done}
               display={d.display}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
-              {...d}
+              profile={d}
+              selection={selection}
+              setSelection={setSelection}
             ></EmailAction>
           ))}
         </List>
@@ -773,7 +820,9 @@ const Component = (props) => {
           emailProvider={emailProvider}
           done={props.done}
           buttonText={t(config.component.register?.button || "action.email")}
-          targets={config.component.email?.server !== false ? profiles : null}
+          targets={
+            config.component.email?.server !== false ? getTargets() : null
+          }
           beforeSubmit={prepareData}
           onClick={onClick}
           extraFields={ExtraFields}

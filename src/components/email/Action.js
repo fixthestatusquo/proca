@@ -5,9 +5,10 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
-import PropTypes from "prop-types";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
+import Selectable from "./Selectable";
+
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 //import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
@@ -16,7 +17,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 
-const component = function EmailAction(profile) {
+const EmailAction = ({ profile, selection, setSelection }) => {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
@@ -83,6 +84,11 @@ const component = function EmailAction(profile) {
         <Avatar src={img()} />
       </ListItemAvatar>
       <ListItemText primary={profile.name} secondary={profile.description} />
+      <Selectable
+        profile={profile}
+        selection={selection}
+        setSelection={setSelection}
+      />
       {config.component?.email?.split === true && (
         <ListItemSecondaryAction>
           <IconButton edge="end" aria-label="Tweet" onClick={mail}>
@@ -94,20 +100,4 @@ const component = function EmailAction(profile) {
   );
 };
 
-//component.defaultProps = {
-//  screen_name = "eucampaign";
-//  text
-//  via
-//}
-
-// you can have actionText (text of function(profile))
-component.propTypes = {
-  screen_name: PropTypes.string,
-  name: PropTypes.string,
-  image: PropTypes.string,
-  url: PropTypes.string,
-  actionUrl: PropTypes.string,
-  description: PropTypes.string,
-  className: PropTypes.string,
-};
-export default component;
+export default EmailAction;
