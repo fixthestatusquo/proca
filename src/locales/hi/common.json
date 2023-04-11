@@ -10,6 +10,7 @@
   "Download explanation": "आपका दस्तावेज़ अब तैयार है, हम इसे आपको ईमेल भी कर रहे हैं।",
   "Email": "ईमेल",
   "First name": "पहला नाम",
+  "Language": "भाषा",
   "Last name": "उपनाम",
   "Locality": "इलाका",
   "Next": "Next",
@@ -181,12 +182,17 @@
     "not_you": "तुम नहीं?",
     "welcome": "वापस स्वागत है {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "दूसरे देश का चयन करें, {{country}} में संपर्क करने वाला कोई नहीं है"
     },
-    "random": "हमारे {{total}} सबसे महत्वपूर्ण लक्ष्यों में से एक को चुना"
+    "missing": "{{total}} में से कम से कम एक चुनें",
+    "postcode": {
+      "empty": "{{area}} में संपर्क करने के लिए कोई नहीं है"
+    },
+    "random": "हमारे {{total}} सबसे महत्वपूर्ण लक्ष्यों में से एक को चुना",
+    "selected": "{{total}} चुना गया"
   },
   "twitter": {
     "actionText": "मैंने हस्ताक्षर किए। तुम भी",
@@ -196,6 +202,7 @@
     "organisation": "आपका संगठन ट्विटर अकाउंट",
     "screenName": "स्क्रीन नाम"
   },
+  "unknown postcode": "अज्ञात पोस्टकोड",
   "yes": "हाँ",
   "you need to be 18 years old": "आपको 18 वर्ष का होना चाहिए"
 }
