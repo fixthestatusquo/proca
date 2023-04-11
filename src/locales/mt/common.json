@@ -10,6 +10,7 @@
   "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
   "Email": "Email",
   "First name": "Isem",
+  "Language": "Lingwa",
   "Last name": "Kunjom",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
@@ -181,12 +182,17 @@
     "not_you": "mhux int?",
     "welcome": "Merħba lura {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"
     },
-    "random": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}."
+    "missing": "Agħżel mill-inqas wieħed minn {{total}}",
+    "postcode": {
+      "empty": "m'hemm ħadd x'tikkuntattja f'{{area}}"
+    },
+    "random": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}.",
+    "selected": "{{total}} magħżula"
   },
   "twitter": {
     "actionText": "I ffirmat. għandek ukoll",
@@ -196,6 +202,7 @@
     "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek",
     "screenName": "Isem Elettroniku"
   },
+  "unknown postcode": "kodiċi postali mhux magħruf",
   "yes": "iva",
   "you need to be 18 years old": "trid tkun 18-il sena"
 }
