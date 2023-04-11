@@ -10,6 +10,7 @@
   "Download explanation": "Tá do dhoiciméad réidh anois, táimid á sheoladh chugat freisin.",
   "Email": "Ríomhphost",
   "First name": "Ainm",
+  "Language": "Teanga",
   "Last name": "Ainm deireanach",
   "Locality": "Ceantar",
   "Next": "An chéad rian eile",
@@ -181,12 +182,17 @@
     "not_you": "Ní tusa?",
     "welcome": "Fáilte ar ais {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}"
     },
-    "random": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí"
+    "missing": "Roghnaigh ceann amháin ar a laghad as {{total}}",
+    "postcode": {
+      "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}"
+    },
+    "random": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí",
+    "selected": "{{total}} roghnaithe"
   },
   "twitter": {
     "actionText": "Shínigh mé. ba chóir duit freisin",
@@ -196,6 +202,7 @@
     "organisation": "Cuntas twitter d’eagraíochta",
     "screenName": "Ainm Scáileáin"
   },
+  "unknown postcode": "cód poist anaithnid",
   "yes": "tá",
   "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois"
 }
