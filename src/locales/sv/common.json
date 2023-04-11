@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} kan inte ta emot e-postmeddelanden",
     "salutation": "Kära herr/fru",
-    "salutation_female": "Kära {target_name}",
+    "salutation_female": "Kära {{target.name}}",
     "salutation_info": "(namnet kommer att läggas till innan det skickas)",
-    "salutation_male": "Kära {målnamn}",
+    "salutation_male": "Kära  {{target.name}}",
     "salutation_placeholder": "Kära [mottagare],"
   },
   "image": {
