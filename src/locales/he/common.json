@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
     "salutation": "אדון / גברת יקרים",
-    "salutation_female": "{target_name} יקר",
+    "salutation_female": "{{target.name}} יקר",
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
-    "salutation_male": "היקר {target name}",
+    "salutation_male": "היקר {{target.name}}",
     "salutation_placeholder": "[נמען] יקר"
   },
   "image": {

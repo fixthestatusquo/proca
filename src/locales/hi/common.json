@@ -130,9 +130,9 @@
   "email": {
     "invalid_domain": "{{domain}} ईमेल प्राप्त नहीं कर सकता",
     "salutation": "प्रिय महोदय/महोदया",
-    "salutation_female": "प्रिय {target_name}",
+    "salutation_female": "प्रिय {{target.name}}",
     "salutation_info": "(भेजने से पहले नाम डाल दिया जाएगा)",
-    "salutation_male": "प्रिय {लक्ष्य नाम}",
+    "salutation_male": "प्रिय {{target.name}}",
     "salutation_placeholder": "प्रिय [प्राप्तकर्ता],"
   },
   "image": {
