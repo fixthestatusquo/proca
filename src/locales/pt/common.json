@@ -10,6 +10,7 @@
   "Download explanation": "O seu documento está agora pronto, estamos a enviar-lhe também por e-mail.",
   "Email": "E-mail",
   "First name": "Nome",
+  "Language": "Linguagem",
   "Last name": "Apelido",
   "Locality": "Localidade",
   "Next": "Próximo",
@@ -181,12 +182,17 @@
     "not_you": "não você?",
     "welcome": "Bem-vindo de volta {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Selecione outro país, não há ninguém para contactar em {{country}}"
     },
-    "random": "Seleccionado um dos nossos {{total}} alvos mais importantes"
+    "missing": "Selecione pelo menos um de {{total}}",
+    "postcode": {
+      "empty": "não há ninguém para contatar em {{area}}"
+    },
+    "random": "Seleccionado um dos nossos {{total}} alvos mais importantes",
+    "selected": "{{total}} selecionado"
   },
   "twitter": {
     "actionText": "Eu assinei. Tu também devias",
@@ -196,6 +202,7 @@
     "organisation": "A sua conta no twitter da organização",
     "screenName": "Nome do ecrã"
   },
+  "unknown postcode": "código postal desconhecido",
   "yes": "sim",
   "you need to be 18 years old": "você precisa ter 18 anos de idade"
 }
