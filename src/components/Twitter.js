@@ -221,9 +221,12 @@ const Component = (props) => {
     const filterRandom = (d) => {
       if (config.component.twitter?.filter?.includes("random")) {
         // not sure if it's useful, there is a useLayoutEffect that should do the same
-        const i = d[Math.floor(Math.random() * d.length)];
+        let i = d[Math.floor(Math.random() * d.length)];
         setMessage([i]);
-        setProfiles([i]);
+        setProfiles((prev) => {
+          console.log(prev);
+          return [i];
+        });
       } else {
         //if (!config.component.twitter.filter?.includes("country")) {
         setMessage(d);

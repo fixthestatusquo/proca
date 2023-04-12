@@ -187,7 +187,7 @@
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}"
     },
-    "missing": "Sélectionnez au moins un des éléments suivants {{total}}",
+    "missing": "Sélectionnez à qui envoyer parmi {{total}}",
     "postcode": {
       "empty": "il n'y a personne à contacter en {{area}}"
     },
