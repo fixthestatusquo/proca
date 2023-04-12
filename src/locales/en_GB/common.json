@@ -10,6 +10,7 @@
   "Download explanation": "Your document is now ready; we are emailing it to you too.",
   "Email": "Email",
   "First name": "Given name",
+  "Language": "Language",
   "Last name": "Surname",
   "Locality": "Locality",
   "Next": "Next",
@@ -181,12 +182,17 @@
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}"
     },
-    "random": "Selected one of our {{total}} most important targets"
+    "missing": "Select at least one out of {{total}}",
+    "postcode": {
+      "empty": "there is no-one to contact in {{area}}"
+    },
+    "random": "Selected one of our {{total}} most important targets",
+    "selected": "{{total}} selected"
   },
   "twitter": {
     "actionText": "I have signed. You should too",
@@ -196,6 +202,7 @@
     "organisation": "Your organisation twitter account",
     "screenName": "Screen name"
   },
+  "unknown postcode": "unknown postcode",
   "yes": "yes",
   "you need to be 18 years old": "you need to be 18 years old"
 }

@@ -10,6 +10,7 @@
   "Download explanation": "Ваш документ готовий, ми також надсилаємо його вам е-поштою",
   "Email": "Е-пошта",
   "First name": "Ім'я",
+  "Language": "Мова",
   "Last name": "Прізвище",
   "Locality": "Мова",
   "Next": "Далі",
@@ -181,12 +182,17 @@
     "not_you": "не ви?",
     "welcome": "Ласкаво просимо назад, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Виберіть іншу країну, у {{country}} немає з ким зв’язатися"
     },
-    "random": "Вибрано одну з наших {{total}} найважливіших цілей"
+    "missing": "Виберіть принаймні один з наступних варіантів {{total}}",
+    "postcode": {
+      "empty": "немає до кого звернутися {{area}}"
+    },
+    "random": "Вибрано одну з наших {{total}} найважливіших цілей",
+    "selected": "{{total}} вибрано"
   },
   "twitter": {
     "actionText": "Я підписав. Ви також повинні",
@@ -196,6 +202,7 @@
     "organisation": "Ваш обліковий запис організації в Twitter",
     "screenName": "Екранне ім'я"
   },
+  "unknown postcode": "невідомий поштовий індекс",
   "yes": "Так.",
   "you need to be 18 years old": "вам має бути 18 років"
 }

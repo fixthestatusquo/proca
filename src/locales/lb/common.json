@@ -10,6 +10,7 @@
   "Download explanation": "Ärt Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
   "Email": "E-Mail",
   "First name": "Virnumm",
+  "Language": "Sprooch",
   "Last name": "Familljennumm",
   "Locality": "Uertschaft",
   "Next": "Nächst",
@@ -181,12 +182,17 @@
     "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"
     },
-    "random": "Wielt ee vun eise {{total}} wichtegsten Ziler"
+    "missing": "Wielt op d'mannst een aus {{total}}",
+    "postcode": {
+      "empty": "et gëtt keen ze kontaktéieren an {{area}}"
+    },
+    "random": "Wielt ee vun eise {{total}} wichtegsten Ziler",
+    "selected": "{{total}} ausgewielt"
   },
   "twitter": {
     "actionText": "actionText",
@@ -196,6 +202,7 @@
     "organisation": "Twitter Account vun Ärer Organisatioun",
     "screenName": "Kënschtlernumm"
   },
+  "unknown postcode": "onbekannt Postleitzuel",
   "yes": "Jo",
   "you need to be 18 years old": "Dir musst 18 Joer al sinn"
 }

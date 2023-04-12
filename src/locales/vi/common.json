@@ -10,6 +10,7 @@
   "Download explanation": "Tài liệu của bạn hiện đã sẵn sàng, chúng tôi cũng đang gửi nó qua email cho bạn",
   "Email": "E-mail",
   "First name": "Họ",
+  "Language": "Ngôn ngữ",
   "Last name": "Họ",
   "Locality": "Địa phương",
   "Next": "Tiếp theo",
@@ -181,12 +182,17 @@
     "not_you": "không phải bạn?",
     "welcome": "Chào mừng bạn trở lại, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}"
     },
-    "random": "Đã chọn một trong những mục tiêu quan trọng nhất {{total}} của chúng tôi"
+    "missing": "Chọn ít nhất một trong số {{total}}",
+    "postcode": {
+      "empty": "không có ai để liên hệ trong {{area}}"
+    },
+    "random": "Đã chọn một trong những mục tiêu quan trọng nhất {{total}} của chúng tôi",
+    "selected": "{{total}} đã chọn"
   },
   "twitter": {
     "actionText": "actionText",
@@ -196,6 +202,7 @@
     "organisation": "Tài khoản twitter tổ chức của bạn",
     "screenName": "Tên hiển thị"
   },
+  "unknown postcode": "mã bưu điện không xác định",
   "yes": "Đúng",
   "you need to be 18 years old": "bạn cần đủ 18 tuổi"
 }

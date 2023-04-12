@@ -10,6 +10,7 @@
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
   "Email": "Imel",
   "First name": "Sunan rana",
+  "Language": "Harshe",
   "Last name": "Sunan mahaifa",
   "Locality": "Yanki",
   "Next": "Na gaba",
@@ -181,12 +182,17 @@
     "not_you": "ba ka ba?",
     "welcome": "Barka da dawowa {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"
     },
-    "random": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}."
+    "missing": "Zaɓi aƙalla ɗaya daga cikin {{total}}",
+    "postcode": {
+      "empty": "babu wanda za a tuntuɓar a {{area}}"
+    },
+    "random": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}.",
+    "selected": "{{total}} aka zaba"
   },
   "twitter": {
     "actionText": "Na sanya hannu. ya kamata ku ma",
@@ -196,6 +202,7 @@
     "organisation": "Asusun twitter kungiyar ku",
     "screenName": "Sunan kariya"
   },
+  "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
   "yes": "iya",
   "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }

@@ -10,6 +10,7 @@
   "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila",
   "Email": "E-mail",
   "First name": "Ime",
+  "Language": "Jezik",
   "Last name": "Prezime",
   "Locality": "Lokalitet",
   "Next": "Dalje",
@@ -181,12 +182,17 @@
     "not_you": "nisi ti?",
     "welcome": "Dobro došao, dobro došla {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
     },
-    "random": "Odabrali smo jedan od naših {{total}} najvažnijih ciljeva"
+    "missing": "Odaberite barem jedan od {{total}}",
+    "postcode": {
+      "empty": "nema nikoga za kontaktirati u {{area}}"
+    },
+    "random": "Odabrali smo jedan od naših {{total}} najvažnijih ciljeva",
+    "selected": "{{total}} odabrano"
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
@@ -196,6 +202,7 @@
     "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },
+  "unknown postcode": "nepoznat poštanski broj",
   "yes": "Da",
   "you need to be 18 years old": "morate imati 18 godina"
 }

@@ -10,6 +10,7 @@
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
   "Email": "E-posta",
   "First name": "Izena",
+  "Language": "Hizkuntza",
   "Last name": "Abizena",
   "Locality": "Herria",
   "Next": "Hurrengoa",
@@ -181,12 +182,17 @@
     "not_you": "zu ez?",
     "welcome": "Ongi etorri berriro {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"
     },
-    "random": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu"
+    "missing": "Hautatu gutxienez bat {{total}}",
+    "postcode": {
+      "empty": "ez dago inor harremanetan jartzeko {{area}}"
+    },
+    "random": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu",
+    "selected": "{{total}} hautatuta"
   },
   "twitter": {
     "actionText": "Sinatu nuen. zuk ere egin beharko zenuke",
@@ -196,6 +202,7 @@
     "organisation": "Zure erakundearen twitter kontua",
     "screenName": "Pantailaren Izena"
   },
+  "unknown postcode": "posta-kode ezezaguna",
   "yes": "bai",
   "you need to be 18 years old": "18 urte izan behar dituzu"
 }

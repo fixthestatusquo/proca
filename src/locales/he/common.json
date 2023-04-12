@@ -10,6 +10,7 @@
   "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם אליך",
   "Email": "אימייל",
   "First name": "שם פרטי",
+  "Language": "שפה",
   "Last name": "שם משפחה",
   "Locality": "מָקוֹם",
   "Next": "הַבָּא",
@@ -181,12 +182,17 @@
     "not_you": "לא אתה?",
     "welcome": "ברוך שובך, {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "בחר מדינה אחרת, אין עם מי לפנות ב-{{country}}"
     },
-    "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו"
+    "missing": "בחר לפחות אחד מתוך {{total}}",
+    "postcode": {
+      "empty": "אין עם מי לפנות ב-{{area}}"
+    },
+    "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו",
+    "selected": "{{total}} נבחר"
   },
   "twitter": {
     "actionText": "actionText",
@@ -196,6 +202,7 @@
     "organisation": "חשבון הטוויטר של הארגון שלך",
     "screenName": "שם מסך"
   },
+  "unknown postcode": "מיקוד לא ידוע",
   "yes": "כן",
   "you need to be 18 years old": "אתה צריך להיות בן 18"
 }

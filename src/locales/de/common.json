@@ -10,6 +10,7 @@
   "Download explanation": "Ihr Dokument ist jetzt fertig, wir senden es Ihnen auch per E-Mail zu",
   "Email": "E-Mail",
   "First name": "Vorname",
+  "Language": "Sprache",
   "Last name": "Nachname",
   "Locality": "Ortschaft",
   "Next": "Weiter",
@@ -186,7 +187,12 @@
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
     },
-    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt."
+    "missing": "Wählen Sie mindestens einen der folgenden Punkte aus {{total}}",
+    "postcode": {
+      "empty": "es niemanden gibt, den man kontaktieren kann in {{area}}"
+    },
+    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt.",
+    "selected": "{{total}} ausgewählt"
   },
   "twitter": {
     "actionText": "actionText",
@@ -196,6 +202,7 @@
     "organisation": "Twitter-Konto Ihrer Organisation",
     "screenName": "Bildschirmname"
   },
+  "unknown postcode": "unbekannte Postleitzahl",
   "yes": "ja",
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
 }

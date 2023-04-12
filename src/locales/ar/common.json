@@ -10,6 +10,7 @@
   "Download explanation": "المستند جاهز الآن ، ونحن نرسله إليك عبر البريد الإلكتروني أيضًا",
   "Email": "البريد الإلكتروني",
   "First name": "الاسم الاول",
+  "Language": "لغة",
   "Last name": "اللقب",
   "Locality": "المنطقة",
   "Next": "التالي",
@@ -181,12 +182,17 @@
     "not_you": "ليس انت؟",
     "welcome": "مرحبًا بك مرة أخرى ، {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "حدد دولة أخرى ، لا يوجد أحد للاتصال به في {{country}}"
     },
-    "random": "حدد أحد أهم أهدافنا {{total}}"
+    "missing": "حدد واحدًا على الأقل من {{total}}",
+    "postcode": {
+      "empty": "لا يوجد أحد للاتصال به في {{area}}"
+    },
+    "random": "حدد أحد أهم أهدافنا {{total}}",
+    "selected": "تم تحديد {{total}}"
   },
   "twitter": {
     "actionText": "نص العمل",
@@ -196,6 +202,7 @@
     "organisation": "حساب تويتر لمنظمتك",
     "screenName": "الاسم الذي سيظهر"
   },
+  "unknown postcode": "رمز بريدي غير معروف",
   "yes": "نعم",
   "you need to be 18 years old": "يجب أن يكون عمرك 18 عامًا"
 }

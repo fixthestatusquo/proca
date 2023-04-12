@@ -10,6 +10,7 @@
   "Download explanation": "A dokumentumod készen áll, neked is elküldjük.",
   "Email": "E-mail",
   "First name": "Keresztnév",
+  "Language": "Nyelv",
   "Last name": "Vezetéknév",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
@@ -181,12 +182,17 @@
     "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."
     },
-    "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat."
+    "missing": "Válasszon ki legalább egyet a következők közül {{total}}",
+    "postcode": {
+      "empty": "nincs senki, akivel kapcsolatba lehetne lépni {{area}}"
+    },
+    "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat.",
+    "selected": "{{total}} kiválasztott"
   },
   "twitter": {
     "actionText": "Aláírtam. Neked is kellene",
@@ -196,6 +202,7 @@
     "organisation": "Az Ön szervezetének twitter fiókja",
     "screenName": "Képernyő neve"
   },
+  "unknown postcode": "ismeretlen irányítószám",
   "yes": "igen",
   "you need to be 18 years old": "18 évesnek kell lenned"
 }

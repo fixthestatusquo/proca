@@ -10,6 +10,7 @@
   "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
   "Email": "Epasts",
   "First name": "Vārds",
+  "Language": "Valoda",
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
@@ -181,12 +182,17 @@
     "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
     },
-    "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem"
+    "missing": "Izvēlieties vismaz vienu no {{total}}",
+    "postcode": {
+      "empty": "nav ar ko sazināties {{area}}"
+    },
+    "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem",
+    "selected": "{{total}} atlasīts"
   },
   "twitter": {
     "actionText": "Es parakstījos. jums arī vajadzētu",
@@ -196,6 +202,7 @@
     "organisation": "Jūsu organizācijas tvitera konts",
     "screenName": "Ekrānvārds"
   },
+  "unknown postcode": "nezināms pasta indekss",
   "yes": "jā",
   "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }

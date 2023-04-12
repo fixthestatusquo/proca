@@ -10,6 +10,7 @@
   "Download explanation": "Vaš dokument je zdaj pripravljen, tudi vam ga pošiljamo po e-pošti.",
   "Email": "Elektronski naslov",
   "First name": "Ime",
+  "Language": "Jezik",
   "Last name": "Priimek",
   "Locality": "Okraj",
   "Next": "Naslednja",
@@ -181,12 +182,17 @@
     "not_you": "vas ne?",
     "welcome": "Dobrodošli nazaj {{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral."
     },
-    "random": "Izbran je eden od {{total}} poslancev"
+    "missing": "Izberite vsaj enega od {{total}}",
+    "postcode": {
+      "empty": "ni nikogar, na kogar bi se lahko obrnili. {{area}}"
+    },
+    "random": "Izbran je eden od {{total}} poslancev",
+    "selected": "{{total}} izbrani"
   },
   "twitter": {
     "actionText": "Podpisal sem. tudi vi bi morali",
@@ -196,6 +202,7 @@
     "organisation": "Račun twitter vaše organizacije",
     "screenName": "Ime zaslona"
   },
+  "unknown postcode": "neznana poštna številka",
   "yes": "da",
   "you need to be 18 years old": "moraš biti star 18 let"
 }

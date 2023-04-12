@@ -10,6 +10,7 @@
   "Download explanation": "ドキュメントが完成しましたので、こちらもメールで送信しています",
   "Email": "電子メール",
   "First name": "氏名",
+  "Language": "言語",
   "Last name": "ラストネーム",
   "Locality": "所在地",
   "Next": "次のページ",
@@ -181,12 +182,17 @@
     "not_you": "じゃなくて？",
     "welcome": "おかえりなさい、{{firstname}}!"
   },
-  "supporterHint" : "{{name}}, {{area}}",
+  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "他の国を選択し、連絡する人がいない。{{country}}"
     },
-    "random": "{{total}} 最も重要なターゲットの一つを選択しました。"
+    "missing": "の中から1つ以上選んでください。{{total}}",
+    "postcode": {
+      "empty": "での連絡先がない{{area}}"
+    },
+    "random": "{{total}} 最も重要なターゲットの一つを選択しました。",
+    "selected": "{{total}} 選り抜き"
   },
   "twitter": {
     "actionText": "アクションテキスト",
@@ -196,6 +202,7 @@
     "organisation": "あなたの組織のTwitterアカウント",
     "screenName": "スクリーン名"
   },
+  "unknown postcode": "不明な郵便番号",
   "yes": "はあ",
   "you need to be 18 years old": "18歳以上である必要があります"
 }
