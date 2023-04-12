@@ -191,6 +191,7 @@ const pushTarget = async (campaignName, file) => {
 
   const formatTargets = async () => {
     const results = [];
+    const fallBackLang = {};
     for (t of targets) {
       if (!t.name) continue; //skip empty records
       delete t.id;
@@ -228,11 +229,17 @@ const pushTarget = async (campaignName, file) => {
             name: t.name,
           });
         } else {
-          await i18n.changeLanguage(t.locale || "en");
+          let language = t.locale.replace("_", "-") || "en";
+          await i18n.loadLanguages(t.locale, (err) => {
+            if (!err) return;
+            console.warn(color.red("missing language", language));
+          });
+          await i18n.changeLanguage(language || "en");
           t.field.salutation = i18n.t("email.salutation", {
             context: gender,
             target: { name: t.name },
           });
+          // console.log("change language", t.locale,language, t.field.salutation);
         }
       }
       t.fields = JSON.stringify(t.field);
@@ -255,8 +262,10 @@ const pushTarget = async (campaignName, file) => {
 
     process.exit(1);
   }
-  if (argv["dry-run"]) {
+  if (argv["verbose"]) {
     console.log(JSON.stringify(formattedTargets, null, 2));
+  }
+  if (argv["dry-run"]) {
     process.exit(0);
   }
 

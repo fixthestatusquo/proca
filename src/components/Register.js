@@ -443,32 +443,38 @@ export default function Register(props) {
                 />
               </Grid>
               <Address form={form} campact={compact} classField={classField} />
-              {false && config.component.register?.field?.postcode !== false && (
-                <Grid
-                  item
-                  xs={12}
-                  sm={
-                    compact ||
-                    config.component.register?.field?.country === false
-                      ? 12
-                      : 3
-                  }
-                  className={classField}
-                >
-                  <TextField
-                    form={form}
-                    name="postcode"
-                    label={t("Postal Code")}
-                    autoComplete="postal-code"
-                    required={
-                      config.component.register?.field?.postcode?.required
+              {false &&
+                config.component.register?.field?.postcode !== false && (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={
+                      compact ||
+                      config.component.register?.field?.country === false
+                        ? 12
+                        : 3
                     }
-                  />
-                </Grid>
-              )}
+                    className={classField}
+                  >
+                    <TextField
+                      form={form}
+                      name="postcode"
+                      label={t("Postal Code")}
+                      autoComplete="postal-code"
+                      required={
+                        config.component.register?.field?.postcode?.required
+                      }
+                    />
+                  </Grid>
+                )}
               {config.component.register?.field?.phone === true && (
                 <Grid item xs={12} className={classField}>
-                  <TextField form={form} name="phone" label={t("Phone")} />
+                  <TextField
+                    type="tel"
+                    form={form}
+                    name="phone"
+                    label={t("Phone")}
+                  />
                 </Grid>
               )}
               {config.component.register?.field?.comment !== false && (

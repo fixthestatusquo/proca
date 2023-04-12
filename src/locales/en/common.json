@@ -192,12 +192,12 @@
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}"
     },
-    "missing": "Select at least one out of {{total}}",
-    "postcode": {
-      "empty": "there is no-one to contact in {{area}}"
-    },
-    "random": "Selected one of our {{total}} most important targets",
-    "selected": "{{total}} recipient(s)"
+  "missing": "Select at least one out of {{total}}",
+  "postcode": {
+    "empty": "there is no-one to contact in {{area}}"
+  },
+  "random": "Selected one of our {{total}} most important targets",
+  "selected": "{{total}} recipient(s)"
   },
   "twitter": {
     "actionText": "actionText",
