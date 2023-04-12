@@ -192,7 +192,7 @@
       "empty": "il n'y a personne à contacter en {{area}}"
     },
     "random": "Sélectionné l'une de nos {{total}} cibles les plus importantes",
-    "selected": "{{total}} sélectionné"
+    "selected": "{{total}} destinataire(s)"
   },
   "twitter": {
     "actionText": "J'ai signé. Vous devriez aussi",

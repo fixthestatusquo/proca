@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useCallback,
-  Fragment,
-} from "react";
+import React, { useState, useEffect, useCallback, Fragment } from "react";
 
 import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
@@ -185,16 +179,17 @@ const Component = (props) => {
     ]
   );
 
-  // eslint-disable-next-line
   const filterRandomProfile = useCallback(() => {
     const d = allProfiles;
     const i = d[Math.floor(Math.random() * d.length)];
     setMessage([i]);
-    setProfiles([i]);
+    setProfiles((prev) => {
+      return [i];
+    });
   }, [allProfiles, setMessage]);
 
   const randomize = config.component.twitter?.filter?.includes("random");
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!randomize) return;
     if (allProfiles.length < 2) return;
     filterRandomProfile();
@@ -218,22 +213,6 @@ const Component = (props) => {
       : config.component.twitter.listUrl;
 
   useEffect(() => {
-    const filterRandom = (d) => {
-      if (config.component.twitter?.filter?.includes("random")) {
-        // not sure if it's useful, there is a useLayoutEffect that should do the same
-        let i = d[Math.floor(Math.random() * d.length)];
-        setMessage([i]);
-        setProfiles((prev) => {
-          console.log(prev);
-          return [i];
-        });
-      } else {
-        //if (!config.component.twitter.filter?.includes("country")) {
-        setMessage(d);
-        setProfiles(d);
-      }
-    };
-
     const fetchData = async (url) => {
       await fetch(url)
         .then((res) => {
@@ -261,7 +240,7 @@ const Component = (props) => {
           }
 
           setAllProfiles(d);
-          filterRandom(d);
+          //          filterRandom(d);
         })
         .catch((error) => {
           console.log(error);
@@ -272,7 +251,7 @@ const Component = (props) => {
         (c) => c.screen_name && c.screen_name.length > 0
       );
       setAllProfiles(d);
-      filterRandom(d);
+      //      filterRandom(d);
     } else {
       fetchData(url);
     }
@@ -299,10 +278,9 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      setProfiles(d);
+      //      setProfiles(d);
     },
-    [allProfiles],
-    []
+    [allProfiles]
   );
 
   useEffect(() => {
@@ -313,6 +291,11 @@ const Component = (props) => {
       config.hook["twitter:load"](d);
       setProfiles(d);
     }*/
+  }, [country, filterProfiles]);
+
+  useEffect(() => {
+    //    setFilter({country:config.country});
+    filterProfiles(country);
   }, [country, filterProfiles]);
 
   const handleDone = (d) => {
