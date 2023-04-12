@@ -131,9 +131,9 @@
   "email": {
     "invalid_domain": "{{domain}} không thể nhận email",
     "salutation": "Thưa ông / bà",
-    "salutation_female": "Kính gửi {target_name}",
+    "salutation_female": "Kính gửi {{target.name}}",
     "salutation_info": "(tên sẽ được đặt trước khi gửi)",
-    "salutation_male": "Kính gửi {tên mục tiêu}",
+    "salutation_male": "Kính gửi {{target.name}}",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
   "image": {
