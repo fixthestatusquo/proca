@@ -179,6 +179,7 @@ to collect the consent of being contacted
 
 `config.component.consent.implicit: true` and `confirm.component.consent.confirmProcessing: true` - adds a checkbox.
 `config.component.implicit: "opt-in" - adds a line 'Submit this form to receive emails from {{org}}'
+`config.component.consent.confirm === false` - removes "Are you sure" question
 
 ### Email (config.component.consent.email)
 
