@@ -139,6 +139,8 @@ the main behaviour
 - `config.component.widget.mobileVersion: boolean`. if true, a floating action button is displayed instead of the normal widget, and the widget steps are displayed (after the click) on full screen
 - `config.component.widget?.autoStart: boolean`. default true. used to not automatically display the widget. see portal Clickify below
 - `config.component.widget.forceWidth: number`. by default, the width of the widget is the width available on the page (reactive). Can be used to force a width, for instance to embed into broken or weird html pages ;)
+- `config.component.widget.delay": number`. delay creating the widget by number milliseconds, mostly to let crappy javascript into the page do their mess before the widget is displayed
+
 
 ## Register
 
@@ -171,7 +173,7 @@ The counter will automatically calculate next goals so that goal always escapes 
 to collect the consent of being contacted
 
 - `config.component.consent.implicit: boolean or "opt-in"`. default false. Besides when using it as a registration form, very few GDPR valid reasons to have implicit consent. Don't use it until you really know what you're doing
-- `config.component.consent.privacyPolicy`. **very important**: the privacy policy of the organization embedding the widget
+- `config.component.consent.privacyPolicy`. **very important**: the privacy policy of the organization embedding the widget. It's taken automatically from the org.config privacy policy if set
 - `config.component.consent.split`. if the widget is for a partner, is the consent split (would you like to be contacted by 1) opt-in partner 2) opt-in partner+lead 3) opt-out
 - `confirm.component.consent.confirmProcessing`. Add radio buttons (required) with the text of the consent processing.
 
