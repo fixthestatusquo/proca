@@ -470,18 +470,22 @@ const Component = (props) => {
         }
         return (
           d.country === country ||
-          (d.country === "") | (d.constituency?.country === country)
+          d.country === "" ||
+          d.constituency?.country === country
         );
       });
 
-      if (!lang) {
+      if (!lang && localeFiltered) {
         // more than one lang in the country
         if (languages.includes(locale)) {
           lang = locale;
         } else {
           lang = mainLanguage(country, false);
         }
-        d = allProfiles.filter((d) => d.locale === locale);
+        d = allProfiles.filter(
+          (d) =>
+            (d.locale ? d.locale === locale : true) && d.country === country
+        );
       }
       if (d.length === 0 && fallbackArea) {
         console.log("fallback area");
@@ -538,6 +542,7 @@ const Component = (props) => {
       filterArea,
       sampleSize,
       setConfig,
+      localeFiltered,
       countryFiltered,
       postcodeFiltered,
       postcode,
