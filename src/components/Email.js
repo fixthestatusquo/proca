@@ -220,7 +220,10 @@ const Component = (props) => {
     [t]
   );
 
-  const mttProcessing = config.component.email?.server?.processing;
+  //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
+  const mttProcessing =
+    config.component.email?.server !== false &&
+    config.component.email?.server?.processing !== false;
   const fallbackRandom = config.component.email?.fallbackRandom;
   const fallbackArea = config.component.email?.fallbackArea;
   const countryFiltered = config.component.email?.filter?.includes("country");
@@ -229,11 +232,6 @@ const Component = (props) => {
     config.component.email?.filter?.includes("multilingual");
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
-
-  //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
-  useEffect(() => {
-    if (mttProcessing) setData("mttProcessing", false);
-  }, [setData, mttProcessing]);
 
   useEffect(() => {
     if (!data.subject && (paramEmail.subject || paramEmail.message)) {
@@ -729,6 +727,9 @@ const Component = (props) => {
       data.message = "{{target.fields.salutation}},\n" + data.message;
     }
 
+    if (mttProcessing === false) {
+      data.mttProcessing = false;
+    }
     if (props.prepareData) data = props.prepareData(data);
     return data;
   };

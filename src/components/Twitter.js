@@ -272,7 +272,7 @@ const Component = (props) => {
       //       setProfiles(allProfiles);
       if (!country) return;
       country = country.toLowerCase();
-      const d = allProfiles.filter((d) => {
+      allProfiles.filter((d) => {
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)

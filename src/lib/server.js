@@ -308,15 +308,17 @@ async function addActionContact(actionType, actionPage, data, test) {
 
   if (test) variables.action.testing = true;
   console.log(data);
-  if (data.targets && !data.mtt_processing) {
-    variables.action.mtt = {
-      subject: data.subject,
-      body: data.message,
-      targets: data.targets.map((d) => d.procaid),
-    };
+  if (data.targets) {
+    if (data.mttProcessing !== false) {
+      variables.action.mtt = {
+        subject: data.subject,
+        body: data.message,
+        targets: data.targets.map((d) => d.procaid),
+      };
+      delete data.message;
+      delete data.subject;
+    }
     delete data.targets;
-    delete data.message;
-    delete data.subject;
   }
   if (data.donation) variables.action.donation = data.donation;
   if (data.uuid) variables.contactRef = data.uuid;
