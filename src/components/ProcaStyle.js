@@ -94,6 +94,7 @@ export default function ProcaStyle(props) {
               margin: "0px!important",
               "& input": {
                 height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
+                width: "100%",
               },
               "& select": {
                 height: "1.1876em!important",
