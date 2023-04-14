@@ -23,7 +23,7 @@
     "@shopify/react-intersection-observer": "^4.0.3",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.0",
-    "@supabase/supabase-js": "^2.15.0",
+    "@supabase/supabase-js": "^2.20.0",
     "base64url": "^3.0.1",
     "i18n-iso-countries": "^7.5.0",
     "i18next": "^22.4.14",
