@@ -41,7 +41,7 @@
   "camera": {
     "start": "Starten Sie die Kamera",
     "take": "Foto machen",
-    "take-another": "Nimm noch eins"
+    "take-another": "Noch eins aufnehmen"
   },
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlassen Sie Ihre E-Mail-Adresse, um über die nächsten Schritte informiert zu werden**",
   "confirm": "Sind Sie sicher?",
@@ -156,7 +156,7 @@
     "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",
     "twitter": "{{total}} haben getwittert. Gehen wir zu {{goal}}"
   },
-  "read more": "mehr lesen",
+  "read more": "weiterlesen",
   "register": "Meinen Namen hinzufügen",
   "reminder": {
     "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail senden, um Sie daran zu erinnern, dass Sie das Formular später ausfüllen müssen"
@@ -187,12 +187,12 @@
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
     },
-    "missing": "Wählen Sie mindestens einen der folgenden Punkte aus {{total}}",
+    "missing": "Wählen Sie mindestens eines von {{total}} aus",
     "postcode": {
-      "empty": "es niemanden gibt, den man kontaktieren kann in {{area}}"
+      "empty": "es gibt niemanden, den man in {{area}} kontaktieren kann"
     },
     "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt.",
-    "selected": "{{total}} ausgewählt"
+    "selected": "{{total}} Empfänger"
   },
   "twitter": {
     "actionText": "actionText",
