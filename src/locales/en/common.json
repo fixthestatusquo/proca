@@ -46,6 +46,10 @@
   "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
   "confirm": "Are you sure?",
   "consent": {
+    "subButton": {
+       "opt-in": "and receive informations",
+       "opt-out": "and do not keep me informed"
+     },
     "actionConfirmed": "Action confirmed",
     "actionRejected": "The action was successfully cancelled",
     "confirm": "<0>Are you sure?</0><1>By selecting 'No', you won't be able to find out if this campaign is successful, or if there's more action we need to take together to win it. If you select 'Yes' we'll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",

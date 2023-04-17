@@ -58,6 +58,14 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: "10px",
   },
+  withSubText: {
+    flexDirection: "column",
+  },
+  subText: {
+    display: "inline",
+    fontSize: "0.9em",
+    textTransform: "none",
+  },
   act: {
     "&:hover": {
       "& .flame": { fill: "url(#a)" },
@@ -80,6 +88,86 @@ const ConditionalDisabled = (props) => {
     return <fieldset disabled="disabled">{props.children}</fieldset>;
   return props.children;
 };
+
+const SubmitButton = (props) => {
+  const classes = useStyles();
+  const config = useCampaignConfig();
+  const { formState, setValue, register } = props.form;
+  const { t } = useTranslation();
+
+  const handleClick = (e, privacy) => {
+    setValue("privacy", privacy);
+    return props.handleClick(e);
+  };
+  if (config.component.consent?.buttons) {
+    return (
+      <>
+        <input type="hidden" {...register("privacy", { required: false })} />
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="contained"
+            classes={{ label: classes.withSubText }}
+            fullWidth
+            onClick={(e) => handleClick(e, "opt-out")}
+            disabled={
+              formState.isSubmitting ||
+              config.component.register?.disabled === true
+            }
+          >
+            {props.buttonText ||
+              t(config.component.register?.button || "action.register")}
+            <span class={classes.subText}>
+              {t("consent.subButton.opt-out")}
+            </span>
+          </Button>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Button
+            color="primary"
+            variant="contained"
+            classes={{ label: classes.withSubText }}
+            fullWidth
+            onClick={(e) => handleClick(e, "opt-in")}
+            disabled={
+              formState.isSubmitting ||
+              config.component.register?.disabled === true
+            }
+          >
+            {props.buttonText ||
+              t(config.component.register?.button || "action.register")}
+            <span class={classes.subText}>{t("consent.subButton.opt-in")}</span>
+          </Button>
+        </Grid>
+      </>
+    );
+  }
+
+  return (
+    <Grid item xs={12}>
+      <Button
+        color="primary"
+        variant="contained"
+        className={classes.act}
+        fullWidth
+        onClick={props.handleClick}
+        size="large"
+        disabled={
+          formState.isSubmitting || config.component.register?.disabled === true
+        }
+        endIcon={
+          <SvgIcon>
+            <ProcaIcon />
+          </SvgIcon>
+        }
+      >
+        {" "}
+        {props.buttonText ||
+          t(config.component.register?.button || "action.register")}
+      </Button>
+    </Grid>
+  );
+};
+
 export default function Register(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
@@ -111,8 +199,7 @@ export default function Register(props) {
 
   const form = props.form || _form;
 
-  const { trigger, handleSubmit, setError, formState, getValues, setValue } =
-    form;
+  const { trigger, handleSubmit, setError, getValues, setValue } = form;
 
   const comment = data.comment;
   useEffect(() => {
@@ -318,9 +405,11 @@ export default function Register(props) {
     );
   }
 
-  const ConsentBlock = config.component.consent?.implicit
+  let ConsentBlock = config.component.consent?.implicit
     ? ImplicitConsent
     : Consent;
+
+  if (config.component.consent.buttons) ConsentBlock = () => null;
 
   const validateEmail = async (email) => {
     if (config.component?.register?.validateEmail === false) return true;
@@ -510,30 +599,11 @@ export default function Register(props) {
                   form={form}
                 />
               )}
-
-              <Grid item xs={12}>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  className={classes.act}
-                  fullWidth
-                  onClick={handleClick}
-                  size="large"
-                  disabled={
-                    formState.isSubmitting ||
-                    config.component.register?.disabled === true
-                  }
-                  endIcon={
-                    <SvgIcon>
-                      <ProcaIcon />
-                    </SvgIcon>
-                  }
-                >
-                  {" "}
-                  {props.buttonText ||
-                    t(config.component.register?.button || "action.register")}
-                </Button>
-              </Grid>
+              <SubmitButton
+                handleClick={handleClick}
+                form={form}
+                buttonText={props.buttonText}
+              />
               <Grid item xs={12}>
                 <ConsentProcessing />
                 {config.component.register?.next && (

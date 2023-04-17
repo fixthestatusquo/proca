@@ -46,6 +46,10 @@
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlassen Sie Ihre E-Mail-Adresse, um über die nächsten Schritte informiert zu werden**",
   "confirm": "Sind Sie sicher?",
   "consent": {
+    "subButton": {
+       "opt-in": "und Informationen erhalten",
+       "opt-out": "und keine infos erhalten"
+     },
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
