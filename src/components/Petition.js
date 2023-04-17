@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import EmailConfirm from "@components/EmailConfirm";
+import EmailConfirm from "@components/layout/EmailConfirm";
 import ProgressCounter from "@components/ProgressCounter";
 import Register from "@components/Register";
 import Closed from "@components/Closed";
