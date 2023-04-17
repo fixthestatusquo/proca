@@ -1,177 +1,108 @@
 {
-  "Address": "Adreça",
   "Amount": "Quantitat",
-  "Another": "Un altre",
   "Birthdate": "Data de naixement",
-  "City": "ciutat",
   "Comment": "Comentari",
   "Country": "País",
-  "Download": "Descarrega",
   "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
-  "Email": "Correu electrònic",
   "First name": "Nom",
-  "Language": "Llenguatge",
   "Last name": "Cognoms",
-  "Locality": "Localitat",
   "Next": "Següent",
   "Other": "Altres",
-  "Phone": "Telèfon",
   "Postal Code": "Codi postal",
-  "Salutation": "Salutació",
   "Sorry, we couldn't save": "No hem pogut desar",
-  "Street": "carrer",
   "Subject": "Assignatura",
-  "Thank you": "Gràcies",
   "Your message": "El teu missatge",
   "action": {
-    "donate": "Donar",
     "eci": "eci",
-    "email": "Enviar un correu electrònic",
     "join": "Uneix-te",
-    "register": "Registra't",
     "remindeSent": "Recordatori enviat",
-    "reminder": "Recorda-m'ho més tard",
     "reminderEmail": "Recorda'm per correu electrònic",
-    "share": "Compartir",
     "sign": "Signe",
     "stayInformed": "Manteniu-vos informat",
-    "takeAction": "Actuar!",
     "twitter": "Tuitejar"
   },
   "camera": {
-    "start": "engegueu la càmera",
-    "take": "Fes una foto",
-    "take-another": "Agafeu-ne un altre"
+    "take": "Fes una foto"
   },
   "closed": "##gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
-  "confirm": "Estàs segur?",
   "consent": {
     "actionConfirmed": "Acció confirmada",
-    "actionRejected": "L'acció s'ha cancel·lat correctament",
     "confirm": "<0>N'esteu segur? </0><1>Si seleccioneu \"No\", no podreu esbrinar si aquesta campanya té èxit o si cal fer més accions per assolir-la. Si seleccioneu \"Sí\", us mantindrem informats sobre aquesta i altres campanyes urgents.</1><2>Podeu cancel·lar la subscripció en qualsevol moment.</2><3>Sí</3>",
-    "confirmAction": "Hem enviat un enllaç de confirmació per correu electrònic a la següent adreça:\n {{email}}\nSi us plau, recupereu el correu electrònic ara mateix i feu clic a l'enllaç que conté (comproveu la vostra carpeta de correu brossa!).\n Només així comptarà la teva acció!\nLa teva confirmació és crucial per al pes polític de l'acció. Això garanteix que hi ha una persona real darrere de cada enviament. Esperem la teva confirmació...",
     "confirmOptIn": "No us oblideu de comprovar la vostra bústia de correu (inclosa la carpeta de correu brossa!) i confirmar la vostra subscripció per correu electrònic",
-    "emailSent": "T'hem enviat un correu electrònic a {email}!",
     "implicit": "Envieu aquest formulari per rebre correus electrònics de {{name}}",
     "intro": "Obteniu més informació sobre les nostres campanyes, accions i progrés de {{campaign}}",
     "opt-in": "Sí, vull que {{partner}} em mantingui informat per correu electrònic",
     "opt-in-both": "Sí, vull que {{partner}} i {{lead}} em mantinguin informat per correu electrònic",
     "opt-out": "Ez, ez iezadazu mezu elektronikorik bidali ezta aurrerantzean informatuta eduki ere",
-    "optInConfirmed": "Subscripció confirmada",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
-    "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
     "required": "Cal el vostre consentiment per participar"
   },
-  "date": {
-    "error": "data no vàlida. format: DD.MM.AAAA"
-  },
   "dateFormat": "DD/MM/AAAA",
-  "dialogTitle": "Mantingueu-me informat de la campanya",
   "donation": {
     "amount": {
-      "change": "Canvia la quantitat",
-      "intro": "Trieu una quantitat:"
+      "change": "Canvia la quantitat"
     },
     "average": "La donació mitjana és de {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Falta el número de targeta de crèdit"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "general",
       "initialisation": "inicialització"
-    },
-    "form": {
-      "error": {
-        "minimum": "La donació mínima és {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Fer-lo mensualment?",
-        "oneoff": "Donar",
         "weekly": "Fer-ho una donació setmanal?"
       },
       "each": {
-        "monthly": "cada mes",
-        "oneoff": "Un cop",
-        "weekly": "cada any"
+        "oneoff": "Un cop"
       },
       "feedback": {
-        "monthly": "Estic donant {{amount}} {{frequency}}",
-        "oneoff": "Estic donant {{amount}}"
+        "monthly": "Estic donant {{amount}} {{frequency}}"
       },
       "monthly": "mensual",
-      "oneoff": "una sola",
-      "weekly": "setmanalment",
-      "yearly": "anualment"
+      "weekly": "setmanalment"
     },
     "iban": "iban",
-    "intro": "Dona a {{campaign}}",
     "payment_methods": {
       "card": "Targeta",
-      "intro": "Com vols donar?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Mètode de pagament"
     },
-    "thanks": "Gràcies per la teva donació!",
     "to": "Donació a {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} no pot rebre correus electrònics",
     "salutation": "Estimat Senyor / a",
-    "salutation_female": "Benvolgut {{target.name}}",
     "salutation_info": "(el nom es posarà abans de l'enviament)",
-    "salutation_male": "Benvolgut {{target.name}}",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
   "image": {
-    "addSticker": "afegir adhesius",
     "addStickerTitle": "Feu clic/toqueu per afegir un adhesiu a la foto",
-    "benefit": "Afegir una imatge per enviar -i que podeu compartir al següent pas- faria que la vostra acció sigui més impactant",
     "options": "T'agradaria",
-    "publish": "Té bona pinta, publica!",
     "select": "tria la teva imatge",
-    "takeTitle": "Fes una foto amb el teu telèfon",
-    "upload": "Puja una imatge",
-    "wanttoadd": "Vols afegir una imatge?"
+    "upload": "Puja una imatge"
   },
   "no": "no",
   "progress": {
-    "donate": "{{total}} han donat. Anem a {{goal}}",
     "email": "{{total}} han enviat un correu electrònic. Anem a {{goal}}",
-    "register": "{{total}} s'han registrat. Anem a {{goal}}",
     "share": "{{total}} han compartit. Anem a {{goal}}",
-    "sign": "{{total}} han signat. Volem arribar a {{goal}}",
     "twitter": "{{total}} han twitteat. Anem a {{goal}}"
   },
-  "read more": "Llegeix més",
   "register": "Afegeix el meu nom",
-  "reminder": {
-    "intro": "Sabem que el vostre govern demana molta informació. T'enviarem un únic correu electrònic per recordar-te que has d'omplir el formulari més endavant"
-  },
   "required": "Si us plau, ompliu aquest camp",
-  "required field": "Camp necessari",
   "salutations": {
     "f": "Senyora.",
-    "m": "Sr.",
     "other": "Altres"
   },
   "share": {
-    "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
-    "message": "Hauríeu de signar això!",
-    "title": "Gairebé ho té! Doneu el següent pas."
+    "message": "Hauríeu de signar això!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "no tu?",
     "welcome": "Benvingut de nou {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"
     },
-    "missing": "Seleccioneu almenys un de {{total}}",
     "postcode": {
       "empty": "no hi ha ningú amb qui contactar a {{area}}"
     },
-    "random": "Hem seleccionat un dels nostres objectius més importants {{total}}.",
     "selected": "{{total}} seleccionat"
   },
   "twitter": {
-    "actionText": "He signat. Tu també ho hauries de fer",
     "again": "Tuitejar a una altra persona",
-    "choice": "Què t'agradaria fer després?",
     "instruction": "Si us plau, completeu l'enviament del tuit a la nova finestra (a twitter.com)",
-    "organisation": "El compte de Twitter de la vostra organització",
     "screenName": "Nom de pantalla"
   },
-  "unknown postcode": "codi postal desconegut",
-  "yes": "sí",
-  "you need to be 18 years old": "Ha de ser major d'edat"
+  "yes": "sí"
 }

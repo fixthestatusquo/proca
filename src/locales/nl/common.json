@@ -1,177 +1,108 @@
 {
-  "Address": "Adres",
   "Amount": "Bedrag",
-  "Another": "Nog een",
   "Birthdate": "Geboortedatum",
-  "City": "Stad",
   "Comment": "Opmerkingen",
   "Country": "Land",
-  "Download": "Download",
   "Download explanation": "Uw document is nu klaar, we mailen het ook naar u",
-  "Email": "E-mail",
   "First name": "Voornaam",
-  "Language": "Taal",
   "Last name": "Achternaam",
-  "Locality": "Gemeente",
   "Next": "Volgende",
   "Other": "Andere",
-  "Phone": "Telefoon",
   "Postal Code": "Postcode",
-  "Salutation": "Salutatie",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
-  "Street": "Straat",
   "Subject": "Onderwerp",
-  "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "action": {
-    "donate": "Doneer",
     "eci": "eci",
-    "email": "Stuur een e-mail",
     "join": "Word lid van",
-    "register": "Registreren",
     "remindeSent": "Herinnering verzonden",
-    "reminder": "Herinner me er later aan",
     "reminderEmail": "Herinner mij per e-mail",
-    "share": "Deel",
     "sign": "Teken",
     "stayInformed": "Hou mij op de hoogte",
-    "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "start de camera",
-    "take": "Maak een foto",
-    "take-another": "Neem er nog een."
+    "take": "Maak een foto"
   },
   "closed": "## dank aan {{total}} supporters!\n\nWe hebben deze actie afgesloten, maar ons werk eindigt hier niet, dus laat uw e-mail achter om op de hoogte te blijven van de volgende stappen**.",
-  "confirm": "Weet je het zeker?",
   "consent": {
     "actionConfirmed": "Actie bevestigd",
-    "actionRejected": "De actie werd met succes geannuleerd",
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
-    "confirmAction": "Wij hebben een bevestigingslink per e-mail naar het volgende adres gestuurd:\n {{email}}\nGelieve de e-mail nu op te halen en op de link te klikken die erin staat (controleer uw spam-map!).\n Alleen dan telt uw actie!\nUw bevestiging is cruciaal voor het politieke gewicht van de actie. Dit garandeert dat er een echt persoon achter elke inzending staat. We wachten op je bevestiging...",
     "confirmOptIn": "Vergeet niet uw mailbox te controleren (ook uw spam-map!) en uw e-mailabonnement te bevestigen",
-    "emailSent": "We hebben je een e-mail gestuurd naar {email}!",
     "implicit": "Verstuur dit formulier om e-mails te ontvangen van {{name}}",
     "intro": "Kom meer te weten over onze campagnes, acties en {{campaign}} updates",
     "opt-in": "Ja, ik wil dat {{partner}} mij via e-mail op de hoogte houdt",
     "opt-in-both": "Ja, ik wil dat {{partner}} en {{lead}} mij via e-mail op de hoogte houden",
     "opt-out": "Nee, stuur me geen e-mails - hou me niet op de hoogte in de toekomst",
-    "optInConfirmed": "Abonnement bevestigd",
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
-    "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
     "required": "Uw toestemming is nodig om deel te nemen"
   },
-  "date": {
-    "error": "ongeldige datum. formaat: DD.MM.YYYY"
-  },
   "dateFormat": "DD/MM/JJJJ",
-  "dialogTitle": "Hou me op de hoogte van de campagne",
   "donation": {
     "amount": {
-      "change": "Verander bedrag",
-      "intro": "Kies een bedrag"
+      "change": "Verander bedrag"
     },
     "average": "De gemiddelde donatie is {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Doneer {{amount}} elke maand",
         "oneoff": "Doneer {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Kredietkaartnummer ontbreekt"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "algemeen",
       "initialisation": "initialisatie"
-    },
-    "form": {
-      "error": {
-        "minimum": "De minimum donatie is {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Maandelijks?",
-        "oneoff": "Doneer",
         "weekly": "Maak er een wekelijkse donatie van?"
       },
       "each": {
-        "monthly": "elke maand",
-        "oneoff": "Eenmaal",
-        "weekly": "elk jaar"
+        "oneoff": "Eenmaal"
       },
       "feedback": {
-        "monthly": "Ik doneer {{amount}} {{frequency}}",
-        "oneoff": "Ik doneer {{amount}}"
+        "monthly": "Ik doneer {{amount}} {{frequency}}"
       },
       "monthly": "maandelijks",
-      "oneoff": "Eén keer",
-      "weekly": "wekelijks",
-      "yearly": "jaarlijks"
+      "weekly": "wekelijks"
     },
     "iban": "iban",
-    "intro": "Doneer aan {{campaign}}",
     "payment_methods": {
       "card": "Kaart",
-      "intro": "Hoe wil je doneren?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Betaalmethode"
     },
-    "thanks": "Dank u voor uw donatie!",
     "to": "Donatie aan {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kan geen emails ontvangen",
     "salutation": "Geachte Meneer/Mevrouw",
-    "salutation_female": "Geachte Mevrouw {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
-    "salutation_male": "Geachte Meneer {{target.name}}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
   "image": {
-    "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
-    "benefit": "Het toevoegen van een afbeelding om te verzenden -en die u bij de volgende stap kunt delen- zou uw actie meer impact geven.",
     "options": "Wilt u",
-    "publish": "Ziet er goed uit, publiceren!",
     "select": "kies uw foto",
-    "takeTitle": "Maak een foto met je telefoon",
-    "upload": "Een foto uploaden",
-    "wanttoadd": "Wilt u een afbeelding toevoegen?"
+    "upload": "Een foto uploaden"
   },
   "no": "geen",
   "progress": {
-    "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
     "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
-    "register": "{{total}} hebben zich geregistreerd. Laten we naar {{goal}}",
     "share": "{{total}} hebben gedeeld. Laten we naar {{goal}}",
-    "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan.",
     "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
-  "read more": "lees meer",
   "register": "Mijn naam toevoegen",
-  "reminder": {
-    "intro": "We weten dat uw regering veel informatie vraagt. We sturen u een enkele e-mail om u eraan te herinneren het formulier later in te vullen"
-  },
   "required": "Gelieve dit veld in te vullen",
-  "required field": "Verplicht veld",
   "salutations": {
     "f": "Mevrouw.",
-    "m": "Mr.",
     "other": "Andere"
   },
   "share": {
-    "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
-    "message": "Teken dit!",
-    "title": "Bijna klaar! Zet de volgende stap."
+    "message": "Teken dit!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
-  "supporterHint": "{{name}} van {{area}}",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}"
     },
-    "missing": "Kies ten minste één van de {{total}}",
     "postcode": {
       "empty": "is er niemand om contact mee op te nemen in {{area}}"
     },
-    "random": "Een van onze {{total}} belangrijkste doelen gekozen",
     "selected": "{{total}} geselecteerde"
   },
   "twitter": {
-    "actionText": "Ik heb getekend. Doe mee!",
     "again": "Tweet naar een andere persoon",
-    "choice": "Wat zou je hierna willen doen?",
     "instruction": "Voltooi het verzenden van de tweet in het nieuwe venster (op twitter.com)",
-    "organisation": "Twitter-account van uw organisatie",
     "screenName": "Schermnaam"
   },
-  "unknown postcode": "onbekende postcode",
-  "yes": "ja",
-  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
+  "yes": "ja"
 }

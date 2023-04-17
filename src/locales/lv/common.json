@@ -1,177 +1,108 @@
 {
-  "Address": "Adrese",
   "Amount": "Daudzums",
-  "Another": "Vēl viens",
   "Birthdate": "Dzimšanas datums",
-  "City": "Pilsēta",
   "Comment": "Komentārs",
   "Country": "Valsts",
-  "Download": "Lejupielādēt",
   "Download explanation": "Jūsu dokuments tagad ir gatavs, mēs to nosūtām arī jums pa e-pastu.",
-  "Email": "Epasts",
   "First name": "Vārds",
-  "Language": "Valoda",
   "Last name": "Uzvārds",
-  "Locality": "Apkārtne",
   "Next": "Nākošais",
   "Other": "Cits",
-  "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
-  "Salutation": "Sveiciens",
   "Sorry, we couldn't save": "Diemžēl mēs nevarējām saglabāt",
-  "Street": "Ielas",
   "Subject": "Temats",
-  "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
   "action": {
-    "donate": "Ziedot",
     "eci": "Paraksti EPI",
-    "email": "Sūtīt e-pastu",
     "join": "Pievienojies",
-    "register": "Reģistrēties",
     "remindeSent": "Nosūtīts atgādinājums",
-    "reminder": "Atgādini man vēlāk",
     "reminderEmail": "Atgādiniet man par to pa e-pastu",
-    "share": "Dalies",
     "sign": "Pierakstīties",
     "stayInformed": "Gribu būt lietas kursā",
-    "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "palaidiet kameru",
-    "take": "Uzņemiet attēlu",
-    "take-another": "Paņemiet vēl vienu"
+    "take": "Uzņemiet attēlu"
   },
   "closed": "##pateicība {{total}} atbalstītājiem!\n\nMēs esam noslēguši šo akciju, bet mūsu darbs ar to nebeidzas, tāpēc, lūdzu, **atstājiet savu e-pastu, lai saņemtu informāciju par nākamajiem soļiem**.",
-  "confirm": "Vai esat pārliecināts?",
   "consent": {
     "actionConfirmed": "Rīcība apstiprināta",
-    "actionRejected": "Darbība tika veiksmīgi atcelta",
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",
-    "confirmAction": "Mēs esam nosūtījuši apstiprinājuma saiti uz šādu e-pasta adresi:\n {{email}}.\nLūdzu, saņemiet e-pastu tieši tagad un noklikšķiniet uz tajā esošās saites (pārbaudiet savu surogātpasta mapi!).\n Tikai tad jūsu darbība tiks ieskaitīta!\nJūsu apstiprinājumam ir izšķiroša nozīme, lai akcija būtu politiski nozīmīga. Tas garantē, ka aiz katra iesnieguma stāv reāla persona. Mēs gaidīsim jūsu apstiprinājumu...",
     "confirmOptIn": "Neaizmirstiet pārbaudīt savu pastkasti (ieskaitot surogātpasta mapi!) un apstiprināt e-pasta abonēšanu.",
-    "emailSent": "Mēs nosūtījām jums e-pastu uz {email}!",
     "implicit": "Nosūtiet šo veidlapu, lai saņemtu e-pastus no {{name}}",
     "intro": "Uzziniet vairāk par mūsu kampaņām, darbībām un {{campaign}} progresu",
     "opt-in": "Jā, es vēlos, lai {{partner}} mani informētu e-pastā",
     "opt-in-both": "Jā, es vēlos, lai {{partner}} un {{lead}} mani informētu pa e-pastu",
     "opt-out": "Nē, es nevēlos saņemt kampaņas jaunumus",
-    "optInConfirmed": "Apstiprināta abonēšana",
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-    "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana."
   },
-  "date": {
-    "error": "nederīgs datums. formāts: DD.MM.GGGGG"
-  },
   "dateFormat": "DD/MM/GGGG",
-  "dialogTitle": "Informējiet mani par kampaņu",
   "donation": {
     "amount": {
-      "change": "Izmaiņas summa",
-      "intro": "Izvēlieties summu :"
+      "change": "Izmaiņas summa"
     },
     "average": "Vidējais ziedojums ir {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Trūkst kredītkartes numura"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "vispārīgi",
       "initialisation": "inicializācija"
-    },
-    "form": {
-      "error": {
-        "minimum": "Minimālais ziedojums ir {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Veikt to katru mēnesi?",
-        "oneoff": "Ziedot",
         "weekly": "Veiciet šo iknedēļas ziedojumu?"
       },
       "each": {
-        "monthly": "katru mēnesi",
-        "oneoff": "Pēc tam, kad",
-        "weekly": "katru gadu"
+        "oneoff": "Pēc tam, kad"
       },
       "feedback": {
-        "monthly": "Es ziedoju {{amount}} {{frequency}}",
-        "oneoff": "Es ziedoju {{amount}}"
+        "monthly": "Es ziedoju {{amount}} {{frequency}}"
       },
       "monthly": "ikmēneša",
-      "oneoff": "vienreizējs",
-      "weekly": "iknedēļas",
-      "yearly": "gada"
+      "weekly": "iknedēļas"
     },
     "iban": "iban",
-    "intro": "Ziedot {{campaign}}",
     "payment_methods": {
       "card": "Karte",
-      "intro": "Kā vēlaties ziedot?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Maksājuma metode"
     },
-    "thanks": "Paldies par jūsu ziedojumu!",
     "to": "Ziedojums {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nevar saņemt e-pastus",
     "salutation": "Cienījamais kungs/cienītā kundze",
-    "salutation_female": "Cienījamais {{target.name}}",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
-    "salutation_male": "Cienījamais {{target.name}}",
     "salutation_placeholder": "Cienījamais [saņēmējs],"
   },
   "image": {
-    "addSticker": "pievienot uzlīmes",
     "addStickerTitle": "Noklikšķiniet/pieskarieties, lai pievienotu uzlīmi fotoattēlam",
-    "benefit": "Pievienojot attēlu, ko vēlaties nosūtīt un ar kuru varat dalīties nākamajā solī, jūsu rīcība būtu vēl iedarbīgāka.",
     "options": "Vai vēlaties",
-    "publish": "Izskatās labi, publicēt!",
     "select": "izvēlieties savu attēlu",
-    "takeTitle": "Uzņemiet fotoattēlu ar tālruni",
-    "upload": "Ielādēt attēlu",
-    "wanttoadd": "Vai vēlaties pievienot attēlu?"
+    "upload": "Ielādēt attēlu"
   },
   "no": "nav",
   "progress": {
-    "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
     "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
-    "register": "{{total}} ir reģistrējušies. Dodamies uz {{goal}}",
     "share": "{{total}} ir dalījušies. Dosimies uz {{goal}}",
-    "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",
     "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
   },
-  "read more": "lasīt vairāk",
   "register": "Pievienojiet manu vārdu",
-  "reminder": {
-    "intro": "Mēs zinām, ka jūsu valdība pieprasa daudz informācijas. Mēs nosūtīsim jums vienu e-pasta vēstuli, lai atgādinātu, ka veidlapa jāaizpilda vēlāk."
-  },
   "required": "Lūdzu, aizpildiet šo lauku",
-  "required field": "Obligātais lauks",
   "salutations": {
     "f": "kundze.",
-    "m": "M.",
     "other": "Citi"
   },
   "share": {
-    "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
-    "message": "Jums to vajadzētu parakstīt!",
-    "title": "Gandrīz pabeigts! Veiciet nākamo soli."
+    "message": "Jums to vajadzētu parakstīt!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
     },
-    "missing": "Izvēlieties vismaz vienu no {{total}}",
     "postcode": {
       "empty": "nav ar ko sazināties {{area}}"
     },
-    "random": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem",
     "selected": "{{total}} atlasīts"
   },
   "twitter": {
-    "actionText": "Es parakstījos. jums arī vajadzētu",
     "again": "Tvit citai personai",
-    "choice": "Ko jūs vēlētos darīt tālāk?",
     "instruction": "Lūdzu, pabeidziet čivināt sūtīšanu jaunā logā (twitter.com)",
-    "organisation": "Jūsu organizācijas tvitera konts",
     "screenName": "Ekrānvārds"
   },
-  "unknown postcode": "nezināms pasta indekss",
-  "yes": "jā",
-  "you need to be 18 years old": "jums jābūt 18 gadus vecam"
+  "yes": "jā"
 }

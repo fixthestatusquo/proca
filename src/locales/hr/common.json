@@ -1,177 +1,108 @@
 {
-  "Address": "Adresa",
   "Amount": "Iznos",
-  "Another": "Još",
   "Birthdate": "Datum rođenja",
-  "City": "Grad",
   "Comment": "Komentar",
   "Country": "Zemlja",
-  "Download": "Preuzimanje",
   "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila",
-  "Email": "E-mail",
   "First name": "Ime",
-  "Language": "Jezik",
   "Last name": "Prezime",
-  "Locality": "Lokalitet",
   "Next": "Dalje",
   "Other": "Drugo",
-  "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
-  "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
-  "Street": "Ulica",
   "Subject": "Predmet",
-  "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
   "action": {
-    "donate": "Doniraj",
     "eci": "Potpiši ECI",
-    "email": "Pošalji e-mail",
     "join": "Pridruži se",
-    "register": "Registriraj se",
     "remindeSent": "Podsjetnik je poslan",
-    "reminder": "Podsjeti me kasnije",
     "reminderEmail": "Podsjeti me e-poštom",
-    "share": "Dijeli",
     "sign": "Potpiši sada!",
     "stayInformed": "Ostani u toku",
-    "takeAction": "Poduzmi radnju!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "pokrenite kameru",
-    "take": "Fotografirati",
-    "take-another": "Uzmi drugu"
+    "take": "Fotografirati"
   },
   "closed": "##hvala {{total}} podržavateljima!\n\nZavršili smo ovu akciju, ali naš posao ne završava ovdje, stoga vas molimo da **ostavite svoju e-poštu kako biste bili informirani o sljedećim koracima**",
-  "confirm": "Jesi li siguran?",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
-    "actionRejected": "Akcija je uspješno otkazana",
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
-    "confirmAction": "Pregledajte e-poštu odmah i kliknite na poveznicu koja sadrži (provjerite svoju mapu neželjene pošte!).\n Tek tada će se vaša akcija računati!\nVaša je potvrda ključna za političku težinu akcije. To jamči da iza svakog podnošenja stoji stvarna osoba. Čekamo vašu potvrdu...",
     "confirmOptIn": "Ne zaboravite provjeriti svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrditi pretplatu na e-poštu",
-    "emailSent": "Poslali smo vam e-poruku na {{email}}!",
     "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}",
     "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
     "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
     "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
     "opt-out": "Ne, ne želim primati obavijesti putem e-maila",
-    "optInConfirmed": "Pretplata potvrđena",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potreban vaš pristanak"
   },
-  "date": {
-    "error": "nevažeći datum. format: DD.MM.GGGG"
-  },
   "dateFormat": "DD./MM./GGGG.",
-  "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
     "amount": {
-      "change": "Promijeni iznos",
-      "intro": "Odaberi iznos"
+      "change": "Promijeni iznos"
     },
     "average": "Prosječna donacija je {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Doniraj {{amount}} svaki mjesec",
         "oneoff": "Doniraj {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Nedostaje broj kreditne kartice"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "opće",
       "initialisation": "inicijalizacija"
-    },
-    "form": {
-      "error": {
-        "minimum": "Minimalna donacija je {{amount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Neka bude mjesečno?",
-        "oneoff": "Doniraj",
         "weekly": "Ovo učiniti tjednom donacijom?"
       },
       "each": {
-        "monthly": "svaki mjesec",
-        "oneoff": "Jednom",
-        "weekly": "svake godine"
+        "oneoff": "Jednom"
       },
       "feedback": {
-        "monthly": "Doniram {{amount}} {{frequency}}",
-        "oneoff": "Doniram {{amount}}"
+        "monthly": "Doniram {{amount}} {{frequency}}"
       },
       "monthly": "mjesečno",
-      "oneoff": "jednom",
-      "weekly": "tjedno",
-      "yearly": "godišnje"
+      "weekly": "tjedno"
     },
     "iban": "IBAN",
-    "intro": "Doniraj za {{campaign}}",
     "payment_methods": {
       "card": "Kartica",
-      "intro": "Kako želiš donirati?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Način plaćanja"
     },
-    "thanks": "Hvala na donaciji!",
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ne može primati e-poštu",
     "salutation": "Dragi Gospodine/ Gospođo",
-    "salutation_female": "Poštovana {{target.name}}",
     "salutation_info": "(Ime će biti stavljeno prije slanja)",
-    "salutation_male": "Poštovani {{target.name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "image": {
-    "addSticker": "Dodajte naljepnice",
     "addStickerTitle": "Kliknite/Dodirnite za dodavanje naljepnice na fotografiju",
-    "benefit": "Dodavanje slike za slanje - koju možete podijeliti u sljedećem koraku - učinit će vaš postupak utjecajnijim",
     "options": "Želite li",
-    "publish": "Izgleda dobro, objavi!",
     "select": "Odaberite svoju sliku",
-    "takeTitle": "Snimite sliku telefonom",
-    "upload": "Učitajte sliku",
-    "wanttoadd": "Želite li dodati sliku?"
+    "upload": "Učitajte sliku"
   },
   "no": "Ne",
   "progress": {
-    "donate": "{{total}} su donirali. Idemo na {{goal}}",
     "email": "{{total}} su poslali e-poštu. Idemo na {{goal}}",
-    "register": "{{total}} su se registrirali. Idemo na {{goal}}",
     "share": "{{total}} su podijelili. Idemo na {{goal}}",
-    "sign": "{{total}} potpisa. Idemo na {{goal}}",
     "twitter": "{{total}} su twittali. Idemo na {{goal}}"
   },
-  "read more": "Čitaj više",
   "register": "Dodaj moje ime",
-  "reminder": {
-    "intro": "Znamo da vaša vlada traži mnogo informacija. Poslat ćemo vam jednu e-poruku da vas podsjetimo da ispunite obrazac kasnije"
-  },
   "required": "Ispuni ovo polje",
-  "required field": "Ispuni ovo polje",
   "salutations": {
     "f": "Gđa.",
-    "m": "Gosp.",
     "other": "Drugi"
   },
   "share": {
-    "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
-    "message": "Ovo se isplati potpisati!",
-    "title": "Skoro pa gotovo! Napravi sljedeći korak."
+    "message": "Ovo se isplati potpisati!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "nisi ti?",
     "welcome": "Dobro došao, dobro došla {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
     },
-    "missing": "Odaberite barem jedan od {{total}}",
     "postcode": {
       "empty": "nema nikoga za kontaktirati u {{area}}"
     },
-    "random": "Odabrali smo jedan od naših {{total}} najvažnijih ciljeva",
     "selected": "{{total}} odabrano"
   },
   "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
     "again": "Pošalji tweet drugoj osobi",
-    "choice": "Što bi htio/htjela sljedeće raditi?",
     "instruction": "Dovrši slanje tweeta u novom prozoru (na twitter.com)",
-    "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },
-  "unknown postcode": "nepoznat poštanski broj",
-  "yes": "Da",
-  "you need to be 18 years old": "morate imati 18 godina"
+  "yes": "Da"
 }

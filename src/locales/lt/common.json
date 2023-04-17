@@ -1,177 +1,108 @@
 {
-  "Address": "Adresas",
   "Amount": "Suma",
-  "Another": "Kitas",
   "Birthdate": "Gimimo data",
-  "City": "Miestas",
   "Comment": "Komentaras",
   "Country": "Šalis",
-  "Download": "Parsiųst",
   "Download explanation": "Jūsų dokumentas dabar paruoštas, mes jį atsiųsime jums ir el. Paštu.",
-  "Email": "El. paštas",
   "First name": "Pirmas vardas",
-  "Language": "Kalba",
   "Last name": "Pavardė",
-  "Locality": "Vietovė",
   "Next": "Toliau",
   "Other": "Kita",
-  "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
-  "Salutation": "Pasveikinimas",
   "Sorry, we couldn't save": "Deja, nepavyko išsaugoti",
-  "Street": "Gatvė",
   "Subject": "Tema",
-  "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
   "action": {
-    "donate": "Paaukoti",
     "eci": "eci",
-    "email": "Siųsti el. laišką",
     "join": "Prisijunkite prie",
-    "register": "Registruotis",
     "remindeSent": "Išsiųstas priminimas",
-    "reminder": "Primink man vėliau",
     "reminderEmail": "Priminkite man el. paštu",
-    "share": "Dalintis",
     "sign": "Ženklas",
     "stayInformed": "Gauti naujausią informaciją",
-    "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "įjungti fotoaparatą",
-    "take": "Nufotografuokite",
-    "take-another": "Paimkite dar vieną"
+    "take": "Nufotografuokite"
   },
   "closed": "##Dėkojame {{total}} rėmėjams!\n\nŠią akciją užbaigėme, tačiau mūsų darbas čia nesibaigia, todėl prašome **palikti savo el. paštą, kad būtumėte informuoti apie tolesnius veiksmus**.",
-  "confirm": "Ar tikrai?",
   "consent": {
     "actionConfirmed": "Patvirtintas veiksmas",
-    "actionRejected": "Veiksmas sėkmingai atšauktas",
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
-    "confirmAction": "Patvirtinimo nuorodą išsiuntėme el. paštu šiuo adresu:\n {{email}}.\nPrašome dabar atsiimti laišką ir spustelėti jame esančią nuorodą (patikrinkite nepageidaujamų laiškų aplanką!).\n Tik tada jūsų veiksmas bus įskaitytas!\nJūsų patvirtinimas yra labai svarbus veiksmo politiniam svoriui. Taip užtikrinama, kad už kiekvieno pateikto dokumento slypi tikras asmuo. Lauksime jūsų patvirtinimo...",
     "confirmOptIn": "Nepamirškite patikrinti savo pašto dėžutės (įskaitant nepageidaujamų laiškų aplanką!) ir patvirtinti el. pašto prenumeratą.",
-    "emailSent": "Išsiuntėme jums laišką adresu {email}!",
     "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}",
     "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
     "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
     "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
     "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
-    "optInConfirmed": "Prenumerata patvirtinta",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
-    "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
     "required": "Norint dalyvauti, reikia jūsų sutikimo."
   },
-  "date": {
-    "error": "negaliojanti data. formatas: DD.MM.MM.YYYYY"
-  },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "Informuokite mane apie kampaniją",
   "donation": {
     "amount": {
-      "change": "Pakeisti sumą",
-      "intro": "Pasirinkite sumą :"
+      "change": "Pakeisti sumą"
     },
     "average": "Vidutinė auka yra {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Trūksta kredito kortelės numerio"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "bendras",
       "initialisation": "iniciacija"
-    },
-    "form": {
-      "error": {
-        "minimum": "Mažiausia auka yra {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Kas mėnesį?",
-        "oneoff": "Paaukoti",
         "weekly": "Padarykite tai kassavaitine auka?"
       },
       "each": {
-        "monthly": "kiekvieną mėnesį",
-        "oneoff": "Kai",
-        "weekly": "kiekvienais metais"
+        "oneoff": "Kai"
       },
       "feedback": {
-        "monthly": "Aukoju {{amount}} {{frequency}}",
-        "oneoff": "Aš aukoju {{amount}}"
+        "monthly": "Aukoju {{amount}} {{frequency}}"
       },
       "monthly": "kas mėnesį",
-      "oneoff": "vienkartinis",
-      "weekly": "savaitinis",
-      "yearly": "metinis"
+      "weekly": "savaitinis"
     },
     "iban": "iban",
-    "intro": "Paaukoti {{campaign}}",
     "payment_methods": {
       "card": "Kortelė",
-      "intro": "Kaip norite aukoti?",
       "paypal": "\"PayPal\"",
-      "sepa": "SEPA",
       "title": "Mokėjimo būdas"
     },
-    "thanks": "Dėkojame už jūsų auką!",
     "to": "Dovanojimas {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} negalima gauti el. laiškų",
     "salutation": "Gerbiamasis ponas (ponia)",
-    "salutation_female": "Gerbiamasis {{target.name}}",
     "salutation_info": "(vardas bus įrašytas prieš siunčiant)",
-    "salutation_male": "Gerbiamas {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
   "image": {
-    "addSticker": "pridėti lipdukų",
     "addStickerTitle": "Spustelėkite / bakstelėkite, jei norite pridėti lipduką prie nuotraukos",
-    "benefit": "Pridėjus siunčiamą paveikslėlį, kuriuo galėsite pasidalyti kitame žingsnyje, jūsų veiksmas taptų paveikesnis.",
     "options": "Ar norėtumėte",
-    "publish": "Atrodo gerai, paskelbti!",
     "select": "pasirinkite nuotrauką",
-    "takeTitle": "Nufotografuokite nuotrauką telefonu",
-    "upload": "Įkelti nuotrauką",
-    "wanttoadd": "Ar norite pridėti paveikslėlį?"
+    "upload": "Įkelti nuotrauką"
   },
   "no": "ne",
   "progress": {
-    "donate": "{{total}} paaukojo. Eikime į {{goal}}",
     "email": "{{total}} išsiuntė el. laišką. Eikime į {{goal}}",
-    "register": "{{total}} užsiregistravo. Eikime į {{goal}}",
     "share": "{{total}} dalijosi. Eikime į {{goal}}",
-    "sign": "{{total}} pasirašė. Pasiekime {{goal}}",
     "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
-  "read more": "skaityti daugiau",
   "register": "Pridėti mano vardą",
-  "reminder": {
-    "intro": "Žinome, kad jūsų vyriausybė prašo daug informacijos. Išsiųsime jums vieną el. laišką, kad primintume užpildyti formą vėliau."
-  },
   "required": "Užpildykite šį laukelį",
-  "required field": "Privalomas laukas",
   "salutations": {
     "f": "M.",
-    "m": "Mr.",
     "other": "Kita"
   },
   "share": {
-    "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
-    "message": "Turėtumėte tai pasirašyti!",
-    "title": "Beveik baigta! Ženkite kitą žingsnį."
+    "message": "Turėtumėte tai pasirašyti!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}"
     },
-    "missing": "Pasirinkite bent vieną iš {{total}}",
     "postcode": {
       "empty": "nėra su kuo susisiekti {{area}}"
     },
-    "random": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų",
     "selected": "{{total}} pasirinktas"
   },
   "twitter": {
-    "actionText": "Aš pasirašiau. tu taip pat turėtum",
     "again": "Tweet kitam asmeniui",
-    "choice": "Ką norėtumėte daryti toliau?",
     "instruction": "Užpildykite tweet siuntimą naujame lange (twitter.com)",
-    "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
     "screenName": "Ekrano vardas"
   },
-  "unknown postcode": "nežinomas pašto indeksas",
-  "yes": "taip",
-  "you need to be 18 years old": "jums reikia 18 metu"
+  "yes": "taip"
 }

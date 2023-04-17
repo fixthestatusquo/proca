@@ -1,177 +1,108 @@
 {
-  "Address": "Adresa",
   "Amount": "Čiastka",
-  "Another": "Ďalšia stránka",
   "Birthdate": "Dátum narodenia",
-  "City": "Mesto",
   "Comment": "Komentár",
   "Country": "Krajina",
-  "Download": "Stiahnuť",
   "Download explanation": "Váš dokument je teraz pripravený, pošleme vám ho e-mailom tiež.",
-  "Email": "Email",
   "First name": "Krstné meno",
-  "Language": "Jazyk",
   "Last name": "Priezvisko",
-  "Locality": "Oblasť",
   "Next": "Ďalšia",
   "Other": "Ostatné",
-  "Phone": "Telefón",
   "Postal Code": "PSČ",
-  "Salutation": "Pozdrav",
   "Sorry, we couldn't save": "Ľutujeme, nepodarilo sa nám uložiť",
-  "Street": "Ulica",
   "Subject": "Predmet",
-  "Thank you": "Ďakujeme!",
   "Your message": "Vaša správa",
   "action": {
-    "donate": "Darujte",
     "eci": "eci",
-    "email": "Odoslať e-mail",
     "join": "Pripojte sa k",
-    "register": "Registrácia",
     "remindeSent": "Odoslané pripomenutie",
-    "reminder": "Pripomeňte mi to neskôr",
     "reminderEmail": "Pripomeňte mi to e-mailom",
-    "share": "Zdieľať",
     "sign": "Podpísať",
     "stayInformed": "Dostávať informácie",
-    "takeAction": "Podniknite kroky!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "spustenie fotoaparátu",
-    "take": "Urobte si obrázok",
-    "take-another": "Vezmite si ďalšiu"
+    "take": "Urobte si obrázok"
   },
   "closed": "##ďakujeme podporovateľom {{total}}!\n\nTúto akciu sme uzavreli, ale naša práca sa tu nekončí, preto vás prosíme, aby ste **zanechali svoj e-mail, aby ste boli informovaní o ďalších krokoch**",
-  "confirm": "Ste si istý?",
   "consent": {
     "actionConfirmed": "Akcia potvrdená",
-    "actionRejected": "Akcia bola úspešne zrušená",
     "confirm": "<0> Si si istý? </0> <1> Výberom možnosti „Nie“ nebudete môcť zistiť, či je táto kampaň úspešná alebo či je potrebné podniknúť ďalšie kroky, aby sme ju vyhrali. Ak vyberiete možnosť „Áno“, budeme vás informovať o tejto a ďalších urgentných kampaniach. </1> <2> Odber môžete kedykoľvek zrušiť. </2>",
-    "confirmAction": "Odoslali sme vám odkaz na potvrdenie e-mailom na túto adresu:\n {{email}}\nProsím, vyzdvihnite si tento e-mail hneď teraz a kliknite na odkaz, ktorý obsahuje (skontrolujte si priečinok so spamom!).\n Až potom bude vaša akcia započítaná!\nVaše potvrdenie je rozhodujúce pre politickú váhu akcie. Zaručuje to, že za každým podaním je skutočná osoba. Budeme čakať na vaše potvrdenie...",
     "confirmOptIn": "Nezabudnite si skontrolovať svoju poštovú schránku (vrátane priečinka so spamom!) a potvrdiť odber e-mailu",
-    "emailSent": "Poslali sme vám e-mail na adresu {email}!",
     "implicit": "Odoslaním tohto formulára získate e-maily od {{name}}",
     "intro": "Súhlasím, že ma budete kontaktovať o vývoji {{campaign}}",
     "opt-in": "Áno, chcem byť informovaný prostredníctvom e-mailu",
     "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
     "opt-out": "Nie, nechcem, aby mi boli v budúcnosti zasielané e-maily alebo aby som bol informovaný",
-    "optInConfirmed": "Predplatné potvrdené",
     "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
-    "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "required": "Na účasť je potrebný váš súhlas"
   },
-  "date": {
-    "error": "neplatný dátum. formát: MM.RRRR"
-  },
   "dateFormat": "DD/MM/RRRR",
-  "dialogTitle": "Informujte ma o kampani",
   "donation": {
     "amount": {
-      "change": "Výška zmeny",
-      "intro": "Vyberte si sumu :"
+      "change": "Výška zmeny"
     },
     "average": "Priemerná výška príspevku je {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Chýba číslo kreditnej karty"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "všeobecné",
       "initialisation": "inicializácia"
-    },
-    "form": {
-      "error": {
-        "minimum": "Minimálna výška príspevku je {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Aby to bolo mesačne?",
-        "oneoff": "Darujte",
         "weekly": "Aby to bol týždenný príspevok?"
       },
       "each": {
-        "monthly": "každý mesiac",
-        "oneoff": "Keď",
-        "weekly": "každý rok"
+        "oneoff": "Keď"
       },
       "feedback": {
-        "monthly": "Darujem {{amount}} {{frequency}}",
-        "oneoff": "Darujem {{amount}}"
+        "monthly": "Darujem {{amount}} {{frequency}}"
       },
       "monthly": "mesačne",
-      "oneoff": "jednorazové",
-      "weekly": "týždenník",
-      "yearly": "ročne"
+      "weekly": "týždenník"
     },
     "iban": "iban",
-    "intro": "Prispieť na {{campaign}}",
     "payment_methods": {
       "card": "Karta",
-      "intro": "Ako chcete darovať?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Spôsob platby"
     },
-    "thanks": "Ďakujeme vám za váš dar!",
     "to": "Príspevok na {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nemôže prijímať e-maily",
     "salutation": "Vážený pán/pani",
-    "salutation_female": "Vážený {{target.name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
-    "salutation_male": "Vážený {{target.name}}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
   "image": {
-    "addSticker": "pridať nálepky",
     "addStickerTitle": "Kliknutím/poklepaním pridáte nálepku na fotografiu",
-    "benefit": "Ak pridáte obrázok, ktorý chcete odoslať a ktorý môžete zdieľať v ďalšom kroku, vaša akcia bude pôsobivejšia.",
     "options": "Chceli by ste",
-    "publish": "Vyzerá to dobre, publikujte!",
     "select": "vyberte si obrázok",
-    "takeTitle": "Odfoťte sa telefónom",
-    "upload": "Nahrať obrázok",
-    "wanttoadd": "Chcete pridať obrázok?"
+    "upload": "Nahrať obrázok"
   },
   "no": "nie",
   "progress": {
-    "donate": "{{total}} darovali. Poďme na {{goal}}",
     "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
-    "register": "{{total}} sa zaregistrovali. Poďme na {{goal}}",
     "share": "{{total}} zdieľali. Poďme na {{goal}}",
-    "sign": "{{total}} podpísali. Poďme na {{goal}}",
     "twitter": "{{total}} twitted. Poďme na {{goal}}"
   },
-  "read more": "čítaj viac",
   "register": "Pridajte moje meno",
-  "reminder": {
-    "intro": "Vieme, že vaša vláda žiada veľa informácií. Pošleme vám jeden e-mail, ktorý vám pripomenie, aby ste formulár vyplnili neskôr"
-  },
   "required": "Vyplňte toto pole",
-  "required field": "Povinné pole",
   "salutations": {
     "f": "Pani.",
-    "m": "Pán.",
     "other": "Iné"
   },
   "share": {
-    "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
-    "message": "Toto by ste mali podpísať!",
-    "title": "Skoro hotové! Urobte ďalší krok."
+    "message": "Toto by ste mali podpísať!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "nie vy?",
     "welcome": "Vitajte späť {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Vyberte inú krajinu, v {{country}} nie je nikoho, koho by ste mohli kontaktovať"
     },
-    "missing": "Vyberte aspoň jednu z týchto možností {{total}}",
     "postcode": {
       "empty": "nie je na koho sa obrátiť {{area}}"
     },
-    "random": "Vybraný jeden z našich {{total}} najdôležitejších cieľov",
     "selected": "{{total}} vybrané"
   },
   "twitter": {
-    "actionText": "Podpísal som sa. mali by ste tiež",
     "again": "Tweet inej osobe",
-    "choice": "Čo by ste chceli robiť ďalej?",
     "instruction": "Dokončite odoslanie tweetu v novom okne (na twitter.com)",
-    "organisation": "Účet vašej organizácie na Twitteri",
     "screenName": "Meno obrazovky"
   },
-  "unknown postcode": "neznáme PSČ",
-  "yes": "áno",
-  "you need to be 18 years old": "musíte mať 18 rokov"
+  "yes": "áno"
 }

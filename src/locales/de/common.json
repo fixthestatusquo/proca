@@ -1,177 +1,108 @@
 {
-  "Address": "Adresse",
   "Amount": "Betrag",
-  "Another": "Neu wählen",
   "Birthdate": "Geburtsdatum",
-  "City": "Stadt",
   "Comment": "Kommentar",
   "Country": "Land",
-  "Download": "Herunterladen",
   "Download explanation": "Ihr Dokument ist jetzt fertig, wir senden es Ihnen auch per E-Mail zu",
-  "Email": "E-Mail",
   "First name": "Vorname",
-  "Language": "Sprache",
   "Last name": "Nachname",
-  "Locality": "Ortschaft",
   "Next": "Weiter",
   "Other": "Andere",
-  "Phone": "Telefon",
   "Postal Code": "PLZ",
-  "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
-  "Street": "Straße",
   "Subject": "Thema",
-  "Thank you": "Dankeschön",
   "Your message": "Ihre Nachricht",
   "action": {
-    "donate": "Spenden Sie",
     "eci": "Unterzeichnen Sie die EBI",
-    "email": "Eine E-Mail senden",
     "join": "Beitreten",
-    "register": "Register",
     "remindeSent": "Erinnerung gesendet",
-    "reminder": "Später erinnern",
     "reminderEmail": "Mich per E-Mail erinnern",
-    "share": "Teilen Sie",
     "sign": "Jetzt unterschreiben!",
     "stayInformed": "Informiert bleiben",
-    "takeAction": "takeAction",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "Starten Sie die Kamera",
-    "take": "Foto machen",
-    "take-another": "Noch eins aufnehmen"
+    "take": "Foto machen"
   },
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlassen Sie Ihre E-Mail-Adresse, um über die nächsten Schritte informiert zu werden**",
-  "confirm": "Sind Sie sicher?",
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
-    "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
-    "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion zählen!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine reale Person steht. Wir warten auf Ihre Bestätigung...",
     "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail zu bestätigen",
-    "emailSent": "Wir haben Ihnen eine E-Mail an {{email}} geschickt!",
     "implicit": "Senden Sie dieses Formular, um E-Mails zu erhalten von {{name}}",
     "intro": "Erfahren Sie mehr über unsere Kampagnen, Aktionen und Fortschritte {{campaign}}",
     "opt-in": "Ja, ich möchte, dass {{partner}} mich per E-Mail auf dem Laufenden hält.",
     "opt-in-both": "Ja, ich möchte, dass {{partner}} und {{lead}} mich per E-Mail auf dem Laufenden halten.",
     "opt-out": "Nein, senden Sie mir keine E-Mails und halten Sie mich in Zukunft nicht auf dem Laufenden",
-    "optInConfirmed": "Abonnement bestätigt",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich"
   },
-  "date": {
-    "error": "ungültiges Datum. Format: TT.MM.JJJJ"
-  },
   "dateFormat": "TT.MM.JJJJ",
-  "dialogTitle": "Informieren Sie mich über die Kampagne",
   "donation": {
     "amount": {
-      "change": "Betrag ändern",
-      "intro": "Wählen Sie einen Betrag"
+      "change": "Betrag ändern"
     },
     "average": "Die durchschnittliche Spende beträgt {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Spenden Sie jeden Monat {{amount}}",
         "oneoff": "Spenden Sie {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Die Kreditkartennummer fehlt"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "allgemein",
       "initialisation": "Initialisierung"
-    },
-    "form": {
-      "error": {
-        "minimum": "Die Mindestspende beträgt {{amount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Eine wöchentliche Spende?",
-        "oneoff": "Spenden Sie",
         "weekly": "Monatlich?"
       },
       "each": {
-        "monthly": "jede Woche",
-        "oneoff": "Sobald",
-        "weekly": "jeden Monat"
+        "oneoff": "Sobald"
       },
       "feedback": {
-        "monthly": "Ich spende {{amount}} {{frequency}}",
-        "oneoff": "Ich spende {{amount}}"
+        "monthly": "Ich spende {{amount}} {{frequency}}"
       },
       "monthly": "monatlich",
-      "oneoff": "einmal",
-      "weekly": "wöchentlich",
-      "yearly": "Jährlich"
+      "weekly": "wöchentlich"
     },
     "iban": "IBAN",
-    "intro": "Spenden Sie an {{campaign}}",
     "payment_methods": {
       "card": "Karte",
-      "intro": "Wie möchten Sie spenden?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Zahlungsmethode"
     },
-    "thanks": "Vielen Dank für Ihre Spende!",
     "to": "An {{organisation}} spenden"
   },
   "email": {
-    "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
     "salutation": "Sehr geehrte Damen und Herren",
-    "salutation_female": "Sehr geehrte {{target.name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
-    "salutation_male": "Sehr geehrter {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
   "image": {
-    "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um einen Sticker zum Bild hinzuzufügen",
-    "benefit": "Das Hinzufügen eines Bildes zum Versenden - und das Sie im nächsten Schritt weitergeben können - würde Ihre Aktion noch wirkungsvoller machen",
     "options": "Möchten Sie eine dieser Aktionen durchführen?",
-    "publish": "Sieht gut aus, veröffentlichen!",
     "select": "Wählen Sie eines unserer Bilder aus",
-    "takeTitle": "Machen Sie ein Foto mit Ihrem Telefon",
-    "upload": "Ein Bild hochladen",
-    "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
+    "upload": "Ein Bild hochladen"
   },
   "no": "nein",
   "progress": {
-    "donate": "{{total}} haben gespendet. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
-    "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
     "share": "{{total}} haben es geteilt. Gehen wir zu {{goal}}",
-    "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",
     "twitter": "{{total}} haben getwittert. Gehen wir zu {{goal}}"
   },
-  "read more": "weiterlesen",
   "register": "Meinen Namen hinzufügen",
-  "reminder": {
-    "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail senden, um Sie daran zu erinnern, dass Sie das Formular später ausfüllen müssen"
-  },
   "required": "erforderlich",
-  "required field": "Pflichtfeld",
   "salutations": {
     "f": "Frau",
-    "m": "Herr",
     "other": "Weitere..."
   },
   "share": {
-    "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
-    "message": "Sie sollten das unterschreiben!",
-    "title": "Fast fertig! Machen Sie den nächsten Schritt."
+    "message": "Sie sollten das unterschreiben!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}"
     },
-    "missing": "Wählen Sie mindestens eines von {{total}} aus",
     "postcode": {
       "empty": "es gibt niemanden, den man in {{area}} kontaktieren kann"
     },
-    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt.",
     "selected": "{{total}} Empfänger"
   },
   "twitter": {
-    "actionText": "actionText",
     "again": "Tweet an eine andere Person",
-    "choice": "Was würden Sie als Nächstes tun wollen?",
     "instruction": "Bitte senden Sie den Tweet in einem neuen Fenster ab (auf twitter.com)",
-    "organisation": "Twitter-Konto Ihrer Organisation",
     "screenName": "Bildschirmname"
   },
-  "unknown postcode": "unbekannte Postleitzahl",
-  "yes": "ja",
-  "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
+  "yes": "ja"
 }

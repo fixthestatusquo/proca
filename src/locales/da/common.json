@@ -1,177 +1,108 @@
 {
-  "Address": "Adresse",
   "Amount": "Beløb",
-  "Another": "En anden",
   "Birthdate": "Fødselsdato",
-  "City": "By",
   "Comment": "Kommentar",
   "Country": "Land",
-  "Download": "Download",
   "Download explanation": "Dit dokument er nu klar, vi sender det også til dig via e-mail.",
-  "Email": "Emailadresse",
   "First name": "Fornavn",
-  "Language": "Sprog",
   "Last name": "Efternavn",
-  "Locality": "Lokalitet",
   "Next": "Next",
   "Other": "Andre",
-  "Phone": "Telefon",
   "Postal Code": "Postnummer",
-  "Salutation": "Hilsen",
   "Sorry, we couldn't save": "Vi kunne desværre ikke gemme",
-  "Street": "Gade",
   "Subject": "Emneord",
-  "Thank you": "tak skal du have",
   "Your message": "Din besked",
   "action": {
-    "donate": "Donér",
     "eci": "Skriv under her",
-    "email": "Send en e-mail",
     "join": "Tilmeld dig",
-    "register": "Registrer",
     "remindeSent": "Påmindelse sendt",
-    "reminder": "Mind mig om det senere",
     "reminderEmail": "Påmind mig via e-mail",
-    "share": "Del",
     "sign": "Skriv under",
     "stayInformed": "Hold dig opdateret",
-    "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "starte kameraet",
-    "take": "Tag et billede",
-    "take-another": "Tag en til"
+    "take": "Tag et billede"
   },
   "closed": "##tak til {{total}} supportere!\n\nVi har afsluttet denne aktion, men vores arbejde slutter ikke her, så **læs venligst din e-mail for at blive holdt orienteret om de næste skridt**",
-  "confirm": "Er du sikker?",
   "consent": {
     "actionConfirmed": "Aktion bekræftet",
-    "actionRejected": "Handlingen blev annulleret med succes",
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
-    "confirmAction": "Vi har sendt et bekræftelseslink pr. e-mail til følgende adresse:\n {{email}}\nDu bedes hente e-mailen nu og klikke på linket (tjek din spam-mappe!).\n Først da vil din handling tælle!\nDin bekræftelse er afgørende for aktionens politiske vægt. Det garanterer, at der er en rigtig person bag hver indsendelse. Vi afventer din bekræftelse...",
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
-    "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
     "intro": "Jeg accepterer at {{name}} kontakte mig om kampagnen og andre muligheder for at hjælpe",
     "opt-in": "Ja, hold mig informeret via e-mail",
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
-    "optInConfirmed": "Abonnement bekræftet",
     "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage"
   },
-  "date": {
-    "error": "ugyldig dato. format: DD.MM.YYYYYY"
-  },
   "dateFormat": "DD/MM/ÅÅÅÅ",
-  "dialogTitle": "Hold mig informeret om kampagnen",
   "donation": {
     "amount": {
-      "change": "Ændringsbeløb",
-      "intro": "Vælg et beløb :"
+      "change": "Ændringsbeløb"
     },
     "average": "Den gennemsnitlige donation er {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Kreditkortnummer mangler"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "generelt",
       "initialisation": "initialisering"
-    },
-    "form": {
-      "error": {
-        "minimum": "Minimumsdonationen er {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Gør det månedligt?",
-        "oneoff": "Donér",
         "weekly": "Gør det til en ugentlig donation?"
       },
       "each": {
-        "monthly": "hver måned",
-        "oneoff": "Når",
-        "weekly": "hvert år"
+        "oneoff": "Når"
       },
       "feedback": {
-        "monthly": "Jeg donerer {{amount}} {{frequency}}",
-        "oneoff": "Jeg donerer {{amount}}"
+        "monthly": "Jeg donerer {{amount}} {{frequency}}"
       },
       "monthly": "månedlig",
-      "oneoff": "engangsydelse",
-      "weekly": "ugentlig",
-      "yearly": "årligt"
+      "weekly": "ugentlig"
     },
     "iban": "iban",
-    "intro": "Donér til {{campaign}}",
     "payment_methods": {
       "card": "Kort",
-      "intro": "Hvordan ønsker du at donere?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Betalingsmetode"
     },
-    "thanks": "Tak for din donation!",
     "to": "Donation til {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kan ikke modtage e-mails",
     "salutation": "Kære hr/frue",
-    "salutation_female": "Kære {{target.name}}",
     "salutation_info": "(navnet vil blive sat ind før afsendelse)",
-    "salutation_male": "Kære {{target.name}}",
     "salutation_placeholder": "Kære [modtager],"
   },
   "image": {
-    "addSticker": "tilføje klistermærker",
     "addStickerTitle": "Klik/tryk for at tilføje et klistermærke til et foto",
-    "benefit": "Hvis du tilføjer et billede, som du kan sende - og som du kan dele i næste trin - vil det gøre din aktion mere effektfuld.",
     "options": "Ønsker du at",
-    "publish": "Det ser godt ud, offentliggør!",
     "select": "vælg dit billede",
-    "takeTitle": "Tag et billede med din telefon",
-    "upload": "Upload et billede",
-    "wanttoadd": "Ønsker du at tilføje et billede?"
+    "upload": "Upload et billede"
   },
   "no": "ingen",
   "progress": {
-    "donate": "{{total}} har doneret. Lad os gå til {{goal}}",
     "email": "{{total}} har sendt en e-mail. Lad os gå til {{goal}}",
-    "register": "{{total}} har registreret. Lad os gå til {{goal}}",
     "share": "{{total}} har delt. Lad os gå til {{goal}}",
-    "sign": "{{total}} har underskrevet. Lad os gå til {{goal}}",
     "twitter": "{{total}} har twittet. Lad os gå til {{goal}}"
   },
-  "read more": "Læs mere",
   "register": "Tilføj mit navn",
-  "reminder": {
-    "intro": "Vi ved, at din regering beder om mange oplysninger. Vi sender dig en enkelt e-mail for at minde dig om, at du skal udfylde formularen senere."
-  },
   "required": "Udfyld venligst dette felt",
-  "required field": "Obligatorisk felt",
   "salutations": {
     "f": "Ms.",
-    "m": "Hr.",
     "other": "Andre"
   },
   "share": {
-    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. Hvis vi er nok, der skriver under, er EU forpligtet til at lytte 🙏.",
-    "message": "Du skal underskrive dette!",
-    "title": "Næsten færdig – nu mangler du blot at dele budskabet"
+    "message": "Du skal underskrive dette!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
     },
-    "missing": "Vælg mindst en af følgende {{total}}",
     "postcode": {
       "empty": "der er ingen at kontakte i {{area}}"
     },
-    "random": "Valgte et af vores {{total}} vigtigste mål",
     "selected": "{{total}} udvalgt"
   },
   "twitter": {
-    "actionText": "Jeg underskrev. du burde også",
     "again": "Tweet til en anden person",
-    "choice": "Hvad vil du gerne gøre som det næste?",
     "instruction": "Afslut venligst afsendelsen af tweetet i det nye vindue (på twitter.com)",
-    "organisation": "Din organisations twitter-konto",
     "screenName": "Skærmenavn"
   },
-  "unknown postcode": "ukendt postnummer",
-  "yes": "ja",
-  "you need to be 18 years old": "du skal være 18 år gammel"
+  "yes": "ja"
 }

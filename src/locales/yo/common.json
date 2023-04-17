@@ -1,177 +1,108 @@
 {
-  "Address": "Adirẹsi",
   "Amount": "Iye",
-  "Another": "Omiiran",
   "Birthdate": "Ojo ibi",
-  "City": "Ilu",
   "Comment": "Ọrọìwòye",
   "Country": "Orilẹ -ede",
-  "Download": "Gbaa lati ayelujara",
   "Download explanation": "Iwe rẹ ti ṣetan, a n fi imeeli ranṣẹ si ọ paapaa.",
-  "Email": "Imeeli",
   "First name": "Orukọ akọkọ",
-  "Language": "Ede",
   "Last name": "Oruko idile",
-  "Locality": "Agbegbe",
   "Next": "Itele",
   "Other": "Omiiran",
-  "Phone": "Foonu",
   "Postal Code": "Koodu ifiweranse",
-  "Salutation": "Ìkíni",
   "Sorry, we couldn't save": "Ma binu, a ko le fipamọ",
-  "Street": "opopona",
   "Subject": "Koko-ọrọ",
-  "Thank you": "e dupe",
   "Your message": "Ifiranṣẹ rẹ",
   "action": {
-    "donate": "Ṣetọrẹ",
     "eci": "eci",
-    "email": "Fi imeeli ranṣẹ",
     "join": "Darapọ mọ",
-    "register": "Forukọsilẹ",
     "remindeSent": "Olurannileti rán",
-    "reminder": "Ranmi leti toba se die",
     "reminderEmail": "Ṣe iranti mi nipasẹ imeeli",
-    "share": "Pin",
     "sign": "wole",
     "stayInformed": "Duro alaye",
-    "takeAction": "Gbe igbese!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "bẹrẹ kamẹra",
-    "take": "Ya aworan",
-    "take-another": "Gba ọkan miiran"
+    "take": "Ya aworan"
   },
   "closed": "## o ṣeun si awọn alatilẹyin {{total}}!\n\nA ti paade iṣe yii, ṣugbọn iṣẹ wa ko pari nihin, nitorinaa jọwọ fi imeeli rẹ silẹ lati jẹ ki alaye nipa awọn igbesẹ ti n bọ ***",
-  "confirm": "Ṣe o da ọ loju?",
   "consent": {
     "actionConfirmed": "Action timo",
-    "actionRejected": "Iṣẹ naa ti fagile ni aṣeyọri",
     "confirm": "<0> Ṣe o da ọ loju? </0> <1> Nipa yiyan 'Bẹẹkọ', iwọ kii yoo ni anfani lati rii boya ipolongo yii ba ṣaṣeyọri, tabi ti o ba wa igbese diẹ sii ti a nilo lati ṣe papọ lati ṣẹgun rẹ. Ti o ba yan 'Bẹẹni' a yoo jẹ ki o ni imudojuiwọn nipa eyi ati awọn ipolongo amojuto ni miiran wa.",
-    "confirmAction": "A ti fi ọna asopọ ijẹrisi ranṣẹ nipasẹ imeeli si adirẹsi atẹle yii:\n {{email}}\nJọwọ gba imeeli pada ni bayi ki o tẹ ọna asopọ ti o wa ninu (ṣayẹwo folda àwúrúju rẹ!).\n Nikan lẹhinna iṣẹ rẹ yoo ka!\nIjẹrisi rẹ ṣe pataki fun iwuwo iṣelu ti iṣe naa. Eyi ṣe iṣeduro pe eniyan gidi wa lẹhin gbogbo ifakalẹ. A yoo duro de ijẹrisi rẹ...",
     "confirmOptIn": "Maṣe gbagbe lati ṣayẹwo apoti leta rẹ (pẹlu folda àwúrúju rẹ!) Ati jẹrisi ṣiṣe alabapin imeeli rẹ",
-    "emailSent": "A fi imeeli ranṣẹ si ọ si {imeeli}!",
     "implicit": "Fi fọọmu yii silẹ lati gba awọn imeeli lati {{name}}",
     "intro": "Wa diẹ sii nipa awọn ipolongo wa, awọn iṣe ati ilọsiwaju {{campaign}}",
     "opt-in": "Bẹẹni, Mo fẹ {{partner}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
     "opt-in-both": "Bẹẹni, Mo fẹ {{partner}} ati {{lead}} lati jẹ ki n sọ fun mi nipasẹ imeeli",
     "opt-out": "Rara, maṣe fi imeeli ranṣẹ si mi tabi jẹ ki n ṣe imudojuiwọn ni ọjọ iwaju",
-    "optInConfirmed": "Ṣiṣe alabapin timo",
     "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
-    "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
     "required": "A nilo igbanilaaye lati kopa"
   },
-  "date": {
-    "error": "ọjọ ti ko tọ. ọna kika: DD.MM.YYYY"
-  },
   "dateFormat": "DD/MM/ỌDÚN",
-  "dialogTitle": "Pa mi mọ nipa ipolongo naa",
   "donation": {
     "amount": {
-      "change": "Yi iye pada",
-      "intro": "Yan iye kan:"
+      "change": "Yi iye pada"
     },
     "average": "Itọrẹ apapọ jẹ {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Nọmba kaadi kirẹditi nsọnu"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "gbogboogbo",
       "initialisation": "ipilẹṣẹ"
-    },
-    "form": {
-      "error": {
-        "minimum": "Itọrẹ ti o kere julọ jẹ {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Ṣe oṣooṣu?",
-        "oneoff": "Ṣetọrẹ",
         "weekly": "Ṣe eyi ni ẹbun ọsẹ kan?"
       },
       "each": {
-        "monthly": "oṣooṣu",
-        "oneoff": "Lẹẹkan",
-        "weekly": "kọọkan odun"
+        "oneoff": "Lẹẹkan"
       },
       "feedback": {
-        "monthly": "Mo n ṣetọrẹ {{amount}} {{frequency}}",
-        "oneoff": "Mo n ṣetọrẹ {{amount}}"
+        "monthly": "Mo n ṣetọrẹ {{amount}} {{frequency}}"
       },
       "monthly": "oṣooṣu",
-      "oneoff": "ọkan kuro",
-      "weekly": "osẹ-sẹsẹ",
-      "yearly": "lododun"
+      "weekly": "osẹ-sẹsẹ"
     },
     "iban": "iban",
-    "intro": "Ṣetọrẹ si {{campaign}}",
     "payment_methods": {
       "card": "Kaadi",
-      "intro": "Bawo ni o ṣe fẹ lati ṣetọrẹ?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Eto isanwo"
     },
-    "thanks": "O ṣeun fun ẹbun rẹ!",
     "to": "Ẹbun si {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ko le gba awọn imeeli",
     "salutation": "Eyin sir/ iyaafin",
-    "salutation_female": "Eyin {{target.name}}",
     "salutation_info": "(orukọ naa yoo fi sii ṣaaju fifiranṣẹ)",
-    "salutation_male": "Eyin {{target.name}}",
     "salutation_placeholder": "Eyin [olugba],"
   },
   "image": {
-    "addSticker": "fi awọn ohun ilẹmọ",
     "addStickerTitle": "Tẹ/Fọwọ ba lati ṣafikun sitika si fọto",
-    "benefit": "Ṣafikun aworan kan lati firanṣẹ -ati pe o le pin ni igbesẹ ti nbọ- yoo jẹ ki iṣe rẹ ni ipa diẹ sii",
     "options": "Se wa feran lati",
-    "publish": "O dara, atẹjade!",
     "select": "yan aworan rẹ",
-    "takeTitle": "Ya aworan kan pẹlu foonu rẹ",
-    "upload": "Po si aworan kan",
-    "wanttoadd": "Ṣe o fẹ lati fi aworan kun?"
+    "upload": "Po si aworan kan"
   },
   "no": "rara",
   "progress": {
-    "donate": "{{total}} ti ṣetọrẹ. Jẹ ki a lọ si {{goal}}",
     "email": "{{total}} ti fi imeeli ranṣẹ. Jẹ ki a lọ si {{goal}}",
-    "register": "{{total}} ti forukọsilẹ. Jẹ ki a lọ si {{goal}}",
     "share": "{{total}} ti pin. Jẹ ki a lọ si {{goal}}",
-    "sign": "{{total}} ti fowo si. Jẹ ki a lọ si {{goal}}",
     "twitter": "{{total}} ti twitter. Jẹ ki a lọ si {{goal}}"
   },
-  "read more": "ka siwaju",
   "register": "Fi orukọ mi kun",
-  "reminder": {
-    "intro": "A mọ, ijọba rẹ n beere alaye pupọ. A yoo fi imeeli kan ranṣẹ si ọ lati leti lati kun fọọmu naa nigbamii"
-  },
   "required": "Jọwọ fọwọsi aaye yii",
-  "required field": "Aaye ti a beere",
   "salutations": {
     "f": "Iyaafin",
-    "m": "Ọgbẹni.",
     "other": "Omiiran"
   },
   "share": {
-    "intro": "O dara, o ti fowo si 👍. Lati isodipupo ipa rẹ, pin kaakiri ati jakejado lati rii daju pe gbogbo eniyan rii ẹbẹ yii🙏.",
-    "message": "O yẹ ki o fowo si eyi!",
-    "title": "O fẹrẹ ṣe! Ṣe igbesẹ ti n tẹle."
+    "message": "O yẹ ki o fowo si eyi!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "ko iwo?",
     "welcome": "Kaabo pada {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Yan orilẹ-ede miiran, ko si ẹnikan lati kan si ni {{country}}"
     },
-    "missing": "Yan o kere ju ọkan ninu {{total}}",
     "postcode": {
       "empty": "ko si ẹnikan lati kan si ni {{area}}"
     },
-    "random": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}.",
     "selected": "{{total}} ti yan"
   },
   "twitter": {
-    "actionText": "Mo fowo si. o yẹ ki o tun",
     "again": "Tweet si miiran eniyan",
-    "choice": "Kini iwọ yoo fẹ lati ṣe nigbamii?",
     "instruction": "Jọwọ pari fifiranṣẹ tweet ni window tuntun (lori twitter.com)",
-    "organisation": "Akọọlẹ twitter rẹ agbari",
     "screenName": "Orukọ iboju"
   },
-  "unknown postcode": "aimọ koodu ifiweranṣẹ",
-  "yes": "beeni",
-  "you need to be 18 years old": "o nilo lati jẹ ọdun 18"
+  "yes": "beeni"
 }

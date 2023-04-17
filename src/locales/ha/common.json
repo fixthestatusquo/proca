@@ -1,177 +1,108 @@
 {
-  "Address": "Adireshin",
   "Amount": "Adadi",
-  "Another": "Wani",
   "Birthdate": "Ranar haifuwa",
-  "City": "Garin",
   "Comment": "Sharhi",
   "Country": "Ƙasa",
-  "Download": "Saukewa",
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
-  "Email": "Imel",
   "First name": "Sunan rana",
-  "Language": "Harshe",
   "Last name": "Sunan mahaifa",
-  "Locality": "Yanki",
   "Next": "Na gaba",
   "Other": "Sauran",
-  "Phone": "Waya",
   "Postal Code": "Lambar gidan waya",
-  "Salutation": "Sallama",
   "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
-  "Street": "Titin",
   "Subject": "Magana",
-  "Thank you": "na gode",
   "Your message": "Sakon ku",
   "action": {
-    "donate": "Ba da gudummawa",
     "eci": "eci",
-    "email": "Aika imel",
     "join": "Shiga",
-    "register": "Yi rijista",
     "remindeSent": "An aika da tunatarwa",
-    "reminder": "Tunatar da ni daga baya",
     "reminderEmail": "Tunatar da ni ta imel",
-    "share": "Raba",
     "sign": "Alama",
     "stayInformed": "Kasance da labari",
-    "takeAction": "Dauki Mataki!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "fara kamara",
-    "take": "Ɗauki hoto",
-    "take-another": "Dauki wani"
+    "take": "Ɗauki hoto"
   },
   "closed": "## godiya ga magoya bayan {{total}}!\n\nMun rufe wannan aikin, amma aikinmu bai ƙare a nan ba, don haka don Allah ** bar imel ɗin ku don sanar da ku game da matakai na gaba ***",
-  "confirm": "Ka tabbata?",
   "consent": {
     "actionConfirmed": "An tabbatar da aikin",
-    "actionRejected": "An yi nasarar soke matakin",
     "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>",
-    "confirmAction": "Mun aika hanyar hanyar tabbatarwa ta imel zuwa adireshin mai zuwa:\n {{email}}\nDa fatan za a dawo da imel ɗin a yanzu kuma danna mahaɗin da ya ƙunshi (duba babban fayil ɗin spam!).\n Sai kawai aikinku zai ƙidaya!\nTabbatar da ku yana da mahimmanci ga nauyin siyasa na aikin. Wannan yana ba da tabbacin cewa akwai mutum na gaske a bayan kowane ƙaddamarwa. Za mu jira tabbacin ku...",
     "confirmOptIn": "Kar ku manta da duba akwatin wasiku (ciki har da babban fayil ɗin spam!) Kuma tabbatar da biyan kuɗin imel ɗin ku",
-    "emailSent": "Mun aika muku da imel zuwa {email}!",
     "implicit": "Shigar da wannan fom don karɓar imel daga {{name}}",
     "intro": "Nemo ƙarin bayani game da kamfen ɗin mu, ayyuka da {{campaign}} ci gaba",
     "opt-in": "Ee, ina son {{partner}} ya sanar da ni ta imel",
     "opt-in-both": "Ee, ina son {{partner}} da {{lead}} su ci gaba da sanar da ni ta imel",
     "opt-out": "A'a, kar ku aiko min da imel ko ci gaba da sabunta ni nan gaba",
-    "optInConfirmed": "An tabbatar da biyan kuɗi",
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
-    "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
     "required": "Ana buƙatar izinin ku don shiga"
   },
-  "date": {
-    "error": "kwanan wata. format: DD.MM.YYYY"
-  },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "Ci gaba da sanar da ni game da kamfen",
   "donation": {
     "amount": {
-      "change": "Canja adadin",
-      "intro": "Zaɓi Adadi:"
+      "change": "Canja adadin"
     },
     "average": "Matsakaicin gudummawar ita ce {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Lambar katin kiredit ya ɓace"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "na gaba ɗaya",
       "initialisation": "farawa"
-    },
-    "form": {
-      "error": {
-        "minimum": "Mafi ƙarancin gudummawa shine {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Yi shi kowane wata?",
-        "oneoff": "Ba da gudummawa",
         "weekly": "Yi wannan gudummawar mako-mako?"
       },
       "each": {
-        "monthly": "kowane wata",
-        "oneoff": "Sau ɗaya",
-        "weekly": "kowace shekara"
+        "oneoff": "Sau ɗaya"
       },
       "feedback": {
-        "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}",
-        "oneoff": "Ina bayar da gudummawa {{amount}}"
+        "monthly": "Ina ba da gudummawa {{amount}} {{frequency}}"
       },
       "monthly": "kowane wata",
-      "oneoff": "kashe daya",
-      "weekly": "mako-mako",
-      "yearly": "kowace shekara"
+      "weekly": "mako-mako"
     },
     "iban": "iban",
-    "intro": "Ba da gudummawa ga {{campaign}}",
     "payment_methods": {
       "card": "Katin",
-      "intro": "Ta yaya kuke son bayarwa?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Hanyar Biyan Kuɗi"
     },
-    "thanks": "Na gode da gudummawar ku!",
     "to": "Kyauta ga {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ba zai iya karɓar imel ba",
     "salutation": "Yallabai/ madam",
-    "salutation_female": "Masoyi {{target.name}}",
     "salutation_info": "(za'a sanya sunan kafin aikawa)",
-    "salutation_male": "Masoyi {{target.name}}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
   "image": {
-    "addSticker": "ƙara lambobi",
     "addStickerTitle": "Danna/Taɓa don ƙara sitika zuwa hoto",
-    "benefit": "Ƙara hoto don aikawa - kuma za ku iya rabawa a mataki na gaba - zai sa aikinku ya fi tasiri",
     "options": "Kuna so",
-    "publish": "Yayi kyau, buga!",
     "select": "zabi hoton ku",
-    "takeTitle": "Ɗauki hoto da wayarka",
-    "upload": "Loda hoto",
-    "wanttoadd": "Kuna son ƙara hoto?"
+    "upload": "Loda hoto"
   },
   "no": "a'a",
   "progress": {
-    "donate": "{{total}} sun ba da gudummawa. Mu je zuwa {{goal}}",
     "email": "{{total}} sun aika imel. Mu je zuwa {{goal}}",
-    "register": "{{total}} sun yi rajista. Mu je zuwa {{goal}}",
     "share": "{{total}} sun raba. Mu je zuwa {{goal}}",
-    "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}",
     "twitter": "{{total}} sun yi sharhi. Mu je zuwa {{goal}}"
   },
-  "read more": "kara karantawa",
   "register": "Ƙara sunana",
-  "reminder": {
-    "intro": "Mun sani, gwamnatin ku tana neman bayanai da yawa. Za mu aiko muku da imel ɗaya don tunatar da ku cika fom daga baya"
-  },
   "required": "Da fatan za a cika wannan filin",
-  "required field": "Filin da ake buƙata",
   "salutations": {
     "f": "Ms.",
-    "m": "Mr.",
     "other": "Sauran"
   },
   "share": {
-    "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
-    "message": "Ya kamata ku sa hannu kan wannan!",
-    "title": "Kusan an gama! Dauki mataki na gaba."
+    "message": "Ya kamata ku sa hannu kan wannan!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "ba ka ba?",
     "welcome": "Barka da dawowa {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"
     },
-    "missing": "Zaɓi aƙalla ɗaya daga cikin {{total}}",
     "postcode": {
       "empty": "babu wanda za a tuntuɓar a {{area}}"
     },
-    "random": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}.",
     "selected": "{{total}} aka zaba"
   },
   "twitter": {
-    "actionText": "Na sanya hannu. ya kamata ku ma",
     "again": "Tweet zuwa wani mutum",
-    "choice": "Me kuke so ku yi a gaba?",
     "instruction": "Da fatan za a kammala aika tweet a cikin sabuwar taga (a kan twitter.com)",
-    "organisation": "Asusun twitter kungiyar ku",
     "screenName": "Sunan kariya"
   },
-  "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
-  "yes": "iya",
-  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
+  "yes": "iya"
 }

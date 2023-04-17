@@ -1,177 +1,108 @@
 {
-  "Address": "Osoite",
   "Amount": "Määrä",
-  "Another": "Toinen",
   "Birthdate": "Syntymäpäivä",
-  "City": "Kaupunki",
   "Comment": "Kommentti",
   "Country": "Maa",
-  "Download": "Lataa",
   "Download explanation": "Asiakirjasi on nyt valmis, lähetämme sen myös sinulle sähköpostitse.",
-  "Email": "Sähköpostiosoite",
   "First name": "Etunimi",
-  "Language": "Kieli",
   "Last name": "Sukunimi",
-  "Locality": "Sijainti",
   "Next": "Seuraava",
   "Other": "Muu",
-  "Phone": "Puhelin",
   "Postal Code": "Postinumero",
-  "Salutation": "Tervehdys",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
-  "Street": "Street",
   "Subject": "Aihe",
-  "Thank you": "Kiitos",
   "Your message": "Viestisi",
   "action": {
-    "donate": "Lahjoita",
     "eci": "eci",
-    "email": "Lähetä sähköpostia",
     "join": "Liity",
-    "register": "Rekisteröi",
     "remindeSent": "Muistutus lähetetty",
-    "reminder": "Muistuta minua myöhemmin",
     "reminderEmail": "Muistuta minua sähköpostitse",
-    "share": "Jaa",
     "sign": "Kirjaudu",
     "stayInformed": "Liity jakelulistalle",
-    "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "käynnistä kamera",
-    "take": "Ota kuva",
-    "take-another": "Ota toinen"
+    "take": "Ota kuva"
   },
   "closed": "##kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
-  "confirm": "Oletko varma?",
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",
-    "actionRejected": "Toimenpide peruutettiin onnistuneesti",
     "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
-    "confirmAction": "Olemme lähettäneet vahvistuslinkin sähköpostitse seuraavaan osoitteeseen:\n {{email}}\nPyydämme sinua noutamaan sähköpostiviestin heti ja klikkaamaan sen sisältämää linkkiä (tarkista roskapostikansiosi!).\n Vasta sen jälkeen toimintasi lasketaan!\nVahvistuksesi on ratkaisevan tärkeä toiminnan poliittisen painoarvon kannalta. Näin taataan, että jokaisen lähetyksen takana on oikea henkilö. Odotamme vahvistustasi...",
     "confirmOptIn": "Muista tarkistaa postilaatikkosi (myös roskapostikansiosi!) ja vahvistaa sähköpostitilauksesi.",
-    "emailSent": "Lähetimme sinulle sähköpostia osoitteeseen {email}!",
     "implicit": "Lähetä tämä lomake saadaksesi sähköpostia {{name}}",
     "intro": "Hyväksyn, että {{name}} ottaa minuun yhteyttä tärkeistä kampanjoista",
     "opt-in": "Kyllä, pidä minut ajan tasalla sähköpostitse",
     "opt-in-both": "Kyllä, haluan {{partner}} ja {{lead}} pitää minut ajan tasalla sähköpostitse",
     "opt-out": "Ei, älä lähetä minulle sähköpostia tai pidä minua ajan tasalla tulevaisuudessa",
-    "optInConfirmed": "Tilaus vahvistettu",
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
-    "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
     "required": "Osallistuminen edellyttää suostumustasi"
   },
-  "date": {
-    "error": "virheellinen päivämäärä. format: MM.VVVV"
-  },
   "dateFormat": "PP/KK/VVVV",
-  "dialogTitle": "Pidä minut ajan tasalla kampanjasta",
   "donation": {
     "amount": {
-      "change": "Muutosmäärä",
-      "intro": "Valitse määrä :"
+      "change": "Muutosmäärä"
     },
     "average": "Keskimääräinen lahjoitus on {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Luottokortin numero puuttuu"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "yleinen",
       "initialisation": "alustaminen"
-    },
-    "form": {
-      "error": {
-        "minimum": "Vähimmäislahjoitus on {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Kuukausittain?",
-        "oneoff": "Lahjoita",
         "weekly": "Tehdäänkö tästä viikoittainen lahjoitus?"
       },
       "each": {
-        "monthly": "joka kuukausi",
-        "oneoff": "Kun",
-        "weekly": "vuosittain"
+        "oneoff": "Kun"
       },
       "feedback": {
-        "monthly": "Minä lahjoitan {{amount}} {{frequency}}",
-        "oneoff": "Lahjoitan {{amount}}"
+        "monthly": "Minä lahjoitan {{amount}} {{frequency}}"
       },
       "monthly": "kuukausittain",
-      "oneoff": "ainutkertainen",
-      "weekly": "viikoittain",
-      "yearly": "vuosittain"
+      "weekly": "viikoittain"
     },
     "iban": "iban",
-    "intro": "Lahjoita osoitteeseen {{campaign}}",
     "payment_methods": {
       "card": "Kortti",
-      "intro": "Miten haluat lahjoittaa?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Maksutapa"
     },
-    "thanks": "Kiitos lahjoituksestasi!",
     "to": "Lahjoitus {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ei voi vastaanottaa sähköposteja",
     "salutation": "Hyvä herra/rouva",
-    "salutation_female": "Hyvä {{target.name}}",
     "salutation_info": "(nimi laitetaan ennen lähettämistä)",
-    "salutation_male": "Hyvä {{target.name}}",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
   "image": {
-    "addSticker": "lisätä tarroja",
     "addStickerTitle": "Lisää tarra valokuvaan napsauttamalla sitä",
-    "benefit": "Lähetettävän kuvan lisääminen - jonka voit jakaa seuraavassa vaiheessa - tekisi toiminnastasi vaikuttavamman.",
     "options": "Haluaisitko",
-    "publish": "Näyttää hyvältä, julkaise!",
     "select": "valitse kuvasi",
-    "takeTitle": "Ota kuva puhelimella",
-    "upload": "Lataa kuva",
-    "wanttoadd": "Haluatko lisätä kuvan?"
+    "upload": "Lataa kuva"
   },
   "no": "ei",
   "progress": {
-    "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
     "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
-    "register": "{{total}} ovat rekisteröityneet. Mennään osoitteeseen {{goal}}",
     "share": "{{total}} ovat jakaneet. Mennään {{goal}}",
-    "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",
     "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
   },
-  "read more": "Lue lisää",
   "register": "Lisää nimeni",
-  "reminder": {
-    "intro": "Tiedämme, että hallituksenne pyytää paljon tietoja. Lähetämme sinulle yhden sähköpostiviestin, joka muistuttaa sinua täyttämään lomakkeen myöhemmin."
-  },
   "required": "Täytä tämä kenttä",
-  "required field": "Pakollinen kenttä",
   "salutations": {
     "f": "Ms.",
-    "m": "Mr.",
     "other": "Muut"
   },
   "share": {
-    "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
-    "message": "Sinun tulisi allekirjoittaa tämä!",
-    "title": "Melkein valmista! Ota seuraava askel."
+    "message": "Sinun tulisi allekirjoittaa tämä!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
     },
-    "missing": "Valitse vähintään yksi seuraavista {{total}}",
     "postcode": {
       "empty": "ei ole ketään, johon ottaa yhteyttä {{area}}"
     },
-    "random": "Valittu yksi {{total}} tärkeimmistä kohteistamme.",
     "selected": "{{total}} valitut"
   },
   "twitter": {
-    "actionText": "Allekirjoitin. Sinunkin pitäisi",
     "again": "Twiittaa toiselle henkilölle",
-    "choice": "Mitä haluaisit tehdä seuraavaksi?",
     "instruction": "Suorita twiitin lähettäminen loppuun uudessa ikkunassa (twitter.com)",
-    "organisation": "Organisaatiosi Twitter-tili",
     "screenName": "Näyttönimi"
   },
-  "unknown postcode": "tuntematon postinumero",
-  "yes": "kyllä",
-  "you need to be 18 years old": "sinun on oltava 18-vuotias"
+  "yes": "kyllä"
 }

@@ -1,177 +1,108 @@
 {
-  "Address": "Adress",
   "Amount": "Betrag",
-  "Another": "En aneren",
   "Birthdate": "Gebuertsdatum",
-  "City": "Stad",
   "Comment": "Kommentéieren",
   "Country": "Land",
-  "Download": "Download",
   "Download explanation": "Ärt Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
-  "Email": "E-Mail",
   "First name": "Virnumm",
-  "Language": "Sprooch",
   "Last name": "Familljennumm",
-  "Locality": "Uertschaft",
   "Next": "Nächst",
   "Other": "Aner",
-  "Phone": "Telefon",
   "Postal Code": "Postleitzuel",
-  "Salutation": "Salut",
   "Sorry, we couldn't save": "Pardon, mir konnten net späicheren",
-  "Street": "Strooss",
   "Subject": "Sujet",
-  "Thank you": "Merci",
   "Your message": "Äre Message",
   "action": {
-    "donate": "Spenden",
     "eci": "Ënnerschreift d'ECI",
-    "email": "Schéckt eng E-Mail",
     "join": "Maacht mat",
-    "register": "Aschreiwen",
     "remindeSent": "Erënnerung geschéckt",
-    "reminder": "Erënnert mech méi spéit",
     "reminderEmail": "Erënnert mech per E-Mail",
-    "share": "Deelen",
     "sign": "Ënnerschreift elo!",
     "stayInformed": "Bleift informéiert",
-    "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "Start der Kamera",
-    "take": "Foto maachen",
-    "take-another": "Huelt eng aner"
+    "take": "Foto maachen"
   },
   "closed": "##Merci un {{total}} Supporter!\n\nMir hunn dës Aktioun zougemaach, awer eis Aarbecht ass net hei op en Enn, also **Loosst w.e.g. Är E-Mail fir iwwer déi nächst Schrëtt informéiert ze bleiwen**",
-  "confirm": "Bass du secher?",
   "consent": {
     "actionConfirmed": "Aktioun confirméiert",
-    "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
     "confirm": "<0>Sidd Dir sécher?</0><1> Andeems Dir 'Nee' auswielt, kënnt Dir net erausfannen ob dës Campagne erfollegräich ass, oder ob et méi Aktioune gëtt, déi mir zesumme mussen ënnerhuelen fir ze gewannen. Wann Dir 'Jo' auswielt, halen mir Iech iwwer dës an eis aner dréngend Campagnen um Lafenden.</1><2>Dir kënnt Iech zu all Moment ofmellen.</2>",
-    "confirmAction": "Rufft w.e.g. d'E-Mail direkt ob a klickt op de Link deen se enthält (kuckt Äre Spam-Dossier!).\n Nëmmen da wäert Är Aktioun zielen!\nÄr Bestätegung ass entscheedend fir d'politesch Gewiicht vun der Aktioun. Dëst garantéiert datt et eng real Persoun hannert all Soumissioun ass. Mir waarden op Är Bestätegung ...",
     "confirmOptIn": "Vergiesst net Är Mailbox ze kontrolléieren (inklusiv Äre Spam-Dossier!)",
-    "emailSent": "Mir hunn Iech eng E-Mail op {{email}} geschéckt!",
     "implicit": "Schéckt dëse Formulaire of fir E-Maile vum {{name}} ze kréien",
     "intro": "Fannt méi iwwer eis Campagnen, Aktiounen an {{campaign}} Fortschrëtter eraus",
     "opt-in": "Jo, ech wëll datt {{partner}} mech per E-Mail informéiert",
     "opt-in-both": "Jo, ech wëll datt {{partner}} an {{lead}} mech per E-Mail informéieren",
     "opt-out": "Nee, schéckt mir keng E-Mail oder haalt mech an Zukunft um Lafenden",
-    "optInConfirmed": "Aschreiwung confirméiert",
     "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun iwwermëttelt, weist Dir Iech averstanen mat der Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
-    "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Mat der Iwwermëttlung vun Informatiounen weist Dir Iech averstanen mat der Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
     "required": "Är Zoustëmmung ass néideg fir matzemaachen"
   },
-  "date": {
-    "error": "ongëlteg Datum. Format: DD.MM.JJJJ"
-  },
   "dateFormat": "DD/MM/JJJJ",
-  "dialogTitle": "Halt mech iwwer d'Campagne informéiert",
   "donation": {
     "amount": {
-      "change": "Betrag änneren",
-      "intro": "Wielt e Betrag"
+      "change": "Betrag änneren"
     },
     "average": "Den Duerchschnëttsdon ass {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Spenden {{amount}} all Mount",
         "oneoff": "Spenden {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Kreditkaartnummer fehlt"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "allgemeng",
       "initialisation": "Initialiséierung"
-    },
-    "form": {
-      "error": {
-        "minimum": "De Minimum Don ass {{amount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Maacht dëst zu engem wëchentlechen Don?",
-        "oneoff": "Spenden",
         "weekly": "Maacht et all Mount?"
       },
       "each": {
-        "monthly": "all Woch",
-        "oneoff": "Eemol",
-        "weekly": "all Mount"
+        "oneoff": "Eemol"
       },
       "feedback": {
-        "monthly": "Ech spenden {{amount}} {{frequency}}",
-        "oneoff": "Ech spenden {{amount}}"
+        "monthly": "Ech spenden {{amount}} {{frequency}}"
       },
       "monthly": "monatlecht",
-      "oneoff": "eemol",
-      "weekly": "wöchentlech",
-      "yearly": "jäerlech"
+      "weekly": "wöchentlech"
     },
     "iban": "IBAN",
-    "intro": "Spenden op {{campaign}}",
     "payment_methods": {
       "card": "Kaart",
-      "intro": "Wéi wëllt Dir spenden?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Bezuelmethod"
     },
-    "thanks": "Merci fir Ären Don!",
     "to": "Don un {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} kann kéng E-Maile kréien",
     "salutation": "Léif Här / Madame",
-    "salutation_female": "Léif {{target.name}}",
     "salutation_info": "(Den Numm vum Empfänger gëtt virum Versand agesat)",
-    "salutation_male": "Léif {{target.name}}",
     "salutation_placeholder": "Léif [Empfänger]"
   },
   "image": {
-    "addSticker": "addéiere Stickeren",
     "addStickerTitle": "Klickt / Tippen fir Sticker op d'Foto ze addéieren",
-    "benefit": "E Bild bäizefügen fir ze schécken - an dat Dir kënnt um nächste Schrëtt deelen - géif Är Handlung méi beaflosst maachen",
     "options": "Wéils du gären",
-    "publish": "Gesäit gutt aus, publizéieren!",
     "select": "wielt Är Bild",
-    "takeTitle": "Maacht eng Foto mat Ärem Telefon",
-    "upload": "Eroplueden eng Foto",
-    "wanttoadd": "Wëllt Dir e Bild addéieren?"
+    "upload": "Eroplueden eng Foto"
   },
   "no": "Nee",
   "progress": {
-    "donate": "{{total}} hunn gespent. Loosst eis op {{goal}}",
     "email": "{{total}} hunn eng E-Mail geschéckt. Loosst eis op {{goal}}",
-    "register": "{{total}} registréiert hunn. Loosst eis op {{goal}}",
     "share": "{{total}} gedeelt hunn. Loosst eis op {{goal}}",
-    "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
     "twitter": "{{total}} hunn twitted. Loosst eis op {{goal}}"
   },
-  "read more": "liesen méi",
   "register": "Füügt mäi Numm dobäi",
-  "reminder": {
-    "intro": "Mir wëssen, Är Regierung freet vill Informatioun. Mir schécken Iech eng eenzeg E-Mail fir Iech drun ze erënneren de Formulaire méi spéit auszefëllen"
-  },
   "required": "néideg",
-  "required field": "néidegt Feld",
   "salutations": {
     "f": "Léif {{target.name}}",
-    "m": "Léiwen {{target.name}}",
     "other": "Léif {{target.name}}"
   },
   "share": {
-    "intro": "Super, du hues ënnerschriwwen 👍. Fir Ären Impakt ze multiplizéieren, deelt wäit a breet fir sécherzestellen datt jiddereen dës Petitioun gesäit 🙏.",
-    "message": "Dir sollt dëst ënnerschreiwen!",
-    "title": "Bal fäerdeg! Huelt de nächste Schrëtt."
+    "message": "Dir sollt dëst ënnerschreiwen!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"
     },
-    "missing": "Wielt op d'mannst een aus {{total}}",
     "postcode": {
       "empty": "et gëtt keen ze kontaktéieren an {{area}}"
     },
-    "random": "Wielt ee vun eise {{total}} wichtegsten Ziler",
     "selected": "{{total}} ausgewielt"
   },
   "twitter": {
-    "actionText": "actionText",
     "again": "Tweet un eng aner Persoun",
-    "choice": "Wat wëllt Dir als nächst maachen?",
     "instruction": "Vervollstännegt w.e.g. den Tweet an enger neier Fënster (op twitter.com)",
-    "organisation": "Twitter Account vun Ärer Organisatioun",
     "screenName": "Kënschtlernumm"
   },
-  "unknown postcode": "onbekannt Postleitzuel",
-  "yes": "Jo",
-  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
+  "yes": "Jo"
 }

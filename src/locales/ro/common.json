@@ -1,177 +1,108 @@
 {
-  "Address": "Adresă",
   "Amount": "Sumă",
-  "Another": "Un alt",
   "Birthdate": "Data nasterii",
-  "City": "Orașul",
   "Comment": "Comentariu",
   "Country": "Țara",
-  "Download": "Descarcă",
   "Download explanation": "Documentul dvs. este acum gata, vă trimitem și prin e-mail.",
-  "Email": "E-mail",
   "First name": "Prenume",
-  "Language": "Limba",
   "Last name": "Numele de familie",
-  "Locality": "Localitate",
   "Next": "Următor",
   "Other": "Altele",
-  "Phone": "Telefon",
   "Postal Code": "Cod poștal",
-  "Salutation": "Salutare",
   "Sorry, we couldn't save": "Ne pare rău, nu am putut salva",
-  "Street": "Strada",
   "Subject": "Subiect",
-  "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
   "action": {
-    "donate": "Donează",
     "eci": "eci",
-    "email": "Trimiteți un e-mail",
     "join": "Alăturați-vă",
-    "register": "Înregistrare",
     "remindeSent": "Trimitere de memento",
-    "reminder": "Adu-mi aminte mai târziu.",
     "reminderEmail": "Amintește-mi prin e-mail",
-    "share": "Share",
     "sign": "Semnează",
     "stayInformed": "Fiți la curent",
-    "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "porniți camera",
-    "take": "Faceți o fotografie",
-    "take-another": "Mai ia una."
+    "take": "Faceți o fotografie"
   },
   "closed": "##multumim pentru {{total}} susținători!\n\nAm încheiat această acțiune, dar munca noastră nu se termină aici, așa că vă rugăm să **să vă lăsați adresa de e-mail pentru a fi informați despre următorii pași**.",
-  "confirm": "Ești sigur?",
   "consent": {
     "actionConfirmed": "Acțiune confirmată",
-    "actionRejected": "Acțiunea a fost anulată cu succes",
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
-    "confirmAction": "Am trimis un link de confirmare prin e-mail la următoarea adresă:\n {{email}}.\nVă rugăm să preluați e-mailul chiar acum și să faceți clic pe link-ul pe care îl conține (verificați dosarul de spam!).\n Doar atunci acțiunea dumneavoastră va conta!\nConfirmarea dvs. este crucială pentru greutatea politică a acțiunii. Acest lucru garantează că în spatele fiecărei propuneri se află o persoană reală. Așteptăm confirmarea dumneavoastră...",
     "confirmOptIn": "Nu uitați să vă verificați căsuța poștală (inclusiv folderul de spam!) și să confirmați abonarea la e-mail.",
-    "emailSent": "Ți-am trimis un e-mail la {email}!",
     "implicit": "Trimiteți acest formular pentru a primi e-mailuri de la {{name}}",
     "intro": "Sunt de acord să mă contactați {{name}} pentru campanii importante",
     "opt-in": "Da, ține-mă informat prin e-mail",
     "opt-in-both": "Da, vreau ca {{partner}} și {{lead}} să mă țină informat prin e-mail",
     "opt-out": "Nu, nu-mi trimite e-mailuri și nu mă ține la curent cu viitorul",
-    "optInConfirmed": "Abonament confirmat",
     "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-    "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "required": "Consimțământul dumneavoastră este necesar pentru a participa"
   },
-  "date": {
-    "error": "dată invalidă. format: DD.MM.AAAA"
-  },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "Păstrați-mă la curent cu campania",
   "donation": {
     "amount": {
-      "change": "Suma de modificare",
-      "intro": "Alegeți o sumă :"
+      "change": "Suma de modificare"
     },
     "average": "Donația medie este de {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Lipsește numărul cardului de credit"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "general",
       "initialisation": "inițializare"
-    },
-    "form": {
-      "error": {
-        "minimum": "Donația minimă este de {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Să fie lunar?",
-        "oneoff": "Donează",
         "weekly": "Să fie o donație săptămânală?"
       },
       "each": {
-        "monthly": "în fiecare lună",
-        "oneoff": "Odată ce",
-        "weekly": "în fiecare an"
+        "oneoff": "Odată ce"
       },
       "feedback": {
-        "monthly": "Donez {{amount}} {{frequency}}",
-        "oneoff": "Donez {{amount}}"
+        "monthly": "Donez {{amount}} {{frequency}}"
       },
       "monthly": "lunar",
-      "oneoff": "o singură dată",
-      "weekly": "săptămânal",
-      "yearly": "anual"
+      "weekly": "săptămânal"
     },
     "iban": "iban",
-    "intro": "Donează la {{campaign}}",
     "payment_methods": {
       "card": "Card",
-      "intro": "Cum doriți să donați?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Metoda de plată"
     },
-    "thanks": "Vă mulțumim pentru donație!",
     "to": "Donație către {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nu poate primi e-mailuri",
     "salutation": "Stimate domnule/doamnă",
-    "salutation_female": "Stimate {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
-    "salutation_male": "Stimate {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "image": {
-    "addSticker": "adăugați autocolante",
     "addStickerTitle": "Faceți clic/Tap pentru a adăuga autocolant la fotografie",
-    "benefit": "Adăugarea unei imagini pe care să o trimiți - și pe care să o poți împărtăși la pasul următor - ar face ca acțiunea ta să aibă un impact mai mare.",
     "options": "Ați dori să",
-    "publish": "Arată bine, publică!",
     "select": "alegeți-vă imaginea",
-    "takeTitle": "Faceți o fotografie cu telefonul dvs.",
-    "upload": "Încărcați o imagine",
-    "wanttoadd": "Doriți să adăugați o imagine?"
+    "upload": "Încărcați o imagine"
   },
   "no": "nu",
   "progress": {
-    "donate": "{{total}} au donat. Să mergem la {{goal}}",
     "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
-    "register": "{{total}} s-au înregistrat. Să mergem la {{goal}}",
     "share": "{{total}} au împărtășit. Să mergem la {{goal}}",
-    "sign": "{{total}} au semnat. Hai să strângem {{goal}}",
     "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
   },
-  "read more": "citește mai mult",
   "register": "Adaugă numele meu",
-  "reminder": {
-    "intro": "Știm că guvernul dvs. solicită multe informații. Vă vom trimite un singur e-mail pentru a vă reaminti să completați formularul mai târziu."
-  },
   "required": "Vă rugăm să completați acest câmp",
-  "required field": "Câmp obligatoriu",
   "salutations": {
     "f": "Dna.",
-    "m": "Dl.",
     "other": "Altele"
   },
   "share": {
-    "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
-    "message": "Ar trebui să semnezi asta!",
-    "title": "Aproape gata! Faceți următorul pas."
+    "message": "Ar trebui să semnezi asta!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "Nu tu?",
     "welcome": "Bine ați revenit {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}."
     },
-    "missing": "Selectați cel puțin unul dintre {{total}}",
     "postcode": {
       "empty": "nu există nimeni de contactat în {{area}}"
     },
-    "random": "A selectat una dintre cele mai importante ținte ale noastre {{total}}.",
     "selected": "{{total}} selectat"
   },
   "twitter": {
-    "actionText": "Am semnat. ar trebui si tu",
     "again": "Tweet către o altă persoană",
-    "choice": "Ce ați dori să faceți în continuare?",
     "instruction": "Vă rugăm să completați trimiterea tweet-ului în fereastra nouă (pe twitter.com)",
-    "organisation": "Contul de Twitter al organizației dvs.",
     "screenName": "Nume de ecran"
   },
-  "unknown postcode": "cod poștal necunoscut",
-  "yes": "da",
-  "you need to be 18 years old": "trebuie să ai 18 ani"
+  "yes": "da"
 }

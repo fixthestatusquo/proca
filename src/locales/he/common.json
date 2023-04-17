@@ -1,177 +1,108 @@
 {
-  "Address": "כתובת",
   "Amount": "כמות",
-  "Another": "אַחֵר",
   "Birthdate": "תאריך לידה",
-  "City": "עִיר",
   "Comment": "תגובה",
   "Country": "מדינה",
-  "Download": "הורד",
   "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם אליך",
-  "Email": "אימייל",
   "First name": "שם פרטי",
-  "Language": "שפה",
   "Last name": "שם משפחה",
-  "Locality": "מָקוֹם",
   "Next": "הַבָּא",
   "Other": "אַחֵר",
-  "Phone": "טלפון",
   "Postal Code": "מיקוד",
-  "Salutation": "דִברֵי בְּרָכָה",
   "Sorry, we couldn't save": "מצטערים, לא הצלחנו לשמור",
-  "Street": "רְחוֹב",
   "Subject": "נושא",
-  "Thank you": "תודה",
   "Your message": "ההודעה שלך",
   "action": {
-    "donate": "לִתְרוֹם",
     "eci": "חתום על ECI",
-    "email": "שלח אימייל",
     "join": "לְהִצְטַרֵף",
-    "register": "הירשם",
     "remindeSent": "תזכורת נשלחה",
-    "reminder": "תזכיר לי אחר כך",
     "reminderEmail": "תזכיר לי במייל",
-    "share": "לַחֲלוֹק",
     "sign": "חתום עכשיו!",
     "stayInformed": "להישאר מעודכן",
-    "takeAction": "לפעול",
     "twitter": "צִיוּץ"
   },
   "camera": {
-    "start": "להפעיל את המצלמה",
-    "take": "צלם תמונה",
-    "take-another": "קח עוד אחד"
+    "take": "צלם תמונה"
   },
   "closed": "##תודה לתומכי {{total}}!\n\nסגרנו את הפעולה הזו, אבל העבודה שלנו לא מסתיימת כאן, אז אנא **השאירו את האימייל שלכם כדי להישאר מעודכן לגבי השלבים הבאים**",
-  "confirm": "האם אתה בטוח?",
   "consent": {
     "actionConfirmed": "הפעולה אושרה",
-    "actionRejected": "הפעולה בוטלה בהצלחה",
     "confirm": "<0>האם אתה בטוח?</0><1>על ידי בחירה ב'לא', לא תוכל לגלות אם מסע הפרסום הזה הצליח, או אם יש עוד פעולה שעלינו לנקוט יחד כדי לזכות בו. אם תבחר 'כן', נעדכן אותך לגבי זה ועל מסעות הפרסום הדחופים האחרים שלנו.</1><2>תוכל לבטל את הרישום בכל עת.</2>",
-    "confirmAction": "נא לאחזר את המייל כבר עכשיו ולחץ על הקישור שהוא מכיל (בדוק בתיקיית הספאם שלך!).\n רק אז הפעולה שלך תיחשב!\nהאישור שלך הוא קריטי למשקל הפוליטי של הפעולה. זה מבטיח שיש אדם אמיתי מאחורי כל הגשה. נמתין לאישורך...",
     "confirmOptIn": "אל תשכח לבדוק את תיבת הדואר שלך (כולל תיקיית הספאם שלך!) ולאשר את מנוי הדוא\"ל שלך",
-    "emailSent": "שלחנו לך אימייל אל {{email}}!",
     "implicit": "שלח טופס זה כדי לקבל אימיילים מ-{{name}}",
     "intro": "למידע נוסף על מסעות הפרסום, הפעולות וההתקדמות {{campaign}} שלנו",
     "opt-in": "כן, אני רוצה ש-{{partner}} יעדכן אותי בדוא\"ל",
     "opt-in-both": "כן, אני רוצה ש-{{partner}} ו-{{lead}} יעדכנו אותי בדוא\"ל",
     "opt-out": "לא, אל תשלח לי אימיילים ואל תעדכן אותי בעתיד",
-    "optInConfirmed": "המנוי אושר",
     "processing": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים ובעוגיות בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
-    "processing-nocookie": "המידע האישי שלך יישמר פרטי ויוחזק בצורה מאובטחת. על ידי שליחת מידע אתה מסכים לשימוש בנתונים בהתאם ל<1>מדיניות הפרטיות</1> שלנו",
     "required": "יש צורך בהסכמתך כדי להשתתף"
   },
-  "date": {
-    "error": "תאריך לא חוקי. פורמט: DD.MM.YYYY"
-  },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "עדכן אותי על הקמפיין",
   "donation": {
     "amount": {
-      "change": "שנה כמות",
-      "intro": "בחר כמות"
+      "change": "שנה כמות"
     },
     "average": "התרומה הממוצעת היא {{amount}}",
     "button": {
       "cta": {
-        "monthly": "תרום {{amount}} כל חודש",
         "oneoff": "תרומה {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "חסר מספר כרטיס אשראי"
-      },
       "form": {
         "invalid": {
           "iban": "איבן"
         }
       },
-      "general": "כללי",
       "initialisation": "אתחול"
-    },
-    "form": {
-      "error": {
-        "minimum": "התרומה המינימלית היא {{amount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "האם לעשות זאת כתרומה שבועית?",
-        "oneoff": "לִתְרוֹם",
         "weekly": "לעשות את זה חודשי?"
       },
       "each": {
-        "monthly": "כל שבוע",
-        "oneoff": "פַּעַם",
-        "weekly": "כל חודש"
+        "oneoff": "פַּעַם"
       },
       "feedback": {
-        "monthly": "אני תורם {{amount}} {{frequency}}",
-        "oneoff": "אני תורם {{amount}}"
+        "monthly": "אני תורם {{amount}} {{frequency}}"
       },
       "monthly": "יַרחוֹן",
-      "oneoff": "פַּעַם",
-      "weekly": "שְׁבוּעִי",
-      "yearly": "שְׁנָתִי"
+      "weekly": "שְׁבוּעִי"
     },
     "iban": "IBAN",
-    "intro": "תרומה ל-{{campaign}}",
     "payment_methods": {
       "card": "כַּרְטִיס",
-      "intro": "איך אתה רוצה לתרום?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "אמצעי תשלום"
     },
-    "thanks": "תודה על תרומתך!",
     "to": "תרומה ל-{{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} לא יכול לקבל אימיילים",
     "salutation": "אדון / גברת יקרים",
-    "salutation_female": "{{target.name}} יקר",
     "salutation_info": "(שם הנמען יופיע לפני השליחה)",
-    "salutation_male": "היקר {{target.name}}",
     "salutation_placeholder": "[נמען] יקר"
   },
   "image": {
-    "addSticker": "להוסיף מדבקות",
     "addStickerTitle": "לחץ/הקש כדי להוסיף מדבקה לתמונה",
-    "benefit": "הוספת תמונה לשליחה - ושתוכל לשתף בשלב הבא - תהפוך את הפעולה שלך למשפיעה יותר",
     "options": "האם תרצה ל",
-    "publish": "נראה טוב, פרסם!",
     "select": "בחר את התמונה שלך",
-    "takeTitle": "צלם תמונה עם הטלפון שלך",
-    "upload": "תעלה תמונה",
-    "wanttoadd": "האם אתה רוצה להוסיף תמונה?"
+    "upload": "תעלה תמונה"
   },
   "no": "לא",
   "progress": {
-    "donate": "{{total}} תרמו. בוא נלך אל {{goal}}",
     "email": "{{total}} שלחו אימייל. בוא נלך אל {{goal}}",
-    "register": "{{total}} נרשמו. בוא נלך אל {{goal}}",
     "share": "{{total}} שיתפו. בוא נלך אל {{goal}}",
-    "sign": "{{total}} חתמו. בוא נלך אל {{goal}}",
     "twitter": "{{total}} צייצו. בוא נלך אל {{goal}}"
   },
-  "read more": "קרא עוד",
   "register": "הוסף את שמי",
-  "reminder": {
-    "intro": "אנחנו יודעים, הממשלה שלך שואלת הרבה מידע. אנו נשלח לך אימייל בודד כדי להזכיר לך למלא את הטופס מאוחר יותר"
-  },
   "required": "נדרש",
-  "required field": "שדה נדרש",
   "salutations": {
     "f": "היקר {{name}}",
-    "m": "היקר {{name}}",
     "other": "היקר {{name}}"
   },
   "share": {
-    "intro": "מעולה, חתמת 👍. כדי להכפיל את ההשפעה שלך, שתף למרחקים כדי לוודא שכולם רואים את העצומה הזו 🙏.",
-    "message": "אתה צריך לחתום על זה!",
-    "title": "כמעט סיימתי! קח את הצעד הבא."
+    "message": "אתה צריך לחתום על זה!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "לא אתה?",
     "welcome": "ברוך שובך, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "בחר מדינה אחרת, אין עם מי לפנות ב-{{country}}"
     },
-    "missing": "בחר לפחות אחד מתוך {{total}}",
     "postcode": {
       "empty": "אין עם מי לפנות ב-{{area}}"
     },
-    "random": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו",
     "selected": "{{total}} נבחר"
   },
   "twitter": {
-    "actionText": "actionText",
     "again": "ציוץ לאדם אחר",
-    "choice": "מה ברצונך לעשות לאחר מכן?",
     "instruction": "נא להשלים את שליחת הציוץ בחלון החדש (ב-twitter.com)",
-    "organisation": "חשבון הטוויטר של הארגון שלך",
     "screenName": "שם מסך"
   },
-  "unknown postcode": "מיקוד לא ידוע",
-  "yes": "כן",
-  "you need to be 18 years old": "אתה צריך להיות בן 18"
+  "yes": "כן"
 }

@@ -1,177 +1,108 @@
 {
-  "Address": "Cím",
   "Amount": "Összeg",
-  "Another": "Egy másik",
   "Birthdate": "Születési dátum",
-  "City": "Város",
   "Comment": "Megjegyzés",
   "Country": "Ország",
-  "Download": "Letöltés",
   "Download explanation": "A dokumentumod készen áll, neked is elküldjük.",
-  "Email": "E-mail",
   "First name": "Keresztnév",
-  "Language": "Nyelv",
   "Last name": "Vezetéknév",
-  "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
   "Other": "Egyéb",
-  "Phone": "Telefon",
   "Postal Code": "irányítószám",
-  "Salutation": "Üdvözlés",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
-  "Street": "Street",
   "Subject": "Tárgy:",
-  "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
   "action": {
-    "donate": "Adományozni",
     "eci": "eci",
-    "email": "E-mail küldése",
     "join": "Csatlakozzon a",
-    "register": "Regisztráció",
     "remindeSent": "Emlékeztető küldött",
-    "reminder": "Emlékeztess később",
     "reminderEmail": "Emlékeztessen e-mailben",
-    "share": "Megosztás",
     "sign": "Jelentkezzen a  címen.",
     "stayInformed": "Tájékoztatás kérése",
-    "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "indítsa el a kamerát",
-    "take": "Fényképezzen",
-    "take-another": "Vegyél még egyet"
+    "take": "Fényképezzen"
   },
   "closed": "##köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
-  "confirm": "Biztos vagy benne?",
   "consent": {
     "actionConfirmed": "Megerősített intézkedés",
-    "actionRejected": "A művelet sikeresen törlésre került",
     "confirm": "<0>Biztos vagy benne?</0> <1> A „Nem” kiválasztásával nem fogsz értesülni róla, hogy a kampány sikeres-e, vagy lesznek-e egyéb akcióink a témában, amihez csatlakozhatsz. Ha az “Igen” lehetőséget választod, akkor folyamatosan tájékoztatunk majd erről a kampányról, és egyéb, jövőbeni kampányainkról is. </1> <2>Ezekről a levelekről bármikor leiratkozhatsz.</2>",
-    "confirmAction": "Küldtünk egy megerősítő linket e-mailben az alábbi címre:\n {{email}}\nKérjük, hogy most azonnal hívja le az e-mailt, és kattintson a benne található linkre (ellenőrizze a spam mappát!).\n Csak akkor számít az akciója!\nAz Ön megerősítése döntő fontosságú az akció politikai súlya szempontjából. Ez garantálja, hogy minden beadvány mögött egy valós személy áll. Várjuk a megerősítésedet...",
     "confirmOptIn": "Ne felejtse el ellenőrizni postafiókját (beleértve a spam mappát is!) és erősítse meg e-mail feliratkozását!",
-    "emailSent": "Küldtünk egy e-mailt a {email} címre!",
     "implicit": "Küldje el ezt az űrlapot, hogy e-maileket kapjon {{name}}",
     "intro": "Tudj meg többet kampányainkról, akcióinkról és a futó {{campaign}} kampány előrehaladásáról",
     "opt-in": "Igen, szeretném, hogy a {{partner}} e-mailben értesítéseket küldjön Nekem",
     "opt-in-both": "Igen, szeretném, hogy a {{partner}} és {{lead}} e-mailben értesítéseket küldjön Nekem",
     "opt-out": "Nem, ne küldjön e-mailt, és ne tájékoztasson a jövőben",
-    "optInConfirmed": "Előfizetés megerősítve",
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
-    "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
     "required": "A részvételhez az Ön hozzájárulása szükséges"
   },
-  "date": {
-    "error": "érvénytelen dátum. formátum: MM.YYYY"
-  },
   "dateFormat": "NN/HH/EEEE",
-  "dialogTitle": "Tájékoztasson a kampányról",
   "donation": {
     "amount": {
-      "change": "Változás összege",
-      "intro": "Válasszon egy összeget :"
+      "change": "Változás összege"
     },
     "average": "Az átlagos adományozás {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "A hitelkártya száma hiányzik"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "általános",
       "initialisation": "inicializálás"
-    },
-    "form": {
-      "error": {
-        "minimum": "A minimális adomány összege {{ampount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Havi rendszerességgel?",
-        "oneoff": "Adományozni",
         "weekly": "Legyen ez heti adomány?"
       },
       "each": {
-        "monthly": "minden hónapban",
-        "oneoff": "Egyszer",
-        "weekly": "minden évben"
+        "oneoff": "Egyszer"
       },
       "feedback": {
-        "monthly": "Adományozom {{amount}} {{frequency}}",
-        "oneoff": "Adományozom {{amount}}"
+        "monthly": "Adományozom {{amount}} {{frequency}}"
       },
       "monthly": "havonta",
-      "oneoff": "egyszeri",
-      "weekly": "heti",
-      "yearly": "évente"
+      "weekly": "heti"
     },
     "iban": "iban",
-    "intro": "Adományozni a {{campaign}} címre",
     "payment_methods": {
       "card": "Kártya",
-      "intro": "Hogyan szeretne adományozni?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Fizetési mód"
     },
-    "thanks": "Köszönjük adományát!",
     "to": "Adomány a {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
     "salutation": "Tisztelt Uram/hölgyem",
-    "salutation_female": "Kedves {{target.name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
-    "salutation_male": "Kedves {{target.name}}",
     "salutation_placeholder": "Kedves [címzett],"
   },
   "image": {
-    "addSticker": "matricák hozzáadása",
     "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",
-    "benefit": "Egy kép hozzáadása a küldéshez - amit a következő lépésben megoszthatsz - még hatásosabbá tenné az akciódat.",
     "options": "Szeretne",
-    "publish": "Jól néz ki, publikáld!",
     "select": "válasszon képet",
-    "takeTitle": "Készítsen egy képet a telefonjával",
-    "upload": "Kép feltöltése",
-    "wanttoadd": "Szeretne egy képet hozzáadni?"
+    "upload": "Kép feltöltése"
   },
   "no": "nincs",
   "progress": {
-    "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
     "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
-    "register": "{{total}} regisztráltak. Menjünk a {{goal}}",
     "share": "{{total}} megosztották. Menjünk a {{goal}}",
-    "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
     "twitter": "{{total}} twitteltek. Menjünk a {{goal}}"
   },
-  "read more": "tovább",
   "register": "Add hozzá a nevemet",
-  "reminder": {
-    "intro": "Tudjuk, hogy a kormányuk sok információt kér. Egyetlen e-mailt küldünk Önnek, hogy emlékeztessük, hogy később töltse ki az űrlapot."
-  },
   "required": "Kérjük, töltse ki ezt a mezőt",
-  "required field": "Kötelező mező",
   "salutations": {
     "f": "Ms.",
-    "m": "Mr.",
     "other": "Egyéb"
   },
   "share": {
-    "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
-    "message": "Ezt alá kellene írnia!",
-    "title": "Majdnem készen is vagyunk!"
+    "message": "Ezt alá kellene írnia!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni."
     },
-    "missing": "Válasszon ki legalább egyet a következők közül {{total}}",
     "postcode": {
       "empty": "nincs senki, akivel kapcsolatba lehetne lépni {{area}}"
     },
-    "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat.",
     "selected": "{{total}} kiválasztott"
   },
   "twitter": {
-    "actionText": "Aláírtam. Neked is kellene",
     "again": "Tweet egy másik személynek",
-    "choice": "Mit szeretnél legközelebb csinálni?",
     "instruction": "Kérjük, töltse ki a tweet elküldését az új ablakban (a twitter.com-on)",
-    "organisation": "Az Ön szervezetének twitter fiókja",
     "screenName": "Képernyő neve"
   },
-  "unknown postcode": "ismeretlen irányítószám",
-  "yes": "igen",
-  "you need to be 18 years old": "18 évesnek kell lenned"
+  "yes": "igen"
 }

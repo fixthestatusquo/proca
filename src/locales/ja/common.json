@@ -1,177 +1,108 @@
 {
-  "Address": "住所",
   "Amount": "金額",
-  "Another": "別の",
   "Birthdate": "生年月日",
-  "City": "都市",
   "Comment": "コメント",
   "Country": "国名",
-  "Download": "ダウンロード",
   "Download explanation": "ドキュメントが完成しましたので、こちらもメールで送信しています",
-  "Email": "電子メール",
   "First name": "氏名",
-  "Language": "言語",
   "Last name": "ラストネーム",
-  "Locality": "所在地",
   "Next": "次のページ",
   "Other": "その他",
-  "Phone": "電話番号",
   "Postal Code": "郵便番号",
-  "Salutation": "敬称略",
   "Sorry, we couldn't save": "申し訳ございませんが、保存できませんでした",
-  "Street": "ストリート",
   "Subject": "課題",
-  "Thank you": "ありがとうございました。",
   "Your message": "メッセージ",
   "action": {
-    "donate": "寄付する",
     "eci": "ECIに署名する",
-    "email": "電子メールを送信する",
     "join": "参加",
-    "register": "登録",
     "remindeSent": "リマインダーを送信",
-    "reminder": "後で思い出してください",
     "reminderEmail": "メールでリマインドする",
-    "share": "シェア",
     "sign": "今すぐサイン",
     "stayInformed": "情報提供",
-    "takeAction": "テイクアクション",
     "twitter": "ツイート"
   },
   "camera": {
-    "start": "カメラを起動する",
-    "take": "写真を撮る",
-    "take-another": "もう一枚"
+    "take": "写真を撮る"
   },
   "closed": "##thanks to{{total}} supporters!\n\nこのアクションは終了しましたが、私たちの活動はここで終わりませんので、**次のステップについて情報を得るためにメールを残してください**。",
-  "confirm": "本当にいいんですか？",
   "consent": {
     "actionConfirmed": "アクションの確認",
-    "actionRejected": "アクションは正常にキャンセルされました",
     "confirm": "<0>本当によろしいですか</0><1> 「いいえ」を選択すると、このキャンペーンが成功したかどうか、あるいはキャンペーンを勝ち取るために私たちが取るべき行動があるかどうかを知ることができません。</1><2>いつでも配信を停止することができます。",
-    "confirmAction": "今すぐメールを取得し、その中に含まれるリンクをクリックしてください（迷惑メールフォルダを確認してください！）。\n そうして初めて、あなたの行動がカウントされるのです!\nあなたの確認は、アクションの政治的な重みのために重要です。これにより、すべての投稿の背後に実在する人物が存在することが保証されます。あなたの確認を待っています...",
     "confirmOptIn": "メールボックス（迷惑メールフォルダも含む）を確認し、メール購読を確定することをお忘れなく",
-    "emailSent": "{{email}} にメールを送りました !",
     "implicit": "このフォームを送信することで、当社からのメールを受け取ることができます。{{name}}",
     "intro": "キャンペーン、アクション、{{campaign}} の進捗状況について詳しく知ることができます。",
     "opt-in": "はい、{{partner}} からのメールによる情報提供を希望します。",
     "opt-in-both": "はい、{{partner}} と{{lead}} からのメールによる情報提供を希望します。",
     "opt-out": "いいえ、今後メールを送ったり、最新情報を入手したりしないでください",
-    "optInConfirmed": "加入確定",
     "processing": "お客様の個人情報は、非公開で安全に保管されます。情報を送信することにより、当社の<1>プライバシーポリシー</1>に従ったデータおよびクッキーの使用に同意したものとみなされます。",
-    "processing-nocookie": "お客様の個人情報は、非公開で安全に保管されます。情報を送信することにより、お客様は当社の<1>プライバシーポリシー</1>に従ったデータの使用に同意したものとみなされます。",
     "required": "参加にはご本人の同意が必要です"
   },
-  "date": {
-    "error": "無効な日付のフォーマットです。DD.MM.YYYY"
-  },
   "dateFormat": "DD/MM/YYYYY",
-  "dialogTitle": "キャンペーンに関する情報を教えてください",
   "donation": {
     "amount": {
-      "change": "増減額",
-      "intro": "金額を選択する"
+      "change": "増減額"
     },
     "average": "平均的な寄付は{{amount}}",
     "button": {
       "cta": {
-        "monthly": "毎月{{amount}} を寄付する",
         "oneoff": "寄付する{{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "クレジットカードの番号がない"
-      },
       "form": {
         "invalid": {
           "iban": "アイバン"
         }
       },
-      "general": "一般",
       "initialisation": "初期化"
-    },
-    "form": {
-      "error": {
-        "minimum": "寄付の最低額は{{amount}}"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "毎週寄付する？",
-        "oneoff": "寄付する",
         "weekly": "月1回にする？"
       },
       "each": {
-        "monthly": "各週",
-        "oneoff": "一度",
-        "weekly": "毎月"
+        "oneoff": "一度"
       },
       "feedback": {
-        "monthly": "寄付する{{amount}} {{frequency}}",
-        "oneoff": "寄付する{{amount}}"
+        "monthly": "寄付する{{amount}} {{frequency}}"
       },
       "monthly": "毎月",
-      "oneoff": "一旦",
-      "weekly": "ウィークリー",
-      "yearly": "毎年"
+      "weekly": "ウィークリー"
     },
     "iban": "IBAN",
-    "intro": "寄付先{{campaign}}",
     "payment_methods": {
       "card": "カード",
-      "intro": "どのように寄付をしますか？",
       "paypal": "ペイパル",
-      "sepa": "セパ",
       "title": "支払方法"
     },
-    "thanks": "寄付をありがとうございました。",
     "to": "寄付先{{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} メール受信不可",
     "salutation": "拝啓",
-    "salutation_female": "Dear {{target.name}}様",
     "salutation_info": "(送信前に受信者の名前が入ります）。",
-    "salutation_male": "親愛なる {{target.name}}へ",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
   "image": {
-    "addSticker": "シールを貼る",
     "addStickerTitle": "クリック/タップで写真にステッカーを追加",
-    "benefit": "次のステップで共有できる画像を追加して送信すると、よりインパクトのあるアクションになります。",
     "options": "をしたいですか？",
-    "publish": "良さそうですね、出版!",
     "select": "絵を選ぶ",
-    "takeTitle": "スマホで撮影する",
-    "upload": "写真をアップロードする",
-    "wanttoadd": "画像を追加しますか？"
+    "upload": "写真をアップロードする"
   },
   "no": "ノー",
   "progress": {
-    "donate": "{{total}} が寄付をしました。に行ってみよう。{{goal}}",
     "email": "{{total}} はメールを送信しました。に行ってみましょう。{{goal}}",
-    "register": "{{total}} が登録されています。に行ってみましょう。{{goal}}",
     "share": "{{total}} が共有しました。に行ってみましょう。{{goal}}",
-    "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}",
     "twitter": "{{total}} がツッコミを入れました。に行ってみましょう。{{goal}}"
   },
-  "read more": "読み替える",
   "register": "私の名前を追加",
-  "reminder": {
-    "intro": "私たちは、あなたの政府が多くの情報を求めていることを知っています。後日、フォームへの記入を促すメールを1通お送りします。"
-  },
   "required": "要",
-  "required field": "必須項目",
   "salutations": {
     "f": "拝啓{{target.name}}",
-    "m": "拝啓{{target.name}}",
     "other": "拝啓{{target.name}}"
   },
   "share": {
-    "intro": "素晴らしい、あなたは署名しました👍。あなたの影響力を倍増させるために、この請願書🙏を皆に見てもらうために、広く共有してください。",
-    "message": "これにサインしてください",
-    "title": "もう少しで完成です次のステップに進んでください。"
+    "message": "これにサインしてください"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "じゃなくて？",
     "welcome": "おかえりなさい、{{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "他の国を選択し、連絡する人がいない。{{country}}"
     },
-    "missing": "の中から1つ以上選んでください。{{total}}",
     "postcode": {
       "empty": "での連絡先がない{{area}}"
     },
-    "random": "{{total}} 最も重要なターゲットの一つを選択しました。",
     "selected": "{{total}} 選り抜き"
   },
   "twitter": {
-    "actionText": "アクションテキスト",
     "again": "他の人につぶやく",
-    "choice": "次にやりたいことは何ですか？",
     "instruction": "新しいウィンドウ（twitter.com）でツイート送信を完了してください。",
-    "organisation": "あなたの組織のTwitterアカウント",
     "screenName": "スクリーン名"
   },
-  "unknown postcode": "不明な郵便番号",
-  "yes": "はあ",
-  "you need to be 18 years old": "18歳以上である必要があります"
+  "yes": "はあ"
 }

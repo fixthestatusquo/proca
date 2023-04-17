@@ -1,177 +1,108 @@
 {
-  "Address": "Helbidea",
   "Amount": "Kopurua",
-  "Another": "Beste bat",
   "Birthdate": "Urtebetetze data",
-  "City": "Hiria",
   "Comment": "Iruzkina utzi",
   "Country": "Herrialdea",
-  "Download": "Deskargatu",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
-  "Email": "E-posta",
   "First name": "Izena",
-  "Language": "Hizkuntza",
   "Last name": "Abizena",
-  "Locality": "Herria",
   "Next": "Hurrengoa",
   "Other": "Beste bat",
-  "Phone": "Telefonoa",
   "Postal Code": "Posta kodea",
-  "Salutation": "Agurra",
   "Sorry, we couldn't save": "Ezin izan dugu gorde",
-  "Street": "Kalea",
   "Subject": "Gaia",
-  "Thank you": "Eskerrik asko!",
   "Your message": "Zure mezua",
   "action": {
-    "donate": "Dohaintza eman",
     "eci": "eci",
-    "email": "Bidali mezu elektroniko bat",
     "join": "Sartu",
-    "register": "Izena eman",
     "remindeSent": "Bidali da abisua",
-    "reminder": "Gogoratu geroago",
     "reminderEmail": "E-postaz gogorarazi",
-    "share": "Partekatu",
     "sign": "Sinatu",
     "stayInformed": "Egon informatuta",
-    "takeAction": "Hartu ekintza!",
     "twitter": "Txio egin"
   },
   "camera": {
-    "start": "kamera martxan jarri",
-    "take": "Atera argazkia",
-    "take-another": "Hartu beste bat"
+    "take": "Atera argazkia"
   },
   "closed": "##esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
-  "confirm": "Ziur zaude?",
   "consent": {
     "actionConfirmed": "Ekintza berretsi da",
-    "actionRejected": "Ekintza behar bezala bertan behera utzi da",
     "confirm": "<0> Ziur al zaude? </0> <1> \"Ez\" hautatuta, ezin izango duzu jakin kanpaina hau arrakastatsua den edo irabazteko ekintza gehiago egin behar ditugun elkarrekin. \"Bai\" hautatzen baduzu hau eta beste premiazko kanpainen berri emango dizugu. </1> <2> Edonoiz harpidetza kentzeko aukera izango duzu. </2>",
-    "confirmAction": "Berrespen-esteka bat bidali dugu posta elektronikoz helbide honetara:\n {{email}}\nMesedez, berreskuratu e-posta oraintxe bertan eta egin klik daukan estekan (begiratu zure spam karpeta!).\n Orduan bakarrik balioko du zure ekintzak!\nZure baieztapena funtsezkoa da ekintzaren pisu politikorako. Honek bidalketa bakoitzaren atzean benetako pertsona bat dagoela bermatzen du. Zure baieztapenaren zain egongo gara...",
     "confirmOptIn": "Ez ahaztu zure postontzia egiaztatzea (zure spam karpeta barne!) eta berretsi zure posta elektronikoko harpidetza",
-    "emailSent": "Mezu elektroniko bat bidali dizugu {email} helbidera!",
     "implicit": "Bidali inprimaki hau {{name}} -ren mezu elektronikoak jasotzeko.",
     "intro": "Ados nago Merkataritza eta Inbertsio Itunen kontrako Kanpaina nirekin harremanetan jartzearekin, kanpaina garrantzitsuei buruzko informazioa helarazteko.",
     "opt-in": "Bai, posta elektroniko bidez informatuta egon nahi dut.",
     "opt-in-both": "Bai, {{partner}} eta {{lead}} mezu elektronikoen bidez informatuta egotea nahi dut",
     "opt-out": "Ez, ez nazazu mezu elektronikorik bidali edo aurrerantzean eguneratu nazazu",
-    "optInConfirmed": "Harpidetza berretsi da",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
-    "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
     "required": "Zure baimena behar da parte hartzeko"
   },
-  "date": {
-    "error": "data baliogabea. formatua: DD.MM.AAAA"
-  },
   "dateFormat": "DD/MM/AAAA",
-  "dialogTitle": "Jarrai nazazu kanpainaren berri",
   "donation": {
     "amount": {
-      "change": "Aldatu zenbatekoa",
-      "intro": "Aukeratu Zenbateko bat:"
+      "change": "Aldatu zenbatekoa"
     },
     "average": "Batez besteko dohaintza {{amount}} da",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
         "oneoff": "Donate {{amount}}"
       }
     },
     "error": {
-      "card": {
-        "missing": "Kreditu txartelaren zenbakia falta da"
-      },
       "form": {
         "invalid": {
           "iban": "iban"
         }
       },
-      "general": "orokorra",
       "initialisation": "hasieratzea"
-    },
-    "form": {
-      "error": {
-        "minimum": "Gutxieneko dohaintza {{ampount}} da"
-      }
     },
     "frequency": {
       "ask": {
         "monthly": "Hilero egin?",
-        "oneoff": "Dohaintza eman",
         "weekly": "Asteroko dohaintza bat egin nahi duzu?"
       },
       "each": {
-        "monthly": "hilero",
-        "oneoff": "Behin",
-        "weekly": "urtero"
+        "oneoff": "Behin"
       },
       "feedback": {
-        "monthly": "{{amount}} {{frequency}} ematen ari naiz",
-        "oneoff": "Dohaintzan ari naiz {{amount}}"
+        "monthly": "{{amount}} {{frequency}} ematen ari naiz"
       },
       "monthly": "hilero",
-      "oneoff": "bat off",
-      "weekly": "astero",
-      "yearly": "urtero"
+      "weekly": "astero"
     },
     "iban": "iban",
-    "intro": "Dohaintza egin {{campaign}}",
     "payment_methods": {
       "card": "Txartela",
-      "intro": "Nola eman nahi duzu dohaintza?",
       "paypal": "PayPal",
-      "sepa": "SEPA",
       "title": "Ordainketa modua"
     },
-    "thanks": "Eskerrik asko zure dohaintzagatik!",
     "to": "Dohaintza {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ezin da mezu elektronikorik jaso",
     "salutation": "Jaun/andrea agurgarria",
-    "salutation_female": "{{target.name}} maitea",
     "salutation_info": "(izena bidali aurretik jarriko da)",
-    "salutation_male": "{{target.name}} maitea",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
   "image": {
-    "addSticker": "eranskailuak gehitu",
     "addStickerTitle": "Egin klik/Sakatu eranskailua argazkiari gehitzeko",
-    "benefit": "Bidaltzeko irudi bat gehitzeak -eta hurrengo urratsean parteka dezakezuna- zure ekintzak eragin handiagoa izango luke",
     "options": "Gustatuko litzaizuke",
-    "publish": "Itxura ona du, argitaratu!",
     "select": "aukeratu zure argazkia",
-    "takeTitle": "Atera argazki bat telefonoarekin",
-    "upload": "Igo argazki bat",
-    "wanttoadd": "Irudi bat gehitu nahi duzu?"
+    "upload": "Igo argazki bat"
   },
   "no": "ez",
   "progress": {
-    "donate": "{{total}} dohaintza egin dute. Goazen {{goal}}",
     "email": "{{total}}-ek mezu elektroniko bat bidali du. Goazen {{goal}}",
-    "register": "{{total}} erregistratu dira. Goazen {{goal}}",
     "share": "{{total}} partekatu dute. Goazen {{goal}}",
-    "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera",
     "twitter": "{{total}} twitteatu dute. Goazen {{goal}}"
   },
-  "read more": "Irakurri gehiago",
   "register": "Gehitu nire izena",
-  "reminder": {
-    "intro": "Badakigu zure gobernuak informazio asko eskatzen duela. Mezu elektroniko bakarra bidaliko dizugu geroago formularioa bete behar duzula gogorarazteko"
-  },
   "required": "Mesedez, bete eremu hau",
-  "required field": "Beharrezko eremua",
   "salutations": {
     "f": "Anderea.",
-    "m": "Jauna.",
     "other": "Bestela"
   },
   "share": {
-    "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
-    "message": "Hau sinatu beharko zenuke!",
-    "title": "Bukatzear! Hurrengo pausoa eman."
+    "message": "Hau sinatu beharko zenuke!"
   },
   "step": {
     "eci": {
@@ -179,30 +110,21 @@
     }
   },
   "supporter": {
-    "not_you": "zu ez?",
     "welcome": "Ongi etorri berriro {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
       "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"
     },
-    "missing": "Hautatu gutxienez bat {{total}}",
     "postcode": {
       "empty": "ez dago inor harremanetan jartzeko {{area}}"
     },
-    "random": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu",
     "selected": "{{total}} hautatuta"
   },
   "twitter": {
-    "actionText": "Sinatu nuen. zuk ere egin beharko zenuke",
     "again": "Txio egin beste pertsona bati",
-    "choice": "Zer egin nahiko zenuke hurrengoan?",
     "instruction": "Mesedez, osatu txioa leiho berrian bidaltzen (twitter.com-en)",
-    "organisation": "Zure erakundearen twitter kontua",
     "screenName": "Pantailaren Izena"
   },
-  "unknown postcode": "posta-kode ezezaguna",
-  "yes": "bai",
-  "you need to be 18 years old": "18 urte izan behar dituzu"
+  "yes": "bai"
 }
