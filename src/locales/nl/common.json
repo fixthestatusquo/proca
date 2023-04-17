@@ -147,7 +147,7 @@
     "upload": "Een foto uploaden",
     "wanttoadd": "Wilt u een afbeelding toevoegen?"
   },
-  "no": "geen",
+  "no": "nee",
   "progress": {
     "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
     "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",

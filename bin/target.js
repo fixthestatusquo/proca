@@ -16,6 +16,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "git",
     "pull",
     "push",
+    "digest",
     "publish",
     "twitter",
     "source",
@@ -171,7 +172,7 @@ const summary = (campaign) => {
   console.log("public :", publict.length);
 };
 
-const pushTarget = async (campaignName, file) => {
+const formatTarget = async (campaignName, file) => {
   const campaign = read("campaign/" + campaignName);
   const salutations = {};
   if (argv.salutation) {
@@ -229,8 +230,8 @@ const pushTarget = async (campaignName, file) => {
             name: t.name,
           });
         } else {
-          let language = t.locale.replace("_", "-") || "en";
-          await i18n.loadLanguages(t.locale, (err) => {
+          let language = t.locale ? t.locale.replace("_", "-") : "en";
+          await i18n.loadLanguages(t.locale || "en", (err) => {
             if (!err) return;
             console.warn(color.red("missing language", language));
           });
@@ -265,6 +266,12 @@ const pushTarget = async (campaignName, file) => {
   if (argv["verbose"]) {
     console.log(JSON.stringify(formattedTargets, null, 2));
   }
+};
+const pushTarget = async (campaignName, file) => {
+  const targets = formatTarget(campaignName, file);
+
+  console.log("targets", targets.length);
+
   if (argv["dry-run"]) {
     process.exit(0);
   }
