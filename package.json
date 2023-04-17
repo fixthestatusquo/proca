@@ -1,12 +1,9 @@
 {
   "name": "@proca/widget",
-  "version": "1.0.0",
+  "version": "0.9.0-beta.1",
   "private": false,
   "files": [
-    "bin/target.js",
-    "bin/git.js",
-    "bin/widget.js",
-    "bin/campaign.js",
+    "dist",
     "README.md"
   ],
   "main": "dist/module.js",
@@ -17,9 +14,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/TechToThePeople/proca"
-  },
-  "peerDependenciesMeta": {
-    "react": {"optional":true}
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
@@ -100,7 +94,7 @@
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "i18n:mjml": "NODE_ENV=development babel -f .babelrc.mjml 'config/email/**/*.mjml'",
     "nope.prepublish": "babel src --out-dir lib",
-    "nope.prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
+    "prepublishOnly": "node src/locales/index.js && rm -rf dist/* && babel src --config-file ./package.babel.config.js --out-dir dist --copy-files",
     "set": "node bin/set.js",
     "campaign": "node bin/campaign.js",
     "target": "node bin/target.js",
