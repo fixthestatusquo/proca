@@ -41,7 +41,6 @@ const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
     tmp + "email/digest/" + templateName + "/" + lang + ".json"
   );
   const type = "digest";
-  console.log("config", campaign);
   const json = {
     meta: {
       subject: subject,
