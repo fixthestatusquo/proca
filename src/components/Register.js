@@ -409,7 +409,7 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
-  if (config.component.consent.buttons) ConsentBlock = () => null;
+  if (config.component.consent?.buttons) ConsentBlock = () => null;
 
   const validateEmail = async (email) => {
     if (config.component?.register?.validateEmail === false) return true;
