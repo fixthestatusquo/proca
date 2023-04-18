@@ -233,6 +233,9 @@ const ImageStickerKonva = (props) => {
     //    r.hash;
     setValue("hash", r.hash);
     setValue("dimension", "[" + r.width + "," + r.height + "]");
+
+    canvasRef.current.find("Circle").forEach((d) => d.hide());
+    canvasRef.current.find(".delete").forEach((d) => d.hide());
     props.setImage(canvasRef.current.toCanvas().toDataURL("image/jpeg", 0.8));
     //    console.log(canvasRef.current.toDataUrl("jpeg",81));
     props.setDraw(!close);

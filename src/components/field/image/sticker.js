@@ -127,6 +127,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
           onTouchStart={onDelete}
           onClick={onDelete}
           image={deleteImage}
+          name="delete"
           width={25}
           height={25}
           offsetX={-size.width + 20}
