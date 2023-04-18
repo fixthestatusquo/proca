@@ -102,12 +102,13 @@ const subject = (config, key) => {
     try {
       const server = (await i18nTplInit(campaign)) || {};
       let config = { lang: lang, locales: locales[lang] };
+      let s = subject(config, argv.key);
       if (server) config.locales["server:"] = server;
       saveConfig(
         tplName,
         campaignName,
         lang,
-        subject(config, argv.key),
+        s,
         campaign
       );
       configOverride(config);
