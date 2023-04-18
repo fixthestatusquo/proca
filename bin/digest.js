@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
+const color = require("cli-color");
 require("./dotenv.js");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run", "extract", "verbose", "push"],
   alias: { v: "verbose" },
-  default: { mjml: "default/digest", key: "default" },
+  default: { mjml: "default", key: "default" },
 });
 const { mkdirp, read, fileExists, save } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
@@ -22,8 +23,8 @@ const help = () => {
       "options",
       "--help (this command)",
       "--dry-run (show the result but don't write)",
-      "campaign name",
-      "--mjml {template to use in config/mjml/campaigName)",
+      "[campaign name]",
+      "--mjml (template to use in config/mjml/[campaign name])",
       "--key {key to use for subject in config.locales.server.digest.{key}.subject)",
     ].join("\n")
   );
@@ -34,16 +35,18 @@ if (!argv._.length || argv.help) {
   return help();
 }
 
-const saveConfig = (templateName, campaignName, lang, subject) => {
+const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
   const jsonFile = path.resolve(
     __dirname,
     tmp + "email/digest/" + templateName + "/" + lang + ".json"
   );
   const type = "digest";
+  console.log("config", campaign);
   const json = {
     meta: {
       subject: subject,
       type: type,
+      config: campaign.config.component.digest,
     },
   };
   fs.writeFileSync(jsonFile, JSON.stringify(json, null, 2));
@@ -73,17 +76,18 @@ const subject = (config, key) => {
   let cfg = config.locales["server:"];
   if (!cfg) return "digest";
   cfg = cfg.digest;
-  if (!cfg || !cfg[key] || !cfg[key].subject) return "digest";
-  return cfg[key].subject || "digest";
+  if (!cfg || !cfg[key] || !cfg[key].subject) return config.title;
+  return cfg[key].subject;
 };
 
 (async () => {
-  const tplName = argv.mjml;
+  const campaignName = argv._[0];
+  const tplName = campaignName + "/" + argv.mjml;
   if (!tplName) {
     console.log("missing --mjml=template/to/use");
     process.exit(1);
   }
-  const campaignName = argv._[0];
+  console.log(color.blue("using ", tplName));
   let render = null;
 
   const campaign = read("campaign/" + campaignName);
@@ -100,7 +104,13 @@ const subject = (config, key) => {
       const server = (await i18nTplInit(campaign)) || {};
       let config = { lang: lang, locales: locales[lang] };
       if (server) config.locales["server:"] = server;
-      saveConfig(tplName, campaignName, lang, subject(config, argv.key));
+      saveConfig(
+        tplName,
+        campaignName,
+        lang,
+        subject(config, argv.key),
+        campaign
+      );
       configOverride(config);
       render = await i18nRender(tplName, lang, true);
       saveTemplate(render, tplName, campaignName, lang);
