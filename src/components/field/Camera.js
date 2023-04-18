@@ -14,12 +14,11 @@ import MaskImage from "@components/field/MaskImage";
 export const useUpload = (canvasRef, formData = {}) => {
   const config = useCampaignConfig();
   const supabase = useSupabase();
-  const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
   const { t } = useTranslation();
 
   //upload
   return async (params) => {
-    console.log(formData);
+    const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
     const toBlob = () => {
       return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
     };
@@ -88,9 +87,11 @@ export const useUpload = (canvasRef, formData = {}) => {
 };
 
 export const getCanvas = (canvasRef) => {
-  return canvasRef.current.bufferCanvas
-    ? canvasRef.current.toCanvas() //canvasRef.current.bufferCanvas._canvas
-    : canvasRef.current;
+  if (canvasRef.current.bufferCanvas) {
+    // Konva, remove some drawing
+    return canvasRef.current.toCanvas();
+  }
+  return canvasRef.current;
 };
 export const getBlurhash = (canvasRef) => {
   const canvas = getCanvas(canvasRef);
