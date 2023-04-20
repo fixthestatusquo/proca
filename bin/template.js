@@ -38,7 +38,8 @@ const help = () => {
       "--dry-run (don't write)",
       "--verbose (show the result)",
       "--markdown (handle i18n as markdown)",
-      "--extract",
+      "--extract (extract into src/locales/en/server.js)",
+      "--push (push the template to proca server)",
       "actionpage_id",
       "--mjml {template to use in config/mjml, default default/thankyou)",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
@@ -291,6 +292,8 @@ if (require.main === module) {
     try {
       render = await i18nRender(tplName, null, argv.markdown);
       saveTemplate(render, id);
+      mailConfig = saveConfig(id);
+      console.log("config", mailConfig);
     } catch (e) {
       console.log(e);
     }
