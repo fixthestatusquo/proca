@@ -272,13 +272,14 @@ const Component = (props) => {
       //       setProfiles(allProfiles);
       if (!country) return;
       country = country.toLowerCase();
-      allProfiles.filter((d) => {
+      const profiles = allProfiles.filter((d) => {
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      //      setProfiles(d);
+      console.log(allProfiles.length, profiles.length);
+      //      setProfiles(profiles);
     },
     [allProfiles]
   );

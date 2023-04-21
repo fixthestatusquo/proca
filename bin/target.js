@@ -171,7 +171,7 @@ const summary = (campaign) => {
   console.log("public :", publict.length);
 };
 
-const formatTargets = async (campaignName, file) => {
+const formatTarget = async (campaignName, file) => {
   const campaign = read("campaign/" + campaignName);
   const salutations = {};
   if (argv.salutation) {
@@ -218,7 +218,7 @@ const formatTargets = async (campaignName, file) => {
           delete t.email;
         }
       }
-      if (!t.salutation && argv.salutation) {
+      if (!(t.field.salutation || t.salutation) && argv.salutation) {
         let gender = null;
         if (t.field.gender) {
           if (t.field.gender === "M") gender = "male";
@@ -268,11 +268,13 @@ const formatTargets = async (campaignName, file) => {
   if (argv["dry-run"]) {
     process.exit(0);
   }
+  return formattedTargets;
 };
 
 const pushTarget = async (campaignName, file) => {
-  const targets = formatTargets(campaignName, file);
-  console.log("targets", targets.length);
+  const campaign = read("campaign/" + campaignName);
+  const formattedTargets = await formatTarget(campaignName, file);
+  console.log("targets", formattedTargets.length);
 
   const query = `
 mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {

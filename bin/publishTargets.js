@@ -3,7 +3,7 @@ require("./dotenv.js");
 const { pullTarget, read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "keep", "dry-run", "git"],
+  boolean: ["help", "keep", "dry-run", "git", "verbose"],
   default: { git: true },
 });
 
@@ -109,7 +109,8 @@ const merge = (targets, twitters, options) => {
 */
 const saveTargets = (campaignName, targets) => {
   const fileName = file("target/public/" + campaignName);
-  if (argv["dry-run"]) return console.log(fileName, targets);
+  if (argv.verbose) console.log(fileName, targets);
+  if (argv["dry-run"]) return;
 
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   return fileName;
@@ -156,6 +157,7 @@ const publishTarget = async (campaignName, arvg) => {
       const c = saveTargets(name, d);
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
+      if (argv["dry-run"]) return;
       r = argv.git && (await commit(c, msg, true));
       if (r?.summary) {
         console.log(r.summary);
