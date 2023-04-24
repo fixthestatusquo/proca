@@ -81,13 +81,11 @@ export default function ImageStickerComplete(props) {
     setActiveStep(1);
   };
 
-  const confirmOptOut = !(config.component?.consent?.benefit === false); // !(config.component.consent?.confirm === false); // by default we ask for confirmation, same as for Consent
-
   return (
     <div>
       <Hidden name="hash" form={props.form} />
       <Hidden name="dimension" form={props.form} />
-      <ImageOption image={image} setImage={setImage} setDraw={setDraw} confirmOptOut={confirmOptOut} />
+      <ImageOption image={image} setImage={setImage} setDraw={setDraw}/>
       <Dialog
         name={config.campaign.title}
         maxWidth="lg"
@@ -345,9 +343,11 @@ const ImageStickerKonva = (props) => {
 };
 
 const ImageOption = (props) => {
+  const config = useCampaignConfig();
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
   const classes = useStyles();
+  const confirmOptOut = !(config.component?.consent?.benefit === false); // !(config.component.consent?.confirm === false); // by default we ask for confirmation, same as for Consent
 
   return (
     <Grid container spacing={1} justifyContent="space-between">
@@ -377,7 +377,7 @@ const ImageOption = (props) => {
           </Button>
         </ButtonGroup>
       </Grid>
-      {props.confirmOptOut && <Collapse in={image === false}>
+      {confirmOptOut && <Collapse in={image === false}>
         <Alert severity="info" icon={<ImageIcon />}>
           <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
           <span>{t("image.benefit")}</span>
