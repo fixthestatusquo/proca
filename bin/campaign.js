@@ -85,6 +85,10 @@ const pullCampaign = async (name) => {
   return await getCampaign(name);
 };
 
+const readCampaign = (name) => {
+  return campaign("campaign" + name);
+};
+
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
   const query = `
@@ -221,5 +225,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { saveCampaign, pushCampaign, pullCampaign };
+  module.exports = { saveCampaign, pushCampaign, pullCampaign, readCampaign };
 }
