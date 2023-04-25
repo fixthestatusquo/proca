@@ -130,7 +130,7 @@ const getOrg = async (name) => {
 query GetOrg($name: String!) {
   org(name:$name) {
   ... on PrivateOrg {
-      id name title processing {emailFrom,supporterConfirm,doiThankYou} config ` +
+      id name title processing {emailFrom,supporterConfirm,doiThankYou, customActionConfirm, customActionDeliver, customSupporterConfirm, detailBackend, emailBackend, emailTemplates, eventBackend,pushBackend, storageBackend, supporterConfirmTemplate} config personalData {doiThankYou, supporterConfirm, supporterConfirmTemplate} services {host name path}` +
     extraQuery +
     `
     }
