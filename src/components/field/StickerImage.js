@@ -85,7 +85,7 @@ export default function ImageStickerComplete(props) {
     <div>
       <Hidden name="hash" form={props.form} />
       <Hidden name="dimension" form={props.form} />
-      <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
+      <ImageOption image={image} setImage={setImage} setDraw={setDraw}/>
       <Dialog
         name={config.campaign.title}
         maxWidth="lg"
@@ -343,9 +343,12 @@ const ImageStickerKonva = (props) => {
 };
 
 const ImageOption = (props) => {
+  const config = useCampaignConfig();
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
   const classes = useStyles();
+  const confirmOptOut = !(config.component?.consent?.benefit === false); // !(config.component.consent?.confirm === false); // by default we ask for confirmation, same as for Consent
+
   return (
     <Grid container spacing={1} justifyContent="space-between">
       <Grid item>{t("image.wanttoadd")}</Grid>
@@ -365,7 +368,6 @@ const ImageOption = (props) => {
           >
             {t("yes")}
           </Button>
-
           <Button
             variant="contained"
             onClick={(e) => setImage(false)}
@@ -375,12 +377,13 @@ const ImageOption = (props) => {
           </Button>
         </ButtonGroup>
       </Grid>
-      <Collapse in={image === false}>
+      {confirmOptOut && <Collapse in={image === false}>
         <Alert severity="info" icon={<ImageIcon />}>
           <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
           <span>{t("image.benefit")}</span>
         </Alert>
       </Collapse>
+      }
     </Grid>
   );
 };
