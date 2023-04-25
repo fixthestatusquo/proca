@@ -6,7 +6,15 @@ require("./dotenv.js");
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "extract", "verbose", "push", "markdown"],
+  boolean: [
+    "help",
+    "dry-run",
+    "extract",
+    "verbose",
+    "push",
+    "markdown",
+    "campaign",
+  ],
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou" },
 });
@@ -19,6 +27,7 @@ const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 const org = require("./org");
+const { readCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
 // todo add turndown
@@ -28,6 +37,7 @@ const tmp = process.env.REACT_APP_CONFIG_FOLDER
 
 const keys = {};
 const needle = "[{|}]";
+let locales = {}; // to use to update the campaign.config from the template keys
 
 const help = () => {
   console.log(
@@ -38,10 +48,11 @@ const help = () => {
       "--dry-run (don't write)",
       "--verbose (show the result)",
       "--markdown (handle i18n as markdown)",
+      "--campaign|no-campaign (add the variables from the template into the campaign)",
       "--extract (extract into src/locales/en/server.js)",
       "--push (push the template to proca server)",
-      "actionpage_id",
       "--mjml {template to use in config/mjml, default default/thankyou)",
+      "actionpage_id",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
   );
@@ -117,6 +128,16 @@ const updateTranslation = (namespace, parsed) => {
   fs.writeFileSync(file, JSON.stringify(updated, null, 2));
 };
 
+const updateCampaign = (campaign, lang, tplLocales) => {
+  //  const campaign = readCampaign(name);
+  console.log(tplLocales.server);
+  const locales = {};
+  locales[lang] = { "server:": tplLocales.server };
+  const updated = _merge({}, { config: { locales: locales } }, campaign);
+  saveCampaign(updated);
+  console.log(JSON.stringify(updated.config.locales, null, 2));
+};
+
 const deepify = (keys) => {
   // convert an array of keys for the t function to the translation json
   let trans = {};
@@ -152,13 +173,14 @@ const translateTpl = (tpl, lang, markdown) =>
         keys[d.attribs.i18n] = text.data;
         text.data = markdown ? needle + d.attribs.i18n : i18n.t(d.attribs.i18n); // translation to the new language
       });
-      const trans = deepify(keys);
+      const r = render(dom);
+      locales = deepify(keys);
       if (argv.extract) {
         if (argv["dry-run"]) {
-          console.log("i18n keys", keys, JSON.stringify(trans, null, 2));
-        } else updateTranslation("server", trans);
+          console.log("i18n keys", keys, JSON.stringify(locales, null, 2));
+        } else updateTranslation("server", trans["campaign"]);
       }
-      resolve(render(dom));
+      resolve(r);
     });
     const parser = new htmlparser2.Parser(handler);
     const dom = parser.write(tpl);
@@ -235,6 +257,7 @@ const i18nTplInit = async (campaign, lang = "en") => {
 
 if (require.main === module) {
   if (!argv._.length || argv.help) {
+    console.error("missing actionpage id");
     return help();
   }
 
@@ -294,6 +317,15 @@ if (require.main === module) {
       saveTemplate(render, id);
       mailConfig = saveConfig(id);
       console.log("config", mailConfig);
+      if (argv.campaign) {
+        if (argv["dry-run"]) {
+          console.log(
+            "i18n keys",
+            keys,
+            JSON.stringify(render.locales, null, 2)
+          );
+        } else updateCampaign(campaign, lang, locales);
+      }
     } catch (e) {
       console.log(e);
     }
