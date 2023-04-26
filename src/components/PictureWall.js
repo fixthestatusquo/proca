@@ -97,8 +97,8 @@ const getBackground = (picture) => {
   if (!picture.blurhash) return null;
 
   const ratio = 8;
-  const w = picture.width / ratio,
-    h = picture.height / ratio;
+  const w = Math.floor(picture.width / ratio),
+    h = Math.floor(picture.height / ratio);
   const pixels = decode(picture.blurhash, w, h);
 
   const canvas = document.createElement("canvas");
@@ -129,6 +129,29 @@ const usePlaceholder = (width, height) =>
     const dataUrl = canvas.toDataURL();
     return dataUrl;
   }, [width, height]);
+
+const makeUrl = (pic, campaignName) => {
+  if (campaignName === "taxe_super_profits") {
+    //TODO: remove legacy
+    return (
+      process.env.REACT_APP_SUPABASE_URL +
+      "/storage/v1/object/public/" +
+      campaignName.replace(/_/g, "-") +
+      "/public/" +
+      pic.hash +
+      ".jpg"
+    );
+  }
+
+  return (
+    process.env.REACT_APP_SUPABASE_URL +
+    "/storage/v1/object/public/picture/" +
+    campaignName +
+    "/" +
+    pic.hash +
+    ".jpg"
+  );
+};
 
 const PictureWall = (props) => {
   const classes = useStyles();
@@ -205,18 +228,15 @@ const PictureWall = (props) => {
   };
   return (
     <>
-      <Dialog dialog={selected !== false} close={handleClose}>
+      <Dialog
+        name={selected !== false ? pictures[selected].legend : "a"}
+        dialog={selected !== false}
+        close={handleClose}
+      >
         {selected !== false && (
           <img
             className={classes.timg}
-            src={
-              process.env.REACT_APP_SUPABASE_URL +
-              "/storage/v1/object/public/" +
-              campaign +
-              "/public/" +
-              pictures[selected].hash +
-              ".jpg"
-            }
+            src={makeUrl(pictures[selected], campaign)}
             alt={pictures[selected].legend}
           />
         )}
@@ -231,14 +251,7 @@ const PictureWall = (props) => {
               onError={(e) => setBlurhash(e, d)}
               onLoad={(e) => replaceBlur(e)}
               loaded="lazy"
-              src={
-                process.env.REACT_APP_SUPABASE_URL +
-                "/storage/v1/object/public/" +
-                campaign +
-                "/public/" +
-                d.hash +
-                ".jpg"
-              }
+              src={makeUrl(d, campaign)}
               alt={d.legend}
             />
             <img

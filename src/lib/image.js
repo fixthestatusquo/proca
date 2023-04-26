@@ -6,9 +6,9 @@ const resize = (img, max) => {
 
   const isPortrait = img.height > img.width;
   if (isPortrait) {
-    width = (max_size / img.height) * img.width;
+    width = Math.floor((max_size / img.height) * img.width);
   } else {
-    height = (max_size / img.width) * img.height;
+    height = Math.floor((max_size / img.width) * img.height);
   }
   return { width: width, height: height };
 };
