@@ -81,14 +81,16 @@ export default function Progress(props) {
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
   const actionName = config.component.register?.button?.split(".")[1] || "sign";
+  console.log(config.component.register.button, actionName);
   const progressKey = i18n.exists("progress." + actionName)
     ? "progress." + actionName
-    : "progress.sign";
+    : "progress";
 
   return (
     <>
       <Box className={classes.root + " proca-progress"}>
         {t(progressKey, {
+          count: formatNumber(count, separator),
           total: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
