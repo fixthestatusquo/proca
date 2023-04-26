@@ -760,7 +760,7 @@ const Component = (props) => {
 
   return (
     <Container maxWidth="sm">
-      {config.component.email?.progress && (
+      {config.component.email?.counter && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
       <Filter
