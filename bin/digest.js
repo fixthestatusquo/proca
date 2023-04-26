@@ -6,7 +6,7 @@ require("./dotenv.js");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run", "extract", "verbose", "push"],
   alias: { v: "verbose" },
-  default: { mjml: "default", key: "default" },
+  default: { mjml: "default" },
 });
 const { mkdirp, read, fileExists, save } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
@@ -24,8 +24,9 @@ const help = () => {
       "--help (this command)",
       "--dry-run (show the result but don't write)",
       "[campaign name]",
-      "--mjml (template to use in config/mjml/[campaign name])",
+      "--mjml (template to use in config/mjml/[campaign name]) and for subject",
       "--key {key to use for subject in config.locales.server.digest.{key}.subject)",
+      "--lang process only one language",
     ].join("\n")
   );
   process.exit(0);
@@ -91,26 +92,24 @@ const subject = (config, key) => {
 
   const campaign = read("campaign/" + campaignName);
 
-  const locales = campaign.config?.locales;
+  let locales = campaign.config?.locales;
   if (!locales) {
     console.error("no language in", campaignName);
     process.exit(1);
+  }
+  if (argv.lang) {
+    locales = {};
+    locales[argv.lang] = campaign.config.locales[argv.lang];
   }
 
   mkdirp("email/digest/" + tplName);
   for (const lang in locales) {
     try {
-      const server = (await i18nTplInit(campaign)) || {};
+      const server = (await i18nTplInit(campaign, lang)) || {};
       let config = { lang: lang, locales: locales[lang] };
-      let s = subject(config, argv.key);
+      let s = subject(config, argv.key || argv.mjml);
       if (server) config.locales["server:"] = server;
-      saveConfig(
-        tplName,
-        campaignName,
-        lang,
-        s,
-        campaign
-      );
+      saveConfig(tplName, campaignName, lang, s, campaign);
       configOverride(config);
       render = await i18nRender(tplName, lang, true);
       saveTemplate(render, tplName, campaignName, lang);
