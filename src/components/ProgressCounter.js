@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
@@ -49,7 +49,7 @@ const nextStep = (value, steps) => {
 };
 
 const normalise = (value, max) => {
-  return (value * 100) / max;
+  return value ? (value * 100) / max : 50;
 };
 
 export const formatNumber = (value, separator) => {
@@ -71,6 +71,21 @@ export default function Progress(props) {
   const separator = config.component.counter?.separator | " "; //non breaking space
   const min = config.component.counter?.min | 0;
 
+  const [progress, setProgress] = React.useState(1);
+
+  useEffect(() => {
+    console.log(count, goal);
+    const aim = normalise(count, goal);
+    const timer = setInterval(() => {
+      setProgress((prevProgress) =>
+        prevProgress >= aim - 10 ? aim : prevProgress + 10
+      );
+    }, 500);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [count, goal]);
+
   if (!config.test) {
     if (!count || count <= min) {
       return <Box mt={1}>&nbsp;</Box>;
@@ -81,7 +96,6 @@ export default function Progress(props) {
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
   const actionName = config.component.register?.button?.split(".")[1] || "sign";
-  console.log(config.component.register.button, actionName);
   const progressKey = i18n.exists("progress." + actionName)
     ? "progress." + actionName
     : "progress";
@@ -94,7 +108,7 @@ export default function Progress(props) {
           total: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
         })}
-        <LinearProgress variant="determinate" value={normalise(count, goal)} />
+        <LinearProgress variant="determinate" value={progress} />
       </Box>
     </>
   );
