@@ -135,9 +135,9 @@
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
     "salutation": "Dear sir/madam",
-    "salutation_female": "Dear {{target.name}}",
+    "salutation_female": "Dear Ms {{target.name}}",
     "salutation_info": "(The recipient's name will be put before sending)",
-    "salutation_male": "Dear {{target.name}}",
+    "salutation_male": "Dear Mr {{target.name}}",
     "salutation_placeholder": "Dear [recipient]"
   },
   "image": {

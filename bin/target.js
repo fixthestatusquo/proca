@@ -226,7 +226,7 @@ const formatTarget = async (campaignName, file) => {
         }
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
-            name: t.name,
+            name: t.field.last_name || t.name,
           });
         } else {
           let language = t.locale ? t.locale.replace("_", "-") : "en";

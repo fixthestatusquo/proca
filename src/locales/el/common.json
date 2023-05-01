@@ -131,9 +131,9 @@
   "email": {
     "invalid_domain": "{{domain}} δεν μπορεί να λάβει μηνύματα ηλεκτρονικού ταχυδρομείου",
     "salutation": "Αξιότιμε κύριε/κυρία",
-    "salutation_female": "Αγαπητέ {{target.name}}",
+    "salutation_female": "Αγαπητή κυρία {{target.name}}",
     "salutation_info": "(το όνομα θα τεθεί πριν από την αποστολή)",
-    "salutation_male": "Αγαπητέ {{target.name}}",
+    "salutation_male": "Αγαπητή κύριε {{target.name}}",
     "salutation_placeholder": "Αγαπητέ [παραλήπτης],"
   },
   "image": {

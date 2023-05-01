@@ -130,10 +130,10 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
-    "salutation": "Geachte Meneer/Mevrouw",
-    "salutation_female": "Geachte Mevrouw {{target.name}}",
+    "salutation": "Geachte meneer/mevrouw",
+    "salutation_female": "Geachte mevrouw {{target.name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
-    "salutation_male": "Geachte Meneer {{target.name}}",
+    "salutation_male": "Geachte heer {{target.name}}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
   "image": {
