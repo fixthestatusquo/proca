@@ -27,7 +27,7 @@ const languages = {
   nl: "nl",
   fi: "fi",
   ee: "et",
-  cy: "cy",
+  cy: "el",
   at: "de",
   se: "sv",
   ie: "en",

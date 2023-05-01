@@ -131,9 +131,9 @@
   "email": {
     "invalid_domain": "{{domain}} nu poate primi e-mailuri",
     "salutation": "Stimate domnule/doamnă",
-    "salutation_female": "Stimate {{target.name}}",
+    "salutation_female": "Stimate doamnă {{target.name}}",
     "salutation_info": "(numele va fi pus înainte de trimitere)",
-    "salutation_male": "Stimate {{target.name}}",
+    "salutation_male": "Stimate domnule {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
   "image": {

@@ -9,12 +9,14 @@ const { publishTarget } = require("./publishTargets");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true, salutation: true },
+  string: ["file"],
   boolean: [
     "help",
     "keep",
     "dry-run",
     "git",
     "pull",
+    "digest",
     "push",
     "publish",
     "twitter",
@@ -23,10 +25,12 @@ const argv = require("minimist")(process.argv.slice(2), {
     "meps",
     "email",
   ],
+  unknown: (p) =>
+    p[0] === "-" ? console.warn(color.red("unknown param", p)) : true,
 });
 
 const { mainLanguage } = require("./lang");
-const { read, file, api, fileExists } = require("./config");
+const { mkdirp, read, file, api, fileExists } = require("./config");
 
 const help = () => {
   if (!argv._.length || argv.help) {
@@ -38,7 +42,8 @@ const help = () => {
           "--dry-run (show the tagets but don't update the server)",
           "not done --twitter (set up as a separate proca-twitter)",
           "--git (git update [add]+commit into /config/target/) || --no-git",
-          "--pull (by default)",
+          "--pull (from the server)",
+          "--digest (process the source and generate a file for digest, like add salutation and language)",
           "--push (update the server)",
           "--publish (pdate the public list into /config/target/public and make it live)",
           "{campaign name}",
@@ -116,6 +121,27 @@ const readTarget = (targetName) => {
   return target;
 };
 
+const saveDigest = async (targetName, targets) => {
+  mkdirp("target/digest");
+  const fileName = file("target/digest/" + targetName);
+  const exists = fileExists("target/digest/" + targetName);
+  fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
+  console.log(
+    color.green.bold("saving " + targets.length + " targets into", fileName)
+  );
+  let r = null;
+  const msg = "saving " + targets.length + " targets";
+  if (argv.git) {
+    if (!exists) {
+      r = await add(fileName);
+      console.log("adding", fileName);
+    }
+    r = argv.git && (await commit(fileName, msg, true));
+    console.log(r.summary);
+  }
+  return fileName;
+};
+
 const saveTargets = async (targetName, targets) => {
   const fileName = file("target/server/" + targetName);
   const exists = fileExists("target/server/" + targetName);
@@ -165,8 +191,12 @@ const summary = (campaign) => {
   const source = read("target/source/" + campaign);
   const server = read("target/server/" + campaign);
   const publict = read("target/public/" + campaign);
-
-  console.log("source :", source.length);
+  if (argv.file) {
+    const source = read("target/source/" + argv.file);
+    console.log(argv.file, " :", source.length);
+  } else {
+    console.log("source :", source.length);
+  }
   console.log("server :", server.length);
   console.log("public :", publict.length);
 };
@@ -226,7 +256,7 @@ const formatTarget = async (campaignName, file) => {
         }
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
-            name: t.field.last_name || t.name,
+            name: t.field.last_name.trim() || t.name,
           });
         } else {
           let language = t.locale ? t.locale.replace("_", "-") : "en";
@@ -237,7 +267,7 @@ const formatTarget = async (campaignName, file) => {
           await i18n.changeLanguage(language || "en");
           t.field.salutation = i18n.t("email.salutation", {
             context: gender,
-            target: { name: t.name },
+            target: { name: t.field.last_name || t.name },
           });
           // console.log("change language", t.locale,language, t.field.salutation);
         }
@@ -269,6 +299,22 @@ const formatTarget = async (campaignName, file) => {
     process.exit(0);
   }
   return formattedTargets;
+};
+
+const digestTarget = async (campaignName, file) => {
+  const targets = await formatTarget(campaignName, file);
+  console.log("targets", targets.length);
+  const formattedTargets = targets.map((d) => {
+    d.email = d.emails[0].email;
+    const fields = JSON.parse(d.fields);
+    delete d.emails;
+    delete d.fields;
+    if (!d.locale && d.lang && d.language) {
+      d.locale = d.lang || d.language;
+    }
+    return { ...fields, ...d };
+  });
+  saveDigest(argv.file || campaignName, formattedTargets);
 };
 
 const pushTarget = async (campaignName, file) => {
@@ -345,12 +391,19 @@ if (require.main === module) {
       const name = argv._[0];
       help();
       let target = null;
-      if (!(argv.push || argv.pull || argv.publish)) {
+      if (argv.push) {
+        await pushTarget(name, argv.file || name);
+      }
+      if (!(argv.push || argv.pull || argv.publish || argv.digest)) {
         summary(name);
         console.error(
-          color.red("missing action, either --push --pull --publish")
+          color.red("missing action, either --push --pull --publish --digest")
         );
         process.exit(1);
+      }
+      if (argv.digest) {
+        //        await pullTarget(name, argv.file || name);
+        target = await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
         await pushTarget(name, argv.file || name);

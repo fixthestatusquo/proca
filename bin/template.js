@@ -239,6 +239,7 @@ const i18nRender = async (tplName, lang, markdown) => {
   const render = mjmlEngine(newTpl, {});
   if (markdown) {
     for (const key in keys) {
+      console.log(key, lang);
       render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
     }
   }
@@ -248,6 +249,11 @@ const i18nRender = async (tplName, lang, markdown) => {
 const i18nTplInit = async (campaign, lang = "en") => {
   const i = await i18nInit;
   await i18n.setDefaultNamespace("server");
+  if (lang !== "en") {
+    const server = campaign.config.locales.en["server:"]; // only campaign and common namespaces are handled by default
+    console.log(server);
+    await i18n.addResourceBundle("en", "server", server);
+  }
   const server =
     campaign.config.locales &&
     campaign.config.locales[lang] &&
