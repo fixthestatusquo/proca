@@ -123,7 +123,7 @@ const PictureWall = (props) => {
   const supabase = useSupabase();
   const [pictures, setPictures] = useState([]);
   const [selected, select] = useState(false);
-  const [country, setCountry] = useState("?");
+  const [country, setCountry] = useState(props.country);
   const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
   const campaign = config.campaign.name.replaceAll("_", "-");
@@ -136,8 +136,8 @@ const PictureWall = (props) => {
     (async () => {
       if (config.component.wall.country !== true) return;
       let { data, error } = await supabase
-        .from("picture_countries")
-        .select("lang,total")
+        .from("picture_by_country")
+        .select("area,total")
         .order("total", { ascending: false });
       if (error) {
         console.error(error);
@@ -157,7 +157,7 @@ const PictureWall = (props) => {
         .eq("enabled", true);
 
       if (country && country !== "?") {
-        query = query.eq("lang", country);
+        query = query.eq("area", country);
       }
       let { data, error } = await query;
 

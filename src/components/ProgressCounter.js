@@ -74,7 +74,6 @@ export default function Progress(props) {
   const [progress, setProgress] = React.useState(1);
 
   useEffect(() => {
-    console.log(count, goal);
     const aim = normalise(count, goal);
     const timer = setInterval(() => {
       setProgress((prevProgress) =>

@@ -2,13 +2,16 @@ import { useState } from "react";
 import Comment from "@components/CommentWall";
 import Picture from "@components/PictureWall";
 import ProgressCounter from "@components/ProgressCounter";
+import useData from "@hooks/useData";
 import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 import ImageIcon from "@material-ui/icons/Image";
 
 const Wall = (props) => {
   const [value, setValue] = useState("comment");
-
+  const [data] = useData();
+  const country = data.country && data.country.slice(0, 2).toUpperCase();
+  console.log(country, data);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -31,8 +34,8 @@ const Wall = (props) => {
           </Tabs>
         </AppBar>
         <Box p={1}>
-          {value === "picture" && <Picture />}
-          {value === "comment" && <Comment />}
+          {value === "picture" && <Picture country={country} />}
+          {value === "comment" && <Comment country={country} />}
         </Box>
       </Paper>
     </>

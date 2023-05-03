@@ -10,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 const Wall = (props) => {
   const supabase = useSupabase();
   const [comments, setComments] = useState([]);
-  const [country, setCountry] = useState("?");
+  const [country, setCountry] = useState(props.country);
   const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
   const campaign = config.campaign.name.replaceAll("_", "-");
@@ -24,8 +24,8 @@ const Wall = (props) => {
         .eq("campaign", config.campaign.name)
         .eq("enabled", true);
 
-      if (country && country !== "?") {
-        query = query.eq("lang", country);
+      if (country) {
+        query = query.eq("area", country);
       }
       let { data, error } = await query;
 
