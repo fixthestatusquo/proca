@@ -98,6 +98,7 @@
     "set": "node bin/set.js",
     "campaign": "node bin/campaign.js",
     "template": "node bin/template.js",
+    "digest": "node bin/digest.js",
     "target": "node bin/target.js",
     "pushCampaign": "node bin/campaign.js --push",
     "pullCampaign": "node bin/campaign.js --pull",

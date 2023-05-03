@@ -9,41 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { decode } from "blurhash";
 //import { decodeBlurHash as decode } from  "fast-blurhash";
 //
-export const localeName = {
-  cs: "čeština",
-  sv: "svenska",
-  lv: "latviešu",
-  hr: "hrvatski",
-  es: "español",
-  en_GB: "British English",
-  it: "italiano",
-  ar: "العربية",
-  hu: "magyar",
-  el: "Ελληνικά",
-  fr_CA: "français canadien",
-  ga: "Gaeilge",
-  sl: "slovenščina",
-  fi: "suomi",
-  da: "dansk",
-  sk: "slovenčina",
-  mt: "Malti",
-  ca: "català",
-  fr: "français",
-  lt: "lietuvių",
-  de: "Deutsch",
-  ru: "русский",
-  bg: "български",
-  en: "English",
-  et: "eesti",
-  ro: "română",
-  pl: "polski",
-  hi: "हिन्दी",
-  pt: "português",
-  he: "עברית",
-  sr: "српски",
-  ce: "нохчийн",
-  nl: "Nederlands",
-};
 
 const useStyles = makeStyles((theme) => ({
   bimg: {
@@ -158,8 +123,8 @@ const PictureWall = (props) => {
   const supabase = useSupabase();
   const [pictures, setPictures] = useState([]);
   const [selected, select] = useState(false);
-  const [language, setLanguage] = useState("?");
-  const [languages, setLanguages] = useState([]);
+  const [country, setCountry] = useState("?");
+  const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
   const campaign = config.campaign.name.replaceAll("_", "-");
   const placeholder = usePlaceholder(600, 800);
@@ -169,18 +134,18 @@ const PictureWall = (props) => {
 
   useEffect(() => {
     (async () => {
-      if (config.component.wall.language !== true) return;
+      if (config.component.wall.country !== true) return;
       let { data, error } = await supabase
-        .from("picture_languages")
+        .from("picture_countries")
         .select("lang,total")
         .order("total", { ascending: false });
       if (error) {
         console.error(error);
         return;
       }
-      setLanguages(data);
+      setCountries(data);
     })();
-  }, [config.component.wall.language, supabase]);
+  }, [config.component.wall.country, supabase]);
 
   useEffect(() => {
     (async () => {
@@ -191,8 +156,8 @@ const PictureWall = (props) => {
         .eq("campaign", config.campaign.name)
         .eq("enabled", true);
 
-      if (language && language !== "?") {
-        query = query.eq("lang", language);
+      if (country && country !== "?") {
+        query = query.eq("lang", country);
       }
       let { data, error } = await query;
 
@@ -202,26 +167,24 @@ const PictureWall = (props) => {
       }
       setPictures(data);
     })();
-  }, [language, config.campaign.name, supabase]);
+  }, [country, config.campaign.name, supabase]);
 
-  const LanguageSelect = (props) => {
-    if (config.component.wall.language !== true) return null;
+  const CountrySelect = (props) => {
+    if (config.component.wall.country !== true) return null;
     return (
       <TextField
-        id="language"
+        id="country"
         select
         variant="filled"
-        label="Language"
-        value={language}
-        onChange={(e) => setLanguage(e.target.value)}
+        label="Country"
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
       >
         <MenuItem key="?" value="?">
-          Choose your language
+          Choose your country
         </MenuItem>
-        {languages.map((option) => (
-          <MenuItem key={option.lang} value={option.lang}>
-            {localeName[option.lang]}
-          </MenuItem>
+        {countries.map((option) => (
+          <MenuItem key={option} value={option}></MenuItem>
         ))}
       </TextField>
     );
@@ -242,7 +205,7 @@ const PictureWall = (props) => {
         )}
       </Dialog>
       {false && <ProgressCounter />}
-      <LanguageSelect options={languages} />
+      <CountrySelect options={countries} />
       <Grid container spacing={1} justifyContent="center" alignItems="center">
         {pictures.map((d, i) => (
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>

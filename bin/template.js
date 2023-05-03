@@ -59,7 +59,8 @@ const help = () => {
   process.exit(0);
 };
 
-const snarkdown = (md) => {
+const snarkdown = (markdown) => {
+  md = markdown.replaceAll("proca_", "proca-");
   const htmls = md
     .split(/(?:\r?\n){2,}/)
     .map((l) =>
@@ -68,7 +69,7 @@ const snarkdown = (md) => {
         : `<p>${_snarkdown(l)}</p>`
     );
 
-  return htmls.join("\n\n");
+  return htmls.join("\n\n").replaceAll("proca-", "proca_");
 };
 
 const pushTemplate = async (config, html) => {

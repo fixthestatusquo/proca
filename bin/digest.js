@@ -42,13 +42,13 @@ const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
     tmp + "email/digest/" + templateName + "/" + lang + ".json"
   );
   const type = "digest";
-  const json = {
+  let json = {
     meta: {
-      subject: subject,
       type: type,
       config: campaign.config.component.digest,
     },
   };
+  if (subject) json.meta.subject = subject;
   fs.writeFileSync(jsonFile, JSON.stringify(json, null, 2));
   console.log("saved in", jsonFile);
   return json;
@@ -74,7 +74,7 @@ const saveTemplate = (render, templateName, campaignName, lang) => {
 
 const subject = (config, key) => {
   let cfg = config.locales["server:"];
-  if (!cfg) return "digest";
+  if (!cfg) return false;
   cfg = cfg.digest;
   if (!cfg || !cfg[key] || !cfg[key].subject) return config.title;
   return cfg[key].subject;
@@ -91,6 +91,10 @@ const subject = (config, key) => {
   let render = null;
 
   const campaign = read("campaign/" + campaignName);
+  if (!campaign) {
+    console.error(color.red("campaign ", campaignName, "not found"));
+    process.exit(1);
+  }
 
   let locales = campaign.config?.locales;
   if (!locales) {
