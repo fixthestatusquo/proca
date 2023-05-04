@@ -46,7 +46,7 @@ const Wall = (props) => {
         <Fragment key={d.id}>
           <ListItem alignItems="flex-start" component="div">
             <ListItemIcon>
-              <QuoteIcon />
+              <QuoteIcon color="primary" />
             </ListItemIcon>
             <ListItemText primary={d.name} secondary={d.comment} />
           </ListItem>
