@@ -41,16 +41,16 @@ const Wall = (props) => {
   }, [country, campaign, supabase]);
 
   return (
-    <List dense>
+    <List dense component="div">
       {comments.map((d) => (
         <Fragment key={d.id}>
-          <ListItem alignItems="flex-start">
+          <ListItem alignItems="flex-start" component="div">
             <ListItemIcon>
               <QuoteIcon />
             </ListItemIcon>
             <ListItemText primary={d.name} secondary={d.comment} />
           </ListItem>
-          <Divider variant="inset" component="li" />
+          <Divider variant="inset" />
         </Fragment>
       ))}
     </List>
