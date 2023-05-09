@@ -22,14 +22,16 @@ const argv = require("minimist")(process.argv.slice(2), {
 });
 
 const help = () => {
-  if (!argv._.length || argv.help) {
+  if (!(argv._.length || argv.campaign) || argv.help) {
     console.log(
       color.yellow(
         [
           "options",
           "--help (this command)",
-          "--dry-run (show the parsed widget but don't write)",
           "--pull (by default)",
+          "--dry-run (show but don't write)",
+          "--verbose",
+          "--campaign {campaign name} (pull all the widgets from the campaign)",
           "--git (git update [add]+commit the local /config) || --no-git",
           "--push (update the server)",
           "widget {actionpage id}",
@@ -60,6 +62,34 @@ const array2string = (s) => {
     s[i] = s[i].join("+");
   });
   return s;
+};
+
+const fetchAll = async (campaign) => {
+  const query = `query allPages ($name: String! ) {
+  campaign (name:$name) {name ...on PrivateCampaign {
+     actionPages {id, name, location}
+    }
+  }
+}`;
+  const r = await api(
+    query,
+    {
+      name: campaign,
+    },
+    "allPages"
+  );
+  if (r.errors) {
+    console.log(r);
+    console.log(
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+    );
+    throw new Error(r.errors[0].message);
+  }
+
+  if (argv.verbose) {
+    console.log(r.campaign.actionPages);
+  }
+  return r.campaign.actionPages;
 };
 
 const actionPageFromLocalConfig = (id, local) => {
@@ -320,7 +350,27 @@ if (require.main === module) {
   }
   (async () => {
     const anonymous = true;
-    for (const id of argv._) {
+    let ids = argv._;
+    if (argv.campaign) {
+      const widgets = await fetchAll(argv.campaign);
+      if (argv._.length > 0) {
+        console.error(
+          color.red(
+            "either fetch all the widgets of the campaign or with id(s), not both"
+          )
+        );
+        process.exit(1);
+      }
+      widgets.forEach((d) => {
+        ids.push(d.id);
+      });
+      console.log(color.blue(argv.campaign, "->", ids.length, "widgets"));
+      if (argv["dry-run"]) {
+        return;
+      }
+    }
+
+    for (const id of ids) {
       try {
         let widget = null;
         if (argv.pull || !argv.push) {
