@@ -137,12 +137,12 @@
     "salutation_placeholder": "Szanowna:y [adresat],"
   },
   "image": {
-    "addSticker": "dodawać naklejki",
+    "addSticker": "Dodaj naklejki",
     "addStickerTitle": "Kliknij/stuknij, aby dodać naklejkę do zdjęcia",
     "benefit": "Dodanie zdjęcia do wysłania - i które możesz udostępnić w następnym kroku - sprawi, że Twoje działanie będzie bardziej skuteczne.",
-    "options": "Czy chciałbyś",
+    "options": "Wybierz działanie",
     "publish": "Wygląda dobrze, wydawco!",
-    "select": "wybierz swoje zdjęcie",
+    "select": "Wybierz zdjęcie z naszego zbioru",
     "takeTitle": "Zrób zdjęcie telefonem",
     "upload": "Prześlij zdjęcie",
     "wanttoadd": "Czy chcesz dodać zdjęcie?"
