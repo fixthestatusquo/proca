@@ -194,22 +194,10 @@ const Consent = (props) => {
 };
 
 export const CheckboxConsent = (props) => {
-  const {
-    formState: { errors },
-    control,
-  } = props.form; // errors are in formState in React Hook Form 7
+  const { control } = props.form;
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
-  /*              <FormControlLabel
-                value="opt-in"
-                checked={value === "opt-in"}
-
-                className={classes.label}
-                control={<Radio color="primary" {...register("privacy", {required: true}) } />}
-                label={t("consent.opt-in", { partner: config.organisation })}
-              />
-*/
   return (
     <FormControl>
       <FormGroup>

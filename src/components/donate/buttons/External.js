@@ -3,7 +3,8 @@ import useData from "@hooks/useData";
 
 import { Button, Grid } from "@material-ui/core";
 
-import PaymentIcon from "@material-ui/icons/Payment";
+//import PaymentIcon from "@material-ui/icons/Payment";
+import DonationIcon from "@images/Donate";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
@@ -38,8 +39,8 @@ const ExternalPayment = (props) => {
         classes={{ root: classes.button }}
         onClick={onClickExternal}
       >
-        <PaymentIcon />
-        {t("donation.payment_methods.card", { defaultvalue: "Card" })}
+        <DonationIcon />
+        {t("donation.payment_methods.default", "Donate")}
       </Button>
     </Grid>
   );
