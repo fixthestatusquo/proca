@@ -70,7 +70,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Consent = (props) => {
-  const { formState: { errors }, register } = props.form;
+  const {
+    formState: { errors },
+    register,
+  } = props.form;
 
   const { t } = useTranslation();
   const [value, setValue] = React.useState(false);
@@ -93,6 +96,10 @@ const Consent = (props) => {
   };
 
   const confirmOptOut = !(config.component.consent?.confirm === false); // by default we ask for confirmation
+
+  if (config.component?.consent?.checkbox)
+    return <CheckboxConsent {...props} />;
+
   return (
     <Fragment>
       <Grid item xs={12}>
@@ -115,9 +122,13 @@ const Consent = (props) => {
               <FormControlLabel
                 value="opt-in"
                 checked={value === "opt-in"}
-
                 className={classes.label}
-                control={<Radio color="primary" {...register("privacy", {required: true}) } />}
+                control={
+                  <Radio
+                    color="primary"
+                    {...register("privacy", { required: true })}
+                  />
+                }
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
             )}
@@ -127,7 +138,12 @@ const Consent = (props) => {
                   value="opt-in"
                   className={classes.label}
                   checked={value === "opt-in"}
-                  control={<Radio color="primary"  {...register("privacy", {required: true}) } />}
+                  control={
+                    <Radio
+                      color="primary"
+                      {...register("privacy", { required: true })}
+                    />
+                  }
                   label={t("consent.opt-in", { partner: config.organisation })}
                 />
                 <FormControlLabel
@@ -144,7 +160,13 @@ const Consent = (props) => {
             <FormControlLabel
               value="opt-out"
               checked={value === "opt-out"}
-              control={<Radio {...register("privacy", {required: t(["consent.required", "required field"])})} />}
+              control={
+                <Radio
+                  {...register("privacy", {
+                    required: t(["consent.required", "required field"]),
+                  })}
+                />
+              }
               className={classes.label}
               label={t("consent.opt-out")}
             />
@@ -171,8 +193,60 @@ const Consent = (props) => {
   );
 };
 
+export const CheckboxConsent = (props) => {
+  const {
+    formState: { errors },
+    control,
+  } = props.form; // errors are in formState in React Hook Form 7
+  const { t } = useTranslation();
+  const config = useCampaignConfig();
+  const classes = useStyles();
+  /*              <FormControlLabel
+                value="opt-in"
+                checked={value === "opt-in"}
+
+                className={classes.label}
+                control={<Radio color="primary" {...register("privacy", {required: true}) } />}
+                label={t("consent.opt-in", { partner: config.organisation })}
+              />
+*/
+  return (
+    <FormControl>
+      <FormGroup>
+        <FormControlLabel
+          className={classes.check}
+          placement="end"
+          control={
+            <Controller
+              name="privacy"
+              control={control}
+              defaultValue={
+                config.component.consent.gdpr === false ? "opt-in" : "opt-out"
+              }
+              render={({ field, fieldState }) => (
+                <Checkbox
+                  {...field}
+                  color="primary"
+                  onChange={(e) =>
+                    field.onChange(e.target.checked ? "opt-in" : "opt-out")
+                  }
+                  checked={field.value === "opt-in"}
+                />
+              )}
+            />
+          }
+          label={t("consent.opt-in", { partner: config.organisation })}
+        />
+      </FormGroup>
+    </FormControl>
+  );
+};
+
 export const ConfirmProcessing = (props) => {
-  const { formState: { errors }, control } = props.form; // errors are in formState in React Hook Form 7
+  const {
+    formState: { errors },
+    control,
+  } = props.form; // errors are in formState in React Hook Form 7
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
@@ -183,8 +257,6 @@ export const ConfirmProcessing = (props) => {
         <FormControlLabel
           className={classes.check}
           placement="end"
-
-
           control={
             <Controller
               name="consentProcessing"

@@ -9,7 +9,7 @@ const { publishTarget } = require("./publishTargets");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true, salutation: true },
-  string: ["file"],
+  string: ["file", "fields"],
   boolean: [
     "help",
     "keep",
@@ -19,28 +19,34 @@ const argv = require("minimist")(process.argv.slice(2), {
     "digest",
     "push",
     "publish",
-    "twitter",
+    //   "twitter",
+    "file",
     "source",
     "salutation",
     "meps",
     "email",
   ],
-  unknown: (p) =>
-    p[0] === "-" ? console.warn(color.red("unknown param", p)) : true,
+  unknown: (d) => {
+    const allowed = []; //merge with boolean and string?
+    if (d[0] !== "-") return true;
+    if (allowed.includes(d.split("=")[0].slice(2))) return true;
+    console.log(color.red("unknown param", d));
+    help(1);
+  },
 });
 
 const { mainLanguage } = require("./lang");
 const { mkdirp, read, file, api, fileExists } = require("./config");
 
-const help = () => {
-  if (!argv._.length || argv.help) {
+const help = (alwaysDisplay = false) => {
+  if (!argv._.length || argv.help || alwaysDisplay) {
     console.log(
       color.yellow(
         [
           "options",
           "--help (this command)",
           "--dry-run (show the tagets but don't update the server)",
-          "not done --twitter (set up as a separate proca-twitter)",
+          //          "not done --twitter (set up as a separate proca-twitter)",
           "--git (git update [add]+commit into /config/target/) || --no-git",
           "--pull (from the server)",
           "--digest (process the source and generate a file for digest, like add salutation and language)",
@@ -75,6 +81,11 @@ const help = () => {
     process.exit(0);
   }
 };
+if (argv._.length !== 1) {
+  console.log(color.red("only one campaign param allowed"), argv._);
+  help(true);
+  process.exit(1);
+}
 
 const getCampaignTargets = async (name) => {
   const query = `
