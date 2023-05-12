@@ -448,9 +448,10 @@ const Component = (props) => {
       if (constituency || area) {
         country = country || "?";
       }
-      if (!country) return;
+      if (!country || typeof country !== "string") return;
       if (allProfiles.length === 0) return; //profiles aren't loaded yet
       country = country.toLowerCase();
+
       let lang = undefined;
       let d = allProfiles.filter((d) => {
         if (constituency) {
@@ -502,7 +503,6 @@ const Component = (props) => {
         });
       }
 
-      console.log(country, countryFiltered, d.length);
       if (d.length === 0 && countryFiltered) {
         setError("country", {
           message: t("target.country.empty", {
@@ -821,7 +821,9 @@ const Component = (props) => {
           ))}
         </List>
       )}
-      <Collapse in={profiles.length > 0}>
+      <Collapse
+        in={profiles.length > 0 || config.component.email?.server !== false}
+      >
         <Register
           form={form}
           emailProvider={emailProvider}

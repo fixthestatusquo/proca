@@ -167,6 +167,7 @@ The counter will automatically calculate next goals so that goal always escapes 
 ## Country
 
 - `config.component.country`. 2 char iso code (default country), or boolean (disable/enable ip geolooup)
+- `config.component.country.other` (boolean) add an "other" option on the drop down (it always add the country of the ip address of the visitor)
 
 ## Consent
 

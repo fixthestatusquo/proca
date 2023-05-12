@@ -221,7 +221,7 @@ export default function Register(props) {
       if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    formData.tracking = Url.utm(config.component?.register?.tracking);
+    formData.tracking = Url.utm(config.component.register?.tracking);
 
     if (config.component.consent?.implicit) {
       formData.privacy =
@@ -230,7 +230,7 @@ export default function Register(props) {
           : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
-    let actionType = config.component?.register?.actionType || "register";
+    let actionType = config.component.register?.actionType || "register";
     if (props.targets) {
       formData.targets = props.targets;
       actionType = "mail2target";
