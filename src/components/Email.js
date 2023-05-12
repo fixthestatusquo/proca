@@ -428,7 +428,6 @@ const Component = (props) => {
 
   const filterArea = useCallback(
     (area) => {
-      console.log("filter Area");
       if (!area) {
         return [];
       }
@@ -450,6 +449,7 @@ const Component = (props) => {
         country = country || "?";
       }
       if (!country) return;
+      if (allProfiles.length === 0) return; //profiles aren't loaded yet
       country = country.toLowerCase();
       let lang = undefined;
       let d = allProfiles.filter((d) => {
@@ -502,7 +502,8 @@ const Component = (props) => {
         });
       }
 
-      if (d.length && countryFiltered) {
+      console.log(country, countryFiltered, d.length);
+      if (d.length === 0 && countryFiltered) {
         setError("country", {
           message: t("target.country.empty", {
             country: getCountryName(country),
