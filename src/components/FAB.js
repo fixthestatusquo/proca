@@ -105,7 +105,7 @@ export default function FABAction(props) {
               max={9999999}
               color="secondary"
               overlap="circular"
-              invisible={compact}
+              invisible={compact || !counter}
             >
               <Fab
                 color="primary"
