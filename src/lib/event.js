@@ -1,21 +1,23 @@
 const dispatchAnalytics = (message, value) => {
-  let param = {
-    event: "GenericEvent", //proca
-    EventCategory: "proca widget",
-    EventAction: message.replace(":", "_"),
-  };
+  //https://support.google.com/analytics/answer/9267735?sjid=9242639035351824592-EU no standard events
+  if (message === "count") return;
   const action = message.split(":");
+  let param = {};
+  if (action[1] && action[1] === "complete") {
+    param.event = action[0];
+  } else {
+    param.event = action.join("_");
+  }
+
   if (value?.test) {
     param.EventCategory = "proca widget test mode";
+  } else {
+    param.EventCategory = "proca widget";
   }
   if (value?.privacy) {
     param.EventLabel = value.privacy;
   }
-  if (action[1] && action[1] === "complete") {
-    param.EventAction = action[0];
-  }
-  console.log("proca_event", message, value, param);
-  window.dataLayer && window.dataLayer.push(param);
+  window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
 };
 
 const dispatch = (event, data, pii, config) => {
@@ -25,7 +27,7 @@ const dispatch = (event, data, pii, config) => {
     dispatchAnalytics("error", "missing #proca");
     elem = window;
   }
-  if (config?.component?.widget?.analytics) {
+  if (config?.component?.widget?.analytics || window.dataLayer) {
     dispatchAnalytics(event, data);
   }
   if (pii) data.contact = pii; //TODO, add a config to remove the option to bubble up pii to the containing page

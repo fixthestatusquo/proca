@@ -356,6 +356,17 @@ const Widget = (props) => {
     setCurrent(0); // might happen if the journey is dynamically modified, eg FAB on isMobile-> return to wide screen
     return;
   }
+  const onFabClick = () => {
+    dispatch("fab_click", null, null, config);
+    _scrollTo();
+    const firstname = document.getElementsByName("firstname");
+    if (firstname.length === 1) {
+      setTimeout(() => {
+        firstname[0].focus();
+      }, 1000);
+    }
+  };
+
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
@@ -364,9 +375,7 @@ const Widget = (props) => {
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
         <div ref={intersectionRef}>
-          {fab && !intersection.isIntersecting && (
-            <Button done={() => _scrollTo()} />
-          )}
+          {fab && !intersection.isIntersecting && <Button done={onFabClick} />}
           {Number.isInteger(current) && <CurrentAction />}
         </div>
       </TwoColumns>
