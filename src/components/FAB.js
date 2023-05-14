@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -11,6 +11,20 @@ import useCount from "@hooks/useCount.js";
 import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles((theme) => ({
+  /*  "@keyframes procafadeOut": {
+    "0%": {
+      opacity: 1,
+      transform:"translateX(0)"
+    },
+    "100%": {
+      opacity: 0,
+      transform:"translateX(200%)"
+    }
+  },
+  compact: {
+    animation: `$procafadeOut 3000ms ${theme.transitions.easing.easeInOut}`,
+
+  },*/
   fab: {
     margin: 0,
     top: "auto",
@@ -33,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 */
 export default function FABAction(props) {
   //  const theme = useTheme();
-
+  const [compact, setCompact] = useState(false);
   const { t } = useTranslation();
   const config = useCampaignConfig();
 
@@ -62,6 +76,12 @@ export default function FABAction(props) {
 
   let callToAction = t(config.component.register?.button || defaultAction);
 
+  window.addEventListener("scrollend", () => {
+    if (!compact) {
+      setTimeout(() => setCompact(true), 700);
+    }
+  });
+
   const dom = createDom("proca-fab");
 
   const min = config.component.counter?.min || 0;
@@ -81,6 +101,7 @@ export default function FABAction(props) {
               max={9999999}
               color="secondary"
               overlap="circular"
+              invisible={compact}
             >
               <Fab
                 color="primary"
@@ -89,7 +110,7 @@ export default function FABAction(props) {
                 onClick={handleClickOpen}
               >
                 <CreateIcon />
-                {callToAction}&nbsp;
+                {!compact && callToAction}
               </Fab>
             </Badge>
           </Slide>
