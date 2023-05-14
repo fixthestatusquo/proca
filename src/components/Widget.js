@@ -25,7 +25,7 @@ import Button from "@components/FAB";
 import Dialog from "@components/Dialog";
 import Alert from "@components/Alert";
 import TwoColumns from "@components/TwoColumns";
-
+import { useIntersection } from "@shopify/react-intersection-observer";
 let config = {
   data: Url.data(),
   utm: Url.utm(),
@@ -64,8 +64,11 @@ const Widget = (props) => {
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
+  const [intersection, intersectionRef] = useIntersection();
+  const fab = config.component.widget?.fab;
 
-  var data = Url.data();
+  let data = Url.data();
+
   const cookies = {
     uuid: getCookie("proca_uuid"),
     firstname: getCookie("proca_firstname"),
@@ -360,7 +363,12 @@ const Widget = (props) => {
         hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
-        {Number.isInteger(current) && <CurrentAction />}
+        <div ref={intersectionRef}>
+          {fab && !intersection.isIntersecting && (
+            <Button done={() => _scrollTo()} />
+          )}
+          {Number.isInteger(current) && <CurrentAction />}
+        </div>
       </TwoColumns>
       {props.children}
     </ProcaRoot>
