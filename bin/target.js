@@ -20,7 +20,6 @@ const argv = require("minimist")(process.argv.slice(2), {
     "push",
     "publish",
     //   "twitter",
-    "file",
     "source",
     "salutation",
     "meps",
@@ -226,8 +225,9 @@ const formatTarget = async (campaignName, file) => {
   }
   const targets = read("target/source/" + file);
   if (targets === null) {
-    console.log("no local version of targets");
-    return [];
+    console.error(color.red("No targets found"));
+    process.exit(1);
+    //return [];
   }
 
   const formatTargets = async () => {
@@ -314,7 +314,7 @@ const formatTarget = async (campaignName, file) => {
 
 const digestTarget = async (campaignName, file) => {
   const targets = await formatTarget(campaignName, file);
-  console.log("targets", targets.length);
+  console.log("targets", targets.length, file);
   const formattedTargets = targets.map((d) => {
     d.email = d.emails[0].email;
     const fields = JSON.parse(d.fields);
@@ -325,6 +325,7 @@ const digestTarget = async (campaignName, file) => {
     }
     return { ...fields, ...d };
   });
+
   saveDigest(argv.file || campaignName, formattedTargets);
 };
 
@@ -414,6 +415,7 @@ if (require.main === module) {
       }
       if (argv.digest) {
         //        await pullTarget(name, argv.file || name);
+        console.log(argv.file, name, argv.file || name);
         target = await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
