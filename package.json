@@ -37,7 +37,7 @@
     "page-metadata-parser": "^1.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.42.1",
+    "react-hook-form": "^7.43.9",
     "react-i18next": "^12.2.0",
     "react-ipgeolocation": "^1.4.0",
     "react-konva": "^17.0.2-6",
