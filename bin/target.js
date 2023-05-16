@@ -81,7 +81,11 @@ const help = (alwaysDisplay = false) => {
   }
 };
 if (argv._.length !== 1) {
-  console.log(color.red("only one campaign param allowed"), argv._);
+  if (argv._.length === 0) {
+    console.log(color.red("missing campaign name"), argv._);
+  } else {
+    console.log(color.red("only one campaign param allowed"), argv._);
+  }
   help(true);
   process.exit(1);
 }
