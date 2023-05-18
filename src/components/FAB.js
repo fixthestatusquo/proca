@@ -74,12 +74,6 @@ export default function FABAction(props) {
   if (config.journey.includes("Petition")) defaultAction = "action.sign";
   if (config.journey.includes("Email")) defaultAction = "action.email";
 
-  console.log([
-    "campaign:mainAction",
-    config.component.register?.button,
-    defaultAction,
-  ]);
-
   let callToAction = t([
     "campaign:mainAction",
     config.component.register?.button || "",
