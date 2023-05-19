@@ -383,11 +383,12 @@ const Component = (props) => {
           setAllProfiles([placeholder]);
         });
     };
-    if (config.component.email?.listUrl) {
+    if (!config.component.email?.to) {
       const url =
-        config.component.email.listUrl === true
-          ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
-          : config.component.email.listUrl;
+        typeof config.component.email?.listUrl === "string"
+          ? config.component.email.listUrl
+          : "https://widget.proca.app/t/" + config.campaign.name + ".json";
+
       fetchData(url);
     } else {
       const emails =
