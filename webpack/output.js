@@ -102,7 +102,7 @@ function widgetBuildConfig(webpack, config) {
       };
     }
   }
-  if (config.layout && config.layout.HtmlTemplate) {
+  if (config.layout && (config.layout.HtmlTemplate || config.layout.template)) {
     const template = config.layout.HtmlTemplate || config.layout.template;
     for (const plug of webpack.plugins) {
       if (plug instanceof HtmlWebpackPlugin) {

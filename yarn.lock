@@ -1990,6 +1990,11 @@
   resolved "https://registry.yarnpkg.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
   integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
 
+"@mantine/hooks@^6.0.11":
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.11.tgz#1f31cc04aaaf1c24509452a263984647a2b494cf"
+  integrity sha512-WM24bEqtnfPikks+92wllvHodwSBuU0tcF+IiCumyQBQTbhLWCVNHaUXYsL/bKFEZVOOwgEO4dITaxqFkdVBxA==
+
 "@material-ui/core@^4.12.4":
   version "4.12.4"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.12.4.tgz#4ac17488e8fcaf55eb6a7f5efb2a131e10138a73"
@@ -4175,15 +4180,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000929, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001274:
-  version "1.0.30001367"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001367.tgz"
-  integrity sha512-XDgbeOHfifWV3GEES2B8rtsrADx4Jf+juKX2SICJcaUhjYBO3bR96kvEIHa15VU6ohtOhBZuPGGYGbXMRn0NCw==
-
-caniuse-lite@^1.0.30001370:
-  version "1.0.30001383"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001383.tgz#aecf317ccd940690725ae3ae4f28293c5fb8050e"
-  integrity sha512-swMpEoTp5vDoGBZsYZX7L7nXHe6dsHxi9o6/LKf/f0LukVtnrxly5GVb/fWdCDTqi/yw6Km6tiJ0pmBacm0gbg==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000929, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001274, caniuse-lite@^1.0.30001370:
+  version "1.0.30001487"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001487.tgz"
+  integrity sha512-83564Z3yWGqXsh2vaH/mhXfEM0wX+NlBCm1jYHOb97TrTWJEmPTccZgeLTPBUUb0PNVo+oomb7wkimZBIERClA==
 
 capture-exit@^2.0.0:
   version "2.0.0"

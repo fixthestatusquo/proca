@@ -15,32 +15,36 @@ const { commit, add, onGit } = require("./git");
 const { saveCampaign, pullCampaign } = require("./campaign");
 const getId = require("./id");
 const color = require("cli-color");
-const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "pull", "verbose", "push", "git"],
-  default: { git: true },
-  alias: { v: "verbose" },
-});
-
-const help = () => {
-  if (!(argv._.length || argv.campaign) || argv.help) {
-    console.log(
-      color.yellow(
-        [
-          "options",
-          "--help (this command)",
-          "--pull (by default)",
-          "--dry-run (show but don't write)",
-          "--verbose",
-          "--campaign {campaign name} (pull all the widgets from the campaign)",
-          "--git (git update [add]+commit the local /config) || --no-git",
-          "--push (update the server)",
-          "widget {actionpage id}",
-        ].join("\n")
-      )
-    );
-    process.exit(0);
-  }
+const help = (exit) => {
+  console.log(
+    color.yellow(
+      [
+        "options",
+        "--help (this command)",
+        "--pull (by default)",
+        "--dry-run (show but don't write)",
+        "--verbose",
+        "--campaign || --no-campaign pull the campaign or not",
+        "--git (git update [add]+commit the local /config) || --no-git",
+        "--push (update the server)",
+        "{actionpage id} or {campaign name}",
+      ].join("\n")
+    )
+  );
+  process.exit(exit || 0);
 };
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: ["help", "dry-run", "pull", "verbose", "push", "git", "campaign"],
+  default: { git: true, campaign: true },
+  alias: { v: "verbose" },
+  unknown: (d) => {
+    const allowed = []; //merge with boolean and string?
+    if (d[0] !== "-" || require.main !== module) return true;
+    if (allowed.includes(d.split("=")[0].slice(2))) return true;
+    console.log(color.red("unknown param", d));
+    help(1);
+  },
+});
 
 const string2array = (s) => {
   if (!s || s.length === 0 || s[0] === "") {
@@ -316,7 +320,7 @@ const pull = async (
   if (save) {
     console.log("save");
     saveWidget(config);
-    saveCampaign(campaignData, config.lang);
+    if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
   return campaign ? [config, campaign] : campaign;
 };
@@ -339,7 +343,10 @@ const push = async (id) => {
 
 if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
-  help();
+  if (argv._.length === 0 || argv.help) {
+    console.error(color.red("missing param widget id(s) or campaign_name"));
+    help(argv._.length === 0);
+  }
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
@@ -351,8 +358,9 @@ if (require.main === module) {
   (async () => {
     const anonymous = true;
     let ids = argv._;
-    if (argv.campaign) {
-      const widgets = await fetchAll(argv.campaign);
+    if (isNaN(argv._[0])) {
+      const campaign = argv._[0];
+      const widgets = await fetchAll(campaign);
       if (argv._.length > 0) {
         console.error(
           color.red(

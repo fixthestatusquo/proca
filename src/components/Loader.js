@@ -1,3 +1,4 @@
+// obsolete
 import { useEffect } from "react";
 
 const Component = (props) => {

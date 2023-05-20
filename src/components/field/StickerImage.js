@@ -85,7 +85,7 @@ export default function ImageStickerComplete(props) {
     <div>
       <Hidden name="hash" form={props.form} />
       <Hidden name="dimension" form={props.form} />
-      <ImageOption image={image} setImage={setImage} setDraw={setDraw}/>
+      <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
         name={config.campaign.title}
         maxWidth="lg"
@@ -359,7 +359,7 @@ const ImageOption = (props) => {
           className={classes.buttonGroup}
         >
           <Button
-            disableElevation={image}
+            disableElevation={!!image}
             color={image === false ? "default" : "primary"}
             onClick={(e) => {
               setImage(undefined);
@@ -377,13 +377,14 @@ const ImageOption = (props) => {
           </Button>
         </ButtonGroup>
       </Grid>
-      {confirmOptOut && <Collapse in={image === false}>
-        <Alert severity="info" icon={<ImageIcon />}>
-          <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
-          <span>{t("image.benefit")}</span>
-        </Alert>
-      </Collapse>
-      }
+      {confirmOptOut && (
+        <Collapse in={image === false}>
+          <Alert severity="info" icon={<ImageIcon />}>
+            <AlertTitle>{t("confirm", "Are you sure?")}</AlertTitle>
+            <span>{t("image.benefit")}</span>
+          </Alert>
+        </Collapse>
+      )}
     </Grid>
   );
 };

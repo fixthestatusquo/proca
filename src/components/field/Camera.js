@@ -61,7 +61,7 @@ export const useUpload = (canvasRef, formData = {}) => {
     }
 
     //const f = items[current].original.split("/");
-    const { error } = await supabase.from("pictures").insert([d]);
+    const { error } = await supabase.from("pictures").insert(d);
     if (error && error.code !== "23505") {
       //error different than duplicated
       return error;
