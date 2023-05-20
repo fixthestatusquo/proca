@@ -30,7 +30,6 @@ const org = require("./org");
 const { readCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
-// todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";

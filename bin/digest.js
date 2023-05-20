@@ -12,7 +12,6 @@ const { mkdirp, read, fileExists, save } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
 const configOverride = require("./lang").configOverride;
 
-// todo add turndown
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
   : "../config/";
