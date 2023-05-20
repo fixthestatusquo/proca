@@ -60,7 +60,11 @@
     "optInConfirmed": "Abonnement bekræftet",
     "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "required": "Dit samtykke er nødvendigt for at deltage"
+    "required": "Dit samtykke er nødvendigt for at deltage",
+    "subButton": {
+      "opt-in": "og modtage oplysninger",
+      "opt-out": "og ikke holder mig underrettet"
+    }
   },
   "date": {
     "error": "ugyldig dato. format: DD.MM.YYYYYY"
@@ -120,6 +124,7 @@
     "intro": "Donér til {{campaign}}",
     "payment_methods": {
       "card": "Kort",
+      "default": "Donér",
       "intro": "Hvordan ønsker du at donere?",
       "paypal": "PayPal",
       "sepa": "SEPA",

@@ -60,7 +60,11 @@
     "optInConfirmed": "Predplatné potvrdené",
     "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
-    "required": "Na účasť je potrebný váš súhlas"
+    "required": "Na účasť je potrebný váš súhlas",
+    "subButton": {
+      "opt-in": "a prijímať informácie",
+      "opt-out": "a neinformujte ma"
+    }
   },
   "date": {
     "error": "neplatný dátum. formát: MM.RRRR"
@@ -120,6 +124,7 @@
     "intro": "Prispieť na {{campaign}}",
     "payment_methods": {
       "card": "Karta",
+      "default": "Darujte",
       "intro": "Ako chcete darovať?",
       "paypal": "PayPal",
       "sepa": "SEPA",

@@ -60,7 +60,11 @@
     "optInConfirmed": "Deimhníodh an síntiús",
     "processing": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí agus fianáin de réir ár mbeartas príobháideachta <1> </1>",
     "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
-    "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh"
+    "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh",
+    "subButton": {
+      "opt-in": "agus faisnéis a fháil",
+      "opt-out": "agus ná coimeád ar an eolas mé"
+    }
   },
   "date": {
     "error": "dáta neamhbhailí. formáid: DD.MM.YYYY"
@@ -120,6 +124,7 @@
     "intro": "Deonaigh do {{campaign}}",
     "payment_methods": {
       "card": "Cárta",
+      "default": "Síntiúis",
       "intro": "Conas is mian leat síntiús a thabhairt?",
       "paypal": "PayPal",
       "sepa": "SEPA",

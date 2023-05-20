@@ -60,7 +60,11 @@
     "optInConfirmed": "Tellimus kinnitatud",
     "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-    "required": "Osalemiseks on vaja teie nõusolekut"
+    "required": "Osalemiseks on vaja teie nõusolekut",
+    "subButton": {
+      "opt-in": "ja saada teavet",
+      "opt-out": "ja ei teavita mind"
+    }
   },
   "date": {
     "error": "kehtetu kuupäev. formaat: KK.MM.AAAA"
@@ -120,6 +124,7 @@
     "intro": "Annetada {{campaign}}",
     "payment_methods": {
       "card": "Kaart",
+      "default": "Annetada",
       "intro": "Kuidas soovite annetada?",
       "paypal": "PayPal",
       "sepa": "SEPA",

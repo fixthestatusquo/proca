@@ -60,7 +60,11 @@
     "optInConfirmed": "Prenumeration bekräftad",
     "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
-    "required": "Ditt samtycke krävs för att delta"
+    "required": "Ditt samtycke krävs för att delta",
+    "subButton": {
+      "opt-in": "och ta emot information.",
+      "opt-out": "och inte håller mig informerad"
+    }
   },
   "date": {
     "error": "ogiltigt datum. format: DD.MM.YYYYY"
@@ -120,6 +124,7 @@
     "intro": "Donera till {{campaign}}",
     "payment_methods": {
       "card": "Kort",
+      "default": "Donera",
       "intro": "Hur vill du donera?",
       "paypal": "PayPal",
       "sepa": "SEPA",

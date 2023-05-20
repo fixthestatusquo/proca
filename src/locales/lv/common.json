@@ -60,7 +60,11 @@
     "optInConfirmed": "Apstiprināta abonēšana",
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-    "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana."
+    "required": "Lai piedalītos konkursā, ir nepieciešama jūsu piekrišana.",
+    "subButton": {
+      "opt-in": "un saņemt informāciju",
+      "opt-out": "un neinformē mani"
+    }
   },
   "date": {
     "error": "nederīgs datums. formāts: DD.MM.GGGGG"
@@ -120,6 +124,7 @@
     "intro": "Ziedot {{campaign}}",
     "payment_methods": {
       "card": "Karte",
+      "default": "Ziedot",
       "intro": "Kā vēlaties ziedot?",
       "paypal": "PayPal",
       "sepa": "SEPA",

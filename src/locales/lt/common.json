@@ -60,7 +60,11 @@
     "optInConfirmed": "Prenumerata patvirtinta",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
-    "required": "Norint dalyvauti, reikia jūsų sutikimo."
+    "required": "Norint dalyvauti, reikia jūsų sutikimo.",
+    "subButton": {
+      "opt-in": "ir gauti informaciją",
+      "opt-out": "ir neinformuokite manęs"
+    }
   },
   "date": {
     "error": "negaliojanti data. formatas: DD.MM.MM.YYYYY"
@@ -120,6 +124,7 @@
     "intro": "Paaukoti {{campaign}}",
     "payment_methods": {
       "card": "Kortelė",
+      "default": "Paaukoti",
       "intro": "Kaip norite aukoti?",
       "paypal": "\"PayPal\"",
       "sepa": "SEPA",

@@ -60,7 +60,11 @@
     "optInConfirmed": "Ṣiṣe alabapin timo",
     "processing": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ati awọn kuki ni ibamu pẹlu <1> eto imulo wa </1>",
     "processing-nocookie": "Alaye ti ara ẹni rẹ yoo wa ni ikọkọ ati ni aabo ni aabo. Nipa ifisilẹ alaye o ti gba si lilo data ni ibamu pẹlu <1> eto imulo wa </1>",
-    "required": "A nilo igbanilaaye lati kopa"
+    "required": "A nilo igbanilaaye lati kopa",
+    "subButton": {
+      "opt-in": "ati gba awọn alaye",
+      "opt-out": "ki o si ma ṣe sọ fun mi"
+    }
   },
   "date": {
     "error": "ọjọ ti ko tọ. ọna kika: DD.MM.YYYY"
@@ -120,6 +124,7 @@
     "intro": "Ṣetọrẹ si {{campaign}}",
     "payment_methods": {
       "card": "Kaadi",
+      "default": "Ṣetọrẹ",
       "intro": "Bawo ni o ṣe fẹ lati ṣetọrẹ?",
       "paypal": "PayPal",
       "sepa": "SEPA",

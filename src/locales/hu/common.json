@@ -60,7 +60,11 @@
     "optInConfirmed": "Előfizetés megerősítve",
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
     "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-    "required": "A részvételhez az Ön hozzájárulása szükséges"
+    "required": "A részvételhez az Ön hozzájárulása szükséges",
+    "subButton": {
+      "opt-in": "és információkat kaphat",
+      "opt-out": "és nem tájékoztatnak engem"
+    }
   },
   "date": {
     "error": "érvénytelen dátum. formátum: MM.YYYY"
@@ -120,6 +124,7 @@
     "intro": "Adományozni a {{campaign}} címre",
     "payment_methods": {
       "card": "Kártya",
+      "default": "Adományozni",
       "intro": "Hogyan szeretne adományozni?",
       "paypal": "PayPal",
       "sepa": "SEPA",

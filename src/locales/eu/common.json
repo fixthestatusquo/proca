@@ -60,7 +60,11 @@
     "optInConfirmed": "Harpidetza berretsi da",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
     "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
-    "required": "Zure baimena behar da parte hartzeko"
+    "required": "Zure baimena behar da parte hartzeko",
+    "subButton": {
+      "opt-in": "eta informazioa jaso",
+      "opt-out": "eta ez nazazu informatuta eduki"
+    }
   },
   "date": {
     "error": "data baliogabea. formatua: DD.MM.AAAA"
@@ -120,6 +124,7 @@
     "intro": "Dohaintza egin {{campaign}}",
     "payment_methods": {
       "card": "Txartela",
+      "default": "Dohaintza eman",
       "intro": "Nola eman nahi duzu dohaintza?",
       "paypal": "PayPal",
       "sepa": "SEPA",
