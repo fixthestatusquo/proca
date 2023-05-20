@@ -60,7 +60,11 @@
     "optInConfirmed": "Pretplata potvrđena",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "required": "Za sudjelovanje je potreban vaš pristanak"
+    "required": "Za sudjelovanje je potreban vaš pristanak",
+    "subButton": {
+      "opt-in": "i primati informacije",
+      "opt-out": "i nemojte me obavještavati"
+    }
   },
   "date": {
     "error": "nevažeći datum. format: DD.MM.GGGG"
@@ -120,6 +124,7 @@
     "intro": "Doniraj za {{campaign}}",
     "payment_methods": {
       "card": "Kartica",
+      "default": "Donirajte",
       "intro": "Kako želiš donirati?",
       "paypal": "PayPal",
       "sepa": "SEPA",
