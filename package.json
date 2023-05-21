@@ -88,7 +88,7 @@
     "webpack:build": "nice -20 rescripts build",
     "build": "node bin/esbuild.js",
     "build@local": "NODE_OPTIONS=--openssl-legacy-provider nice -20 rescripts build",
-    "start": "node bin/esbuild.js --serve",
+    "start": "node bin/esbuild.js --serve ",
     "webpack:start": "rescripts start",
     "start@local": "NODE_OPTIONS=--openssl-legacy-provider rescripts start",
     "deploy": "bash bin/deploy.sh",

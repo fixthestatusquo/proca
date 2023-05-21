@@ -38,13 +38,13 @@ const argv = require("minimist")(process.argv.slice(2), {
     help(1);
   },
 });
-
 if (argv._.length === 0 || argv.help) {
   console.error(color.red("missing param widget id"));
   help(argv._.length === 0 ? 1 : 0);
 }
 
-const [filename, config, campaign] = getConfigOverride();
+const id = argv._[0];
+const [filename, config, campaign] = getConfigOverride(id);
 
 const define = (env) => {
   const defined = {
@@ -104,6 +104,16 @@ let procaPlugin = {
     build.onEnd(async (result) => {
       //      console.log(`build ended with ${result.errors.length} errors`);
       //outdir: "d/" + config.filename,
+      //        from: ["./public/index.html", "./public/embed.html"],
+      const html = fs.readFileSync("./public/index.html", "utf8");
+      fs.writeFileSync(
+        "d/" + config.filename + "/index.html",
+        html
+          .replaceAll("%PUBLIC_URL%", "/")
+          .replaceAll("<%= campaign %>", config.campaign.title)
+          .replaceAll("<%= organisation %>", config.org.name)
+      );
+
       if (!argv.serve) {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
@@ -126,7 +136,7 @@ let procaPlugin = {
           "config/" + filename,
           "config/campaign/" + config.campaign.name + ".json",
         ],
-        contents: actionPage(),
+        contents: actionPage(id),
       };
     });
   },

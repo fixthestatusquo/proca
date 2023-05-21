@@ -20,11 +20,11 @@ const stepComponent = {
   html: "Html",
   register: "Register",
   "register.CH": "bespoke/Register-CH",
-  download: "bespoke/Download"
+  download: "bespoke/Download",
 };
 
-module.exports = (defaultCode) => {
-  const [filename, config, campaign] = getConfigOverride();
+module.exports = (id) => {
+  const [filename, config, campaign] = getConfigOverride(id);
 
   const code = createCode(filename, config);
 
