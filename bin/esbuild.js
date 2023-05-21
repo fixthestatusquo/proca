@@ -110,6 +110,7 @@ let procaPlugin = {
         "d/" + config.filename + "/index.html",
         html
           .replaceAll("%PUBLIC_URL%", "/")
+          .replaceAll("<%= lang %>", config.lang)
           .replaceAll("<%= campaign %>", config.campaign.title)
           .replaceAll("<%= organisation %>", config.org.name)
       );
@@ -154,7 +155,7 @@ const buildConfig = {
     copy({
       watch: true,
       assets: {
-        from: ["./public/index.html", "./public/embed.html"],
+        from: ["./public/embed.html"],
         to: ["./"],
       },
     }),
