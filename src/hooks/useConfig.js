@@ -161,7 +161,7 @@ export const ConfigProvider = (props) => {
             setLayout(e.detail.key, e.detail.value);
             break;
           case "campaign":
-            if (e.detail.value && !e.detail.key instanceof Object) {
+            if (e.detail.value && !(e.detail.key instanceof Object)) {
               setCampaignConfig({ [e.detail.key]: e.detail.value });
             }
             setCampaignConfig(e.detail.key);

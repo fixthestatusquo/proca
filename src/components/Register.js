@@ -19,7 +19,7 @@ import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
-import { ReactComponent as ProcaIcon } from "../images/Proca.svg";
+import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DoneIcon from "@material-ui/icons/Done";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
