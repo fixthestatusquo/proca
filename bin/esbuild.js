@@ -120,9 +120,16 @@ let procaPlugin = {
     //build.onLoad({ filter: /locales\/common\.js/ }, (args) => {});
     build.onEnd(async (result) => {
       //      console.log(`build ended with ${result.errors.length} errors`);
-      //outdir: "d/" + config.filename,
-      //        from: ["./public/index.html", "./public/embed.html"],
-      const html = fs.readFileSync("./public/index.html", "utf8");
+
+      let file = "./public/index.html";
+      if (
+        config.layout &&
+        (config.layout.HtmlTemplate || config.layout.template)
+      ) {
+        file =
+          "./public/" + (config.layout.HtmlTemplate || config.layout.template);
+      }
+      const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
         "d/" + config.filename + "/index.html",
         html
