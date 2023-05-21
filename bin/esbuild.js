@@ -12,7 +12,7 @@ const { getConfigOverride } = require("../webpack/config");
 const actionPage = require("../webpack/actionPage");
 
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
-const { build, context } = require("esbuild");
+const { build, context, analyzeMetafileSync } = require("esbuild");
 const { copy } = require("esbuild-plugin-copy");
 
 const help = (exit = 0) => {
@@ -23,6 +23,7 @@ const help = (exit = 0) => {
         "--help (this command)",
         "--serve for development http server",
         "--verbose",
+        "--analyze",
         "{actionpage id}",
       ].join("\n")
     )
@@ -30,7 +31,7 @@ const help = (exit = 0) => {
   process.exit(exit);
 };
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "verbose", "serve"],
+  boolean: ["help", "verbose", "serve", "analyze"],
   unknown: (d) => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
@@ -117,10 +118,7 @@ let procaPlugin = {
         sideEffects: false,
       };
     });
-    //build.onLoad({ filter: /locales\/common\.js/ }, (args) => {});
     build.onEnd(async (result) => {
-      //      console.log(`build ended with ${result.errors.length} errors`);
-
       let file = "./public/index.html";
       if (
         config.layout &&
@@ -144,7 +142,7 @@ let procaPlugin = {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
           fs.createReadStream(index),
-          zlib.createGzip(),
+          zlib.createGzip({}),
           fs.createWriteStream(index + ".gz")
         );
         const stats = fs.statSync(index + ".gz");
@@ -204,7 +202,14 @@ if (argv.serve) {
     await c.serve({ servedir: buildConfig.outdir });
   })();
 } else {
-  buildConfig.minify = true;
-  //  buildConfig.analyze = true;
-  build(buildConfig).catch(() => process.exit(1));
+  (async () => {
+    buildConfig.minify = true;
+    if (argv.analyze) buildConfig.metafile = true;
+    const result = await build(buildConfig);
+    if (result.metafile) {
+      fs.writeFileSync("build/metafile.json", JSON.stringify(result.metafile));
+      const r = analyzeMetafileSync(result.metafile);
+      console.log(r, "build/metafile.json");
+    }
+  })();
 }
