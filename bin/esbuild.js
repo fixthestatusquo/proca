@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const env = require("./dotenv.js");
 const path = require("path");
+const cp = require("child_process");
 const fs = require("fs");
 const zlib = require("node:zlib");
 const { pipeline } = require("node:stream/promises");
@@ -58,6 +59,22 @@ const define = (env) => {
   return defined;
 };
 
+const save = () => {
+  const hash = cp.execSync("git rev-parse HEAD").toString().trim();
+  fs.writeFileSync(
+    path.resolve(
+      __dirname,
+      "../d/" + config.filename + "/config-" + hash + ".json"
+    ),
+    JSON.stringify(config, null, 2)
+  );
+  if (argv.verbose) {
+    console.log(JSON.stringify(config, null, 2));
+  } else {
+    console.log("config", "d/" + config.filename + "/config-" + hash + ".json");
+  }
+};
+
 /*
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
 */
@@ -109,6 +126,7 @@ let procaPlugin = {
       fs.writeFileSync(
         "d/" + config.filename + "/index.html",
         html
+          .replace("<body>", "<body><script src='./index.js'></script>")
           .replaceAll("%PUBLIC_URL%", "/")
           .replaceAll("<%= lang %>", config.lang)
           .replaceAll("<%= campaign %>", config.campaign.title)
@@ -128,6 +146,7 @@ let procaPlugin = {
           color.cyan(Math.round(stats.size / 1024) + "kb")
         );
       }
+      save();
       //     console.log(result);
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, (args) => {
