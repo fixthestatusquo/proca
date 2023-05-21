@@ -24,7 +24,7 @@ const stepComponent = {
 };
 
 module.exports = (id) => {
-  const [filename, config, campaign] = getConfigOverride(id);
+  const [filename, config, campaign] = getConfigOverride(!isNaN(id) && id);
 
   const code = createCode(filename, config);
 
