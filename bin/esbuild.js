@@ -195,6 +195,7 @@ const buildConfig = {
 
 if (argv.serve) {
   (async () => {
+    buildConfig.sourcemap = "inline";
     buildConfig.banner = {
       js: ' (() => new EventSource("/esbuild").onmessage = () => location.reload())();',
     };
