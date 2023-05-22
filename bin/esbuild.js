@@ -14,6 +14,7 @@ const actionPage = require("../webpack/actionPage");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { build, context, analyzeMetafileSync } = require("esbuild");
 const { copy } = require("esbuild-plugin-copy");
+let runs = 0;
 
 const help = (exit = 0) => {
   console.log(
@@ -72,7 +73,11 @@ const save = () => {
   if (argv.verbose) {
     console.log(JSON.stringify(config, null, 2));
   } else {
-    console.log("config", "d/" + config.filename + "/config-" + hash + ".json");
+    runs === 0 &&
+      console.log(
+        "config",
+        "d/" + config.filename + "/config-" + hash + ".json"
+      );
   }
 };
 
@@ -152,10 +157,13 @@ let procaPlugin = {
         );
       }
       save();
+      runs++;
       //     console.log(result);
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, (args) => {
-      console.log(color.blue("load", config.filename));
+      runs === 0
+        ? console.log(color.blue("load", config.filename))
+        : console.log("reload");
       return {
         watchFiles: [
           "config/" + filename,
