@@ -51,7 +51,11 @@ export default function Target(props) {
             <Email done={done} actionPage={props.actionPage} />
           )}
           {value === "twitter" && (
-            <Twitter done={props.done} actionPage={props.actionPage} />
+            <Twitter
+              done={props.done}
+              actionPage={props.actionPage}
+              country={false}
+            />
           )}
         </Box>
       </Paper>

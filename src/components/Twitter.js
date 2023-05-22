@@ -117,7 +117,6 @@ const Component = (props) => {
   });
   const { watch, setValue } = form;
   const country = watch("country");
-
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
   if (hash) {
     // it has a picture
@@ -278,7 +277,6 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      console.log(allProfiles.length, profiles.length);
       //      setProfiles(profiles);
     },
     [allProfiles]
@@ -293,12 +291,12 @@ const Component = (props) => {
       setProfiles(d);
     }*/
   }, [country, filterProfiles]);
-
+  /*
   useEffect(() => {
     //    setFilter({country:config.country});
     filterProfiles(country);
   }, [country, filterProfiles]);
-
+*/
   const handleDone = (d) => {
     if (config.component.twitter?.anonymous === true) return;
     if (!data.firstname) viewDialog(true);
@@ -312,9 +310,10 @@ const Component = (props) => {
     return (
       <>
         <PreviousStepConfirm email={config.component.consent?.email} />
-        {config.component.twitter?.filter?.includes("country") && (
-          <Country form={form} list={config.component?.twitter?.countries} />
-        )}
+        {props.country !== false ||
+          (config.component.twitter?.filter?.includes("country") && (
+            <Country form={form} list={config.component?.twitter?.countries} />
+          ))}
         <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
         <TwitterList
           profiles={profiles}
