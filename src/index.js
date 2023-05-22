@@ -11,7 +11,6 @@ import Portals from "./components/Portals.js";
 import ProcaWidget from "./components/Widget.js";
 
 import { config as Config } from "./actionPage";
-// console.log(querystring);
 
 let config = {
   selector: ".proca-widget, #proca-form", // +, "[href='#proca_widget']"
@@ -114,14 +113,10 @@ const set = (atom, key, value) => {
 
 const render = (script) => {
   try {
-    //    var script = document.getElementById("proca");
-    //  we are the ones setting the id=proc of the script now in autoRender
     if (!script) {
       script = {};
     } // return; I have no clue why it happens
 
-    // we take the data from the url
-    // initDataState(data());
     Widget({ ...script.dataset });
   } catch (e) {
     console.log(e);
