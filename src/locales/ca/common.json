@@ -60,7 +60,11 @@
     "optInConfirmed": "Subscripció confirmada",
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
     "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
-    "required": "Cal el vostre consentiment per participar"
+    "required": "Cal el vostre consentiment per participar",
+    "subButton": {
+      "opt-in": "i rebre informació",
+      "opt-out": "i no em mantinguis informat"
+    }
   },
   "date": {
     "error": "data no vàlida. format: DD.MM.AAAA"
@@ -120,6 +124,7 @@
     "intro": "Dona a {{campaign}}",
     "payment_methods": {
       "card": "Targeta",
+      "default": "Donar",
       "intro": "Com vols donar?",
       "paypal": "PayPal",
       "sepa": "SEPA",

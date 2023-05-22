@@ -60,7 +60,11 @@
     "optInConfirmed": "Tilaus vahvistettu",
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
     "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
-    "required": "Osallistuminen edellyttää suostumustasi"
+    "required": "Osallistuminen edellyttää suostumustasi",
+    "subButton": {
+      "opt-in": "ja vastaanottaa tietoja",
+      "opt-out": "eikä pidä minua ajan tasalla"
+    }
   },
   "date": {
     "error": "virheellinen päivämäärä. format: MM.VVVV"
@@ -120,6 +124,7 @@
     "intro": "Lahjoita osoitteeseen {{campaign}}",
     "payment_methods": {
       "card": "Kortti",
+      "default": "Lahjoita",
       "intro": "Miten haluat lahjoittaa?",
       "paypal": "PayPal",
       "sepa": "SEPA",

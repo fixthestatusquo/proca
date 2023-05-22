@@ -60,7 +60,11 @@
     "optInConfirmed": "Anmeldung bestätigt",
     "processing": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten und Cookies gemäss unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "required": "Zustimmung erforderlich zur Teilnahme"
+    "required": "Zustimmung erforderlich zur Teilnahme",
+    "subButton": {
+      "opt-in": "und Informationen erhalten",
+      "opt-out": "und halten mich nicht auf dem Laufenden"
+    }
   },
   "date": {
     "error": "Ungültiges Datum. Format: TT.MM.JJJJ"
@@ -120,6 +124,7 @@
     "intro": "Spende an {{campaign}}",
     "payment_methods": {
       "card": "Karte",
+      "default": "Spende",
       "intro": "Wie möchtest Du spenden?",
       "paypal": "PayPal",
       "sepa": "SEPA",

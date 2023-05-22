@@ -60,7 +60,11 @@
     "optInConfirmed": "Suscripción confirmada",
     "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
     "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
-    "required": "Su consentimiento es necesario para participar"
+    "required": "Su consentimiento es necesario para participar",
+    "subButton": {
+      "opt-in": "y recibir información",
+      "opt-out": "y no me mantienes informado"
+    }
   },
   "date": {
     "error": "fecha no válida. formato: DD.MM.AAAA"
@@ -120,6 +124,7 @@
     "intro": "Donar a {{campaign}}",
     "payment_methods": {
       "card": "Tarjeta",
+      "default": "Donar",
       "intro": "¿Cómo quiere donar?",
       "paypal": "PayPal",
       "sepa": "SEPA",

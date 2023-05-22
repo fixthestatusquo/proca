@@ -60,7 +60,11 @@
     "optInConfirmed": "Abbonament ikkonfermat",
     "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
     "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
-    "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
+    "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa",
+    "subButton": {
+      "opt-in": "u tirċievi informazzjoni",
+      "opt-out": "u iżżommniex infurmat"
+    }
   },
   "date": {
     "error": "data invalida. format: JJ.XX.SSSS"
@@ -120,6 +124,7 @@
     "intro": "Agħti donazzjoni lil {{campaign}}",
     "payment_methods": {
       "card": "Card",
+      "default": "Agħti donazzjoni",
       "intro": "Kif trid tagħti donazzjoni?",
       "paypal": "PayPal",
       "sepa": "SEPA",

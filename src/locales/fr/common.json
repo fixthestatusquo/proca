@@ -60,7 +60,11 @@
     "optInConfirmed": "Abonnement confirmé",
     "processing": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données et des cookies conformément à notre <1>politique de confidentialité</1>",
     "processing-nocookie": "Vos informations personnelles resteront privées et seront conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>",
-    "required": "Votre consentement est nécessaire pour participer"
+    "required": "Votre consentement est nécessaire pour participer",
+    "subButton": {
+      "opt-in": "et recevoir des informations",
+      "opt-out": "et ne me tiennent pas au courant"
+    }
   },
   "date": {
     "error": "date invalide. format : JJ.MM.AAAA"
@@ -120,6 +124,7 @@
     "intro": "Faire un don à {{campaign}}",
     "payment_methods": {
       "card": "Carte",
+      "default": "Faire un don",
       "intro": "Comment voulez-vous faire un don ?",
       "paypal": "PayPal",
       "sepa": "SEPA",

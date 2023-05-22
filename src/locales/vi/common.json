@@ -60,7 +60,11 @@
     "optInConfirmed": "Đăng ký đã được xác nhận",
     "processing": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu và cookie theo <1> chính sách bảo mật </1> của chúng tôi",
     "processing-nocookie": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu theo <1> chính sách bảo mật </1> của chúng tôi",
-    "required": "Cần có sự đồng ý của bạn để tham gia"
+    "required": "Cần có sự đồng ý của bạn để tham gia",
+    "subButton": {
+      "opt-in": "và nhận thông tin",
+      "opt-out": "và không thông báo cho tôi"
+    }
   },
   "date": {
     "error": "ngày không hợp lệ. định dạng: DD.MM.YYYY"
@@ -120,6 +124,7 @@
     "intro": "Quyên góp cho {0}",
     "payment_methods": {
       "card": "Thẻ",
+      "default": "Quyên tặng",
       "intro": "Bạn muốn tặng như thế nào?",
       "paypal": "PayPal",
       "sepa": "SEPA",

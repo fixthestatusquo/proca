@@ -60,7 +60,11 @@
     "optInConfirmed": "Subskrypcja potwierdzona",
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
-    "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
+    "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika",
+    "subButton": {
+      "opt-in": "i otrzymywać informacje",
+      "opt-out": "i nie informuj mnie na bieżąco"
+    }
   },
   "date": {
     "error": "Nieprawidłowa data. format: DD.MM.RRRR"
@@ -120,6 +124,7 @@
     "intro": "Przekaż darowiznę na rzecz {{campaign}}.",
     "payment_methods": {
       "card": "Karta",
+      "default": "Darowizna",
       "intro": "Jak chcesz przekazać darowiznę?",
       "paypal": "PayPal",
       "sepa": "SEPA",

@@ -60,7 +60,11 @@
     "optInConfirmed": "Potrjena naročnina",
     "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
-    "required": "Za sodelovanje je potrebno vaše soglasje."
+    "required": "Za sodelovanje je potrebno vaše soglasje.",
+    "subButton": {
+      "opt-in": "in prejemanje informacij",
+      "opt-out": "in me ne obveščajte"
+    }
   },
   "date": {
     "error": "neveljaven datum. format: MM.RRRR"
@@ -120,6 +124,7 @@
     "intro": "Donacija za {{campaign}}",
     "payment_methods": {
       "card": "Kartica",
+      "default": "Podarite",
       "intro": "Kako želite darovati?",
       "paypal": "PayPal",
       "sepa": "SEPA",
