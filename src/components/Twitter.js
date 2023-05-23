@@ -163,7 +163,10 @@ const Component = (props) => {
       setValue(
         "message",
         tokenize(
-          pickOne(t(["campaign:twitter.message", "campaign:share.twitter"])),
+          pickOne(
+            data.twitter ||
+              t(["campaign:twitter.message", "campaign:share.twitter"])
+          ),
           { profile: profile, url: window.location }
         )
       );

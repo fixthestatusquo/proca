@@ -327,7 +327,7 @@ const Widget = (props) => {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
       go(paramStep() || 1);
-      _scrollTo({ delay: 300 });
+      //      _scrollTo({ delay: 300 });
       //      return null;
     }
   }
