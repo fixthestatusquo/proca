@@ -52,7 +52,7 @@ const [filename, config, campaign] = getConfigOverride(id);
 const define = (env) => {
   const defined = {
     global: "window",
-    "process.env.REACT_APP_API_URL": "",
+    "process.env.REACT_APP_API_URL": '"https://api.proca.app"',
     "process.env.NODE_ENV":
       '"' + (argv.serve ? "development" : "production") + '"',
   };
