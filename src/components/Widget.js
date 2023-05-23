@@ -64,7 +64,7 @@ const Widget = (props) => {
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
-  const fab = config.component.widget?.fab;
+  const fab = config.component.widget?.fab !== false;
 
   let data = Url.data();
 
@@ -136,23 +136,8 @@ const Widget = (props) => {
     scrollNeeded.current = true;
   };
 
-  if (config.component.widget?.mobileVersion === false) isMobile = false;
-
-  if (
-    isMobile &&
-    props.journey[0] !== "clickify" &&
-    props.journey[0] !== "button"
-  ) {
-    let j = Object.assign([], props.journey);
-    if (j[0] !== "dialog") j.unshift("dialog");
-    propsJourney = ["button", j];
-    steps["button"] = Button;
-    steps["dialog"] = Dialog;
-    topMulti = Dialog;
-    //    steps["button"] = allSteps["button"];
-    //    steps["dialog"] = allSteps["dialog"];
-  }
   let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
+  console.log(isMobile, current, journey);
   if (current === false) {
     // obsolete?
     setCurrent(0);
@@ -342,11 +327,8 @@ const Widget = (props) => {
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
-      if (isMobile || !paramStep()) go(1);
-      else {
-        go(paramStep());
-        _scrollTo({ delay: 300 });
-      }
+      go(paramStep() || 1);
+      _scrollTo({ delay: 300 });
       //      return null;
     }
   }
@@ -366,16 +348,14 @@ const Widget = (props) => {
     }
   };
 
-  console.log(intersectionRef.current);
-
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
         dom={props.container}
         hidden={current === null}
-        width={isMobile || config.component.widget?.forceWidth ? 0 : null}
+        width={config.component.widget?.forceWidth ? 0 : null}
       >
-        {<Button done={onFabClick} ref={intersectionRef} />}
+        {fab && <Button done={onFabClick} ref={intersectionRef} />}
 
         <div className="proca-set" ref={intersectionRef}>
           {Number.isInteger(current) && <CurrentAction />}

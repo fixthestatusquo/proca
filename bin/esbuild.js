@@ -52,6 +52,7 @@ const [filename, config, campaign] = getConfigOverride(id);
 const define = (env) => {
   const defined = {
     global: "window",
+    "process.env.REACT_APP_API_URL": undefined,
     "process.env.NODE_ENV":
       '"' + (argv.serve ? "development" : "production") + '"',
   };

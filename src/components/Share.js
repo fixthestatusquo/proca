@@ -108,7 +108,8 @@ export default function ShareAction(props) {
     let params = url.searchParams;
     params.set("utm_source", "share");
     params.set("utm_medium", medium);
-    params.set("utm_campaign", uuid());
+    //params.set("utm_campaign", uuid());
+    params.set("utm_campaign", "proca");
     let garbage = [];
     for (const key of params.keys()) {
       if (key === "doi") garbage.push(key);

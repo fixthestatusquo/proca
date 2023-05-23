@@ -53,7 +53,7 @@ const FABAction = (props, ref) => {
   const config = useCampaignConfig();
   const [intersection, intersectionRef] = useIntersection();
   let counter = useCount(props.actionPage);
-  intersectionRef.current = ref.current;
+  if (intersection && ref) intersectionRef.current = ref.current;
 
   const handleClickOpen = () => {
     props.done();
