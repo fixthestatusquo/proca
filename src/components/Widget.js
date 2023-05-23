@@ -137,7 +137,6 @@ const Widget = (props) => {
   };
 
   let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
-  console.log(isMobile, current, journey);
   if (current === false) {
     // obsolete?
     setCurrent(0);

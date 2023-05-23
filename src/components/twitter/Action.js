@@ -54,7 +54,7 @@ const tweet = (params) => {
   }, 10000);
 };
 
-const component = function TwitterAction(profile) {
+const TwitterAction = (profile) => {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
@@ -107,21 +107,5 @@ const component = function TwitterAction(profile) {
   );
 };
 
-//component.defaultProps = {
-//  screen_name = "eucampaign";
-//  text
-//  via
-//}
-
-// you can have actionText (text of function(profile))
-component.propTypes = {
-  screen_name: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  image: PropTypes.string,
-  url: PropTypes.string,
-  actionUrl: PropTypes.string,
-  description: PropTypes.string,
-  className: PropTypes.string,
-};
-export default component;
+export default TwitterAction;
 export { tweet };
