@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 
 import useCount from "@hooks/useCount.js";
 import CreateIcon from "@material-ui/icons/Create";
+import { useIntersection } from "@shopify/react-intersection-observer";
 
 const useStyles = makeStyles((theme) => ({
   /*  "@keyframes procafadeOut": {
@@ -45,19 +46,26 @@ const useStyles = makeStyles((theme) => ({
   return <Slide direction="up" ref={ref} {...props} />;
 });
 */
-export default function FABAction(props) {
+const FABAction = (props, ref) => {
   //  const theme = useTheme();
   const [compact, setCompact] = useState(false);
   const { t } = useTranslation();
   const config = useCampaignConfig();
-
+  const [intersection, intersectionRef] = useIntersection();
   let counter = useCount(props.actionPage);
+  intersectionRef.current = ref.current;
 
   const handleClickOpen = () => {
     props.done();
   };
 
   const classes = useStyles();
+
+  useEffect(() => {
+    setCompact(false);
+  }, [intersection.isIntersecting, setCompact]);
+
+  if (intersection.isIntersecting) return null;
 
   const createDom = (id) => {
     let el = document.getElementById(id);
@@ -123,4 +131,6 @@ export default function FABAction(props) {
       dom
     )
   );
-}
+};
+
+export default forwardRef(FABAction);

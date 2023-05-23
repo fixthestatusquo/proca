@@ -25,7 +25,6 @@ import Button from "@components/FAB";
 import Dialog from "@components/Dialog";
 import Alert from "@components/Alert";
 import TwoColumns from "@components/TwoColumns";
-import { useIntersection } from "@shopify/react-intersection-observer";
 let config = {
   data: Url.data(),
   utm: Url.utm(),
@@ -40,6 +39,7 @@ let init = false;
 const Widget = (props) => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
+  const intersectionRef = useRef();
 
   const setCurrent = (i) => {
     if (i >= 0 && journey[i])
@@ -64,7 +64,6 @@ const Widget = (props) => {
   let topMulti = useRef(0); // latest Action level 0 rendered
   let propsJourney = Object.assign([], props.journey);
   let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
-  const [intersection, intersectionRef] = useIntersection();
   const fab = config.component.widget?.fab;
 
   let data = Url.data();
@@ -367,6 +366,8 @@ const Widget = (props) => {
     }
   };
 
+  console.log(intersectionRef.current);
+
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
       <TwoColumns
@@ -374,8 +375,9 @@ const Widget = (props) => {
         hidden={current === null}
         width={isMobile || config.component.widget?.forceWidth ? 0 : null}
       >
-        <div ref={intersectionRef}>
-          {fab && !intersection.isIntersecting && <Button done={onFabClick} />}
+        {<Button done={onFabClick} ref={intersectionRef} />}
+
+        <div className="proca-set" ref={intersectionRef}>
           {Number.isInteger(current) && <CurrentAction />}
         </div>
       </TwoColumns>
