@@ -136,11 +136,11 @@ _Tip: When developing, always have a sensible default behaviour even if the spec
 
 the main behaviour
 
-- `config.component.widget.mobileVersion: boolean`. if true, a floating action button is displayed instead of the normal widget, and the widget steps are displayed (after the click) on full screen
+- `config.component.widget.mobileVersion: boolean`. If true, a floating action button is displayed when form is not. It is available for all screen sizes. (It has nothing to do with mobile version anymore).
+  Deprecated: Activates a mobile layout version - if true, a floating action button is displayed instead of the normal widget on mobile screens only, and the widget steps are displayed (after the click) on full screen.
 - `config.component.widget?.autoStart: boolean`. default true. used to not automatically display the widget. see portal Clickify below
 - `config.component.widget.forceWidth: number`. by default, the width of the widget is the width available on the page (reactive). Can be used to force a width, for instance to embed into broken or weird html pages ;)
 - `config.component.widget.delay": number`. delay creating the widget by number milliseconds, mostly to let crappy javascript into the page do their mess before the widget is displayed
-
 
 ## Register
 
@@ -182,8 +182,7 @@ to collect the consent of being contacted
 
 `config.component.consent.implicit: true` and `confirm.component.consent.confirmProcessing: true` - adds a checkbox.
 `config.component.implicit: "opt-in" - adds a line 'Submit this form to receive emails from {{org}}'
-`config.component.consent.confirm === false` - removes "Are you sure" question.
-`config.component.consent.benefit === false` - removes "Are you sure" when picture not added.
+`config.component.consent.confirm === false`- removes "Are you sure" question.`config.component.consent.benefit === false` - removes "Are you sure" when picture not added.
 
 ### Email (config.component.consent.email)
 
