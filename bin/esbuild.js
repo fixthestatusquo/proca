@@ -11,8 +11,8 @@ const browserslist = require("browserslist");
 const { getConfigOverride } = require("../webpack/config");
 const actionPage = require("../webpack/actionPage");
 
-const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
+const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
 
@@ -199,6 +199,7 @@ const getConfig = (id) => {
 const serve = async (id) => {
   const buildConfig = getConfig(id);
   buildConfig.sourcemap = "inline";
+  //  buildConfig.plugins.push (eslint);
   buildConfig.banner = {
     //  js: ' (() => new EventSource("/esbuild").onmessage = () => location.reload())();'
     js: '(() => new EventSource("/esbuild").addEventListener("change", () => {console.log("reload");location.reload()}))()',

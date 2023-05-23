@@ -22,7 +22,6 @@ import { initDataState } from "@hooks/useData";
 import Loader from "@components/Loader";
 import { steps } from "../actionPage";
 import Button from "@components/FAB";
-import Dialog from "@components/Dialog";
 import Alert from "@components/Alert";
 import TwoColumns from "@components/TwoColumns";
 let config = {
@@ -288,13 +287,13 @@ const Widget = (props) => {
           </>
         ); //break;
       case 1:
-      case 2:
+      case 2: {
         let SubAction = steps[journey[current]];
         Action = steps[topMulti.current];
         if (!Action || !SubAction) {
           return (
             <Alert severity="error">
-              can't find Action {topMulti.current} or SubAction{" "}
+              can&apos;t find Action {topMulti.current} or SubAction{" "}
               {journey[current]}
             </Alert>
           );
@@ -318,6 +317,7 @@ const Widget = (props) => {
             {props.children}
           </>
         ); //break;
+      }
       default:
         throw Error("Oops, it should be a sub step");
     }
@@ -368,10 +368,6 @@ const Widget = (props) => {
 Widget.getSteps = () => {
   console.error("obsolete");
   //  return allSteps;
-};
-
-Widget.jump = (step) => {
-  // name of the step of true to skip to next action
 };
 
 export default Widget;

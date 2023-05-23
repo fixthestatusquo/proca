@@ -95,7 +95,7 @@ const Widget = (args) => {
 
 Widget.jump = (step) => {
   // if step is empty, jump to next
-  ProcaWidget.action();
+  ProcaWidget.action(step);
 };
 
 const go = (action) => {
