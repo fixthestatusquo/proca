@@ -1,3 +1,4 @@
+import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 
