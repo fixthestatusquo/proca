@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Circle, Image as KonvaImage, Group } from "react-konva";
 import { useHoverDirty, useLongPress } from "react-use";
 
-import cancelIcon from "@images/cancel.svg";
+import cancelIcon from "@images/cancel.js";
 import { resize } from "@lib/image";
 
 export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {

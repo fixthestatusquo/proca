@@ -10,7 +10,6 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
-//import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import TwitterIcon from "../images/Twitter.js";
 import eugroups from "../data/eugroups.json";
 import { Flag } from "@components/Country";

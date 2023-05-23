@@ -11,7 +11,6 @@ import Selectable from "./Selectable";
 
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
-//import { ReactComponent as TwitterIcon } from '../images/Twitter.svg';
 import EmailIcon from "@material-ui/icons/Email";
 
 import { addAction } from "@lib/server";
