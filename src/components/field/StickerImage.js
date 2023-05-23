@@ -1,4 +1,7 @@
 import React, { useState, useRef, createRef, useCallback } from "react";
+
+import { scrollTo } from "@lib/scroll";
+
 import {
   Image as KonvaImage,
   Layer,
@@ -68,10 +71,13 @@ export default function ImageStickerComplete(props) {
   const [draw, setDraw] = useState(false);
   const [image, setImage] = useState(undefined);
   const [canvas, setCanvas] = useState(undefined);
-  const handleClose = () => setDraw(false);
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [expanded, setExpanded] = React.useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   //  const data = props.form?.getValues();
+  const handleClose = () => {
+    setDraw(false);
+    scrollTo({ delay: 300, selector: "#proca-image" });
+  };
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -357,7 +363,9 @@ const ImageOption = (props) => {
 
   return (
     <Grid container spacing={1} justifyContent="space-between">
-      <Grid item>{t("image.wanttoadd")}</Grid>
+      <Grid item id="proca-image">
+        {t("image.wanttoadd")}
+      </Grid>
       <Grid item>
         <ButtonGroup
           variant="contained"
