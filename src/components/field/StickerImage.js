@@ -95,6 +95,7 @@ export default function ImageStickerComplete(props) {
         maxWidth="lg"
         dialog={draw !== false}
         close={handleClose}
+        hideBackdrop
       >
         <Stepper activeStep={activeStep}>
           <Step key={0}>
