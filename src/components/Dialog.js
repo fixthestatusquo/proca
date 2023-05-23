@@ -63,6 +63,7 @@ function OpenDialog(props) {
       TransitionComponent={Transition}
       fullScreen={props.fullScreen || fullScreen}
       maxWidth={props.maxWidth}
+      hideBackdrop={props.hideBackdrop || false}
     >
       {title ? (
         <DialogTitle className={classes.dialogTitle} disableTypography>
