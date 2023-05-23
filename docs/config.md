@@ -190,6 +190,12 @@ to collect the consent of being contacted
 - `confirm.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
 - `confirm.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
+## Email (config.component.email)
+
+## Twitter (config.component.twitter)
+
+- actionUrl: false if we add the url of the action page (at the end of where the {url} token is set
+
 ## Share
 
 - `config.component.share.anonymous: boolean`. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?

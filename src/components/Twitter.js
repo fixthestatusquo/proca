@@ -128,6 +128,10 @@ const Component = (props) => {
       hash +
       "?url=" +
       encodeURIComponent(document.location.origin + document.location.pathname);
+  } else {
+    if (!actionUrl && config.component.twitter.actionUrl !== false) {
+      actionUrl = window.location;
+    }
   }
 
   const setMessage = useCallback(
@@ -145,7 +149,7 @@ const Component = (props) => {
         if (msg) {
           setValue(
             "message",
-            tokenize(pickOne(msg), { profile: profile, url: window.location })
+            tokenize(pickOne(msg), { profile: profile, url: actionUrl })
           );
           return;
         }
@@ -154,7 +158,7 @@ const Component = (props) => {
             "message",
             tokenize(pickOne(data.twitter), {
               profile: profile,
-              url: window.location,
+              url: actionUrl,
             })
           );
           return;
@@ -167,7 +171,7 @@ const Component = (props) => {
             data.twitter ||
               t(["campaign:twitter.message", "campaign:share.twitter"])
           ),
-          { profile: profile, url: window.location }
+          { profile: profile, url: actionUrl }
         )
       );
     },
