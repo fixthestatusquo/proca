@@ -40,6 +40,10 @@ import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  imgsticker: {
+    width: "66px",
+    display: "inline",
+  },
   sticker: {
     cursor: "copy",
   },
@@ -92,14 +96,14 @@ export default function ImageStickerComplete(props) {
         dialog={draw !== false}
         close={handleClose}
       >
-        <Stepper activeStep={activeStep} nonLinear>
+        <Stepper activeStep={activeStep}>
           <Step key={0}>
             <StepButton onClick={handleStep(0)}>
               <StepLabel>{t("image.select", "choose your picture")}</StepLabel>
             </StepButton>
           </Step>
-          <Step key={1} onClick={handleStep(1)}>
-            <StepButton onClick={handleStep(1)}>
+          <Step key={1}>
+            <StepButton>
               <StepLabel>{t("image.addSticker", "add stickers")}</StepLabel>
             </StepButton>
           </Step>
@@ -309,6 +313,7 @@ const ImageStickerKonva = (props) => {
                 }}
               >
                 <img
+                  className={classes.imgsticker}
                   alt={sticker.alt}
                   src={sticker.url}
                   width={sticker.width}

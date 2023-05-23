@@ -3,14 +3,28 @@ import React, { useState, useEffect, useRef } from "react";
 import { Circle, Image as KonvaImage, Group } from "react-konva";
 import { useHoverDirty, useLongPress } from "react-use";
 
-import cancelIcon from "@images/cancel.js";
 import { resize } from "@lib/image";
 
 export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
   const imageRef = useRef(null);
   const isHovered = useHoverDirty(imageRef);
   const [stickerImage] = useImage(image.src, "anonymous", "origin");
-  const [deleteImage] = useImage(cancelIcon);
+
+  const svgstring = `<svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      color="#ee5139"
+      d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+    ></path>
+  </svg>`;
+  const deleteImage = new Image();
+  deleteImage.src =
+    "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgstring);
+
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [size, setSize] = useState(undefined);
   const onLongPress = () => {
