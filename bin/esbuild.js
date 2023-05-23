@@ -12,7 +12,7 @@ const { getConfigOverride } = require("../webpack/config");
 const actionPage = require("../webpack/actionPage");
 
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
-const { build, context, analyzeMetafileSync } = require("esbuild");
+const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
 
@@ -41,13 +41,6 @@ const argv = require("minimist")(process.argv.slice(2), {
     help(1);
   },
 });
-if (argv._.length === 0 || argv.help) {
-  console.error(color.red("missing param widget id"));
-  help(argv._.length === 0 ? 1 : 0);
-}
-
-const id = argv._[0];
-const [filename, config, campaign] = getConfigOverride(id);
 
 const define = (env) => {
   const defined = {
@@ -62,7 +55,7 @@ const define = (env) => {
   return defined;
 };
 
-const save = () => {
+const save = (config) => {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   fs.writeFileSync(
     path.resolve(
@@ -86,7 +79,7 @@ const save = () => {
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
 */
 
-const resolveCountryList = () => {
+const resolveCountryList = (config) => {
   const lang = config.lang;
   let countryList = "i18n-iso-countries/langs/" + lang + ".json";
   let r = {};
@@ -101,7 +94,7 @@ const resolveCountryList = () => {
   };
 };
 
-let procaPlugin = {
+let procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
     build.onResolve(
@@ -111,9 +104,8 @@ let procaPlugin = {
         return { path: r.includes(".") ? r : r + ".js", sideEffects: false };
       }
     );
-    build.onResolve(
-      { filter: /@i18n-iso-countries\/lang/ },
-      resolveCountryList
+    build.onResolve({ filter: /@i18n-iso-countries\/lang/ }, () =>
+      resolveCountryList(config)
     );
     build.onResolve({ filter: /locales\/common\.js/ }, (args) => {
       return {
@@ -157,7 +149,7 @@ let procaPlugin = {
           color.cyan(Math.round(stats.size / 1024) + "kb")
         );
       }
-      save();
+      save(config);
       runs++;
       //     console.log(result);
     });
@@ -167,58 +159,84 @@ let procaPlugin = {
         : console.log("reload");
       return {
         watchFiles: [
-          "config/" + filename,
+          "config/" + config.filename,
           "config/campaign/" + config.campaign.name + ".json",
         ],
         contents: actionPage(id),
       };
     });
   },
+});
+
+const getConfig = (id) => {
+  const [filename, config, campaign] = getConfigOverride(id);
+
+  return {
+    globalName: "proca",
+    format: "iife",
+    logLevel: "info",
+    entryPoints: ["src/index.js"],
+    define: define(env.parsed),
+    bundle: true,
+    plugins: [
+      procaPlugin({ id: id, config: config }),
+      copy({
+        watch: true,
+        assets: {
+          from: ["./public/embed.html"],
+          to: ["./"],
+        },
+      }),
+      esbuildPluginBrowserslist(browserslist("defaults"), {
+        printUnknownTargets: false,
+      }),
+    ],
+    loader: { ".js": "jsx" },
+    outdir: "d/" + config.filename,
+  };
 };
 
-const buildConfig = {
-  globalName: "proca",
-  format: "iife",
-  logLevel: "info",
-  entryPoints: ["src/index.js"],
-  define: define(env.parsed),
-  bundle: true,
-  plugins: [
-    procaPlugin,
-    copy({
-      watch: true,
-      assets: {
-        from: ["./public/embed.html"],
-        to: ["./"],
-      },
-    }),
-    esbuildPluginBrowserslist(browserslist("defaults"), {
-      printUnknownTargets: false,
-    }),
-  ],
-  loader: { ".js": "jsx" },
-  outdir: "d/" + config.filename,
+const serve = async (id) => {
+  const buildConfig = getConfig(id);
+  buildConfig.sourcemap = "inline";
+  buildConfig.banner = {
+    //  js: ' (() => new EventSource("/esbuild").onmessage = () => location.reload())();'
+    js: '(() => new EventSource("/esbuild").addEventListener("change", () => {console.log("reload");location.reload()}))()',
+  };
+  const c = await context(buildConfig);
+  await c.watch();
+  await c.serve({ servedir: buildConfig.outdir });
 };
 
-if (argv.serve) {
-  (async () => {
-    buildConfig.sourcemap = "inline";
-    buildConfig.banner = {
-      js: ' (() => new EventSource("/esbuild").onmessage = () => location.reload())();',
-    };
-    const c = await context(buildConfig);
-    await c.watch();
-    await c.serve({ servedir: buildConfig.outdir });
-  })();
+const build = async (id) => {
+  const buildConfig = getConfig(id);
+  buildConfig.minify = true;
+  if (argv.analyze) buildConfig.metafile = true;
+  const result = await esbuild(buildConfig);
+  if (result.metafile) {
+    fs.writeFileSync("build/metafile.json", JSON.stringify(result.metafile));
+    const r = analyzeMetafileSync(result.metafile);
+    console.log(r, "build/metafile.json");
+  }
+};
+
+if (require.main === module) {
+  if (argv._.length === 0 || argv.help) {
+    console.error(color.red("missing param widget id"));
+    help(argv._.length === 0 ? 1 : 0);
+  }
+
+  const id = argv._[0];
+  if (argv.serve) {
+    (async () => {
+      await serve(id);
+    })();
+  } else {
+    (async () => {
+      await build(id);
+    })();
+  }
 } else {
-  (async () => {
-    buildConfig.minify = true;
-    if (argv.analyze) buildConfig.metafile = true;
-    const result = await build(buildConfig);
-    if (result.metafile) {
-      fs.writeFileSync("build/metafile.json", JSON.stringify(result.metafile));
-      const r = analyzeMetafileSync(result.metafile);
-      console.log(r, "build/metafile.json");
-    }
-  })();
+  //export a bunch
+  module.exports = { build, serve };
 }

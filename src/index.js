@@ -127,6 +127,8 @@ const autoRender = () => {
   if (document.currentScript) document.currentScript.id = "proca";
   if (window.proca) {
     console.log("Powered by proca.app", Config.actionpage, Config.filename);
+  } else {
+    console.log("proca", Config.actionpage, Config.filename);
   }
   const currentScript = document.currentScript;
   try {

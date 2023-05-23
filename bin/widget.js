@@ -13,6 +13,8 @@ const {
 } = require("./config");
 const { commit, add, onGit } = require("./git");
 const { saveCampaign, pullCampaign } = require("./campaign");
+const { build, serve } = require("./esbuild");
+
 const getId = require("./id");
 const color = require("cli-color");
 const help = (exit) => {
@@ -21,7 +23,9 @@ const help = (exit) => {
       [
         "options",
         "--help (this command)",
-        "--pull (by default)",
+        "--pull",
+        "--build",
+        "--serve (http server for dev)",
         "--dry-run (show but don't write)",
         "--verbose",
         "--campaign || --no-campaign pull the campaign or not",
@@ -34,7 +38,17 @@ const help = (exit) => {
   process.exit(exit || 0);
 };
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "dry-run", "pull", "verbose", "push", "git", "campaign"],
+  boolean: [
+    "help",
+    "dry-run",
+    "pull",
+    "verbose",
+    "push",
+    "git",
+    "campaign",
+    "build",
+    "serve",
+  ],
   default: { git: true, campaign: true },
   alias: { v: "verbose" },
   unknown: (d) => {
@@ -381,7 +395,7 @@ if (require.main === module) {
     for (const id of ids) {
       try {
         let widget = null;
-        if (argv.pull || !argv.push) {
+        if (argv.pull) {
           const exists = fileExists(id);
           const [widget, campaign] = await pull(id, {
             anonymous: anonymous,
@@ -425,6 +439,12 @@ if (require.main === module) {
             }
             if (r.summary) console.log(r.summary);
           }
+        }
+        if (argv.build) {
+          await build(id);
+        }
+        if (argv.serve) {
+          await serve(id);
         }
         if (argv.push && !argv["dry-run"]) {
           const r = argv.git && (await commit(id + ".json"));
