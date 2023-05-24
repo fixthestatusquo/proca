@@ -375,7 +375,7 @@ if (require.main === module) {
     if (isNaN(argv._[0])) {
       const campaign = argv._[0];
       const widgets = await fetchAll(campaign);
-      if (argv._.length > 0) {
+      if (argv._.length > 1) {
         console.error(
           color.red(
             "either fetch all the widgets of the campaign or with id(s), not both"
