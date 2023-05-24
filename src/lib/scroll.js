@@ -1,12 +1,11 @@
-const scrollTo = (dom) => {
-  let delay = 0;
-  if (typeof dom === "object") {
-    delay = dom.delay || 0;
-    block = dom.block || "center";
-    dom = dom.selector || ".proca-widget";
-  }
+const scrollTo = (params) => {
+  let {
+    delay = 100,
+    block = "center",
+    selector = ".proca-widget",
+  } = params || {};
   setTimeout(() => {
-    const widget = document.querySelector(dom);
+    const widget = document.querySelector(selector);
     if (!widget) return;
     widget.scrollIntoView({ block: block, behavior: "smooth" });
   }, delay);

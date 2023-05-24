@@ -4,8 +4,7 @@
  * we generate a RFC 4122 uuid (v4) https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)
  * and base64url encode it (a url friendly base64 encoding)
  */
-
-import base64url from "base64url";
+import { decode, encode } from "universal-base64url";
 import { v4 as uuid } from "uuid";
 
 let id = null;
@@ -14,8 +13,8 @@ const isSet = () => id !== null;
 
 function generate() {
   const d = [];
-  uuid(null, d);
-  id = base64url(d);
+  uuid(null, d); // as buffer
+  id = encode(d);
   return id;
 }
 
