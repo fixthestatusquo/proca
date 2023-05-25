@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="/d/<%= filename %>/oembed.json"
+      title="Embed JSON"
+    />
+
+    <title><%= campaign %> widget for <%= organisation %> in <%= lang %></title>
+    <meta
+      name="twitter:title"
+      content="<%= campaign %> : <%= organisation %>"
+    />
+    <meta
+      name="description"
+      content="Sign the initiative with <%= organisation %>!"
+    />
+    <meta
+      name="twitter:description"
+      content="Sign the initiative with <%= organisation %>"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@eucampaign" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+#help, #widget-demo {
+  display:block;
+    transform: scaleY(1);
+    transition: transform 400ms ease 0ms;
+}
+
+#help.hidden, #widget-demo.hidden {
+  display:none;
+    transform: scaleY(0);
+    transition: transform 400ms ease 0ms;
+}
+      pre {
+        background: #e3e3e3;
+        margin-top: 15px;
+        padding: 15px;
+      }
+
+      aa.dark {
+        background: #343a40;
+      }
+      aa.light {
+        background: "transparent";
+      }
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
+          "Lucida Typewriter", monospace;
+      }
+    </style>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <minimal-style style="display: none">
+      .proca-widget, #widget-demo {max-width:600px;min-width:300px} .row{
+      display: flex; flex-direction: row; flex-wrap: wrap; width:100%; } .col{
+      display: flex; flex-direction: column; flex-basis: 100%; padding:0 10px;
+      flex:1; } pre {background:#dede; padding: 10px}
+    </minimal-style>
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><%= campaign %></a>
+
+      <div class="collapse navbar-collapse" id="">
+        <div class="navbar-nav mr-auto"></div>
+        <div
+          class="btn-group btn-group-sm"
+          role="toolbar"
+          aria-label="Actions for the webmasters"
+        >
+          <button
+            class="proca-next btn btn-secondary"
+            title="skip to the next action"
+            onClick="proca.go()"
+          >
+            ⏵
+          </button>
+          <button
+            id="btn-help"
+            title="How to embed this into your website?"
+            class="btn btn-secondary"
+            onClick="toggleHelp()"
+          >
+            ?
+          </button>
+        </div>
+      </div>
+    </nav>
+    <noscript
+      >You need to enable JavaScript to participate to this campaign.</noscript
+    >
+    <div id="root" class="container">
+      <div class="proca-progress"></div>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare arcu dui vivamus arcu. Sed risus pretium quam vulputate dignissim suspendisse in. In nibh mauris cursus mattis molestie a iaculis at. Pellentesque dignissim enim sit amet venenatis urna cursus eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Ut placerat orci nulla pellentesque dignissim enim sit. Duis ut diam quam nulla porttitor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit. Malesuada bibendum arcu vitae elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Urna molestie at elementum eu facilisis sed odio. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Vitae aliquet nec ullamcorper sit amet risus. Fermentum leo vel orci porta non. Porttitor eget dolor morbi non arcu risus quis varius.
+</p><p>
+Elementum eu facilisis sed odio morbi quis. Ullamcorper malesuada proin libero nunc. Quam quisque id diam vel quam elementum pulvinar etiam non. Lobortis feugiat vivamus at augue eget arcu. Placerat vestibulum lectus mauris ultrices eros. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Lobortis elementum nibh tellus molestie. Arcu cursus vitae congue mauris rhoncus. Dictumst quisque sagittis purus sit. Consectetur libero id faucibus nisl. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Sed vulputate odio ut enim. Et tortor at risus viverra adipiscing at. At urna condimentum mattis pellentesque. Tristique risus nec feugiat in fermentum posuere. Pharetra pharetra massa massa ultricies mi.
+</p><p>
+
+Quis varius quam quisque id diam vel. Egestas maecenas pharetra convallis posuere morbi leo urna molestie at. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Hendrerit dolor magna eget est lorem ipsum. Ut tellus elementum sagittis vitae et leo duis ut. Eu consequat ac felis donec et odio pellentesque diam. At augue eget arcu dictum varius duis at consectetur lorem. Leo a diam sollicitudin tempor id eu nisl nunc mi. Purus sit amet luctus venenatis. Integer enim neque volutpat ac tincidunt vitae semper. Sit amet volutpat consequat mauris nunc. Justo nec ultrices dui sapien.
+</p><p>
+
+Eget sit amet tellus cras adipiscing enim. Diam quam nulla porttitor massa id neque aliquam vestibulum. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Congue nisi vitae suscipit tellus mauris. At elementum eu facilisis sed odio morbi quis commodo odio. Nisl condimentum id venenatis a. Viverra accumsan in nisl nisi scelerisque eu ultrices. Cras semper auctor neque vitae tempus. Vel facilisis volutpat est velit egestas dui id ornare. Nibh cras pulvinar mattis nunc. Ac auctor augue mauris augue neque gravida in fermentum et. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Netus et malesuada fames ac turpis egestas maecenas pharetra. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Ac auctor augue mauris augue neque. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus. Dui nunc mattis enim ut tellus. In mollis nunc sed id semper risus in hendrerit. Faucibus scelerisque eleifend donec pretium vulputate sapien. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis.
+</p><p>
+
+Enim neque volutpat ac tincidunt vitae semper quis. Orci eu lobortis elementum nibh tellus molestie. Mi bibendum neque egestas congue quisque egestas diam. Lectus arcu bibendum at varius vel pharetra vel turpis. Sagittis orci a scelerisque purus semper eget duis at. Viverra aliquet eget sit amet tellus cras. Ipsum consequat nisl vel pretium lectus quam id leo. Ornare quam viverra orci sagittis eu volutpat odio. Urna condimentum mattis pellentesque id nibh tortor id. Sed id semper risus in hendrerit gravida rutrum quisque. Sit amet nulla facilisi morbi tempus iaculis. Id ornare arcu odio ut sem nulla. Neque viverra justo nec ultrices dui. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur. Amet est placerat in egestas erat imperdiet sed euismod. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Sed nisi lacus sed viverra tellus in hac habitasse platea. Id porta nibh venenatis cras sed felis eget velit aliquet.
+</p><p>
+
+Mi eget mauris pharetra et ultrices. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Eleifend mi in nulla posuere. Ut diam quam nulla porttitor massa. Sociis natoque penatibus et magnis. Nisi lacus sed viverra tellus in hac habitasse platea. Quis ipsum suspendisse ultrices gravida. Nisl purus in mollis nunc sed id semper risus. Quis enim lobortis scelerisque fermentum dui faucibus. Odio ut sem nulla pharetra diam sit amet. Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Hac habitasse platea dictumst quisque. Nisi quis eleifend quam adipiscing vitae proin. Sit amet justo donec enim diam vulputate ut pharetra.
+</p><p>
+
+Venenatis cras sed felis eget velit aliquet. Ac tincidunt vitae semper quis lectus nulla at volutpat. Augue lacus viverra vitae congue eu consequat ac felis donec. Fermentum leo vel orci porta non pulvinar neque laoreet. Aenean et tortor at risus viverra. Id diam vel quam elementum pulvinar etiam. Vulputate mi sit amet mauris. Purus in massa tempor nec feugiat nisl pretium fusce. Odio euismod lacinia at quis risus. Fermentum dui faucibus in ornare quam viverra orci sagittis.
+</p><p>
+
+Duis tristique sollicitudin nibh sit amet commodo nulla. In hac habitasse platea dictumst quisque sagittis purus. Ornare suspendisse sed nisi lacus sed viverra tellus in hac. Eu scelerisque felis imperdiet proin. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Velit ut tortor pretium viverra. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Sem integer vitae justo eget magna fermentum iaculis eu. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Vestibulum lectus mauris ultrices eros in cursus turpis massa. Ante metus dictum at tempor commodo ullamcorper a.
+
+Volutpat commodo sed egestas egestas fringilla. Et netus et malesuada fames ac turpis egestas integer eget. Amet mauris commodo quis imperdiet. Massa tempor nec feugiat nisl pretium. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Sed arcu non odio euismod lacinia at quis. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Mauris in aliquam sem fringilla ut morbi tincidunt augue interdum. Id semper risus in hendrerit gravida rutrum quisque non tellus. Risus viverra adipiscing at in tellus integer feugiat. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id cursus metus aliquam eleifend mi in.
+</p><p>
+
+Nullam ac tortor vitae purus faucibus ornare suspendisse. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Aenean et tortor at risus viverra adipiscing. Feugiat vivamus at augue eget arcu. Condimentum mattis pellentesque id nibh tortor. Id diam vel quam elementum pulvinar etiam non quam lacus. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Blandit turpis cursus in hac habitasse platea.
+
+</p><p>
+Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Magna etiam tempor orci eu lobortis. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Tristique senectus et netus et malesuada. Volutpat lacus laoreet non curabitur gravida arcu ac tortor. Ut morbi tincidunt augue interdum velit. Dignissim enim sit amet venenatis urna cursus eget. Amet risus nullam eget felis eget nunc lobortis mattis aliquam. At imperdiet dui accumsan sit amet nulla facilisi morbi. A iaculis at erat pellentesque adipiscing commodo elit. Viverra aliquet eget sit amet tellus. Elementum nisi quis eleifend quam adipiscing. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant. Mattis aliquam faucibus purus in massa tempor nec. At consectetur lorem donec massa sapien faucibus et molestie.
+
+</p><p>
+Rhoncus aenean vel elit scelerisque mauris pellentesque. At in tellus integer feugiat. Vulputate mi sit amet mauris. Velit laoreet id donec ultrices tincidunt arcu non sodales. Cursus metus aliquam eleifend mi in nulla. Erat nam at lectus urna duis convallis convallis tellus. Proin libero nunc consequat interdum varius sit amet. Ut lectus arcu bibendum at varius. Quam lacus suspendisse faucibus interdum posuere. Pharetra vel turpis nunc eget lorem dolor sed viverra. Nibh tellus molestie nunc non blandit massa enim nec. Et odio pellentesque diam volutpat commodo. Accumsan tortor posuere ac ut consequat. Morbi tincidunt augue interdum velit euismod. Arcu odio ut sem nulla pharetra diam. Metus aliquam eleifend mi in nulla.
+</p><p>
+
+In hendrerit gravida rutrum quisque non. Dui id ornare arcu odio ut sem nulla pharetra. Nunc faucibus a pellentesque sit amet porttitor. Sed blandit libero volutpat sed cras ornare. Nisi est sit amet facilisis magna etiam. Senectus et netus et malesuada fames. Eget nunc scelerisque viverra mauris in. Sit amet mauris commodo quis. Cursus in hac habitasse platea dictumst quisque sagittis purus. Egestas quis ipsum suspendisse ultrices. Elit pellentesque habitant morbi tristique senectus et netus. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Adipiscing commodo elit at imperdiet dui. Felis eget velit aliquet sagittis. Amet est placerat in egestas erat imperdiet. Mauris commodo quis imperdiet massa tincidunt nunc. Rhoncus est pellentesque elit ullamcorper dignissim cras. Sagittis orci a scelerisque purus semper eget duis. Elementum facilisis leo vel fringilla est. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel.
+
+</p><p>
+Odio aenean sed adipiscing diam donec adipiscing. In mollis nunc sed id. Risus nullam eget felis eget nunc lobortis mattis aliquam. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Urna nec tincidunt praesent semper. Nunc congue nisi vitae suscipit tellus mauris a. Lectus mauris ultrices eros in cursus turpis massa. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Dictumst quisque sagittis purus sit amet volutpat consequat. Habitant morbi tristique senectus et. Diam in arcu cursus euismod quis viverra nibh cras. Fames ac turpis egestas integer eget aliquet nibh.
+</p><p>
+
+Risus nullam eget felis eget nunc lobortis. Eget arcu dictum varius duis. Tellus in hac habitasse platea. Arcu bibendum at varius vel pharetra. Risus feugiat in ante metus dictum at tempor. At risus viverra adipiscing at in tellus integer feugiat. Feugiat in fermentum posuere urna nec. Bibendum est ultricies integer quis auctor elit sed. Tellus id interdum velit laoreet id donec. Egestas integer eget aliquet nibh praesent tristique. Aliquet eget sit amet tellus cras adipiscing enim. Montes nascetur ridiculus mus mauris vitae ultricies. Tellus id interdum velit laoreet id.
+
+</p>
+      <div class="proca-widget" id="widget-demo">
+        <div class="alert alert-info" role="alert">
+          <p class="proca-description">
+            This is the text of the campaign, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        </div>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare arcu dui vivamus arcu. Sed risus pretium quam vulputate dignissim suspendisse in. In nibh mauris cursus mattis molestie a iaculis at. Pellentesque dignissim enim sit amet venenatis urna cursus eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Ut placerat orci nulla pellentesque dignissim enim sit. Duis ut diam quam nulla porttitor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit. Malesuada bibendum arcu vitae elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Urna molestie at elementum eu facilisis sed odio. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Vitae aliquet nec ullamcorper sit amet risus. Fermentum leo vel orci porta non. Porttitor eget dolor morbi non arcu risus quis varius.
+</p><p>
+Elementum eu facilisis sed odio morbi quis. Ullamcorper malesuada proin libero nunc. Quam quisque id diam vel quam elementum pulvinar etiam non. Lobortis feugiat vivamus at augue eget arcu. Placerat vestibulum lectus mauris ultrices eros. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Lobortis elementum nibh tellus molestie. Arcu cursus vitae congue mauris rhoncus. Dictumst quisque sagittis purus sit. Consectetur libero id faucibus nisl. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Sed vulputate odio ut enim. Et tortor at risus viverra adipiscing at. At urna condimentum mattis pellentesque. Tristique risus nec feugiat in fermentum posuere. Pharetra pharetra massa massa ultricies mi.
+</p><p>
+
+Quis varius quam quisque id diam vel. Egestas maecenas pharetra convallis posuere morbi leo urna molestie at. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Hendrerit dolor magna eget est lorem ipsum. Ut tellus elementum sagittis vitae et leo duis ut. Eu consequat ac felis donec et odio pellentesque diam. At augue eget arcu dictum varius duis at consectetur lorem. Leo a diam sollicitudin tempor id eu nisl nunc mi. Purus sit amet luctus venenatis. Integer enim neque volutpat ac tincidunt vitae semper. Sit amet volutpat consequat mauris nunc. Justo nec ultrices dui sapien.
+</p><p>
+
+Eget sit amet tellus cras adipiscing enim. Diam quam nulla porttitor massa id neque aliquam vestibulum. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Congue nisi vitae suscipit tellus mauris. At elementum eu facilisis sed odio morbi quis commodo odio. Nisl condimentum id venenatis a. Viverra accumsan in nisl nisi scelerisque eu ultrices. Cras semper auctor neque vitae tempus. Vel facilisis volutpat est velit egestas dui id ornare. Nibh cras pulvinar mattis nunc. Ac auctor augue mauris augue neque gravida in fermentum et. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Netus et malesuada fames ac turpis egestas maecenas pharetra. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Ac auctor augue mauris augue neque. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus. Dui nunc mattis enim ut tellus. In mollis nunc sed id semper risus in hendrerit. Faucibus scelerisque eleifend donec pretium vulputate sapien. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis.
+</p><p>
+
+Enim neque volutpat ac tincidunt vitae semper quis. Orci eu lobortis elementum nibh tellus molestie. Mi bibendum neque egestas congue quisque egestas diam. Lectus arcu bibendum at varius vel pharetra vel turpis. Sagittis orci a scelerisque purus semper eget duis at. Viverra aliquet eget sit amet tellus cras. Ipsum consequat nisl vel pretium lectus quam id leo. Ornare quam viverra orci sagittis eu volutpat odio. Urna condimentum mattis pellentesque id nibh tortor id. Sed id semper risus in hendrerit gravida rutrum quisque. Sit amet nulla facilisi morbi tempus iaculis. Id ornare arcu odio ut sem nulla. Neque viverra justo nec ultrices dui. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur. Amet est placerat in egestas erat imperdiet sed euismod. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Sed nisi lacus sed viverra tellus in hac habitasse platea. Id porta nibh venenatis cras sed felis eget velit aliquet.
+</p><p>
+
+Mi eget mauris pharetra et ultrices. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Eleifend mi in nulla posuere. Ut diam quam nulla porttitor massa. Sociis natoque penatibus et magnis. Nisi lacus sed viverra tellus in hac habitasse platea. Quis ipsum suspendisse ultrices gravida. Nisl purus in mollis nunc sed id semper risus. Quis enim lobortis scelerisque fermentum dui faucibus. Odio ut sem nulla pharetra diam sit amet. Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Hac habitasse platea dictumst quisque. Nisi quis eleifend quam adipiscing vitae proin. Sit amet justo donec enim diam vulputate ut pharetra.
+</p><p>
+
+Venenatis cras sed felis eget velit aliquet. Ac tincidunt vitae semper quis lectus nulla at volutpat. Augue lacus viverra vitae congue eu consequat ac felis donec. Fermentum leo vel orci porta non pulvinar neque laoreet. Aenean et tortor at risus viverra. Id diam vel quam elementum pulvinar etiam. Vulputate mi sit amet mauris. Purus in massa tempor nec feugiat nisl pretium fusce. Odio euismod lacinia at quis risus. Fermentum dui faucibus in ornare quam viverra orci sagittis.
+</p><p>
+
+Duis tristique sollicitudin nibh sit amet commodo nulla. In hac habitasse platea dictumst quisque sagittis purus. Ornare suspendisse sed nisi lacus sed viverra tellus in hac. Eu scelerisque felis imperdiet proin. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Velit ut tortor pretium viverra. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Sem integer vitae justo eget magna fermentum iaculis eu. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Vestibulum lectus mauris ultrices eros in cursus turpis massa. Ante metus dictum at tempor commodo ullamcorper a.
+
+Volutpat commodo sed egestas egestas fringilla. Et netus et malesuada fames ac turpis egestas integer eget. Amet mauris commodo quis imperdiet. Massa tempor nec feugiat nisl pretium. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Sed arcu non odio euismod lacinia at quis. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Mauris in aliquam sem fringilla ut morbi tincidunt augue interdum. Id semper risus in hendrerit gravida rutrum quisque non tellus. Risus viverra adipiscing at in tellus integer feugiat. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Id cursus metus aliquam eleifend mi in.
+</p><p>
+
+Nullam ac tortor vitae purus faucibus ornare suspendisse. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Aenean et tortor at risus viverra adipiscing. Feugiat vivamus at augue eget arcu. Condimentum mattis pellentesque id nibh tortor. Id diam vel quam elementum pulvinar etiam non quam lacus. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Blandit turpis cursus in hac habitasse platea.
+
+</p><p>
+Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Magna etiam tempor orci eu lobortis. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Tristique senectus et netus et malesuada. Volutpat lacus laoreet non curabitur gravida arcu ac tortor. Ut morbi tincidunt augue interdum velit. Dignissim enim sit amet venenatis urna cursus eget. Amet risus nullam eget felis eget nunc lobortis mattis aliquam. At imperdiet dui accumsan sit amet nulla facilisi morbi. A iaculis at erat pellentesque adipiscing commodo elit. Viverra aliquet eget sit amet tellus. Elementum nisi quis eleifend quam adipiscing. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant. Mattis aliquam faucibus purus in massa tempor nec. At consectetur lorem donec massa sapien faucibus et molestie.
+
+</p><p>
+Rhoncus aenean vel elit scelerisque mauris pellentesque. At in tellus integer feugiat. Vulputate mi sit amet mauris. Velit laoreet id donec ultrices tincidunt arcu non sodales. Cursus metus aliquam eleifend mi in nulla. Erat nam at lectus urna duis convallis convallis tellus. Proin libero nunc consequat interdum varius sit amet. Ut lectus arcu bibendum at varius. Quam lacus suspendisse faucibus interdum posuere. Pharetra vel turpis nunc eget lorem dolor sed viverra. Nibh tellus molestie nunc non blandit massa enim nec. Et odio pellentesque diam volutpat commodo. Accumsan tortor posuere ac ut consequat. Morbi tincidunt augue interdum velit euismod. Arcu odio ut sem nulla pharetra diam. Metus aliquam eleifend mi in nulla.
+</p><p>
+
+In hendrerit gravida rutrum quisque non. Dui id ornare arcu odio ut sem nulla pharetra. Nunc faucibus a pellentesque sit amet porttitor. Sed blandit libero volutpat sed cras ornare. Nisi est sit amet facilisis magna etiam. Senectus et netus et malesuada fames. Eget nunc scelerisque viverra mauris in. Sit amet mauris commodo quis. Cursus in hac habitasse platea dictumst quisque sagittis purus. Egestas quis ipsum suspendisse ultrices. Elit pellentesque habitant morbi tristique senectus et netus. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Adipiscing commodo elit at imperdiet dui. Felis eget velit aliquet sagittis. Amet est placerat in egestas erat imperdiet. Mauris commodo quis imperdiet massa tincidunt nunc. Rhoncus est pellentesque elit ullamcorper dignissim cras. Sagittis orci a scelerisque purus semper eget duis. Elementum facilisis leo vel fringilla est. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel.
+
+</p><p>
+Odio aenean sed adipiscing diam donec adipiscing. In mollis nunc sed id. Risus nullam eget felis eget nunc lobortis mattis aliquam. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Urna nec tincidunt praesent semper. Nunc congue nisi vitae suscipit tellus mauris a. Lectus mauris ultrices eros in cursus turpis massa. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Dictumst quisque sagittis purus sit amet volutpat consequat. Habitant morbi tristique senectus et. Diam in arcu cursus euismod quis viverra nibh cras. Fames ac turpis egestas integer eget aliquet nibh.
+</p><p>
+
+Risus nullam eget felis eget nunc lobortis. Eget arcu dictum varius duis. Tellus in hac habitasse platea. Arcu bibendum at varius vel pharetra. Risus feugiat in ante metus dictum at tempor. At risus viverra adipiscing at in tellus integer feugiat. Feugiat in fermentum posuere urna nec. Bibendum est ultricies integer quis auctor elit sed. Tellus id interdum velit laoreet id donec. Egestas integer eget aliquet nibh praesent tristique. Aliquet eget sit amet tellus cras adipiscing enim. Montes nascetur ridiculus mus mauris vitae ultricies. Tellus id interdum velit laoreet id.
+
+</p>
+      </div>
+      <div class="row" id="help">
+        <div class="col">
+          <div>
+            <p class="proca-text [disable]consent_intro">
+              Find out more about our campaigns and actions progress
+            </p>
+            <p class="proca-text [disable]consent_opt-in">
+              Yes, send me emails
+            </p>
+            <p class="proca-text [disable]consent_opt-out">
+              No, don't send me emails
+            </p>
+            <p class="proca-text [disable]consent_processing">
+              Your personal information will be kept private and held
+              securely....&lt;1&gt;privacy&lt;/1&gt;
+            </p>
+            <p class="proca-text [disable]email_subject">variant A</p>
+            <p class="proca-text [disable]email_body">Another Long long text
+            with lines and shit</p>
+            <p class="proca-text [disable]comment">variant A</p>
+            <p class="proca-text [disable]comment">variant B</p>
+            <p class="proca-text [disable]consent_intro">
+              I want to receive the newsletter from {{name}}
+            </p>
+            <p class="proca-text [disable]sign-now">Do it now!</p>
+            <p class="proca-text [disable]share">
+              I signed <%= campaign %>, you should sign too!
+            </p>
+            <p class="proca-text [disable]share-twitter">
+              I signed #<%=campaign %>, you should too!
+            </p>
+            <p class="proca-text [disable]share-whatsapp">Hi, sign that!</p>
+            <p class="proca-text [disable]ddd-consent-into"></p>
+            <h2>How to embed this into your website?</h2>
+
+            <div class="alert alert-primary">
+              <p>
+            For a more complete information, including how to modify the social media messages, please <a href="https://proca.app/guide/embedding/">check out our guide</a>
+            </p>
+            <p>
+              You simply need to copy paste in your website editor, for instance
+              wordpress. The specific instructions depends of your website,
+              check with your webmaster or search how to add "raw html" + your
+              CMS.
+            </p>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Just the action tool</h4>
+                This is the most flexible solution, you can have a full width
+                form, or manage your layout exactly the way your want.
+                <pre class="dynamic">
+&lt;script src="https://%widget_path%">&lt;/script>
+          </pre
+                >
+              </div>
+              <div class="col">
+                <h4>Action tool and campaign text (two columns)</h4>
+                If you want a little help and have a widget with two columns
+                (like the example on this page), it's almost the same, but you put the
+                text you want on the left hand column as the content of the
+                widget
+                <pre class="dynamic">
+&lt;script src="https://%widget_path%">&lt;/script>
+&lt;div class="proca-widget">
+  &lt;div class="proca-description">Loading text...&lt;/div>
+&lt;/div>
+          </pre
+                >
+            <p>
+              <i
+                >You can put the first line wherever you want, the other lines
+                has to be where you want the form to be displayed</i
+              >
+            </p>
+              </div>
+            </div>
+            <p>
+              Please do <b>NOT</b> test the widget on a live page – we don’t
+              want people trying to sign before we go live!
+              <br />
+              you can see an example of the widget and the steps above.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col"></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script>
+      let params ={};
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var widget_path =
+          window.location.hostname +
+          window.location.pathname.replace("/index.html", "");
+        var widget_shortcode = window.location.pathname
+          .replace("/index.html", "")
+          .replace("/d/", "");
+        for (let d of document.getElementsByClassName("dynamic")) {
+          d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
+          d.innerHTML = d.innerHTML.replace(
+            "%widget_shortcode%",
+            widget_shortcode
+          );
+        }
+
+        //       if (urlParams.get("variant")) {
+        //         params.variant = urlParams.get("variant");
+        //       }
+
+        if (urlParams.get("actionPage"))
+          params.actionPage = urlParams.get("actionPage");
+
+        //        params.loader = urlParams.get("proca_loader");
+        proca.Widget(params);
+      }
+
+      if (typeof proca === "object") {
+        //not used on dev
+        display();
+      } else {
+        console.log("DEV MODE");
+        window.addEventListener("DOMContentLoaded", function () {
+          display();
+        });
+      }
+    </script>
+
+    <script>
+
+/* example of how to filter
+      window.addEventListener("proca", e => {
+        if (e.detail.message !== "init") return;
+        proca.hook("target","load", d => {
+          return d.filter (d => d.screen_name !== "whatever");
+        })
+      });
+*/
+      // example of how to be informed of changes in the widget and modify the journey
+      window.addEventListener("proca", function (e) {
+        console.log(e.detail.message, e.detail);
+      });
+
+      window.addEventListener("proca", function (e) {
+        if (e.detail.message === "init") {
+          const help = document.getElementById("help");
+          help.classList.toggle('hidden');
+          //widget-example
+        }
+      });
+
+      function toggleHelp () {
+          let help = document.getElementById("help");
+          help.classList.toggle('hidden');
+          let widget = document.getElementById("widget-demo");
+          widget.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>
