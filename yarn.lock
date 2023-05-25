@@ -27,6 +27,18 @@
     core-js "2.6.0"
     zen-observable "0.8.11"
 
+"@absinthe/socket@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@absinthe/socket/-/socket-0.2.1.tgz#dd0d7bfc8e149f8376429c7fc2e87ac958578b91"
+  integrity sha512-rCuMRG4WndooGR+QfU5v+xL6U8YKEXFyvjqYt0qTHupAh+k+tpD6a5dlxcLO0g38p/hb1I12OzKvl+0G1XYCkA==
+  dependencies:
+    "@babel/runtime" "7.2.0"
+    "@jumpn/utils-array" "0.3.4"
+    "@jumpn/utils-composite" "0.7.0"
+    "@jumpn/utils-graphql" "0.6.0"
+    core-js "2.6.0"
+    zen-observable "0.8.11"
+
 "@alienfast/i18next-loader@^2.0.1":
   version "2.0.1"
   resolved "https://registry.npmjs.org/@alienfast/i18next-loader/-/i18next-loader-2.0.1.tgz"
@@ -10915,6 +10927,11 @@ phoenix@^1.5.5:
   version "1.6.2"
   resolved "https://registry.npmjs.org/phoenix/-/phoenix-1.6.2.tgz"
   integrity sha512-VjR27NETvrLSj8rI6DlpVAfo7pCYth/9+1OCoTof4LKEbq0141ze/tdxFHHZzVQSok3gqJUo2h/tqbxR3r8eyw==
+
+phoenix@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.7.2.tgz#7bee9d5dd6dc3a8b30b94bb5e058375a4063a931"
+  integrity sha512-jwWDOsUNEQZkLNSwzfLJ6AMFUkyZ+ILU+NkBBtoAK020QPpV/dYEQHGMQoFScj89MFjJlLdkE1W97i8S+4FdGg==
 
 picocolors@^0.2.1:
   version "0.2.1"

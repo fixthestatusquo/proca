@@ -16,6 +16,7 @@
     "url": "https://github.com/TechToThePeople/proca"
   },
   "dependencies": {
+    "@absinthe/socket": "^0.2.1",
     "@mantine/hooks": "^6.0.11",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
@@ -35,6 +36,7 @@
     "lodash.set": "^4.3.2",
     "material-ui-dropzone": "^3.5.0",
     "page-metadata-parser": "^1.1.4",
+    "phoenix": "^1.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.43.9",

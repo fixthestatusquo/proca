@@ -7,6 +7,51 @@ const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
 const { publishTarget } = require("./publishTargets");
 const color = require("cli-color");
+const { mainLanguage } = require("./lang");
+const { mkdirp, read, file, api, fileExists } = require("./config");
+
+const help = (exitValue) => {
+  console.log(
+    color.yellow(
+      [
+        "options",
+        "--help (this command)",
+        "--dry-run (show the tagets but don't update the server)",
+        //          "not done --twitter (set up as a separate proca-twitter)",
+        "--git (git update [add]+commit into /config/target/) || --no-git",
+        "--pull (from the server)",
+        "--digest (process the source and generate a file for digest, like add salutation and language)",
+        "--push (update the server)",
+        "--publish (pdate the public list into /config/target/public and make it live)",
+        "{campaign name}",
+      ].join("\n")
+    ),
+
+    color.blackBright(
+      [
+        "",
+        "(if --push)",
+        "--salutation(add a salutation column based on the gender and language)",
+        "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
+        "--file=file (by default, config/target/source/{campaign name}.json",
+      ].join("\n")
+    ),
+
+    color.blackBright(
+      [
+        "",
+        "(if --publish)",
+        "--email (for campaigns sending client side)",
+        "--display (filters based on the display field)",
+        "--source (filter the server list based on source - if the server has more targets than the source)",
+        "--meps , special formatting, use the name of the party for description",
+        "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
+      ].join("\n")
+    )
+  );
+  process.exit(+exitValue);
+};
+
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true, salutation: true },
   string: ["file", "fields"],
@@ -34,52 +79,6 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const { mainLanguage } = require("./lang");
-const { mkdirp, read, file, api, fileExists } = require("./config");
-
-const help = (alwaysDisplay = false) => {
-  if (!argv._.length || argv.help || alwaysDisplay) {
-    console.log(
-      color.yellow(
-        [
-          "options",
-          "--help (this command)",
-          "--dry-run (show the tagets but don't update the server)",
-          //          "not done --twitter (set up as a separate proca-twitter)",
-          "--git (git update [add]+commit into /config/target/) || --no-git",
-          "--pull (from the server)",
-          "--digest (process the source and generate a file for digest, like add salutation and language)",
-          "--push (update the server)",
-          "--publish (pdate the public list into /config/target/public and make it live)",
-          "{campaign name}",
-        ].join("\n")
-      ),
-
-      color.blackBright(
-        [
-          "",
-          "(if --push)",
-          "--salutation(add a salutation column based on the gender and language)",
-          "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
-          "--file=file (by default, config/target/source/{campaign name}.json",
-        ].join("\n")
-      ),
-
-      color.blackBright(
-        [
-          "",
-          "(if --publish)",
-          "--email (for campaigns sending client side)",
-          "--display (filters based on the display field)",
-          "--source (filter the server list based on source - if the server has more targets than the source)",
-          "--meps , special formatting, use the name of the party for description",
-          "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
-        ].join("\n")
-      )
-    );
-    process.exit(0);
-  }
-};
 if (argv._.length !== 1) {
   if (argv._.length === 0) {
     console.log(color.red("missing campaign name"), argv._);
@@ -405,7 +404,6 @@ if (require.main === module) {
   (async () => {
     try {
       const name = argv._[0];
-      help();
       let target = null;
       if (argv.push) {
         await pushTarget(name, argv.file || name);

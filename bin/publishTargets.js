@@ -25,18 +25,21 @@ const merge = (targets, twitters, options) => {
         description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
         //        followers_count: 0,
-        sort: target.fields.sort || target.name.toLowerCase(),
         verified: false,
       };
     } else {
       r.procaid = target.id;
       r.name = target.name; //? not sure which one we want to keep
-      r.sort = target.fields.sort || target.name.toLowerCase();
       if (target.fields.description) {
         r.description = target.fields.description;
       }
       r.country = target.area;
     }
+    r.sort =
+      target.fields.sort ||
+      (target.fields.last_name
+        ? target.fields.last_name.toLowerCase()
+        : target.name.toLowerCase());
     if (options.meps) {
       r.description = target.fields.party;
       r.eugroup = target.fields.eugroup;
