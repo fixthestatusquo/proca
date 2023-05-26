@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getCount, getCountByName } from "@lib/server.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -6,7 +6,6 @@ import { atom, useRecoilState } from "recoil";
 import dispatch from "@lib/event.js";
 
 const CountState = atom({ key: "actionCount", default: null });
-
 const useInitFromUrl = (actionUrl) => {
   const [count, setCount] = useRecoilState(CountState);
   const [id, setId] = useState(null);
