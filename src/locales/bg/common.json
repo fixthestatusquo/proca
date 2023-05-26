@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} не мога да получавам имейли",
     "salutation": "Уважаеми господине/госпожо",
-    "salutation_female": "Уважаеми {{target.name}}",
+    "salutation_female": "Уважаема госпожо {{target.lastname}}",
     "salutation_info": "(името ще бъде въведено преди изпращане)",
-    "salutation_male": "Уважаеми {{target.name}}",
+    "salutation_male": "Уважаеми господин {{target.lastname}}",
     "salutation_placeholder": "Уважаеми [получател],"
   },
   "image": {

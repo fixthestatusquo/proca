@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} ne peut pas recevoir de courriels",
     "salutation": "Cher monsieur/madame",
-    "salutation_female": "Chère Madame {{target.name}}",
+    "salutation_female": "Chère Madame {{target.lastname}}",
     "salutation_info": "(Le nom sera automatiquement remplacé)",
-    "salutation_male": "Cher Monsieur {{target.name}}",
+    "salutation_male": "Cher Monsieur {{target.lastname}}",
     "salutation_placeholder": "Cher·e [destinataire]"
   },
   "image": {

@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "salutation": "Estimado/a señor/a",
-    "salutation_female": "Estimada {{target.name}}",
+    "salutation_female": "Estimada Señora {{target.lastname}}",
     "salutation_info": "(El nombre se pondrá antes del envío)",
-    "salutation_male": "Estimado {{target.name}}",
+    "salutation_male": "Estimado Señor {{target.lastname}}",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
   "image": {
