@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import useData from "@hooks/useData";
-
+import { get } from "@lib/urlparser";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
@@ -118,12 +118,12 @@ const Country = (props) => {
 
   const { setValue, getValues } = props.form;
 
+  let defaultCountry = get("country"); //fetch from the url if set
+  if (typeof config.component.country === "string")
+    defaultCountry = config.component.country;
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country:
-      typeof config.component.country === "string"
-        ? config.component.country
-        : undefined,
+    country: defaultCountry && defaultCountry.toUpperCase(),
   });
 
   const switchCountry = (e) => {

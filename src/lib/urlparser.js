@@ -63,6 +63,11 @@ const isTest = () => {
   return "test" in r;
 };
 
+export const get = (name) => {
+  const r = parse([name], "proca_");
+  return r[name];
+};
+
 const config = (prefix) => {
   prefix = prefix || "proca_";
   const whitelist = ["comment"];
