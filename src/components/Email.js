@@ -22,7 +22,7 @@ import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import SearchIcon from "@material-ui/icons/Search";
 
-import Country from "@components/Country";
+import Country from "@components/field/Country";
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";

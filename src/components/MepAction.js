@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import TwitterIcon from "../images/Twitter.js";
 import eugroups from "../data/eugroups.json";
-import { Flag } from "@components/Country";
+import { Flag } from "@components/field/Country";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 

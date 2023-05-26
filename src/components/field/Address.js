@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import Country from "@components/Country";
+import Country from "@components/field/Country";
 import HiddenField from "@components/field/Hidden";
 
 const Address = (props) => {

@@ -9,7 +9,7 @@ import { useIsWindows } from "@hooks/useDevice";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
-import countriesJson from "../data/eu27.json";
+import countriesJson from "../../data/eu27.json";
 
 const emoji = (country) => {
   const offset = 127397;

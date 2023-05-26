@@ -24,7 +24,6 @@ import Consent from "./Consent";
 import EmailConsent from "@components/Consent";
 import documents from "@data/document_number_formats.json";
 
-//import Country from "@components/Country";
 import Id from "@components/eci/Id";
 import Address from "@components/eci/Address";
 import General from "@components/eci/General";

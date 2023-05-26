@@ -5,7 +5,7 @@ import { tweet } from "@components/twitter/Action";
 import Dialog from "@components/Dialog";
 import ProcaAlert from "@components/Alert";
 import { Alert } from "@material-ui/lab";
-import Country from "@components/Country";
+import Country from "@components/field/Country";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
 import Message from "@components/twitter/Message";
