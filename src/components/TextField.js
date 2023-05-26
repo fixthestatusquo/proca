@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
   },
+  warning: {
+    "& .Mui-error": {
+      color: theme.palette.info.main,
+    },
+  },
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -90,13 +95,22 @@ const TextFieldProca = (props) => {
             props.onChange(e);
           };
         }
+        let classesname = classes.textField;
+        if (
+          errors &&
+          errors[props.name] &&
+          errors &&
+          errors[props.name].type === "warning"
+        )
+          classesname += " " + classes.warning;
+
         return (
           <TextField
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
             onChange={handleChange}
             value={value || ""}
             onBlur={handleBlur}
-            className={classes.textField}
+            className={classesname}
             error={!!(errors && errors[props.name])}
             helperText={
               errors && errors[props.name] && errors[props.name].message

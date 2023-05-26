@@ -509,7 +509,7 @@ const Component = (props) => {
           message: t("target.country.empty", {
             country: getCountryName(country),
           }),
-          type: "no_empty",
+          type: "warning",
         });
       }
       if (d.length > 0) {
