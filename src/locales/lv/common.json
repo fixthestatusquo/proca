@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} nevar saņemt e-pastus",
     "salutation": "Cien. {{target.name}}",
-    "salutation_female": "Cien. {{target.name}}",
+    "salutation_female": "Cien. {{target.name}}!",
     "salutation_info": "(vārds tiks norādīts pirms nosūtīšanas)",
-    "salutation_male": "Cien. {{target.name}}",
+    "salutation_male": "Cien. {{target.name}}!",
     "salutation_placeholder": "Cien. [saņēmējs],"
   },
   "image": {

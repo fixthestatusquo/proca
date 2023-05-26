@@ -138,7 +138,7 @@
     "salutation": "Gentile signore/signora",
     "salutation_female": "Gentile Sig.ra {{target.name}}",
     "salutation_info": "(il nome verrà inserito prima dell'invio)",
-    "salutation_male": "Gentile Sig {{target.name}}",
+    "salutation_male": "Gentile Signor {{target.name}}",
     "salutation_placeholder": "Caro [destinatario],"
   },
   "image": {

@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} ne more prejemati e-poštnih sporočil",
     "salutation": "Spoštovani gospod/madam",
-    "salutation_female": "Spoštovani {{target.name}}",
+    "salutation_female": "Spoštovana gospa {{target.lastname}}",
     "salutation_info": "(ime bo vpisano pred pošiljanjem)",
-    "salutation_male": "Spoštovani {{target.name}}",
+    "salutation_male": "Spoštovani gospod {{target.lastname}}",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
   "image": {
