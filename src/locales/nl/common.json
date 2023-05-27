@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} kan geen emails ontvangen",
     "salutation": "Geachte meneer/mevrouw",
-    "salutation_female": "Geachte mevrouw {{target.lastname}}",
+    "salutation_female": "Geachte mevrouw {{target.last_name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
-    "salutation_male": "Geachte heer {{target.lastname}}",
+    "salutation_male": "Geachte heer {{target.last_name}}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
   "image": {

@@ -136,9 +136,9 @@
   "email": {
     "invalid_domain": "{{domain}} nem tud e-maileket fogadni",
     "salutation": "Tisztelt Uram/hölgyem",
-    "salutation_female": "Kedves {{target.lastname}} {{target.firstname}}",
+    "salutation_female": "Kedves {{target.last_name}} {{target.first_name}}",
     "salutation_info": "(a név a küldés előtt kerül beírásra)",
-    "salutation_male": "Kedves {{target.lastname}} {{target.firstname}}",
+    "salutation_male": "Kedves {{target.last_name}} {{target.first_name}}",
     "salutation_placeholder": "Kedves [címzett],"
   },
   "image": {
