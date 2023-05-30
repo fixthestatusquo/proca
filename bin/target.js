@@ -261,6 +261,10 @@ const formatTarget = async (campaignName, file) => {
           delete t.email;
         }
       }
+      if (!t.field.last_name) {
+        console.log("missing lastname for ", t.name, "fallback to name");
+        t.field.last_name = t.field.name;
+      }
       if (!(t.field.salutation || t.salutation) && argv.salutation) {
         let gender = null;
         if (t.field.gender) {
@@ -269,7 +273,7 @@ const formatTarget = async (campaignName, file) => {
         }
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
-            name: t.field.last_name.trim() || t.name,
+            name: t.name,
             last_name: t.field.last_name,
             first_name: t.field.first_name,
           });
@@ -283,7 +287,7 @@ const formatTarget = async (campaignName, file) => {
           t.field.salutation = i18n.t("email.salutation", {
             context: gender,
             target: {
-              name: t.field.last_name || t.name,
+              name: t.name,
               last_name: t.field.last_name,
               first_name: t.field.first_name,
             },
