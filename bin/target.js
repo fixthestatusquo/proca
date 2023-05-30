@@ -86,7 +86,6 @@ if (argv._.length !== 1) {
     console.log(color.red("only one campaign param allowed"), argv._);
   }
   help(true);
-  process.exit(1);
 }
 
 const getCampaignTargets = async (name) => {
@@ -271,6 +270,8 @@ const formatTarget = async (campaignName, file) => {
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
             name: t.field.last_name.trim() || t.name,
+            last_name: t.field.last_name,
+            first_name: t.field.first_name,
           });
         } else {
           let language = t.locale ? t.locale.replace("_", "-") : "en";
@@ -281,7 +282,11 @@ const formatTarget = async (campaignName, file) => {
           await i18n.changeLanguage(language || "en");
           t.field.salutation = i18n.t("email.salutation", {
             context: gender,
-            target: { name: t.field.last_name || t.name },
+            target: {
+              name: t.field.last_name || t.name,
+              last_name: t.field.last_name,
+              first_name: t.field.first_name,
+            },
           });
           // console.log("change language", t.locale,language, t.field.salutation);
         }
@@ -407,6 +412,9 @@ if (require.main === module) {
       let target = null;
       if (argv.push) {
         await pushTarget(name, argv.file || name);
+      }
+      if (argv.help) {
+        help(0);
       }
       if (!(argv.push || argv.pull || argv.publish || argv.digest)) {
         summary(name);
