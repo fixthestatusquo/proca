@@ -169,6 +169,23 @@ The counter will automatically calculate next goals so that goal always escapes 
 - `config.component.country`. 2 char iso code (default country), or boolean (disable/enable ip geolooup)
 - `config.component.country.other` (boolean) add an "other" option on the drop down (it always add the country of the ip address of the visitor)
 
+## Zip lookup
+
+Set country to `XX`, `register.field.country: false` and `register.field.locality: true`
+
+It works for const postcodeLength = {
+AT: 4,
+BE: 4,
+CH: 4,
+DE: 5,
+FR: 5,
+IT: 5,
+PL: 5,
+CA: 5,
+DK: 4,
+NL: 4,
+}
+
 ## Consent
 
 to collect the consent of being contacted
