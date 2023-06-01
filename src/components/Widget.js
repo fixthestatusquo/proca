@@ -326,9 +326,12 @@ const Widget = (props) => {
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
-      go(paramStep() || 1);
-      //      _scrollTo({ delay: 300 });
-      //      return null;
+      if (paramStep()) {
+        go(paramStep());
+        _scrollTo({ delay: 300 });
+      } else {
+        go(1);
+      }
     }
   }
   if (current >= journey.length) {
