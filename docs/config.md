@@ -171,9 +171,10 @@ The counter will automatically calculate next goals so that goal always escapes 
 
 ## Zip lookup
 
-Set country to `XX`, `register.field.country: false` and `register.field.locality: true`
+Set country to `XX`, `register.field.country: false` and `register.field.locality: true`. Technically, you can have both the country and locality, but works better if the country is outside of the form, for instance for mail2target a actions
 
-It works for const postcodeLength = {
+Country covered so far (and postcode length):
+
 AT: 4,
 BE: 4,
 CH: 4,
@@ -183,8 +184,8 @@ IT: 5,
 PL: 5,
 CA: 5,
 DK: 4,
-NL: 4,
-}
+NL: 4
+
 
 ## Consent
 
