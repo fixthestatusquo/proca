@@ -9,12 +9,12 @@ const {
   file,
   apiLink,
   fileExists,
+  runDate,
   save: saveWidget,
 } = require("./config");
 const { commit, add, onGit } = require("./git");
 const { saveCampaign, pullCampaign } = require("./campaign");
 const { build, serve } = require("./esbuild");
-
 const getId = require("./id");
 const color = require("cli-color");
 const help = (exit) => {
@@ -421,6 +421,7 @@ if (require.main === module) {
               console.log("adding", r);
             }
             console.log(
+              runDate(),
               color.green.bold("saved", fileName),
               color.blue(widget.filename)
             );

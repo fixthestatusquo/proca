@@ -13,6 +13,13 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
 
+const now = new Date();
+const runDate = (date = now) =>
+  new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+    .toISOString()
+    .replace("T", " ")
+    .slice(0, -5);
+
 const pathConfig = () => path.resolve(__dirname, tmp);
 
 const checked = (fileName, type) => {
@@ -151,6 +158,7 @@ module.exports = {
   apiLink,
   checked,
   mkdirp,
+  runDate,
   //  actionPageFromLocalConfig,
   //  pushCampaign,
   //  pullCampaign,

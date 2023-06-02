@@ -154,9 +154,11 @@ let procaPlugin = ({ id, config }) => ({
       //     console.log(result);
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, (args) => {
-      runs === 0
-        ? console.log(color.blue("load", config.filename))
-        : console.log("reload");
+      if (argv.serve) {
+        runs === 0
+          ? console.log(color.blue("load", config.filename))
+          : console.log("reload");
+      }
       return {
         watchFiles: [
           "config/" + config.filename,

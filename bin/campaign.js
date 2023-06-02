@@ -43,7 +43,7 @@ const help = () => {
 };
 
 const saveCampaign = (campaign, { git = true, message = null }) => {
-  console.log(color.yellow(file("campaign/" + campaign.name)));
+  //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
     JSON.stringify(campaign, null, 2)
