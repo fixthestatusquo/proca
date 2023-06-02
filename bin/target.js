@@ -22,7 +22,7 @@ const help = (exitValue) => {
         "--pull (from the server)",
         "--digest (process the source and generate a file for digest, like add salutation and language)",
         "--push (update the server)",
-        "--publish (pdate the public list into /config/target/public and make it live)",
+        "--publish (update the public list into /config/target/public and make it live)",
         "{campaign name}",
       ].join("\n")
     ),
