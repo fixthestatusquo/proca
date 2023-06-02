@@ -5897,13 +5897,13 @@ es6-weak-map@^2.0.3:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
-esbuild-plugin-browserslist@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/esbuild-plugin-browserslist/-/esbuild-plugin-browserslist-0.7.0.tgz#f335d2d25abb4e457514ee3d2b57ccd8aa6ec1a0"
-  integrity sha512-A+BN2a9XWsEAfsyr03XAc1tZt3h82UkZWx4ZYbozcucq0wnkPcBKOwTG+UM678qlCxbHmBwrlIu7M0WywtiI2A==
+esbuild-plugin-browserslist@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-browserslist/-/esbuild-plugin-browserslist-0.7.1.tgz#f06b7ebcebc58f5a4af3d092e718f0494b6820a4"
+  integrity sha512-c5hnW3xDHXhHM/twKQaMr3o5TaS7WWWhLOE/UXOxbW9x3ulfuwMQUoM+dU4UQn0K9epfUVznipuCbuWZBhy7cg==
   dependencies:
     debug "^4.3.4"
-    zod "^3.20.2"
+    zod "^3.21.4"
 
 esbuild-plugin-copy@^2.1.1:
   version "2.1.1"
@@ -15317,7 +15317,7 @@ zen-observable@^0.8.0:
   resolved "https://registry.npmjs.org/zen-observable/-/zen-observable-0.8.15.tgz"
   integrity sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 
-zod@^3.20.2:
+zod@^3.21.4:
   version "3.21.4"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.4.tgz#10882231d992519f0a10b5dd58a38c9dabbb64db"
   integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
