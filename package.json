@@ -36,7 +36,7 @@
     "lodash.set": "^4.3.2",
     "material-ui-dropzone": "^3.5.0",
     "page-metadata-parser": "^1.1.4",
-    "phoenix": "^1.7.2",
+    "phoenix": "^1.7.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.43.9",
