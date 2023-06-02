@@ -43,11 +43,15 @@ const merge = (targets, twitters, options) => {
     if (options.meps) {
       r.description = target.fields.party;
       r.eugroup = target.fields.eugroup;
-      if (target.fields.epid)
+      if (target.fields.epid) {
         r.profile_image_url_https =
           "https://www.europarl.europa.eu/mepphoto/" +
           target.fields.epid +
           ".jpg";
+      }
+    }
+    if (target.fields.avatar) {
+      r.profile_image_url_https = target.fields.avatar;
     }
 
     if (options.email && target.emails?.length) {
