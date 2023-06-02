@@ -310,7 +310,6 @@ query actionPage ($id:Int!) {
     delete config.journey;
   }
   if (campaign) {
-    console.log("campaign", campaign);
     return [config, data.actionPage.campaign];
   }
   return config;
@@ -330,9 +329,7 @@ const pull = async (
     anonymous: anonymous,
     campaign: campaign,
   });
-  console.log("pull ", campaignData);
   if (save) {
-    console.log("save");
     saveWidget(config);
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
