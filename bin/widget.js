@@ -228,38 +228,7 @@ query actionPage ($name:String!) {
   return data.actionPage;
 };
 
-const fetch = async (actionPage, { anonymous, campaign = true }) => {
-  let data = undefined;
-
-  const query = `
-query actionPage ($id:Int!) {
-  actionPage (id:$id) {
-    id, name, locale,
-    thankYouTemplate,
-    ... on PrivateActionPage { supporterConfirmTemplate },
-    campaign {
-      id,
-      title,name,config,
-      org {name,title}
-    },
-    org {
-      title,
-      name,
-      config,
-      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
-    }
-    , config
-  }
-}
-`;
-
-  try {
-    data = await api(query, { id: actionPage }, "actionPage", anonymous);
-  } catch (err) {
-    throw err;
-  }
-  if (!data.actionPage) throw new Error(data.toString());
-
+const getConfig = (data) => {
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
@@ -309,6 +278,42 @@ query actionPage ($id:Int!) {
   if (!config.journey) {
     delete config.journey;
   }
+  return config;
+};
+
+const fetch = async (actionPage, { anonymous, campaign = true }) => {
+  let data = undefined;
+
+  const query = `
+query actionPage ($id:Int!) {
+  actionPage (id:$id) {
+    id, name, locale,
+    thankYouTemplate,
+    ... on PrivateActionPage { supporterConfirmTemplate },
+    campaign {
+      id,
+      title,name,config,
+      org {name,title}
+    },
+    org {
+      title,
+      name,
+      config,
+      ... on PrivateOrg { processing { supporterConfirm, supporterConfirmTemplate }}
+    }
+    , config
+  }
+}
+`;
+
+  try {
+    data = await api(query, { id: actionPage }, "actionPage", anonymous);
+  } catch (err) {
+    throw err;
+  }
+  if (!data.actionPage) throw new Error(data.toString());
+
+  config = getConfig(data);
   if (campaign) {
     return [config, data.actionPage.campaign];
   }
@@ -468,5 +473,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pull, addPage };
+  module.exports = { pull, addPage, getConfig };
 }
