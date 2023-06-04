@@ -35,7 +35,7 @@
     "share": "Dijeli",
     "sign": "Potpiši sada!",
     "stayInformed": "Ostani u toku",
-    "takeAction": "takeAction",
+    "takeAction": "Podrži akciju",
     "twitter": "Tweet"
   },
   "camera": {
@@ -200,7 +200,7 @@
     "selected": "Broj primalaca: {{total}}"
   },
   "twitter": {
-    "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
+    "actionText": "actionText",
     "again": "Pošalji tweet drugoj osobi",
     "choice": "Što želiš raditi kao sljedeće?",
     "instruction": "Dovrši slanje tweeta u novom prozoru (na twitter.com)",
