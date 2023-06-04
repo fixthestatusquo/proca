@@ -21,7 +21,7 @@
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
   "Street": "Straße",
   "Subject": "Thema",
-  "Thank you": "Dankeschön",
+  "Thank you": "Danke schön",
   "Your message": "Ihre Nachricht",
   "action": {
     "donate": "Spenden Sie",
@@ -46,10 +46,6 @@
   "closed": "##Danke an die Unterstützer von {{total}}!\n\nWir haben diese Aktion abgeschlossen, aber unsere Arbeit ist hier noch nicht zu Ende. Bitte **hinterlassen Sie Ihre E-Mail-Adresse, um über die nächsten Schritte informiert zu werden**",
   "confirm": "Sind Sie sicher?",
   "consent": {
-    "subButton": {
-       "opt-in": "und Informationen erhalten",
-       "opt-out": "und keine infos erhalten"
-     },
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
@@ -64,7 +60,11 @@
     "optInConfirmed": "Abonnement bestätigt",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich"
+    "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich",
+    "subButton": {
+      "opt-in": "und Informationen erhalten",
+      "opt-out": "und keine infos erhalten"
+    }
   },
   "date": {
     "error": "ungültiges Datum. Format: TT.MM.JJJJ"
@@ -123,8 +123,8 @@
     "iban": "IBAN",
     "intro": "Spenden Sie an {{campaign}}",
     "payment_methods": {
-        "default": "Jetzt spenden!",
       "card": "Karte",
+      "default": "Jetzt spenden!",
       "intro": "Wie möchten Sie spenden?",
       "paypal": "PayPal",
       "sepa": "SEPA",

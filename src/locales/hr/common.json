@@ -7,8 +7,8 @@
   "Comment": "Komentar",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
-  "Download explanation": "Vaš je dokument sada spreman. Poslat ćemo ga i vama putem e-maila",
-  "Email": "E-mail",
+  "Download explanation": "Tvoj je dokument sada spreman. Poslat ćemo ga i tebi putem e-maila",
+  "Email": "E-mail adresa",
   "First name": "Ime",
   "Language": "Jezik",
   "Last name": "Prezime",
@@ -17,7 +17,7 @@
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
-  "Salutation": "Pozdrav",
+  "Salutation": "Oslovljavanje",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Street": "Ulica",
   "Subject": "Predmet",
@@ -35,24 +35,24 @@
     "share": "Dijeli",
     "sign": "Potpiši sada!",
     "stayInformed": "Ostani u toku",
-    "takeAction": "Poduzmi radnju!",
+    "takeAction": "takeAction",
     "twitter": "Tweet"
   },
   "camera": {
-    "start": "pokrenite kameru",
-    "take": "Fotografirati",
-    "take-another": "Uzmi drugu"
+    "start": "pokreni kameru",
+    "take": "Snimi sliku",
+    "take-another": "Snimi još jednu sliku"
   },
-  "closed": "##hvala {{total}} podržavateljima!\n\nZavršili smo ovu akciju, ali naš posao ne završava ovdje, stoga vas molimo da **ostavite svoju e-poštu kako biste bili informirani o sljedećim koracima**",
-  "confirm": "Jesi li siguran?",
+  "closed": "##hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
+  "confirm": "Jesi li siguran/na?",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
     "actionRejected": "Akcija je uspješno otkazana",
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
-    "confirmAction": "Pregledajte e-poštu odmah i kliknite na poveznicu koja sadrži (provjerite svoju mapu neželjene pošte!).\n Tek tada će se vaša akcija računati!\nVaša je potvrda ključna za političku težinu akcije. To jamči da iza svakog podnošenja stoji stvarna osoba. Čekamo vašu potvrdu...",
-    "confirmOptIn": "Ne zaboravite provjeriti svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrditi pretplatu na e-poštu",
-    "emailSent": "Poslali smo vam e-poruku na {{email}}!",
-    "implicit": "Pošaljite ovaj obrazac za primanje e-pošte od {{name}}",
+    "confirmAction": "Pronađi e-mail i klikni na poveznicu u poruci (provjeri mapu neželjene pošte!).\n Tek tada će se tvoja akcija uračunati!\nTvoja je potvrda ključna za političku težinu akcije. To jamči da iza svakog podneska stoji stvarna osoba. Čekamo na tvoju potvrdu …",
+    "confirmOptIn": "Provjeri svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrdi pretplatu na e-poštu",
+    "emailSent": "Poslali smo ti e-mail na {{email}}!",
+    "implicit": "Pošalji ovaj obrazac za primanje e-pošte od {{name}}",
     "intro": "Obavijesti o našim kampanjama, akcijama i napretku kampanje {{campaign}}",
     "opt-in": "Da, želim da me {{partner}} obavještava putem e-maila",
     "opt-in-both": "Da, želim da me {{partner}} i {{lead}} obavještavaju putem e-maila",
@@ -60,16 +60,16 @@
     "optInConfirmed": "Pretplata potvrđena",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "required": "Za sudjelovanje je potreban vaš pristanak",
+    "required": "Za sudjelovanje je potrebna tvoja suglasnost",
     "subButton": {
-      "opt-in": "i primati informacije",
-      "opt-out": "i nemojte me obavještavati"
+      "opt-in": "i primaj informacije",
+      "opt-out": "i nemoj me obavještavati"
     }
   },
   "date": {
-    "error": "nevažeći datum. format: DD.MM.GGGG"
+    "error": "nevažeći datum. format: DD.MM.YYYY"
   },
-  "dateFormat": "DD./MM./GGGG.",
+  "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Želim primati obavijesti o napretku kampanje",
   "donation": {
     "amount": {
@@ -97,19 +97,19 @@
     },
     "form": {
       "error": {
-        "minimum": "Minimalna donacija je {{amount}}"
+        "minimum": "Najmanji iznos donacije je {{amount}}"
       }
     },
     "frequency": {
       "ask": {
-        "monthly": "Neka bude mjesečno?",
+        "monthly": "Tjedna donacija?",
         "oneoff": "Doniraj",
-        "weekly": "Ovo učiniti tjednom donacijom?"
+        "weekly": "Mjesečna donacija?"
       },
       "each": {
-        "monthly": "svaki mjesec",
+        "monthly": "svaki tjedan",
         "oneoff": "Jednom",
-        "weekly": "svake godine"
+        "weekly": "svaki mjesec"
       },
       "feedback": {
         "monthly": "Doniram {{amount}} {{frequency}}",
@@ -124,7 +124,7 @@
     "intro": "Doniraj za {{campaign}}",
     "payment_methods": {
       "card": "Kartica",
-      "default": "Donirajte",
+      "default": "Doniraj",
       "intro": "Kako želiš donirati?",
       "paypal": "PayPal",
       "sepa": "SEPA",
@@ -134,44 +134,44 @@
     "to": "Donacija za {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ne može primati e-poštu",
-    "salutation": "Dragi Gospodine/ Gospođo",
-    "salutation_female": "Poštovana {{target.name}}",
+    "invalid_domain": "Domena {{domain}} ne može primati e-poštu",
+    "salutation": "Poštovani gospodine / Poštovana gospođo",
+    "salutation_female": "Poštovana gospođo {{target.last_name}}",
     "salutation_info": "(Ime će biti stavljeno prije slanja)",
-    "salutation_male": "Poštovani {{target.name}}",
+    "salutation_male": "Poštovani gospodine {{target.last_name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
   "image": {
-    "addSticker": "Dodajte naljepnice",
-    "addStickerTitle": "Kliknite/Dodirnite za dodavanje naljepnice na fotografiju",
-    "benefit": "Dodavanje slike za slanje - koju možete podijeliti u sljedećem koraku - učinit će vaš postupak utjecajnijim",
-    "options": "Želite li",
+    "addSticker": "dodaj naljepnice",
+    "addStickerTitle": "Klikni/Dodirni za dodavanje naljepnice fotografiji",
+    "benefit": "Dodavanje slike za slanje – i koju možeš dijeliti u sljedećem koraku – povečat će učinkovitost tvoje akcije",
+    "options": "Želiš li sprovesti jednu od ovih akcija?",
     "publish": "Izgleda dobro, objavi!",
-    "select": "Odaberite svoju sliku",
-    "takeTitle": "Snimite sliku telefonom",
-    "upload": "Učitajte sliku",
-    "wanttoadd": "Želite li dodati sliku?"
+    "select": "Odaberi jednu od naših slika",
+    "takeTitle": "Snimi sliku pomoću mobitela",
+    "upload": "Učitaj sliku",
+    "wanttoadd": "Želiš li dodati sliku?"
   },
-  "no": "Ne",
+  "no": "ne",
   "progress": {
-    "donate": "{{total}} su donirali. Idemo na {{goal}}",
-    "email": "{{total}} su poslali e-poštu. Idemo na {{goal}}",
-    "register": "{{total}} su se registrirali. Idemo na {{goal}}",
-    "share": "{{total}} su podijelili. Idemo na {{goal}}",
-    "sign": "{{total}} potpisa. Idemo na {{goal}}",
-    "twitter": "{{total}} su twittali. Idemo na {{goal}}"
+    "donate": "Broj osoba koje su donirale: {{total}}. Sljedeći cilj je: {{goal}}",
+    "email": "Broj osoba koje su poslale e-mail: {{total}}. Sljedeći cilj je: {{goal}}",
+    "register": "Broj osoba koje su se registrirale: {{total}}. Sljedeći cilj je: {{goal}}",
+    "share": "Broj osoba koje su dijelile: {{total}}. Sljedeći cilj je: {{goal}}",
+    "sign": "Broj osoba koje su potpisale: {{total}}. Sljedeći cilj je: {{goal}}",
+    "twitter": "Broj osoba koje su poslali tweet: {{total}}. Sljedeći cilj je: {{goal}}"
   },
-  "read more": "Čitaj više",
+  "read more": "saznaj više",
   "register": "Dodaj moje ime",
   "reminder": {
-    "intro": "Znamo da vaša vlada traži mnogo informacija. Poslat ćemo vam jednu e-poruku da vas podsjetimo da ispunite obrazac kasnije"
+    "intro": "Znamo da tvoja vlada traži mnoge informacije. Poslat ćemo ti e-mail da bismo te podsjetili da kasnije ispuniš obrazac"
   },
-  "required": "Ispuni ovo polje",
-  "required field": "Ispuni ovo polje",
+  "required": "obavezno",
+  "required field": "obavezno polje",
   "salutations": {
-    "f": "Gđa.",
-    "m": "Gosp.",
-    "other": "Drugi"
+    "f": "Poštovana {{name}}",
+    "m": "Poštovani {{name}}",
+    "other": "Poštovani {{name}}"
   },
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
@@ -192,22 +192,22 @@
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
     },
-    "missing": "Odaberite barem jedan od {{total}}",
+    "missing": "Odaberi barem jedan od {{total}}",
     "postcode": {
-      "empty": "nema nikoga za kontaktirati u {{area}}"
+      "empty": "nema nikoga za kontaktiranje u {{area}}"
     },
-    "random": "Odabrali smo jedan od naših {{total}} najvažnijih ciljeva",
-    "selected": "{{total}} odabrano"
+    "random": "Odabran je jedan od naših {{total}} najvažnijih ciljeva",
+    "selected": "Broj primalaca: {{total}}"
   },
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti",
     "again": "Pošalji tweet drugoj osobi",
-    "choice": "Što bi htio/htjela sljedeće raditi?",
+    "choice": "Što želiš raditi kao sljedeće?",
     "instruction": "Dovrši slanje tweeta u novom prozoru (na twitter.com)",
     "organisation": "Twitter račun tvoje organizacije",
     "screenName": "Ime ekrana"
   },
   "unknown postcode": "nepoznat poštanski broj",
-  "yes": "Da",
-  "you need to be 18 years old": "morate imati 18 godina"
+  "yes": "da",
+  "you need to be 18 years old": "moraš imati 18 godina"
 }
