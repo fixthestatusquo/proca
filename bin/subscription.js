@@ -16,6 +16,10 @@ const logEvent =
   (...args) =>
     console.log(eventName, ...args);
 
+const handleError = (error) => {
+  console.log(JSON.stringify(error, null, 2));
+};
+
 const absintheSocket = withAbsintheSocket.create(
   new Socket(socket, { transport: ws })
 );
@@ -52,8 +56,8 @@ const notifier = withAbsintheSocket.send(absintheSocket, {
 });
 
 const updatedNotifier = withAbsintheSocket.observe(absintheSocket, notifier, {
-  onAbort: logEvent("abort"),
-  onError: logEvent("error"),
+  onAbort: handleError,
+  onError: handleError,
   onStart: (data) => {
     console.log("waiting for widgets to build", api);
   },
