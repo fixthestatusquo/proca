@@ -250,7 +250,7 @@ export default function Register(props) {
       return (
         <Snackbar open={true} autoHideDuration={6000}>
           <Alert severity="error">
-            Sorry, we couldn't save your signature!
+            Sorry, we could not save your signature!
             <br />
             The techies have been informed.
           </Alert>
