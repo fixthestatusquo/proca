@@ -3,7 +3,7 @@ import { ListItem, ListItemText, ListItemAvatar } from "@material-ui/core";
 
 import Skeleton from "@material-ui/lab/Skeleton";
 
-const SkeletonListItem = (props) => {
+const SkeletonListItem = () => {
   return (
     <ListItem alignItems="flex-start" component="div">
       <ListItemAvatar>

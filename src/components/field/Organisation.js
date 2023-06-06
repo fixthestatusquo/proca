@@ -104,7 +104,7 @@ const Organisation = (props) => {
     fetchAPI();
   };
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     console.log("click", getValues("twitter"));
     fetchTwitter(getValues("twitter"));
   };

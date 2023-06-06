@@ -14,13 +14,9 @@ const stepComponent = {
   twitter: "Twitter",
   dialog: "Dialog",
   Ep: "Ep",
-  DonateAmount: "DonateAmount",
-  DonateStripe: "DonateStripe",
-  clickify: "Clickify",
   html: "Html",
   register: "Register",
   "register.CH": "bespoke/Register-CH",
-  download: "bespoke/Download",
 };
 
 module.exports = (id) => {

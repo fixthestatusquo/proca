@@ -2,7 +2,7 @@ import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import { useTranslation } from "react-i18next";
 
-const MaskImage = (props) => {
+const MaskImage = () => {
   const config = useCampaignConfig();
   const url = config.component.camera?.mask;
   return (

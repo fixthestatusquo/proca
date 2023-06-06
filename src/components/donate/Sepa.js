@@ -164,7 +164,7 @@ export default function Register(props) {
       id="proca-sepa"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      url="http://localhost"
+      action="http://localhost"
     >
       <Error display={status === "error"} />
       <Container component="main">

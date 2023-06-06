@@ -213,7 +213,7 @@ const PictureWall = (props) => {
               className={classes.img}
               onError={(e) => setBlurhash(e, d)}
               onLoad={(e) => replaceBlur(e)}
-              loaded="lazy"
+              loading="lazy"
               src={makeUrl(d, campaign)}
               alt={d.legend}
             />

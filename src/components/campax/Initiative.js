@@ -289,7 +289,7 @@ export default function Register(props) {
         onSubmit={handleSubmit(onSubmit)}
         method="post"
         id="proca-register"
-        url="http://localhost"
+        action="http://localhost"
       >
         <Success display={status === "success"} />
         <Error display={status === "error"} />

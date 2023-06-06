@@ -116,7 +116,7 @@ const SubmitButton = (props) => {
           >
             {props.buttonText ||
               t(config.component.register?.button || "action.register")}
-            <span class={classes.subText}>
+            <span className={classes.subText}>
               {t("consent.subButton.opt-out")}
             </span>
           </Button>
@@ -135,7 +135,9 @@ const SubmitButton = (props) => {
           >
             {props.buttonText ||
               t(config.component.register?.button || "action.register")}
-            <span class={classes.subText}>{t("consent.subButton.opt-in")}</span>
+            <span className={classes.subText}>
+              {t("consent.subButton.opt-in")}
+            </span>
           </Button>
         </Grid>
       </>
@@ -344,7 +346,7 @@ export default function Register(props) {
       });
   };
 
-  const handleClick = async (event) => {
+  const handleClick = async () => {
     const result = await trigger();
     if (result) {
       if (props.onClick) {
@@ -409,8 +411,11 @@ export default function Register(props) {
     ? ImplicitConsent
     : Consent;
 
-  if (config.component.consent?.buttons) ConsentBlock = () => null;
-
+  if (config.component.consent?.buttons) {
+    ConsentBlock = function NoConsent() {
+      return null;
+    };
+  }
   const validateEmail = async (email) => {
     if (config.component?.register?.validateEmail === false) return true;
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
@@ -438,7 +443,7 @@ export default function Register(props) {
   if (typeof props.buttonNext === "string") {
     buttonNext = props.buttonNext;
   }
-  const next = (e) => {
+  const next = () => {
     const d = getValues();
     setData(d);
     dispatch(
@@ -459,7 +464,7 @@ export default function Register(props) {
       id="proca-register"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      url="http://localhost"
+      action="http://localhost"
     >
       <Success display={status === "success"} />
       <Error display={status === "error"} />

@@ -53,7 +53,10 @@ export default function Captcha(props) {
   const withAudioCaptcha = config.component.captcha?.audio !== false;
   const { t } = useTranslation();
 
-  const { setValue, formState: { errors } } = props.form;
+  const {
+    setValue,
+    formState: { errors },
+  } = props.form;
 
   const compact = props.compact || false;
 
@@ -80,7 +83,7 @@ export default function Captcha(props) {
     //    setCount((c) => c + 1);
     setFocussed(true);
     //    setValue("captcha", "");
-  }, [errors.captcha]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [errors.captcha]); // eslint-disable-line
 
   useEffect(() => {
     let isLive = true;
@@ -90,7 +93,7 @@ export default function Captcha(props) {
         .then((captcha) => isLive && update(captcha));
     })();
     return () => (isLive = false);
-  }, [count]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [count]); // eslint-disable-line
 
   const handleClick = () => {
     setCount(count + 1);

@@ -8,13 +8,15 @@ import SaveIcon from "@material-ui/icons/SaveAlt";
 import { useTranslation } from "react-i18next";
 import useConfig from "../../hooks/useConfig";
 
+console.error("we should not be used");
+
 const url = (data, param) => {
   let postcardUrl =
     "https://bffa-pdf.herokuapp.com/?" +
     "qrcode=" +
     data.contactRef +
     ":" +
-    config.actionpage +
+    param.actionpage +
     "&country=" +
     data.country;
   if (param.pdfUrl) postcardUrl += "&pdf=" + encodeURIComponent(param.pdfUrl);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -14,7 +14,7 @@ import Support from "./Support";
 import Share from "@components/Share";
 
 export default function Target(props) {
-  const [value, setValue] = React.useState("email");
+  const [value, setValue] = useState("email");
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event, newValue) => {

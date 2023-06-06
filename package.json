@@ -129,12 +129,6 @@
       "prettier --write"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "jest": {
     "moduleNameMapper": {
       "^locales/(.*)$": "<rootDir>/src/locales/en/$1"

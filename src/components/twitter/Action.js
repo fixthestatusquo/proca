@@ -61,7 +61,7 @@ const TwitterAction = (profile) => {
 
   const clickable = profile.clickable;
 
-  const onClick = (e) => {
+  const onClick = () => {
     const done = () => {
       disable(true);
       select(false);

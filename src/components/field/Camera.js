@@ -230,7 +230,7 @@ const CameraField = (props) => {
     startCamera(camera === "environment" ? "user" : "environment");
   };
 
-  const validateImage = async (image) => {
+  const validateImage = async () => {
     //    const delay = ms => new Promise(res => setTimeout(res, ms));
     //await delay (1500);
     if (!camera) return "Start the camera and take a picture";
@@ -294,7 +294,7 @@ const CameraField = (props) => {
           width="100%"
           height="auto"
           autoPlay
-          playinline="true"
+          playsInline
           muted
         ></video>
         {camera && !picture && (

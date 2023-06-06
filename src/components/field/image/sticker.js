@@ -126,12 +126,12 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
           e.cancelBubble = true;
         }}
         // add hover styling
-        onMouseOver={function (e) {
+        onMouseOver={function () {
           // can't be arrow function for this to work
           document.body.style.cursor = "nwse-resize";
           this.strokeWidth(4);
         }}
-        onMouseOut={function (e) {
+        onMouseOut={function () {
           document.body.style.cursor = "default";
           this.strokeWidth(2);
         }}

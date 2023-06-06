@@ -359,7 +359,6 @@ const Component = (props) => {
           setLanguages(languages);
           if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
-          } else {
           }
           if (config.component.email?.filter?.includes("postcode")) {
             setProfiles([]);

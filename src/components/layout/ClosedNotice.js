@@ -59,7 +59,7 @@ let elem = document.createElement("div");
 elem.id = "ribbon";
 document.body.prepend(elem);
 
-const Closed = (props) => {
+const Closed = () => {
   const config = useCampaignConfig();
   const count = useCount(config.actionPage);
   const classes = useStyles();

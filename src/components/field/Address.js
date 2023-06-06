@@ -77,6 +77,7 @@ const Address = (props) => {
         })
         .catch((err) => {
           // for now, let's not flag as an error if we don't find the postcode
+          console.log(err.toString());
           /* setError("postcode", {
             type: "network",
             message: (err && err.toString()) || "Network error",

@@ -59,7 +59,7 @@ const addAllCountries = () => {
   return d;
 };*/
 
-const addCountries = (list, t) => {
+const addCountries = (list) => {
   let d = [];
   list.map((country) => {
     country !== "ZZ" &&
@@ -141,7 +141,6 @@ const Country = (props) => {
           name: allCountries[location.country] || t("Other"),
         });
         //        location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
-      } else {
       }
       setCountries(countries);
       if (!location.country) return; // not sure how it can happend, remove?

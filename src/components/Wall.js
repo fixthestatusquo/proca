@@ -1,4 +1,4 @@
-import { useState },React from "react";
+import React, { useState } from "react";
 import Comment from "@components/CommentWall";
 import Picture from "@components/PictureWall";
 import ProgressCounter from "@components/ProgressCounter";

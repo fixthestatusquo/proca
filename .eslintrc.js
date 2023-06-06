@@ -11,10 +11,16 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   globals: {
     global: "readonly",
   },
   rules: {
+    "no-unused-vars": "warn",
     "react/prop-types": "off",
   },
 };

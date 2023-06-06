@@ -92,7 +92,7 @@ const Support = (props) => {
   const { handleSubmit, setError, clearErrors, formState, watch, setValue } =
     form;
 
-  const [ nationality, country, firstname ] =
+  const [nationality, country, firstname] =
     watch(["nationality", "country", "firstname"]) || "";
 
   if (data.firstname && !firstname && !reload) {
@@ -240,7 +240,7 @@ const Support = (props) => {
       return (
         <Snackbar open={true} autoHideDuration={6000}>
           <Alert severity="error">
-            Sorry, we couldn't save your signature!
+            Sorry, we could not save your signature!
             <br />
             Details: {errorDetails}
           </Alert>
@@ -265,7 +265,7 @@ const Support = (props) => {
               id="proca-register"
               onSubmit={handleSubmit(onSubmit)}
               method="post"
-              url="http://localhost"
+              action="http://localhost"
             >
               <Error display={status === "error"} />
 
