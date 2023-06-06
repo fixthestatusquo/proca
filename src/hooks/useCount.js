@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getCount, getCountByName } from "@lib/server.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 

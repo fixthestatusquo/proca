@@ -1,5 +1,15 @@
-// for consent
+import { formatNumber } from "@components/ProgressCounter";
 
+const goal = 1,
+  count = 1,
+  separator = " ";
+const t = (d) => {
+  process.exit(
+    "this is a placeholder file to define texts for yarn i18n, not meant to run",
+    d
+  );
+};
+// for consent
 t(
   "consent.confirmAction",
   "We have sent a confirmation link by email to the following address:\n {{email}}\nPlease retrieve the email right now and click on the link it contains. Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there really is a person behind every participation. We are waiting... \n"

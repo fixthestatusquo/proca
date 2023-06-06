@@ -1,6 +1,6 @@
 import { useCampaignConfig } from "./useConfig";
 
-const useFormatMoney = (amount) => {
+const useFormatMoney = () => {
   const campaignConfig = useCampaignConfig();
   const donateConfig = campaignConfig.component.donation;
 

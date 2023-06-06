@@ -83,7 +83,7 @@ const pickOne = (locale) => {
 };
 
 const truncate = (text, nbParagraphs) => {
-  const max = 3; //nbParagraph
+  const max = nbParagraphs || 3;
   const paragraphs = text.split("\n\n");
   if (paragraphs.length <= max) return text;
   return paragraphs.slice(0, max).join("\n\n");

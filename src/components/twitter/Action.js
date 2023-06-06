@@ -6,7 +6,6 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import IconButton from "@material-ui/core/IconButton";
-import PropTypes from "prop-types";
 import Url from "@lib/urlparser";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 

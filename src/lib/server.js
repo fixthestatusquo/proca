@@ -75,10 +75,10 @@ async function graphQL(operation, query, options) {
 }
 
 async function getLatest(actionPage, actionType, options) {
-  var query = `query getLatest($actionPage:Int!,$actionType:String!) {
+  var query = `query getLatest($actionPage:Int!,$actionType:String!,limit: Int) {
   actionPage(id:$actionPage) {
     campaign {
-      actions(actionType:$actionType, limit: 10000) {
+      actions(actionType:$actionType, limit: $limit) {
         list {
           actionId,
           fields {
@@ -92,6 +92,7 @@ async function getLatest(actionPage, actionType, options) {
   let variables = {
     actionPage: actionPage,
     actionType: actionType || "openletter",
+    limit: options.limit || 1000,
   };
   const response = await graphQL("getLatest", query, {
     variables: variables,
@@ -197,6 +198,7 @@ async function addAction(actionPage, actionType, data, test) {
   $actionPage: Int!,
   $actionType: String!,
   $payload: Json,
+  $test: Boolean,
   $tracking: TrackingInput)
 {
   addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload}
@@ -208,6 +210,7 @@ async function addAction(actionPage, actionType, data, test) {
     actionType: actionType,
     payload: data.payload,
     contact: data.uuid,
+    test: test,
   };
 
   if (typeof data.payload === "object") {

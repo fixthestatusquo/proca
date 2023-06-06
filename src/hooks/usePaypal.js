@@ -40,6 +40,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
   };
 
   const donationStart = (data, actions) => {
+    console.log("donationStart", actions);
     addClick("donation_start", {
       source: data.fundingSource,
       amount: amount,

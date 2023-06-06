@@ -77,10 +77,12 @@
     "esbuild": "^0.17.19",
     "esbuild-plugin-browserslist": "^0.7.1",
     "esbuild-plugin-copy": "^2.1.1",
-    "eslint": "^8.41.0",
+    "eslint": "^8.42.0",
     "eslint-plugin-react": "^7.32.2",
     "generate-json-webpack-plugin": "^1.0.0",
+    "husky": "^8.0.3",
     "i18next-fs-backend": "^2.1.2",
+    "lint-staged": "^13.2.2",
     "mjml": "^4.14.1",
     "open": "^9.1.0",
     "prettier": "^2.8.8",
@@ -120,6 +122,12 @@
     "starts": "HTTPS=true rescripts start",
     "test": "rescripts test",
     "test:debug": "rescripts --inspect-brk test --runInBand --no-cache"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write"
+    ]
   },
   "eslintConfig": {
     "extends": [

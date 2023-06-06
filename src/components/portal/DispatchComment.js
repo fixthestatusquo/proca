@@ -5,7 +5,7 @@ import { useCampaignConfig } from "../../hooks/useConfig";
 import { isSet, uuid as getuuid } from "@lib/uuid";
 import { useTranslation } from "react-i18next";
 
-const DispatchPublicComment = (props) => {
+const DispatchPublicComment = () => {
   const [dispatched, setDispatched] = useState(false);
   const [data] = useData();
   const supabase = useSupabase();

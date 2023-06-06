@@ -83,7 +83,7 @@ export default function Register(props) {
     //    nativeValidation: true,
     defaultValues: data,
   });
-  const { trigger, watch, handleSubmit, setError, formState, getValues } = form;
+  const { handleSubmit, setError, formState } = form;
 
   const handleVerificationSuccess = (token) => {
     setToken(token);
@@ -213,7 +213,6 @@ export default function Register(props) {
       id="proca-register"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      url="http://localhost"
     >
       <ProgressCounter actionPage={props.actionPage} />
       <Success display={status === "success"} />

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { getCountryName } from "@lib/i18n";
 import Alert from "@material-ui/lab/Alert";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     position: "relative",
     overflow: "auto",

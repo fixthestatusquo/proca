@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const SvgComponent = (props) => (
+const SvgComponent = () => (
   <svg viewBox="0 0 64 64">
     <circle cx="32" cy="32" r="31" fill="#00aced"></circle>
     <path

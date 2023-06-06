@@ -4,7 +4,7 @@
  * we generate a RFC 4122 uuid (v4) https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)
  * and base64url encode it (a url friendly base64 encoding)
  */
-import { decode, encode } from "universal-base64url";
+import { encode } from "universal-base64url";
 import { v4 as uuid } from "uuid";
 
 let id = null;

@@ -179,13 +179,13 @@ export const ConfigProvider = (props) => {
     elem.addEventListener(
       "proca-hook",
       (e) => {
-        if (!typeof e.detail.hook === "function")
+        if (typeof e.detail.hook !== "function")
           return console.error("After must be a function");
 
-        if (!typeof e.detail.action === "string")
+        if (typeof e.detail.action !== "string")
           return console.error("action must me a string");
 
-        if (!typeof e.detail.object === "string")
+        if (typeof e.detail.object !== "string")
           return console.error("object must me a string");
         setHook(e.detail.object, e.detail.action, e.detail.hook);
       },
