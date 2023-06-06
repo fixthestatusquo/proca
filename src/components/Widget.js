@@ -21,7 +21,7 @@ import { initDataState } from "@hooks/useData";
 
 import Loader from "@components/Loader";
 import { steps } from "../actionPage";
-import { Button } from "@components/FAB";
+import Button from "@components/FAB";
 import Alert from "@components/Alert";
 import TwoColumns from "@components/TwoColumns";
 let config = {
