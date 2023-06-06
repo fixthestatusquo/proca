@@ -31,7 +31,7 @@ const EmailAction = ({ profile, selection, setSelection }) => {
     });
   }
 
-  const mail = (e) => {
+  const mail = () => {
     let s =
       typeof profile.subject == "function"
         ? profile.subject(profile)

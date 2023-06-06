@@ -3,7 +3,7 @@ import Dialog from "@components/Dialog";
 import TTag from "@components/TTag";
 import { useTranslation } from "react-i18next";
 
-const EciPopup = (props) => {
+const EciPopup = () => {
   const { t } = useTranslation();
   const [popup, setPopup] = useState(false);
   const [title, setTitle] = useState(t("campaign:title"));

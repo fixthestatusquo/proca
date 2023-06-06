@@ -8,7 +8,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 //import UploadIcon from '@material-ui/icons/CloudUploadTwoTone';
 import UploadIcon from "@material-ui/icons/PhotoCamera";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   overflow: {
     overflow: "auto",
   },
@@ -66,7 +66,7 @@ const UploadButton = (props) => {
   const config = useCampaignConfig();
 
   const getData = async (file) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const reader = new FileReader();
       reader.readAsBinaryString(file);
       reader.onload = (event) => {

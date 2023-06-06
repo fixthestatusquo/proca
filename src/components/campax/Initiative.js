@@ -130,7 +130,7 @@ export default function Register(props) {
             setValue("locality", res.name);
           }
         })
-        .catch((err) => {
+        .catch(() => {
           // no error for now
           /*
           setError("postcode", {

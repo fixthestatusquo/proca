@@ -40,7 +40,7 @@ export const localeName = {
   nl: "Nederlands",
 };
 
-const WallOfMeme = (props) => {
+const WallOfMeme = () => {
   const supabase = useSupabase();
   const [memes, setMemes] = useState([]);
   const [language, setLanguage] = useState("?");
@@ -81,7 +81,7 @@ const WallOfMeme = (props) => {
     })();
   }, [language]);
 
-  const LanguageSelect = (props) => (
+  const LanguageSelect = () => (
     <TextField
       id="language"
       select

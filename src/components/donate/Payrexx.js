@@ -2,7 +2,7 @@ import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 
-const PayrexxFrame = (props) => {
+const PayrexxFrame = () => {
   const fields = {
     firstname: "contact_forename",
     lastname: "contact_surname",

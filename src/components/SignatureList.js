@@ -10,7 +10,7 @@ import TwitterIcon from "../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import IconButton from "@material-ui/core/IconButton";
 
-const ListSignature = (props) => {
+const ListSignature = () => {
   const [list, setList] = useState([]);
   const actionPage = 80;
   useEffect(() => {

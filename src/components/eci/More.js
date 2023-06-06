@@ -6,7 +6,7 @@ import { useTranslation } from "./hooks/useEciTranslation";
 import Dialog from "@components/Dialog";
 import Details from "./Details";
 
-export default function More(props) {
+export default function More() {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -19,7 +19,7 @@ export default function More(props) {
       >
         <Details />
       </Dialog>
-      <Button variant="contained" onClick={()=> setOpen(true)}>
+      <Button variant="contained" onClick={() => setOpen(true)}>
         {t("eci:common.more_info")}
       </Button>
     </>

@@ -15,7 +15,6 @@ import Share from "@components/Share";
 
 export default function Target(props) {
   const [value, setValue] = useState("email");
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

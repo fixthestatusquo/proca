@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 //import Divider from '@material-ui/core/Divider';
 import FileIcon from "@material-ui/icons/Description";
 
-export default function Details(props) {
+export default function Details() {
   const config = useCampaignConfig();
   const eci = Object.assign({}, config.component.eci);
   const { t } = useTranslation();
@@ -66,7 +66,7 @@ export default function Details(props) {
         <ListItem>
           <ListItemText
             primary={t("eci:initiative.representative")}
-            secondary={eci.organisers.map((o, i) => {
+            secondary={eci.organisers.map((o) => {
               return o.familyName
                 ? o.firstName + " " + o.familyName + "  "
                 : o.firstName;

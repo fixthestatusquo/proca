@@ -5,7 +5,14 @@ module.exports = {
     es2021: true,
   },
   extends: ["eslint:recommended", "plugin:react/recommended"],
-  overrides: [],
+  overrides: [
+    {
+      files: ["**/__tests__/*.js"],
+      env: {
+        jest: true,
+      },
+    },
+  ],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",

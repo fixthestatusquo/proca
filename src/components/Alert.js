@@ -5,7 +5,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import Slide from "@material-ui/core/Slide";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
     fontSize: 22,
   },

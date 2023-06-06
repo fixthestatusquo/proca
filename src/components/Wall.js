@@ -7,7 +7,7 @@ import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 import ImageIcon from "@material-ui/icons/Image";
 
-const Wall = (props) => {
+const Wall = () => {
   const [value, setValue] = useState("comment");
   const [data] = useData();
   const country = data.country && data.country.slice(0, 2).toUpperCase();

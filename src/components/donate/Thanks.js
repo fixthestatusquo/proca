@@ -35,7 +35,7 @@ const SEPA = ({ formData }) => {
   );
 };
 
-const Card = (formData) => {
+const Card = () => {
   const { t } = useTranslation();
 
   return (
@@ -52,7 +52,7 @@ const Card = (formData) => {
   );
 };
 
-const PayPal = (formData) => {
+const PayPal = () => {
   const { t } = useTranslation();
 
   return (
@@ -68,7 +68,7 @@ const PayPal = (formData) => {
     </>
   );
 };
-const Thanks = (props) => {
+const Thanks = () => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [formData] = useData();

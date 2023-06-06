@@ -10,7 +10,7 @@ import { decode } from "blurhash";
 //import { decodeBlurHash as decode } from  "fast-blurhash";
 //
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   bimg: {
     width: "100%",
     objectFit: "contain",
@@ -128,7 +128,7 @@ const PictureWall = (props) => {
   const config = useCampaignConfig();
   const campaign = config.campaign.name.replaceAll("_", "-");
   const placeholder = usePlaceholder(600, 800);
-  const handleClose = (d) => {
+  const handleClose = () => {
     select(false);
   };
 
@@ -169,7 +169,7 @@ const PictureWall = (props) => {
     })();
   }, [country, config.campaign.name, supabase]);
 
-  const CountrySelect = (props) => {
+  const CountrySelect = () => {
     if (config.component.wall.country !== true) return null;
     return (
       <TextField

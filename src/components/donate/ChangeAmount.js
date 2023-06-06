@@ -5,7 +5,7 @@ import BackspaceIcon from "@material-ui/icons/Backspace";
 
 import { useTranslation } from "react-i18next";
 import { goStep } from "@hooks/useConfig";
-export default function ChangeAmount(props) {
+export default function ChangeAmount() {
   const { t } = useTranslation();
 
   return (

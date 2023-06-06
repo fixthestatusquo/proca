@@ -189,7 +189,7 @@ const Component = (props) => {
     const d = allProfiles;
     const i = d[Math.floor(Math.random() * d.length)];
     setMessage([i]);
-    setProfiles((prev) => {
+    setProfiles(() => {
       return [i];
     });
   }, [allProfiles, setMessage]);
@@ -284,7 +284,8 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      //      setProfiles(profiles);
+      console.warn("do we filter profile?", profiles);
+      //setProfiles(profiles);
     },
     [allProfiles]
   );
@@ -304,12 +305,12 @@ const Component = (props) => {
     filterProfiles(country);
   }, [country, filterProfiles]);
 */
-  const handleDone = (d) => {
+  const handleDone = () => {
     if (config.component.twitter?.anonymous === true) return;
     if (!data.firstname) viewDialog(true);
   };
 
-  const handleClose = (d) => {
+  const handleClose = () => {
     viewDialog(false);
   };
 

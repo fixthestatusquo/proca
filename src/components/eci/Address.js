@@ -49,7 +49,7 @@ export default function Register(props) {
             setValue("city", res.name);
           }
         })
-        .catch((err) => {
+        .catch(() => {
           // for now, let's not flag as an error if we don't find the postcode
           /* setError("postcode", {
             type: "network",

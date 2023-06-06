@@ -8,7 +8,7 @@ import { Button, SvgIcon } from "@material-ui/core";
 import useData from "@hooks/useData";
 import { addActionContact } from "@lib/server";
 import { slugify } from "@lib/text";
-import { ReactComponent as ProcaIcon } from "../../images/Proca.svg";
+import ProcaIcon from "@images/Proca";
 import uuid from "@lib/uuid";
 
 const GeneratePaper = (props) => {

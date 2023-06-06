@@ -11,7 +11,7 @@ import useCount from "@hooks/useCount.js";
 import CreateIcon from "@material-ui/icons/Create";
 import { useIntersection } from "@shopify/react-intersection-observer";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   /*  "@keyframes procafadeOut": {
     "0%": {
       opacity: 1,

@@ -16,7 +16,7 @@ import { Flag } from "@components/field/Country";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   icon: {
     display: "inline-block",
     width: "20px",
@@ -43,7 +43,7 @@ const component = function MepAction(profile) {
     });
   }
 
-  const tweet = (e) => {
+  const tweet = () => {
     let t =
       typeof profile.actionText == "function"
         ? profile.actionText(profile)

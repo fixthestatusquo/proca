@@ -40,7 +40,7 @@ import { getCountryName } from "@lib/i18n";
 import { addAction } from "@lib/server";
 import { pickOne } from "@lib/text";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   list: {
     position: "relative",
     overflow: "auto",
@@ -64,7 +64,7 @@ const Filter = (props) => {
     const api = "https://" + props.country + ".proca.app/" + postcode;
     if (props.constituency) return;
     const setValue = props.form.setValue;
-    const fetchAPI = async (postcode) => {
+    const fetchAPI = async () => {
       await fetch(api)
         .then((res) => {
           if (!res.ok) {
@@ -82,7 +82,7 @@ const Filter = (props) => {
           }
           return res.json();
         })
-        .then((res) => {
+        .then(() => {
           console.warn("should be handled into the address");
         })
         .catch((err) => {
@@ -289,7 +289,7 @@ const Component = (props) => {
   useToken(data["message"], tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
-  const checkUpdated = (e) => {
+  const checkUpdated = () => {
     // we do not automatically update the message as soon as the user starts changing it
     setAlwaysUpdate(false);
   };
@@ -778,6 +778,7 @@ const Component = (props) => {
             type="hidden"
             {...form.register("selection", {
               validate: (value, formValues) => {
+                console.log("validate", value, formValues);
                 selection.length > 0 && setValue("selection", selection.length);
                 return selection !== 0;
               },

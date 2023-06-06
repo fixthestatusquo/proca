@@ -1,3 +1,3 @@
-export default function Disabled(props) {
+export default function Disabled() {
   return "disabled action";
 }

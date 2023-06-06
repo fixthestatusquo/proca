@@ -161,7 +161,7 @@ const onApproveOrder = async ({
   onComplete(procaResponse);
 };
 
-const onCreateOrder = ({ amount, description, data, actions }) => {
+const onCreateOrder = ({ amount, description, actions }) => {
   return actions.order.create({
     purchase_units: [{ amount: { value: parseFloat(amount) } }],
     description: description,

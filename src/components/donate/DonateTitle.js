@@ -6,7 +6,7 @@ import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useFormatMoney } from "@hooks/useFormatting.js";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   header: {
     paddingBottom: 0,
   },

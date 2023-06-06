@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { useSetCampaignConfig } from "@hooks/useConfig";
 import { useData } from "@hooks/useData";
 
-const SpeakoutCheck = (props) => {
+const SpeakoutCheck = () => {
   //this is a bit of a special portal, it removes the consent if we know it's a member
   //only to be used as portal for speakout pages
   const setCampaign = useSetCampaignConfig();

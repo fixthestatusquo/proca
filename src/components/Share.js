@@ -174,7 +174,7 @@ export default function ShareAction(props) {
     </Container>
   );
 
-  function Actions(props) {
+  function Actions() {
     const { t } = useTranslation();
     const [data] = useData();
     const isMobile = useIsMobile();
@@ -298,7 +298,7 @@ export default function ShareAction(props) {
 
     let autoClosed = true;
 
-    function after(props) {
+    function after() {
       console.log("autoclosed", autoClosed);
       if (autoClosed) {
         return;
@@ -307,7 +307,7 @@ export default function ShareAction(props) {
       autoClosed = true;
     }
 
-    function before(props) {
+    function before() {
       setTimeout(() => {
         console.log("timeout", autoClosed);
         autoClosed = false;

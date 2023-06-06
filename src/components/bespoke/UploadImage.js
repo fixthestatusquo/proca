@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DropzoneArea } from "material-ui-dropzone";
 
-const UploadFile = (props) => {
+const UploadFile = () => {
   const [message, setMessage] = useState();
   return (
     <>

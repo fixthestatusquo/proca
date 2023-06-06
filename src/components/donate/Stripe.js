@@ -70,7 +70,7 @@ const CustomCardElement = (props) => {
     />
   );
 };
-const StripeCard = (props) => {
+const StripeCard = () => {
   const layout = useLayout();
   const stripe = useStripe();
 
@@ -128,7 +128,10 @@ const PaymentForm = (props) => {
   const [, setData] = useData();
 
   const form = props.form;
-  const { control, formState: { errors } } = form;
+  const {
+    control,
+    formState: { errors },
+  } = form;
 
   const [compact, setCompact] = useState(true);
 
@@ -151,7 +154,7 @@ const PaymentForm = (props) => {
         )}
 
         <Grid item xs={12} sm={compact ? 12 : 6}>
-        <TextField
+          <TextField
             form={form}
             classes={classes}
             name="firstname"
@@ -174,7 +177,7 @@ const PaymentForm = (props) => {
             name="email"
             // KISS for email validation - something@something\.something
             rules={{ required: true, pattern: /^(.+)@(.+)\.(.+)$/ }}
-            render={({ field: { onChange, onBlur, value }, fieldState }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <LayoutTextField
                 className={classes.textField}
                 label={t("Email")}
@@ -203,7 +206,7 @@ const PaymentForm = (props) => {
           <Controller
             control={control}
             name="postcode"
-            render={({ field: { onChange, value }, fieldState }) => (
+            render={({ field: { onChange, value } }) => (
               <LayoutTextField
                 name="postcode"
                 className={classes.textField}
@@ -226,7 +229,7 @@ const PaymentForm = (props) => {
             control={control}
             name="country"
             rules={{ required: true }}
-            render={({ field: { onChange, value }, fieldState }) => (
+            render={({ field: { onChange, value } }) => (
               <Country form={form} required onChange={onChange} value={value} />
             )}
           />
@@ -320,7 +323,7 @@ const SubmitButton = (props) => {
     props.done(paymentConfirm);
   };
 
-  const onSubmitButtonClick = async (event, _) => {
+  const onSubmitButtonClick = async (event) => {
     event.preventDefault();
 
     const btn = event.target;

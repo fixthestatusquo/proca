@@ -19,7 +19,7 @@ import { useCampaignConfig } from "@hooks/useConfig.js";
 import useData from "@hooks/useData.js";
 import { create as createURL } from "@lib/urlparser.js";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   tabRoot: {
     minWidth: 10,
   },

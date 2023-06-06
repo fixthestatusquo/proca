@@ -33,7 +33,7 @@ const DonateButton = ({ amount, config, frequency, isSubmitting }, props) => {
   );
 };
 
-const CallToAction = ({ amount, frequency, config }) => {
+const CallToAction = ({ amount, frequency }) => {
   const { t } = useTranslation();
   const formatMoney = useFormatMoney();
   /* i18next-extract-disable-next-line */

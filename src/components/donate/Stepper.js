@@ -85,7 +85,7 @@ const AmountTextLabel = ({ donateStep, formData, isVeryNarrow, label }) => {
   return <>{donateStep === 1 ? formatMoneyAmount(formData.amount) : label}</>;
 };
 
-const Steps = (props) => {
+const Steps = () => {
   const { t } = useTranslation();
   const [donateStep, setDonateStep] = useDonateStep();
   const [formData] = useData();

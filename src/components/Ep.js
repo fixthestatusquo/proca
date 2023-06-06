@@ -116,13 +116,13 @@ const Component = (props) => {
     }*/
   }, [country, filterProfiles]);
 
-  const handleDone = (d) => {
+  const handleDone = () => {
     if (!consentAsked) {
       viewDialog(true);
       setAsked(true);
     }
   };
-  const handleClose = (d) => {
+  const handleClose = () => {
     viewDialog(false);
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>

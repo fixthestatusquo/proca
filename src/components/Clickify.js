@@ -20,7 +20,7 @@ const Component = (props) => {
 
 Component.defaultProps = {
   watchSelector: "[href='#proca-dialog'],.proca-button",
-  click: (e) => alert("default action, needs to overwrite"),
+  click: () => alert("default action, needs to overwrite"),
 };
 
 export default Component;

@@ -32,7 +32,7 @@ const url = (data, param, config) => {
   return postcardUrl;
 };
 
-function Download(props) {
+function Download() {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [data] = useData();

@@ -102,10 +102,10 @@ export default function Captcha(props) {
     //    setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const handleMouseOver = (event) => {
+  const handleMouseOver = () => {
     setFocussed(true);
   };
-  const handleMouseLeave = (event) => {
+  const handleMouseLeave = () => {
     setFocussed(false);
   };
 
@@ -113,10 +113,10 @@ export default function Captcha(props) {
     event.preventDefault();
   };
 
-  const handleFocus = (event) => {
+  const handleFocus = () => {
     setFocussed(true);
   };
-  const handleBlur = (event) => {
+  const handleBlur = () => {
     setFocussed(false);
   };
 

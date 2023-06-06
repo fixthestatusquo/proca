@@ -7,7 +7,7 @@ import { Alert } from "@material-ui/lab";
 import RegisteredIcon from "@material-ui/icons/HowToReg";
 // not you? import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
-const WelcomeSupporter = (props) => {
+const WelcomeSupporter = () => {
   const [data, setData] = useData();
   const { t } = useTranslation();
   if (!data.uuid) return null;

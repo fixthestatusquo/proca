@@ -3,7 +3,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { get } from "lodash";
 
-const LoaderAsync = (props) => {
+const LoaderAsync = () => {
   const config = useCampaignConfig();
   const loaders = config.component.loader;
   const lang = config.lang;

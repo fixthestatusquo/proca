@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   /*  const theme = createTheme({
   memeText: {
     minHeight: "0!important",
@@ -78,7 +78,7 @@ const CreateMeme = (props) => {
   const classes = useStyles();
   const form = props.form;
   const { setValue, watch } = form;
-  const [ topText, bottomText ] = watch(["topText", "bottomText"]);
+  const [topText, bottomText] = watch(["topText", "bottomText"]);
   const supabase = useSupabase();
 
   if (props.myref && props.name && !props.myref.current[props.name]) {
@@ -164,7 +164,7 @@ const CreateMeme = (props) => {
     // eslint-disable-next-line
   }, []); //calling only once
 
-  const EmptyItem = (props) => null;
+  const EmptyItem = () => null;
 
   const generateCanvasMeme = (image, param) => {
     const canvas = canvasRef.current;
@@ -228,7 +228,7 @@ const CreateMeme = (props) => {
         });
   };
 
-  const validateMeme = async (image) => {
+  const validateMeme = async () => {
     if (items.length === 0) return console.error("context lost");
     return saveMeme();
   };

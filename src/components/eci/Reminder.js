@@ -103,14 +103,14 @@ const RemindMeLater = (props) => {
     }
   };
 
-  const handleClick = async (event) => {
+  const handleClick = async () => {
     const result = await trigger();
     if (result) {
       await handleSubmit(onSubmit)();
     }
   };
 
-  const open = (event) => {
+  const open = () => {
     dispatch("reminder:open", null, null, config);
     setDisplayed(true);
   };

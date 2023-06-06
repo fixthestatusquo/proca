@@ -87,7 +87,7 @@ const Consent = (props) => {
           campaign: config.campaign.title,
         });
 
-  const optin = (event) => {
+  const optin = () => {
     setValue("opt-in");
   };
 
@@ -211,7 +211,7 @@ export const CheckboxConsent = (props) => {
               defaultValue={
                 config.component.consent.gdpr === false ? "opt-in" : "opt-out"
               }
-              render={({ field, fieldState }) => (
+              render={({ field }) => (
                 <Checkbox
                   {...field}
                   color="primary"
@@ -251,7 +251,7 @@ export const ConfirmProcessing = (props) => {
               control={control}
               defaultValue={false}
               rules={{ required: t(["consent.required", "required"]) }}
-              render={({ field, fieldState }) => (
+              render={({ field }) => (
                 <Checkbox
                   {...field}
                   color="primary"
