@@ -62,7 +62,16 @@ const help = () => {
   }
 };
 
-const git = simpleGit({ baseDir: pathConfig() });
+let git = {};
+try {
+  git = simpleGit({ baseDir: pathConfig() });
+} catch (e) {
+  console.error(
+    color.red("can't find config folder ", pathConfig()),
+    "create manually or update your .env REACT_APP_CONFIG_FOLDER"
+  );
+  process.exit(1);
+}
 
 const deploy = async () => {
   const N8N_TOKEN = process.env.N8N_TOKEN;
