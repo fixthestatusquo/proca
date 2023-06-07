@@ -164,6 +164,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
   );
   if (r.errors) {
     try {
+      console.log(r.errors);
       if (r.errors[0].path[1] === "name") {
       }
       const page = await fetchByName(name);
