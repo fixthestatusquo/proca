@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: 5,
   },
   timg: {
-    animation: `$showImg 1300ms`,
+    //    animation: `$showImg 1300ms`,
     width: "100%",
     height: "auto",
     maxWidth: "100%",
@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: 5,
   },
   img: {
-    animation: `$showImg 1300ms`,
+    //    animation: `$showImg 1300ms`,
     maxWidth: "100%",
     maxHeight: "100%",
     background: "lightgrey",
@@ -189,6 +189,7 @@ const PictureWall = (props) => {
       </TextField>
     );
   };
+  console.log(selected);
   return (
     <>
       <Dialog
