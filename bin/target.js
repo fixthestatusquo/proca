@@ -30,7 +30,7 @@ const help = (exitValue) => {
     color.blackBright(
       [
         "",
-        "(if --push)",
+        "(if --push or --digest)",
         "--salutation(add a salutation column based on the gender and language)",
         "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
         "--file=file (by default, config/target/source/{campaign name}.json",
@@ -399,7 +399,6 @@ query GetTarget($name: String!) {
   if (data.target.config) data.target.config = JSON.parse(data.target.config);
   return data.target;
 };
-
 if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
   if (!onGit()) {
