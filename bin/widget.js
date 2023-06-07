@@ -31,7 +31,7 @@ const help = (exit) => {
         "--campaign || --no-campaign pull the campaign or not",
         "--git (git update [add]+commit the local /config) || --no-git",
         "--push (update the server)",
-        "{actionpage id} or {campaign name}",
+        "{widget id} or {campaign name}",
       ].join("\n")
     )
   );
@@ -361,7 +361,7 @@ if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
   if (argv._.length === 0 || argv.help) {
     console.error(color.red("missing param widget id(s) or campaign_name"));
-    help(argv._.length === 0);
+    help(argv.help ? 0 : 1);
   }
   if (!onGit()) {
     console.warn(
