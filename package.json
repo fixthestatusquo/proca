@@ -59,7 +59,7 @@
     "@alienfast/i18next-loader": "^2.0.1",
     "@babel/cli": "^7.21.5",
     "@babel/node": "^7.20.7",
-    "@babel/plugin-transform-react-jsx": "^7.21.5",
+    "@babel/plugin-transform-react-jsx": "^7.22.5",
     "@proca/api": "2.3.4",
     "@rescripts/cli": "0.0.16",
     "@rescripts/rescript-use-babel-config": "0.0.12",
