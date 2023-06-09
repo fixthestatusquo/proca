@@ -5887,10 +5887,10 @@ es6-weak-map@^2.0.3:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
-esbuild-plugin-browserslist@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/esbuild-plugin-browserslist/-/esbuild-plugin-browserslist-0.7.1.tgz#f06b7ebcebc58f5a4af3d092e718f0494b6820a4"
-  integrity sha512-c5hnW3xDHXhHM/twKQaMr3o5TaS7WWWhLOE/UXOxbW9x3ulfuwMQUoM+dU4UQn0K9epfUVznipuCbuWZBhy7cg==
+esbuild-plugin-browserslist@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-browserslist/-/esbuild-plugin-browserslist-0.7.2.tgz#9e7a8780d3b6cffdd81e83ba66a4c623181a99cf"
+  integrity sha512-bkpzAY2tQpB+iMLtM2Y/GIZBIxJZ5Qh0idB+0msjYUu7QonbwyitRS8Z7aSndPUr+Z27+CcpZVuEFE5tpDPPiA==
   dependencies:
     debug "^4.3.4"
     zod "^3.21.4"
