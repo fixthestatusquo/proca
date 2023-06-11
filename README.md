@@ -69,7 +69,7 @@ Front and back are clearly separated. the backend is a bunch of APIs clearly doc
 - `yarn widget --build 42` generates the widget under d/{actionpage.NAME of the widget}
 - `yarn widget --push 42` save the local config (under config) to the server
 
-_ you can combine the options, eg. yarn widget --pull --build 42, process multiple ids, eg yarn widget --pull --build 42 43 1984 _ 
+_you can combine the options, eg. yarn widget --pull --build 42, process multiple ids, eg yarn widget --pull --build 42 43 1984_ 
 
 You can find more information in this [config documentation](./docs/config.md)
 
