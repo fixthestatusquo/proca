@@ -60,14 +60,16 @@ Front and back are clearly separated. the backend is a bunch of APIs clearly doc
 - `cp .env.example .env` and put your login + pwd
 - yarn pull folowed by the action page id as seen in the backend. For instance
 
-  `yarn pull 42`
+  `yarn widget --pull 42`
 
   This will create the configuration file for the widget with id `42`.
 
 - edit `config/42.json` to adjust the steps, configure the components, change the color, whatever)
-- `yarn start 42` runs a local server with the widget
-- `yarn build 42` generates the widget under d/{actionpage.NAME of the widget}
-- `yarn push 42` save the local config (under config) to the server
+- `yarn widget --serve 42` runs a local server with the widget
+- `yarn widget --build 42` generates the widget under d/{actionpage.NAME of the widget}
+- `yarn widget --push 42` save the local config (under config) to the server
+
+_ you can combine the options, eg. yarn widget --pull --build 42, process multiple ids, eg yarn widget --pull --build 42 43 1984 _ 
 
 You can find more information in this [config documentation](./docs/config.md)
 
@@ -82,6 +84,7 @@ We are usually following the [material-ui guidelines](https://material.io/design
 - Use simple, direct language that makes content easy to understand.
 - Avoid using punctuation in places where it isn't necessary
 - Use common words that are clearly and easily understandable across all reading levels
+- Be inclusive
 
 We strive to use an inclusive language in the code, translations, documentation and issue tracker. By contributing to this project, you agree to listen when someone raise an issue that doesn't affect you directly, reflect on it and refrain to argue endlessly. Atalassian [has a good list](https://atlassian.design/content/inclusive-writing) that isn't meant to be exclusive but a starting point.
 
