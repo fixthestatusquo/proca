@@ -14,11 +14,11 @@ Alternatively, [we](https://fixthestatusquo.org) are providing this [Campaign to
 ## Guiding principles and design
 
 - _Focussed_: this tool should do as little as possible. It doesn't have to be managing the content/layout of your campaign. You have already a prefered CMS for that, or can spin a wordpress one in no time. We provide action/petition widgets that you can embed into your site, we don't want to be yet another site you need to manage
-- _Build relationship_: We don't believe a petition is only a step in your campaign. Collecting their information so you can contact them later for more actions and campaigns
+- _Build relationship_: We don't believe a petition is only a step in your campaign. Collecting your supporters information so you can contact them later for report back, quickers, more actions and campaigns
 - _Privacy_: We will always ask the people taking action to consent to their contact details being shared with your org. We will never use these contacts without their/and your consent.
-- _Sharing is caring_: We have seen how supporters can use social media to convince others to join. We see the sharing step as a key component to this tool
+- _Sharing is caring_: We have seen how supporters can use social media to convince others to join. We see the designed the share step as a key component to this tool
 - _Integrated_: with your CRM/mailing list. If your supporter consented it, it should be as simple as possible to have their contact detail into your mailing plateform. CSV download is not simple, timeconsuming and errorprone.
-- _Support coalitions_: A successful campaign will have multiple partners. We make it easy to aggregate the signature counts, we make it easy to have multiple widgets for each partner (with different consent)
+- _Support coalitions_: A successful campaign will have multiple partners. We make it easy to aggregate the signature counts, we make it easy to have multiple widgets for each partner (with different consent going to different CRMs)
 
 ## Embeded in your existing website
 
