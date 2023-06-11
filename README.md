@@ -62,9 +62,9 @@ Front and back are clearly separated. the backend is a bunch of APIs clearly doc
 
   `yarn widget --pull 42`
 
-  This will create the configuration file for the widget with id `42`.
+  This will create the configuration file for the widget with id `42`. it does also pull the configuration for the campaign into config/campaign/{shortname}.json
 
-- edit `config/42.json` to adjust the steps, configure the components, change the color, whatever)
+- edit `config/42.json` or the config/campaign to adjust the steps, configure the components, change the color, whatever)
 - `yarn widget --serve 42` runs a local server with the widget
 - `yarn widget --build 42` generates the widget under d/{actionpage.NAME of the widget}
 - `yarn widget --push 42` save the local config (under config) to the server
