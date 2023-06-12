@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
+/*import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <CircularProgress color="inherit" />
@@ -13,16 +13,16 @@ import { setCookie } from "@lib/cookie";
 import { checkMail, getDomain } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
+import { Container, Box, Button, Snackbar, Grid } from "@mui/material";
 import TextField from "@components/TextField";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 
 import ProcaIcon from "../images/Proca";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import DoneIcon from "@material-ui/icons/Done";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import SvgIcon from "@mui/material/SvgIcon";
+import DoneIcon from "@mui/icons-material/Done";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";

@@ -1,6 +1,6 @@
 import React from "react";
 
-//import { Container, Grid } from "@material-ui/core";
+//import { Container, Grid } from "@mui/material";
 
 import {
   Container,
@@ -12,7 +12,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-} from "@material-ui/core";
+} from "@mui/material";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
@@ -20,8 +20,8 @@ import Url from "@lib/urlparser";
 import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
-import ShareIcon from "@material-ui/icons/Share";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
+import ShareIcon from "@mui/icons-material/Share";
 import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
@@ -57,7 +57,7 @@ import {
   EmailIcon,
 } from "react-share";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   media: {

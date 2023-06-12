@@ -1,12 +1,12 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
+import Paper from "@mui/material/Paper";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
 
-import EmailIcon from "@material-ui/icons/Email";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import EmailIcon from "@mui/icons-material/Email";
+import SvgIcon from "@mui/material/SvgIcon";
 import TwitterIcon from "../images/Twitter.js";
 
 import Email from "./Email";

@@ -1,12 +1,5 @@
 import React, { useEffect } from "react";
 
-/*import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-*/
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 const Iframe = (props) => {

@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid, FormHelperText } from "@material-ui/core";
+import { Grid, FormHelperText } from "@mui/material";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
 import { ConfirmProcessing } from "@components/Consent";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   bigHelper: {

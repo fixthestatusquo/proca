@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
-import { makeStyles } from "@material-ui/core/styles";
-import { TextField } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
+import { TextField } from "@mui/material";
 import { Controller } from "react-hook-form";
 
 const useStyles = makeStyles((theme) => ({

@@ -1,7 +1,7 @@
 import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Alert from "@components/Alert";
-import { AlertTitle } from "@material-ui/lab";
+import { AlertTitle } from '@mui/material';
 
 const Redirect = () => {
   const config = useCampaignConfig();

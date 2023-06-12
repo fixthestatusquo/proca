@@ -3,9 +3,9 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useSupabase } from "@lib/supabase";
 import ProgressCounter from "@components/ProgressCounter";
 import Dialog from "@components/Dialog";
-import { TextField, MenuItem, Grid } from "@material-ui/core";
+import { TextField, MenuItem, Grid } from "@mui/material";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { decode } from "blurhash";
 //import { decodeBlurHash as decode } from  "fast-blurhash";
 //

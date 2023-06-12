@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-//import { Container, Grid } from "@material-ui/core";
+//import { Container, Grid } from "@mui/material";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import {
   Dialog,
@@ -11,10 +13,10 @@ import {
   DialogTitle,
   useMediaQuery,
   IconButton,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
+import CloseIcon from "@mui/icons-material/Close";
+import Slide from "@mui/material/Slide";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -39,7 +41,7 @@ function OpenDialog(props) {
     config.param.locales["dialog-title"] ||
     config.campaign?.title;
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("xs"), {
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'), {
     noSsr: true,
   });
   useEffect(() => setOpen(props.dialog), [props.dialog]);
@@ -66,9 +68,9 @@ function OpenDialog(props) {
       hideBackdrop={props.hideBackdrop || false}
     >
       {title ? (
-        <DialogTitle className={classes.dialogTitle} disableTypography>
+        <DialogTitle className={classes.dialogTitle}>
           <h2>{title}</h2>
-          <IconButton onClick={handleClose}>
+          <IconButton onClick={handleClose} size="large">
             <CloseIcon />
           </IconButton>
         </DialogTitle>

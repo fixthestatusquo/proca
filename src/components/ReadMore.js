@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import { Box, Button } from "@material-ui/core";
+import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import TTag, { Markdown } from "@components/TTag";
 import Dialog from "@components/Dialog";
 import { truncate } from "@lib/text";
-//import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import MoreIcon from "@material-ui/icons/MoreHoriz";
+//import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import MoreIcon from "@mui/icons-material/MoreHoriz";
 
 const ReadMore = (props) => {
   const [open, setOpen] = useState(false);

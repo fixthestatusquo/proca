@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useState } from "react";
 import Alert from "@components/Alert";
 import useData from "@hooks/useData";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 import { useTranslation } from "react-i18next";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 
 function Component(props) {
   const data = useData();

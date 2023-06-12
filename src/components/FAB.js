@@ -2,13 +2,13 @@ import React, { useState, useEffect, forwardRef } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Fab, Slide, Badge } from "@material-ui/core";
+import { Fab, Slide, Badge } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import useCount from "@hooks/useCount.js";
-import CreateIcon from "@material-ui/icons/Create";
+import CreateIcon from "@mui/icons-material/Create";
 import { useIntersection } from "@shopify/react-intersection-observer";
 
 const useStyles = makeStyles(() => ({
