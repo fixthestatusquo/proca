@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-component";
 import { useSupabase } from "@lib/supabase";
 import ProgressCounter from "@components/ProgressCounter";
-import { TextField, MenuItem } from "@material-ui/core";
+import { TextField, MenuItem } from "@mui/material";
 
 export const localeName = {
   cs: "čeština",

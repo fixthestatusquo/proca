@@ -1,13 +1,8 @@
 import React, { useCallback } from "react";
 
-import {
-  Box,
-  makeStyles,
-  Step,
-  StepIcon,
-  StepLabel,
-  Stepper,
-} from "@material-ui/core";
+import { Box, Step, StepIcon, StepLabel, Stepper } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { atom, useRecoilState } from "recoil";
 import { goStep, useCampaignConfig } from "@hooks/useConfig";

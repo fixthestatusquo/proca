@@ -1,13 +1,13 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import SaveIcon from "@material-ui/icons/SaveAlt";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import SaveIcon from "@mui/icons-material/SaveAlt";
 import { useTranslation } from "react-i18next";
 import { useData } from "@hooks/useData";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 const url = (data, param) => {
   let postcardUrl =

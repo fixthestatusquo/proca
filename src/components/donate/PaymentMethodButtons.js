@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { Button, FormHelperText, Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Button, FormHelperText, Grid, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import PaymentIcon from "@material-ui/icons/Payment";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import PaymentIcon from "@mui/icons-material/Payment";
 import Paypal from "./Paypal";
 import ExternalPayment from "@components/donate/buttons/External";
 import { useCampaignConfig } from "@hooks/useConfig";

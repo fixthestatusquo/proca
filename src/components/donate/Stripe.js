@@ -8,7 +8,7 @@ import {
   Container,
   FormHelperText,
   CircularProgress,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import TextField from "@components/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
@@ -17,13 +17,13 @@ import TextField from "@components/TextField";
 import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import useElementWidth from "../../hooks/useElementWidth";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
-//import SendIcon from "@material-ui/icons/Send";
-import LockIcon from "@material-ui/icons/Lock";
+//import SendIcon from "@mui/icons-material/Send";
+import LockIcon from "@mui/icons-material/Lock";
 import { addDonateContact, stripeCreate } from "../../lib/server.js";
 import dispatch from "../../lib/event.js";
 import Url from "@lib/urlparser";

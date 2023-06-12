@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import { Container, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Container, Grid } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 
-import { TextField as MUITextField, Button, Snackbar } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+import { TextField as MUITextField, Button, Snackbar } from "@mui/material";
+import Alert from '@mui/material/Alert';
 
-import SendIcon from "@material-ui/icons/Send";
-import DoneIcon from "@material-ui/icons/Done";
+import SendIcon from "@mui/icons-material/Send";
+import DoneIcon from "@mui/icons-material/Done";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";

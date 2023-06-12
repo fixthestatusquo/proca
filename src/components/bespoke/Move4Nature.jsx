@@ -1,4 +1,4 @@
-import { Box, Fab, Grid, InputAdornment } from "@material-ui/core";
+import { Box, Fab, Grid, InputAdornment } from "@mui/material";
 
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";

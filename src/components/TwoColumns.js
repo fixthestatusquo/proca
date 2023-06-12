@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { portals } from "../actionPage";
 
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 
 const TwoColumns = (props) => {
   const config = useCampaignConfig();

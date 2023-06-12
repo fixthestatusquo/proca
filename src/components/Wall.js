@@ -3,9 +3,9 @@ import Comment from "@components/CommentWall";
 import Picture from "@components/PictureWall";
 import ProgressCounter from "@components/ProgressCounter";
 import useData from "@hooks/useData";
-import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
-import CommentIcon from "@material-ui/icons/Comment";
-import ImageIcon from "@material-ui/icons/Image";
+import { Paper, AppBar, Tabs, Tab, Box } from "@mui/material";
+import CommentIcon from "@mui/icons-material/Comment";
+import ImageIcon from "@mui/icons-material/Image";
 
 const Wall = () => {
   const [value, setValue] = useState("comment");
