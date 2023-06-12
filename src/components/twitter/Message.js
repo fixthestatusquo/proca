@@ -1,7 +1,7 @@
 import React from "react";
-//import TextField from '@material-ui/core/TextField';
+//import TextField from '@mui/material/TextField';
 import TextField from "@components/TextField";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 import { useTranslation } from "react-i18next";
 
 export default function TwitterMessage(props) {

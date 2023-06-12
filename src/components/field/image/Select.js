@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { resize } from "@lib/image";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   thumb: {

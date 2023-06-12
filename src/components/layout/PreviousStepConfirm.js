@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import useData from "@hooks/useData";
-import MailIcon from "@material-ui/icons/MailOutline";
-import { AlertTitle } from "@material-ui/lab";
+import MailIcon from "@mui/icons-material/MailOutline";
+import { AlertTitle } from '@mui/material';
 import Alert from "@components/Alert";
 
 const PreviousStepConfirm = (props) => {

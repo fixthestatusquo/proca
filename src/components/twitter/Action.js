@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import IconButton from "@material-ui/core/IconButton";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import SvgIcon from "@mui/material/SvgIcon";
+import IconButton from "@mui/material/IconButton";
 import Url from "@lib/urlparser";
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
@@ -95,7 +95,7 @@ const TwitterAction = (profile) => {
       <ListItemText primary={profile.name} secondary={profile.description} />
       {clickable && (
         <ListItemSecondaryAction>
-          <IconButton edge="end" aria-label="Tweet" onClick={onClick}>
+          <IconButton edge="end" aria-label="Tweet" onClick={onClick} size="large">
             <SvgIcon>
               <TwitterIcon />
             </SvgIcon>

@@ -12,8 +12,8 @@ import {
   Snackbar,
   Box,
   Container,
-} from "@material-ui/core";
-import SendIcon from "@material-ui/icons/Send";
+} from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
 import { useTranslation, countries } from "./hooks/useEciTranslation";
 import { useForm } from "react-hook-form";
@@ -32,10 +32,10 @@ import ReadMore from "./ReadMore";
 import useElementWidth from "@hooks/useElementWidth";
 import useData from "@hooks/useData";
 import { useCampaignConfig } from "@hooks/useConfig";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 import useCount from "@hooks/useCount";
 import ProgressCounter from "@components/ProgressCounter";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 //const countries = eciLocale.common.country;
 

@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useCount from "@hooks/useCount";
 import { formatNumber } from "@components/ProgressCounter";
-import { makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
+import makeStyles from '@mui/styles/makeStyles';
+import Box from "@mui/material/Box";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {

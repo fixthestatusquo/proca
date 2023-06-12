@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItemSecondaryAction, Checkbox } from "@material-ui/core";
+import { ListItemSecondaryAction, Checkbox } from "@mui/material";
 
 const Selectable = (props) => {
   const key = props.profile.procaid;
