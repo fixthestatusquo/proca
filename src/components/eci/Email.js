@@ -1,9 +1,9 @@
 import React from "react";
 import Register from "@components/Register";
-import { Container, CardHeader } from "@material-ui/core";
+import { Container, CardHeader } from "@mui/material";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 
 const RegisterEmail = (props) => {
   const config = useCampaignConfig();

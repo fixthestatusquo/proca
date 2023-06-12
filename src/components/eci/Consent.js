@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 
-import FormLabel from "@material-ui/core/FormLabel";
-import FormGroup from "@material-ui/core/FormGroup";
-import Checkbox from "@material-ui/core/Checkbox";
+import FormLabel from "@mui/material/FormLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Checkbox from "@mui/material/Checkbox";
 import { useTranslation } from "react-i18next";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import EciDialog from "./Popup";
 
 const useStyles = makeStyles((theme) => ({

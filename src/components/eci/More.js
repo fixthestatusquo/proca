@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { useTranslation } from "./hooks/useEciTranslation";
 
 import Dialog from "@components/Dialog";

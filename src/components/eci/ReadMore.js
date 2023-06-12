@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { useTranslation } from "./hooks/useEciTranslation";
 
 import TTag from "@components/TTag";
 import Dialog from "@components/Dialog";
 import Details from "./Details";
 import { scrollTo } from "@lib/scroll";
-//import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import MoreIcon from "@material-ui/icons/MoreHoriz";
+//import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import MoreIcon from "@mui/icons-material/MoreHoriz";
 
 const ReadMore = () => {
   const [open, setOpen] = useState(false);

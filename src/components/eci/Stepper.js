@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Container, Stepper, Step, StepButton } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
-import EciIcon from "@material-ui/icons/HowToVote";
-import ShareIcon from "@material-ui/icons/Share";
+import { Container, Stepper, Step, StepButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import EciIcon from "@mui/icons-material/HowToVote";
+import ShareIcon from "@mui/icons-material/Share";
 
 import Email from "./Email";
 import Support from "./Support";
