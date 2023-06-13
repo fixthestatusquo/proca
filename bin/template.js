@@ -59,14 +59,18 @@ const help = () => {
 };
 
 const snarkdown = (markdown) => {
-  md = markdown.replaceAll("proca_", "proca-");
-  const htmls = md
-    .split(/(?:\r?\n){2,}/)
-    .map((l) =>
-      [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
-        ? _snarkdown(l)
-        : `<p>${_snarkdown(l)}</p>`
-    );
+  const md = markdown.replaceAll("proca_", "proca-"); //snarkdown messes up
+  const para = md.split(/(?:\r?\n){2,}/);
+  if (para.length === 1) {
+    console.log("no new line", markdown);
+    process.exit(1);
+    return _snarkdown(markdown);
+  }
+  const htmls = para.map((l) =>
+    [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
+      ? _snarkdown(l)
+      : `<p>${_snarkdown(l)}</p>`
+  );
 
   return htmls.join("\n\n").replaceAll("proca-", "proca_");
 };
