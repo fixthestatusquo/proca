@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  StylesProvider,
-  createGenerateClassName,
-  createTheme,
-  ThemeProvider,
-} from "@material-ui/core/styles";
-import { makeStyles, createStyles } from "@material-ui/core";
-//import CssBaseline from '@material-ui/core/ScopedCssBaseline';
-//import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from "@mui/material/styles";
+import StylesProvider from '@mui/styles/StylesProvider';
+import createGenerateClassName from '@mui/styles/createGenerateClassName';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+//import CssBaseline from '@mui/material/ScopedCssBaseline';
+//import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import { useLayout } from "@hooks/useLayout";
 
 const generateClassName = createGenerateClassName({
@@ -47,7 +45,7 @@ export default function ProcaStyle(props) {
   const layout = useLayout();
   const theme = React.useMemo(
     () =>
-      createTheme({
+      createTheme(adaptV4Theme({
         palette: {
           primary: { main: layout.primaryColor },
           secondary: { main: layout.secondaryColor },
@@ -133,7 +131,7 @@ export default function ProcaStyle(props) {
             },
           },
         },
-      }),
+      })),
     [layout]
   );
   // palette.background.default
@@ -144,7 +142,9 @@ export default function ProcaStyle(props) {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <GlobalStyles />
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      </StyledEngineProvider>
     </StylesProvider>
   );
 }
