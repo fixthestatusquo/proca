@@ -1,13 +1,13 @@
 import React from "react";
-import { ListItem, ListItemText, ListItemAvatar } from "@material-ui/core";
+import { ListItem, ListItemText, ListItemAvatar } from "@mui/material";
 
-import Skeleton from "@material-ui/lab/Skeleton";
+import Skeleton from '@mui/material/Skeleton';
 
 const SkeletonListItem = () => {
   return (
     <ListItem alignItems="flex-start" component="div">
       <ListItemAvatar>
-        <Skeleton animation="wave" variant="circle" width={42} height={42} />
+        <Skeleton animation="wave" variant="circular" width={42} height={42} />
       </ListItemAvatar>
       <ListItemText
         primary={
