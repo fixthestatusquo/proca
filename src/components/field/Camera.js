@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Button, IconButton, Box, LinearProgress } from "@material-ui/core";
-import { FormHelperText } from "@material-ui/core";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import VideocamIcon from "@material-ui/icons/Videocam";
-import CameraFrontIcon from "@material-ui/icons/CameraFront";
-import CameraRearIcon from "@material-ui/icons/CameraRear";
+import { Button, IconButton, Box, LinearProgress } from "@mui/material";
+import { FormHelperText } from "@mui/material";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import CameraFrontIcon from "@mui/icons-material/CameraFront";
+import CameraRearIcon from "@mui/icons-material/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -312,10 +312,7 @@ const CameraField = (props) => {
             </Box>
             <Box>
               {cameras.length > 1 && (
-                <IconButton
-                  aria-label="switch camera front-back"
-                  onClick={switchCam}
-                >
+                <IconButton aria-label="switch camera front-back" onClick={switchCam} size="large">
                   {camera === "user" ? <CameraRearIcon /> : <CameraFrontIcon />}
                 </IconButton>
               )}

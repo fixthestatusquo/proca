@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getLatest } from "@lib/server.js";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import TwitterIcon from "../images/Twitter.js";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import IconButton from "@material-ui/core/IconButton";
+import SvgIcon from "@mui/material/SvgIcon";
+import IconButton from "@mui/material/IconButton";
 
 const ListSignature = () => {
   const [list, setList] = useState([]);
@@ -59,7 +59,7 @@ const ListSignature = () => {
               edge="end"
               aria-label="Tweet"
               onClick={() => tweet(k.twitter)}
-            >
+              size="large">
               <SvgIcon>
                 <TwitterIcon />
               </SvgIcon>

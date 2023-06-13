@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Grid, InputAdornment, IconButton } from "@material-ui/core";
+import { Grid, InputAdornment, IconButton } from "@mui/material";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
-import CancelIcon from "@material-ui/icons/Cancel";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 const Salutation = (props) => {
   const { t } = useTranslation();
@@ -73,7 +73,7 @@ const Salutation = (props) => {
                       aria-label="Cancel"
                       onClick={handleClick}
                       edge="end"
-                    >
+                      size="large">
                       <CancelIcon />
                     </IconButton>
                   </InputAdornment>

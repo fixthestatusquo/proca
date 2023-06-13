@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
-import { Grid, IconButton } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, IconButton } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 
-import InputAdornment from "@material-ui/core/InputAdornment";
+import InputAdornment from "@mui/material/InputAdornment";
 import TwitterIcon from "../../images/Twitter.js";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import SvgIcon from "@mui/material/SvgIcon";
 
 import TextField from "@components/TextField";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import SearchIcon from "@material-ui/icons/Search";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import SearchIcon from "@mui/icons-material/Search";
 
 const useStyles = makeStyles((theme) => ({
   profile: {
@@ -127,7 +127,7 @@ const Organisation = (props) => {
                     aria-label="Fetch details from Twitter"
                     onClick={handleClick}
                     onMouseDown={handleMouseDown}
-                  >
+                    size="large">
                     <SearchIcon />
                   </IconButton>
                 ) : (

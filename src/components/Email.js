@@ -14,13 +14,13 @@ import {
   FilledInput,
   FormHelperText,
   FormControl,
-} from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+} from "@mui/material";
+import Alert from '@mui/material/Alert';
 
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 
 import Country from "@components/field/Country";
 import useData from "@hooks/useData";
@@ -31,9 +31,9 @@ import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import { Grid, Container } from "@material-ui/core";
+import { Grid, Container } from "@mui/material";
 import TextField from "@components/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import uuid from "@lib/uuid";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
@@ -109,7 +109,7 @@ const Filter = (props) => {
                 <IconButton
                   aria-label="Fetch postcode details"
                   onClick={handleSearch}
-                >
+                  size="large">
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>
