@@ -15,9 +15,9 @@
     },
     "button": {
       "confirmAction": "Yes, I am a real person!",
-      "confirmOptin": "I confirm my participation & want to receive update on that campaign and news from you",
+      "confirmOptin": "I confirm my participation & want to receive news from you",
       "confirmAlreadyMember": "I confirm my participation & already receive emails from you",
-      "confirmOptout": "I confirm my participation but don't send me emails about that campaign or keep me updated in future"
+      "confirmOptout": "I confirm my participation but don't keep me updated in future"
     },
     "doi": {
       "thanks": "Many thanks for your support!",
