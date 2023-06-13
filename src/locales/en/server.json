@@ -2,32 +2,37 @@
   "email": {
     "common": {
       "greeting": "Hello {{firstName}}",
+      "consent": "\n          ",
       "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
       "about": "",
       "share": "Help us reach our goal by spreading the word.",
       "follow": "Follow us on:",
       "donate": "Please consider making a donation to help us achieve our mission",
       "closing": "With your help, we’re one step closer to our goal",
-      "privacy":"You can find more information about our privacy policy and the processing of your data here",
-      "unsubscribe":"If you do not wish to receive further information from us in the future, you will be able to cancel your registration at any time",
-      "sincerely":"Your sincerely,"
+      "privacy": "You can find more information about our privacy policy and the processing of your data",
+      "unsubscribe": "If you do not wish to receive further information from us in the future, you will be able to cancel your registration at any time",
+      "signature": "Your sincerely,\n{{org.title}}"
+    },
+    "button": {
+      "confirmAction": "Yes, I am a real person!",
+      "confirmOptin": "I confirm my participation & want to receive update on that campaign and news from you",
+      "confirmAlreadyMember": "I confirm my participation & already receive emails from you",
+      "confirmOptout": "I confirm my participation and don't want to receive further emails"
+    },
+    "doi": {
+      "thanks": "Many thanks for your support!",
+      "subject": "One more step: please confirm your email address",
+      "intro": "Your confirmation is important to be able to process it. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
+      "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
     },
     "thankyou": {
       "intro": "Thank you for your partipation for \"{{campaign.title}}\". Your support is appreciated!",
       "subject": "Thank you, here's what else you can do"
     },
-    "doi": {
-      "subject": "One more step: please confirm your email address",
-      "intro": "Your confirmation is important to be able to process your subscription. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
-      "confirmButton": "Yes, I am a real person!",
-      "extra":"You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
-    },
     "actionConfirm": {
       "subject": "One more step: please confirm your email address",
       "intro": "Your confirmation is important to be able to process your subscription. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
-      "confirmButton": "Yes, I am a real person!",
-      "extra":"You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
-
+      "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
     }
   },
   "poweredBy": "POWERED BY"
