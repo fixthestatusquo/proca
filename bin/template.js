@@ -62,8 +62,7 @@ const snarkdown = (markdown) => {
   const md = markdown.replaceAll("proca_", "proca-"); //snarkdown messes up
   const para = md.split(/(?:\r?\n){2,}/);
   if (para.length === 1) {
-    console.log("no new line", markdown);
-    process.exit(1);
+    // don't add the paragraph
     return _snarkdown(markdown);
   }
   const htmls = para.map((l) =>
