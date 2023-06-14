@@ -27,7 +27,7 @@ const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 const org = require("./org");
-const { readCampaign } = require("./campaign");
+const { readCampaign, saveCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -43,7 +43,7 @@ const help = () => {
     [
       "options",
       "--help (this command)",
-      "--lang=fr (to overwrite the language in the actionpage)",
+      "--lang=fr (optional, to overwrite the language in the actionpage)",
       "--dry-run (don't write)",
       "--verbose (show the result)",
       "--markdown (handle i18n as markdown)",
@@ -59,14 +59,18 @@ const help = () => {
 };
 
 const snarkdown = (markdown) => {
-  md = markdown.replaceAll("proca_", "proca-");
-  const htmls = md
-    .split(/(?:\r?\n){2,}/)
-    .map((l) =>
-      [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
-        ? _snarkdown(l)
-        : `<p>${_snarkdown(l)}</p>`
-    );
+  const md = markdown.replaceAll("proca_", "proca-"); //snarkdown messes up
+  const para = md.split(/(?:\r?\n){2,}/);
+  if (para.length === 1) {
+    console.log("no new line", markdown);
+    process.exit(1);
+    return _snarkdown(markdown);
+  }
+  const htmls = para.map((l) =>
+    [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
+      ? _snarkdown(l)
+      : `<p>${_snarkdown(l)}</p>`
+  );
 
   return htmls.join("\n\n").replaceAll("proca-", "proca_");
 };
@@ -118,6 +122,7 @@ const pushTemplate = async (config, html) => {
 };
 
 const updateTranslation = (namespace, parsed) => {
+  console.log("parsed", parsed);
   const file = path.resolve(__dirname, "../src/locales/en/server.json");
   const initial = JSON.parse(fs.readFileSync(file, "utf8"));
   const updated = _merge({}, parsed[namespace], initial);
@@ -129,12 +134,13 @@ const updateTranslation = (namespace, parsed) => {
 };
 
 const updateCampaign = (campaign, lang, tplLocales) => {
-  //  const campaign = readCampaign(name);
   console.log(tplLocales.server);
   const locales = {};
   locales[lang] = { "server:": tplLocales.server };
   const updated = _merge({}, { config: { locales: locales } }, campaign);
-  saveCampaign(updated);
+
+  console.log(updated);
+  saveCampaign(updated, {});
   console.log(JSON.stringify(updated.config.locales, null, 2));
 };
 
@@ -178,7 +184,7 @@ const translateTpl = (tpl, lang, markdown) =>
       if (argv.extract) {
         if (argv["dry-run"]) {
           console.log("i18n keys", keys, JSON.stringify(locales, null, 2));
-        } else updateTranslation("server", trans["campaign"]);
+        } else updateTranslation("server", locales);
       }
       resolve(r);
     });
