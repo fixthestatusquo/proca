@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Container from "@material-ui/core/Container";
-import Alert from "@material-ui/lab/Alert";
+import Container from "@mui/material/Container";
+import Alert from '@mui/material/Alert';
 import { useTranslation } from "react-i18next";
 
 import Stripe from "./Stripe";
 import Sepa from "./Sepa";
 import useData from "../../hooks/useData.js";
-import { CardContent, Grid } from "@material-ui/core";
+import { CardContent, Grid } from "@mui/material";
 import Steps from "./Stepper";
 
 export default function Payment(props) {

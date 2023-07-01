@@ -1,11 +1,6 @@
-import {
-  Button,
-  FormControl,
-  FormGroup,
-  Grid,
-  makeStyles,
-  withStyles,
-} from "@material-ui/core";
+import { Button, FormControl, FormGroup, Grid } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
 import useData from "../../../hooks/useData";
 
 import React, { useState } from "react";

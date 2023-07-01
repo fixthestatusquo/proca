@@ -1,9 +1,10 @@
 import { useData } from "../../../hooks/useData";
 import React from "react";
-import { Button, Grid, Typography, withStyles } from "@material-ui/core";
+import { Button, Grid, Typography } from "@mui/material";
+import withStyles from '@mui/styles/withStyles';
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../../hooks/useConfig";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@mui/styles";
 
 const StyledButton = withStyles((theme) => ({
   root: {

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
-import { Grid, Box, Button } from "@material-ui/core";
+import { Grid, Box, Button } from "@mui/material";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
-import IconButton from "@material-ui/core/IconButton";
-import PlayIcon from "@material-ui/icons/RecordVoiceOver";
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import ReplayIcon from "@material-ui/icons/Replay";
-import { makeStyles } from "@material-ui/core/styles";
+import IconButton from "@mui/material/IconButton";
+import PlayIcon from "@mui/icons-material/RecordVoiceOver";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+import InputAdornment from "@mui/material/InputAdornment";
+import ReplayIcon from "@mui/icons-material/Replay";
+import makeStyles from '@mui/styles/makeStyles';
 import dispatch from "@lib/event";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -176,7 +176,7 @@ export default function Captcha(props) {
                         "eci:form.captcha-button-arialabel-refresh"
                       )}
                       onClick={() => handlePlay(config.lang)}
-                    >
+                      size="large">
                       <PlayCircleOutlineIcon />
                     </IconButton>
                   </InputAdornment>
@@ -208,7 +208,7 @@ export default function Captcha(props) {
                         onMouseDown={handleMouseDown}
                         onMouseOver={handleMouseOver}
                         onMouseLeave={handleMouseLeave}
-                      >
+                        size="large">
                         <ReplayIcon />
                       </IconButton>
                     </InputAdornment>
@@ -227,7 +227,7 @@ export default function Captcha(props) {
                 <IconButton
                   aria-label={t("eci:form.captcha-button-arialabel-audio")}
                   onClick={() => setAudioCaptcha(true)}
-                >
+                  size="large">
                   <PlayIcon />
                 </IconButton>
               </Grid>

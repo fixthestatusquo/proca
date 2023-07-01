@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";

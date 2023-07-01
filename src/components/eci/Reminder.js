@@ -3,17 +3,17 @@ import Url from "@lib/urlparser";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import EmailField from "@components/field/Email";
-import SendIcon from "@material-ui/icons/Send";
+import SendIcon from "@mui/icons-material/Send";
 import Dialog from "@components/Dialog";
 import { useForm } from "react-hook-form";
-import { Button, Box } from "@material-ui/core";
+import { Button, Box } from "@mui/material";
 import uuid, { isSet as isUuid } from "@lib/uuid.js";
 import { useTranslation } from "react-i18next";
 import { addActionContact } from "@lib/server.js";
-import RemindIcon from "@material-ui/icons/AccessAlarms";
+import RemindIcon from "@mui/icons-material/AccessAlarms";
 import { ConsentProcessing } from "@components/Consent";
-import MailIcon from "@material-ui/icons/MailOutline";
-import Alert from "@material-ui/lab/Alert";
+import MailIcon from "@mui/icons-material/MailOutline";
+import Alert from '@mui/material/Alert';
 import dispatch from "@lib/event";
 
 const RemindMeLater = (props) => {

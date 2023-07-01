@@ -1,8 +1,8 @@
 // import React from "react";
 
 import React from "react";
-import { Button, CircularProgress } from "@material-ui/core";
-import LockIcon from "@material-ui/icons/Lock";
+import { Button, CircularProgress } from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
 
 import { useFormatMoney } from "@hooks/useFormatting";
 import { useTranslation } from "react-i18next";

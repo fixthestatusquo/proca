@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Typography, Container, Grid } from "@material-ui/core";
+import { Typography, Container, Grid } from "@mui/material";
 import TextField from "@components/TextField";
 import Country from "@components/field/Country"; // the country component is for address, different than the country for nationality
 import { useTranslation } from "react-i18next";

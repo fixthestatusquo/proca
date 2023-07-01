@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { resize } from "@lib/image";
 
 export default function UploadPicture(props) {

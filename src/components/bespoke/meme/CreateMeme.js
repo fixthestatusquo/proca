@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid } from "@mui/material";
 import ImageSelector from "../ImageSelector";
 import { shuffle } from "@lib/array";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 

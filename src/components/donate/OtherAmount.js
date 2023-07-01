@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useTranslation } from "react-i18next";
-import { InputAdornment } from "@material-ui/core";
+import { InputAdornment } from "@mui/material";
 import TextField from "../TextField";
 import { useFormatMoney } from "@hooks/useFormatting";
 

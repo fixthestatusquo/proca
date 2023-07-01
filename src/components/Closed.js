@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import useCount from "@hooks/useCount";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 
 import Register from "@components/Register";
 import TTag from "@components/TTag";

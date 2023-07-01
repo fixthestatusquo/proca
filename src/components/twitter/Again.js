@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "@material-ui/core";
-import ReloadIcon from "@material-ui/icons/Cached";
-import NextIcon from "@material-ui/icons/SkipNext";
+import { Button } from "@mui/material";
+import ReloadIcon from "@mui/icons-material/Cached";
+import NextIcon from "@mui/icons-material/SkipNext";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 

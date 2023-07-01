@@ -13,7 +13,9 @@ import {
   DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
 import { addDonateContact } from "../../lib/server.js";
-import { Box, Button, CircularProgress, makeStyles } from "@material-ui/core";
+import { Box, Button, CircularProgress } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const _addContactFromPayPal = (setFormData, contact, payer) => {
   if (!payer) return;

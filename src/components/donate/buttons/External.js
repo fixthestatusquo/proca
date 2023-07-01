@@ -1,9 +1,9 @@
 import React from "react";
 import useData from "@hooks/useData";
 
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid } from "@mui/material";
 
-//import PaymentIcon from "@material-ui/icons/Payment";
+//import PaymentIcon from "@mui/icons-material/Payment";
 import DonationIcon from "@images/Donate";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";

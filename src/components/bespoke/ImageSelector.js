@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Button, Card, CardActionArea } from "@material-ui/core";
-import { List, ListItem } from "@material-ui/core";
+import { Button, Card, CardActionArea } from "@mui/material";
+import { List, ListItem } from "@mui/material";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-//import UploadIcon from '@material-ui/icons/CloudUploadTwoTone';
-import UploadIcon from "@material-ui/icons/PhotoCamera";
+//import UploadIcon from '@mui/icons-material/CloudUploadTwoTone';
+import UploadIcon from "@mui/icons-material/PhotoCamera";
 
 const useStyles = makeStyles(() => ({
   overflow: {

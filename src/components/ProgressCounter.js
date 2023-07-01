@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import { LinearProgress, Box } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
+import { LinearProgress, Box } from "@mui/material";
 import useCount from "@hooks/useCount";
 //3,014,823 have signed. Let’s get to 4,500,000!
 import { useTranslation } from "react-i18next";

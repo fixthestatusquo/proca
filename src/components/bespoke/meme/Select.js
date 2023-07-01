@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import ImageSelector from "../ImageSelector";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 const useStyles = makeStyles(() => ({
   responsive: {
     width: "100%",

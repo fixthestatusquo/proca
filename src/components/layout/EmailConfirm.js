@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import DeleteIcon from "@material-ui/icons/Delete";
-import CheckIcon from "@material-ui/icons/CheckCircleOutline";
-import { AlertTitle } from "@material-ui/lab";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CheckIcon from "@mui/icons-material/CheckCircleOutline";
+import { AlertTitle } from '@mui/material';
 import Alert from "@components/Alert";
 // used when returning from email confirmation (double opt-in or action confirm)
 const EmailConfirm = () => {

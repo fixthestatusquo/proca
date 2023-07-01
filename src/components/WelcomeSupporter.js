@@ -2,10 +2,10 @@ import React from "react";
 import useData from "@hooks/useData";
 import { setCookie } from "@lib/cookie";
 import { useTranslation } from "react-i18next";
-import { Button, Box } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
-import RegisteredIcon from "@material-ui/icons/HowToReg";
-// not you? import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import { Button, Box } from "@mui/material";
+import { Alert } from '@mui/material';
+import RegisteredIcon from "@mui/icons-material/HowToReg";
+// not you? import NotInterestedIcon from '@mui/icons-material/NotInterested';
 
 const WelcomeSupporter = () => {
   const [data, setData] = useData();

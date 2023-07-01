@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import Selectable from "./Selectable";
 
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
-import EmailIcon from "@material-ui/icons/Email";
+import EmailIcon from "@mui/icons-material/Email";
 
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
@@ -90,7 +90,7 @@ const EmailAction = ({ profile, selection, setSelection }) => {
       />
       {config.component?.email?.split === true && (
         <ListItemSecondaryAction>
-          <IconButton edge="end" aria-label="Tweet" onClick={mail}>
+          <IconButton edge="end" aria-label="Tweet" onClick={mail} size="large">
             <EmailIcon />
           </IconButton>
         </ListItemSecondaryAction>

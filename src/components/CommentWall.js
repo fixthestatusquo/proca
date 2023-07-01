@@ -2,12 +2,12 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import QuoteIcon from "@material-ui/icons/FormatQuote";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import QuoteIcon from "@mui/icons-material/FormatQuote";
 
 const Wall = (props) => {
   const supabase = useSupabase();

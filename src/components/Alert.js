@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Snackbar from "@material-ui/core/Snackbar";
-import { Alert, AlertTitle } from "@material-ui/lab";
-import Slide from "@material-ui/core/Slide";
-import { makeStyles } from "@material-ui/core/styles";
+import Snackbar from "@mui/material/Snackbar";
+import { Alert, AlertTitle } from '@mui/material';
+import Slide from "@mui/material/Slide";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(() => ({
   title: {

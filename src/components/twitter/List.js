@@ -1,10 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
+import makeStyles from '@mui/styles/makeStyles';
+import List from "@mui/material/List";
 import TwitterAction from "./Action";
 import { useTranslation } from "react-i18next";
 import { getCountryName } from "@lib/i18n";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 
 const useStyles = makeStyles(() => ({
   root: {

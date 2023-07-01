@@ -13,9 +13,9 @@ import Hidden from "./Hidden";
 import { IndividualSticker } from "./image/sticker";
 import UploadPicture from "./image/Upload";
 import SelectPicture from "./image/Select";
-import ImageIcon from "@material-ui/icons/Image";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
+import ImageIcon from "@mui/icons-material/Image";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { resize } from "@lib/image";
 
@@ -34,13 +34,13 @@ import {
   Card,
   CardHeader,
   Collapse,
-} from "@material-ui/core";
-import { Alert, AlertTitle } from "@material-ui/lab";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+} from "@mui/material";
+import { Alert, AlertTitle } from '@mui/material';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Dialog from "@components/Dialog";
 import { useTranslation } from "react-i18next";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   imgsticker: {

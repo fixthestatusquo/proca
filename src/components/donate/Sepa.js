@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
-import { Snackbar } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
+import { Snackbar } from "@mui/material";
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 import TextField from "@components/TextField";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";

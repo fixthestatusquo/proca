@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import IconButton from "@material-ui/core/IconButton";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import SvgIcon from "@mui/material/SvgIcon";
+import IconButton from "@mui/material/IconButton";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
 import TwitterIcon from "../images/Twitter.js";
@@ -118,7 +118,7 @@ const component = function MepAction(profile) {
         }
       />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="Tweet" onClick={tweet}>
+        <IconButton edge="end" aria-label="Tweet" onClick={tweet} size="large">
           <SvgIcon>
             <TwitterIcon />
           </SvgIcon>

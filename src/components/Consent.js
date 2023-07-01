@@ -12,14 +12,14 @@ import {
   FormControlLabel,
   Collapse,
   Checkbox,
-} from "@material-ui/core";
-import { Alert, AlertTitle } from "@material-ui/lab";
+} from "@mui/material";
+import { Alert, AlertTitle } from '@mui/material';
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Controller } from "react-hook-form";
 
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   check: {

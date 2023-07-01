@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  StylesProvider,
-  createGenerateClassName,
-  createTheme,
-  ThemeProvider,
-} from "@material-ui/core/styles";
-import { makeStyles, createStyles } from "@material-ui/core";
-//import CssBaseline from '@material-ui/core/ScopedCssBaseline';
-//import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import StylesProvider from '@mui/styles/StylesProvider';
+import createGenerateClassName from '@mui/styles/createGenerateClassName';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+//import CssBaseline from '@mui/material/ScopedCssBaseline';
+//import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import { useLayout } from "@hooks/useLayout";
 
 const generateClassName = createGenerateClassName({
@@ -51,7 +49,8 @@ export default function ProcaStyle(props) {
         palette: {
           primary: { main: layout.primaryColor },
           secondary: { main: layout.secondaryColor },
-          type: layout.theme,
+          // in mui 5 type is replaced with mode
+          mode: layout.theme,
         },
         typography: {
           fontFamily: "unset!important",
@@ -63,73 +62,92 @@ export default function ProcaStyle(props) {
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
         },
-        overrides: {
+        // mui 5 overriding syntax
+        components: {
           MuiSnackbar: {
-            root: {
-              zIndex: 30003,
-            },
+            styleOverrides: {
+              root: {
+                zIndex: 30003
+              }
+            }
           },
           MuiContainer: {
-            root: {
-              fontFamily: "unset!important",
-              paddingLeft: "0!important",
-              paddingRight: "0!important",
-              backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
-            },
+            styleOverrides: {
+              root: {
+                fontFamily: "unset!important",
+                paddingLeft: "0!important",
+                paddingRight: "0!important",
+                backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
+              },
+            }
           },
           MuiButton: {
-            root: { backgroundImage: "none!important" },
+            styleOverrides: {
+              root: { backgroundImage: "none!important" }
+            }
           },
           MuiIconButton: {
-            root: { width: "auto!important", minWidth: "auto!important" },
+            styleOverrides: {
+              root: { width: "auto!important", minWidth: "auto!important" }
+            },
           },
           MuiDialog: {
-            root: { fontFamily: "unset!important" },
+            styleOverrides: {
+              root: { fontFamily: "unset!important" }
+            },
           },
           MuiFormControl: {
-            root: { marginTop: "8px!important", marginBottom: "4px!important" },
+            styleOverrides: {
+              root: { marginTop: "8px!important", marginBottom: "4px!important" }
+            },
           },
           MuiFilledInput: {
-            root: {
-              margin: "0px!important",
-              "& input": {
-                height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
-                width: "100%",
+            styleOverrides: {
+              root: {
+                margin: "0px!important",
+                "& input": {
+                  height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
+                  width: "100%",
+                },
+                "& select": {
+                  height: "1.1876em!important",
+                },
               },
-              "& select": {
-                height: "1.1876em!important",
+              input: {
+                paddingTop: "23px!important",
+                paddingBottom: "10px!important",
               },
-            },
-            input: {
-              paddingTop: "23px!important",
-              paddingBottom: "10px!important",
-            },
-            inputMultiline: {},
-            multiline: {
-              paddingTop: "23px!important",
-              paddingBottom: "6px!important",
-              "& textarea": {
-                minHeight: "23px!important",
-                paddingTop: "0!important",
-                paddingBottom: "0!important",
+              inputMultiline: {},
+              multiline: {
+                paddingTop: "23px!important",
+                paddingBottom: "6px!important",
+                "& textarea": {
+                  minHeight: "23px!important",
+                  paddingTop: "0!important",
+                  paddingBottom: "0!important",
+                },
               },
-            },
-            marginDense: {},
+              marginDense: {},
+            }
           },
           MuiInputLabel: {
-            root: {
-              marginTop: 0,
+            styleOverrides: {
+              root: {
+                marginTop: 0,
+              }
             },
           },
           MuiInputBase: {
-            input: {
-              background: "unset!important",
-              boxSizing: "initial!important",
-              boxShadow: "unset!important",
-              border: "unset!important",
-              marginBottom: "0!important",
-              // this is where magic happens
-              //        '& *': { color: 'rgba(255, 255, 255, 0.7)' },
+            styleOverrides: {
+              input: {
+                background: "unset!important",
+                boxSizing: "initial!important",
+                boxShadow: "unset!important",
+                border: "unset!important",
+                marginBottom: "0!important",
+                // this is where magic happens
+                //        '& *': { color: 'rgba(255, 255, 255, 0.7)' },
+              }
             },
           },
         },
@@ -144,7 +162,9 @@ export default function ProcaStyle(props) {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <GlobalStyles />
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      </StyledEngineProvider>
     </StylesProvider>
   );
 }

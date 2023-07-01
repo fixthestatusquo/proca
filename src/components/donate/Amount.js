@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { makeStyles } from "@material-ui/core/styles";
-import { CardContent, Container, Grid, Typography } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
+import { CardContent, Container, Grid, Typography } from "@mui/material";
 
 import useElementWidth from "@hooks/useElementWidth";
 
@@ -12,7 +12,7 @@ import Steps, { useDonateStep } from "./Stepper";
 import PaymentMethodButtons from "./PaymentMethodButtons";
 import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
-import { Alert } from "@material-ui/lab";
+import { Alert } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   amount: {

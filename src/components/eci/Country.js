@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useIsWindows } from "@hooks/useDevice";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 
 const emoji = (country) => {
   const offset = 127397;

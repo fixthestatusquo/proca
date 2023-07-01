@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { formatDate } from "@lib/date";
 
-import { Box, Button, Snackbar } from "@material-ui/core";
+import { Box, Button, Snackbar } from "@mui/material";
 import TextField from "@components/TextField";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 
 import ProcaIcon from "@images/Proca";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import DoneIcon from "@material-ui/icons/Done";
+import SvgIcon from "@mui/material/SvgIcon";
+import DoneIcon from "@mui/icons-material/Done";
 
 import { useForm } from "react-hook-form";
 import i18n from "@lib/i18n";

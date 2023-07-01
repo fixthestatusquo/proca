@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
+import Paper from "@mui/material/Paper";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
 
-import EmailIcon from "@material-ui/icons/FavoriteBorder";
-import EciIcon from "@material-ui/icons/HowToVote";
-import ShareIcon from "@material-ui/icons/Share";
+import EmailIcon from "@mui/icons-material/FavoriteBorder";
+import EciIcon from "@mui/icons-material/HowToVote";
+import ShareIcon from "@mui/icons-material/Share";
 
 import Email from "./Email";
 import Support from "./Support";

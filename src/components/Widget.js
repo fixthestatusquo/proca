@@ -13,7 +13,7 @@ import Url, { step as paramStep } from "@lib/urlparser";
 import { getCookie } from "@lib/cookie";
 import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
-//import { useTheme } from "@material-ui/core/styles";
+//import { useTheme } from "@mui/material/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import dispatch from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";

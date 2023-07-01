@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
-import Alert from "@material-ui/lab/Alert";
+import Paper from "@mui/material/Paper";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Alert from '@mui/material/Alert';
 import { useTranslation } from "react-i18next";
 
-import PaymentIcon from "@material-ui/icons/Payment";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import PaymentIcon from "@mui/icons-material/Payment";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import PaypalIcon from "@images/Paypal.js";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 import Stripe from "./Stripe";
 import Sepa from "./Sepa";
