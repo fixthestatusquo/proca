@@ -10771,15 +10771,10 @@ performance-now@^2.1.0:
   resolved "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-phoenix@^1.5.5:
-  version "1.6.2"
-  resolved "https://registry.npmjs.org/phoenix/-/phoenix-1.6.2.tgz"
-  integrity sha512-VjR27NETvrLSj8rI6DlpVAfo7pCYth/9+1OCoTof4LKEbq0141ze/tdxFHHZzVQSok3gqJUo2h/tqbxR3r8eyw==
-
-phoenix@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.7.3.tgz#4279e048eaf7d9050ac2d68144b6f6fe956ce0d2"
-  integrity sha512-PJ9dhv69qGgTf4dihWlriCUg7WLO769+KHCirONRgPctb790vuFDV5XENZYO2COXfkwuZ7oYzTsejIGnyL7bLw==
+phoenix@^1.5.5, phoenix@^1.7.6:
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.7.6.tgz#a58f5bf2727b734e9d0f754e0d30c3ec8cc56ffe"
+  integrity sha512-TOZmJqQaZIWDXMcRXo/qLSBcROFgfA0W/LlaJ9RpETGSYSTouGTJKw5ozR6dII6iPHpOXHagc9kV5WYO9LtTRQ==
 
 picocolors@^0.2.1:
   version "0.2.1"
