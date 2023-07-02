@@ -233,7 +233,6 @@ const formatTarget = async (campaignName, file) => {
 
   const formatTargets = async () => {
     const results = [];
-    const fallBackLang = {};
     for (const t of targets) {
       if (!t.name) continue; //skip empty records
       delete t.id;

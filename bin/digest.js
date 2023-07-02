@@ -32,7 +32,7 @@ const help = () => {
 };
 
 if (!argv._.length || argv.help) {
-  return help();
+  help();
 }
 
 const saveConfig = (templateName, campaignName, lang, subject, campaign) => {

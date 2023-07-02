@@ -7,6 +7,9 @@ module.exports = {
   extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
   overrides: [
     {
+      files: ["s**/*.js"],
+    },
+    {
       files: ["**/__tests__/*.js"],
       env: {
         jest: true,

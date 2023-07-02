@@ -2,7 +2,7 @@
 require("cross-fetch/polyfill");
 require("dotenv").config();
 
-const { request, admin, widget, types } = require("@proca/api");
+const { request, admin, widget } = require("@proca/api");
 const { pull, apiLink } = require("./config");
 const isEqual = require("lodash").isEqual;
 const api = apiLink();
@@ -120,7 +120,10 @@ const addPartner = async (genericPage, partnerOrg) => {
     orgName: partnerOrg,
   });
   if (joinResult.errors)
-    console.error(`Could not join ${partnerOrg} as superuser`, errors);
+    console.error(
+      `Could not join ${partnerOrg} as superuser`,
+      joinResult.errors
+    );
 
   let org = null;
   try {
@@ -166,7 +169,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   await updateConfig(newAp.id, cfg);
   try {
     console.log("fetching config/", newAp.id);
-    const d = await pull(parseInt(newAp.id, 10));
+    await pull(parseInt(newAp.id, 10));
   } catch (e) {
     console.error(e);
   }

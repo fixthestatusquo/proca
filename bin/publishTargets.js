@@ -165,7 +165,7 @@ const publishTarget = async (campaignName, arvg) => {
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
       if (argv["dry-run"]) return;
-      r = argv.git && (await commit(c, msg, true));
+      const r = argv.git && (await commit(c, msg, true));
       if (r?.summary) {
         console.log(r.summary);
         await push();

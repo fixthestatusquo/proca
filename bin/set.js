@@ -270,7 +270,7 @@ ids.map((id) => {
         console.error("country must be a two char string or boolean");
         process.exit(0);
       }
-      const country = argv.country;
+      let country = argv.country;
       if (country === "true") {
         country = true;
       } else if (country === "false") {

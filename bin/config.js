@@ -122,6 +122,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
 
     return resJson.data;
   } catch (err) {
+    console.error(err);
     throw err;
   }
 };

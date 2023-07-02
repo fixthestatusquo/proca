@@ -24,12 +24,8 @@ require("dotenv").config();
 
 const fs = require("fs");
 const lo = require("lodash");
-const path = require("path");
 const {
-  pull,
   read,
-  pullCampaign,
-  save,
   file,
   apiLink,
   actionPageFromLocalConfig,
@@ -61,15 +57,6 @@ const makeLocalAP = (mainAP, locale, eci) => {
   filenameparts.pop();
   filenameparts.push(locale);
   page.filename = filenameparts.join("/");
-
-  // modify eci component config
-  campaign.eci.organisers = eci.organisers.organiser;
-  campaign.eci.registrationDate =
-    eci.startOfTheCollectionPeriod || eci.registrationDate;
-  campaign.eci.registrationDate = page.component.eci.registrationDate.substring(
-    0,
-    10
-  );
 
   page.locales["campaign:"] = getLocale(
     page.lang.toLowerCase(),
@@ -103,7 +90,7 @@ const makeLocalAP = (mainAP, locale, eci) => {
     });
     if (mainAP.errors) {
       throw new Error(
-        `I cannot fetch AP data from server ap=${id} errors=${errors[0].message}`
+        `I cannot fetch AP data from server ap=${id} errors=${mainAP.errors[0].message}`
       );
     }
     const campaignName = mainAP.data.actionPage.campaign.name;

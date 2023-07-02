@@ -28,7 +28,7 @@ const imageType = (name) => {
 };
 const slugify = (text) =>
   text
-    .replace(/[^a-z\.0-9 _-]/g, "")
+    .replace(/[^a-z.0-9 _-]/g, "")
     .replace(/\s+/g, "_")
     .replace(/-+/g, "_")
     .toLowerCase();
