@@ -33,3 +33,5 @@ const Birthdate = (props) => {
     </Grid>
   );
 };
+
+export default Birthdate;

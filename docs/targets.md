@@ -67,7 +67,7 @@ emailStatus can be one of:
 - `unsub`- email was unsubscribed
 
 you can fetch it with bin/pullTarget.js {campaign name}
-and push it with bin/pushTarget.js {campaign name}
+and push it with bin/target.js {campaign name} --push
 
 @marcin, can you complete/confirm:
 

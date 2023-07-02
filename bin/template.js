@@ -269,7 +269,7 @@ const i18nTplInit = async (campaign, lang = "en") => {
 if (require.main === module) {
   if (!argv._.length || argv.help) {
     console.error("missing actionpage id");
-    return help();
+    help();
   }
 
   (async () => {
