@@ -8,7 +8,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   alias: { v: "verbose" },
   default: { mjml: "default" },
 });
-const { mkdirp, read, fileExists, save } = require("./config");
+const { mkdirp, read } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
 const configOverride = require("./lang").configOverride;
 

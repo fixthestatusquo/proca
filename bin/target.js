@@ -410,7 +410,6 @@ if (require.main === module) {
   (async () => {
     try {
       const name = argv._[0];
-      let target = null;
       if (argv.push) {
         await pushTarget(name, argv.file || name);
       }
@@ -427,14 +426,13 @@ if (require.main === module) {
       if (argv.digest) {
         //        await pullTarget(name, argv.file || name);
         console.log(argv.file, name, argv.file || name);
-        target = await digestTarget(name, argv.file || name);
+        await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
         await pushTarget(name, argv.file || name);
       }
       if (argv.pull) {
-        //        await pullTarget(name, argv.file || name);
-        target = await pullTarget(name, argv.file || name);
+        await pullTarget(name, argv.file || name);
       }
       if (argv.publish) {
         await publishTarget(name, argv);
@@ -451,5 +449,6 @@ if (require.main === module) {
     pullTarget,
     pushTarget,
     readTarget,
+    getTwitter,
   };
 }

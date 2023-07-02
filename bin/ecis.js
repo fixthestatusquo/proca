@@ -1,7 +1,6 @@
 #!/usr/bin/env babel-node
 // it en bg cs da de el es et fi fr ga hu lt lv mt nl pl pt ro sk sl sv hr
 const fs = require("fs");
-const path = require("path");
 const { file } = require("./config.js");
 
 const readEci = (eci) => {

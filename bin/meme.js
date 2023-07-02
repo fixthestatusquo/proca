@@ -68,7 +68,7 @@ const push = async (name) => {
     bottom_text: key + ".bottom",
   };
   d.hash = hash(d);
-  const { data, error } = await supabase.from("meme_template").insert([d]);
+  const { error } = await supabase.from("meme_template").insert([d]);
 
   if (error) {
     if (error.code === "23505") {
@@ -144,5 +144,5 @@ const pullTemplates = async () => {
     help();
     process.exit(1);
   }
-  const image = await push(name);
+  await push(name);
 })();

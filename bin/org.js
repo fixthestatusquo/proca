@@ -2,7 +2,7 @@
 const fs = require("fs");
 const fetch = require("cross-fetch");
 require("dotenv").config();
-const { commit, add, onGit } = require("./git");
+const { commit, add } = require("./git");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },

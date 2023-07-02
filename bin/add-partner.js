@@ -176,7 +176,7 @@ const addPartner = async (genericPage, partnerOrg) => {
 };
 
 // console.log('argv', process.argv);
-const [_node, script, page, partner] = process.argv;
+const [, script, page, partner] = process.argv;
 
 if (!page || !partner) {
   console.error(`${script} page partner`);

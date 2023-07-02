@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const fs = require("fs");
 require("./dotenv.js");
 const { read, save } = require("./config");
 const { push, pull } = require("./widget");
@@ -155,7 +154,7 @@ ids.map((id) => {
   (async () => {
     if (argv.pull) {
       try {
-        const d = await pull(id);
+        await pull(id);
       } catch (errors) {
         Array.isArray(errors) &&
           errors.map((e) => {
@@ -314,7 +313,7 @@ ids.map((id) => {
     if (argv.push) {
       // must be the last one
       try {
-        const d = await push(id);
+        await push(id);
       } catch (errors) {
         Array.isArray(errors) &&
           errors.map((e) => {

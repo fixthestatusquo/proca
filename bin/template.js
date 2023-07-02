@@ -277,16 +277,15 @@ if (require.main === module) {
     let lang = null;
     let render = null;
     //const display = argv.display || false;
-    const [file, config, campaign] = getConfigOverride(id);
+    const [, config, campaign] = getConfigOverride(id);
     const server = await i18nTplInit(campaign, config.lang);
     if (server) config.locales["server:"] = server;
-    let orgConfig = {};
     try {
       try {
-        orgConfig = org.readOrg(config.org.name);
+        org.readOrg(config.org.name);
       } catch (e) {
         try {
-          orgConfig = await org.getOrg(config.org.name);
+          await org.getOrg(config.org.name);
         } catch (e) {
           console.log(
             "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",

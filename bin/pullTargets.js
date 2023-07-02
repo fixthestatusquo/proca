@@ -1,11 +1,8 @@
-const fs = require("fs");
 const { pullTarget } = require("./target");
 require("dotenv").config();
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run"],
 });
-
-const { file, write, api } = require("./config");
 
 if (require.main === module) {
   if (!argv._.length || argv.help) {

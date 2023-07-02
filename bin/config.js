@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const crossFetch = require("cross-fetch");
-const { link, admin, request, basicAuth } = require("@proca/api");
+const { link, basicAuth } = require("@proca/api");
 require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -22,7 +22,7 @@ const runDate = (date = now) =>
 
 const pathConfig = () => path.resolve(__dirname, tmp);
 
-const checked = (fileName, type) => {
+const checked = (fileName) => {
   if (fileName.toString().includes("..")) {
     console.error("the filename is invalid ", fileName);
     throw new Error("invalid filename ", fileName);
@@ -53,12 +53,6 @@ const read = (id) => {
     console.error("no local copy of " + id, e.message);
     return null;
   }
-};
-
-const backup = (actionPage) => {
-  const fileName = file(actionPage);
-  if (!fs.existsSync(fileName)) return;
-  fs.renameSync(fileName, fileName + ".bck");
 };
 
 const save = (config, suffix = "") => {
@@ -138,15 +132,6 @@ const apiLink = () => {
   const c = link(API_URL, a);
   return c;
 };
-
-const obsolete = () => {
-  console.log("import from bin/widget");
-  process.exit(1);
-};
-
-const push = obsolete;
-const pull = obsolete;
-const fetch = obsolete;
 
 module.exports = {
   pathConfig,
