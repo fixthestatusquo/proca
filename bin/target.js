@@ -2,7 +2,6 @@
 const fs = require("fs");
 const fetch = require("cross-fetch");
 require("dotenv").config();
-//const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
 const { publishTarget } = require("./publishTargets");
