@@ -72,8 +72,9 @@
     "esbuild-plugin-browserslist": "^0.7.2",
     "esbuild-plugin-copy": "^2.1.1",
     "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "i18next-fs-backend": "^2.1.5",
     "lint-staged": "^13.2.2",
     "minimist": "^1.2.8",
@@ -86,6 +87,7 @@
   },
   "scripts": {
     "format": "prettier --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
+    "lint": "eslint . --fix --max-warnings=0",
     "build": "node bin/esbuild.js",
     "start": "node bin/esbuild.js --serve ",
     "deploy": "bash bin/deploy.sh",
@@ -106,13 +108,14 @@
     "pullCampaign": "node bin/campaign.js --pull",
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging node bin/esbuild.js --serve ",
-    "starts": "HTTPS=true node bin/esbuild.js --serve "
+    "starts": "HTTPS=true node bin/esbuild.js --serve ",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.js": [
-      "eslint",
-      "prettier --write"
-    ]
+      "eslint --fix "
+    ],
+    "*.{js,md,html}": "prettier --cache --write"
   },
   "jest": {
     "moduleNameMapper": {

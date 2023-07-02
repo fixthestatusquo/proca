@@ -6,7 +6,7 @@ all the local configuration files are stored into config
 
 # config page and campaign
 
-yarn pull or yarn widget --pull : fetch a widget (and associated campaign) from the server 
+yarn pull or yarn widget --pull : fetch a widget (and associated campaign) from the server
 yarn push or yarn widget --push : push a widget (not the associated campaign) to the server. it triggers a rebuild if you use the central hosting (our)
 yarn campaign --pull or yarn pullCampaign: fetch a campaign config
 yarn campaign --push or yarn pushCampaign: push a campaign config
@@ -28,6 +28,5 @@ yarn target --publish: build a public version of the list of targets
 yarn template convert a mjml file into a localised html one
 
 # snowflake
+
 under separate repo
-
-
