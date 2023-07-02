@@ -2,6 +2,8 @@
 import * as withAbsintheSocket from "@absinthe/socket";
 import {Socket as PhoenixSocket} from "phoenix";
 
+console.log("global",global);
+
 const absintheSocket = withAbsintheSocket.create(
   new PhoenixSocket("wss://api.proca.app/socket/websocket")
 );
