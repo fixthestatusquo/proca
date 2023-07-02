@@ -186,7 +186,6 @@ CA: 5,
 DK: 4,
 NL: 4
 
-
 ## Consent
 
 to collect the consent of being contacted
