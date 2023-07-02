@@ -87,7 +87,7 @@
   },
   "scripts": {
     "format": "prettier --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
-    "eslint": "eslint src bin --fix --max-warnings=0 --cache",
+    "eslint": "eslint . --fix --max-warnings=0 --cache",
     "build": "node bin/esbuild.js",
     "start": "node bin/esbuild.js --serve ",
     "deploy": "bash bin/deploy.sh",

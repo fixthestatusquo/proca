@@ -10,7 +10,7 @@ module.exports = (webpack) => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
   } else {
-    const [configFile, config] = getConfigOverride();
+    const [, config] = getConfigOverride();
     widgetBuildConfig(webpack, config);
   }
 
@@ -69,7 +69,7 @@ function widgetBuildConfig(webpack, config) {
 
     webpack.plugins.push({
       apply: (compiler) => {
-        compiler.hooks.afterEmit.tap("AfterEmitPlugin", (compilation) => {
+        compiler.hooks.afterEmit.tap("AfterEmitPlugin", () => {
           try {
             fs.symlinkSync(
               path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
@@ -157,7 +157,6 @@ function iframeConfig(webpack) {
 }
 
 function oembedConfig(webpack) {
-  const publicDir = webpack.output.path;
   webpack.plugins.push(
     new GenerateJsonPlugin("oembed.json", {
       version: "1.0",
