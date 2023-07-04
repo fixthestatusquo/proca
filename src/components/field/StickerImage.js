@@ -115,7 +115,7 @@ export default function ImageStickerComplete(props) {
             </StepButton>
           </Step>
         </Stepper>
-        {config.component.picture.upload !== false && (
+        {config.component.picture?.upload !== false && (
           <>
             <div hidden={activeStep !== 0} className={classes.dialog}>
               {t("image.options", "Would you like to")}
@@ -161,7 +161,7 @@ export default function ImageStickerComplete(props) {
             </div>
           </>
         )}
-        {config.component.picture.upload == false && (
+        {config.component.picture?.upload == false && (
           <>
             <SelectPicture setCanvas={uploadedCanvas} />
           </>
