@@ -1,32 +1,38 @@
 {
-    "poweredBy": "ANGETRIEBEN DURCH",
     "email": {
         "common": {
             "greeting": "Hallo {{firstName}}",
+            "consent": "\n          ",
             "thanks": "Vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
+            "about": "",
             "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie die Nachricht verbreiten.",
             "follow": "Folgen Sie uns auf:",
             "donate": "Bitte denken Sie über eine Spende nach, um uns bei der Erfüllung unseres Auftrags zu unterstützen",
             "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen",
-            "sincerely": "Mit freundlichen Grüßen",
             "privacy": "Unsere Datenschutzerklärung und weitere Informationen über die Verarbeitung Ihrer Daten finden Sie hier",
-            "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben"
+            "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben",
+            "signature": "Mit freundlichen Grüßen, \n{{org.title}}"
+        },
+        "button": {
+            "confirmAction": "Yes, I am a real person!",
+            "confirmOptin": "Ich möchte teilnehmen und - auch per Newsletter - informiert bleiben",
+            "confirmAlreadyMember": "I confirm my participation & already receive emails from you",
+            "confirmOptout": "I confirm my participation but don't keep me updated in future"
+          },
+        "doi": {
+            "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
+            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Anmeldung bearbeiten können. \n\nNur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
+            "extra": "Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
         },
         "thankyou": {
             "intro": "Vielen Dank für Ihre Teilnahme an \"{{campaign.title}}\". Wir wissen Ihre Unterstützung zu schätzen!",
             "subject": "Danke, hier ist, was Sie sonst noch tun können"
         },
-        "doi": {
-            "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
-            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Anmeldung bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-            "confirmButton": "Ja, ich bin eine echte Person!",
-            "extra": "Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
-        },
         "actionConfirm": {
             "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
             "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Anmeldung bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-            "confirmButton": "Ja, ich bin eine echte Person!",
             "extra": "Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
         }
-    }
+    },
+    "poweredBy": "ANGETRIEBEN DURCH"
 }
