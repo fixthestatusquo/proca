@@ -14,8 +14,6 @@ const PreviousStepConfirm = (props) => {
       <AlertTitle>{t("consent.emailSent", { email: props.email })}</AlertTitle>
     );
 
-  console.log("data privacy", data.privacy);
-
   if (
     props.email?.confirmOptIn &&
     (data.privacy === "opt-in" || data.privacy === "opt-in-both")
