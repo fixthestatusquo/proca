@@ -196,6 +196,8 @@
     "postcode": {
       "empty": "nu există nimeni de contactat în {{area}}"
     },
+    "random_one": "A selectat una dintre cele mai importante ținte ale noastre {{total}}",
+    "random_other": "Selecție {{count}} a celor mai importante obiective {{total}}",
     "selected": "{{total}} selectat"
   },
   "twitter": {
