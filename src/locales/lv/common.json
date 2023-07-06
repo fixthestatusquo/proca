@@ -196,6 +196,8 @@
     "postcode": {
       "empty": "nav ar ko sazināties {{area}}"
     },
+    "random_one": "Izvēlēts viens no mūsu {{total}} svarīgākajiem mērķiem.",
+    "random_other": "Atlasīts {{count}} no mūsu {{total}} svarīgākajiem mērķiem.",
     "selected": "{{total}} atlasīts"
   },
   "twitter": {
