@@ -6,6 +6,10 @@ const shuffle = (array) => {
 };
 
 const sample = (array, sampleSize) => {
+  if (!sampleSize || sampleSize === 1) {
+    return [array[Math.floor(Math.random() * array.length)]];
+  }
+
   const copy = [...array];
   shuffle(copy);
   return copy.slice(0, sampleSize);

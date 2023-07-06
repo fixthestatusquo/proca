@@ -122,16 +122,20 @@ const Country = (props) => {
     defaultCountry = config.component.country;
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country: defaultCountry && defaultCountry.toUpperCase(),
+    country: getValues("country")
+      ? getValues("country")
+      : defaultCountry && defaultCountry.toUpperCase(),
   });
 
   const switchCountry = (e) => {
     setData("country", e.target.value);
   };
+
+  const countriesLength = _countries.length;
+
   useEffect(() => {
     const country = getValues("country") || "";
-
-    if (location.country === country) return;
+    if (location.country === country && countriesLength !== 0) return;
     if (location.country && (!country || typeof country !== "string")) {
       if (!countries.find((d) => d.iso === location.country)) {
         console.log("visitor from ", location?.country, "but not on our list");
@@ -150,7 +154,7 @@ const Country = (props) => {
       // geoLocation doesn't work
       setCountries(countries);
     }
-  }, [location, getValues, countries, setValue, setData, t]);
+  }, [location, getValues, countries, setValue, setData, t, countriesLength]);
 
   //  useEffect(() => {
   //    register({ name: "country" });

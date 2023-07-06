@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useData from "@hooks/useData";
-import _ from "lodash";
+import { sample } from "@lib/array";
 import { useTranslation } from "react-i18next";
 
 const Snowflake = () => {
@@ -11,14 +11,12 @@ const Snowflake = () => {
   useEffect(() => {
     const randomize = () => {
       const subjects = t("letter:subject", "");
-      const subject = _.sample(
-        subjects.split("- ").filter((m) => m.length > 0)
-      );
+      const subject = sample(subjects.split("- ").filter((m) => m.length > 0));
       let letter = [];
       let i = 1;
       while (t(`letter:part-${i}`, "%%end%%") !== "%%end%%") {
         let message = t(`letter:part-${i}`);
-        letter.push(_.sample(message.split("- ").filter((m) => m.length > 0)));
+        letter.push(sample(message.split("- ").filter((m) => m.length > 0)));
         i += 1;
       }
       return {

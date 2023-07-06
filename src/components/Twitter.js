@@ -17,6 +17,7 @@ import { Grid, Button } from "@material-ui/core";
 import TwitterIcon from "../images/Twitter.js";
 import Again, { Next } from "@components/twitter/Again";
 import { SvgIcon } from "@material-ui/core";
+import { sample } from "@lib/array";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
 import { get } from "lodash";
@@ -45,6 +46,7 @@ const Intro = (props) => {
         <p>
           {t("target.random", {
             total: props.total,
+            count: config.component.twitter?.sample || 1,
           })}
         </p>
       </Grid>
@@ -108,6 +110,7 @@ const Component = (props) => {
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
   let hash = data.hash || config.component.twitter?.hash;
+  const sampleSize = config.component.twitter?.sample || 1;
 
   const form = useForm({
     defaultValues: {
@@ -186,11 +189,10 @@ const Component = (props) => {
   );
 
   const filterRandomProfile = useCallback(() => {
-    const d = allProfiles;
-    const i = d[Math.floor(Math.random() * d.length)];
-    setMessage([i]);
+    const d = sample(allProfiles, sampleSize);
+    setMessage(d);
     setProfiles(() => {
-      return [i];
+      return d;
     });
   }, [allProfiles, setMessage]);
 
@@ -284,7 +286,7 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      console.warn("do we filter profile?", profiles);
+      //console.warn("do we filter profile?", profiles);
       //setProfiles(profiles);
     },
     [allProfiles]
@@ -314,10 +316,6 @@ const Component = (props) => {
     viewDialog(false);
   };
 
-  console.log(
-    props.country !== false,
-    config.component.twitter?.filter?.includes("country")
-  );
   const FirstStep = (props) => {
     return (
       <>
