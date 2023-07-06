@@ -196,6 +196,8 @@
     "postcode": {
       "empty": "det ikke er noen å kontakte i {{area}}"
     },
+    "random_one": "Valgte et av våre {{total}} viktigste mål",
+    "random_other": "Utvalgte {{count}} av våre {{total}} viktigste mål",
     "selected": "{{total}} valgt"
   },
   "twitter": {
