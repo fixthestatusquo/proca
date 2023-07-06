@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "での連絡先がない{{area}}"
     },
-    "random": "{{total}} 最も重要なターゲットの一つを選択しました。",
     "selected": "{{total}} 選り抜き"
   },
   "twitter": {

@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "لا يوجد أحد للاتصال به في {{area}}"
     },
-    "random": "حدد أحد أهم أهدافنا {{total}}",
     "selected": "تم تحديد {{total}}"
   },
   "twitter": {

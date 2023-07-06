@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "es gibt niemanden, den man in {{area}} kontaktieren kann"
     },
-    "random": "Sie haben eine/n der {{total}} für uns wichtigsten Politiker*innen ausgewählt.",
     "selected": "{{total}} Empfänger"
   },
   "twitter": {

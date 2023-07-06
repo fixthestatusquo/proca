@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "es niemanden gibt, an den man sich in {{area}}"
     },
-    "random": "Eines unserer {{total}} wichtigsten Ziele ausgewählt",
     "selected": "{{total}} ausgewählt"
   },
   "twitter": {

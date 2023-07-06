@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "ez dago inor harremanetan jartzeko {{area}}"
     },
-    "random": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu",
     "selected": "{{total}} hautatuta"
   },
   "twitter": {

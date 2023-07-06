@@ -196,7 +196,6 @@
     "postcode": {
       "empty": "nema nikoga za kontaktiranje u {{area}}"
     },
-    "random": "Odabran je jedan od naših {{total}} najvažnijih ciljeva",
     "selected": "Broj primalaca: {{total}}"
   },
   "twitter": {
