@@ -196,6 +196,8 @@
     "postcode": {
       "empty": "et gëtt keen ze kontaktéieren an {{area}}"
     },
+    "random_one": "Wielt ee vun eise {{total}} wichtegsten Ziler",
+    "random_other": "Ausgewielt {{count}} vun eise {{total}} wichtegst Ziler",
     "selected": "{{total}} ausgewielt"
   },
   "twitter": {
