@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "ko si ẹnikan lati kan si ni {{area}}"
     },
-    "random": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}.",
+    "random_one": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}.",
     "selected": "{{total}} ti yan"
   },
   "twitter": {

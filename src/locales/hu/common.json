@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "nincs senki, akivel kapcsolatba lehetne lépni {{area}}"
     },
-    "random": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat.",
+    "random_one": "Kiválasztottuk az egyik {{total}} legfontosabb célpontunkat.",
     "selected": "{{total}} kiválasztott"
   },
   "twitter": {

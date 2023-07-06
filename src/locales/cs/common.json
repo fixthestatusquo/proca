@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "není na koho se obrátit {{area}}"
     },
-    "random": "Vybraný jeden z našich {{total}} nejdůležitějších cílů",
+    "random_one": "Vybraný jeden z našich {{total}} nejdůležitějších cílů",
     "selected": "{{total}} vybrané"
   },
   "twitter": {

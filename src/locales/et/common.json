@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "ei ole kedagi, kellega ühendust võtta {{area}}"
     },
-    "random": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest.",
+    "random_one": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest.",
     "selected": "{{total}} valitud"
   },
   "twitter": {

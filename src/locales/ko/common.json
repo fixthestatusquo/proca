@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "연락할 사람이 없는 경우 {{area}}"
     },
-    "random": "{{total}} 가장 중요한 타겟 중 하나 선택",
+    "random_one": "{{total}} 가장 중요한 타겟 중 하나 선택",
     "selected": "{{total}} 선택됨"
   },
   "twitter": {

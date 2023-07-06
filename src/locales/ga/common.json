@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}"
     },
-    "random": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí",
+    "random_one": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí",
     "selected": "{{total}} roghnaithe"
   },
   "twitter": {

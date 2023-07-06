@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "ni nikogar, na kogar bi se lahko obrnili. {{area}}"
     },
-    "random": "Izbran je eden od {{total}} poslancev",
+    "random_one": "Izbran je eden od {{total}} poslancev",
     "selected": "{{total}} izbrani"
   },
   "twitter": {

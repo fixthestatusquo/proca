@@ -196,7 +196,7 @@
     "postcode": {
       "empty": "m'hemm ħadd x'tikkuntattja f'{{area}}"
     },
-    "random": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}.",
+    "random_one": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}.",
     "selected": "{{total}} magħżula"
   },
   "twitter": {
