@@ -17,7 +17,7 @@ once it's on the target/source, you need to push it to proca server
 
      node bin/target.js {campaign} --push
 
-  there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
+there are various options (run with --help). one that you might need is to generate a salutation based on the language and language (assuming they are on airtable)
 
 now you need to pull the targets from the server, mostly so you can have the internal proca-server reference for each target
 
@@ -67,7 +67,7 @@ emailStatus can be one of:
 - `unsub`- email was unsubscribed
 
 you can fetch it with bin/pullTarget.js {campaign name}
-and push it with bin/pushTarget.js {campaign name}
+and push it with bin/target.js {campaign name} --push
 
 @marcin, can you complete/confirm:
 
@@ -115,4 +115,3 @@ mtt {
   country? -> in area or duplicate?
 }
 ```
-

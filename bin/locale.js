@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 const fs = require("fs");
-const fetch = require("cross-fetch");
 require("dotenv").config();
-const i18nInit = require("./lang").i18nInit;
-const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },
   boolean: ["help", "dry-run", "git", "pull", "push", "extract"],
 });
-const { saveCampaign, pullCampaign } = require("./campaign");
 
-const { mainLanguage } = require("./lang");
-const { read, save, file, api, fileExists, mkdirp } = require("./config");
+const { read, file, fileExists, mkdirp } = require("./config");
 
 const help = () => {
   if (!argv._.length || argv.help) {
@@ -42,11 +37,11 @@ const saveLocale = async (campaign, lang, locale) => {
   console.log(color.green.bold("wrote " + fileName));
   if (argv.git) {
     if (!exists) {
-      r = await add(fileName);
+      await add(fileName);
       console.log("adding", fileName);
     }
     const msg = "extract locale" + lang + " for " + campaign;
-    r = argv.git && (await commit(fileName, msg));
+    argv.git && (await commit(fileName, msg));
   }
   return fileName;
 };
@@ -59,8 +54,7 @@ const extract = async (name) => {
     await saveLocale(name, locale, campaign.config.locales[locale]);
   }
   let r = null;
-  const msg = "extract locales" + langs.join(",") + " for " + campaign;
-  return;
+  //  const msg = "extract locales" + langs.join(",") + " for " + campaign;
   if (argv.git) {
     console.log(r.summary);
   }
@@ -78,9 +72,7 @@ if (require.main === module) {
     argv.git = false;
   }
   (async () => {
-    const anonymous = true;
     const campaignName = argv._[0];
-    const toLang = argv._[0];
     try {
       if (argv.extract) {
         await extract(campaignName);
@@ -92,5 +84,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pull, push, translate };
+  module.exports = { extract };
 }

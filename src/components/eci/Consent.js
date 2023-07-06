@@ -34,7 +34,11 @@ export default function Register(props) {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { formState: { errors }, register, setValue } = props.form;
+  const {
+    formState: { errors },
+    register,
+    setValue,
+  } = props.form;
 
   const handleCheck = (event) => {
     setValue(event.target.name, event.target.checked, { shouldValidate: true });
@@ -51,7 +55,6 @@ export default function Register(props) {
               placement="end"
               error={!!(errors && errors.certify)}
             >
-
               {/* TO DO: CHECK IF IT IS REALY REQUIRED */}
               <Checkbox
                 {...register("certify")}

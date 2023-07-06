@@ -1,6 +1,6 @@
 const fs = require("fs");
 require("./dotenv.js");
-const { pullTarget, read, file } = require("./config");
+const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run", "git", "verbose"],
@@ -123,14 +123,14 @@ const saveTargets = (campaignName, targets) => {
   return fileName;
 };
 
-const publishTarget = async (campaignName, arvg) => {
+const publishTarget = async (campaignName) => {
   const name = campaignName;
   const publicEmail = argv.email || false;
   const display = argv.display || false;
   const meps = argv.meps || false;
 
   try {
-    const c = read("campaign/" + name); // the config file
+    read("campaign/" + name); // the config file
     let targets = read("target/server/" + name); // the list of targets from proca server
     if (argv.source) {
       const sources = read("target/source/" + name); // the list of targets from proca server
@@ -165,7 +165,7 @@ const publishTarget = async (campaignName, arvg) => {
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
       if (argv["dry-run"]) return;
-      r = argv.git && (await commit(c, msg, true));
+      const r = argv.git && (await commit(c, msg, true));
       if (r?.summary) {
         console.log(r.summary);
         await push();

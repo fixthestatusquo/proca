@@ -1,4 +1,3 @@
-import Url from "url-parse";
 /*
         var urlParams = new URLSearchParams(window.location.search);
         params.values = {};
@@ -27,8 +26,8 @@ const filter = (query, whitelist = null, prefix = "") => {
 };
 
 const parse = (whitelist, prefix) => {
-  const url = Url(document.location, true);
-  return filter(url.query, whitelist, prefix) || {};
+  const query = new URLSearchParams(document.location.search);
+  return filter(Object.fromEntries(query), whitelist, prefix) || {};
 };
 
 const step = (prefix) => {

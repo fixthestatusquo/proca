@@ -186,7 +186,6 @@ CA: 5,
 DK: 4,
 NL: 4
 
-
 ## Consent
 
 to collect the consent of being contacted
@@ -204,8 +203,8 @@ to collect the consent of being contacted
 
 ### Email (config.component.consent.email)
 
-- `confirm.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
-- `confirm.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
+- `config.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
+- `config.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
 ## Email (config.component.email)
 

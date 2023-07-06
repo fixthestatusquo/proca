@@ -17,7 +17,7 @@ export function merge(...objects) {
       if (Array.isArray(pVal) && Array.isArray(oVal)) {
         prev[key] = pVal.concat(...oVal);
       } else if (isObject(pVal) && isObject(oVal)) {
-        prev[key] = mergeDeep(pVal, oVal);
+        prev[key] = merge(pVal, oVal);
       } else {
         prev[key] = oVal;
       }

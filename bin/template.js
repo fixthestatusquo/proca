@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const crypto = require("crypto");
 require("./dotenv.js");
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
@@ -18,7 +17,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou" },
 });
-const { read, file, api } = require("./config");
+const { read, api } = require("./config");
 const mjmlEngine = require("mjml");
 const htmlparser2 = require("htmlparser2");
 const render = require("dom-serializer").default;
@@ -27,7 +26,7 @@ const i18n = require("./lang").i18next;
 const configOverride = require("./lang").configOverride;
 const getConfigOverride = require("../webpack/config.js").getConfigOverride;
 const org = require("./org");
-const { readCampaign, saveCampaign } = require("./campaign");
+const { saveCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -62,8 +61,7 @@ const snarkdown = (markdown) => {
   const md = markdown.replaceAll("proca_", "proca-"); //snarkdown messes up
   const para = md.split(/(?:\r?\n){2,}/);
   if (para.length === 1) {
-    console.log("no new line", markdown);
-    process.exit(1);
+    // don't add the paragraph
     return _snarkdown(markdown);
   }
   const htmls = para.map((l) =>
@@ -89,13 +87,13 @@ const pushTemplate = async (config, html) => {
     thankYouTemplate
     }
   }`;
-  const query2 = `mutation updateActionPage ($id: Int!, $template: String!) {
+  /*  const query2 = `mutation updateActionPage ($id: Int!, $template: String!) {
     actionPage: updateActionPage (id: $id, input: {
       thankYouTemplate: $template
     }) {
     thankYouTemplate
     }
-  }`;
+  }`; */
   if (!config.filename) {
     console.log("config json invalid, check it first");
     process.exit(1);
@@ -189,7 +187,7 @@ const translateTpl = (tpl, lang, markdown) =>
       resolve(r);
     });
     const parser = new htmlparser2.Parser(handler);
-    const dom = parser.write(tpl);
+    parser.write(tpl);
     parser.end();
   });
 
@@ -238,7 +236,7 @@ const i18nRender = async (tplName, lang, markdown) => {
   let tpl = fs.readFileSync(fileName, "utf8");
   if (lang) {
     //only switch if different than current?
-    const d = await i18n.changeLanguage(lang);
+    await i18n.changeLanguage(lang);
     //    configOverride(config); what does it do?
   }
   const newTpl = await translateTpl(tpl, lang, markdown);
@@ -253,7 +251,7 @@ const i18nRender = async (tplName, lang, markdown) => {
 };
 
 const i18nTplInit = async (campaign, lang = "en") => {
-  const i = await i18nInit;
+  await i18nInit;
   await i18n.setDefaultNamespace("server");
   if (lang !== "en") {
     const server = campaign.config.locales.en["server:"]; // only campaign and common namespaces are handled by default
@@ -270,7 +268,7 @@ const i18nTplInit = async (campaign, lang = "en") => {
 if (require.main === module) {
   if (!argv._.length || argv.help) {
     console.error("missing actionpage id");
-    return help();
+    help();
   }
 
   (async () => {
@@ -279,16 +277,15 @@ if (require.main === module) {
     let lang = null;
     let render = null;
     //const display = argv.display || false;
-    const [file, config, campaign] = getConfigOverride(id);
+    const [, config, campaign] = getConfigOverride(id);
     const server = await i18nTplInit(campaign, config.lang);
     if (server) config.locales["server:"] = server;
-    let orgConfig = {};
     try {
       try {
-        orgConfig = org.readOrg(config.org.name);
+        org.readOrg(config.org.name);
       } catch (e) {
         try {
-          orgConfig = await org.getOrg(config.org.name);
+          await org.getOrg(config.org.name);
         } catch (e) {
           console.log(
             "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
@@ -315,7 +312,7 @@ if (require.main === module) {
       console.warn("overriding language with ", lang);
     }
 
-    const d = await i18n.changeLanguage(lang);
+    await i18n.changeLanguage(lang);
     configOverride(config);
 
     if (!mailConfig) {
@@ -342,7 +339,7 @@ if (require.main === module) {
       console.log(e);
     }
     if (argv.push && !argv["dry-run"]) {
-      const r = await pushTemplate(config, render.html);
+      await pushTemplate(config, render.html);
     }
   })();
 } else {

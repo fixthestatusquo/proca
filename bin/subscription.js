@@ -5,16 +5,11 @@ const ws = require("websocket").w3cwebsocket;
 require("./dotenv.js");
 const { build } = require("./esbuild");
 const { getConfig } = require("./widget");
-const { saveCampaign, pullCampaign } = require("./campaign");
+const { saveCampaign } = require("./campaign");
 const { runDate, save: saveWidget } = require("./config");
 
 const api = process.env.REACT_APP_API_URL || "https://api.proca.app/api";
 const socket = api.replace(/api$/, "socket").replace(/^http/, "ws");
-
-const logEvent =
-  (eventName) =>
-  (...args) =>
-    console.log(eventName, ...args);
 
 const handleError = (error) => {
   console.log(JSON.stringify(error, null, 2));
@@ -23,12 +18,6 @@ const handleError = (error) => {
 const absintheSocket = withAbsintheSocket.create(
   new Socket(socket, { transport: ws })
 );
-
-const query = `subscription news {
-  actionPageUpserted {
-       id, name
-  }
-}`;
 
 const operation = `subscription news {
   actionPageUpserted {
@@ -58,7 +47,7 @@ const notifier = withAbsintheSocket.send(absintheSocket, {
 const updatedNotifier = withAbsintheSocket.observe(absintheSocket, notifier, {
   onAbort: handleError,
   onError: handleError,
-  onStart: (data) => {
+  onStart: () => {
     console.log("waiting for widgets to build", api);
   },
   onResult: async (d) => {
@@ -74,3 +63,5 @@ const updatedNotifier = withAbsintheSocket.observe(absintheSocket, notifier, {
     await build(config.actionpage);
   },
 });
+
+module.exports = { updatedNotifier };

@@ -28,7 +28,7 @@ const imageType = (name) => {
 };
 const slugify = (text) =>
   text
-    .replace(/[^a-z\.0-9 _-]/g, "")
+    .replace(/[^a-z.0-9 _-]/g, "")
     .replace(/\s+/g, "_")
     .replace(/-+/g, "_")
     .toLowerCase();
@@ -68,7 +68,7 @@ const push = async (name) => {
     bottom_text: key + ".bottom",
   };
   d.hash = hash(d);
-  const { data, error } = await supabase.from("meme_template").insert([d]);
+  const { error } = await supabase.from("meme_template").insert([d]);
 
   if (error) {
     if (error.code === "23505") {
@@ -144,5 +144,5 @@ const pullTemplates = async () => {
     help();
     process.exit(1);
   }
-  const image = await push(name);
+  await push(name);
 })();

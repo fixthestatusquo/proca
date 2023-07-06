@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const fs = require("fs");
 require("./dotenv.js");
 const { read, save } = require("./config");
 const { push, pull } = require("./widget");
@@ -155,7 +154,7 @@ ids.map((id) => {
   (async () => {
     if (argv.pull) {
       try {
-        const d = await pull(id);
+        await pull(id);
       } catch (errors) {
         Array.isArray(errors) &&
           errors.map((e) => {
@@ -270,7 +269,7 @@ ids.map((id) => {
         console.error("country must be a two char string or boolean");
         process.exit(0);
       }
-      const country = argv.country;
+      let country = argv.country;
       if (country === "true") {
         country = true;
       } else if (country === "false") {
@@ -314,7 +313,7 @@ ids.map((id) => {
     if (argv.push) {
       // must be the last one
       try {
-        const d = await push(id);
+        await push(id);
       } catch (errors) {
         Array.isArray(errors) &&
           errors.map((e) => {

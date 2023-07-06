@@ -107,7 +107,7 @@ let procaPlugin = ({ id, config }) => ({
     build.onResolve({ filter: /@i18n-iso-countries\/lang/ }, () =>
       resolveCountryList(config)
     );
-    build.onResolve({ filter: /locales\/common\.js/ }, (args) => {
+    build.onResolve({ filter: /locales\/common\.js/ }, () => {
       return {
         path: path.resolve(
           __dirname,
@@ -116,7 +116,7 @@ let procaPlugin = ({ id, config }) => ({
         sideEffects: false,
       };
     });
-    build.onEnd(async (result) => {
+    build.onEnd(async () => {
       let file = "./public/index.html";
       if (
         config.layout &&
@@ -153,7 +153,7 @@ let procaPlugin = ({ id, config }) => ({
       runs++;
       //     console.log(result);
     });
-    build.onLoad({ filter: /.*src\/actionPage\.js$/ }, (args) => {
+    build.onLoad({ filter: /.*src\/actionPage\.js$/ }, () => {
       if (argv.serve) {
         runs === 0
           ? console.log(color.blue("load", config.filename))
@@ -171,7 +171,7 @@ let procaPlugin = ({ id, config }) => ({
 });
 
 const getConfig = (id) => {
-  const [filename, config, campaign] = getConfigOverride(id);
+  const [, config] = getConfigOverride(id);
 
   return {
     globalName: "proca",

@@ -117,7 +117,7 @@ const commit = async (file, message, createIfNotExist) => {
 
 const push = async () => {
   try {
-    const r = await git.push();
+    await git.push();
   } catch (e) {
     if (e.git) console.error(color.red(e.git));
     else {
@@ -130,7 +130,7 @@ const push = async () => {
 
 const pull = async () => {
   try {
-    const r = await git.pull();
+    await git.pull();
   } catch (e) {
     if (e.git) console.error(color.red(e.git));
     else {
@@ -143,13 +143,11 @@ const pull = async () => {
 };
 
 const add = async (file) => {
-  const cmd = process.argv.slice(1).join(" ");
-  let result = null;
   try {
     if (file && file.length) {
-      result = await git.add(file);
+      await git.add(file);
     } else {
-      result = await git.add(".");
+      await git.add(".");
     }
   } catch (e) {
     console.error("git add ", color.red(e));
@@ -195,7 +193,6 @@ if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
   help();
   (async () => {
-    const anonymous = true;
     try {
       const files = parseFiles();
       if (argv.status) {
@@ -206,7 +203,7 @@ if (require.main === module) {
         console.log(p);
       }
       if (argv.add) {
-        const p = await add(files);
+        await add(files);
       }
       if (argv.commit) {
         const r = commit(files);
@@ -217,10 +214,10 @@ if (require.main === module) {
         process.exit(1);
       }
       if (argv.push) {
-        const p = await push(files);
+        await push(files);
       }
       if (argv.deploy) {
-        const p = await deploy();
+        await deploy();
       }
     } catch (e) {
       console.error(e);
@@ -236,5 +233,7 @@ if (require.main === module) {
     push,
     pull,
     onGit,
+    changeDir,
+    newFiles,
   };
 }

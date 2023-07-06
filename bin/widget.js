@@ -1,12 +1,9 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const path = require("path");
-const { link, admin, request, basicAuth } = require("@proca/api");
+const { admin, request } = require("@proca/api");
 require("./dotenv.js");
 const {
   api,
   read,
-  file,
   apiLink,
   fileExists,
   runDate,
@@ -15,7 +12,7 @@ const {
 const { commit, add, onGit } = require("./git");
 const { saveCampaign, pullCampaign } = require("./campaign");
 const { build, serve } = require("./esbuild");
-const getId = require("./id");
+//const getId = require("./id");
 const color = require("cli-color");
 const help = (exit) => {
   console.log(
@@ -166,6 +163,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
     try {
       console.log(r.errors);
       if (r.errors[0].path[1] === "name") {
+        console.log("error");
       }
       const page = await fetchByName(name);
       console.warn("duplicate of widget", page.id);
@@ -174,10 +172,6 @@ const addPage = async (name, campaignName, locale, orgName) => {
       console.log(e);
       throw e;
     }
-    console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
-    );
-    throw new Error(r.errors[0].message);
   }
   console.log(
     {
@@ -190,8 +184,9 @@ const addPage = async (name, campaignName, locale, orgName) => {
   );
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
-  console.log("action page " + name + " #" + page.id);
-  return page;
+  console.log(r);
+  console.log("action page " + name + " #" + r?.id);
+  return r;
 };
 
 const fetchByName = async (name) => {
@@ -307,14 +302,10 @@ query actionPage ($id:Int!) {
 }
 `;
 
-  try {
-    data = await api(query, { id: actionPage }, "actionPage", anonymous);
-  } catch (err) {
-    throw err;
-  }
+  data = await api(query, { id: actionPage }, "actionPage", anonymous);
   if (!data.actionPage) throw new Error(data.toString());
 
-  config = getConfig(data);
+  const config = getConfig(data);
   if (campaign) {
     return [config, data.actionPage.campaign];
   }
@@ -330,7 +321,7 @@ const pull = async (
   { anonymous = true, campaign = true, save = true }
 ) => {
   //  console.log("file",file(actionPage));
-  const local = read(actionPage);
+  read(actionPage); // not sure what it does
   const [config, campaignData] = await fetch(actionPage, {
     anonymous: anonymous,
     campaign: campaign,
@@ -346,7 +337,7 @@ const push = async (id) => {
   const local = read(id);
   const c = apiLink();
   const actionPage = actionPageFromLocalConfig(id, local);
-  const { data, errors } = await request(
+  const { errors } = await request(
     c,
     admin.UpdateActionPageDocument,
     actionPage
@@ -400,7 +391,7 @@ if (require.main === module) {
         let widget = null;
         if (argv.pull) {
           const exists = fileExists(id);
-          const [widget, campaign] = await pull(id, {
+          const [widget] = await pull(id, {
             anonymous: anonymous,
             campaign: true,
             save: !argv["dry-run"],

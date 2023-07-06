@@ -314,14 +314,18 @@ const Component = (props) => {
     viewDialog(false);
   };
 
+  console.log(
+    props.country !== false,
+    config.component.twitter?.filter?.includes("country")
+  );
   const FirstStep = (props) => {
     return (
       <>
         <PreviousStepConfirm email={config.component.consent?.email} />
-        {props.country !== false ||
-          (config.component.twitter?.filter?.includes("country") && (
-            <Country form={form} list={config.component?.twitter?.countries} />
-          ))}
+        {(props.country !== false ||
+          config.component.twitter?.filter?.includes("country")) && (
+          <Country form={form} list={config.component?.twitter?.countries} />
+        )}
         <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
         <TwitterList
           profiles={profiles}

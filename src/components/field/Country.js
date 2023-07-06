@@ -81,7 +81,6 @@ const Country = (props) => {
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
   const isWindows = useIsWindows();
-
   const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {

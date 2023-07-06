@@ -115,48 +115,57 @@ export default function ImageStickerComplete(props) {
             </StepButton>
           </Step>
         </Stepper>
-        <div hidden={activeStep !== 0} className={classes.dialog}>
-          {t("image.options", "Would you like to")}
-          <Accordion
-            TransitionProps={{ unmountOnExit: true }}
-            expanded={expanded === "upload"}
-            onChange={handleChange("upload")}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <ImageIcon color="primary" />
-              {t("image.upload", "Upload a picture")}
-            </AccordionSummary>
-            <AccordionDetails classes={{ root: classes.accordion }}>
-              <UploadPicture setCanvas={uploadedCanvas} />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            TransitionProps={{ unmountOnExit: true }}
-            expanded={expanded === "webcam"}
-            onChange={handleChange("webcam")}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <PhotoCameraIcon color="primary" />
-              {t("image.takeTitle", "Take a picture with your phone")}
-            </AccordionSummary>
-            <AccordionDetails classes={{ root: classes.accordion }}>
-              <Camera setCanvas={uploadedCanvas} />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            TransitionProps={{ unmountOnExit: true }}
-            expanded={expanded === "select"}
-            onChange={handleChange("select")}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <PhotoLibraryIcon color="primary" />
-              {t("image.select")}
-            </AccordionSummary>
-            <AccordionDetails classes={{ root: classes.accordion }}>
-              <SelectPicture setCanvas={uploadedCanvas} />
-            </AccordionDetails>
-          </Accordion>
-        </div>
+        {config.component.picture?.upload !== false && (
+          <>
+            <div hidden={activeStep !== 0} className={classes.dialog}>
+              {t("image.options", "Would you like to")}
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "upload"}
+                onChange={handleChange("upload")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <ImageIcon color="primary" />
+                  {t("image.upload", "Upload a picture")}
+                </AccordionSummary>
+                <AccordionDetails classes={{ root: classes.accordion }}>
+                  <UploadPicture setCanvas={uploadedCanvas} />
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "webcam"}
+                onChange={handleChange("webcam")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <PhotoCameraIcon color="primary" />
+                  {t("image.takeTitle", "Take a picture with your phone")}
+                </AccordionSummary>
+                <AccordionDetails classes={{ root: classes.accordion }}>
+                  <Camera setCanvas={uploadedCanvas} />
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === "select"}
+                onChange={handleChange("select")}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <PhotoLibraryIcon color="primary" />
+                  {t("image.select")}
+                </AccordionSummary>
+                <AccordionDetails classes={{ root: classes.accordion }}>
+                  <SelectPicture setCanvas={uploadedCanvas} />
+                </AccordionDetails>
+              </Accordion>
+            </div>
+          </>
+        )}
+        {config.component.picture?.upload == false && (
+          <>
+            <SelectPicture setCanvas={uploadedCanvas} />
+          </>
+        )}
         <div hidden={activeStep !== 1} className={classes.dialog}>
           <ImageStickerKonva
             setImage={setImage}

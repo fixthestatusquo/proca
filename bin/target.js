@@ -2,7 +2,6 @@
 const fs = require("fs");
 const fetch = require("cross-fetch");
 require("dotenv").config();
-const i18nInit = require("./lang").i18nInit;
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
 const { publishTarget } = require("./publishTargets");
@@ -234,8 +233,7 @@ const formatTarget = async (campaignName, file) => {
 
   const formatTargets = async () => {
     const results = [];
-    const fallBackLang = {};
-    for (t of targets) {
+    for (const t of targets) {
       if (!t.name) continue; //skip empty records
       delete t.id;
 
@@ -412,7 +410,6 @@ if (require.main === module) {
   (async () => {
     try {
       const name = argv._[0];
-      let target = null;
       if (argv.push) {
         await pushTarget(name, argv.file || name);
       }
@@ -429,14 +426,13 @@ if (require.main === module) {
       if (argv.digest) {
         //        await pullTarget(name, argv.file || name);
         console.log(argv.file, name, argv.file || name);
-        target = await digestTarget(name, argv.file || name);
+        await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
         await pushTarget(name, argv.file || name);
       }
       if (argv.pull) {
-        //        await pullTarget(name, argv.file || name);
-        target = await pullTarget(name, argv.file || name);
+        await pullTarget(name, argv.file || name);
       }
       if (argv.publish) {
         await publishTarget(name, argv);
@@ -453,5 +449,6 @@ if (require.main === module) {
     pullTarget,
     pushTarget,
     readTarget,
+    getTwitter,
   };
 }

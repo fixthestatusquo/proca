@@ -11,7 +11,7 @@ export default function SignatureForm(props) {
   return (
     <React.Fragment>
       <ProgressCounter actionPage={config.component.eci.actionpage} />
-      <Support {...props} buttonText={t("action.eci","Sign the ECI")} />
+      <Support {...props} buttonText={t("action.eci", "Sign the ECI")} />
     </React.Fragment>
   );
 }

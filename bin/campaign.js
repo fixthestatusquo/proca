@@ -1,19 +1,9 @@
 #!/usr/bin/env node
 const fs = require("fs");
-const path = require("path");
 const crossFetch = require("cross-fetch");
-const { link, admin, request, basicAuth } = require("@proca/api");
+const { basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const {
-  API_URL,
-  api,
-  read,
-  file,
-  apiLink,
-  fileExists,
-  save,
-  checked,
-} = require("./config");
+const { API_URL, api, read, file, fileExists, checked } = require("./config");
 //const { pullCampaign, saveCampaign } = require("./config");
 const { commit, add, onGit } = require("./git");
 const color = require("cli-color");
@@ -48,6 +38,7 @@ const saveCampaign = (campaign, { git = true, message = null }) => {
     file("campaign/" + campaign.name),
     JSON.stringify(campaign, null, 2)
   );
+  console.log("don't use git", git, message);
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
@@ -67,26 +58,12 @@ query getCampaign ($name:String!){
   return data.campaign;
 };
 
-const getPage = async (name) => {
-  const query = `
-query getPage ($name:String!){
-  actionPage (name:$name) {
-    id, name, locale, org {
-      name, title
-    }
-  }
-}`;
-
-  const data = await api(query, { name: name }, "getPage");
-  return data.actionPage;
-};
-
 const pullCampaign = async (name) => {
   return await getCampaign(name);
 };
 
 const readCampaign = (name) => {
-  return campaign("campaign" + name);
+  return read("campaign/" + name);
 };
 
 const pushCampaign = async (name) => {
@@ -132,6 +109,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
     }
     data = resJson.data;
   } catch (err) {
+    console.log(err);
     throw err;
   }
   if (data.upsertCampaign.id !== campaign.id) {
@@ -183,7 +161,7 @@ if (require.main === module) {
 
         if (!argv["dry-run"]) {
           const exists = fileExists("campaign/" + name);
-          const result = saveCampaign(campaign, { git: false });
+          saveCampaign(campaign, { git: false });
           let r = null;
           if (!exists && argv.git) {
             r = await add(fileName);
