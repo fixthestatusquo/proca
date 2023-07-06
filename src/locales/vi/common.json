@@ -196,6 +196,8 @@
     "postcode": {
       "empty": "không có ai để liên hệ trong {{area}}"
     },
+    "random_one": "Đã chọn một trong những mục tiêu quan trọng nhất {{total}} của chúng tôi",
+    "random_other": "Đã chọn {{count}} trong số {{total}} mục tiêu quan trọng nhất của chúng tôi",
     "selected": "{{total}} đã chọn"
   },
   "twitter": {
