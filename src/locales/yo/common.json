@@ -197,6 +197,7 @@
       "empty": "ko si ẹnikan lati kan si ni {{area}}"
     },
     "random_one": "Ti yan ọkan ninu awọn ibi-afẹde pataki julọ {{total}}.",
+    "random_other": "Ti a yan {{count}} ti awọn ibi-afẹde {{total}} ti o ṣe pataki julọ",
     "selected": "{{total}} ti yan"
   },
   "twitter": {

@@ -197,6 +197,7 @@
       "empty": "babu wanda za a tuntuɓar a {{area}}"
     },
     "random_one": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}.",
+    "random_other": "Zaɓi {{count}} na {{total}} mafi mahimmancin maƙasudin mu",
     "selected": "{{total}} aka zaba"
   },
   "twitter": {

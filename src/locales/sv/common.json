@@ -196,7 +196,8 @@
     "postcode": {
       "empty": "Det finns ingen att kontakta i {{area}}"
     },
-    "random_one": "Valde ett av våra viktigaste mål {{total}}.",
+    "random_one": "Valde ut ett av våra {{total}} viktigaste mål",
+    "random_other": "Utvalda {{count}} av våra {{total}} viktigaste mål",
     "selected": "{{total}} utvalda"
   },
   "twitter": {

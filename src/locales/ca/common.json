@@ -197,6 +197,7 @@
       "empty": "no hi ha ningú amb qui contactar a {{area}}"
     },
     "random_one": "Hem seleccionat un dels nostres objectius més importants {{total}}.",
+    "random_other": "S'han seleccionat {{count}} dels nostres objectius més importants {{total}}.",
     "selected": "{{total}} seleccionat"
   },
   "twitter": {

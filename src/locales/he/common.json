@@ -197,6 +197,7 @@
       "empty": "אין עם מי לפנות ב-{{area}}"
     },
     "random_one": "בחרנו באחד מהיעדים החשובים ביותר {{total}} שלנו",
+    "random_other": "נבחר {{count}} מהיעדים החשובים ביותר שלנו {{total}}",
     "selected": "{{total}} נבחר"
   },
   "twitter": {

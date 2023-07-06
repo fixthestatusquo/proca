@@ -197,6 +197,7 @@
       "empty": "m'hemm ħadd x'tikkuntattja f'{{area}}"
     },
     "random_one": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}.",
+    "random_other": "{{count}} magħżula mill-{{total}} l-aktar miri importanti tagħna",
     "selected": "{{total}} magħżula"
   },
   "twitter": {

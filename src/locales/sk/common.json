@@ -197,6 +197,7 @@
       "empty": "nie je na koho sa obrátiť {{area}}"
     },
     "random_one": "Vybraný jeden z našich {{total}} najdôležitejších cieľov",
+    "random_other": "Vybrané {{count}} z našich {{total}} najdôležitejších cieľov",
     "selected": "{{total}} vybrané"
   },
   "twitter": {

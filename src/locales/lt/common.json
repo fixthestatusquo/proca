@@ -196,7 +196,8 @@
     "postcode": {
       "empty": "nėra su kuo susisiekti {{area}}"
     },
-    "random_one": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų",
+    "random_one": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų.",
+    "random_other": "Atrinkta {{count}} iš mūsų {{total}} svarbiausių tikslų.",
     "selected": "{{total}} pasirinktas"
   },
   "twitter": {
