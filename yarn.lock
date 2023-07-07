@@ -5285,10 +5285,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-use-image@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/use-image/-/use-image-1.1.0.tgz"
-  integrity sha512-+cBHRR/44ZyMUS873O0vbVylgMM0AbdTunEplAWXvIQ2p69h2sIo2Qq74zeUsq6AMo+27e5lERQvXzd1crGiMg==
+use-image@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/use-image/-/use-image-1.1.1.tgz#bdd3f2e1718393ffc0e56136f993467103d9d2df"
+  integrity sha512-n4YO2k8AJG/BcDtxmBx8Aa+47kxY5m335dJiCQA5tTeVU4XdhrhqR6wT0WISRXwdMEOv5CSjqekDZkEMiiWaYQ==
 
 utf-8-validate@^5.0.2:
   version "5.0.9"
