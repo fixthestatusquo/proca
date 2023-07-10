@@ -4,6 +4,23 @@ import { portals } from "../actionPage";
 
 import Grid from "@material-ui/core/Grid";
 
+const removeEmpty = (dom) => {
+  const nodeIterator = document.createNodeIterator(
+    dom,
+    NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT,
+    (node) => {
+      if (node.nodeType === Node.COMMENT_NODE) return NodeFilter.FILTER_ACCEPT;
+      const d = node.data.trim();
+      if (d.length === 0) return NodeFilter.FILTER_ACCEPT;
+      console.log(d);
+      return NodeFilter.FILTER_REJECT;
+    }
+  );
+  while (nodeIterator.nextNode()) {
+    nodeIterator.referenceNode.remove();
+  }
+};
+
 const TwoColumns = (props) => {
   const config = useCampaignConfig();
   const id = "proca-wrapper";
@@ -43,6 +60,7 @@ const TwoColumns = (props) => {
   if (!dom || dom.childNodes.length === 0 || props.hidden)
     return <>{props.children}</>;
 
+  removeEmpty(dom);
   if (
     dom.childNodes.length < 2 &&
     (dom.firstElementChild?.innerHTML?.length < 25 ||
