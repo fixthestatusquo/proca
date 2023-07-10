@@ -5,6 +5,7 @@ import { portals } from "../actionPage";
 import Grid from "@material-ui/core/Grid";
 
 const removeEmpty = (dom) => {
+  if (!dom) return;
   const nodeIterator = document.createNodeIterator(
     dom,
     NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT,
@@ -57,12 +58,12 @@ const TwoColumns = (props) => {
       </Grid>
     );
   }
+  removeEmpty(dom);
   if (!dom || dom.childNodes.length === 0 || props.hidden)
     return <>{props.children}</>;
 
-  removeEmpty(dom);
   if (
-    dom.childNodes.length < 2 &&
+    dom.dom.childNodes.length < 2 &&
     (dom.firstElementChild?.innerHTML?.length < 25 ||
       dom.childNodes[0].length < 25)
   ) {
