@@ -4,6 +4,7 @@ const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "keep", "dry-run", "git", "verbose"],
+  string: ["file"],
   default: { git: true },
 });
 
@@ -124,14 +125,14 @@ const saveTargets = (campaignName, targets) => {
 };
 
 const publishTarget = async (campaignName) => {
-  const name = campaignName;
+  const name = argv.file ? argv.file : campaignName;
   const publicEmail = argv.email || false;
   const display = argv.display || false;
   const meps = argv.meps || false;
 
   try {
     read("campaign/" + name); // the config file
-    let targets = read("target/server/" + name); // the list of targets from proca server
+    let targets = read("target/server/" + campaignName); // the list of targets from proca server
     if (argv.source) {
       const sources = read("target/source/" + name); // the list of targets from proca server
       const c = targets.filter(
@@ -161,6 +162,7 @@ const publishTarget = async (campaignName) => {
       //d.sort((a, b) => b?.followers_count - a?.followers_count); still need to figure out the order
       //d.sort((a, b) => a[sort] - b[sort]);
       d.sort((a, b) => a[sort].localeCompare(b[sort]));
+
       const c = saveTargets(name, d);
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
