@@ -362,7 +362,10 @@ const Component = (props) => {
 
   const SecondStep = () => {
     if (!tweeting) return null;
-    if (profiles.length === allProfiles.length) {
+    if (
+      profiles.length === allProfiles.length &&
+      !config.component.twitter?.filter?.includes("random")
+    ) {
       return (
         <>
           <Alert severity="info">{t("twitter.instruction")}</Alert>
