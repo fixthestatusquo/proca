@@ -62,7 +62,7 @@ const TwoColumns = (props) => {
     return <>{props.children}</>;
 
   if (
-    dom.dom.childNodes.length < 2 &&
+    dom.childNodes.length < 2 &&
     (dom.firstElementChild?.innerHTML?.length < 25 ||
       dom.childNodes[0].length < 25)
   ) {
