@@ -13,7 +13,6 @@ const removeEmpty = (dom) => {
       if (node.nodeType === Node.COMMENT_NODE) return NodeFilter.FILTER_ACCEPT;
       const d = node.data.trim();
       if (d.length === 0) return NodeFilter.FILTER_ACCEPT;
-      console.log(d);
       return NodeFilter.FILTER_REJECT;
     }
   );
