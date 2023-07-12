@@ -79,6 +79,9 @@ const Consent = (props) => {
   const [value, setValue] = React.useState(false);
   const config = useCampaignConfig();
   const classes = useStyles();
+
+  const coordinator = config.lead.name === config.org.name;
+
   const consentIntro =
     config.component?.consent?.intro === false || props.intro === false
       ? null
@@ -118,7 +121,7 @@ const Consent = (props) => {
             onChange={handleChange}
             required
           >
-            {!config.component?.consent?.split && (
+            {(!config.component?.consent?.split || coordinator) && (
               <FormControlLabel
                 value="opt-in"
                 checked={value === "opt-in"}
@@ -132,7 +135,7 @@ const Consent = (props) => {
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
             )}
-            {config.component?.consent?.split && (
+            {config.component?.consent?.split && !coordinator && (
               <>
                 <FormControlLabel
                   value="opt-in"
