@@ -13,13 +13,13 @@ import {
   Collapse,
   Checkbox,
 } from "@mui/material";
-import { Alert, AlertTitle } from '@mui/material';
+import { Alert, AlertTitle } from "@mui/material";
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Controller } from "react-hook-form";
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   check: {
@@ -87,6 +87,8 @@ const Consent = (props) => {
           campaign: config.campaign.title,
         });
 
+  const coordinator = config.lead.name === config.org.name;
+
   const optin = () => {
     setValue("opt-in");
   };
@@ -118,7 +120,7 @@ const Consent = (props) => {
             onChange={handleChange}
             required
           >
-            {!config.component?.consent?.split && (
+            {(!config.component?.consent?.split || coordinator) && (
               <FormControlLabel
                 value="opt-in"
                 checked={value === "opt-in"}
@@ -132,7 +134,7 @@ const Consent = (props) => {
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
             )}
-            {config.component?.consent?.split && (
+            {config.component?.consent?.split && !coordinator && (
               <>
                 <FormControlLabel
                   value="opt-in"
