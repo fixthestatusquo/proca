@@ -92,7 +92,8 @@ const TextFieldProca = (props) => {
             props.onChange(e);
           };
         }
-        let classesname = classes.textField;
+        let classesname =
+          classes.textField + " proca-" + props.name.toLowerCase();
         if (
           errors &&
           errors[props.name] &&
