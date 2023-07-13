@@ -30,8 +30,7 @@
     },
     "actionConfirm": {
       "subject": "One more step: please confirm your email address",
-      "intro": "Your confirmation is important to be able to process your subscription. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
-      "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
+      "intro": "Your confirmation is important to be able to process your participation. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions."
     }
   },
   "poweredBy": "POWERED BY"

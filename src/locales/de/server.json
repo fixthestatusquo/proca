@@ -30,8 +30,7 @@
         },
         "actionConfirm": {
             "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
-            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Anmeldung bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-            "extra": "Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
+            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Anmeldung bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern."
         }
     },
     "poweredBy": "ANGETRIEBEN DURCH"

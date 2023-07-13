@@ -30,8 +30,7 @@
         },
         "actionConfirm": {
             "subject": "Encore une étape : confirmez votre signature",
-            "intro": "",
-            "extra": ""
+            "intro": ""
         }
     },
     "poweredBy": "PROPULSÉ PAR"
