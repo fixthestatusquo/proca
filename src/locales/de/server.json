@@ -5,7 +5,7 @@
             "consent": "\n          ",
             "thanks": "Vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
             "about": "",
-            "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie die Nachricht verbreiten.",
+            "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie die [Nachricht verbreiten]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
             "follow": "Folgen Sie uns auf:",
             "donate": "Bitte denken Sie über eine Spende nach, um uns bei der Erfüllung unseres Auftrags zu unterstützen",
             "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen",

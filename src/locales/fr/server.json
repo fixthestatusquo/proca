@@ -3,7 +3,7 @@
         "common": {
             "greeting": "Bonjour {{firstName}}",
             "thanks": "Merci d'avoir signé {{campaign.title}}. Votre soutien est apprécié !",
-            "share": "Aidez-nous à atteindre notre objectif en faisant passer le mot.",
+            "share": "Aidez-nous à atteindre notre objectif en faisant [passer le mot]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
             "follow": "Suivez-nous sur :",
             "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission",
             "closing": "Avec votre aide, nous nous rapprochons de notre objectif"

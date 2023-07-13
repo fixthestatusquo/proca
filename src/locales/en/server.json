@@ -5,7 +5,7 @@
       "consent": "\n          ",
       "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
       "about": "",
-      "share": "Help us reach our goal by spreading the word.",
+      "share": "Help us reach our goal by [spreading the word]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
       "follow": "Follow us on:",
       "donate": "Please consider making a donation to help us achieve our mission",
       "closing": "With your help, we’re one step closer to our goal",
