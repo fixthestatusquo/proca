@@ -2,25 +2,36 @@
     "email": {
         "common": {
             "greeting": "Bonjour {{firstName}}",
+            "consent": "\n",
             "thanks": "Merci d'avoir signé {{campaign.title}}. Votre soutien est apprécié !",
+            "about":"",
             "share": "Aidez-nous à atteindre notre objectif en faisant [passer le mot]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
             "follow": "Suivez-nous sur :",
             "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission",
-            "closing": "Avec votre aide, nous nous rapprochons de notre objectif"
+            "closing": "Avec votre aide, nous nous rapprochons de notre objectif",
+            "privacy": "",
+            "unsubscribe": "",
+            "signature": ""
+        },
+         "button": {
+            "confirmAction": "",
+            "confirmOptin": "",
+            "confirmAlreadyMember": "",
+            "confirmOptout": ""
+            },
+        "doi": {
+            "subject": "Encore une étape : confirmez votre inscription",
+            "intro": "",
+            "extra": ""
         },
         "thankyou": {
             "intro": "Merci pour « {{campaign.title}} ». Votre soutien est apprécié !",
             "subject": "Merci, voici ce que vous pouvez faire d'autre"
         },
-        "doi": {
-            "subject": "Encore une étape : confirmez votre inscription",
-            "confirm": "Cliquez sur le lien ci-dessous pour confirmer votre abonnement",
-            "confirmButton": "Confirmer"
-        },
         "actionConfirm": {
             "subject": "Encore une étape : confirmez votre signature",
-            "confirm": "Cliquez sur le lien ci-dessous pour confirmer votre action",
-            "confirmButton": "Confirmer"
+            "intro": "",
+            "extra": ""
         }
     },
     "poweredBy": "PROPULSÉ PAR"
