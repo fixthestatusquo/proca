@@ -11,7 +11,7 @@
       "closing": "With your help, we’re one step closer to our goal",
       "privacy": "You can find more information about our privacy policy and the processing of your data",
       "unsubscribe": "If you do not wish to receive further information from us in the future, you will be able to cancel your registration at any time",
-      "signature": "Your sincerely,\n{{org.title}}"
+      "signature": "Yours sincerely,\n\n{{org.title}}"
     },
     "button": {
       "confirmAction": "Yes, I am a real person!",

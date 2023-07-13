@@ -11,7 +11,7 @@
             "closing": "Avec votre aide, nous nous rapprochons de notre objectif",
             "privacy": "",
             "unsubscribe": "",
-            "signature": ""
+            "signature": "Cordialement,\n\n{{org.title}}"
         },
          "button": {
             "confirmAction": "",
