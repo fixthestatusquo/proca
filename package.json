@@ -38,7 +38,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.44.3",
-    "react-i18next": "^13.0.1",
+    "react-i18next": "^13.0.2",
     "react-ipgeolocation": "^1.4.0",
     "react-konva": "^17.0.2-6",
     "react-masonry-component": "^6.3.0",
