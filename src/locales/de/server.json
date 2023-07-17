@@ -11,7 +11,8 @@
             "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen",
             "privacy": "Unsere Datenschutzerklärung und weitere Informationen über die Verarbeitung Ihrer Daten finden Sie hier",
             "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben",
-            "signature": "Mit freundlichen Grüßen, \n\n{{org.title}}"
+            "signature": "Mit freundlichen Grüßen, \n\n{{org.title}}",
+            "organisation": "{{org.title}}"
         },
         "button": {
             "confirmAction": "Yes, I am a real person!",
