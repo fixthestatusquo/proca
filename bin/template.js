@@ -15,7 +15,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "campaign",
   ],
   alias: { v: "verbose" },
-  default: { mjml: "default/thankyou" },
+  default: { mjml: "default/thankyou", markdown: true },
 });
 const { read, api } = require("./config");
 const mjmlEngine = require("mjml");
