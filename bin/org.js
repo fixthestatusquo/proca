@@ -6,6 +6,13 @@ const { commit, add } = require("./git");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },
+  unknown: (d) => {
+    const allowed = []; //merge with boolean and string?
+    if (d[0] !== "-" || require.main !== module) return true;
+    if (allowed.includes(d.split("=")[0].slice(2))) return true;
+    console.log(color.red("unknown param", d));
+    help(1);
+  },
   boolean: [
     "help",
     "keep",
@@ -14,12 +21,17 @@ const argv = require("minimist")(process.argv.slice(2), {
     "git",
     "push",
     "twitter",
-    "pages",
+    "widgets",
+    "campaigns",
     "users",
   ],
 });
 
-const { file, api, fileExists } = require("./config");
+const { file, api, fileExists, save } = require("./config");
+const { getConfig } = require("./widget");
+
+//  if (save)
+//    saveWidget(config);
 
 const help = () => {
   if (!argv._.length || argv.help) {
@@ -30,7 +42,8 @@ const help = () => {
           "--help (this command)",
           "--dry-run (show the parsed org but don't write)",
           "--twitter (fetch the twitter api)",
-          "--pages (fetch the action pages of the org)",
+          "--widgets (fetch the action pages of the org)",
+          "--campaigns (fetch the action pages of the org)",
           "--users(fetch the users of the org)",
           "--pull (by default)",
           "--push (update the server)",
@@ -122,7 +135,10 @@ const pushOrg = async (org) => {
 
 const getOrg = async (name) => {
   const extraQuery =
-    (argv.pages ? " actionPages {id name locale}" : "") +
+    (argv.campaigns
+      ? " campaigns {id name title org {name title } externalId config contactSchema}"
+      : "") +
+    (argv.widgets ? " actionPages {id name locale}" : "") +
     (argv.users ? " users {email lastSigninAt role}" : "");
 
   const query =
@@ -138,6 +154,7 @@ query GetOrg($name: String!) {
 }
 `;
 
+  console.log(query);
   const data = await api(query, { name }, "GetOrg");
   if (!data.org) throw new Error("can't find org " + name);
 
@@ -165,7 +182,14 @@ const pullOrg = async (name) => {
     console.log(org);
     process.exit(1);
   }
-
+  if (argv.campaigns) {
+    console.log(org.campaigns);
+    delete org.campaigns;
+  }
+  if (argv.widgets) {
+    console.log(org.actionPages);
+    delete org.actionPages;
+  }
   await saveOrg(name, org);
   return org;
 };

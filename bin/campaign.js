@@ -38,7 +38,6 @@ const saveCampaign = (campaign, { git = true, message = null }) => {
     file("campaign/" + campaign.name),
     JSON.stringify(campaign, null, 2)
   );
-  console.log("don't use git", git, message);
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
