@@ -14,8 +14,8 @@ const Address = (props) => {
   const { t } = useTranslation();
 
   const compact = props.compact;
-  const { setValue, watch, classField, getValues } = props.form;
-
+  const { setValue, watch, getValues } = props.form;
+  const classField = props.classField;
   const [postcode, country] = watch(["postcode", "country"]);
   const postcodeLength = {
     AT: 4,
