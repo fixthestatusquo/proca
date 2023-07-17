@@ -202,7 +202,7 @@ export const CheckboxConsent = (props) => {
   const config = useCampaignConfig();
   const classes = useStyles();
   return (
-    <FormControl>
+    <FormControl className="proca-consent">
       <FormGroup>
         <FormControlLabel
           className={classes.check}

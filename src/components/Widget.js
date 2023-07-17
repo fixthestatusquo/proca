@@ -11,6 +11,7 @@ import { merge } from "@lib/object";
 import { initConfigState } from "@hooks/useConfig";
 import Url, { step as paramStep } from "@lib/urlparser";
 import { getCookie } from "@lib/cookie";
+import { getItems } from "@lib/localStorage";
 import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
@@ -66,16 +67,17 @@ const Widget = (props) => {
   const fab = config.component.widget?.fab !== false;
 
   let data = Url.data();
+  if (props) config = { ...config, ...props };
 
   const cookies = {
     uuid: getCookie("proca_uuid"),
     firstname: getCookie("proca_firstname"),
   };
+  const storage = getItems(config.component.storage);
   document.querySelectorAll(props.selector).forEach((dom) => {
-    data = { ...dom.dataset, ...cookies, ...data };
+    data = { ...dom.dataset, ...cookies, ...storage, ...data };
   });
 
-  if (props) config = { ...config, ...props };
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.locales = merge(config.locales, getOverwriteLocales());
