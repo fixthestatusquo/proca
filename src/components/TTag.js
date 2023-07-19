@@ -16,7 +16,7 @@ export const snarkdown = (md) => {
 
 export const Markdown = (props) => {
   const { t } = useTranslation();
-  const tbr = (key) => snarkdown(t(key));
+  const tbr = (key) => snarkdown(t(key, props));
   return <Trans t={tbr} i18nKey={props.text}></Trans>;
 };
 
@@ -33,7 +33,7 @@ const TTag = (props) => {
       ></div>
     );
   }
-  return <Markdown text={props.message} />;
+  return <Markdown text={props.message} {...props} />;
   //return <Trans t={tbr} i18nKey={props.message}></Trans>;
   //return /* i18next-extract-disable-line */ t(props.message);
 };
