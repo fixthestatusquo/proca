@@ -27,8 +27,8 @@ const argv = require("minimist")(process.argv.slice(2), {
   ],
 });
 
-const { file, api, fileExists, save } = require("./config");
-const { getConfig } = require("./widget");
+const { file, api, fileExists } = require("./config");
+//const { getConfig } = require("./widget");
 
 //  if (save)
 //    saveWidget(config);

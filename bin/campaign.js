@@ -32,7 +32,7 @@ const help = () => {
   }
 };
 
-const saveCampaign = (campaign, { git = true, message = null }) => {
+const saveCampaign = (campaign) => {
   //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),

@@ -1,5 +1,3 @@
-const e = JSON.parse(localStorage.getItem("l214.lib-change-org.userdata"));
-
 export const getItems = (config) => {
   try {
     let e = JSON.parse(

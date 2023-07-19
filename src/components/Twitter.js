@@ -286,7 +286,7 @@ const Component = (props) => {
           (d.country === "") | (d.constituency?.country === country)
         );
       });
-      //console.warn("do we filter profile?", profiles);
+      console.warn("do we filter profile?", profiles.length);
       //setProfiles(profiles);
     },
     [allProfiles]
