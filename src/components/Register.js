@@ -485,6 +485,19 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
+              {config.component.register?.field?.organisation && (
+                <Grid item xs={12} className={classField}>
+                  <TextField
+                    type="organisation"
+                    form={form}
+                    name="organisation"
+                    label={t("Organisation")}
+                    required={
+                      config.component.register.field.organisation.required
+                    }
+                  />
+                </Grid>
+              )}
               {withSalutation && (
                 <Salutation form={form} compact={compact} classes={classes} />
               )}
@@ -537,30 +550,6 @@ export default function Register(props) {
                 />
               </Grid>
               <Address form={form} campact={compact} classField={classField} />
-              {false &&
-                config.component.register?.field?.postcode !== false && (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={
-                      compact ||
-                      config.component.register?.field?.country === false
-                        ? 12
-                        : 3
-                    }
-                    className={classField}
-                  >
-                    <TextField
-                      form={form}
-                      name="postcode"
-                      label={t("Postal Code")}
-                      autoComplete="postal-code"
-                      required={
-                        config.component.register?.field?.postcode?.required
-                      }
-                    />
-                  </Grid>
-                )}
               {config.component.register?.field?.phone === true && (
                 <Grid item xs={12} className={classField}>
                   <TextField
