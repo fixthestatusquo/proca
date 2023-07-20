@@ -8,6 +8,11 @@ import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
+    "#proca-ribbon": {
+      display: "block",
+      opacity: 1,
+      transition: "all .5s",
+    },
     ".proca-progress": {
       display: "none",
     },
@@ -56,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 let elem = document.createElement("div");
-elem.id = "ribbon";
+elem.id = "proca-ribbon";
 document.body.prepend(elem);
 
 const Closed = () => {
@@ -67,7 +72,7 @@ const Closed = () => {
   useEffect(() => {
     document.addEventListener("mousedown", () => {
       const ribbon = document.getElementById("proca-ribbon");
-      ribbon.style.display = "none";
+      window.setTimeout(() => (ribbon.style.display = "none"), 500);
     });
 
     if (config.component.notice?.widget === true) {
@@ -76,10 +81,6 @@ const Closed = () => {
       const widget = document.getElementsByClassName("proca-widget")[0];
 
       widget.before(ribbon);
-      console.log("aaa");
-      document.addEventListener("mousedown", () => {
-        ribbon.style.display = "none";
-      });
     }
   }, []);
 
@@ -90,9 +91,8 @@ const Closed = () => {
     box = classes.box;
   }
   if (config.component.widget?.closed !== true) return null;
-  console.log("aaa");
   return ReactDOM.createPortal(
-    <div className={root} id="proca-ribbon">
+    <div className={root}>
       <Box className={box} boxShadow={3}>
         <h3>{formatNumber(count)}</h3>
         <span className={classes.span}>
