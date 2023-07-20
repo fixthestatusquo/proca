@@ -65,11 +65,21 @@ const Closed = () => {
   const classes = useStyles();
 
   useEffect(() => {
+    document.addEventListener("mousedown", () => {
+      const ribbon = document.getElementById("proca-ribbon");
+      ribbon.style.display = "none";
+    });
+
     if (config.component.notice?.widget === true) {
+      // not sure if used still
       const ribbon = document.getElementById("ribbon");
       const widget = document.getElementsByClassName("proca-widget")[0];
 
       widget.before(ribbon);
+      console.log("aaa");
+      document.addEventListener("mousedown", () => {
+        ribbon.style.display = "none";
+      });
     }
   }, []);
 
@@ -79,10 +89,10 @@ const Closed = () => {
     root = classes.widget;
     box = classes.box;
   }
-
   if (config.component.widget?.closed !== true) return null;
+  console.log("aaa");
   return ReactDOM.createPortal(
-    <div className={root}>
+    <div className={root} id="proca-ribbon">
       <Box className={box} boxShadow={3}>
         <h3>{formatNumber(count)}</h3>
         <span className={classes.span}>
