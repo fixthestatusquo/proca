@@ -69,7 +69,6 @@ const snarkdown = (markdown) => {
       ? _snarkdown(l)
       : `<p>${_snarkdown(l)}</p>`
   );
-
   return htmls.join("\n\n").replaceAll("proca-", "proca_");
 };
 
@@ -169,7 +168,10 @@ const translateTpl = (tpl, lang, markdown) =>
         999
       );
       i18node.forEach((d) => {
-        const text = util.getChildren(d)[0];
+        const text = util.getChildren(d)[0] || {
+          type: "text",
+          data: d.attribs.i18n,
+        };
         if (text.type !== "text") {
           console.log("wrong children", d);
           reject({ error: "wrong child, was expecting text", elem: d });
@@ -243,8 +245,8 @@ const i18nRender = async (tplName, lang, markdown) => {
   const render = mjmlEngine(newTpl, {});
   if (markdown) {
     for (const key in keys) {
-      console.log(key, lang);
       render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
+      console.log(key, lang);
     }
   }
   return render;
