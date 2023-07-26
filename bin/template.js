@@ -58,7 +58,7 @@ const help = () => {
 };
 
 const snarkdown = (markdown) => {
-  const md = markdown.replaceAll("proca_", "proca-"); //snarkdown messes up
+  const md = markdown.replaceAll("proca_", "proca-").replaceAll("utm_", "utm-"); //snarkdown messes up
   const para = md.split(/(?:\r?\n){2,}/);
   if (para.length === 1) {
     // don't add the paragraph
@@ -69,7 +69,10 @@ const snarkdown = (markdown) => {
       ? _snarkdown(l)
       : `<p>${_snarkdown(l)}</p>`
   );
-  return htmls.join("\n\n").replaceAll("proca-", "proca_");
+  return htmls
+    .join("\n\n")
+    .replaceAll("proca-", "proca_")
+    .replaceAll("utm-", "utm_");
 };
 
 const pushTemplate = async (config, html) => {
