@@ -50,6 +50,34 @@ _Template with conditional blocks and buttons with links {{doiLink}} for confirm
 (works for action+DOI case)
 `confirm.component.consent.email.confirmAction: true`
 
-### Link to the guide
+# Default email templates
+
+### thankyou
+
+Each supporter gets a ‘thank you’ note.
+
+### doi (double opt-in)
+
+Supporters who choose opt-in on the form get an email to confirm opt-in.
+
+### confirm
+
+All users get an email to confirm an action (signature). Action is not counted until the supporter clicks on the email URL.
+
+### thankyou_doi
+
+Each supporter gets an email
+
+- if the supporter chooses opt-in on the form, gets doi+thankyou
+- if the supporter chooses opt-out on the form, gets thankyou
+
+### doi_confirm
+
+Each supporter gets an email
+
+- if the supporter chooses opt-in on the form, gets doi+confirm, to confirm both opt-in and action by clicking on the (one) button
+- if the supporter chooses opt-out on the form, gets an email with a ‘confirm action’ button
+
+## Link to the guide
 
 Consent and double opt-in [guide](https://proca.app/guide/double-opt-in/).
