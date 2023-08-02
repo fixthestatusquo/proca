@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
+const http = require("http");
+
 require("./dotenv.js");
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
@@ -10,12 +12,14 @@ const argv = require("minimist")(process.argv.slice(2), {
     "dry-run",
     "extract",
     "verbose",
+    "build",
     "push",
+    "serve",
     "markdown",
     "campaign",
   ],
   alias: { v: "verbose" },
-  default: { mjml: "default/thankyou", markdown: true },
+  default: { mjml: "default/thankyou", markdown: true, build: true },
 });
 const { read, api } = require("./config");
 const mjmlEngine = require("mjml");
@@ -45,6 +49,7 @@ const help = () => {
       "--lang=fr (optional, to overwrite the language in the actionpage)",
       "--dry-run (don't write)",
       "--verbose (show the result)",
+      "--serve (show template in your browser for dev)",
       "--markdown (handle i18n as markdown)",
       "--campaign|no-campaign (add the variables from the template into the campaign)",
       "--extract (extract into src/locales/en/server.js)",
@@ -76,7 +81,7 @@ const snarkdown = (markdown) => {
 };
 
 const pushTemplate = async (config, html) => {
-  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String,$id: Int!) {
+  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String!,$id: Int!) {
     template: upsertTemplate (orgName:$orgName, input: {
       html: $html,
       subject: $subject,
@@ -86,6 +91,7 @@ const pushTemplate = async (config, html) => {
     actionPage: updateActionPage (id: $id, input: {
       thankYouTemplate: $name
     }) {
+    name,
     thankYouTemplate
     }
   }`;
@@ -101,23 +107,24 @@ const pushTemplate = async (config, html) => {
     process.exit(1);
   }
   const variables = {
-    name: config.filename.replaceAll("/", " "),
+    name: config.filename.replaceAll("/", "_"),
     orgName: config.org.name || config.lead.name,
     locale: config.lang,
     html: html,
-    subject: i18n.t("email.thankyou.subject", "missing [email subject]"),
+    subject: i18n.t("email." + config.type + ".subject"),
     id: config.actionpage,
   };
+  console.log("upload template", variables.name);
   const data = await api(query, variables, "upsertTemplate");
   console.log(
+    data,
     "pushing ",
     variables.name,
     variables.orgName,
     variables.locale,
-    variables.subject,
-    data
+    variables.subject
   );
-  if (argv.verbose) console.log(data);
+  if (argv.verbose) console.log("data", data);
   return data;
 };
 
@@ -214,22 +221,22 @@ const saveTemplate = (render, id) => {
   return render;
 };
 
-const saveConfig = (id) => {
+const saveConfig = (config) => {
   const jsonFile = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".json"
+    tmp + "email/actionpage/" + config.actionpage + ".json"
   );
 
-  const type = "thankyou";
   const json = {
     meta: {
-      subject: i18n.t("email." + type + ".subject"),
-      type: type,
+      subject: i18n.t("email." + config.type + ".subject"),
+      type: config.type,
     },
   };
 
   fs.writeFileSync(jsonFile, JSON.stringify(json, null, 2));
   console.log("saved in", jsonFile);
+
   return json;
 };
 
@@ -248,7 +255,10 @@ const i18nRender = async (tplName, lang, markdown) => {
   const render = mjmlEngine(newTpl, {});
   if (markdown) {
     for (const key in keys) {
-      render.html = render.html.replace(needle + key, snarkdown(i18n.t(key)));
+      render.html = render.html.replace(
+        needle + key,
+        snarkdown(i18n.t(key, ""))
+      );
       console.log(key, lang);
     }
   }
@@ -276,6 +286,10 @@ if (require.main === module) {
     help();
   }
 
+  const getType = (tplName) => {
+    const segments = tplName.split("/");
+    return segments.slice(-1);
+  };
   (async () => {
     const id = argv._[0];
     const tplName = argv.mjml;
@@ -285,6 +299,7 @@ if (require.main === module) {
     const [, config, campaign] = getConfigOverride(id);
     const server = await i18nTplInit(campaign, config.lang);
     if (server) config.locales["server:"] = server;
+    config.type = getType(tplName) || "thankyou";
     try {
       try {
         org.readOrg(config.org.name);
@@ -321,16 +336,18 @@ if (require.main === module) {
     configOverride(config);
 
     if (!mailConfig) {
-      mailConfig = saveConfig(id);
+      mailConfig = saveConfig(config);
       console.log("config", mailConfig);
     }
     config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
 
     try {
-      render = await i18nRender(tplName, null, argv.markdown);
-      saveTemplate(render, id);
-      mailConfig = saveConfig(id);
-      console.log("config", mailConfig);
+      if (argv.build) {
+        render = await i18nRender(tplName, null, argv.markdown);
+        saveTemplate(render, id);
+        mailConfig = saveConfig(config);
+        console.log("config", mailConfig);
+      }
       if (argv.campaign) {
         if (argv["dry-run"]) {
           console.log(
@@ -345,6 +362,19 @@ if (require.main === module) {
     }
     if (argv.push && !argv["dry-run"]) {
       await pushTemplate(config, render.html);
+    }
+    if (argv.serve) {
+      const port = 8025;
+      http
+        .createServer(function (req, res) {
+          res.setHeader("Content-type", "text/html");
+          res.end(render.html);
+          process.exit(0);
+        })
+        .listen(port);
+      console.log("creating server http://localhost:" + port);
+      const open = await import("open");
+      open.default("http://localhost:" + port);
     }
   })();
 } else {
