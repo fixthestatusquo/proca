@@ -47,7 +47,7 @@ query getCampaign ($name:String!){
   campaign (name:$name) {
       id,
       title,name,config,
-      org {name,title}
+      org {name,title},externalId
   }
 }`;
 
@@ -68,8 +68,8 @@ const readCampaign = (name) => {
 const pushCampaign = async (name) => {
   const campaign = read("campaign/" + name);
   const query = `
-mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
-  upsertCampaign(orgName: $orgName, input: {
+mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $externalId: Int) {
+  upsertCampaign(orgName: $orgName, input: { externalId: $externalId,
     name: $name, config: $config, actionPages: []
   }) {
     id
@@ -84,6 +84,13 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
   let data;
 
   try {
+    console.log({
+      orgName: campaign.org.name,
+      name: campaign.name,
+      title: campaign.title,
+      //          externalId: campaign.externalId,
+      config: JSON.stringify(campaign.config),
+    });
     const res = await crossFetch(API_URL, {
       method: "POST",
       body: JSON.stringify({
@@ -92,6 +99,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!) {
           orgName: campaign.org.name,
           name: campaign.name,
           title: campaign.title,
+          //          externalId: campaign.externalId,
           config: JSON.stringify(campaign.config),
         },
         operationName: "updateCampaign",

@@ -154,7 +154,6 @@ query GetOrg($name: String!) {
 }
 `;
 
-  console.log(query);
   const data = await api(query, { name }, "GetOrg");
   if (!data.org) throw new Error("can't find org " + name);
 
