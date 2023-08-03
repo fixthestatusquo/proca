@@ -1,1 +1,40 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Hej med dig {{firstName}}",
+            "consent": "\n          ",
+            "thanks": "Tak for din deltagelse på {{campaign.title}}. Din støtte er værdsat!",
+            "share": "Hjælp os med at nå vores mål ved at [sprede ordet]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
+            "follow": "Følg os på:",
+            "donate": "Overvej venligst at give en donation for at hjælpe os med at nå vores mål.",
+            "closing": "Med din hjælp er vi et skridt tættere på vores mål",
+            "privacy": "Du kan finde flere oplysninger om vores privatlivspolitik og behandlingen af dine data",
+            "unsubscribe": "Hvis du ikke ønsker at modtage yderligere information fra os i fremtiden, kan du til enhver tid annullere din registrering.",
+            "signature": "Med venlig hilsen,\n\n{{org.title}}",
+            "organisation": "{{org.title}}"
+        },
+        "button": {
+            "confirmAction": "Ja, jeg er en rigtig person!",
+            "confirmOptin": "Jeg bekræfter min deltagelse og ønsker at modtage nyheder fra dig",
+            "confirmAlreadyMember": "Jeg bekræfter min deltagelse og modtager allerede e-mails fra dig",
+            "confirmOptout": "Jeg bekræfter min deltagelse, men bliver ikke holdt opdateret i fremtiden"
+        },
+        "doi": {
+            "subject": "Et skridt mere: Bekræft venligst din e-mailadresse",
+            "intro": "Din bekræftelse er vigtig for, at vi kan behandle den. Det er den eneste måde, vi kan gøre det troværdigt, at der virkelig er en person bag hver deltagelse, og det er vigtigt for kampagnens effekt og for at forhindre falske/spam indsendelser.",
+            "extra": "Du har modtaget denne bekræftelse for at kunne gennemføre registreringen og give os mulighed for at behandle din e-mailadresse og andre personlige data for at modtage nyheder eller nyhedsbreve. Dette er en automatiseret procedure, og denne bekræftelse er påkrævet for registreringen for at undgå en uautoriseret registreringsproces."
+        },
+        "thankyou": {
+            "intro": "Tak for din støtte til \"{{campaign.title}}\". Din støtte er værdsat!",
+            "subject": "Tak, her er, hvad du ellers kan gøre"
+        },
+        "doi_thankyou": {
+            "subject": "Tak for din deltagelse{{#privacy.optIn}}, et skridt mere, bekræft venligst din e-mailadresse{{/privacy.optIn}}"
+        },
+        "actionConfirm": {
+            "subject": "Et skridt mere: Bekræft venligst din e-mailadresse",
+            "intro": "Din bekræftelse er vigtig for at kunne behandle din deltagelse. Det er den eneste måde, vi kan gøre det troværdigt, at der virkelig er en person bag hver deltagelse, og det er vigtigt for effekten af denne kampagne og for at forhindre falske/spam indsendelser."
+        }
+    },
+    "poweredBy": "DREVET AF"
+}
