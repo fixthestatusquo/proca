@@ -6,7 +6,12 @@
             "thanks": "Dank u voor het ondertekenen van de {{campaign.title}}. Uw steun wordt op prijs gesteld!",
             "share": "Help ons ons doel te bereiken door het woord te verspreiden.",
             "donate": "Overweeg alstublieft een donatie om ons te helpen onze missie te bereiken",
-            "closing": "Met uw hulp, zijn we een stap dichter bij ons doel"
+            "closing": "Met uw hulp, zijn we een stap dichter bij ons doel",
+            "privacy": "U kunt meer informatie vinden over ons privacybeleid en de verwerking van uw gegevens",
+            "unsubscribe": "Als u in de toekomst geen informatie meer van ons wenst te ontvangen, kunt u uw registratie op elk gewenst moment annuleren.",
+            "organisation": "{{org.title}}",
+            "consent": "\n          ",
+            "signature": "Met vriendelijke groet,\n\n{{org.title}}"
         },
         "thankyou": {
             "intro": "Dank u voor \"{{campaign.title}}\". Uw steun wordt op prijs gesteld!",
@@ -15,12 +20,24 @@
         "doi": {
             "subject": "Nog één stap: bevestig uw inschrijving",
             "confirm": "Klik op de link hieronder om uw inschrijving te bevestigen",
-            "confirmButton": "Bevestig"
+            "confirmButton": "Bevestig",
+            "extra": "Je hebt deze bevestiging ontvangen om de registratie succesvol te voltooien en ons toe te staan je e-mailadres en andere persoonlijke gegevens te verwerken om nieuws of nieuwsbrieven te ontvangen. Dit is een geautomatiseerde procedure en deze bevestiging is nodig voor de registratie om een onbevoegd registratieproces te voorkomen.",
+            "intro": "Je bevestiging is belangrijk om het te kunnen verwerken. Dit is de enige manier waarop we geloofwaardig kunnen maken dat er echt een persoon achter elke deelname zit, en dat is belangrijk voor de impact van deze campagne en om nep/spam inzendingen te voorkomen."
         },
         "actionConfirm": {
             "subject": "Nog één stap: bevestig uw handtekening",
             "confirm": "Klik op de link hieronder om uw actie te bevestigen",
-            "confirmButton": "Bevestig"
+            "confirmButton": "Bevestig",
+            "intro": "Je bevestiging is belangrijk om je deelname te kunnen verwerken. Dit is de enige manier waarop we geloofwaardig kunnen maken dat er echt een persoon achter elke deelname zit, en dat is belangrijk voor de impact van deze campagne en om nep/spam inzendingen te voorkomen."
+        },
+        "button": {
+            "confirmOptout": "Ik bevestig mijn deelname, maar houd me niet op de hoogte in de toekomst",
+            "confirmAlreadyMember": "Ik bevestig mijn deelname & ontvang al e-mails van jullie",
+            "confirmAction": "Ja, ik ben een echt persoon!",
+            "confirmOptin": "Ik bevestig mijn deelname & wil nieuws van jullie ontvangen"
+        },
+        "doi_thankyou": {
+            "subject": "Bedankt voor je deelname{{#privacy.optIn}}, nog één stap, bevestig alsjeblieft je e-mailadres{{/privacy.optIn}}"
         }
     },
     "poweredBy": "GEVOED DOOR"
