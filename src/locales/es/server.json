@@ -6,7 +6,12 @@
             "follow": "Síganos en:",
             "greeting": "Hola {{firstName}}",
             "donate": "Por favor, considere hacer una donación para ayudarnos a cumplir nuestra misión",
-            "closing": "Con su ayuda, estamos un paso más cerca de nuestro objetivo"
+            "closing": "Con su ayuda, estamos un paso más cerca de nuestro objetivo",
+            "privacy": "Puede encontrar más información sobre nuestra política de privacidad y el tratamiento de sus datos",
+            "organisation": "{{org.title}}",
+            "unsubscribe": "Si no desea recibir más información nuestra en el futuro, podrá cancelar su inscripción en cualquier momento.",
+            "consent": "\n          ",
+            "signature": "Atentamente,\n\n{{org.title}}"
         },
         "thankyou": {
             "intro": "Gracias por \"{{campaign.title}}\". Apreciamos su apoyo!",
@@ -15,12 +20,24 @@
         "doi": {
             "confirmButton": "Confirmar",
             "subject": "Un paso más: confirmar la suscripción",
-            "confirm": "Haga clic en el siguiente enlace para confirmar la suscripción"
+            "confirm": "Haga clic en el siguiente enlace para confirmar la suscripción",
+            "extra": "Ha recibido esta confirmación para completar correctamente el registro y permitirnos procesar su dirección de correo electrónico y otros datos personales para recibir noticias o boletines. Se trata de un procedimiento automatizado y esta confirmación es necesaria para el registro con el fin de evitar un proceso de registro no autorizado.",
+            "intro": "Tu confirmación es importante para poder procesarlo. Solo así podremos hacer creíble que realmente hay una persona detrás de cada participación, y eso es importante para el impacto de esta campaña y para evitar envíos falsos/spam."
         },
         "actionConfirm": {
             "confirmButton": "Confirmar",
             "subject": "Un paso más: confirmar su firma",
-            "confirm": "Haga clic en el siguiente enlace para confirmar su acción"
+            "confirm": "Haga clic en el siguiente enlace para confirmar su acción",
+            "intro": "Tu confirmación es importante para poder procesar tu participación. Es la única forma de que podamos hacer creíble que realmente hay una persona detrás de cada participación, y eso es importante para el impacto de esta campaña y para evitar envíos falsos/spam."
+        },
+        "button": {
+            "confirmAction": "Sí, soy una persona real.",
+            "confirmOptin": "Confirmo mi participación y deseo recibir noticias suyas",
+            "confirmAlreadyMember": "Confirmo mi participación y ya recibo correos electrónicos suyos",
+            "confirmOptout": "Confirmo mi participación pero no me mantienen informado en el futuro"
+        },
+        "doi_thankyou": {
+            "subject": "Gracias por su participación{{#privacy.optIn}}, un paso más, por favor confirme su dirección de correo electrónico{{/privacy.optIn}}"
         }
     },
     "poweredBy": "DESARROLLADO POR"
