@@ -29,6 +29,9 @@
       "intro": "Thank you for your partipation for \"{{campaign.title}}\". Your support is appreciated!",
       "subject": "Thank you, here's what else you can do"
     },
+    "doi_thankyou": {
+      "subject": "Thank you for your partipation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
+    },
     "actionConfirm": {
       "subject": "One more step: please confirm your email address",
       "intro": "Your confirmation is important to be able to process your participation. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions."
