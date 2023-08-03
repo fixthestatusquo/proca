@@ -6,7 +6,12 @@
             "share": "Hjälp oss att nå vårt mål genom att sprida ordet.",
             "follow": "Följ oss på:",
             "donate": "Överväg att göra en donation för att hjälpa oss att uppnå vårt uppdrag.",
-            "closing": "Med din hjälp är vi ett steg närmare vårt mål."
+            "closing": "Med din hjälp är vi ett steg närmare vårt mål.",
+            "unsubscribe": "Om du inte vill få ytterligare information från oss i framtiden kan du när som helst avbryta din registrering",
+            "organisation": "{{org.title}}",
+            "privacy": "Du kan hitta mer information om vår integritetspolicy och behandlingen av dina uppgifter",
+            "consent": "\n          ",
+            "signature": "Med vänlig hälsning,\n\n{{org.title}}"
         },
         "thankyou": {
             "intro": "Tack för \"{{campaign.title}}\". Ditt stöd är uppskattat!",
@@ -15,12 +20,24 @@
         "doi": {
             "subject": "Ytterligare ett steg: bekräfta din prenumeration",
             "confirm": "Klicka på länken nedan för att bekräfta din prenumeration",
-            "confirmButton": "Bekräfta"
+            "confirmButton": "Bekräfta",
+            "intro": "Din bekräftelse är viktig för att vi ska kunna behandla den. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar.",
+            "extra": "Du har fått denna bekräftelse för att framgångsrikt kunna slutföra registreringen och tillåta oss att behandla din e-postadress och andra personuppgifter för att få nyheter eller nyhetsbrev. Detta är en automatiserad procedur och denna bekräftelse krävs för registreringen för att undvika en obehörig registreringsprocess."
         },
         "actionConfirm": {
             "subject": "Ytterligare ett steg: bekräfta din signatur",
             "confirm": "Klicka på länken nedan för att bekräfta din åtgärd",
-            "confirmButton": "Bekräfta"
+            "confirmButton": "Bekräfta",
+            "intro": "Din bekräftelse är viktig för att vi ska kunna behandla ditt deltagande. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar."
+        },
+        "button": {
+            "confirmOptout": "Jag bekräftar mitt deltagande men håller mig inte uppdaterad i framtiden",
+            "confirmAction": "Ja, jag är en riktig person!",
+            "confirmOptin": "Jag bekräftar mitt deltagande och vill få nyheter från er",
+            "confirmAlreadyMember": "Jag bekräftar mitt deltagande och får redan e-post från dig"
+        },
+        "doi_thankyou": {
+            "subject": "Tack för ditt bidrag{{#privacy.optIn}}, ett steg till, vänligen bekräfta din e-postadress{{/privacy.optIn}}"
         }
     },
     "poweredBy": "KRAFTVERKTURERAD AV"
