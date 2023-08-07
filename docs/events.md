@@ -6,13 +6,13 @@ All the events are sent on the dom node "#proca" (the script dom), but they bubb
 
 to make it easier to debug and find the event triggered, you can add in your page:
 
-    window.addEventListener("proca", function(e){console.log(e.type,e.detail);});
+    window.addEventListener("proca", function(e){console.log(e.detail.message,e.detail);});
 
 it will list all the events triggered
 
 ## events
 
-each event has two parameters :
+each event.detail has two parameters :
 
 - message, the name action, of instance that the user finished a step and it going to the next one
 - value: the (optional) details of the action, for instance the amount if the event is a contribution
@@ -22,9 +22,13 @@ each event has two parameters :
 Called once when the widget is displayed. you can customise the widget from there, for instance change the primary color and the general style (variant):
 
     window.addEventListener("proca", e => {
-      if (e.message !== "init") return;
-      proca.set("layout", "variant", "outlined");
-      proca.set("layout","primaryColor","#f90");
+      if (e.detail.message === "init") {
+        proca.set("layout", "variant", "outlined");
+        proca.set("layout","primaryColor","#f90");
+      }
+      if (e.detail.message === "register:complete") {
+        // do something after petition signature (or mtt)
+      }
     });
 
 ### complete
@@ -52,34 +56,32 @@ for privacy/security reasons, we avoid returning the erroneous input, just the e
 
 ### register
 
+We do not recommend to completely skip our share step, it is highly optimised and increases the number of signatures by up to 10%, nearly all of them will be new supporters for you
+
+    window.addEventListener("proca", e => {
+      if (e.detail.message === "register:complete") {
+        // do something after petition signature (or mtt)
+        window.location.href = "https://proca.app"; // your thank you page with donation
+      }
+    });
+
 ### share
+
+    window.addEventListener("proca", e => {
+      if (e.detail.message === "share") {
+
+/_ event.detail.value: {
+uuid,
+payload: {medium:"**twitter/facebook...**"},
+tracking: {location: **url**}
+}
+_/
+
+      }
+    });
 
 ### donate
 
 ### twitter
 
-### eci_support
-
-Every time the widget displays a new step, a event "name of the step" _(in lowercase)_ + ":init" is trigered
-you might use it to display/hide specific instructions in the page
-
-### eci:complete
-
-The eci step is completed. event.detail
-
-    {
-      "uuid": "rng7yRvFNBhcGHHxsD_dvViV0uzkGhMi4FJwU6rUeAM",
-      "test": false,
-      "country": "BE"
-    }
-
-The uuid can be displayed (that's the unique id, the supporter can use it to request to remove their support)
-the country isn't considered personal information and can be displayed (eg "you joined the 1984 people that signed from your country...")
-
 ### share_click, share_close
-
-event.detail: {
-uuid,
-payload: {key:"medium", value:"twitter/facebook..."},
-tracking: utm in the url
-}
