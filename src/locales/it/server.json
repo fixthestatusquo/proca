@@ -12,7 +12,8 @@
             "consent": "\n          ",
             "signature": "Cordiali saluti,\n\n{{org.title}}",
             "privacy": "Potete trovare maggiori informazioni sulla nostra politica sulla privacy e sul trattamento dei vostri dati",
-            "unsubscribe": "Se non desiderate ricevere ulteriori informazioni da noi in futuro, potrete cancellare la vostra registrazione in qualsiasi momento."
+            "unsubscribe": "Se non desiderate ricevere ulteriori informazioni da noi in futuro, potrete cancellare la vostra registrazione in qualsiasi momento.",
+            "duplicate": "Grazie per il vostro impegno e la vostra dedizione alla nostra causa! Tuttavia, nel nostro impegno a mantenere l'autenticità e la credibilità, dobbiamo rimuovere le firme duplicate e sembra che lei (o qualcuno che utilizza {{email}}) abbia già intrapreso questa azione.  Siate certi che la vostra firma iniziale è stata contata e ha contribuito alla nostra campagna.\nIl vostro sostegno è stato inestimabile e vorremmo gentilmente incoraggiarvi a fare un ulteriore passo per contribuire ad amplificare il vostro impatto. Vi invitiamo a contattare i vostri amici e familiari, esortandoli ad agire anche loro, utilizzando i loro indirizzi e-mail. In questo modo, possiamo far crescere ulteriormente il nostro movimento e creare una voce collettiva ancora più forte per il cambiamento che cerchiamo.\nAncora una volta, vi ringraziamo di cuore per il vostro continuo sostegno e la vostra dedizione a questa campagna. Insieme, possiamo avere un impatto duraturo!"
         },
         "thankyou": {
             "intro": "Grazie per \"{{campaign.title}}\". Il vostro sostegno è apprezzato!",
