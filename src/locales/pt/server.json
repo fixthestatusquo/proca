@@ -11,7 +11,8 @@
             "organisation": "{{org.title}}",
             "unsubscribe": "Se não pretender receber mais informações da nossa parte no futuro, poderá cancelar o seu registo em qualquer altura",
             "consent": "\n          ",
-            "signature": "Com os melhores cumprimentos,\n\n{{org.title}}"
+            "signature": "Com os melhores cumprimentos,\n\n{{org.title}}",
+            "duplicate": "Obrigado pelo seu empenho e dedicação à nossa causa! No entanto, no nosso compromisso de manter a autenticidade e a credibilidade, temos de remover as assinaturas duplicadas e parece que você (ou alguém que utilize {{email}}) já tomou esta ação.  Fique descansado, a sua assinatura inicial foi contada e contribuiu para a nossa campanha.\nO seu apoio tem sido inestimável e gostaríamos de o encorajar a dar um passo adicional para ajudar a ampliar o seu impacto. Por favor, considere a possibilidade de contactar os seus amigos e familiares, instando-os a agir também, utilizando os seus próprios endereços de correio eletrónico. Desta forma, podemos fazer crescer ainda mais o nosso movimento e criar uma voz colectiva ainda mais forte para a mudança que procuramos.\nMais uma vez, agradecemos sinceramente o vosso apoio e dedicação contínuos a esta campanha. Juntos, podemos causar um impacto duradouro!"
         },
         "thankyou": {
             "intro": "Obrigado por \"{{campaign.title}}\". O vosso apoio é apreciado!",
