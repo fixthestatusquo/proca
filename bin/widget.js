@@ -29,8 +29,8 @@ const help = (exit) => {
         "--git (git update [add]+commit the local /config) || --no-git",
         "--push (update the server)",
         "{widget id} or {campaign name}",
-      ].join("\n")
-    )
+      ].join("\n"),
+    ),
   );
   process.exit(exit || 0);
 };
@@ -91,12 +91,12 @@ const fetchAll = async (campaign) => {
     {
       name: campaign,
     },
-    "allPages"
+    "allPages",
   );
   if (r.errors) {
     console.log(r);
     console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
     );
     throw new Error(r.errors[0].message);
   }
@@ -157,7 +157,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
       campaign: campaignName,
       org: campaign.org.name,
     },
-    "addPage"
+    "addPage",
   );
   if (r.errors) {
     try {
@@ -180,7 +180,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
       campaignName: campaignName,
       orgName: campaign.org.name,
     },
-    r
+    r,
   );
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
@@ -197,7 +197,7 @@ query actionPage ($name:String!) {
   actionPage (name:$name) {
     id, name, locale,
     thankYouTemplate,
-    ... on PrivateActionPage { supporterConfirmTemplate },
+    ... on PrivateActionPage { supporterConfirmTemplate, location, extraSupporters },
     campaign {
       id,
       title,name,config,
@@ -254,6 +254,11 @@ const getConfig = (data) => {
   };
   if (data.actionPage.config.test) config.test = true;
 
+  if (data.actionPage.location) config.location = data.actionPage.location;
+
+  if (data.actionPage.extraSupporters)
+    config.extraSupporters = data.actionPage.extraSupporters;
+
   if (config.component.consent && data.actionPage.org.processing) {
     let consentEmail = config.component.consent.email || {};
     if (
@@ -285,7 +290,7 @@ query actionPage ($id:Int!) {
   actionPage (id:$id) {
     id, name, locale,
     thankYouTemplate,
-    ... on PrivateActionPage { supporterConfirmTemplate },
+    ... on PrivateActionPage { supporterConfirmTemplate, location, extraSupporters },
     campaign {
       id,
       title,name,config,
@@ -302,7 +307,8 @@ query actionPage ($id:Int!) {
 }
 `;
 
-  data = await api(query, { id: actionPage }, "actionPage", anonymous);
+  //data = await api(query, { id: actionPage }, "actionPage", anonymous);
+  data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) throw new Error(data.toString());
 
   const config = getConfig(data);
@@ -318,7 +324,7 @@ query actionPage ($id:Int!) {
 };
 const pull = async (
   actionPage,
-  { anonymous = true, campaign = true, save = true }
+  { anonymous = true, campaign = true, save = true },
 ) => {
   //  console.log("file",file(actionPage));
   read(actionPage); // not sure what it does
@@ -340,7 +346,7 @@ const push = async (id) => {
   const { errors } = await request(
     c,
     admin.UpdateActionPageDocument,
-    actionPage
+    actionPage,
   );
   if (errors) {
     //    console.log(actionPage);
@@ -358,8 +364,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git"
-      )
+        "git integration disabled because the config folder isn't on git",
+      ),
     );
     argv.git = false;
   }
@@ -372,8 +378,8 @@ if (require.main === module) {
       if (argv._.length > 1) {
         console.error(
           color.red(
-            "either fetch all the widgets of the campaign or with id(s), not both"
-          )
+            "either fetch all the widgets of the campaign or with id(s), not both",
+          ),
         );
         process.exit(1);
       }
@@ -420,13 +426,13 @@ if (require.main === module) {
             console.log(
               runDate(),
               color.green.bold("saved", fileName),
-              color.blue(widget.filename)
+              color.blue(widget.filename),
             );
             r = argv.git && (await commit(id + ".json", msg));
             if (argv.git && !r) {
               // no idea,
               console.warn(
-                color.red("something went wrong, trying to git add")
+                color.red("something went wrong, trying to git add"),
               );
               r = await add(id + ".json");
               console.log(r);
@@ -447,7 +453,7 @@ if (require.main === module) {
 
           console.log(
             color.green.bold("pushed", id),
-            color.blue(result.actionPage && result.actionPage.name)
+            color.blue(result.actionPage && result.actionPage.name),
           );
           if (r.summary) console.log(r.summary);
         }
