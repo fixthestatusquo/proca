@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 
 import TextField from "@components/TextField";
 import ProgressCounter from "@components/ProgressCounter";
+import Birthdate from "@components/field/Birthdate";
 import { addActionContact } from "@lib/server.js";
 import useElementWidth from "@hooks/useElementWidth";
 import { useConfig } from "@hooks/useConfig";
@@ -161,10 +162,13 @@ export default function Register(props) {
       setError(
         "birthdate",
         "manual",
-        t("error.date", "format should be DD.MM.YYYY")
+        t("error.date", "format should be DD.MM.YYYY"),
       );
       return;
     }
+
+    console.log(data.birthdate);
+    setError("birthdate", "manual", t("always refuse"));
 
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
@@ -196,7 +200,7 @@ export default function Register(props) {
     if (!config.actionpage) {
       setStatus("error");
       console.log(
-        `Attempt to create QRCode with actionPage id = ${config.actionpage}`
+        `Attempt to create QRCode with actionPage id = ${config.actionpage}`,
       );
     }
     data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionpage;
@@ -241,8 +245,8 @@ export default function Register(props) {
   function minBirthdate() {
     let d = new Date();
     d.setFullYear(d.getFullYear() - 18);
-    d.actionpage = c && parseInt(c.actionPage, 10);
-    return d.toISOString().substr(0, 10);
+    return d;
+    //    return d.toISOString().substr(0, 10);
   }
 
   function Error(props) {
@@ -327,51 +331,7 @@ export default function Register(props) {
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
-              <MUITextField
-                InputLabelProps={{ shrink: true }}
-                inputProps={{
-                  max: minBirthdate(),
-                  "data-error-message": t("you need to be 18 years old"),
-                }}
-                error={!!errors.birthdate}
-                helperText={
-                  errors && errors.birthdate && errors.birthdate.message
-                }
-                id="birthdate"
-                label={t("Birthdate")}
-                className={classes.textField}
-                onBlur={handleBlur}
-                variant={options.variant}
-                margin={options.margin}
-                {...register("birthdate", {
-                  validate: (value) => {
-                    //not useful anymore now that we have the html5 validation?
-                    if (!value) return;
-
-                    value = formatDate(value);
-                    if (value === false) {
-                      setError("birthdate", {
-                        type: "manual",
-                        message: t(
-                          "error.invalid_date",
-                          "invalid date. format: DD.MM.YYYY"
-                        ),
-                      });
-                      return false;
-                    }
-
-                    if (value >= minBirthdate()) {
-                      setError("birthdate", {
-                        type: "manual",
-                        message: t("you need to be 18 years old"),
-                      });
-                      return false;
-                    }
-                    return true;
-                  },
-                })}
-                type="date"
-              />
+              <Birthdate form={form} min={minBirthdate()} />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 12}>
               <TextField form={form} name="address" label={t("Address")} />

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,26 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
-<meta property="og:image" content="https://placekitten.com/540/284" />
-<title>proca: Progressive Campaigning into your website in a minute</title>
-<meta name="twitter:title" content="Demo of a Swiss Initiative" />
+    <meta property="og:image" content="https://placekitten.com/540/284" />
+    <title>proca: Progressive Campaigning into your website in a minute</title>
+    <meta name="twitter:title" content="Demo of a Swiss Initiative" />
 
-<meta name="description" content="Sign the initiative too!" />
-<meta name="twitter:description" content="For a future" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@eucampaign" />
-<meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="description" content="Sign the initiative too!" />
+    <meta name="twitter:description" content="For a future" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@eucampaign" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
-<style>
-  html {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-   nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  }
-</style>
+    <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
+          "Lucida Typewriter", monospace;
+      }
+    </style>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -40,62 +59,83 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-<minimal-style style="display:none">
-  #signature-form {max-width:600px;min-width:300px}
-
-  .row{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-  }
-
-.col{
-  display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    padding:0 10px;
-  flex:1;
-}
-
-pre {background:#dede; padding: 10px}
-
-</minimal-style>
-<style>
-  body {padding-top:5rem;}
-
-</style>
-
+    <minimal-style style="display: none">
+      #signature-form {max-width:600px;min-width:300px} .row{ display: flex;
+      flex-direction: row; flex-wrap: wrap; width:100%; } .col{ display: flex;
+      flex-direction: column; flex-basis: 100%; padding:0 10px; flex:1; } pre
+      {background:#dede; padding: 10px}
+    </minimal-style>
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
   </head>
   <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">Demo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Design of your page</a>
+            <a
+              class="nav-link dropdown-toggle"
+              id="dropdown02"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Design of your page</a
+            >
             <div class="dropdown-menu columns" aria-labelledby="dropdown02">
-              <a class="dropdown-item" data-class="col-md" href="#">two equal columns</a>
-              <a class="dropdown-item" data-class="col-md-4" href="#">large content column</a>
+              <a class="dropdown-item" data-class="col-md" href="#"
+                >two equal columns</a
+              >
+              <a class="dropdown-item" data-class="col-md-4" href="#"
+                >large content column</a
+              >
               <a class="dropdown-item" disabled>Floating action</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layout</a>
+            <a
+              class="nav-link dropdown-toggle"
+              id="dropdown01"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Layout</a
+            >
             <div class="dropdown-menu variant" aria-labelledby="dropdown01">
               <a class="dropdown-item" data-variant="filled" href="#">Filled</a>
-              <a class="dropdown-item" data-variant="outlined" href="#">Outlined</a>
+              <a class="dropdown-item" data-variant="outlined" href="#"
+                >Outlined</a
+              >
               <a class="dropdown-item" data-variant="standard">Standard</a>
             </div>
           </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
-          <button class="proca-next btn btn-primary" data-toggle="modal" data-target="#code">Widget code</button>
-          <button class="proca-next btn btn-secondary" onClick="proca.go()">Next</button>
+          <button
+            class="proca-next btn btn-primary"
+            data-toggle="modal"
+            data-target="#code"
+          >
+            Widget code
+          </button>
+          <button class="proca-next btn btn-secondary" onClick="proca.go()">
+            Next
+          </button>
         </div>
       </div>
     </nav>
@@ -107,63 +147,129 @@ pre {background:#dede; padding: 10px}
       <div class="row">
         <div class="col">
           <div class="alert alert-info" role="alert">
-            <h3>  This is an example, but your can test signing </h3>
-            For a real one, the signature form will be directly embedded into your website, with your design and url.
-            <br>
-
-</div>
+            <h3>This is an example, but your can test signing</h3>
+            For a real one, the signature form will be directly embedded into
+            your website, with your design and url.
+            <br />
+          </div>
           <p>
-          This is the text of the open letter, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            This is the text of the open letter, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          Quam pellentesque nec nam aliquam sem et. Molestie nunc non blandit massa enim nec dui. Diam ut venenatis tellus in metus vulputate eu scelerisque. Quis ipsum suspendisse ultrices gravida dictum fusce ut. Commodo viverra maecenas accumsan lacus vel. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Eu volutpat odio facilisis mauris. Diam in arcu cursus euismod. Viverra nam libero justo laoreet sit amet cursus sit. Adipiscing elit duis tristique sollicitudin nibh sit. Cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo. Laoreet suspendisse interdum consectetur libero.
-</p><p>
-
-Scelerisque viverra mauris in aliquam. Magna fringilla urna porttitor rhoncus dolor. Vestibulum lectus mauris ultrices eros in cursus turpis massa. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Scelerisque in dictum non consectetur a erat nam at lectus. Tempor orci dapibus ultrices in iaculis nunc. Massa ultricies mi quis hendrerit dolor magna. Lectus mauris ultrices eros in. Viverra tellus in hac habitasse. Est ultricies integer quis auctor elit. Lacus luctus accumsan tortor posuere ac ut. Elementum pulvinar etiam non quam lacus suspendisse. Sodales ut etiam sit amet nisl purus. Morbi non arcu risus quis varius quam quisque id. Risus nec feugiat in fermentum posuere urna. Tempor commodo ullamcorper a lacus vestibulum sed arcu.
-</p><p>
-
-Massa id neque aliquam vestibulum morbi blandit. Mauris rhoncus aenean vel elit scelerisque mauris. Dignissim suspendisse in est ante. Tempor orci eu lobortis elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Aliquet enim tortor at auctor urna nunc id cursus metus. Id volutpat lacus laoreet non curabitur gravida arcu. Malesuada fames ac turpis egestas sed tempus urna. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Id velit ut tortor pretium viverra suspendisse. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Semper quis lectus nulla at volutpat. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem.
-</p><p>
-Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed elementum tempus egestas. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Mauris pellentesque pulvinar pellentesque habitant. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Lacus luctus accumsan tortor posuere. Nunc non blandit massa enim nec dui nunc. Interdum consectetur libero id faucibus nisl. Ac auctor augue mauris augue neque gravida in. Habitant morbi tristique senectus et. Amet consectetur adipiscing elit pellentesque habitant. Tristique sollicitudin nibh sit amet commodo nulla. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Et egestas quis ipsum suspendisse. Proin nibh nisl condimentum id. Egestas erat imperdiet sed euismod nisi.</p>
+          <p>
+            Quam pellentesque nec nam aliquam sem et. Molestie nunc non blandit
+            massa enim nec dui. Diam ut venenatis tellus in metus vulputate eu
+            scelerisque. Quis ipsum suspendisse ultrices gravida dictum fusce
+            ut. Commodo viverra maecenas accumsan lacus vel. Aliquam malesuada
+            bibendum arcu vitae elementum curabitur vitae nunc. Eu volutpat odio
+            facilisis mauris. Diam in arcu cursus euismod. Viverra nam libero
+            justo laoreet sit amet cursus sit. Adipiscing elit duis tristique
+            sollicitudin nibh sit. Cursus mattis molestie a iaculis at erat
+            pellentesque adipiscing commodo. Laoreet suspendisse interdum
+            consectetur libero.
+          </p>
+          <p>
+            Scelerisque viverra mauris in aliquam. Magna fringilla urna
+            porttitor rhoncus dolor. Vestibulum lectus mauris ultrices eros in
+            cursus turpis massa. Dictumst vestibulum rhoncus est pellentesque
+            elit ullamcorper dignissim cras. Scelerisque in dictum non
+            consectetur a erat nam at lectus. Tempor orci dapibus ultrices in
+            iaculis nunc. Massa ultricies mi quis hendrerit dolor magna. Lectus
+            mauris ultrices eros in. Viverra tellus in hac habitasse. Est
+            ultricies integer quis auctor elit. Lacus luctus accumsan tortor
+            posuere ac ut. Elementum pulvinar etiam non quam lacus suspendisse.
+            Sodales ut etiam sit amet nisl purus. Morbi non arcu risus quis
+            varius quam quisque id. Risus nec feugiat in fermentum posuere urna.
+            Tempor commodo ullamcorper a lacus vestibulum sed arcu.
+          </p>
+          <p>
+            Massa id neque aliquam vestibulum morbi blandit. Mauris rhoncus
+            aenean vel elit scelerisque mauris. Dignissim suspendisse in est
+            ante. Tempor orci eu lobortis elementum. Pellentesque habitant morbi
+            tristique senectus et netus et malesuada fames. Aliquet enim tortor
+            at auctor urna nunc id cursus metus. Id volutpat lacus laoreet non
+            curabitur gravida arcu. Malesuada fames ac turpis egestas sed tempus
+            urna. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Id
+            velit ut tortor pretium viverra suspendisse. Nec dui nunc mattis
+            enim ut tellus elementum sagittis vitae. Semper quis lectus nulla at
+            volutpat. Urna cursus eget nunc scelerisque viverra mauris in
+            aliquam sem.
+          </p>
+          <p>
+            Massa eget egestas purus viverra accumsan in nisl. In vitae turpis
+            massa sed elementum tempus egestas. Fermentum odio eu feugiat
+            pretium nibh ipsum consequat nisl. Mauris pellentesque pulvinar
+            pellentesque habitant. At erat pellentesque adipiscing commodo elit
+            at imperdiet dui accumsan. Lacus luctus accumsan tortor posuere.
+            Nunc non blandit massa enim nec dui nunc. Interdum consectetur
+            libero id faucibus nisl. Ac auctor augue mauris augue neque gravida
+            in. Habitant morbi tristique senectus et. Amet consectetur
+            adipiscing elit pellentesque habitant. Tristique sollicitudin nibh
+            sit amet commodo nulla. Morbi tempus iaculis urna id volutpat lacus
+            laoreet non curabitur. Et egestas quis ipsum suspendisse. Proin nibh
+            nisl condimentum id. Egestas erat imperdiet sed euismod nisi.
+          </p>
         </div>
-        <div id="action_column" class="col-md-6"><p>Write some explanation on why to sign or whatever you want here</p>
-        <div class="proca-widget" data-campaign-id="132"></div>
+        <div id="action_column" class="col-md-6">
+          <p>Write some explanation on why to sign or whatever you want here</p>
+          <div class="proca-widget" data-campaign-id="132"></div>
         </div>
       </div>
     </div>
 
     <div class="modal" id="code" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">How to add the widget on your site?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <h4>If you use wordpress</h4>
-              <ul>
-                <li> add "proca" plugin</li>
-                <li class="dynamic"> use the shortcode [proca widget=%widget_path%]</li>
-              </ul>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">How to add the widget on your site?</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4>If you use wordpress</h4>
+            <ul>
+              <li>add "proca" plugin</li>
+              <li class="dynamic">
+                use the shortcode [proca widget=%widget_path%]
+              </li>
+            </ul>
 
-          <h4>Any other (Javascript)</h4>
-          <pre class="dynamic">
+            <h4>Any other (Javascript)</h4>
+            <pre class="dynamic">
 &lt;script id="proca" src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-form">&lt;/div>
-          </pre>
+          </pre
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -177,12 +283,12 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
     <script>
       var params = {};
 
-      function loader () {
-        proca.hook("twitter","load", function(list){
-          list[0].description ="bozo";
+      function loader() {
+        proca.hook("twitter", "load", function (list) {
+          list[0].description = "bozo";
           console.log(list);
         });
-        proca.set("geolocate",true);
+        proca.set("geolocate", true);
         console.log("loaded");
         proca.go(); // continue to the next step
       }
@@ -190,12 +296,14 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
       function display() {
         var variants = ["standard", "filled", "outlined"];
         var urlParams = new URLSearchParams(window.location.search);
-        var widget_path = window.location.hostname + window.location.pathname.replace("/index.html","");
+        var widget_path =
+          window.location.hostname +
+          window.location.pathname.replace("/index.html", "");
         for (let d of document.getElementsByClassName("dynamic")) {
-          d.innerHTML = d.innerHTML.replace("%widget_path%",widget_path);
+          d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
         }
 
-        var params = {aname:""};
+        var params = { aname: "" };
         if (urlParams.get("variant")) {
           params.variant = urlParams.get("variant");
         }
@@ -209,33 +317,35 @@ Massa eget egestas purus viverra accumsan in nisl. In vitae turpis massa sed ele
         display();
       } else {
         console.log("DEV MODE");
-        window.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener("DOMContentLoaded", function () {
           display();
         });
       }
     </script>
 
-  <script>
-      window.addEventListener("proca", d => {
+    <script>
+      proca.go("campax_initiative");
+      window.addEventListener("proca", (d) => {
         if (d.detail.message === "init") {
-console.log ("proca loaded");
-          setTimeout(() => {proca.go(1)}, 1);
-
+          console.log("proca loaded");
+          setTimeout(() => {
+            proca.go(1);
+          }, 1);
         } else {
-console.log ("proca loaded",d.detail);
-          console.log(d.detail.message,d.detail.value);
+          console.log("proca loaded", d.detail);
+          console.log(d.detail.message, d.detail.value);
         }
       });
 
-    jQuery(function($) {
-      $('.columns a').click(function() {
-        $('#action_column').removeClass().addClass($(this).data('class'));
-        window.dispatchEvent(new Event('resize'));
+      jQuery(function ($) {
+        $(".columns a").click(function () {
+          $("#action_column").removeClass().addClass($(this).data("class"));
+          window.dispatchEvent(new Event("resize"));
+        });
+        $(".variant a").click(function () {
+          proca.set("variant", $(this).data("variant"));
+        });
       });
-      $('.variant a').click(function() {
-        proca.set("variant",$(this).data('variant'));
-      });
-});
-  </script>
+    </script>
   </body>
 </html>

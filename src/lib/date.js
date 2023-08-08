@@ -12,8 +12,11 @@ const formatDate = (d) => {
   }
 };
 
+const parse = (date) => Date.parse(formatDate(date));
+
 const isDate = (date) => {
-  return /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.test(date);
+  return !isNaN(parse(date));
+  //  return /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.test(date);
 };
 
-export { formatDate, isDate };
+export { formatDate, isDate, parse };
