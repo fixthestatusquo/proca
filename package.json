@@ -56,7 +56,7 @@
     "@absinthe/socket": "^0.2.1",
     "@alienfast/i18next-loader": "^2.0.1",
     "@babel/cli": "^7.22.9",
-    "@babel/node": "^7.22.6",
+    "@babel/node": "^7.22.10",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
     "@proca/api": "2.3.4",
     "@testing-library/react": "^12.1.5",
