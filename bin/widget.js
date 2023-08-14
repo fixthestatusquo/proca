@@ -282,7 +282,7 @@ const getConfig = (data) => {
   return config;
 };
 
-const fetch = async (actionPage, { anonymous, campaign = true }) => {
+const fetch = async (actionPage, { campaign = true }) => {
   let data = undefined;
 
   const query = `
