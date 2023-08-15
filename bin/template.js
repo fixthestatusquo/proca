@@ -41,6 +41,7 @@ const help = () => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
+  string: ["mjml"],
   boolean: [
     "help",
     "dry-run",
@@ -377,12 +378,12 @@ if (require.main === module) {
     } catch (e) {
       console.log(e);
     }
+    const html = render?.html || readTemplate(id);
     if (argv.push && !argv["dry-run"]) {
-      await pushTemplate(config, render.html);
+      await pushTemplate(config, html);
     }
     if (argv.serve) {
       const port = 8025;
-      const html = render?.html || readTemplate(id);
       http
         .createServer(function (req, res) {
           res.setHeader("Content-type", "text/html");
