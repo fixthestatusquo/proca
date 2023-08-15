@@ -1,26 +1,9 @@
 #!/usr/bin/env node
+require("./dotenv.js");
+
 const fs = require("fs");
 const path = require("path");
 const http = require("http");
-
-require("./dotenv.js");
-const _set = require("lodash/set");
-const _merge = require("lodash/merge");
-const argv = require("minimist")(process.argv.slice(2), {
-  boolean: [
-    "help",
-    "dry-run",
-    "extract",
-    "verbose",
-    "build",
-    "push",
-    "serve",
-    "markdown",
-    "campaign",
-  ],
-  alias: { v: "verbose" },
-  default: { mjml: "default/thankyou", markdown: true, build: true },
-});
 const { read, api } = require("./config");
 const mjmlEngine = require("mjml");
 const htmlparser2 = require("htmlparser2");
@@ -33,13 +16,8 @@ const org = require("./org");
 const { saveCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
-const tmp = process.env.REACT_APP_CONFIG_FOLDER
-  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
-  : "../config/";
-
-const keys = {};
-const needle = "[{|}]";
-let locales = {}; // to use to update the campaign.config from the template keys
+const _set = require("lodash/set");
+const _merge = require("lodash/merge");
 
 const help = () => {
   console.log(
@@ -61,6 +39,37 @@ const help = () => {
   );
   process.exit(0);
 };
+
+const argv = require("minimist")(process.argv.slice(2), {
+  boolean: [
+    "help",
+    "dry-run",
+    "extract",
+    "verbose",
+    "build",
+    "push",
+    "serve",
+    "markdown",
+    "campaign",
+  ],
+  alias: { v: "verbose" },
+  default: { mjml: "default/thankyou", markdown: true, build: true },
+  unknown: (d) => {
+    const allowed = []; //merge with boolean and string?
+    if (d[0] !== "-" || require.main !== module) return true;
+    if (allowed.includes(d.split("=")[0].slice(2))) return true;
+    console.error("unknown param", d);
+    help(1);
+  },
+});
+
+const tmp = process.env.REACT_APP_CONFIG_FOLDER
+  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+  : "../config/";
+
+const keys = {};
+const needle = "[{|}]";
+let locales = {}; // to use to update the campaign.config from the template keys
 
 const snarkdown = (markdown) => {
   const md = markdown.replaceAll("proca_", "proca-").replaceAll("utm_", "utm-"); //snarkdown messes up
