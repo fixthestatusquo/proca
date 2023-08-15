@@ -124,22 +124,13 @@ const pushTemplate = async (config, html) => {
     subject: i18n.t("email." + config.type + ".subject"),
     id: config.actionpage,
   };
-  console.log("upload template", variables.name);
   const data = await api(query, variables, "upsertTemplate");
-  console.log(
-    data,
-    "pushing ",
-    variables.name,
-    variables.orgName,
-    variables.locale,
-    variables.subject,
-  );
+  console.log("pushing", variables.name, "@" + config.lang);
   if (argv.verbose) console.log("data", data);
   return data;
 };
 
 const updateTranslation = (namespace, parsed) => {
-  console.log("parsed", parsed);
   const file = path.resolve(__dirname, "../src/locales/en/server.json");
   const initial = JSON.parse(fs.readFileSync(file, "utf8"));
   const updated = _merge({}, parsed[namespace], initial);
@@ -151,12 +142,10 @@ const updateTranslation = (namespace, parsed) => {
 };
 
 const updateCampaign = (campaign, lang, tplLocales) => {
-  console.log(tplLocales.server);
   const locales = {};
   locales[lang] = { "server:": tplLocales.server };
   const updated = _merge({}, { config: { locales: locales } }, campaign);
 
-  console.log(updated);
   saveCampaign(updated, {});
   console.log(JSON.stringify(updated.config.locales, null, 2));
 };
@@ -277,7 +266,6 @@ const i18nRender = async (tplName, lang, markdown) => {
         needle + key,
         snarkdown(i18n.t(key, "")),
       );
-      console.log(key, lang);
     }
   }
   return render;
@@ -288,7 +276,6 @@ const i18nTplInit = async (campaign, lang = "en") => {
   await i18n.setDefaultNamespace("server");
   if (lang !== "en") {
     const server = campaign.config.locales.en["server:"]; // only campaign and common namespaces are handled by default
-    console.log(server);
     await i18n.addResourceBundle("en", "server", server);
   }
   const server =
@@ -355,7 +342,6 @@ if (require.main === module) {
 
     if (!mailConfig) {
       mailConfig = saveConfig(config);
-      console.log("config", mailConfig);
     }
     config.locales["server:"] = _merge(config.locales["server:"], mailConfig);
 
@@ -364,7 +350,6 @@ if (require.main === module) {
         render = await i18nRender(tplName, null, argv.markdown);
         saveTemplate(render, id);
         mailConfig = saveConfig(config);
-        console.log("config", mailConfig);
       }
       if (argv.campaign) {
         if (argv["dry-run"]) {
