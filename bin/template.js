@@ -54,10 +54,10 @@ const help = () => {
       "--campaign|no-campaign (add the variables from the template into the campaign)",
       "--extract (extract into src/locales/en/server.js)",
       "--push (push the template to proca server)",
-      "--mjml {template to use in config/mjml, default default/thankyou)",
+      "--mjml {template to use in config/email/mjml, default default/thankyou)",
       "actionpage_id",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
-    ].join("\n")
+    ].join("\n"),
   );
   process.exit(0);
 };
@@ -72,7 +72,7 @@ const snarkdown = (markdown) => {
   const htmls = para.map((l) =>
     [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
       ? _snarkdown(l)
-      : `<p>${_snarkdown(l)}</p>`
+      : `<p>${_snarkdown(l)}</p>`,
   );
   return htmls
     .join("\n\n")
@@ -122,7 +122,7 @@ const pushTemplate = async (config, html) => {
     variables.name,
     variables.orgName,
     variables.locale,
-    variables.subject
+    variables.subject,
   );
   if (argv.verbose) console.log("data", data);
   return data;
@@ -175,7 +175,7 @@ const translateTpl = (tpl, lang, markdown) =>
         (e) => util.getAttributeValue(e, "i18n"),
         dom,
         true,
-        999
+        999,
       );
       i18node.forEach((d) => {
         const text = util.getChildren(d)[0] || {
@@ -206,7 +206,7 @@ const translateTpl = (tpl, lang, markdown) =>
 const saveTemplate = (render, id) => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".html"
+    tmp + "email/actionpage/" + id + ".html",
   );
   if (argv.verbose) {
     console.log(JSON.stringify(render.errors, null, 2));
@@ -221,10 +221,18 @@ const saveTemplate = (render, id) => {
   return render;
 };
 
+const readTemplate = (id) => {
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/actionpage/" + id + ".html",
+  );
+  return fs.readFileSync(fileName, "utf8");
+};
+
 const saveConfig = (config) => {
   const jsonFile = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + config.actionpage + ".json"
+    tmp + "email/actionpage/" + config.actionpage + ".json",
   );
 
   const json = {
@@ -243,7 +251,7 @@ const saveConfig = (config) => {
 const i18nRender = async (tplName, lang, markdown) => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/mjml/" + tplName + ".mjml"
+    tmp + "email/mjml/" + tplName + ".mjml",
   );
   let tpl = fs.readFileSync(fileName, "utf8");
   if (lang) {
@@ -257,7 +265,7 @@ const i18nRender = async (tplName, lang, markdown) => {
     for (const key in keys) {
       render.html = render.html.replace(
         needle + key,
-        snarkdown(i18n.t(key, ""))
+        snarkdown(i18n.t(key, "")),
       );
       console.log(key, lang);
     }
@@ -309,14 +317,14 @@ if (require.main === module) {
         } catch (e) {
           console.log(
             "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-            config.org.name
+            config.org.name,
           );
         }
       }
     } catch (e) {
       console.log(
         "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-        config.org.name
+        config.org.name,
       );
       process.exit(1);
     }
@@ -353,7 +361,7 @@ if (require.main === module) {
           console.log(
             "i18n keys",
             keys,
-            JSON.stringify(render.locales, null, 2)
+            JSON.stringify(render.locales, null, 2),
           );
         } else updateCampaign(campaign, lang, locales);
       }
@@ -365,10 +373,11 @@ if (require.main === module) {
     }
     if (argv.serve) {
       const port = 8025;
+      const html = render?.html || readTemplate(id);
       http
         .createServer(function (req, res) {
           res.setHeader("Content-type", "text/html");
-          res.end(render.html);
+          res.end(html);
           process.exit(0);
         })
         .listen(port);
