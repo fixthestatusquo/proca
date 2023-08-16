@@ -1,3 +1,40 @@
+<!doctype html>
+<div class="proca-widget">...</div>
 <script>
-  alert("work in progress");
+  //widget={{actionPage.name}}?redir={{tracking.encodedLocation}}&media=twitter
+  const urlParams = new URLSearchParams(window.location.search);
+  const widget = urlParams.get("widget");
+  const media = urlParams.get("media");
+  const redir = urlParams.get("redir");
+  (() => {
+    if (widget) {
+      const script = document.createElement("script");
+      script.onload = function () {
+        //do stuff with the script
+        console.log("on load");
+      };
+      script.src = "https://widget.proca.app/d/" + widget;
+      document.head.appendChild(script);
+    } else {
+      alert("we need the widget as a param");
+      return;
+    }
+  })();
+
+  function gotoShare() {
+    if (proca) {
+      proca.go("share");
+    } else {
+      console.log("loading...");
+      setTimeout(gotoShare, 10);
+    }
+  }
+
+  window.addEventListener("proca", (e) => {
+    console.log(e.detail);
+    if (e.detail.message === "init") {
+      gotoShare();
+    }
+  });
+  //https://widget.proca.app/d/ha_test-one/hateaid/en
 </script>
