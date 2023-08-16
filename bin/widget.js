@@ -271,8 +271,12 @@ const getConfig = (data) => {
     if (
       !consentEmail.confirmAction &&
       Boolean(data.actionPage.thankYouTemplate)
-    )
+    ) {
       consentEmail.confirmOptIn = true;
+      config.email = { thankyou: data.actionPage.thankYouTemplate };
+    }
+    console.log(data.actionPage);
+    process.exit(1);
     if (Object.keys(consentEmail).length > 0)
       config.component.consent.email = consentEmail; // we always overwrite based on the templates
   }

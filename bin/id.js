@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 require("./dotenv.js");
 const { api } = require("./config");
+const { stringify } = require("dxid");
 
 const getId = async (name) => {
   const query = `query actionPage ($name:String!) {
@@ -28,7 +29,7 @@ if (require.main === module) {
     const name = argv[0];
     if (!name)
       return console.error(
-        "node id.js {name} to get the actionpage id based on the path"
+        "node id.js {name} to get the actionpage id based on the path",
       );
     try {
       const d = await getId(name);
@@ -36,6 +37,7 @@ if (require.main === module) {
         console.error("path " + name + " not found");
         process.exit(1);
       }
+      d.dxid = stringify(d.id);
       console.log(d);
     } catch (e) {
       console.error(e);
