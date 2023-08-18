@@ -16,7 +16,9 @@
       document.head.appendChild(script);
     } else {
       if (redir) {
-        window.location.replace(redir);
+        const url = new URL(redir);
+        url.searchParams.set("proca_go", "Share");
+        window.location.replace(url.toString());
         return;
       }
       document.getElementById("proca-widget").textContent =
