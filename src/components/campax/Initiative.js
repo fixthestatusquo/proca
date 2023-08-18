@@ -80,7 +80,6 @@ export default function Register(props) {
     if (!actionPage || actionPage === config.actionPage) return;
     setCampaignConfig((config) => {
       let d = JSON.parse(JSON.stringify(config));
-      d.actionpage = actionPage;
       d.actionPage = actionPage;
       setStatus("default");
       return d;
