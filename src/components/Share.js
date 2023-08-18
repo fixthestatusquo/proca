@@ -317,8 +317,9 @@ export default function ShareAction(props) {
 
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
-    const openShareDialogOnClick =
-      config.component.share && config.component?.share.open === false;
+    const openShareDialogOnClick = config.component.share
+      ? config.component?.share.open !== false
+      : undefined;
 
     const onClick = (e, link) => {
       if (props.onClick) {
