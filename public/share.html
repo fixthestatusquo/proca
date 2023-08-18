@@ -29,7 +29,13 @@
 
   function gotoShare() {
     if (proca) {
-      proca.go("share");
+    proca.set("component",{ share: {
+      url: redir,
+      open: false
+      next: false
+    }});
+
+      proca.go("Share");
     } else {
       console.log("loading...");
       setTimeout(gotoShare, 10);

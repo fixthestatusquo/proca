@@ -6,7 +6,7 @@
  * @returns {object} New object with merged key/values
  * https://stackoverflow.com/questions/27936772/how-to-deep-merge-instead-of-shallow-merge
  */
-export function merge(...objects) {
+export const merge = (...objects) => {
   const isObject = (obj) => obj && typeof obj === "object";
 
   return objects.reduce((prev, obj) => {
@@ -25,4 +25,20 @@ export function merge(...objects) {
 
     return prev;
   }, {});
-}
+};
+
+export const set = (obj, path, value) => {
+  const keys = path.split(".");
+  let current = obj;
+
+  for (let i = 0; i < keys.length - 1; i++) {
+    const key = keys[i];
+    if (!current[key] || typeof current[key] !== "object") {
+      current[key] = {};
+    }
+    current = current[key];
+  }
+
+  current[keys[keys.length - 1]] = value;
+  return obj;
+};

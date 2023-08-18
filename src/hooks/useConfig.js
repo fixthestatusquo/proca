@@ -13,7 +13,8 @@ import {
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
-import _set from "lodash/set";
+import { merge, set } from "@lib/object";
+//import _set from "lodash/set";
 
 export let configState = null;
 
@@ -33,7 +34,7 @@ export const initConfigState = (config) => {
           ns,
           config.locales[k],
           true,
-          true
+          true,
         );
         delete config.locales[k];
       }
@@ -45,7 +46,7 @@ export const initConfigState = (config) => {
         "campaign",
         config.campaign,
         true,
-        true
+        true,
       );
     }
     i18next.addResourceBundle(
@@ -53,7 +54,7 @@ export const initConfigState = (config) => {
       "common",
       config.locales,
       true,
-      true
+      true,
     );
   }
   initLayout(config.layout);
@@ -82,16 +83,6 @@ export const setGlobalState = (atom, key, value) => {
     // delay until the display is finished
     setTimeout(setGlobalState, 1, atom, key, value);
   }
-};
-
-const set = (key, value) => {
-  // obsolete, will soon be removed
-  console.log("obsolete, shouldn't be there");
-  const event = new CustomEvent("proca-set", {
-    detail: { key: key, value: value },
-  });
-
-  document.getElementById(id).dispatchEvent(event);
 };
 
 const goStep = (action) => {
@@ -124,20 +115,28 @@ export const ConfigProvider = (props) => {
 
   const go = props.go;
 
-  const setCampaignConfig = useCallback(
-    // trying to set paths one at a time with multiple proca.set() calls led to
-    // read-only errors... so set the all at once.
-    (to_update) => {
-      _setCampaignConfig((current) => {
-        for (const [path, value] of Object.entries(to_update)) {
-          // mutates object in place
-          _set(current, path, value);
-        }
-        return current;
-      });
-    },
-    [_setCampaignConfig]
-  );
+  const setPartPath = (part, path, value) => {
+    _setCampaignConfig((config) => {
+      const d = JSON.parse(JSON.stringify(config));
+      return set(d, part + "." + path, value);
+    });
+  };
+
+  const setPart = (part, toMerge) => {
+    _setCampaignConfig((config) => {
+      const d = {};
+      d[part] = toMerge;
+      return merge(config, d);
+    });
+  };
+  // either set a single key or merge
+  const handlePart = (part, key, value) => {
+    if (typeof key === "string") {
+      setPartPath(part, key, value);
+    } else {
+      setPart(part, key);
+    }
+  };
 
   const setHook = useCallback(
     (object, action, hook) => {
@@ -148,11 +147,12 @@ export const ConfigProvider = (props) => {
         return next;
       });
     },
-    [_setCampaignConfig]
+    [_setCampaignConfig],
   );
 
   useEffect(() => {
     const elem = document.getElementById(id);
+
     elem.addEventListener(
       "proca-set",
       (e) => {
@@ -160,11 +160,19 @@ export const ConfigProvider = (props) => {
           case "layout":
             setLayout(e.detail.key, e.detail.value);
             break;
+          case "component":
+            handlePart("component", e.detail.key, e.detail.value);
+            break;
+          /*          case "data":
+            handlePart("data", e.detail.key, e.detail.value);
+            handlePart("param", e.detail.key, e.detail.value);
+            break;
+          case "locale":
+            handlePart("locale", e.detail.key, e.detail.value);
+            break;
+*/
           case "campaign":
-            if (e.detail.value && !(e.detail.key instanceof Object)) {
-              setCampaignConfig({ [e.detail.key]: e.detail.value });
-            }
-            setCampaignConfig(e.detail.key);
+            alert("disabled, use set component or locale");
             break;
           case "data":
             setData(e.detail.key, e.detail.value);
@@ -173,7 +181,7 @@ export const ConfigProvider = (props) => {
             console.error("you need to specify an atom/namespace"); //setConfig(e.detail.key,e.detail.value);
         }
       },
-      false
+      false,
     );
 
     elem.addEventListener(
@@ -189,7 +197,7 @@ export const ConfigProvider = (props) => {
           return console.error("object must me a string");
         setHook(e.detail.object, e.detail.action, e.detail.hook);
       },
-      false
+      false,
     );
 
     elem.addEventListener(
@@ -201,9 +209,9 @@ export const ConfigProvider = (props) => {
           console.error("ain't no go fct");
         }
       },
-      false
+      false,
     );
-  }, [go, setHook, setLayout, setCampaignConfig, setData]);
+  }, [go, setHook, setLayout, handlePart, setData]);
 
   //setCampaignConfig(config);
   //<Config.Provider value={{config, setConfig}}>

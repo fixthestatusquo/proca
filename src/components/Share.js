@@ -104,7 +104,7 @@ export default function ShareAction(props) {
       typeof component === "string"
         ? component
         : component.render.displayName.replace("ShareButton-", "");
-    const url = new URL(window.location.href);
+    const url = new URL(config.component?.share?.url || window.location.href);
     let params = url.searchParams;
     params.set("utm_source", "share");
     params.set("utm_medium", medium);
@@ -115,9 +115,9 @@ export default function ShareAction(props) {
       if (key === "doi") garbage.push(key);
       if (key.startsWith("proca_")) garbage.push(key);
     }
-    if (config?.component?.share?.utm === false) {
+    if (config.component?.share?.utm === false) {
       ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
-        garbage.push(d)
+        garbage.push(d),
       );
     }
     garbage.forEach((key) => params.delete(key));
@@ -293,7 +293,7 @@ export default function ShareAction(props) {
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
-      ""
+      "",
     );
 
     let autoClosed = true;
@@ -314,14 +314,28 @@ export default function ShareAction(props) {
         addShare("share", medium);
       }, 1500);
     }
+
     let drillProps = Object.assign({}, props);
     delete drillProps.icon;
+    const openShareDialogOnClick =
+      config.component.share && config.component?.share.open === false;
+
+    const onClick = (e, link) => {
+      if (props.onClick) {
+        props.onClick(e, link);
+        return;
+      }
+      if (openShareDialogOnClick === false) window.location.href = link;
+    };
+
     return (
       <IconButton
         {...drillProps}
+        id={"proca-share-" + medium}
         component={props.component}
         url={shareUrl(props.component)}
-        onClick={props.onClick}
+        openShareDialogOnClick={openShareDialogOnClick}
+        onClick={onClick}
         title={props.title || props.share || t("share.message")}
         beforeOnClick={() => before(props)}
         onShareWindowClose={() => after(props)}
