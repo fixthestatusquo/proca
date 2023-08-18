@@ -51,9 +51,11 @@
     if (e.detail.message === "share:init") {
       console.log("click", media);
       const button = document.getElementById("proca-share-" + media);
+      console.log(button);
       if (!button) {
-        document.getElementById("proca-widget").textContent =
-          "error:we need a social media param";
+        //        document.getElementById("proca-widget").textContent =
+        //          "error:we need a social media param";
+        return;
       }
       button.click();
     }
