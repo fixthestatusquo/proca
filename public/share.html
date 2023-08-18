@@ -1,5 +1,5 @@
 <!doctype html>
-<div class="proca-widget">...</div>
+<div class="proca-widget" id="proca-widget">...</div>
 <script>
   //widget={{actionPage.name}}?redir={{tracking.encodedLocation}}&media=twitter
   const urlParams = new URLSearchParams(window.location.search);
@@ -10,13 +10,17 @@
     if (widget) {
       const script = document.createElement("script");
       script.onload = function () {
-        //do stuff with the script
-        console.log("on load");
+        //todo: check it loads
       };
       script.src = "https://widget.proca.app/d/" + widget;
       document.head.appendChild(script);
     } else {
-      alert("we need the widget as a param");
+      if (redir) {
+        window.location.replace(redir);
+        return;
+      }
+      document.getElementById("proca-widget").textContent =
+        "error:we need the widget and the redirect as a param";
       return;
     }
   })();
