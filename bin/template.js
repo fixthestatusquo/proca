@@ -247,19 +247,31 @@ const saveConfig = (config) => {
   return json;
 };
 
-const i18nRender = async (tplName, lang, markdown) => {
+const readMjmlTemplate = (tplName) => {
   const fileName = path.resolve(
     __dirname,
     tmp + "email/mjml/" + tplName + ".mjml",
   );
   let tpl = fs.readFileSync(fileName, "utf8");
+  const render = mjmlEngine(tpl, {});
+  return render;
+};
+
+const i18nRender = async (tplName, lang, markdown) => {
+  const fileName = path.resolve(
+    __dirname,
+    tmp + "email/mjml/" + tplName + ".mjml",
+  );
+  //  let tpl = fs.readFileSync(fileName, "utf8");
+  let render = readMjmlTemplate(tplName);
   if (lang) {
     //only switch if different than current?
     await i18n.changeLanguage(lang);
     //    configOverride(config); what does it do?
   }
-  const newTpl = await translateTpl(tpl, lang, markdown);
-  const render = mjmlEngine(newTpl, {});
+  const newTpl = await translateTpl(render.html, lang, markdown);
+  render.html = newTpl;
+  //  const render = mjmlEngine(newTpl, {});
   if (markdown) {
     for (const key in keys) {
       render.html = render.html.replace(
@@ -275,7 +287,7 @@ const i18nTplInit = async (campaign, lang = "en") => {
   await i18nInit;
   await i18n.setDefaultNamespace("server");
   if (lang !== "en") {
-    const server = campaign.config.locales.en["server:"]; // only campaign and common namespaces are handled by default
+    const server = campaign.config.locales?.en["server:"] | {}; // only campaign and common namespaces are handled by default
     await i18n.addResourceBundle("en", "server", server);
   }
   const server =
