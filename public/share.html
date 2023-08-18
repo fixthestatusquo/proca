@@ -29,12 +29,13 @@
 
   function gotoShare() {
     if (proca) {
-    proca.set("component",{ share: {
-      url: redir,
-      open: false
-      next: false
-    }});
-
+      proca.set("component", {
+        share: {
+          url: redir,
+          open: false,
+          next: false,
+        },
+      });
       proca.go("Share");
     } else {
       console.log("loading...");
@@ -46,6 +47,15 @@
     console.log(e.detail);
     if (e.detail.message === "init") {
       gotoShare();
+    }
+    if (e.detail.message === "share:init") {
+      console.log("click", media);
+      const button = document.getElementById("proca-share-" + media);
+      if (!button) {
+        document.getElementById("proca-widget").textContent =
+          "error:we need a social media param";
+      }
+      button.click();
     }
   });
   //https://widget.proca.app/d/ha_test-one/hateaid/en
