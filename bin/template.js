@@ -262,7 +262,6 @@ const i18nRender = async (tplName, lang, markdown) => {
     __dirname,
     tmp + "email/mjml/" + tplName + ".mjml",
   );
-  //  let tpl = fs.readFileSync(fileName, "utf8");
   let render = readMjmlTemplate(tplName);
   if (lang) {
     //only switch if different than current?
@@ -271,7 +270,6 @@ const i18nRender = async (tplName, lang, markdown) => {
   }
   const newTpl = await translateTpl(render.html, lang, markdown);
   render.html = newTpl;
-  //  const render = mjmlEngine(newTpl, {});
   if (markdown) {
     for (const key in keys) {
       render.html = render.html.replace(
