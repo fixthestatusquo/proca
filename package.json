@@ -76,7 +76,7 @@
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.0",
     "i18next-fs-backend": "^2.1.5",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^14.0.1",
     "minimist": "^1.2.8",
     "mjml": "^4.14.1",
     "open": "^9.1.0",
