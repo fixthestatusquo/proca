@@ -228,7 +228,7 @@ export default function Register(props) {
     if (config.component.consent?.implicit) {
       formData.privacy =
         config.component.consent.implicit === true
-          ? "opt-in"
+          ? null
           : config.component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
@@ -263,7 +263,7 @@ export default function Register(props) {
     if (data.uuid) {
       const expected =
         "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
-          ","
+          ",",
         );
 
       let payload = {};
@@ -278,14 +278,14 @@ export default function Register(props) {
           tracking: Url.utm(config.component?.register?.tracking),
           payload: payload,
         },
-        config.test
+        config.test,
       );
     } else {
       result = await addActionContact(
         actionType,
         config.actionPage,
         formData,
-        config.test
+        config.test,
       );
     }
 
@@ -324,7 +324,7 @@ export default function Register(props) {
         privacy: formData.privacy,
       },
       formData,
-      config
+      config,
     );
     if (config.component.register?.remember) {
       setCookie("proca_firstname", formData.firstname);
@@ -453,7 +453,7 @@ export default function Register(props) {
         country: d.country,
       },
       d,
-      config
+      config,
     );
     props.done();
   };
