@@ -19,7 +19,7 @@ const filter = (query, whitelist = null, prefix = "") => {
   Object.keys(query)
     .filter(
       (key) =>
-        key.startsWith(prefix) && whitelist.includes(key.substr(prefix.length))
+        key.startsWith(prefix) && whitelist.includes(key.substr(prefix.length)),
     )
     .forEach((k) => (r[k.substr(prefix.length)] = query[k]));
   return r;
@@ -137,7 +137,21 @@ const utm = (record = true) => {
     shortcut = { source, medium, campaign };
   }
 
-  Object.assign(utm, shortcut, parse(whitelist, "utm_"));
+  Object.assign(
+    utm,
+    shortcut,
+    parse(whitelist, "utm_"),
+    parse(whitelist, "mtm_"),
+  );
+  //mtm_xx is the matomo convention
+  if (!utm.source && utm.campaign) {
+    // some users have (campaign, kwd) instead of (source, campaign)
+    const kwd = parse(["mtm_kwd"]).mtm_kwd;
+    if (kwd) {
+      utm.source = utm.campaign;
+      utm.campaign = kwd;
+    }
+  }
   if (!utm.source && document.referrer) {
     const u = new URL(document.referrer);
 
