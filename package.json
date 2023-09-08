@@ -55,7 +55,7 @@
   "devDependencies": {
     "@absinthe/socket": "^0.2.1",
     "@alienfast/i18next-loader": "^2.0.1",
-    "@babel/cli": "^7.22.10",
+    "@babel/cli": "^7.22.15",
     "@babel/node": "^7.22.15",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
     "@proca/api": "2.3.4",
