@@ -154,12 +154,12 @@
   },
   "no": "ingen",
   "progress": {
-    "donate": "{{total}} har doneret. Lad os gå til {{goal}}",
-    "email": "{{total}} har sendt en e-mail. Lad os gå til {{goal}}",
-    "register": "{{total}} har registreret. Lad os gå til {{goal}}",
-    "share": "{{total}} har delt. Lad os gå til {{goal}}",
-    "sign": "{{total}} har underskrevet. Lad os gå til {{goal}}",
-    "twitter": "{{total}} har twittet. Lad os gå til {{goal}}"
+    "donate": "{{total}} har doneret. Lad os nå {{goal}}",
+    "email": "{{total}} har sendt en e-mail. Lad os nå {{goal}}",
+    "register": "{{total}} har registreret. Lad os nå {{goal}}",
+    "share": "{{total}} har delt. Lad os nå {{goal}}",
+    "sign": "{{total}} har skrevet under. Lad os nå {{goal}}",
+    "twitter": "{{total}} har twittet. Lad os nå {{goal}}"
   },
   "read more": "Læs mere",
   "register": "Tilføj mit navn",
