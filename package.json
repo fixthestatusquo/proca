@@ -3,10 +3,12 @@
   "version": "0.9.0-beta.1",
   "private": false,
   "files": [
+    "bin",
     "dist",
     "README.md"
   ],
   "main": "dist/module.js",
+  "run": "bin/index.js",
   "licence": "aGPL3",
   "nope.resolutions": {
     "@babel/preset-env": "^7.8.7"
