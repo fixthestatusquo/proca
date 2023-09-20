@@ -29,7 +29,7 @@ async function graphQL(operation, query, options) {
         operationName: operation || "",
         extensions: options.extensions,
       }),
-    }
+    },
   )
     .then((res) => {
       if (!res.ok) {
@@ -108,7 +108,7 @@ async function getLatest(actionPage, actionType, options) {
     result.push(org);
   });
   return result.filter(
-    (v, i, a) => a.findIndex((t) => t.twitter === v.twitter) === i
+    (v, i, a) => a.findIndex((t) => t.twitter === v.twitter) === i,
   );
 }
 
@@ -243,7 +243,7 @@ async function addDonateContact(provider, actionPage, data, test) {
   data.donation.payload = JSON.stringify(data.donation.payload);
   if (!Number.isInteger(data.donation.amount)) {
     throw Error(
-      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`
+      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`,
     );
   }
   if (data.donation.frequencyUnit) {
@@ -286,8 +286,8 @@ async function addActionContact(actionType, actionPage, data, test) {
 
   let expected =
     //"uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
-    "uuid,firstname,lastname,email,phone,country,postcode,street,address,region,birthdate,privacy,tracking,donation".split(
-      ","
+    "uuid,firstname,lastname,email,phone,country,postcode,address,region,birthdate,privacy,tracking,donation".split(
+      ",",
     );
   let variables = {
     actionPage: actionPage,
@@ -303,7 +303,7 @@ async function addActionContact(actionType, actionPage, data, test) {
       address: {
         country: data.country || "",
         postcode: data.postcode || "",
-        street: data.street || "",
+        //        street: data.street || "", bug: street not saved properly in the address field, creates an internal error on mtt
       },
     },
     privacy: privacy,
@@ -373,7 +373,7 @@ async function stripeCreateCustomer(actionPageId, contactDetails) {
 async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   const customer = await stripeCreateCustomer(
     params.actionPage,
-    params.contact
+    params.contact,
   );
 
   const amount = params.amount;
@@ -392,13 +392,13 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
         amount,
         currency,
       },
-      params
+      params,
     );
   }
 
   return await stripeCreatePaymentIntent(
     { actionPage, customer, amount, currency },
-    params
+    params,
   );
 }
 
@@ -452,7 +452,7 @@ async function stripeCreatePaymentIntent({
 
 async function stripeCreateSubscription(
   { actionPage, customer, amount, currency, frequency },
-  params
+  params,
 ) {
   var query = `mutation addStripeObject (
     $actionPageId: Int!,
