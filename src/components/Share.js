@@ -220,23 +220,27 @@ export default function ShareAction(props) {
         .catch((error) => console.error("Error sharing", error));
     };
 
-    if (isMobile && navigator?.canShare) {
-      cardIcons = (
-        <CardActions>
-          <Button
-            endIcon={<ShareIcon />}
-            className={classes.next}
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={() => nativeShare("webshare_api")}
-          >
-            {t("action.share")}
-          </Button>
-        </CardActions>
-      );
-    } else {
-      cardIcons = (
+    cardIcons = (
+      <>
+        {isMobile &&
+          navigator?.canShare &&
+          !(
+            config.component.share?.native &&
+            config.component.share.native === false
+          ) && (
+            <CardActions>
+              <Button
+                endIcon={<ShareIcon />}
+                className={classes.next}
+                variant="contained"
+                color="primary"
+                fullWidth
+                onClick={() => nativeShare("webshare_api")}
+              >
+                {t("action.share")}
+              </Button>
+            </CardActions>
+          )}
         <CardActions>
           <ActionIcon
             icon={WhatsappIcon}
@@ -283,8 +287,8 @@ export default function ShareAction(props) {
             summary={shareText("share-linkedin") || metadata.description}
           />
         </CardActions>
-      );
-    }
+      </>
+    );
     return cardIcons;
   }
 
