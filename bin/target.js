@@ -23,7 +23,7 @@ const help = (exitValue) => {
         "--push (update the server)",
         "--publish (update the public list into /config/target/public and make it live)",
         "{campaign name}",
-      ].join("\n")
+      ].join("\n"),
     ),
 
     color.blackBright(
@@ -33,7 +33,7 @@ const help = (exitValue) => {
         "--salutation(add a salutation column based on the gender and language)",
         "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
         "--file=file (by default, config/target/source/{campaign name}.json",
-      ].join("\n")
+      ].join("\n"),
     ),
 
     color.blackBright(
@@ -45,8 +45,8 @@ const help = (exitValue) => {
         "--source (filter the server list based on source - if the server has more targets than the source)",
         "--meps , special formatting, use the name of the party for description",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
-      ].join("\n")
-    )
+      ].join("\n"),
+    ),
   );
   process.exit(+exitValue);
 };
@@ -138,7 +138,7 @@ const saveDigest = async (targetName, targets) => {
   const exists = fileExists("target/digest/" + targetName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("saving " + targets.length + " targets into", fileName)
+    color.green.bold("saving " + targets.length + " targets into", fileName),
   );
   let r = null;
   const msg = "saving " + targets.length + " targets";
@@ -158,7 +158,7 @@ const saveTargets = async (targetName, targets) => {
   const exists = fileExists("target/server/" + targetName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("pulled " + targets.length + " targets into", fileName)
+    color.green.bold("pulled " + targets.length + " targets into", fileName),
   );
   let r = null;
   const msg = "saving " + targets.length + " targets";
@@ -178,7 +178,7 @@ const getTwitter = async (target) => {
     (target.config.twitter && target.config.twitter.screen_name) || target.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + targetName
+      "https://twitter.proca.app/?screen_name=" + targetName,
     );
 
     if (res.status >= 400) {
@@ -238,7 +238,7 @@ const formatTarget = async (campaignName, file) => {
       delete t.id;
 
       if (t.field.lang) {
-        t.locale = t.field.lang;
+        t.locale = t.field.lang.toLowerCase();
         delete t.field.lang;
       } else {
         const l = mainLanguage(t.area);
@@ -353,7 +353,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
   const ids = await api(
     query,
     { id: campaign.id, targets: formattedTargets, replace: !argv.keep },
-    "UpsertTargets"
+    "UpsertTargets",
   );
   if (ids.errors) {
     ids.errors.forEach((d) => {
@@ -365,7 +365,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
         formattedTargets[line]?.name,
         formattedTargets[line]?.emails
           ? color.red(formattedTargets[line]?.emails[0].email)
-          : color.red(formattedTargets[line])
+          : color.red(formattedTargets[line]),
       );
     });
   }
@@ -402,8 +402,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git"
-      )
+        "git integration disabled because the config folder isn't on git",
+      ),
     );
     argv.git = false;
   }
@@ -419,7 +419,7 @@ if (require.main === module) {
       if (!(argv.push || argv.pull || argv.publish || argv.digest)) {
         summary(name);
         console.error(
-          color.red("missing action, either --push --pull --publish --digest")
+          color.red("missing action, either --push --pull --publish --digest"),
         );
         process.exit(1);
       }
