@@ -7,6 +7,7 @@ import React, {
 } from "react";
 
 import {
+  Button,
   Collapse,
   List,
   IconButton,
@@ -194,18 +195,25 @@ const Component = (props) => {
   const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [selection, _setSelection] = useState(
-    config.component.email?.selectable ? [] : false
+    config.component.email?.selectable ? [] : false,
   );
 
   const setSelection = (selection) => {
     _setSelection(selection);
   };
+  const selectAll = () => {
+    const r = profiles.map((target) => target.procaid);
+    console.log(r);
+    _setSelection(r);
+  };
+  console.log(profiles);
+
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [alwaysUpdate, setAlwaysUpdate] = useState(
-    config.component.email?.multilingual === true
+    config.component.email?.multilingual === true,
   );
   const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
@@ -217,7 +225,7 @@ const Component = (props) => {
       subject: pickOne(t(["campaign:email.subject", "email.subject"], "")),
       message: t(["campaign:email.body", "email.body"], ""),
     }),
-    [t]
+    [t],
   );
 
   //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
@@ -423,7 +431,7 @@ const Component = (props) => {
 
       return d;
     },
-    [allProfiles, setConfig, setData]
+    [allProfiles, setConfig, setData],
   );
 
   const filterArea = useCallback(
@@ -440,7 +448,7 @@ const Component = (props) => {
       }
       return d;
     },
-    [sampleSize, fallbackRandom, allProfiles]
+    [sampleSize, fallbackRandom, allProfiles],
   );
 
   const filterProfiles = useCallback(
@@ -483,7 +491,7 @@ const Component = (props) => {
         }
         d = allProfiles.filter(
           (d) =>
-            (d.locale ? d.locale === locale : true) && d.country === country
+            (d.locale ? d.locale === locale : true) && d.country === country,
         );
       }
       if (d.length === 0 && fallbackArea) {
@@ -547,7 +555,7 @@ const Component = (props) => {
       postcode,
       languages,
       locale,
-    ]
+    ],
   );
 
   useEffect(() => {
@@ -785,20 +793,34 @@ const Component = (props) => {
             })}
           />
 
-          {selection.length === 0 ? (
-            <Alert severity={errors?.selection ? "error" : "info"}>
+          {selection.length === 0 && profiles.length > 0 ? (
+            <Alert
+              severity={errors?.selection ? "error" : "info"}
+              action={
+                <Button
+                  color="primary"
+                  size="small"
+                  variant="contained"
+                  onClick={() => selectAll()}
+                >
+                  {t("select_all", { defaultValue: "Select all" })}
+                </Button>
+              }
+            >
               {t("target.missing", {
                 defaultValue: "Select at least one out of {{total}}",
                 total: profiles.length,
               })}
             </Alert>
           ) : (
-            <Alert severity="success">
-              {t("target.selected", {
-                defaultValue: "{{total}} selected",
-                total: selection.length,
-              })}
-            </Alert>
+            selection.length > 0 && (
+              <Alert severity="success">
+                {t("target.selected", {
+                  defaultValue: "{{total}} selected",
+                  total: selection.length,
+                })}
+              </Alert>
+            )
           )}
         </>
       )}
