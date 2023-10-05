@@ -87,6 +87,17 @@ if (argv._.length !== 1) {
   help(true);
 }
 
+const parseEmail = (text) => {
+  const emails = text.match(
+    /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi,
+  );
+  if (!emails) {
+    console.log("failed to parse as an email", text);
+    return [];
+  }
+  return emails.map((email) => ({ email: email })); // proca api requires an array of {email:bla@example.org}
+};
+
 const getCampaignTargets = async (name) => {
   const query = `
 query GetCampaignTargets($name: String!) {
@@ -246,18 +257,8 @@ const formatTarget = async (campaignName, file) => {
       }
 
       if (!t.emails) {
-        t.emails = [];
-        if (t.email) {
-          // check if multiple emails separated by ";"
-          //t.emails = [ {email: t.email.trim()}];
-          t.email
-            .replace(",", ";")
-            .split(";")
-            .forEach((d) => {
-              t.emails.push({ email: d.trim() });
-            });
-          delete t.email;
-        }
+        t.emails = parseEmail(t.email);
+        delete t.email;
       }
       if (!t.field.last_name) {
         console.log("missing lastname for ", t.name, "fallback to name");
@@ -357,19 +358,35 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
   );
   if (ids.errors) {
     ids.errors.forEach((d) => {
-      const line = d.path[2];
-      console.log(d.path);
-      console.log(
-        "error record",
-        line,
-        formattedTargets[line]?.name,
-        formattedTargets[line]?.emails
-          ? color.red(formattedTargets[line]?.emails[0].email)
-          : color.red(formattedTargets[line]),
-      );
+      if (d.message === "has messages") {
+        console.error(
+          color.red(
+            "can't remove contact id" +
+              d.path[2] +
+              " because is has supporters' messages waiting to be sent",
+          ),
+        );
+        console.log(
+          color.blue(
+            "you can target --push --keep AND target --publish --source",
+          ),
+        );
+      } else {
+        const line = d.path[2];
+        console.log(d.path);
+        console.log(
+          "error record",
+          line,
+          formattedTargets[line]?.name,
+          formattedTargets[line]?.emails
+            ? color.red(formattedTargets[line]?.emails[0].email)
+            : color.red(formattedTargets[line]),
+        );
+      }
     });
+  } else {
+    console.log(color.green.bold("...pushed", formattedTargets.length));
   }
-  console.log(color.green.bold("...pushed", formattedTargets.length));
   return ids.upsertTargets;
 };
 
@@ -410,9 +427,6 @@ if (require.main === module) {
   (async () => {
     try {
       const name = argv._[0];
-      if (argv.push) {
-        await pushTarget(name, argv.file || name);
-      }
       if (argv.help) {
         help(0);
       }
@@ -430,12 +444,15 @@ if (require.main === module) {
       }
       if (argv.push) {
         await pushTarget(name, argv.file || name);
+        console.log("push done");
       }
       if (argv.pull) {
         await pullTarget(name, argv.file || name);
+        console.log("pull done");
       }
       if (argv.publish) {
         await publishTarget(name, argv);
+        console.log("publish done");
       }
     } catch (e) {
       console.error(e);

@@ -3,7 +3,7 @@ require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
 const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "keep", "dry-run", "git", "verbose"],
+  boolean: ["help", "keep", "dry-run", "git", "verbose", "meps"],
   string: ["file"],
   default: { git: true },
 });
@@ -15,7 +15,7 @@ const merge = (targets, twitters, options) => {
     let r =
       twitters &&
       twitters.find(
-        (d) => clean(d.screen_name) === clean(target.fields?.screen_name)
+        (d) => clean(d.screen_name) === clean(target.fields?.screen_name),
       );
     if (!r) {
       // todo, some formatting
@@ -41,8 +41,8 @@ const merge = (targets, twitters, options) => {
       (target.fields.last_name
         ? target.fields.last_name.toLowerCase()
         : target.name.toLowerCase());
-    if (options.meps) {
-      r.description = target.fields.party;
+    if (options.meps || target.fields.epid) {
+      r.description = target.fields.description || target.fields.party;
       r.eugroup = target.fields.eugroup;
       if (target.fields.epid) {
         r.profile_image_url_https =
@@ -136,7 +136,7 @@ const publishTarget = async (campaignName) => {
     if (argv.source) {
       const sources = read("target/source/" + name); // the list of targets from proca server
       const c = targets.filter(
-        (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId)
+        (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId),
       );
       console.log("total server vs source", targets.length, c.length);
       targets = c;
@@ -196,7 +196,7 @@ if (require.main === module) {
         "--meps[=committeeA,committeeB] if meps, special formatting",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
         "buildTarget {campaign name}",
-      ].join("\n")
+      ].join("\n"),
     );
     process.exit(0);
   }
