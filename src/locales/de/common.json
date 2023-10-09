@@ -14,6 +14,7 @@
   "Last name": "Nachname",
   "Locality": "Ortschaft",
   "Next": "Weiter",
+  "Organisation": "Organisation",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "PLZ",
@@ -141,6 +142,9 @@
     "salutation_male": "Sehr geehrter Herr {{target.last_name}}",
     "salutation_placeholder": "Sehr geehrte:r [Empfänger]"
   },
+  "error": {
+    "date": "Format sollte DD.MM.YYYY sein"
+  },
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um einen Sticker zum Bild hinzuzufügen",
@@ -173,6 +177,7 @@
     "m": "Herr",
     "other": "Weitere..."
   },
+  "select_all": "Alle auswählen",
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
     "message": "Sie sollten das unterschreiben!",
