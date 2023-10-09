@@ -14,6 +14,7 @@
   "Last name": "Nom",
   "Locality": "Localité",
   "Next": "Suivant",
+  "Organisation": "Organisation",
   "Other": "Autres",
   "Phone": "Téléphone",
   "Postal Code": "Code postal",
@@ -141,6 +142,9 @@
     "salutation_male": "Cher {{target.name}}",
     "salutation_placeholder": "Cher [destinataire],"
   },
+  "error": {
+    "date": "le format doit être DD.MM.YYYY"
+  },
   "image": {
     "addSticker": "ajouter des autocollants",
     "addStickerTitle": "Cliquez/tapez pour ajouter un autocollant à la photo",
@@ -173,6 +177,7 @@
     "m": "Monsieur.",
     "other": "Autre"
   },
+  "select_all": "Tout sélectionner",
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voie cette pétition 🙏.",
     "message": "Tu devrais signer ceci!",
