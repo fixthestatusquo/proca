@@ -14,6 +14,7 @@
   "Last name": "Sukunimi",
   "Locality": "Sijainti",
   "Next": "Seuraava",
+  "Organisation": "Organisaatio",
   "Other": "Muu",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
@@ -141,6 +142,9 @@
     "salutation_male": "Hyvä {{target.name}}",
     "salutation_placeholder": "Hyvä [vastaanottaja],"
   },
+  "error": {
+    "date": "Muodon pitäisi olla DD.MM.YYYY."
+  },
   "image": {
     "addSticker": "lisätä tarroja",
     "addStickerTitle": "Lisää tarra valokuvaan napsauttamalla sitä",
@@ -173,6 +177,7 @@
     "m": "Mr.",
     "other": "Muut"
   },
+  "select_all": "Valitse kaikki",
   "share": {
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
