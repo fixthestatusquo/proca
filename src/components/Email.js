@@ -780,7 +780,7 @@ const Component = (props) => {
           <input
             type="hidden"
             {...form.register("selection", {
-              validate: (value, formValues) => {
+              validate: () => {
                 selection.length > 0 && setValue("selection", selection.length);
                 return selection !== 0;
               },

@@ -258,10 +258,6 @@ const readMjmlTemplate = (tplName) => {
 };
 
 const i18nRender = async (tplName, lang, markdown) => {
-  const fileName = path.resolve(
-    __dirname,
-    tmp + "email/mjml/" + tplName + ".mjml",
-  );
   let render = readMjmlTemplate(tplName);
   if (lang) {
     //only switch if different than current?

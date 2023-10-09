@@ -21,7 +21,7 @@ const emoji = (country) => {
     .toUpperCase()
     .split("")
     .forEach(
-      (char) => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset))
+      (char) => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset)),
     );
 
   return emoji;
@@ -118,13 +118,19 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (typeof config.component.country === "string")
+  if (!defaultCountry && config.component.country) {
     defaultCountry = config.component.country;
+    if (typeof defaultCountry === "string")
+      defaultCountry = defaultCountry.toUpperCase();
+  }
+  if (getValues("country")) {
+    console.log("country", getValues("country"));
+    defaultCountry = getValues("country");
+  }
+  console.log("country", config.component.country, defaultCountry);
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
-    country: getValues("country")
-      ? getValues("country")
-      : defaultCountry && defaultCountry.toUpperCase(),
+    country: defaultCountry,
   });
 
   const switchCountry = (e) => {
