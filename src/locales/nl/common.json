@@ -14,6 +14,7 @@
   "Last name": "Achternaam",
   "Locality": "Gemeente",
   "Next": "Volgende",
+  "Organisation": "Organisatie",
   "Other": "Andere",
   "Phone": "Telefoon",
   "Postal Code": "Postcode",
@@ -141,6 +142,9 @@
     "salutation_male": "Geachte heer {{target.last_name}}",
     "salutation_placeholder": "Geachte [ontvanger],"
   },
+  "error": {
+    "date": "formaat moet DD.MM.YYYY zijn"
+  },
   "image": {
     "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
@@ -173,6 +177,7 @@
     "m": "Mr.",
     "other": "Andere"
   },
+  "select_all": "Alles selecteren",
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
