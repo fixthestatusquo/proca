@@ -166,9 +166,6 @@ export default function Register(props) {
       return;
     }
 
-    console.log(data.birthdate);
-    setError("birthdate", "manual", t("always refuse"));
-
     data.postcardUrl = postcardUrl(data, config.param);
     const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
