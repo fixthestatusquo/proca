@@ -14,6 +14,7 @@
   "Last name": "Last name",
   "Locality": "Locality",
   "Next": "Next",
+  "Organisation": "Organisation",
   "Other": "Other",
   "Phone": "Phone",
   "Postal Code": "Postal Code",
@@ -141,6 +142,9 @@
     "salutation_male": "Dear Mr {{target.last_name}}",
     "salutation_placeholder": "Dear [recipient]"
   },
+  "error": {
+    "date": "format should be DD.MM.YYYY"
+  },
   "image": {
     "addSticker": "add stickers",
     "addStickerTitle": "Click/Tap to add a sticker to the picture",
@@ -173,6 +177,7 @@
     "m": "Dear {{name}}",
     "other": "Dear {{name}}"
   },
+  "select_all": "Select all",
   "share": {
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition 🙏.",
     "message": "You should sign this!",
