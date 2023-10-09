@@ -14,6 +14,7 @@
   "Last name": "Uzvārds",
   "Locality": "Apkārtne",
   "Next": "Nākošais",
+  "Organisation": "Organizācija",
   "Other": "Cits",
   "Phone": "Telefons",
   "Postal Code": "Pasta indekss",
@@ -141,6 +142,9 @@
     "salutation_male": "Cien. {{target.name}}!",
     "salutation_placeholder": "Cien. [saņēmējs],"
   },
+  "error": {
+    "date": "formātam jābūt DD.MM.GGGGG."
+  },
   "image": {
     "addSticker": "pievienot uzlīmes",
     "addStickerTitle": "Noklikšķiniet/pieskarieties, lai pievienotu uzlīmi fotoattēlam",
@@ -173,6 +177,7 @@
     "m": "M.",
     "other": "Citi"
   },
+  "select_all": "Atlasiet visus",
   "share": {
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",
