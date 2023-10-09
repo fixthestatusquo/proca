@@ -14,6 +14,7 @@
   "Last name": "Vezetéknév",
   "Locality": "Dűlő, lakatlan hely",
   "Next": "Következő",
+  "Organisation": "Szervezet",
   "Other": "Egyéb",
   "Phone": "Telefon",
   "Postal Code": "irányítószám",
@@ -141,6 +142,9 @@
     "salutation_male": "Kedves {{target.last_name}} {{target.first_name}}",
     "salutation_placeholder": "Kedves [címzett],"
   },
+  "error": {
+    "date": "a formátumnak DD.MM.YYYY-nek kell lennie."
+  },
   "image": {
     "addSticker": "matricák hozzáadása",
     "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",
@@ -173,6 +177,7 @@
     "m": "Mr.",
     "other": "Egyéb"
   },
+  "select_all": "Válasszon ki mindent",
   "share": {
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",

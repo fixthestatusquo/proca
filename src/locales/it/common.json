@@ -14,6 +14,7 @@
   "Last name": "Cognome",
   "Locality": "Località",
   "Next": "Prossimo",
+  "Organisation": "Organizzazione",
   "Other": "Altro",
   "Phone": "Telefono",
   "Postal Code": "Codice postale",
@@ -141,6 +142,9 @@
     "salutation_male": "Gentile Signor {{target.name}}",
     "salutation_placeholder": "Caro [destinatario],"
   },
+  "error": {
+    "date": "Il formato deve essere GG.MM.AAAA"
+  },
   "image": {
     "addSticker": "aggiungere adesivi",
     "addStickerTitle": "Fare clic/toccare per aggiungere un adesivo alla foto",
@@ -173,6 +177,7 @@
     "m": "Il Sig.",
     "other": "Altro"
   },
+  "select_all": "Seleziona tutti",
   "share": {
     "intro": "Grande, hai firmato 👍. Per moltiplicare il tuo impatto, condividi in lungo e in largo per assicurarti che tutti vedano questa petizione 🙏.",
     "message": "Dovresti firmare questo!",

@@ -14,6 +14,7 @@
   "Last name": "Priimek",
   "Locality": "Okraj",
   "Next": "Naslednja",
+  "Organisation": "Organizacija",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštna številka",
@@ -141,6 +142,9 @@
     "salutation_male": "Spoštovani gospod {{target.last_name}}",
     "salutation_placeholder": "Spoštovani [prejemnik],"
   },
+  "error": {
+    "date": "format mora biti DD.MM.LLLLL"
+  },
   "image": {
     "addSticker": "dodajanje nalepk",
     "addStickerTitle": "Kliknite/tipnite za dodajanje nalepke na fotografijo",
@@ -173,6 +177,7 @@
     "m": "Gospod.",
     "other": "Drugo"
   },
+  "select_all": "Izberite vse",
   "share": {
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",

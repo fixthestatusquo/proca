@@ -14,6 +14,7 @@
   "Last name": "Příjmení",
   "Locality": "Lokalita",
   "Next": "Další",
+  "Organisation": "Organizace",
   "Other": "Ostatní",
   "Phone": "Telefon",
   "Postal Code": "PSČ",
@@ -141,6 +142,9 @@
     "salutation_male": "Vážený pane {{target.last_name}}",
     "salutation_placeholder": "Vážený [recipient]"
   },
+  "error": {
+    "date": "formát by měl být DD.MM.RRRR"
+  },
   "image": {
     "addSticker": "přidat samolepky",
     "addStickerTitle": "Kliknutím/poklepáním přidáte nálepku k fotografii",
@@ -173,6 +177,7 @@
     "m": "Pan",
     "other": "Další"
   },
+  "select_all": "Vyberte vše",
   "share": {
     "intro": "Skvělé, podepsali jste 👍. Abyste znásobili svůj dopad, sdílejte ji široko daleko, aby tuto petici viděl každý 🙏.",
     "message": "Měli byste to podepsat!",

@@ -14,6 +14,7 @@
   "Last name": "ラストネーム",
   "Locality": "所在地",
   "Next": "次のページ",
+  "Organisation": "組織",
   "Other": "その他",
   "Phone": "電話番号",
   "Postal Code": "郵便番号",
@@ -141,6 +142,9 @@
     "salutation_male": "親愛なる {{target.name}}へ",
     "salutation_placeholder": "拝啓 [受取人]様"
   },
+  "error": {
+    "date": "フォーマットはDD.MM.YYYYです。"
+  },
   "image": {
     "addSticker": "シールを貼る",
     "addStickerTitle": "クリック/タップで写真にステッカーを追加",
@@ -173,6 +177,7 @@
     "m": "拝啓{{target.name}}",
     "other": "拝啓{{target.name}}"
   },
+  "select_all": "すべて選択",
   "share": {
     "intro": "素晴らしい、あなたは署名しました👍。あなたの影響力を倍増させるために、この請願書🙏を皆に見てもらうために、広く共有してください。",
     "message": "これにサインしてください",

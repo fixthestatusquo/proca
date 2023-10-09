@@ -14,6 +14,7 @@
   "Last name": "Apellidos",
   "Locality": "Localidad",
   "Next": "Siguiente",
+  "Organisation": "Organización",
   "Other": "Otros",
   "Phone": "Teléfono",
   "Postal Code": "Código postal",
@@ -141,6 +142,9 @@
     "salutation_male": "Estimado Señor {{target.last_name}}",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
+  "error": {
+    "date": "el formato debe ser DD.MM.AAAA"
+  },
   "image": {
     "addSticker": "añadir pegatinas",
     "addStickerTitle": "Pulsa para añadir una pegatina a la foto",
@@ -173,6 +177,7 @@
     "m": "El Sr.",
     "other": "Otros"
   },
+  "select_all": "Seleccionar todo",
   "share": {
     "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",

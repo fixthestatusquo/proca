@@ -14,6 +14,7 @@
   "Last name": "Numele de familie",
   "Locality": "Localitate",
   "Next": "Următor",
+  "Organisation": "Organizație",
   "Other": "Altele",
   "Phone": "Telefon",
   "Postal Code": "Cod poștal",
@@ -141,6 +142,9 @@
     "salutation_male": "Stimate domn {{target.name}}",
     "salutation_placeholder": "Stimate [destinatar],"
   },
+  "error": {
+    "date": "formatul trebuie să fie DD.MM.AAAA"
+  },
   "image": {
     "addSticker": "adăugați autocolante",
     "addStickerTitle": "Faceți clic/Tap pentru a adăuga autocolant la fotografie",
@@ -173,6 +177,7 @@
     "m": "Dl.",
     "other": "Altele"
   },
+  "select_all": "Selectați toate",
   "share": {
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",

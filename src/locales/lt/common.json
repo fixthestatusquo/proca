@@ -14,6 +14,7 @@
   "Last name": "Pavardė",
   "Locality": "Vietovė",
   "Next": "Toliau",
+  "Organisation": "Organizacija",
   "Other": "Kita",
   "Phone": "telefonas",
   "Postal Code": "Pašto kodas",
@@ -141,6 +142,9 @@
     "salutation_male": "Gerbiamas {{target.name}}",
     "salutation_placeholder": "Gerbiamas [gavėjas],"
   },
+  "error": {
+    "date": "formatas turėtų būti DD.MM.YYYY"
+  },
   "image": {
     "addSticker": "pridėti lipdukų",
     "addStickerTitle": "Spustelėkite / bakstelėkite, jei norite pridėti lipduką prie nuotraukos",
@@ -173,6 +177,7 @@
     "m": "Mr.",
     "other": "Kita"
   },
+  "select_all": "Pasirinkite visus",
   "share": {
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",

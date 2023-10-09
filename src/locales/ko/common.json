@@ -14,6 +14,7 @@
   "Last name": "성",
   "Locality": "소재지",
   "Next": "다음",
+  "Organisation": "조직",
   "Other": "다른",
   "Phone": "핸드폰",
   "Postal Code": "우편 번호",
@@ -141,6 +142,9 @@
     "salutation_male": "대상 {{target.name}}",
     "salutation_placeholder": "친애하는 [받는 사람]"
   },
+  "error": {
+    "date": "형식은 DD.MM.YYYY여야 합니다."
+  },
   "image": {
     "addSticker": "스티커 추가",
     "addStickerTitle": "사진에 스티커를 추가하려면 클릭/탭하세요.",
@@ -173,6 +177,7 @@
     "m": "친애하는 {{target.name}}",
     "other": "친애하는 {{target.name}}"
   },
+  "select_all": "모두 선택",
   "share": {
     "intro": "좋습니다. 서명했습니다. 영향력을 배가시키려면 널리 퍼뜨려 모든 사람이 이 청원을 볼 수 있도록 해주세요 🙏.",
     "message": "이 서명을 해야 합니다!",

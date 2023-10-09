@@ -14,6 +14,7 @@
   "Last name": "Apelido",
   "Locality": "Localidade",
   "Next": "Próximo",
+  "Organisation": "Organização",
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
@@ -141,6 +142,9 @@
     "salutation_male": "Caro {{target.name}}",
     "salutation_placeholder": "Cara.o [destinatário],"
   },
+  "error": {
+    "date": "O formato deve ser DD.MM.AAAA"
+  },
   "image": {
     "addSticker": "adicionar adesivos",
     "addStickerTitle": "Clique/toque para adicionar adesivo à foto",
@@ -173,6 +177,7 @@
     "m": "Sr.",
     "other": "Outros"
   },
+  "select_all": "Selecionar tudo",
   "share": {
     "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",
