@@ -203,10 +203,8 @@ const Component = (props) => {
   };
   const selectAll = () => {
     const r = profiles.map((target) => target.procaid);
-    console.log(r);
     _setSelection(r);
   };
-  console.log(profiles);
 
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
@@ -587,24 +585,20 @@ const Component = (props) => {
       );
     };
 
-    const profile = profiles[0] || { subject: null };
-
     let to = [];
     let cc = null;
     const bcc = config.component.email?.bcc;
-    let s =
-      typeof profile.subject == "function"
-        ? profile.subject(profile)
-        : paramEmail.subject;
-
-    if (profile.actionUrl) {
-      if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
-      else s = s + " " + profile.actionUrl;
-    }
     //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
+    let [subject, message, comment] = getValues([
+      "subject",
+      "message",
+      "comment",
+    ]);
 
-    const body = paramEmail.message;
-    for (var i = 0; i < profiles.length; i++) {
+    if (!message) message = paramEmail.message;
+    if (comment) message += "\n" + comment;
+
+    for (let i = 0; i < profiles.length; i++) {
       if (profiles[i].email) to.push(profiles[i].email);
     }
     to = to.join(";");
@@ -625,24 +619,25 @@ const Component = (props) => {
       (data.email.includes("@gmail") || emailProvider.current === "google.com")
         ? hrefGmail({
             to: to,
-            subject: encodeURIComponent(s),
+            subject: encodeURIComponent(subject),
             cc: cc,
             bcc: bcc,
-            body: encodeURIComponent(body),
+            body: encodeURIComponent(message),
           })
         : "mailto:" +
           to +
           "?subject=" +
-          encodeURIComponent(s) +
+          encodeURIComponent(subject) +
           (cc ? "&cc=" + cc : "") +
           (bcc ? "&bcc=" + bcc : "") +
           "&body=" +
-          encodeURIComponent(body);
+          encodeURIComponent(message);
 
     if (!to) {
       console.warn("no target, skip sending");
       return false;
     }
+    console.log(url);
     var win = window.open(url, "_blank");
     //TODO: display fallback using  Clipboard.writeText()
     var timer = setInterval(() => {
@@ -786,7 +781,6 @@ const Component = (props) => {
             type="hidden"
             {...form.register("selection", {
               validate: (value, formValues) => {
-                console.log("validate", value, formValues);
                 selection.length > 0 && setValue("selection", selection.length);
                 return selection !== 0;
               },
