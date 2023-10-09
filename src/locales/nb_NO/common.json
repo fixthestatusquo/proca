@@ -14,6 +14,7 @@
   "Last name": "Etternavn",
   "Locality": "Lokalitet",
   "Next": "Neste",
+  "Organisation": "Organisasjon",
   "Other": "Annet",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
@@ -141,6 +142,9 @@
     "salutation_male": "Kjære {{target.name}}",
     "salutation_placeholder": "Kjære [mottaker]"
   },
+  "error": {
+    "date": "Formatet skal være DD.MM.ÅÅÅÅÅ."
+  },
   "image": {
     "addSticker": "legge til klistremerker",
     "addStickerTitle": "Klikk/Trykk for å legge til et klistremerke på bildet",
@@ -173,6 +177,7 @@
     "m": "Kjære {{target.name}}",
     "other": "Kjære {{target.name}}"
   },
+  "select_all": "Velg alle",
   "share": {
     "intro": "Flott, du har signert 👍. For å mangedoble effekten din, del vidt og bredt for å sikre at alle ser denne underskriftskampanjen 🙏.",
     "message": "Du bør signere dette!",
