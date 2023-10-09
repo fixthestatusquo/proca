@@ -14,6 +14,7 @@
   "Last name": "Efternamn",
   "Locality": "Lokalitet",
   "Next": "Nästa",
+  "Organisation": "Organisation",
   "Other": "Övrigt",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
@@ -141,6 +142,9 @@
     "salutation_male": "Kära  {{target.name}}",
     "salutation_placeholder": "Kära [mottagare],"
   },
+  "error": {
+    "date": "Formatet ska vara DD.MM.ÅÅÅÅ"
+  },
   "image": {
     "addSticker": "lägga till klistermärken",
     "addStickerTitle": "Klicka/trycka för att lägga till klistermärke i fotot",
@@ -173,6 +177,7 @@
     "m": "Herr.",
     "other": "Övriga"
   },
+  "select_all": "Välj alla",
   "share": {
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
