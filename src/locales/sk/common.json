@@ -14,6 +14,7 @@
   "Last name": "Priezvisko",
   "Locality": "Oblasť",
   "Next": "Ďalšia",
+  "Organisation": "Organizácia",
   "Other": "Ostatné",
   "Phone": "Telefón",
   "Postal Code": "PSČ",
@@ -141,6 +142,9 @@
     "salutation_male": "Vážený pán {{target.last_name}}",
     "salutation_placeholder": "Vážený [príjemca],"
   },
+  "error": {
+    "date": "formát by mal byť DD.MM.RRRR"
+  },
   "image": {
     "addSticker": "pridať nálepky",
     "addStickerTitle": "Kliknutím/poklepaním pridáte nálepku na fotografiu",
@@ -173,6 +177,7 @@
     "m": "Pán.",
     "other": "Iné"
   },
+  "select_all": "Vyberte všetky",
   "share": {
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
