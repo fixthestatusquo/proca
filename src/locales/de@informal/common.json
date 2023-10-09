@@ -14,6 +14,7 @@
   "Last name": "Nachname",
   "Locality": "Ort",
   "Next": "Weiter",
+  "Organisation": "Organisation",
   "Other": "Andere",
   "Phone": "Telefon",
   "Postal Code": "Postleitzahl",
@@ -141,6 +142,9 @@
     "salutation_male": "Lieber {{target.name}}",
     "salutation_placeholder": "Sehr geehrte:r Europa-Abgeordnete:r"
   },
+  "error": {
+    "date": "Format sollte DD.MM.YYYY sein"
+  },
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um Sticker zum Foto hinzuzufügen",
@@ -173,6 +177,7 @@
     "m": "Lieber {{name}}",
     "other": "Hallo {{name}}"
   },
+  "select_all": "Alle auswählen",
   "share": {
     "intro": "Toll, Du hast unterschrieben 👍. Um Deine Wirkung zu vervielfachen, teile diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Das solltest Du unterschreiben!",
