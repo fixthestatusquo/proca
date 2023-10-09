@@ -14,6 +14,7 @@
   "Last name": "Perekonnanimi",
   "Locality": "Paikkond",
   "Next": "Edasi",
+  "Organisation": "Organisatsioon",
   "Other": "Teine",
   "Phone": "Telefon",
   "Postal Code": "Sihtnumber",
@@ -141,6 +142,9 @@
     "salutation_male": "Lugupeetud  {{target.name}}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
+  "error": {
+    "date": "vorming peaks olema DD.MM.YYYY"
+  },
   "image": {
     "addSticker": "lisada kleebiseid",
     "addStickerTitle": "Klõpsake / koputage fotole kleebise lisamiseks",
@@ -173,6 +177,7 @@
     "m": "Hr.",
     "other": "Muud"
   },
+  "select_all": "Valige kõik",
   "share": {
     "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
     "message": "Peaksite sellele alla kirjutama!",
