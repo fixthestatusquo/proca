@@ -32,10 +32,10 @@
     core-js "2.6.0"
     zen-observable "0.8.11"
 
-"@alienfast/i18next-loader@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@alienfast/i18next-loader/-/i18next-loader-2.0.1.tgz"
-  integrity sha512-cS2tHMwd/P5gw9ScniPQ8AFJP9kX27r5irnYi5HzkO/BAQRcIXJHNw035Hjh63RfnVepu2mensFeb6tzXPryqA==
+"@alienfast/i18next-loader@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@alienfast/i18next-loader/-/i18next-loader-2.0.2.tgz#1b386829df91e86200819542387d06d63435fa86"
+  integrity sha512-AHwhTvrAmGkwXWdvToP8LW9z/n+oUemcV5ZWkNQHJxJkxOFfv7pfsc6BB6xiS/+1Lj9vje2dsp6XOabUidNhew==
   dependencies:
     glob-all "^3.3.1"
     js-yaml "^4.1.0"
