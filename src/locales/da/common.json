@@ -14,6 +14,7 @@
   "Last name": "Efternavn",
   "Locality": "Lokalitet",
   "Next": "Next",
+  "Organisation": "Organisation",
   "Other": "Andre",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
@@ -141,6 +142,9 @@
     "salutation_male": "Kære {{target.name}}",
     "salutation_placeholder": "Kære [modtager],"
   },
+  "error": {
+    "date": "formatet skal være DD.MM.ÅÅÅÅ"
+  },
   "image": {
     "addSticker": "tilføje klistermærker",
     "addStickerTitle": "Klik/tryk for at tilføje et klistermærke til et foto",
@@ -173,6 +177,7 @@
     "m": "Hr.",
     "other": "Andre"
   },
+  "select_all": "Vælg alle",
   "share": {
     "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. Hvis vi er nok, der skriver under, er EU forpligtet til at lytte 🙏.",
     "message": "Du skal underskrive dette!",
