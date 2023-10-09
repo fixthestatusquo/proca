@@ -14,6 +14,7 @@
   "Last name": "Nazwisko",
   "Locality": "Położenie",
   "Next": "Następny",
+  "Organisation": "Organizacja",
   "Other": "Inne",
   "Phone": "Telefon",
   "Postal Code": "Kod pocztowy",
@@ -141,6 +142,9 @@
     "salutation_male": "Szanowny Panie {{target.last_name}}",
     "salutation_placeholder": "Szanowna:y [adresat],"
   },
+  "error": {
+    "date": "format powinien być DD.MM.RRRR"
+  },
   "image": {
     "addSticker": "Dodaj naklejki",
     "addStickerTitle": "Kliknij/stuknij, aby dodać naklejkę do zdjęcia",
@@ -173,6 +177,7 @@
     "m": "Pan.",
     "other": "Inne"
   },
+  "select_all": "Wybierz wszystko",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",
