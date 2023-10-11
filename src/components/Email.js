@@ -598,6 +598,8 @@ const Component = (props) => {
     if (!message) message = paramEmail.message;
     if (comment) message += "\n" + comment;
 
+    const profiles = getTargets();
+
     for (let i = 0; i < profiles.length; i++) {
       if (profiles[i].email) to.push(profiles[i].email);
     }
@@ -637,7 +639,6 @@ const Component = (props) => {
       console.warn("no target, skip sending");
       return false;
     }
-    console.log(url);
     var win = window.open(url, "_blank");
     //TODO: display fallback using  Clipboard.writeText()
     var timer = setInterval(() => {
