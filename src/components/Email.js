@@ -94,8 +94,6 @@ const Filter = (props) => {
         });
     };
     fetchAPI(postcode);
-
-    console.log(postcode);
   };
 
   if (config.component.email?.filter?.includes("postcode")) {
@@ -594,7 +592,6 @@ const Component = (props) => {
       "message",
       "comment",
     ]);
-
     if (!message) message = paramEmail.message;
     if (comment) message += "\n" + comment;
 
@@ -745,7 +742,6 @@ const Component = (props) => {
   };
 
   const filterTarget = (key, value) => {
-    console.log("filterTarget");
     const d = allProfiles.filter((d) => {
       return d.fields[key] === value;
     });
