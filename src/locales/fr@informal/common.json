@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Choisis un autre pays, il n'y a personne à contacter en {{country}}."
+      "empty": "Choisis un autre pays, il n'y a personne à contacter en {{country}}.",
+      "undefined": "Choisis un pays"
     },
     "missing": "Choisir au moins un des éléments suivants {{total}}",
     "postcode": {
