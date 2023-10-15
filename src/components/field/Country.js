@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useIsWindows } from "@hooks/useDevice";
+import Alert from "@material-ui/lab/Alert";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
@@ -150,7 +151,7 @@ const Country = (props) => {
         //        location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
       }
       setCountries(countries);
-      if (!location.country) return; // not sure how it can happend, remove?
+      if (!location.country) return; // not sure how it can happen, remove?
       setValue("country", location.country);
 
       setData("country", country);
@@ -167,28 +168,32 @@ const Country = (props) => {
   if (props.list === false) return null;
 
   // Windows doesn't support flag emojis
-
   return (
-    <TextField
-      select
-      name="country"
-      onChange={switchCountry}
-      label={t("Country")}
-      form={props.form}
-      SelectProps={{
-        native: true,
-      }}
-    >
-      <option key="" value=""></option>
+    <>
+      <TextField
+        select
+        name="country"
+        onChange={switchCountry}
+        label={t("Country")}
+        form={props.form}
+        SelectProps={{
+          native: true,
+        }}
+      >
+        <option key="" value=""></option>
 
-      {_countries.map((option) => (
-        <option key={option.iso} value={option.iso}>
-          {!isWindows &&
-            (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
-          {isWindows && option.name}
-        </option>
-      ))}
-    </TextField>
+        {_countries.map((option) => (
+          <option key={option.iso} value={option.iso}>
+            {!isWindows &&
+              (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+            {isWindows && option.name}
+          </option>
+        ))}
+      </TextField>
+      {config.component.country === false && !defaultCountry && (
+        <Alert severity="info">{t("target.country.undefined")}</Alert>
+      )}
+    </>
   );
 };
 
