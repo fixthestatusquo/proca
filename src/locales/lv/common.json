@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}"
+      "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}",
+      "undefined": "Izvēlieties valsti"
     },
     "missing": "Izvēlieties vismaz vienu no {{total}}",
     "postcode": {
