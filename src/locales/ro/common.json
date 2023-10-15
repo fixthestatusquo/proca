@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}."
+      "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}.",
+      "undefined": "Selectați o țară"
     },
     "missing": "Selectați cel puțin unul dintre {{total}}",
     "postcode": {
