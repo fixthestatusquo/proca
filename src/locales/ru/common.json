@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Выберите другую страну, в {{country}} не с кем связаться."
+      "empty": "Выберите другую страну, в {{country}} не с кем связаться.",
+      "undefined": "Выберите страну"
     },
     "missing": "Выберите хотя бы один из {{total}}",
     "postcode": {
