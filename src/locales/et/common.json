@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}"
+      "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}",
+      "undefined": "Valige riik"
     },
     "missing": "Valige vähemalt üks järgmistest {{total}}",
     "postcode": {
