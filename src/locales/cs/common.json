@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat"
+      "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat",
+      "undefined": "Vyberte zemi"
     },
     "missing": "Vyberte alespoň jednu z těchto možností {{total}}",
     "postcode": {
