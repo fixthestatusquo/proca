@@ -118,16 +118,14 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (!defaultCountry && config.component.country) {
+  if (!defaultCountry && config.component.country !== undefined) {
     defaultCountry = config.component.country;
     if (typeof defaultCountry === "string")
       defaultCountry = defaultCountry.toUpperCase();
   }
   if (getValues("country")) {
-    console.log("country", getValues("country"));
     defaultCountry = getValues("country");
   }
-  console.log("country", config.component.country, defaultCountry);
   const location = useGeoLocation({
     api: "https://country.proca.foundation",
     country: defaultCountry,
