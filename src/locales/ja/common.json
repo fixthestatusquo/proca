@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "他の国を選択し、連絡する人がいない。{{country}}"
+      "empty": "他の国を選択し、連絡する人がいない。{{country}}",
+      "undefined": "国を選択"
     },
     "missing": "の中から1つ以上選んでください。{{total}}",
     "postcode": {

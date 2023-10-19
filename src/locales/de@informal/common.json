@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Wähle ein anderes Land, in {{country}} ist niemand zu erreichen"
+      "empty": "Wähle ein anderes Land, in {{country}} ist niemand zu erreichen",
+      "undefined": "Wähle ein Land"
     },
     "missing": "Wähle mindestens einen der folgenden Punkte aus {{total}}",
     "postcode": {

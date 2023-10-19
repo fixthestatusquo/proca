@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}"
+      "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}",
+      "undefined": "Vælg et land"
     },
     "missing": "Vælg mindst en af følgende {{total}}",
     "postcode": {

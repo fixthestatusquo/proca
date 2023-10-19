@@ -195,7 +195,8 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}."
+      "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}.",
+      "undefined": "Valitse maa"
     },
     "missing": "Valitse vähintään yksi seuraavista {{total}}",
     "postcode": {
