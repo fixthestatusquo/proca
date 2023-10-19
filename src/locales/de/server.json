@@ -37,6 +37,10 @@
         },
         "doi_thankyou": {
             "subject": "Vielen Dank für Ihre Teilnahme{{#privacy.optIn}}, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail-Adresse{{/privacy.optIn}}"
+        },
+        "actionConfirm": {
+            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
+            "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
         }
     },
     "poweredBy": "ANGETRIEBEN DURCH"
