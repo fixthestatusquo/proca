@@ -1,1 +1,42 @@
-{}
+{
+    "email": {
+        "common": {
+            "privacy": "Puteți găsi mai multe informații despre politica noastră de confidențialitate și despre prelucrarea datelor dvs.",
+            "consent": "\n          ",
+            "thanks": "Vă mulțumim pentru participarea la {{campaign.title}}. Sprijinul dumneavoastră este apreciat!",
+            "closing": "Cu ajutorul tău, suntem cu un pas mai aproape de obiectivul nostru.",
+            "greeting": "Bună ziua {{firstName}}",
+            "share_on": "Împărtășiți pe",
+            "unsubscribe": "Dacă nu doriți să mai primiți informații de la noi în viitor, veți putea să vă anulați înregistrarea în orice moment.",
+            "signature": "Cu deosebită considerație,\n\n{{org.title}}",
+            "follow": "Urmăriți-ne pe:",
+            "donate": "Vă rugăm să luați în considerare posibilitatea de a face o donație pentru a ne ajuta să ne îndeplinim misiunea.",
+            "share": "Ajutați-ne să ne atingem obiectivul [răspândind vestea](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Vă mulțumim pentru implicarea și devotamentul dumneavoastră față de cauza noastră! Cu toate acestea, în cadrul angajamentului nostru de a menține autenticitatea și credibilitatea, trebuie să **eliminăm semnăturile duplicate** și se pare că dumneavoastră (sau cineva care folosește {{email}}) ați întreprins deja această acțiune.  Fiți sigur, **semnătura dvs. inițială a fost luată în considerare** și a contribuit la campania noastră.\nSprijinul dvs. a fost neprețuit și dorim să vă încurajăm cu amabilitate să faceți un pas suplimentar pentru a contribui la amplificarea impactului dvs. Vă rugăm să luați în considerare posibilitatea de a vă contacta prietenii și familia, îndemnându-i să acționeze și ei, folosind propriile lor adrese de e-mail. În acest fel, ne putem dezvolta și mai mult mișcarea noastră și putem crea o voce colectivă și mai puternică pentru schimbarea pe care o căutăm.\nÎncă o dată, vă mulțumim din suflet pentru sprijinul și dedicarea dvs. continuă pentru această campanie. Împreună, putem avea un impact de durată!",
+            "organisation": "{{org.title}}"
+        },
+        "thankyou": {
+            "subject": "Mulțumesc, iată ce mai puteți face",
+            "intro": "Vă mulțumim pentru participarea dumneavoastră pentru \"{{campaign.title}}\". Sprijinul dumneavoastră este apreciat!"
+        },
+        "doi": {
+            "extra": "Ați primit această confirmare pentru a finaliza cu succes înregistrarea și pentru a ne permite să procesăm adresa dvs. de e-mail și alte date personale pentru a primi știri sau buletine informative. Aceasta este o procedură automatizată și această confirmare este necesară pentru înregistrare pentru a evita un proces de înregistrare neautorizat.",
+            "subject": "Încă un pas: vă rugăm să vă confirmați adresa de e-mail",
+            "intro": "Confirmarea dumneavoastră este importantă pentru a putea fi procesată. Acesta este singurul mod în care putem face credibil faptul că în spatele fiecărei participări se află cu adevărat o persoană, iar acest lucru este important pentru impactul acestei campanii și pentru a preveni trimiterile false/spam."
+        },
+        "doi_thankyou": {
+            "subject": "Vă mulțumim pentru participare{{#privacy.optIn}}, încă un pas, vă rugăm să confirmați adresa de e-mail.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Confirm participarea mea și primesc deja e-mailuri de la dvs.",
+            "confirmOptout": "Îmi confirm participarea, dar nu mă țineți la curent pe viitor",
+            "confirmAction": "Da, sunt o persoană reală!",
+            "confirmOptin": "Confirm participarea mea și doresc să primesc știri de la dvs."
+        },
+        "actionConfirm": {
+            "intro": "Confirmarea dumneavoastră este importantă pentru a putea procesa participarea dumneavoastră. Acesta este singurul mod în care putem face credibil faptul că există cu adevărat o persoană în spatele fiecărei participări, iar acest lucru este important pentru impactul acestei campanii și pentru a preveni trimiterile false/spam.",
+            "subject": "Încă un pas: vă rugăm să vă confirmați adresa de e-mail"
+        }
+    },
+    "poweredBy": "ALIMENTAT DE"
+}
