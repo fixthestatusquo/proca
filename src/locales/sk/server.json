@@ -1,1 +1,42 @@
-{}
+{
+    "email": {
+        "common": {
+            "privacy": "Ďalšie informácie o našich zásadách ochrany osobných údajov a spracovaní vašich údajov nájdete",
+            "consent": "\n          ",
+            "thanks": "Ďakujeme vám za účasť na {{campaign.title}}. Vašu podporu si vážime!",
+            "closing": "S vašou pomocou sme o krok bližšie k nášmu cieľu",
+            "greeting": "Dobrý deň, {{firstName}}",
+            "share_on": "Zdieľať na",
+            "unsubscribe": "Ak si neželáte dostávať od nás v budúcnosti ďalšie informácie, budete môcť kedykoľvek zrušiť svoju registráciu.",
+            "signature": "S úctou,\n\n{{org.title}}",
+            "follow": "Sledujte nás na:",
+            "donate": "Zvážte, prosím, možnosť prispieť a pomôcť nám tak plniť naše poslanie",
+            "share": "Pomôžte nám dosiahnuť náš cieľ [šírením informácií](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Ďakujeme vám za vašu angažovanosť a oddanosť našej veci! V rámci nášho záväzku zachovať autenticitu a dôveryhodnosť však musíme **odstrániť duplicitné** podpisy a zdá sa, že vy (alebo niekto, kto používa {{email}}) ste už túto činnosť vykonali.  Uisťujeme vás, že **vaš pôvodný podpis bol započítaný** a prispel k našej kampani.\nVaša podpora bola neoceniteľná a my by sme vás radi vyzvali, aby ste urobili ďalší krok, ktorý pomôže posilniť váš vplyv. Zvážte, prosím, možnosť osloviť svojich priateľov a rodinu a vyzvať ich, aby sa tiež zapojili do akcie, pričom použite ich vlastné e-mailové adresy. Takto môžeme ďalej rozvíjať naše hnutie a vytvoriť ešte silnejší kolektívny hlas pre zmenu, o ktorú sa snažíme.\nEšte raz vám vyjadrujeme úprimnú vďaku za vašu neustálu podporu a oddanosť tejto kampani. Spoločne môžeme dosiahnuť trvalý vplyv!",
+            "organisation": "{{org.title}}"
+        },
+        "thankyou": {
+            "subject": "Ďakujeme, tu je ďalšia ponuka, čo môžete urobiť",
+            "intro": "Ďakujeme vám za vašu účasť na stránke \"{{campaign.title}}\". Vašu podporu si vážime!"
+        },
+        "doi": {
+            "extra": "Toto potvrdenie ste dostali, aby ste úspešne dokončili registráciu a umožnili nám spracovať vašu e-mailovú adresu a ďalšie osobné údaje na zasielanie noviniek alebo bulletinov. Ide o automatizovaný postup a toto potvrdenie je potrebné na registráciu, aby sa zabránilo neoprávnenému procesu registrácie.",
+            "subject": "Ešte jeden krok: potvrďte svoju e-mailovú adresu",
+            "intro": "Vaše potvrdenie je dôležité na to, aby sme ho mohli spracovať. Len tak môžeme zabezpečiť dôveryhodnosť, že za každou účasťou je skutočne osoba, čo je dôležité pre účinok tejto kampane a na zabránenie falošným/spamovým príspevkom."
+        },
+        "doi_thankyou": {
+            "subject": "Ďakujeme vám za vašu účasť{{#privacy.optIn}}, ešte jeden krok, prosím, potvrďte svoju e-mailovú adresu{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Potvrdzujem svoju účasť a už od vás dostávam e-maily",
+            "confirmOptout": "Potvrdzujem svoju účasť, ale v budúcnosti ma neinformujte",
+            "confirmAction": "Áno, som skutočný človek!",
+            "confirmOptin": "Potvrdzujem svoju účasť a chcem od vás dostávať novinky"
+        },
+        "actionConfirm": {
+            "intro": "Vaše potvrdenie je dôležité na to, aby sme mohli spracovať vašu účasť. Len tak môžeme zabezpečiť dôveryhodnosť, že za každou účasťou je skutočne osoba, čo je dôležité pre účinok tejto kampane a na zabránenie falošným/spamovým príspevkom.",
+            "subject": "Ešte jeden krok: potvrďte svoju e-mailovú adresu"
+        }
+    },
+    "poweredBy": "POHONOM"
+}
