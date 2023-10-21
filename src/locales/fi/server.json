@@ -1,1 +1,42 @@
-{}
+{
+    "email": {
+        "common": {
+            "privacy": "Lisätietoja tietosuojakäytännöstämme ja tietojesi käsittelystä löydät osoitteesta",
+            "consent": "\n          ",
+            "thanks": "Kiitos osallistumisestanne osoitteeseen {{campaign.title}}. Tukeanne arvostetaan!",
+            "closing": "Sinun avullasi olemme askeleen lähempänä tavoitettamme.",
+            "greeting": "Hei {{firstName}}",
+            "share_on": "Jaa osoitteessa",
+            "unsubscribe": "Jos et halua saada meiltä jatkossa lisätietoja, voit peruuttaa rekisteröitymisesi milloin tahansa.",
+            "signature": "Ystävällisin terveisin,\n\n{{org.title}}",
+            "follow": "Seuraa meitä:",
+            "donate": "Harkitse lahjoituksen tekemistä auttaaksesi meitä saavuttamaan tehtävämme.",
+            "share": "Auta meitä saavuttamaan tavoitteemme [levittämällä sanaa] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Kiitos sitoutumisestanne ja omistautumisestanne asiallemme! Koska olemme kuitenkin sitoutuneet säilyttämään aitouden ja uskottavuuden, meidän on **poistettava kaksoiskappaleet** allekirjoituksista, ja näyttää siltä, että sinä (tai joku, joka käyttää {{email}}) olet jo tehnyt tämän.  Voit olla varma, että **alkuperäinen allekirjoituksesi laskettiin** ja että se edisti kampanjaamme.\nTukesi on ollut korvaamatonta, ja haluaisimme ystävällisesti rohkaista sinua ottamaan vielä yhden askeleen, joka auttaa vahvistamaan vaikutusmahdollisuuksiasi. Pyydämme teitä harkitsemaan, että ottaisitte yhteyttä ystäviinne ja perheenjäseniinne ja kehottaisitte heitäkin ryhtymään toimiin käyttäen heidän omia sähköpostiosoitteitaan. Näin voimme kasvattaa liikettämme entisestään ja luoda entistä vahvemman kollektiivisen äänen tavoittelemamme muutoksen puolesta.\nKiitämme vielä kerran sydämellisesti jatkuvasta tuestanne ja omistautumisestanne tälle kampanjalle. Yhdessä voimme saada aikaan pysyvän vaikutuksen!",
+            "organisation": "{{org.title}}"
+        },
+        "thankyou": {
+            "subject": "Kiitos, tässä on mitä muuta voit tehdä.",
+            "intro": "Kiitos osallistumisestanne \"{{campaign.title}}\". Tukeanne arvostetaan!"
+        },
+        "doi": {
+            "extra": "Olet saanut tämän vahvistuksen saadaksesi rekisteröitymisen onnistuneesti päätökseen ja antaaksesi meille mahdollisuuden käsitellä sähköpostiosoitettasi ja muita henkilökohtaisia tietojasi saadaksesi uutisia tai uutiskirjeitä. Kyseessä on automaattinen menettely, ja tämä vahvistus vaaditaan rekisteröintiä varten, jotta vältytään luvattomalta rekisteröintiprosessilta.",
+            "subject": "Vielä yksi vaihe: vahvista sähköpostiosoitteesi",
+            "intro": "Vahvistuksesi on tärkeä, jotta sitä voidaan käsitellä. Tämä on ainoa tapa, jolla voimme varmistaa, että jokaisen osallistumisen takana on todella henkilö, mikä on tärkeää kampanjan vaikutuksen kannalta ja väärennettyjen tai roskapostitettujen vastausten estämiseksi."
+        },
+        "doi_thankyou": {
+            "subject": "Kiitos osallistumisestasi{{#privacy.optIn}}, vielä yksi askel, vahvista sähköpostiosoitteesi.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Vahvistan osallistumiseni ja vastaanotan jo sähköposteja teiltä.",
+            "confirmOptout": "Vahvistan osallistumiseni, mutta minua ei pidetä ajan tasalla tulevaisuudessa.",
+            "confirmAction": "Kyllä, olen oikea ihminen!",
+            "confirmOptin": "Vahvistan osallistumiseni ja haluan saada teiltä uutisia."
+        },
+        "actionConfirm": {
+            "intro": "Vahvistuksesi on tärkeä, jotta voimme käsitellä osallistumisesi. Tämä on ainoa tapa, jolla voimme varmistaa, että jokaisen osallistumisen takana todella on henkilö, mikä on tärkeää kampanjan vaikutuksen kannalta ja väärennettyjen tai roskapostitettujen osallistumisten estämiseksi.",
+            "subject": "Vielä yksi vaihe: vahvista sähköpostiosoitteesi"
+        }
+    },
+    "poweredBy": "POWERED BY"
+}
