@@ -1,7 +1,7 @@
 {
   "Address": "Adres",
   "Amount": "Kwota",
-  "Another": "Kolejny",
+  "Another": "Inny",
   "Birthdate": "Data urodzenia",
   "City": "Miasto",
   "Comment": "Komentarz",
@@ -36,19 +36,19 @@
     "share": "Udostępnij",
     "sign": "Podpisz",
     "stayInformed": "Bądź na bieżąco",
-    "takeAction": "Podejmij działania!",
+    "takeAction": "Podejmij działanie",
     "twitter": "Tweetnij"
   },
   "camera": {
-    "start": "uruchomić kamerę",
+    "start": "uruchom kamerkę",
     "take": "Zrób zdjęcie",
-    "take-another": "Weź jeszcze jeden."
+    "take-another": "Weź jeszcze jeden"
   },
   "closed": "##podziękowania dla {{total}} wspierających!\n\nZamknęliśmy tę akcję, ale nasza praca nie kończy się tutaj, więc prosimy o **zostawienie swojego maila, aby być informowanym o kolejnych krokach**.",
-  "confirm": "Jesteś pewien?",
+  "confirm": "Na pewno?",
   "consent": {
     "actionConfirmed": "Działanie potwierdzone",
-    "actionRejected": "Akcja została pomyślnie anulowana.",
+    "actionRejected": "Akcja została anulowana pomyślnie",
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
     "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!). Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
     "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila",
@@ -58,7 +58,7 @@
     "opt-in": "Tak, chcę, aby {{partner}} informował mnie na bieżąco za pośrednictwem poczty elektronicznej",
     "opt-in-both": "Tak, chcę, aby {{partner}} i {{lead}} informowały mnie za pośrednictwem poczty elektronicznej",
     "opt-out": "Nie, nie wysyłaj mi e-maili ani nie informuj mnie na bieżąco w przyszłości",
-    "optInConfirmed": "Subskrypcja potwierdzona",
+    "optInConfirmed": "Subskrypcja została potwierdzona",
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
     "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika",
@@ -148,9 +148,9 @@
   "image": {
     "addSticker": "Dodaj naklejki",
     "addStickerTitle": "Kliknij/stuknij, aby dodać naklejkę do zdjęcia",
-    "benefit": "Dodanie zdjęcia do wysłania - i które możesz udostępnić w następnym kroku - sprawi, że Twoje działanie będzie bardziej skuteczne.",
+    "benefit": "Dodanie zdjęcia do wysłania - i które możesz udostępnić w następnym kroku - sprawi, że Twoje działanie będzie bardziej skuteczne",
     "options": "Wybierz działanie",
-    "publish": "Wygląda dobrze, wydawco!",
+    "publish": "Wygląda dobrze, opublikuj!",
     "select": "Wybierz zdjęcie z naszego zbioru",
     "takeTitle": "Zrób zdjęcie telefonem",
     "upload": "Prześlij zdjęcie",
@@ -158,17 +158,17 @@
   },
   "no": "nie",
   "progress": {
-    "donate": "{{total}} oddali. Chodźmy do {{goal}}",
+    "donate": "Przekazano {{total}}. Osiągnijmy {{goal}}",
     "email": "{{total}} wysłali maila. Wejdźmy na stronę {{goal}}",
-    "register": "{{total}} zarejestrowali się. Przejdźmy do {{goal}}",
+    "register": "Zarejestrowało się {{total}}. Osiągnijmy {{goal}}",
     "share": "{{total}} podzielili się. Chodźmy do {{goal}}",
     "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}",
     "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
   },
-  "read more": "więcej",
+  "read more": "przeczytaj więcej",
   "register": "Podpisuję petycję",
   "reminder": {
-    "intro": "Wiemy, że Twój rząd prosi o wiele informacji. Wyślemy ci jeden e-mail, aby przypomnieć ci o wypełnieniu formularza później."
+    "intro": "Wiemy, że Twój rząd prosi o wiele informacji. Wyślemy ci jeden e-mail, aby przypomnieć ci o wypełnieniu formularza później"
   },
   "required": "Proszę wypełnić to pole",
   "required field": "Wymagane pole",
@@ -189,7 +189,7 @@
     }
   },
   "supporter": {
-    "not_you": "nie ty?",
+    "not_you": "to nie ty?",
     "welcome": "Witamy z powrotem {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
@@ -198,20 +198,20 @@
       "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}.",
       "undefined": "Wybierz kraj"
     },
-    "missing": "Wybierz co najmniej jeden z następujących elementów {{total}}",
+    "missing": "Wybierz co najmniej jeden z następujących {{total}}",
     "postcode": {
       "empty": "nie ma z kim się skontaktować w {{area}}"
     },
     "random_one": "Wybrano jeden z naszych {{total}} najważniejszych celów",
-    "random_other": "Wybrane {{count}} naszych {{total}} najważniejszych celów",
+    "random_other": "Wybrano {{count}} z naszych {{total}} najważniejszych celów",
     "selected": "{{total}} wybrane"
   },
   "twitter": {
     "actionText": "Ja podpisałem. Ty też powinieneś.",
     "again": "Tweet do innej osoby",
-    "choice": "Co chciałbyś robić dalej?",
+    "choice": "Co chcesz zrobić dalej?",
     "instruction": "Proszę dokończyć wysyłanie tweeta w nowym oknie (na twitter.com)",
-    "organisation": "Konto twitterowe Twojej organizacji",
+    "organisation": "Konto na Twitterze Twojej organizacji",
     "screenName": "Nazwa ekranu"
   },
   "unknown postcode": "nieznany kod pocztowy",
