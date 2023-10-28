@@ -1,0 +1,42 @@
+{
+    "email": {
+        "common": {
+            "privacy": "Tu peux trouver plus d'informations sur notre politique de confidentialité et le traitement de tes données.",
+            "consent": "\n          ",
+            "thanks": "Merci de votre participation à {{campaign.title}}. Votre soutien est apprécié !",
+            "closing": "Avec ton aide, nous nous rapprochons un peu plus de notre objectif",
+            "greeting": "Bonjour {{firstName}}",
+            "share_on": "Partager sur",
+            "unsubscribe": "Si tu ne souhaites pas recevoir d'autres informations de notre part à l'avenir, tu pourras annuler ton inscription à tout moment",
+            "signature": "Je te prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées,\n\n{{org.title}}",
+            "follow": "Suis-nous sur :",
+            "donate": "Envisage de faire un don pour nous aider à accomplir notre mission.",
+            "share": "Aidez-nous à atteindre notre objectif en [faisant passer le mot] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Merci pour votre engagement et votre dévouement à notre cause ! Cependant, dans le cadre de notre engagement à maintenir l'authenticité et la crédibilité, nous devons **supprimer les signatures en double** et il semble que toi (ou quelqu'un utilisant {{email}}) ait déjà pris cette mesure.  Rassurez-vous, **votre signature initiale a été prise en compte** et a contribué à notre campagne.\nVotre soutien a été inestimable, et nous aimerions vous encourager à faire un pas supplémentaire pour aider à amplifier votre impact. Pense à contacter tes amis et ta famille, en les incitant à agir eux aussi, en utilisant leur propre adresse électronique. De cette façon, nous pourrons faire grandir notre mouvement et créer une voix collective encore plus forte pour le changement que nous recherchons.\nUne fois de plus, nous te remercions sincèrement pour ton soutien continu et ton dévouement à cette campagne. Ensemble, nous pouvons avoir un impact durable !",
+            "organisation": "{{org.title}}"
+        },
+        "thankyou": {
+            "subject": "Merci, voici ce que tu peux faire d'autre",
+            "intro": "Merci de votre participation à \"{{campaign.title}}\". Ton soutien est apprécié !"
+        },
+        "doi": {
+            "extra": "Tu as reçu cette confirmation afin de mener à bien l'inscription et de nous permettre de traiter ton adresse électronique et d'autres données personnelles pour recevoir des nouvelles ou des bulletins d'information. Il s'agit d'une procédure automatisée et cette confirmation est nécessaire pour l'enregistrement afin d'éviter un processus d'enregistrement non autorisé.",
+            "subject": "Encore une étape : confirme ton adresse e-mail",
+            "intro": "Ta confirmation est importante pour pouvoir la traiter. C'est la seule façon de rendre crédible le fait qu'il y a vraiment une personne derrière chaque participation, et c'est important pour l'impact de cette campagne et pour empêcher les soumissions fausses/spam."
+        },
+        "doi_thankyou": {
+            "subject": "Merci pour ta participation{{#privacy.optIn}}, une dernière étape, confirme ton adresse email s'il te plaît.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Je confirme ma participation et je reçois déjà des courriels de ta part.",
+            "confirmOptout": "Je confirme ma participation mais ne me tiens pas au courant à l'avenir.",
+            "confirmAction": "Oui, je suis une vraie personne !",
+            "confirmOptin": "Je confirme ma participation et souhaite recevoir des nouvelles de ta part"
+        },
+        "actionConfirm": {
+            "intro": "Ta confirmation est importante pour pouvoir traiter ta participation. C'est la seule façon de rendre crédible le fait qu'il y a vraiment une personne derrière chaque participation, et c'est important pour l'impact de cette campagne et pour empêcher les soumissions fausses/spam.",
+            "subject": "Encore une étape : confirme ton adresse e-mail"
+        }
+    },
+    "poweredBy": "ALIMENTÉ PAR"
+}

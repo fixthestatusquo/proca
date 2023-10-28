@@ -1,0 +1,42 @@
+{
+    "email": {
+        "common": {
+            "privacy": "Lisateavet meie privaatsuspoliitika ja teie andmete töötlemise kohta leiate järgmiselt.",
+            "consent": "\n          ",
+            "thanks": "Täname teid osalemise eest aadressil {{campaign.title}}. Teie toetus on teretulnud!",
+            "closing": "Teie abiga oleme oma eesmärgile ühe sammu võrra lähemal.",
+            "greeting": "Tere {{firstName}}",
+            "share_on": "Jaga edasi",
+            "unsubscribe": "Kui te ei soovi meilt tulevikus enam teavet saada, saate oma registreeringu igal ajal tühistada.",
+            "signature": "Lugupidamisega,\n\n{{org.title}}",
+            "follow": "Jälgi meid:",
+            "donate": "Palun kaaluge annetuse tegemist, et aidata meil oma missiooni saavutada.",
+            "share": "Aita meil oma eesmärki saavutada [levitades sõna](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Aitäh teile pühendumise eest meie asja eest! Kuid meie kohustus säilitada autentsust ja usaldusväärsust nõuab, et me **kustutaksime** dubleerivad allkirjad ja tundub, et teie (või keegi, kes kasutab {{email}}) on selle juba teinud.  Võite olla kindel, et **teie esialgne allkiri on loetud** ja et see on meie kampaaniale kaasa aidanud.\nTeie toetus on olnud hindamatu väärtusega ja me soovime teid julgustada tegema veel ühe sammu, et aidata kaasa teie mõju suurendamisele. Palun kaaluge võimalust pöörduda oma sõprade ja pereliikmete poole, kutsudes neid samuti üles tegutsema, kasutades oma e-posti aadressi. Nii saame oma liikumist veelgi laiendada ja luua veelgi tugevama kollektiivse hääle muutuste saavutamiseks, mida me taotleme.\nTäname teid veel kord südamest teie jätkuva toetuse ja pühendumise eest sellele kampaaniale. Üheskoos saame avaldada püsivat mõju!",
+            "organisation": "{{org.title}}"
+        },
+        "thankyou": {
+            "subject": "Tänan teid, siin on, mida veel saate teha",
+            "intro": "Täname teid osalemise eest aadressil \"{{campaign.title}}\". Teie toetus on teretulnud!"
+        },
+        "doi": {
+            "extra": "Te olete saanud selle kinnituse, et edukalt lõpule viia registreerimine ja võimaldada meil töödelda teie e-posti aadressi ja muid isikuandmeid uudiste või uudiskirjade saamiseks. Tegemist on automatiseeritud menetlusega ja see kinnitus on vajalik registreerimiseks, et vältida volitamata registreerimisprotsessi.",
+            "subject": "Veel üks samm: palun kinnitage oma e-posti aadress",
+            "intro": "Teie kinnitus on oluline, et seda saaks töödelda. See on ainus viis, kuidas me saame teha usaldusväärseks, et iga osalemise taga on tõesti inimene, ja see on oluline selle kampaania mõju seisukohalt ning võltsitud/spämmi esitamise vältimiseks."
+        },
+        "doi_thankyou": {
+            "subject": "Täname teid osalemise eest{{#privacy.optIn}}, veel üks samm, palun kinnitage oma e-posti aadress{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Kinnitan oma osalemist ja saan juba teie e-kirju.",
+            "confirmOptout": "Kinnitan oma osalemise, kuid ei pea mind tulevikus kursis hoidma",
+            "confirmAction": "Jah, ma olen tõeline inimene!",
+            "confirmOptin": "Kinnitan oma osalemist ja soovin saada teilt uudiseid."
+        },
+        "actionConfirm": {
+            "intro": "Teie kinnitus on oluline, et saaksime teie osalemist menetleda. See on ainus viis, kuidas me saame teha usaldusväärseks, et iga osalemise taga on tõesti inimene, ja see on oluline selle kampaania mõju seisukohalt ning võltsitud/spämmi esitamise vältimiseks.",
+            "subject": "Veel üks samm: palun kinnitage oma e-posti aadress"
+        }
+    },
+    "poweredBy": "POWERED BY"
+}

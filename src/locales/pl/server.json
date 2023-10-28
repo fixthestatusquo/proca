@@ -4,7 +4,7 @@
             "greeting": "Witam {{firstName}}",
             "consent": "\n          ",
             "thanks": "Dziękujemy za udział w {{campaign.title}}. Twoje wsparcie jest doceniane!",
-            "share": "Pomóż nam osiągnąć nasz cel poprzez [rozpowszechnianie informacji] ({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
+            "share": "Pomóż nam osiągnąć nasz cel poprzez [rozpowszechnianie informacji] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "follow": "Śledź nas na:",
             "donate": "Prosimy o rozważenie przekazania darowizny, aby pomóc nam w realizacji naszej misji",
             "closing": "Z twoją pomocą jesteśmy o krok bliżej do naszego celu",
@@ -12,14 +12,14 @@
             "unsubscribe": "Jeśli użytkownik nie chce otrzymywać od nas dalszych informacji w przyszłości, może anulować rejestrację w dowolnym momencie",
             "signature": "Z poważaniem,\n\n{{org.title}}",
             "organisation": "{{org.title}}",
-            "duplicate": "Dziękujemy za zaangażowanie i oddanie naszej sprawie! Jednak w ramach naszego zobowiązania do zachowania autentyczności i wiarygodności musimy usunąć zduplikowane podpisy i wygląda na to, że Ty (lub ktoś korzystający z {{email}}) już podjąłeś tę czynność.  Zapewniamy, że Twój pierwszy podpis został policzony i przyczynił się do naszej kampanii.\nTwoje wsparcie było nieocenione i chcielibyśmy uprzejmie zachęcić Cię do podjęcia dodatkowego kroku, który pomoże wzmocnić Twój wpływ. Prosimy o rozważenie skontaktowania się z przyjaciółmi i rodziną, zachęcając ich do podjęcia działań przy użyciu ich własnych adresów e-mail. W ten sposób możemy dalej rozwijać nasz ruch i stworzyć jeszcze silniejszy zbiorowy głos na rzecz zmian, których szukamy.\nJeszcze raz serdecznie dziękujemy za nieustające wsparcie i zaangażowanie w tę kampanię. Razem możemy wywrzeć trwały wpływ!",
+            "duplicate": "Dziękujemy za zaangażowanie i oddanie naszej sprawie! Jednak w ramach naszego zobowiązania do zachowania autentyczności i wiarygodności musimy **usunąć zduplikowane** podpisy i wygląda na to, że Ty (lub ktoś korzystający z {{email}}) już podjąłeś tę czynność.  Zapewniamy, że **Twój pierwszy podpis został policzony** i przyczynił się do naszej kampanii.\nTwoje wsparcie było nieocenione i chcielibyśmy uprzejmie zachęcić Cię do podjęcia dodatkowego kroku, który pomoże wzmocnić Twój wpływ. Prosimy o rozważenie skontaktowania się z przyjaciółmi i rodziną, zachęcając ich do podjęcia działań przy użyciu ich własnych adresów e-mail. W ten sposób możemy dalej rozwijać nasz ruch i stworzyć jeszcze silniejszy zbiorowy głos na rzecz zmian, których szukamy.\nJeszcze raz serdecznie dziękujemy za nieustające wsparcie i zaangażowanie w tę kampanię. Razem możemy wywrzeć trwały wpływ!",
             "share_on": "Udostępnij na"
         },
         "button": {
             "confirmAction": "Tak, jestem prawdziwą osobą!",
             "confirmOptin": "Potwierdzam swój udział i chcę otrzymywać wiadomości od Ciebie",
             "confirmAlreadyMember": "Potwierdzam swój udział i już otrzymuję wiadomości e-mail od Ciebie",
-            "confirmOptout": "Potwierdzam swój udział, ale nie będę informowany w przyszłości."
+            "confirmOptout": "Potwierdzam swój udział, ale nie będę informowany w przyszłości"
         },
         "doi": {
             "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
