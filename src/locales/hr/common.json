@@ -14,6 +14,7 @@
   "Last name": "Prezime",
   "Locality": "Lokalitet",
   "Next": "Dalje",
+  "Organisation": "Organizacija",
   "Other": "Drugo",
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
@@ -141,6 +142,9 @@
     "salutation_male": "Poštovani gospodine {{target.last_name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
+  "error": {
+    "date": "format mora biti DD.MM.YYYY"
+  },
   "image": {
     "addSticker": "dodaj naljepnice",
     "addStickerTitle": "Klikni/Dodirni za dodavanje naljepnice fotografiji",
@@ -173,6 +177,7 @@
     "m": "Poštovani {{name}}",
     "other": "Poštovani {{name}}"
   },
+  "select_all": "Odaberi sve",
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
     "message": "Ovo se isplati potpisati!",
@@ -190,14 +195,15 @@
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}"
+      "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}",
+      "undefined": "Odaberi zemlju"
     },
     "missing": "Odaberi barem jedan od {{total}}",
     "postcode": {
       "empty": "nema nikoga za kontaktiranje u {{area}}"
     },
-    "random_one": "Odabrali jedan od naših {{total}} najvažnijih ciljeva",
-    "random_other": "Odabrano {{count}} od naših {{total}} najvažnijih ciljeva",
+    "random_one": "Odabran je jedan od naših {{total}} najvažnijih ciljeva",
+    "random_other": "Odabrana su {{count}} od naših {{total}} najvažnijih ciljeva",
     "selected": "Broj primalaca: {{total}}"
   },
   "twitter": {
