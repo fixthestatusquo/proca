@@ -1,7 +1,7 @@
 {
     "email": {
         "common": {
-            "share": "Pomogni nam postići naš cilj slanjem vijesti drugima.",
+            "share": "Pomogni nam postići naš cilj [slanjem vijesti drugima](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "donate": "Doniraj novac kako bismo ostvarili našu misiju",
             "greeting": "Bok {{firstName}}",
             "closing": "Uz tvoju pomoć se približavamo našem cilju",
@@ -9,7 +9,12 @@
             "sincerely": "S poštovanjem,",
             "thanks": "Hvala ti na sudjelovanju u kampanji {{campaign.title}}. Cijenimo tvoju podršku!",
             "follow": "Prati nas na:",
-            "privacy": "Informacije o našoj politici privatnosti i obradi podataka možeš pronaći ovdje"
+            "privacy": "Pronađi daljnje informacije o našoj politici privatnosti i obradi tvojih podataka",
+            "consent": "\n          ",
+            "share_on": "Dijeli na",
+            "signature": "S poštovanjem,\n\n{{org.title}}",
+            "duplicate": "Hvala ti na tvom angažmanu i predanosti za našu stvar! Međutim, u našoj predanosti za održavanje autentičnosti i vjerodostojnosti, moramo **ukloniti duplikate** potpisa i čini se da si ti (ili netko tko koristi {{email}}), već poduzeo ovu radnju. Ne brini, **tvoj početni potpis je uračunat** i doprinio je našoj kampanji.\nTvoja je podrška od neprocjenjive vrijednosti i željeli bismo te potaknuti da poduzmeš dodatni korak za povečavanje tvog utjecaja. Obrati se svojim prijateljima i obitelji, te ih potakni da i oni nešto poduzmu koristeći svoje e-mail adrese. Na taj način možemo dalje razvijati naš pokret i stvoriti još jači kolektivni glas za promjenu koju tražimo.\nPuno ti hvala za tvoju kontinuiranu potporu i predanost ovoj kampanji. Zajedno možemo ostvariti trajan učinak!",
+            "organisation": "{{org.title}}"
         },
         "thankyou": {
             "intro": "Hvala ti na sudjelovanju u kampanji „{{campaign.title}}”. Cijenimo tvoju podršku!",
@@ -19,13 +24,22 @@
             "confirmButton": "Da, ja sam stvarna osoba!",
             "extra": "Ova potvrda služi za uspješno dovršavanje registracije i dozvoljava nam obradu tvoje e-mail adrese i drugih osobnih podataka za primanje novosti ili biltena. Ovo je automatizirani postupak i ova je potvrda potrebna za registraciju kako bi se izbjegao neovlašteni postupak registracije.",
             "subject": "Još jedan korak: potvrdi tvoju e-mail adresu",
-            "intro": "Tvoja potvrda je važna kako bismo mogli obraditi tvoju pretplatu. Samo na taj način možemo potvrditi da iza svakog sudjelovanja doista stoji osoba, što je važno za učinak ove kampanje i sprečavanje lažnih/spam prijava."
+            "intro": "Tvoja potvrda je važna kako bismo je mogli obraditi. Samo na taj način možemo potvrditi da iza svakog sudjelovanja doista stoji osoba, što je važno za učinak ove kampanje i sprečavanje lažnih/spam prijava."
         },
         "actionConfirm": {
             "subject": "Još jedan korak: potvrdi tvoju e-mail adresu",
             "confirmButton": "Da, ja sam stvarna osoba!",
-            "intro": "Tvoja potvrda je važna kako bismo mogli obraditi tvoju pretplatu. Samo na taj način možemo potvrditi da iza svakog sudjelovanja doista stoji osoba, što je važno za učinak ove kampanje i sprečavanje lažnih/spam prijava.",
+            "intro": "Tvoja potvrda je važna kako bismo mogli obraditi tvoje sudjelovanje. Samo na taj način možemo potvrditi da iza svakog sudjelovanja doista stoji osoba, što je važno za učinak ove kampanje i sprečavanje lažnih/spam prijava.",
             "extra": "Ova potvrda služi za uspješno dovršavanje registracije i dozvoljava nam obradu tvoje e-mail adrese i drugih osobnih podataka za primanje novosti ili biltena. Ovo je automatizirani postupak i ova je potvrda potrebna za registraciju kako bi se izbjegao neovlašteni postupak registracije."
+        },
+        "doi_thankyou": {
+            "subject": "Hvala ti na sudjelovanju{{#privacy.optIn}}, još jedan korak, potvrdi tvoju e-mail adresu{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Potvrđujem sudjelovanje i već primam vašu e-poštu",
+            "confirmOptout": "Potvrđujem sudjelovanje, ali ne želim primati obavijesti",
+            "confirmAction": "Da, ja sam stvarna osoba!",
+            "confirmOptin": "Potvrđujem sudjelovanje i želim primati novosti"
         }
     },
     "poweredBy": "OMOGUĆUJE"
