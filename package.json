@@ -39,7 +39,7 @@
     "page-metadata-parser": "https://github.com/Logora/page-metadata-parser",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.47.0",
+    "react-hook-form": "^7.48.2",
     "react-i18next": "^13.3.1",
     "react-ipgeolocation": "^1.4.0",
     "react-konva": "^17.0.2-6",
