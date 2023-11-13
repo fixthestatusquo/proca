@@ -239,6 +239,10 @@ The Donate steps are configured under the `config.component.donation` key.
 
 ## Email
 
+- server: boolean sending from the server or client
+- bcc: if sent from client, add a bcc
+- bccOptout: if false, do not bcc if optout
+
 ### Field (config.component.email.field)
 
 - `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.

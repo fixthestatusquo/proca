@@ -208,6 +208,8 @@ const Component = (props) => {
   //  const [filter, setFilter] = useState({country:null});
   const [allProfiles, setAllProfiles] = useState([]);
   const [languages, setLanguages] = useState([]);
+
+  // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
   const [alwaysUpdate, setAlwaysUpdate] = useState(
     config.component.email?.multilingual === true,
   );
@@ -585,7 +587,17 @@ const Component = (props) => {
 
     let to = [];
     let cc = null;
-    const bcc = config.component.email?.bcc;
+    let bcc = null;
+    if (config.component.email?.bcc) {
+      bcc = config.component.email.bcc;
+      if (
+        config.component.email?.bccOptout === false &&
+        getValues("privacy") === "opt-out"
+      ) {
+        console.log("super privacy mode");
+        bcc = null;
+      }
+    }
     //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
     let [subject, message, comment] = getValues([
       "subject",
@@ -669,6 +681,9 @@ const Component = (props) => {
               required={config.component.email?.field?.subject?.required}
               label={t("Subject")}
               onChange={checkUpdated}
+              onClick={() => {
+                setBlock(true);
+              }}
             />
           </Grid>
         ) : (
@@ -723,6 +738,7 @@ const Component = (props) => {
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = (data) => {
+    data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += "\n" + data.comment;
     if (config.component.email?.salutation) {
