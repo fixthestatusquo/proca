@@ -18,6 +18,7 @@ const Address = (props) => {
   const classField = props.classField;
   const [postcode, country] = watch(["postcode", "country"]);
   const postcodeLength = {
+    US: 5,
     AT: 4,
     BE: 4,
     CH: 4,
