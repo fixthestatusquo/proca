@@ -1595,10 +1595,10 @@
   resolved "https://registry.npmjs.org/@shopify/react-intersection-observer/-/react-intersection-observer-4.0.4.tgz"
   integrity sha512-n+NSC3sUsbKQN5jj1b+UeQPG1zPOtsJ5sSFXN7/heLSHtt2mGsYDmeQ3ojjpvkFOuDGz1ZmKGvUFNEJLEWlV+w==
 
-"@stripe/react-stripe-js@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.3.1.tgz#2b9d120238369844f35387e2de1efe2471684d51"
-  integrity sha512-vXiwcG2ZjAF4AezjP7DJ8jiwxfCWCen/X2rBhyXaKrfQ7+pwmXhsoUlKRa0eLWioY1oelOQOafauNUiwTwFHgQ==
+"@stripe/react-stripe-js@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.3.2.tgz#75111cf929fdc27f59947726c282f8a8a14d6f16"
+  integrity sha512-3sKdD4w6X/Hs1wbFNU9lc9uJP86YrNLNcfJpZpiD1lWAg46ROfi9EkT1HiEmWWPYEjjXereJ4C2Eg90uYMq1uQ==
   dependencies:
     prop-types "^15.7.2"
 
