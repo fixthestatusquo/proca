@@ -4,27 +4,44 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Country from "./Country";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+//import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const Affiliation = (props) => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
-
-  let options = [
-    { code: 1, name: "Example Party" },
-    { code: 2, name: "United together" },
-    { code: "other", name: "Another party" },
-  ];
-  const sal = watch("affiliation") || "";
+  const [country, party] = watch(["country", "party"]);
   const [open, setOpen] = useState(false);
+
+  const [parties, setParties] = useState([{ party: "Select your country" }]);
   const { classField } = props.classes;
 
   useEffect(() => {
-    if (sal === "") return;
-    if (sal === "other") {
+    const fetchData = async (url) => {
+      await fetch(url)
+        .then((res) => {
+          if (!res.ok) throw res.error();
+          return res.json();
+        })
+        .then((d) => {
+          d.forEach((e) => (e.country = e.country.toUpperCase()));
+          d.push({ party: "other" });
+          setParties(d);
+        })
+        .catch(() => {
+          const placeholder = {
+            party: "Please check your internet connection and try later",
+          };
+          setParties([placeholder]);
+        });
+    };
+    fetchData("https://www.tttp.eu/data/parties.json");
+  }, [country]);
+  useEffect(() => {
+    if (party === "") return;
+    if (party === "other") {
       setOpen(true);
     } else setOpen(false);
-  }, [sal]);
+  }, [party]);
 
   const width = () => {
     return 12;
@@ -54,19 +71,22 @@ const Affiliation = (props) => {
           }}
         >
           <option key="empty" value=""></option>
-          {options.map((d) => {
-            return (
-              <option key={d.code} value={d.code}>
-                {d.name}
-              </option>
-            );
-          })}
+          {parties
+            .filter((d) => d.country === country)
+            .sort((a, b) => a.party > b.party)
+            .map((d) => {
+              return (
+                <option key={d.party + d.eugroup + d.country} value={d.party}>
+                  {d.party}
+                </option>
+              );
+            })}
         </TextField>
         {open && ( // open
           <>
             <TextField
               name="affiliation-other"
-              label={options["other"]}
+              label={parties["other"]}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">

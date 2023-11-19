@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
 import { Grid, IconButton } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TwitterIcon from "../../images/Twitter.js";
@@ -12,37 +11,15 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import TextField from "@components/TextField";
 import HiddenField from "@components/field/Hidden";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
 import SearchIcon from "@material-ui/icons/Search";
 
-const useStyles = makeStyles((theme) => ({
-  profile: {
-    backgroundColor: theme.palette.background.paper,
-    padding: "2px",
-  },
-}));
-
 const Twitter = (props) => {
-  const classes = useStyles();
-
   const { t } = useTranslation();
   //  const { config } = useConfig();
-  const [profile, setProfile] = useState({
-    name: t("twitter.twitter", "Your twitter twitter account"),
-  });
 
-  const compact = props.compact;
-  const { setValue, getValues, setError, watch, register } = props.form;
+  const { setValue, getValues, setError, watch } = props.form;
 
-  const array = watch(["twitter", "picture"]);
-  const field = {
-    twitter: array[0],
-    picture: array[1],
-  };
+  const [twitter, picture] = watch(["twitter", "picture"]);
 
   //variant={options.variant}
   //margin={options.margin}
@@ -71,7 +48,6 @@ const Twitter = (props) => {
         })
         .then((res) => {
           if (res && res.error) {
-            setProfile({ name: "?", url: "", description: "" });
             setError(field, "api", res.message.errors[0].message);
             return;
           }
@@ -81,7 +57,6 @@ const Twitter = (props) => {
               "",
             ) // no emoji
             .replace(/#\w\w+\s?/g, ""); // no hashtag
-          setProfile(res);
           if (res.url) {
             setValue("url", res.url);
             const domain = new URL(res.url).hostname;
@@ -92,11 +67,10 @@ const Twitter = (props) => {
           setValue("followers_count", res.followers_count);
           setValue("picture", res.profile_image_url_https);
           !getValues("comment") && setValue("comment", res.description);
-          props.form.setFocus("firstname");
         })
         .catch((err) => {
+          setError(field, "api", err.toString());
           console.log(err);
-          setProfile({ name: "?", url: "", description: "" });
         });
     }
 
@@ -118,7 +92,7 @@ const Twitter = (props) => {
           name="twitter"
           onBlur={handleBlur}
           helperText={
-            !field.picture &&
+            !picture &&
             (getValues("twitter")
               ? t("help.submit", "use the search icon to get your picture")
               : t(
@@ -129,7 +103,7 @@ const Twitter = (props) => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                {field.twitter && !field.picture ? (
+                {twitter && !picture ? (
                   <IconButton
                     aria-label="Fetch details from Twitter"
                     onClick={handleClick}
@@ -140,8 +114,8 @@ const Twitter = (props) => {
                 ) : (
                   <SvgIcon>
                     {" "}
-                    {field.picture ? (
-                      <image href={field.picture} width={24} height={24} />
+                    {picture ? (
+                      <image href={picture} width={24} height={24} />
                     ) : (
                       <TwitterIcon />
                     )}
@@ -150,7 +124,7 @@ const Twitter = (props) => {
               </InputAdornment>
             ),
           }}
-          required
+          required={props.required}
           label={t("twitter.screenName", "Screen name")}
           form={props.form}
         />

@@ -35,10 +35,8 @@ import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import uuid from "@lib/uuid";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
-import { addAction } from "@lib/server";
 import { pickOne } from "@lib/text";
 
 const useStyles = makeStyles(() => ({
@@ -648,8 +646,8 @@ const Component = (props) => {
       console.warn("no target, skip sending");
       return false;
     }
-    var win = window.open(url, "_blank");
-    window.location.hrer = win;
+    //var win = window.open(url, "_blank");
+    window.location.href = url;
 
     /*
     //TODO: display fallback using  Clipboard.writeText()
