@@ -649,6 +649,9 @@ const Component = (props) => {
       return false;
     }
     var win = window.open(url, "_blank");
+    window.location.hrer = win;
+
+    /*
     //TODO: display fallback using  Clipboard.writeText()
     var timer = setInterval(() => {
       if (!win) {
@@ -666,8 +669,8 @@ const Component = (props) => {
         props.done();
       }
     }, 1000);
+*/
   };
-
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
   const ExtraFields = (props) => {
