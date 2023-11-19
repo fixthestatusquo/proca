@@ -11,7 +11,9 @@ const checkMail = async (email) => {
   const domain = getDomain(email);
   if (!domain) return false;
   try {
-    const response = await fetch("https://check-mail.proca.app/" + domain);
+    const response = await fetch(
+      process.env.REACT_APP_CHECKMAIL_API_URL + "/" + domain,
+    );
     const r = await response.json();
     return r;
   } catch (e) {
