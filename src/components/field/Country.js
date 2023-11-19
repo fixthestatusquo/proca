@@ -171,6 +171,7 @@ const Country = (props) => {
   return (
     <>
       <TextField
+        required={props.required}
         select
         name="country"
         onChange={switchCountry}
