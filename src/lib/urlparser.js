@@ -13,21 +13,21 @@
         });
         */
 
-const filter = (query, whitelist = null, prefix = "") => {
-  if (!whitelist) return query;
+const filter = (query, allowlist = null, prefix = "") => {
+  if (!allowlist) return query;
   let r = {};
   Object.keys(query)
     .filter(
       (key) =>
-        key.startsWith(prefix) && whitelist.includes(key.substr(prefix.length)),
+        key.startsWith(prefix) && allowlist.includes(key.substr(prefix.length)),
     )
     .forEach((k) => (r[k.substr(prefix.length)] = query[k]));
   return r;
 };
 
-const parse = (whitelist, prefix) => {
+const parse = (allowlist, prefix) => {
   const query = new URLSearchParams(document.location.search);
-  return filter(Object.fromEntries(query), whitelist, prefix) || {};
+  return filter(Object.fromEntries(query), allowlist, prefix) || {};
 };
 
 const step = (prefix) => {
@@ -37,7 +37,7 @@ const step = (prefix) => {
 
 const data = (prefix) => {
   prefix = prefix || "proca_";
-  const whitelist = [
+  const allowlist = [
     "amount",
     "paymentMethod",
     "firstname",
@@ -54,7 +54,7 @@ const data = (prefix) => {
     "currency",
     "lang",
   ];
-  return parse(whitelist, prefix);
+  return parse(allowlist, prefix);
 };
 
 const isTest = () => {
@@ -69,8 +69,8 @@ export const get = (name) => {
 
 const config = (prefix) => {
   prefix = prefix || "proca_";
-  const whitelist = ["comment"];
-  return parse(whitelist, prefix);
+  const allowlist = ["comment"];
+  return parse(allowlist, prefix);
 };
 
 const socialiseReferrer = (domain, utm) => {
@@ -125,7 +125,7 @@ const socialiseReferrer = (domain, utm) => {
 };
 
 const utm = (record = true) => {
-  const whitelist = ["source", "medium", "campaign", "content"];
+  const allowlist = ["source", "medium", "campaign", "content"];
   if (record === false) {
     return {};
   }
@@ -140,8 +140,8 @@ const utm = (record = true) => {
   Object.assign(
     utm,
     shortcut,
-    parse(whitelist, "utm_"),
-    parse(whitelist, "mtm_"),
+    parse(allowlist, "utm_"),
+    parse(allowlist, "mtm_"),
   );
   //mtm_xx is the matomo convention
   if (!utm.source && utm.campaign) {
