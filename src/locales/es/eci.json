@@ -87,7 +87,7 @@
       "other": "otros..."
     },
     "requirements": {
-      "text": "Datos que se deben facilitar con arreglo a lo dispuesto en el <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Reglamento (UE) 2019/788 sobre la iniciativa ciudadana europea</a>."
+      "text": "Por favor, facilite los siguientes datos, tal y como exige <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">el Reglamento (UE) 2019/788 relativo a la iniciativa ciudadana europea.</a>"
     }
   },
   "header": {
@@ -122,8 +122,8 @@
     "group-document": "Identificación personal",
     "group-personal": "Información personal",
     "group-address": "Residencia",
-    "certify-info": "Certifico que los datos facilitados en este formulario son correctos y que aún no he dado apoyo con mi firma a la iniciativa.",
-    "privacy-statement": "He leído la <a href=\"{{url}}\" target=\"_blank\" title=\"declaración de confidencialidad\">declaración de confidencialidad</a> y el contenido de esta <a href=\"{{urlRegister}}\" target=\"_blank\">iniciativa ciudadana</a>.",
+    "certify-info": "Certifico que la información que he facilitado en este formulario es correcta y que no he apoyado ya esta iniciativa.",
+    "privacy-statement": "He leído la <a href=\"{{url}}\" target=\"_blank\" title=\"Read the privacy statement\">Declaración de privacidad</a> y el contenido de esta <a href=\"{{urlRegister}}\" target=\"_blank\">iniciativa ciudadana</a>.",
     "certify-info-eID": "Certifico que aún no he dado apoyo con mi firma a esta iniciativa ciudadana",
     "support": "Apoyar",
     "document-number": "Número",
@@ -133,8 +133,8 @@
     "captcha-audio-download": "Preste atención y escriba los caracteres que oiga",
     "link-support": "Cómo firmar una iniciativa ciudadana europea",
     "support-footer1": "Requisitos para poder apoyar una iniciativa ciudadana europea:",
-    "support-footer2": "1. poseer la ciudadanía de la Unión Europea (es decir, tener la nacionalidad de un Estado miembro de la UE)",
-    "support-footer3": "2. tener edad suficiente para votar en las elecciones al Parlamento Europeo (para algunas nacionalidades, el requisito es tener 16 años).",
+    "support-footer2": "1. Ser ciudadano de la Unión Europea (es decir, nacional de un país de la UE);",
+    "support-footer3": "2. Tener ela edad suficiente para votar en las elecciones al Parlamento Europeo o, en el caso de algunas nacionalidades, tener 16 años.",
     "support-footer4": "Más información",
     "support-footerDE": "Los residentes fuera de Alemania tienen que registrar su residencia permanente actual en la representación diplomática alemana que corresponda.",
     "optional-validacion-desc": "El formato de mi número de (documento) de identificación personal y/o de mi código postal es correcto:",
@@ -216,7 +216,10 @@
       "document.se.personal.number": "Formato no válido. Formato obligatorio: YYMMDD-NNNN o YYYYMMDD-NNNN o YYMMDDNNNN o YYYYMMDDNNNN (Y = año, M = mes, D = día, N = número)",
       "document.si.personal.number": "Formato no válido. Formato obligatorio: NNNNNNNNNNNNN (N = número)",
       "document.invalid": "Valor no válido"
-    }
+    },
+    "captcha-button-arialabel-audio": "Cambiar el captcha por audio",
+    "captcha-button-arialabel-image": "Cambiar el captcha por una imagen",
+    "captcha-button-arialabel-refresh": "Actualizar el captcha"
   },
   "howsupport": {
     "s1.title": "Información",
@@ -345,5 +348,6 @@
     "challenge-result": "Resultado de la comprobación",
     "copy-text": "Copiar texto"
   },
-  "Skip and go directly to signing the initiative in step 2": "Omitir e ir directamente a firmar la iniciativa en el paso 2"
+  "Skip and go directly to signing the initiative in step 2": "Omitir e ir directamente a firmar la iniciativa en el paso 2",
+  "Place of birth": "Lugar de nacimiento"
 }
