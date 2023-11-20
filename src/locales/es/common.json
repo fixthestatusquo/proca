@@ -7,7 +7,7 @@
   "Comment": "Comentario",
   "Country": "País",
   "Download": "Descargar",
-  "Download explanation": "Su documento ya está listo, se lo estamos enviando por correo electrónico.",
+  "Download explanation": "Su documento ya está listo, se lo enviamos también por correo electrónico",
   "Email": "Correo electrónico",
   "First name": "Nombre",
   "Language": "Idioma",
@@ -36,7 +36,7 @@
     "share": "Compartir",
     "sign": "Firma",
     "stayInformed": "Seguir recibiendo información",
-    "takeAction": "¡Actúa!",
+    "takeAction": "Actúa",
     "twitter": "Tweet"
   },
   "camera": {
@@ -44,13 +44,13 @@
     "take": "Haz una foto",
     "take-another": "Toma otro"
   },
-  "closed": "#¡Gracias a los seguidores de {{total}}!\n\nHemos cerrado esta acción, pero nuestro trabajo no termina aquí, así que por favor **deja tu correo electrónico para mantenerte informado sobre los próximos pasos**.",
+  "closed": "##¡Gracias a los colaboradores de {{total}}!\n\nHemos cerrado esta acción, pero nuestro trabajo no termina aquí, así que por favor **deja tu correo electrónico para mantenerte informado sobre los próximos pasos**",
   "confirm": "¿Seguro?",
   "consent": {
     "actionConfirmed": "Acción confirmada",
     "actionRejected": "La acción fue cancelada con éxito",
-    "confirm": "<0>¿Estás seguro/a?</0><1>Seleccionando «No», no podrás saber si esta campaña tiene éxito, o si hay más acciones planificadas en las que podamos colaborar juntos para alcanzar el éxito. Si seleccionas «Sí» te mantendremos informado sobre ésta y otras campañas urgentes.",
-    "confirmAction": "Hemos enviado un enlace de confirmación por correo electrónico a la siguiente dirección:\n {{email}}\nPor favor, recupera el correo electrónico ahora mismo y haz clic en el enlace que contiene (¡comprueba tu carpeta de spam!).\n ¡Sólo así su acción contará!\nSu confirmación es crucial para el peso político de la acción. Esto garantiza que hay una persona real detrás de cada envío. Esperamos tu confirmación...",
+    "confirm": "<0>¿Estás seguro?</0><1>Si seleccionas \"No\", no podrás saber si esta campaña tiene éxito o si hay más acciones que debamos emprender juntos para ganarla. Si selecciona \"Sí\", le mantendremos informado sobre esta y otras campañas urgentes.</1><2>Puede darse de baja en cualquier momento.</2>",
+    "confirmAction": "Por favor, recupera el correo electrónico ahora mismo y haz clic en el enlace que contiene (¡comprueba tu carpeta de spam!).\n Sólo así tu acción contará.\nTu confirmación es crucial para el peso político de la acción. Esto garantiza que hay una persona real detrás de cada envío. Esperamos tu confirmación...",
     "confirmOptIn": "No olvide revisar su buzón de correo (incluida la carpeta de spam) y confirmar su suscripción al correo electrónico",
     "emailSent": "¡Te hemos enviado un correo electrónico a {email}!",
     "implicit": "Envía este formulario para recibir correos electrónicos de {{name}}",
@@ -80,8 +80,8 @@
     "average": "La donación media es {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Dona {{amount}} cada mes",
+        "oneoff": "Donar {{amount}}"
       }
     },
     "error": {
@@ -121,7 +121,7 @@
       "weekly": "semanal",
       "yearly": "anualmente"
     },
-    "iban": "iban",
+    "iban": "IBAN",
     "intro": "Donar a {{campaign}}",
     "payment_methods": {
       "card": "Tarjeta",
@@ -131,7 +131,7 @@
       "sepa": "SEPA",
       "title": "Forma de pago"
     },
-    "thanks": "Gracias por su donación.",
+    "thanks": "¡Gracias por su donación!",
     "to": "Donación a {{organisation}}"
   },
   "email": {
@@ -149,8 +149,8 @@
     "addSticker": "añadir pegatinas",
     "addStickerTitle": "Pulsa para añadir una pegatina a la foto",
     "benefit": "Añadir una imagen para enviar -y que puedas compartir en el siguiente paso- haría tu acción más impactante",
-    "options": "¿Le gustaría",
-    "publish": "¡Se ve bien, publiquen!",
+    "options": "¿Le gustaría realizar alguna de estas acciones?",
+    "publish": "¡Se ve bien, publícalo!",
     "select": "elige tu foto",
     "takeTitle": "Haz una foto con tu teléfono",
     "upload": "Subir una foto",
@@ -165,17 +165,17 @@
     "sign": "{{total}} han firmado. Vamos a por {{goal}}",
     "twitter": "{{total}} han twitteado. Vamos a {{goal}}"
   },
-  "read more": "Seguir leyendo",
+  "read more": "leer más",
   "register": "Añade mi nombre",
   "reminder": {
-    "intro": "Lo sabemos, su gobierno le pide mucha información. Le enviaremos un único correo electrónico para recordarle que rellene el formulario más adelante."
+    "intro": "Lo sabemos, su gobierno le pide mucha información. Le enviaremos un único correo electrónico para recordarle que rellene el formulario más adelante"
   },
   "required": "Por favor, rellene este campo",
   "required field": "Campo obligatorio",
   "salutations": {
-    "f": "La Sra.",
-    "m": "El Sr.",
-    "other": "Otros"
+    "f": "Estimad@ {{name}}",
+    "m": "Querid@ {{name}}",
+    "other": "Estimad@ {{name}}"
   },
   "select_all": "Seleccionar todo",
   "share": {
@@ -196,7 +196,7 @@
   "target": {
     "country": {
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}",
-      "undefined": "Seleccione un país"
+      "undefined": "Elija un país"
     },
     "missing": "Seleccione al menos uno de {{total}}",
     "postcode": {
