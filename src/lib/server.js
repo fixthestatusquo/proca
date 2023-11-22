@@ -192,13 +192,12 @@ async function getCountByName(name) {
   };
 }
 
-async function addAction(actionPage, actionType, data, test) {
+async function addAction(actionPage, actionType, data) {
   var query = `mutation addAction (
   $contact: ID!,
   $actionPage: Int!,
   $actionType: String!,
   $payload: Json,
-  $test: Boolean,
   $tracking: TrackingInput)
 {
   addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload}
@@ -210,7 +209,6 @@ async function addAction(actionPage, actionType, data, test) {
     actionType: actionType,
     payload: data.payload,
     contact: data.uuid,
-    test: test,
   };
 
   if (typeof data.payload === "object") {
