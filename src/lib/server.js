@@ -198,10 +198,10 @@ async function addAction(actionPage, actionType, data, test) {
   $actionPage: Int!,
   $actionType: String!,
   $payload: Json,
-  $test: Boolean,
+  $testing: Boolean,
   $tracking: TrackingInput)
 {
-  addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload}
+  addAction (actionPageId: $actionPage, action: { actionType: $actionType, customFields: $payload, testing: testing}
     contactRef: $contact, tracking: $tracking)
   {contactRef}
 }`;
@@ -210,7 +210,7 @@ async function addAction(actionPage, actionType, data, test) {
     actionType: actionType,
     payload: data.payload,
     contact: data.uuid,
-    test: test,
+    testing: test || false,
   };
 
   if (typeof data.payload === "object") {
