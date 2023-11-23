@@ -201,22 +201,28 @@ export const CheckboxConsent = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
+
   return (
     <FormControl className="proca-consent">
       <FormGroup>
         <FormControlLabel
           className={classes.check}
           placement="end"
+          required={config.component.consent.checkbox.required}
           control={
             <Controller
               name="privacy"
               control={control}
+              rules={{
+                required: config.component.consent.checkbox.required,
+              }}
               defaultValue={
                 config.component.consent.gdpr === false ? "opt-in" : "opt-out"
               }
               render={({ field }) => (
                 <Checkbox
                   {...field}
+                  required={config.component.consent.checkbox.required}
                   color="primary"
                   onChange={(e) =>
                     field.onChange(e.target.checked ? "opt-in" : "opt-out")

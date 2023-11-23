@@ -142,7 +142,12 @@ const addPage = async (name, campaignName, locale, orgName) => {
 `;
 
   if (!orgName) {
-    campaign = await pullCampaign(campaignName);
+    try {
+      campaign = await pullCampaign(campaignName);
+    } catch (e) {
+      console.log("error", e);
+      throw e;
+    }
   }
 
   if (!campaign) {
@@ -163,7 +168,12 @@ const addPage = async (name, campaignName, locale, orgName) => {
     try {
       console.log(r.errors);
       if (r.errors[0].path[1] === "name") {
-        console.log("error");
+        console.error("invalid name", name);
+        throw new Error(r.errors[0].message);
+      }
+      if (r.errors[0].extensions?.code === "permission_denied") {
+        console.error("permission denied to create", name, campaign?.org.name);
+        throw new Error(r.errors[0].message);
       }
       const page = await fetchByName(name);
       console.warn("duplicate of widget", page.id);
