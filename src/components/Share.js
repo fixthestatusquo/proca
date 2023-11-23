@@ -136,7 +136,7 @@ export default function ShareAction(props) {
 
     dispatch(event.replace("_", ":"), d, null, config);
     if (config.component.share?.anonymous === true) return;
-    addAction(actionPage, event, d);
+    addAction(actionPage, event, d, config.test);
   };
 
   return (
