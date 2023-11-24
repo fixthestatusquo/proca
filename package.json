@@ -24,7 +24,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@paypal/react-paypal-js": "^8.1.3",
     "@shopify/react-intersection-observer": "^4.0.4",
-    "@stripe/react-stripe-js": "^2.3.2",
+    "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.1.11",
     "@supabase/supabase-js": "^2.38.4",
     "i18n-iso-countries": "^7.7.0",
