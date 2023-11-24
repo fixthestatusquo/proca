@@ -5454,10 +5454,10 @@ react-script-hook@^1.7.2:
   resolved "https://registry.npmjs.org/react-script-hook/-/react-script-hook-1.7.2.tgz"
   integrity sha512-fhyCEfXb94fag34UPRF0zry1XGwmVY+79iibWwTqAoOiCzYJQOYTiWJ7CnqglA9tMSV8g45cQpHCMcBwr7dwhA==
 
-react-share@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.npmjs.org/react-share/-/react-share-4.4.1.tgz"
-  integrity sha512-AJ9m9RiJssqvYg7MoJUc9J0D7b/liWrsfQ99ndKc5vJ4oVHHd4Fy87jBlKEQPibT40oYA3AQ/a9/oQY6/yaigw==
+react-share@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-share/-/react-share-5.0.2.tgz#acc3780129424e2bf4d8d2efbad78dccd19b2881"
+  integrity sha512-4v6SqM2CfUqtOjBhV0iVELTR55zgCmfZ7qDHtpuT+Cb1boUBIh6D1WWUrLdb00v3f/52O6QppcVYt5ZGFkB/KQ==
   dependencies:
     classnames "^2.3.2"
     jsonp "^0.2.1"
