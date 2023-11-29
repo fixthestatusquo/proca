@@ -679,6 +679,7 @@ const Component = (props) => {
             <TextField
               form={props.form}
               name="subject"
+              disabled={!!config.component.email.field.subject.disabled}
               required={config.component.email?.field?.subject?.required}
               label={t("Subject")}
               onChange={checkUpdated}
