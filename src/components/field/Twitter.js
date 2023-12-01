@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
@@ -7,15 +7,17 @@ import { Grid, IconButton } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TwitterIcon from "../../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@components/TextField";
 import HiddenField from "@components/field/Hidden";
 
 import SearchIcon from "@material-ui/icons/Search";
 
 const Twitter = (props) => {
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
   //  const { config } = useConfig();
+  const field = "twitter";
 
   const { setValue, getValues, setError, watch } = props.form;
 
@@ -37,48 +39,51 @@ const Twitter = (props) => {
       "https://twitter.proca.app?screen_name=" +
       screenName.replace("https://twitter.com/", "");
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
-    const field = "twitter";
+    setLoading(true);
     async function fetchAPI() {
-      await fetch(api)
-        .then((res) => {
-          if (!res.ok) {
-            throw Error(res.statusText);
-          }
-          return res.json();
-        })
-        .then((res) => {
-          if (res && res.error) {
-            setError(field, "api", res.message.errors[0].message);
-            return;
-          }
-          res.name = res.name
-            .replace(
-              /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
-              "",
-            ) // no emoji
-            .replace(/#\w\w+\s?/g, ""); // no hashtag
-          if (res.url) {
-            setValue("url", res.url);
-            const domain = new URL(res.url).hostname;
-            domain &&
-              !getValues("email") &&
-              setValue("email", "@" + domain.replace("www.", ""));
-          }
-          setValue("followers_count", res.followers_count);
-          setValue("picture", res.profile_image_url_https);
-          !getValues("comment") && setValue("comment", res.description);
-        })
-        .catch((err) => {
-          setError(field, "api", err.toString());
-          console.log(err);
-        });
+      try {
+        const req = await fetch(api);
+        if (!req.ok) {
+          setLoading(false);
+          throw Error(req.statusText);
+        }
+        const res = await req.json();
+        setLoading(false);
+        if (res && res.error) {
+          setError(field, {
+            type: "api",
+            message: res.message.errors[0].message,
+          });
+          return;
+        }
+        res.name = res.name
+          .replace(
+            /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
+            "",
+          ) // no emoji
+          .replace(/#\w\w+\s?/g, ""); // no hashtag
+        if (res.url) {
+          setValue("url", res.url);
+          const domain = new URL(res.url).hostname;
+          domain &&
+            !getValues("email") &&
+            setValue("email", "@" + domain.replace("www.", ""));
+        }
+        setValue("followers_count", res.followers_count);
+        setValue("picture", res.profile_image_url_https);
+        !getValues("comment") && setValue("comment", res.description);
+      } catch (err) {
+        setLoading(false);
+        setError(field, { type: "api", message: err.toString() });
+        console.log(err);
+      }
     }
 
     fetchAPI();
   };
 
   const handleClick = () => {
-    fetchTwitter(getValues("twitter"));
+    fetchTwitter(getValues(field));
   };
 
   const handleMouseDown = (event) => {
@@ -89,11 +94,11 @@ const Twitter = (props) => {
     <>
       <Grid item xs={12}>
         <TextField
-          name="twitter"
+          name={field}
           onBlur={handleBlur}
           helperText={
             !picture &&
-            (getValues("twitter")
+            (getValues(field)
               ? t("help.submit", "use the search icon to get your picture")
               : t(
                   "help.twitter",
@@ -109,7 +114,8 @@ const Twitter = (props) => {
                     onClick={handleClick}
                     onMouseDown={handleMouseDown}
                   >
-                    <SearchIcon />
+                    {" "}
+                    {loading ? <CircularProgress size={24} /> : <SearchIcon />}
                   </IconButton>
                 ) : (
                   <SvgIcon>

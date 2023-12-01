@@ -76,6 +76,12 @@ const TextFieldProca = (props) => {
   delete drillProps.customValidity;
   delete drillProps.onChange;
   delete drillProps.onBlur;
+  if (drillProps.helperText && errors && errors[props.name]) {
+    // we display the error message instead
+    console.log("error", errors[props.name]);
+    drillProps.helperText = errors[props.name].message;
+  }
+
   return (
     <Controller
       defaultValue=""
@@ -101,7 +107,6 @@ const TextFieldProca = (props) => {
           errors[props.name].type === "warning"
         )
           classesname += " " + classes.warning;
-
         return (
           <TextField
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
@@ -110,12 +115,12 @@ const TextFieldProca = (props) => {
             onBlur={handleBlur}
             className={classesname}
             error={!!(errors && errors[props.name])}
-            helperText={
-              errors && errors[props.name] && errors[props.name].message
-            }
             variant={layout.variant}
             margin={layout.margin}
             inputRef={refA}
+            helperText={
+              errors && errors[props.name] && errors[props.name].message
+            }
             {...drillProps}
           />
         );
