@@ -117,14 +117,13 @@ const Twitter = (props) => {
                     {" "}
                     {loading ? <CircularProgress size={24} /> : <SearchIcon />}
                   </IconButton>
+                ) : picture ? (
+                  <SvgIcon fontSize="large">
+                    <image href={picture} width={24} height={24} />
+                  </SvgIcon>
                 ) : (
                   <SvgIcon>
-                    {" "}
-                    {picture ? (
-                      <image href={picture} width={24} height={24} />
-                    ) : (
-                      <TwitterIcon />
-                    )}
+                    <TwitterIcon />
                   </SvgIcon>
                 )}
               </InputAdornment>
