@@ -49,7 +49,7 @@ import {
   //  WorkplaceShareButton,
   FacebookIcon,
   FacebookMessengerIcon,
-  TwitterIcon,
+  XIcon,
   LinkedinIcon,
   TelegramIcon,
   WhatsappIcon,
@@ -257,7 +257,7 @@ export default function ShareAction(props) {
           />
           <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
           <ActionIcon
-            icon={TwitterIcon}
+            icon={XIcon}
             title={shareText("share-twitter", twitters.join(" "))}
             component={TwitterShareButton}
           />
