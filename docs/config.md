@@ -148,6 +148,7 @@ Register is the main form used to collect personal data and consent.
 
 - validateEmail: (default:true) do not use the micro-service that validates that the domain is valid and able to receive emails. Will increase number of invalid emails if false
 - tracking: (default: true) do not register the utm parameters or the (anonymised) location. Might decrease security if false
+- remember (boolean), if true, save the userid and firstname into a cookie, so next time they take an action, they do not have to fill the form
 
 ### Field (config.component.register.field)
 
