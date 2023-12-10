@@ -592,10 +592,13 @@ const Component = (props) => {
         config.component.email?.bccOptout === false &&
         getValues("privacy") === "opt-out"
       ) {
-        console.log("super privacy mode");
+        bcc = null;
+      }
+      if (data.bcc === false) {
         bcc = null;
       }
     }
+
     //const  paramEmail = {subject:t("campaign:email.subject",""),message:t("campaign:email.body","")};
     let [subject, message, comment] = getValues([
       "subject",
