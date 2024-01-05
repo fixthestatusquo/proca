@@ -82,7 +82,7 @@
     "lint-staged": "^15.2.0",
     "minimist": "^1.2.8",
     "mjml": "^4.14.1",
-    "open": "^9.1.0",
+    "open": "^10.0.2",
     "phoenix": "^1.7.10",
     "prettier": "^3.1.1",
     "simple-git": "^3.21.0",
