@@ -9,7 +9,7 @@ function getConfigOverride(id) {
     return config;
   }
   throw Error(
-    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n"
+    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
   );
 }
 
@@ -34,9 +34,9 @@ function readConfigOverride(id) {
           fs.readFileSync(
             path.resolve(
               __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json"
-            )
-          )
+              configFolder() + "/campaign/" + config.campaign.name + ".json",
+            ),
+          ),
         );
         if (!config.locales) config.locales = {};
         ["layout", "component"].map((k) => {
@@ -58,7 +58,7 @@ function readConfigOverride(id) {
         ) {
           config.locales = merge(
             campaignConfig.config.locales[config.lang]["common:"],
-            config.locales
+            config.locales,
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
@@ -73,7 +73,7 @@ function readConfigOverride(id) {
             {
               "letter:": campaignConfig.config.locales[config.lang]["letter:"],
             },
-            config.locales
+            config.locales,
           );
           delete campaignConfig.config.locales[config.lang]["letter:"];
         }
@@ -83,7 +83,7 @@ function readConfigOverride(id) {
         ) {
           let campaigns = merge(
             campaignConfig.config.locales[config.lang]["campaign:"],
-            config.locales["campaign:"]
+            config.locales["campaign:"],
           );
           Object.keys(campaignConfig.config.locales[config.lang])
             .filter((d) => d.slice(-1) !== ":")
@@ -110,9 +110,14 @@ function readConfigOverride(id) {
       }
       return [configFile, config, campaignConfig];
     } catch (e) {
+      const confFolder = path.resolve(__dirname, configFolder());
+      if (!fs.existsSync(confFolder)) {
+        console.error("missing folder", confFolder, ". mkdir it");
+        process.exit(1);
+      }
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
-        e.message
+        e.message,
       );
       throw e;
     }

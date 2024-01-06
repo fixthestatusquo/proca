@@ -4,6 +4,23 @@ most of them have a --help param and a --dry-run param to give you more informat
 
 all the local configuration files are stored into config
 
+# working with multiple servers/environements
+
+If you develop on a local proca server or need to handle multiple production server, it is convenient to be able to easily switch between servers:
+
+- create a new .env.{server_name} take as an example .env.localhost
+  the .env needs to contain two variables:
+
+      REACT_APP_API_URL='http://localhost:4000' # url of the server
+      REACT_APP_CONFIG_FOLDER='config.localhost' # folder to store locally the config
+
+- create the config folder (mkdir config.localhost)
+
+you can then prefix all the cli with PROCA_ENV={server_name}
+
+    PROCA_ENV=localhost npm pull 1
+    PROCA_ENV=localhost npm start 1
+
 # config page and campaign
 
 yarn pull or yarn widget --pull : fetch a widget (and associated campaign) from the server
