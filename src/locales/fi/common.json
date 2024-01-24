@@ -157,6 +157,10 @@
     "wanttoadd": "Haluatko lisätä kuvan?"
   },
   "no": "ei",
+  "postcode": {
+    "notFound": "Tätä postinumeroa ei näytä olevan olemassa maassasi.",
+    "wrongLength": "{{length}} odotettu kesto maassasi"
+  },
   "progress": {
     "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
     "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Valitse vähintään yksi seuraavista {{total}}",
     "postcode": {
-      "empty": "ei ole ketään, johon ottaa yhteyttä {{area}}"
+      "empty": "ei ole ketään, johon ottaa yhteyttä {{area}}",
+      "undefined": "Kirjoita postinumerosi"
     },
     "random_one": "Valittu yksi tärkeimmistä kohteistamme {{total}}...",
     "random_other": "Valitut {{count}} {{total}} tärkeimmistä kohteistamme.",
