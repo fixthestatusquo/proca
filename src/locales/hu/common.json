@@ -157,6 +157,10 @@
     "wanttoadd": "Szeretne egy képet hozzáadni?"
   },
   "no": "nincs",
+  "postcode": {
+    "notFound": "úgy tűnik, ez az irányítószám nem létezik az Ön országában.",
+    "wrongLength": "a {{length}} várható hossza az Ön országában"
+  },
   "progress": {
     "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
     "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Válasszon ki legalább egyet a következők közül {{total}}",
     "postcode": {
-      "empty": "nincs senki, akivel kapcsolatba lehetne lépni {{area}}"
+      "empty": "nincs senki, akivel kapcsolatba lehetne lépni {{area}}",
+      "undefined": "Adja meg az irányítószámát"
     },
     "random_one": "Kiválasztottuk az egyik legfontosabb célpontunkat {{total}}",
     "random_other": "Kiválasztott {{count}} a {{total}} legfontosabb célpontjaink közül.",
