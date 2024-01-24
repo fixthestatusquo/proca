@@ -10,8 +10,6 @@ import {
   Button,
   Collapse,
   List,
-  IconButton,
-  InputAdornment,
   FilledInput,
   FormHelperText,
   FormControl,
@@ -21,9 +19,10 @@ import Alert from "@material-ui/lab/Alert";
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
-import SearchIcon from "@material-ui/icons/Search";
 
 import Country from "@components/field/Country";
+import Postcode from "@components/field/Postcode";
+
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
@@ -58,63 +57,13 @@ const Filter = (props) => {
     r = <Country form={props.form} list={config.component.email?.countries} />;
   }
 
-  const handleSearch = async () => {
-    const postcode = props.form.getValues("postcode");
-    const api = "https://" + props.country + ".proca.app/" + postcode;
-    if (props.constituency) return;
-    const setValue = props.form.setValue;
-    const fetchAPI = async () => {
-      await fetch(api)
-        .then((res) => {
-          if (!res.ok) {
-            setValue("locality", "");
-            setValue("area", "");
-            setValue("constituency", "");
-
-            props.form.setError("postcode", {
-              type: "network",
-              message:
-                res.status === 404
-                  ? t("unknown postcode")
-                  : res.statusText || "Network error",
-            });
-          }
-          return res.json();
-        })
-        .then(() => {
-          console.warn("should be handled into the address");
-        })
-        .catch((err) => {
-          props.form.setError("postcode", {
-            type: "network",
-            message: (err && err.toString()) || "Network error",
-          });
-        });
-    };
-    fetchAPI(postcode);
-  };
-
   if (config.component.email?.filter?.includes("postcode")) {
     r = (
       <>
-        <TextField
-          form={props.form}
-          autoComplete="postal-code"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="Fetch postcode details"
-                  onClick={handleSearch}
-                >
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          label={t("Postal Code")}
-          name="postcode"
-        />
+        <Postcode form={props.form} width={12} search={true} />
+        {!props.form.getValues("postcode") && (
+          <Alert severity="info">{t("target.postcode.undefined")}</Alert>
+        )}
         <input type="hidden" {...props.form.register("area")} />
         <input type="hidden" {...props.form.register("constituency")} />
       </>
@@ -185,7 +134,7 @@ const Filter = (props) => {
   return r;
 };
 
-const Component = (props) => {
+const EmailComponent = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
@@ -364,7 +313,7 @@ const Component = (props) => {
           if (!config.component.email?.filter?.includes("country")) {
             setProfiles(d);
           }
-          if (config.component.email?.filter?.includes("postcode")) {
+          if (postcodeFiltered) {
             setProfiles([]);
           }
           if (config.component.email?.filter?.includes("random")) {
@@ -459,6 +408,9 @@ const Component = (props) => {
       let lang = undefined;
       let d = allProfiles.filter((d) => {
         if (constituency) {
+          if (typeof constituency === "object") {
+            return constituency.includes(d.constituency);
+          }
           return d.constituency === constituency;
         }
 
@@ -653,23 +605,23 @@ const Component = (props) => {
     window.location.href = url;
 
     /*
-    //TODO: display fallback using  Clipboard.writeText()
-    var timer = setInterval(() => {
-      if (!win) {
-        addAction(config.actionPage, "email_blocked", { uuid: uuid() });
-        clearInterval(timer);
-        return;
-      }
-      if (win.closed) {
-        addAction(config.actionPage, "email_close", {
-          uuid: uuid(),
-          //        tracking: Url.utm(),
-          payload: [],
-        });
-        clearInterval(timer);
-        props.done();
-      }
-    }, 1000);
+  //TODO: display fallback using  Clipboard.writeText()
+  var timer = setInterval(() => {
+    if (!win) {
+      addAction(config.actionPage, "email_blocked", { uuid: uuid() });
+      clearInterval(timer);
+      return;
+    }
+    if (win.closed) {
+      addAction(config.actionPage, "email_close", {
+        uuid: uuid(),
+        //        tracking: Url.utm(),
+        payload: [],
+      });
+      clearInterval(timer);
+      props.done();
+    }
+  }, 1000);
 */
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
@@ -759,7 +711,12 @@ const Component = (props) => {
 
   const getTargets = () => {
     if (!selection) return profiles;
-    return profiles.filter((d) => selection.includes(d.procaid));
+    const filtered = profiles.filter((d) => selection.includes(d.procaid));
+    if (filtered.length === 0 && selection.length > 0) {
+      // edge case: the postcode changed without properly resetting the selection
+      setSelection([]);
+    }
+    return filtered;
   };
 
   const filterTarget = (key, value) => {
@@ -779,6 +736,11 @@ const Component = (props) => {
     }
     setProfiles(d);
   };
+
+  if (selection.length === 0 && profiles.length === 1) {
+    // if only one, select it. needs to be put in an useEffect?
+    selectAll();
+  }
 
   return (
     <Container maxWidth="sm">
@@ -825,7 +787,7 @@ const Component = (props) => {
               })}
             </Alert>
           ) : (
-            selection.length > 0 && (
+            selection.length > 1 && (
               <Alert severity="success">
                 {t("target.selected", {
                   defaultValue: "{{total}} selected",
@@ -876,4 +838,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default EmailComponent;

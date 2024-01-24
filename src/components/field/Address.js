@@ -5,6 +5,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/field/Country";
+import Postcode from "@components/field/Postcode";
 import HiddenField from "@components/field/Hidden";
 
 const Address = (props) => {
@@ -16,79 +17,6 @@ const Address = (props) => {
   const compact = props.compact;
   const { setValue, watch, getValues } = props.form;
   const classField = props.classField;
-  const [postcode, country] = watch(["postcode", "country"]);
-  const postcodeLength = {
-    US: 5,
-    AT: 4,
-    BE: 4,
-    CH: 4,
-    DE: 5,
-    FR: 5,
-    IT: 5,
-    PL: 5,
-    CA: 5,
-    DK: 4,
-    NL: 4,
-  };
-
-  const geocountries = props.geocountries || Object.keys(postcodeLength);
-
-  useEffect(() => {
-    if (!geocountries.includes(country)) {
-      return;
-    }
-    if (!postcode || postcode.length !== postcodeLength[country]) {
-      const [area, constituency, locality] = getValues([
-        "area",
-        "constituency",
-        "locality",
-      ]);
-      if (area) setValue("area", "");
-      if (locality) setValue("locality", "");
-      if (constituency) setValue("constituency", "");
-      return;
-    }
-    const api = "https://" + country + ".proca.app/" + postcode;
-
-    async function fetchAPI() {
-      await fetch(api)
-        .then((res) => {
-          if (!res.ok) {
-            setValue("locality", "");
-            setValue("area", "");
-            setValue("constituency", "");
-
-            throw Error(res.statusText);
-          }
-          return res.json();
-        })
-        .then((res) => {
-          if (res && res.name) {
-            setValue("locality", res.name);
-            setValue("constituency", "");
-            setValue("area", "");
-          }
-          if (res && res.area) {
-            setValue("area", res.area);
-            setValue("constituency", "");
-          }
-          if (res && res.constituency) {
-            setValue("constituency", res.constituency);
-          }
-        })
-        .catch((err) => {
-          // for now, let's not flag as an error if we don't find the postcode
-          console.log(err.toString());
-          /* setError("postcode", {
-            type: "network",
-            message: (err && err.toString()) || "Network error",
-          }); */
-        });
-    }
-    fetchAPI();
-    // eslint-disable-next-line
-  }, [postcode, country, setValue, getValues]);
-
   // xor postcode + locality?
   const hasPostcode = config.component.register?.field?.postcode !== false;
   const hasLocality = config.component.register?.field?.locality;
@@ -102,18 +30,7 @@ const Address = (props) => {
           <TextField form={props.form} name="street" label={t("Street")} />
         </Grid>
       )}
-      {hasPostcode && (
-        <Grid item xs={12} sm={compact ? 12 : 3} className={classField}>
-          <TextField
-            form={props.form}
-            name="postcode"
-            autoComplete="postal-code"
-            label={t("Postal Code")}
-            customValidity={props.customValidity}
-            required={config.component.register?.field?.postcode?.required}
-          />
-        </Grid>
-      )}
+      {hasPostcode && <Postcode form={props.form} />}
       {hasLocality && (
         <Grid item xs={12} sm={compact ? 12 : 9} className={classField}>
           <TextField

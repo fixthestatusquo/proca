@@ -67,6 +67,10 @@
       "opt-out": "and do not keep me informed"
     }
   },
+  "postcode": {
+     "wrongLength":  "expected length of {{length}} for your country",
+     "notFound": "this postcode doesn't seem to exist in your country"
+  },
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
   },
@@ -205,7 +209,8 @@
     },
     "missing": "Select at least one out of {{total}}",
     "postcode": {
-      "empty": "there is no-one to contact in {{area}}"
+      "empty": "there is no-one to contact in {{area}}",
+      "undefined": "Enter your postcode"
     },
     "random_one": "Selected one of our {{total}} most important targets",
     "random_other": "Selected {{count}} of our {{total}} most important targets",
