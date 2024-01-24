@@ -157,6 +157,10 @@
     "wanttoadd": "Chcete pridať obrázok?"
   },
   "no": "nie",
+  "postcode": {
+    "notFound": "toto PSČ vo vašej krajine zrejme neexistuje",
+    "wrongLength": "očakávaná dĺžka {{length}} pre vašu krajinu"
+  },
   "progress": {
     "donate": "{{total}} darovali. Poďme na {{goal}}",
     "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Vyberte aspoň jednu z týchto možností {{total}}",
     "postcode": {
-      "empty": "nie je na koho sa obrátiť {{area}}"
+      "empty": "nie je na koho sa obrátiť {{area}}",
+      "undefined": "Zadajte svoje PSČ"
     },
     "random_one": "Vybraný jeden z našich {{total}} najdôležitejších cieľov",
     "random_other": "Vybrané {{count}} z našich {{total}} najdôležitejších cieľov",
