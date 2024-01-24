@@ -157,6 +157,10 @@
     "wanttoadd": "Ar norite pridėti paveikslėlį?"
   },
   "no": "ne",
+  "postcode": {
+    "notFound": "šis pašto indeksas jūsų šalyje neegzistuoja",
+    "wrongLength": "numatoma {{length}} trukmė jūsų šalyje"
+  },
   "progress": {
     "donate": "{{total}} paaukojo. Eikime į {{goal}}",
     "email": "{{total}} išsiuntė el. laišką. Eikime į {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Pasirinkite bent vieną iš {{total}}",
     "postcode": {
-      "empty": "nėra su kuo susisiekti {{area}}"
+      "empty": "nėra su kuo susisiekti {{area}}",
+      "undefined": "Įveskite savo pašto kodą"
     },
     "random_one": "Pasirinktas vienas iš mūsų {{total}} svarbiausių tikslų.",
     "random_other": "Atrinkta {{count}} iš mūsų {{total}} svarbiausių tikslų.",
