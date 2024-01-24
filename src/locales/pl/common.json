@@ -157,6 +157,10 @@
     "wanttoadd": "Czy chcesz dodać zdjęcie?"
   },
   "no": "nie",
+  "postcode": {
+    "notFound": "Wydaje się, że ten kod pocztowy nie istnieje w Twoim kraju.",
+    "wrongLength": "Przewidywana długość {{length}} dla danego kraju"
+  },
   "progress": {
     "donate": "Przekazano {{total}}. Osiągnijmy {{goal}}",
     "email": "{{total}} wysłali maila. Wejdźmy na stronę {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Wybierz co najmniej jeden z następujących {{total}}",
     "postcode": {
-      "empty": "nie ma z kim się skontaktować w {{area}}"
+      "empty": "nie ma z kim się skontaktować w {{area}}",
+      "undefined": "Wprowadź swój kod pocztowy"
     },
     "random_one": "Wybrano jeden z naszych {{total}} najważniejszych celów",
     "random_other": "Wybrano {{count}} z naszych {{total}} najważniejszych celów",

@@ -157,6 +157,10 @@
     "wanttoadd": "Vill du lägga till en bild?"
   },
   "no": "ingen",
+  "postcode": {
+    "notFound": "detta postnummer verkar inte finnas i ditt land",
+    "wrongLength": "förväntad längd på {{length}} för ditt land"
+  },
   "progress": {
     "donate": "{{total}} har donerat. Vi går till {{goal}}",
     "email": "{{total}} har skickat ett e-postmeddelande. Vi går till {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Välj minst en av följande {{total}}",
     "postcode": {
-      "empty": "Det finns ingen att kontakta i {{area}}"
+      "empty": "Det finns ingen att kontakta i {{area}}",
+      "undefined": "Ange ditt postnummer"
     },
     "random_one": "Valde ut ett av våra {{total}} viktigaste mål",
     "random_other": "Utvalda {{count}} av våra {{total}} viktigaste mål",

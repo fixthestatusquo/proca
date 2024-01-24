@@ -157,6 +157,10 @@
     "wanttoadd": "Chcete přidat obrázek?"
   },
   "no": "ne",
+  "postcode": {
+    "notFound": "toto poštovní směrovací číslo ve vaší zemi zřejmě neexistuje.",
+    "wrongLength": "očekávaná délka {{length}} pro vaši zemi"
+  },
   "progress": {
     "donate": "{{total}} darovali. Pojďme na {{goal}}",
     "email": "{{total}} odeslali e-mail. Pojďme na {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Vyberte alespoň jednu z těchto možností {{total}}",
     "postcode": {
-      "empty": "není na koho se obrátit {{area}}"
+      "empty": "není na koho se obrátit {{area}}",
+      "undefined": "Zadejte své poštovní směrovací číslo"
     },
     "random_one": "Vybraný jeden z našich nejdůležitějších cílů {{total}}",
     "random_other": "Vybrané {{count}} z našich {{total}} nejdůležitějších cílů.",

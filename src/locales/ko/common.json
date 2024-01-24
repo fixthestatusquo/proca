@@ -157,6 +157,10 @@
     "wanttoadd": "이미지를 추가하시겠습니까?"
   },
   "no": "아니요",
+  "postcode": {
+    "notFound": "이 우편번호는 귀하의 국가에 존재하지 않는 것 같습니다.",
+    "wrongLength": "해당 국가의 예상 {{length}} 길이"
+  },
   "progress": {
     "donate": "{{total}}가 기부했습니다. {{goal}}로 가자",
     "email": "{{total}}가 이메일을 보냈습니다. {{goal}}로 가자",
@@ -200,7 +204,8 @@
     },
     "missing": "다음 중 하나 이상을 선택합니다. {{total}}",
     "postcode": {
-      "empty": "연락할 사람이 없는 경우 {{area}}"
+      "empty": "연락할 사람이 없는 경우 {{area}}",
+      "undefined": "우편번호 입력"
     },
     "random_one": "{{total}} 가장 중요한 목표 중 하나를 선택했습니다.",
     "random_other": "{{total}} 가장 중요한 타겟 중 {{count}} 선정",

@@ -157,6 +157,10 @@
     "wanttoadd": "Doriți să adăugați o imagine?"
   },
   "no": "nu",
+  "postcode": {
+    "notFound": "acest cod poștal nu pare să existe în țara dvs.",
+    "wrongLength": "durata preconizată a {{length}} pentru țara dumneavoastră"
+  },
   "progress": {
     "donate": "{{total}} au donat. Să mergem la {{goal}}",
     "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Selectați cel puțin unul dintre {{total}}",
     "postcode": {
-      "empty": "nu există nimeni de contactat în {{area}}"
+      "empty": "nu există nimeni de contactat în {{area}}",
+      "undefined": "Introduceți codul poștal"
     },
     "random_one": "A selectat una dintre cele mai importante ținte ale noastre {{total}}",
     "random_other": "Selecție {{count}} a celor mai importante obiective {{total}}",

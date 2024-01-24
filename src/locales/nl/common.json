@@ -157,6 +157,10 @@
     "wanttoadd": "Wilt u een afbeelding toevoegen?"
   },
   "no": "nee",
+  "postcode": {
+    "notFound": "deze postcode lijkt niet te bestaan in uw land",
+    "wrongLength": "verwachte duur van {{length}} voor uw land"
+  },
   "progress": {
     "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
     "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Kies ten minste één van de {{total}}",
     "postcode": {
-      "empty": "is er niemand om contact mee op te nemen in {{area}}"
+      "empty": "is er niemand om contact mee op te nemen in {{area}}",
+      "undefined": "Voer uw postcode in"
     },
     "random_one": "Een van onze {{total}} belangrijkste doelen geselecteerd",
     "random_other": "Geselecteerde {{count}} van onze {{total}} belangrijkste doelen",

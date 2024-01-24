@@ -157,6 +157,10 @@
     "wanttoadd": "Želite dodati sliko?"
   },
   "no": "ne",
+  "postcode": {
+    "notFound": "zdi se, da ta poštna številka v vaši državi ne obstaja",
+    "wrongLength": "pričakovano trajanje {{length}} za vašo državo."
+  },
   "progress": {
     "donate": "{{total}} darovali. Pojdimo na {{goal}}",
     "email": "{{total}} poslali e-poštno sporočilo. Pojdimo na {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Izberite vsaj enega od {{total}}",
     "postcode": {
-      "empty": "ni nikogar, na kogar bi se lahko obrnili. {{area}}"
+      "empty": "ni nikogar, na kogar bi se lahko obrnili. {{area}}",
+      "undefined": "Vnesite poštno številko"
     },
     "random_one": "Izbrana ena od naših {{total}} najpomembnejših ciljev",
     "random_other": "Izbrani {{count}} naših {{total}} najpomembnejših ciljev",
