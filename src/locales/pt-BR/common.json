@@ -157,6 +157,10 @@
     "wanttoadd": "Deseja adicionar uma imagem?"
   },
   "no": "não",
+  "postcode": {
+    "notFound": "esse código postal parece não existir em seu país",
+    "wrongLength": "Duração esperada de {{length}} para seu país"
+  },
   "progress": {
     "donate": "{{total}} doaram. Vamos para {{goal}}",
     "email": "{{total}} enviaram um e-mail. Vamos para {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Selecione pelo menos um dos {{total}}",
     "postcode": {
-      "empty": "não há ninguém para contatar em {{area}}"
+      "empty": "não há ninguém para contatar em {{area}}",
+      "undefined": "Digite seu código postal"
     },
     "random_one": "Selecionou um de nossos {{total}} alvos mais importantes",
     "random_other": "Selecionado {{count}} de nossos {{total}} alvos mais importantes",
