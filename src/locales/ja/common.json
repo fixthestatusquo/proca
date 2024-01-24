@@ -157,6 +157,10 @@
     "wanttoadd": "画像を追加しますか？"
   },
   "no": "ノー",
+  "postcode": {
+    "notFound": "この郵便番号はあなたの国には存在しないようです。",
+    "wrongLength": "あなたの国で予想される{{length}} の期間"
+  },
   "progress": {
     "donate": "{{total}} が寄付をしました。に行ってみよう。{{goal}}",
     "email": "{{total}} はメールを送信しました。に行ってみましょう。{{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "の中から1つ以上選んでください。{{total}}",
     "postcode": {
-      "empty": "での連絡先がない{{area}}"
+      "empty": "での連絡先がない{{area}}",
+      "undefined": "郵便番号を入力"
     },
     "random_one": "{{total}} 最も重要なターゲットのひとつを選んだ。",
     "random_other": "{{total}} 最重要ターゲットの厳選{{count}}",
