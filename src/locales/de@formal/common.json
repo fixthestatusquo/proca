@@ -157,6 +157,10 @@
     "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
   },
   "no": "keine",
+  "postcode": {
+    "notFound": "diese Postleitzahl scheint es in Ihrem Land nicht zu geben",
+    "wrongLength": "voraussichtliche Länge von {{length}} für Ihr Land"
+  },
   "progress": {
     "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Wählen Sie mindestens einen der folgenden Punkte aus {{total}}",
     "postcode": {
-      "empty": "es niemanden gibt, den Sie in {{area}}"
+      "empty": "es niemanden gibt, den Sie in {{area}}",
+      "undefined": "Geben Sie Ihre Postleitzahl ein"
     },
     "random_one": "Eines unserer {{total}} wichtigsten Ziele ausgewählt",
     "random_other": "Ausgewählte {{count}} unserer {{total}} wichtigsten Ziele",
