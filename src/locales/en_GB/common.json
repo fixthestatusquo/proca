@@ -157,6 +157,10 @@
     "wanttoadd": "Do you want to add a image?"
   },
   "no": "no",
+  "postcode": {
+    "notFound": "this postcode doesn't seem to exist in your country",
+    "wrongLength": "expected length of {{length}} for your country"
+  },
   "progress": {
     "donate": "{{total}} have donated. Let's go to {{goal}}",
     "email": "{{total}} have sent an email. Let's go to {{goal}}",
@@ -200,7 +204,8 @@
     },
     "missing": "Select at least one out of {{total}}",
     "postcode": {
-      "empty": "there is no-one to contact in {{area}}"
+      "empty": "there is no-one to contact in {{area}}",
+      "undefined": "Enter your postcode"
     },
     "random_one": "Selected one of our {{total}} most important targets",
     "random_other": "Selected {{count}} of our {{total}} most important targets",
