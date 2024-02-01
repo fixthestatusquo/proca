@@ -15,6 +15,7 @@ const MarkdownPage = (props) => {
 
   const title = config.component.markdown?.title || "title";
   const text = config.component.markdown?.text || "text";
+  const next = config.component.markdown?.next || "Next";
 
   return (
     <div>
@@ -33,7 +34,7 @@ const MarkdownPage = (props) => {
         onClick={props.done}
         color="primary"
       >
-        {t("Next")}
+        {t(next)}
       </Button>
     </div>
   );
