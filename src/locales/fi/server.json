@@ -11,7 +11,7 @@
             "signature": "Ystävällisin terveisin,\n\n{{org.title}}",
             "follow": "Seuraa meitä:",
             "donate": "Harkitse lahjoituksen tekemistä auttaaksesi meitä saavuttamaan tehtävämme.",
-            "share": "Auta meitä saavuttamaan tavoitteemme [levittämällä sanaa] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "share": "Auta meitä saavuttamaan tavoitteemme levittämällä sanaa",
             "duplicate": "Kiitos sitoutumisestanne ja omistautumisestanne asiallemme! Koska olemme kuitenkin sitoutuneet säilyttämään aitouden ja uskottavuuden, meidän on **poistettava kaksoiskappaleet** allekirjoituksista, ja näyttää siltä, että sinä (tai joku, joka käyttää {{email}}) olet jo tehnyt tämän.  Voit olla varma, että **alkuperäinen allekirjoituksesi laskettiin** ja että se edisti kampanjaamme.\nTukesi on ollut korvaamatonta, ja haluaisimme ystävällisesti rohkaista sinua ottamaan vielä yhden askeleen, joka auttaa vahvistamaan vaikutusmahdollisuuksiasi. Pyydämme teitä harkitsemaan, että ottaisitte yhteyttä ystäviinne ja perheenjäseniinne ja kehottaisitte heitäkin ryhtymään toimiin käyttäen heidän omia sähköpostiosoitteitaan. Näin voimme kasvattaa liikettämme entisestään ja luoda entistä vahvemman kollektiivisen äänen tavoittelemamme muutoksen puolesta.\nKiitämme vielä kerran sydämellisesti jatkuvasta tuestanne ja omistautumisestanne tälle kampanjalle. Yhdessä voimme saada aikaan pysyvän vaikutuksen!",
             "organisation": "{{org.title}}"
         },
