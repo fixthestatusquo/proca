@@ -40,7 +40,6 @@ const ListSignatories = (props) => {
   useEffect(() => {
     const fetchData = async (url) => {
       const res = await fetch(url);
-      console.log(res);
       if (!res.ok) throw res.statusText;
 
       const d = await res.json();
@@ -50,6 +49,11 @@ const ListSignatories = (props) => {
     fetchData(url);
   }, [url, setData]);
 
+  //r = <Country form={props.form} list={config.component.email?.countries} />;
+  data.map((d) => countries.add(d.area));
+  //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
+  //console.log(obj);
+
   return (
     <>
       <Country form={form} />
@@ -57,7 +61,7 @@ const ListSignatories = (props) => {
         {data.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>
             <ListItemAvatar>
-              <Avatar alt={d.name} />
+              <Avatar alt={d.name} src={d.field.picture} />
             </ListItemAvatar>
             <ListItemText primary={d.name} secondary={d.field.party} />
           </ListItem>
