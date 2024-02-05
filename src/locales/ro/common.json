@@ -157,6 +157,7 @@
     "wanttoadd": "Doriți să adăugați o imagine?"
   },
   "no": "nu",
+  "party": "Petrecere",
   "postcode": {
     "notFound": "acest cod poștal nu pare să existe în țara dvs.",
     "wrongLength": "durata preconizată a {{length}} pentru țara dumneavoastră"
