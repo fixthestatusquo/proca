@@ -157,6 +157,7 @@
     "wanttoadd": "Vil du legge til et bilde?"
   },
   "no": "Nei",
+  "party": "Fest",
   "postcode": {
     "notFound": "Dette postnummeret ser ikke ut til å eksistere i ditt land.",
     "wrongLength": "forventet lengde på {{length}} for ditt land"
