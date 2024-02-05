@@ -157,6 +157,7 @@
     "wanttoadd": "Chcete pridať obrázok?"
   },
   "no": "nie",
+  "party": "Strana",
   "postcode": {
     "notFound": "toto PSČ vo vašej krajine zrejme neexistuje",
     "wrongLength": "očakávaná dĺžka {{length}} pre vašu krajinu"
