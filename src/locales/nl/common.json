@@ -157,6 +157,7 @@
     "wanttoadd": "Wilt u een afbeelding toevoegen?"
   },
   "no": "nee",
+  "party": "Feest",
   "postcode": {
     "notFound": "deze postcode lijkt niet te bestaan in uw land",
     "wrongLength": "verwachte duur van {{length}} voor uw land"
