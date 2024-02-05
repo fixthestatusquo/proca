@@ -157,6 +157,7 @@
     "wanttoadd": "Želite dodati sliko?"
   },
   "no": "ne",
+  "party": "Stranka",
   "postcode": {
     "notFound": "zdi se, da ta poštna številka v vaši državi ne obstaja",
     "wrongLength": "pričakovano trajanje {{length}} za vašo državo."
