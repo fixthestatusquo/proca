@@ -157,6 +157,7 @@
     "wanttoadd": "画像を追加しますか？"
   },
   "no": "ノー",
+  "party": "パーティー",
   "postcode": {
     "notFound": "この郵便番号はあなたの国には存在しないようです。",
     "wrongLength": "あなたの国で予想される{{length}} の期間"
