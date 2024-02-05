@@ -157,6 +157,7 @@
     "wanttoadd": "Kas soovite lisada pildi?"
   },
   "no": "ei",
+  "party": "Partei",
   "postcode": {
     "notFound": "seda postiindeksit ei tundu teie riigis olevat olemas.",
     "wrongLength": "eeldatav pikkus {{length}} teie riigi jaoks"
