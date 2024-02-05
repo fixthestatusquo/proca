@@ -88,7 +88,7 @@ const Affiliation = (props) => {
           type={open ? "hidden" : undefined}
           name="party"
           required
-          label={t("Party")}
+          label={t("party")} // because server decapitalizes key words
           form={props.form}
           SelectProps={{
             native: true,
