@@ -244,6 +244,8 @@ const formatTarget = async (campaignName, file) => {
 
   const formatTargets = async () => {
     const results = [];
+    const added = new Set();
+
     for (const t of targets) {
       if (!t.name) continue; //skip empty records
       delete t.id;
@@ -296,6 +298,20 @@ const formatTarget = async (campaignName, file) => {
       }
       t.fields = JSON.stringify(t.field);
       delete t.field;
+      if (t.emails.length === 0) {
+        console.log("skipping record without email", t.name);
+        continue;
+      }
+      let dupe = false;
+      t.emails.forEach((d) => {
+        if (added.has(d.email)) {
+          console.log("target already set", t.name, d.email);
+          dupe = true;
+          return;
+        }
+        added.add(d.email);
+      });
+      if (dupe) continue;
       results.push(t);
     }
     return results;

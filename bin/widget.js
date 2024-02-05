@@ -323,7 +323,10 @@ query actionPage ($id:Int!) {
 
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
-  if (!data.actionPage) throw new Error(data.toString());
+  if (!data.actionPage) {
+    console.err(data);
+    throw new Error(data.toString());
+  }
 
   const config = getConfig(data);
   if (campaign) {
