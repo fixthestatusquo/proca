@@ -157,6 +157,7 @@
     "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
   },
   "no": "keine",
+  "party": "Party",
   "postcode": {
     "notFound": "diese Postleitzahl scheint es in Ihrem Land nicht zu geben",
     "wrongLength": "voraussichtliche Länge von {{length}} für Ihr Land"
