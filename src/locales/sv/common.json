@@ -157,6 +157,7 @@
     "wanttoadd": "Vill du lägga till en bild?"
   },
   "no": "ingen",
+  "party": "Parti",
   "postcode": {
     "notFound": "detta postnummer verkar inte finnas i ditt land",
     "wrongLength": "förväntad längd på {{length}} för ditt land"
