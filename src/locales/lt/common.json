@@ -157,6 +157,7 @@
     "wanttoadd": "Ar norite pridėti paveikslėlį?"
   },
   "no": "ne",
+  "party": "Šalis",
   "postcode": {
     "notFound": "šis pašto indeksas jūsų šalyje neegzistuoja",
     "wrongLength": "numatoma {{length}} trukmė jūsų šalyje"

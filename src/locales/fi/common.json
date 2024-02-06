@@ -157,6 +157,7 @@
     "wanttoadd": "Haluatko lisätä kuvan?"
   },
   "no": "ei",
+  "party": "Puolue",
   "postcode": {
     "notFound": "Tätä postinumeroa ei näytä olevan olemassa maassasi.",
     "wrongLength": "{{length}} odotettu kesto maassasi"

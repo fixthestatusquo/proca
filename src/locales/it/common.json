@@ -157,6 +157,7 @@
     "wanttoadd": "Volete aggiungere un'immagine?"
   },
   "no": "no",
+  "party": "Partito",
   "postcode": {
     "notFound": "questo codice postale non sembra esistere nel vostro paese",
     "wrongLength": "Durata prevista di {{length}} per il vostro paese"

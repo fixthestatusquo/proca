@@ -157,6 +157,7 @@
     "wanttoadd": "이미지를 추가하시겠습니까?"
   },
   "no": "아니요",
+  "party": "파티",
   "postcode": {
     "notFound": "이 우편번호는 귀하의 국가에 존재하지 않는 것 같습니다.",
     "wrongLength": "해당 국가의 예상 {{length}} 길이"

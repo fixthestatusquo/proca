@@ -157,6 +157,7 @@
     "wanttoadd": "Szeretne egy képet hozzáadni?"
   },
   "no": "nincs",
+  "party": "Party",
   "postcode": {
     "notFound": "úgy tűnik, ez az irányítószám nem létezik az Ön országában.",
     "wrongLength": "a {{length}} várható hossza az Ön országában"

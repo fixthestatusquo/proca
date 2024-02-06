@@ -157,6 +157,7 @@
     "wanttoadd": "Chcete přidat obrázek?"
   },
   "no": "ne",
+  "party": "Strana",
   "postcode": {
     "notFound": "toto poštovní směrovací číslo ve vaší zemi zřejmě neexistuje.",
     "wrongLength": "očekávaná délka {{length}} pro vaši zemi"

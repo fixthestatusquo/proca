@@ -157,6 +157,7 @@
     "wanttoadd": "Czy chcesz dodać zdjęcie?"
   },
   "no": "nie",
+  "party": "Impreza",
   "postcode": {
     "notFound": "Wydaje się, że ten kod pocztowy nie istnieje w Twoim kraju.",
     "wrongLength": "Przewidywana długość {{length}} dla danego kraju"

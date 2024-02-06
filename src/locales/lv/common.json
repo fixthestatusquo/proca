@@ -157,6 +157,7 @@
     "wanttoadd": "Vai vēlaties pievienot attēlu?"
   },
   "no": "nav",
+  "party": "Puse",
   "postcode": {
     "notFound": "šķiet, ka šis pasta indekss jūsu valstī neeksistē.",
     "wrongLength": "paredzamais {{length}} ilgums jūsu valstī"

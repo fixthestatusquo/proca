@@ -157,6 +157,7 @@
     "wanttoadd": "Do you want to add a image?"
   },
   "no": "no",
+  "party": "Party",
   "postcode": {
     "notFound": "this postcode doesn't seem to exist in your country",
     "wrongLength": "expected length of {{length}} for your country"

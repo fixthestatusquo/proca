@@ -157,6 +157,7 @@
     "wanttoadd": "Deseja adicionar uma imagem?"
   },
   "no": "não",
+  "party": "Festa",
   "postcode": {
     "notFound": "esse código postal parece não existir em seu país",
     "wrongLength": "Duração esperada de {{length}} para seu país"
