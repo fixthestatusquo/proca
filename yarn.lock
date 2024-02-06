@@ -265,7 +265,7 @@
   dependencies:
     "@babel/types" "^7.22.5"
 
-"@babel/helper-string-parser@^7.22.5", "@babel/helper-string-parser@^7.23.4":
+"@babel/helper-string-parser@^7.23.4":
   version "7.23.4"
   resolved "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.23.4.tgz"
   integrity sha512-803gmbQdqwdf4olxrX4AJyFBV/RTr3rSmOj0rKwesmzlfhYNDEs+/iOcznzpNWlJlIlTJC2QfPFcHB6DlzdVLQ==
@@ -1056,19 +1056,10 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/types@7.23.3":
-  version "7.23.3"
-  resolved "https://registry.npmjs.org/@babel/types/-/types-7.23.3.tgz"
-  integrity sha512-OZnvoH2l8PK5eUvEcUyCt/sXgr/h+UWpVuBbOljwcrAgUl6lpchoQ++PHGyQy1AtYnVA6CEq3y5xeEI10brpXw==
-  dependencies:
-    "@babel/helper-string-parser" "^7.22.5"
-    "@babel/helper-validator-identifier" "^7.22.20"
-    to-fast-properties "^2.0.0"
-
-"@babel/types@^7.0.0-beta.40", "@babel/types@^7.22.15", "@babel/types@^7.22.19", "@babel/types@^7.22.5", "@babel/types@^7.23.0", "@babel/types@^7.23.3", "@babel/types@^7.23.4", "@babel/types@^7.4.4":
-  version "7.23.4"
-  resolved "https://registry.npmjs.org/@babel/types/-/types-7.23.4.tgz"
-  integrity sha512-7uIFwVYpoplT5jp/kVv6EF93VaJ8H+Yn5IczYiaAi98ajzjfoZfslet/e0sLh+wVBjb2qqIut1b0S26VSafsSQ==
+"@babel/types@7.23.6", "@babel/types@^7.0.0-beta.40", "@babel/types@^7.22.15", "@babel/types@^7.22.19", "@babel/types@^7.22.5", "@babel/types@^7.23.0", "@babel/types@^7.23.3", "@babel/types@^7.23.4", "@babel/types@^7.4.4":
+  version "7.23.6"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.23.6.tgz#be33fdb151e1f5a56877d704492c240fc71c7ccd"
+  integrity sha512-+uarb83brBzPKN38NX1MkB6vb6+mwvR6amUulqAE7ccQw1pEl+bCia9TbdG1lsnFP7lZySvUn37CHyXQdfTwzg==
   dependencies:
     "@babel/helper-string-parser" "^7.23.4"
     "@babel/helper-validator-identifier" "^7.22.20"
@@ -1938,13 +1929,13 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-babel-plugin-i18next-extract@^0.9.2:
-  version "0.9.2"
-  resolved "https://registry.npmjs.org/babel-plugin-i18next-extract/-/babel-plugin-i18next-extract-0.9.2.tgz"
-  integrity sha512-gl3RNC/zlMkqtNZQq/KpaP5gBQKvOkWaVXLGDJdgnbcrBB79YxSfREIbcczP5NF2ujhMqrSz31kc0hNcUEi+1A==
+babel-plugin-i18next-extract@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-i18next-extract/-/babel-plugin-i18next-extract-0.10.0.tgz#d314b94b13cea04cb89fa688d6d235e9f5836572"
+  integrity sha512-hHOhHFOyYnUBoUxCZyLxjjvPshknnUj4m0fgRU8dZSUfByvDIacoZOX5Eyce8YHgVxRFtpa9he51Z/BBlH/9FQ==
   dependencies:
     "@babel/core" "^7.23.3"
-    "@babel/types" "7.23.3"
+    "@babel/types" "7.23.6"
     deepmerge "^4.3.1"
     i18next "^23.6.0"
     json-stable-stringify "^1.0.2"
