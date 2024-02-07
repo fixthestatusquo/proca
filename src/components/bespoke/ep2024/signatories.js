@@ -6,10 +6,11 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Avatar from "@material-ui/core/Avatar";
 import Country from "@components/field/Country";
 import { useForm } from "react-hook-form";
-import { flushSync } from "react-dom";
+import CountryFlag from "react-emoji-flag";
 
 const useStyles = makeStyles({
   container: {
@@ -64,6 +65,9 @@ const ListSignatories = (props) => {
               <Avatar alt={d.name} src={d.field.picture} />
             </ListItemAvatar>
             <ListItemText primary={d.name} secondary={d.field.party} />
+            <ListItemSecondaryAction>
+              <CountryFlag countryCode={d.area} />
+            </ListItemSecondaryAction>
           </ListItem>
         ))}
       </List>
