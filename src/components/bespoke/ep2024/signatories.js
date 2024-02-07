@@ -9,6 +9,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import Country from "@components/field/Country";
 import { useForm } from "react-hook-form";
+import { flushSync } from "react-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -36,7 +37,6 @@ const ListSignatories = (props) => {
   const url =
     "https://static.proca.app/ep2024/" + config.campaign.name + ".json";
 
-  props.campaign;
   useEffect(() => {
     const fetchData = async (url) => {
       const res = await fetch(url);
@@ -50,13 +50,13 @@ const ListSignatories = (props) => {
   }, [url, setData]);
 
   //r = <Country form={props.form} list={config.component.email?.countries} />;
-  data.map((d) => countries.add(d.area));
+  //  data.map((d) => countries.add(d.area));
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
 
+  //<Country form={form} />
   return (
     <>
-      <Country form={form} />
       <List dense={true} disablePadding={true} className={classes.container}>
         {data.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>

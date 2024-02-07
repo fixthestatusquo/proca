@@ -87,7 +87,7 @@ const Country = (props) => {
     if (props.countries) {
       countries = Object.keys(props.countries).map((iso) => ({
         iso: iso.toUpperCase(),
-        name: props.countries[iso],
+        name: props.countries[iso] || allCountries[iso],
       }));
     } else {
       countries = addCountries(countriesJson, t);
@@ -96,7 +96,6 @@ const Country = (props) => {
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));
-
     if (config.component.country?.all === true) {
       countries = addAllCountries();
     }
