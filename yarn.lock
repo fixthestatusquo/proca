@@ -5136,6 +5136,11 @@ react-dropzone@^10.2.1:
     file-selector "^0.1.12"
     prop-types "^15.7.2"
 
+react-emoji-flag@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-emoji-flag/-/react-emoji-flag-1.1.0.tgz#00cc03ff6847b863eaba5f0b05946d5449afe526"
+  integrity sha512-3ll34bQVvAvRknl2TJ/HUH8Ws1QOM6CFPDpq5ZNgUtoI+HvfCRlEHaksO/ja8onH+32i34ynUh3mT2gBOqDrlw==
+
 react-event-listener@^0.6.0:
   version "0.6.6"
   resolved "https://registry.npmjs.org/react-event-listener/-/react-event-listener-0.6.6.tgz"
