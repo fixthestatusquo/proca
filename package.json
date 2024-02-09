@@ -48,7 +48,7 @@
     "react-script-hook": "^1.7.2",
     "react-share": "^5.0.3",
     "react-swipeable-views": "^0.14.0",
-    "react-use": "^17.4.2",
+    "react-use": "^17.5.0",
     "recoil": "^0.5.2",
     "snarkdown": "^2.0.0",
     "universal-base64url": "^1.1.0",
