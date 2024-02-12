@@ -13,6 +13,7 @@ const extractTokens = (text) => {
   if (tokens.includes("name")) {
     tokens.push("firstname");
     tokens.push("lastname");
+    tokens.push("locality");
   }
   if (tokens.includes("target.name") || tokens.includes("target.salutation")) {
     tokens.push("targets");
@@ -21,8 +22,10 @@ const extractTokens = (text) => {
 };
 
 const applyToken = (text, token, data, t) => {
+  // WTF, console.log("doesn't do anything")
   if (token.includes("name")) {
     data.name = (data.firstname || "") + " " + (data.lastname || "");
+    if (data.locality) data.name += "\n" + data.locality;
   }
   if (data.targets && data.targets.length > 0) {
     data.target = {};

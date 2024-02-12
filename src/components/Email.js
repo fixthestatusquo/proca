@@ -223,7 +223,6 @@ const EmailComponent = (props) => {
     if (!alwaysUpdate) {
       return;
     }
-
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
     } // eslint-disable-next-line
@@ -265,7 +264,9 @@ const EmailComponent = (props) => {
           empty.name = defaultValue.firstname
             ? defaultValue.firstname + " " + defaultValue.lastname
             : "";
-
+          if (empty.locality) {
+            empty.name += "\n" + empty.locality;
+          }
           form.setValue(k, t(data[k], empty));
         } else {
           form.setValue(k, data[k]);
