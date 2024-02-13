@@ -217,7 +217,8 @@
     "again": "Tweet à une autre personne",
     "choice": "Que voulez-vous faire ensuite ?",
     "instruction": "Veuillez terminer l'envoi du tweet dans la nouvelle fenêtre (sur twitter.com)",
-    "organisation": "Compte Twitter de votre organisation"
+    "organisation": "Compte Twitter de votre organisation",
+    "screenName": "Compte Twitter"
   },
   "unknown postcode": "code postal inconnu",
   "yes": "oui",
