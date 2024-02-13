@@ -217,7 +217,8 @@
     "again": "他の人につぶやく",
     "choice": "次にやりたいことは何ですか？",
     "instruction": "新しいウィンドウ（twitter.com）でツイート送信を完了してください。",
-    "organisation": "あなたの組織のTwitterアカウント"
+    "organisation": "あなたの組織のTwitterアカウント",
+    "screenName": "Twitterアカウント"
   },
   "unknown postcode": "不明な郵便番号",
   "yes": "はあ",
