@@ -218,7 +218,6 @@
     "choice": "Que voulez-vous faire ensuite ?",
     "instruction": "Veuillez terminer l'envoi du tweet dans la nouvelle fenêtre (sur twitter.com)",
     "organisation": "Compte twitter de votre organisation",
-    "screenName": "Nom d'écran"
   },
   "unknown postcode": "code postal inconnu",
   "yes": "oui",
