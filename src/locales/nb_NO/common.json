@@ -217,7 +217,8 @@
     "again": "Tweet til en annen person",
     "choice": "Hva vil du gjøre videre?",
     "instruction": "Fullfør sendingen av tweeten i det nye vinduet (på twitter.com).",
-    "organisation": "Twitter-kontoen til organisasjonen din"
+    "organisation": "Twitter-kontoen til organisasjonen din",
+    "screenName": "Twitter-konto"
   },
   "unknown postcode": "ukjent postnummer",
   "yes": "ja",

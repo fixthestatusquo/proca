@@ -217,7 +217,8 @@
     "again": "Tweet σε άλλο άτομο",
     "choice": "Τι θα θέλατε να κάνετε στη συνέχεια;",
     "instruction": "Ολοκληρώστε την αποστολή του tweet στο νέο παράθυρο (στο twitter.com)",
-    "organisation": "Ο λογαριασμός twitter του οργανισμού σας"
+    "organisation": "Ο λογαριασμός twitter του οργανισμού σας",
+    "screenName": "Λογαριασμός Twitter"
   },
   "unknown postcode": "άγνωστος ταχυδρομικός κώδικας",
   "yes": "ναι",

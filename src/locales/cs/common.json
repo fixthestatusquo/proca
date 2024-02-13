@@ -217,7 +217,8 @@
     "again": "Tweetování jiné osobě",
     "choice": "Co byste chtěli dělat dál?",
     "instruction": "Dokončete prosím odeslání tweetu v novém okně (na twitter.com)",
-    "organisation": "Účet vaší organizace na Twitteru"
+    "organisation": "Účet vaší organizace na Twitteru",
+    "screenName": "Účet na Twitteru"
   },
   "unknown postcode": "neznámé PSČ",
   "yes": "ano",

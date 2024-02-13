@@ -217,7 +217,8 @@
     "again": "Tweet drugi osebi",
     "choice": "Kaj bi radi storili naprej?",
     "instruction": "Dokončajte pošiljanje tvita v novem oknu (na twitter.com)",
-    "organisation": "Račun twitter vaše organizacije"
+    "organisation": "Račun twitter vaše organizacije",
+    "screenName": "Račun Twitter"
   },
   "unknown postcode": "neznana poštna številka",
   "yes": "da",

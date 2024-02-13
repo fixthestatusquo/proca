@@ -16,7 +16,6 @@
   "Next": "Weiter",
   "Organisation": "Organisation",
   "Other": "Andere",
-  "party": "Partei",
   "Phone": "Telefon",
   "Postal Code": "PLZ",
   "Salutation": "Anrede",
@@ -158,6 +157,7 @@
     "wanttoadd": "Möchten Sie ein Bild hinzufügen?"
   },
   "no": "nein",
+  "party": "Partei",
   "postcode": {
     "notFound": "diese Postleitzahl scheint es in Ihrem Land nicht zu geben",
     "wrongLength": "voraussichtliche Dauer von {{length}} für Ihr Land"
@@ -217,7 +217,8 @@
     "again": "Tweet an eine andere Person",
     "choice": "Was würden Sie als Nächstes tun wollen?",
     "instruction": "Bitte senden Sie den Tweet in einem neuen Fenster ab (auf twitter.com)",
-    "organisation": "Twitter-Konto Ihrer Organisation"
+    "organisation": "Twitter-Konto Ihrer Organisation",
+    "screenName": "Twitter-Konto"
   },
   "unknown postcode": "unbekannte Postleitzahl",
   "yes": "ja",
