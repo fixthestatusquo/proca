@@ -2,7 +2,7 @@
     "email": {
         "common": {
             "thanks": "{{campaign.title}} へのご参加ありがとうございました！",
-            "organisation": "{{org.title}}",
+            "organisation": "{{org.title}}"
             "greeting": "こんにちは{{firstName}}",
             "follow": "フォローしてください：",
             "closing": "皆さんの協力で、目標に一歩近づいた",

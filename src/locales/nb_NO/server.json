@@ -7,7 +7,7 @@
             "confirmAlreadyMember": "Jeg bekrefter min deltakelse og mottar allerede e-poster fra dere."
         },
         "common": {
-            "organisation": "{{org.title}}",
+            "organisation": "{{org.title}}"
             "share": "Hjelp oss å nå målet vårt ved å [spre ordet]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
             "greeting": "Hallo {{firstName}}",
             "thanks": "Takk for din deltakelse på {{campaign.title}}. Vi setter stor pris på din støtte!",
