@@ -217,7 +217,8 @@
     "again": "Tweet egy másik személynek",
     "choice": "Mit szeretnél legközelebb csinálni?",
     "instruction": "Kérjük, töltse ki a tweet elküldését az új ablakban (a twitter.com-on)",
-    "organisation": "Az Ön szervezetének twitter fiókja"
+    "organisation": "Az Ön szervezetének twitter fiókja",
+    "screenName": "Twitter fiók"
   },
   "unknown postcode": "ismeretlen irányítószám",
   "yes": "igen",
