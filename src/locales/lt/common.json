@@ -217,7 +217,8 @@
     "again": "Tweet kitam asmeniui",
     "choice": "Ką norėtumėte daryti toliau?",
     "instruction": "Užpildykite tweet siuntimą naujame lange (twitter.com)",
-    "organisation": "Jūsų organizacijos \"Twitter\" paskyra"
+    "organisation": "Jūsų organizacijos \"Twitter\" paskyra",
+    "screenName": "\"Twitter\" paskyra"
   },
   "unknown postcode": "nežinomas pašto indeksas",
   "yes": "taip",
