@@ -217,7 +217,8 @@
     "again": "Tvit citai personai",
     "choice": "Ko jūs vēlētos darīt tālāk?",
     "instruction": "Lūdzu, pabeidziet čivināt sūtīšanu jaunā logā (twitter.com)",
-    "organisation": "Jūsu organizācijas tvitera konts"
+    "organisation": "Jūsu organizācijas tvitera konts",
+    "screenName": "Twitter konts"
   },
   "unknown postcode": "nezināms pasta indekss",
   "yes": "jā",
