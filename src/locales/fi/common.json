@@ -217,7 +217,8 @@
     "again": "Twiittaa toiselle henkilölle",
     "choice": "Mitä haluaisit tehdä seuraavaksi?",
     "instruction": "Suorita twiitin lähettäminen loppuun uudessa ikkunassa (twitter.com)",
-    "organisation": "Organisaatiosi Twitter-tili"
+    "organisation": "Organisaatiosi Twitter-tili",
+    "screenName": "Twitter-tili"
   },
   "unknown postcode": "tuntematon postinumero",
   "yes": "kyllä",
