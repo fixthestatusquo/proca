@@ -172,7 +172,7 @@ const Country = (props) => {
       <TextField
         required={props.required}
         select
-        name="country"
+        name={props.name || "country"}
         onChange={switchCountry}
         label={t("Country")}
         form={props.form}

@@ -10,7 +10,9 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Avatar from "@material-ui/core/Avatar";
 import Country from "@components/field/Country";
 import { useForm } from "react-hook-form";
-import CountryFlag from "react-emoji-flag";
+import { useTranslation } from "react-i18next";
+import CountryFlag, { flag as emoji } from "react-emoji-flag";
+//import { getCountryName } from "@lib/i18n";
 
 const useStyles = makeStyles({
   container: {
@@ -26,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 const ListSignatories = (props) => {
+  const { t } = useTranslation();
   const countries = new Set();
   const [data, setData] = useState([]);
   const config = useCampaignConfig();
@@ -54,12 +57,37 @@ const ListSignatories = (props) => {
   //  data.map((d) => countries.add(d.area));
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
+  const country = form.watch("supporter_country");
+  let filtered = data.filter((d) => d.area === country);
+  const empty = filtered.length === 0;
+  useEffect(() => {
+    const length = data.filter((d) => d.area === country).length;
+    if (!country) {
+      form.setError("supporter_country", {
+        type: "ux",
+        message: t("target.country.undefined"),
+      });
+      return;
+    }
+    if (length === 0) {
+      //form.setError("supporter_country", { type: "ux", message: t("target.country.empty",{country:getCountryName(country)}) });
+      form.setError("supporter_country", {
+        type: "ux",
+        message: t("target.country.empty", { country: emoji(country) }),
+      });
+    } else {
+      form.clearErrors("supporter_country");
+    }
+  }, [empty, country]);
 
-  //<Country form={form} />
+  if (filtered.length === 0) {
+    filtered = data;
+  }
   return (
     <>
+      <Country form={form} name="supporter_country" />
       <List dense={true} disablePadding={true} className={classes.container}>
-        {data.map((d) => (
+        {filtered.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>
             <ListItemAvatar>
               <Avatar alt={d.name} src={d.field.picture} />
