@@ -130,7 +130,7 @@ const Twitter = (props) => {
             ),
           }}
           required={props.required}
-          label={t("twitter.screenName", "Screen name")}
+          label={t("twitter.screenName", "twitter Account")}
           form={props.form}
         />
       </Grid>

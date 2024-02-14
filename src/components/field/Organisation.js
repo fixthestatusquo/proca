@@ -79,7 +79,7 @@ const Organisation = (props) => {
           res.name = res.name
             .replace(
               /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
-              ""
+              "",
             ) // no emoji
             .replace(/#\w\w+\s?/g, ""); // no hashtag
           setProfile(res);
@@ -139,7 +139,7 @@ const Organisation = (props) => {
             ),
           }}
           required
-          label={t("twitter.screenName", "Screen name")}
+          label={t("twitter.screenName", "twitter Account")}
           form={props.form}
         />
       </Grid>
