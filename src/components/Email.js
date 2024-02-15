@@ -696,7 +696,7 @@ const EmailComponent = (props) => {
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = (data) => {
-    data.privacy = getValues("privacy");
+    if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += "\n" + data.comment;
     if (config.component.email?.salutation) {
