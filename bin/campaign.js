@@ -25,8 +25,8 @@ const help = () => {
           "--git (git update [add]+commit the local /config) || --no-git",
           "--push (update the server)",
           "campaign {campaign name}",
-        ].join("\n")
-      )
+        ].join("\n"),
+      ),
     );
     process.exit(0);
   }
@@ -36,7 +36,7 @@ const saveCampaign = (campaign) => {
   //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
-    JSON.stringify(campaign, null, 2)
+    JSON.stringify(campaign, null, 2),
   );
   return "campaign/" + checked(campaign.name) + ".json";
 };
@@ -124,7 +124,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
     throw new Error(
       "created a new campaign instead of editing the existing one",
       data.upsertCampaign.id,
-      campaign.id
+      campaign.id,
     );
   }
   return data.upsertCampaign;
@@ -136,8 +136,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git"
-      )
+        "git integration disabled because the config folder isn't on git",
+      ),
     );
     argv.git = false;
   }
@@ -176,14 +176,12 @@ if (require.main === module) {
           }
           console.log(
             color.green.bold("saved", fileName),
-            color.blue(campaign.name)
+            color.blue(campaign.name),
           );
           r = argv.git && (await commit(fileName, msg));
           if (argv.git && !r) {
             // no nameea,
-            console.warn(
-              console.red("something went wrong, trying to git add")
-            );
+            console.warn(color.red("something went wrong, trying to git add"));
             r = await add(fileName);
             console.log(r);
             r = await commit(fileName);
