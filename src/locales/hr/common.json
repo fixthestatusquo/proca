@@ -157,6 +157,11 @@
     "wanttoadd": "Želiš li dodati sliku?"
   },
   "no": "ne",
+  "party": "Stranka",
+  "postcode": {
+    "notFound": "čini se da ovaj poštanski broj ne postoji u tvojoj zemlji",
+    "wrongLength": "očekivana duljina od {{length}} za tvoju zemlju"
+  },
   "progress": {
     "donate": "Broj osoba koje su donirale: {{total}}. Sljedeći cilj je: {{goal}}",
     "email": "Broj osoba koje su poslale e-mail: {{total}}. Sljedeći cilj je: {{goal}}",
@@ -200,7 +205,8 @@
     },
     "missing": "Odaberi barem jedan od {{total}}",
     "postcode": {
-      "empty": "nema nikoga za kontaktiranje u {{area}}"
+      "empty": "nema nikoga za kontaktiranje u {{area}}",
+      "undefined": "Upiši tvoj poštanski broj"
     },
     "random_one": "Odabran je jedan od naših {{total}} najvažnijih ciljeva",
     "random_other": "Odabrana su {{count}} od naših {{total}} najvažnijih ciljeva",
@@ -211,7 +217,8 @@
     "again": "Pošalji tweet drugoj osobi",
     "choice": "Što želiš raditi kao sljedeće?",
     "instruction": "Dovrši slanje tweeta u novom prozoru (na twitter.com)",
-    "organisation": "Twitter račun tvoje organizacije"
+    "organisation": "Twitter račun tvoje organizacije",
+    "screenName": "Twitter račun"
   },
   "unknown postcode": "nepoznat poštanski broj",
   "yes": "da",
