@@ -45,7 +45,7 @@ const argv = require("minimist")(process.argv.slice(2), {
 const define = (env) => {
   const defined = {
     global: "window",
-    "process.env.REACT_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
+    "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
     "process.env.NODE_ENV":
@@ -55,7 +55,7 @@ const define = (env) => {
   Object.keys(env)
     .filter((d) => d.startsWith("REACT_APP_"))
     .forEach((d) => (defined["process.env." + d] = '"' + env[d] + '"'));
-  //console.log(defined);process.exit(1);
+  //  console.log(defined);process.exit(1);
   return defined;
 };
 
@@ -221,6 +221,7 @@ const build = async (id) => {
   const buildConfig = getConfig(id);
   buildConfig.minify = true;
   if (argv.analyze) buildConfig.metafile = true;
+  console.log(buildConfig);
   const result = await esbuild(buildConfig);
   if (result.metafile) {
     fs.writeFileSync("build/metafile.json", JSON.stringify(result.metafile));
