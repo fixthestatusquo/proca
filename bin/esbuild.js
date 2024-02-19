@@ -221,7 +221,6 @@ const build = async (id) => {
   const buildConfig = getConfig(id);
   buildConfig.minify = true;
   if (argv.analyze) buildConfig.metafile = true;
-  console.log(buildConfig);
   const result = await esbuild(buildConfig);
   if (result.metafile) {
     fs.writeFileSync("build/metafile.json", JSON.stringify(result.metafile));
