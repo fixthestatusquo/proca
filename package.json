@@ -68,7 +68,7 @@
     "babel-plugin-i18next-extract": "^0.10.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "blurhash": "^2.0.5",
-    "browserslist": "^4.22.2",
+    "browserslist": "^4.23.0",
     "cli-color": "^2.0.3",
     "cross-fetch": "^3.1.6",
     "dotenv": "^16.4.4",
