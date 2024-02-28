@@ -3,12 +3,14 @@ import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 import { get } from "@lib/urlparser";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
+import { useCampaignConfig } from "@hooks/useConfig";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Country from "./Country";
 //import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const Affiliation = (props) => {
   const { t } = useTranslation();
+  const config = useCampaignConfig();
   const { setValue, watch } = props.form;
   const [country, party] = watch(["country", "party"]);
   const [open, setOpen] = useState(false);
@@ -16,6 +18,8 @@ const Affiliation = (props) => {
   const [parties, setParties] = useState([{ party: "Select your country" }]);
   const { classField } = props.classes;
   const dxid = get("dxid");
+  const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
+    .compare;
 
   useEffect(() => {
     const fetchData = async (url) => {
@@ -23,6 +27,8 @@ const Affiliation = (props) => {
       if (!res.ok) throw res.error();
       const d = await res.json();
       d.forEach((e) => (e.country = e.country.toUpperCase()));
+      d.sort((a, b) => compare(a.party, b.party));
+
       d.push({ party: "other" });
       setParties(d);
     };
@@ -31,7 +37,7 @@ const Affiliation = (props) => {
       setParties([]);
       return;
     }
-    fetchData("https://www.tttp.eu/data/parties.json");
+    fetchData("https://static.proca.app/ep2024/parties.json");
   }, [country]);
 
   useEffect(() => {
@@ -97,7 +103,7 @@ const Affiliation = (props) => {
           <option key="empty" value=""></option>
           {parties
             .filter((d) => d.country === country || !d.country)
-            .sort((a, b) => a.party > b.party)
+            //            .sort((a, b) => a.party > b.party)
             .map((d) => {
               return (
                 <option key={d.party + d.eugroup + d.country} value={d.party}>
