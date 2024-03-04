@@ -1,7 +1,7 @@
 {
     "email": {
         "common": {
-            "share": "Pomogni nam postići naš cilj [slanjem vijesti drugima](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "share": "Pomogni nam postići naš cilj slanjem vijesti drugima",
             "donate": "Doniraj novac kako bismo ostvarili našu misiju",
             "greeting": "Bok {{firstName}}",
             "closing": "Uz tvoju pomoć se približavamo našem cilju",
