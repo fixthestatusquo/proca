@@ -25,8 +25,7 @@ const PreviousStepConfirm = (props) => {
       </Alert>
     );
   }
-
-  if (props.email?.confirmAction && data.privacy) {
+  if (props.email?.confirmAction && (data.privacy || data.privacy === null)) {
     return (
       <Alert severity="warning" autoHideDuration={15000} icon={<MailIcon />}>
         <ConfirmTitle email={data.email} />
