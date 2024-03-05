@@ -84,14 +84,9 @@ const ListSignatories = (props) => {
     filtered = data;
   }
   return (
-    <>
+    <div id="proca-signature">
       <Country form={form} name="supporter_country" />
-      <List
-        dense={true}
-        disablePadding={true}
-        className={classes.container}
-        id="proca-signature"
-      >
+      <List dense={true} disablePadding={true} className={classes.container}>
         {filtered.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>
             <ListItemAvatar>
@@ -104,7 +99,7 @@ const ListSignatories = (props) => {
           </ListItem>
         ))}
       </List>
-    </>
+    </div>
   );
 };
 
