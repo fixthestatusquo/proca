@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const crossFetch = require("cross-fetch");
-const { link, basicAuth } = require("@proca/api");
+const { link, basicAuth, tokenAuth } = require("@proca/api");
+const color = require("cli-color");
 require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
@@ -63,13 +64,7 @@ const save = (config, suffix = "") => {
 };
 
 const api = async (query, variables, name = "query", anonymous = false) => {
-  let headers = {};
-  if (!anonymous && process.env.AUTH_USER) {
-    headers = basicAuth({
-      username: process.env.AUTH_USER,
-      password: process.env.AUTH_PASSWORD,
-    });
-  }
+  let headers = anonymous ? {} : authHeader();
   headers["Content-Type"] = "application/json";
 
   try {
@@ -86,7 +81,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
     if (res.status === 401) {
       console.error("permission error");
       console.log(
-        "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+        "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
       );
       throw new Error(res.statusText);
     }
@@ -108,8 +103,8 @@ const api = async (query, variables, name = "query", anonymous = false) => {
         console.error(
           `${e.message}: ${e.path && e.path.join("->")} ${
             e.extensions ? JSON.stringify(e.extensions) : ""
-          }`
-        )
+          }`,
+        ),
       );
       return resJson;
     }
@@ -121,19 +116,38 @@ const api = async (query, variables, name = "query", anonymous = false) => {
   }
 };
 
-const apiLink = () => {
-  const a = basicAuth({
-    username: process.env.AUTH_USER,
-    password: process.env.AUTH_PASSWORD,
-  });
-  if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
-    console.error("need .env with AUTH_USER + AUTH_PASSWORD");
+const authHeader = () => {
+  let headers = {};
+  if (process.env.PROCA_TOKEN) {
+    headers = tokenAuth({
+      token: process.env.PROCA_TOKEN,
+    });
+  } else {
+    if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
+      console.error(color.red("missing PROCA_TOKEN in your env"));
+      return link(API_URL);
+    }
+    console.warn(
+      color.red(
+        "remove AUTH_USER and AUTH_PASSWORD and put PROCA_TOKEN in your env",
+      ),
+      color.blue("\n$proca token |  sed 's/Bearer /PROCA_TOKEN=/' >> .env"),
+    );
+    headers = basicAuth({
+      username: process.env.AUTH_USER,
+      password: process.env.AUTH_PASSWORD,
+    });
   }
-  const c = link(API_URL, a);
+  return headers;
+};
+
+const apiLink = () => {
+  const c = link(API_URL, authHeader());
   return c;
 };
 
 module.exports = {
+  authHeader,
   pathConfig,
   api,
   API_URL,

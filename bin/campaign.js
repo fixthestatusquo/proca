@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const crossFetch = require("cross-fetch");
-const { basicAuth } = require("@proca/api");
 require("./dotenv.js");
-const { API_URL, api, read, file, fileExists, checked } = require("./config");
+const {
+  authHeader,
+  API_URL,
+  api,
+  read,
+  file,
+  fileExists,
+  checked,
+} = require("./config");
 //const { pullCampaign, saveCampaign } = require("./config");
 const { commit, add, onGit } = require("./git");
 const color = require("cli-color");
@@ -76,10 +83,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
   }
 }
 `;
-  let headers = basicAuth({
-    username: process.env.AUTH_USER,
-    password: process.env.AUTH_PASSWORD,
-  });
+  let headers = authHeader();
   headers["Content-Type"] = "application/json";
   let data;
 

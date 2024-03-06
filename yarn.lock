@@ -1415,7 +1415,9 @@
     whatwg-url "^5.0.0"
 
 "@supabase/postgrest-js@^1.9.0":
-  version "1.9.0"
+  version "1.13.0"
+  resolved "https://registry.npmjs.org/@supabase/postgrest-js/-/postgrest-js-1.13.0.tgz"
+  integrity sha512-fGSQHMczQRfpfLaiQaHS8cTeyRKv7nt6MXiHHzzC3/Bg9OKfO5lA5BxdNk0W5KI0wZwpzGoeTJhsNopX99i+5w==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
@@ -2004,7 +2006,7 @@ caniuse-lite@^1.0.30001587:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001594.tgz"
   integrity sha512-VblSX6nYqyJVs8DKFMldE2IVCJjZ225LW00ydtUWwh5hk9IfkTOffO6r8gJNsH0qqqeAF8KrbMYA2VEwTlGW5g==
 
-chalk@^2.3.1, chalk@^2.4.2:
+chalk@^2.3.1:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -2013,23 +2015,16 @@ chalk@^2.3.1, chalk@^2.4.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+chalk@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
+  integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
   dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
+    ansi-styles "^3.2.1"
+    escape-string-regexp "^1.0.5"
+    supports-color "^5.3.0"
 
-chalk@^4.1.0:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
-chalk@^4.1.2:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -4933,10 +4928,10 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-phoenix@^1.4.0, phoenix@^1.5.5, phoenix@^1.7.11:
-  version "1.7.11"
-  resolved "https://registry.npmjs.org/phoenix/-/phoenix-1.7.11.tgz"
-  integrity sha512-aeikMR/Qh6gAygY45d5p/B7srqH60h0GbCIauEAStAtRUq4hvlkzDTyDj1NJidJEV9IKFhZe7f9L+zosUJdF/g==
+phoenix@^1.4.0, phoenix@^1.5.5, phoenix@^1.7.10:
+  version "1.7.10"
+  resolved "https://registry.npmjs.org/phoenix/-/phoenix-1.7.10.tgz"
+  integrity sha512-akfr/QvLPFRB8sORyc8FQFY/YoGwjWhka/YRcu45sKlBOZHvA80EkLYBUsYlW63UicxgrXABZdrjDkv54LTE+g==
 
 picocolors@^1.0.0:
   version "1.0.0"
