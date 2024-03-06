@@ -1,9 +1,7 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  FormLabel,
   FormGroup,
   FormControl,
   FormControlLabel,
@@ -33,12 +31,8 @@ const ProcaCheckbox = (props) => {
   const { control } = props.form;
   const classes = useStyles();
   const config = useCampaignConfig();
-  const {
-    formState: { errors },
-    register,
-  } = props.form;
 
-  const { t } = useTranslation();
+  //  const { t } = useTranslation();
 
   if (!props.name) return "you need to set ProcaCheckbox props.name";
   return (

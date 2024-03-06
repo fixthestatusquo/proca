@@ -3,7 +3,6 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
@@ -27,9 +26,9 @@ const useStyles = makeStyles({
   },
 });
 
-const ListSignatories = (props) => {
+const ListSignatories = () => {
   const { t } = useTranslation();
-  const countries = new Set();
+  //const countries = new Set();
   const [data, setData] = useState([]);
   const config = useCampaignConfig();
   const classes = useStyles();

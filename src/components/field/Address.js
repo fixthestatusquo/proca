@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
@@ -15,7 +15,6 @@ const Address = (props) => {
   const { t } = useTranslation();
 
   const compact = props.compact;
-  const { setValue, watch, getValues } = props.form;
   const classField = props.classField;
   // xor postcode + locality?
   const hasPostcode = config.component.register?.field?.postcode !== false;

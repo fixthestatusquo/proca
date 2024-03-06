@@ -5,7 +5,6 @@ import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import HiddenField from "@components/field/Hidden";
 import SearchIcon from "@material-ui/icons/Search";
 
 const Postcode = (props) => {
