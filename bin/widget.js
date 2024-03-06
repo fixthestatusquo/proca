@@ -296,7 +296,7 @@ const getConfig = (data) => {
   return config;
 };
 
-const fetch = async (actionPage, { campaign = true }) => {
+const fetchAPI = async (actionPage, { campaign = true }) => {
   let data = undefined;
 
   const query = `
@@ -345,7 +345,7 @@ const pull = async (
 ) => {
   //  console.log("file",file(actionPage));
   read(actionPage); // not sure what it does
-  const [config, campaignData] = await fetch(actionPage, {
+  const [config, campaignData] = await fetchAPI(actionPage, {
     anonymous: anonymous,
     campaign: campaign,
   });

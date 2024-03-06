@@ -1,9 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const crossFetch = require("cross-fetch");
 const { link, basicAuth, tokenAuth } = require("@proca/api");
 const color = require("cli-color");
-require("cross-fetch/polyfill"); // for the push
+//require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
@@ -68,7 +67,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
   headers["Content-Type"] = "application/json";
 
   try {
-    const res = await crossFetch(API_URL, {
+    const res = await fetch(API_URL, {
       method: "POST",
       body: JSON.stringify({
         query: query,

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const fs = require("fs");
-const fetch = require("cross-fetch");
 require("dotenv").config();
 const { commit, add } = require("./git");
 const color = require("cli-color");
@@ -48,8 +47,8 @@ const help = () => {
           "--pull (by default)",
           "--push (update the server)",
           "org {org name}",
-        ].join("\n")
-      )
+        ].join("\n"),
+      ),
     );
     process.exit(0);
   }
@@ -93,7 +92,7 @@ const getTwitter = async (org) => {
     (org.config.twitter && org.config.twitter.screen_name) || org.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + orgName
+      "https://twitter.proca.app/?screen_name=" + orgName,
     );
 
     if (res.status >= 400) {

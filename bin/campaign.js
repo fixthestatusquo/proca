@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const fs = require("fs");
-const crossFetch = require("cross-fetch");
 require("./dotenv.js");
 const {
   authHeader,
@@ -95,7 +94,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
       //          externalId: campaign.externalId,
       config: JSON.stringify(campaign.config),
     });
-    const res = await crossFetch(API_URL, {
+    const res = await fetch(API_URL, {
       method: "POST",
       body: JSON.stringify({
         query: query,

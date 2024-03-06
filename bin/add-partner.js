@@ -1,5 +1,5 @@
 // usage add-partner name/page partner. will create the partner if missing
-require("cross-fetch/polyfill");
+//require("cross-fetch/polyfill");
 require("dotenv").config();
 
 const { request, admin, widget } = require("@proca/api");
@@ -122,7 +122,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   if (joinResult.errors)
     console.error(
       `Could not join ${partnerOrg} as superuser`,
-      joinResult.errors
+      joinResult.errors,
     );
 
   let org = null;
@@ -138,7 +138,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   const newAp = await copy(
     genericPage,
     partnerOrg,
-    pickName(genericPage, partnerOrg)
+    pickName(genericPage, partnerOrg),
   );
   console.log("copy:", newAp);
 
