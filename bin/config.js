@@ -124,7 +124,8 @@ const authHeader = () => {
   } else {
     if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
       console.error(color.red("missing PROCA_TOKEN in your env"));
-      return link(API_URL);
+      return {};
+      //      return link(API_URL);
     }
     console.warn(
       color.red(
