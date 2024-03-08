@@ -313,6 +313,7 @@ export default function Register(props) {
                 autoComplete="family-name"
                 className={classes.textField}
                 placeholder="eg. Einstein"
+                required
               />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 6}>
@@ -336,11 +337,11 @@ export default function Register(props) {
               <MUITextField
                 id="postcode"
                 name="postcode"
+                required
                 label={t("Postal Code")}
                 onBlur={handleBlur}
                 inputProps={{ pattern: "[0-9]{4}", title: "9999" }}
                 autoComplete="postal-code"
-                required
                 error={!!errors.postcode}
                 helperText={
                   errors && errors.postcode && errors.postcode.message
