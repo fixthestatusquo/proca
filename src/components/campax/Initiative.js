@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { TextField as MUITextField, Button, Snackbar } from "@material-ui/core";
+import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";
@@ -13,9 +14,9 @@ import DoneIcon from "@material-ui/icons/Done";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import TextField from "@components/TextField";
 import ProgressCounter from "@components/ProgressCounter";
 import Birthdate from "@components/field/Birthdate";
+import { checkMail, getDomain } from "@lib/checkMail";
 import { addActionContact } from "@lib/server.js";
 import useElementWidth from "@hooks/useElementWidth";
 import { useConfig } from "@hooks/useConfig";
@@ -24,7 +25,6 @@ import useData from "@hooks/useData";
 import uuid from "@lib/uuid.js";
 import domparser from "@lib/domparser";
 import { useInitFromUrl } from "@hooks/useCount";
-import Consent from "@components/Consent";
 import { url as postcardUrl } from "./Download";
 
 let defaultValues = {
@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register(props) {
   const classes = useStyles();
+  let emailProvider = useRef(undefined); // we don't know the email provider
   const { t } = useTranslation();
   const [status, setStatus] = useState("init");
   const [config, setCampaignConfig] = useConfig();
@@ -93,6 +94,7 @@ export default function Register(props) {
     setCompact(width <= 450);
 
   const form = useForm({
+    mode: "onBlur",
     defaultValues: { ...defaultValues, ...data },
   });
   const {
@@ -149,6 +151,19 @@ export default function Register(props) {
   };
   //variant: standard, filled, outlined
   //margin: normal, dense
+  const validateEmail = async (email) => {
+    if (config.component?.register?.validateEmail === false) return true;
+    if (emailProvider.current) return true; // might cause some missing validation on edge cases
+    const provider = await checkMail(email);
+    emailProvider.current = provider;
+    if (provider === false) {
+      return t("email.invalid_domain", {
+        defaultValue: "{{domain}} cannot receive emails",
+        domain: getDomain(email),
+      });
+    }
+    return true;
+  };
 
   const onSubmit = async (data) => {
     data.tracking = config.utm;
@@ -167,6 +182,13 @@ export default function Register(props) {
     }
 
     data.postcardUrl = postcardUrl(data, config.param);
+    if (config.component.consent?.implicit) {
+      data.privacy =
+        config.component.consent.implicit === true
+          ? null
+          : config.component.consent.implicit;
+      // implicit true or opt-in or opt-out
+    }
     const result = await addActionContact("register", config.actionpage, data);
     if (result.errors) {
       let handled = false;
@@ -320,10 +342,10 @@ export default function Register(props) {
               <TextField
                 form={form}
                 name="email"
+                validate={validateEmail}
                 type="email"
                 label={t("Email")}
                 autoComplete="email"
-                placeholder="your.email@example.org"
                 required
               />
             </Grid>
@@ -368,11 +390,6 @@ export default function Register(props) {
                 }}
               />
             </Grid>
-            <Consent
-              organisation={props.organisation}
-              privacy_url={config.privacyUrl}
-              form={form}
-            />
             <Grid item xs={12}>
               <Button
                 color="primary"
@@ -386,6 +403,10 @@ export default function Register(props) {
                 {" "}
                 {buttonRegister}
               </Button>
+              <input
+                type="hidden"
+                {...register("privacy", { required: false })}
+              />
             </Grid>
           </Grid>
         </Container>
