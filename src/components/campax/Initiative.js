@@ -331,7 +331,12 @@ export default function Register(props) {
               <Birthdate form={form} min={minBirthdate()} />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 12}>
-              <TextField form={form} name="address" label={t("Address")} />
+              <TextField
+                form={form}
+                name="address"
+                label={t("Address")}
+                required
+              />
             </Grid>
             <Grid item xs={12} sm={compact ? 12 : 3}>
               <MUITextField
