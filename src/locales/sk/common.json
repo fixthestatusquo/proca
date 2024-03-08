@@ -59,7 +59,7 @@
     "opt-in-both": "Áno, chcem, aby ma {{partner}} a {{lead}} informovali e-mailom",
     "opt-out": "Nie, nechcem, aby mi boli v budúcnosti zasielané e-maily alebo aby som bol informovaný",
     "optInConfirmed": "Predplatné potvrdené",
-    "processing": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
+    "processing": "Vaše osobné údaje bezpečne chránime a uchovávame v súkromí. Odoslaním informácií súhlasíte s používaním údajov a súborov cookie v súlade s našimi zásadami ochrany <1>osobných údajov</1>",
     "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "required": "Na účasť je potrebný váš súhlas",
     "subButton": {
@@ -182,7 +182,7 @@
     "m": "Pán.",
     "other": "Iné"
   },
-  "select_all": "Vyberte všetky",
+  "select_all": "Zvoliť všetkých",
   "share": {
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
