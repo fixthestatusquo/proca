@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="<%= lang %>">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link
+      rel="alternate"
+      type="application/json+oembed"
+      href="/d/<%= filename %>/oembed.json"
+      title="Embed JSON"
+    />
+
+    <title><%= campaign %> widget for <%= organisation %> in <%= lang %></title>
+    <meta
+      name="twitter:title"
+      content="<%= campaign %> : <%= organisation %>"
+    />
+    <meta
+      name="description"
+      content="Sign the initiative with <%= organisation %>!"
+    />
+    <meta
+      name="twitter:description"
+      content="Sign the initiative with <%= organisation %>"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@eucampaign" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      #help,
+      #widget-demo {
+        display: block;
+        transform: scaleY(1);
+        transition: transform 400ms ease 0ms;
+      }
+
+      #help.hidden,
+      #widget-demo.hidden {
+        display: none;
+        transform: scaleY(0);
+        transition: transform 400ms ease 0ms;
+      }
+      pre {
+        background: #e3e3e3;
+        margin-top: 15px;
+        padding: 15px;
+      }
+
+      aa.dark {
+        background: #343a40;
+      }
+      aa.light {
+        background: "transparent";
+      }
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
+          "Lucida Typewriter", monospace;
+      }
+    </style>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <minimal-style style="display: none">
+      .proca-widget, #widget-demo {max-width:600px;min-width:300px} .row{
+      display: flex; flex-direction: row; flex-wrap: wrap; width:100%; } .col{
+      display: flex; flex-direction: column; flex-basis: 100%; padding:0 10px;
+      flex:1; } pre {background:#dede; padding: 10px}
+    </minimal-style>
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><%= campaign %></a>
+
+      <div class="collapse navbar-collapse" id="">
+        <div class="navbar-nav mr-auto"></div>
+        <div
+          class="btn-group btn-group-sm"
+          role="toolbar"
+          aria-label="Actions for the webmasters"
+        >
+          <button
+            class="proca-next btn btn-secondary"
+            title="skip to the next action"
+            onClick="proca.go()"
+          >
+            ⏵
+          </button>
+          <button
+            id="btn-help"
+            title="How to embed this into your website?"
+            class="btn btn-secondary"
+            onClick="toggleHelp()"
+          >
+            ?
+          </button>
+        </div>
+      </div>
+    </nav>
+    <noscript
+      >You need to enable JavaScript to participate to this campaign.</noscript
+    >
+    <div id="root" class="container">
+      <div class="proca-progress"></div>
+      <div class="proca-widget" id="widget-demo">
+        <div class="alert alert-info" role="alert">
+          <p class="proca-description">do not forget the promocode!</p>
+        </div>
+      </div>
+      <div class="row" id="help">
+        <div class="col">
+          <div>
+            <p class="proca-text [disable]consent_intro">
+              Find out more about our campaigns and actions progress
+            </p>
+            <p class="proca-text [disable]consent_opt-in">
+              Yes, send me emails
+            </p>
+            <p class="proca-text [disable]consent_opt-out">
+              No, don't send me emails
+            </p>
+            <p class="proca-text [disable]consent_processing">
+              Your personal information will be kept private and held
+              securely....&lt;1&gt;privacy&lt;/1&gt;
+            </p>
+            <p class="proca-text [disable]email_subject">variant A</p>
+            <p class="proca-text [disable]email_body">
+              Another Long long text with lines and shit
+            </p>
+            <p class="proca-text [disable]comment">variant A</p>
+            <p class="proca-text [disable]comment">variant B</p>
+            <p class="proca-text [disable]consent_intro">
+              I want to receive the newsletter from {{name}}
+            </p>
+            <p class="proca-text [disable]sign-now">Do it now!</p>
+            <p class="proca-text [disable]share">
+              I signed <%= campaign %>, you should sign too!
+            </p>
+            <p class="proca-text [disable]share-twitter">
+              I signed #<%=campaign %>, you should too!
+            </p>
+            <p class="proca-text [disable]share-whatsapp">Hi, sign that!</p>
+            <p class="proca-text [disable]ddd-consent-into"></p>
+            <h2>How to embed this into your website?</h2>
+
+            <div class="alert alert-primary">
+              <p>
+                For a more complete information, including how to modify the
+                social media messages, please
+                <a href="https://proca.app/guide/embedding/"
+                  >check out our guide</a
+                >
+              </p>
+              <p>
+                You simply need to copy paste in your website editor, for
+                instance wordpress. The specific instructions depends of your
+                website, check with your webmaster or search how to add "raw
+                html" + your CMS.
+              </p>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>Just the action tool</h4>
+                This is the most flexible solution, you can have a full width
+                form, or manage your layout exactly the way your want.
+                <pre class="dynamic">
+&lt;script src="https://%widget_path%" data-promocode="hallo" "data-promocodephone="moin">&lt;/script>
+          </pre
+                >
+              </div>
+              <div class="col">
+                <h4>Action tool and campaign text (two columns)</h4>
+                If you want a little help and have a widget with two columns
+                (like the example on this page), it's almost the same, but you
+                put the text you want on the left hand column as the content of
+                the widget
+                <pre class="dynamic">
+&lt;script src="https://%widget_path%"  data-promocode="hallo" "data-promocodephone="moin">&lt;/script>
+&lt;div class="proca-widget">
+  &lt;div class="proca-description">Loading text...&lt;/div>
+&lt;/div>
+          </pre
+                >
+                <p>
+                  <i
+                    >You can put the first line wherever you want, the other
+                    lines has to be where you want the form to be displayed</i
+                  >
+                </p>
+              </div>
+            </div>
+            <p>
+              Please do <b>NOT</b> test the widget on a live page – we don’t
+              want people trying to sign before we go live!
+              <br />
+              you can see an example of the widget and the steps above.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col"></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script>
+      let params = {};
+      function display() {
+        var variants = ["standard", "filled", "outlined"];
+        var urlParams = new URLSearchParams(window.location.search);
+        var widget_path =
+          window.location.hostname +
+          window.location.pathname.replace("/index.html", "");
+        var widget_shortcode = window.location.pathname
+          .replace("/index.html", "")
+          .replace("/d/", "");
+        for (let d of document.getElementsByClassName("dynamic")) {
+          d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
+          d.innerHTML = d.innerHTML.replace(
+            "%widget_shortcode%",
+            widget_shortcode,
+          );
+        }
+
+        //       if (urlParams.get("variant")) {
+        //         params.variant = urlParams.get("variant");
+        //       }
+
+        if (urlParams.get("actionPage"))
+          params.actionPage = urlParams.get("actionPage");
+
+        //        params.loader = urlParams.get("proca_loader");
+        proca.Widget(params);
+      }
+
+      if (typeof proca === "object") {
+        //not used on dev
+        display();
+      } else {
+        console.log("DEV MODE");
+        window.addEventListener("DOMContentLoaded", function () {
+          display();
+        });
+      }
+    </script>
+
+    <script>
+      /* example of how to filter
+      window.addEventListener("proca", e => {
+        if (e.detail.message !== "init") return;
+        proca.hook("target","load", d => {
+          return d.filter (d => d.screen_name !== "whatever");
+        })
+      });
+*/
+      // example of how to be informed of changes in the widget and modify the journey
+      window.addEventListener("proca", function (e) {
+        console.log(e.detail.message, e.detail);
+      });
+
+      window.addEventListener("proca", function (e) {
+        if (e.detail.message === "init") {
+          const help = document.getElementById("help");
+          help.classList.toggle("hidden");
+          //widget-example
+        }
+      });
+
+      function toggleHelp() {
+        let help = document.getElementById("help");
+        help.classList.toggle("hidden");
+        let widget = document.getElementById("widget-demo");
+        widget.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
