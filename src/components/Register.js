@@ -209,6 +209,11 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
+    config.data &&
+      Object.entries(config.data).forEach(([key, value]) => {
+        if (!formData[key]) formData[key] = value;
+      });
+
     if (emailProvider.current === false) {
       setError("email", {
         type: "mx",

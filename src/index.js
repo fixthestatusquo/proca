@@ -28,7 +28,7 @@ const Alert = (text, severity) => {
 
   ReactDOM.render(
     <ProcaAlert text={text} severity={severity} />,
-    document.querySelector("#" + selector)
+    document.querySelector("#" + selector),
   );
 };
 
@@ -44,7 +44,7 @@ const initPortals = (portals) => {
 
 const Widget = (args) => {
   if (rendered) return;
-  if (args) config = { ...config, ...args };
+  if (args) config = { ...config, data: args };
   config = { ...config, ...Config };
   config.actionPage = config.actionPage || config.actionpage;
   config.journey.forEach((d, i) => {
@@ -67,7 +67,7 @@ const Widget = (args) => {
     } else {
       //
       alert(
-        "proca script isn't in the body, but no object with 'proca-widget' class"
+        "proca script isn't in the body, but no object with 'proca-widget' class",
       );
       // document.body.appendChild(dom);
     }
@@ -89,7 +89,7 @@ const Widget = (args) => {
       )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    dom
+    dom,
   );
 };
 
@@ -116,7 +116,6 @@ const render = (script) => {
     if (!script) {
       script = {};
     } // return; I have no clue why it happens
-
     Widget({ ...script.dataset });
   } catch (e) {
     console.log(e);
@@ -139,7 +138,7 @@ const autoRender = () => {
         });
       } else {
         document.addEventListener("DOMContentLoaded", () =>
-          render(currentScript)
+          render(currentScript),
         );
       }
     } else {
