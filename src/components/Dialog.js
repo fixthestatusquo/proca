@@ -38,6 +38,7 @@ function OpenDialog(props) {
     props.name ||
     config.param.locales["dialog-title"] ||
     config.campaign?.title;
+
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"), {
     noSsr: true,

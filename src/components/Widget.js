@@ -51,8 +51,22 @@ const Widget = (props) => {
           journey: journey,
         },
         null,
-        config
+        config,
       );
+    setTimeout(() => {
+      const otherSteps = journey
+        .filter((step, d) => d !== i)
+        .map((d) => "proca-" + d)
+        .join(" ");
+      let r = document.getElementsByClassName(otherSteps);
+      for (let j = 0; j < r.length; j++) {
+        r[j].style.display = "none";
+      }
+      r = document.getElementsByClassName("proca-" + journey[i]);
+      for (let j = 0; j < r.length; j++) {
+        r[j].style.display = "block";
+      }
+    }, 100);
     _setCurrent(i);
   };
   const [, updateState] = useState();
@@ -118,7 +132,7 @@ const Widget = (props) => {
     /*eslint no-undef: "error"*/
     if (typeof procaReady === "function") {
       console.log(
-        "obsolete, please use window.addEventListener('proca:init', function(){}); instead"
+        "obsolete, please use window.addEventListener('proca:init', function(){}); instead",
       );
 
       procaReady({}); // NOTE: should we pass config to procaReady?
@@ -152,7 +166,7 @@ const Widget = (props) => {
         isMobile: isMobile,
         step: journey[current ? current : 0],
       },
-      config
+      config,
     );
     init = true;
   }
@@ -230,7 +244,7 @@ const Widget = (props) => {
     ) {
       if (steps[journey[current]].after(result) === false) {
         console.log(
-          "the custom 'after' returned false, we do not go to the next step"
+          "the custom 'after' returned false, we do not go to the next step",
         );
         return;
       }
@@ -250,7 +264,7 @@ const Widget = (props) => {
         "proca:complete",
         { elem: "journey", journey: journey },
         null,
-        config
+        config,
       );
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to

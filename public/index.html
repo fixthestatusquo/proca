@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="<%= lang %>">
   <head>
     <meta charset="utf-8" />
@@ -46,17 +46,19 @@
     ></script>
 
     <style>
-#help, #widget-demo {
-  display:block;
-    transform: scaleY(1);
-    transition: transform 400ms ease 0ms;
-}
+      #help,
+      #widget-demo {
+        display: block;
+        transform: scaleY(1);
+        transition: transform 400ms ease 0ms;
+      }
 
-#help.hidden, #widget-demo.hidden {
-  display:none;
-    transform: scaleY(0);
-    transition: transform 400ms ease 0ms;
-}
+      #help.hidden,
+      #widget-demo.hidden {
+        display: none;
+        transform: scaleY(0);
+        transition: transform 400ms ease 0ms;
+      }
       pre {
         background: #e3e3e3;
         margin-top: 15px;
@@ -137,8 +139,16 @@
     <div id="root" class="container">
       <div class="proca-progress"></div>
       <div class="proca-widget" id="widget-demo">
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-info proca-Petition" role="alert">
           <p class="proca-description">
+            if you want to, you can put a
+            <b
+              >div with the class="proca-Petition" that will only be shown on
+              the petition step</b
+            >
+            of the user journey, for instance to display the text of the
+            campaign. <br />This is optional, this text is not part of the
+            widget per se, you should put it on your website<br />
             This is the text of the campaign, consectetur adipiscing elit, sed
             do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
             enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -146,6 +156,18 @@
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="alert alert-warning proca-Share" role="alert">
+          <p>
+            if you want to, you can put a
+            <b
+              >div with the class="proca-Share" that will only be shown on the
+              petition step</b
+            >
+            of the user journey, for instance to display the text of the
+            campaign. <br />This is optional, this text is not part of the
+            widget per se, you should put it on your website<br />
           </p>
         </div>
       </div>
@@ -166,8 +188,9 @@
               securely....&lt;1&gt;privacy&lt;/1&gt;
             </p>
             <p class="proca-text [disable]email_subject">variant A</p>
-            <p class="proca-text [disable]email_body">Another Long long text
-            with lines and shit</p>
+            <p class="proca-text [disable]email_body">
+              Another Long long text with lines and shit
+            </p>
             <p class="proca-text [disable]comment">variant A</p>
             <p class="proca-text [disable]comment">variant B</p>
             <p class="proca-text [disable]consent_intro">
@@ -186,14 +209,18 @@
 
             <div class="alert alert-primary">
               <p>
-            For a more complete information, including how to modify the social media messages, please <a href="https://proca.app/guide/embedding/">check out our guide</a>
-            </p>
-            <p>
-              You simply need to copy paste in your website editor, for instance
-              wordpress. The specific instructions depends of your website,
-              check with your webmaster or search how to add "raw html" + your
-              CMS.
-            </p>
+                For a more complete information, including how to modify the
+                social media messages, please
+                <a href="https://proca.app/guide/embedding/"
+                  >check out our guide</a
+                >
+              </p>
+              <p>
+                You simply need to copy paste in your website editor, for
+                instance wordpress. The specific instructions depends of your
+                website, check with your webmaster or search how to add "raw
+                html" + your CMS.
+              </p>
             </div>
             <div class="row">
               <div class="col">
@@ -208,9 +235,9 @@
               <div class="col">
                 <h4>Action tool and campaign text (two columns)</h4>
                 If you want a little help and have a widget with two columns
-                (like the example on this page), it's almost the same, but you put the
-                text you want on the left hand column as the content of the
-                widget
+                (like the example on this page), it's almost the same, but you
+                put the text you want on the left hand column as the content of
+                the widget
                 <pre class="dynamic">
 &lt;script src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">
@@ -218,12 +245,12 @@
 &lt;/div>
           </pre
                 >
-            <p>
-              <i
-                >You can put the first line wherever you want, the other lines
-                has to be where you want the form to be displayed</i
-              >
-            </p>
+                <p>
+                  <i
+                    >You can put the first line wherever you want, the other
+                    lines has to be where you want the form to be displayed</i
+                  >
+                </p>
               </div>
             </div>
             <p>
@@ -253,7 +280,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      let params ={};
+      let params = {};
       function display() {
         var variants = ["standard", "filled", "outlined"];
         var urlParams = new URLSearchParams(window.location.search);
@@ -267,7 +294,7 @@
           d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
           d.innerHTML = d.innerHTML.replace(
             "%widget_shortcode%",
-            widget_shortcode
+            widget_shortcode,
           );
         }
 
@@ -294,8 +321,7 @@
     </script>
 
     <script>
-
-/* example of how to filter
+      /* example of how to filter
       window.addEventListener("proca", e => {
         if (e.detail.message !== "init") return;
         proca.hook("target","load", d => {
@@ -311,16 +337,16 @@
       window.addEventListener("proca", function (e) {
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
-          help.classList.toggle('hidden');
+          help.classList.toggle("hidden");
           //widget-example
         }
       });
 
-      function toggleHelp () {
-          let help = document.getElementById("help");
-          help.classList.toggle('hidden');
-          let widget = document.getElementById("widget-demo");
-          widget.classList.toggle('hidden');
+      function toggleHelp() {
+        let help = document.getElementById("help");
+        help.classList.toggle("hidden");
+        let widget = document.getElementById("widget-demo");
+        widget.classList.toggle("hidden");
       }
     </script>
   </body>
