@@ -10,7 +10,7 @@ const useFormatMoney = () => {
       style: "currency",
       maximumFractionDigits: maxDigit,
       currency: donateConfig.currency.code,
-      currencyDisplay: "code",
+      //      currencyDisplay: "code",
     });
   };
 };
