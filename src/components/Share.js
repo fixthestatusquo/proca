@@ -163,8 +163,8 @@ export default function ShareAction(props) {
         ) : null}
         <CardContent>
           <p>{metadata.description}</p>
-          {!config.component.share?.top && <Actions {...props} />}
         </CardContent>
+        {!config.component.share?.top && <Actions {...props} />}
         {config.component.share?.next && (
           <Button
             endIcon={<SkipNextIcon />}
