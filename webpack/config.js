@@ -63,6 +63,7 @@ function readConfigOverride(id) {
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
         if (
+          // TODO: investigate
           campaignConfig.config.portal &&
           campaignConfig.config.portal[0] === "Snowflake" &&
           campaignConfig.config.locales &&
