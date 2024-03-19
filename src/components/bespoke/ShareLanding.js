@@ -6,6 +6,7 @@ const ShareLanding = () => {
   const [displayed, setDisplayed] = useState(true);
   const body = useRef(null);
   const utm = Url.utm();
+  console.log(utm);
   const landing = utm.source === "share";
 
   const handleClick = (event) => {

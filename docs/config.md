@@ -224,7 +224,8 @@ to collect the consent of being contacted
 
 ## Share
 
-- `config.component.share.utm: boolean`. Are we adding the utm tracking codes to the shared url?
+- `config.component.share.utm: boolean`. Are we adding the utm tracking codes to the shared url? (true by default)
+- config.component?.share?.compact: have a shorter form utm=proca.share.medium (not compatible with GTM, but shorter)
 - `config.component.share.url: string`. Share this url instead of the page embedding the widget
 - `config.component.share.anonymous: boolean`. Are we linking the share actions to the supporter or not? are we adding the utm tracking codes to the shared url?
 - `config.component.share.top: boolean`. Are the share button above or below image+text shared (taken from meta data)

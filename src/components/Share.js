@@ -115,12 +115,18 @@ export default function ShareAction(props) {
       if (key === "doi") garbage.push(key);
       if (key.startsWith("proca_")) garbage.push(key);
     }
-    if (config.component?.share?.utm === false) {
+    if (
+      config.component?.share?.utm === false ||
+      config.component?.share?.compact
+    ) {
       ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
         garbage.push(d),
       );
     }
     garbage.forEach((key) => params.delete(key));
+    if (config.component?.share?.compact) {
+      params.set("utm", ".share." + medium);
+    }
     return url.toString();
   };
   const next = () => {
@@ -242,6 +248,17 @@ export default function ShareAction(props) {
             </CardActions>
           )}
         <CardActions>
+          {config.component.share?.email !== false &&
+            i18n.exists("campaign:share.email.subject") && (
+              <ActionIcon
+                icon={EmailIcon}
+                onClick={(e, link) => (window.location.href = link)}
+                component={EmailShareButton}
+                subject={t("campaign:share.email.subject", "")}
+                body={shareText("share.email.body")}
+                separator=" "
+              />
+            )}
           <ActionIcon
             icon={WhatsappIcon}
             title={shareText("share-whatsapp")}
@@ -266,17 +283,6 @@ export default function ShareAction(props) {
             title={shareText("share-telegram")}
             component={TelegramShareButton}
           />
-          {config.component.share?.email !== false &&
-            i18n.exists("campaign:share.email.subject") && (
-              <ActionIcon
-                icon={EmailIcon}
-                onClick={(e, link) => (window.location.href = link)}
-                component={EmailShareButton}
-                subject={t("campaign:share.email.subject", "")}
-                body={shareText("share.email.body")}
-                separator=" "
-              />
-            )}
           {!!config.component.share?.reddit && (
             <ActionIcon icon={RedditIcon} component={RedditShareButton} />
           )}
