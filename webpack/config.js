@@ -87,14 +87,21 @@ function readConfigOverride(id) {
             config.locales["campaign:"],
           );
           Object.keys(campaignConfig.config.locales[config.lang])
-            .filter(
-              (d) =>
-                d.slice(-1) !== ":" &&
-                typeof campaignConfig.config.locales[config.lang][d] ===
-                  "string",
-            )
+            .filter((d) => d.slice(-1) !== ":")
             .forEach((d) => {
-              campaigns[d] = campaignConfig.config.locales[config.lang][d];
+              //                typeof campaignConfig.config.locales[config.lang][d] ===
+              //                  "string",
+              if (
+                typeof campaignConfig.config.locales[config.lang][d] ===
+                "string"
+              ) {
+                campaigns[d] = campaignConfig.config.locales[config.lang][d];
+              } else {
+                campaigns[d] = merge(
+                  campaignConfig.config.locales[config.lang][d],
+                  config.locales["campaign:"][d],
+                );
+              }
             });
           config.locales["campaign:"] = campaigns;
           if (
