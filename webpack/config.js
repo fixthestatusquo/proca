@@ -86,11 +86,15 @@ function readConfigOverride(id) {
             config.locales["campaign:"],
           );
           Object.keys(campaignConfig.config.locales[config.lang])
-            .filter((d) => d.slice(-1) !== ":")
+            .filter(
+              (d) =>
+                d.slice(-1) !== ":" &&
+                typeof campaignConfig.config.locales[config.lang][d] ===
+                  "string",
+            )
             .forEach((d) => {
               campaigns[d] = campaignConfig.config.locales[config.lang][d];
             });
-
           config.locales["campaign:"] = campaigns;
           if (
             config.locales["campaign:"] &&
