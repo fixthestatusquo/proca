@@ -1468,9 +1468,9 @@
   dependencies:
     hi-base32 "^0.5.0"
 
-"@proca/api@2.3.4":
+"@proca/api@^2.3.4":
   version "2.3.4"
-  resolved "https://registry.npmjs.org/@proca/api/-/api-2.3.4.tgz"
+  resolved "https://registry.yarnpkg.com/@proca/api/-/api-2.3.4.tgz#d8042564fd6f6546d1a170377e76906a24ae43f0"
   integrity sha512-dMTrwt4n2Zn8A+Z0zwwcqUeRIawY+hOKovtOxj+oullC93GieE2jcTrFuXFSm0Uf0r8qUVED1UQu8UVHH8SEuQ==
   dependencies:
     "@absinthe/socket-apollo-link" "^0.2.1"
@@ -3558,10 +3558,10 @@ i18next-xhr-backend@^3.2.2:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next@^23.10.0, i18next@^23.6.0:
-  version "23.10.0"
-  resolved "https://registry.npmjs.org/i18next/-/i18next-23.10.0.tgz"
-  integrity sha512-/TgHOqsa7/9abUKJjdPeydoyDc0oTi/7u9F8lMSj6ufg4cbC1Oj3f/Jja7zj7WRIhEQKB7Q4eN6y68I9RDxxGQ==
+i18next@^23.10.1, i18next@^23.6.0:
+  version "23.10.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.10.1.tgz#217ce93b75edbe559ac42be00a20566b53937df6"
+  integrity sha512-NDiIzFbcs3O9PXpfhkjyf7WdqFn5Vq6mhzhtkXzj51aOcNuPNcTwuYNuXCpHsanZGHlHKL35G7huoFeVic1hng==
   dependencies:
     "@babel/runtime" "^7.23.2"
 
