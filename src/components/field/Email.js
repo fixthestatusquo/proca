@@ -5,12 +5,13 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 
-const EmailField = ({ form }) => {
+const EmailField = ({ form, required }) => {
   let emailProvider = useRef(undefined); // we don't know the email provider
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
   const validateEmail = async (email) => {
+    if (!email) return true; // don't validate the email domain if no email
     if (config.component?.register?.validateEmail === false) return true;
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
@@ -35,7 +36,7 @@ const EmailField = ({ form }) => {
         type="email"
         label={t("Email")}
         autoComplete="email"
-        required
+        required={!!required}
       />
     </>
   );

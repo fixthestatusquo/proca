@@ -18,6 +18,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
+import EmailField from "@components/field/Email";
 
 import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -421,22 +422,11 @@ export default function Register(props) {
       return null;
     };
   }
-  const validateEmail = async (email) => {
-    if (config.component?.register?.validateEmail === false) return true;
-    if (emailProvider.current) return true; // might cause some missing validation on edge cases
-    const provider = await checkMail(email);
-    emailProvider.current = provider;
-    if (provider === false) {
-      return t("email.invalid_domain", {
-        defaultValue: "{{domain}} cannot receive emails",
-        domain: getDomain(email),
-      });
-    }
-    return true;
-  };
 
-  const classField = data.uuid ? classes.hidden : classes.field;
-
+  const isValid = Object.keys(form.formState.errors).length === 0;
+  const classField = data.uuid && isValid ? classes.hidden : classes.field;
+  //const classField = classes.field;
+  const enforceRequired = !data.uuid; // if the user took action, no fields are required
   const withSalutation = config.component?.register?.field?.salutation;
   const nameWidth = (field) => {
     if (compact) return 12;
@@ -498,6 +488,7 @@ export default function Register(props) {
                     name="organisation"
                     label={t("Organisation")}
                     required={
+                      enforceRequired &&
                       config.component.register.field.organisation.required
                     }
                   />
@@ -528,6 +519,7 @@ export default function Register(props) {
                     label={t("Last name")}
                     autoComplete="family-name"
                     required={
+                      enforceRequired &&
                       config.component.register?.field?.lastname?.required
                     }
                   />
@@ -544,15 +536,7 @@ export default function Register(props) {
                 }
                 className={classField}
               >
-                <TextField
-                  form={form}
-                  name="email"
-                  validate={validateEmail}
-                  type="email"
-                  label={t("Email")}
-                  autoComplete="email"
-                  required
-                />
+                <EmailField form={form} required={enforceRequired} />
               </Grid>
               <Address form={form} campact={compact} classField={classField} />
               {config.component.register?.field?.phone === true && (
@@ -573,6 +557,7 @@ export default function Register(props) {
                     multiline
                     maxRows="10"
                     required={
+                      enforceRequired &&
                       config.component.register?.field?.comment?.required
                     }
                     label={t("Comment")}

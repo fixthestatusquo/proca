@@ -65,10 +65,7 @@ const ShareLanding = () => {
     <Dialog
       dialog={displayed}
       close={() => setDisplayed(false)}
-      name={t(
-        "campaign:landing.title",
-        "the message we sent to your friend...",
-      )}
+      name={t("campaign:landing.title")}
       maxWidth="xl"
     >
       <div ref={body} onClick={handleClick}></div>
