@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Dialog from "@components/Dialog";
 import Url from "@lib/urlparser";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
 
 const ShareLanding = () => {
   const [displayed, setDisplayed] = useState(true);
   const body = useRef(null);
   const utm = Url.utm();
   const landing = utm.source === "share";
+  const config = useCampaignConfig();
+  const { t } = useTranslation();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -26,7 +30,8 @@ const ShareLanding = () => {
     (async function () {
       let text = null;
       let d = null;
-      let url = "https://static.proca.app/gmo/sib.html";
+      let url = config.component.landing?.url;
+      if (!url) alert("missing config.component.landing.url param");
       try {
         d = await fetch(url).catch((e) => {
           console.log("can't fetch");
@@ -60,7 +65,10 @@ const ShareLanding = () => {
     <Dialog
       dialog={displayed}
       close={() => setDisplayed(false)}
-      name="the message we sent to your friend..."
+      name={t(
+        "campaign:landing.title",
+        "the message we sent to your friend...",
+      )}
       maxWidth="xl"
     >
       <div ref={body} onClick={handleClick}></div>
