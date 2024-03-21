@@ -252,7 +252,6 @@ export default function ShareAction(props) {
             i18n.exists("campaign:share.email.subject") && (
               <ActionIcon
                 icon={EmailIcon}
-                onClick={(e, link) => (window.location.href = link)}
                 component={EmailShareButton}
                 subject={t("campaign:share.email.subject", "")}
                 body={shareText("share.email.body")}
