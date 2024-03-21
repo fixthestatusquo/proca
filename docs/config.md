@@ -136,6 +136,7 @@ _Tip: When developing, always have a sensible default behaviour even if the spec
 
 the main behaviour
 
+- `config.component.widget.fav: boolean`. If true, a floating action button is displayed when form is not. It is available for all screen sizes.
 - `config.component.widget.mobileVersion: boolean`. If true, a floating action button is displayed when form is not. It is available for all screen sizes. (It has nothing to do with mobile version anymore).
   Deprecated: Activates a mobile layout version - if true, a floating action button is displayed instead of the normal widget on mobile screens only, and the widget steps are displayed (after the click) on full screen.
 - `config.component.widget?.autoStart: boolean`. default true. used to not automatically display the widget. see portal Clickify below
