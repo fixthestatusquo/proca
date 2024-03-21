@@ -84,11 +84,15 @@ const Widget = (props) => {
   let data = Url.data();
   if (props) config = { ...config, ...props };
 
-  const cookies = {
-    uuid: getCookie("proca_uuid"),
-    firstname: getCookie("proca_firstname"),
-  };
-  const storage = getItems(config.component.storage);
+  let cookies = {};
+
+  if (!config.component.widget.cookie === false) {
+    cookies = {
+      uuid: getCookie("proca_uuid"),
+      firstname: getCookie("proca_firstname"),
+    };
+  }
+  const storage = getItems(config.component.storage); //to check: is this used anywhere?
   document.querySelectorAll(props.selector).forEach((dom) => {
     data = { ...dom.dataset, ...cookies, ...storage, ...data };
   });
