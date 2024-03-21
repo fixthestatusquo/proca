@@ -86,7 +86,7 @@ const Widget = (props) => {
 
   let cookies = {};
 
-  if (!config.component.widget.cookie === false) {
+  if (!config.component.widget?.cookie === false) {
     cookies = {
       uuid: getCookie("proca_uuid"),
       firstname: getCookie("proca_firstname"),

@@ -25,7 +25,8 @@ const ExternalPayment = (props) => {
       .replace("{firstname}", formData.firstname || "")
       .replace("{postcode}", formData.postcode || "")
       .replace("{locality}", formData.locality || "")
-      .replace("{amount}", formData.amount || "");
+      .replace("{amount}", formData.amount || "")
+      .replace("{amountcent}", formData.amount ? formData.amount * 100 : "");
     window.open(url, "_blank");
   };
 
