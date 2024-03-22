@@ -247,6 +247,7 @@ export default function ShareAction(props) {
 
       const mailto = () => {
         window.open(hrefGmail(), "_blank");
+        addShare("share", "gmail");
       };
       if (config.component.share?.email === false) return null;
       if (!i18n.exists("campaign:share.email.subject")) return null;
