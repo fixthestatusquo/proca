@@ -249,7 +249,7 @@ export default function ShareAction(props) {
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
       //  (data.email.includes("@gmail") || emailProvider.current === "google.com")
-      if (data.email.includes("@gmail")) {
+      if (data.email?.includes("@gmail")) {
         return (
           <Avatar
             title="send on gmail"
