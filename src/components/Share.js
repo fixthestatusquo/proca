@@ -27,6 +27,7 @@ import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
+import GmailIcon from "../images/Gmail";
 
 import {
   EmailShareButton,
@@ -65,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     width: theme.spacing(6),
     height: theme.spacing(6),
+    backgroundColor: "#eee",
   },
   media: {
     height: 0,
@@ -256,11 +258,11 @@ export default function ShareAction(props) {
         //      if (data.email?.includes("@gmail")) {
         return (
           <Avatar
-            title="send on gmail"
+            title={t("campaign:share.email.subject", "")}
             onClick={mailto}
             className={classes.emailIcon}
           >
-            <EmailIcon />
+            <GmailIcon />
           </Avatar>
         );
       }
