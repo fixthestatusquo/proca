@@ -62,6 +62,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   emailIcon: {
+    cursor: "pointer",
     width: theme.spacing(6),
     height: theme.spacing(6),
   },
@@ -249,7 +250,7 @@ export default function ShareAction(props) {
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
       if (
-        data.email.includes("@gmail") ||
+        data.email?.includes("@gmail") ||
         data.emailProvider === "google.com"
       ) {
         //      if (data.email?.includes("@gmail")) {
