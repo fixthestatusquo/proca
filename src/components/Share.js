@@ -12,6 +12,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Avatar,
 } from "@material-ui/core";
 import metadataparser from "page-metadata-parser";
 import uuid from "@lib/uuid";
@@ -60,6 +61,10 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  emailIcon: {
+    width: theme.spacing(6),
+    height: theme.spacing(6),
+  },
   media: {
     height: 0,
     paddingTop: "52.5%", // FB ratio
@@ -226,6 +231,46 @@ export default function ShareAction(props) {
         .catch((error) => console.error("Error sharing", error));
     };
 
+    const EmailAction = () => {
+      const hrefGmail = () => {
+        return (
+          "https://mail.google.com/mail/?view=cm&fs=1" +
+          "&su=" +
+          encodeURIComponent(t("campaign:share.email.subject", "")) +
+          "&body=" +
+          encodeURIComponent(shareText("share.email.body"))
+        );
+      };
+
+      const mailto = () => {
+        window.open(hrefGmail(), "_blank");
+      };
+      if (config.component.share?.email === false) return null;
+      if (!i18n.exists("campaign:share.email.subject")) return null;
+
+      //  (data.email.includes("@gmail") || emailProvider.current === "google.com")
+      if (data.email.includes("@gmail")) {
+        return (
+          <Avatar
+            title="send on gmail"
+            onClick={mailto}
+            className={classes.emailIcon}
+          >
+            <EmailIcon />
+          </Avatar>
+        );
+      }
+      return (
+        <ActionIcon
+          icon={EmailIcon}
+          component={EmailShareButton}
+          subject={t("campaign:share.email.subject", "")}
+          body={shareText("share.email.body")}
+          separator=" "
+        />
+      );
+    };
+
     cardIcons = (
       <>
         {isMobile &&
@@ -248,16 +293,8 @@ export default function ShareAction(props) {
             </CardActions>
           )}
         <CardActions>
-          {config.component.share?.email !== false &&
-            i18n.exists("campaign:share.email.subject") && (
-              <ActionIcon
-                icon={EmailIcon}
-                component={EmailShareButton}
-                subject={t("campaign:share.email.subject", "")}
-                body={shareText("share.email.body")}
-                separator=" "
-              />
-            )}
+          <EmailAction />
+
           <ActionIcon
             icon={WhatsappIcon}
             title={shareText("share-whatsapp")}
