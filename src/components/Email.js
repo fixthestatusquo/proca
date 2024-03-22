@@ -707,6 +707,14 @@ const EmailComponent = (props) => {
       data.mttProcessing = false;
     }
     if (props.prepareData) data = props.prepareData(data);
+
+    //add external id for prefilled widgets
+    if (data.message.indexOf(config.component?.email?.templateURL) > 0) {
+      data.message = data.message.replace(
+        config.component.email.templateURL,
+        `${config.component.email.templateURL}?proca_uuid={{target.externalId}}`,
+      );
+    }
     return data;
   };
 
