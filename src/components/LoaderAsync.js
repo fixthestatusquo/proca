@@ -40,13 +40,13 @@ const LoaderAsync = () => {
             return;
           }
 
-          //insert widget location in the letter text
-          if (json.message && json.message.indexOf("{{url}}") > 0) {
-            json.message = json.message.replace(
-              "{{url}}",
-              config.component?.email?.templateURL || "",
-            );
-          }
+          // //insert widget location in the letter text
+          // if (json.message && json.message.indexOf("{{url}}") > 0) {
+          //   json.message = json.message.replace(
+          //     "{{url}}",
+          //     config.component?.email?.templateURL || "",
+          //   );
+          // }
 
           setData(json);
           //            Object.entries(json).map(([k,v]) => {
