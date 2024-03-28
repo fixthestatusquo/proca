@@ -707,6 +707,15 @@ const EmailComponent = (props) => {
       data.mttProcessing = false;
     }
     if (props.prepareData) data = props.prepareData(data);
+
+    //add external id for prefilled widgets
+    if (config.component?.email?.replace) {
+      for (const key in config.component.email.replace) {
+        const value = config.component.email.replace[key];
+        if (data.message.includes(key))
+          data.message = data.message.replace(key, value);
+      }
+    }
     return data;
   };
 
