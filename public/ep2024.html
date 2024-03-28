@@ -120,15 +120,7 @@
             title="skip to the next action"
             onClick="proca.go()"
           >
-            ⏵
-          </button>
-          <button
-            id="btn-help"
-            title="How to embed this into your website?"
-            class="btn btn-secondary"
-            onClick="toggleHelp()"
-          >
-            ?
+            &#x23e9;
           </button>
         </div>
       </div>
@@ -156,9 +148,7 @@
           </p>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="row" id="help">
+      <div class="row">
         <div class="col">
           <div>
             <p class="proca-text [disable]consent_intro">
@@ -192,45 +182,35 @@
             </p>
             <p class="proca-text [disable]share-whatsapp">Hi, sign that!</p>
             <p class="proca-text [disable]ddd-consent-into"></p>
-            <h2>How to embed this into your website?</h2>
-
-            <div class="alert alert-primary">
-              <p>
-                For a more complete information, including how to modify the
-                social media messages, please
-                <a href="https://proca.app/guide/embedding/"
-                  >check out our guide</a
-                >
-              </p>
-              <p>
-                You simply need to copy paste in your website editor, for
-                instance wordpress. The specific instructions depends of your
-                website, check with your webmaster or search how to add "raw
-                html" + your CMS.
-              </p>
-            </div>
             <div class="row">
               <div class="col">
-                <h4>Just the action tool</h4>
-                This is the most flexible solution, you can have a full width
-                form, or manage your layout exactly the way your want.
+                <h2>How to embed this into your website?</h2>
+
+                <div class="alert alert-primary">
+                  <p>
+                    For a more complete information, including how to modify the
+                    social media messages, please
+                    <a href="https://proca.app/guide/embedding/"
+                      >check out our guide</a
+                    >
+                  </p>
+                  <p>
+                    You simply need to copy paste in your website editor, for
+                    instance wordpress. The specific instructions depends of
+                    your website, check with your webmaster or search how to add
+                    "raw html" + your CMS.
+                  </p>
+                </div>
+                <h4>Just the action form</h4>
                 <pre class="dynamic">
 &lt;script src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-supporters">they signed the pledge...&lt;/div>
           </pre
                 >
-              </div>
-              <div class="col">
-                <h4>Action tool and campaign text (two columns)</h4>
-                If you want a little help and have a widget with two columns
-                (like the example on this page), it's almost the same, but you
-                put the text you want on the left hand column as the content of
-                the widget
+                <h4>Action tool and list of supporters</h4>
+                This is for later in the campaign when you start having some
+                candidates signing and you want to display them
                 <pre class="dynamic">
 &lt;script src="https://%widget_path%">&lt;/script>
-&lt;div class="proca-widget">
-  &lt;div class="proca-description">Loading text...&lt;/div>
-&lt;/div>
 &lt;div class="proca-supporters">they signed the pledge...&lt;/div>
           </pre
                 >
@@ -249,11 +229,6 @@
               you can see an example of the widget and the steps above.
             </p>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col"></div>
-          <div></div>
         </div>
       </div>
     </div>
