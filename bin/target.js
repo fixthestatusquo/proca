@@ -261,6 +261,14 @@ const formatTarget = async (campaignName, file) => {
         t.emails = parseEmail(t.email);
         delete t.email;
       }
+      if (t.field.avatar === null) {
+        console.log("null avatar for ", t.name);
+        delete t.field.avatar;
+      }
+      if (t.field.gender === null) {
+        console.log("null gender for ", t.name);
+        delete t.field.gender;
+      }
       if (!t.field.last_name) {
         console.log("missing lastname for ", t.name, "fallback to name");
         t.field.last_name = t.field.name;
