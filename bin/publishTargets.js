@@ -2,11 +2,6 @@ const fs = require("fs");
 require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
-const argv = require("minimist")(process.argv.slice(2), {
-  boolean: ["help", "keep", "dry-run", "git", "verbose", "meps"],
-  string: ["file"],
-  default: { git: true },
-});
 
 const clean = (screenName) => screenName?.replace("@", "").toLowerCase().trim();
 
@@ -51,6 +46,9 @@ const merge = (targets, twitters, options) => {
           ".jpg";
       }
     }
+    if (options.external_id && target.externalId) {
+      r.externalId = target.externalId;
+    }
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;
     }
@@ -75,8 +73,8 @@ const merge = (targets, twitters, options) => {
       delete r.country;
     }
 
-    if (argv.fields) {
-      const extraFields = argv.fields.split(",");
+    if (options.fields) {
+      const extraFields = options.fields.split(",");
       extraFields.forEach((key) => {
         r[key] = target.fields[key] || ""; // beware, can overwrite a default field
       });
@@ -115,7 +113,7 @@ const merge = (targets, twitters, options) => {
     country: ''
   }
 */
-const saveTargets = (campaignName, targets) => {
+const saveTargets = (campaignName, targets, argv) => {
   const fileName = file("target/public/" + campaignName);
   if (argv.verbose) console.log(fileName, targets);
   if (argv["dry-run"]) return;
@@ -124,12 +122,13 @@ const saveTargets = (campaignName, targets) => {
   return fileName;
 };
 
-const publishTarget = async (campaignName) => {
+const publishTarget = async (campaignName, argv) => {
   const name = argv.file ? argv.file : campaignName;
+  /*
   const publicEmail = argv.email || false;
   const display = argv.display || false;
   const meps = argv.meps || false;
-
+*/
   try {
     read("campaign/" + name); // the config file
     let targets = read("target/server/" + campaignName); // the list of targets from proca server
@@ -150,11 +149,14 @@ const publishTarget = async (campaignName) => {
       twitters = [];
     }
 
-    const d = merge(targets, twitters || [], {
+    const d = merge(targets, twitters || [], argv);
+    /*
       email: publicEmail,
       display: display,
       meps: meps,
+      externalId: argv.external_id,
     });
+*/
     //    const d = await pullCampaign(argv[0]);
     if (d) {
       //if (argv.sort) {
@@ -163,7 +165,7 @@ const publishTarget = async (campaignName) => {
       //d.sort((a, b) => a[sort] - b[sort]);
       d.sort((a, b) => a[sort].localeCompare(b[sort]));
 
-      const c = saveTargets(name, d);
+      const c = saveTargets(name, d, argv);
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
       if (argv["dry-run"]) return;
@@ -183,6 +185,20 @@ const publishTarget = async (campaignName) => {
 };
 
 if (require.main === module) {
+  const argv = require("minimist")(process.argv.slice(2), {
+    boolean: [
+      "help",
+      "keep",
+      "dry-run",
+      "git",
+      "verbose",
+      "meps",
+      "external_id",
+    ],
+    string: ["file"],
+    default: { git: true, external_id: true },
+  });
+
   // this is run directly from the command line as in node xxx.js
   if (!argv._.length || argv.help) {
     console.log(
@@ -193,6 +209,7 @@ if (require.main === module) {
         "--email (for campaigns sending client side)",
         "--display (filters based on the display field)",
         "--source (filter the server list based on source - if the server has more targets than the source)",
+        "--[no-]external_id (adding/no external id to the list)",
         "--meps[=committeeA,committeeB] if meps, special formatting",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
         "buildTarget {campaign name}",
@@ -200,9 +217,8 @@ if (require.main === module) {
     );
     process.exit(0);
   }
-
   (async () => {
-    publishTarget(argv._[0], argv);
+    await publishTarget(argv._[0], argv);
   })();
 } else {
   module.exports = {

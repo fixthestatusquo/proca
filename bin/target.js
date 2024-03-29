@@ -42,7 +42,8 @@ const help = (exitValue) => {
         "--email (for campaigns sending client side)",
         "--display (filters based on the display field)",
         "--source (filter the server list based on source - if the server has more targets than the source)",
-        "--meps , special formatting, use the name of the party for description",
+        "--meps , special formatting, done if 'epid' is a field",
+        "--[no-]external_id , publishes the externalid",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
       ].join("\n"),
     ),
@@ -51,7 +52,7 @@ const help = (exitValue) => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  default: { git: true, salutation: true },
+  default: { git: true, salutation: true, external_id: true },
   string: ["file", "fields"],
   boolean: [
     "help",
@@ -66,6 +67,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "source",
     "salutation",
     "meps",
+    "external_id",
     "email",
   ],
   unknown: (d) => {
