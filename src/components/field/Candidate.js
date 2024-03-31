@@ -17,7 +17,7 @@ const Affiliation = (props) => {
 
   const [parties, setParties] = useState([{ party: "Select your country" }]);
   const { classField } = props.classes;
-  const dxid = get("dxid");
+  const externalId = get("uuid");
   const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
     .compare;
 
@@ -45,26 +45,25 @@ const Affiliation = (props) => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      const mep = d.find((d) => d.dxid === dxid);
-      if (mep) {
-        setValue("firstname", mep.first_name);
-        setValue("lastname", mep.last_name);
-        setValue("country", mep.constituency.country.toUpperCase());
-        setValue("party", mep.constituency.party);
-        setValue("twitter", mep.Twitter);
-        setValue("email", mep.mail);
-        setValue(
-          "picture",
-          "https://www.europarl.europa.eu/mepphoto/" + mep.epid + ".jpg",
-        );
-        //{       setValue("picture",mep.meta.
+      const candidate = d.find((d) => d.externalId === externalId);
+      if (candidate) {
+        setValue("firstname", candidate.name);
+        setValue("lastname", candidate.name);
+        setValue("country", candidate.country.toUpperCase());
+        setValue("party", candidate.description);
+        setValue("twitter", candidate.screen_name);
+        //
+        setValue("picture", candidate.profile_image_url_https);
+        setValue("twitter", candidate.screen_name);
       } else {
         console.log(d[5]);
       }
     };
-    if (!dxid) return;
-    fetchData("https://www.tttp.eu/data/meps.json");
-  }, [dxid]);
+    if (!externalId) return;
+    fetchData(
+      `https://widget.proca.app/t/${config.campaign.name.replace("candidates", "citizen")}.json`,
+    );
+  }, [externalId]);
 
   useEffect(() => {
     if (party === "") return;
