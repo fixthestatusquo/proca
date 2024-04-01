@@ -200,7 +200,8 @@
   },
   "supporter": {
     "not_you": "not you?",
-    "welcome": "Welcome back, {{firstname}}!"
+    "welcome": "Welcome back, {{firstname}}!",
+    "greeting": "Welcome {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
@@ -227,6 +228,5 @@
   },
   "unknown postcode": "unknown postcode",
   "yes": "yes",
-  "you need to be 18 years old": "you need to be 18 years old",
-  "welcome": "Welcome"
+  "you need to be 18 years old": "you need to be 18 years old"
 }

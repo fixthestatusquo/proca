@@ -91,7 +91,7 @@ const Affiliation = (props) => {
             className="supporter"
             icon={<RegisteredIcon fontSize="inherit" />}
           >
-            {t("welcome", {
+            {t("supporter.greeting", {
               defaultValue: "Welcome {{firstname}}!",
               firstname: getValues("firstname"),
             })}
