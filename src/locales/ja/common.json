@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "ようこそ{{firstname}} ！",
     "not_you": "じゃなくて？",
     "welcome": "おかえりなさい、{{firstname}}!"
   },
