@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "Sveiki atvykę į {{firstname}}!",
     "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
