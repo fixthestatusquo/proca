@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, InputAdornment, IconButton } from "@material-ui/core";
+import { Grid, InputAdornment, IconButton, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import RegisteredIcon from "@material-ui/icons/HowToReg";
 import { get } from "@lib/urlparser";
@@ -13,7 +13,7 @@ import Country from "./Country";
 const Affiliation = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const { setValue, watch, getValues } = props.form;
+  const { setValue, watch, getValues, reset } = props.form;
   const [country, party] = watch(["country", "party"]);
   const [open, setOpen] = useState(false);
 
@@ -90,6 +90,19 @@ const Affiliation = (props) => {
             severity="info"
             className="supporter"
             icon={<RegisteredIcon fontSize="inherit" />}
+            action={
+              <Button
+                onClick={() => {
+                  reset();
+                  setValue("picture", null); // !!for some reason reset does not affect picture
+                  history.replaceState(null, "", window.location.pathname);
+                }}
+                color="inherit"
+                size="small"
+              >
+                {t("supporter.not_you", "not you?")}
+              </Button>
+            }
           >
             {t("supporter.greeting", {
               defaultValue: "Welcome {{firstname}}!",
