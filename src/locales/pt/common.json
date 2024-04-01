@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "Bem-vindo {{firstname}}!",
     "not_you": "não você?",
     "welcome": "Bem-vindo de volta {{firstname}}!"
   },

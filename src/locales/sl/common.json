@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "Dobrodošli {{firstname}}!",
     "not_you": "vas ne?",
     "welcome": "Dobrodošli nazaj {{firstname}}!"
   },

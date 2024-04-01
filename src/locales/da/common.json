@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "Velkommen {{firstname}}!",
     "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
