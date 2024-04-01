@@ -200,7 +200,8 @@
   },
   "supporter": {
     "not_you": "not you?",
-    "welcome": "Welcome back, {{firstname}}!"
+    "welcome": "Welcome back, {{firstname}}!",
+    "greeting": "Welcome {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {

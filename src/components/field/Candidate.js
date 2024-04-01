@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import RegisteredIcon from "@material-ui/icons/HowToReg";
 import { get } from "@lib/urlparser";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
@@ -11,13 +13,13 @@ import Country from "./Country";
 const Affiliation = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const { setValue, watch } = props.form;
+  const { setValue, watch, getValues } = props.form;
   const [country, party] = watch(["country", "party"]);
   const [open, setOpen] = useState(false);
 
   const [parties, setParties] = useState([{ party: "Select your country" }]);
   const { classField } = props.classes;
-  const dxid = get("dxid");
+  const externalId = get("uuid");
   const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
     .compare;
 
@@ -45,26 +47,24 @@ const Affiliation = (props) => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      const mep = d.find((d) => d.dxid === dxid);
-      if (mep) {
-        setValue("firstname", mep.first_name);
-        setValue("lastname", mep.last_name);
-        setValue("country", mep.constituency.country.toUpperCase());
-        setValue("party", mep.constituency.party);
-        setValue("twitter", mep.Twitter);
-        setValue("email", mep.mail);
-        setValue(
-          "picture",
-          "https://www.europarl.europa.eu/mepphoto/" + mep.epid + ".jpg",
-        );
-        //{       setValue("picture",mep.meta.
+      const candidate = d.find((d) => d.externalId === externalId);
+      if (candidate) {
+        setValue("firstname", candidate.first_name);
+        setValue("lastname", candidate.last_name);
+        setValue("country", candidate.country.toUpperCase());
+        setValue("party", candidate.description);
+        setValue("twitter", candidate.screen_name);
+        setValue("picture", candidate.profile_image_url_https);
+        setValue("twitter", candidate.screen_name);
       } else {
         console.log(d[5]);
       }
     };
-    if (!dxid) return;
-    fetchData("https://www.tttp.eu/data/meps.json");
-  }, [dxid]);
+    if (!externalId) return;
+    fetchData(
+      `https://widget.proca.app/t/${config.campaign.name.replace("candidates", "citizen")}.json`,
+    );
+  }, [externalId]);
 
   useEffect(() => {
     if (party === "") return;
@@ -84,6 +84,20 @@ const Affiliation = (props) => {
 
   return (
     <>
+      {externalId && (
+        <Grid item xs={12}>
+          <Alert
+            severity="info"
+            className="supporter"
+            icon={<RegisteredIcon fontSize="inherit" />}
+          >
+            {t("supporter.greeting", {
+              defaultValue: "Welcome {{firstname}}!",
+              firstname: getValues("firstname"),
+            })}
+          </Alert>
+        </Grid>
+      )}
       <Grid item xs={12}>
         <Country form={props.form} required />
       </Grid>
