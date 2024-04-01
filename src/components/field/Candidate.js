@@ -49,12 +49,11 @@ const Affiliation = (props) => {
       const d = await res.json();
       const candidate = d.find((d) => d.externalId === externalId);
       if (candidate) {
-        setValue("firstname", candidate.name);
-        setValue("lastname", candidate.name);
+        setValue("firstname", candidate.first_name);
+        setValue("lastname", candidate.last_name);
         setValue("country", candidate.country.toUpperCase());
         setValue("party", candidate.description);
         setValue("twitter", candidate.screen_name);
-        //
         setValue("picture", candidate.profile_image_url_https);
         setValue("twitter", candidate.screen_name);
       } else {
@@ -92,8 +91,8 @@ const Affiliation = (props) => {
             className="supporter"
             icon={<RegisteredIcon fontSize="inherit" />}
           >
-            {t("supporter.welcome", {
-              defaultValue: "Welcome back {{firstname}}!",
+            {t("welcome", {
+              defaultValue: "Welcome {{firstname}}!",
               firstname: getValues("firstname"),
             })}
           </Alert>
