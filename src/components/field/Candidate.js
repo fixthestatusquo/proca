@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import RegisteredIcon from "@material-ui/icons/HowToReg";
 import { get } from "@lib/urlparser";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
@@ -11,7 +13,7 @@ import Country from "./Country";
 const Affiliation = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const { setValue, watch } = props.form;
+  const { setValue, watch, getValues } = props.form;
   const [country, party] = watch(["country", "party"]);
   const [open, setOpen] = useState(false);
 
@@ -83,6 +85,20 @@ const Affiliation = (props) => {
 
   return (
     <>
+      {externalId && (
+        <Grid item xs={12}>
+          <Alert
+            severity="info"
+            className="supporter"
+            icon={<RegisteredIcon fontSize="inherit" />}
+          >
+            {t("supporter.welcome", {
+              defaultValue: "Welcome back {{firstname}}!",
+              firstname: getValues("firstname"),
+            })}
+          </Alert>
+        </Grid>
+      )}
       <Grid item xs={12}>
         <Country form={props.form} required />
       </Grid>
