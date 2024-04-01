@@ -194,6 +194,7 @@
     }
   },
   "supporter": {
+    "greeting": "Tere tulemast {{firstname}}!",
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
