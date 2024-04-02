@@ -194,7 +194,7 @@
     }
   },
   "supporter": {
-    "greeting": "¡Bienvenido {{firstname}}!",
+    "greeting": "¡Bienvenid@ {{firstname}}!",
     "not_you": "¿No es usted?",
     "welcome": "¡Bienvenido de nuevo {{firstname}}!"
   },
@@ -219,7 +219,7 @@
     "choice": "¿Qué le gustaría hacer a continuación?",
     "instruction": "Por favor, complete el envío del tweet en la nueva ventana (en twitter.com)",
     "organisation": "La cuenta de Twitter de su organización",
-    "screenName": "Cuenta Twitter"
+    "screenName": "Cuenta de Twitter"
   },
   "unknown postcode": "código postal desconocido",
   "yes": "sí",
