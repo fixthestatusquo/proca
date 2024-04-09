@@ -41,7 +41,7 @@ const help = () => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  string: ["mjml"],
+  string: ["mjml", "lang"],
   boolean: [
     "help",
     "dry-run",

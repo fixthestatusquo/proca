@@ -12,7 +12,7 @@
             "privacy": "Vous pouvez trouver plus d'informations sur notre politique de confidentialité et sur le traitement de vos données",
             "unsubscribe": "Si vous ne souhaitez plus recevoir d'informations de notre part à l'avenir, vous pourrez annuler votre inscription à tout moment",
             "signature": "Cordialement,\n\n{{org.title}}",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
             "duplicate": "Nous vous remercions pour votre engagement et votre dévouement à notre cause ! Cependant, dans le cadre de notre engagement à maintenir l'authenticité et la crédibilité, nous devons supprimer les signatures en double et il semble que vous (ou quelqu'un utilisant {{email}}) ayez déjà pris cette mesure.  Soyez assuré que votre signature initiale a été prise en compte et a contribué à notre campagne.\nVotre soutien a été inestimable et nous aimerions vous encourager à faire un pas supplémentaire pour amplifier votre impact. N'hésitez pas à contacter vos amis et votre famille pour les inciter à agir eux aussi, en utilisant leur propre adresse électronique. De cette manière, nous pourrons faire grandir notre mouvement et créer une voix collective encore plus forte pour le changement que nous recherchons.\nUne fois de plus, nous vous remercions sincèrement pour votre soutien et votre dévouement à cette campagne. Ensemble, nous pouvons avoir un impact durable !",
             "share_on": "Partager sur"
         },
