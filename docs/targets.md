@@ -27,7 +27,7 @@ there are various options (run with --help). it creates or update the list under
 
 now you need to generate the list of targets as it will be used by the widget (tip: it can be a subset of the list of targets on the server, eg you can generate one list without the far right and one with them, and have different lists for different widgets.
 
-    node bin/target.js {campaign} --deploy
+    node bin/target.js {campaign} --publish
 
 there are various options (run with --help). it creates or update the list under config/target/public/{campaign}.json
 
@@ -37,7 +37,7 @@ the last command push to github AND triggers the git pull on our server so the u
 
 you can combine all the options, so
 
-    node bin/target.js {campaign} --push --pull --deploy
+    node bin/target.js {campaign} --push --pull --publish
 
 ## Defining the targets
 
@@ -65,9 +65,6 @@ emailStatus can be one of:
 - `blocked`- cannot send
 - `spam`- cannot send
 - `unsub`- email was unsubscribed
-
-you can fetch it with bin/pullTarget.js {campaign name}
-and push it with bin/target.js {campaign name} --push
 
 @marcin, can you complete/confirm:
 
