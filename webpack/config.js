@@ -45,6 +45,9 @@ function readConfigOverride(id) {
         if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal;
         }
+        if (!config.import || config.import.length === 0) {
+          config.import = campaignConfig.config.import;
+        }
         if (!config.journey || config.journey.length === 0) {
           config.journey = campaignConfig.config.journey || [
             "Petition",
@@ -70,6 +73,8 @@ function readConfigOverride(id) {
           campaignConfig.config.locales[config.lang] &&
           campaignConfig.config.locales[config.lang]["letter:"]
         ) {
+          console.log("IT SHOULD NOT HAPPEN");
+          process.exit(1);
           config.locales = merge(
             {
               "letter:": campaignConfig.config.locales[config.lang]["letter:"],
@@ -116,7 +121,7 @@ function readConfigOverride(id) {
       }
       config.locale = config.lang;
       config.lang = config.lang.substring(0, 2).toLowerCase();
-      if (process.env.debug || process.env.DEBUG) {
+      if (process.env.DEBUG && process.env.DEBUG === "CONFIG") {
         console.log(JSON.stringify(config, null, 2));
         process.exit(1);
       }

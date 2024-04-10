@@ -4,6 +4,7 @@
 import Petition from "@component/Petition";
 const steps = {};
 const portals = {};
+const imports = {};
 // things the builder need to do
 steps.Petition = Petition;
 
@@ -13,7 +14,8 @@ const config = {
   campaign: {},
   component: {},
   portals: [],
+  imports: [],
 };
-export { config, portals, steps };
+export { config, portals, steps, imports };
 
 alert("src/actionpage.js should be overwritten by the builder");

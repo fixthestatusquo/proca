@@ -24,8 +24,7 @@ module.exports = (id) => {
 
   const code = createCode(filename, config);
 
-  if (process.env["SHOW_ACTIONPAGE_CODE"]) {
-    console.debug(`===== The code generated for actionPage.js:`);
+  if (process.env["DEBUG"] && process.env["DEBUG"] === "CODE") {
     console.debug(code);
     process.exit(1);
   }
@@ -37,11 +36,13 @@ function createCode(filename, config) {
   const nl = "\n";
   let steps = [];
   let portals = [];
+  let imports = [];
+  const components = new Set();
 
   if (config.journey) {
     if (!(config.journey instanceof Array)) {
       throw new Error(
-        `config.journey should be an array!, is: ${config.journey}`
+        `config.journey should be an array!, is: ${config.journey}`,
       );
     }
 
@@ -53,7 +54,7 @@ function createCode(filename, config) {
   if (config.portal) {
     if (!(config.portal instanceof Array)) {
       throw new Error(
-        `config.portal should be an array!, is: ${config.portal}`
+        `config.portal should be an array!, is: ${config.portal}`,
       );
     }
     config.portal.forEach((p) => {
@@ -62,8 +63,21 @@ function createCode(filename, config) {
       portals.push(c);
     });
   }
+  console.log("import", config.import);
+  if (config.import) {
+    if (!(config.import instanceof Array)) {
+      throw new Error(
+        `config.component should be an array!, is: ${config.component}`,
+      );
+    }
+    config.import.forEach((p) => {
+      let c = p.component ? p.component : p;
+      c = stepToFilename(c);
+      imports.push(c);
+      components.add(c);
+    });
+  }
 
-  const components = new Set();
   for (const x of steps) {
     components.add(x);
   }
@@ -86,6 +100,13 @@ function createCode(filename, config) {
   src += `export const config = ` + JSON.stringify(config) + nl;
   src +=
     `export const steps = {${steps
+      .filter(unique)
+      .map(componentFilenameToModulename)
+      .join(",")}}` +
+    nl +
+    nl;
+  src +=
+    `export const imports = {${imports
       .filter(unique)
       .map(componentFilenameToModulename)
       .join(",")}}` +
