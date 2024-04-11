@@ -63,7 +63,6 @@ function createCode(filename, config) {
       portals.push(c);
     });
   }
-  console.log("import", config.import);
   if (config.import) {
     if (!(config.import instanceof Array)) {
       throw new Error(

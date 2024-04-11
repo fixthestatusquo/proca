@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import CountryFlag, { flag as emoji } from "react-emoji-flag";
 //import { getCountryName } from "@lib/i18n";
+import { imports } from "../../../actionPage";
 
 const useStyles = makeStyles({
   container: {
@@ -31,6 +32,7 @@ const ListSignatories = () => {
   //const countries = new Set();
   const [data, setData] = useState([]);
   const config = useCampaignConfig();
+  let Party = () => null;
   const classes = useStyles();
   const form = useForm({
     mode: "onBlur",
@@ -82,9 +84,28 @@ const ListSignatories = () => {
   if (filtered.length === 0) {
     filtered = data;
   }
+
+  const filterCountry = (d) => d.area === country;
+
+  const selecting = (filter) => {
+    const d = filter(data);
+    console.log(d?.length);
+    //      if (Array.isArray(d))
+    //        setProfiles (d);
+  };
+
+  if (imports.filter_Party) {
+    Party = imports.filter_Party;
+  }
   return (
     <div id="proca-signature">
       <Country form={form} name="supporter_country" />
+      <Party
+        selecting={selecting}
+        country={country}
+        getKey={(d) => d.field.party}
+        filterCountry={filterCountry}
+      />
       <List dense={true} disablePadding={true} className={classes.container}>
         {filtered.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>

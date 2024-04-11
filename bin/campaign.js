@@ -91,20 +91,24 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
       orgName: campaign.org.name,
       name: campaign.name,
       title: campaign.title,
-      //          externalId: campaign.externalId,
+      externalId: campaign.externalId,
       config: JSON.stringify(campaign.config),
     });
+    const variables = {
+      orgName: campaign.org.name,
+      name: campaign.name,
+      title: campaign.title,
+      //          externalId: campaign.externalId,
+      config: JSON.stringify(campaign.config),
+    };
+    if (campaign.externalId) {
+      variables.externalId = campaign.externalId;
+    }
     const res = await fetch(API_URL, {
       method: "POST",
       body: JSON.stringify({
         query: query,
-        variables: {
-          orgName: campaign.org.name,
-          name: campaign.name,
-          title: campaign.title,
-          //          externalId: campaign.externalId,
-          config: JSON.stringify(campaign.config),
-        },
+        variables: variables,
         operationName: "updateCampaign",
       }),
       headers: headers,

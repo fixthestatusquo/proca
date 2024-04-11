@@ -19,9 +19,9 @@ import Alert from "@material-ui/lab/Alert";
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
+import Filter from "@components/filter/Filter";
 
 import Country from "@components/field/Country";
-import Postcode from "@components/field/Postcode";
 
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
@@ -46,94 +46,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Filter = (props) => {
-  const { t } = useTranslation();
-  const config = useCampaignConfig();
-  let r = null;
-  if (
-    config.component.email?.filter?.includes("country") &&
-    typeof config.component.country !== "string"
-  ) {
-    r = <Country form={props.form} list={config.component.email?.countries} />;
-  }
-
-  if (config.component.email?.filter?.includes("postcode")) {
-    r = (
-      <>
-        <Postcode form={props.form} width={12} search={true} />
-        {!props.form.getValues("postcode") && (
-          <Alert severity="info">{t("target.postcode.undefined")}</Alert>
-        )}
-        <input type="hidden" {...props.form.register("area")} />
-        <input type="hidden" {...props.form.register("constituency")} />
-      </>
-    );
-  }
-  if (
-    config.component.email?.filter?.includes("multilingual") &&
-    props.country
-  ) {
-    //    const ml = mainLanguage(props.country, false);
-    if (props.languages.length > 1) {
-      const names = config.component?.email?.locale || [];
-      r = (
-        <TextField
-          select
-          name="language"
-          label={t("Language")}
-          form={props.form}
-          onChange={(e) => {
-            props.filterLocale(e.target.value);
-          }}
-          SelectProps={{
-            native: true,
-          }}
-        >
-          {!props.languages.includes(config.locale) && (
-            <option key="" value=""></option>
-          )}
-          {props.languages.map((option) => (
-            <option key={option} value={option}>
-              {names[option] || option}
-            </option>
-          ))}
-        </TextField>
-      );
-    }
-  }
-  if (Array.isArray(config.component.email?.filter)) {
-    config.component.email.filter.forEach((d) => {
-      const data =
-        config.component.email?.data && config.component.email?.data[d];
-      if (!data) return null;
-
-      r = (
-        <TextField
-          select
-          name={d}
-          label={/* i18next-extract-disable-line */ t(d)}
-          form={props.form}
-          onChange={(e) => {
-            props.selecting(d, e.target.value);
-          }}
-          SelectProps={{
-            native: true,
-          }}
-        >
-          <option key="" value=""></option>
-
-          {data.map((option) => (
-            <option key={option.key} value={option.key}>
-              {option.value}
-            </option>
-          ))}
-        </TextField>
-      );
-    });
-  }
-  return r;
-};
-
 const EmailComponent = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
@@ -144,6 +56,7 @@ const EmailComponent = (props) => {
   );
 
   const setSelection = (selection) => {
+    console.log("selection", selection);
     _setSelection(selection);
   };
   const selectAll = () => {
@@ -729,29 +642,50 @@ const EmailComponent = (props) => {
     return filtered;
   };
 
-  const filterTarget = (key, value) => {
-    const d = allProfiles.filter((d) => {
-      return d.fields[key] === value;
-    });
-
-    if (d.length === 0) {
-      setError(key, {
-        message: t("target.country.empty", {
-          country: value,
-        }),
-        type: "no_empty",
+  const filterTarget = useCallback(
+    (key, value) => {
+      //const filterTarget = (key, value) => {
+      if (typeof key === "function") {
+        const d = key(allProfiles);
+        if (Array.isArray(d)) {
+          //        setProfiles (d);
+          console.log(d.length);
+        }
+        return;
+      }
+      const d = allProfiles.filter((d) => {
+        return d.fields[key] === value;
       });
-    } else {
-      clearErrors(key);
-    }
-    setProfiles(d);
-  };
+
+      if (d.length === 0) {
+        setError(key, {
+          message: t("target.country.empty", {
+            country: value,
+          }),
+          type: "no_empty",
+        });
+      } else {
+        clearErrors(key);
+      }
+      setProfiles(d);
+    },
+    [allProfiles, setError],
+  );
+  //};
 
   if (selection.length === 0 && profiles.length === 1) {
     // if only one, select it. needs to be put in an useEffect?
     selectAll();
   }
 
+  console.log(
+    "country",
+    country,
+    "constituency",
+    constituency,
+    "languages",
+    languages,
+  );
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
@@ -762,8 +696,8 @@ const EmailComponent = (props) => {
         selecting={filterTarget}
         country={country}
         constituency={constituency}
-        filterLocale={filterLocale}
         languages={languages}
+        filterLocale={filterLocale}
       />
       {selection && (
         <>
