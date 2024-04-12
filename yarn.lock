@@ -5361,10 +5361,10 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-phoenix@^1.5.5, phoenix@^1.7.10:
-  version "1.7.10"
-  resolved "https://registry.npmjs.org/phoenix/-/phoenix-1.7.10.tgz"
-  integrity sha512-akfr/QvLPFRB8sORyc8FQFY/YoGwjWhka/YRcu45sKlBOZHvA80EkLYBUsYlW63UicxgrXABZdrjDkv54LTE+g==
+phoenix@^1.5.5, phoenix@^1.7.12:
+  version "1.7.12"
+  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.7.12.tgz#281bafe850fce1116a480371d3038af4d48db50d"
+  integrity sha512-jo8sK7mVYTFSa5FITmL/1lAbARIJMcEMJrMPZtUdss1zE37VZBnCowpakH8sEzH0ezs+hIaXSyYPCwlzrvph+g==
 
 picocolors@^1.0.0:
   version "1.0.0"
