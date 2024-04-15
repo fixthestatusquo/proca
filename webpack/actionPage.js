@@ -118,6 +118,8 @@ function createCode(filename, config) {
       .join(",")}}` +
     nl +
     nl;
+  //  src += `config.imports = imports; ` + nl;
+  //  src += `export  { portals, steps}; ` + nl;
 
   return src;
 }
