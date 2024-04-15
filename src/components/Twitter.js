@@ -36,7 +36,13 @@ const useStyles = makeStyles((theme) => ({
 const Intro = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  if (!config.component.twitter?.filter?.includes("random")) return null;
+  console.log(config.component.twitter);
+  if (
+    config.component.twitter &&
+    config.component.twitter.filter &&
+    !config.component.twitter.filter.includes("random")
+  )
+    return null;
   if (props.total === 0) {
     return <p>Selecting your target...</p>;
   }
@@ -317,12 +323,12 @@ const Component = (props) => {
     viewDialog(false);
   };
 
+  console.log("filter", props.country, config.component.twitter?.filter);
   const FirstStep = (props) => {
     return (
       <>
         <PreviousStepConfirm email={config.component.consent?.email} />
-        {(props.country !== false ||
-          config.component.twitter?.filter?.includes("country")) && (
+        {config.component.twitter?.filter?.includes("country") && (
           <Country form={form} list={config.component?.twitter?.countries} />
         )}
         <Intro total={allProfiles.length} handleClick={filterRandomProfile} />
