@@ -59,7 +59,6 @@ const Widget = (props) => {
         .map((d) => ".proca-" + d)
         .join(", ");
       let r = document.querySelectorAll(otherSteps);
-      console.log("hide", otherSteps, r);
       for (let j = 0; j < r.length; j++) {
         r[j].style.display = "none";
       }
