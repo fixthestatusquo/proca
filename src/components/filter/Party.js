@@ -96,13 +96,20 @@ const PartyFilter = (props) => {
         selected: !prevParties[name].selected,
       },
     }));
+    props.selecting(() => ({
+      filter: "description",
+      key: name,
+      value: !parties[name].selected,
+      reset: false,
+    }));
   };
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (!parties) return;
     console.log("filtering", Object.keys(parties).length);
     props.selecting(filter);
   }, [parties]);
+*/
 
   useEffect(() => {
     if (props.getKey) {
@@ -121,13 +128,13 @@ const PartyFilter = (props) => {
             key={name}
             badgeContent={party.count}
             color="default"
+            overlap="rectangular"
             className={classes.badge}
             invisible={party.count < 2}
           >
             <Chip
               label={name}
               clickable
-              className
               color={party.selected ? "primary" : "default"}
               onClick={() => toggle(name)}
               onDelete={() => toggle(name)}

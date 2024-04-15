@@ -14,14 +14,13 @@ import {
   FormHelperText,
   FormControl,
 } from "@material-ui/core";
+
 import Alert from "@material-ui/lab/Alert";
 
 import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import Filter from "@components/filter/Filter";
-
-import Country from "@components/field/Country";
 
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
@@ -56,7 +55,6 @@ const EmailComponent = (props) => {
   );
 
   const setSelection = (selection) => {
-    console.log("selection", selection);
     _setSelection(selection);
   };
   const selectAll = () => {
@@ -647,9 +645,42 @@ const EmailComponent = (props) => {
       //const filterTarget = (key, value) => {
       if (typeof key === "function") {
         const d = key(allProfiles);
+        console.log("filtering", d);
+        if (typeof d === "object" && d.filter === "description") {
+          _setSelection((prev) => {
+            let selection = null;
+            if (d.value) {
+              // adding targets with description
+              selection = [...prev];
+              profiles
+                .filter((target) => target.description === d.key)
+                .forEach((d) => {
+                  if (selection.includes(d.procaid)) return;
+                  selection.push(d.procaid);
+                });
+              console.log(selection);
+            } else {
+              selection = prev.filter((target) => target.description !== d.key);
+              console.log(selection);
+            }
+            return selection;
+          });
+        }
         if (Array.isArray(d)) {
           //        setProfiles (d);
-          console.log(d.length);
+          _setSelection((prev) => {
+            const selection = [...prev];
+            console.log(prev);
+            //return prev; debug
+            const index = 0;
+            //      select(index === -1);
+            if (index > -1) {
+              selection.splice(index, 1);
+            } else {
+              selection.push(key);
+            }
+            return selection;
+          });
         }
         return;
       }

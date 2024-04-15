@@ -3,16 +3,19 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/field/Country";
 import Alert from "@material-ui/lab/Alert";
-//import Postcode from "@components/field/Postcode";
-import { imports } from "../../actionPage";
+
 import Postcode from "@components/field/Postcode";
 import TextField from "@components/TextField";
+//import { imports } from "../../actionPage";
+import { imports } from "../../actionPage";
 
 const Filter = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   let r = [];
-  if (
+
+  /*  if (
+    //done
     config.component.email?.filter?.includes("country") &&
     typeof config.component.country !== "string"
   ) {
@@ -20,7 +23,6 @@ const Filter = (props) => {
       <Country form={props.form} list={config.component.email?.countries} />
     ));
   }
-
   if (config.component.email?.filter?.includes("postcode")) {
     r.push(() => (
       <>
@@ -33,11 +35,14 @@ const Filter = (props) => {
       </>
     ));
   }
+*/
 
-  if (imports.filter_Party) {
+  const PartyFilter = imports.filter_Party ? imports.filter_Party : () => null;
+  /*if (imports.filter_Party) { //done
     const FilterParty = imports.filter_Party;
-    r.push(() => <FilterParty {...props} />);
-  }
+    //r.push(() => <FilterParty {...props} />);
+    r.push(() => <FilterParty country={props.country} selecting={props.selecting}/>);
+  }*/
   if (
     config.component.email?.filter?.includes("multilingual") &&
     props.country
@@ -100,11 +105,24 @@ const Filter = (props) => {
       ));
     });
   }
+  //return (<PartyFilter country={props.country} selecting={props.selecting}/>);
   return (
     <>
-      {r.map((C, index) => (
-        <C key={index} />
-      ))}
+      {config.component.email?.filter?.includes("country") &&
+        typeof config.component.country !== "string" && (
+          <Country form={props.form} list={config.component.email?.countries} />
+        )}
+      {config.component.email?.filter?.includes("postcode") && (
+        <>
+          <Postcode form={props.form} width={12} search={true} />
+          {!props.form.getValues("postcode") && (
+            <Alert severity="info">{t("target.postcode.undefined")}</Alert>
+          )}
+          <input type="hidden" {...props.form.register("area")} />
+          <input type="hidden" {...props.form.register("constituency")} />
+        </>
+      )}
+      <PartyFilter country={props.country} selecting={props.selecting} />
     </>
   );
 };
