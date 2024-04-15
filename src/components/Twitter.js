@@ -111,7 +111,6 @@ const Component = (props) => {
   const [dialog, viewDialog] = useState(false);
   let hash = data.hash || config.component.twitter?.hash;
   const sampleSize = config.component.twitter?.sample || 1;
-
   const form = useForm({
     defaultValues: {
       ...data,
@@ -132,27 +131,27 @@ const Component = (props) => {
       "?url=" +
       encodeURIComponent(document.location.origin + document.location.pathname);
   } else {
-    if (!actionUrl && config.component.twitter.actionUrl !== false) {
+    if (!actionUrl && config.component.twitter?.actionUrl !== false) {
       actionUrl = window.location;
     }
   }
 
   const setMessage = useCallback(
     (profile) => {
-      if (config.component.twitter.multilingual && profile[0].locale) {
+      if (config.component.twitter?.multilingual && profile[0].locale) {
         const locale = profile[0].locale;
         const source =
-          (config.component.twitter.data &&
+          (config.component.twitter?.data &&
             data[config.component.twitter.data][locale]) ||
           {};
         const msg = get(
           source,
-          config.component.twitter.key || "campaign:twitter.message"
+          config.component.twitter?.key || "campaign:twitter.message",
         );
         if (msg) {
           setValue(
             "message",
-            tokenize(pickOne(msg), { profile: profile, url: actionUrl })
+            tokenize(pickOne(msg), { profile: profile, url: actionUrl }),
           );
           return;
         }
@@ -162,7 +161,7 @@ const Component = (props) => {
             tokenize(pickOne(data.twitter), {
               profile: profile,
               url: actionUrl,
-            })
+            }),
           );
           return;
         }
@@ -172,20 +171,20 @@ const Component = (props) => {
         tokenize(
           pickOne(
             data.twitter ||
-              t(["campaign:twitter.message", "campaign:share.twitter"])
+              t(["campaign:twitter.message", "campaign:share.twitter"]),
           ),
-          { profile: profile, url: actionUrl }
-        )
+          { profile: profile, url: actionUrl },
+        ),
       );
     },
     [
-      config.component.twitter.data,
-      config.component.twitter.key,
-      config.component.twitter.multilingual,
+      config.component.twitter?.data,
+      config.component.twitter?.key,
+      config.component.twitter?.multilingual,
       data,
       setValue,
       t,
-    ]
+    ],
   );
 
   const filterRandomProfile = useCallback(() => {
@@ -196,7 +195,9 @@ const Component = (props) => {
     });
   }, [allProfiles, setMessage]);
 
-  const randomize = config.component.twitter?.filter?.includes("random");
+  const randomize = config.component.twitter?.filter
+    ? config.component.twitter?.filter?.includes("random")
+    : true;
   useEffect(() => {
     if (!randomize) return;
     if (allProfiles.length < 2) return;
@@ -235,7 +236,7 @@ const Component = (props) => {
             config.hook["twitter:load"](targets);
           }
           let d = targets.filter(
-            (c) => c.screen_name && c.screen_name.length > 0
+            (c) => c.screen_name && c.screen_name.length > 0,
           );
           d.forEach((c) => {
             if (c.country) c.country = c.country.toLowerCase();
@@ -256,7 +257,7 @@ const Component = (props) => {
     };
     if (data.targets) {
       let d = data.targets.filter(
-        (c) => c.screen_name && c.screen_name.length > 0
+        (c) => c.screen_name && c.screen_name.length > 0,
       );
       setAllProfiles(d);
       //      filterRandom(d);
@@ -289,7 +290,7 @@ const Component = (props) => {
       console.warn("do we filter profile?", profiles.length);
       //setProfiles(profiles);
     },
-    [allProfiles]
+    [allProfiles],
   );
 
   useEffect(() => {
@@ -385,7 +386,7 @@ const Component = (props) => {
         <ProcaAlert severity="info">
           {t(
             "twitter.instruction",
-            "Please complete sending the tweet in the new window (on twitter.com)"
+            "Please complete sending the tweet in the new window (on twitter.com)",
           )}
         </ProcaAlert>
       </>
