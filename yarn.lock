@@ -75,7 +75,11 @@
 
 "@babel/compat-data@^7.22.6", "@babel/compat-data@^7.23.5", "@babel/compat-data@^7.24.4":
   version "7.24.4"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.24.4.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.24.4.tgz#6f102372e9094f25d908ca0d34fc74c74606059a"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-vg8Gih2MLK+kOkHJp4gBEIkyaIi00jgWot2D9QOmmfLC8jINSOzmCLta6Bvz/JSBCqnegV0L80jhxkol5GWNfQ==
 
 "@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.0.0-0 || ^8.0.0-0 <8.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.0", "@babel/core@^7.23.3", "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0":
@@ -137,6 +141,21 @@
 "@babel/helper-create-class-features-plugin@^7.24.1", "@babel/helper-create-class-features-plugin@^7.24.4":
   version "7.24.4"
   resolved "https://registry.npmjs.org/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.24.4.tgz"
+  integrity sha512-lG75yeuUSVu0pIcbhiYMXBXANHrpUPaOfu7ryAzskCgKUHuAxRQI5ssrtmF0X9UXldPlvT0XM/A4F44OXRt6iQ==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.22.5"
+    "@babel/helper-environment-visitor" "^7.22.20"
+    "@babel/helper-function-name" "^7.23.0"
+    "@babel/helper-member-expression-to-functions" "^7.23.0"
+    "@babel/helper-optimise-call-expression" "^7.22.5"
+    "@babel/helper-replace-supers" "^7.24.1"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.22.5"
+    "@babel/helper-split-export-declaration" "^7.22.6"
+    semver "^6.3.1"
+
+"@babel/helper-create-class-features-plugin@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.24.4.tgz#c806f73788a6800a5cfbbc04d2df7ee4d927cce3"
   integrity sha512-lG75yeuUSVu0pIcbhiYMXBXANHrpUPaOfu7ryAzskCgKUHuAxRQI5ssrtmF0X9UXldPlvT0XM/A4F44OXRt6iQ==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.22.5"
@@ -328,6 +347,14 @@
 "@babel/plugin-bugfix-firefox-class-in-computed-class-key@^7.24.4":
   version "7.24.4"
   resolved "https://registry.npmjs.org/@babel/plugin-bugfix-firefox-class-in-computed-class-key/-/plugin-bugfix-firefox-class-in-computed-class-key-7.24.4.tgz"
+  integrity sha512-qpl6vOOEEzTLLcsuqYYo8yDtrTocmu2xkGvgNebvPjT9DTtfFYGmgDqY+rBYXNlqL4s9qLDn6xkrJv4RxAPiTA==
+  dependencies:
+    "@babel/helper-environment-visitor" "^7.22.20"
+    "@babel/helper-plugin-utils" "^7.24.0"
+
+"@babel/plugin-bugfix-firefox-class-in-computed-class-key@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-bugfix-firefox-class-in-computed-class-key/-/plugin-bugfix-firefox-class-in-computed-class-key-7.24.4.tgz#6125f0158543fb4edf1c22f322f3db67f21cb3e1"
   integrity sha512-qpl6vOOEEzTLLcsuqYYo8yDtrTocmu2xkGvgNebvPjT9DTtfFYGmgDqY+rBYXNlqL4s9qLDn6xkrJv4RxAPiTA==
   dependencies:
     "@babel/helper-environment-visitor" "^7.22.20"
@@ -531,7 +558,11 @@
 
 "@babel/plugin-transform-block-scoping@^7.24.4":
   version "7.24.4"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.24.4.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.24.4.tgz#28f5c010b66fbb8ccdeef853bef1935c434d7012"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-nIFUZIpGKDf9O9ttyRXpHFpKC+X3Y5mtshZONuEUYBomAKoM4y029Jr+uB1bHGPhNmK8YXHevDtKDOLmtRrp6g==
   dependencies:
     "@babel/helper-plugin-utils" "^7.24.0"
@@ -546,7 +577,11 @@
 
 "@babel/plugin-transform-class-static-block@^7.24.4":
   version "7.24.4"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@babel/plugin-transform-class-static-block/-/plugin-transform-class-static-block-7.24.4.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-class-static-block/-/plugin-transform-class-static-block-7.24.4.tgz#1a4653c0cf8ac46441ec406dece6e9bc590356a4"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-B8q7Pz870Hz/q9UgP8InNpY01CSLDSCyqX7zcRuv3FcPl87A2G17lASroHWaCtbdIcbYzOZ7kWmXFKbijMSmFg==
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.24.4"
@@ -894,9 +929,15 @@
     "@babel/helper-create-regexp-features-plugin" "^7.22.15"
     "@babel/helper-plugin-utils" "^7.24.0"
 
+<<<<<<< HEAD
 "@babel/preset-env@^7.24.3":
   version "7.24.4"
   resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.24.4.tgz"
+=======
+"@babel/preset-env@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.24.4.tgz#46dbbcd608771373b88f956ffb67d471dce0d23b"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-7Kl6cSmYkak0FK/FXjSEnLJ1N9T/WA2RkMhu17gZ/dsxKJUuTYNIylahPTzqpLyJN4WhDif8X0XK1R8Wsguo/A==
   dependencies:
     "@babel/compat-data" "^7.24.4"
@@ -1442,9 +1483,15 @@
   resolved "https://registry.npmjs.org/@shopify/react-intersection-observer/-/react-intersection-observer-4.0.4.tgz"
   integrity sha512-n+NSC3sUsbKQN5jj1b+UeQPG1zPOtsJ5sSFXN7/heLSHtt2mGsYDmeQ3ojjpvkFOuDGz1ZmKGvUFNEJLEWlV+w==
 
+<<<<<<< HEAD
 "@stripe/react-stripe-js@^2.6.2":
   version "2.7.0"
   resolved "https://registry.npmjs.org/@stripe/react-stripe-js/-/react-stripe-js-2.7.0.tgz"
+=======
+"@stripe/react-stripe-js@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.7.0.tgz#9b01ac0f191dc5d54fa845a98a8f0a6398aafc4b"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-kTkIZl2ZleBuDR9c6fDy/s4m33llII8a5al6BDAMSTrfVq/4gSZv3RBO5KS/xvnxS+fDapJ3bKvjD8Lqj+AKdQ==
   dependencies:
     prop-types "^15.7.2"
@@ -1456,25 +1503,40 @@
 
 "@supabase/auth-js@2.63.0":
   version "2.63.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@supabase/auth-js/-/auth-js-2.63.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.63.0.tgz#41ff746a50a916208c1f2c6898deacf92c6d0b91"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-yIgcHnlgv24GxHtVGUhwGqAFDyJkPIC/xjx7HostN08A8yCy8HIfl4JEkTKyBqD1v1L05jNEJOUke4Lf4O1+Qg==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
 "@supabase/functions-js@2.2.2":
   version "2.2.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@supabase/functions-js/-/functions-js-2.2.2.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@supabase/functions-js/-/functions-js-2.2.2.tgz#53a22d9f1fc770d96c9ad8c9dba5eda339b305f5"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-sJGq1nludmi7pY/fdtCpyY/pYonx7MfHdN408bqb736guWcVI1AChYVbI4kUM978EuOE4Ci6l7bUudfGg07QRw==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
+<<<<<<< HEAD
 "@supabase/node-fetch@^2.6.14", "@supabase/node-fetch@2.6.15":
   version "2.6.15"
   resolved "https://registry.npmjs.org/@supabase/node-fetch/-/node-fetch-2.6.15.tgz"
+=======
+"@supabase/node-fetch@2.6.15", "@supabase/node-fetch@^2.6.14":
+  version "2.6.15"
+  resolved "https://registry.yarnpkg.com/@supabase/node-fetch/-/node-fetch-2.6.15.tgz#731271430e276983191930816303c44159e7226c"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-1ibVeYUacxWYi9i0cf5efil6adJ9WRyZBLivgjs+AUpewx1F3xPi7gLgaASI2SmIQxPoCEjAsLAzKPgMJVgOUQ==
   dependencies:
     whatwg-url "^5.0.0"
 
+<<<<<<< HEAD
 "@supabase/postgrest-js@1.15.1":
   version "1.15.1"
   resolved "https://registry.npmjs.org/@supabase/postgrest-js/-/postgrest-js-1.15.1.tgz"
@@ -1486,6 +1548,19 @@
   version "2.9.3"
   resolved "https://registry.npmjs.org/@supabase/realtime-js/-/realtime-js-2.9.3.tgz"
   integrity sha512-lAp50s2n3FhGJFq+wTSXLNIDPw5Y0Wxrgt44eM5nLSA3jZNUUP3Oq2Ccd1CbZdVntPCWLZvJaU//pAd2NE+QnQ==
+=======
+"@supabase/postgrest-js@1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-1.15.2.tgz#c0a725706e3d534570d014d7b713cea12553ab98"
+  integrity sha512-9/7pUmXExvGuEK1yZhVYXPZnLEkDTwxgMQHXLrN5BwPZZm4iUCL1YEyep/Z2lIZah8d8M433mVAUEGsihUj5KQ==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
+"@supabase/realtime-js@2.9.4":
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-2.9.4.tgz#fcadfc167aad8e3798d7188f1c1506326b051bf0"
+  integrity sha512-wdq+2hZpgw0r2ldRs87d3U08Y8BrsO1bZxPNqbImpYshAEkusDz4vufR8KaqujKxqewmXS6YnUhuRVdvSEIKCA==
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
     "@types/phoenix" "^1.5.4"
@@ -1494,21 +1569,37 @@
 
 "@supabase/storage-js@2.5.5":
   version "2.5.5"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@supabase/storage-js/-/storage-js-2.5.5.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@supabase/storage-js/-/storage-js-2.5.5.tgz#2958e2a2cec8440e605bb53bd36649288c4dfa01"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-OpLoDRjFwClwc2cjTJZG8XviTiQH4Ik8sCiMK5v7et0MDu2QlXjCAW3ljxJB5+z/KazdMOTnySi+hysxWUPu3w==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
+<<<<<<< HEAD
 "@supabase/supabase-js@^2.39.3":
   version "2.42.1"
   resolved "https://registry.npmjs.org/@supabase/supabase-js/-/supabase-js-2.42.1.tgz"
   integrity sha512-y05XIC6wChApz8BWE2TLUo6SBGp9ttbjhQ9DcQXI897vI3RRPIjm3wZqUoZiexUco+kgt3Em53+m55nB8Um6Sg==
+=======
+"@supabase/supabase-js@^2.42.3":
+  version "2.42.3"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.42.3.tgz#938dd4b1ff1e4f2fe5c5ee7ab50b78464491884e"
+  integrity sha512-/o52L/ngsGapcOUygWigvxzBo/bUVM4bubZMsUSZqZc+9sgjXZsgP/cwyggWUv3QOIqmbBrfSPgDLUh+Ofgi7Q==
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   dependencies:
     "@supabase/auth-js" "2.63.0"
     "@supabase/functions-js" "2.2.2"
     "@supabase/node-fetch" "2.6.15"
+<<<<<<< HEAD
     "@supabase/postgrest-js" "1.15.1"
     "@supabase/realtime-js" "2.9.3"
+=======
+    "@supabase/postgrest-js" "1.15.2"
+    "@supabase/realtime-js" "2.9.4"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
     "@supabase/storage-js" "2.5.5"
 
 "@testing-library/dom@^8.0.0", "@testing-library/dom@>=7.21.4":
@@ -3650,9 +3741,15 @@ i18next-xhr-backend@^3.2.2:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
+<<<<<<< HEAD
 i18next@^23.10.1, i18next@^23.6.0, "i18next@>= 23.2.3":
   version "23.11.1"
   resolved "https://registry.npmjs.org/i18next/-/i18next-23.11.1.tgz"
+=======
+i18next@^23.11.1, i18next@^23.6.0:
+  version "23.11.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.11.1.tgz#8e384b6ad7d6ba70c40cb86e020438251a5ff8b1"
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
   integrity sha512-mXw4A24BiPZKRsbb9ewgSvjYd6fxFCNwJyfK6nYfSTIAX2GkCWcb598m3DFkDZmqADatvuASrKo6qwORz3VwTQ==
   dependencies:
     "@babel/runtime" "^7.23.2"
@@ -5306,10 +5403,17 @@ react-event-listener@^0.6.0:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
+<<<<<<< HEAD
 react-hook-form@^7.51.2:
   version "7.51.2"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.51.2.tgz"
   integrity sha512-y++lwaWjtzDt/XNnyGDQy6goHskFualmDlf+jzEZvjvz6KWDf7EboL7pUvRCzPTJd0EOPpdekYaQLEvvG6m6HA==
+=======
+react-hook-form@^7.51.3:
+  version "7.51.3"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.51.3.tgz#7486dd2d52280b6b28048c099a98d2545931cab3"
+  integrity sha512-cvJ/wbHdhYx8aviSWh28w9ImjmVsb5Y05n1+FW786vEZQJV5STNM0pW6ujS+oiBecb0ARBxJFyAnXj9+GHXACQ==
+>>>>>>> 96f0e16844e04882c195ae01f3b47312e5fc87c1
 
 react-i18next@^14.1.0:
   version "14.1.0"
