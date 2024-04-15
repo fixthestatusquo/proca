@@ -1,10 +1,8 @@
 #!/usr/bin/env node
-const { admin, request } = require("@proca/api");
 require("./dotenv.js");
 const {
   api,
   read,
-  apiLink,
   fileExists,
   runDate,
   save: saveWidget,
@@ -194,7 +192,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
   );
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
-  console.log(r);
+  //  console.log(r);
   console.log("action page " + name + " #" + r?.id);
   return r;
 };
@@ -357,19 +355,43 @@ const pull = async (
 };
 
 const push = async (id) => {
-  const local = read(id);
-  const c = apiLink();
-  const actionPage = actionPageFromLocalConfig(id, local);
-  const { errors } = await request(
-    c,
-    admin.UpdateActionPageDocument,
-    actionPage,
-  );
-  if (errors) {
-    //    console.log(actionPage);
-    throw errors;
+  const query = `
+mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!) {
+  updateActionPage(id: $id, input: {name:$name, locale:$locale,config:$config}) {
+    id,name,locale,config
   }
-  return actionPage;
+}
+`;
+  //  let headers = authHeader();
+  //  headers["Content-Type"] = "application/json";
+  const local = read(id);
+  const actionPage = actionPageFromLocalConfig(id, local).actionPage;
+
+  let r = await api(
+    query,
+    {
+      id,
+      name: actionPage.name,
+      config: actionPage.config,
+      locale: actionPage.locale,
+    },
+    "updateActionPage",
+  );
+
+  if (r.errors) {
+    console.log(r);
+    console.log(
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
+    );
+    throw new Error(r.errors[0].message);
+  }
+  r = r.updateActionPage;
+
+  if (argv.verbose) {
+    console.log(r?.config);
+  }
+  console.log("action page " + r?.name + " #" + r?.id);
+  return r;
 };
 
 if (require.main === module) {
