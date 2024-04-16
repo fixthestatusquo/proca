@@ -122,15 +122,15 @@ export default function ShareAction(props) {
       if (key.startsWith("proca_")) garbage.push(key);
     }
     if (
-      config.component?.share?.utm === false ||
-      config.component?.share?.compact
+      config.component.share?.utm === false ||
+      config.component.share?.compact
     ) {
       ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
         garbage.push(d),
       );
     }
     garbage.forEach((key) => params.delete(key));
-    if (config.component?.share?.compact) {
+    if (config.component.share?.compact !== false) {
       params.set("utm", ".share." + medium);
     }
     return url.toString();
