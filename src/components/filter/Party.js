@@ -34,11 +34,30 @@ const useStyles = makeStyles((theme) => ({
 const PartyFilter = (props) => {
   const classes = useStyles();
   const [parties, _setParties] = useState({});
+  const [allParties, setAllParties] = useState({});
   const config = useCampaignConfig();
   //console.log(config.component.email,props)
   const getKey = props.getKey || ((d) => d.description);
   const country = props.country?.toLowerCase();
   const filterCountry = props.filterCountry || ((d) => d.country === country);
+
+  const url = "https://static.proca.app/ep2024/parties.json";
+
+  useEffect(() => {
+    const fetchData = async (url) => {
+      const res = await fetch(url);
+      if (!res.ok) throw res.statusText;
+
+      const d = await res.json();
+      const allParties = d.reduce((map, obj) => {
+        const key = `${obj.country}:${obj.party}`;
+        map[key] = obj;
+        return map;
+      }, {});
+      setAllParties(allParties);
+    };
+    fetchData(url);
+  }, [url, setAllParties]);
 
   const filterParties = (d) => {
     const key = getKey(d);
@@ -115,6 +134,7 @@ const PartyFilter = (props) => {
     if (props.getKey) {
       console.log("filter", props);
     }
+    if (!props.country) return;
     props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
   }, [props.selecting, props.country]);
 
@@ -123,25 +143,35 @@ const PartyFilter = (props) => {
   if (parties) {
     return (
       <div className={classes.root}>
-        {Object.entries(parties).map(([name, party]) => (
-          <Badge
-            key={name}
-            badgeContent={party.count}
-            color="default"
-            overlap="rectangular"
-            className={classes.badge}
-            invisible={party.count < 2}
-          >
-            <Chip
-              label={name}
-              clickable
-              color={party.selected ? "primary" : "default"}
-              onClick={() => toggle(name)}
-              onDelete={() => toggle(name)}
-              deleteIcon={party.selected ? <RemoveIcon /> : <AddIcon />}
-            />
-          </Badge>
-        ))}
+        {Object.entries(parties).map(([name, party]) => {
+          const record = allParties[props.country + ":" + name] || {
+            name: name,
+          };
+          const AvatarParty = record.picture && (
+            <Avatar alt={name} src={record.picture} />
+          );
+          return (
+            <Badge
+              key={name}
+              badgeContent={party.count}
+              color="default"
+              overlap="rectangular"
+              className={classes.badge}
+              invisible={party.count < 2}
+            >
+              <Chip
+                title={name}
+                label={record.acronym || name}
+                clickable
+                avatar={AvatarParty}
+                color={party.selected ? "primary" : "default"}
+                onClick={() => toggle(name)}
+                onDelete={() => toggle(name)}
+                deleteIcon={party.selected ? <RemoveIcon /> : <AddIcon />}
+              />
+            </Badge>
+          );
+        })}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -31,6 +31,7 @@ const ListSignatories = () => {
   const { t } = useTranslation();
   //const countries = new Set();
   const [data, setData] = useState([]);
+  const [parties, setParties] = useState(new Set());
   const config = useCampaignConfig();
   let Party = () => null;
   const classes = useStyles();
@@ -60,6 +61,7 @@ const ListSignatories = () => {
   //console.log(obj);
   const country = form.watch("supporter_country");
   let filtered = data.filter((d) => d.area === country);
+
   const empty = filtered.length === 0;
   useEffect(() => {
     const length = data.filter((d) => d.area === country).length;
@@ -87,21 +89,46 @@ const ListSignatories = () => {
 
   const filterCountry = (d) => d.area === country;
 
-  const selecting = (filter) => {
-    const d = filter(data);
-    console.log(d?.length);
-    //      if (Array.isArray(d))
-    //        setProfiles (d);
-  };
+  const filterSignature = useCallback(
+    (key, value) => {
+      if (typeof key === "function") {
+        const d = key(data);
+        if (typeof d === "object" && d.filter === "description") {
+          setParties((prevParties) => {
+            const updatedParties = new Set(prevParties);
+            if (d.value) {
+              updatedParties.add(d.key);
+            } else {
+              updatedParties.delete(d.key);
+            }
+            return updatedParties;
+          });
+        }
+      }
+    },
+    [data],
+  );
+  //};
 
   if (imports.filter_Party) {
     Party = imports.filter_Party;
   }
+
+  // todo
+  console.log(parties.size);
+  filtered = data.filter((d) => {
+    if (!country) return true;
+
+    if (parties.size !== 0) {
+      return filterCountry(d) && parties.has(d.field.party);
+    }
+    return filterCountry(d);
+  });
   return (
     <div id="proca-signature">
       <Country form={form} name="supporter_country" />
       <Party
-        selecting={selecting}
+        selecting={filterSignature}
         country={country}
         getKey={(d) => d.field.party}
         filterCountry={filterCountry}
