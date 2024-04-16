@@ -116,7 +116,9 @@ const actionPageFromLocalConfig = (id, local) => {
 
   if (local.test) config.test = true;
   if (local.template) config.template = local.template;
-
+  if (local.import) config.import = local.import;
+  console.log(config);
+  process.exit(1);
   return {
     id: id,
     actionPage: {
@@ -261,6 +263,8 @@ const getConfig = (data) => {
     locales: data.actionPage.config.locales || {},
   };
   if (data.actionPage.config.test) config.test = true;
+  if (data.actionPage.config.import)
+    config.import = data.actionPage.config.import;
 
   if (data.actionPage.location) config.location = data.actionPage.location;
 
