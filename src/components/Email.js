@@ -706,6 +706,11 @@ const EmailComponent = (props) => {
     selectAll();
   }
 
+  let selectAllEnabled = true;
+  if (config.import.includes("filter/Party") && profiles.length > 30) {
+    selectAllEnabled = false;
+  }
+
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
@@ -735,14 +740,16 @@ const EmailComponent = (props) => {
             <Alert
               severity={errors?.selection ? "error" : "info"}
               action={
-                <Button
-                  color="primary"
-                  size="small"
-                  variant="contained"
-                  onClick={() => selectAll()}
-                >
-                  {t("select_all", { defaultValue: "Select all" })}
-                </Button>
+                selectAllEnabled && (
+                  <Button
+                    color="primary"
+                    size="small"
+                    variant="contained"
+                    onClick={() => selectAll()}
+                  >
+                    {t("select_all", { defaultValue: "Select all" })}
+                  </Button>
+                )
               }
             >
               {t("target.missing", {
@@ -751,7 +758,7 @@ const EmailComponent = (props) => {
               })}
             </Alert>
           ) : (
-            selection.length > 1 && (
+            selection.length >= 1 && (
               <Alert severity="success">
                 {t("target.selected", {
                   defaultValue: "{{total}} selected",
