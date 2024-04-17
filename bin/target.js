@@ -89,9 +89,8 @@ if (argv._.length !== 1) {
 }
 
 const parseEmail = (text) => {
-  const emails = text.match(
-    /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi,
-  );
+  const emails =
+    text && text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
   if (!emails) {
     console.log("failed to parse as an email", text);
     return [];
@@ -236,11 +235,10 @@ const formatTarget = async (campaignName, file) => {
         salutations[lang] = campaign.config.locales.en["common:"].salutation; //WORKAROUND to default to en
     });
   }
-  const targets = read("target/source/" + file);
+  let targets = read("target/source/" + file);
   if (targets === null) {
     console.error(color.red("No targets found"));
     process.exit(1);
-    //return [];
   }
 
   const formatTargets = async () => {
