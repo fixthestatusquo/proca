@@ -645,28 +645,25 @@ const EmailComponent = (props) => {
       //const filterTarget = (key, value) => {
       if (typeof key === "function") {
         const d = key(allProfiles);
-        console.log("filtering", d);
         if (typeof d === "object" && d.filter === "description") {
           _setSelection((prev) => {
-            let selection = null;
-            if (d.value) {
-              // adding targets with description
-              selection = [...prev];
-              profiles
-                .filter((target) => target.description === d.key)
-                .forEach((d) => {
-                  if (selection.includes(d.procaid)) return;
-                  selection.push(d.procaid);
-                });
-              console.log(selection);
-            } else {
-              selection = prev.filter((target) => target.description !== d.key);
-              console.log(selection);
-            }
-            return selection;
+            const selection = new Set(prev);
+            profiles
+              .filter((target) => target.description === d.key)
+              .forEach((target) => {
+                if (d.value) {
+                  // Add the procaid to the selection if the profile matches the filter
+                  selection.add(target.procaid);
+                } else {
+                  // Remove the procaid from the selection if the profile does not match the filter
+                  selection.delete(target.procaid);
+                }
+              });
+            return Array.from(selection);
           });
         }
         if (Array.isArray(d)) {
+          console.log("filter from array");
           //        setProfiles (d);
           _setSelection((prev) => {
             const selection = [...prev];
@@ -700,7 +697,7 @@ const EmailComponent = (props) => {
       }
       setProfiles(d);
     },
-    [allProfiles, setError],
+    [allProfiles, profiles, setError],
   );
   //};
 
@@ -709,14 +706,6 @@ const EmailComponent = (props) => {
     selectAll();
   }
 
-  console.log(
-    "country",
-    country,
-    "constituency",
-    constituency,
-    "languages",
-    languages,
-  );
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
