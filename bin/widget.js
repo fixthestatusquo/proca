@@ -117,8 +117,6 @@ const actionPageFromLocalConfig = (id, local) => {
   if (local.test) config.test = true;
   if (local.template) config.template = local.template;
   if (local.import) config.import = local.import;
-  console.log(config);
-  process.exit(1);
   return {
     id: id,
     actionPage: {
@@ -362,7 +360,7 @@ const push = async (id) => {
   const query = `
 mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!) {
   updateActionPage(id: $id, input: {name:$name, locale:$locale,config:$config}) {
-    id,name,locale,config
+    id,name,locale
   }
 }
 `;
@@ -370,7 +368,6 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
   //  headers["Content-Type"] = "application/json";
   const local = read(id);
   const actionPage = actionPageFromLocalConfig(id, local).actionPage;
-
   let r = await api(
     query,
     {
@@ -387,7 +384,7 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
     console.log(
       "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
     );
-    throw new Error(r.errors[0].message);
+    throw new Error(r.errors[0].message || "can't push");
   }
   r = r.updateActionPage;
 
@@ -493,10 +490,10 @@ if (require.main === module) {
         if (argv.push && !argv["dry-run"]) {
           const r = argv.git && (await commit(id + ".json"));
           const result = await push(id);
-
           console.log(
             color.green.bold("pushed", id),
-            color.blue(result.actionPage && result.actionPage.name),
+            color.blue(result.name),
+            "https://widget.proca.app/d/" + result.name + "/index.html",
           );
           if (r.summary) console.log(r.summary);
         }
