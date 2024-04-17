@@ -707,7 +707,11 @@ const EmailComponent = (props) => {
   }
 
   let selectAllEnabled = true;
-  if (config.import.includes("filter/Party") && profiles.length > 30) {
+  if (
+    config.import &&
+    config.import.includes("filter/Party") &&
+    profiles.length > 30
+  ) {
     selectAllEnabled = false;
   }
 
