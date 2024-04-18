@@ -33,7 +33,7 @@ const ShareLanding = () => {
       let url = config.component.landing?.url;
       if (!url) alert("missing config.component.landing.url param");
       try {
-        d = await fetch(url).catch((e) => {
+        d = await fetch(url).catch(() => {
           console.log("can't fetch");
         });
       } catch (e) {

@@ -53,6 +53,7 @@ const EmailComponent = (props) => {
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false,
   );
+  const listRef = useRef(null);
 
   const setSelection = (selection) => {
     _setSelection(selection);
@@ -644,14 +645,17 @@ const EmailComponent = (props) => {
     (key, value) => {
       //const filterTarget = (key, value) => {
       if (typeof key === "function") {
+        // filter done from the filter component, eg. filter/Profile
         const d = key(allProfiles);
         if (typeof d === "object" && d.filter === "description") {
           _setSelection((prev) => {
+            let first = null;
             const selection = new Set(prev);
             profiles
               .filter((target) => target.description === d.key)
               .forEach((target) => {
                 if (d.value) {
+                  if (!first) first = target.procaid;
                   // Add the procaid to the selection if the profile matches the filter
                   selection.add(target.procaid);
                 } else {
@@ -659,6 +663,11 @@ const EmailComponent = (props) => {
                   selection.delete(target.procaid);
                 }
               });
+            if (first) {
+              scrollToItem(first);
+            } else {
+              scrollToFirst(selection);
+            }
             return Array.from(selection);
           });
         }
@@ -714,6 +723,33 @@ const EmailComponent = (props) => {
   ) {
     selectAllEnabled = false;
   }
+
+  const scrollToItem = (key) => {
+    if (!listRef.current) return;
+    const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
+    if (!itemElement) return;
+
+    const listRect = listRef.current.getBoundingClientRect();
+    const itemRect = itemElement.getBoundingClientRect();
+    const scrollTop = itemRect.top - listRect.top + listRef.current.scrollTop;
+
+    // Use smoothscroll to scroll the list element
+    listRef.current.scrollTo({
+      top: scrollTop,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToFirst = (selection) => {
+    const first = profiles.find((d) => {
+      return selection.has(d.procaid);
+    });
+    if (first) {
+      scrollToItem(first.procaid);
+    } else {
+      scrollToItem(profiles[0]?.procaid);
+    }
+  };
 
   return (
     <Container maxWidth="sm">
@@ -774,7 +810,7 @@ const EmailComponent = (props) => {
         </>
       )}
       {config.component.email?.showTo !== false && (
-        <List className={classes.list} dense>
+        <List className={classes.list} dense ref={listRef}>
           {profiles.length === 0 &&
             !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}

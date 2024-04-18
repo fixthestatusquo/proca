@@ -90,7 +90,7 @@ const ListSignatories = () => {
   const filterCountry = (d) => d.area === country;
 
   const filterSignature = useCallback(
-    (key, value) => {
+    (key) => {
       if (typeof key === "function") {
         const d = key(data);
         if (typeof d === "object" && d.filter === "description") {

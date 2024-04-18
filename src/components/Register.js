@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import useElementWidth from "@hooks/useElementWidth";
 import Url from "@lib/urlparser";
 import { setCookie } from "@lib/cookie";
-import { checkMail, getDomain } from "@lib/checkMail";
+import { getDomain } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";

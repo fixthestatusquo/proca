@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useCampaignConfig } from "@hooks/useConfig";
-import { imports } from "../../actionPage";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
@@ -35,8 +33,6 @@ const PartyFilter = (props) => {
   const classes = useStyles();
   const [parties, _setParties] = useState({});
   const [allParties, setAllParties] = useState({});
-  const config = useCampaignConfig();
-  //console.log(config.component.email,props)
   const getKey = props.getKey || ((d) => d.description);
   const country = props.country?.toLowerCase();
   const filterCountry = props.filterCountry || ((d) => d.country === country);
@@ -59,15 +55,6 @@ const PartyFilter = (props) => {
     fetchData(url);
   }, [url, setAllParties]);
 
-  const filterParties = (d) => {
-    const key = getKey(d);
-    if (!parties[key]) {
-      //      console.log(key, d,parties);
-      console.log(" not in party");
-      return false;
-    }
-    return parties[key].selected;
-  };
   const setParties = (fullList) => {
     if (fullList.length) {
       const count = {};
@@ -92,19 +79,6 @@ const PartyFilter = (props) => {
       _setParties(sortedObject);
       //return list[0];
     }
-  };
-
-  const filter = (all) => {
-    if (!all || !Object.keys(parties).length) return;
-    let selection = all;
-    if (props.country) {
-      selection = all.filter(filterCountry);
-      //      console.log("after country", selection.length);
-    }
-    // TODO: based on the size of the selection, decide if we list all candidates by default, used to decide if we display the parties or direct the full list
-    selection = selection.filter(filterParties);
-    //    console.log("after party", selection.length);
-    return selection;
   };
 
   const toggle = (name) => {

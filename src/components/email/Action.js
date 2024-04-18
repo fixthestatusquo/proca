@@ -71,6 +71,7 @@ const EmailAction = ({ profile, selection, setSelection }) => {
   }
   return (
     <ListItem
+      data-key={profile.procaid}
       alignItems="flex-start"
       component="div"
       selected={selected}
