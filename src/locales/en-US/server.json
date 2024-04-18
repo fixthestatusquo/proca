@@ -31,11 +31,11 @@
             "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
         },
         "thankyou": {
-            "intro": "Thank you for your partipation for \"{{campaign.title}}\". Your support is appreciated!",
+            "intro": "Thank you for your participation for \"{{campaign.title}}\". Your support is appreciated!",
             "subject": "Thank you, here's what else you can do"
         },
         "doi_thankyou": {
-            "subject": "Thank you for your partipation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
+            "subject": "Thank you for your participation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
         }
     },
     "poweredBy": "POWERED BY"
