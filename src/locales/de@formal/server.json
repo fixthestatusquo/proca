@@ -13,7 +13,8 @@
             "donate": "Bitte ziehen Sie eine Spende in Betracht, um uns bei der Erfüllung unserer Mission zu unterstützen",
             "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie [die Nachricht verbreiten] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Vielen Dank für Ihr Engagement und Ihre Hingabe für unsere Sache! Um die Authentizität und Glaubwürdigkeit unserer Kampagne zu wahren, müssen wir jedoch **doppelte** Unterschriften entfernen, und es scheint, als hätten Sie (oder jemand, der {{email}} benutzt) diese Aktion bereits durchgeführt.  Seien Sie versichert, **dass Ihre erste Unterschrift gezählt** wurde und zu unserer Kampagne beigetragen hat.\nIhre Unterstützung war von unschätzbarem Wert, und wir möchten Sie bitten, einen weiteren Schritt zu tun, um Ihre Wirkung zu verstärken. Bitte ziehen Sie in Erwägung, Ihre Freunde und Verwandten mit ihren eigenen E-Mail-Adressen zu bitten, ebenfalls aktiv zu werden. Auf diese Weise können wir unsere Bewegung weiter ausbauen und eine noch stärkere kollektive Stimme für den von uns angestrebten Wandel bilden.\nWir möchten Ihnen noch einmal herzlich für Ihre anhaltende Unterstützung und Ihr Engagement für diese Kampagne danken. Gemeinsam können wir nachhaltig etwas bewirken!",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Vielen Dank, dass Sie für {{campaign.title}} gelobt haben. Ihre Angaben werden geprüft und Sie erhalten eine Bestätigungs-E-Mail, wenn Ihr Profil auf der Website angezeigt wird."
         },
         "thankyou": {
             "subject": "Danke, hier ist, was Sie sonst noch tun können",
