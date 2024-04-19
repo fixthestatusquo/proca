@@ -17,7 +17,7 @@
             "thanksPledge": "Gracias por comprometerte con {{campaign.title}}. Su información será revisada y recibirá un correo electrónico de confirmación si su perfil aparece en la página web."
         },
         "thankyou": {
-            "intro": "Gracias por su participación en \"{{campaign.title}}\". ¡Apreciamos su apoyo!",
+            "intro": "Gracias por su participación en \"{{campaign.title}}\". ¡Agradecemos su apoyo!",
             "subject": "Gracias, esto es lo que puedes hacer"
         },
         "doi": {
