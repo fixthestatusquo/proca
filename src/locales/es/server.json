@@ -2,7 +2,7 @@
     "email": {
         "common": {
             "thanks": "Gracias por participar en {{campaign.title}}. ¡Agradecemos su apoyo!",
-            "share": "Ayúdanos a alcanzar nuestro objetivo [corriendo la voz](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "share": "Ayúdanos a alcanzar nuestro objetivo corriendo la voz",
             "follow": "Síganos en:",
             "greeting": "Hola {{firstName}}",
             "donate": "Por favor, considere hacer una donación para ayudarnos a cumplir nuestra misión",
@@ -13,7 +13,8 @@
             "consent": "\n          ",
             "signature": "Atentamente,\n\n{{org.title}}",
             "duplicate": "Gracias por tu compromiso y dedicación a nuestra causa. Sin embargo, en nuestro compromiso por mantener la autenticidad y la credibilidad, necesitamos **eliminar firmas duplicadas** y parece que tú (o alguien que utiliza {{email}}) ya ha realizado esta acción.  Tenga la seguridad de que **su firma inicial se ha contabilizado** y ha contribuido a nuestra campaña.\nSu apoyo ha sido inestimable, y nos gustaría animarle a dar un paso adicional para ayudar a amplificar su impacto. Por favor, considere la posibilidad de llegar a sus amigos y familiares, instándoles a actuar también, utilizando sus propias direcciones de correo electrónico. De este modo, podemos hacer crecer aún más nuestro movimiento y crear una voz colectiva aún más fuerte para el cambio que buscamos.\nUna vez más, te agradecemos de todo corazón tu apoyo y dedicación constantes a esta campaña. ¡Juntos podemos conseguir un impacto duradero!",
-            "share_on": "Compartir en"
+            "share_on": "Compartir en",
+            "thanksPledge": "Gracias por comprometerte con {{campaign.title}}. Su información será revisada y recibirá un correo electrónico de confirmación si su perfil aparece en la página web."
         },
         "thankyou": {
             "intro": "Gracias por su participación en \"{{campaign.title}}\". ¡Apreciamos su apoyo!",
