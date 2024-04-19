@@ -175,7 +175,7 @@
   "reminder": {
     "intro": "Lo sabemos, su gobierno le pide mucha información. Le enviaremos un único correo electrónico para recordarle que rellene el formulario más adelante"
   },
-  "required": "Por favor, rellene este campo",
+  "required": "obligatorio",
   "required field": "Campo obligatorio",
   "salutations": {
     "f": "Estimad@ {{name}}",
