@@ -8,7 +8,7 @@
             "follow": "Seguiteci su:",
             "donate": "Considerate l'opportunità di fare una donazione per aiutarci a realizzare la nostra missione.",
             "closing": "Con il vostro aiuto, siamo un passo più vicini al nostro obiettivo",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
             "consent": "\n          ",
             "signature": "Cordiali saluti,\n\n{{org.title}}",
             "privacy": "Potete trovare maggiori informazioni sulla nostra politica sulla privacy e sul trattamento dei vostri dati",

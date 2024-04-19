@@ -8,7 +8,7 @@
             "donate": "Por favor, considere fazer uma doação para nos ajudar a alcançar a nossa missão",
             "closing": "Com a sua ajuda, estamos um passo mais perto do nosso objectivo",
             "privacy": "Pode encontrar mais informações sobre a nossa política de privacidade e o tratamento dos seus dados",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
             "unsubscribe": "Se não pretender receber mais informações da nossa parte no futuro, poderá cancelar o seu registo em qualquer altura",
             "consent": "\n          ",
             "signature": "Com os melhores cumprimentos,\n\n{{org.title}}",

@@ -8,7 +8,7 @@
             "donate": "Överväg att göra en donation för att hjälpa oss att uppnå vårt uppdrag.",
             "closing": "Med din hjälp är vi ett steg närmare vårt mål.",
             "unsubscribe": "Om du inte vill få ytterligare information från oss i framtiden kan du när som helst avbryta din registrering",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
             "privacy": "Du kan hitta mer information om vår integritetspolicy och behandlingen av dina uppgifter",
             "consent": "\n          ",
             "signature": "Med vänlig hälsning,\n\n{{org.title}}",
