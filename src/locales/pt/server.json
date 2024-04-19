@@ -13,7 +13,8 @@
             "consent": "\n          ",
             "signature": "Com os melhores cumprimentos,\n\n{{org.title}}",
             "duplicate": "Obrigado pelo seu empenho e dedicação à nossa causa! No entanto, no nosso compromisso de manter a autenticidade e a credibilidade, temos de remover as assinaturas duplicadas e parece que você (ou alguém que utilize {{email}}) já tomou esta ação.  Fique descansado, a sua assinatura inicial foi contada e contribuiu para a nossa campanha.\nO seu apoio tem sido inestimável e gostaríamos de o encorajar a dar um passo adicional para ajudar a ampliar o seu impacto. Por favor, considere a possibilidade de contactar os seus amigos e familiares, instando-os a agir também, utilizando os seus próprios endereços de correio eletrónico. Desta forma, podemos fazer crescer ainda mais o nosso movimento e criar uma voz colectiva ainda mais forte para a mudança que procuramos.\nMais uma vez, agradecemos sinceramente o vosso apoio e dedicação contínuos a esta campanha. Juntos, podemos causar um impacto duradouro!",
-            "share_on": "Partilhar"
+            "share_on": "Partilhar",
+            "thanksPledge": "Obrigado por se ter comprometido com {{campaign.title}}. As suas informações serão analisadas e receberá um e-mail de confirmação se o seu perfil for apresentado no sítio Web."
         },
         "thankyou": {
             "intro": "Obrigado por \"{{campaign.title}}\". O vosso apoio é apreciado!",
