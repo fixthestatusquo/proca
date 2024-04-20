@@ -13,7 +13,8 @@
             "signature": "Z poważaniem,\n\n{{org.title}}",
             "organisation": "{{org.title}}",
             "duplicate": "Dziękujemy za zaangażowanie i oddanie naszej sprawie! Jednak w ramach naszego zobowiązania do zachowania autentyczności i wiarygodności musimy **usunąć zduplikowane** podpisy i wygląda na to, że Ty (lub ktoś korzystający z {{email}}) już podjąłeś tę czynność.  Zapewniamy, że **Twój pierwszy podpis został policzony** i przyczynił się do naszej kampanii.\nTwoje wsparcie było nieocenione i chcielibyśmy uprzejmie zachęcić Cię do podjęcia dodatkowego kroku, który pomoże wzmocnić Twój wpływ. Prosimy o rozważenie skontaktowania się z przyjaciółmi i rodziną, zachęcając ich do podjęcia działań przy użyciu ich własnych adresów e-mail. W ten sposób możemy dalej rozwijać nasz ruch i stworzyć jeszcze silniejszy zbiorowy głos na rzecz zmian, których szukamy.\nJeszcze raz serdecznie dziękujemy za nieustające wsparcie i zaangażowanie w tę kampanię. Razem możemy wywrzeć trwały wpływ!",
-            "share_on": "Udostępnij na"
+            "share_on": "Udostępnij na",
+            "thanksPledge": "Dziękujemy za złożenie deklaracji dla {{campaign.title}}. Twoje informacje zostaną zweryfikowane i otrzymasz wiadomość e-mail z potwierdzeniem, jeśli Twój profil zostanie wyświetlony na stronie."
         },
         "button": {
             "confirmAction": "Tak, jestem prawdziwą osobą!",

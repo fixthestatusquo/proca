@@ -13,7 +13,8 @@
             "donate": "Lūdzu, apsveriet iespēju veikt ziedojumu, lai palīdzētu mums īstenot mūsu misiju.",
             "share": "Palīdziet mums sasniegt mērķi, [izplatot informāciju] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Paldies par jūsu iesaistīšanos un uzticību mūsu mērķim! Tomēr, cenšoties saglabāt autentiskumu un uzticamību, mums ir nepieciešams **dzēst dublētos** parakstus, un šķiet, ka jūs (vai kāds, kas izmanto {{email}}) jau esat veicis šo darbību.  Esiet droši, ka **Jūsu sākotnējais paraksts tika ieskaitīts** un veicināja mūsu kampaņu.\nJūsu atbalsts ir bijis nenovērtējams, un mēs vēlamies aicināt Jūs veikt papildu soli, lai palīdzētu palielināt Jūsu ietekmi. Lūdzu, apsveriet iespēju sazināties ar saviem draugiem un ģimenes locekļiem, aicinot arī viņus rīkoties, izmantojot viņu e-pasta adreses. Šādā veidā mēs varam vēl vairāk paplašināt mūsu kustību un radīt vēl spēcīgāku kolektīvo balsi, lai panāktu vēlamās pārmaiņas.\nVēlreiz sirsnīgi pateicamies par jūsu nepārtraukto atbalstu un uzticību šai kampaņai. Kopā mēs varam panākt ilgstošu ietekmi!",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Paldies par solījumu {{campaign.title}}. Jūsu informācija tiks pārbaudīta, un jūs saņemsiet apstiprinājuma e-pastu, ja jūsu profils tiks parādīts tīmekļa vietnē."
         },
         "thankyou": {
             "subject": "Paldies, lūk, ko vēl varat darīt.",
