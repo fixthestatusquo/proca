@@ -14,7 +14,8 @@
             "signature": "Mit freundlichen Grüßen,\n{{org.title}}",
             "organisation": "{{org.title}}",
             "duplicate": "Vielen Dank für Ihr Engagement und Ihren Einsatz für unsere Sache! Um die Authentizität und Glaubwürdigkeit unserer Kampagne zu wahren, müssen wir jedoch doppelte Unterschriften entfernen, und es scheint, dass Sie (oder jemand, der {{email}} verwendet) dies bereits getan haben.  Seien Sie versichert, dass Ihre erste Unterschrift gezählt wurde und zu unserer Kampagne beigetragen hat.\nIhre Unterstützung war von unschätzbarem Wert, und wir möchten Sie freundlich dazu ermutigen, einen weiteren Schritt zu tun, um Ihre Wirkung zu verstärken. Bitte ziehen Sie in Erwägung, Ihre Freunde und Verwandten zu erreichen und sie aufzufordern, ebenfalls aktiv zu werden, indem sie ihre eigenen E-Mail-Adressen verwenden. Auf diese Weise können wir unsere Bewegung weiter ausbauen und eine noch stärkere kollektive Stimme für den von uns angestrebten Wandel bilden.\nNochmals herzlichen Dank für Ihre anhaltende Unterstützung und Ihr Engagement für diese Kampagne. Gemeinsam können wir eine nachhaltige Wirkung erzielen!",
-            "share_on": "Weitergeben"
+            "share_on": "Weitergeben",
+            "thanksPledge": "Vielen Dank, dass Sie sich für {{campaign.title}} entschieden haben. Ihre Angaben werden geprüft und Sie erhalten eine Bestätigungs-E-Mail, wenn Ihr Profil auf der Website angezeigt wird."
         },
         "button": {
             "confirmAction": "Ja, ich bin ein echter Mensch!",
@@ -32,15 +33,11 @@
             "subject": "Danke, hier ist, was Sie sonst noch tun können"
         },
         "actionConfirm": {
-            "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
-            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern."
+            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
+            "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
         },
         "doi_thankyou": {
             "subject": "Vielen Dank für Ihre Teilnahme{{#privacy.optIn}}, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail-Adresse{{/privacy.optIn}}"
-        },
-        "actionConfirm": {
-            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-            "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
         }
     },
     "poweredBy": "ANGETRIEBEN DURCH"

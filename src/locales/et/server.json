@@ -13,7 +13,8 @@
             "donate": "Palun kaaluge annetuse tegemist, et aidata meil oma missiooni saavutada.",
             "share": "Aita meil oma eesmärki saavutada [levitades sõna](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Aitäh teile pühendumise eest meie asja eest! Kuid meie kohustus säilitada autentsust ja usaldusväärsust nõuab, et me **kustutaksime** dubleerivad allkirjad ja tundub, et teie (või keegi, kes kasutab {{email}}) on selle juba teinud.  Võite olla kindel, et **teie esialgne allkiri on loetud** ja et see on meie kampaaniale kaasa aidanud.\nTeie toetus on olnud hindamatu väärtusega ja me soovime teid julgustada tegema veel ühe sammu, et aidata kaasa teie mõju suurendamisele. Palun kaaluge võimalust pöörduda oma sõprade ja pereliikmete poole, kutsudes neid samuti üles tegutsema, kasutades oma e-posti aadressi. Nii saame oma liikumist veelgi laiendada ja luua veelgi tugevama kollektiivse hääle muutuste saavutamiseks, mida me taotleme.\nTäname teid veel kord südamest teie jätkuva toetuse ja pühendumise eest sellele kampaaniale. Üheskoos saame avaldada püsivat mõju!",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Aitäh, et annate lubadusi {{campaign.title}}. Teie andmed vaadatakse läbi ja te saate kinnitava e-kirja, kui teie profiil kuvatakse veebilehel."
         },
         "thankyou": {
             "subject": "Tänan teid, siin on, mida veel saate teha",
