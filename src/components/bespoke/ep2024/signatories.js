@@ -41,7 +41,9 @@ const ListSignatories = () => {
   });
 
   const url =
-    "https://static.proca.app/ep2024/" + config.campaign.name + ".json";
+    "https://static.proca.app/ep2024/" +
+    config.campaign.name.replace("_citizen_", "_candidates_") +
+    ".json";
 
   useEffect(() => {
     const fetchData = async (url) => {
