@@ -384,7 +384,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
       if (d.message === "has messages") {
         console.error(
           color.red(
-            "can't remove contact id" +
+            "can't remove contact id " +
               d.path[2] +
               " because is has supporters' messages waiting to be sent",
           ),
