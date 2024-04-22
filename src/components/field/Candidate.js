@@ -49,8 +49,12 @@ const Affiliation = (props) => {
       const d = await res.json();
       const candidate = d.find((d) => d.externalId === externalId);
       if (candidate) {
-        setValue("firstname", candidate.first_name);
-        setValue("lastname", candidate.last_name);
+        const splitIndex = candidate.name.indexOf(" ");
+        const firstname = candidate.name.substring(0, splitIndex);
+        const lastname = candidate.name.substring(splitIndex + 1);
+
+        setValue("firstname", firstname);
+        setValue("lastname", lastname);
         setValue("country", candidate.country.toUpperCase());
         setValue("party", candidate.description);
         setValue("twitter", candidate.screen_name);
