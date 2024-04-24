@@ -31,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
     WebkitTapHighlightColor: "transparent",
     marginLeft: -11,
     marginRight: 16, // used for row presentation of radio/checkbox
+    color: theme.palette.text.secondary,
     "& span": { fontSize: theme.typography.pxToRem(13) },
+    "& :hover": { color: theme.palette.primary.main },
   },
   bigHelper: {
     marginLeft: theme.spacing(0),
