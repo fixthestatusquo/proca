@@ -35,7 +35,7 @@ const useStyles = makeStyles(() =>
         display: "none",
       },
     },
-  })
+  }),
 );
 
 const GlobalStyles = () => {
@@ -58,7 +58,7 @@ export default function ProcaStyle(props) {
           htmlFontSize: parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
-              .getPropertyValue("font-size")
+              .getPropertyValue("font-size"),
           ), // get the actual font size
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
@@ -74,7 +74,7 @@ export default function ProcaStyle(props) {
               fontFamily: "unset!important",
               paddingLeft: "0!important",
               paddingRight: "0!important",
-              backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
+              //              backgroundColor: layout.theme === "dark" ? "#303030" : "inherit",
             },
           },
           MuiButton: {
@@ -134,7 +134,7 @@ export default function ProcaStyle(props) {
           },
         },
       }),
-    [layout]
+    [layout],
   );
   // palette.background.default
   for (const d in theme.zIndex) {

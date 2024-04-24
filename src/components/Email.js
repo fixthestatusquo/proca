@@ -264,7 +264,7 @@ const EmailComponent = (props) => {
       emails.map((d) => {
         return to.push({ email: d.trim() });
       });
-      //      console.log(to);
+      console.log(to);
       setAllProfiles(to);
       setProfiles(to);
     } // eslint-disable-next-line
