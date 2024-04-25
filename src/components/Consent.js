@@ -199,44 +199,54 @@ const Consent = (props) => {
 };
 
 export const CheckboxConsent = (props) => {
-  const { control } = props.form;
+  const {
+    formState: { errors },
+    control,
+  } = props.form;
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
 
   return (
-    <FormControl className="proca-consent">
+    <FormControl
+      className="proca-consent"
+      error={!!(errors && errors.privacy)}
+      required={config.component.consent.checkbox.required}
+    >
       <FormGroup>
-        <FormControlLabel
-          className={classes.check}
-          placement="end"
-          required={config.component.consent.checkbox.required}
-          control={
-            <Controller
-              name="privacy"
-              control={control}
-              rules={{
-                required: config.component.consent.checkbox.required,
-              }}
-              defaultValue={
-                config.component.consent.gdpr === false ? "opt-in" : "opt-out"
-              }
-              render={({ field }) => (
+        <Controller
+          name="privacy"
+          control={control}
+          rules={{
+            required:
+              config.component.consent.checkbox.required &&
+              t(["consent.required", "required"]),
+          }}
+          defaultValue={config.component.consent.gdpr === false}
+          render={({ field }) => (
+            <FormControlLabel
+              className={classes.check}
+              placement="end"
+              error={!!(errors && errors.privacy)}
+              required={config.component.consent.checkbox.required}
+              control={
                 <Checkbox
                   {...field}
-                  required={config.component.consent.checkbox.required}
                   color="primary"
                   onChange={(e) =>
-                    field.onChange(e.target.checked ? "opt-in" : "opt-out")
+                    field.onChange(e.target.checked ? "opt-in" : "")
                   }
                   checked={field.value === "opt-in"}
                 />
-              )}
+              }
+              label={t("consent.opt-in", { partner: config.organisation })}
             />
-          }
-          label={t("consent.opt-in", { partner: config.organisation })}
+          )}
         />
       </FormGroup>
+      <FormHelperText>
+        {errors?.privacy && (errors.privacy.message || t("consent.required"))}
+      </FormHelperText>
     </FormControl>
   );
 };
