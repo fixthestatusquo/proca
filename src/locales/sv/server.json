@@ -14,7 +14,7 @@
             "signature": "Med vänlig hälsning,\n\n{{org.title}}",
             "duplicate": "Tack för ditt engagemang och din hängivenhet till vår sak! Men i vårt åtagande att upprätthålla äkthet och trovärdighet måste vi ta bort dubbla signaturer och det verkar som om du (eller någon som använder {{email}}) redan har vidtagit denna åtgärd.  Du kan vara säker på att din första signatur räknades och bidrog till vår kampanj.\nDitt stöd har varit ovärderligt, och vi vill vänligen uppmuntra dig att ta ytterligare ett steg för att förstärka din inverkan. Överväg att kontakta dina vänner och din familj och uppmana dem att också vidta åtgärder, med hjälp av sina egna e-postadresser. På så sätt kan vi få vår rörelse att växa ytterligare och skapa en ännu starkare kollektiv röst för den förändring vi eftersträvar.\nÄn en gång vill vi framföra vår innerliga tacksamhet för ert fortsatta stöd och engagemang i den här kampanjen. Tillsammans kan vi göra en bestående skillnad!",
             "share_on": "Dela på",
-            "thanksPledge": "Tack för att du skrivit under löftet {{campaign.title}}. Din information kommer att granskas och du kommer att få ett bekräftelsemeddelande om din profil visas på webbplatsen."
+            "thanksPledge": "Tack för att du skrivit under löftet {{campaign.title}}. Din information kommer att granskas och du får sedan ett bekräftelsemeddelande om din profil läggs till på hemsidan."
         },
         "thankyou": {
             "intro": "Tack för \"{{campaign.title}}\". Ditt stöd är uppskattat!",
