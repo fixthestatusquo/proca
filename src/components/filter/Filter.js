@@ -105,7 +105,6 @@ const Filter = (props) => {
       ));
     });
   }
-  //return (<PartyFilter country={props.country} selecting={props.selecting}/>);
   return (
     <>
       {config.component.email?.filter?.includes("country") &&
