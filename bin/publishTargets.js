@@ -137,8 +137,10 @@ const publishTarget = async (campaignName, argv) => {
       const c = targets.filter(
         (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId),
       );
-      console.log("total server vs source", targets.length, c.length);
-      targets = c;
+      if (targets.length !== c.length) {
+        console.log("total server vs source", targets.length, c.length);
+        targets = c;
+      }
     }
 
     let twitters = null;

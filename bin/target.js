@@ -30,7 +30,8 @@ const help = (exitValue) => {
         "",
         "(if --push or --digest)",
         "--salutation(add a salutation column based on the gender and language)",
-        "--keep=false (by default, replace all the contacts and remove those that aren't on the file)",
+        "--keep[=false] (by default, replace all the contacts and remove those that aren't on the file)",
+        "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--keep)",
         "--file=file (by default, config/target/source/{campaign name}.json",
       ].join("\n"),
     ),
@@ -52,7 +53,7 @@ const help = (exitValue) => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  default: { git: true, salutation: true, external_id: true },
+  default: { git: true, salutation: true, external_id: true, source: true },
   string: ["file", "fields"],
   boolean: [
     "help",
@@ -126,13 +127,23 @@ query GetCampaignTargets($name: String!) {
 };
 
 const pullTarget = async (name) => {
-  const targets = await getCampaignTargets(name);
+  let targets = await getCampaignTargets(name);
   if (targets.length === 0) {
     return console.error("not storing empty targets");
   }
   if (argv["dry-run"]) return console.log(JSON.stringify(targets, null, 2));
+  if (argv.source) {
+    const sources = read("target/source/" + name); // the list of targets from the source
+    const c = targets.filter(
+      (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId),
+    );
+    if (targets.length !== c.length) {
+      console.log("total server vs source", targets.length, c.length);
+      targets = c;
+    }
+  }
 
-  saveTargets(argv.file || name, targets);
+  await saveTargets(argv.file || name, targets);
   console.log("save target");
   return targets;
 };
