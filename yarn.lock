@@ -5028,8 +5028,9 @@ p-try@^2.0.0:
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
 "page-metadata-parser@https://github.com/Logora/page-metadata-parser":
-  version "1.1.4"
-  resolved "git+ssh://git@github.com/Logora/page-metadata-parser.git#0d591fc59d25fc432f224023e01bdbfe17672e48"
+  version "1.2.1"
+  uid db2ffb1c541d4c9dadf8eecfe3d4ccc69aa95df1
+  resolved "https://github.com/Logora/page-metadata-parser#db2ffb1c541d4c9dadf8eecfe3d4ccc69aa95df1"
 
 param-case@^2.1.1:
   version "2.1.1"
