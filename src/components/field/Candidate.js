@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Country from "./Country";
+import HiddenField from "@components/field/Hidden";
 //import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const Affiliation = (props) => {
@@ -115,9 +116,17 @@ const Affiliation = (props) => {
           </Alert>
         </Grid>
       )}
-      <Grid item xs={12}>
-        <Country form={props.form} required />
-      </Grid>
+      {config.component.country ? (
+        <HiddenField
+          form={props.form}
+          name="country"
+          value={config.component.country}
+        />
+      ) : (
+        <Grid item xs={12}>
+          <Country form={props.form} required />
+        </Grid>
+      )}
       <Grid item xs={width()} sm={width()} className={classField}>
         <TextField
           hidden={open}
