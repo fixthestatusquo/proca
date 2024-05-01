@@ -1481,17 +1481,17 @@
   resolved "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-2.4.0.tgz"
   integrity sha512-WFkQx1mbs2b5+7looI9IV1BLa3bIApuN3ehp9FP58xGg7KL9hCHDECgW3BwO9l9L+xBPVAD7Yjn1EhGe6EDTeA==
 
-"@supabase/auth-js@2.63.1":
-  version "2.63.1"
-  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.63.1.tgz#1d6178256d1502ae5c4707e4e18baa8fb119799e"
-  integrity sha512-iwdmIc/w5QN7aMfYThEgUt1l2i0KuohZ4XNk1adECg0LETQYEzmbVToKFKZLLZ+GyNtpsExSgVY/AUWOwubGXA==
+"@supabase/auth-js@2.64.1":
+  version "2.64.1"
+  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.64.1.tgz#c7f5ab8d728d20e6b567428143a2a986f2413cb5"
+  integrity sha512-tA2PXLoWEzhD0N1Vysree+HftfeWBbFV0E+taND5rj/pZTjkwKq/9GlrnXkbs5pnw+tsnABDRo2WLZmymihGdA==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/functions-js@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@supabase/functions-js/-/functions-js-2.3.0.tgz"
-  integrity sha512-GPXzSl4MXdc0P7q+TvE8XgaPdvGBeAJ0p6AN0tbKcezpkp32mpsDf58JXaWOJGyiWSVJn6z1W73eKxf6NZNaFA==
+"@supabase/functions-js@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@supabase/functions-js/-/functions-js-2.3.1.tgz#bddc12a97872f3978a733b66bddac53370721589"
+  integrity sha512-QyzNle/rVzlOi4BbVqxLSH828VdGY1RElqGFAj+XeVypj6+PVtMlD21G8SDnsPQDtlqqTtoGRgdMlQZih5hTuw==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
@@ -1526,13 +1526,13 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/supabase-js@^2.42.5":
-  version "2.42.5"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.42.5.tgz#e062259ab71e060a3eda09f2e77e4185d43a47ac"
-  integrity sha512-T/FlVmNHR/MDl8KhmNLb94dh+cTpqyvFlNI/Zd97dwS1yCm59xM+sTzmQLKnGNY5sPuwp40/w52bWrczdjOYtA==
+"@supabase/supabase-js@^2.42.7":
+  version "2.42.7"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.42.7.tgz#eb0317d2ba7773086f08ee8b6b9aa75c62dd434b"
+  integrity sha512-BEIEYe5KJpzd8Z3k4CKyjNuBmgSihDdE8MJO/Fg7O5h/lQg8qOp1MMWLWPP5aVKt4TYled/W82ePNJflqc2JbQ==
   dependencies:
-    "@supabase/auth-js" "2.63.1"
-    "@supabase/functions-js" "2.3.0"
+    "@supabase/auth-js" "2.64.1"
+    "@supabase/functions-js" "2.3.1"
     "@supabase/node-fetch" "2.6.15"
     "@supabase/postgrest-js" "1.15.2"
     "@supabase/realtime-js" "2.9.4"
@@ -5028,8 +5028,9 @@ p-try@^2.0.0:
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
 "page-metadata-parser@https://github.com/Logora/page-metadata-parser":
-  version "1.1.4"
-  resolved "git+ssh://git@github.com/Logora/page-metadata-parser.git#0d591fc59d25fc432f224023e01bdbfe17672e48"
+  version "1.2.1"
+  uid db2ffb1c541d4c9dadf8eecfe3d4ccc69aa95df1
+  resolved "https://github.com/Logora/page-metadata-parser#db2ffb1c541d4c9dadf8eecfe3d4ccc69aa95df1"
 
 param-case@^2.1.1:
   version "2.1.1"
@@ -5252,10 +5253,10 @@ react-hook-form@^7.51.3:
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.51.3.tgz"
   integrity sha512-cvJ/wbHdhYx8aviSWh28w9ImjmVsb5Y05n1+FW786vEZQJV5STNM0pW6ujS+oiBecb0ARBxJFyAnXj9+GHXACQ==
 
-react-i18next@^14.1.0:
-  version "14.1.0"
-  resolved "https://registry.npmjs.org/react-i18next/-/react-i18next-14.1.0.tgz"
-  integrity sha512-3KwX6LHpbvGQ+sBEntjV4sYW3Zovjjl3fpoHbUwSgFHf0uRBcbeCBLR5al6ikncI5+W0EFb71QXZmfop+J6NrQ==
+react-i18next@^14.1.1:
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-14.1.1.tgz#3d942a99866555ae3552c40f9fddfa061e29d7f3"
+  integrity sha512-QSiKw+ihzJ/CIeIYWrarCmXJUySHDwQr5y8uaNIkbxoGRm/5DukkxZs+RPla79IKyyDPzC/DRlgQCABHtrQuQQ==
   dependencies:
     "@babel/runtime" "^7.23.9"
     html-parse-stringify "^3.0.1"
