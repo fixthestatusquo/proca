@@ -109,8 +109,9 @@ const PartyFilter = (props) => {
       console.log("filter", props);
     }
     if (!props.country) return;
-    props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
-  }, [props.selecting, props.country]);
+    setParties(props.profiles);
+    //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
+  }, [props.selecting, props.country, props.profiles]);
 
   //avatar={<Avatar>{party.count}</Avatar>}
 

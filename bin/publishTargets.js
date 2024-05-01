@@ -70,7 +70,7 @@ const merge = (targets, twitters, options) => {
     if (target.fields.constituency) {
       r.constituency = target.fields.constituency;
       r.area = target.area;
-      delete r.country;
+      r.country;
     }
 
     if (options.fields) {

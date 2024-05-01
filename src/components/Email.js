@@ -49,7 +49,7 @@ const EmailComponent = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState(props.targets || []);
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false,
   );
@@ -65,7 +65,7 @@ const EmailComponent = (props) => {
 
   const [data, setData] = useData();
   //  const [filter, setFilter] = useState({country:null});
-  const [allProfiles, setAllProfiles] = useState([]);
+  const [allProfiles, setAllProfiles] = useState(props.targets || []);
   const [languages, setLanguages] = useState([]);
 
   // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
@@ -97,6 +97,11 @@ const EmailComponent = (props) => {
     config.component.email?.filter?.includes("multilingual");
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
+
+  useEffect(() => {
+    if (!props.targets) return;
+    setProfiles(props.targets);
+  }, [props.targets]);
 
   useEffect(() => {
     if (!data.subject && (paramEmail.subject || paramEmail.message)) {
@@ -261,10 +266,10 @@ const EmailComponent = (props) => {
           ? config.component.email.to?.split(",")
           : [];
       let to = [];
-      emails.map((d) => {
+      emails.forEach((d) => {
         return to.push({ email: d.trim() });
       });
-      console.log(to);
+      if (to.length == 0) return;
       setAllProfiles(to);
       setProfiles(to);
     } // eslint-disable-next-line
@@ -539,6 +544,7 @@ const EmailComponent = (props) => {
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
+
   const ExtraFields = (props) => {
     return (
       <>
@@ -704,11 +710,11 @@ const EmailComponent = (props) => {
       } else {
         clearErrors(key);
       }
+      console.log("filter profiles");
       setProfiles(d);
     },
     [allProfiles, profiles, setError],
   );
-  //};
 
   if (selection.length === 0 && profiles.length === 1) {
     // if only one, select it. needs to be put in an useEffect?
@@ -757,6 +763,7 @@ const EmailComponent = (props) => {
         <ProgressCounter actionPage={props.actionPage} />
       )}
       <Filter
+        profiles={profiles}
         form={form}
         selecting={filterTarget}
         country={country}
