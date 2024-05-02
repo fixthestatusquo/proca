@@ -7,7 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import Selectable from "./Selectable";
+import Selectable, { toggleSelection } from "./Selectable";
 
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
@@ -16,7 +16,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 
-const EmailAction = ({ profile, selection, setSelection }) => {
+const EmailAction = ({ profile, display, selection, setSelection }) => {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
@@ -66,7 +66,7 @@ const EmailAction = ({ profile, selection, setSelection }) => {
   };
 
   //config.component.email?.filter?.includes("display") && d.display}
-  if (profile.display === false) {
+  if (display === false) {
     return null;
   }
   return (
@@ -76,8 +76,12 @@ const EmailAction = ({ profile, selection, setSelection }) => {
       component="div"
       selected={selected}
       disabled={disabled}
-      button={config.component?.email?.split === true}
-      onClick={config.component?.email?.split === true ? mail : null}
+      button={true}
+      onClick={
+        config.component?.email?.split === true
+          ? mail
+          : () => toggleSelection(profile.procaid, setSelection)
+      }
       divider={false}
     >
       <ListItemAvatar>

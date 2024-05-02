@@ -53,6 +53,9 @@ const EmailComponent = (props) => {
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false,
   );
+  const groups = useRef(new Set()); //if selection by group, add them here
+  let onlySelected = groups.current.size;
+
   const listRef = useRef(null);
 
   const setSelection = (selection) => {
@@ -654,6 +657,12 @@ const EmailComponent = (props) => {
         // filter done from the filter component, eg. filter/Profile
         const d = key(allProfiles);
         if (typeof d === "object" && d.filter === "description") {
+          if (d.value) {
+            groups.current.add(d.key);
+          } else {
+            groups.current.delete(d.key);
+          }
+          onlySelected = groups.current.size; // update right away without waiting for a redraw
           _setSelection((prev) => {
             let first = null;
             const selection = new Set(prev);
@@ -669,6 +678,7 @@ const EmailComponent = (props) => {
                   selection.delete(target.procaid);
                 }
               });
+            console.log(groups.current.size, onlySelected);
             if (first) {
               scrollToItem(first);
             } else {
@@ -731,6 +741,8 @@ const EmailComponent = (props) => {
   }
 
   const scrollToItem = (key) => {
+    console.log(onlySelected);
+    if (onlySelected) return;
     if (!listRef.current) return;
     const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
     if (!itemElement) return;
@@ -755,6 +767,13 @@ const EmailComponent = (props) => {
     } else {
       scrollToItem(profiles[0]?.procaid);
     }
+  };
+
+  const displayed = (profile) => {
+    if (profile.display === false) return false;
+    return onlySelected
+      ? selection && selection.includes(profile.procaid)
+      : true;
   };
 
   return (
@@ -826,7 +845,7 @@ const EmailComponent = (props) => {
               key={d.procaid || d.id || i}
               actionPage={config.actionPage}
               done={props.done}
-              display={d.display}
+              display={displayed(d)}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               profile={d}
