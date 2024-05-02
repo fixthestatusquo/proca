@@ -73,7 +73,7 @@ const EmailBrussels = (props) => {
   const [votations] = votationState;
 
   const locales = { vl: "nl", wal: "fr", bru_fr: "fr", bru_nl: "nl" };
-  const truncatedConstituency = constituency.substring(0, 3);
+  const truncatedConstituency = constituency?.substring(0, 3) || "n/a";
   const filter = (d) => {
     const lang = locales[constituency];
     if (lang !== d.lang) return false;
