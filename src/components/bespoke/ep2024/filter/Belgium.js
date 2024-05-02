@@ -78,7 +78,8 @@ const FilterBelgium = (props) => {
   const togglesB = ["bru", "vl", "wal"];
   let selected = [];
   let enabled = [];
-  const hideConstituency = config.locale !== "en";
+  //  const hideConstituency = config.locale !== "en";
+  const hideConstituency = false;
 
   if (hideConstituency) {
     enabled.push("bru");
