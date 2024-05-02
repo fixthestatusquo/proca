@@ -13,8 +13,9 @@ const EmailBrussels = (props) => {
   const { t } = useTranslation();
   const [allProfiles, setAllProfiles] = useState([]);
   let profiles = [];
-  const locale2constituency = { en: null, fr: "wal", nl: "vl" };
+  const locale2constituency = { en: "", fr: "wal", nl: "vl" };
   const constituencyState = useState(locale2constituency[config.locale]);
+
   const votationState = useState({
     region: {
       label: "Regional",
@@ -37,6 +38,8 @@ const EmailBrussels = (props) => {
     const prefetch = async (url) => {
       await fetch(url);
     };
+    config.locale !== "en" &&
+      form.setValue("constituency", locale2constituency[config.locale]);
     prefetch("https://static.proca.app/ep2024/parties.json");
   }, []);
   useEffect(() => {
