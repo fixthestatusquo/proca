@@ -9,10 +9,12 @@ import Alert from "@material-ui/lab/Alert";
 import { useTranslation } from "react-i18next";
 
 const EmailBrussels = (props) => {
+  const config = useCampaignConfig();
   const { t } = useTranslation();
   const [allProfiles, setAllProfiles] = useState([]);
   let profiles = [];
-  const constituencyState = useState(null);
+  const locale2constituency = { en: null, fr: "wal", nl: "vl" };
+  const constituencyState = useState(locale2constituency[config.locale]);
   const votationState = useState({
     region: {
       label: "Regional",
@@ -27,7 +29,6 @@ const EmailBrussels = (props) => {
       selected: true,
     },
   });
-  const config = useCampaignConfig();
   const form = useForm({
     mode: "onBlur",
     //    nativeValidation: true,
@@ -72,6 +73,7 @@ const EmailBrussels = (props) => {
   const [votations] = votationState;
 
   const locales = { vl: "nl", wal: "fr", bru_fr: "fr", bru_nl: "nl" };
+  const truncatedConstituency = constituency.substring(0, 3);
   const filter = (d) => {
     const lang = locales[constituency];
     if (lang !== d.lang) return false;
@@ -82,8 +84,7 @@ const EmailBrussels = (props) => {
     if (votations.europe.selected && d.constituency === "EU") {
       return true;
     }
-    const t = d.constituency.substring(0, 3);
-    if (votations.region.selected && d.constituency === t) {
+    if (votations.region.selected && d.constituency === truncatedConstituency) {
       return true;
     }
 
