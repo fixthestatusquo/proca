@@ -5,8 +5,11 @@ import { useForm } from "react-hook-form";
 import ProgressCounter from "@components/ProgressCounter";
 import { Container } from "@material-ui/core";
 import AreaFilter from "@components/bespoke/ep2024/filter/Belgium";
+import Alert from "@material-ui/lab/Alert";
+import { useTranslation } from "react-i18next";
 
 const EmailBrussels = (props) => {
+  const { t } = useTranslation();
   const [allProfiles, setAllProfiles] = useState([]);
   let profiles = [];
   const constituencyState = useState(null);
@@ -96,7 +99,13 @@ const EmailBrussels = (props) => {
         constituencyState={constituencyState}
         votationState={votationState}
       />
-      {profiles.length ? <Email {...props} targets={profiles} /> : null}
+      {profiles.length ? (
+        <Email {...props} targets={profiles} />
+      ) : (
+        <Alert severity="info">
+          {t("campaign:constituency.empty", "Select your constituency")}
+        </Alert>
+      )}
     </Container>
   );
 };
