@@ -33,6 +33,12 @@ const EmailBrussels = (props) => {
     //    nativeValidation: true,
   });
   useEffect(() => {
+    const prefetch = async (url) => {
+      await fetch(url);
+    };
+    prefetch("https://static.proca.app/ep2024/parties.json");
+  }, []);
+  useEffect(() => {
     const fetchData = async (url) => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
@@ -77,7 +83,6 @@ const EmailBrussels = (props) => {
       return true;
     }
     const t = d.constituency.substring(0, 3);
-
     if (votations.region.selected && d.constituency === t) {
       return true;
     }
@@ -88,7 +93,7 @@ const EmailBrussels = (props) => {
   if (constituency) {
     profiles = allProfiles.filter(filter);
   }
-  console.log("profiles", profiles.length);
+  console.log("profiles", profiles.length, constituency);
 
   return (
     <Container maxWidth="sm">

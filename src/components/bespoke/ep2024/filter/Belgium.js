@@ -3,18 +3,38 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 //import Avatar from "@material-ui/core/Avatar";
-import { Chip, Grid, Avatar } from "@material-ui/core";
+import { Grid, Avatar } from "@material-ui/core";
 //import Badge from "@material-ui/core/Badge";
-import AddIcon from "@material-ui/icons/AddCircleOutline";
-import RemoveIcon from "@material-ui/icons/RemoveCircle";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 
 const useStyles = makeStyles((theme) => ({
   badge: {
+    margin: theme.spacing(0.5),
+    border: "none",
+    background: theme.palette.action.disabledBackground,
+    borderColor: theme.palette.primary.main,
+    "&.Mui-selected": {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      "&:hover": {
+        backgroundColor: theme.palette.primary.dark,
+      },
+    },
+    "&.Mui-disabled": {
+      opacity: "0.3",
+      borderColor: theme.palette.action.disabledBackground,
+      background: theme.palette.action.disabledBackground,
+    },
+    "&:not(:first-child)": {
+      borderRadius: theme.shape.borderRadius,
+    },
+    "&:first-child": {
+      borderRadius: theme.shape.borderRadius,
+    },
     "& .proca-MuiAvatar-root": {
       height: "24px",
       width: "24px",
-      left: theme.spacing(0.5),
-      border: "1px solid " + theme.palette.action.disabledBackground,
     },
     "& .proca-MuiAvatar-img": {
       height: "24px",
@@ -43,57 +63,46 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AvatarIcon = (props) => {
-  /*
-      icon: 'https://static.proca.app/ep2024/images/wal.png';
-import FlanderIcon from '@components/bespoke/ep2024/images/vl.png';
-import EUIcon from '@components/bespoke/ep2024/images/eu.png';
-import BEIcon from '@components/bespoke/ep2024/images/be.png';
-import WalloniaIcon from '@components/bespoke/ep2024/images/wal.png';
-import FlanderIcon from '@components/bespoke/ep2024/images/vl.png';
-*/
-  let url = "https://static.proca.app/ep2024/images/";
-  console.log(props.name);
-  switch (props.name) {
-    case "europe":
-      url += "eu.png";
-      break;
-    case "state":
-      url += "federal.png";
-      break;
-    case "region":
-      console.log(props.constituency);
-
-      switch (props.constituency) {
-        case "wal":
-          url += "wal.png";
-          break;
-        case "vl":
-          url += "vl.png";
-          break;
-        case "bru_nl":
-          url += "bru.png";
-          break;
-        case "bru_fr":
-          url += "bru.png";
-          break;
-        default:
-          return null;
-      }
-      break;
-    default:
-      url += "be.png";
-  }
-  return <Avatar alt={name} src={url} />;
-};
-
 const FilterBelgium = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [constituency, setConstituency] = props.constituencyState;
   const [votations, setVotations] = props.votationState;
+  const toggles = ["eu", "federal", "bru", "vl", "wal"];
+  let selected = [];
+  let enabled = [];
+
+  Object.entries(votations).forEach(([name, votation]) => {
+    switch (name) {
+      case "europe":
+        votation.selected && selected.push("eu");
+        constituency && enabled.push("eu");
+        break;
+      case "state":
+        votation.selected && selected.push("federal");
+        constituency && enabled.push("federal");
+        break;
+      case "region": {
+        if (!constituency) return;
+        const _constituency = constituency.substr(0, 3);
+        votation.selected && selected.push(_constituency);
+        enabled.push(_constituency);
+        break;
+      }
+    }
+  });
+
+  console.log(props.constituency, selected, enabled);
 
   const toggle = (name) => {
+    const toggle2votation = {
+      eu: "europe",
+      federal: "state",
+      wal: "region",
+      vl: "region",
+      bru: "region",
+    };
+    name = toggle2votation[name];
     setVotations((prevVotation) => ({
       ...prevVotation,
       [name]: {
@@ -105,7 +114,7 @@ const FilterBelgium = (props) => {
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={12} sm={7}>
+      <Grid item xs={12} sm={6}>
         <TextField
           select
           name="constituency"
@@ -127,27 +136,31 @@ const FilterBelgium = (props) => {
             Wallonie
           </option>
           <option value="bru_nl" key="bru_nl">
-            Brussels
+            Brussels (nederlandstalig)
           </option>
           <option value="bru_fr" key="bru_fr">
-            Bruxelles
+            Bruxelles (francophone)
           </option>
         </TextField>
       </Grid>
-      <Grid item xs={12} sm={5} className={classes.root}>
-        {Object.entries(votations).map(([name, votation]) => (
-          <Chip
-            className={classes.badge}
-            label={votation.label}
-            key={name}
-            clickable
-            avatar={<AvatarIcon name={name} constituency={constituency} />}
-            color={votation.selected ? "primary" : "default"}
-            onClick={() => toggle(name)}
-            onDelete={() => toggle(name)}
-            deleteIcon={votation.selected ? <RemoveIcon /> : <AddIcon />}
-          />
-        ))}
+      <Grid item xs={12} sm={6} className={classes.root}>
+        <ToggleButtonGroup size="small" value={selected}>
+          {toggles.map((name) => (
+            <ToggleButton
+              aria-label={name}
+              key={name}
+              onClick={() => toggle(name)}
+              value={name}
+              disabled={!enabled.includes(name)}
+              className={classes.badge}
+            >
+              <Avatar
+                alt={name}
+                src={"https://static.proca.app/ep2024/images/" + name + ".png"}
+              />
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
       </Grid>
     </Grid>
   );
