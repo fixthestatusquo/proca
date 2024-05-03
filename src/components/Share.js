@@ -112,10 +112,14 @@ export default function ShareAction(props) {
         : component.render.displayName.replace("ShareButton-", "");
     const url = new URL(config.component?.share?.url || window.location.href);
     let params = url.searchParams;
-    params.set("utm_source", "share");
-    params.set("utm_medium", medium);
-    //params.set("utm_campaign", uuid());
-    params.set("utm_campaign", "proca");
+    if (config.component.share?.compact !== false) {
+      params.set("utm", ".share." + medium);
+    } else {
+      params.set("utm_source", "share");
+      params.set("utm_medium", medium);
+      //  params.set("utm_campaign", uuid());
+      params.set("utm_campaign", "proca");
+    }
     let garbage = [];
     for (const key of params.keys()) {
       if (key === "doi") garbage.push(key);
@@ -130,9 +134,6 @@ export default function ShareAction(props) {
       );
     }
     garbage.forEach((key) => params.delete(key));
-    if (config.component.share?.compact !== false) {
-      params.set("utm", ".share." + medium);
-    }
     return url.toString();
   };
   const next = () => {
