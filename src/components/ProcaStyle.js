@@ -141,6 +141,8 @@ export default function ProcaStyle(props) {
     // force the widget on the top
     theme.zIndex[d] += 100000;
   }
+  theme.zIndex.snackbar = 1000000; // we really want that one to be at the top
+
   return (
     <StylesProvider generateClassName={generateClassName}>
       <GlobalStyles />
