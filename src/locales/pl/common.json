@@ -137,9 +137,9 @@
   "email": {
     "invalid_domain": "{{domain}} nie może odbierać e-maili",
     "salutation": "Szanowny Panie/Pani",
-    "salutation_female": "Szanowna Pani {{target.last_name}}",
+    "salutation_female": "Szanowna Pani",
     "salutation_info": "(nazwa zostanie umieszczona przed wysłaniem)",
-    "salutation_male": "Szanowny Panie {{target.last_name}}",
+    "salutation_male": "Szanowny Panie",
     "salutation_placeholder": "Szanowna:y [adresat],"
   },
   "error": {
