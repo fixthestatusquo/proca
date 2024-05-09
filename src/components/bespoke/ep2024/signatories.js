@@ -138,7 +138,13 @@ const ListSignatories = () => {
         {filtered.map((d) => (
           <ListItem key={`supporter-${d.externalId}`} className={classes.item}>
             <ListItemAvatar>
-              <Avatar alt={d.name} src={d.field.picture} />
+              <Avatar
+                alt={d.name}
+                src={d.field.picture?.replace(
+                  "https://pbs.twimg.com/profile_images/",
+                  "https://pic.proca.app/twimg/",
+                )}
+              />
             </ListItemAvatar>
             <ListItemText primary={d.name} secondary={d.field.party} />
             <ListItemSecondaryAction>
