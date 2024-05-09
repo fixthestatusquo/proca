@@ -210,7 +210,6 @@ export default function Register(props) {
   }, [comment, setValue]);
 
   const onSubmit = async (formData) => {
-    console.log("fff", formData);
     config.data &&
       Object.entries(config.data).forEach(([key, value]) => {
         if (!formData[key]) formData[key] = value;
