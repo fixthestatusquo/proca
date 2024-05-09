@@ -56,29 +56,28 @@ const PartyFilter = (props) => {
   }, [url, setAllParties]);
 
   const setParties = (fullList) => {
-    if (fullList.length) {
-      const count = {};
-      let list = fullList;
-      if (props.country) {
-        list = fullList.filter(filterCountry);
-      }
-      for (const item of list) {
-        const key = getKey(item);
-        if (count[key]) {
-          count[key].count++;
-        } else {
-          count[key] = { count: 1, selected: false };
-        }
-      }
-
-      //list.foreach
-      const sortedObject = Object.fromEntries(
-        [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b)),
-      );
-
-      _setParties(sortedObject);
-      //return list[0];
+    if (!fullList || !fullList.length) return;
+    const count = {};
+    let list = fullList;
+    if (props.country) {
+      list = fullList.filter(filterCountry);
     }
+    for (const item of list) {
+      const key = getKey(item);
+      if (count[key]) {
+        count[key].count++;
+      } else {
+        count[key] = { count: 1, selected: false };
+      }
+    }
+
+    //list.foreach
+    const sortedObject = Object.fromEntries(
+      [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b)),
+    );
+
+    _setParties(sortedObject);
+    //return list[0];
   };
 
   const toggle = (name) => {
