@@ -117,7 +117,6 @@ const ListSignatories = () => {
   }
 
   // todo
-  console.log(parties.size);
   filtered = data.filter((d) => {
     if (!country) return true;
 

@@ -104,9 +104,6 @@ const PartyFilter = (props) => {
 */
 
   useEffect(() => {
-    if (props.getKey) {
-      console.log("filter", props);
-    }
     if (!props.country) return;
     setParties(props.profiles);
     //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts

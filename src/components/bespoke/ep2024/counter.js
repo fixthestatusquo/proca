@@ -23,7 +23,6 @@ const Counter = () => {
     fetchData(url);
   }, [url, setData]);
 
-  console.log(data);
   return data;
 };
 

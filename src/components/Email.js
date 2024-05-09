@@ -290,6 +290,7 @@ const EmailComponent = (props) => {
       setProfiles(d);
       setData("targets", d);
       setConfig((current) => {
+        console.log("set lang", locale);
         let next = { ...current };
         next.lang = locale;
         return next;
@@ -354,15 +355,24 @@ const EmailComponent = (props) => {
       if (!lang && localeFiltered) {
         // more than one lang in the country
         if (languages.includes(locale)) {
-          lang = locale;
+          lang = [locale];
         } else {
           lang = mainLanguage(country, false);
         }
         d = allProfiles.filter(
           (d) =>
-            (d.locale ? d.locale === locale : true) && d.country === country,
+            (d.locale ? lang.includes(d.locale) : true) &&
+            d.country === country,
+        );
+        console.log(
+          "not lang",
+          lang + "?",
+          locale,
+          lang?.includes("fr"),
+          country,
         );
       }
+      console.log("lang", lang, lang && lang?.includes("fr"), country);
       if (d.length === 0 && fallbackArea) {
         console.log("fallback area");
         d = filterArea(area);
