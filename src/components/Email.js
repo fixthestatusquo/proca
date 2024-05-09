@@ -442,6 +442,13 @@ const EmailComponent = (props) => {
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
 
+  useEffect(() => {
+    console.log("In useEffect", selection);
+    if (selection?.length === 0) {
+      setError("selection");
+    }
+  }, [setError, selection]);
+
   const send = (data) => {
     const hrefGmail = (message) => {
       return (
@@ -614,7 +621,13 @@ const EmailComponent = (props) => {
     );
   };
 
-  const onClick = config.component.email?.server !== false ? null : send;
+  const getOnClick = () => {
+    if (config.component.email?.server !== false) {
+      return selection?.length === 0 ? "no targets selected" : null;
+    } else {
+      return send;
+    }
+  };
 
   const prepareData = (data) => {
     if (!data.privacy) data.privacy = getValues("privacy");
@@ -867,7 +880,7 @@ const EmailComponent = (props) => {
             config.component.email?.server !== false ? getTargets() : null
           }
           beforeSubmit={prepareData}
-          onClick={onClick}
+          onClick={getOnClick()}
           extraFields={ExtraFields}
         />
       </Collapse>
