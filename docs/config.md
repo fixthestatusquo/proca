@@ -261,6 +261,12 @@ The Donate steps are configured under the `config.component.donation` key.
 
 - `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.
 
+### Replace URL (for prefilled widgets)
+
+config.component.email.replace = {
+"https://example.org/campaign":"https://example.org/campaign?proca_uuid={{target.externalId}}"
+}
+
 ### `currency`: dict
 
 Configure the currency.
