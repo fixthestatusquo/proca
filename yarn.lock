@@ -1524,10 +1524,10 @@
   resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-3.4.0.tgz#a03323ed3d30914d186654b5dec45ab5dc5eb96f"
   integrity sha512-a2kUP7OrsV0SSIk3UxWa+cnrW+PPIyuCbWIBH8vxfHIqmyeQN/d0lsplZJ2h7MlLsU/sB3EyhNBkhLLT+zHwKw==
 
-"@supabase/auth-js@2.64.1":
-  version "2.64.1"
-  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.64.1.tgz#c7f5ab8d728d20e6b567428143a2a986f2413cb5"
-  integrity sha512-tA2PXLoWEzhD0N1Vysree+HftfeWBbFV0E+taND5rj/pZTjkwKq/9GlrnXkbs5pnw+tsnABDRo2WLZmymihGdA==
+"@supabase/auth-js@2.64.2":
+  version "2.64.2"
+  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.64.2.tgz#fe6828ed2c9844bf2e71b27f88ddfb635f24d1c1"
+  integrity sha512-s+lkHEdGiczDrzXJ1YWt2y3bxRi+qIUnXcgkpLSrId7yjBeaXBFygNjTaoZLG02KNcYwbuZ9qkEIqmj2hF7svw==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
@@ -1569,12 +1569,12 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/supabase-js@^2.43.0":
-  version "2.43.0"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.43.0.tgz#04661415f54445f610a1b35e4ab5754f89149f04"
-  integrity sha512-e/MXc/7HPEXayWoxDTv+xqxF5+wlpH3/+UoP3TXLH0OiShICTbyJfmRgn/GCNw7E7+DlUq+3c48q12FtGWrVmQ==
+"@supabase/supabase-js@^2.43.2":
+  version "2.43.2"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.43.2.tgz#86ee9379d4441c2773b1a84919770ac704c5cfb4"
+  integrity sha512-F9CljeJBo5aPucNhrLoMnpEHi5yqNZ0vH0/CL4mGy+/Ggr7FUrYErVJisa1NptViqyhs1HGNzzwjOYG6626h8g==
   dependencies:
-    "@supabase/auth-js" "2.64.1"
+    "@supabase/auth-js" "2.64.2"
     "@supabase/functions-js" "2.3.1"
     "@supabase/node-fetch" "2.6.15"
     "@supabase/postgrest-js" "1.15.2"
