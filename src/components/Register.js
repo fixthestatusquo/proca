@@ -561,11 +561,7 @@ export default function Register(props) {
                       config.component.register?.field?.comment?.required
                     }
                     label={t("Comment")}
-                    helperText={
-                      config.component.register?.field?.comment?.optin
-                        ? t("commentOptin")
-                        : ""
-                    }
+                    helperText={t("help.comment", "")}
                   />
                 </Grid>
               )}

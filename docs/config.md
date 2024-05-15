@@ -162,6 +162,9 @@ most fields can either be displayed or hidden, most fields can either be require
 - `config.component.register.field.comment: boolean (show/hide) or {required:boolean}`
 - `config.component.register.field.phone: boolean`. (show/hide)
 
+To add helper text for the comment (for example: "Your message may be used..."):
+`locales.common.help.comment: "Your message may be used..."`
+
 ## Counter
 
 To show:
