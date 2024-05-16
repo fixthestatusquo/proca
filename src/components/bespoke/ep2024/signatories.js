@@ -62,7 +62,7 @@ const ListSignatories = () => {
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
   const country = form.watch("supporter_country");
-  let filtered = data.filter((d) => d.area === country);
+  let filtered = data.filter((d) => d.country === country);
 
   const empty = filtered.length === 0;
   useEffect(() => {
@@ -133,6 +133,7 @@ const ListSignatories = () => {
         country={country}
         getKey={(d) => d.field.party}
         filterCountry={filterCountry}
+        profiles={data}
       />
       <List dense={true} disablePadding={true} className={classes.container}>
         {filtered.map((d) => (
