@@ -162,6 +162,9 @@ most fields can either be displayed or hidden, most fields can either be require
 - `config.component.register.field.comment: boolean (show/hide) or {required:boolean}`
 - `config.component.register.field.phone: boolean`. (show/hide)
 
+To add helper text for the comment (for example: "Your message may be used..."):
+`locales.common.help.comment: "Your message may be used..."`
+
 ## Counter
 
 To show:
@@ -260,6 +263,12 @@ The Donate steps are configured under the `config.component.donation` key.
 ### Field (config.component.email.field)
 
 - `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.
+
+### Replace URL (for prefilled widgets)
+
+config.component.email.replace = {
+"https://example.org/campaign":"https://example.org/campaign?proca_uuid={{target.externalId}}"
+}
 
 ### `currency`: dict
 
