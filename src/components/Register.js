@@ -355,7 +355,10 @@ export default function Register(props) {
   const handleClick = async () => {
     const result = await trigger();
     if (result) {
-      if (props.onClick) {
+      if (props?.onClick === "no targets selected") {
+        setError("selection");
+        return null;
+      } else if (props.onClick) {
         // do not await it, it would open a warning 'firefox prevented this page to open a pop up window...
         setTimeout(() => handleSubmit(onSubmit)(), 1);
 
