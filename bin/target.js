@@ -17,6 +17,7 @@ const help = (exitValue) => {
         "--dry-run (show the tagets but don't update the server)",
         //          "not done --twitter (set up as a separate proca-twitter)",
         "--git (git update [add]+commit into /config/target/) || --no-git",
+        "--quiet (less warning displayed)",
         "--pull (from the server)",
         "--digest (process the source and generate a file for digest, like add salutation and language)",
         "--push (update the server)",
@@ -30,8 +31,8 @@ const help = (exitValue) => {
         "",
         "(if --push or --digest)",
         "--salutation(add a salutation column based on the gender and language)",
-        "--keep[=false] (by default, replace all the contacts and remove those that aren't on the file)",
-        "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--keep)",
+        "--outdated[=delete,disable,keep] (by default, replace all the contacts and delete those that aren't on the file, option to disable or keep)",
+        "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--disable or keep)",
         "--file=file (by default, config/target/source/{campaign name}.json",
       ].join("\n"),
     ),
@@ -53,12 +54,20 @@ const help = (exitValue) => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  default: { git: true, salutation: true, external_id: true, source: true },
-  string: ["file", "fields"],
+  default: {
+    git: true,
+    salutation: true,
+    external_id: true,
+    source: true,
+    outdated: "delete",
+    quiet: false,
+  },
+  string: ["file", "fields", "outdated"],
   boolean: [
     "help",
-    "keep",
     "dry-run",
+    "quiet",
+    "keep",
     "git",
     "pull",
     "digest",
@@ -93,7 +102,7 @@ const parseEmail = (text) => {
   const emails =
     text && text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
   if (!emails) {
-    console.log("failed to parse as an email", text);
+    !argv.quiet && console.log("failed to parse as an email", text);
     return [];
   }
   return emails.map((email) => ({ email: email })); // proca api requires an array of {email:bla@example.org}
@@ -126,8 +135,22 @@ query GetCampaignTargets($name: String!) {
   return data.campaign.targets;
 };
 
+const countEmailStatus = (targets) => {
+  return targets.reduce((acc, { emails }) => {
+    if (emails.length > 1) {
+      console.warn("more than one email per target", emails);
+    }
+    emails.forEach(
+      ({ emailStatus }) =>
+        (acc[emailStatus] = acc[emailStatus] ? acc[emailStatus] + 1 : 1),
+    );
+    return acc;
+  }, {});
+};
+
 const pullTarget = async (name) => {
   let targets = await getCampaignTargets(name);
+  const status = countEmailStatus(targets);
   if (targets.length === 0) {
     return console.error("not storing empty targets");
   }
@@ -141,6 +164,9 @@ const pullTarget = async (name) => {
       console.log("total server vs source", targets.length, c.length);
       targets = c;
     }
+  }
+  if (Object.keys(status).length > 1) {
+    console.log("status", status);
   }
 
   await saveTargets(argv.file || name, targets);
@@ -273,15 +299,16 @@ const formatTarget = async (campaignName, file) => {
         delete t.email;
       }
       if (t.field.avatar === null) {
-        console.log("null avatar for ", t.name);
+        !argv.quiet && console.log("null avatar for ", t.name);
         delete t.field.avatar;
       }
       if (t.field.gender === null) {
-        console.log("null gender for ", t.name);
+        !argv.quiet && console.log("null gender for ", t.name);
         delete t.field.gender;
       }
       if (!t.field.last_name) {
-        console.log("missing lastname for ", t.name, "fallback to name");
+        !argv.quiet &&
+          console.log("missing lastname for ", t.name, "fallback to name");
         t.field.last_name = t.field.name;
       }
       if (!(t.field.salutation || t.salutation) && argv.salutation) {
@@ -317,13 +344,13 @@ const formatTarget = async (campaignName, file) => {
       t.fields = JSON.stringify(t.field);
       delete t.field;
       if (t.emails.length === 0) {
-        console.log("skipping record without email", t.name);
+        !argv.quiet && console.log("skipping record without email", t.name);
         continue;
       }
       let dupe = false;
       t.emails.forEach((d) => {
         if (added.has(d.email)) {
-          console.log("target already set", t.name, d.email);
+          !argv.quiet && console.log("target already set", t.name, d.email);
           dupe = true;
           return;
         }
@@ -380,14 +407,18 @@ const pushTarget = async (campaignName, file) => {
   console.log("targets", formattedTargets.length);
 
   const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$replace:Boolean) {
-  upsertTargets(campaignId: $id, replace: $replace, targets: $targets) {id}
+mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTargets!) {
+  upsertTargets(campaignId: $id, outdatedTargets: $outdated, targets: $targets) {id}
 }
 `;
 
   const ids = await api(
     query,
-    { id: campaign.id, targets: formattedTargets, replace: !argv.keep },
+    {
+      id: campaign.id,
+      targets: formattedTargets,
+      outdated: argv.outdated.toUpperCase(),
+    },
     "UpsertTargets",
   );
   if (ids.errors) {
@@ -477,6 +508,22 @@ if (require.main === module) {
         await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
+        if (argv.keep) {
+          argv.outdated = "keep";
+        }
+
+        if (
+          !"keep,delete,disable"
+            .split(",")
+            .includes(argv.outdated.toLowerCase())
+        ) {
+          console.error(
+            color.red("invalid outdated, must be keep, delete or disable"),
+            argv.outdated,
+            "keep,delete,disable",
+          );
+          process.exit(1);
+        }
         await pushTarget(name, argv.file || name);
         console.log("push done");
       }

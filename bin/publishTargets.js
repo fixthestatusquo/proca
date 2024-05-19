@@ -56,6 +56,10 @@ const merge = (targets, twitters, options) => {
     if (options.email && target.emails?.length) {
       r.email = target.emails[0].email;
     }
+    const disable = target.emails.find((d) => d.emailStatus === "INACTIVE");
+    if (disable) {
+      return undefined;
+    }
 
     if (options.display) {
       r.display = !!target.fields.display;
@@ -151,7 +155,7 @@ const publishTarget = async (campaignName, argv) => {
       twitters = [];
     }
 
-    const d = merge(targets, twitters || [], argv);
+    const merged = merge(targets, twitters || [], argv);
     /*
       email: publicEmail,
       display: display,
@@ -160,6 +164,13 @@ const publishTarget = async (campaignName, argv) => {
     });
 */
     //    const d = await pullCampaign(argv[0]);
+    let removed = 0;
+    const d = merged.filter((d) => {
+      if (d) return true;
+      removed++;
+      return false;
+    });
+    console.log("removed", removed);
     if (d) {
       //if (argv.sort) {
       const sort = argv.sort || "sort";
@@ -174,8 +185,10 @@ const publishTarget = async (campaignName, argv) => {
       const r = argv.git && (await commit(c, msg, true));
       if (r?.summary) {
         console.log(r.summary);
-        await push();
-        await deploy();
+        if (argv.git) {
+          await push();
+          await deploy();
+        }
       }
       return d;
     }
