@@ -61,7 +61,7 @@ const ListSignatories = () => {
   //  data.map((d) => countries.add(d.area));
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
-  const country = form.watch("supporter_country");
+  const country = config.component.country || form.watch("supporter_country");
   let filtered = data.filter((d) => d.country === country);
 
   const empty = filtered.length === 0;
@@ -127,7 +127,9 @@ const ListSignatories = () => {
   });
   return (
     <div id="proca-signature">
-      <Country form={form} name="supporter_country" />
+      {!config.component.country && (
+        <Country form={form} name="supporter_country" />
+      )}
       <Party
         selecting={filterSignature}
         country={country}
