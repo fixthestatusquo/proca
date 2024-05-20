@@ -137,7 +137,11 @@ const ListSignatories = () => {
       />
       <List dense={true} disablePadding={true} className={classes.container}>
         {filtered.map((d) => (
-          <ListItem key={`supporter-${d.externalId}`} className={classes.item}>
+          <ListItem
+            key={`supporter-${d.externalId}`}
+            className={classes.item}
+            ContainerComponent="div"
+          >
             <ListItemAvatar>
               <Avatar
                 alt={d.name}
