@@ -178,6 +178,19 @@ The counter will automatically calculate next goals so that goal always escapes 
 
 Counter is always shown in test mode!
 
+## Markdown
+
+A step with customizable text and button.
+For text:
+`"component": {
+    "markdown": {
+        "text": "campaign:thankspage.text",
+        "title": "campaign:thankspage.title",
+        "next": false
+      }
+}`
+Next button is shown unless `config.component.markdown.next: false`
+
 ## Country
 
 - `config.component.country`. 2 char iso code (default country), or boolean (disable/enable ip geolooup)

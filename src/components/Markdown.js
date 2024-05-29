@@ -25,15 +25,17 @@ const MarkdownPage = (props) => {
           <Markdown text={text} />
         </div>
       </div>
-      <Button
-        endIcon={<SkipNextIcon />}
-        fullWidth
-        variant="contained"
-        onClick={props.done}
-        color="primary"
-      >
-        {t(next)}
-      </Button>
+      {config.component.markdown.next !== false && (
+        <Button
+          endIcon={<SkipNextIcon />}
+          fullWidth
+          variant="contained"
+          onClick={props.done}
+          color="primary"
+        >
+          {t(next)}
+        </Button>
+      )}
     </div>
   );
 };
