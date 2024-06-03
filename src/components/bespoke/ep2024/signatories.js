@@ -63,8 +63,16 @@ const ListSignatories = () => {
           }
           const mepA = a.field.mep !== undefined ? a.field.mep : false;
           const mepB = b.field.mep !== undefined ? b.field.mep : false;
-          if (mepA !== mepB) {
-            return mepA - mepB;
+          if (mepA && mepB) {
+            return a.field.last_name.localeCompare(b.field.last_name);
+          }
+          if (mepA) {
+            return -1;
+          }
+          if (mepB) {
+            return 1;
+            //            return a.field.last_name.localeCompare(b.field.last_name);
+            //return mepB - mepA;
           }
           // Third criterion: name (alphabetical order)
           return a.field.last_name.localeCompare(b.field.last_name);
