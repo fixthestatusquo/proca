@@ -45,17 +45,39 @@ const ListSignatories = () => {
     config.campaign.name.replace("_citizen_", "_candidates_") +
     ".json";
 
+  const sort = config.component.signature?.sort || false;
   useEffect(() => {
     const fetchData = async (url) => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 
       const d = await res.json();
+      if (sort) {
+        const e = d.sort((a, b) => {
+          const positionA =
+            a.field.position !== undefined ? a.field.position : Infinity;
+          const positionB =
+            b.field.position !== undefined ? b.field.position : Infinity;
+          if (positionA !== positionB) {
+            return positionA - positionB;
+          }
+          const mepA = a.field.mep !== undefined ? a.field.mep : false;
+          const mepB = b.field.mep !== undefined ? b.field.mep : false;
+          if (mepA !== mepB) {
+            return mepA - mepB;
+          }
+          // Third criterion: name (alphabetical order)
+          return a.field.last_name.localeCompare(b.field.last_name);
+        });
+        setData(e);
+        return;
+      }
+
       setData(d);
     };
     if (!url) return;
     fetchData(url);
-  }, [url, setData]);
+  }, [url, setData, sort]);
 
   //r = <Country form={props.form} list={config.component.email?.countries} />;
   //  data.map((d) => countries.add(d.area));
@@ -153,7 +175,14 @@ const ListSignatories = () => {
                 )}
               />
             </ListItemAvatar>
-            <ListItemText primary={d.name} secondary={d.field.party} />
+            <ListItemText
+              primary={d.name}
+              secondary={
+                d.field.party +
+                (d.field.position ? " " + d.field.position : "") +
+                (d.field.mep ? " " + d.field.mep : "")
+              }
+            />
             <ListItemSecondaryAction>
               <CountryFlag countryCode={d.area} />
             </ListItemSecondaryAction>
