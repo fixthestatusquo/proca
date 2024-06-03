@@ -183,14 +183,7 @@ const ListSignatories = () => {
                 )}
               />
             </ListItemAvatar>
-            <ListItemText
-              primary={d.name}
-              secondary={
-                d.field.party +
-                (d.field.position ? " " + d.field.position : "") +
-                (d.field.mep ? " " + d.field.mep : "")
-              }
-            />
+            <ListItemText primary={d.name} secondary={d.field.party} />
             <ListItemSecondaryAction>
               <CountryFlag countryCode={d.area} />
             </ListItemSecondaryAction>
