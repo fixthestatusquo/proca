@@ -10,7 +10,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Country from "@components/field/Country";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import CountryFlag, { flag as emoji } from "react-emoji-flag";
+import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
 //import { getCountryName } from "@lib/i18n";
 import { imports } from "../../../actionPage";
 
@@ -29,6 +29,7 @@ const useStyles = makeStyles({
 
 const ListSignatories = () => {
   const { t } = useTranslation();
+  useCountryFlag({ className: "country-flag" });
   //const countries = new Set();
   const [data, setData] = useState([]);
   const [parties, setParties] = useState(new Set());
