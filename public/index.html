@@ -290,7 +290,11 @@
         var widget_shortcode = window.location.pathname
           .replace("/index.html", "")
           .replace("/d/", "");
-        for (let d of document.getElementsByClassName("dynamic")) {
+
+        let dynamicElements = document.getElementsByClassName("dynamic");
+        for (var i = 0; i < dynamicElements.length; i++) {
+          const d = dynamicElements[i];
+
           d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
           d.innerHTML = d.innerHTML.replace(
             "%widget_shortcode%",
