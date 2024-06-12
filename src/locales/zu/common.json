@@ -1,1 +1,234 @@
-{}
+{
+  "Address": "Ikheli",
+  "Amount": "Inani",
+  "Another": "Omunye",
+  "Birthdate": "Usuku lokuzalwa",
+  "City": "Idolobha",
+  "Comment": "Amazwana",
+  "Country": "Izwe",
+  "Download": "Landa",
+  "Download explanation": "Umbhalo wakho ulungile manje, siwuthumela nge-imeyili kuwe",
+  "Email": "Imeyili",
+  "First name": "Igama lokuqala",
+  "Language": "Ulimi",
+  "Last name": "Isibongo",
+  "Locality": "Indawo",
+  "Next": "Okulandelayo",
+  "Organisation": "Inhlangano",
+  "Other": "Okunye",
+  "party": "Iphathi",
+  "Phone": "Ifoni",
+  "Postal Code": "Ikhodi yePosi",
+  "Salutation": "Ukubingelela",
+  "Sorry, we couldn't save": "Uxolo, asikwazanga ukusindisa",
+  "Street": "Umgwaqo",
+  "Subject": "Isihloko",
+  "Thank you": "Ngiyabonga",
+  "Your message": "Umyalezo wakho",
+  "action": {
+    "donate": "Nikelani",
+    "eci": "Sayina i-ECI",
+    "email": "Thumela i-imeyili",
+    "join": "Joyina",
+    "register": "Bhalisa",
+    "remindeSent": "Isikhumbuzo sithunyelwe",
+    "reminder": "Ngikhumbuze kamuva",
+    "reminderEmail": "Ngikhumbuze nge-imeyili",
+    "share": "Yabelana",
+    "sign": "Sayina Manje!",
+    "stayInformed": "Hlala unolwazi",
+    "takeAction": "Thatha isinyathelo",
+    "twitter": "Tweet"
+  },
+  "camera": {
+    "start": "qala ikhamera",
+    "take": "Thatha isithombe",
+    "take-another": "Thatha esinye"
+  },
+  "closed": "##siyabonga kubaxhasi abangu-{{total}}!\n\nSikuvalile lesi senzo, kodwa umsebenzi wethu awupheli lapha, ngakho-ke sicela **ushiye i-imeyili yakho ukuze uhlale unolwazi ngezinyathelo ezilandelayo**",
+  "confirm": "Uqinisekile?",
+  "consent": {
+    "actionConfirmed": "Isenzo siqinisekisiwe",
+    "actionRejected": "Isenzo sikhanseliwe ngempumelelo",
+    "confirm": "<0>Uqinisekile?</0><1>Uma ukhetha 'Cha', ngeke ukwazi ukuthola ukuthi lo mkhankaso uyaphumelela yini, noma uma kunenye isinyathelo esidingeka ukuba sithathe ukuze siwinile. Uma ukhetha 'Yebo' sizokugcina ulwazi ngalokhu kanye nemikhankaso yethu ephuthumayo.</1><2>Ungazikhipha noma kunini.</2>",
+    "confirmAction": "Sicela uthole i-imeyili manje bese uchofoza isixhumanisi esikuqukethe (bheka ifolda yakho yemfucuza!).\n Kungaleso sikhathi lapho isenzo sakho sizobalwa!\nUkuqinisekiswa kwakho kubalulekile ukuze lesi senzo sibe nesisindo esipolitiki. Lokhu kuqinisekisa ukuthi kukhona umuntu wangempela ngemuva kwazo zonke izethulo. Sizolinda ukuqinisekiswa kwakho...",
+    "confirmOptIn": "Ungakhohlwa ukuhlola ibhokisi lakho leposi (kufaka ifolda yemfucuza!) bese uqinisekisa ukubhaliswa kwakho kwe-imeyili",
+    "emailSent": "Sikuthumele i-imeyili ku-{{email}}!",
+    "implicit": "Thumela leli fomu ukuze uthole ama-imeyili avela ku-{{name}}",
+    "intro": "Thola okwengeziwe ngemikhankaso yethu, izenzo kanye nokuqhubeka kwe-{{campaign}}",
+    "opt-in": "Yebo, ngifuna u-{{partner}} angigcine nginolwazi nge-imeyili",
+    "opt-in-both": "Yebo, ngifuna u-{{partner}} no-{{lead}} bangigcine nginolwazi nge-imeyili",
+    "opt-out": "Cha, ungathumi ama-imeyili noma ungigcine nginolwazi esikhathini esizayo",
+    "optInConfirmed": "Ukubhaliswa kuqinisekisiwe",
+    "processing": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha namakhukhi ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
+    "processing-nocookie": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
+    "required": "Imvume yakho iyadingeka ukuze ubambe iqhaza",
+    "subButton": {
+      "opt-in": "futhi uthole ulwazi",
+      "opt-out": "futhi ungangigcini nginolwazi"
+    }
+  },
+  "postcode": {
+     "wrongLength":  "ubude obulindelekile be-{{length}} bezwe lakho",
+     "notFound": "le khodi yeposi ibonakala ingekho ezweni lakho"
+  },
+  "date": {
+    "error": "usuku olungavumelekile. ifomethi: DD.MM.YYYY"
+  },
+  "dateFormat": "DD/MM/YYYY",
+  "dialogTitle": "Ngigcine nginolwazi ngomkhankaso",
+  "donation": {
+    "amount": {
+      "change": "Shintsha inani",
+      "intro": "Khetha Inani"
+    },
+    "average": "Ukunikezwa okujwayelekile ngu-{{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Nikelani u-{{amount}} njalo ngenyanga",
+        "oneoff": "Nikelani u-{{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Inombolo yekhadi lesikweletu ayikho"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "jikelele",
+      "initialisation": "ukuqalisa"
+    },
+    "form": {
+      "error": {
+        "minimum": "Ukunikezwa okuncane ngu-{{amount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Yenza lokhu kube yisipho sangesonto?",
+        "oneoff": "Nikelani",
+        "weekly": "Yenza kube nyangazonke?"
+      },
+      "each": {
+        "monthly": "njalo ngesonto",
+        "oneoff": "Kanye",
+        "weekly": "njalo ngenyanga"
+      },
+      "feedback": {
+        "monthly": "Nginikela ngo-{{amount}} {{frequency}}",
+        "oneoff": "Nginikela ngo-{{amount}}"
+      },
+      "monthly": "njalo ngenyanga",
+      "oneoff": "kanye",
+      "weekly": "njalo ngesonto",
+      "yearly": "njalo ngonyaka"
+    },
+    "iban": "IBAN",
+    "intro": "Nikelani ku-{{campaign}}",
+    "payment_methods": {
+      "card": "Ikhadi",
+      "default": "Nikelani",
+      "intro": "Ufuna kanjani ukunikela?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Indlela Yokukhokha"
+    },
+    "thanks": "Ngiyabonga ngokunikela kwakho!",
+    "to": "Ukunikela ku-{{organisation}}"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} ayikwazi ukuthola ama-imeyili",
+    "salutation": "Mnumzane noma Nkosikazi",
+    "salutation_female": "Nkosikazi {{target.last_name}}",
+    "salutation_info": "(Igama lomamukeli lizobekwa ngaphambi kokuthunyelwa)",
+    "salutation_male": "Mnumzane {{target.last_name}}",
+    "salutation_placeholder": "Mnumzane/Nkosikazi [recipient]"
+  },
+  "error": {
+    "date": "ifomethi kufanele ibe DD.MM.YYYY"
+  },
+  "image": {
+    "addSticker": "faka izitika",
+    "addStickerTitle": "Chofoza/Thepha ukuze ungeze isitifiketi esithombeni",
+    "benefit": "Ukwengeza isithombe sokuthumela - futhi ongabelana ngaso esinyat
+
+helweni esilandelayo - kuzokwenza isenzo sakho sibe nethonya elikhulu",
+    "options": "Ungathanda ukwenza yini kulezi zenzo?",
+    "publish": "Kubukeka kahle, shicilela!",
+    "select": "Khetha esinye sezithombe zethu",
+    "takeTitle": "Thatha isithombe ngocingo lwakho",
+    "upload": "Layisha isithombe",
+    "wanttoadd": "Ufuna ukwengeza isithombe?"
+  },
+  "no": "cha",
+  "progress": {
+    "donate": "Abangu-{{total}} sebevele banikele. Asiqhubekele ku-{{goal}}",
+    "email": "Abangu-{{total}} sebevele bathumele i-imeyili. Asiqhubekele ku-{{goal}}",
+    "register": "Abangu-{{total}} sebevele babhalisile. Asiqhubekele ku-{{goal}}",
+    "share": "Abangu-{{total}} sebevele babelane. Asiqhubekele ku-{{goal}}",
+    "sign": "Abangu-{{total}} sebevele basayine. Asiqhubekele ku-{{goal}}",
+    "twitter": "Abangu-{{total}} sebevele bathumele i-tweet. Asiqhubekele ku-{{goal}}"
+  },
+  "read more": "funda kabanzi",
+  "register": "Faka igama lami",
+  "reminder": {
+    "intro": "Siyazi, uhulumeni wakho ucelwa ulwazi oluningi. Sizokuthumela i-imeyili eyodwa ukukukhumbuza ukuthi ugcwalise ifomu kamuva"
+  },
+  "required": "kuyadingeka",
+  "required field": "insimu edingekayo",
+  "salutations": {
+    "f": "Nkosikazi {{name}}",
+    "m": "Mnumzane {{name}}",
+    "other": "Mnumzane/Nkosikazi {{name}}"
+  },
+  "select_all": "Khetha konke",
+  "share": {
+    "intro": "Kuhle, ususayinile 👍. Ukukhulisa umthelela wakho, yabelana kabanzi ukuze uqinisekise ukuthi wonke umuntu uyabona lesi sicelo 🙏.",
+    "message": "Kufanele usayine lokhu!",
+    "title": "Ucishe waqeda! Thatha isinyathelo esilandelayo."
+  },
+  "step": {
+    "eci": {
+      "secure": "kuphephile",
+      "subheader": "",
+      "title": ""
+    },
+    "register": {
+      "title": ""
+    }
+  },
+  "supporter": {
+    "not_you": "hhayi wena?",
+    "welcome": "Siyakwamukela emuva, {{firstname}}!",
+    "greeting": "Siyakwamukela {{firstname}}!"
+  },
+  "supporterHint": "{{name}}, {{area}}",
+  "target": {
+    "country": {
+      "empty": "Khetha elinye izwe, akekho umuntu ongaxhumana naye ku-{{country}}",
+      "undefined": "Khetha izwe"
+    },
+    "missing": "Khetha okungenani oyedwa ku-{{total}}",
+    "postcode": {
+      "empty": "akekho umuntu ongaxhumana naye ku-{{area}}",
+      "undefined": "Faka ikhodi yakho yeposi"
+    },
+    "random_one": "Ukhethe oyedwa kubaluleke kakhulu kubantu ababalulekile bethu abangu-{{total}}",
+    "random_other": "Ukhethe abangu-{{count}} kubaluleke kakhulu kubantu ababalulekile bethu abangu-{{total}}",
+    "selected": "Abamukeli abangu-{{total}}"
+  },
+  "twitter": {
+    "actionText": "umyalezo wezenzo",
+    "again": "Tweet komunye umuntu",
+    "choice": "Uthanda ukwenzani ngokulandelayo?",
+    "instruction": "Sicela uqede ukuthumela i-tweet efasiteleni elisha (ku-twitter.com)",
+    "organisation": "I-akhawunti ye-twitter yenhlangano yakho",
+    "screenName": "I-akhawunti ye-Twitter"
+  },
+  "unknown postcode": "ikhodi yeposi engaziwa",
+  "yes": "yebo",
+  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala"
+}
