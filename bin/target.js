@@ -30,6 +30,7 @@ const help = (exitValue) => {
       [
         "",
         "(if --push or --digest)",
+        "--allow-duplicate (false by default) can two targets have the same email?",
         "--salutation(add a salutation column based on the gender and language)",
         "--outdated[=delete,disable,keep] (by default, replace all the contacts and delete those that aren't on the file, option to disable or keep)",
         "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--disable or keep)",
@@ -61,11 +62,13 @@ const argv = require("minimist")(process.argv.slice(2), {
     source: true,
     outdated: "delete",
     quiet: false,
+    "allow-duplicate": false,
   },
   string: ["file", "fields", "outdated"],
   boolean: [
     "help",
     "dry-run",
+    "allow-duplicate",
     "quiet",
     "keep",
     "git",
@@ -348,14 +351,15 @@ const formatTarget = async (campaignName, file) => {
         continue;
       }
       let dupe = false;
-      t.emails.forEach((d) => {
-        if (added.has(d.email)) {
-          !argv.quiet && console.log("target already set", t.name, d.email);
-          dupe = true;
-          return;
-        }
-        added.add(d.email);
-      });
+      !argv["allow-duplicate"] &&
+        t.emails.forEach((d) => {
+          if (added.has(d.email)) {
+            !argv.quiet && console.log("target already set", t.name, d.email);
+            dupe = true;
+            return;
+          }
+          added.add(d.email);
+        });
       if (dupe) continue;
       results.push(t);
     }
