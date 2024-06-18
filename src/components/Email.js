@@ -716,7 +716,7 @@ const EmailComponent = (props) => {
         return;
       }
       const d = allProfiles.filter((d) => {
-        return d.fields[key] === value;
+        return d[key] === value;
       });
 
       if (d.length === 0) {
@@ -743,7 +743,7 @@ const EmailComponent = (props) => {
   let selectAllEnabled = true;
   if (
     config.import &&
-    config.import.includes("filter/Party") &&
+    config.import.find((d) => d.startsWith("filter")) &&
     profiles.length > 30
   ) {
     selectAllEnabled = false;
