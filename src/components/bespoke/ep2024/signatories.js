@@ -2,7 +2,10 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import ListItem from "@material-ui/core/ListItem";
+import Grid from "@material-ui/core/Grid";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
@@ -33,6 +36,7 @@ const ListSignatories = () => {
   useCountryFlag({ className: "country-flag" });
   //const countries = new Set();
   const [data, setData] = useState([]);
+  const [electedOnly, setElected] = useState(false);
   const [parties, setParties] = useState(new Set());
   const config = useCampaignConfig();
   let Party = () => null;
@@ -56,6 +60,20 @@ const ListSignatories = () => {
       const d = await res.json();
       if (sort) {
         const e = d.sort((a, b) => {
+          const electedA = a.field.elected;
+          const electedB = b.field.elected;
+          if (electedA && electedB) {
+            return a.field.last_name.localeCompare(b.field.last_name);
+          }
+          if (electedA) {
+            return -1;
+          }
+          if (electedB) {
+            return 1;
+            //            return a.field.last_name.localeCompare(b.field.last_name);
+            //return mepB - mepA;
+          }
+
           const positionA =
             a.field.position !== undefined ? a.field.position : Infinity;
           const positionB =
@@ -159,9 +177,25 @@ const ListSignatories = () => {
   });
   return (
     <div id="proca-signature">
-      {!config.component.country && (
-        <Country form={form} name="supporter_country" />
-      )}
+      <Grid container spacing={1}>
+        <Grid item xs={12} sm={5}>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={electedOnly}
+                onChange={(event) => setElected(event.target.checked)}
+                name="elected"
+              />
+            }
+            label="only MEPs"
+          />
+        </Grid>
+        <Grid item xs={12} sm={7}>
+          {!config.component.country && (
+            <Country form={form} name="supporter_country" />
+          )}
+        </Grid>
+      </Grid>
       <Party
         selecting={filterSignature}
         country={country}
@@ -185,7 +219,18 @@ const ListSignatories = () => {
                 )}
               />
             </ListItemAvatar>
-            <ListItemText primary={d.name} secondary={d.field.party} />
+            <ListItemText
+              primary={
+                d.field.elected ? (
+                  <>
+                    <span title="elected 2024">🇪🇺</span> {d.name}
+                  </>
+                ) : (
+                  d.name
+                )
+              }
+              secondary={d.field.party}
+            />
             <ListItemSecondaryAction>
               <CountryFlag countryCode={d.area} />
             </ListItemSecondaryAction>
