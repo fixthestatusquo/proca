@@ -36,6 +36,7 @@ const ListSignatories = () => {
   useCountryFlag({ className: "country-flag" });
   //const countries = new Set();
   const [data, setData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [electedOnly, setElected] = useState(false);
   const [parties, setParties] = useState(new Set());
   const config = useCampaignConfig();
@@ -112,7 +113,14 @@ const ListSignatories = () => {
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
   const country = config.component.country || form.watch("supporter_country");
-  let filtered = data.filter((d) => d.country === country);
+  useEffect(() => {
+    const _filtered = data.filter((d) => {
+      if (country && d.area !== country) return false;
+      if (electedOnly && !d.field.elected) return false;
+      return true;
+    });
+    setFiltered(_filtered);
+  }, [data, country, setFiltered, electedOnly]);
 
   const empty = filtered.length === 0;
   useEffect(() => {
@@ -134,11 +142,16 @@ const ListSignatories = () => {
       form.clearErrors("supporter_country");
     }
   }, [empty, country]);
-
+  /*
   if (filtered.length === 0) {
-    filtered = data;
+    if (electedOnly) {
+      filtered = data.filter( d => d.field.elected);
+    } else {
+      filtered = data;
+    }
+console.log("filtered", filtered.length,data[0]);
   }
-
+*/
   const filterCountry = (d) => d.area === country;
 
   const filterSignature = useCallback(
@@ -167,7 +180,9 @@ const ListSignatories = () => {
   }
 
   // todo
+  /*
   filtered = data.filter((d) => {
+console.log("filtered");
     if (!country) return true;
 
     if (parties.size !== 0) {
@@ -175,9 +190,15 @@ const ListSignatories = () => {
     }
     return filterCountry(d);
   });
+*/
   return (
     <div id="proca-signature">
       <Grid container spacing={1}>
+        <Grid item xs={12} sm={7}>
+          {!config.component.country && (
+            <Country form={form} name="supporter_country" />
+          )}
+        </Grid>
         <Grid item xs={12} sm={5}>
           <FormControlLabel
             control={
@@ -189,11 +210,6 @@ const ListSignatories = () => {
             }
             label="only MEPs"
           />
-        </Grid>
-        <Grid item xs={12} sm={7}>
-          {!config.component.country && (
-            <Country form={form} name="supporter_country" />
-          )}
         </Grid>
       </Grid>
       <Party
