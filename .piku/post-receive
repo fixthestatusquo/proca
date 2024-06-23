@@ -8,5 +8,9 @@ cd $APPDIR
 npm install
 npm run build
 
+
+# reload nginx
+sudo systemctl reload nginx
+
 # Execute the default Piku post-receive actions
 exec /home/piku/piku/bootstrap
