@@ -1,6 +1,6 @@
 import React from "react";
 import "./polyfill";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { goStep, hook, setConfig, setGlobalState } from "./hooks/useConfig";
 import "./lib/i18n";
 import { isTest } from "./lib/urlparser";
@@ -26,10 +26,8 @@ const Alert = (text, severity) => {
     document.body.appendChild(elem);
   }
 
-  ReactDOM.render(
-    <ProcaAlert text={text} severity={severity} />,
-    document.querySelector("#" + selector),
-  );
+  const root = createRoot(document.querySelector("#" + selector));
+  root.render(<ProcaAlert text={text} severity={severity} />);
 };
 
 const initPortals = (portals) => {
@@ -80,7 +78,8 @@ const Widget = (args) => {
 
   // <ProcaWidget config={config} {...config} />,
   rendered = true;
-  ReactDOM.render(
+  const root = createRoot(dom);
+  root.render(
     <ProcaWidget {...config} container={frag}>
       {config.test && (
         <ProcaAlert title="TEST MODE" severity="warning">
@@ -89,7 +88,6 @@ const Widget = (args) => {
       )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    dom,
   );
 };
 
@@ -163,16 +161,6 @@ const addEventListener = (type, listener) => {
   el.addEventListener(type, listener);
 };
 
-export {
-  addEventListener,
-  Alert,
-  go,
-  scrollTo,
-  hook,
-  React,
-  ReactDOM,
-  set,
-  Widget,
-};
+export { addEventListener, Alert, go, scrollTo, hook, React, set, Widget };
 
 //      <SignatureForm margin= "dense" variant= "filled" />
