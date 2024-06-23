@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Navigate to the application directory
+APPDIR=$(pwd)
+
+# Perform npm install and npm build
+cd $APPDIR
+npm install
+npm run build
+
+# Execute the default Piku post-receive actions
+exec /home/piku/piku/bootstrap
