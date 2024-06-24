@@ -13,6 +13,8 @@ import {
   FilledInput,
   FormHelperText,
   FormControl,
+  IconButton,
+  Typography,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -21,7 +23,6 @@ import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import Filter from "@components/filter/Filter";
-
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
@@ -556,7 +557,14 @@ const EmailComponent = (props) => {
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
-
+  const UnicodeButton = ({ icon, gender = "" }) => (
+    <IconButton
+      size="small"
+      onClick={() => setValue("message", data[`message${gender}`])}
+    >
+      <Typography variant="h5"> {icon}</Typography>
+    </IconButton>
+  );
   const ExtraFields = (props) => {
     return (
       <>
@@ -590,6 +598,13 @@ const EmailComponent = (props) => {
                 <FormHelperText>{t("email.salutation_info")}</FormHelperText>
               </FormControl>
             )}
+            {(data.message_female || data.message_male) && (
+              <UnicodeButton icon="○" />
+            )}
+            {data.message_female && (
+              <UnicodeButton icon="♀" gender="_female" />
+            )}
+            {data.message_male && <UnicodeButton icon="♂" gender="_male" />}
             <TextField
               form={props.form}
               name="message"
