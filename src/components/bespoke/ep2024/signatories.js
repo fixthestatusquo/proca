@@ -193,25 +193,31 @@ console.log("filtered");
 */
   return (
     <div id="proca-signature">
-      <Grid container spacing={1}>
-        <Grid item xs={12} sm={7}>
-          {!config.component.country && (
-            <Country form={form} name="supporter_country" />
-          )}
+      {config.component?.signature?.onlySelected &&
+        !config.component.country && (
+          <Country form={form} name="supporter_country" />
+        )}
+      {!config.component?.signature?.onlySelected && (
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={7}>
+            {!config.component.country && (
+              <Country form={form} name="supporter_country" />
+            )}
+          </Grid>
+          <Grid item xs={12} sm={5}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={electedOnly}
+                  onChange={(event) => setElected(event.target.checked)}
+                  name="elected"
+                />
+              }
+              label="only MEPs"
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={5}>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={electedOnly}
-                onChange={(event) => setElected(event.target.checked)}
-                name="elected"
-              />
-            }
-            label="only MEPs"
-          />
-        </Grid>
-      </Grid>
+      )}
       <Party
         selecting={filterSignature}
         country={country}
