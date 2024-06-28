@@ -108,6 +108,11 @@ const ListSignatories = () => {
     fetchData(url);
   }, [url, setData, sort]);
 
+  console.log(
+    "fff",
+    data.filter((d) => d.field.first_name === "Saskia"),
+  );
+
   //r = <Country form={props.form} list={config.component.email?.countries} />;
   //  data.map((d) => countries.add(d.area));
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
@@ -193,11 +198,11 @@ console.log("filtered");
 */
   return (
     <div id="proca-signature">
-      {config.component?.signature?.onlySelected &&
+      {config.component?.signature?.onlyElected &&
         !config.component.country && (
           <Country form={form} name="supporter_country" />
         )}
-      {!config.component?.signature?.onlySelected && (
+      {!config.component?.signature?.onlyElected && (
         <Grid container spacing={1}>
           <Grid item xs={12} sm={7}>
             {!config.component.country && (
