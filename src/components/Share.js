@@ -12,7 +12,7 @@ import {
   CardMedia,
   Avatar,
 } from "@material-ui/core";
-import metadataparser from "page-metadata-parser";
+import { getMetadata } from "page-metadata-parser";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
@@ -96,7 +96,7 @@ export default function ShareAction(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
   const actionPage = config.actionPage;
-  const metadata = metadataparser.getMetadata(window.document, window.location);
+  const metadata = getMetadata(window.document, window.location);
   const { t, i18n } = useTranslation();
 
   const shareUrl = (component) => {
