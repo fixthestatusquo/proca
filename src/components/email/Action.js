@@ -77,11 +77,15 @@ const EmailAction = ({ profile, display, selection, setSelection }) => {
       selected={selected}
       disabled={disabled}
       button={true}
-      onClick={
-        config.component?.email?.split === true
-          ? mail
-          : () => toggleSelection(profile.procaid, setSelection)
-      }
+      onClick={() => {
+        if (config.component?.email?.split === true) {
+          mail();
+        } else {
+          config.component?.email?.selectable === true
+            ? toggleSelection(profile.procaid, setSelection)
+            : null;
+        }
+      }}
       divider={false}
     >
       <ListItemAvatar>
