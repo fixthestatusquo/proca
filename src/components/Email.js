@@ -13,6 +13,8 @@ import {
   FilledInput,
   FormHelperText,
   FormControl,
+  IconButton,
+  Typography,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -21,7 +23,6 @@ import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import Filter from "@components/filter/Filter";
-
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
@@ -556,7 +557,6 @@ const EmailComponent = (props) => {
   };
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
-
   const ExtraFields = (props) => {
     return (
       <>

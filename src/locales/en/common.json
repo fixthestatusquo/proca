@@ -178,8 +178,8 @@
   "required": "required",
   "required field": "required field",
   "salutations": {
-    "f": "Dear {{name}}",
-    "m": "Dear {{name}}",
+    "f": "Dear Mr. {{name}}",
+    "m": "Dear Ms. {{name}}",
     "other": "Dear {{name}}"
   },
   "select_all": "Select all",
