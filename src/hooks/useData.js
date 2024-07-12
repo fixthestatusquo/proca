@@ -1,42 +1,43 @@
 import { useCallback } from "react";
-
-import { atom, useRecoilState } from "recoil";
+import create from "zustand";
 
 let formData = null;
 
 export const initDataState = (urlData, config) => {
   if (formData) return false;
+  formData = {
+    comment: config.param.locales?.comment || "",
+    ...urlData,
+  };
 
-  formData = atom({
-    key: "data",
-    default: {
-      ...{ comment: config.param.locales?.comment || "" },
-      ...urlData,
-    },
-  });
+  console.log("initDataState", formData);
   return true;
 };
 
-const useData = () => {
-  const [formValues, _set] = useRecoilState(formData);
-  const setData = useCallback(
-    (key, value) => {
+const useStore = create((set) => ({
+  formValues: formData,
+  setData: (key, value) =>
+    set((state) => {
       if (typeof key === "object") {
-        _set((current) => {
-          return { ...current, ...key };
-        });
-        return;
+        return { formValues: { ...state.formValues, ...key } };
       }
-      _set((current) => {
-        let d = { ...current };
-        d[key] = value;
-        return d;
-      });
+      return { formValues: { ...state.formValues, [key]: value } };
+    }),
+}));
+
+const useData = () => {
+  const formValues = useStore((state) => state.formValues);
+  const setData = useStore((state) => state.setData);
+
+  const setFormData = useCallback(
+    (key, value) => {
+      setData(key, value);
     },
-    [_set]
+    [setData],
   );
 
-  return [formValues, setData];
+  console.log(formValues, setFormData);
+  return [formValues, setFormData];
 };
 
 export { useData };

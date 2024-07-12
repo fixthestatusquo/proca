@@ -20,7 +20,7 @@ import { SvgIcon } from "@material-ui/core";
 import { sample } from "@lib/array";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
-import { get } from "lodash";
+import get from "lodash/get";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 //TODO should be moved to widget and change logic
 

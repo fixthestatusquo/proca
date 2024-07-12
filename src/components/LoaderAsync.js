@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { get } from "lodash";
+import get from "lodash/get";
 
 const LoaderAsync = () => {
   const config = useCampaignConfig();

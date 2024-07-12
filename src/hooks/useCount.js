@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { getCount, getCountByName } from "@lib/server.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-import { atom, useRecoilState } from "recoil";
+import create from "zustand";
+
 import dispatch from "@lib/event.js";
 
-const CountState = atom({ key: "actionCount", default: null });
+const useStore = create((set) => ({
+  count: null,
+  setCount: (count) => set({ count }),
+}));
+
 const useInitFromUrl = (actionUrl) => {
-  const [count, setCount] = useRecoilState(CountState);
+  const { count, setCount } = useStore();
   const [id, setId] = useState(null);
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const useInitFromUrl = (actionUrl) => {
 export { useInitFromUrl };
 
 export default function useCounter(actionPage) {
-  const [count, setCount] = useRecoilState(CountState);
+  const { count, setCount } = useStore();
   const config = useCampaignConfig();
   const apiUrl = config.component.counter?.apiUrl || null;
 

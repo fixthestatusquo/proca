@@ -30,6 +30,7 @@
     "i18next-xhr-backend": "^3.2.2",
     "iban": "^0.0.14",
     "konva": "^8.4.3",
+    "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "lodash.set": "^4.3.2",
     "material-ui-dropzone": "^3.5.0",
@@ -50,7 +51,8 @@
     "snarkdown": "^2.0.0",
     "universal-base64url": "^1.1.0",
     "use-image": "^1.1.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@absinthe/socket": "^0.2.1",
