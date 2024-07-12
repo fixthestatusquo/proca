@@ -36,7 +36,7 @@ import {
 } from "@stripe/react-stripe-js";
 import StripeInput from "./StripeInput";
 
-import Country from "../Country";
+import Country from "../field/Country";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 import DonateTitle from "./DonateTitle";
 import { CallToAction } from "./DonateButton";
@@ -121,7 +121,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe."
+        "[component.donation.stripe.productId] to use Stripe.",
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -296,7 +296,7 @@ const SubmitButton = (props) => {
       "stripe",
       config.actionPage,
       procaRequest,
-      config.test
+      config.test,
     );
 
     if (procaResponse.errors) {
@@ -317,7 +317,7 @@ const SubmitButton = (props) => {
         frequency: formData.frequency || "oneoff",
         country: formData.country,
       },
-      procaRequest
+      procaRequest,
     );
 
     props.done(paymentConfirm);
@@ -394,7 +394,7 @@ const SubmitButton = (props) => {
           },
         },
         // expand: {},
-      }
+      },
     );
 
     if (stripeResponse.error) {

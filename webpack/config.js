@@ -102,6 +102,8 @@ function readConfigOverride(id) {
               ) {
                 campaigns[d] = campaignConfig.config.locales[config.lang][d];
               } else {
+                if (!config.locales["campaign:"])
+                  config.locales["campaign:"] = {};
                 campaigns[d] = merge(
                   campaignConfig.config.locales[config.lang][d],
                   config.locales["campaign:"][d],

@@ -37,7 +37,11 @@ const Filter = (props) => {
   }
 */
 
-  const PartyFilter = imports.filter_Party ? imports.filter_Party : () => null;
+  const Filters =
+    Object.entries(imports)
+      .filter(([key]) => key.startsWith("filter"))
+      .map(([key, components]) => components) || [];
+
   if (
     config.component.email?.filter?.includes("multilingual") &&
     props.country
@@ -116,11 +120,15 @@ const Filter = (props) => {
           <input type="hidden" {...props.form.register("constituency")} />
         </>
       )}
-      <PartyFilter
-        country={props.country}
-        selecting={props.selecting}
-        profiles={props.profiles}
-      />
+      {Filters.map((Component, index) => (
+        <Component
+          key={index}
+          form={props.form}
+          country={props.country}
+          selecting={props.selecting}
+          profiles={props.profiles}
+        />
+      ))}
     </>
   );
 };

@@ -2,7 +2,10 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import ListItem from "@material-ui/core/ListItem";
+import Grid from "@material-ui/core/Grid";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
@@ -10,7 +13,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Country from "@components/field/Country";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import CountryFlag, { flag as emoji } from "react-emoji-flag";
+import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
+//import CountryFlag, { useCountryFlag, flag as emoji } from "@hooks/flag";
 //import { getCountryName } from "@lib/i18n";
 import { imports } from "../../../actionPage";
 
@@ -29,8 +33,11 @@ const useStyles = makeStyles({
 
 const ListSignatories = () => {
   const { t } = useTranslation();
+  useCountryFlag({ className: "country-flag" });
   //const countries = new Set();
   const [data, setData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [electedOnly, setElected] = useState(false);
   const [parties, setParties] = useState(new Set());
   const config = useCampaignConfig();
   let Party = () => null;
@@ -45,24 +52,75 @@ const ListSignatories = () => {
     config.campaign.name.replace("_citizen_", "_candidates_") +
     ".json";
 
+  const sort = config.component.signature?.sort || false;
   useEffect(() => {
     const fetchData = async (url) => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 
       const d = await res.json();
+      if (sort) {
+        const e = d.sort((a, b) => {
+          const electedA = a.field.elected;
+          const electedB = b.field.elected;
+          if (electedA && electedB) {
+            return a.field.last_name.localeCompare(b.field.last_name);
+          }
+          if (electedA) {
+            return -1;
+          }
+          if (electedB) {
+            return 1;
+            //            return a.field.last_name.localeCompare(b.field.last_name);
+            //return mepB - mepA;
+          }
+
+          const positionA =
+            a.field.position !== undefined ? a.field.position : Infinity;
+          const positionB =
+            b.field.position !== undefined ? b.field.position : Infinity;
+          if (positionA !== positionB) {
+            return positionA - positionB;
+          }
+          const mepA = a.field.mep !== undefined ? a.field.mep : false;
+          const mepB = b.field.mep !== undefined ? b.field.mep : false;
+          if (mepA && mepB) {
+            return a.field.last_name.localeCompare(b.field.last_name);
+          }
+          if (mepA) {
+            return -1;
+          }
+          if (mepB) {
+            return 1;
+            //            return a.field.last_name.localeCompare(b.field.last_name);
+            //return mepB - mepA;
+          }
+          // Third criterion: name (alphabetical order)
+          return a.field.last_name.localeCompare(b.field.last_name);
+        });
+        setData(e);
+        return;
+      }
+
       setData(d);
     };
     if (!url) return;
     fetchData(url);
-  }, [url, setData]);
+  }, [url, setData, sort]);
 
   //r = <Country form={props.form} list={config.component.email?.countries} />;
   //  data.map((d) => countries.add(d.area));
   //var obj = Array.from(countries).reduce(function(o, val) { o[val] = false; return o; }, {});
   //console.log(obj);
   const country = config.component.country || form.watch("supporter_country");
-  let filtered = data.filter((d) => d.country === country);
+  useEffect(() => {
+    const _filtered = data.filter((d) => {
+      if (country && d.area !== country) return false;
+      if (electedOnly && !d.field.elected) return false;
+      return true;
+    });
+    setFiltered(_filtered);
+  }, [data, country, setFiltered, electedOnly]);
 
   const empty = filtered.length === 0;
   useEffect(() => {
@@ -84,11 +142,16 @@ const ListSignatories = () => {
       form.clearErrors("supporter_country");
     }
   }, [empty, country]);
-
+  /*
   if (filtered.length === 0) {
-    filtered = data;
+    if (electedOnly) {
+      filtered = data.filter( d => d.field.elected);
+    } else {
+      filtered = data;
+    }
+console.log("filtered", filtered.length,data[0]);
   }
-
+*/
   const filterCountry = (d) => d.area === country;
 
   const filterSignature = useCallback(
@@ -117,7 +180,9 @@ const ListSignatories = () => {
   }
 
   // todo
+  /*
   filtered = data.filter((d) => {
+console.log("filtered");
     if (!country) return true;
 
     if (parties.size !== 0) {
@@ -125,10 +190,33 @@ const ListSignatories = () => {
     }
     return filterCountry(d);
   });
+*/
   return (
     <div id="proca-signature">
-      {!config.component.country && (
-        <Country form={form} name="supporter_country" />
+      {config.component?.signature?.onlyElected &&
+        !config.component.country && (
+          <Country form={form} name="supporter_country" />
+        )}
+      {!config.component?.signature?.onlyElected && (
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={7}>
+            {!config.component.country && (
+              <Country form={form} name="supporter_country" />
+            )}
+          </Grid>
+          <Grid item xs={12} sm={5}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={electedOnly}
+                  onChange={(event) => setElected(event.target.checked)}
+                  name="elected"
+                />
+              }
+              label="only MEPs"
+            />
+          </Grid>
+        </Grid>
       )}
       <Party
         selecting={filterSignature}
@@ -153,7 +241,18 @@ const ListSignatories = () => {
                 )}
               />
             </ListItemAvatar>
-            <ListItemText primary={d.name} secondary={d.field.party} />
+            <ListItemText
+              primary={
+                d.field.elected ? (
+                  <>
+                    <span title="elected 2024">🇪🇺</span> {d.name}
+                  </>
+                ) : (
+                  d.name
+                )
+              }
+              secondary={d.field.party}
+            />
             <ListItemSecondaryAction>
               <CountryFlag countryCode={d.area} />
             </ListItemSecondaryAction>
