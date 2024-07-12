@@ -14,7 +14,7 @@
             "signature": "Atentamente,\n\n{{org.title}}",
             "duplicate": "Gracias por tu compromiso y dedicación a nuestra causa. Sin embargo, en nuestro compromiso por mantener la autenticidad y la credibilidad, necesitamos **eliminar firmas duplicadas** y parece que tú (o alguien que utiliza {{email}}) ya ha realizado esta acción.  Tenga la seguridad de que **su firma inicial se ha contabilizado** y ha contribuido a nuestra campaña.\nSu apoyo ha sido inestimable, y nos gustaría animarle a dar un paso adicional para ayudar a amplificar su impacto. Por favor, considere la posibilidad de llegar a sus amigos y familiares, instándoles a actuar también, utilizando sus propias direcciones de correo electrónico. De este modo, podemos hacer crecer aún más nuestro movimiento y crear una voz colectiva aún más fuerte para el cambio que buscamos.\nUna vez más, te agradecemos de todo corazón tu apoyo y dedicación constantes a esta campaña. ¡Juntos podemos conseguir un impacto duradero!",
             "share_on": "Compartir en",
-            "thanksPledge": "Gracias por contribuir a {{campaign.title}}. Su firma será revisada y se mostrará en nuestro sitio web si se aprueba."
+            "thanksPledge": "Gracias por comprometerte con {{campaign.title}}. Tu firma será revisada y se mostrará en nuestra página web si se aprueba."
         },
         "thankyou": {
             "intro": "Gracias por su participación en \"{{campaign.title}}\". ¡Agradecemos su apoyo!",
