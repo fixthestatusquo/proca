@@ -81,7 +81,7 @@
     "mjml": "^4.15.3",
     "open": "^10.1.0",
     "phoenix": "1.7.14",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "simple-git": "^3.25.0",
     "typescript": "^4.9.5",
     "websocket": "^1.0.35"
