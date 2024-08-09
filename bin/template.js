@@ -18,6 +18,7 @@ const _snarkdown = require("snarkdown");
 
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
+const _pick = require("lodash/pick");
 
 const help = () => {
   console.log(
@@ -29,7 +30,7 @@ const help = () => {
       "--verbose (show the result)",
       "--serve (show template in your browser for dev)",
       "--markdown (handle i18n as markdown)",
-      "--campaign|no-campaign (add the variables from the template into the campaign)",
+      "--campaign (add the variables from the template into the campaign)",
       "--extract (extract into src/locales/en/server.js)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
@@ -141,9 +142,9 @@ const updateTranslation = (namespace, parsed) => {
   fs.writeFileSync(file, JSON.stringify(updated, null, 2));
 };
 
-const updateCampaign = (campaign, lang, tplLocales) => {
+const updateCampaign = (campaign, lang, update) => {
   const locales = {};
-  locales[lang] = { "server:": tplLocales.server };
+  locales[lang] = { "server:": update };
   const updated = _merge({}, { config: { locales: locales } }, campaign);
 
   saveCampaign(updated, {});
@@ -291,6 +292,33 @@ const i18nTplInit = async (campaign, lang = "en") => {
   return server;
 };
 
+const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
+  const file = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
+  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
+  let server = _pick(initial, [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.about",
+    "email.common.signature",
+    "email.common.share",
+    `email.${type}.subject`,
+    "poweredBy",
+  ]);
+  if (type === "doi") {
+    server = _pick(initial, [
+      "email.common.greeting",
+      "email.common.thanks",
+      "email.common.signature",
+      `email.${type}.intro`,
+      `email.${type}.extra`,
+      "email.button.confirmOptin",
+      `email.${type}.subject`,
+      "poweredBy",
+    ]);
+  }
+  return server;
+};
+
 if (require.main === module) {
   if (!argv._.length || argv.help) {
     console.error("missing actionpage id");
@@ -364,7 +392,10 @@ if (require.main === module) {
             keys,
             JSON.stringify(render.locales, null, 2),
           );
-        } else updateCampaign(campaign, lang, locales);
+        } else {
+          const update = keysToCampaignConfig(config.type[0], lang);
+          updateCampaign(campaign, lang, update);
+        }
       }
     } catch (e) {
       console.log(e);
