@@ -1,3 +1,9 @@
+const decodeHtmlEntities = (encodedString) => {
+  const tempElement = document.createElement("textarea");
+  tempElement.innerHTML = encodedString;
+  return tempElement.value;
+};
+
 const homoSpacify = (text) => {
   // randomly replaces one of the space by a 'non standard' space
   //  const r =Array.from("\ufeff\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009");
@@ -29,7 +35,7 @@ const tokenize = (message, { profile, url }) => {
     const r = profile.map((d) =>
       d?.screen_name?.startsWith("@")
         ? d.screen_name.slice(1)
-        : d?.screen_name || ""
+        : d?.screen_name || "",
     );
     screen_name = r.join(" @");
   } else {
@@ -47,7 +53,7 @@ const tokenize = (message, { profile, url }) => {
   if (t.includes("{image}")) {
     t = t.replace(
       "{image}",
-      profile.reduce((acc, d) => (d.image ? acc + "\n" + d.image : acc), "")
+      profile.reduce((acc, d) => (d.image ? acc + "\n" + d.image : acc), ""),
     );
   }
   if (url) {
@@ -88,4 +94,12 @@ const truncate = (text, nbParagraphs) => {
   if (paragraphs.length <= max) return text;
   return paragraphs.slice(0, max).join("\n\n");
 };
-export { pickOne, tokenize, slugify, homoSpacify, truncate };
+
+export {
+  pickOne,
+  tokenize,
+  slugify,
+  homoSpacify,
+  truncate,
+  decodeHtmlEntities,
+};

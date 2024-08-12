@@ -13,6 +13,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
+import { decodeHtmlEntities } from "@lib/text";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
@@ -152,6 +153,8 @@ export default function ShareAction(props) {
     addAction(actionPage, event, d, config.test);
   };
 
+  metadata.title = decodeHtmlEntities(metadata.title);
+  metadata.description = decodeHtmlEntities(metadata.description);
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
       <EmailConfirm />
