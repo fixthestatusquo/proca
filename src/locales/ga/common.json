@@ -7,13 +7,14 @@
   "Comment": "Tráchtaireacht",
   "Country": "Tír",
   "Download": "Íoslódáil",
-  "Download explanation": "Tá do dhoiciméad réidh anois, táimid á sheoladh chugat freisin.",
+  "Download explanation": "Tá do dhoiciméad réidh anois, táimid ag seoladh ríomhphoist chugat freisin",
   "Email": "Ríomhphost",
   "First name": "Ainm",
   "Language": "Teanga",
   "Last name": "Ainm deireanach",
   "Locality": "Ceantar",
   "Next": "An chéad rian eile",
+  "Organisation": "Eagraíocht",
   "Other": "Eile",
   "Phone": "Fón",
   "Postal Code": "Cód poist",
@@ -33,9 +34,9 @@
     "reminder": "Cuir i gcuimhne dom níos déanaí",
     "reminderEmail": "Cuir i gcuimhne dom trí ríomhphost",
     "share": "Comhroinn",
-    "sign": "Comhartha",
+    "sign": "Sínigh Anois!",
     "stayInformed": "Bí ar an eolas",
-    "takeAction": "Déan Gníomh!",
+    "takeAction": "Déan beart",
     "twitter": "Tweet"
   },
   "camera": {
@@ -48,12 +49,12 @@
   "consent": {
     "actionConfirmed": "Gníomh dearbhaithe",
     "actionRejected": "Cuireadh an gníomh ar ceal go rathúil",
-    "confirm": "<0> An bhfuil tú cinnte? </0> <1> Trí 'Níl' a roghnú, ní bheidh tú in ann a fháil amach an bhfuil rath ar an bhfeachtas seo, nó an bhfuil níos mó gníomhaíochta ann a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú ‘Tá’ coinneoimid ar an eolas tú faoi seo agus faoinár bhfeachtais phráinneacha eile. </1> <2> Is féidir leat díliostáil a dhéanamh am ar bith. </2>",
-    "confirmAction": "Tá nasc deimhnithe seolta againn trí ríomhphost chuig an seoladh seo a leanas:\n {{email}}\nAisghabh an ríomhphost anois le do thoil agus cliceáil ar an nasc atá ann (seiceáil d’fhillteán turscair!).\n Ní bheidh do ghníomhaíocht san áireamh ach ansin!\nTá do dheimhniú ríthábhachtach maidir le meáchan polaitiúil na gníomhaíochta. Cinntíonn sé seo go bhfuil duine fíor taobh thiar de gach aighneacht. Beidh muid ag fanacht le do dheimhniú...",
+    "confirm": "<0>An bhfuil tú cinnte?</0><1>Trí ‘Ní hea’ a roghnú, ní bheidh tú in ann a fháil amach an bhfuil ag éirí leis an bhfeachtas seo, nó an bhfuil tuilleadh beart a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú 'Tá' coinneoimid ar an eolas tú faoi seo agus faoi ár bhfeachtais phráinneacha eile.</1><2>Is féidir leat díliostáil am ar bith.</2>",
+    "confirmAction": "Aisghabh an ríomhphost faoi láthair le do thoil agus cliceáil ar an nasc atá ann (seiceáil d’fhillteán turscair!).\n Ní bheidh do ghníomhaíocht san áireamh ach ansin!\nTá do dheimhniú ríthábhachtach maidir le meáchan polaitiúil na gníomhaíochta. Cinntíonn sé seo go bhfuil duine fíor taobh thiar de gach aighneacht. Beidh muid ag fanacht le do dheimhniú...",
     "confirmOptIn": "Ná déan dearmad do bhosca ríomhphoist a sheiceáil (lena n-áirítear d’fhillteán turscair!) agus deimhnigh do shíntiús ríomhphoist",
-    "emailSent": "Sheolamar ríomhphost chugat chuig {email}!",
+    "emailSent": "Sheolamar ríomhphost chugat chuig {{email}}!",
     "implicit": "Cuir isteach an fhoirm seo chun ríomhphoist a fháil ó {{name}}",
-    "intro": "Faigh tuilleadh eolais faoinár bhfeachtais, ár ngníomhartha agus ár ndul chun cinn {{campaign}}",
+    "intro": "Faigh tuilleadh eolais faoinár bhfeachtais, ár ngníomhartha agus {{campaign}} dul chun cinn",
     "opt-in": "Sea, ba mhaith liom {{partner}} mé a choinneáil ar an eolas trí ríomhphost",
     "opt-in-both": "Sea, ba mhaith liom {{partner}} agus {{lead}} mé a choinneáil ar an eolas trí ríomhphost",
     "opt-out": "Níl, ná seol ríomhphoist chugam nó coinnigh suas chun dáta mé amach anseo",
@@ -67,20 +68,20 @@
     }
   },
   "date": {
-    "error": "dáta neamhbhailí. formáid: DD.MM.YYYY"
+    "error": "dáta neamhbhailí. formáid: LL.MM.BBBB"
   },
   "dateFormat": "DD/MM/BBBB",
   "dialogTitle": "Coinnigh ar an eolas mé faoin bhfeachtas",
   "donation": {
     "amount": {
       "change": "Athraigh méid",
-      "intro": "Roghnaigh Méid:"
+      "intro": "Roghnaigh Méid"
     },
     "average": "Is é an meán-síntiús {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Deonaigh {{amount}} gach mí",
+        "oneoff": "Deonaigh {{amount}}"
       }
     },
     "error": {
@@ -97,7 +98,7 @@
     },
     "form": {
       "error": {
-        "minimum": "Is é an síntiús íosta {{ampount}}"
+        "minimum": "Is é {{ amount}} an síntiús íosta"
       }
     },
     "frequency": {
@@ -121,7 +122,7 @@
       "yearly": "go bliantúil"
     },
     "iban": "iban",
-    "intro": "Deonaigh do {{campaign}}",
+    "intro": "Tabhair do {{campaign}}",
     "payment_methods": {
       "card": "Cárta",
       "default": "Síntiúis",
@@ -136,43 +137,52 @@
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
     "salutation": "A dhuine uasail/a bhean uasail",
-    "salutation_female": "A chara {{target.name}}",
+    "salutation_female": "A Uasal {{target.last_name}} a chara",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
-    "salutation_male": "A chara {{target.name}}",
+    "salutation_male": "A Uasal {{target.last_name}} a chara",
     "salutation_placeholder": "A chara [faighteoir],"
+  },
+  "error": {
+    "date": "ba cheart go mbeadh an fhormáid LL.MM.BBBB"
   },
   "image": {
     "addSticker": "greamáin a chur leis",
     "addStickerTitle": "Cliceáil/Tapáil chun an greamán a chur leis an ngrianghraf",
     "benefit": "Dá gcuirfí íomhá le seoladh - agus gur féidir leat a roinnt ag an gcéad chéim eile - bheadh tionchar níos mó ag do ghníomh",
-    "options": "Ar mhaith leat",
+    "options": "Ar mhaith leat ceann de na gníomhartha seo a dhéanamh?",
     "publish": "Breathnaíonn go maith, a fhoilsiú!",
     "select": "roghnaigh do phictiúr",
-    "takeTitle": "Glac pictiúr le do ghuthán",
+    "takeTitle": "Glac pictiúr le do fón",
     "upload": "Uaslódáil pictiúr",
     "wanttoadd": "Ar mhaith leat íomhá a chur leis?"
   },
   "no": "níl",
+  "party": "Cóisir",
+  "postcode": {
+    "notFound": "ní cosúil go bhfuil an cód poist seo i do thír féin",
+    "wrongLength": "fad ionchais de {{length}} le do thír"
+  },
   "progress": {
-    "donate": "{{total}} bhronn. Rachaimid go {{goal}}",
+    "donate": "Tá {{total}} tugtha. Rachaimid go {{goal}}",
     "email": "Tá ríomhphost seolta ag {{total}}. Rachaimid go {{goal}}",
-    "register": "{{total}} cláraithe. Rachaimid go {{goal}}",
+    "register": "Chláraigh {{total}}. Rachaimid go {{goal}}",
     "share": "{{total}} roinnte. Rachaimid go {{goal}}",
-    "sign": "{{total}} sínithe. Rachaimid go {{goal}}",
+    "sign": "Tá {{total}} sínithe. Rachaimid go {{goal}}",
     "twitter": "{{total}} tar éis casadh. Rachaimid go {{goal}}"
   },
-  "read more": "Leigh Nios mo",
+  "read more": "Leigh níos mó",
   "register": "Cuir m’ainm leis",
   "reminder": {
     "intro": "Tá a fhios againn, tá go leor eolais á iarraidh ag do rialtas. Seolfaimid ríomhphost amháin chugat chun a mheabhrú duit an fhoirm a líonadh níos déanaí"
   },
   "required": "Líon isteach an réimse seo le do thoil",
-  "required field": "Réimse riachtanach",
+  "required field": "réimse riachtanach",
   "salutations": {
-    "f": "Ms.",
-    "m": "An tUasal.",
-    "other": "Eile"
+    "f": "A {{name}} a chara",
+    "m": "A {{name}} a chara",
+    "other": "A {{name}} a chara"
   },
+  "select_all": "Roghnaigh go léir",
   "share": {
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",
     "message": "Ba chóir duit é seo a shíniú!",
@@ -184,17 +194,20 @@
     }
   },
   "supporter": {
-    "not_you": "Ní tusa?",
+    "greeting": "Fáilte {{firstname}}!",
+    "not_you": "nach tusa?",
     "welcome": "Fáilte ar ais {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
     "country": {
-      "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}"
+      "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}",
+      "undefined": "Roghnaigh tír"
     },
     "missing": "Roghnaigh ceann amháin ar a laghad as {{total}}",
     "postcode": {
-      "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}"
+      "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}",
+      "undefined": "Cuir isteach do chód poist"
     },
     "random_one": "Roghnaíodh ceann dár {{total}} spriocanna is tábhachtaí",
     "random_other": "Roghnaíodh {{count}} dár {{total}} spriocanna is tábhachtaí",
@@ -205,7 +218,8 @@
     "again": "Tweet chuig duine eile",
     "choice": "Cad ba mhaith leat a dhéanamh ina dhiaidh sin?",
     "instruction": "Comhlánaigh le do thoil an tweet a sheoladh sa bhfuinneog nua (ar twitter.com)",
-    "organisation": "Cuntas twitter d’eagraíochta"
+    "organisation": "Cuntas twitter d’eagraíochta",
+    "screenName": "Cuntas Twitter"
   },
   "unknown postcode": "cód poist anaithnid",
   "yes": "tá",
