@@ -1,5 +1,4 @@
 // usage add-partner name/page partner. will create the partner if missing
-//require("cross-fetch/polyfill");
 require("dotenv").config();
 
 const { request, admin, widget } = require("@proca/api");
