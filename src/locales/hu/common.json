@@ -158,6 +158,14 @@
   },
   "no": "nincs",
   "party": "Party",
+  "phone": {
+    "INVALID_COUNTRY": "hiányzó vagy érvénytelen országkód",
+    "INVALID_LENGTH": "Érvénytelen hosszúság",
+    "MISSING": "kötelező mező",
+    "NOT_A_NUMBER": "Érvénytelen telefonszám",
+    "TOO_LONG": "túl hosszú szám",
+    "TOO_SHORT": "túl rövid szám"
+  },
   "postcode": {
     "notFound": "úgy tűnik, ez az irányítószám nem létezik az Ön országában.",
     "wrongLength": "a {{length}} várható hossza az Ön országában"
