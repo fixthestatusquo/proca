@@ -158,6 +158,14 @@
   },
   "no": "non",
   "party": "Parti",
+  "phone": {
+    "INVALID_COUNTRY": "code pays manquant ou invalide",
+    "INVALID_LENGTH": "Longueur non valide",
+    "MISSING": "champ obligatoire",
+    "NOT_A_NUMBER": "Numéro de téléphone invalide",
+    "TOO_LONG": "numéro trop long",
+    "TOO_SHORT": "nombre trop court"
+  },
   "postcode": {
     "notFound": "ce code postal ne semble pas exister dans votre pays",
     "wrongLength": "durée prévue de {{length}} pour votre pays"
