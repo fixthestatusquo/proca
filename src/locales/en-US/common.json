@@ -158,6 +158,14 @@
   },
   "no": "no",
   "party": "Party",
+  "phone": {
+    "INVALID_COUNTRY": "missing or invalid country code",
+    "INVALID_LENGTH": "Invalid length",
+    "MISSING": "required field",
+    "NOT_A_NUMBER": "Invalid phone number",
+    "TOO_LONG": "number too long",
+    "TOO_SHORT": "number too short"
+  },
   "postcode": {
     "notFound": "this postcode doesn't seem to exist in your country",
     "wrongLength": "expected length of {{length}} for your country"
