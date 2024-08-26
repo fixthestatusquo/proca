@@ -158,6 +158,14 @@
   },
   "no": "no",
   "party": "Partido",
+  "phone": {
+    "INVALID_COUNTRY": "código de país no válido o inexistente",
+    "INVALID_LENGTH": "Longitud no válida",
+    "MISSING": "campo obligatorio",
+    "NOT_A_NUMBER": "Número de teléfono no válido",
+    "TOO_LONG": "número demasiado largo",
+    "TOO_SHORT": "número demasiado corto"
+  },
   "postcode": {
     "notFound": "este código postal no parece existir en su país",
     "wrongLength": "duración prevista de {{length}} para su país"
