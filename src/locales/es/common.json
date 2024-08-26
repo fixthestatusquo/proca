@@ -160,7 +160,7 @@
   "party": "Partido",
   "phone": {
     "INVALID_COUNTRY": "código de país no válido o inexistente",
-    "INVALID_LENGTH": "Longitud no válida",
+    "INVALID_LENGTH": "Longitud inválida",
     "MISSING": "campo obligatorio",
     "NOT_A_NUMBER": "Número de teléfono no válido",
     "TOO_LONG": "número demasiado largo",
