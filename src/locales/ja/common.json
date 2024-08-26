@@ -158,6 +158,14 @@
   },
   "no": "ノー",
   "party": "パーティー",
+  "phone": {
+    "INVALID_COUNTRY": "国コードの欠落または無効",
+    "INVALID_LENGTH": "無効な長さ",
+    "MISSING": "必須項目",
+    "NOT_A_NUMBER": "無効な電話番号",
+    "TOO_LONG": "長すぎる数字",
+    "TOO_SHORT": "短すぎる数字"
+  },
   "postcode": {
     "notFound": "この郵便番号はあなたの国には存在しないようです。",
     "wrongLength": "あなたの国で予想される{{length}} の期間"
