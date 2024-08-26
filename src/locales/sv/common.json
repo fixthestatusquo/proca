@@ -158,6 +158,14 @@
   },
   "no": "ingen",
   "party": "Parti",
+  "phone": {
+    "INVALID_COUNTRY": "landskod saknas eller är ogiltig",
+    "INVALID_LENGTH": "Ogiltig längd",
+    "MISSING": "obligatoriskt fält",
+    "NOT_A_NUMBER": "Ogiltigt telefonnummer",
+    "TOO_LONG": "nummer för långt",
+    "TOO_SHORT": "nummer för kort"
+  },
   "postcode": {
     "notFound": "detta postnummer verkar inte finnas i ditt land",
     "wrongLength": "förväntad längd på {{length}} för ditt land"

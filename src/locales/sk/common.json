@@ -158,6 +158,14 @@
   },
   "no": "nie",
   "party": "Strana",
+  "phone": {
+    "INVALID_COUNTRY": "chýbajúci alebo neplatný kód krajiny",
+    "INVALID_LENGTH": "Neplatná dĺžka",
+    "MISSING": "povinné pole",
+    "NOT_A_NUMBER": "Neplatné telefónne číslo",
+    "TOO_LONG": "príliš dlhé číslo",
+    "TOO_SHORT": "príliš krátke číslo"
+  },
   "postcode": {
     "notFound": "toto PSČ vo vašej krajine zrejme neexistuje",
     "wrongLength": "očakávaná dĺžka {{length}} pre vašu krajinu"

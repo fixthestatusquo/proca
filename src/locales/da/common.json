@@ -158,6 +158,14 @@
   },
   "no": "ingen",
   "party": "Fest",
+  "phone": {
+    "INVALID_COUNTRY": "manglende eller ugyldig landekode",
+    "INVALID_LENGTH": "Ugyldig længde",
+    "MISSING": "påkrævet felt",
+    "NOT_A_NUMBER": "Ugyldigt telefonnummer",
+    "TOO_LONG": "Nummeret er for langt",
+    "TOO_SHORT": "nummer for kort"
+  },
   "postcode": {
     "notFound": "Dette postnummer ser ikke ud til at eksistere i dit land.",
     "wrongLength": "forventet længde af {{length}} for dit land"

@@ -158,6 +158,14 @@
   },
   "no": "nu",
   "party": "Partid",
+  "phone": {
+    "INVALID_COUNTRY": "cod de țară lipsă sau invalid",
+    "INVALID_LENGTH": "Lungime invalidă",
+    "MISSING": "câmp obligatoriu",
+    "NOT_A_NUMBER": "Număr de telefon invalid",
+    "TOO_LONG": "număr prea lung",
+    "TOO_SHORT": "număr prea scurt"
+  },
   "postcode": {
     "notFound": "acest cod poștal nu pare să existe în țara dvs.",
     "wrongLength": "durata preconizată a {{length}} pentru țara dumneavoastră"
