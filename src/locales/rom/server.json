@@ -1,1 +1,26 @@
-{}
+{
+    "email": {
+        "common": {
+            "privacy": "Hak lako alačhe buterede informacije šu mengari politika privatnosti i obdelava tre podatki",
+            "share_on": "Delin pu",
+            "consent": "\n          ",
+            "follow": "Sledin men pu:",
+            "donate": "Šukar tu mangu, razmislin šu donacija, da menge pomuzine dosegnini mengaro poslanstvo",
+            "greeting": "Bok {{firstName}}",
+            "closing": "traha pomočjaha, amen hinjamo korako bližje da dosegninan phro cilji"
+        },
+        "button": {
+            "confirmAction": "DA, me hinjum čačo manuš!",
+            "confirmOptout": "potrdinu phri udeležba, samo ma ma nadaljno obveščuvin"
+        },
+        "doi": {
+            "subject": "Još jek korako: šukar tu mangu potrdin e-naslovo"
+        },
+        "thankyou": {
+            "subject": "Hvala tuke, hak hulo so lako još kere"
+        },
+        "actionConfirm": {
+            "subject": "Još jek korako: šukar tu mangu potrdin phro e-naslovo"
+        }
+    }
+}
