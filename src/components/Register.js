@@ -19,6 +19,7 @@ import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
 import TextField from "@components/TextField";
 import Alert from "@material-ui/lab/Alert";
 import EmailField from "@components/field/Email";
+import PhoneField from "@components/field/Phone";
 
 import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -538,17 +539,8 @@ export default function Register(props) {
               >
                 <EmailField form={form} required={enforceRequired} />
               </Grid>
-              <Address form={form} campact={compact} classField={classField} />
-              {config.component.register?.field?.phone === true && (
-                <Grid item xs={12} className={classField}>
-                  <TextField
-                    type="tel"
-                    form={form}
-                    name="phone"
-                    label={t("Phone")}
-                  />
-                </Grid>
-              )}
+              <Address form={form} compact={compact} classField={classField} />
+              <PhoneField form={form} classField={classField} />
               {config.component.register?.field?.comment !== false && (
                 <Grid item xs={12} className={classField}>
                   <TextField
