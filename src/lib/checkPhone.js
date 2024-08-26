@@ -1,15 +1,19 @@
 const formatNumber = (prefix, number) => "+" + prefix + " " + number;
-const cleanNumber = (prefix, number) =>
-  number
-    .replace("+" + prefix, "")
-    .replace("00" + prefix, "")
-    .replace(/\D/g, "");
+const cleanNumber = (prefix, number) => {
+  number.replace("+" + prefix, "").replace("00" + prefix, "");
+
+  if (number.startsWith("+") || number.startsWith("00")) {
+    throw new Error("not a phone number in the country " + prefix);
+  }
+
+  return number.replace(/\D/g, "");
+};
 
 const check = {
   DE: (number) => {
     const prefix = "49";
     const result = { is_error: true, number: number, error: "unkown error" };
-    number = cleanNumber(prefix, number);
+    number = cleanNumber(prefix, number); // throw an error if not a german number
     result.number = formatNumber(prefix, number);
     if (number.length < 7) {
       result.error = "TOO_SHORT";
@@ -29,7 +33,11 @@ const checkPhone = async (country, number) => {
 
   if (!number) return result;
   if (check[country]) {
-    return check[country](number);
+    try {
+      return check[country](number);
+    } catch (e) {
+      console.log("not a", country, "number");
+    }
   }
   let url = "https://check-phone.proca.app";
   try {
