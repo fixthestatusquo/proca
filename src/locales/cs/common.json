@@ -158,6 +158,14 @@
   },
   "no": "ne",
   "party": "Strana",
+  "phone": {
+    "INVALID_COUNTRY": "chybějící nebo neplatný kód země",
+    "INVALID_LENGTH": "Nesprávná délka",
+    "MISSING": "povinné pole",
+    "NOT_A_NUMBER": "Neplatné telefonní číslo",
+    "TOO_LONG": "příliš dlouhé číslo",
+    "TOO_SHORT": "příliš krátké číslo"
+  },
   "postcode": {
     "notFound": "toto poštovní směrovací číslo ve vaší zemi zřejmě neexistuje.",
     "wrongLength": "očekávaná délka {{length}} pro vaši zemi"
