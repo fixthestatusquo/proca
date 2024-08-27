@@ -4,16 +4,22 @@ import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
+import { InputAdornment } from "@material-ui/core";
+import EmailIcon from "@material-ui/icons/Email";
+import GmailIcon from "../../images/Gmail";
+import { useTheme } from "@material-ui/core/styles";
 
 const EmailField = ({ form, required }) => {
+  const theme = useTheme();
   let emailProvider = useRef(undefined); // we don't know the email provider
+  const provider = form.watch("emailProvider");
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
   const validateEmail = async (email) => {
     if (!email) return true; // don't validate the email domain if no email
     if (config.component?.register?.validateEmail === false) return true;
-    if (emailProvider.current) return true; // might cause some missing validation on edge cases
+    //    if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
     emailProvider.current = provider;
     if (provider === false) {
@@ -26,6 +32,9 @@ const EmailField = ({ form, required }) => {
     form.setValue("emailProvider", provider);
     return true;
   };
+
+  console.log("provider", provider);
+
   return (
     <>
       <input type="hidden" {...form.register("emailProvider")} />
@@ -37,6 +46,17 @@ const EmailField = ({ form, required }) => {
         label={t("Email")}
         autoComplete="email"
         required={!!required}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              {provider === "google.com" ? (
+                <GmailIcon size={28} />
+              ) : (
+                <EmailIcon style={{ color: theme.palette.text.secondary }} />
+              )}
+            </InputAdornment>
+          ),
+        }}
       />
     </>
   );

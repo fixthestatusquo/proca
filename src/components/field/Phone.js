@@ -26,7 +26,6 @@ const Phone = ({ form, classField }) => {
   };
 
   const phoneCountry = form.watch("phoneCountry");
-  console.log(phoneCountry);
   return (
     <Grid item xs={12} className={classField}>
       <input type="hidden" {...form.register("phoneCountry")} />
