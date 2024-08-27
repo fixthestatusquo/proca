@@ -1,7 +1,6 @@
 const formatNumber = (prefix, number) => "+" + prefix + " " + number;
 const cleanNumber = (prefix, number) => {
-  number.replace("+" + prefix, "").replace("00" + prefix, "");
-
+  number = number.replace("+" + prefix, "").replace("00" + prefix, "");
   if (number.startsWith("+") || number.startsWith("00")) {
     throw new Error("not a phone number in the country " + prefix);
   }
@@ -12,9 +11,10 @@ const cleanNumber = (prefix, number) => {
 const check = {
   DE: (number) => {
     const prefix = "49";
-    const result = { is_error: true, number: number, error: "unkown error" };
+    const result = { is_error: true, number: number };
     number = cleanNumber(prefix, number); // throw an error if not a german number
     result.number = formatNumber(prefix, number);
+
     if (number.length < 7) {
       result.error = "TOO_SHORT";
       return result;
@@ -24,6 +24,7 @@ const check = {
       return result;
     }
     result.is_error = false;
+    result.country = "DE";
     return result;
   },
 };
