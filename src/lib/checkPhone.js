@@ -13,6 +13,9 @@ const check = {
     const prefix = "49";
     const result = { is_error: true, number: number };
     number = cleanNumber(prefix, number); // throw an error if not a german number
+
+    if (number.startsWith("0")) number = number.slice(1);
+
     result.number = formatNumber(prefix, number);
 
     if (number.length < 7) {
