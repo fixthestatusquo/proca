@@ -34,6 +34,7 @@ const Phone = ({ form, classField }) => {
         form={form}
         name="phone"
         label={t("Phone")}
+        autoComplete="tel"
         validate={validatePhone}
         InputProps={{
           endAdornment: (
