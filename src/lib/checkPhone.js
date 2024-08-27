@@ -50,8 +50,17 @@ const checkPhone = async (country, number) => {
     console.error(e.message);
   }
   try {
+    let lastTwoDigits = undefined; // for privacy reasons, we hide the last two digits
+    if (/\d{2}$/.test(number)) {
+      lastTwoDigits = number.slice(-2);
+      number = number.slice(0, -2) + "00";
+      console.log(number); // Output the modified string
+    }
     const response = await fetch(url + "/" + country + "/" + number);
     const r = await response.json();
+    if (r.number && lastTwoDigits) {
+      r.number = r.number.slice(0, -2) + lastTwoDigits;
+    }
     return r;
   } catch (e) {
     console.log(e);

@@ -33,8 +33,6 @@ const EmailField = ({ form, required }) => {
     return true;
   };
 
-  console.log("provider", provider);
-
   return (
     <>
       <input type="hidden" {...form.register("emailProvider")} />
