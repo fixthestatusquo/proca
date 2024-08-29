@@ -158,6 +158,14 @@
   },
   "no": "níl",
   "party": "Cóisir",
+  "phone": {
+    "INVALID_COUNTRY": "cód tíre in easnamh nó neamhbhailí",
+    "INVALID_LENGTH": "Fad neamhbhailí",
+    "MISSING": "réimse riachtanach",
+    "NOT_A_NUMBER": "Uimhir theileafóin neamhbhailí",
+    "TOO_LONG": "uimhir rófhada",
+    "TOO_SHORT": "uimhir ró-ghearr"
+  },
   "postcode": {
     "notFound": "ní cosúil go bhfuil an cód poist seo i do thír féin",
     "wrongLength": "fad ionchais de {{length}} le do thír"
