@@ -49,8 +49,8 @@ const ListSignatories = () => {
   });
 
   const url =
-    //    "https://static.proca.app/ep2024/" +
-    "http://localhost/ep2024/data/" +
+    "https://static.proca.app/ep2024/" +
+    // "http://localhost/ep2024/data/" +
     config.campaign.name.replace("_citizen_", "_candidates_") +
     ".json";
 
