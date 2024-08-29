@@ -17,6 +17,7 @@ import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
 //import CountryFlag, { useCountryFlag, flag as emoji } from "@hooks/flag";
 //import { getCountryName } from "@lib/i18n";
 import { imports } from "../../../actionPage";
+import EUGroup from "./EUGroup";
 
 const useStyles = makeStyles({
   container: {
@@ -48,7 +49,8 @@ const ListSignatories = () => {
   });
 
   const url =
-    "https://static.proca.app/ep2024/" +
+    //    "https://static.proca.app/ep2024/" +
+    "http://localhost/ep2024/data/" +
     config.campaign.name.replace("_citizen_", "_candidates_") +
     ".json";
 
@@ -117,10 +119,11 @@ const ListSignatories = () => {
     const _filtered = data.filter((d) => {
       if (country && d.area !== country) return false;
       if (electedOnly && !d.field.elected) return false;
-      return true;
+      if (parties.size === 0) return true;
+      return parties.has(d.field.party);
     });
     setFiltered(_filtered);
-  }, [data, country, setFiltered, electedOnly]);
+  }, [data, country, setFiltered, electedOnly, parties]);
 
   const empty = filtered.length === 0;
   useEffect(() => {
@@ -142,16 +145,7 @@ const ListSignatories = () => {
       form.clearErrors("supporter_country");
     }
   }, [empty, country]);
-  /*
-  if (filtered.length === 0) {
-    if (electedOnly) {
-      filtered = data.filter( d => d.field.elected);
-    } else {
-      filtered = data;
-    }
-console.log("filtered", filtered.length,data[0]);
-  }
-*/
+
   const filterCountry = (d) => d.area === country;
 
   const filterSignature = useCallback(
@@ -235,17 +229,26 @@ console.log("filtered");
             <ListItemAvatar>
               <Avatar
                 alt={d.name}
-                src={d.field.picture?.replace(
-                  "https://pbs.twimg.com/profile_images/",
-                  "https://pic.proca.app/twimg/",
-                )}
+                src={
+                  d.field.mep
+                    ? d.field.mep &&
+                      "https://www.europarl.europa.eu/mepphoto/" +
+                        d.field.mep +
+                        ".jpg"
+                    : d.field.picture &&
+                      d.field.picture?.replace(
+                        "https://pbs.twimg.com/profile_images/",
+                        "https://pic.proca.app/twimg/",
+                      )
+                }
               />
             </ListItemAvatar>
             <ListItemText
               primary={
-                d.field.elected ? (
+                d.field.eugroup ? (
                   <>
-                    <span title="elected 2024">🇪🇺</span> {d.name}
+                    <EUGroup name={d.field.eugroup} />
+                    {d.name}
                   </>
                 ) : (
                   d.name
