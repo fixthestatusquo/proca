@@ -15,9 +15,10 @@ const Phone = ({ form, classField }) => {
 
   const validatePhone = async (phone) => {
     const result = await checkPhone(form.getValues("country"), phone);
-    if (result.is_error === false && result.number) {
-      form.setValue("phone", result.number); // Update the form value
-      result.country && form.setValue("phoneCountry", result.country);
+    console.log("validate", phone, result);
+    if (result.is_error === false) {
+      form.setValue("phone", result.number || ""); // Update the form value
+      form.setValue("phoneCountry", result.country);
       return true;
     } else {
       return result.error ? t("phone." + result.error, result.error) : true;
