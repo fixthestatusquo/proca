@@ -71,7 +71,7 @@
     "esbuild": "^0.17.19",
     "esbuild-plugin-browserslist": "^0.7.2",
     "esbuild-plugin-copy": "^2.1.1",
-    "eslint": "^9.8.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
     "husky": "^9.1.5",
