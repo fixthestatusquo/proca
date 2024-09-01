@@ -1,7 +1,7 @@
 {
   "Address": "Adresa",
   "Amount": "Iznos",
-  "Another": "Drugi",
+  "Another": "Jedan drugi",
   "Birthdate": "Datum rođenja",
   "City": "Grad",
   "Comment": "Komentar",
@@ -36,7 +36,7 @@
     "share": "Dijeli",
     "sign": "Potpiši sada!",
     "stayInformed": "Ostani u toku",
-    "takeAction": "Podrži akciju",
+    "takeAction": "Poduzmi akciju",
     "twitter": "Tweet"
   },
   "camera": {
@@ -45,7 +45,7 @@
     "take-another": "Snimi još jednu sliku"
   },
   "closed": "##hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
-  "confirm": "Jesi li siguran/na?",
+  "confirm": "Sigurno?",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
     "actionRejected": "Akcija je uspješno otkazana",
@@ -124,7 +124,7 @@
     "iban": "IBAN",
     "intro": "Doniraj za {{campaign}}",
     "payment_methods": {
-      "card": "Kartica",
+      "card": "Kreditna kartica",
       "default": "Doniraj",
       "intro": "Kako želiš donirati?",
       "paypal": "PayPal",
@@ -138,7 +138,7 @@
     "invalid_domain": "Domena {{domain}} ne može primati e-poštu",
     "salutation": "Poštovani gospodine / Poštovana gospođo",
     "salutation_female": "Poštovana gospođo {{target.last_name}}",
-    "salutation_info": "(Ime će biti stavljeno prije slanja)",
+    "salutation_info": "(Ime primatelja će se postaviti prije slanja)",
     "salutation_male": "Poštovani gospodine {{target.last_name}}",
     "salutation_placeholder": "Poštovani [recipient],"
   },
@@ -158,6 +158,14 @@
   },
   "no": "ne",
   "party": "Stranka",
+  "phone": {
+    "INVALID_COUNTRY": "kod zemlje nedostaje ili nije ispravan",
+    "INVALID_LENGTH": "Neispravna duljina",
+    "MISSING": "obavezno polje",
+    "NOT_A_NUMBER": "Neispravan telefonski broj",
+    "TOO_LONG": "broj je predug",
+    "TOO_SHORT": "broj je prekratak"
+  },
   "postcode": {
     "notFound": "čini se da ovaj poštanski broj ne postoji u tvojoj zemlji",
     "wrongLength": "očekivana duljina od {{length}} za tvoju zemlju"
@@ -196,7 +204,7 @@
   "supporter": {
     "greeting": "Zdravo {{firstname}}!",
     "not_you": "nisi ti?",
-    "welcome": "Dobro došao, dobro došla {{firstname}}!"
+    "welcome": "Dobro došao, dobro došla natrag {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
