@@ -16,7 +16,7 @@ const Wall = (props) => {
   const country = props.country;
   //  const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
-  const campaign = config.campaign.name.replaceAll("_", "-");
+  const campaign = config.campaign.name;
 
   useEffect(() => {
     (async () => {
