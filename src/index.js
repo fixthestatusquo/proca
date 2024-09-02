@@ -20,15 +20,15 @@ let rendered = false;
 
 const Alert = (text, severity) => {
   const selector = "proca_alert";
-  if (!document.querySelector("#" + selector)) {
-    let elem = document.createElement("div");
+  if (!document.querySelector(`#${selector}`)) {
+    const elem = document.createElement("div");
     elem.id = selector;
     document.body.appendChild(elem);
   }
 
   ReactDOM.render(
     <ProcaAlert text={text} severity={severity} />,
-    document.querySelector("#" + selector),
+    document.querySelector(`#${selector}`),
   );
 };
 
@@ -55,7 +55,7 @@ const Widget = (args) => {
   config.portal && initPortals(config.portal);
 
   let dom = document.querySelector(config.selector);
-  let frag = document.createDocumentFragment();
+  const frag = document.createDocumentFragment();
   if (!dom) {
     dom = document.createElement("div");
     dom.id = "proca-widget";

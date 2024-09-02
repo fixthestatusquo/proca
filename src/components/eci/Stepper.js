@@ -36,7 +36,7 @@ export default function StepperEci(props) {
     const next = steps[step("register") + 1];
     setValue(next);
     dispatch(
-      next.toLowerCase() + ":init",
+      `${next.toLowerCase()}:init`,
       {
         step: next.toLowerCase(),
         journey: steps,
@@ -54,7 +54,7 @@ export default function StepperEci(props) {
     const next = steps[step("eci") + 1];
     setValue(next);
     dispatch(
-      next.toLowerCase() + ":init",
+      `${next.toLowerCase()}:init`,
       {
         test: !!config.test,
         step: next,

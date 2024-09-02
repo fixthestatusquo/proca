@@ -182,10 +182,10 @@ const EmailComponent = (props) => {
           };
           tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
           empty.name = defaultValue.firstname
-            ? defaultValue.firstname + " " + defaultValue.lastname
+            ? `${defaultValue.firstname} ${defaultValue.lastname}`
             : "";
           if (empty.locality) {
-            empty.name += "\n" + empty.locality;
+            empty.name += `\n${empty.locality}`;
           }
           form.setValue(k, t(data[k], empty));
         } else {
@@ -219,7 +219,7 @@ const EmailComponent = (props) => {
           return res.json();
         })
         .then((d) => {
-          let languages = [];
+          const languages = [];
           if (config.hook && typeof config.hook["target:load"] === "function") {
             d = config.hook["target:load"](d);
           }
@@ -260,7 +260,7 @@ const EmailComponent = (props) => {
       const url =
         typeof config.component.email?.listUrl === "string"
           ? config.component.email.listUrl
-          : "https://widget.proca.app/t/" + config.campaign.name + ".json";
+          : `https://widget.proca.app/t/${config.campaign.name}.json`;
 
       fetchData(url);
     } else {
@@ -268,7 +268,7 @@ const EmailComponent = (props) => {
         typeof config.component.email?.to === "string"
           ? config.component.email.to?.split(",")
           : [];
-      let to = [];
+      const to = [];
       emails.forEach((d) => {
         return to.push({ email: d.trim() });
       });
@@ -283,7 +283,7 @@ const EmailComponent = (props) => {
       if (!locale) {
         return [];
       }
-      let d = allProfiles.filter((d) => {
+      const d = allProfiles.filter((d) => {
         //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
         return d.locale === locale;
       });
@@ -291,7 +291,7 @@ const EmailComponent = (props) => {
       setData("targets", d);
       setConfig((current) => {
         console.log("set lang", locale);
-        let next = { ...current };
+        const next = { ...current };
         next.lang = locale;
         return next;
       });
@@ -366,7 +366,7 @@ const EmailComponent = (props) => {
         );
         console.log(
           "not lang",
-          lang + "?",
+          `${lang}?`,
           locale,
           lang?.includes("fr"),
           country,
@@ -404,7 +404,7 @@ const EmailComponent = (props) => {
       //if (lang && config.lang !== lang) {
       if (lang && typeof lang === "string") {
         setConfig((current) => {
-          let next = { ...current };
+          const next = { ...current };
           next.lang = lang || "en";
           return next;
         });
@@ -454,14 +454,7 @@ const EmailComponent = (props) => {
   const send = (data) => {
     const hrefGmail = (message) => {
       return (
-        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
-        message.to +
-        "&su=" +
-        message.subject +
-        (message.cc ? "&cc=" + message.cc : "") +
-        (message.bcc ? "&bcc=" + message.bcc : "") +
-        "&body=" +
-        message.body
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${message.to}&su=${message.subject}${message.cc ? `&cc=${message.cc}` : ""}${message.bcc ? `&bcc=${message.bcc}` : ""}&body=${message.body}`
       );
     };
 
@@ -488,7 +481,7 @@ const EmailComponent = (props) => {
       "comment",
     ]);
     if (!message) message = paramEmail.message;
-    if (comment) message += "\n" + comment;
+    if (comment) message += `\n${comment}`;
 
     const profiles = getTargets();
 
@@ -518,14 +511,7 @@ const EmailComponent = (props) => {
             bcc: bcc,
             body: encodeURIComponent(message),
           })
-        : "mailto:" +
-          to +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          (cc ? "&cc=" + cc : "") +
-          (bcc ? "&bcc=" + bcc : "") +
-          "&body=" +
-          encodeURIComponent(message);
+        : `mailto:${to}?subject=${encodeURIComponent(subject)}${cc ? `&cc=${cc}` : ""}${bcc ? `&bcc=${bcc}` : ""}&body=${encodeURIComponent(message)}`;
 
     if (!to) {
       console.warn("no target, skip sending");
@@ -584,7 +570,7 @@ const EmailComponent = (props) => {
               <FormControl fullWidth>
                 <FilledInput
                   fullWidth={true}
-                  placeholder={t("email.salutation_placeholder") + ","}
+                  placeholder={`${t("email.salutation_placeholder")},`}
                   readOnly
                 />
                 <FormHelperText>{t("email.salutation_info")}</FormHelperText>
@@ -628,9 +614,9 @@ const EmailComponent = (props) => {
   const prepareData = (data) => {
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
-    if (data.comment) data.message += "\n" + data.comment;
+    if (data.comment) data.message += `\n${data.comment}`;
     if (config.component.email?.salutation) {
-      data.message = "{{target.fields.salutation}},\n" + data.message;
+      data.message = `{{target.fields.salutation}},\n${data.message}`;
     }
 
     if (mttProcessing === false) {
@@ -860,7 +846,7 @@ const EmailComponent = (props) => {
               profile={d}
               selection={selection}
               setSelection={setSelection}
-            ></EmailAction>
+            />
           ))}
         </List>
       )}

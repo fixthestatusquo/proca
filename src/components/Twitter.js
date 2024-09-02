@@ -115,7 +115,7 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState(data.targets || []);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
-  let hash = data.hash || config.component.twitter?.hash;
+  const hash = data.hash || config.component.twitter?.hash;
   const sampleSize = config.component.twitter?.sample || 1;
   const form = useForm({
     defaultValues: {
@@ -129,13 +129,7 @@ const Component = (props) => {
   if (hash) {
     // it has a picture
     actionUrl =
-      (config.component.twitter?.metaproxy || "https://w.proca.app") +
-      "/" +
-      config.campaign.name +
-      "/" +
-      hash +
-      "?url=" +
-      encodeURIComponent(document.location.origin + document.location.pathname);
+      `${config.component.twitter?.metaproxy || "https://w.proca.app"}/${config.campaign.name}/${hash}?url=${encodeURIComponent(document.location.origin + document.location.pathname)}`;
   } else {
     if (!actionUrl && config.component.twitter?.actionUrl !== false) {
       actionUrl = window.location;
@@ -217,14 +211,14 @@ const Component = (props) => {
       screen_name: profiles.map((d) => d.screen_name).join(" @"),
       actionUrl: actionUrl,
     });
-    let target = data.targets ? data.targets.concat(profiles) : profiles;
+    const target = data.targets ? data.targets.concat(profiles) : profiles;
     setTweeting(true);
     setData("targets", target);
   };
   const url =
     config.component.twitter?.listUrl === true ||
     !config.component.twitter?.listUrl
-      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+      ? `https://widget.proca.app/t/${config.campaign.name}.json`
       : config.component.twitter.listUrl;
 
   useEffect(() => {
@@ -262,7 +256,7 @@ const Component = (props) => {
         });
     };
     if (data.targets) {
-      let d = data.targets.filter(
+      const d = data.targets.filter(
         (c) => c.screen_name && c.screen_name.length > 0,
       );
       setAllProfiles(d);
@@ -350,12 +344,7 @@ const Component = (props) => {
   const ShowCard = (props) => {
     const classes = useStyles();
     const image =
-      process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/picture/" +
-      config.campaign.name +
-      "/" +
-      props.hash +
-      ".jpg";
+      `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/picture/${config.campaign.name}/${props.hash}.jpg`;
     return (
       <img
         src={image}

@@ -47,7 +47,7 @@ const TextFieldProca = (props) => {
     };
   }
 
-  const handleValidate = (value, name, dom) => {
+  const handleValidate = (_value, name, dom) => {
     if (
       props.customValidity &&
       dom.hasAttribute("required") &&
@@ -65,10 +65,10 @@ const TextFieldProca = (props) => {
   };
 
   //  const value = watch(props.name) || "";
-  let validation = {
+  const validation = {
     html5: (v) => handleValidate(v, props.name, refA.current),
   };
-  let drillProps = { ...props };
+  const drillProps = { ...props };
   if (props.validate) {
     validation.props = props.validate;
     delete drillProps.validate;
@@ -99,14 +99,14 @@ const TextFieldProca = (props) => {
           };
         }
         let classesname =
-          classes.textField + " proca-" + props.name.toLowerCase();
+          `${classes.textField} proca-${props.name.toLowerCase()}`;
         if (
           errors &&
           errors[props.name] &&
           errors &&
           errors[props.name].type === "warning"
         )
-          classesname += " " + classes.warning;
+          classesname += ` ${classes.warning}`;
         return (
           <TextField
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
@@ -125,7 +125,7 @@ const TextFieldProca = (props) => {
           />
         );
       }}
-      id={"proca_" + props.name}
+      id={`proca_${props.name}`}
       control={control}
       rules={{
         validate: validation,

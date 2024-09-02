@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 2px",
       minWidth: "12px",
       right: theme.spacing(1),
-      border: "1px solid " + theme.palette.action.disabledBackground,
+      border: `1px solid ${theme.palette.action.disabledBackground}`,
       background: theme.palette.action.disabledBackground,
     },
   },
@@ -115,7 +115,7 @@ const PartyFilter = (props) => {
     return (
       <div className={classes.root}>
         {Object.entries(parties).map(([name, party]) => {
-          const record = allParties[props.country + ":" + name] || {
+          const record = allParties[`${props.country}:${name}`] || {
             name: name,
           };
           const AvatarParty = record.picture && (

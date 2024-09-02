@@ -15,7 +15,7 @@ const DispatchPublicComment = () => {
 
   useEffect(() => {
     const saveComment = async (data) => {
-      let d = {
+      const d = {
         campaign: config.campaign.name,
         widget_id: config.actionpage,
         uuid: getuuid(),
@@ -26,7 +26,7 @@ const DispatchPublicComment = () => {
       if (data.firstname) {
         d.name = data.firstname.trim();
         if (data.lastname) {
-          d.name += " " + data.lastname.charAt(0).toUpperCase().trim();
+          d.name += ` ${data.lastname.charAt(0).toUpperCase().trim()}`;
         }
         if (data.locality) {
           d.locality = data.locality;

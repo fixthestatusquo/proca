@@ -11,7 +11,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 const EmailField = ({ form, required }) => {
   const theme = useTheme();
-  let emailProvider = useRef(undefined); // we don't know the email provider
+  const emailProvider = useRef(undefined); // we don't know the email provider
   const provider = form.watch("emailProvider");
   const config = useCampaignConfig();
   const { t } = useTranslation();

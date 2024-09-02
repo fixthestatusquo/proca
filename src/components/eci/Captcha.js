@@ -123,10 +123,11 @@ export default function Captcha(props) {
   const Svg = () => {
     if (!captcha) return null;
     return (
-      <svg
+      <svg 
         className={classes.captcha}
-        viewBox={"0,0," + captcha.width + "," + (captcha.height + 17)}
+        viewBox={`0,0,${captcha.width},${captcha.height + 17}`}
       >
+<title>captcha</title>
         {captcha.d.map((d, i) => (
           <path className={d.startsWith("M19 84") ? "n" : null} key={i} d={d} />
         ))}
@@ -141,7 +142,7 @@ export default function Captcha(props) {
       .split("")
       .join(" ")
       .toLowerCase();
-    let utterThis = new SpeechSynthesisUtterance(d);
+    const utterThis = new SpeechSynthesisUtterance(d);
     utterThis.rate = 0.9;
     utterThis.lang = lang || "en";
     window.speechSynthesis && window.speechSynthesis.speak(utterThis);

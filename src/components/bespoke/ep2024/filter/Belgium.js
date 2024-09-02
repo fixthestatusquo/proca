@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 2px",
       minWidth: "12px",
       right: theme.spacing(1),
-      border: "1px solid " + theme.palette.action.disabledBackground,
+      border: `1px solid ${theme.palette.action.disabledBackground}`,
       background: theme.palette.action.disabledBackground,
     },
   },
@@ -76,8 +76,8 @@ const FilterBelgium = (props) => {
   const [votations, setVotations] = props.votationState;
   const togglesA = ["eu", "federal"];
   const togglesB = ["bru", "vl", "wal"];
-  let selected = [];
-  let enabled = [];
+  const selected = [];
+  const enabled = [];
   //  const hideConstituency = config.locale !== "en";
   const hideConstituency = false;
 
@@ -168,7 +168,7 @@ const FilterBelgium = (props) => {
               native: true,
             }}
           >
-            <option value="" key=""></option>
+            <option value="" key="" />
             <option value="vl" key="vl">
               Vlaanderen
             </option>
@@ -206,7 +206,7 @@ const FilterBelgium = (props) => {
             >
               <Avatar
                 alt={name}
-                src={"https://static.proca.app/ep2024/images/" + name + ".png"}
+                src={`https://static.proca.app/ep2024/images/${name}.png`}
               />
             </ToggleButton>
           ))}
@@ -228,7 +228,7 @@ const FilterBelgium = (props) => {
             >
               <Avatar
                 alt={name}
-                src={"https://static.proca.app/ep2024/images/" + name + ".png"}
+                src={`https://static.proca.app/ep2024/images/${name}.png`}
               />
             </ToggleButton>
           ))}

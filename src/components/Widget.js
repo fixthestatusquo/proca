@@ -44,7 +44,7 @@ const Widget = (props) => {
   const setCurrent = (i) => {
     if (i >= 0 && journey[i])
       dispatch(
-        journey[i].toLowerCase() + ":init",
+        `${journey[i].toLowerCase()}:init`,
         {
           test: !!config.test,
           step: journey[i],
@@ -55,14 +55,14 @@ const Widget = (props) => {
       );
     setTimeout(() => {
       const otherSteps = journey
-        .filter((step, d) => d !== i)
-        .map((d) => ".proca-" + d)
+        .filter((_step, d) => d !== i)
+        .map((d) => `.proca-${d}`)
         .join(", ");
       let r = otherSteps ? document.querySelectorAll(otherSteps) : [];
       for (let j = 0; j < r.length; j++) {
         r[j].style.display = "none";
       }
-      r = document.getElementsByClassName("proca-" + journey[i]);
+      r = document.getElementsByClassName(`proca-${journey[i]}`);
       for (let j = 0; j < r.length; j++) {
         r[j].style.display = "block";
       }
@@ -74,10 +74,10 @@ const Widget = (props) => {
 
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
-  let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
-  let topMulti = useRef(0); // latest Action level 0 rendered
-  let propsJourney = Object.assign([], props.journey);
-  let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
+  const depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
+  const topMulti = useRef(0); // latest Action level 0 rendered
+  const propsJourney = Object.assign([], props.journey);
+  const isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
   const fab = config.component.widget?.fab !== false;
 
   let data = Url.data();
@@ -99,7 +99,7 @@ const Widget = (props) => {
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.locales = merge(config.locales, getOverwriteLocales());
-  config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
+  config.actionPage = Number.parseInt(config.actionPage || config.actionpage, 10);
 
   if (!config.actionPage) {
     console.assert("No actionPage defined. Can't continue.");
@@ -125,23 +125,12 @@ const Widget = (props) => {
     };
 `;
 
-    let styleSheet = document.createElement("style");
+    const styleSheet = document.createElement("style");
     styleSheet.type = "text/css";
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
   }, [test]);
 
-  useEffect(() => {
-    /*global procaReady*/
-    /*eslint no-undef: "error"*/
-    if (typeof procaReady === "function") {
-      console.log(
-        "obsolete, please use window.addEventListener('proca:init', function(){}); instead",
-      );
-
-      procaReady({}); // NOTE: should we pass config to procaReady?
-    }
-  }, [props]);
 
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {
@@ -155,7 +144,7 @@ const Widget = (props) => {
     scrollNeeded.current = true;
   };
 
-  let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
+  const journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
   if (current === false) {
     // obsolete?
     setCurrent(0);
@@ -185,7 +174,7 @@ const Widget = (props) => {
 
   propsJourney.forEach((d) => {
     if (d instanceof Array) {
-      d.forEach((e, i) => {
+      d.forEach((_e, i) => {
         depths.push(i > 0 ? 2 : 1);
       }); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
@@ -206,7 +195,7 @@ const Widget = (props) => {
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
-      global.proca.Alert("not possible to go to '" + action + "'", "error");
+      global.proca.Alert(`not possible to go to '${action}'`, "error");
       return;
     }
 
@@ -308,7 +297,7 @@ const Widget = (props) => {
         ); //break;
       case 1:
       case 2: {
-        let SubAction = steps[journey[current]];
+        const SubAction = steps[journey[current]];
         Action = steps[topMulti.current];
         if (!Action || !SubAction) {
           return (

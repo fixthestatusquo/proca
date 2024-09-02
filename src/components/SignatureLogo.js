@@ -34,7 +34,7 @@ const ListSignature = () => {
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    (async function () {
+    (async () => {
       c = await getLatest(actionPage, "openletter", isCancelled);
       if (!isCancelled) {
         setList(c);
@@ -60,13 +60,13 @@ const ListSignature = () => {
               <a
                 href={
                   k.url ||
-                  (k.twitter ? "https://twitter.com/" + k.twitter : "#")
+                  (k.twitter ? `https://twitter.com/${k.twitter}` : "#")
                 }
               >
                 <img
                   src={k.picture?.replace("_normal", "_bigger")}
                   alt={k.organisation}
-                  title={k.organisation + (k.comment ? "\n" + k.comment : "")}
+                  title={k.organisation + (k.comment ? `\n${k.comment}` : "")}
                 />
               </a>
             </Avatar>

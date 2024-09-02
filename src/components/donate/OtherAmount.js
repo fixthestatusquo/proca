@@ -21,7 +21,7 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
         error={!!otherAmountError}
         helperText={otherAmountError}
         onChange={(e) => {
-          const a = parseFloat(e.target.value);
+          const a = Number.parseFloat(e.target.value);
           if (a && a >= 1.0) {
             setData("amount", a);
             setOtherAmountError("");

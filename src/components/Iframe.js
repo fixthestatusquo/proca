@@ -17,12 +17,12 @@ const Iframe = (props) => {
   var param = [];
   "firstname,lastname,country,postcode".split(",").forEach((k) => {
     if (k in data) {
-      param.push(k + "=" + encodeURIComponent(data[k]));
+      param.push(`${k}=${encodeURIComponent(data[k])}`);
     }
   });
-  if (param.length > 0) url += "&" + param.join("&");
+  if (param.length > 0) url += `&${param.join("&")}`;
   if (config.component.iframe.hash)
-    url = url + "#" + config.component.iframe.hash;
+    url = `${url}#${config.component.iframe.hash}`;
   const iframeOrigin = new URL(url).origin;
 
   const done = props.done;

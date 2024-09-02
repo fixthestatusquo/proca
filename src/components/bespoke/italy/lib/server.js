@@ -24,7 +24,7 @@ async function addSupport(actionType, actionPage, data, options) {
     leadOptIn: data.privacy === "opt-in-both" || data.privacy === "opt-in-lead",
   };
 
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     action: {
       actionType: actionType,

@@ -34,7 +34,7 @@ export default function Register(props) {
       return;
     }
     if (!postcode || postcode.length !== postcodeLength[country]) return;
-    const api = "https://" + country + ".proca.app/" + postcode;
+    const api = `https://${country}.proca.app/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)
@@ -72,9 +72,7 @@ export default function Register(props) {
             form={form}
             name="address"
             label={
-              t("eci:form.property.street_number") +
-              " & " +
-              t("eci:form.property.street")
+              `${t("eci:form.property.street_number")} & ${t("eci:form.property.street")}`
             }
             required
             customValidity={props.customValidity}

@@ -28,7 +28,7 @@ const useData = () => {
         return;
       }
       _set((current) => {
-        let d = { ...current };
+        const d = { ...current };
         d[key] = value;
         return d;
       });

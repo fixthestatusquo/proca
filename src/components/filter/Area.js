@@ -19,7 +19,7 @@ const FilterArea = (props) => {
 
     props.selecting(
       "constituency",
-      area > 9 ? area.toString() : "0" + area.toString(),
+      area > 9 ? area.toString() : `0${area.toString()}`,
     );
   }, [area]);
   console.log(area);

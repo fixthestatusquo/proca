@@ -8,13 +8,13 @@ const homoSpacify = (text) => {
   // randomly replaces one of the space by a 'non standard' space
   //  const r =Array.from("\ufeff\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009");
   const r = Array.from("123456789");
-  let pos = [];
-  let asArray = Array.from(text);
+  const pos = [];
+  const asArray = Array.from(text);
   asArray.forEach((d, i) => {
     if (d === " ") pos.push(i);
   });
-  let d = pos[Math.floor(Math.random() * pos.length)];
-  let s = r[Math.floor(Math.random() * r.length)];
+  const d = pos[Math.floor(Math.random() * pos.length)];
+  const s = r[Math.floor(Math.random() * r.length)];
   asArray[d] = r[s];
 
   return asArray.join();
@@ -45,22 +45,22 @@ const tokenize = (message, { profile, url }) => {
 
   if (!screen_name) return t;
   if (t.includes("{@}") || t.includes(screen_name)) {
-    t = t.replace("{@}", "@" + screen_name);
+    t = t.replace("{@}", `@${screen_name}`);
   } else {
-    t = ".@" + screen_name + " " + t;
+    t = `.@${screen_name} ${t}`;
   }
 
   if (t.includes("{image}")) {
     t = t.replace(
       "{image}",
-      profile.reduce((acc, d) => (d.image ? acc + "\n" + d.image : acc), ""),
+      profile.reduce((acc, d) => (d.image ? `${acc}\n${d.image}` : acc), ""),
     );
   }
   if (url) {
     if (t.includes("{url}")) {
       t = t.replace("{url}", url);
     } else {
-      t = t + "\n" + url;
+      t = `${t}\n${url}`;
     }
   }
   return t;
@@ -73,7 +73,7 @@ const pickOne = (locale) => {
     .map((d) => d.trim())
     .filter((n) => n);
   let t = []; // use to stack the sentence(s) to be part of the current variant
-  let variants = [];
+  const variants = [];
   v.forEach((d) => {
     if (d.startsWith("- ")) {
       // new variant

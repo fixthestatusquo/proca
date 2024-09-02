@@ -12,7 +12,7 @@ const checkMail = async (email) => {
   if (!domain) return false;
   try {
     const response = await fetch(
-      process.env.REACT_APP_CHECKMAIL_API_URL + "/" + domain,
+      `${process.env.REACT_APP_CHECKMAIL_API_URL}/${domain}`,
     );
     const r = await response.json();
     return r;

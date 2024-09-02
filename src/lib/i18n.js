@@ -55,7 +55,7 @@ export const allCountries = isoCountries.getNames(
   }
 );
 
-let resources = {};
+const resources = {};
 
 export const getCountryName = (iso) =>
   isoCountries.getName(

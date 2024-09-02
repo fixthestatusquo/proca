@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const extractTokens = (text) => {
   const r = /{{[a-z.]+}}/g;
-  let tokens = [];
+  const tokens = [];
   let m;
   // eslint-disable-next-line
   while ((m = r.exec(text))) {
@@ -24,8 +24,8 @@ const extractTokens = (text) => {
 const applyToken = (text, token, data, t) => {
   // WTF, console.log("doesn't do anything")
   if (token.includes("name")) {
-    data.name = (data.firstname || "") + " " + (data.lastname || "");
-    if (data.locality) data.name += "\n" + data.locality;
+    data.name = `${data.firstname || ""} ${data.lastname || ""}`;
+    if (data.locality) data.name += `\n${data.locality}`;
   }
   if (data.targets && data.targets.length > 0) {
     data.target = {};

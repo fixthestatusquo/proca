@@ -39,7 +39,7 @@ const TwitterList = (props) => {
           done={props.done}
           actionUrl={props.actionUrl}
           {...d}
-        ></TwitterAction>
+        />
       ))}
     </List>
   );

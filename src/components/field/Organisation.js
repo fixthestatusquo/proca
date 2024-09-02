@@ -58,8 +58,7 @@ const Organisation = (props) => {
     }
 
     const api =
-      "https://twitter.proca.app?screen_name=" +
-      screenName.replace("https://twitter.com/", "");
+      `https://twitter.proca.app?screen_name=${screenName.replace("https://twitter.com/", "")}`;
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
     const field = "twitter";
     async function fetchAPI() {
@@ -86,7 +85,7 @@ const Organisation = (props) => {
           if (res.url) {
             setValue("url", res.url);
             const domain = new URL(res.url).hostname;
-            domain && setValue("email", "@" + domain.replace("www.", ""));
+            domain && setValue("email", `@${domain.replace("www.", "")}`);
           }
           setValue("followers_count", res.followers_count);
 

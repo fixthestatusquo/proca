@@ -8,7 +8,7 @@ import More from './More';
 import TTag from '../TTag';
 
 const Standalone = (props) => {
-  let isMobile = useIsMobile();
+  const isMobile = useIsMobile();
   const width = isMobile ? 12 : 7;
   return (
     <Grid container spacing={2}>

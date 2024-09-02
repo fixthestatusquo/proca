@@ -36,7 +36,7 @@ export const addMissingCountries = (countries, compare) => {
     return a;
   }, alreadyHave);
 
-  let others = [];
+  const others = [];
   for (const [code, label] of Object.entries(allCountries)) {
     if (!(code in alreadyHave)) {
       others.push({ iso: code, name: label });
@@ -61,7 +61,7 @@ const addAllCountries = () => {
 };*/
 
 const addCountries = (list) => {
-  let d = [];
+  const d = [];
   list.map((country) => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
@@ -73,7 +73,7 @@ const addCountries = (list) => {
 const Flag = (props) => {
   const country = props.country?.toUpperCase();
   const d = emoji(country);
-  return <span title={"flag " + d}>{d}</span>;
+  return <span title={`flag ${d}`}>{d}</span>;
 };
 
 const Country = (props) => {
@@ -180,12 +180,12 @@ const Country = (props) => {
           native: true,
         }}
       >
-        <option key="" value=""></option>
+        <option key="" value="" />
 
         {_countries.map((option) => (
           <option key={option.iso} value={option.iso}>
             {!isWindows &&
-              (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
+              (emoji(option.iso) ? `${emoji(option.iso)} ` : "") + option.name}
             {isWindows && option.name}
           </option>
         ))}

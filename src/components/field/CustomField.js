@@ -18,9 +18,9 @@ const CustomFields = (props) => {
     };
   }
 
-  let components = config.component.register?.custom[position];
+  const components = config.component.register?.custom[position];
   if (!components)
-    return "ERROR missing config.component.register.custom." + position;
+    return `ERROR missing config.component.register.custom.${position}`;
   if (!Array.isArray(components)) components[0] = components;
   return components.map((d) => {
     const Custom = portals[d];

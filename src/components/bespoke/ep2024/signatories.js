@@ -49,10 +49,7 @@ const ListSignatories = () => {
   });
 
   const url =
-    "https://static.proca.app/ep2024/" +
-    // "http://localhost/ep2024/data/" +
-    config.campaign.name.replace("_citizen_", "_candidates_") +
-    ".json";
+    `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}.json`;
 
   const sort = config.component.signature?.sort || false;
   useEffect(() => {
@@ -78,9 +75,9 @@ const ListSignatories = () => {
           }
 
           const positionA =
-            a.field.position !== undefined ? a.field.position : Infinity;
+            a.field.position !== undefined ? a.field.position : Number.POSITIVE_INFINITY;
           const positionB =
-            b.field.position !== undefined ? b.field.position : Infinity;
+            b.field.position !== undefined ? b.field.position : Number.POSITIVE_INFINITY;
           if (positionA !== positionB) {
             return positionA - positionB;
           }
@@ -232,9 +229,7 @@ console.log("filtered");
                 src={
                   d.field.mep
                     ? d.field.mep &&
-                      "https://www.europarl.europa.eu/mepphoto/" +
-                        d.field.mep +
-                        ".jpg"
+                      `https://www.europarl.europa.eu/mepphoto/${d.field.mep}.jpg`
                     : d.field.picture &&
                       d.field.picture?.replace(
                         "https://pbs.twimg.com/profile_images/",

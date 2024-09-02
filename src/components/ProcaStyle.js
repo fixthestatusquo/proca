@@ -55,7 +55,7 @@ export default function ProcaStyle(props) {
         },
         typography: {
           fontFamily: "unset!important",
-          htmlFontSize: parseInt(
+          htmlFontSize: Number.parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
               .getPropertyValue("font-size"),

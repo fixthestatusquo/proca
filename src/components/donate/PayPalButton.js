@@ -163,7 +163,7 @@ const onApproveOrder = async ({
 
 const onCreateOrder = ({ amount, description, actions }) => {
   return actions.order.create({
-    purchase_units: [{ amount: { value: parseFloat(amount) } }],
+    purchase_units: [{ amount: { value: Number.parseFloat(amount) } }],
     description: description,
     application_context: {
       shipping_preference: "NO_SHIPPING",
@@ -280,7 +280,7 @@ const ProcaPayPalButton = (props) => {
   const plan_id = donateConfig.paypal.planId;
 
   const createSubscription = useCallback(
-    (data, actions) => {
+    (_data, actions) => {
       setFormData("paymentMethod", "paypal");
       return actions.subscription.create({
         plan_id: plan_id,

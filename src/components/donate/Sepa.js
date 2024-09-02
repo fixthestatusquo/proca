@@ -48,7 +48,7 @@ export default function Register(props) {
   if ((compact && width > 440) || (!compact && width <= 440))
     setCompact(width <= 440);
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -166,7 +166,7 @@ export default function Register(props) {
       method="post"
       action="http://localhost"
     >
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="main">
         <Grid container spacing={1}>
           {useTitle && (

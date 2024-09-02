@@ -356,12 +356,12 @@ const SubmitButton = (props) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    let params = {
+    const params = {
       actionPage: config.actionPage,
       amount: Math.floor(formData.amount * 100),
       currency: currency.code,
       contact: {
-        name: formData.firstname + " " + formData.lastname,
+        name: `${formData.firstname} ${formData.lastname}`,
         email: formData.email,
         address: { country: formData.country, postal_code: formData.postcode },
       },

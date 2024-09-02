@@ -20,7 +20,7 @@ const Phone = ({ form, classField }) => {
       form.setValue("phoneCountry", result.country);
       return true;
     } else {
-      return result.error ? t("phone." + result.error, result.error) : true;
+      return result.error ? t(`phone.${result.error}`, result.error) : true;
     }
   };
 

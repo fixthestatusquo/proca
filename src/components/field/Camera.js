@@ -38,7 +38,7 @@ export const useUpload = (canvasRef, formData = {}) => {
       // already uploaded
       return true;
     }
-    let d = {
+    const d = {
       campaign: config.campaign.name,
       actionpage_id: config.actionPage,
       legend: "",
@@ -52,7 +52,7 @@ export const useUpload = (canvasRef, formData = {}) => {
     if (formData.firstname) {
       d.creator = formData.firstname.trim();
       if (formData.lastname) {
-        d.creator += " " + formData.lastname.charAt(0).toUpperCase().trim();
+        d.creator += ` ${formData.lastname.charAt(0).toUpperCase().trim()}`;
       }
       if (d.locality) {
         d.creator = t("supporterHint", { name: d.creator, area: d.locality });
@@ -71,7 +71,7 @@ export const useUpload = (canvasRef, formData = {}) => {
       //.from(config.campaign.name.replaceAll("_", "-"))
       //.upload("public/" + hash + ".jpg", blob, {
       .from("picture")
-      .upload(config.campaign.name + "/" + hash + ".jpg", blob, {
+      .upload(`${config.campaign.name}/${hash}.jpg`, blob, {
         cacheControl: "31536000",
         upsert: false,
       });
@@ -141,12 +141,12 @@ const CameraField = (props) => {
   };
   const startCamera = useCallback(
     async (facingMode) => {
-      let video = videoRef.current;
+      const video = videoRef.current;
       video.setAttribute("autoplay", "");
       video.setAttribute("muted", "");
       video.setAttribute("playsinline", "");
       let stream = null;
-      let constraint = {
+      const constraint = {
         audio: false,
         video: {
           width: 640,
@@ -159,7 +159,7 @@ const CameraField = (props) => {
       } catch (err) {
         setError("image", {
           type: "js",
-          message: "camera error, check your permissions\n" + err.toString(),
+          message: `camera error, check your permissions\n${err.toString()}`,
         });
         console.log("can't get camera", err);
         return;
@@ -171,7 +171,7 @@ const CameraField = (props) => {
       setCameras(videoDevices);
       video.srcObject = stream;
       video.onloadedmetadata = () => {
-        let dim = {
+        const dim = {
           width: video.videoWidth,
           height: video.videoHeight,
         };
@@ -192,7 +192,7 @@ const CameraField = (props) => {
         if (allowed.state === "granted") {
           startCamera("environment");
         }
-      } catch (e) {
+      } catch  {
         // firefox doesn't allow camera permission to be checked
       }
     };
@@ -203,8 +203,8 @@ const CameraField = (props) => {
   }, [cameras.length, startCamera]);
 
   const takePicture = async () => {
-    let video = videoRef.current;
-    let canvas = canvasRef.current;
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
     canvas
       .getContext("2d")
       .drawImage(
@@ -219,7 +219,7 @@ const CameraField = (props) => {
         canvas.height
       );
 
-    let image_data_url = canvas.toDataURL("image/jpeg");
+    const image_data_url = canvas.toDataURL("image/jpeg");
 
     _takePicture(image_data_url);
     if (props.setCanvas) props.setCanvas(canvas);
@@ -248,12 +248,7 @@ const CameraField = (props) => {
     setValue("blurhash", getBlurhash(canvasRef));
     setValue(
       "image",
-      process.env.REACT_APP_SUPABASE_URL +
-        "/storage/v1/object/public/" +
-        config.campaign.name.replaceAll("_", "-") +
-        "/public/" +
-        r.hash +
-        ".jpg"
+      `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/${config.campaign.name.replaceAll("_", "-")}/public/${r.hash}.jpg`
     );
     validating(false);
     return true;
@@ -296,7 +291,7 @@ const CameraField = (props) => {
           autoPlay
           playsInline
           muted
-        ></video>
+        />
         {camera && !picture && (
           <Box display="flex">
             <Box flexGrow={1}>
@@ -336,7 +331,7 @@ const CameraField = (props) => {
           width={cDim.width}
           style={{ maxWidth: "100%" }}
           height={cDim.height}
-        ></canvas>
+        />
         {isValidating && <LinearProgress fullWidth />}
       </Box>
       {picture && (

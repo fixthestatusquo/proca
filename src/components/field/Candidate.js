@@ -140,7 +140,7 @@ const Affiliation = (props) => {
             native: true,
           }}
         >
-          <option key="empty" value=""></option>
+          <option key="empty" value="" />
           {parties
             .filter((d) => d.country === country || !d.country)
             //            .sort((a, b) => a.party > b.party)

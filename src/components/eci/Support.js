@@ -164,10 +164,7 @@ const Support = (props) => {
               }
               case "documentNumber": {
                 const msg =
-                  "eci:form.error.document_" +
-                  data.nationality.toLowerCase() +
-                  "_" +
-                  data.documentType.replace(/\./g, "_");
+                  `eci:form.error.document_${data.nationality.toLowerCase()}_${data.documentType.replace(/\./g, "_")}`;
                 setError(field.name, {
                   type: "server",
                   message: /* i18next-extract-disable-line */ t(msg),
@@ -176,9 +173,7 @@ const Support = (props) => {
               }
               case "postcode": {
                 const msg =
-                  "eci:form.error.oct_error_" +
-                  data.country.toLowerCase() +
-                  "_postalcode";
+                  `eci:form.error.oct_error_${data.country.toLowerCase()}_postalcode`;
                 setError(field.name, {
                   type: "server",
                   message: i18n.exists(msg)
@@ -235,7 +230,7 @@ const Support = (props) => {
     setToken(token);
   };
 
-  function Error(props) {
+  function ErrorN(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -267,7 +262,7 @@ const Support = (props) => {
               method="post"
               action="http://localhost"
             >
-              <Error display={status === "error"} />
+              <ErrorN display={status === "error"} />
 
               {i18n.exists("step.eci.secure") && (
                 <Grid container spacing={4}>
@@ -284,7 +279,7 @@ const Support = (props) => {
                 <CardHeader
                   subheader={t("step.eci.subheader", "")}
                   title={t("step.eci.title", "")}
-                ></CardHeader>
+                />
               )}
               {config.component.eci.readMore && <ReadMore />}
               <Box
@@ -292,9 +287,7 @@ const Support = (props) => {
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
                     url:
-                      "https://eur-lex.europa.eu/legal-content/" +
-                      config.lang +
-                      "/TXT/PDF/?uri=CELEX:32019R0788",
+                      `https://eur-lex.europa.eu/legal-content/${config.lang}/TXT/PDF/?uri=CELEX:32019R0788`,
                   }),
                 }}
               />

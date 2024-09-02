@@ -7,7 +7,7 @@ export default function UploadPicture(props) {
   const uploadImage = (e) => {
     const draw = (e) => {
       const img = e.target;
-      let canvas = canvasRef.current;
+      const canvas = canvasRef.current;
       const size = resize(img);
       canvas.width = size.width;
       canvas.height = size.height;
@@ -38,7 +38,7 @@ export default function UploadPicture(props) {
         </Button>
       </div>
       <div>
-        <canvas height={1} ref={canvasRef}></canvas>
+        <canvas height={1} ref={canvasRef} />
       </div>
     </div>
   );

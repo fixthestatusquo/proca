@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register(props) {
   const classes = useStyles();
-  let emailProvider = useRef(undefined); // we don't know the email provider
+  const emailProvider = useRef(undefined); // we don't know the email provider
   const { t } = useTranslation();
   const [status, setStatus] = useState("init");
   const [config, setCampaignConfig] = useConfig();
@@ -80,7 +80,7 @@ export default function Register(props) {
   useEffect(() => {
     if (!actionPage || actionPage === config.actionPage) return;
     setCampaignConfig((config) => {
-      let d = JSON.parse(JSON.stringify(config));
+      const d = JSON.parse(JSON.stringify(config));
       d.actionPage = actionPage;
       setStatus("default");
       return d;
@@ -115,7 +115,7 @@ export default function Register(props) {
   const [region, setRegion] = useState("");
   useEffect(() => {
     if (postcode.length !== 4) return;
-    const api = "https://postcode-ch.proca.foundation/" + postcode;
+    const api = `https://postcode-ch.proca.foundation/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)
@@ -221,7 +221,7 @@ export default function Register(props) {
         `Attempt to create QRCode with actionPage id = ${config.actionpage}`,
       );
     }
-    data.postcardUrl += "&qrcode=" + uuid() + ":" + config.actionpage;
+    data.postcardUrl += `&qrcode=${uuid()}:${config.actionpage}`;
     setData(data);
     if (props.done instanceof Function) props.done(data);
     // sends the signature's ID as fingerprint
@@ -257,17 +257,17 @@ export default function Register(props) {
 
       const dmj = date.split(/ |\.|\//);
       if (dmj.length !== 3) return false;
-      return dmj[2] + "-" + dmj[1] + "-" + dmj[0];
+      return `${dmj[2]}-${dmj[1]}-${dmj[0]}`;
     }
   }
   function minBirthdate() {
-    let d = new Date();
+    const d = new Date();
     d.setFullYear(d.getFullYear() - 18);
     return d;
     //    return d.toISOString().substr(0, 10);
   }
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -314,7 +314,7 @@ export default function Register(props) {
         action="http://localhost"
       >
         <Success display={status === "success"} />
-        <Error display={status === "error"} />
+        <ErrorS display={status === "error"} />
         <Container component="main" maxWidth="sm">
           <Grid container spacing={1}>
             <Grid item xs={12} sm={compact ? 12 : 6}>

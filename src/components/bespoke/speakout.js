@@ -25,7 +25,7 @@ const SpeakoutCheck = () => {
         .map((d) => {
           try {
             return JSON.parse(decodeURIComponent(d.substring(7)));
-          } catch (e) {
+          } catch {
             return {};
           }
         });
@@ -39,7 +39,7 @@ const SpeakoutCheck = () => {
     }
     if (document.cookie.indexOf("member=") === -1) return;
     setCampaign((current) => {
-      let r = JSON.parse(JSON.stringify(current)); // deep copy
+      const r = JSON.parse(JSON.stringify(current)); // deep copy
       r.component.consent = Object.assign({}, current.component.consent, {
         implicit: true,
       });

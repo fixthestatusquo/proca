@@ -23,7 +23,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
   </svg>`;
   const deleteImage = new Image();
   deleteImage.src =
-    "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgstring);
+    `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgstring)}`;
 
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [size, setSize] = useState(undefined);
@@ -90,10 +90,10 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
         width={size.width}
         height={size.height}
         image={stickerImage}
-        onMouseOver={function () {
+        onMouseOver={() => {
           document.body.style.cursor = "grab";
         }}
-        onMouseOut={function () {
+        onMouseOut={() => {
           document.body.style.cursor = "default";
         }}
         {...longPressEvent}

@@ -28,7 +28,7 @@ async function addSupport(actionType, actionPage, data, options) {
   };
 
   //  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     action: {
       actionType: actionType,
@@ -72,7 +72,7 @@ async function addSupport(actionType, actionPage, data, options) {
   //  }
 
   if (options.captcha?.mac) {
-    data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;
+    data.captcha += `:${options.captcha.expiry}:${options.captcha.mac}`;
   }
 
   if (options.captcha.audio) {

@@ -67,7 +67,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
           >
             {
               /* i18next-extract-disable-next-line */
-              t("donation.frequency.each." + f.toLowerCase(), {
+              t(`donation.frequency.each.${f.toLowerCase()}`, {
                 defaultValue: f,
               })
             }
@@ -97,7 +97,7 @@ const Frequencies = (props) => {
       <Typography variant="h6" paragraph gutterBottom color="textPrimary">
         {
           /*  i18next-extract-disable-next-line */
-          t("donation.frequency.ask." + frequency.toLowerCase(), {
+          t(`donation.frequency.ask.${frequency.toLowerCase()}`, {
             defaultValue: "Make it monthly?",
           })
         }

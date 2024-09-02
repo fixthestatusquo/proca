@@ -7,9 +7,7 @@ const Counter = () => {
   const config = useCampaignConfig();
 
   const url =
-    "https://static.proca.app/ep2024/" +
-    config.campaign.name.replace("_citizen_", "_candidates_") +
-    "-count.json";
+    `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}-count.json`;
 
   useEffect(() => {
     const fetchData = async (url) => {

@@ -15,7 +15,7 @@
 
 const filter = (query, allowlist = null, prefix = "") => {
   if (!allowlist) return query;
-  let r = {};
+  const r = {};
   Object.keys(query)
     .filter(
       (key) =>
@@ -129,7 +129,7 @@ const utm = (record = true) => {
   if (record === false) {
     return {};
   }
-  let utm = { source: "", medium: "", campaign: "" };
+  const utm = { source: "", medium: "", campaign: "" };
   let shortcut = parse(["utm"]).utm;
   if (shortcut) {
     // instead of having utm_xxx, we can have utm=campaign.source.medium

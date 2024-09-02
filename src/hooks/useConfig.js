@@ -66,7 +66,7 @@ export const initConfigState = (config) => {
   return true;
 };
 
-export let Config = React.createContext();
+export const Config = React.createContext();
 
 const id = "proca-listener";
 
@@ -117,7 +117,7 @@ export const ConfigProvider = (props) => {
   const setPartPath = (part, path, value) => {
     _setCampaignConfig((config) => {
       const d = JSON.parse(JSON.stringify(config));
-      return set(d, part + "." + path, value);
+      return set(d, `${part}.${path}`, value);
     });
   };
 
@@ -142,7 +142,7 @@ export const ConfigProvider = (props) => {
       _setCampaignConfig((current) => {
         const next = { ...current };
         next.hook = { ...current.hook };
-        next.hook[object + ":" + action] = hook;
+        next.hook[`${object}:${action}`] = hook;
         return next;
       });
     },
@@ -217,7 +217,7 @@ export const ConfigProvider = (props) => {
   return (
     <>
       {props.children}
-      <div id={id}></div>
+      <div id={id} />
     </>
   );
 };

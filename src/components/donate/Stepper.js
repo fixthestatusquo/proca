@@ -34,7 +34,7 @@ const iconStyles = makeStyles({ root: { fontSize: "2em" } });
 
 const BiggerStepIcon = (props) => {
   const classes = iconStyles();
-  return <StepIcon classes={{ root: classes.root }} {...props}></StepIcon>;
+  return <StepIcon classes={{ root: classes.root }} {...props} />;
 };
 
 const labelStyles = makeStyles({
@@ -59,7 +59,7 @@ const StyledStepLabel = (props) => {
       }}
       StepIconComponent={BiggerStepIcon}
       {...props}
-    ></StepLabel>
+    />
   );
 };
 

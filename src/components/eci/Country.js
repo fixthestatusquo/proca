@@ -39,7 +39,7 @@ const Country = (props) => {
 
   const { t } = useTranslation();
 
-  let countries = Object.keys(props.countries).map((iso) => ({
+  const countries = Object.keys(props.countries).map((iso) => ({
     iso: iso.toUpperCase(),
     name: props.countries[iso],
   }));
@@ -92,11 +92,11 @@ const Country = (props) => {
               native: true,
             }}
           >
-            <option key="" value=""></option>
+            <option key="" value="" />
             {countries.map((option) => (
               <option key={option.iso} value={option.iso}>
                 {!isWindows &&
-                  (emoji(option.iso) ? emoji(option.iso) + " " : "") +
+                  (emoji(option.iso) ? `${emoji(option.iso)} ` : "") +
                     option.name}
                 {isWindows && option.name}
               </option>

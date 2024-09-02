@@ -48,7 +48,7 @@ const Postcode = (props) => {
       if (constituency) setValue("constituency", "");
       return;
     }
-    const api = "https://" + country + ".proca.app/" + postcode;
+    const api = `https://${country}.proca.app/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)

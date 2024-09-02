@@ -37,7 +37,7 @@ const ProcaCheckbox = (props) => {
   if (!props.name) return "you need to set ProcaCheckbox props.name";
   return (
     <FormControl
-      className={classes.control + " " + (props.className || "proca-checkbox")}
+      className={`${classes.control} ${props.className || "proca-checkbox"}`}
     >
       <FormGroup>
         <FormControlLabel

@@ -12,9 +12,9 @@ const LoaderAsync = () => {
     let isCancelled = false;
     if (!loaders) return;
     if (loaders.json) {
-      (async function () {
+      (async () => {
         let url =
-          loaders.url || "https://" + config.campaign.name + ".proca.app/";
+          loaders.url || `https://${config.campaign.name}.proca.app/`;
         if (loaders.url === false) return null;
         if (loaders.appendLocale === true) url += lang;
 
@@ -24,13 +24,13 @@ const LoaderAsync = () => {
           d = await fetch(url).catch((e) => {
             setData("message", e.message); // we need to guess the field, message is the most common one
           });
-        } catch (e) {
+        } catch  {
           console.log("no message in", lang);
         }
         if (!d) return;
         try {
           json = await d.json();
-        } catch (e) {
+        } catch  {
           console.log("no message in", lang);
           return;
         }
@@ -57,7 +57,7 @@ const LoaderAsync = () => {
       })();
     } else {
       Object.entries(loaders).map(([k, v]) => {
-        (async function () {
+        (async () => {
           let url = v.url;
           if (!url) return null;
           if (v.appendLocale === true) url += lang;

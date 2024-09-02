@@ -273,8 +273,8 @@ export default function Register(props) {
           ",",
         );
 
-      let payload = {};
-      for (let [key, value] of Object.entries(formData)) {
+      const payload = {};
+      for (const [key, value] of Object.entries(formData)) {
         if (value && !expected.includes(key)) payload[key] = value;
       }
       result = await addAction(
@@ -321,7 +321,7 @@ export default function Register(props) {
     }
 
     dispatch(
-      (config.component?.register?.actionType || "register") + ":complete",
+      `${config.component?.register?.actionType || "register"}:complete`,
       {
         uuid: result.contactRef,
         test: !!config.test,
@@ -382,7 +382,7 @@ export default function Register(props) {
   }, [setError]);
 */
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -443,7 +443,7 @@ export default function Register(props) {
     const d = getValues();
     setData(d);
     dispatch(
-      (config.component?.register?.actionType || "register") + ":skip",
+      `${config.component?.register?.actionType || "register"}:skip`,
       {
         test: !!config.test,
         country: d.country,
@@ -463,7 +463,7 @@ export default function Register(props) {
       action="http://localhost"
     >
       <Success display={status === "success"} />
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled
           disabled={config.component.register?.disabled === true}

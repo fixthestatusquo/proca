@@ -95,8 +95,8 @@ const CreateMeme = (props) => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     let isCancelled = false;
-    let templates = [];
-    (async function () {
+    const templates = [];
+    (async () => {
       const r = await fetch(
         config.component.meme?.list ||
           "https://widget.proca.app/t/meme/template.json",
@@ -114,9 +114,9 @@ const CreateMeme = (props) => {
         shuffle(response);
         response.forEach((d) => {
           templates.push({
-            top: t("campaign:meme." + d.top_text.replaceAll("_", "-"), ""),
+            top: t(`campaign:meme.${d.top_text.replaceAll("_", "-")}`, ""),
             bottom: t(
-              "campaign:meme." + d.bottom_text.replaceAll("_", "-"),
+              `campaign:meme.${d.bottom_text.replaceAll("_", "-")}`,
               ""
             ),
             name: d.top_text.split(".")[0],
@@ -153,7 +153,7 @@ const CreateMeme = (props) => {
 
   useEffect(() => {
     if (document && document.fonts) {
-      setTimeout(function () {
+      setTimeout(() => {
         document.fonts.load("20px Anton").then(() => {
           selectOne(0);
         });
@@ -181,7 +181,7 @@ const CreateMeme = (props) => {
     ctx.textAlign = "center";
 
     // Top text font size
-    let fontSize = param.fontSize;
+    const fontSize = param.fontSize;
     ctx.font = `${fontSize}px Anton, sans-serif`;
     ctx.lineWidth = param.fontSize / 20;
 
@@ -234,7 +234,7 @@ const CreateMeme = (props) => {
   };
 
   const getHash = async () => {
-    let d = {
+    const d = {
       image: items[current].original,
       top_text: topText,
       bottom_text: bottomText,
@@ -260,7 +260,7 @@ const CreateMeme = (props) => {
 
     const hash = await getHash();
 
-    let d = {
+    const d = {
       image: items[current].original,
       top_text: topText,
       bottom_text: bottomText,
@@ -274,7 +274,7 @@ const CreateMeme = (props) => {
     }
     r = await supabase.storage
       .from("together4forests")
-      .upload("meme/" + hash + ".jpeg", blob, {
+      .upload(`meme/${hash}.jpeg`, blob, {
         cacheControl: "3600",
         upsert: false,
       });
@@ -291,12 +291,12 @@ const CreateMeme = (props) => {
 
   const item = (items[current] && items[current].original) || "";
   useEffect(() => {
-    let base_image = new Image();
+    const base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
     base_image.src = item;
     base_image.addEventListener(
       "load",
-      async function () {
+      async () => {
         const lineLength = (
           text // returns the max line Length if multiline text
         ) =>
@@ -330,13 +330,10 @@ const CreateMeme = (props) => {
         const hash = await getHash();
         setValue(
           "image",
-          process.env.REACT_APP_SUPABASE_URL +
-            "/storage/v1/object/public/together4forests/meme/" +
-            hash +
-            ".jpeg"
+          `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/together4forests/meme/${hash}.jpeg`
         );
         setValue("hash", hash);
-        setValue("dimension", "[" + width + "," + height + "]");
+        setValue("dimension", `[${width},${height}]`);
       },
       false
     );

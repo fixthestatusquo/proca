@@ -17,7 +17,7 @@ export const snarkdown = (md) => {
 export const Markdown = (props) => {
   const { t } = useTranslation();
   const tbr = (key) => snarkdown(t(key, props));
-  return <Trans t={tbr} i18nKey={props.text}></Trans>;
+  return <Trans t={tbr} i18nKey={props.text} />;
 };
 
 const TTag = (props) => {
@@ -30,7 +30,7 @@ const TTag = (props) => {
         dangerouslySetInnerHTML={{
           __html: snarkdown(t(props.message, props)),
         }}
-      ></div>
+      />
     );
   }
   return <Markdown text={props.message} {...props} />;

@@ -133,7 +133,7 @@ const ImageSelector = (props) => {
   };
 
   useLayoutEffect(() => {
-    setTimeout(function () {
+    setTimeout(() => {
       const canvas = document.getElementById("proca-meme");
       const width = canvas?.offsetWidth;
       if (width) setWidth(width);
@@ -159,7 +159,7 @@ const ImageSelector = (props) => {
         className={classes.imageList}
         style={{ maxWidth: width }}
       >
-        {items.map((d, i) => (
+        {items.map((_d, i) => (
           <ListItem
             component="div"
             disableGutters={true}

@@ -1,5 +1,5 @@
 async function paymentIntent(params) {
-  const url = process.env.REACT_APP_DONATION_URL + "/stripe/oneoff";
+  const url = `${process.env.REACT_APP_DONATION_URL}/stripe/oneoff`;
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",

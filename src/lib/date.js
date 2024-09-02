@@ -8,7 +8,7 @@ const formatDate = (d) => {
 
     const dmj = d.split(/ |[./-]|\//);
     if (dmj.length !== 3) return false;
-    return dmj[2] + "-" + dmj[1] + "-" + dmj[0];
+    return `${dmj[2]}-${dmj[1]}-${dmj[0]}`;
   }
 };
 

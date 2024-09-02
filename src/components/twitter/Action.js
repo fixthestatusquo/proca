@@ -28,16 +28,15 @@ const tweet = (params) => {
   };
 
   const url =
-    "https://twitter.com/intent/tweet?text=" +
-    encodeURIComponent(
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       tokenize(message, {
         profile: { screen_name: screen_name },
         url: actionUrl,
       })
-    );
-  let win = window.open(
+    )}`;
+  const win = window.open(
     url,
-    "tweet-" + screen_name,
+    `tweet-${screen_name}`,
     "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
   );
   addTweet("twitter_click", screen_name);

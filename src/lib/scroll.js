@@ -1,5 +1,5 @@
 const scrollTo = (params) => {
-  let {
+  const {
     delay = 100,
     block = "center",
     selector = ".proca-widget",

@@ -122,8 +122,7 @@ export default function Register(props) {
               }
               case "documentNumber": {
                 const msg =
-                  "eci:form.error.document_it_" +
-                  data.documentType.replace(/\./g, "_");
+                  `eci:form.error.document_it_${data.documentType.replace(/\./g, "_")}`;
                 setError(field.name, {
                   type: "server",
                   message: /* i18next-extract-disable-line */ t(msg),
@@ -132,9 +131,7 @@ export default function Register(props) {
               }
               case "postcode": {
                 const msg =
-                  "eci:form.error.oct_error_" +
-                  data.country.toLowerCase() +
-                  "_postalcode";
+                  `eci:form.error.oct_error_${data.country.toLowerCase()}_postalcode`;
                 setError(field.name, {
                   type: "server",
                   message: i18n.exists(msg)
@@ -172,7 +169,7 @@ export default function Register(props) {
     return false;
   };
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -216,7 +213,7 @@ export default function Register(props) {
     >
       <ProgressCounter actionPage={props.actionPage} />
       <Success display={status === "success"} />
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={0}>

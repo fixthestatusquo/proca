@@ -14,7 +14,7 @@ const useElementSize = (selector) => {
   useLayoutEffect(() => {
     const el = document.querySelector(selector);
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         if (entry.contentBoxSize && entry.contentBoxSize.length) {
           setSize(entry.contentBoxSize[0]);
           return;

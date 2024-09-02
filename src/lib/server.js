@@ -5,19 +5,19 @@ async function graphQL(operation, query, options) {
       process.env.REACT_APP_API_URL || "https://api.proca.app/api";
 
   let data = null;
-  let headers = {
+  const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
   };
   if (options.authorization) {
     //    var auth = 'Basic ' + Buffer.from(options.authorization.username + ':' + options.authorization.username.password).toString('base64');
-    headers.Authorization = "Basic " + options.authorization;
+    headers.Authorization = `Basic ${options.authorization}`;
   }
   // console.debug("graphql: ", query, options.variables);
   await fetch(
     options.apiUrl +
       (options.variables.actionPage
-        ? "?id=" + options.variables.actionPage
+        ? `?id=${options.variables.actionPage}`
         : ""),
     {
       method: "POST",
@@ -89,7 +89,7 @@ async function getLatest(actionPage, actionType, options) {
     }
   }
 }`;
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     actionType: actionType || "openletter",
     limit: options.limit || 1000,
@@ -99,7 +99,7 @@ async function getLatest(actionPage, actionType, options) {
   });
   if (response.errors) return response;
   const l = response.actionPage.campaign.actions.list || [];
-  let result = [];
+  const result = [];
   l.forEach((d) => {
     const org = { id: d.actionId };
     d.fields.forEach((f) => {
@@ -127,18 +127,10 @@ async function getCount(actionPage, options) {
   query = query.replace(/(\n)/gm, "").replace(/\s\s+/g, " ");
   if (options?.apiUrl) {
     url =
-      options.apiUrl +
-      "?query=" +
-      encodeURIComponent(query) +
-      "&variables=" +
-      encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
+      `${options.apiUrl}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
   } else {
     url =
-      (process.env.REACT_APP_API_URL || "https://api.proca.app/api") +
-      "?query=" +
-      encodeURIComponent(query) +
-      "&variables=" +
-      encodeURIComponent('{"actionPage":' + Number(actionPage) + "}");
+      `${process.env.REACT_APP_API_URL || "https://api.proca.app/api"}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
   }
   var data = null;
   await fetch(url)
@@ -205,7 +197,7 @@ async function addAction(actionPage, actionType, data, test) {
     contactRef: $contact, tracking: $tracking)
   {contactRef}
 }`;
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     actionType: actionType,
     payload: data.payload,
@@ -284,12 +276,12 @@ async function addActionContact(actionType, actionPage, data, test) {
     // case where the consent wasn't given because not asked
     privacy = {};
 
-  let expected =
+  const expected =
     //"uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
     "uuid,firstname,lastname,email,phone,country,postcode,address,region,birthdate,privacy,tracking,donation".split(
       ",",
     );
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     action: {
       actionType: actionType,
@@ -332,7 +324,7 @@ async function addActionContact(actionType, actionPage, data, test) {
     variables.tracking = data.tracking;
   }
 
-  for (let [key, value] of Object.entries(data)) {
+  for (const [key, value] of Object.entries(data)) {
     if (value && !expected.includes(key))
       variables.action.customFields[key] = value;
   }

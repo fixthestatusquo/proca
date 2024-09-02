@@ -39,17 +39,12 @@ const EmailAction = ({ profile, display, selection, setSelection }) => {
 
     if (profile.actionUrl) {
       if (s.indexOf("{url}") !== -1) s = s.replace("{url}", profile.actionUrl);
-      else s = s + " " + profile.actionUrl;
+      else s = `${s} ${profile.actionUrl}`;
     }
 
     const body = t("campaign:email.body");
     var url =
-      "mailto:" +
-      profile.email +
-      "?subject=" +
-      encodeURIComponent(s) +
-      "&body=" +
-      encodeURIComponent(body);
+      `mailto:${profile.email}?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(body)}`;
     var win = window.open(url, "_blank");
     select(true);
     addEmailAction("email_click", profile?.screen_name || profile.id);

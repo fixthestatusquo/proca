@@ -48,7 +48,7 @@ const WallOfMeme = () => {
 
   useEffect(() => {
     (async () => {
-      let { data, error } = await supabase
+      const { data, error } = await supabase
         .from("meme_languages")
         .select("lang,total")
         .order("total", { ascending: false });
@@ -71,7 +71,7 @@ const WallOfMeme = () => {
       if (language && language !== "?") {
         query = query.eq("lang", language);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -110,11 +110,9 @@ const WallOfMeme = () => {
             <img
               key={d.hash}
               src={
-                "https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/" +
-                d.hash +
-                ".jpeg"
+                `https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/${d.hash}.jpeg`
               }
-              alt={d.top + " " + d.bottom}
+              alt={`${d.top} ${d.bottom}`}
             />
           </>
         ))}

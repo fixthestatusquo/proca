@@ -148,7 +148,7 @@ const Component = (props) => {
             actionUrl={data.actionUrl}
             actionText={props.TwitterActionText || t("twitter.actionText")}
             {...d}
-          ></MepAction>
+          />
         ))}
       </List>
     </Fragment>

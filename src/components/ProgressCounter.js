@@ -58,7 +58,7 @@ export const formatNumber = (value, separator) => {
   if (!separator)
     // fallback to space
     separator = "\u00A0";
-  return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + separator);
+  return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${separator}`);
 };
 
 export default function Progress(props) {
@@ -95,13 +95,13 @@ export default function Progress(props) {
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
   const actionName = config.component.register?.button?.split(".")[1] || "sign";
-  const progressKey = i18n.exists("progress." + actionName)
-    ? "progress." + actionName
+  const progressKey = i18n.exists(`progress.${actionName}`)
+    ? `progress.${actionName}`
     : "progress";
 
   return (
     <>
-      <Box className={classes.root + " proca-progress"}>
+      <Box className={`${classes.root} proca-progress`}>
         {t(progressKey, {
           count: formatNumber(count, separator),
           total: formatNumber(count, separator),

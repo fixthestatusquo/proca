@@ -87,7 +87,7 @@ const Amounts = () => {
   // TODO: adjust for currencies?
   const frequency =
     data.frequency || config.component.donation?.frequency?.default || "oneoff";
-  let configuredAmounts = donateConfig?.amount || {
+  const configuredAmounts = donateConfig?.amount || {
     oneoff: [3, 5, 10, 50, 200],
   };
 

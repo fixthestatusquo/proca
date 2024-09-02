@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-let elem = document.createElement("div");
+const elem = document.createElement("div");
 elem.id = "proca-ribbon";
 document.body.prepend(elem);
 

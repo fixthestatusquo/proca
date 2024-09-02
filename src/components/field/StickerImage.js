@@ -79,7 +79,7 @@ export default function ImageStickerComplete(props) {
     scrollTo({ delay: 300, selector: "#proca-image" });
   };
 
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = (panel) => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   const handleStep = (step) => () => {
@@ -192,7 +192,7 @@ const ImageStickerKonva = (props) => {
   const { setValue } = props.form;
 
   const [background] = useImage(
-    config.component.sticker.baseUrl + "/" + config.component.sticker.picture,
+    `${config.component.sticker.baseUrl}/${config.component.sticker.picture}`,
     "anonymous",
     "origin"
   );
@@ -212,7 +212,7 @@ const ImageStickerKonva = (props) => {
   if (config.component.sticker.baseUrl) {
     stickersData = stickersData.map((image) =>
       Object.assign({}, image, {
-        url: config.component.sticker.baseUrl + "/" + image.url,
+        url: `${config.component.sticker.baseUrl}/${image.url}`,
       })
     );
   }
@@ -254,7 +254,7 @@ const ImageStickerKonva = (props) => {
     console.log("uploaded", r);
     //    r.hash;
     setValue("hash", r.hash);
-    setValue("dimension", "[" + r.width + "," + r.height + "]");
+    setValue("dimension", `[${r.width},${r.height}]`);
 
     props.setImage(canvasRef.current.toCanvas().toDataURL("image/jpeg", 0.8));
     //    console.log(canvasRef.current.toDataUrl("jpeg",81));
@@ -302,7 +302,7 @@ const ImageStickerKonva = (props) => {
                   image.x = event.target.x();
                   image.y = event.target.y();
                 }}
-                key={"sticker_" + i}
+                key={`sticker_${i}`}
                 image={image}
               />
             );
@@ -317,7 +317,7 @@ const ImageStickerKonva = (props) => {
           {stickersData.map((sticker, i) => {
             return (
               <span
-                key={"sticker_" + i}
+                key={`sticker_${i}`}
                 className={classes.sticker}
                 onMouseDown={() => {
                   addStickerToPanel({

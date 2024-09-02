@@ -24,7 +24,7 @@ const RegisterEmail = (props) => {
           })}{" "}
       </Container>
       {i18n.exists("step.register.title") && (
-        <CardHeader title={t("step.register.title", "")}></CardHeader>
+        <CardHeader title={t("step.register.title", "")} />
       )}
       <Register {...props} consentIntro={false} buttonNext="No Thanks" />
     </>

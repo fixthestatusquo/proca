@@ -30,7 +30,7 @@ const Wall = (props) => {
       if (country) {
         query = query.eq("area", country);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);

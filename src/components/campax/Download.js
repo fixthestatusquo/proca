@@ -11,19 +11,9 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const url = (data, param) => {
   let postcardUrl =
-    "https://collect-pdf.campax.org?" +
-    "postalcode=" +
-    data.postcode +
-    "&canton=" +
-    data.region +
-    "&birthdate=" +
-    data.birthdate +
-    "&address=" +
-    data.address +
-    "&locality=" +
-    data.locality;
-  if (param.pdfUrl) postcardUrl += "&pdf=" + encodeURIComponent(param.pdfUrl);
-  if (param.marginTop) postcardUrl += "&top=" + param.marginTop;
+    `https://collect-pdf.campax.org?postalcode=${data.postcode}&canton=${data.region}&birthdate=${data.birthdate}&address=${data.address}&locality=${data.locality}`;
+  if (param.pdfUrl) postcardUrl += `&pdf=${encodeURIComponent(param.pdfUrl)}`;
+  if (param.marginTop) postcardUrl += `&top=${param.marginTop}`;
 
   return postcardUrl;
 };

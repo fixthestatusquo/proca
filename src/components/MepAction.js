@@ -33,7 +33,7 @@ const component = function MepAction(profile) {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () =>
-    "https://www.europarl.europa.eu/mepphoto/" + profile.epid + ".jpg";
+    `https://www.europarl.europa.eu/mepphoto/${profile.epid}.jpg`;
 
   function addTweet(event, screenName) {
     addAction(profile.actionPage, event, {
@@ -49,18 +49,18 @@ const component = function MepAction(profile) {
         ? profile.actionText(profile)
         : profile.actionText;
 
-    if (t.indexOf("{@}") !== -1) t = t.replace("{@}", "@" + profile.Twitter);
-    else t = ".@" + profile.Twitter + " " + t;
+    if (t.indexOf("{@}") !== -1) t = t.replace("{@}", `@${profile.Twitter}`);
+    else t = `.@${profile.Twitter} ${t}`;
 
     if (profile.actionUrl) {
       if (t.indexOf("{url}") !== -1) t = t.replace("{url}", profile.actionUrl);
-      else t = t + " " + profile.actionUrl;
+      else t = `${t} ${profile.actionUrl}`;
     }
 
-    var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t);
+    var url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(t)}`;
     var win = window.open(
       url,
-      "tweet-" + profile.Twitter,
+      `tweet-${profile.Twitter}`,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
     select(true);
@@ -106,8 +106,7 @@ const component = function MepAction(profile) {
               {" "}
               <img
                 src={
-                  "https://www.tttp.eu/img/group/" +
-                  eugroups[profile.eugroup].picture
+                  `https://www.tttp.eu/img/group/${eugroups[profile.eugroup].picture}`
                 }
                 title={eugroups[profile.eugroup].name}
                 alt={profile.eugroup}

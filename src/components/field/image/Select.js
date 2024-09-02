@@ -21,7 +21,7 @@ const PictureSelector = (props) => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const base = config.component.sticker?.baseUrl
-    ? config.component.sticker.baseUrl + "/"
+    ? `${config.component.sticker.baseUrl}/`
     : "";
   const handleClick = (e) => {
     const draw = (e) => {
@@ -52,7 +52,7 @@ const PictureSelector = (props) => {
         />
       ))}
       <div>
-        <canvas width={1} height={1} ref={canvasRef}></canvas>
+        <canvas width={1} height={1} ref={canvasRef} />
       </div>
     </>
   );

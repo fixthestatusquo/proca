@@ -99,22 +99,12 @@ const makeUrl = (pic, campaignName) => {
   if (campaignName === "taxe_super_profits") {
     //TODO: remove legacy
     return (
-      process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/" +
-      campaignName.replace(/_/g, "-") +
-      "/public/" +
-      pic.hash +
-      ".jpg"
+      `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/${campaignName.replace(/_/g, "-")}/public/${pic.hash}.jpg`
     );
   }
 
   return (
-    process.env.REACT_APP_SUPABASE_URL +
-    "/storage/v1/object/public/picture/" +
-    campaignName +
-    "/" +
-    pic.hash +
-    ".jpg"
+    `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/picture/${campaignName}/${pic.hash}.jpg`
   );
 };
 
@@ -135,7 +125,7 @@ const PictureWall = (props) => {
   useEffect(() => {
     (async () => {
       if (config.component.wall.country !== true) return;
-      let { data, error } = await supabase
+      const { data, error } = await supabase
         .from("picture_by_country")
         .select("area,total")
         .order("total", { ascending: false });
@@ -159,7 +149,7 @@ const PictureWall = (props) => {
       if (country && country !== "?") {
         query = query.eq("area", country);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -184,7 +174,7 @@ const PictureWall = (props) => {
           Choose your country
         </MenuItem>
         {countries.map((option) => (
-          <MenuItem key={option} value={option}></MenuItem>
+          <MenuItem key={option} value={option} />
         ))}
       </TextField>
     );

@@ -8,7 +8,7 @@ const Salutation = (props) => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
 
-  let options = t("salutations", {
+  const options = t("salutations", {
     returnObjects: true,
     defaultValues: [
       { m: "Dear {{name}}" },
@@ -52,7 +52,7 @@ const Salutation = (props) => {
             native: true,
           }}
         >
-          <option key="empty" value=""></option>
+          <option key="empty" value="" />
           {Object.entries(options).map(([k, v]) => {
             return (
               <option key={k} value={k}>

@@ -21,7 +21,7 @@ const GeneratePaper = (props) => {
     if (data.other) {
       data.partner = slugify(data.other.toLowerCase(), "-");
     }
-    data.email = data.partner + "@paper.eci.invalid";
+    data.email = `${data.partner}@paper.eci.invalid`;
     data.firstname = data.partner;
     data.lastname = data.country;
     const result = await addActionContact(
@@ -111,7 +111,7 @@ const GeneratePaper = (props) => {
           native: true,
         }}
       >
-        <option key="" value=""></option>
+        <option key="" value="" />
         {Object.entries(config.component.paper.partners).map(([key, value]) => (
           <option key={key} value={key}>
             {value}
@@ -136,7 +136,7 @@ const GeneratePaper = (props) => {
             native: true,
           }}
         >
-          <option key="" value=""></option>
+          <option key="" value="" />
           {lang.map((lang) => (
             <option key={lang} value={lang}>
               {lang}

@@ -47,7 +47,7 @@ const EmailBrussels = (props) => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      let languages = [];
+      const languages = [];
       d.forEach((c) => {
         if (c.locale && !languages.includes(c.locale)) {
           languages.push(c.locale);
@@ -60,7 +60,7 @@ const EmailBrussels = (props) => {
       const url =
         typeof config.component.email?.listUrl === "string"
           ? config.component.email.listUrl
-          : "https://widget.proca.app/t/" + config.campaign.name + ".json";
+          : `https://widget.proca.app/t/${config.campaign.name}.json`;
 
       fetchData(url);
     } catch (error) {

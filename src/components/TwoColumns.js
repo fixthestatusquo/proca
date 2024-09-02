@@ -25,12 +25,12 @@ const TwoColumns = (props) => {
   const config = useCampaignConfig();
   const id = "proca-wrapper";
   const dom = props.dom;
-  let width = parseInt(props.width, 10) || 5;
+  let width = Number.parseInt(props.width, 10) || 5;
   const leftContent = config.portal?.filter((d) => d.column === "left");
 
   if (!(width <= 12 && width >= 1)) {
     console.log(
-      "width needs to be between 1 and 12, defaulting to 5, was " + width
+      `width needs to be between 1 and 12, defaulting to 5, was ${width}`
     );
     width = 5;
   }
@@ -72,7 +72,7 @@ const TwoColumns = (props) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={12 - width} id={id}></Grid>
+      <Grid item xs={12} sm={12 - width} id={id} />
       <Grid item xs={12} sm={width}>
         {props.children}
       </Grid>

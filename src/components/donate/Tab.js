@@ -33,7 +33,7 @@ export default function Target(props) {
   const config = useCampaignConfig();
   const [requestData] = useData();
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
   };
 

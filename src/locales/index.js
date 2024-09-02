@@ -11,7 +11,7 @@ const aggregate = (nameSpace = "common") => {
   allLang.map((lang) => {
     try {
       const content = readFileSync(
-        __dirname + "/" + lang + "/" + nameSpace + ".json",
+        `${__dirname}/${lang}/${nameSpace}.json`,
         "utf8"
       );
       d[lang] = JSON.parse(content);
@@ -22,7 +22,7 @@ const aggregate = (nameSpace = "common") => {
     }
   });
   writeFileSync(
-    __dirname + "/" + nameSpace + ".json",
+    `${__dirname}/${nameSpace}.json`,
     JSON.stringify(d, null, 2),
     "utf8"
   );
