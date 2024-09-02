@@ -6,6 +6,7 @@ import useData from "@hooks/useData";
 import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 import ImageIcon from "@material-ui/icons/Image";
+import { useCampaignConfig } from "@hooks/useConfig"
 
 const Wall = () => {
   const [value, setValue] = useState("comment");
@@ -15,6 +16,7 @@ const Wall = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const journey = useCampaignConfig().journey || [];
 
   return (
     <>
@@ -29,8 +31,8 @@ const Wall = () => {
             textColor="primary"
             onChange={handleChange}
           >
-            <Tab value="picture" label="Pictures" icon={<ImageIcon />} />
-            <Tab value="comment" label="Comments" icon={<CommentIcon />} />
+            {journey.includes("PictureWall") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
+            {journey.includes("CommentWall") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
           </Tabs>
         </AppBar>
         <Box p={1}>
