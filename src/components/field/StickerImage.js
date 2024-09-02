@@ -142,7 +142,7 @@ export default function ImageStickerComplete(props) {
                   {t("image.takeTitle", "Take a picture with your phone")}
                 </AccordionSummary>
                 <AccordionDetails classes={{ root: classes.accordion }}>
-                  <Camera setCanvas={uploadedCanvas} />
+                  <Camera setCanvas={uploadedCanvas} form={props.form} />
                 </AccordionDetails>
               </Accordion>
               <Accordion
