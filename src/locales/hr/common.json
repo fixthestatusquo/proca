@@ -136,7 +136,7 @@
   },
   "email": {
     "invalid_domain": "Domena {{domain}} ne može primati e-poštu",
-    "salutation": "Poštovani gospodine / Poštovana gospođo",
+    "salutation": "Poštovani gospodine/ Poštovana gospođo",
     "salutation_female": "Poštovana gospođo {{target.last_name}}",
     "salutation_info": "(Ime primatelja će biti postavljeno prije slanja)",
     "salutation_male": "Poštovani gospodine {{target.last_name}}",
