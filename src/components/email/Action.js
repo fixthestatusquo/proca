@@ -76,14 +76,12 @@ const EmailAction = ({ profile, display, selection, setSelection }) => {
       component="div"
       selected={selected}
       disabled={disabled}
-      button={true}
+      button={config.component?.email?.selectable }
       onClick={() => {
         if (config.component?.email?.split === true) {
           mail();
         } else {
-          config.component?.email?.selectable === true
-            ? toggleSelection(profile.procaid, setSelection)
-            : null;
+            config.component?.email?.selectable && toggleSelection(profile.procaid, setSelection)
         }
       }}
       divider={false}
