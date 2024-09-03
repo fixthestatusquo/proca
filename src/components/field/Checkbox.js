@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 const ProcaCheckbox = (props) => {
   const { control } = props.form;
   const classes = useStyles();
-  const config = useCampaignConfig();
 
   //  const { t } = useTranslation();
 
@@ -43,7 +42,7 @@ const ProcaCheckbox = (props) => {
         <FormControlLabel
           className={classes.check}
           placement="end"
-          required={config.component.consent.bcc}
+          required={props.required}
           control={
             <Controller
               name={props.name}
@@ -54,6 +53,7 @@ const ProcaCheckbox = (props) => {
             />
           }
           label={props.label}
+          onChange = {props.onChange}
         />
       </FormGroup>
     </FormControl>
