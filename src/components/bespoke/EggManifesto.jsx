@@ -21,7 +21,7 @@ const EggManifesto = (props) => {
 					border={hasOrganisation ? 1 : 0}
 					borderRadius={4}
 					paddingX={1}
-					paddingBottom={1}
+					paddingBottom={hasOrganisation ? 1 : 0}
 					marginTop={0}
 					component="fieldset"
 				>
