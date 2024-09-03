@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@components/TextField";
-import { useTranslation } from "react-i18next";
 import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
 import {
 	FormGroup,
-	FormControl,
 	FormLabel,
 	Box,
 	Grid,
@@ -47,7 +45,6 @@ const EggManifesto = (props) => {
 							</>
 						)}
 					</FormGroup>
-					{/* </FormControl> */}
 				</Box>
 			</Grid>
 		</Grid>
