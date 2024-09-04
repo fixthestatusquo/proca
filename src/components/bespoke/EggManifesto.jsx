@@ -5,6 +5,7 @@ import Checkbox from "@components/field/Checkbox";
 import { FormLabel, Box, Grid } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
 import Orchid from "@components/field/Orcid";
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 const EggManifesto = ({form}) => {
 	const hasOrganisation = form.watch("has-organisation");
@@ -60,6 +61,7 @@ const EggManifesto = ({form}) => {
 						)}
 					</Collapse>
 				</Box>
+          {hasOrganisation && (<Alert  severity="info" style={{marginTop:8}}><AlertTitle>Your details will not be displayed</AlertTitle>We need them to approve your institution's signature</Alert>)}
 			</Grid>
 		</Grid>
 	);
