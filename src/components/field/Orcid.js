@@ -6,6 +6,7 @@ const Orcid = () => {
 		<Button
 			variant="contained"
 			fullWidth
+      style={{ backgroundColor: '#447405', color: '#fff' }}
 			startIcon={
 				<SvgIcon>
 					<OrcidIcon />
