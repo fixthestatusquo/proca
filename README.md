@@ -60,14 +60,14 @@ Front and back are clearly separated. the backend is a bunch of APIs clearly doc
 - `cp .env.example .env` and put your login + pwd
 - npm run pull folowed by the action page id as seen in the backend. For instance
 
-  `npm run widget --pull 42`
+  `npm run widget -- --pull 42`
 
   This will create the configuration file for the widget with id `42`. it does also pull the configuration for the campaign into config/campaign/{shortname}.json
 
 - edit `config/42.json` or the config/campaign to adjust the steps, configure the components, change the color, whatever)
-- `npm run widget --serve 42` runs a local server with the widget
-- `npm run widget --build 42` generates the widget under d/{actionpage.NAME of the widget}
-- `npm run widget --push 42` save the local config (under config) to the server
+- `npm run widget -- --serve 42` runs a local server with the widget
+- `npm run widget -- --build 42` generates the widget under d/{actionpage.NAME of the widget}
+- `npm run widget -- --push 42` save the local config (under config) to the server
 
 _you can combine the options, eg. npm run widget --pull --build 42, process multiple ids, eg npm run widget --pull --build 42 43 1984_
 
