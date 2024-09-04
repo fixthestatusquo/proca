@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TextField from "@components/TextField";
 import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
@@ -14,15 +14,13 @@ const EggManifesto = ({form}) => {
     }
   }
 
-  useEffect(() => {
     if (!hasOrganisation) {
-      const names = ["comment", "email", "organisation", "twitter", "picture"];
+      const names = [ "organisation", "twitter", "picture"];
       const values = form.getValues(names);
       names.forEach((name, i) => {
         if (values[i]) form.setValue(name, "");
       });
     }
-  }, [hasOrganisation, form.getValues()])
 
 	return (
     <Grid container alignItems="flex-start">
