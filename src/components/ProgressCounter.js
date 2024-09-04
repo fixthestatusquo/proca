@@ -39,7 +39,7 @@ const nextStep = (value, steps) => {
   let next = false;
 
   steps.some((step) => {
-    if (value < step) {
+    if (value <= step) {
       next = step;
       return true;
     }
