@@ -4,6 +4,7 @@ import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
 import { FormGroup, FormLabel, Box, Grid } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
+import Orchid from "@components/field/Orcid";
 
 const EggManifesto = ({form}) => {
 	const hasOrganisation = form.watch("has-organisation");
@@ -26,6 +27,9 @@ const EggManifesto = ({form}) => {
 
 	return (
 		<Grid container alignItems="flex-start">
+			<Grid item xs={12}>
+         <Orchid />
+      </Grid>
 			<Grid item xs={12}>
 				<Box
 					border={hasOrganisation ? 1 : 0}
