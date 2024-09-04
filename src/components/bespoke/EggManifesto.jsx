@@ -9,7 +9,6 @@ import Orchid from "@components/field/Orcid";
 const EggManifesto = ({form}) => {
 	const hasOrganisation = form.watch("has-organisation");
   const twitterUpdate = account => {
-    console.log(account);
     if (account.name) {
       form.setValue("organisation", account.name);
     }
@@ -27,13 +26,6 @@ const EggManifesto = ({form}) => {
 
 	return (
     <Grid container alignItems="flex-start">
-       {/* <Grid item xs={12}>
-                <TextField
-                  label="ORCHID ID"
-                  form={form}
-                  name="orchid-id"
-        />
-        </Grid> */}
 			<Grid item xs={12}>
          <Orchid />
       </Grid>
