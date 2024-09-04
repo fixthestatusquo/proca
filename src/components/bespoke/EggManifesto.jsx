@@ -5,8 +5,24 @@ import Checkbox from "@components/field/Checkbox";
 import { FormGroup, FormLabel, Box, Grid } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
 
-const EggManifesto = (props) => {
-	const hasOrganisation = props.form.watch("has-organisation");
+const EggManifesto = ({form}) => {
+	const hasOrganisation = form.watch("has-organisation");
+  
+  const twitterUpdate = account => {
+    console.log(account);
+    if (account.name) {
+      form.setValue("organisation", account.name);
+    }
+  }
+
+  if (!hasOrganisation) {
+    const names = ["organisation","twitter","picture"];
+    const values = form.getValues(names);
+    names.forEach ((name,i) => {
+      if (values[i]) form.setValue(name,"");
+    });
+    
+  }
 
 	return (
 		<Grid container alignItems="flex-start">
@@ -26,17 +42,17 @@ const EggManifesto = (props) => {
 						<Checkbox
 							name="has-organisation"
 							label="Signing as an institution"
-							form={props.form}
+							form={form}
 						/>
 					</FormLabel>
 					<Collapse in={hasOrganisation}>
 						{hasOrganisation && (
 							<>
-								<Twitter form={props.form} />
+								<Twitter form={form} onBlur = {twitterUpdate}/>
 								<TextField
-									label="The name of the institution"
-									form={props.form}
-									name="Twitter-name"
+									label="Organisation"
+									form={form}
+									name="organisation"
 								/>
 							</>
 						)}

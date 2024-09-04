@@ -72,6 +72,7 @@ const Twitter = (props) => {
         setValue("followers_count", res.followers_count);
         setValue("picture", res.profile_image_url_https);
         !getValues("comment") && setValue("comment", res.description);
+        props.onBlur?.(res);
       } catch (err) {
         setLoading(false);
         setError(field, { type: "api", message: err.toString() });
