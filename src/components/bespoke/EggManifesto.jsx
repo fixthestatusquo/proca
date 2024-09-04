@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@components/TextField";
 import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
-import { FormGroup, FormLabel, Box, Grid } from "@material-ui/core";
+import { FormLabel, Box, Grid } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
 
 const EggManifesto = ({form}) => {
 	const hasOrganisation = form.watch("has-organisation");
-  
   const twitterUpdate = account => {
     console.log(account);
     if (account.name) {
@@ -15,17 +14,25 @@ const EggManifesto = ({form}) => {
     }
   }
 
-  if (!hasOrganisation) {
-    const names = ["organisation","twitter","picture"];
-    const values = form.getValues(names);
-    names.forEach ((name,i) => {
-      if (values[i]) form.setValue(name,"");
-    });
-    
-  }
+  useEffect(() => {
+    if (!hasOrganisation) {
+      const names = ["comment", "email", "organisation", "twitter", "picture"];
+      const values = form.getValues(names);
+      names.forEach((name, i) => {
+        if (values[i]) form.setValue(name, "");
+      });
+    }
+  }, [hasOrganisation, form.getValues()])
 
 	return (
-		<Grid container alignItems="flex-start">
+    <Grid container alignItems="flex-start">
+       {/* <Grid item xs={12}>
+                <TextField
+                  label="ORCHID ID"
+                  form={form}
+                  name="orchid-id"
+        />
+        </Grid> */}
 			<Grid item xs={12}>
 				<Box
 					border={hasOrganisation ? 1 : 0}
@@ -52,7 +59,8 @@ const EggManifesto = ({form}) => {
 								<TextField
 									label="Organisation"
 									form={form}
-									name="organisation"
+                  name="organisation"
+                  onChange={form.setValue("organisation")}
 								/>
 							</>
 						)}
