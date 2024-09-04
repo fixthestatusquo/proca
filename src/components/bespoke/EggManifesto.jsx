@@ -2,12 +2,8 @@ import React from "react";
 import TextField from "@components/TextField";
 import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
-import {
-	FormGroup,
-	FormLabel,
-	Box,
-	Grid,
-} from "@material-ui/core";
+import { FormGroup, FormLabel, Box, Grid } from "@material-ui/core";
+import Collapse from "@material-ui/core/Collapse";
 
 const EggManifesto = (props) => {
 	const hasOrganisation = props.form.watch("has-organisation");
@@ -33,7 +29,7 @@ const EggManifesto = (props) => {
 							form={props.form}
 						/>
 					</FormLabel>
-					<FormGroup>
+					<Collapse in={hasOrganisation}>
 						{hasOrganisation && (
 							<>
 								<Twitter form={props.form} />
@@ -44,7 +40,7 @@ const EggManifesto = (props) => {
 								/>
 							</>
 						)}
-					</FormGroup>
+					</Collapse>
 				</Box>
 			</Grid>
 		</Grid>
