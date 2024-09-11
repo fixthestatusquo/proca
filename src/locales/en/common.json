@@ -25,6 +25,7 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
+  "region": "Region",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
