@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Region = ({ form }) => {
   const config = useCampaignConfig();
+ const locale = config.lang;
   const region = config.component?.register?.field?.region;
   if (!region || !region.locales) {
     console.error ("missing config.component.register.field.region.locales");
@@ -14,13 +15,12 @@ const Region = ({ form }) => {
   let regions = Object.entries(t(region.locales, { returnObjects: true }));
   switch  (region.sort) {
     case "value" : 
-     regions = regions.sort(([, a], [, b]) => a.localeCompare(b));
+     regions = regions.sort(([, a], [, b]) => a.localeCompare(b,locale));
      break;
     case undefined: 
     default:
      break;
   }
-console.log(regions);
   return (
     <TextField
           select={open}
