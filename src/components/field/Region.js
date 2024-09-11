@@ -4,9 +4,23 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from 'react-i18next';
 
 const Region = ({ form }) => {
-  const regions = useCampaignConfig().component?.register?.field?.region || null;
-  if (!regions) return null;
+  const config = useCampaignConfig();
+  const region = config.component?.register?.field?.region;
+  if (!region || !region.locales) {
+    console.error ("missing config.component.register.field.region.locales");
+    return null;
+  }
   const { t } = useTranslation();
+  let regions = Object.entries(t(region.locales, { returnObjects: true }));
+  switch  (region.sort) {
+    case "value" : 
+     regions = regions.sort(([, a], [, b]) => a.localeCompare(b));
+     break;
+    case undefined: 
+    default:
+     break;
+  }
+console.log(regions);
   return (
     <TextField
           select={open}
@@ -19,7 +33,7 @@ const Region = ({ form }) => {
           }}
         >
       <option key="empty" value=""></option>
-          {Object.entries(regions).map(([k, v]) => {
+          {regions.map(([k, v]) => {
             return (
               <option key={k} value={v}>
                 {v}
