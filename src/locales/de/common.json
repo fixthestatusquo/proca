@@ -206,7 +206,7 @@
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
+  "supporterHint": "{{name}} aus {{area}}",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}",
