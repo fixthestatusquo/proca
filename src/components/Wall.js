@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Comment from "@components/CommentWall";
-import Picture from "@components/PictureWall";
+import Comment from "@components/wall/Comment";
+import Picture from "@components/wall/Picture";
 import ProgressCounter from "@components/ProgressCounter";
 import useData from "@hooks/useData";
 import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
@@ -31,8 +31,8 @@ const Wall = () => {
             textColor="primary"
             onChange={handleChange}
           >
-            {journey.includes("PictureWall") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
-            {journey.includes("CommentWall") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
+            {journey.includes("wall_Picture") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
+            {journey.includes("wall_Comment") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
           </Tabs>
         </AppBar>
         <Box p={1}>

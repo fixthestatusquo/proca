@@ -8,6 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import QuoteIcon from "@material-ui/icons/FormatQuote";
+import CountryFlag from "react-emoji-flag"
 
 const Wall = (props) => {
   const supabase = useSupabase();
@@ -23,7 +24,7 @@ const Wall = (props) => {
       let query = supabase
         .from("comments")
         .select("id,area,lang,name, comment")
-        .order("id", { ascending: false })
+        .order("created_at", { ascending: false })
         .eq("campaign", campaign)
         .eq("enabled", true);
 
@@ -46,7 +47,7 @@ const Wall = (props) => {
         <Fragment key={d.id}>
           <ListItem alignItems="flex-start" component="div">
             <ListItemIcon>
-              <QuoteIcon color="primary" />
+              {!props.country && d.area && d.area !== "ZZ" ? <CountryFlag countryCode={d.area} /> : <QuoteIcon color="primary" />}
             </ListItemIcon>
             <ListItemText primary={d.name} secondary={d.comment} />
           </ListItem>
