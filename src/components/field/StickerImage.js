@@ -202,7 +202,7 @@ const ImageStickerKonva = (props) => {
   const data = props.form?.getValues();
   const upload = useUpload(canvasRef, data);
   const classes = useStyles();
-  let stickersData = config.component.sticker.data;
+  let stickersData = config.component.sticker.data || [];
 
   if (props.backgroundCanvas) {
     image = new Image();
