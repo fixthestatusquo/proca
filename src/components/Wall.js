@@ -31,8 +31,8 @@ const Wall = () => {
             textColor="primary"
             onChange={handleChange}
           >
-            {journey.includes("wall_Picture") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
-            {journey.includes("wall_Comment") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
+            {journey.includes("wall/Picture") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
+            {journey.includes("wall/Comment") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
           </Tabs>
         </AppBar>
         <Box p={1}>
