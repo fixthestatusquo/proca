@@ -118,7 +118,7 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (!defaultCountry && config.component.country !== undefined || typeof config.component.register?.field?.country ===  'string') {
+  if (!defaultCountry && typeof config.component.country === 'string' || typeof config.component.register?.field?.country ===  'string') {
     defaultCountry = config.component.country || config.component.register?.field?.country;
     if (typeof defaultCountry === "string")
       defaultCountry = defaultCountry.toUpperCase();
