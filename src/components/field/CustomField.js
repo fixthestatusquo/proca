@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { portals } from "../../actionPage";
+import { portals, imports } from "../../actionPage";
+
 import { useCampaignConfig } from "@hooks/useConfig";
 
 const CustomFields = (props) => {
@@ -23,7 +24,7 @@ const CustomFields = (props) => {
     return "ERROR missing config.component.register.custom." + position;
   if (!Array.isArray(components)) components[0] = components;
   return components.map((d) => {
-    const Custom = portals[d];
+    const Custom = imports [d] || portals[d];
     return <Custom myref={customFields} name={d} key={d} {...props} />;
   });
 };
