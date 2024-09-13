@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Button, IconButton, Box, LinearProgress } from "@material-ui/core";
-import { FormHelperText } from "@material-ui/core";
+import { Button, IconButton, Box, LinearProgress, FormHelperText } from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
@@ -25,6 +24,9 @@ export const useUpload = (canvasRef, formData = {}) => {
 
     const blob = await toBlob();
     const blobA = await blob.arrayBuffer();
+    if (!crypto.subtle) {
+      console.error ("needs to be on https");
+    }
     const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
     const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
       .replace(/\+/g, "_")
@@ -120,9 +122,11 @@ const CameraField = (props) => {
   const { t } = useTranslation();
   const upload = useUpload(canvasRef, max_size);
 
-  const { errors, getValues, register, setError, setValue } = props.form
+  const { 
+    formState: { errors },
+ getValues, register, setError, setValue } = props.form
     ? props.form
-    : {};
+    : {formState:{errors:{}}};
 
   const setcDim = (dim) => {
     let { width, height } = dim;
@@ -151,7 +155,8 @@ const CameraField = (props) => {
         video: {
           width: 640,
           height: 360,
-          facingMode: facingMode || "environment", // prefer the rear camera
+          facingMode: facingMode || "user", // prefer the rear camera
+//          facingMode: facingMode || "environment", // prefer the rear camera
         },
       };
       try {
@@ -159,7 +164,7 @@ const CameraField = (props) => {
       } catch (err) {
         setError("image", {
           type: "js",
-          message: "camera error, check your permissions\n" + err.toString(),
+          message: "camera error, check your permissions\n [" + err.toString() +"[]",
         });
         console.log("can't get camera", err);
         return;
@@ -259,6 +264,7 @@ const CameraField = (props) => {
     return true;
   };
 
+console.log(errors);
   return (
     <>
       {register && (
@@ -271,7 +277,7 @@ const CameraField = (props) => {
           <input type="hidden" {...register("imageId")} />
         </>
       )}
-      {!camera && (
+      {!camera && (<>
         <Button
           fullWidth
           startIcon={<VideocamIcon />}
@@ -281,6 +287,7 @@ const CameraField = (props) => {
         >
           {t("camera.start", "start the camera")}
         </Button>
+        </>
       )}
       <Box
         fullWidth
