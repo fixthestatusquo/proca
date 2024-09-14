@@ -6,9 +6,8 @@ import Dialog from "@components/Dialog";
 import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
-import { decode } from "blurhash";
-//import { decodeBlurHash as decode } from  "fast-blurhash";
-//
+import { thumbHashToDataURL } from "thumbhash";
+import { base64ToBinary } from "@lib/hash";
 
 const useStyles = makeStyles(() => ({
   bimg: {
@@ -60,25 +59,14 @@ const replaceBlur = (event) => {
 
 const getBackground = (picture) => {
   if (!picture.blurhash) return null;
-
-  const ratio = 8;
-  const w = Math.floor(picture.width / ratio),
-    h = Math.floor(picture.height / ratio);
-  const pixels = decode(picture.blurhash, w, h);
-
-  const canvas = document.createElement("canvas");
-  canvas.width = w;
-  canvas.height = h;
-
-  const ctx = canvas.getContext("2d");
-  const imageData = ctx.createImageData(w, h);
-  imageData.data.set(pixels);
-  ctx.scale(ratio, ratio);
-  ctx.putImageData(imageData, 0, 0);
-
-  const dataUrl = canvas.toDataURL();
+console.log(picture.blurhash);
+  try {
+  const dataUrl = thumbHashToDataURL(base64ToBinary(picture.blurhash));
+  console.log(dataUrl); 
   return dataUrl;
-  //  return "url(" + dataUrl + ")";
+  } catch (e) {
+    console.error("can't decode the blurhash",picture.blurhash,e.toString());
+  }
 };
 
 const usePlaceholder = (width, height) =>
@@ -96,18 +84,8 @@ const usePlaceholder = (width, height) =>
   }, [width, height]);
 
 const makeUrl = (pic, campaignName) => {
-  if (campaignName === "taxe_super_profits") {
+  if (campaignName === "restorenaturepics") {
     //TODO: remove legacy
-    return (
-      process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/" +
-      campaignName.replace(/_/g, "-") +
-      "/public/" +
-      pic.hash +
-      ".jpg"
-    );
-  }
-
   return (
     process.env.REACT_APP_SUPABASE_URL +
     "/storage/v1/object/public/picture/" +
@@ -116,6 +94,16 @@ const makeUrl = (pic, campaignName) => {
     pic.hash +
     ".jpg"
   );
+  }
+    return (
+      process.env.REACT_APP_SUPABASE_URL +
+      "/storage/v1/object/public/" +
+      campaignName +
+      "/public/" +
+      pic.hash +
+      ".jpg"
+    );
+
 };
 
 const PictureWall = (props) => {
@@ -126,7 +114,7 @@ const PictureWall = (props) => {
   const [country, setCountry] = useState(props.country);
   const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
-  const campaign = config.campaign.name.replaceAll("_", "-");
+  const campaign = config.campaign.name; //.replaceAll("_", "-");
   const placeholder = usePlaceholder(600, 800);
   const handleClose = () => {
     select(false);

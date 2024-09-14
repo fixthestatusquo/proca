@@ -7,8 +7,9 @@ import CameraRearIcon from "@material-ui/icons/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import { encode } from "blurhash";
-import MaskImage from "@components/field/MaskImage";
+import { rgbaToThumbHash } from 'thumbhash';
+import { resize } from "@lib/image";
+import { binaryToBase64 } from "@lib/hash";
 
 export const useUpload = (canvasRef, formData = {}) => {
   const config = useCampaignConfig();
@@ -70,10 +71,11 @@ export const useUpload = (canvasRef, formData = {}) => {
     }
 
     const r = await supabase.storage
-      //.from(config.campaign.name.replaceAll("_", "-"))
-      //.upload("public/" + hash + ".jpg", blob, {
-      .from("picture")
-      .upload(config.campaign.name + "/" + hash + ".jpg", blob, {
+      //.from(config.campaign.name.replaceAll("_", "-")) seems that "_" works fine as bucket's name
+      .from(config.campaign.name)
+      .upload("public/" + hash + ".jpg", blob, {
+      //.from("picture")
+      //.upload(config.campaign.name + "/" + hash + ".jpg", blob, {
         cacheControl: "31536000",
         upsert: false,
       });
@@ -90,22 +92,30 @@ export const useUpload = (canvasRef, formData = {}) => {
 
 export const getCanvas = (canvasRef) => {
   if (canvasRef.current.bufferCanvas) {
-    // Konva, remove some drawing
     return canvasRef.current.toCanvas();
   }
   return canvasRef.current;
 };
+
+export const resizedCanvas = (canvas) => {
+  const size = resize (canvas, 100);
+  const resizedCanvas = document.createElement('canvas');
+  const ctx = resizedCanvas.getContext('2d');
+  resizedCanvas.width = size.width;
+  resizedCanvas.height = size.height;
+  ctx.drawImage(canvas, 0, 0, size.width, size.height);  
+  return resizedCanvas;
+    
+}
+
 export const getBlurhash = (canvasRef) => {
-  const canvas = getCanvas(canvasRef);
-  const blurHash = encode(
-    canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
-      .data,
-    canvas.width,
-    canvas.height,
-    3,
-    4
-  );
-  return blurHash;
+  const original = getCanvas(canvasRef);
+  const canvas = resizedCanvas (original);
+  const thumbhash = rgbaToThumbHash(canvas.width, canvas.height, canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
+      .data);
+  const blurhash = binaryToBase64(thumbhash);
+console.log(blurhash,thumbhash);
+  return blurhash;
 };
 
 const CameraField = (props) => {

@@ -240,6 +240,7 @@ const PublishPicture = (props) => {
       variant="contained"
       color="primary"
       onClick={handleSave}
+      disabled ={!props.canvas}
       size="large"
     >
       {t("image.publish", "Looks good, publish!")}
@@ -248,6 +249,7 @@ const PublishPicture = (props) => {
       <Button
         variant="contained"
         color="secondary"
+        disabled ={!props.canvas}
         onClick={() => handleSave(false)}
         size="large"
       >
