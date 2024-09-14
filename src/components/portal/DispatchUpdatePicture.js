@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import useData from "@hooks/useData";
 import { useSupabase } from "@lib/supabase";
@@ -5,42 +6,38 @@ import { useCampaignConfig } from "../../hooks/useConfig";
 import { isSet, uuid as getuuid } from "@lib/uuid";
 import { useTranslation } from "react-i18next";
 
-const DispatchPublicComment = () => {
-// it works because data is updated after the action is saved, but it needs to be into a portal, otherwise it will be re-written when switching to the next step after register
+const DispatchUpdateImage = () => {
   const [dispatched, setDispatched] = useState(false);
-  const [data] = useData(); 
+  const [data] = useData();
   const supabase = useSupabase();
   const { t } = useTranslation();
   const config = useCampaignConfig();
   let uuid = undefined;
 
+console.log("dispatch update image", data);
+alert ("do not use, this isn't possible to update pictures as anonymous");
+
   useEffect(() => {
-    const saveComment = async (data) => {
+    const updatePicture = async (data) => {
       let d = {
-        campaign: config.campaign.name,
-        widget_id: config.actionpage,
         uuid: getuuid(),
-        lang: config.locale,
-        comment: data.comment,
       };
       if (data.country) d.area = data.country;
       if (data.firstname) {
-        d.name = data.firstname.trim();
+        d.creator = data.firstname.trim();
         if (data.lastname) {
-          d.name += " " + data.lastname.charAt(0).toUpperCase().trim();
+          d.creator += " " + data.lastname.charAt(0).toUpperCase().trim();
         }
         if (data.locality) {
-          d.locality = data.locality;
-          d.name = t("supporterHint", {
+          d.creator = t("supporterHint", {
             defaultValue: "{{name}}, {{locality}}",
-            name: d.name,
+            name: d.creator,
             area: data.locality,
           });
         }
-      } else {
-        return; //should it be an error?
+      } else { // should it be an error?
       }
-      const { error } = await supabase.from("comments").insert([d]);
+      const { error, data: result } = await supabase.from("pictures").update([d]).eq('hash', data.hash).select();
       if (error) {
         console.error(error);
         return;
@@ -48,8 +45,8 @@ const DispatchPublicComment = () => {
       setDispatched(true);
     };
 
-    if (dispatched || !data.comment) return null;
-    saveComment(data);
+    if (dispatched || !data.hash) return null;
+    updatePicture(data);
   }, [data, uuid, config, supabase, dispatched, t]);
 
   if (dispatched || !data.comment) return null;
@@ -58,4 +55,4 @@ const DispatchPublicComment = () => {
   return null;
 };
 
-export default DispatchPublicComment;
+export default DispatchUpdateImage;

@@ -7,116 +7,7 @@ import CameraRearIcon from "@material-ui/icons/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import { rgbaToThumbHash } from 'thumbhash';
-import { resize } from "@lib/image";
-import { binaryToBase64 } from "@lib/hash";
-
-export const useUpload = (canvasRef, formData = {}) => {
-  const config = useCampaignConfig();
-  const supabase = useSupabase();
-  const { t } = useTranslation();
-
-  //upload
-  return async (params) => {
-    const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
-    const toBlob = () => {
-      return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
-    };
-
-    const blob = await toBlob();
-    const blobA = await blob.arrayBuffer();
-    if (!crypto.subtle) {
-      console.error ("needs to be on https");
-    }
-    const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
-    const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
-      .replace(/\+/g, "_")
-      .replace(/\//g, "-")
-      .replace(/=+$/g, "");
-    console.log("hash", hash, getBlurhash(canvasRef));
-    // hash = base64url of the sha256
-    //    console.log(hash,encoder.encode(blob),blob);
-
-    if (hash === params?.hash) {
-      // already uploaded
-      return true;
-    }
-    let d = {
-      campaign: config.campaign.name,
-      actionpage_id: config.actionPage,
-      legend: "",
-      width: canvas.width,
-      height: canvas.height,
-      hash: hash,
-      blurhash: getBlurhash(canvasRef),
-      lang: config.lang,
-    };
-    if (formData.country) d.area = formData.country;
-    if (formData.firstname) {
-      d.creator = formData.firstname.trim();
-      if (formData.lastname) {
-        d.creator += " " + formData.lastname.charAt(0).toUpperCase().trim();
-      }
-      if (d.locality) {
-        d.creator = t("supporterHint", { name: d.creator, area: d.locality });
-      }
-      d.legend = d.creator;
-    }
-
-    //const f = items[current].original.split("/");
-    const { error } = await supabase.from("pictures").insert(d);
-    if (error && error.code !== "23505") {
-      //error different than duplicated
-      return error;
-    }
-
-    const r = await supabase.storage
-      //.from(config.campaign.name.replaceAll("_", "-")) seems that "_" works fine as bucket's name
-      .from(config.campaign.name)
-      .upload("public/" + hash + ".jpg", blob, {
-      //.from("picture")
-      //.upload(config.campaign.name + "/" + hash + ".jpg", blob, {
-        cacheControl: "31536000",
-        upsert: false,
-      });
-    if (r.error) {
-      if (r.error.statusCode === "23505") {
-        //duplicated
-        return { hash: hash, width: canvas.width, height: canvas.height };
-      }
-      return r.error?.message || "error uploading file";
-    }
-    return { hash: hash, width: canvas.width, height: canvas.height };
-  };
-};
-
-export const getCanvas = (canvasRef) => {
-  if (canvasRef.current.bufferCanvas) {
-    return canvasRef.current.toCanvas();
-  }
-  return canvasRef.current;
-};
-
-export const resizedCanvas = (canvas) => {
-  const size = resize (canvas, 100);
-  const resizedCanvas = document.createElement('canvas');
-  const ctx = resizedCanvas.getContext('2d');
-  resizedCanvas.width = size.width;
-  resizedCanvas.height = size.height;
-  ctx.drawImage(canvas, 0, 0, size.width, size.height);  
-  return resizedCanvas;
-    
-}
-
-export const getBlurhash = (canvasRef) => {
-  const original = getCanvas(canvasRef);
-  const canvas = resizedCanvas (original);
-  const thumbhash = rgbaToThumbHash(canvas.width, canvas.height, canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
-      .data);
-  const blurhash = binaryToBase64(thumbhash);
-console.log(blurhash,thumbhash);
-  return blurhash;
-};
+import { useUpload, getBlurhash } from "@components/field/image/Publish";
 
 const CameraField = (props) => {
   const [camera, switchCamera] = useState(false);
@@ -274,7 +165,6 @@ const CameraField = (props) => {
     return true;
   };
 
-console.log(errors);
   return (
     <>
       {register && (

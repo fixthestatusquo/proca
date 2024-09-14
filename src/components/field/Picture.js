@@ -3,7 +3,8 @@ import React, { useState, useRef, createRef, useCallback } from "react";
 import { scrollTo } from "@lib/scroll";
 
 import useImage from "use-image";
-import Camera, { useUpload } from "./Camera";
+import Camera from "./Camera";
+import { useUpload } from "@components/field/image/Publish";
 import Hidden from "./Hidden";
 import UploadPicture from "./image/Upload";
 import SelectPicture from "./image/Select";
@@ -15,15 +16,11 @@ import { resize } from "@lib/image";
 
 import {
   Grid,
-  Step,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Button,
   ButtonGroup,
-  CardContent,
-  Card,
-  CardHeader,
   Collapse,
   DialogActions,
 } from "@material-ui/core";
@@ -78,7 +75,7 @@ export default function Picture(props) {
 
   return (
     <div>
-      <Hidden name="hash" form={props.form} />
+      <Hidden name="hash" form={props.form}/>
       <Hidden name="dimension" form={props.form} />
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog

@@ -59,11 +59,8 @@ const replaceBlur = (event) => {
 
 const getBackground = (picture) => {
   if (!picture.blurhash) return null;
-console.log(picture.blurhash);
   try {
-  const dataUrl = thumbHashToDataURL(base64ToBinary(picture.blurhash));
-  console.log(dataUrl); 
-  return dataUrl;
+    return thumbHashToDataURL(base64ToBinary(picture.blurhash));
   } catch (e) {
     console.error("can't decode the blurhash",picture.blurhash,e.toString());
   }
@@ -177,7 +174,6 @@ const PictureWall = (props) => {
       </TextField>
     );
   };
-  console.log(selected);
   return (
     <>
       <Dialog
