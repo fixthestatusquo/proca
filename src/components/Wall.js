@@ -12,7 +12,6 @@ const Wall = () => {
   const [value, setValue] = useState("comment");
   const [data] = useData();
   const country = data.country && data.country.slice(0, 2).toUpperCase();
-  console.log(country, data);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
