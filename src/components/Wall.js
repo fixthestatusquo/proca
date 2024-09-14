@@ -16,7 +16,6 @@ const Wall = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const journey = useCampaignConfig().journey || [];
 
   return (
     <>
@@ -31,8 +30,8 @@ const Wall = () => {
             textColor="primary"
             onChange={handleChange}
           >
-            {journey.includes("wall/Picture") && <Tab value="picture" label="Pictures" icon={<ImageIcon />} />}
-            {journey.includes("wall/Comment") && <Tab value="comment" label="Comments" icon={<CommentIcon />} />}
+            <Tab value="picture" label="Pictures" icon={<ImageIcon />} />
+            <Tab value="comment" label="Comments" icon={<CommentIcon />} />
           </Tabs>
         </AppBar>
         <Box p={1}>
