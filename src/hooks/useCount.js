@@ -5,6 +5,8 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { atom, useRecoilState } from "recoil";
 import dispatch from "@lib/event.js";
 
+let effectRan = false;
+
 const CountState = atom({ key: "actionCount", default: null });
 const useInitFromUrl = (actionUrl) => {
   const [count, setCount] = useRecoilState(CountState);
@@ -51,6 +53,8 @@ export default function useCounter(actionPage) {
   if (config.component.counter === false) actionPage = null; //disable the counter
 
   useEffect(() => {
+    if (effectRan) return; //we only fetch the counter once for all components
+    effectRan = true;
     let isCancelled = false;
     let c = null;
     if (!actionPage || config.component.counter?.disabled) return; // disabling the fetch
