@@ -179,6 +179,7 @@
     "twitter": "Broj osoba koje su poslali tweet: {{total}}. Sljedeći cilj je: {{goal}}"
   },
   "read more": "saznaj više",
+  "region": "Regija",
   "register": "Dodaj moje ime",
   "reminder": {
     "intro": "Znamo da tvoja vlada traži mnoge informacije. Poslat ćemo ti e-mail da bismo te podsjetili da kasnije ispuniš obrazac"
