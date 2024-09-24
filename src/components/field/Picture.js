@@ -168,8 +168,8 @@ const ImageOption = (props) => {
   const confirmOptOut = !(config.component?.consent?.benefit === false); // !(config.component.consent?.confirm === false); // by default we ask for confirmation, same as for Consent
 
   return (
-    <Grid container spacing={1} justifyContent="space-between">
-      <Grid item id="proca-image">
+    <Grid container spacing={1} justifyContent="space-between" id="proca-image">
+      <Grid item>
         {t("image.wanttoadd")}
       </Grid>
       <Grid item>
