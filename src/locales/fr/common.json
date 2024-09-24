@@ -179,6 +179,7 @@
     "twitter": "{{total}} ont twitté. Allons à {{goal}}"
   },
   "read more": "en savoir plus",
+  "region": "Région",
   "register": "Ajouter mon nom",
   "reminder": {
     "intro": "Nous savons que votre gouvernement vous demande beaucoup d'informations. Nous vous enverrons un seul courriel pour vous rappeler de remplir le formulaire ultérieurement."
