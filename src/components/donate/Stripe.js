@@ -12,6 +12,7 @@ import {
 
 import TextField from "@components/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
+import EmailField from "@components/field/Email";
 
 //import { loadStripe } from "@stripe/stripe-js";
 import useScript from "react-script-hook";
@@ -136,9 +137,9 @@ const PaymentForm = (props) => {
   const [compact, setCompact] = useState(true);
 
   const width = useElementWidth("#proca-donate");
-
-  if ((compact && width > 440) || (!compact && width <= 440))
-    setCompact(width <= 440);
+  const mwidth = 400;
+  if ((compact && width > mwidth) || (!compact && width <= mwidth))
+    setCompact(width <= mwidth);
 
   const useTitle = config.component.donation.useTitle;
 
@@ -156,7 +157,6 @@ const PaymentForm = (props) => {
         <Grid item xs={12} sm={compact ? 12 : 6}>
           <TextField
             form={form}
-            classes={classes}
             name="firstname"
             label={t("First name")}
             autoComplete="given-name"
@@ -165,13 +165,13 @@ const PaymentForm = (props) => {
         <Grid item xs={12} sm={compact ? 12 : 6}>
           <TextField
             form={form}
-            classes={classes}
             name="lastname"
             label={t("Last name")}
             autoComplete="family-name"
           />
         </Grid>
-        <Grid item xs={12}>
+{/* 
+        <Grid item xs={12} display>
           <Controller
             control={control}
             name="email"
@@ -202,6 +202,8 @@ const PaymentForm = (props) => {
             )}
           />
         </Grid>
+*/}
+<EmailField form={form} />
         <Grid item xs={12} sm={compact ? 12 : 4}>
           <Controller
             control={control}
@@ -438,7 +440,7 @@ const SubmitButton = (props) => {
           <CallToAction
             amount={formData.amount}
             currency={currency}
-            frequency={formData.frequency}
+            frequency={formData.frequency || "oneoff"}
           />
         )}
       </Button>
@@ -456,6 +458,7 @@ const PayWithStripe = (props) => {
   // const stripe = useStripe();
   const form = props.form;
   const classes = submitButtonStyles();
+console.log("form",props.form);
   return (
     <form id="proca-donate">
       <Grid container>

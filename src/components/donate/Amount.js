@@ -63,7 +63,8 @@ const DonateAmount = (props) => {
   }
 
   const [, setDonateStep] = useDonateStep();
-  const [, setData] = useData();
+  const [data, setData] = useData();
+  const amount = data.amount;
   const [complete, setComplete] = useState(false);
 
   return (
@@ -101,6 +102,7 @@ const DonateAmount = (props) => {
             <>
               <PaymentMethodButtons
                 classes={classes}
+                disabled = {!amount}
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
                   setDonateStep(1);

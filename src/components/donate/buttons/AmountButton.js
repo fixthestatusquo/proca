@@ -4,18 +4,20 @@ import {
   FormGroup,
   Grid,
   makeStyles,
-  withStyles,
 } from "@material-ui/core";
 import useData from "../../../hooks/useData";
 
 import React, { useState } from "react";
 import { useCampaignConfig } from "../../../hooks/useConfig";
 import { useForm } from "react-hook-form";
-import OtherAmountInput from "../OtherAmount";
+import OtherAmountInput from "./OtherAmount";
 import { useTranslation } from "react-i18next";
 import { useFormatMoney } from "@hooks/useFormatting";
 
-const StyledButton = withStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
+  formContainers: {
+    marginBottom: "1em",
+  },
   root: {
     // padding: theme.spacing(1),
     width: "100%",
@@ -23,12 +25,13 @@ const StyledButton = withStyles((theme) => ({
     fontSize: theme.typography.fontSize * 1.25,
     fontWeight: theme.typography.fontWeightMedium,
   },
-}))(Button);
+}));
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
   const amount = data.amount;
   const formatMoney = useFormatMoney();
+  const classes = useStyles();
 
   const handleAmount = (e, amount) => {
     setData("amount", amount);
@@ -39,7 +42,7 @@ const AmountButton = (props) => {
 
   // todo: offer this as an option? color={amount === props.amount ? "primary" : "default"}
   return (
-    <StyledButton
+    <Button
       size="large"
       name="amount"
       color={amount === props.amount ? "primary" : "default"}
@@ -47,10 +50,10 @@ const AmountButton = (props) => {
       disableElevation={true}
       variant="contained"
       onClick={(e) => handleAmount(e, props.amount)}
-      classes={props.classes}
+      classes={props.classes || classes}
     >
       {formatMoney(props.amount)}
-    </StyledButton>
+    </Button>
   );
 };
 
@@ -58,7 +61,7 @@ export const OtherButton = (props) => {
   const selected = props.selected;
 
   return (
-    <StyledButton
+    <Button
       color={selected ? "primary" : "default"}
       name="other"
       size="large"
@@ -69,15 +72,9 @@ export const OtherButton = (props) => {
       {...props}
     >
       {props.children}
-    </StyledButton>
+    </Button>
   );
 };
-
-const amountStyles = makeStyles(() => ({
-  formContainers: {
-    marginBottom: "1em",
-  },
-}));
 
 const Amounts = () => {
   const config = useCampaignConfig();
@@ -103,7 +100,7 @@ const Amounts = () => {
 
   const form = useForm();
   const [showCustomField, toggleCustomField] = useState(false);
-  const classes = amountStyles();
+  const classes = useStyles();
   const { t } = useTranslation();
 
   return (
@@ -129,6 +126,7 @@ const Amounts = () => {
         <Grid xs={6} md={3} key="other" item>
           <OtherButton
             onClick={() => toggleCustomField(true)}
+            classes = {classes}
             selected={showCustomField}
           >
             {t("Other")}
