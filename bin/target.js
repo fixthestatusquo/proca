@@ -21,6 +21,7 @@ const help = (exitValue) => {
         "--pull (from the server)",
         "--digest (process the source and generate a file for digest, like add salutation and language)",
         "--push (update the server)",
+        "--display (show/hide targets)",
         "--publish (update the public list into /config/target/public and make it live)",
         "{campaign name}",
       ].join("\n"),
@@ -82,6 +83,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "meps",
     "external_id",
     "email",
+    "display"
   ],
   unknown: (d) => {
     const allowed = []; //merge with boolean and string?
