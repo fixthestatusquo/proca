@@ -160,6 +160,7 @@ const PaymentForm = (props) => {
             name="firstname"
             label={t("First name")}
             autoComplete="given-name"
+            required
           />
         </Grid>
         <Grid item xs={12} sm={compact ? 12 : 6}>
@@ -168,6 +169,7 @@ const PaymentForm = (props) => {
             name="lastname"
             label={t("Last name")}
             autoComplete="family-name"
+            required
           />
         </Grid>
 {/* 
@@ -203,7 +205,7 @@ const PaymentForm = (props) => {
           />
         </Grid>
 */}
-<EmailField form={form} />
+<EmailField form={form} required />
         <Grid item xs={12} sm={compact ? 12 : 4}>
           <Controller
             control={control}
@@ -278,8 +280,7 @@ const SubmitButton = (props) => {
       amount: confirmedIntent.amount,
       currency: confirmedIntent.currency.toUpperCase(),
     };
-
-    if (formData.frequency !== "oneoff") {
+    if (formData.frequency !== "oneoff" && paymentIntent.response.items) {
       const intentResponse = paymentIntent.response;
       const subscriptionPlan = intentResponse.items.data[0].plan;
 
@@ -331,10 +332,15 @@ const SubmitButton = (props) => {
     const btn = event.target;
     btn.disabled = true;
     setSubmitting(true);
+  const {
+    formState: { errors },
+    control,
+    clearErrors,
+    setError,
+  } = props.form;
 
     const form = props.form;
-    form.trigger();
-    if (Object.keys(form.errors).length > 0) {
+    if (Object.keys(form.formState.errors).length > 0) {
       btn.disabled = false;
       setSubmitting(false);
       return false;
@@ -458,7 +464,6 @@ const PayWithStripe = (props) => {
   // const stripe = useStripe();
   const form = props.form;
   const classes = submitButtonStyles();
-console.log("form",props.form);
   return (
     <form id="proca-donate">
       <Grid container>
@@ -483,8 +488,13 @@ const PaymentFormWrapper = (props) => {
   let publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-  if (config.test && config.component.donation?.stripe?.testKey)
-    publishableKey = config.component.donation.stripe.testKey;
+  if (config.test) {
+    if (config.component.donation?.stripe?.testKey) {
+      publishableKey = config.component.donation.stripe.testKey;
+    } else {
+      console.warn ("missing config.component.donation.stripe.testKey");
+    }
+  }
 
   const [stripe, loadStripe] = useState(null);
   const [, error] = useScript({

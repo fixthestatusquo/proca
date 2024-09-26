@@ -64,7 +64,7 @@ const DonateAmount = (props) => {
 
   const [, setDonateStep] = useDonateStep();
   const [data, setData] = useData();
-  const amount = data.amount;
+  const amount = data.amount ? parseFloat(data.amount) : undefined;
   const [complete, setComplete] = useState(false);
 
   return (

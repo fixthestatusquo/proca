@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AmountButton = (props) => {
   const [data, setData] = useData();
-  const amount = data.amount;
+  const amount = data.amount ? parseFloat(data.amount) : undefined;
   const formatMoney = useFormatMoney();
   const classes = useStyles();
 
