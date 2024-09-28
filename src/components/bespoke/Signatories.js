@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -7,9 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { TextField } from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Avatar from "@material-ui/core/Avatar";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useSupabase } from '@lib/supabase';
 
@@ -30,11 +28,9 @@ const Signatories = () => {
   const { t } = useTranslation();
   const [signatories, setSignatories] = useState([]);
   const [parties, setParties] = useState([]);
+  const [selection, setSelection] = useState([]);
   const config = useCampaignConfig();
   const classes = useStyles();
-  const form = useForm({
-    mode: "onBlur"
-  });
   const supabase = useSupabase();
     useEffect(() => {
       const getSignatories = async () => {
@@ -61,7 +57,7 @@ const Signatories = () => {
           }))
 
         setSignatories(s);
-        console.log(777777, s)
+        setSelection(s);
       }
       getSignatories();
     }, []);
@@ -79,20 +75,23 @@ const Signatories = () => {
   return (
     <div id="proca-signature">
         <Grid container spacing={1}>
-        <Grid item xs={12} sm={7}>
+        <Grid item>
        <TextField
           select={true}
-          form={form}
           name="party"
           label={t("party")}
-          //onChange={(e) => setParties(e.target.value)}
+            onChange={(e) => {
+              e.target.value
+                ? setSelection(signatories.filter(p => p.party == e.target.value))
+                : setSelection(signatories);
+            }
+            }
           SelectProps={{
             native: true,
           }}
         >
-          <option key="empty" value=""></option>
-          {parties
-            .map((d) => {
+            <option key="empty" value={null}></option>
+            {parties.map((d) => {
               return (
                 <option key={d.party} value={d.party}>
                   {d.party}
@@ -102,7 +101,7 @@ const Signatories = () => {
         </TextField>
 
       <List dense={true} disablePadding={true} className={classes.container}>
-        {signatories.map((d) => (
+        {selection.map((d) => (
           <ListItem
             key={`supporter-${d.id}`}
             className={classes.item}
@@ -118,7 +117,6 @@ const Signatories = () => {
               primary={d.name}
               secondary={d.party}
             />
-
           </ListItem>
         ))}
       </List>
