@@ -38,7 +38,7 @@ const Signatories = () => {
         const q = supabase
           .from('signatories')
           .select('*')
-          .eq('campaign_name', config.name)
+          .eq('campaign_name', config.campaign.name)
           .select();
         const { data, error } = await q;
 
