@@ -32,32 +32,24 @@ const Signatories = () => {
   const config = useCampaignConfig();
   const classes = useStyles();
   const supabase = useSupabase();
+
     useEffect(() => {
       const getSignatories = async () => {
         const q = supabase
-          .from('actions')
-          .select('id, data')
-          .eq('campaign_id', 795) // hardcoded!!!
-          .eq('status', 'approved')
+          .from('signatories')
+          .select('*')
+          .eq('campaign_name', config.name)
           .select();
         const { data, error } = await q;
 
         if (error) {
           console.error(error);
-          return;
+          return null;
         }
-        if (!data) return;
+        if (!data) return null;
 
-        const s = data.map((s) => ({
-            id: s.id,
-            createdAt: s.data.action.createdAt,
-            name: s.data.contact.firstName + " " + s.data.contact.lastName,
-            party: s.data.action.customFields["party"],
-            riding: s.data.contact.address.region
-          }))
-
-        setSignatories(s);
-        setSelection(s);
+        setSignatories(data);
+        setSelection(data);
       }
       getSignatories();
     }, []);
@@ -110,13 +102,13 @@ const Signatories = () => {
           >
             <ListItemAvatar>
               <Avatar
-                alt={d.name}
-                // src={d.image}
+                alt={d.first_name + ' ' + d.last_name}
+                src={d.picture}
               />
             </ListItemAvatar>
             <ListItemText
-              primary={d.name}
-              secondary={d.party}
+              primary={d.first_name + " " + d.last_name}
+              secondary={d.region ? d.party + ', ' + d.region : d.party }
             />
           </ListItem>
         ))}
