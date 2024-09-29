@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Grid from "@material-ui/core/Grid";
-import { TextField } from "@material-ui/core";
+import { TextField, Typography } from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
@@ -74,7 +74,8 @@ const Signatories = () => {
 
   return (
     <div id="proca-signature">
-        <Grid container spacing={1}>
+      <Grid container spacing={1}>
+        <Typography variant="h5">{signatories.length} have signed the pledge</Typography>
         <Grid item>
        <TextField
           select={true}
