@@ -3,6 +3,8 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { debounce, makeStyles } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@components/TextField";
+import CountryFlag from "react-emoji-flag";
+import Hidden from "@components/field/Hidden";
 
 const useStyles = makeStyles((theme) => ({
  root: {
@@ -59,11 +61,18 @@ const AffiliationInput = ({ form }) => {
     if (reason === "input") debouncedFetchOptions(newInputValue);
     if (reason === "reset") {
       const institution = options.find (d => d.name === newInputValue);
-      console.log(newInputValue,institution);
+      if (!institution) {
+        console.error("didn't find organisation", newInputValue); 
+        return;
+      }
+console.log(institution);
+      form.setValue("ror",institution.id);
+      form.setValue("country",institution.country);
     }
   };
 
-  return (
+  return (<>
+<Hidden name="ror" form={form}/>
     <Autocomplete
       id="affiliation-input"
       open={open}
@@ -84,6 +93,7 @@ const AffiliationInput = ({ form }) => {
       loadingText={"Searching " + inputValue + "..."}
       autoSelect
       autoHighlight
+      renderOption = { option => (<><CountryFlag countryCode={option.country} /> &nbsp; {option.name}</>)}
       renderInput={(params) => (
         <TextField
           name="affiliation"
@@ -105,7 +115,7 @@ const AffiliationInput = ({ form }) => {
         />
       )}
     />
-  );
+  </>);
 };
 
 export default AffiliationInput;
