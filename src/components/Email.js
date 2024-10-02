@@ -62,7 +62,7 @@ const EmailComponent = (props) => {
     _setSelection(selection);
   };
   const selectAll = () => {
-    const r = profiles.map((target) => target.procaid);
+    const r = profiles.filter( target => !target.disabled).map((target) => target.procaid);
     _setSelection(r);
   };
 
@@ -738,8 +738,7 @@ const EmailComponent = (props) => {
     [allProfiles, profiles, setError],
   );
 
-  if (selection.length === 0 && profiles.length === 1) {
-console.log("TODO: not selectable error target", profiles);
+  if (selection.length === 0 && profiles.length === 1 && !profiles[0].disabled ) {
     // if only one, select it. needs to be put in an useEffect?
     selectAll();
   }
