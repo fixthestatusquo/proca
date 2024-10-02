@@ -7,7 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import useElementWidth from "@hooks/useElementWidth";
+import { useCompactLayout } from "@hooks/useElementWidth";
 import Url from "@lib/urlparser";
 import { setCookie } from "@lib/cookie";
 import { getDomain } from "@lib/checkMail";
@@ -188,11 +188,8 @@ export default function Register(props) {
 
   if (props.emailProvider) emailProvider = props.emailProvider; // use case: if Register is called from a parent component that wants to store the email provider
 
-  const width = useElementWidth("#proca-register");
+  const compact = useCompactLayout("#proca-register",380);
   let buttonNext = "Next";
-  const [compact, setCompact] = useState(true);
-  if ((compact && width > 450) || (!compact && width <= 450))
-    setCompact(width <= 450);
 
   const [status, setStatus] = useState("default");
   const _form = useForm({

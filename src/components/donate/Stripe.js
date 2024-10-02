@@ -19,7 +19,8 @@ import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
-import useElementWidth from "../../hooks/useElementWidth";
+import {useCompactLayout} from "@hooks/useElementWidth";
+
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
@@ -134,12 +135,7 @@ const PaymentForm = (props) => {
     formState: { errors },
   } = form;
 
-  const [compact, setCompact] = useState(true);
-
-  const width = useElementWidth("#proca-donate");
-  const mwidth = 400;
-  if ((compact && width > mwidth) || (!compact && width <= mwidth))
-    setCompact(width <= mwidth);
+  const compact = useCompactLayout("#proca-donate",400);
 
   const useTitle = config.component.donation.useTitle;
 
