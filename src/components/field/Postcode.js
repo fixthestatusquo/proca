@@ -29,6 +29,7 @@ const Postcode = (props) => {
     CA: 5,
     DK: 4,
     NL: 4,
+    NO: 4,
   };
 
   const geocountries = props.geocountries || Object.keys(postcodeLength);
