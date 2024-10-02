@@ -215,7 +215,9 @@ const EmailComponent = (props) => {
     const fetchData = async (url) => {
       await fetch(url)
         .then((res) => {
-          if (!res.ok) throw res.error();
+          if (!res.ok) {
+            throw res.statusText || (res.status + " error");
+          }
           return res.json();
         })
         .then((d) => {
