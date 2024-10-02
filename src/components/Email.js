@@ -253,6 +253,7 @@ const EmailComponent = (props) => {
           const placeholder = {
             name: error.toString(),
             description: "Please check your internet connection and try later",
+            disabled: true,
           };
           setProfiles([placeholder]);
           setAllProfiles([placeholder]);
@@ -738,6 +739,7 @@ const EmailComponent = (props) => {
   );
 
   if (selection.length === 0 && profiles.length === 1) {
+console.log("TODO: not selectable error target", profiles);
     // if only one, select it. needs to be put in an useEffect?
     selectAll();
   }
@@ -857,6 +859,7 @@ const EmailComponent = (props) => {
               actionPage={config.actionPage}
               done={props.done}
               display={displayed(d)}
+              disabled={d.disabled}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               profile={d}
