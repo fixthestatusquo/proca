@@ -4,7 +4,7 @@ import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
 import { FormLabel, Box, Grid } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
-import Orchid from "@components/field/Orcid";
+import Orcid from "@components/field/Orcid";
 import Affiliation from "@components/field/ResearchOrganisation";
 import { Alert, AlertTitle } from '@material-ui/lab';
 
@@ -27,7 +27,7 @@ const EggManifesto = ({form}) => {
 	return (
     <Grid container alignItems="flex-start">
 			<Grid item xs={12}>
-         <Orchid />
+         <Orcid form={form}/>
          <Affiliation form={form} />
       </Grid>
 			<Grid item xs={12}>
