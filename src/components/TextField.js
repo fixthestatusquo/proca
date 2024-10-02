@@ -76,6 +76,7 @@ const TextFieldProca = (props) => {
   delete drillProps.customValidity;
   delete drillProps.onChange;
   delete drillProps.onBlur;
+  delete drillProps.form;
   if (drillProps.helperText && errors && errors[props.name]) {
     // we display the error message instead
     console.log("error", errors[props.name]);
