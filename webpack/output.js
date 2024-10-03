@@ -22,7 +22,7 @@ module.exports = (webpack) => {
   iframeConfig(webpack);
   oembedConfig(webpack);
   console.log(
-    `building https://widget.proca.app${webpack.output.publicPath}index.html`
+    `building https://widget.proca.app${webpack.output.publicPath}index.html`,
   );
   return webpack;
 };
@@ -44,17 +44,14 @@ function saveVersion(config) {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   console.log(hash);
   fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json"
-    ),
-    JSON.stringify(config, null, 2)
+    path.resolve(__dirname, `../d/${config.filename}/config-${hash}.json`),
+    JSON.stringify(config, null, 2),
   );
 }
 
 function cleanUp(config) {
   fs.unlinkSync(
-    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
+    path.resolve(__dirname, `../d/${config.filename}/index.js.map`),
   );
   // needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
 }
@@ -64,20 +61,20 @@ function widgetBuildConfig(webpack, config) {
   console.log("building");
   if (webpack.mode === "production") {
     webpack.output.filename = "index.js";
-    webpack.output.path = path.resolve(__dirname, "../d/" + config.filename);
-    webpack.output.publicPath = "/d/" + config.filename + "/";
+    webpack.output.path = path.resolve(__dirname, `../d/${config.filename}`);
+    webpack.output.publicPath = `/d/${config.filename}/`;
 
     webpack.plugins.push({
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap("AfterEmitPlugin", () => {
           try {
             fs.symlinkSync(
-              path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
-              path.resolve(__dirname, "../build/index.js")
+              path.resolve(__dirname, `../d/${config.filename}/index.js`),
+              path.resolve(__dirname, "../build/index.js"),
             );
             fs.symlinkSync(
-              path.resolve(__dirname, "../d/" + config.filename + "/static/js"),
-              path.resolve(__dirname, "../build/satic/js")
+              path.resolve(__dirname, `../d/${config.filename}/static/js`),
+              path.resolve(__dirname, "../build/satic/js"),
             );
             console.log("trying to fix the error on file size");
           } catch {
@@ -152,7 +149,7 @@ function iframeConfig(webpack) {
       template: `${publicDir}/iframe.html`,
       title: config.filename, // this is a hackish workaround
       proca: config, // this is a hackish workaround
-    })
+    }),
   );
 }
 
@@ -169,7 +166,7 @@ function oembedConfig(webpack) {
       width: 700,
       height: 825,
       cache_age: 3600,
-    })
+    }),
   );
 }
 function compressionConfig(webpack) {
@@ -179,6 +176,6 @@ function compressionConfig(webpack) {
       threshold: 8192,
       test: "index.js",
       include: "index.js",
-    })
+    }),
   );
 }

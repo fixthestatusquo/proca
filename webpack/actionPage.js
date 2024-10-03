@@ -20,9 +20,9 @@ const stepComponent = {
 };
 
 module.exports = (id) => {
-  const [filename, config] = getConfigOverride(!isNaN(id) && id);
+  const [_filename, config] = getConfigOverride(!isNaN(id) && id);
 
-  const code = createCode(filename, config);
+  const code = createCode(config);
 
   if (process.env["DEBUG"] && process.env["DEBUG"] === "CODE") {
     console.debug(code);
@@ -32,7 +32,7 @@ module.exports = (id) => {
   return code;
 };
 
-function createCode(filename, config) {
+function createCode(config) {
   const nl = "\n";
   let steps = [];
   let portals = [];
@@ -96,28 +96,19 @@ function createCode(filename, config) {
     nl +
     nl;
 
-  src += `export const config = ` + JSON.stringify(config) + nl;
-  src +=
-    `export const steps = {${steps
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
-  src +=
-    `export const imports = {${imports
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
-  src +=
-    `export const portals = {${portals
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
+  src += `export const config = ${JSON.stringify(config)}${nl}`;
+  src += `export const steps = {${steps
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
+  src += `export const imports = {${imports
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
+  src += `export const portals = {${portals
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
   //  src += `config.imports = imports; ` + nl;
   //  src += `export  { portals, steps}; ` + nl;
 

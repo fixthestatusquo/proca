@@ -6,7 +6,7 @@ module.exports = (webpack) => {
   webpack.plugins.push(
     new _webpack.BannerPlugin({
       banner: "hello world proca.app",
-    })
+    }),
   );
   if (process.env.BUNDLE_VISUALIZE == 1) {
     webpack.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: "static" }));
@@ -15,7 +15,7 @@ module.exports = (webpack) => {
   }
 
   webpack.resolve.plugins = webpack.resolve.plugins.filter(
-    (plugin) => !(plugin instanceof ModuleScopePlugin)
+    (plugin) => !(plugin instanceof ModuleScopePlugin),
   );
 
   return webpack;
