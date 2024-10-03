@@ -80,7 +80,6 @@ const EmailAction = ({ profile, display, disabled: _disabled, selection, setSele
   }
 
   const _classes = config.component.email?.selectable ? { secondary: classes.secondaryText } : undefined;
-console.log(_classes);
   return (
     <ListItem
       data-key={profile.procaid}
