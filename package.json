@@ -2,7 +2,11 @@
   "name": "@proca/widget",
   "version": "0.9.0-beta.1",
   "private": false,
-  "files": ["bin", "dist", "README.md"],
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
   "main": "dist/module.js",
   "run": "bin/index.js",
   "bin": "bin/index.js",
@@ -56,7 +60,7 @@
     "@babel/node": "^7.25.0",
     "@babel/plugin-transform-react-jsx": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "^1.9.3",
     "@proca/api": "^3.4.0",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^14.5.2",
@@ -88,6 +92,7 @@
     "format": "npx biome --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
     "_format": "prettier --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
     "_eslint": "eslint . --fix --max-warnings=0 --cache",
+    "lint": "npx @biomejs/biome lint",
     "build": "node bin/esbuild.js",
     "start": "node bin/esbuild.js --serve ",
     "deploy": "bash bin/deploy.sh",
@@ -115,7 +120,11 @@
     }
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

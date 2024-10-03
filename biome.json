@@ -1,24 +1,27 @@
 {
   "files": {
-    "ignore": ["*/__tests__/*.js"]
+    "ignore": ["*/__tests__/*.js", "build","d","config*"]
   },
   "formatter": {
+    "ignore": ["./d","./config","./src/locales"],
     "lineWidth": 80,
     "indentWidth": 2,
     "indentStyle": "space"
   },
   "javascript": {
-    "formatter": { 
+    "globals": ["global"] ,
+    "formatter": {
       "trailingCommas": "es5",
-      "arrowParentheses":"asNeeded",
+      "arrowParentheses": "asNeeded",
       "bracketSameLine": false,
       "bracketSpacing": true,
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
-      "semicolons": "asNeeded"
+      "semicolons": "always"
     }
   },
   "linter": {
+    "ignore": ["./d","./config*/*"],
     "rules": {
       "recommended": false,
       "a11y": {
@@ -30,7 +33,8 @@
         "noForEach": "off",
         "noMultipleSpacesInRegularExpressionLiterals": "error",
         "noUselessCatch": "error",
-        "noWith": "error"
+        "noWith": "error",
+        "noUselessStringConcat": "off"
       },
       "correctness": {
         "noChildrenProp": "error",
@@ -92,8 +96,6 @@
         "useGetterReturn": "error",
         "useValidTypeof": "error"
       }
-    },
-    "ignore": ["config/**", "build/**", "d/**"]
-  },
-  "javascript": { "globals": ["global"] }
+    }
+  }
 }
