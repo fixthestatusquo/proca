@@ -90,7 +90,7 @@ const toObject = (locale, separator) => {
 
 const pickOne = (locale) => {
   const text = locale;
-  const v = text.toArray();
+  const v = toArray(text);
 
   let t = []; // use to stack the sentence(s) to be part of the current variant
   let variants = [];
