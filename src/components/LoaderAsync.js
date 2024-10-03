@@ -24,13 +24,13 @@ const LoaderAsync = () => {
           d = await fetch(url).catch((e) => {
             setData("message", e.message); // we need to guess the field, message is the most common one
           });
-        } catch (e) {
+        } catch {
           console.log("no message in", lang);
         }
         if (!d) return;
         try {
           json = await d.json();
-        } catch (e) {
+        } catch {
           console.log("no message in", lang);
           return;
         }

@@ -40,7 +40,7 @@ const Filter = (props) => {
   const Filters =
     Object.entries(imports)
       .filter(([key]) => key.startsWith("filter"))
-      .map(([key, components]) => components) || [];
+      .map(([, components]) => components) || [];
 
   if (
     config.component.email?.filter?.includes("multilingual") &&

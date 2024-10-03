@@ -6,7 +6,7 @@ import TextField from "@components/TextField";
 import CountryFlag from "react-emoji-flag";
 import Hidden from "@components/field/Hidden";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
  root: {
     '& .proca-MuiInputBase-root': {
       paddingTop: "0!important",

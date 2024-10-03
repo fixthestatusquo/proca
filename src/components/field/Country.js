@@ -82,9 +82,6 @@ const Country = (props) => {
     if (config.component.country?.other !== false) {
       countries.push({ iso: "ZZ", name: t("Other") });
     }
-    if (false || props.other) {
-      countries = addMissingCountries(countries, compare);
-    }
     return countries;
   }, [
     config.component.country?.all,

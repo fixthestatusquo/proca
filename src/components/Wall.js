@@ -6,7 +6,6 @@ import useData from "@hooks/useData";
 import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 import ImageIcon from "@material-ui/icons/Image";
-import { useCampaignConfig } from "@hooks/useConfig"
 
 const Wall = () => {
   const [value, setValue] = useState("comment");

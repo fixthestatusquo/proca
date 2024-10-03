@@ -1,9 +1,3 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Button, IconButton, Box, LinearProgress, FormHelperText } from "@material-ui/core";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import VideocamIcon from "@material-ui/icons/Videocam";
-import CameraFrontIcon from "@material-ui/icons/CameraFront";
-import CameraRearIcon from "@material-ui/icons/CameraRear";
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -17,7 +11,7 @@ export const useUpload = (canvasRef, formData = {}) => {
   const { t } = useTranslation();
 
   //upload
-  return async (params) => {
+  return async () => {
     const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
     const toBlob = () => {
       return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));

@@ -23,7 +23,7 @@ export default function Register(props) {
   useEffect(() => {
     if (id < 2) return null;
     setValue("documentType", Object.keys(props.ids)[0]);
-    // eslint-disable-next-line
+     
   }, [id, country]);
 
   const label = () => {

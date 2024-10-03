@@ -80,7 +80,7 @@ function widgetBuildConfig(webpack, config) {
               path.resolve(__dirname, "../build/satic/js")
             );
             console.log("trying to fix the error on file size");
-          } catch (e) {
+          } catch {
             console.log("already building the widget");
           }
           saveVersion(config);

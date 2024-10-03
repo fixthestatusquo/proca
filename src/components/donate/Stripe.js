@@ -127,7 +127,6 @@ const PaymentForm = (props) => {
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
-  const [, setData] = useData();
 
   const form = props.form;
   const {
@@ -328,12 +327,6 @@ const SubmitButton = (props) => {
     const btn = event.target;
     btn.disabled = true;
     setSubmitting(true);
-  const {
-    formState: { errors },
-    control,
-    clearErrors,
-    setError,
-  } = props.form;
 
     const form = props.form;
     if (Object.keys(form.formState.errors).length > 0) {

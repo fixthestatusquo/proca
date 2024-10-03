@@ -25,7 +25,7 @@ const SpeakoutCheck = () => {
         .map((d) => {
           try {
             return JSON.parse(decodeURIComponent(d.substring(7)));
-          } catch (e) {
+          } catch {
             return {};
           }
         });

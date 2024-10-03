@@ -52,10 +52,10 @@ function useElementWidth(selector) {
   return size;
 }
 
-function useCompactLayout (selector, maxWidth) {
+function useCompactLayout (selector, _maxWidth) {
   const [compact, setCompact] = useState(true);
   const width = useElementWidth("#proca-register");
-  const _maxWidth = 380;
+  const maxWidth = _maxWidth || 380;
   if ((compact && width > maxWidth) || (!compact && width <= maxWidth))
     setCompact(width <= maxWidth);
   return compact;

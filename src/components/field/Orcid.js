@@ -26,8 +26,8 @@ const Orcid = ({form}) => {
     if (response.status === 403) { // expired token
       logIn();
     }
+console.log(accessToken);
     if (!response.ok) {
-      console.log(response);
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
@@ -53,7 +53,7 @@ const Orcid = ({form}) => {
   }
 
   
-  user & console.log(user); 
+  user && console.log(user); 
 
 	return (<>
     <Hidden name="orcid" form={form}/>

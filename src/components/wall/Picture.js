@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { useSupabase } from "@lib/supabase";
-import ProgressCounter from "@components/ProgressCounter";
 import Dialog from "@components/Dialog";
 import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -189,7 +188,6 @@ const PictureWall = (props) => {
           />
         )}
       </Dialog>
-      {false && <ProgressCounter />}
       <CountrySelect options={countries} />
       <Grid container spacing={1} justifyContent="center" alignItems="center">
         {pictures.map((d, i) => (

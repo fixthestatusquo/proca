@@ -36,13 +36,13 @@ const ShareLanding = () => {
         d = await fetch(url).catch(() => {
           console.log("can't fetch");
         });
-      } catch (e) {
+      } catch {
         console.log("can't fetch");
       }
       if (!d) return;
       try {
         text = await d.text();
-      } catch (e) {
+      } catch {
         console.log("can't fetch");
         return;
       }

@@ -1,5 +1,3 @@
-import React from "react";
-import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   FormGroup,

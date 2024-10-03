@@ -40,7 +40,7 @@ const checkPhone = async (country, number) => {
   if (check[country]) {
     try {
       return check[country](number);
-    } catch (e) {
+    } catch  {
       console.log("not a", country, "number");
     }
   }

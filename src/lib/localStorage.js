@@ -16,7 +16,7 @@ export const getItems = (config) => {
       return r;
     }
     return e;
-  } catch (e) {
+  } catch  {
     return {};
   }
 };

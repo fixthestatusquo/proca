@@ -6,7 +6,7 @@ const extractTokens = (text) => {
   const r = /{{[a-z.]+}}/g;
   let tokens = [];
   let m;
-  // eslint-disable-next-line
+   
   while ((m = r.exec(text))) {
     tokens.push(m[0].substring(2, m[0].length - 2));
   }
@@ -52,7 +52,7 @@ const useToken = (text, data, handleChange) => {
     if (updated !== rendered) {
       handleChange && handleChange(updated);
       merge(updated);
-    } // eslint-disable-next-line
+    }  
   }, [handleChange, text, data, token]);
 
   return rendered;

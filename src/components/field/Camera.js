@@ -4,7 +4,6 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
 import CameraRearIcon from "@material-ui/icons/CameraRear";
-import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import { useUpload, getBlurhash } from "@components/field/image/Publish";
@@ -98,7 +97,7 @@ const CameraField = (props) => {
         if (allowed.state === "granted") {
           startCamera("environment");
         }
-      } catch (e) {
+      } catch {
         // firefox doesn't allow camera permission to be checked
       }
     };
@@ -236,7 +235,6 @@ const CameraField = (props) => {
         style={{ maxWidth: "100%", cursor: "pointer", position: "relative" }}
         onClick={takePicture}
       >
-        {config.component.camera?.mask && <MaskImage />}
         <canvas
           id="canvas"
           ref={canvasRef}

@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import useData from "@hooks/useData";
 import { useSupabase } from "@lib/supabase";
@@ -37,7 +36,7 @@ alert ("do not use, this isn't possible to update pictures as anonymous");
         }
       } else { // should it be an error?
       }
-      const { error, data: result } = await supabase.from("pictures").update([d]).eq('hash', data.hash).select();
+      const { error } = await supabase.from("pictures").update([d]).eq('hash', data.hash).select();
       if (error) {
         console.error(error);
         return;

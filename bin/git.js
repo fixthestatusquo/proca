@@ -65,7 +65,7 @@ const help = () => {
 let git = {};
 try {
   git = simpleGit({ baseDir: pathConfig() });
-} catch (e) {
+} catch  {
   console.error(
     color.red("can't find config folder ", pathConfig()),
     "create manually or update your .env REACT_APP_CONFIG_FOLDER"

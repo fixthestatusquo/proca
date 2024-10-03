@@ -21,12 +21,12 @@ module.exports = [
           "./config/" + file,
           "./config/campaign/" + ap.campaign.name + ".json"
         );
-        chokidar.watch("./config/" + file).on("all", function (event, path) {
+        chokidar.watch("./config/" + file).on("all", function () {
           server.sockWrite(server.sockets, "content-changed");
         });
         chokidar
           .watch("./config/campaign/" + ap.campaign.name + ".json")
-          .on("all", function (event, path) {
+          .on("all", function () {
             server.sockWrite(server.sockets, "content-changed");
           });
       };

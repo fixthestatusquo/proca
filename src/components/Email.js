@@ -145,7 +145,7 @@ const EmailComponent = (props) => {
     }
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
-    } // eslint-disable-next-line
+    }  
   }, [paramEmail, alwaysUpdate]);
 
   const handleMerging = (text) => {
@@ -195,12 +195,12 @@ const EmailComponent = (props) => {
       return undefined;
     });
   }, [
-    // eslint-disable-next-line
+     
     {
       firstname: tokens.firstname,
       country: tokens.country ? getCountryName(tokens.country) : "",
     },
-    // eslint-disable-next-line
+     
     fields,
     tokenKeys,
     data,
@@ -278,7 +278,7 @@ const EmailComponent = (props) => {
       if (to.length == 0) return;
       setAllProfiles(to);
       setProfiles(to);
-    } // eslint-disable-next-line
+    }  
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterLocale = useCallback(

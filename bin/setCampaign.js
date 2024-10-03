@@ -104,11 +104,9 @@ const update = (id, change) => {
         console.log("Invalid language");
       }
     });
-    if (locales !== {}) {
       const change = {};
       change.config = { locales: locales };
       update(id, change);
-    }
   }
 
   if (argv.locales) {

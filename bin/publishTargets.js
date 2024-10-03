@@ -150,7 +150,7 @@ const publishTarget = async (campaignName, argv) => {
     let twitters = null;
     try {
       twitters = read("target/twitter/" + name); // the list from twitter
-    } catch (e) {
+    } catch  {
       console.log("no twitter list");
       twitters = [];
     }

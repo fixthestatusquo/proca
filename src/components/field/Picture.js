@@ -1,8 +1,7 @@
-import React, { useState, useRef, createRef, useCallback } from "react";
+import React, { useState, useRef } from "react";
 
 import { scrollTo } from "@lib/scroll";
 
-import useImage from "use-image";
 import Camera from "./Camera";
 import { useUpload } from "@components/field/image/Publish";
 import Hidden from "./Hidden";
@@ -12,7 +11,7 @@ import ImageIcon from "@material-ui/icons/Image";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { resize } from "@lib/image";
+import { useTranslation } from "react-i18next";
 
 import {
   Grid,
@@ -27,7 +26,6 @@ import {
 import { Alert, AlertTitle } from "@material-ui/lab";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Dialog from "@components/Dialog";
-import { useTranslation } from "react-i18next";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -45,12 +43,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Picture(props) {
   const config = useCampaignConfig();
-  const { t } = useTranslation();
-  const classes = useStyles();
   const [draw, setDraw] = useState(false);
   const [image, setImage] = useState(undefined);
   const [canvas, setCanvas] = useState(undefined);
-  const [activeStep, setActiveStep] = useState(0);
 
   //  const data = props.form?.getValues();
   const handleClose = () => {
@@ -58,13 +53,9 @@ export default function Picture(props) {
     scrollTo({ delay: 300, selector: "#proca-image" });
   };
 
-  const handleStep = (step) => () => {
-    setActiveStep(step);
-  };
 
   const uploadedCanvas = (canvas) => {
     setCanvas(canvas);
-    setActiveStep(1);
   };
 
   const DialogAction = () => (
