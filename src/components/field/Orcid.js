@@ -16,7 +16,7 @@ const Orcid = ({form}) => {
     if (!accessToken) return undefined;
     try {
     const response = await fetch('https://orcid.org/oauth/userinfo', {
-    //const response = await fetch('https://api.orcid.org/v3.0/0009-0004-9319-0313/record', {
+//    const response = await fetch("https://pub.orcid.org/v3.0/0009-0004-9319-0313/record", {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${accessToken}`
