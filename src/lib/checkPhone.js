@@ -9,7 +9,7 @@ const cleanNumber = (prefix, number) => {
 };
 
 const check = {
-  DE: (number) => {
+  DE: number => {
     const prefix = "49";
     const result = { is_error: true, number: number };
     number = cleanNumber(prefix, number); // throw an error if not a german number
@@ -40,7 +40,7 @@ const checkPhone = async (country, number) => {
   if (check[country]) {
     try {
       return check[country](number);
-    } catch  {
+    } catch {
       console.log("not a", country, "number");
     }
   }

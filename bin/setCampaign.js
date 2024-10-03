@@ -97,16 +97,16 @@ const update = (id, change) => {
       ? (arr = argv.lang.split(","))
       : arr.push(argv.lang);
     let locales = {};
-    arr.map((lang) => {
+    arr.map(lang => {
       if (languages.includes(lang)) {
         locales[lang] = {};
       } else {
         console.log("Invalid language");
       }
     });
-      const change = {};
-      change.config = { locales: locales };
-      update(id, change);
+    const change = {};
+    change.config = { locales: locales };
+    update(id, change);
   }
 
   if (argv.locales) {
@@ -123,7 +123,7 @@ const update = (id, change) => {
     } catch (errors) {
       console.log(errors);
       Array.isArray(errors) &&
-        errors.map((e) => {
+        errors.map(e => {
           console.error("\x1b[31m", e.message);
         });
     }

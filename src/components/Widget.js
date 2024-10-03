@@ -36,12 +36,12 @@ let config = {
 };
 let init = false;
 
-const Widget = (props) => {
+const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
 
-  const setCurrent = (i) => {
+  const setCurrent = i => {
     if (i >= 0 && journey[i])
       dispatch(
         `${journey[i].toLowerCase()}:init`,
@@ -51,12 +51,12 @@ const Widget = (props) => {
           journey: journey,
         },
         null,
-        config,
+        config
       );
     setTimeout(() => {
       const otherSteps = journey
         .filter((_step, d) => d !== i)
-        .map((d) => `.proca-${d}`)
+        .map(d => `.proca-${d}`)
         .join(", ");
       let r = otherSteps ? document.querySelectorAll(otherSteps) : [];
       for (let j = 0; j < r.length; j++) {
@@ -92,14 +92,17 @@ const Widget = (props) => {
     };
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
-  document.querySelectorAll(props.selector).forEach((dom) => {
+  document.querySelectorAll(props.selector).forEach(dom => {
     data = { ...dom.dataset, ...cookies, ...storage, ...data };
   });
 
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.locales = merge(config.locales, getOverwriteLocales());
-  config.actionPage = Number.parseInt(config.actionPage || config.actionpage, 10);
+  config.actionPage = Number.parseInt(
+    config.actionPage || config.actionpage,
+    10
+  );
 
   if (!config.actionPage) {
     console.assert("No actionPage defined. Can't continue.");
@@ -131,7 +134,6 @@ const Widget = (props) => {
     document.head.appendChild(styleSheet);
   }, [test]);
 
-
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {
     if (scrollNeeded.current) {
@@ -159,7 +161,7 @@ const Widget = (props) => {
         isMobile: isMobile,
         step: journey[current ? current : 0],
       },
-      config,
+      config
     );
     init = true;
   }
@@ -172,7 +174,7 @@ const Widget = (props) => {
     depths.push(0);
   }
 
-  propsJourney.forEach((d) => {
+  propsJourney.forEach(d => {
     if (d instanceof Array) {
       d.forEach((_e, i) => {
         depths.push(i > 0 ? 2 : 1);
@@ -184,14 +186,14 @@ const Widget = (props) => {
     return steps;
   };
 
-  const go = (action) => {
+  const go = action => {
     let i = null;
     if (typeof action === "number" && action <= journey.length) {
       i = action - 1;
       if (i === current) return forceUpdate(); //trick to force refresh
     } else {
       if (!action) return nextStep();
-      i = journey.findIndex((d) => d.toLowerCase() === action.toLowerCase());
+      i = journey.findIndex(d => d.toLowerCase() === action.toLowerCase());
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
@@ -225,7 +227,7 @@ const Widget = (props) => {
   // called once an action has finished to decide what to do next.
   // the result is whatever the action that has finished wants to share to the journey
   //
-  const nextStep = (result) => {
+  const nextStep = result => {
     // setReturnStep(result);
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
@@ -237,7 +239,7 @@ const Widget = (props) => {
     ) {
       if (steps[journey[current]].after(result) === false) {
         console.log(
-          "the custom 'after' returned false, we do not go to the next step",
+          "the custom 'after' returned false, we do not go to the next step"
         );
         return;
       }
@@ -257,7 +259,7 @@ const Widget = (props) => {
         "proca:complete",
         { elem: "journey", journey: journey },
         null,
-        config,
+        config
       );
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
@@ -268,7 +270,7 @@ const Widget = (props) => {
     }
   };
 
-  const CurrentAction = (props) => {
+  const CurrentAction = props => {
     let Action = null;
 
     switch (depths[current]) {

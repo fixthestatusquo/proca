@@ -17,28 +17,28 @@ const supabase = createClient(
   supabaseSecretKey || supabaseAnonKey
 );
 
-const imageType = (name) => {
+const imageType = name => {
   const imageTypes = {
     ".jpg.jpeg": "image/jpeg",
     ".png": "image/png",
   };
   const ext = path.extname(name);
-  const t = Object.keys(imageTypes).find((t) => t.includes(ext));
+  const t = Object.keys(imageTypes).find(t => t.includes(ext));
   return imageTypes[t];
 };
-const slugify = (text) =>
+const slugify = text =>
   text
     .replace(/[^a-z.0-9 _-]/g, "")
     .replace(/\s+/g, "_")
     .replace(/-+/g, "_")
     .toLowerCase();
 
-const url = (fileName) =>
+const url = fileName =>
   supabaseUrl +
   "/storage/v1/object/public/together4forests/template/" +
   fileName;
 
-const push = async (name) => {
+const push = async name => {
   const file = fs.readFileSync(name);
   const key = slugify(path.basename(name, path.extname(name)));
   const fileName = key + path.extname(name);
@@ -98,10 +98,10 @@ const help = () => {
   process.exit(0);
 };
 
-const hash = (obj) => {
+const hash = obj => {
   const al = "image,top_text,bottom_text".split(",");
   const payload = Object.keys(obj)
-    .filter((k) => al.includes(k))
+    .filter(k => al.includes(k))
     .reduce((r, k) => {
       r[k] = obj[k];
       return r;
@@ -123,7 +123,7 @@ const pullTemplates = async () => {
 
   fs.writeFileSync(fileName, JSON.stringify(templates, null, 2));
   let labels = {};
-  templates.forEach((d) => {
+  templates.forEach(d => {
     const name = d.top_text.split(".")[0];
     labels[name] = { top_text: "", bottom_text: "" };
   });

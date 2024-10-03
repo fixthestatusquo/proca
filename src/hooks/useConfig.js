@@ -17,10 +17,10 @@ import { merge, set } from "@lib/object";
 
 export let configState = null;
 
-export const initConfigState = (config) => {
+export const initConfigState = config => {
   if (config.locales) {
     let campaignTitle = false;
-    Object.keys(config.locales).map((k) => {
+    Object.keys(config.locales).map(k => {
       if (k.charAt(k.length - 1) === ":") {
         const ns = k.slice(0, -1);
         if (ns === "campaign") {
@@ -33,7 +33,7 @@ export const initConfigState = (config) => {
           ns,
           config.locales[k],
           true,
-          true,
+          true
         );
         delete config.locales[k];
       }
@@ -45,7 +45,7 @@ export const initConfigState = (config) => {
         "campaign",
         config.campaign,
         true,
-        true,
+        true
       );
     }
     i18next.addResourceBundle(
@@ -53,7 +53,7 @@ export const initConfigState = (config) => {
       "common",
       config.locales,
       true,
-      true,
+      true
     );
   }
   initLayout(config.layout);
@@ -84,7 +84,7 @@ export const setGlobalState = (atom, key, value) => {
   }
 };
 
-const goStep = (action) => {
+const goStep = action => {
   const event = new CustomEvent("proca-go", { detail: { action: action } });
   if (document.getElementById(id))
     document.getElementById(id).dispatchEvent(event);
@@ -106,7 +106,7 @@ const setHook = (object, action, hook) => {
   }
 };
 
-export const ConfigProvider = (props) => {
+export const ConfigProvider = props => {
   //  const [config, _setConfig] = useState(props.config);
   const setLayout = useSetLayout();
   const _setCampaignConfig = useSetRecoilState(configState);
@@ -115,14 +115,14 @@ export const ConfigProvider = (props) => {
   const go = props.go;
 
   const setPartPath = (part, path, value) => {
-    _setCampaignConfig((config) => {
+    _setCampaignConfig(config => {
       const d = JSON.parse(JSON.stringify(config));
       return set(d, `${part}.${path}`, value);
     });
   };
 
   const setPart = (part, toMerge) => {
-    _setCampaignConfig((config) => {
+    _setCampaignConfig(config => {
       const d = {};
       d[part] = toMerge;
       return merge(config, d);
@@ -139,14 +139,14 @@ export const ConfigProvider = (props) => {
 
   const setHook = useCallback(
     (object, action, hook) => {
-      _setCampaignConfig((current) => {
+      _setCampaignConfig(current => {
         const next = { ...current };
         next.hook = { ...current.hook };
         next.hook[`${object}:${action}`] = hook;
         return next;
       });
     },
-    [_setCampaignConfig],
+    [_setCampaignConfig]
   );
 
   useEffect(() => {
@@ -154,7 +154,7 @@ export const ConfigProvider = (props) => {
 
     elem.addEventListener(
       "proca-set",
-      (e) => {
+      e => {
         switch (e.detail.atom) {
           case "layout":
             setLayout(e.detail.key, e.detail.value);
@@ -180,12 +180,12 @@ export const ConfigProvider = (props) => {
             console.error("you need to specify an atom/namespace"); //setConfig(e.detail.key,e.detail.value);
         }
       },
-      false,
+      false
     );
 
     elem.addEventListener(
       "proca-hook",
-      (e) => {
+      e => {
         if (typeof e.detail.hook !== "function")
           return console.error("After must be a function");
 
@@ -196,19 +196,19 @@ export const ConfigProvider = (props) => {
           return console.error("object must me a string");
         setHook(e.detail.object, e.detail.action, e.detail.hook);
       },
-      false,
+      false
     );
 
     elem.addEventListener(
       "proca-go",
-      (e) => {
+      e => {
         if (typeof go === "function") {
           go(e.detail.action);
         } else {
           console.error("ain't no go fct");
         }
       },
-      false,
+      false
     );
   }, [go, setHook, setLayout, handlePart, setData]);
 

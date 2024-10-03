@@ -4,8 +4,8 @@ import { resize } from "@lib/image";
 
 export default function UploadPicture(props) {
   const canvasRef = useRef();
-  const uploadImage = (e) => {
-    const draw = (e) => {
+  const uploadImage = e => {
+    const draw = e => {
       const img = e.target;
       const canvas = canvasRef.current;
       const size = resize(img);
@@ -32,7 +32,7 @@ export default function UploadPicture(props) {
           <input
             hidden
             accept="image/*"
-            onChange={(e) => uploadImage(e)}
+            onChange={e => uploadImage(e)}
             type="file"
           />
         </Button>

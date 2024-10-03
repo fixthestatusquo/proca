@@ -1,43 +1,43 @@
 {
-    "email": {
-        "common": {
-            "privacy": "Weitere Informationen über unsere Datenschutzpolitik und die Verarbeitung Ihrer Daten finden Sie hier",
-            "consent": "\n          ",
-            "thanks": "Vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
-            "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen",
-            "greeting": "Hallo {{firstName}}",
-            "share_on": "Teilen auf",
-            "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben",
-            "signature": "Mit freundlichen Grüßen,\n\n{{org.title}}",
-            "follow": "Folgen Sie uns auf:",
-            "donate": "Bitte ziehen Sie eine Spende in Betracht, um uns bei der Erfüllung unserer Mission zu unterstützen",
-            "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie [die Nachricht verbreiten] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-            "duplicate": "Vielen Dank für Ihr Engagement und Ihre Hingabe für unsere Sache! Um die Authentizität und Glaubwürdigkeit unserer Kampagne zu wahren, müssen wir jedoch **doppelte** Unterschriften entfernen, und es scheint, als hätten Sie (oder jemand, der {{email}} benutzt) diese Aktion bereits durchgeführt.  Seien Sie versichert, **dass Ihre erste Unterschrift gezählt** wurde und zu unserer Kampagne beigetragen hat.\nIhre Unterstützung war von unschätzbarem Wert, und wir möchten Sie bitten, einen weiteren Schritt zu tun, um Ihre Wirkung zu verstärken. Bitte ziehen Sie in Erwägung, Ihre Freunde und Verwandten mit ihren eigenen E-Mail-Adressen zu bitten, ebenfalls aktiv zu werden. Auf diese Weise können wir unsere Bewegung weiter ausbauen und eine noch stärkere kollektive Stimme für den von uns angestrebten Wandel bilden.\nWir möchten Ihnen noch einmal herzlich für Ihre anhaltende Unterstützung und Ihr Engagement für diese Kampagne danken. Gemeinsam können wir nachhaltig etwas bewirken!",
-            "organisation": "{{org.title}}",
-            "thanksPledge": "Vielen Dank, dass Sie für {{campaign.title}} gelobt haben. Ihre Angaben werden geprüft und Sie erhalten eine Bestätigungs-E-Mail, wenn Ihr Profil auf der Website angezeigt wird."
-        },
-        "thankyou": {
-            "subject": "Danke, hier ist, was Sie sonst noch tun können",
-            "intro": "Vielen Dank für Ihre Teilnahme an \"{{campaign.title}}\". Wir wissen Ihre Unterstützung zu schätzen!"
-        },
-        "doi": {
-            "extra": "Sie haben diese Bestätigung erhalten, um die Registrierung erfolgreich abzuschließen und uns zu erlauben, Ihre E-Mail-Adresse und andere persönliche Daten zu verarbeiten, um Nachrichten oder Newsletter zu erhalten. Dies ist ein automatisierter Vorgang und diese Bestätigung ist für die Registrierung erforderlich, um einen unberechtigten Registrierungsvorgang zu vermeiden.",
-            "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse",
-            "intro": "Ihre Bestätigung ist wichtig, damit wir sie bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht. Das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern."
-        },
-        "doi_thankyou": {
-            "subject": "Vielen Dank für Ihre Teilnahme{{#privacy.optIn}}, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail Adresse{{/privacy.optIn}}"
-        },
-        "button": {
-            "confirmAlreadyMember": "Ich bestätige meine Teilnahme und erhalte bereits E-Mails von Ihnen",
-            "confirmOptout": "Ich bestätige meine Teilnahme, aber halten Sie mich in Zukunft nicht auf dem Laufenden",
-            "confirmAction": "Ja, ich bin ein echter Mensch!",
-            "confirmOptin": "Ich bestätige meine Teilnahme und möchte Nachrichten von Ihnen erhalten"
-        },
-        "actionConfirm": {
-            "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht. Das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-            "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
-        }
+  "email": {
+    "common": {
+      "privacy": "Weitere Informationen über unsere Datenschutzpolitik und die Verarbeitung Ihrer Daten finden Sie hier",
+      "consent": "\n          ",
+      "thanks": "Vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
+      "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen",
+      "greeting": "Hallo {{firstName}}",
+      "share_on": "Teilen auf",
+      "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben",
+      "signature": "Mit freundlichen Grüßen,\n\n{{org.title}}",
+      "follow": "Folgen Sie uns auf:",
+      "donate": "Bitte ziehen Sie eine Spende in Betracht, um uns bei der Erfüllung unserer Mission zu unterstützen",
+      "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie [die Nachricht verbreiten] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+      "duplicate": "Vielen Dank für Ihr Engagement und Ihre Hingabe für unsere Sache! Um die Authentizität und Glaubwürdigkeit unserer Kampagne zu wahren, müssen wir jedoch **doppelte** Unterschriften entfernen, und es scheint, als hätten Sie (oder jemand, der {{email}} benutzt) diese Aktion bereits durchgeführt.  Seien Sie versichert, **dass Ihre erste Unterschrift gezählt** wurde und zu unserer Kampagne beigetragen hat.\nIhre Unterstützung war von unschätzbarem Wert, und wir möchten Sie bitten, einen weiteren Schritt zu tun, um Ihre Wirkung zu verstärken. Bitte ziehen Sie in Erwägung, Ihre Freunde und Verwandten mit ihren eigenen E-Mail-Adressen zu bitten, ebenfalls aktiv zu werden. Auf diese Weise können wir unsere Bewegung weiter ausbauen und eine noch stärkere kollektive Stimme für den von uns angestrebten Wandel bilden.\nWir möchten Ihnen noch einmal herzlich für Ihre anhaltende Unterstützung und Ihr Engagement für diese Kampagne danken. Gemeinsam können wir nachhaltig etwas bewirken!",
+      "organisation": "{{org.title}}",
+      "thanksPledge": "Vielen Dank, dass Sie für {{campaign.title}} gelobt haben. Ihre Angaben werden geprüft und Sie erhalten eine Bestätigungs-E-Mail, wenn Ihr Profil auf der Website angezeigt wird."
     },
-    "poweredBy": "ANGETRIEBEN DURCH"
+    "thankyou": {
+      "subject": "Danke, hier ist, was Sie sonst noch tun können",
+      "intro": "Vielen Dank für Ihre Teilnahme an \"{{campaign.title}}\". Wir wissen Ihre Unterstützung zu schätzen!"
+    },
+    "doi": {
+      "extra": "Sie haben diese Bestätigung erhalten, um die Registrierung erfolgreich abzuschließen und uns zu erlauben, Ihre E-Mail-Adresse und andere persönliche Daten zu verarbeiten, um Nachrichten oder Newsletter zu erhalten. Dies ist ein automatisierter Vorgang und diese Bestätigung ist für die Registrierung erforderlich, um einen unberechtigten Registrierungsvorgang zu vermeiden.",
+      "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "intro": "Ihre Bestätigung ist wichtig, damit wir sie bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht. Das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern."
+    },
+    "doi_thankyou": {
+      "subject": "Vielen Dank für Ihre Teilnahme{{#privacy.optIn}}, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail Adresse{{/privacy.optIn}}"
+    },
+    "button": {
+      "confirmAlreadyMember": "Ich bestätige meine Teilnahme und erhalte bereits E-Mails von Ihnen",
+      "confirmOptout": "Ich bestätige meine Teilnahme, aber halten Sie mich in Zukunft nicht auf dem Laufenden",
+      "confirmAction": "Ja, ich bin ein echter Mensch!",
+      "confirmOptin": "Ich bestätige meine Teilnahme und möchte Nachrichten von Ihnen erhalten"
+    },
+    "actionConfirm": {
+      "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht. Das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
+      "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
+    }
+  },
+  "poweredBy": "ANGETRIEBEN DURCH"
 }

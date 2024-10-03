@@ -6,7 +6,7 @@ import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveIcon from "@material-ui/icons/RemoveCircle";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   badge: {
     "& .proca-MuiBadge-badge": {
       top: theme.spacing(0.5),
@@ -29,18 +29,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PartyFilter = (props) => {
+const PartyFilter = props => {
   const classes = useStyles();
   const [parties, _setParties] = useState({});
   const [allParties, setAllParties] = useState({});
-  const getKey = props.getKey || ((d) => d.description);
+  const getKey = props.getKey || (d => d.description);
   const country = props.country?.toLowerCase();
-  const filterCountry = props.filterCountry || ((d) => d.country === country);
+  const filterCountry = props.filterCountry || (d => d.country === country);
 
   const url = "https://static.proca.app/ep2024/parties.json";
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 
@@ -55,7 +55,7 @@ const PartyFilter = (props) => {
     fetchData(url);
   }, [url, setAllParties]);
 
-  const setParties = (fullList) => {
+  const setParties = fullList => {
     if (!fullList || !fullList.length) return;
     const count = {};
     let list = fullList;
@@ -73,15 +73,15 @@ const PartyFilter = (props) => {
 
     //list.foreach
     const sortedObject = Object.fromEntries(
-      [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b)),
+      [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b))
     );
 
     _setParties(sortedObject);
     //return list[0];
   };
 
-  const toggle = (name) => {
-    _setParties((prevParties) => ({
+  const toggle = name => {
+    _setParties(prevParties => ({
       ...prevParties,
       [name]: {
         ...prevParties[name],

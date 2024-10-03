@@ -4,7 +4,7 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-const Salutation = (props) => {
+const Salutation = props => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
 

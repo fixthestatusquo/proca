@@ -11,7 +11,7 @@ const { runDate, save: saveWidget } = require("./config");
 const api = process.env.REACT_APP_API_URL || "https://api.proca.app/api";
 const socket = api.replace(/api$/, "socket").replace(/^http/, "ws");
 
-const handleError = (error) => {
+const handleError = error => {
   console.log(JSON.stringify(error, null, 2));
 };
 
@@ -50,7 +50,7 @@ const updatedNotifier = withAbsintheSocket.observe(absintheSocket, notifier, {
   onStart: () => {
     console.log("waiting for widgets to build", api);
   },
-  onResult: async (d) => {
+  onResult: async d => {
     const date = new Date();
     const data = d.data;
     data.actionPage = data.actionPageUpserted;

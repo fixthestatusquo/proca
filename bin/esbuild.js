@@ -26,14 +26,14 @@ const help = (exit = 0) => {
         "--verbose",
         "--analyze",
         "{actionpage id}",
-      ].join("\n"),
-    ),
+      ].join("\n")
+    )
   );
   process.exit(exit);
 };
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "verbose", "serve", "analyze"],
-  unknown: (d) => {
+  unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
     if (allowed.includes(d.split("=")[0].slice(2))) return true;
@@ -42,7 +42,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const define = (env) => {
+const define = env => {
   const defined = {
     global: "window",
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
@@ -53,20 +53,20 @@ const define = (env) => {
   };
 
   Object.keys(env)
-    .filter((d) => d.startsWith("REACT_APP_"))
-    .forEach((d) => (defined["process.env." + d] = '"' + env[d] + '"'));
+    .filter(d => d.startsWith("REACT_APP_"))
+    .forEach(d => (defined["process.env." + d] = '"' + env[d] + '"'));
   //  console.log(defined);process.exit(1);
   return defined;
 };
 
-const save = (config) => {
+const save = config => {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   fs.writeFileSync(
     path.resolve(
       __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json",
+      "../d/" + config.filename + "/config-" + hash + ".json"
     ),
-    JSON.stringify(config, null, 2),
+    JSON.stringify(config, null, 2)
   );
   if (argv.verbose) {
     console.log(JSON.stringify(config, null, 2));
@@ -74,7 +74,7 @@ const save = (config) => {
     runs === 0 &&
       console.log(
         "config",
-        "d/" + config.filename + "/config-" + hash + ".json",
+        "d/" + config.filename + "/config-" + hash + ".json"
       );
   }
 };
@@ -83,7 +83,7 @@ const save = (config) => {
   webpack.resolve.alias["@config"] = path.resolve(__dirname, configFolder());
 */
 
-const resolveCountryList = (config) => {
+const resolveCountryList = config => {
   const lang = config.lang;
   let countryList = "i18n-iso-countries/langs/" + lang + ".json";
   let r = {};
@@ -103,19 +103,19 @@ let procaPlugin = ({ id, config }) => ({
   setup(build) {
     build.onResolve(
       { filter: /^@(components|lib|hooks|images|data)/ },
-      (args) => {
+      args => {
         const r = path.resolve(__dirname, args.path.replace("@", "../src/"));
         return { path: r.includes(".") ? r : r + ".js", sideEffects: false };
-      },
+      }
     );
     build.onResolve({ filter: /@i18n-iso-countries\/lang/ }, () =>
-      resolveCountryList(config),
+      resolveCountryList(config)
     );
     build.onResolve({ filter: /locales\/common\.js/ }, () => {
       return {
         path: path.resolve(
           __dirname,
-          "../src/locales/" + config.lang + "/common.json",
+          "../src/locales/" + config.lang + "/common.json"
         ),
         sideEffects: false,
       };
@@ -137,7 +137,7 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("%PUBLIC_URL%", "/")
           .replaceAll("<%= lang %>", config.lang)
           .replaceAll("<%= campaign %>", config.campaign.title)
-          .replaceAll("<%= organisation %>", config.org.name),
+          .replaceAll("<%= organisation %>", config.org.name)
       );
 
       if (!argv.serve) {
@@ -145,12 +145,12 @@ let procaPlugin = ({ id, config }) => ({
         await pipeline(
           fs.createReadStream(index),
           zlib.createGzip({}),
-          fs.createWriteStream(index + ".gz"),
+          fs.createWriteStream(index + ".gz")
         );
         const stats = fs.statSync(index + ".gz");
         console.log(
           color.bold(index + ".gz"),
-          color.cyan(Math.round(stats.size / 1024) + "kb"),
+          color.cyan(Math.round(stats.size / 1024) + "kb")
         );
       }
       save(config);
@@ -174,7 +174,7 @@ let procaPlugin = ({ id, config }) => ({
   },
 });
 
-const getConfig = (id) => {
+const getConfig = id => {
   const [, config] = getConfigOverride(id);
 
   return {
@@ -202,7 +202,7 @@ const getConfig = (id) => {
   };
 };
 
-const serve = async (id) => {
+const serve = async id => {
   const buildConfig = getConfig(id);
   buildConfig.sourcemap = "inline";
   //  buildConfig.plugins.push (eslint);
@@ -217,7 +217,7 @@ const serve = async (id) => {
   open.default("http://" + r.host + ":" + r.port);
 };
 
-const build = async (id) => {
+const build = async id => {
   const buildConfig = getConfig(id);
   buildConfig.minify = true;
   if (argv.analyze) buildConfig.metafile = true;

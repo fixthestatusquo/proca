@@ -17,8 +17,7 @@ const PayrexxFrame = () => {
   if (!config.component.donation?.payrexx?.cid)
     return "payrexx not configured, missing config component.donation.payrexx.cid";
 
-  let url =
-    `https://campax.payrexx.com/${config.lang}/pay?cid=${config.component.donation?.payrexx?.cid}&donation[preselect_amount]=35.00&donation[preselect_interval]=one_time&appview=1`;
+  let url = `https://campax.payrexx.com/${config.lang}/pay?cid=${config.component.donation?.payrexx?.cid}&donation[preselect_amount]=35.00&donation[preselect_interval]=one_time&appview=1`;
   Object.entries(fields).map(([k, v]) => {
     if (data[k]) url += `&${v}=${encodeURIComponent(data[k])}`;
     return null;

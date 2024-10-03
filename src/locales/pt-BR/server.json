@@ -1,43 +1,43 @@
 {
-    "email": {
-        "common": {
-            "privacy": "Você pode encontrar mais informações sobre nossa política de privacidade e o processamento de seus dados",
-            "consent": "\n          ",
-            "thanks": "Obrigado por participar do {{campaign.title}}. Seu apoio é muito importante!",
-            "closing": "Com sua ajuda, estamos um passo mais perto de nossa meta",
-            "greeting": "Olá {{firstName}}",
-            "share_on": "Compartilhar",
-            "unsubscribe": "Caso não deseje receber mais informações nossas no futuro, você poderá cancelar seu registro a qualquer momento",
-            "signature": "Atenciosamente,\n\n{{org.title}}",
-            "follow": "Siga-nos em:",
-            "donate": "Considere fazer uma doação para nos ajudar a cumprir nossa missão",
-            "share": "Ajude-nos a atingir nossa meta [divulgando a notícia] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-            "duplicate": "Obrigado por seu engajamento e dedicação à nossa causa! No entanto, em nosso compromisso de manter a autenticidade e a credibilidade, precisamos **remover assinaturas duplicadas** e parece que você (ou alguém usando {{email}}) já tomou essa providência.  Fique tranquilo, pois **sua assinatura inicial foi contada** e contribuiu para nossa campanha.\nSeu apoio tem sido inestimável e gostaríamos de incentivá-lo a dar um passo adicional para ajudar a ampliar seu impacto. Por favor, considere a possibilidade de entrar em contato com seus amigos e familiares, incentivando-os a agir também, usando seus próprios endereços de e-mail. Dessa forma, poderemos aumentar ainda mais nosso movimento e criar uma voz coletiva ainda mais forte para a mudança que buscamos.\nMais uma vez, agradecemos sinceramente seu apoio e dedicação contínuos a esta campanha. Juntos, podemos causar um impacto duradouro!",
-            "organisation": "{{org.title}}",
-            "thanksPledge": "Obrigado por se comprometer com o {{campaign.title}}. Suas informações serão analisadas e você receberá um e-mail de confirmação se o seu perfil for exibido no site."
-        },
-        "thankyou": {
-            "subject": "Obrigado, aqui está o que mais você pode fazer",
-            "intro": "Obrigado por sua participação no \"{{campaign.title}}\". Seu apoio é muito apreciado!"
-        },
-        "doi": {
-            "extra": "Você recebeu essa confirmação para concluir com êxito o registro e nos permitir processar seu endereço de e-mail e outros dados pessoais para receber notícias ou boletins informativos. Esse é um procedimento automatizado e essa confirmação é necessária para o registro a fim de evitar um processo de registro não autorizado.",
-            "subject": "Mais uma etapa: confirme seu endereço de e-mail",
-            "intro": "Sua confirmação é importante para que possamos processá-la. Essa é a única maneira de tornar crível que realmente há uma pessoa por trás de cada participação, e isso é importante para o impacto dessa campanha e para evitar envios falsos/spam."
-        },
-        "doi_thankyou": {
-            "subject": "Obrigado por sua participação{{#privacy.optIn}}, mais uma etapa, confirme seu endereço de e-mail{{/privacy.optIn}}"
-        },
-        "button": {
-            "confirmAlreadyMember": "Confirmo minha participação e já recebo e-mails de vocês",
-            "confirmOptout": "Confirmo minha participação, mas não me mantenham atualizado no futuro",
-            "confirmAction": "Sim, sou uma pessoa real!",
-            "confirmOptin": "Confirmo minha participação e quero receber notícias de vocês"
-        },
-        "actionConfirm": {
-            "intro": "Sua confirmação é importante para que possamos processar sua participação. Essa é a única maneira de tornar crível que realmente há uma pessoa por trás de cada participação, o que é importante para o impacto dessa campanha e para evitar envios falsos/spam.",
-            "subject": "Mais uma etapa: confirme seu endereço de e-mail"
-        }
+  "email": {
+    "common": {
+      "privacy": "Você pode encontrar mais informações sobre nossa política de privacidade e o processamento de seus dados",
+      "consent": "\n          ",
+      "thanks": "Obrigado por participar do {{campaign.title}}. Seu apoio é muito importante!",
+      "closing": "Com sua ajuda, estamos um passo mais perto de nossa meta",
+      "greeting": "Olá {{firstName}}",
+      "share_on": "Compartilhar",
+      "unsubscribe": "Caso não deseje receber mais informações nossas no futuro, você poderá cancelar seu registro a qualquer momento",
+      "signature": "Atenciosamente,\n\n{{org.title}}",
+      "follow": "Siga-nos em:",
+      "donate": "Considere fazer uma doação para nos ajudar a cumprir nossa missão",
+      "share": "Ajude-nos a atingir nossa meta [divulgando a notícia] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+      "duplicate": "Obrigado por seu engajamento e dedicação à nossa causa! No entanto, em nosso compromisso de manter a autenticidade e a credibilidade, precisamos **remover assinaturas duplicadas** e parece que você (ou alguém usando {{email}}) já tomou essa providência.  Fique tranquilo, pois **sua assinatura inicial foi contada** e contribuiu para nossa campanha.\nSeu apoio tem sido inestimável e gostaríamos de incentivá-lo a dar um passo adicional para ajudar a ampliar seu impacto. Por favor, considere a possibilidade de entrar em contato com seus amigos e familiares, incentivando-os a agir também, usando seus próprios endereços de e-mail. Dessa forma, poderemos aumentar ainda mais nosso movimento e criar uma voz coletiva ainda mais forte para a mudança que buscamos.\nMais uma vez, agradecemos sinceramente seu apoio e dedicação contínuos a esta campanha. Juntos, podemos causar um impacto duradouro!",
+      "organisation": "{{org.title}}",
+      "thanksPledge": "Obrigado por se comprometer com o {{campaign.title}}. Suas informações serão analisadas e você receberá um e-mail de confirmação se o seu perfil for exibido no site."
     },
-    "poweredBy": "POTENCIADO POR"
+    "thankyou": {
+      "subject": "Obrigado, aqui está o que mais você pode fazer",
+      "intro": "Obrigado por sua participação no \"{{campaign.title}}\". Seu apoio é muito apreciado!"
+    },
+    "doi": {
+      "extra": "Você recebeu essa confirmação para concluir com êxito o registro e nos permitir processar seu endereço de e-mail e outros dados pessoais para receber notícias ou boletins informativos. Esse é um procedimento automatizado e essa confirmação é necessária para o registro a fim de evitar um processo de registro não autorizado.",
+      "subject": "Mais uma etapa: confirme seu endereço de e-mail",
+      "intro": "Sua confirmação é importante para que possamos processá-la. Essa é a única maneira de tornar crível que realmente há uma pessoa por trás de cada participação, e isso é importante para o impacto dessa campanha e para evitar envios falsos/spam."
+    },
+    "doi_thankyou": {
+      "subject": "Obrigado por sua participação{{#privacy.optIn}}, mais uma etapa, confirme seu endereço de e-mail{{/privacy.optIn}}"
+    },
+    "button": {
+      "confirmAlreadyMember": "Confirmo minha participação e já recebo e-mails de vocês",
+      "confirmOptout": "Confirmo minha participação, mas não me mantenham atualizado no futuro",
+      "confirmAction": "Sim, sou uma pessoa real!",
+      "confirmOptin": "Confirmo minha participação e quero receber notícias de vocês"
+    },
+    "actionConfirm": {
+      "intro": "Sua confirmação é importante para que possamos processar sua participação. Essa é a única maneira de tornar crível que realmente há uma pessoa por trás de cada participação, o que é importante para o impacto dessa campanha e para evitar envios falsos/spam.",
+      "subject": "Mais uma etapa: confirme seu endereço de e-mail"
+    }
+  },
+  "poweredBy": "POTENCIADO POR"
 }

@@ -67,7 +67,7 @@ const FABAction = (props, ref) => {
 
   if (intersection.isIntersecting) return null;
 
-  const createDom = (id) => {
+  const createDom = id => {
     let el = document.getElementById(id);
     if (!el) {
       el = document.createElement("div");

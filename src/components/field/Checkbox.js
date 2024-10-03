@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   control: {
     marginTop: "0!important",
     marginBottom: "0!important",
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProcaCheckbox = (props) => {
+const ProcaCheckbox = props => {
   const { control } = props.form;
   const classes = useStyles();
 
@@ -47,13 +47,17 @@ const ProcaCheckbox = (props) => {
               name={props.name}
               control={control}
               render={({ field }) => (
-                <Checkbox {...field} color="primary" checked={!!field.value} disabled={props.disabled} />
-
+                <Checkbox
+                  {...field}
+                  color="primary"
+                  checked={!!field.value}
+                  disabled={props.disabled}
+                />
               )}
             />
           }
           label={props.label}
-          onChange = {props.onChange}
+          onChange={props.onChange}
         />
       </FormGroup>
     </FormControl>

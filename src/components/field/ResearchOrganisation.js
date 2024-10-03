@@ -7,8 +7,8 @@ import CountryFlag from "react-emoji-flag";
 import Hidden from "@components/field/Hidden";
 
 const useStyles = makeStyles(() => ({
- root: {
-    '& .proca-MuiInputBase-root': {
+  root: {
+    "& .proca-MuiInputBase-root": {
       paddingTop: "0!important",
     },
   },
@@ -21,12 +21,12 @@ const AffiliationInput = ({ form }) => {
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
 
-  const fetchOptions = async (query) => {
+  const fetchOptions = async query => {
     if (query.length > 2) {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.ror.org/organizations?query=${encodeURIComponent(query)}`,
+          `https://api.ror.org/organizations?query=${encodeURIComponent(query)}`
         );
 
         if (!response.ok) {
@@ -35,7 +35,7 @@ const AffiliationInput = ({ form }) => {
 
         const data = await response.json();
 
-        const organizations = data.items.map((item) => ({
+        const organizations = data.items.map(item => ({
           name: item.name,
           id: item.id,
           country: item.country?.country_code,
@@ -60,66 +60,76 @@ const AffiliationInput = ({ form }) => {
     setInputValue(newInputValue);
     if (reason === "input") debouncedFetchOptions(newInputValue);
     if (reason === "clear") {
-      form.setValue("ror",undefined);
-      form.setValue("organisation",undefined);
+      form.setValue("ror", undefined);
+      form.setValue("organisation", undefined);
     }
     if (reason === "reset") {
-      const institution = options.find (d => d.name === newInputValue);
+      const institution = options.find(d => d.name === newInputValue);
       if (!institution) {
-        console.error("didn't find organisation", newInputValue); 
+        console.error("didn't find organisation", newInputValue);
         return;
       }
-      form.setValue("ror",institution.id);
-      form.setValue("country",institution.country);
-      form.setValue("organisation",institution.name);
+      form.setValue("ror", institution.id);
+      form.setValue("country", institution.country);
+      form.setValue("organisation", institution.name);
     }
   };
 
-  return (<>
-<Hidden name="ror" form={form}/>
-    <Autocomplete
-      id="affiliation-input"
-      open={open}
-      loading={loading}
-      onOpen={() => {
-        setOpen(true);
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      options={options}
-      getOptionLabel={(option) => option.name}
-      inputValue={inputValue}
-      onInputChange={handleInputChange}
-      openOnFocus = {true}
-      classes={{root:classes.root}}
-      noOptionsText={inputValue.length > 2 ? "No organisation found" : "Type to search your organisation"}
-      loadingText={"Searching " + inputValue + "..."}
-      autoSelect
-      autoHighlight
-      renderOption = { option => (<><CountryFlag countryCode={option.country} /> &nbsp; {option.name}</>)}
-      renderInput={(params) => (
-        <TextField
-          name="organisation"
-          required
-          form={form}
-          {...params}
-          label="Affiliation"
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <React.Fragment>
-                {loading ? (
-                  <CircularProgress color="inherit" size={20} />
-                ) : null}
-                {params.InputProps.endAdornment}
-              </React.Fragment>
-            ),
-          }}
-        />
-      )}
-    />
-  </>);
+  return (
+    <>
+      <Hidden name="ror" form={form} />
+      <Autocomplete
+        id="affiliation-input"
+        open={open}
+        loading={loading}
+        onOpen={() => {
+          setOpen(true);
+        }}
+        onClose={() => {
+          setOpen(false);
+        }}
+        options={options}
+        getOptionLabel={option => option.name}
+        inputValue={inputValue}
+        onInputChange={handleInputChange}
+        openOnFocus={true}
+        classes={{ root: classes.root }}
+        noOptionsText={
+          inputValue.length > 2
+            ? "No organisation found"
+            : "Type to search your organisation"
+        }
+        loadingText={"Searching " + inputValue + "..."}
+        autoSelect
+        autoHighlight
+        renderOption={option => (
+          <>
+            <CountryFlag countryCode={option.country} /> &nbsp; {option.name}
+          </>
+        )}
+        renderInput={params => (
+          <TextField
+            name="organisation"
+            required
+            form={form}
+            {...params}
+            label="Affiliation"
+            InputProps={{
+              ...params.InputProps,
+              endAdornment: (
+                <React.Fragment>
+                  {loading ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : null}
+                  {params.InputProps.endAdornment}
+                </React.Fragment>
+              ),
+            }}
+          />
+        )}
+      />
+    </>
+  );
 };
 
 export default AffiliationInput;

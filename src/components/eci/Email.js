@@ -5,7 +5,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import Alert from "@material-ui/lab/Alert";
 
-const RegisterEmail = (props) => {
+const RegisterEmail = props => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
 

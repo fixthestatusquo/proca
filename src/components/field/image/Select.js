@@ -3,7 +3,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { resize } from "@lib/image";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   thumb: {
     cursor: "pointer",
     display: "inline-block",
@@ -16,15 +16,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PictureSelector = (props) => {
+const PictureSelector = props => {
   const canvasRef = useRef();
   const classes = useStyles();
   const config = useCampaignConfig();
   const base = config.component.sticker?.baseUrl
     ? `${config.component.sticker.baseUrl}/`
     : "";
-  const handleClick = (e) => {
-    const draw = (e) => {
+  const handleClick = e => {
+    const draw = e => {
       const img = e.target;
       const size = resize(img);
       const canvas = canvasRef.current;
@@ -41,7 +41,7 @@ const PictureSelector = (props) => {
 
   return (
     <>
-      {config.component.sticker?.background?.map((d) => (
+      {config.component.sticker?.background?.map(d => (
         <img
           src={base + d}
           crossOrigin="anonymous"

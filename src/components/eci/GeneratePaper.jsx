@@ -11,12 +11,12 @@ import { slugify } from "@lib/text";
 import ProcaIcon from "@images/Proca";
 import uuid from "@lib/uuid";
 
-const GeneratePaper = (props) => {
+const GeneratePaper = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [data, setData] = useData();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     data.privacy = "opt-in";
     if (data.other) {
       data.partner = slugify(data.other.toLowerCase(), "-");
@@ -34,7 +34,7 @@ const GeneratePaper = (props) => {
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
@@ -84,8 +84,8 @@ const GeneratePaper = (props) => {
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
-    inputs.forEach((input) => {
-      input.oninvalid = (e) => {
+    inputs.forEach(input => {
+      input.oninvalid = e => {
         setError(e.target.attributes.name.nodeValue, {
           type: e.type,
           message: e.target.validationMessage,
@@ -137,7 +137,7 @@ const GeneratePaper = (props) => {
           }}
         >
           <option key="" value="" />
-          {lang.map((lang) => (
+          {lang.map(lang => (
             <option key={lang} value={lang}>
               {lang}
             </option>

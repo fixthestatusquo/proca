@@ -1,4 +1,4 @@
-export const getItems = (config) => {
+export const getItems = config => {
   try {
     const e = JSON.parse(
       window.localStorage.getItem(config?.item || "proca_data")
@@ -16,7 +16,7 @@ export const getItems = (config) => {
       return r;
     }
     return e;
-  } catch  {
+  } catch {
     return {};
   }
 };

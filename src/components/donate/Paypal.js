@@ -24,7 +24,7 @@ const Paypal = ({ onError, onComplete, disabled }) => {
   return (
     <PayPalScriptProvider options={providerOptions}>
       <PayPalButton
-        disabled = {disabled}
+        disabled={disabled}
         onComplete={onComplete}
         onError={onError}
         frequency={frequency}

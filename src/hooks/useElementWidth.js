@@ -1,11 +1,11 @@
 import { useLayoutEffect, useState } from "react";
 
-const useElementSize = (selector) => {
+const useElementSize = selector => {
   //changes everytime the element changes
   const [size, _setSize] = useState({ width: 333, height: 333 }); // easier to debug than 0
 
-  const setSize = (state) => {
-    _setSize((prev) => {
+  const setSize = state => {
+    _setSize(prev => {
       if (prev.width === state.width && prev.height === state.height)
         return prev; // do not update
       return state;
@@ -13,7 +13,7 @@ const useElementSize = (selector) => {
   };
   useLayoutEffect(() => {
     const el = document.querySelector(selector);
-    const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
         if (entry.contentBoxSize && entry.contentBoxSize.length) {
           setSize(entry.contentBoxSize[0]);
@@ -52,7 +52,7 @@ function useElementWidth(selector) {
   return size;
 }
 
-function useCompactLayout (selector, _maxWidth) {
+function useCompactLayout(selector, _maxWidth) {
   const [compact, setCompact] = useState(true);
   const width = useElementWidth(selector || "#proca-register");
   const maxWidth = _maxWidth || 380;

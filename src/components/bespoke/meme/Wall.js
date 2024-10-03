@@ -88,12 +88,12 @@ const WallOfMeme = () => {
       variant="filled"
       label="Language"
       value={language}
-      onChange={(e) => setLanguage(e.target.value)}
+      onChange={e => setLanguage(e.target.value)}
     >
       <MenuItem key="?" value="?">
         Choose your language
       </MenuItem>
-      {languages.map((option) => (
+      {languages.map(option => (
         <MenuItem key={option.lang} value={option.lang}>
           {localeName[option.lang]}
         </MenuItem>
@@ -105,13 +105,11 @@ const WallOfMeme = () => {
       <ProgressCounter />
       <LanguageSelect options={languages} />
       <Masonry>
-        {memes.map((d) => (
+        {memes.map(d => (
           <>
             <img
               key={d.hash}
-              src={
-                `https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/${d.hash}.jpeg`
-              }
+              src={`https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/${d.hash}.jpeg`}
               alt={`${d.top} ${d.bottom}`}
             />
           </>

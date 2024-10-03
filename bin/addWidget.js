@@ -11,7 +11,7 @@ const { addPage, pull } = require("./widget");
   if (!argv[1]) {
     console.error("missing parameters, either:");
     console.error(
-      "addWidget {campaign.name} {locale} [ page/name/to/create ] or",
+      "addWidget {campaign.name} {locale} [ page/name/to/create ] or"
     );
     console.error("addWidget {campaign.name} {locale} {organisation_name}");
     return;

@@ -8,7 +8,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useIsWindows } from "@hooks/useDevice";
 import { Container, Grid } from "@material-ui/core";
 
-const emoji = (country) => {
+const emoji = country => {
   const offset = 127397;
   let emoji = "";
 
@@ -18,28 +18,28 @@ const emoji = (country) => {
     .toUpperCase()
     .split("")
     .forEach(
-      (char) => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset))
+      char => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset))
     );
 
   return emoji;
 };
 
-const Flag = (props) => {
+const Flag = props => {
   const country = props.country?.toUpperCase();
-  const name = props.countries.find((d) => d.iso === country);
+  const name = props.countries.find(d => d.iso === country);
   if (!name) return null;
   const d = emoji(country);
   return <span title={name.name}>{d}</span>;
 };
 
-const Country = (props) => {
+const Country = props => {
   const isWindows = useIsWindows();
   const config = useCampaignConfig();
   const [, setData] = useData();
 
   const { t } = useTranslation();
 
-  const countries = Object.keys(props.countries).map((iso) => ({
+  const countries = Object.keys(props.countries).map(iso => ({
     iso: iso.toUpperCase(),
     name: props.countries[iso],
   }));
@@ -61,9 +61,9 @@ const Country = (props) => {
   });
   useEffect(() => {
     if (location.country && !country) {
-      if (!countries.find((d) => d.iso === location.country)) {
+      if (!countries.find(d => d.iso === location.country)) {
         console.log("visitor from ", location.country, "but not in EU");
-        location.country = countries.find((d) => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
+        location.country = countries.find(d => d.iso === "ZZ") ? "ZZ" : ""; // if "other" exists, set it
       }
       if (!location.country) return;
 
@@ -93,7 +93,7 @@ const Country = (props) => {
             }}
           >
             <option key="" value="" />
-            {countries.map((option) => (
+            {countries.map(option => (
               <option key={option.iso} value={option.iso}>
                 {!isWindows &&
                   (emoji(option.iso) ? `${emoji(option.iso)} ` : "") +

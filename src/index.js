@@ -28,11 +28,11 @@ const Alert = (text, severity) => {
 
   ReactDOM.render(
     <ProcaAlert text={text} severity={severity} />,
-    document.querySelector(`#${selector}`),
+    document.querySelector(`#${selector}`)
   );
 };
 
-const initPortals = (portals) => {
+const initPortals = portals => {
   portals.forEach((d, i) => {
     if (typeof d === "string") {
       portals[i] = d.replaceAll("/", "_");
@@ -42,7 +42,7 @@ const initPortals = (portals) => {
   });
 };
 
-const Widget = (args) => {
+const Widget = args => {
   if (rendered) return;
   if (args) config = { ...config, data: args };
   config = { ...config, ...Config };
@@ -67,12 +67,12 @@ const Widget = (args) => {
     } else {
       //
       alert(
-        "proca script isn't in the body, but no object with 'proca-widget' class",
+        "proca script isn't in the body, but no object with 'proca-widget' class"
       );
       // document.body.appendChild(dom);
     }
   } else {
-    Array.from(dom.childNodes).forEach((d) => {
+    Array.from(dom.childNodes).forEach(d => {
       frag.appendChild(d);
     });
   }
@@ -89,16 +89,16 @@ const Widget = (args) => {
       )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    dom,
+    dom
   );
 };
 
-Widget.jump = (step) => {
+Widget.jump = step => {
   // if step is empty, jump to next
   ProcaWidget.action(step);
 };
 
-const go = (action) => {
+const go = action => {
   goStep(action);
   scrollTo({ delay: 300 });
 };
@@ -111,7 +111,7 @@ const set = (atom, key, value) => {
   setConfig(key, value);
 };
 
-const render = (script) => {
+const render = script => {
   try {
     if (!script) {
       script = {};
@@ -138,7 +138,7 @@ const autoRender = () => {
         });
       } else {
         document.addEventListener("DOMContentLoaded", () =>
-          render(currentScript),
+          render(currentScript)
         );
       }
     } else {

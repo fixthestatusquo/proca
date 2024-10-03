@@ -29,9 +29,9 @@ async function graphQL(operation, query, options) {
         operationName: operation || "",
         extensions: options.extensions,
       }),
-    },
+    }
   )
-    .then((res) => {
+    .then(res => {
       if (!res.ok) {
         return {
           errors: [
@@ -41,13 +41,13 @@ async function graphQL(operation, query, options) {
       }
       return res.json();
     })
-    .then((response) => {
+    .then(response => {
       if (response.errors) {
-        const toCamel = (s) =>
-          s.replace(/([_][a-z])/gi, ($1) => $1.toUpperCase().replace("_", ""));
+        const toCamel = s =>
+          s.replace(/([_][a-z])/gi, $1 => $1.toUpperCase().replace("_", ""));
 
         response.errors.fields = [];
-        response.errors.forEach((error) => {
+        response.errors.forEach(error => {
           const field = error.path && error.path.slice(-1)[0];
           if (!field) return;
           let msg = error.message.split(":");
@@ -66,7 +66,7 @@ async function graphQL(operation, query, options) {
       }
       data = response.data;
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       data = { errors: [{ code: "network", message: error }] };
       return;
@@ -100,15 +100,15 @@ async function getLatest(actionPage, actionType, options) {
   if (response.errors) return response;
   const l = response.actionPage.campaign.actions.list || [];
   const result = [];
-  l.forEach((d) => {
+  l.forEach(d => {
     const org = { id: d.actionId };
-    d.fields.forEach((f) => {
+    d.fields.forEach(f => {
       org[f.key] = f.value;
     });
     result.push(org);
   });
   return result.filter(
-    (v, i, a) => a.findIndex((t) => t.twitter === v.twitter) === i,
+    (v, i, a) => a.findIndex(t => t.twitter === v.twitter) === i
   );
 }
 
@@ -126,15 +126,13 @@ async function getCount(actionPage, options) {
 `;
   query = query.replace(/(\n)/gm, "").replace(/\s\s+/g, " ");
   if (options?.apiUrl) {
-    url =
-      `${options.apiUrl}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
+    url = `${options.apiUrl}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
   } else {
-    url =
-      `${process.env.REACT_APP_API_URL || "https://api.proca.app/api"}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
+    url = `${process.env.REACT_APP_API_URL || "https://api.proca.app/api"}?query=${encodeURIComponent(query)}&variables=${encodeURIComponent(`{"actionPage":${Number(actionPage)}}`)}`;
   }
   var data = null;
   await fetch(url)
-    .then((res) => {
+    .then(res => {
       if (!res.ok) {
         return {
           errors: [
@@ -144,15 +142,15 @@ async function getCount(actionPage, options) {
       }
       return res.json();
     })
-    .then((response) => {
+    .then(response => {
       if (response.errors) {
-        response.errors.forEach((error) => console.log(error.message));
+        response.errors.forEach(error => console.log(error.message));
         data = response;
         return;
       }
       data = response.data;
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       data = { errors: [error], code: "http_error" };
       return;
@@ -235,7 +233,7 @@ async function addDonateContact(provider, actionPage, data, test) {
   data.donation.payload = JSON.stringify(data.donation.payload);
   if (!Number.isInteger(data.donation.amount)) {
     throw Error(
-      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`,
+      `Donation amount should be an integer, expressing the amount in cents. You sent '${data.donation.amount}'.`
     );
   }
   if (data.donation.frequencyUnit) {
@@ -279,7 +277,7 @@ async function addActionContact(actionType, actionPage, data, test) {
   const expected =
     //"uuid,firstname,lastname,email,phone,country,postcode,street,locality,address,region,birthdate,privacy,tracking,donation".split(
     "uuid,firstname,lastname,email,phone,country,postcode,address,region,birthdate,privacy,tracking,donation".split(
-      ",",
+      ","
     );
   const variables = {
     actionPage: actionPage,
@@ -307,7 +305,7 @@ async function addActionContact(actionType, actionPage, data, test) {
       variables.action.mtt = {
         subject: data.subject,
         body: data.message,
-        targets: data.targets.map((d) => d.procaid),
+        targets: data.targets.map(d => d.procaid),
       };
       delete data.message;
       delete data.subject;
@@ -365,7 +363,7 @@ async function stripeCreateCustomer(actionPageId, contactDetails) {
 async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
   const customer = await stripeCreateCustomer(
     params.actionPage,
-    params.contact,
+    params.contact
   );
 
   const amount = params.amount;
@@ -384,13 +382,13 @@ async function stripeCreate(params /* pageId, amount, currency, contact,*/) {
         amount,
         currency,
       },
-      params,
+      params
     );
   }
 
   return await stripeCreatePaymentIntent(
     { actionPage, customer, amount, currency },
-    params,
+    params
   );
 }
 
@@ -444,7 +442,7 @@ async function stripeCreatePaymentIntent({
 
 async function stripeCreateSubscription(
   { actionPage, customer, amount, currency, frequency },
-  params,
+  params
 ) {
   var query = `mutation addStripeObject (
     $actionPageId: Int!,
@@ -505,7 +503,7 @@ async function stripeCreateSubscription(
   };
 }
 
-const errorMessages = (errors) => {
+const errorMessages = errors => {
   return errors.map(({ message }) => message).join(", ");
 };
 

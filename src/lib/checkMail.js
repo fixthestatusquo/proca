@@ -1,18 +1,18 @@
-const getDomain = (email) => {
+const getDomain = email => {
   const parts = email.split("@");
   if (parts.length !== 2) return false;
   return parts[1];
 };
 
 // return name of the main domain of the MX record if found, false if no mx record
-const checkMail = async (email) => {
+const checkMail = async email => {
   if (!email) return false;
 
   const domain = getDomain(email);
   if (!domain) return false;
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_CHECKMAIL_API_URL}/${domain}`,
+      `${process.env.REACT_APP_CHECKMAIL_API_URL}/${domain}`
     );
     const r = await response.json();
     return r;

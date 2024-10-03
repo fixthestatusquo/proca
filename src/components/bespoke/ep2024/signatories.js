@@ -48,12 +48,11 @@ const ListSignatories = () => {
     //    nativeValidation: true,
   });
 
-  const url =
-    `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}.json`;
+  const url = `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}.json`;
 
   const sort = config.component.signature?.sort || false;
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 
@@ -75,9 +74,13 @@ const ListSignatories = () => {
           }
 
           const positionA =
-            a.field.position !== undefined ? a.field.position : Number.POSITIVE_INFINITY;
+            a.field.position !== undefined
+              ? a.field.position
+              : Number.POSITIVE_INFINITY;
           const positionB =
-            b.field.position !== undefined ? b.field.position : Number.POSITIVE_INFINITY;
+            b.field.position !== undefined
+              ? b.field.position
+              : Number.POSITIVE_INFINITY;
           if (positionA !== positionB) {
             return positionA - positionB;
           }
@@ -113,7 +116,7 @@ const ListSignatories = () => {
   //console.log(obj);
   const country = config.component.country || form.watch("supporter_country");
   useEffect(() => {
-    const _filtered = data.filter((d) => {
+    const _filtered = data.filter(d => {
       if (country && d.area !== country) return false;
       if (electedOnly && !d.field.elected) return false;
       if (parties.size === 0) return true;
@@ -124,7 +127,7 @@ const ListSignatories = () => {
 
   const empty = filtered.length === 0;
   useEffect(() => {
-    const length = data.filter((d) => d.area === country).length;
+    const length = data.filter(d => d.area === country).length;
     if (!country) {
       form.setError("supporter_country", {
         type: "ux",
@@ -143,14 +146,14 @@ const ListSignatories = () => {
     }
   }, [empty, country]);
 
-  const filterCountry = (d) => d.area === country;
+  const filterCountry = d => d.area === country;
 
   const filterSignature = useCallback(
-    (key) => {
+    key => {
       if (typeof key === "function") {
         const d = key(data);
         if (typeof d === "object" && d.filter === "description") {
-          setParties((prevParties) => {
+          setParties(prevParties => {
             const updatedParties = new Set(prevParties);
             if (d.value) {
               updatedParties.add(d.key);
@@ -162,7 +165,7 @@ const ListSignatories = () => {
         }
       }
     },
-    [data],
+    [data]
   );
   //};
 
@@ -200,7 +203,7 @@ console.log("filtered");
               control={
                 <Switch
                   checked={electedOnly}
-                  onChange={(event) => setElected(event.target.checked)}
+                  onChange={event => setElected(event.target.checked)}
                   name="elected"
                 />
               }
@@ -212,12 +215,12 @@ console.log("filtered");
       <Party
         selecting={filterSignature}
         country={country}
-        getKey={(d) => d.field.party}
+        getKey={d => d.field.party}
         filterCountry={filterCountry}
         profiles={data}
       />
       <List dense={true} disablePadding={true} className={classes.container}>
-        {filtered.map((d) => (
+        {filtered.map(d => (
           <ListItem
             key={`supporter-${d.externalId}`}
             className={classes.item}
@@ -233,7 +236,7 @@ console.log("filtered");
                     : d.field.picture &&
                       d.field.picture?.replace(
                         "https://pbs.twimg.com/profile_images/",
-                        "https://pic.proca.app/twimg/",
+                        "https://pic.proca.app/twimg/"
                       )
                 }
               />

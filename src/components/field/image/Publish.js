@@ -1,7 +1,7 @@
 import { useSupabase } from "@lib/supabase";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import { rgbaToThumbHash } from 'thumbhash';
+import { rgbaToThumbHash } from "thumbhash";
 import { resize } from "@lib/image";
 import { binaryToBase64 } from "@lib/hash";
 
@@ -14,14 +14,19 @@ export const useUpload = (canvasRef, formData = {}) => {
   return async () => {
     const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
     const toBlob = () => {
-      return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 81));
+      return new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 81));
     };
 
     const blob = await toBlob();
     const blobA = await blob.arrayBuffer();
     if (!crypto.subtle) {
-      console.error ("needs to be on https");
-      return { hash: "http_development", width: canvas.width, height: canvas.height, error: "crypto_missing" };
+      console.error("needs to be on https");
+      return {
+        hash: "http_development",
+        width: canvas.width,
+        height: canvas.height,
+        error: "crypto_missing",
+      };
     }
     const hashBuffer = await crypto.subtle.digest("SHA-256", blobA);
     const hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
@@ -56,14 +61,14 @@ export const useUpload = (canvasRef, formData = {}) => {
     //const f = items[current].original.split("/");
     const result = { hash: hash, width: canvas.width, height: canvas.height };
     const { error } = await supabase.from("pictures").insert(d);
-    if (error) { 
-      if ( error.code === "23505") {
+    if (error) {
+      if (error.code === "23505") {
         console.warn("image already uploaded");
         result.error = error.toString();
         // return result; // continue and try to upload the picture anyway, it might have failed previously
       } else {
         //error different than duplicated
-        console.error (error);
+        console.error(error);
         result.error = error?.message || error;
         return result;
       }
@@ -73,8 +78,8 @@ export const useUpload = (canvasRef, formData = {}) => {
       //.from(config.campaign.name.replaceAll("_", "-")) seems that "_" works fine as bucket's name
       .from(config.campaign.name)
       .upload("public/" + hash + ".jpg", blob, {
-      //.from("picture")
-      //.upload(config.campaign.name + "/" + hash + ".jpg", blob, {
+        //.from("picture")
+        //.upload(config.campaign.name + "/" + hash + ".jpg", blob, {
         cacheControl: "31536000",
         upsert: false,
       });
@@ -84,37 +89,38 @@ export const useUpload = (canvasRef, formData = {}) => {
         return result;
       }
       console.log(r.error);
-      result.error = r.error?.message ||"error uploading file";
+      result.error = r.error?.message || "error uploading file";
       return result;
     }
     return result;
   };
 };
 
-export const getCanvas = (canvasRef) => {
+export const getCanvas = canvasRef => {
   if (canvasRef.current.bufferCanvas) {
     return canvasRef.current.toCanvas();
   }
   return canvasRef.current;
 };
 
-export const resizedCanvas = (canvas) => {
-  const size = resize (canvas, 100);
-  const resizedCanvas = document.createElement('canvas');
-  const ctx = resizedCanvas.getContext('2d');
+export const resizedCanvas = canvas => {
+  const size = resize(canvas, 100);
+  const resizedCanvas = document.createElement("canvas");
+  const ctx = resizedCanvas.getContext("2d");
   resizedCanvas.width = size.width;
   resizedCanvas.height = size.height;
-  ctx.drawImage(canvas, 0, 0, size.width, size.height);  
+  ctx.drawImage(canvas, 0, 0, size.width, size.height);
   return resizedCanvas;
-    
-}
+};
 
-export const getBlurhash = (canvasRef) => {
+export const getBlurhash = canvasRef => {
   const original = getCanvas(canvasRef);
-  const canvas = resizedCanvas (original);
-  const thumbhash = rgbaToThumbHash(canvas.width, canvas.height, canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
-      .data);
+  const canvas = resizedCanvas(original);
+  const thumbhash = rgbaToThumbHash(
+    canvas.width,
+    canvas.height,
+    canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height).data
+  );
   const blurhash = binaryToBase64(thumbhash);
   return blurhash;
 };
-

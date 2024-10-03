@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TextFieldProca = (props) => {
+const TextFieldProca = props => {
   const {
     formState: { errors },
     control,
@@ -37,7 +37,7 @@ const TextFieldProca = (props) => {
   const refA = useRef();
 
   if (refA.current) {
-    refA.current.oninvalid = (e) => {
+    refA.current.oninvalid = e => {
       if (e.target.validity.valueMissing && props.customValidity)
         e.target.setCustomValidity(props.customValidity);
       setError(e.target.attributes.name.nodeValue, {
@@ -66,7 +66,7 @@ const TextFieldProca = (props) => {
 
   //  const value = watch(props.name) || "";
   const validation = {
-    html5: (v) => handleValidate(v, props.name, refA.current),
+    html5: v => handleValidate(v, props.name, refA.current),
   };
   const drillProps = { ...props };
   if (props.validate) {
@@ -90,17 +90,16 @@ const TextFieldProca = (props) => {
         let handleChange = onChange;
         let handleBlur = onBlur;
         if (props.onBlur) {
-          handleBlur = (e) => onBlur(e) && props.onBlur(e);
+          handleBlur = e => onBlur(e) && props.onBlur(e);
         }
 
         if (props.onChange) {
-          handleChange = async (e) => {
+          handleChange = async e => {
             await onChange(e);
             props.onChange(e);
           };
         }
-        let classesname =
-          `${classes.textField} proca-${props.name.toLowerCase()}`;
+        let classesname = `${classes.textField} proca-${props.name.toLowerCase()}`;
         if (
           errors &&
           errors[props.name] &&

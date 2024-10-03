@@ -13,11 +13,11 @@ const DispatchUpdateImage = () => {
   const config = useCampaignConfig();
   let uuid = undefined;
 
-console.log("dispatch update image", data);
-alert ("do not use, this isn't possible to update pictures as anonymous");
+  console.log("dispatch update image", data);
+  alert("do not use, this isn't possible to update pictures as anonymous");
 
   useEffect(() => {
-    const updatePicture = async (data) => {
+    const updatePicture = async data => {
       let d = {
         uuid: getuuid(),
       };
@@ -34,9 +34,14 @@ alert ("do not use, this isn't possible to update pictures as anonymous");
             area: data.locality,
           });
         }
-      } else { // should it be an error?
+      } else {
+        // should it be an error?
       }
-      const { error } = await supabase.from("pictures").update([d]).eq('hash', data.hash).select();
+      const { error } = await supabase
+        .from("pictures")
+        .update([d])
+        .eq("hash", data.hash)
+        .select();
       if (error) {
         console.error(error);
         return;

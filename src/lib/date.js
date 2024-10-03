@@ -1,4 +1,4 @@
-const formatDate = (d) => {
+const formatDate = d => {
   if (!d) return false;
   if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(d)) return d; // we accept YYYY-MM-DD
   if (d.length > 0) {
@@ -12,9 +12,9 @@ const formatDate = (d) => {
   }
 };
 
-const parse = (date) => Date.parse(formatDate(date));
+const parse = date => Date.parse(formatDate(date));
 
-const isDate = (date) => {
+const isDate = date => {
   return !isNaN(parse(date));
   //  return /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.test(date);
 };

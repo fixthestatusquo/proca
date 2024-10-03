@@ -23,7 +23,6 @@ export default function Register(props) {
   useEffect(() => {
     if (id < 2) return null;
     setValue("documentType", Object.keys(props.ids)[0]);
-     
   }, [id, country]);
 
   const label = () => {
@@ -51,7 +50,7 @@ export default function Register(props) {
                 native: true,
               }}
             >
-              {Object.entries(props.ids).map((id) => (
+              {Object.entries(props.ids).map(id => (
                 <option key={id[0]} value={id[0]}>
                   {documentType[`${country.toLowerCase()}.${id[0]}`]}
                 </option>

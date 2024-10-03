@@ -29,9 +29,9 @@ export default function StepperEci(props) {
 
   const [value, setValue] = useState(steps[0]);
   const [crumbbread, setCrumbbread] = useState(null); // result of the last step
-  const step = (s) => steps.indexOf(s);
+  const step = s => steps.indexOf(s);
 
-  const doneEmail = (result) => {
+  const doneEmail = result => {
     setCrumbbread(result);
     const next = steps[step("register") + 1];
     setValue(next);
@@ -47,7 +47,7 @@ export default function StepperEci(props) {
     scrollTo();
   };
 
-  const doneEci = (result) => {
+  const doneEci = result => {
     if (result !== false) {
       setSubmitted(true);
     }
@@ -65,15 +65,15 @@ export default function StepperEci(props) {
     );
     scrollTo();
   };
-  const handleStep = (s) => () => {
+  const handleStep = s => () => {
     setValue(s);
   };
 
-  const iconColor = (s) => {
+  const iconColor = s => {
     return value === s ? "primary" : "disabled";
   };
 
-  const StepsComponent = (step) => {
+  const StepsComponent = step => {
     switch (step) {
       case "eci":
         return <Support key={step} done={doneEci} {...crumbbread} />;
@@ -94,7 +94,7 @@ export default function StepperEci(props) {
     }
   };
 
-  const Steps = (step) => {
+  const Steps = step => {
     switch (step) {
       case "eci":
         return (
@@ -147,7 +147,7 @@ export default function StepperEci(props) {
         alternativeLabel={useIsMobile()}
         activeStep={step(value)}
       >
-        {steps.map((s) => Steps(s))}
+        {steps.map(s => Steps(s))}
       </Stepper>
       <Box p={1}>
         <SwipeableViews index={step(value)} slideStyle={{ overflow: "none" }}>

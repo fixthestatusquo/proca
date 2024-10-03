@@ -8,7 +8,7 @@ import dispatch from "@lib/event.js";
 let effectRan = false;
 
 const CountState = atom({ key: "actionCount", default: null });
-const useInitFromUrl = (actionUrl) => {
+const useInitFromUrl = actionUrl => {
   const [count, setCount] = useRecoilState(CountState);
   const [id, setId] = useState(null);
 

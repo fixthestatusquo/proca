@@ -44,9 +44,9 @@ const addAllCountries = () => {
   return d;
 };*/
 
-const addCountries = (list) => {
+const addCountries = list => {
   let d = [];
-  list.map((country) => {
+  list.map(country => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
     return null;
@@ -54,8 +54,7 @@ const addCountries = (list) => {
   return d;
 };
 
-
-const Country = (props) => {
+const Country = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
@@ -65,7 +64,7 @@ const Country = (props) => {
   const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {
-      countries = Object.keys(props.countries).map((iso) => ({
+      countries = Object.keys(props.countries).map(iso => ({
         iso: iso.toUpperCase(),
         name: props.countries[iso] || allCountries[iso],
       }));
@@ -95,8 +94,12 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (!defaultCountry && typeof config.component.country === 'string' || typeof config.component.register?.field?.country ===  'string') {
-    defaultCountry = config.component.country || config.component.register?.field?.country;
+  if (
+    (!defaultCountry && typeof config.component.country === "string") ||
+    typeof config.component.register?.field?.country === "string"
+  ) {
+    defaultCountry =
+      config.component.country || config.component.register?.field?.country;
     if (typeof defaultCountry === "string")
       defaultCountry = defaultCountry.toUpperCase();
   }
@@ -108,7 +111,7 @@ const Country = (props) => {
     country: defaultCountry,
   });
 
-  const switchCountry = (e) => {
+  const switchCountry = e => {
     setData("country", e.target.value);
   };
 
@@ -118,7 +121,7 @@ const Country = (props) => {
     const country = getValues("country") || "";
     if (location.country === country && countriesLength !== 0) return;
     if (location.country && (!country || typeof country !== "string")) {
-      if (!countries.find((d) => d.iso === location.country)) {
+      if (!countries.find(d => d.iso === location.country)) {
         console.log("visitor from ", location?.country, "but not on our list");
         countries.unshift({
           iso: location.country,
@@ -159,7 +162,7 @@ const Country = (props) => {
       >
         <option key="" value="" />
 
-        {_countries.map((option) => (
+        {_countries.map(option => (
           <option key={option.iso} value={option.iso}>
             {flag(option.iso)} {option.name}
           </option>

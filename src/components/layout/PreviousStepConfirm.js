@@ -5,11 +5,11 @@ import MailIcon from "@material-ui/icons/MailOutline";
 import { AlertTitle } from "@material-ui/lab";
 import Alert from "@components/Alert";
 
-const PreviousStepConfirm = (props) => {
+const PreviousStepConfirm = props => {
   const { t, i18n } = useTranslation();
   const [data] = useData();
 
-  const ConfirmTitle = (props) =>
+  const ConfirmTitle = props =>
     i18n.exists("consent.emailSent") && (
       <AlertTitle>{t("consent.emailSent", { email: props.email })}</AlertTitle>
     );

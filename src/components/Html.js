@@ -12,7 +12,7 @@ function Component(props) {
 
   useLayoutEffect(() => {
     const dom = props.dom || ".proca-html";
-    const replacer = (v) => {
+    const replacer = v => {
       // replace tokens {fieldname} by config.data[fieldname] (if it exists)
       const k = v.slice(1, -1);
       return data[k] || v;

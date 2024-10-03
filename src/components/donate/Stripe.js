@@ -19,7 +19,7 @@ import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
-import {useCompactLayout} from "@hooks/useElementWidth";
+import { useCompactLayout } from "@hooks/useElementWidth";
 
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
@@ -62,13 +62,13 @@ const stripeCompleteAtom = atom({
 
 // const onError = (errors, e) => console.log(errors, e);
 
-const CustomCardElement = (props) => {
+const CustomCardElement = props => {
   const setComplete = useSetRecoilState(stripeCompleteAtom);
   return (
     <CardElement
       {...props}
       options={{ hidePostalCode: true }}
-      onChange={(e) => setComplete(e.complete)}
+      onChange={e => setComplete(e.complete)}
     />
   );
 };
@@ -99,7 +99,7 @@ const StripeCard = () => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaymentForm = (props) => {
+const PaymentForm = props => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
@@ -123,7 +123,7 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe.",
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
   const stripeError = useRecoilValue(stripeErrorAtom);
@@ -134,7 +134,7 @@ const PaymentForm = (props) => {
     formState: { errors },
   } = form;
 
-  const compact = useCompactLayout("#proca-donate",400);
+  const compact = useCompactLayout("#proca-donate", 400);
 
   const useTitle = config.component.donation.useTitle;
 
@@ -167,7 +167,7 @@ const PaymentForm = (props) => {
             required
           />
         </Grid>
-{/* 
+        {/* 
         <Grid item xs={12} display>
           <Controller
             control={control}
@@ -200,7 +200,7 @@ const PaymentForm = (props) => {
           />
         </Grid>
 */}
-<EmailField form={form} required />
+        <EmailField form={form} required />
         <Grid item xs={12} sm={compact ? 12 : 4}>
           <Controller
             control={control}
@@ -245,7 +245,7 @@ const PaymentForm = (props) => {
   );
 };
 
-const SubmitButton = (props) => {
+const SubmitButton = props => {
   const [isSubmitting, setSubmitting] = useState(false);
   const setStripeError = useSetRecoilState(stripeErrorAtom);
   const stripeComplete = useRecoilValue(stripeCompleteAtom);
@@ -294,7 +294,7 @@ const SubmitButton = (props) => {
       "stripe",
       config.actionPage,
       procaRequest,
-      config.test,
+      config.test
     );
 
     if (procaResponse.errors) {
@@ -315,13 +315,13 @@ const SubmitButton = (props) => {
         frequency: formData.frequency || "oneoff",
         country: formData.country,
       },
-      procaRequest,
+      procaRequest
     );
 
     props.done(paymentConfirm);
   };
 
-  const onSubmitButtonClick = async (event) => {
+  const onSubmitButtonClick = async event => {
     event.preventDefault();
 
     const btn = event.target;
@@ -391,7 +391,7 @@ const SubmitButton = (props) => {
           },
         },
         // expand: {},
-      },
+      }
     );
 
     if (stripeResponse.error) {
@@ -443,13 +443,13 @@ const SubmitButton = (props) => {
   );
 };
 
-const submitButtonStyles = makeStyles((theme) => ({
+const submitButtonStyles = makeStyles(theme => ({
   submitButton: {
     marginTop: theme.spacing(2),
   },
 }));
 
-const PayWithStripe = (props) => {
+const PayWithStripe = props => {
   // const stripe = useStripe();
   const form = props.form;
   const classes = submitButtonStyles();
@@ -470,7 +470,7 @@ const PayWithStripe = (props) => {
   );
 };
 
-const PaymentFormWrapper = (props) => {
+const PaymentFormWrapper = props => {
   const config = useCampaignConfig();
 
   const [data] = useData();
@@ -481,7 +481,7 @@ const PaymentFormWrapper = (props) => {
     if (config.component.donation?.stripe?.testKey) {
       publishableKey = config.component.donation.stripe.testKey;
     } else {
-      console.warn ("missing config.component.donation.stripe.testKey");
+      console.warn("missing config.component.donation.stripe.testKey");
     }
   }
 

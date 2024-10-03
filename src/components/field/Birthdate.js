@@ -4,12 +4,12 @@ import { isDate, parse } from "@lib/date";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 
-const Birthdate = (props) => {
+const Birthdate = props => {
   const { t } = useTranslation();
 
   const form = props.form;
 
-  const validateDate = (date) => {
+  const validateDate = date => {
     console.log("validate date", date);
     if (date === "" && !props.required) return true;
 

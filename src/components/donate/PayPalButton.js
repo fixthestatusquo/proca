@@ -205,7 +205,7 @@ const LoadingSpinner = () => {
   );
 };
 
-const useFrequencyChange = (frequency) => {
+const useFrequencyChange = frequency => {
   const [{ options }, dispatch] = usePayPalScriptReducer();
 
   let changed = false;
@@ -234,7 +234,7 @@ const useFrequencyChange = (frequency) => {
   return frequency;
 };
 
-const ProcaPayPalButton = (props) => {
+const ProcaPayPalButton = props => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const [formData, setFormData] = useData();

@@ -1,7 +1,8 @@
 import * as React from "react";
 
 const SvgComponent = ({ size }) => (
-  <svg viewBox="0 0 600 450" width={size} height={size}><title>Gmail</title>
+  <svg viewBox="0 0 600 450" width={size} height={size}>
+    <title>Gmail</title>
     <path
       d="M140.3 364.7h58.9v-143l-84.1-63.1v180.8c0 14 11.3 25.3 25.2 25.3z"
       fill="#517bbd"

@@ -4,12 +4,12 @@ import { portals } from "../actionPage";
 
 import Grid from "@material-ui/core/Grid";
 
-const removeEmpty = (dom) => {
+const removeEmpty = dom => {
   if (!dom) return;
   const nodeIterator = document.createNodeIterator(
     dom,
     NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT,
-    (node) => {
+    node => {
       if (node.nodeType === Node.COMMENT_NODE) return NodeFilter.FILTER_ACCEPT;
       const d = node.data.trim();
       if (d.length === 0) return NodeFilter.FILTER_ACCEPT;
@@ -21,12 +21,12 @@ const removeEmpty = (dom) => {
   }
 };
 
-const TwoColumns = (props) => {
+const TwoColumns = props => {
   const config = useCampaignConfig();
   const id = "proca-wrapper";
   const dom = props.dom;
   let width = Number.parseInt(props.width, 10) || 5;
-  const leftContent = config.portal?.filter((d) => d.column === "left");
+  const leftContent = config.portal?.filter(d => d.column === "left");
 
   if (!(width <= 12 && width >= 1)) {
     console.log(

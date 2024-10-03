@@ -16,7 +16,7 @@ const EmailField = ({ form, required }) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
-  const validateEmail = async (email) => {
+  const validateEmail = async email => {
     if (!email) return true; // don't validate the email domain if no email
     if (config.component?.register?.validateEmail === false) return true;
     //    if (emailProvider.current) return true; // might cause some missing validation on edge cases

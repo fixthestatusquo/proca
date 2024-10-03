@@ -38,13 +38,13 @@ export default function Register(props) {
 
     async function fetchAPI() {
       await fetch(api)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) {
             throw Error(res.statusText);
           }
           return res.json();
         })
-        .then((res) => {
+        .then(res => {
           if (res && res.name) {
             setValue("city", res.name);
           }
@@ -58,7 +58,6 @@ export default function Register(props) {
         });
     }
     fetchAPI();
-     
   }, [postcode, country, setValue]);
 
   return (
@@ -71,9 +70,7 @@ export default function Register(props) {
           <TextField
             form={form}
             name="address"
-            label={
-              `${t("eci:form.property.street_number")} & ${t("eci:form.property.street")}`
-            }
+            label={`${t("eci:form.property.street_number")} & ${t("eci:form.property.street")}`}
             required
             customValidity={props.customValidity}
           />

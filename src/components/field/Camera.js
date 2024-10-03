@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Button, IconButton, Box, LinearProgress, FormHelperText } from "@material-ui/core";
+import {
+  Button,
+  IconButton,
+  Box,
+  LinearProgress,
+  FormHelperText,
+} from "@material-ui/core";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import CameraFrontIcon from "@material-ui/icons/CameraFront";
@@ -8,7 +14,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import { useUpload, getBlurhash } from "@components/field/image/Publish";
 
-const CameraField = (props) => {
+const CameraField = props => {
   const [camera, switchCamera] = useState(false);
   const [isValidating, validating] = useState(false);
   const [cameras, setCameras] = useState([]);
@@ -22,13 +28,15 @@ const CameraField = (props) => {
   const { t } = useTranslation();
   const upload = useUpload(canvasRef, max_size);
 
-  const { 
+  const {
     formState: { errors },
- getValues, register, setError, setValue } = props.form
-    ? props.form
-    : {formState:{errors:{}}};
+    getValues,
+    register,
+    setError,
+    setValue,
+  } = props.form ? props.form : { formState: { errors: {} } };
 
-  const setcDim = (dim) => {
+  const setcDim = dim => {
     let { width, height } = dim;
     if (width > height) {
       if (width > max_size) {
@@ -44,7 +52,7 @@ const CameraField = (props) => {
     _setcDim({ width: dim.width, height: dim.height });
   };
   const startCamera = useCallback(
-    async (facingMode) => {
+    async facingMode => {
       let video = videoRef.current;
       video.setAttribute("autoplay", "");
       video.setAttribute("muted", "");
@@ -56,7 +64,7 @@ const CameraField = (props) => {
           width: 640,
           height: 360,
           facingMode: facingMode || "user", // prefer the rear camera
-//          facingMode: facingMode || "environment", // prefer the rear camera
+          //          facingMode: facingMode || "environment", // prefer the rear camera
         },
       };
       try {
@@ -64,15 +72,16 @@ const CameraField = (props) => {
       } catch (err) {
         setError("image", {
           type: "js",
-          message: "camera error, check your permissions\n [" + err.toString() +"[]",
+          message:
+            "camera error, check your permissions\n [" + err.toString() + "[]",
         });
         console.log("can't get camera", err);
         return;
       }
       const devices = await navigator.mediaDevices.enumerateDevices();
       const videoDevices = devices
-        .filter((device) => device.kind === "videoinput")
-        .map((d) => ({ id: d.deviceId, name: d.label }));
+        .filter(device => device.kind === "videoinput")
+        .map(d => ({ id: d.deviceId, name: d.label }));
       setCameras(videoDevices);
       video.srcObject = stream;
       video.onloadedmetadata = () => {
@@ -176,16 +185,17 @@ const CameraField = (props) => {
           <input type="hidden" {...register("imageId")} />
         </>
       )}
-      {!camera && (<>
-        <Button
-          fullWidth
-          startIcon={<VideocamIcon />}
-          variant="contained"
-          color="primary"
-          onClick={() => startCamera("environment")}
-        >
-          {t("camera.start", "start the camera")}
-        </Button>
+      {!camera && (
+        <>
+          <Button
+            fullWidth
+            startIcon={<VideocamIcon />}
+            variant="contained"
+            color="primary"
+            onClick={() => startCamera("environment")}
+          >
+            {t("camera.start", "start the camera")}
+          </Button>
         </>
       )}
       <Box

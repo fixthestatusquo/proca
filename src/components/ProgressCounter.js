@@ -7,7 +7,7 @@ import useCount from "@hooks/useCount";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   "@global": {},
   "@keyframes procaPrimaryGrey": {
     "0%": {
@@ -37,7 +37,7 @@ const nextStep = (value, steps) => {
     ];
   }
   let next = 1;
-  steps.some((step) => {
+  steps.some(step => {
     if (value < step) {
       next = step;
       return true;
@@ -76,7 +76,7 @@ export default function Progress(props) {
   useEffect(() => {
     const aim = normalise(count, goal);
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
+      setProgress(prevProgress =>
         prevProgress >= aim - 10 ? aim : prevProgress + 10
       );
     }, 500);

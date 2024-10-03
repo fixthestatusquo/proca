@@ -10,7 +10,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import Divider from "@material-ui/core/Divider";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   badge: {
     margin: theme.spacing(0.5),
     border: "none",
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FilterBelgium = (props) => {
+const FilterBelgium = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const classes = useStyles();
@@ -106,7 +106,7 @@ const FilterBelgium = (props) => {
     }
   });
 
-  const toggle = (name) => {
+  const toggle = name => {
     const toggle2votation = {
       eu: "europe",
       federal: "state",
@@ -116,7 +116,7 @@ const FilterBelgium = (props) => {
     };
     const vname = toggle2votation[name];
     let selected = undefined;
-    setVotations((prevVotation) => {
+    setVotations(prevVotation => {
       selected = prevVotation[vname].selected;
       if (
         selected &&
@@ -161,7 +161,7 @@ const FilterBelgium = (props) => {
             label={t("Constituency")}
             required
             form={props.form}
-            onChange={(e) => {
+            onChange={e => {
               setConstituency(e.target.value);
             }}
             SelectProps={{
@@ -194,7 +194,7 @@ const FilterBelgium = (props) => {
           size={hideConstituency ? "normal" : "small"}
           value={selected}
         >
-          {togglesA.map((name) => (
+          {togglesA.map(name => (
             <ToggleButton
               aria-label={name}
               title={name}
@@ -216,7 +216,7 @@ const FilterBelgium = (props) => {
           size={hideConstituency ? "normal" : "small"}
           value={selected}
         >
-          {togglesB.map((name) => (
+          {togglesB.map(name => (
             <ToggleButton
               title={name}
               aria-label={name}

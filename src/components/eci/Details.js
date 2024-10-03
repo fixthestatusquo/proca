@@ -61,7 +61,7 @@ export default function Details() {
         <ListItem>
           <ListItemText
             primary={t("eci:initiative.representative")}
-            secondary={eci.organisers.map((o) => {
+            secondary={eci.organisers.map(o => {
               return o.familyName
                 ? `${o.firstName} ${o.familyName}  `
                 : o.firstName;

@@ -8,7 +8,7 @@ const EciPopup = () => {
   const [popup, setPopup] = useState(false);
   const [title, setTitle] = useState(t("campaign:title"));
 
-  const openPopup = (event) => {
+  const openPopup = event => {
     if (!event.target.href) return;
     event.preventDefault();
     switch (event.target.href.split("#")[1]) {

@@ -29,7 +29,7 @@ import Dialog from "@components/Dialog";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   accordion: {
     display: "block!important",
   },
@@ -53,20 +53,24 @@ export default function Picture(props) {
     scrollTo({ delay: 300, selector: "#proca-image" });
   };
 
-
-  const uploadedCanvas = (canvas) => {
+  const uploadedCanvas = canvas => {
     setCanvas(canvas);
   };
 
   const DialogAction = () => (
-  <DialogActions>
-    <PublishPicture {...props} canvas={canvas} setImage={setImage} setDraw={setDraw} />
-  </DialogActions>
-  )
+    <DialogActions>
+      <PublishPicture
+        {...props}
+        canvas={canvas}
+        setImage={setImage}
+        setDraw={setDraw}
+      />
+    </DialogActions>
+  );
 
   return (
     <div>
-      <Hidden name="hash" form={props.form}/>
+      <Hidden name="hash" form={props.form} />
       <Hidden name="dimension" form={props.form} />
       <ImageOption image={image} setImage={setImage} setDraw={setDraw} />
       <Dialog
@@ -78,7 +82,7 @@ export default function Picture(props) {
         Action={DialogAction}
       >
         {config.component.picture?.upload !== false && (
-          <PictureAccordion uploadedCanvas={uploadedCanvas} form={props.form}/>
+          <PictureAccordion uploadedCanvas={uploadedCanvas} form={props.form} />
         )}
         {config.component.picture?.upload === false && (
           <SelectPicture setCanvas={uploadedCanvas} form={props.form} />
@@ -100,7 +104,7 @@ const PictureAccordion = ({ uploadedCanvas, form }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const handleChange = (panel) => (_event, isExpanded) => {
+  const handleChange = panel => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (
@@ -151,7 +155,7 @@ const PictureAccordion = ({ uploadedCanvas, form }) => {
   );
 };
 
-const ImageOption = (props) => {
+const ImageOption = props => {
   const config = useCampaignConfig();
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();
@@ -160,9 +164,7 @@ const ImageOption = (props) => {
 
   return (
     <Grid container spacing={1} justifyContent="space-between" id="proca-image">
-      <Grid item>
-        {t("image.wanttoadd")}
-      </Grid>
+      <Grid item>{t("image.wanttoadd")}</Grid>
       <Grid item>
         <ButtonGroup
           variant="contained"
@@ -200,16 +202,15 @@ const ImageOption = (props) => {
   );
 };
 
-
-const PublishPicture = (props) => {
+const PublishPicture = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const {setValue } = props.form;
+  const { setValue } = props.form;
   const canvasRef = useRef(props.canvas);
   const data = props.form?.getValues();
   const upload = useUpload(canvasRef, data);
 
-  const handleSave = async (close) => {
+  const handleSave = async close => {
     if (!close) close = true;
     const r = await upload();
     console.log("uploaded", r);
@@ -223,26 +224,27 @@ const PublishPicture = (props) => {
   };
 
   return (
-  <div>
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={handleSave}
-      disabled ={!props.canvas}
-      size="large"
-    >
-      {t("image.publish", "Looks good, publish!")}
-    </Button>
-    {config.test && (
+    <div>
       <Button
         variant="contained"
-        color="secondary"
-        disabled ={!props.canvas}
-        onClick={() => handleSave(false)}
+        color="primary"
+        onClick={handleSave}
+        disabled={!props.canvas}
         size="large"
       >
-        Publish (debug)
+        {t("image.publish", "Looks good, publish!")}
       </Button>
-    )}
-  </div>);
+      {config.test && (
+        <Button
+          variant="contained"
+          color="secondary"
+          disabled={!props.canvas}
+          onClick={() => handleSave(false)}
+          size="large"
+        >
+          Publish (debug)
+        </Button>
+      )}
+    </div>
+  );
 };

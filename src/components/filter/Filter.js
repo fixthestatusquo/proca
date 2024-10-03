@@ -9,7 +9,7 @@ import TextField from "@components/TextField";
 //import { imports } from "../../actionPage";
 import { imports } from "../../actionPage";
 
-const Filter = (props) => {
+const Filter = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   let r = [];
@@ -55,7 +55,7 @@ const Filter = (props) => {
           name="language"
           label={t("Language")}
           form={props.form}
-          onChange={(e) => {
+          onChange={e => {
             props.filterLocale(e.target.value);
           }}
           SelectProps={{
@@ -65,7 +65,7 @@ const Filter = (props) => {
           {!props.languages.includes(config.locale) && (
             <option key="" value="" />
           )}
-          {props.languages.map((option) => (
+          {props.languages.map(option => (
             <option key={option} value={option}>
               {names[option] || option}
             </option>
@@ -75,7 +75,7 @@ const Filter = (props) => {
     }
   }
   if (Array.isArray(config.component.email?.filter)) {
-    config.component.email.filter.forEach((d) => {
+    config.component.email.filter.forEach(d => {
       const data =
         config.component.email?.data && config.component.email?.data[d];
       if (!data) return null;
@@ -86,7 +86,7 @@ const Filter = (props) => {
           name={d}
           label={/* i18next-extract-disable-line */ t(d)}
           form={props.form}
-          onChange={(e) => {
+          onChange={e => {
             props.selecting(d, e.target.value);
           }}
           SelectProps={{
@@ -95,7 +95,7 @@ const Filter = (props) => {
         >
           <option key="" value="" />
 
-          {data.map((option) => (
+          {data.map(option => (
             <option key={option.key} value={option.key}>
               {option.value}
             </option>

@@ -60,7 +60,7 @@ import {
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   emailIcon: {
     cursor: "pointer",
     width: theme.spacing(6),
@@ -100,7 +100,7 @@ export default function ShareAction(props) {
   const metadata = getMetadata(window.document, window.location);
   const { t, i18n } = useTranslation();
 
-  const shareUrl = (component) => {
+  const shareUrl = component => {
     // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
     if (
       component.render?.displayName &&
@@ -130,11 +130,11 @@ export default function ShareAction(props) {
       config.component.share?.utm === false ||
       config.component.share?.compact
     ) {
-      ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
-        garbage.push(d),
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(d =>
+        garbage.push(d)
       );
     }
-    garbage.forEach((key) => params.delete(key));
+    garbage.forEach(key => params.delete(key));
     return url.toString();
   };
   const next = () => {
@@ -214,13 +214,13 @@ export default function ShareAction(props) {
     const twitters = [];
     data.targets &&
       data.targets.length < 2 &&
-      data.targets.forEach((d) => {
+      data.targets.forEach(d => {
         if (d.screen_name) twitters.push(`@${d.screen_name}`);
       });
 
     let cardIcons;
 
-    const nativeShare = (medium) => {
+    const nativeShare = medium => {
       addShare("share", medium);
       const url = shareUrl(medium);
       shareWebAPI(url, medium);
@@ -233,14 +233,12 @@ export default function ShareAction(props) {
           url: url,
         })
         .then(() => addShare("share_confirmed", medium))
-        .catch((error) => console.error("Error sharing", error));
+        .catch(error => console.error("Error sharing", error));
     };
 
     const EmailAction = () => {
       const hrefGmail = () => {
-        return (
-          `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(t("campaign:share.email.subject", ""))}&body=${encodeURIComponent(shareText("share.email.body"))}`
-        );
+        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(t("campaign:share.email.subject", ""))}&body=${encodeURIComponent(shareText("share.email.body"))}`;
       };
 
       const mailto = () => {
@@ -344,7 +342,7 @@ export default function ShareAction(props) {
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
-      "",
+      ""
     );
 
     let autoClosed = true;

@@ -12,7 +12,7 @@ const ShareLanding = () => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     event.preventDefault();
     setDisplayed(false);
     const firstname = document.getElementsByName("firstname");

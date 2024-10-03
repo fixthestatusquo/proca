@@ -22,8 +22,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
     ></path>
   </svg>`;
   const deleteImage = new Image();
-  deleteImage.src =
-    `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgstring)}`;
+  deleteImage.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgstring)}`;
 
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [size, setSize] = useState(undefined);
@@ -61,7 +60,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
   //    : 0;
   // resize height but not width?
 
-  const update = (activeAnchor) => {
+  const update = activeAnchor => {
     const group = activeAnchor.getParent();
     const anchorX = activeAnchor.x();
     const anchorY = activeAnchor.y();
@@ -80,7 +79,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
       x={image.x}
       y={image.y}
       onDragStart={() => setIsDragging(true)}
-      onDragEnd={(event) => {
+      onDragEnd={event => {
         setIsDragging(false);
         onDragEnd(event);
       }}
@@ -118,7 +117,7 @@ export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
         onDragMove={function () {
           update(this);
         }}
-        onDragEnd={(e) => {
+        onDragEnd={e => {
           const group = e.target.getParent();
           const img = group.findOne("Image");
           setSize({ width: img.width(), height: img.height() });

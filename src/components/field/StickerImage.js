@@ -42,7 +42,7 @@ import { useTranslation } from "react-i18next";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   imgsticker: {
     width: "66px",
     display: "inline",
@@ -79,14 +79,14 @@ export default function ImageStickerComplete(props) {
     scrollTo({ delay: 300, selector: "#proca-image" });
   };
 
-  const handleChange = (panel) => (_event, isExpanded) => {
+  const handleChange = panel => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  const handleStep = (step) => () => {
+  const handleStep = step => () => {
     setActiveStep(step);
   };
 
-  const uploadedCanvas = (canvas) => {
+  const uploadedCanvas = canvas => {
     setCanvas(canvas);
     setActiveStep(1);
   };
@@ -186,7 +186,7 @@ export default function ImageStickerComplete(props) {
   );
 }
 
-const ImageStickerKonva = (props) => {
+const ImageStickerKonva = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const { setValue } = props.form;
@@ -210,14 +210,14 @@ const ImageStickerKonva = (props) => {
   }
 
   if (config.component.sticker.baseUrl) {
-    stickersData = stickersData.map((image) =>
+    stickersData = stickersData.map(image =>
       Object.assign({}, image, {
         url: `${config.component.sticker.baseUrl}/${image.url}`,
       })
     );
   }
   const addStickerToPanel = ({ src, width, x, y }) => {
-    setImages((currentImages) => [
+    setImages(currentImages => [
       ...currentImages,
       {
         width,
@@ -230,7 +230,7 @@ const ImageStickerKonva = (props) => {
   };
 
   const resetAllButtons = useCallback(() => {
-    images.forEach((image) => {
+    images.forEach(image => {
       if (image.resetButtonRef.current) {
         image.resetButtonRef.current();
       }
@@ -238,7 +238,7 @@ const ImageStickerKonva = (props) => {
   }, [images]);
 
   const handleCanvasClick = useCallback(
-    (event) => {
+    event => {
       if (event.target.attrs.id === "backgroundImage") {
         resetAllButtons();
       }
@@ -246,10 +246,10 @@ const ImageStickerKonva = (props) => {
     [resetAllButtons]
   );
 
-  const handleSave = async (close) => {
+  const handleSave = async close => {
     if (!close) close = true;
-    canvasRef.current.find("Circle").forEach((d) => d.hide());
-    canvasRef.current.find(".delete").forEach((d) => d.hide());
+    canvasRef.current.find("Circle").forEach(d => d.hide());
+    canvasRef.current.find(".delete").forEach(d => d.hide());
     const r = await upload();
     console.log("uploaded", r);
     //    r.hash;
@@ -298,7 +298,7 @@ const ImageStickerKonva = (props) => {
                   newImages.splice(i, 1);
                   setImages(newImages);
                 }}
-                onDragEnd={(event) => {
+                onDragEnd={event => {
                   image.x = event.target.x();
                   image.y = event.target.y();
                 }}
@@ -363,7 +363,7 @@ const ImageStickerKonva = (props) => {
   );
 };
 
-const ImageOption = (props) => {
+const ImageOption = props => {
   const config = useCampaignConfig();
   const { image, setImage, setDraw } = props;
   const { t } = useTranslation();

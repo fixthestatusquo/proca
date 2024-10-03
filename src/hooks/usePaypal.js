@@ -47,7 +47,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     });
   };
 
-  const donationError = (err) => {
+  const donationError = err => {
     console.log("onError", err);
     failed({
       message:
@@ -97,7 +97,8 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
     buttons = paypal.Buttons({
       fundingSource: paypal.FUNDING.PAYPAL,
-      createSubscription: (_data, actions) => actions.subscription.create({
+      createSubscription: (_data, actions) =>
+        actions.subscription.create({
           plan_id: plan_id,
           quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
           application_context: {
@@ -221,7 +222,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
         completed(procaResponse);
       },
 
-      onError: (err) => {
+      onError: err => {
         addClick("donation_error", {
           source: "paypal",
           amount: amount,

@@ -50,18 +50,18 @@ const setBlurhash = (event, picture) => {
   //  event.target.srcset = event.target.src;
 };
 
-const replaceBlur = (event) => {
+const replaceBlur = event => {
   event.target.nextElementSibling.remove();
   event.target.style.height = "auto";
   //  event.target.srcset = event.target.src;
 };
 
-const getBackground = (picture) => {
+const getBackground = picture => {
   if (!picture.blurhash) return null;
   try {
     return thumbHashToDataURL(base64ToBinary(picture.blurhash));
   } catch (e) {
-    console.error("can't decode the blurhash",picture.blurhash,e.toString());
+    console.error("can't decode the blurhash", picture.blurhash, e.toString());
   }
 };
 
@@ -82,27 +82,26 @@ const usePlaceholder = (width, height) =>
 const makeUrl = (pic, campaignName) => {
   if (campaignName === "restorenaturepics") {
     //TODO: remove legacy
-  return (
-    process.env.REACT_APP_SUPABASE_URL +
-    "/storage/v1/object/public/picture/" +
-    campaignName +
-    "/" +
-    pic.hash +
-    ".jpg"
-  );
-  }
     return (
       process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/" +
+      "/storage/v1/object/public/picture/" +
       campaignName +
-      "/public/" +
+      "/" +
       pic.hash +
       ".jpg"
     );
-
+  }
+  return (
+    process.env.REACT_APP_SUPABASE_URL +
+    "/storage/v1/object/public/" +
+    campaignName +
+    "/public/" +
+    pic.hash +
+    ".jpg"
+  );
 };
 
-const PictureWall = (props) => {
+const PictureWall = props => {
   const classes = useStyles();
   const supabase = useSupabase();
   const [pictures, setPictures] = useState([]);
@@ -162,12 +161,12 @@ const PictureWall = (props) => {
         variant="filled"
         label="Country"
         value={country}
-        onChange={(e) => setCountry(e.target.value)}
+        onChange={e => setCountry(e.target.value)}
       >
         <MenuItem key="?" value="?">
           Choose your country
         </MenuItem>
-        {countries.map((option) => (
+        {countries.map(option => (
           <MenuItem key={option} value={option} />
         ))}
       </TextField>
@@ -194,8 +193,8 @@ const PictureWall = (props) => {
           <Grid key={d.hash} xs={12} sm={3} item onClick={() => select(i)}>
             <img
               className={classes.img}
-              onError={(e) => setBlurhash(e, d)}
-              onLoad={(e) => replaceBlur(e)}
+              onError={e => setBlurhash(e, d)}
+              onLoad={e => replaceBlur(e)}
               loading="lazy"
               src={makeUrl(d, campaign)}
               alt={d.legend}

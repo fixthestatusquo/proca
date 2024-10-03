@@ -1,4 +1,4 @@
-const scrollTo = (params) => {
+const scrollTo = params => {
   const {
     delay = 100,
     block = "center",

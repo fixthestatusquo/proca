@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SearchIcon from "@material-ui/icons/Search";
 
-const Postcode = (props) => {
+const Postcode = props => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
 
@@ -53,7 +53,7 @@ const Postcode = (props) => {
 
     async function fetchAPI() {
       await fetch(api)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) {
             setValue("locality", "");
             setValue("area", "");
@@ -69,7 +69,7 @@ const Postcode = (props) => {
           }
           return res.json();
         })
-        .then((res) => {
+        .then(res => {
           if (res && res.name) {
             setValue("locality", res.name);
             setValue("constituency", "");
@@ -83,7 +83,7 @@ const Postcode = (props) => {
             setValue("constituency", res.constituency);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           // for now, let's not flag as an error if we don't find the postcode
           console.log(err.toString());
           /* setError("postcode", {
@@ -93,7 +93,6 @@ const Postcode = (props) => {
         });
     }
     fetchAPI();
-     
   }, [postcode, country, setValue, getValues]);
 
   const handleSearch = async () => {

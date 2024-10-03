@@ -17,7 +17,7 @@ import { addAction } from "@lib/server";
 import { tokenize } from "@lib/text";
 import uuid from "@lib/uuid";
 
-const tweet = (params) => {
+const tweet = params => {
   const { message, screen_name, actionUrl, done, actionPage } = params;
   const addTweet = (event, screenName) => {
     addAction(actionPage, event, {
@@ -27,13 +27,12 @@ const tweet = (params) => {
     });
   };
 
-  const url =
-    `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      tokenize(message, {
-        profile: { screen_name: screen_name },
-        url: actionUrl,
-      })
-    )}`;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+    tokenize(message, {
+      profile: { screen_name: screen_name },
+      url: actionUrl,
+    })
+  )}`;
   const win = window.open(
     url,
     `tweet-${screen_name}`,
@@ -52,7 +51,7 @@ const tweet = (params) => {
   }, 10000);
 };
 
-const TwitterAction = (profile) => {
+const TwitterAction = profile => {
   const [disabled, disable] = useState(false);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;

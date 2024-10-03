@@ -70,7 +70,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CreateMeme = (props) => {
+const CreateMeme = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [current, setCurrent] = useState(0);
@@ -82,7 +82,7 @@ const CreateMeme = (props) => {
   const supabase = useSupabase();
 
   if (props.myref && props.name && !props.myref.current[props.name]) {
-    const fct = async (data) => {
+    const fct = async data => {
       console.log("prepareData in meme", data, items);
 
       if (!data) return null;
@@ -112,7 +112,7 @@ const CreateMeme = (props) => {
       if (!isCancelled) {
         const response = await r.json();
         shuffle(response);
-        response.forEach((d) => {
+        response.forEach(d => {
           templates.push({
             top: t(`campaign:meme.${d.top_text.replaceAll("_", "-")}`, ""),
             bottom: t(
@@ -135,7 +135,7 @@ const CreateMeme = (props) => {
     };
   }, []);
 
-  const selectOne = (i) => {
+  const selectOne = i => {
     if (!items[i]) {
       return false;
     }
@@ -144,7 +144,7 @@ const CreateMeme = (props) => {
     setCurrent(i);
   };
 
-  const addImage = (newImage) => {
+  const addImage = newImage => {
     setItems([...items, newImage]);
     setValue("topText", newImage.top);
     setValue("bottomText", newImage.bottom);
@@ -161,7 +161,6 @@ const CreateMeme = (props) => {
     } else {
       setCurrent(0);
     }
-     
   }, []); //calling only once
 
   const EmptyItem = () => null;
@@ -252,7 +251,7 @@ const CreateMeme = (props) => {
   };
   const saveMeme = async () => {
     const toBlob = () =>
-      new Promise((resolve) => {
+      new Promise(resolve => {
         canvasRef.current.toBlob(resolve, "image/jpeg", 81);
       });
 
@@ -337,7 +336,6 @@ const CreateMeme = (props) => {
       },
       false
     );
-     
   }, [item, topText, bottomText]);
 
   return (

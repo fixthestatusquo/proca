@@ -38,7 +38,7 @@ let defaultValues = {
   comment: "",
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -79,7 +79,7 @@ export default function Register(props) {
   const buttonRegister = config.buttonRegister || t("action.sign");
   useEffect(() => {
     if (!actionPage || actionPage === config.actionPage) return;
-    setCampaignConfig((config) => {
+    setCampaignConfig(config => {
       const d = JSON.parse(JSON.stringify(config));
       d.actionPage = actionPage;
       setStatus("default");
@@ -119,13 +119,13 @@ export default function Register(props) {
 
     async function fetchAPI() {
       await fetch(api)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) {
             throw Error(res.statusText);
           }
           return res.json();
         })
-        .then((res) => {
+        .then(res => {
           if (res && res.name) {
             setLocality(res.name);
             setRegion(res.code1);
@@ -151,7 +151,7 @@ export default function Register(props) {
   };
   //variant: standard, filled, outlined
   //margin: normal, dense
-  const validateEmail = async (email) => {
+  const validateEmail = async email => {
     if (config.component?.register?.validateEmail === false) return true;
     if (emailProvider.current) return true; // might cause some missing validation on edge cases
     const provider = await checkMail(email);
@@ -165,7 +165,7 @@ export default function Register(props) {
     return true;
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     data.tracking = config.utm;
     data.region = region;
     data.country = "CH";
@@ -176,7 +176,7 @@ export default function Register(props) {
       setError(
         "birthdate",
         "manual",
-        t("error.date", "format should be DD.MM.YYYY"),
+        t("error.date", "format should be DD.MM.YYYY")
       );
       return;
     }
@@ -193,7 +193,7 @@ export default function Register(props) {
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
@@ -218,7 +218,7 @@ export default function Register(props) {
     if (!config.actionpage) {
       setStatus("error");
       console.log(
-        `Attempt to create QRCode with actionPage id = ${config.actionpage}`,
+        `Attempt to create QRCode with actionPage id = ${config.actionpage}`
       );
     }
     data.postcardUrl += `&qrcode=${uuid()}:${config.actionpage}`;
@@ -230,8 +230,8 @@ export default function Register(props) {
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
-    inputs.forEach((input) => {
-      input.oninvalid = (e) => {
+    inputs.forEach(input => {
+      input.oninvalid = e => {
         setError(e.target.attributes.name.nodeValue, {
           type: e.type,
           message: e.target.validationMessage,
@@ -240,7 +240,7 @@ export default function Register(props) {
     });
   }, [register, setError]);
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     e.target.checkValidity();
     if (e.target.validity.valid) {
       clearErrors(e.target.attributes.name.nodeValue);

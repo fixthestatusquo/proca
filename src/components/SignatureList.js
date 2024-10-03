@@ -25,7 +25,7 @@ const ListSignature = () => {
     };
   }, [actionPage]);
 
-  const tweet = (screen_name) => {
+  const tweet = screen_name => {
     const url = `https://twitter.com/${screen_name}`;
     window.open(
       url,
@@ -33,14 +33,14 @@ const ListSignature = () => {
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
   };
-  const visit = (url) => {
+  const visit = url => {
     if (!url) return;
     window.open(url, "_blank");
   };
 
   return (
     <List dense={true} disablePadding={true}>
-      {list.map((k) => (
+      {list.map(k => (
         <ListItem
           alignItems="flex-start"
           divider={false}

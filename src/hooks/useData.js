@@ -22,12 +22,12 @@ const useData = () => {
   const setData = useCallback(
     (key, value) => {
       if (typeof key === "object") {
-        _set((current) => {
+        _set(current => {
           return { ...current, ...key };
         });
         return;
       }
-      _set((current) => {
+      _set(current => {
         const d = { ...current };
         d[key] = value;
         return d;

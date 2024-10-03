@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 
 import { portals } from "../actionPage";
 
-const Portalify = (props) => {
+const Portalify = props => {
   const r = [];
 
-  const Portal = (props) => {
+  const Portal = props => {
     // a portal that returns null doesn't overwrite the existing text
     const r = portals[props.component](props);
     if (r === null && props.original)
@@ -65,7 +65,7 @@ const Portalify = (props) => {
   return r;
 };
 
-const Portals = (props) => {
+const Portals = props => {
   const r = [];
   props.portals &&
     props.portals.forEach((p, i) => {

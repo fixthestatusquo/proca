@@ -11,8 +11,7 @@ import useData from "@hooks/useData";
 import uuid from "@lib/uuid.js";
 
 const url = (data, param, config) => {
-  let postcardUrl =
-    `https://bffa-pdf.herokuapp.com/?qrcode=${uuid()}:${config.actionPage}:${data.country}&country=${data.country}`;
+  let postcardUrl = `https://bffa-pdf.herokuapp.com/?qrcode=${uuid()}:${config.actionPage}:${data.country}&country=${data.country}`;
   if (data.extra_language) postcardUrl += `&lang=${data.extra_language}`;
 
   if (param && param?.pdfUrl)

@@ -19,7 +19,7 @@ const stepComponent = {
   "register.CH": "bespoke/Register-CH",
 };
 
-module.exports = (id) => {
+module.exports = id => {
   const [_filename, config] = getConfigOverride(!isNaN(id) && id);
 
   const code = createCode(config);
@@ -42,7 +42,7 @@ function createCode(config) {
   if (config.journey) {
     if (!(config.journey instanceof Array)) {
       throw new Error(
-        `config.journey should be an array!, is: ${config.journey}`,
+        `config.journey should be an array!, is: ${config.journey}`
       );
     }
 
@@ -54,10 +54,10 @@ function createCode(config) {
   if (config.portal) {
     if (!(config.portal instanceof Array)) {
       throw new Error(
-        `config.portal should be an array!, is: ${config.portal}`,
+        `config.portal should be an array!, is: ${config.portal}`
       );
     }
-    config.portal.forEach((p) => {
+    config.portal.forEach(p => {
       let c = p.component ? p.component : p;
       c = stepToFilename(c);
       portals.push(c);
@@ -66,10 +66,10 @@ function createCode(config) {
   if (config.import) {
     if (!(config.import instanceof Array)) {
       throw new Error(
-        `config.component should be an array!, is: ${config.component}`,
+        `config.component should be an array!, is: ${config.component}`
       );
     }
-    config.import.forEach((p) => {
+    config.import.forEach(p => {
       let c = p.component ? p.component : p;
       c = stepToFilename(c);
       imports.push(c);
@@ -88,7 +88,7 @@ function createCode(config) {
 
   src +=
     [...components]
-      .map((s) => {
+      .map(s => {
         const n = componentFilenameToModulename(s);
         return `import ${n} from './components/${s}'`;
       })

@@ -2,11 +2,11 @@ import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
 
-export const snarkdown = (md) => {
+export const snarkdown = md => {
   const htmls = md
     .split(/(?:\r?\n){2,}/)
-    .map((l) =>
-      [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
+    .map(l =>
+      [" ", "\t", "#", "-", "*"].some(ch => l.startsWith(ch))
         ? _snarkdown(l)
         : `<p>${_snarkdown(l)}</p>`
     );
@@ -14,13 +14,13 @@ export const snarkdown = (md) => {
   return htmls.join("\n\n");
 };
 
-export const Markdown = (props) => {
+export const Markdown = props => {
   const { t } = useTranslation();
-  const tbr = (key) => snarkdown(t(key, props));
+  const tbr = key => snarkdown(t(key, props));
   return <Trans t={tbr} i18nKey={props.text} />;
 };
 
-const TTag = (props) => {
+const TTag = props => {
   const { t, i18n } = useTranslation();
   //const tbr = (key) => t(key).replace(/\n- /g, "<li>").replace(/\n/g, "<br>");
   if (!i18n.exists(props.message)) return null;

@@ -13,7 +13,7 @@ const Phone = ({ form, classField }) => {
   const { t } = useTranslation();
   if (!config.component.register?.field?.phone) return null;
 
-  const validatePhone = async (phone) => {
+  const validatePhone = async phone => {
     const result = await checkPhone(form.getValues("country"), phone);
     if (result.is_error === false) {
       form.setValue("phone", result.number || ""); // Update the form value

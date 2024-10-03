@@ -61,22 +61,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const UploadButton = (props) => {
+const UploadButton = props => {
   const classes = useStyles();
   const config = useCampaignConfig();
 
-  const getData = async (file) => {
-    return new Promise((resolve) => {
+  const getData = async file => {
+    return new Promise(resolve => {
       const reader = new FileReader();
       reader.readAsBinaryString(file);
-      reader.onload = (event) => {
+      reader.onload = event => {
         const r = `data:${file.type};base64,${btoa(event.target.result)}`;
         resolve(r);
       };
     });
   };
 
-  const addImage = async (event) => {
+  const addImage = async event => {
     const file = event.target.files[0];
     const d = await getData(file);
     props.addImage(d);
@@ -106,7 +106,7 @@ const UploadButton = (props) => {
   );
 };
 
-const ImageSelected = (props) => {
+const ImageSelected = props => {
   const classes = useStyles();
   return (
     <Card>
@@ -121,13 +121,13 @@ const ImageSelected = (props) => {
   );
 };
 
-const ImageSelector = (props) => {
+const ImageSelector = props => {
   const classes = useStyles();
   const [items, setItems] = useState(props.items);
   const [selected, _select] = useState(0);
   const [width, setWidth] = useState(350);
 
-  const select = (i) => {
+  const select = i => {
     _select(i);
     if (props.onClick) props.onClick(i);
   };
@@ -145,7 +145,7 @@ const ImageSelector = (props) => {
   }, [props.items]);
   const Selected = props.Selected || ImageSelected;
 
-  const addImage = (data) => {
+  const addImage = data => {
     const newImage = { original: data, top: "", bottom: "" };
     //select (items.length);
     if (props.addImage) props.addImage(newImage);

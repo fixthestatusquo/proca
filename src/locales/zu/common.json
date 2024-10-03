@@ -69,8 +69,8 @@
     }
   },
   "postcode": {
-     "wrongLength":  "ubude obulindelekile be-{{length}} bezwe lakho",
-     "notFound": "le khodi yeposi ibonakala ingekho ezweni lakho"
+    "wrongLength": "ubude obulindelekile be-{{length}} bezwe lakho",
+    "notFound": "le khodi yeposi ibonakala ingekho ezweni lakho"
   },
   "date": {
     "error": "usuku olungavumelekile. ifomethi: DD.MM.YYYY"

@@ -20,7 +20,7 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
         className={classes.number}
         error={!!otherAmountError}
         helperText={otherAmountError}
-        onChange={(e) => {
+        onChange={e => {
           const a = Number.parseFloat(e.target.value);
           if (a && a >= 1.0) {
             setData("amount", a);

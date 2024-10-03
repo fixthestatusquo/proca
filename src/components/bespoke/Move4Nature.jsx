@@ -3,7 +3,7 @@ import { Box, Fab, Grid, InputAdornment } from "@material-ui/core";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 
-const Icons = (props) => {
+const Icons = props => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
   const current = watch("activity");
@@ -46,7 +46,7 @@ const Icons = (props) => {
     </svg>,
   ];
 
-  const setActivity = (activity) => {
+  const setActivity = activity => {
     setValue("activity", activity);
   };
   const r = icons.map((d, i) => (
@@ -77,7 +77,7 @@ const Icons = (props) => {
   return r;
 };
 
-const Move4Nature = (props) => {
+const Move4Nature = props => {
   const { t } = useTranslation();
   const { classes, form } = props;
   const activities = "walk,run,cycle,swim,roll,other".split(",");

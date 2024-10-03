@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
 function Transition(props) {
   return <Slide {...props} direction="up" />;
 }
-const ProcaAlert = (props) => {
+const ProcaAlert = props => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 

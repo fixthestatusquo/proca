@@ -18,10 +18,10 @@ const filter = (query, allowlist = null, prefix = "") => {
   const r = {};
   Object.keys(query)
     .filter(
-      (key) =>
-        key.startsWith(prefix) && allowlist.includes(key.substr(prefix.length)),
+      key =>
+        key.startsWith(prefix) && allowlist.includes(key.substr(prefix.length))
     )
-    .forEach((k) => (r[k.substr(prefix.length)] = query[k]));
+    .forEach(k => (r[k.substr(prefix.length)] = query[k]));
   return r;
 };
 
@@ -30,12 +30,12 @@ const parse = (allowlist, prefix) => {
   return filter(Object.fromEntries(query), allowlist, prefix) || {};
 };
 
-const step = (prefix) => {
+const step = prefix => {
   const s = parse(["go"], prefix || "proca_");
   return s.go || null;
 };
 
-const data = (prefix) => {
+const data = prefix => {
   prefix = prefix || "proca_";
   const allowlist = [
     "amount",
@@ -62,12 +62,12 @@ const isTest = () => {
   return "test" in r;
 };
 
-export const get = (name) => {
+export const get = name => {
   const r = parse([name], "proca_");
   return r[name];
 };
 
-const config = (prefix) => {
+const config = prefix => {
   prefix = prefix || "proca_";
   const allowlist = ["comment"];
   return parse(allowlist, prefix);
@@ -141,7 +141,7 @@ const utm = (record = true) => {
     utm,
     shortcut,
     parse(allowlist, "utm_"),
-    parse(allowlist, "mtm_"),
+    parse(allowlist, "mtm_")
   );
   //mtm_xx is the matomo convention
   if (!utm.source && utm.campaign) {

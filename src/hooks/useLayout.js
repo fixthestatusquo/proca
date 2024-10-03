@@ -4,7 +4,7 @@ import { atom, useSetRecoilState, useRecoilValue } from "recoil";
 
 let state = null;
 
-const init = (data) => {
+const init = data => {
   if (state) return false;
   const d = {
     variant: "filled", // options filled, outlined, standard
@@ -34,12 +34,12 @@ const useSetLayout = () => {
   //const set = useCallback((key, value) => {
   const set = (key, value) => {
     if (typeof key === "object") {
-      _set((current) => {
+      _set(current => {
         return { ...current, ...key };
       });
       return;
     }
-    _set((current) => {
+    _set(current => {
       const d = { ...current };
       d[key] = value;
       return d;

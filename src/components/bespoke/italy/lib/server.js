@@ -70,7 +70,7 @@ async function addSupport(actionType, actionPage, data, options) {
   }
   return response.addActionContact;
 }
-const errorMessages = (errors) => {
+const errorMessages = errors => {
   return errors.map(({ message }) => message).join(", ");
 };
 
