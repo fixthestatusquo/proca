@@ -78,7 +78,7 @@
     "eslint-plugin-react": "^7.37.0",
     "i18next-fs-backend": "^2.3.2",
     "lefthook": "^1.7.14",
-    "lint-staged": "^15.2.9",
+    "lint-staged": "^15.2.10",
     "minimist": "^1.2.8",
     "mjml": "^4.15.3",
     "open": "^10.1.0",
