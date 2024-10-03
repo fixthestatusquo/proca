@@ -89,7 +89,7 @@
     "websocket": "^1.0.35"
   },
   "scripts": {
-    "format": "npx biome --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
+    "format": "npx @biomejs/biome format --write src/ docs/ webpack/ bin/",
     "_format": "prettier --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
     "_eslint": "eslint . --fix --max-warnings=0 --cache",
     "lint": "npx @biomejs/biome lint",
