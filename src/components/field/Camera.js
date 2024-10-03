@@ -202,7 +202,7 @@ const CameraField = (props) => {
           autoPlay
           playsInline
           muted
-        ></video>
+        />
         {camera && !picture && (
           <Box display="flex">
             <Box flexGrow={1}>
@@ -241,7 +241,7 @@ const CameraField = (props) => {
           width={cDim.width}
           style={{ maxWidth: "100%" }}
           height={cDim.height}
-        ></canvas>
+        />
         {isValidating && <LinearProgress fullWidth />}
       </Box>
       {picture && (

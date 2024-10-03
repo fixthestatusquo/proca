@@ -168,7 +168,7 @@ const PictureWall = (props) => {
           Choose your country
         </MenuItem>
         {countries.map((option) => (
-          <MenuItem key={option} value={option}></MenuItem>
+          <MenuItem key={option} value={option} />
         ))}
       </TextField>
     );

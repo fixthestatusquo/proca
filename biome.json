@@ -68,7 +68,7 @@
         "noParameterAssign": { "level": "off" },
         "useBlockStatements": "off",
         "useSelfClosingElements": { "level": "warn", "fix": "safe" },
-        "useTemplate": { "level": "warn", "fix": "safe" }
+        "useTemplate": { "level": "off", "fix": "safe" }
       },
       "suspicious": {
         "noAsyncPromiseExecutor": "error",

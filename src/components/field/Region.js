@@ -32,7 +32,7 @@ const Region = ({ form }) => {
             native: true,
           }}
         >
-      <option key="empty" value=""></option>
+      <option key="empty" value="" />
           {regions.map(([k, v]) => {
             return (
               <option key={k} value={v}>

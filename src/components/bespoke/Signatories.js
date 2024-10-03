@@ -83,7 +83,7 @@ const Signatories = () => {
             native: true,
           }}
         >
-            <option key="empty" value={null}></option>
+            <option key="empty" value={null} />
             {parties.map((d) => {
               return (
                 <option key={d.party} value={d.party}>

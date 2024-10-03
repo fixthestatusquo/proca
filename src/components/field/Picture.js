@@ -100,7 +100,7 @@ const PictureAccordion = ({ uploadedCanvas, form }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = (panel) => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (

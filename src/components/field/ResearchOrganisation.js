@@ -56,7 +56,7 @@ const AffiliationInput = ({ form }) => {
   // Debounce the fetch function
   const debouncedFetchOptions = useCallback(debounce(fetchOptions, 300), []);
 
-  const handleInputChange = (event, newInputValue, reason) => {
+  const handleInputChange = (_event, newInputValue, reason) => {
     setInputValue(newInputValue);
     if (reason === "input") debouncedFetchOptions(newInputValue);
     if (reason === "clear") {

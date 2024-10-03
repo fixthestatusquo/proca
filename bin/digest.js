@@ -36,6 +36,7 @@ if (!argv._.length || argv.help) {
 }
 
 const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
+  campaignName && console.warn ("unused param",campaignName);
   const jsonFile = path.resolve(
     __dirname,
     tmp + "email/digest/" + templateName + "/" + lang + ".json"
@@ -54,6 +55,7 @@ const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
 };
 
 const saveTemplate = (render, templateName, campaignName, lang) => {
+  campaignName && console.warn ("unused param",campaignName);
   const fileName = path.resolve(
     __dirname,
     tmp + "email/digest/" + templateName + "/" + lang + ".html"

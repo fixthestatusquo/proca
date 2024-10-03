@@ -49,7 +49,7 @@ const Select = ({ form, name, label, options: key, sort, required }) => {
             native: true,
           }}
         >
-      <option key="empty" value=""></option>
+      <option key="empty" value="" />
           {options.map(([k, v]) => {
             return (
               <option key={k} value={v}>

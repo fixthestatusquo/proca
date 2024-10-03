@@ -157,7 +157,7 @@ const Country = (props) => {
           native: true,
         }}
       >
-        <option key="" value=""></option>
+        <option key="" value="" />
 
         {_countries.map((option) => (
           <option key={option.iso} value={option.iso}>

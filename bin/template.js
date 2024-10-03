@@ -165,6 +165,7 @@ const deepify = (keys) => {
 
 const translateTpl = (tpl, lang, markdown) =>
   new Promise((resolve, reject) => {
+    lang && console.warn ("unused param",lang);
     const util = htmlparser2.DomUtils;
     const handler = new htmlparser2.DomHandler((error, dom) => {
       if (error) {
@@ -407,7 +408,7 @@ if (require.main === module) {
     if (argv.serve) {
       const port = 8025;
       http
-        .createServer(function (req, res) {
+        .createServer(function (_req, res) {
           res.setHeader("Content-type", "text/html");
           res.end(html);
           process.exit(0);
