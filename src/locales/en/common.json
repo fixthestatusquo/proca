@@ -70,8 +70,8 @@
     }
   },
   "postcode": {
-     "wrongLength":  "expected length of {{length}} for your country",
-     "notFound": "this postcode doesn't seem to exist in your country"
+    "wrongLength": "expected length of {{length}} for your country",
+    "notFound": "this postcode doesn't seem to exist in your country"
   },
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
@@ -147,7 +147,7 @@
     "TOO_SHORT": "number too short",
     "TOO_LONG": "number too long",
     "INVALID_LENGTH": "Invalid length"
-   },
+  },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
     "salutation": "Dear sir/madam",

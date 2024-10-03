@@ -1,6 +1,6 @@
 import React, { useRef, useImperativeHandle } from "react";
 
-const StripeInput = (props) => {
+const StripeInput = props => {
   const elementRef = useRef();
   const Component = props.component;
 
@@ -17,7 +17,7 @@ const StripeInput = (props) => {
     <Component
       stripe={props.stripe}
       //supportedCountries={["FR"]}
-      onReady={(element) => (elementRef.current = element)}
+      onReady={element => (elementRef.current = element)}
       {...props}
     />
   );

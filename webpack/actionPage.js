@@ -19,10 +19,10 @@ const stepComponent = {
   "register.CH": "bespoke/Register-CH",
 };
 
-module.exports = (id) => {
-  const [filename, config] = getConfigOverride(!isNaN(id) && id);
+module.exports = id => {
+  const [_filename, config] = getConfigOverride(!isNaN(id) && id);
 
-  const code = createCode(filename, config);
+  const code = createCode(config);
 
   if (process.env["DEBUG"] && process.env["DEBUG"] === "CODE") {
     console.debug(code);
@@ -32,7 +32,7 @@ module.exports = (id) => {
   return code;
 };
 
-function createCode(filename, config) {
+function createCode(config) {
   const nl = "\n";
   let steps = [];
   let portals = [];
@@ -42,7 +42,7 @@ function createCode(filename, config) {
   if (config.journey) {
     if (!(config.journey instanceof Array)) {
       throw new Error(
-        `config.journey should be an array!, is: ${config.journey}`,
+        `config.journey should be an array!, is: ${config.journey}`
       );
     }
 
@@ -54,10 +54,10 @@ function createCode(filename, config) {
   if (config.portal) {
     if (!(config.portal instanceof Array)) {
       throw new Error(
-        `config.portal should be an array!, is: ${config.portal}`,
+        `config.portal should be an array!, is: ${config.portal}`
       );
     }
-    config.portal.forEach((p) => {
+    config.portal.forEach(p => {
       let c = p.component ? p.component : p;
       c = stepToFilename(c);
       portals.push(c);
@@ -66,10 +66,10 @@ function createCode(filename, config) {
   if (config.import) {
     if (!(config.import instanceof Array)) {
       throw new Error(
-        `config.component should be an array!, is: ${config.component}`,
+        `config.component should be an array!, is: ${config.component}`
       );
     }
-    config.import.forEach((p) => {
+    config.import.forEach(p => {
       let c = p.component ? p.component : p;
       c = stepToFilename(c);
       imports.push(c);
@@ -88,7 +88,7 @@ function createCode(filename, config) {
 
   src +=
     [...components]
-      .map((s) => {
+      .map(s => {
         const n = componentFilenameToModulename(s);
         return `import ${n} from './components/${s}'`;
       })
@@ -96,28 +96,19 @@ function createCode(filename, config) {
     nl +
     nl;
 
-  src += `export const config = ` + JSON.stringify(config) + nl;
-  src +=
-    `export const steps = {${steps
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
-  src +=
-    `export const imports = {${imports
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
-  src +=
-    `export const portals = {${portals
-      .filter(unique)
-      .map(componentFilenameToModulename)
-      .join(",")}}` +
-    nl +
-    nl;
+  src += `export const config = ${JSON.stringify(config)}${nl}`;
+  src += `export const steps = {${steps
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
+  src += `export const imports = {${imports
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
+  src += `export const portals = {${portals
+    .filter(unique)
+    .map(componentFilenameToModulename)
+    .join(",")}}${nl}${nl}`;
   //  src += `config.imports = imports; ` + nl;
   //  src += `export  { portals, steps}; ` + nl;
 

@@ -36,7 +36,7 @@ const languages = {
 };
 
 const i18nInit = i18next.use(Backend).init({
-  preload: readdirSync(join(__dirname, "../src/locales")).filter((fileName) => {
+  preload: readdirSync(join(__dirname, "../src/locales")).filter(fileName => {
     const joinedPath = join(join(__dirname, "../src/locales"), fileName);
     const isDirectory = lstatSync(joinedPath).isDirectory();
     return isDirectory;
@@ -60,10 +60,10 @@ const mainLanguage = (countryCode, single = true) => {
   return l;
 };
 
-const configOverride = (config) => {
+const configOverride = config => {
   if (config.locales) {
     let campaignTitle = false;
-    Object.keys(config.locales).forEach((k) => {
+    Object.keys(config.locales).forEach(k => {
       if (k.charAt(k.length - 1) === ":") {
         const ns = k.slice(0, -1);
         if (ns === "campaign") {

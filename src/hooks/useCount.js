@@ -8,19 +8,19 @@ import dispatch from "@lib/event.js";
 let effectRan = false;
 
 const CountState = atom({ key: "actionCount", default: null });
-const useInitFromUrl = (actionUrl) => {
+const useInitFromUrl = actionUrl => {
   const [count, setCount] = useRecoilState(CountState);
   const [id, setId] = useState(null);
 
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    (async function () {
+    (async () => {
       if (count !== null) return;
       c = await getCountByName(actionUrl);
       console.log("counter", c);
       if (c.errors) {
-        alert("404 fatal error: campaign " + actionUrl + " not found");
+        alert(`404 fatal error: campaign ${actionUrl} not found`);
         setId(0);
         setCount(404);
         return;
@@ -58,11 +58,11 @@ export default function useCounter(actionPage) {
     let isCancelled = false;
     let c = null;
     if (!actionPage || config.component.counter?.disabled) return; // disabling the fetch
-    (async function () {
+    (async () => {
       if (count !== null) return;
-      let options = {};
+      const options = {};
       if (!actionPage || isNaN(actionPage))
-        return { errors: [{ message: "invalid actionPage:" + actionPage }] };
+        return { errors: [{ message: `invalid actionPage:${actionPage}` }] };
       if (apiUrl) options.apiUrl = apiUrl;
       c = await getCount(actionPage, options);
       if (!isCancelled) setCount(c);

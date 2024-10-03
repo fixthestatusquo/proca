@@ -12,7 +12,7 @@ const ShareLanding = () => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     event.preventDefault();
     setDisplayed(false);
     const firstname = document.getElementsByName("firstname");
@@ -27,10 +27,10 @@ const ShareLanding = () => {
     let isCancelled = false;
     if (!landing) return;
 
-    (async function () {
+    (async () => {
       let text = null;
       let d = null;
-      let url = config.component.landing?.url;
+      const url = config.component.landing?.url;
       if (!url) alert("missing config.component.landing.url param");
       try {
         d = await fetch(url).catch(() => {
@@ -68,7 +68,7 @@ const ShareLanding = () => {
       name={t("campaign:landing.title")}
       maxWidth="xl"
     >
-      <div ref={body} onClick={handleClick}></div>
+      <div ref={body} onClick={handleClick} />
     </Dialog>
   );
 };

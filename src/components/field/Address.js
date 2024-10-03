@@ -8,7 +8,7 @@ import Country from "@components/field/Country";
 import Postcode from "@components/field/Postcode";
 import HiddenField from "@components/field/Hidden";
 
-const Address = (props) => {
+const Address = props => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
 

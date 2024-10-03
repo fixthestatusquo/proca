@@ -11,8 +11,8 @@ const SEPA = ({ formData }) => {
   const IBAN = formData.IBAN.replaceAll(" ", "");
   return (
     <>
-      <Grid item xs={12}></Grid>
-      <Grid item xs={1}></Grid>
+      <Grid item xs={12} />
+      <Grid item xs={1} />
       <Grid item xs={5}>
         {t("donation.payment_methods.title")}
       </Grid>
@@ -20,16 +20,14 @@ const SEPA = ({ formData }) => {
         {t("donation.payment_methods.sepa")}
       </Grid>
 
-      <Grid item xs={12}></Grid>
-      <Grid item xs={1}></Grid>
+      <Grid item xs={12} />
+      <Grid item xs={1} />
       <Grid item xs={5}>
         {t("donation.iban")}
       </Grid>
       <Grid item xs={6}>
         {formData.paymentMethod === "sepa" &&
-          IBAN.substring(0, 2) +
-            " ............ " +
-            IBAN.substring(IBAN.length - 5, IBAN.length - 2)}
+          `${IBAN.substring(0, 2)} ............ ${IBAN.substring(IBAN.length - 5, IBAN.length - 2)}`}
       </Grid>
     </>
   );
@@ -40,8 +38,8 @@ const Card = () => {
 
   return (
     <>
-      <Grid item xs={12}></Grid>
-      <Grid item xs={1}></Grid>
+      <Grid item xs={12} />
+      <Grid item xs={1} />
       <Grid item xs={5}>
         {t("donation.payment_methods.title")}
       </Grid>
@@ -57,8 +55,8 @@ const PayPal = () => {
 
   return (
     <>
-      <Grid item xs={12}></Grid>
-      <Grid item xs={1}></Grid>
+      <Grid item xs={12} />
+      <Grid item xs={1} />
       <Grid item xs={5}>
         {t("donation.payment_methods.title")}
       </Grid>
@@ -89,8 +87,8 @@ const Thanks = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12}></Grid>
-              <Grid item xs={1}></Grid>
+              <Grid item xs={12} />
+              <Grid item xs={1} />
               <Grid item xs={5}>
                 Name :
               </Grid>
@@ -98,8 +96,8 @@ const Thanks = () => {
                 {formData.firstname} {formData.lastname}
               </Grid>
 
-              <Grid item xs={12}></Grid>
-              <Grid item xs={1}></Grid>
+              <Grid item xs={12} />
+              <Grid item xs={1} />
               <Grid item xs={5}>
                 Email
               </Grid>
@@ -107,23 +105,22 @@ const Thanks = () => {
                 {formData.email}
               </Grid>
 
-              <Grid item xs={12}></Grid>
-              <Grid item xs={1}></Grid>
+              <Grid item xs={12} />
+              <Grid item xs={1} />
               <Grid item xs={5}>
                 Amount
               </Grid>
               <Grid item xs={6}>
                 {formData.frequency && formData.frequency !== "oneoff"
                   ? t(
-                      "donation.frequency.each." +
-                        formData.frequency /* i18next-extract-disable-line */,
+                      `donation.frequency.each.${formData.frequency}` /* i18next-extract-disable-line */,
                       { amount: formatMoneyAmount(formData.amount) }
                     )
                   : ""}
               </Grid>
 
-              <Grid item xs={12}></Grid>
-              <Grid item xs={1}></Grid>
+              <Grid item xs={12} />
+              <Grid item xs={1} />
               <Grid item xs={5}>
                 Date
               </Grid>

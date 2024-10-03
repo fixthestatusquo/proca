@@ -14,7 +14,7 @@ import OtherAmountInput from "./OtherAmount";
 import { useTranslation } from "react-i18next";
 import { useFormatMoney } from "@hooks/useFormatting";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   formContainers: {
     marginBottom: "1em",
   },
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AmountButton = (props) => {
+const AmountButton = props => {
   const [data, setData] = useData();
   const amount = data.amount ? parseFloat(data.amount) : undefined;
   const formatMoney = useFormatMoney();
@@ -49,7 +49,7 @@ const AmountButton = (props) => {
       aria-pressed={amount === props.amount}
       disableElevation={true}
       variant="contained"
-      onClick={(e) => handleAmount(e, props.amount)}
+      onClick={e => handleAmount(e, props.amount)}
       classes={props.classes || classes}
     >
       {formatMoney(props.amount)}
@@ -57,7 +57,7 @@ const AmountButton = (props) => {
   );
 };
 
-export const OtherButton = (props) => {
+export const OtherButton = props => {
   const selected = props.selected;
 
   return (
@@ -84,7 +84,7 @@ const Amounts = () => {
   // TODO: adjust for currencies?
   const frequency =
     data.frequency || config.component.donation?.frequency?.default || "oneoff";
-  let configuredAmounts = donateConfig?.amount || {
+  const configuredAmounts = donateConfig?.amount || {
     oneoff: [3, 5, 10, 50, 200],
   };
 
@@ -93,7 +93,7 @@ const Amounts = () => {
   ];
 
   // const amount = data.amount;
-  if (data.initialAmount && !amounts.find((s) => s === data.initialAmount)) {
+  if (data.initialAmount && !amounts.find(s => s === data.initialAmount)) {
     amounts.push(data.initialAmount);
   }
   amounts.sort((a, b) => a - b);
@@ -112,7 +112,7 @@ const Amounts = () => {
         role="group"
         aria-label="amount"
       >
-        {amounts.map((d) => (
+        {amounts.map(d => (
           <Grid xs={6} md={3} key={d} item>
             {/* Maybe we should pass AmountButton the formData handler, so that it's a simpler
                component */}
@@ -126,7 +126,7 @@ const Amounts = () => {
         <Grid xs={6} md={3} key="other" item>
           <OtherButton
             onClick={() => toggleCustomField(true)}
-            classes = {classes}
+            classes={classes}
             selected={showCustomField}
           >
             {t("Other")}

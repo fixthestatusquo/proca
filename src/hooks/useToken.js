@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 
 import { useTranslation } from "react-i18next";
 
-const extractTokens = (text) => {
+const extractTokens = text => {
   const r = /{{[a-z.]+}}/g;
-  let tokens = [];
+  const tokens = [];
   let m;
-   
+
   while ((m = r.exec(text))) {
     tokens.push(m[0].substring(2, m[0].length - 2));
   }
@@ -24,17 +24,17 @@ const extractTokens = (text) => {
 const applyToken = (text, token, data, t) => {
   // WTF, console.log("doesn't do anything")
   if (token.includes("name")) {
-    data.name = (data.firstname || "") + " " + (data.lastname || "");
-    if (data.locality) data.name += "\n" + data.locality;
+    data.name = `${data.firstname || ""} ${data.lastname || ""}`;
+    if (data.locality) data.name += `\n${data.locality}`;
   }
   if (data.targets && data.targets.length > 0) {
     data.target = {};
     if (token.includes("target.name")) {
-      data.target.name = data.targets.map((d) => d.name).join(", ");
+      data.target.name = data.targets.map(d => d.name).join(", ");
     }
     if (token.includes("target.salutation")) {
       data.target.salutation = data.targets
-        .map((d) => d.salutation || d.name)
+        .map(d => d.salutation || d.name)
         .join(", ");
     }
   }
@@ -52,7 +52,7 @@ const useToken = (text, data, handleChange) => {
     if (updated !== rendered) {
       handleChange && handleChange(updated);
       merge(updated);
-    }  
+    }
   }, [handleChange, text, data, token]);
 
   return rendered;

@@ -11,21 +11,12 @@ import useData from "@hooks/useData";
 import uuid from "@lib/uuid.js";
 
 const url = (data, param, config) => {
-  let postcardUrl =
-    "https://bffa-pdf.herokuapp.com/?" +
-    "qrcode=" +
-    uuid() +
-    ":" +
-    config.actionPage +
-    ":" +
-    data.country +
-    "&country=" +
-    data.country;
-  if (data.extra_language) postcardUrl += "&lang=" + data.extra_language;
+  let postcardUrl = `https://bffa-pdf.herokuapp.com/?qrcode=${uuid()}:${config.actionPage}:${data.country}&country=${data.country}`;
+  if (data.extra_language) postcardUrl += `&lang=${data.extra_language}`;
 
   if (param && param?.pdfUrl)
-    postcardUrl += "&pdf=" + encodeURIComponent(param.pdfUrl);
-  if (param && param?.marginTop) postcardUrl += "&top=" + param.marginTop;
+    postcardUrl += `&pdf=${encodeURIComponent(param.pdfUrl)}`;
+  if (param && param?.marginTop) postcardUrl += `&top=${param.marginTop}`;
 
   console.log(postcardUrl);
 

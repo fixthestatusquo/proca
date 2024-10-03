@@ -45,7 +45,7 @@ const saveLocale = async (campaign, lang, locale) => {
   }
   return fileName;
 };
-const extract = async (name) => {
+const extract = async name => {
   const campaign = read("campaign/" + name);
   mkdirp("locale/" + name);
   let langs = [];

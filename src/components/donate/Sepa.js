@@ -20,7 +20,7 @@ import IBAN from "iban";
 import DonateTitle from "./DonateTitle";
 import DonateButton from "./DonateButton";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -43,9 +43,9 @@ export default function Register(props) {
 
   const [status, setStatus] = useState("default");
   const [errorDetails, setErrorDetails] = useState("");
-  const compact = useCompactLayout("#proca-donate",440);
+  const compact = useCompactLayout("#proca-donate", 440);
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -72,8 +72,8 @@ export default function Register(props) {
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
-    inputs.forEach((input) => {
-      input.oninvalid = (e) => {
+    inputs.forEach(input => {
+      input.oninvalid = e => {
         setError(e.target.attributes.name.nodeValue, {
           type: e.type,
           message: e.target.validationMessage,
@@ -82,7 +82,7 @@ export default function Register(props) {
     });
   }, [setError]);
 
-  const onSubmit = async (d) => {
+  const onSubmit = async d => {
     setData(d);
 
     const procaRequest = { ...data, ...d };
@@ -106,7 +106,7 @@ export default function Register(props) {
       let handled = false;
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
@@ -149,7 +149,7 @@ export default function Register(props) {
       });
   };
 
-  const validateIBAN = (d) => {
+  const validateIBAN = d => {
     return IBAN.isValid(d) || t("donation.error.form.invalid.iban");
   };
 
@@ -163,7 +163,7 @@ export default function Register(props) {
       method="post"
       action="http://localhost"
     >
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="main">
         <Grid container spacing={1}>
           {useTitle && (

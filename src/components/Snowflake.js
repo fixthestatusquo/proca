@@ -11,12 +11,12 @@ const Snowflake = () => {
   useEffect(() => {
     const randomize = () => {
       const subjects = t("letter:subject", "");
-      const subject = sample(subjects.split("- ").filter((m) => m.length > 0));
-      let letter = [];
+      const subject = sample(subjects.split("- ").filter(m => m.length > 0));
+      const letter = [];
       let i = 1;
       while (t(`letter:part-${i}`, "%%end%%") !== "%%end%%") {
-        let message = t(`letter:part-${i}`);
-        letter.push(sample(message.split("- ").filter((m) => m.length > 0)));
+        const message = t(`letter:part-${i}`);
+        letter.push(sample(message.split("- ").filter(m => m.length > 0)));
         i += 1;
       }
       return {

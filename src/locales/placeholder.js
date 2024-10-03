@@ -3,7 +3,7 @@ import { formatNumber } from "@components/ProgressCounter";
 const goal = 1,
   count = 1,
   separator = " ";
-const t = (d) => {
+const t = d => {
   process.exit(
     "this is a placeholder file to define texts for yarn i18n, not meant to run",
     d

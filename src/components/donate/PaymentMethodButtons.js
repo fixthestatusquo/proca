@@ -44,7 +44,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
             <Button
               size="large"
               fullWidth
-              disabled = {props.disabled}
+              disabled={props.disabled}
               variant="contained"
               color="primary"
               classes={{ root: classes.button }}
@@ -59,7 +59,7 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
           <Grid item xs={12}>
             <Button
               size="large"
-              disabled = {props.disabled}
+              disabled={props.disabled}
               fullWidth
               variant="contained"
               onClick={onClickSepa}
@@ -81,8 +81,8 @@ const PaymentMethodButtons = ({ onClickStripe, onClickSepa, ...props }) => {
         {donateConfig.paypal ? (
           <Grid item xs={12}>
             <Paypal
-              disabled = {props.disabled}
-              onError={(error) => {
+              disabled={props.disabled}
+              onError={error => {
                 console.log(error);
                 setErrorFromPaypal(error);
               }}

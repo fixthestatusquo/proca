@@ -12,7 +12,7 @@ import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
 import { Alert } from "@material-ui/lab";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   amount: {
     width: "5em",
   },
@@ -46,13 +46,12 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-const DonateAmount = (props) => {
+const DonateAmount = props => {
   const classes = useStyles();
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
-
 
   const [, setDonateStep] = useDonateStep();
   const [data, setData] = useData();
@@ -94,7 +93,7 @@ const DonateAmount = (props) => {
             <>
               <PaymentMethodButtons
                 classes={classes}
-                disabled = {!amount}
+                disabled={!amount}
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
                   setDonateStep(1);

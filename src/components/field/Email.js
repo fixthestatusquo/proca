@@ -11,12 +11,12 @@ import { useTheme } from "@material-ui/core/styles";
 
 const EmailField = ({ form, required }) => {
   const theme = useTheme();
-  let emailProvider = useRef(undefined); // we don't know the email provider
+  const emailProvider = useRef(undefined); // we don't know the email provider
   const provider = form.watch("emailProvider");
   const config = useCampaignConfig();
   const { t } = useTranslation();
 
-  const validateEmail = async (email) => {
+  const validateEmail = async email => {
     if (!email) return true; // don't validate the email domain if no email
     if (config.component?.register?.validateEmail === false) return true;
     //    if (emailProvider.current) return true; // might cause some missing validation on edge cases

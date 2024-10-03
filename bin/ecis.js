@@ -3,7 +3,7 @@
 const fs = require("fs");
 const { file } = require("./config.js");
 
-const readEci = (eci) => {
+const readEci = eci => {
   try {
     return JSON.parse(fs.readFileSync(file(eci), "utf8")).initiative;
   } catch (e) {
@@ -14,7 +14,7 @@ const readEci = (eci) => {
 
 const eci = readEci("REQ.ECI(2020)000005");
 let lang = [];
-eci.languages.language.forEach((d) => {
+eci.languages.language.forEach(d => {
   lang.push(d.code);
 });
 console.log(lang.join(" "));

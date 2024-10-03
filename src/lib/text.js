@@ -1,20 +1,20 @@
-const decodeHtmlEntities = (encodedString) => {
+const decodeHtmlEntities = encodedString => {
   const tempElement = document.createElement("textarea");
   tempElement.innerHTML = encodedString;
   return tempElement.value;
 };
 
-const homoSpacify = (text) => {
+const homoSpacify = text => {
   // randomly replaces one of the space by a 'non standard' space
   //  const r =Array.from("\ufeff\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009");
   const r = Array.from("123456789");
-  let pos = [];
-  let asArray = Array.from(text);
+  const pos = [];
+  const asArray = Array.from(text);
   asArray.forEach((d, i) => {
     if (d === " ") pos.push(i);
   });
-  let d = pos[Math.floor(Math.random() * pos.length)];
-  let s = r[Math.floor(Math.random() * r.length)];
+  const d = pos[Math.floor(Math.random() * pos.length)];
+  const s = r[Math.floor(Math.random() * r.length)];
   asArray[d] = r[s];
 
   return asArray.join();
@@ -32,10 +32,10 @@ const tokenize = (message, { profile, url }) => {
   let t = message;
   if (!profile) return message;
   if (Array.isArray(profile)) {
-    const r = profile.map((d) =>
+    const r = profile.map(d =>
       d?.screen_name?.startsWith("@")
         ? d.screen_name.slice(1)
-        : d?.screen_name || "",
+        : d?.screen_name || ""
     );
     screen_name = r.join(" @");
   } else {
@@ -45,32 +45,32 @@ const tokenize = (message, { profile, url }) => {
 
   if (!screen_name) return t;
   if (t.includes("{@}") || t.includes(screen_name)) {
-    t = t.replace("{@}", "@" + screen_name);
+    t = t.replace("{@}", `@${screen_name}`);
   } else {
-    t = ".@" + screen_name + " " + t;
+    t = `.@${screen_name} ${t}`;
   }
 
   if (t.includes("{image}")) {
     t = t.replace(
       "{image}",
-      profile.reduce((acc, d) => (d.image ? acc + "\n" + d.image : acc), ""),
+      profile.reduce((acc, d) => (d.image ? `${acc}\n${d.image}` : acc), "")
     );
   }
   if (url) {
     if (t.includes("{url}")) {
       t = t.replace("{url}", url);
     } else {
-      t = t + "\n" + url;
+      t = `${t}\n${url}`;
     }
   }
   return t;
 };
 
-const toArray = (locale) => {
+const toArray = locale => {
   return locale
     .split("\n")
-    .map((d) => d.trim())
-    .filter((n) => n);
+    .map(d => d.trim())
+    .filter(n => n);
 };
 
 const toObject = (locale, separator) => {
@@ -78,7 +78,7 @@ const toObject = (locale, separator) => {
   const arr = toArray(locale);
   if (!separator) separator = "|";
 
-  arr.forEach((d) => {
+  arr.forEach(d => {
     const t = d.split(separator);
     if (t.length > 1) result[t[0].trim()] = t[1].trim();
     else {
@@ -88,13 +88,13 @@ const toObject = (locale, separator) => {
   return result;
 };
 
-const pickOne = (locale) => {
+const pickOne = locale => {
   const text = locale;
   const v = toArray(text);
 
   let t = []; // use to stack the sentence(s) to be part of the current variant
-  let variants = [];
-  v.forEach((d) => {
+  const variants = [];
+  v.forEach(d => {
     if (d.startsWith("- ")) {
       // new variant
       if (t.length) variants.push(t.join("\n"));

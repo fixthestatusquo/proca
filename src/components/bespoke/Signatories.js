@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import { useTranslation } from "react-i18next";
-import { useSupabase } from '@lib/supabase';
+import { useSupabase } from "@lib/supabase";
 
 const useStyles = makeStyles({
   container: {
@@ -33,88 +33,95 @@ const Signatories = () => {
   const classes = useStyles();
   const supabase = useSupabase();
 
-    useEffect(() => {
-      const getSignatories = async () => {
-        const q = supabase
-          .from('signatories')
-          .select('*')
-          .eq('campaign_name', config.campaign.name)
-          .select();
-        const { data, error } = await q;
+  useEffect(() => {
+    const getSignatories = async () => {
+      const q = supabase
+        .from("signatories")
+        .select("*")
+        .eq("campaign_name", config.campaign.name)
+        .select();
+      const { data, error } = await q;
 
-        if (error) {
-          console.error(error);
-          return null;
-        }
-        if (!data) return null;
-
-        setSignatories(data);
-        setSelection(data);
+      if (error) {
+        console.error(error);
+        return null;
       }
-      getSignatories();
-    }, []);
+      if (!data) return null;
 
-    useEffect(() => {
-      const getParties = async (url) => {
-        const res = await fetch(url);
-        if (!res.ok) throw res.statusText;
-        const partiesData = await res.json();
-        setParties(partiesData);
-      };
-      getParties(config.component.party.url);
-    }, []);
+      setSignatories(data);
+      setSelection(data);
+    };
+    getSignatories();
+  }, []);
+
+  useEffect(() => {
+    const getParties = async url => {
+      const res = await fetch(url);
+      if (!res.ok) throw res.statusText;
+      const partiesData = await res.json();
+      setParties(partiesData);
+    };
+    getParties(config.component.party.url);
+  }, []);
 
   return (
     <div id="proca-signature">
       <Grid container spacing={1}>
-        <Typography variant="h5">{signatories.length} have signed the pledge</Typography>
+        <Typography variant="h5">
+          {signatories.length} have signed the pledge
+        </Typography>
         <Grid item>
-       <TextField
-          select={true}
-          name="party"
-          label={t("party")}
-            onChange={(e) => {
+          <TextField
+            select={true}
+            name="party"
+            label={t("party")}
+            onChange={e => {
               e.target.value
-                ? setSelection(signatories.filter(p => p.party == e.target.value))
+                ? setSelection(
+                    signatories.filter(p => p.party == e.target.value)
+                  )
                 : setSelection(signatories);
-            }
-            }
-          SelectProps={{
-            native: true,
-          }}
-        >
-            <option key="empty" value={null}></option>
-            {parties.map((d) => {
+            }}
+            SelectProps={{
+              native: true,
+            }}
+          >
+            <option key="empty" value={null} />
+            {parties.map(d => {
               return (
                 <option key={d.party} value={d.party}>
                   {d.party}
                 </option>
               );
             })}
-        </TextField>
+          </TextField>
 
-      <List dense={true} disablePadding={true} className={classes.container}>
-        {selection.map((d) => (
-          <ListItem
-            key={`supporter-${d.id}`}
-            className={classes.item}
-            ContainerComponent="div"
+          <List
+            dense={true}
+            disablePadding={true}
+            className={classes.container}
           >
-            <ListItemAvatar>
-              <Avatar
-                alt={d.first_name + ' ' + d.last_name}
-                src={d.picture}
-              />
-            </ListItemAvatar>
-            <ListItemText
-              primary={d.first_name + " " + d.last_name}
-              secondary={d.region ? d.party + ', ' + d.region : d.party }
-            />
-          </ListItem>
-        ))}
-      </List>
+            {selection.map(d => (
+              <ListItem
+                key={`supporter-${d.id}`}
+                className={classes.item}
+                ContainerComponent="div"
+              >
+                <ListItemAvatar>
+                  <Avatar
+                    alt={d.first_name + " " + d.last_name}
+                    src={d.picture}
+                  />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={d.first_name + " " + d.last_name}
+                  secondary={d.region ? d.party + ", " + d.region : d.party}
+                />
+              </ListItem>
+            ))}
+          </List>
         </Grid>
-        </Grid>
+      </Grid>
     </div>
   );
 };

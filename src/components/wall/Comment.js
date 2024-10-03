@@ -8,9 +8,9 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import QuoteIcon from "@material-ui/icons/FormatQuote";
-import CountryFlag from "react-emoji-flag"
+import CountryFlag from "react-emoji-flag";
 
-const Wall = (props) => {
+const Wall = props => {
   const supabase = useSupabase();
   const [comments, setComments] = useState([]);
   //  const [country, setCountry] = useState(props.country);
@@ -31,7 +31,7 @@ const Wall = (props) => {
       if (country) {
         query = query.eq("area", country);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -43,11 +43,15 @@ const Wall = (props) => {
 
   return (
     <List dense component="div">
-      {comments.map((d) => (
+      {comments.map(d => (
         <Fragment key={d.id}>
           <ListItem alignItems="flex-start" component="div">
             <ListItemIcon>
-              {!props.country && d.area && d.area !== "ZZ" ? <CountryFlag countryCode={d.area} /> : <QuoteIcon color="primary" />}
+              {!props.country && d.area && d.area !== "ZZ" ? (
+                <CountryFlag countryCode={d.area} />
+              ) : (
+                <QuoteIcon color="primary" />
+              )}
             </ListItemIcon>
             <ListItemText primary={d.name} secondary={d.comment} />
           </ListItem>

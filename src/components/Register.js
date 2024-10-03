@@ -40,7 +40,7 @@ import { addActionContact, addAction } from "@lib/server.js";
 import dispatch from "@lib/event.js";
 import uuid, { isSet as isUuid } from "@lib/uuid.js";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -85,13 +85,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ConditionalDisabled = (props) => {
+const ConditionalDisabled = props => {
   if (props.disabled === true)
     return <fieldset disabled="disabled">{props.children}</fieldset>;
   return props.children;
 };
 
-const SubmitButton = (props) => {
+const SubmitButton = props => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const { formState, setValue, register } = props.form;
@@ -110,7 +110,7 @@ const SubmitButton = (props) => {
             variant="contained"
             classes={{ label: classes.withSubText }}
             fullWidth
-            onClick={(e) => handleClick(e, "opt-out")}
+            onClick={e => handleClick(e, "opt-out")}
             disabled={
               formState.isSubmitting ||
               config.component.register?.disabled === true
@@ -129,7 +129,7 @@ const SubmitButton = (props) => {
             variant="contained"
             classes={{ label: classes.withSubText }}
             fullWidth
-            onClick={(e) => handleClick(e, "opt-in")}
+            onClick={e => handleClick(e, "opt-in")}
             disabled={
               formState.isSubmitting ||
               config.component.register?.disabled === true
@@ -178,7 +178,7 @@ export default function Register(props) {
   const [data, setData] = useData();
   const [beforeSubmit, _setBeforeSubmit] = useState(null);
   const customField = React.useRef({});
-  const setBeforeSubmit = (fct) => {
+  const setBeforeSubmit = fct => {
     if (!beforeSubmit) {
       _setBeforeSubmit(() => fct); // you can't put a function or promise in useState directly, it's taken as a setter instead
     }
@@ -188,7 +188,7 @@ export default function Register(props) {
 
   if (props.emailProvider) emailProvider = props.emailProvider; // use case: if Register is called from a parent component that wants to store the email provider
 
-  const compact = useCompactLayout("#proca-register",380);
+  const compact = useCompactLayout("#proca-register", 380);
   let buttonNext = "Next";
 
   const [status, setStatus] = useState("default");
@@ -207,7 +207,7 @@ export default function Register(props) {
     setValue("comment", comment);
   }, [comment, setValue]);
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async formData => {
     config.data &&
       Object.entries(config.data).forEach(([key, value]) => {
         if (!formData[key]) formData[key] = value;
@@ -267,11 +267,11 @@ export default function Register(props) {
     if (data.uuid) {
       const expected =
         "uuid,firstname,lastname,email,phone,country,postcode,locality,address,region,birthdate,privacy,tracking,donation".split(
-          ",",
+          ","
         );
 
-      let payload = {};
-      for (let [key, value] of Object.entries(formData)) {
+      const payload = {};
+      for (const [key, value] of Object.entries(formData)) {
         if (value && !expected.includes(key)) payload[key] = value;
       }
       result = await addAction(
@@ -282,21 +282,21 @@ export default function Register(props) {
           tracking: Url.utm(config.component?.register?.tracking),
           payload: payload,
         },
-        config.test,
+        config.test
       );
     } else {
       result = await addActionContact(
         actionType,
         config.actionPage,
         formData,
-        config.test,
+        config.test
       );
     }
 
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in formData) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
@@ -318,7 +318,7 @@ export default function Register(props) {
     }
 
     dispatch(
-      (config.component?.register?.actionType || "register") + ":complete",
+      `${config.component?.register?.actionType || "register"}:complete`,
       {
         uuid: result.contactRef,
         test: !!config.test,
@@ -328,7 +328,7 @@ export default function Register(props) {
         privacy: formData.privacy,
       },
       formData,
-      config,
+      config
     );
     if (config.component.register?.remember) {
       setCookie("proca_firstname", formData.firstname);
@@ -379,7 +379,7 @@ export default function Register(props) {
   }, [setError]);
 */
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -426,7 +426,7 @@ export default function Register(props) {
   //const classField = classes.field;
   const enforceRequired = !data.uuid; // if the user took action, no fields are required
   const withSalutation = config.component?.register?.field?.salutation;
-  const nameWidth = (field) => {
+  const nameWidth = field => {
     if (compact) return 12;
     if (withSalutation && field === "firstname") return 4;
     if (withSalutation) return 5;
@@ -440,13 +440,13 @@ export default function Register(props) {
     const d = getValues();
     setData(d);
     dispatch(
-      (config.component?.register?.actionType || "register") + ":skip",
+      `${config.component?.register?.actionType || "register"}:skip`,
       {
         test: !!config.test,
         country: d.country,
       },
       d,
-      config,
+      config
     );
     props.done();
   };
@@ -460,7 +460,7 @@ export default function Register(props) {
       action="http://localhost"
     >
       <Success display={status === "success"} />
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled
           disabled={config.component.register?.disabled === true}

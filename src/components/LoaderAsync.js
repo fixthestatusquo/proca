@@ -21,7 +21,7 @@ const LoaderAsync = () => {
         let d = null;
         let json = null;
         try {
-          d = await fetch(url).catch((e) => {
+          d = await fetch(url).catch(e => {
             setData("message", e.message); // we need to guess the field, message is the most common one
           });
         } catch {
@@ -61,7 +61,7 @@ const LoaderAsync = () => {
           let url = v.url;
           if (!url) return null;
           if (v.appendLocale === true) url += lang;
-          const d = await fetch(url).catch((e) => {
+          const d = await fetch(url).catch(e => {
             setData(k, e.message);
           });
           const text = await d.text();

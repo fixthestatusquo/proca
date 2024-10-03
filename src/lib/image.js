@@ -13,12 +13,11 @@ const resize = (img, max) => {
   return { width: width, height: height };
 };
 
-const thumb = (img) => {
+const thumb = img => {
   const thumb = new Image();
-  const size = resize (img, 100);
-  thumb.width=size.width;
-  thumb.height=size.height;
-   
-}
+  const size = resize(img, 100);
+  thumb.width = size.width;
+  thumb.height = size.height;
+};
 
 export { resize, thumb };

@@ -33,7 +33,7 @@ export default function Target(props) {
   const config = useCampaignConfig();
   const [requestData] = useData();
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
   };
 
@@ -41,7 +41,7 @@ export default function Target(props) {
   //                startIcon={<AccountBalanceIcon />}
   //                <ButonPaypal />
 
-  const done = (d) => {
+  const done = d => {
     // console.log(d);
 
     if (config?.completed_redirect_url) {

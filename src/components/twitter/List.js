@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const TwitterList = (props) => {
+const TwitterList = props => {
   const { t } = useTranslation();
   const { getValues } = props.form;
   const classes = useStyles();
@@ -30,7 +30,7 @@ const TwitterList = (props) => {
   }
   return (
     <List className={classes.root}>
-      {props.profiles.map((d) => (
+      {props.profiles.map(d => (
         <TwitterAction
           clickable={props.clickable}
           form={props.form}
@@ -39,7 +39,7 @@ const TwitterList = (props) => {
           done={props.done}
           actionUrl={props.actionUrl}
           {...d}
-        ></TwitterAction>
+        />
       ))}
     </List>
   );

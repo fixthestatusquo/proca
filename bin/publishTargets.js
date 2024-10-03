@@ -3,14 +3,14 @@ require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
 
-const clean = (screenName) => screenName?.replace("@", "").toLowerCase().trim();
+const clean = screenName => screenName?.replace("@", "").toLowerCase().trim();
 
 const merge = (targets, twitters, options) => {
-  const merged = targets.map((target) => {
+  const merged = targets.map(target => {
     let r =
       twitters &&
       twitters.find(
-        (d) => clean(d.screen_name) === clean(target.fields?.screen_name),
+        d => clean(d.screen_name) === clean(target.fields?.screen_name)
       );
     if (!r) {
       // todo, some formatting
@@ -56,7 +56,7 @@ const merge = (targets, twitters, options) => {
     if (options.email && target.emails?.length) {
       r.email = target.emails[0].email;
     }
-    const disable = target.emails.find((d) => d.emailStatus === "INACTIVE");
+    const disable = target.emails.find(d => d.emailStatus === "INACTIVE");
     if (disable) {
       return undefined;
     }
@@ -79,7 +79,7 @@ const merge = (targets, twitters, options) => {
 
     if (options.fields) {
       const extraFields = options.fields.split(",");
-      extraFields.forEach((key) => {
+      extraFields.forEach(key => {
         r[key] = target.fields[key] || ""; // beware, can overwrite a default field
       });
     }
@@ -139,7 +139,7 @@ const publishTarget = async (campaignName, argv) => {
     if (argv.source) {
       const sources = read("target/source/" + name); // the list of targets from proca server
       const c = targets.filter(
-        (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId),
+        t => -1 !== sources.findIndex(d => d.externalId === t.externalId)
       );
       if (targets.length !== c.length) {
         console.log("total server vs source", targets.length, c.length);
@@ -150,7 +150,7 @@ const publishTarget = async (campaignName, argv) => {
     let twitters = null;
     try {
       twitters = read("target/twitter/" + name); // the list from twitter
-    } catch  {
+    } catch {
       console.log("no twitter list");
       twitters = [];
     }
@@ -165,7 +165,7 @@ const publishTarget = async (campaignName, argv) => {
 */
     //    const d = await pullCampaign(argv[0]);
     let removed = 0;
-    const d = merged.filter((d) => {
+    const d = merged.filter(d => {
       if (d) return true;
       removed++;
       return false;
@@ -228,7 +228,7 @@ if (require.main === module) {
         "--meps[=committeeA,committeeB] if meps, special formatting",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
         "buildTarget {campaign name}",
-      ].join("\n"),
+      ].join("\n")
     );
     process.exit(0);
   }

@@ -4,7 +4,7 @@ import { getLatest } from "@lib/server.js";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: "grid",
@@ -34,7 +34,7 @@ const ListSignature = () => {
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    (async function () {
+    (async () => {
       c = await getLatest(actionPage, "openletter", isCancelled);
       if (!isCancelled) {
         setList(c);
@@ -45,28 +45,28 @@ const ListSignature = () => {
     };
   }, [actionPage]);
 
-  const GridList = (props) => {
+  const GridList = props => {
     return <div className={classes.root}>{props.children}</div>;
   };
 
   return (
     <GridList cellHeight="73" cols="5">
       {list
-        .filter((k) => k.organisation)
+        .filter(k => k.organisation)
         .sort((a, b) => +a.followers_count < +b.followers_count)
-        .map((k) => {
+        .map(k => {
           return (
             <Avatar key={k.twitter} variant="rounded" className={classes.large}>
               <a
                 href={
                   k.url ||
-                  (k.twitter ? "https://twitter.com/" + k.twitter : "#")
+                  (k.twitter ? `https://twitter.com/${k.twitter}` : "#")
                 }
               >
                 <img
                   src={k.picture?.replace("_normal", "_bigger")}
                   alt={k.organisation}
-                  title={k.organisation + (k.comment ? "\n" + k.comment : "")}
+                  title={k.organisation + (k.comment ? `\n${k.comment}` : "")}
                 />
               </a>
             </Avatar>

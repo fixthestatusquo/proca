@@ -21,8 +21,8 @@ const SpeakoutCheck = () => {
 
       const r = document.cookie
         .split("; ")
-        .filter((d) => d.startsWith("member="))
-        .map((d) => {
+        .filter(d => d.startsWith("member="))
+        .map(d => {
           try {
             return JSON.parse(decodeURIComponent(d.substring(7)));
           } catch {
@@ -38,8 +38,8 @@ const SpeakoutCheck = () => {
       setRefresh(false);
     }
     if (document.cookie.indexOf("member=") === -1) return;
-    setCampaign((current) => {
-      let r = JSON.parse(JSON.stringify(current)); // deep copy
+    setCampaign(current => {
+      const r = JSON.parse(JSON.stringify(current)); // deep copy
       r.component.consent = Object.assign({}, current.component.consent, {
         implicit: true,
       });

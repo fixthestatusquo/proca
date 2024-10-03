@@ -22,7 +22,7 @@ const getId = require("./id");
   } catch (errors) {
     console.log(errors);
     Array.isArray(errors) &&
-      errors.map((e) => {
+      errors.map(e => {
         console.error("\x1b[31m", e.message);
       });
     // Deal with the fact the chain failed

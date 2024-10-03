@@ -24,7 +24,7 @@ import get from "lodash/get";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 //TODO should be moved to widget and change logic
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   skip: {
     marginTop: theme.spacing(1),
   },
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Intro = (props) => {
+const Intro = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   console.log(config.component.twitter);
@@ -69,11 +69,11 @@ const Intro = (props) => {
   );
 };
 
-const TweetButton = (props) => {
+const TweetButton = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const classes = useStyles();
-  const handleClick = (e) => {
+  const handleClick = e => {
     props.handleClick(e);
     //    if (!config.component.twitter?.filter?.includes("random")) {
     //      props.done(e);
@@ -107,7 +107,7 @@ const TweetButton = (props) => {
   );
 };
 
-const Component = (props) => {
+const Component = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
@@ -115,7 +115,7 @@ const Component = (props) => {
   const [allProfiles, setAllProfiles] = useState(data.targets || []);
   const [tweeting, setTweeting] = useState(false);
   const [dialog, viewDialog] = useState(false);
-  let hash = data.hash || config.component.twitter?.hash;
+  const hash = data.hash || config.component.twitter?.hash;
   const sampleSize = config.component.twitter?.sample || 1;
   const form = useForm({
     defaultValues: {
@@ -128,14 +128,7 @@ const Component = (props) => {
   let actionUrl = props.actionUrl || data?.actionUrl; // || window.location.href;
   if (hash) {
     // it has a picture
-    actionUrl =
-      (config.component.twitter?.metaproxy || "https://w.proca.app") +
-      "/" +
-      config.campaign.name +
-      "/" +
-      hash +
-      "?url=" +
-      encodeURIComponent(document.location.origin + document.location.pathname);
+    actionUrl = `${config.component.twitter?.metaproxy || "https://w.proca.app"}/${config.campaign.name}/${hash}?url=${encodeURIComponent(document.location.origin + document.location.pathname)}`;
   } else {
     if (!actionUrl && config.component.twitter?.actionUrl !== false) {
       actionUrl = window.location;
@@ -143,7 +136,7 @@ const Component = (props) => {
   }
 
   const setMessage = useCallback(
-    (profile) => {
+    profile => {
       if (config.component.twitter?.multilingual && profile[0].locale) {
         const locale = profile[0].locale;
         const source =
@@ -152,12 +145,12 @@ const Component = (props) => {
           {};
         const msg = get(
           source,
-          config.component.twitter?.key || "campaign:twitter.message",
+          config.component.twitter?.key || "campaign:twitter.message"
         );
         if (msg) {
           setValue(
             "message",
-            tokenize(pickOne(msg), { profile: profile, url: actionUrl }),
+            tokenize(pickOne(msg), { profile: profile, url: actionUrl })
           );
           return;
         }
@@ -167,7 +160,7 @@ const Component = (props) => {
             tokenize(pickOne(data.twitter), {
               profile: profile,
               url: actionUrl,
-            }),
+            })
           );
           return;
         }
@@ -177,10 +170,10 @@ const Component = (props) => {
         tokenize(
           pickOne(
             data.twitter ||
-              t(["campaign:twitter.message", "campaign:share.twitter"]),
+              t(["campaign:twitter.message", "campaign:share.twitter"])
           ),
-          { profile: profile, url: actionUrl },
-        ),
+          { profile: profile, url: actionUrl }
+        )
       );
     },
     [
@@ -190,7 +183,7 @@ const Component = (props) => {
       data,
       setValue,
       t,
-    ],
+    ]
   );
 
   const filterRandomProfile = useCallback(() => {
@@ -214,27 +207,27 @@ const Component = (props) => {
     tweet({
       actionPage: config.actionPage,
       message: form.getValues("message"),
-      screen_name: profiles.map((d) => d.screen_name).join(" @"),
+      screen_name: profiles.map(d => d.screen_name).join(" @"),
       actionUrl: actionUrl,
     });
-    let target = data.targets ? data.targets.concat(profiles) : profiles;
+    const target = data.targets ? data.targets.concat(profiles) : profiles;
     setTweeting(true);
     setData("targets", target);
   };
   const url =
     config.component.twitter?.listUrl === true ||
     !config.component.twitter?.listUrl
-      ? "https://widget.proca.app/t/" + config.campaign.name + ".json"
+      ? `https://widget.proca.app/t/${config.campaign.name}.json`
       : config.component.twitter.listUrl;
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       await fetch(url)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) throw res.error();
           return res.json();
         })
-        .then((targets) => {
+        .then(targets => {
           if (
             config.hook &&
             typeof config.hook["twitter:load"] === "function"
@@ -242,28 +235,28 @@ const Component = (props) => {
             config.hook["twitter:load"](targets);
           }
           let d = targets.filter(
-            (c) => c.screen_name && c.screen_name.length > 0,
+            c => c.screen_name && c.screen_name.length > 0
           );
-          d.forEach((c) => {
+          d.forEach(c => {
             if (c.country) c.country = c.country.toLowerCase();
           });
           // if the country of the visitor is set, filter the list of targets
           if (country) {
             const country2l = country.toLowerCase();
-            const filtered = d.filter((c) => c.country === country2l);
+            const filtered = d.filter(c => c.country === country2l);
             if (filtered.length > 0) d = filtered;
           }
 
           setAllProfiles(d);
           //          filterRandom(d);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     };
     if (data.targets) {
-      let d = data.targets.filter(
-        (c) => c.screen_name && c.screen_name.length > 0,
+      const d = data.targets.filter(
+        c => c.screen_name && c.screen_name.length > 0
       );
       setAllProfiles(d);
       //      filterRandom(d);
@@ -283,11 +276,11 @@ const Component = (props) => {
   ]);
 
   const filterProfiles = useCallback(
-    (country) => {
+    country => {
       //       setProfiles(allProfiles);
       if (!country) return;
       country = country.toLowerCase();
-      const profiles = allProfiles.filter((d) => {
+      const profiles = allProfiles.filter(d => {
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
@@ -296,7 +289,7 @@ const Component = (props) => {
       console.warn("do we filter profile?", profiles.length);
       //setProfiles(profiles);
     },
-    [allProfiles],
+    [allProfiles]
   );
 
   useEffect(() => {
@@ -324,7 +317,7 @@ const Component = (props) => {
   };
 
   console.log("filter", props.country, config.component.twitter?.filter);
-  const FirstStep = (props) => {
+  const FirstStep = props => {
     return (
       <>
         <PreviousStepConfirm email={config.component.consent?.email} />
@@ -347,15 +340,9 @@ const Component = (props) => {
     );
   };
 
-  const ShowCard = (props) => {
+  const ShowCard = props => {
     const classes = useStyles();
-    const image =
-      process.env.REACT_APP_SUPABASE_URL +
-      "/storage/v1/object/public/picture/" +
-      config.campaign.name +
-      "/" +
-      props.hash +
-      ".jpg";
+    const image = `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/picture/${config.campaign.name}/${props.hash}.jpg`;
     return (
       <img
         src={image}
@@ -392,7 +379,7 @@ const Component = (props) => {
         <ProcaAlert severity="info">
           {t(
             "twitter.instruction",
-            "Please complete sending the tweet in the new window (on twitter.com)",
+            "Please complete sending the tweet in the new window (on twitter.com)"
           )}
         </ProcaAlert>
       </>

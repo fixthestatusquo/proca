@@ -31,23 +31,23 @@ const help = () => {
           "--git (git update [add]+commit the local /config) || --no-git",
           "--push (update the server)",
           "campaign {campaign name}",
-        ].join("\n"),
-      ),
+        ].join("\n")
+      )
     );
     process.exit(0);
   }
 };
 
-const saveCampaign = (campaign) => {
+const saveCampaign = campaign => {
   //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
-    JSON.stringify(campaign, null, 2),
+    JSON.stringify(campaign, null, 2)
   );
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
-const getCampaign = async (name) => {
+const getCampaign = async name => {
   const query = `
 query getCampaign ($name:String!){
   campaign (name:$name) {
@@ -63,15 +63,15 @@ query getCampaign ($name:String!){
   return data.campaign;
 };
 
-const pullCampaign = async (name) => {
+const pullCampaign = async name => {
   return await getCampaign(name);
 };
 
-const readCampaign = (name) => {
+const readCampaign = name => {
   return read("campaign/" + name);
 };
 
-const pushCampaign = async (name) => {
+const pushCampaign = async name => {
   const campaign = read("campaign/" + name);
   const query = `
 mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $externalId: Int) {
@@ -131,7 +131,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
     throw new Error(
       "created a new campaign instead of editing the existing one",
       data.upsertCampaign.id,
-      campaign.id,
+      campaign.id
     );
   }
   return data.upsertCampaign;
@@ -143,8 +143,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git",
-      ),
+        "git integration disabled because the config folder isn't on git"
+      )
     );
     argv.git = false;
   }
@@ -183,7 +183,7 @@ if (require.main === module) {
           }
           console.log(
             color.green.bold("saved", fileName),
-            color.blue(campaign.name),
+            color.blue(campaign.name)
           );
           r = argv.git && (await commit(fileName, msg));
           if (argv.git && !r) {

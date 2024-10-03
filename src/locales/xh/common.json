@@ -69,8 +69,8 @@
     }
   },
   "postcode": {
-     "wrongLength":  "ubude obulindelekile be-{{length}} kweli lizwe lakho",
-     "notFound": "le khowudi yeposi ayibonakali ikho kweli lizwe lakho"
+    "wrongLength": "ubude obulindelekile be-{{length}} kweli lizwe lakho",
+    "notFound": "le khowudi yeposi ayibonakali ikho kweli lizwe lakho"
   },
   "date": {
     "error": "umhla ongavumelekanga. ifomethi: DD.MM.YYYY"

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: "inline",
     paddingRight: theme.spacing(0.5),
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const colorGroup = (name) => {
+const colorGroup = name => {
   const eu_groups = {
     "GUE/NGL": "#800c00",
     "S&D": "#c21200",
@@ -28,7 +28,7 @@ const colorGroup = (name) => {
   return eu_groups[name] || "#E0E0E0";
 };
 
-const EUGroup = (props) => {
+const EUGroup = props => {
   const theme = useTheme();
 
   const classes = useStyles();

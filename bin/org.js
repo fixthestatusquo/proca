@@ -5,7 +5,7 @@ const { commit, add } = require("./git");
 const color = require("cli-color");
 const argv = require("minimist")(process.argv.slice(2), {
   default: { git: true },
-  unknown: (d) => {
+  unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
     if (allowed.includes(d.split("=")[0].slice(2))) return true;
@@ -47,14 +47,14 @@ const help = () => {
           "--pull (by default)",
           "--push (update the server)",
           "org {org name}",
-        ].join("\n"),
-      ),
+        ].join("\n")
+      )
     );
     process.exit(0);
   }
 };
 
-const readOrg = (orgName) => {
+const readOrg = orgName => {
   const fileName = file("org/" + orgName);
   const org = JSON.parse(fs.readFileSync(fileName));
   return org;
@@ -87,12 +87,12 @@ const saveOrg = async (orgName, org) => {
   return fileName;
 };
 
-const getTwitter = async (org) => {
+const getTwitter = async org => {
   const orgName =
     (org.config.twitter && org.config.twitter.screen_name) || org.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + orgName,
+      "https://twitter.proca.app/?screen_name=" + orgName
     );
 
     if (res.status >= 400) {
@@ -111,7 +111,7 @@ const getTwitter = async (org) => {
   }
 };
 
-const pushOrg = async (org) => {
+const pushOrg = async org => {
   const query = `mutation updateOrg ($name: String!, $config: Json!) {
     updateOrg (name:$name, input: {
       config: $config
@@ -132,7 +132,7 @@ const pushOrg = async (org) => {
   return data;
 };
 
-const getOrg = async (name) => {
+const getOrg = async name => {
   const extraQuery =
     (argv.campaigns
       ? " campaigns {id name title org {name title } externalId config contactSchema}"
@@ -160,7 +160,7 @@ query GetOrg($name: String!) {
   return data.org;
 };
 
-const pullOrg = async (name) => {
+const pullOrg = async name => {
   let org = undefined;
   try {
     if (!argv.push || argv.pull) org = await getOrg(name);

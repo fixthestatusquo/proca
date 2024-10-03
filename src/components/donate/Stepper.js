@@ -21,7 +21,7 @@ const donateStepAtom = atom({ key: "donateStep", default: 0 });
 export const useDonateStep = () => {
   const [donateStep, _setDonateStep] = useRecoilState(donateStepAtom);
   const setDonateStep = useCallback(
-    (step) => {
+    step => {
       _setDonateStep(step);
     },
     [_setDonateStep]
@@ -32,9 +32,9 @@ export const useDonateStep = () => {
 
 const iconStyles = makeStyles({ root: { fontSize: "2em" } });
 
-const BiggerStepIcon = (props) => {
+const BiggerStepIcon = props => {
   const classes = iconStyles();
-  return <StepIcon classes={{ root: classes.root }} {...props}></StepIcon>;
+  return <StepIcon classes={{ root: classes.root }} {...props} />;
 };
 
 const labelStyles = makeStyles({
@@ -48,7 +48,7 @@ const labelStyles = makeStyles({
   // active: {},
 });
 
-const StyledStepLabel = (props) => {
+const StyledStepLabel = props => {
   const classes = labelStyles();
   return (
     <StepLabel
@@ -59,7 +59,7 @@ const StyledStepLabel = (props) => {
       }}
       StepIconComponent={BiggerStepIcon}
       {...props}
-    ></StepLabel>
+    />
   );
 };
 

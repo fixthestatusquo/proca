@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 
-const Component = (props) => {
+const Component = props => {
   const config = useCampaignConfig();
   const [profiles, setProfiles] = useState([]);
   const [consentAsked, setAsked] = useState(false);
@@ -30,7 +30,7 @@ const Component = (props) => {
 
   const sortProfiles = (d, committee) => {
     const roleWeight = { Substitute: 1, Member: 3, "Vice-Chair": 5, Chair: 8 };
-    const getWeight = (c) => {
+    const getWeight = c => {
       let weight = 0;
       for (let i = 0; i < c.length; i++) {
         if (committee.includes(c[i].name)) {
@@ -53,13 +53,13 @@ const Component = (props) => {
     });
   };
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       await fetch(url)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) throw res.error();
           return res.json();
         })
-        .then((d) => {
+        .then(d => {
           if (
             config.hook &&
             typeof config.hook["twitter:load"] === "function"
@@ -68,7 +68,7 @@ const Component = (props) => {
           }
           if (config?.component?.Ep?.filter) {
             const committee = config.component.Ep.filter.committee;
-            const profiles = d.filter((meps) => {
+            const profiles = d.filter(meps => {
               for (let i = 0; i < meps.committees.length; i++) {
                 if (committee.includes(meps.committees[i].name)) return true;
               }
@@ -81,7 +81,7 @@ const Component = (props) => {
           sortProfiles(d);
           setAllProfiles(d);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     };
@@ -91,11 +91,11 @@ const Component = (props) => {
   }, [config.component, config, setAllProfiles]);
 
   const filterProfiles = useCallback(
-    (country) => {
+    country => {
       //       setProfiles(allProfiles);
       if (!country) return;
       country = country.toLowerCase();
-      const d = allProfiles.filter((d) => {
+      const d = allProfiles.filter(d => {
         return (
           d.country === country ||
           (d.country === "") | (d.constituency?.country === country)
@@ -140,7 +140,7 @@ const Component = (props) => {
       </Dialog>
       <Country form={form} />
       <List>
-        {profiles.map((d) => (
+        {profiles.map(d => (
           <MepAction
             key={d.epid}
             actionPage={props.actionPage}
@@ -148,7 +148,7 @@ const Component = (props) => {
             actionUrl={data.actionUrl}
             actionText={props.TwitterActionText || t("twitter.actionText")}
             {...d}
-          ></MepAction>
+          />
         ))}
       </List>
     </Fragment>

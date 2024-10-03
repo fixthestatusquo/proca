@@ -5,7 +5,7 @@ import NextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-export const Next = (props) => {
+export const Next = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   return (
@@ -26,7 +26,7 @@ export const Next = (props) => {
   );
 };
 
-const Again = (props) => {
+const Again = props => {
   const { t } = useTranslation();
   const replay = props.again || (() => window.proca.go("Register"));
   return (

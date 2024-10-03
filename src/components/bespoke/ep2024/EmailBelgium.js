@@ -8,7 +8,7 @@ import AreaFilter from "@components/bespoke/ep2024/filter/Belgium";
 import Alert from "@material-ui/lab/Alert";
 import { useTranslation } from "react-i18next";
 
-const EmailBrussels = (props) => {
+const EmailBrussels = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [allProfiles, setAllProfiles] = useState([]);
@@ -35,7 +35,7 @@ const EmailBrussels = (props) => {
     //    nativeValidation: true,
   });
   useEffect(() => {
-    const prefetch = async (url) => {
+    const prefetch = async url => {
       await fetch(url);
     };
     config.locale !== "en" &&
@@ -43,12 +43,12 @@ const EmailBrussels = (props) => {
     prefetch("https://static.proca.app/ep2024/parties.json");
   }, []);
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      let languages = [];
-      d.forEach((c) => {
+      const languages = [];
+      d.forEach(c => {
         if (c.locale && !languages.includes(c.locale)) {
           languages.push(c.locale);
         }
@@ -60,7 +60,7 @@ const EmailBrussels = (props) => {
       const url =
         typeof config.component.email?.listUrl === "string"
           ? config.component.email.listUrl
-          : "https://widget.proca.app/t/" + config.campaign.name + ".json";
+          : `https://widget.proca.app/t/${config.campaign.name}.json`;
 
       fetchData(url);
     } catch (error) {
@@ -77,7 +77,7 @@ const EmailBrussels = (props) => {
 
   const locales = { vl: "nl", wal: "fr", bru_fr: "fr", bru_nl: "nl" };
   const truncatedConstituency = constituency?.substring(0, 3) || "n/a";
-  const filter = (d) => {
+  const filter = d => {
     const lang = locales[constituency];
     if (lang !== d.lang) return false;
 

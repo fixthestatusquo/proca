@@ -8,7 +8,7 @@ import { ConfirmProcessing } from "@components/Consent";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   bigHelper: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImplicitConsent = (props) => {
+const ImplicitConsent = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const layout = useLayout();

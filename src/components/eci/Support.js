@@ -39,7 +39,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 //const countries = eciLocale.common.country;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     "& .MuiInputLabel-root": {
       color: "red",
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Support = (props) => {
+const Support = props => {
   const classes = useStyles();
 
   const width = useElementWidth("#proca-register");
@@ -107,7 +107,6 @@ const Support = (props) => {
       data.country && setValue("country", data.country);
       setReload(false);
     }
-     
   }, [reload, setValue]);
 
   useEffect(() => {
@@ -129,7 +128,7 @@ const Support = (props) => {
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     if (Object.keys(acceptableIds).length === 1) {
       data.documentType = Object.entries(acceptableIds)[0][0];
     }
@@ -154,7 +153,7 @@ const Support = (props) => {
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             switch (field.name) {
               case "birthDate": {
@@ -163,11 +162,7 @@ const Support = (props) => {
                 break;
               }
               case "documentNumber": {
-                const msg =
-                  "eci:form.error.document_" +
-                  data.nationality.toLowerCase() +
-                  "_" +
-                  data.documentType.replace(/\./g, "_");
+                const msg = `eci:form.error.document_${data.nationality.toLowerCase()}_${data.documentType.replace(/\./g, "_")}`;
                 setError(field.name, {
                   type: "server",
                   message: /* i18next-extract-disable-line */ t(msg),
@@ -175,10 +170,7 @@ const Support = (props) => {
                 break;
               }
               case "postcode": {
-                const msg =
-                  "eci:form.error.oct_error_" +
-                  data.country.toLowerCase() +
-                  "_postalcode";
+                const msg = `eci:form.error.oct_error_${data.country.toLowerCase()}_postalcode`;
                 setError(field.name, {
                   type: "server",
                   message: i18n.exists(msg)
@@ -231,11 +223,11 @@ const Support = (props) => {
     return false;
   };
 
-  const handleCaptcha = (token) => {
+  const handleCaptcha = token => {
     setToken(token);
   };
 
-  function Error(props) {
+  function ErrorN(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -267,7 +259,7 @@ const Support = (props) => {
               method="post"
               action="http://localhost"
             >
-              <Error display={status === "error"} />
+              <ErrorN display={status === "error"} />
 
               {i18n.exists("step.eci.secure") && (
                 <Grid container spacing={4}>
@@ -284,17 +276,14 @@ const Support = (props) => {
                 <CardHeader
                   subheader={t("step.eci.subheader", "")}
                   title={t("step.eci.title", "")}
-                ></CardHeader>
+                />
               )}
               {config.component.eci.readMore && <ReadMore />}
               <Box
                 variant="subtitle1"
                 dangerouslySetInnerHTML={{
                   __html: t("eci:common.requirements.text", {
-                    url:
-                      "https://eur-lex.europa.eu/legal-content/" +
-                      config.lang +
-                      "/TXT/PDF/?uri=CELEX:32019R0788",
+                    url: `https://eur-lex.europa.eu/legal-content/${config.lang}/TXT/PDF/?uri=CELEX:32019R0788`,
                   }),
                 }}
               />
@@ -331,7 +320,7 @@ const Support = (props) => {
                 <Captcha
                   form={form}
                   compact={compact}
-                  onChange={(captcha) => handleCaptcha(captcha)}
+                  onChange={captcha => handleCaptcha(captcha)}
                 />
               </Grid>
               <Grid item xs={12}>

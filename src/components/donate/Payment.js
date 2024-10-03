@@ -14,7 +14,7 @@ export default function Payment(props) {
   const { t } = useTranslation();
   const [requestData] = useData();
 
-  const done = (d) => {
+  const done = d => {
     setSubmitted(true);
     props.done(d);
   };

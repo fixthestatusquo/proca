@@ -11,7 +11,7 @@ const Wall = () => {
   const [value, setValue] = useState("comment");
   const [data] = useData();
   const country = data.country && data.country.slice(0, 2).toUpperCase();
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
   };
 

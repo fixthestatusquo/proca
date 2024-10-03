@@ -23,7 +23,7 @@ const useStyles = makeStyles(() =>
         display: "none",
       },
     },
-  }),
+  })
 );
 
 const GlobalStyles = () => {
@@ -43,10 +43,10 @@ export default function ProcaStyle(props) {
         },
         typography: {
           fontFamily: "unset!important",
-          htmlFontSize: parseInt(
+          htmlFontSize: Number.parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
-              .getPropertyValue("font-size"),
+              .getPropertyValue("font-size")
           ), // get the actual font size
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
@@ -122,7 +122,7 @@ export default function ProcaStyle(props) {
           },
         },
       }),
-    [layout],
+    [layout]
   );
   // palette.background.default
   for (const d in theme.zIndex) {

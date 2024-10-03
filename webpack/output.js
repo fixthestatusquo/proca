@@ -6,7 +6,7 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const GenerateJsonPlugin = require("generate-json-webpack-plugin");
 
-module.exports = (webpack) => {
+module.exports = webpack => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
   } else {
@@ -44,17 +44,14 @@ function saveVersion(config) {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   console.log(hash);
   fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json"
-    ),
+    path.resolve(__dirname, `../d/${config.filename}/config-${hash}.json`),
     JSON.stringify(config, null, 2)
   );
 }
 
 function cleanUp(config) {
   fs.unlinkSync(
-    path.resolve(__dirname, "../d/" + config.filename + "/index.js.map")
+    path.resolve(__dirname, `../d/${config.filename}/index.js.map`)
   );
   // needed (only for the message at the end of the build)          fs.unlinkSync(path.resolve(__dirname,'../d/'+config.filename+'/index.js'));
 }
@@ -64,19 +61,19 @@ function widgetBuildConfig(webpack, config) {
   console.log("building");
   if (webpack.mode === "production") {
     webpack.output.filename = "index.js";
-    webpack.output.path = path.resolve(__dirname, "../d/" + config.filename);
-    webpack.output.publicPath = "/d/" + config.filename + "/";
+    webpack.output.path = path.resolve(__dirname, `../d/${config.filename}`);
+    webpack.output.publicPath = `/d/${config.filename}/`;
 
     webpack.plugins.push({
-      apply: (compiler) => {
+      apply: compiler => {
         compiler.hooks.afterEmit.tap("AfterEmitPlugin", () => {
           try {
             fs.symlinkSync(
-              path.resolve(__dirname, "../d/" + config.filename + "/index.js"),
+              path.resolve(__dirname, `../d/${config.filename}/index.js`),
               path.resolve(__dirname, "../build/index.js")
             );
             fs.symlinkSync(
-              path.resolve(__dirname, "../d/" + config.filename + "/static/js"),
+              path.resolve(__dirname, `../d/${config.filename}/static/js`),
               path.resolve(__dirname, "../build/satic/js")
             );
             console.log("trying to fix the error on file size");

@@ -4,8 +4,8 @@ import i18n from "../../../lib/i18n";
 
 import eciLocale from "locales/eci";
 
-const removeDotKey = (obj) => {
-  Object.keys(obj).forEach((key) => {
+const removeDotKey = obj => {
+  Object.keys(obj).forEach(key => {
     if (typeof obj[key] === "object") {
       removeDotKey(obj[key]);
     }
@@ -17,7 +17,7 @@ const removeDotKey = (obj) => {
   return obj;
 };
 
-const useEciTranslation = (locale) => {
+const useEciTranslation = locale => {
   return useTranslation("common", {
     i18n: i18n.addResourceBundle(
       locale || i18n.language,
