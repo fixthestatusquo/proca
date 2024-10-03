@@ -277,6 +277,14 @@ The Donate steps are configured under the `config.component.donation` key.
 
 - `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.
 
+### Gender
+
+`<Select name="gender" locale="campaign:profile.gender" />`
+in campaign config
+`profile.gender: {"F":"Female","M":"Male","":"Other/prefer not say"}`
+or `"gender": "Female\nMale\nOther"`
+or `"gender": "F|Female\nM|Male"`
+
 ### Replace URL (for prefilled widgets)
 
 config.component.email.replace = {
