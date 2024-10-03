@@ -5,28 +5,12 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { useIsWindows } from "@hooks/useDevice";
 import Alert from "@material-ui/lab/Alert";
+import { useCountryFlag, flag } from "react-emoji-flag";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
 import countriesJson from "../../data/eu27.json";
-
-const emoji = (country) => {
-  const offset = 127397;
-  let emoji = "";
-
-  if (!country || country.toUpperCase() === "ZZ") return "";
-
-  country
-    .toUpperCase()
-    .split("")
-    .forEach(
-      (char) => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset)),
-    );
-
-  return emoji;
-};
 
 export const addMissingCountries = (countries, compare) => {
   const alreadyHave = {};
@@ -36,7 +20,7 @@ export const addMissingCountries = (countries, compare) => {
     return a;
   }, alreadyHave);
 
-  const others = [];
+  let others = [];
   for (const [code, label] of Object.entries(allCountries)) {
     if (!(code in alreadyHave)) {
       others.push({ iso: code, name: label });
@@ -61,7 +45,7 @@ const addAllCountries = () => {
 };*/
 
 const addCountries = (list) => {
-  const d = [];
+  let d = [];
   list.map((country) => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
@@ -70,18 +54,14 @@ const addCountries = (list) => {
   return d;
 };
 
-const Flag = (props) => {
-  const country = props.country?.toUpperCase();
-  const d = emoji(country);
-  return <span title={`flag ${d}`}>{d}</span>;
-};
 
 const Country = (props) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
-  const isWindows = useIsWindows();
+  useCountryFlag({ className: "country-flag" });
+
   const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {
@@ -102,9 +82,6 @@ const Country = (props) => {
     if (config.component.country?.other !== false) {
       countries.push({ iso: "ZZ", name: t("Other") });
     }
-    if (false || props.other) {
-      countries = addMissingCountries(countries, compare);
-    }
     return countries;
   }, [
     config.component.country?.all,
@@ -118,8 +95,8 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (!defaultCountry && config.component.country !== undefined) {
-    defaultCountry = config.component.country;
+  if (!defaultCountry && typeof config.component.country === 'string' || typeof config.component.register?.field?.country ===  'string') {
+    defaultCountry = config.component.country || config.component.register?.field?.country;
     if (typeof defaultCountry === "string")
       defaultCountry = defaultCountry.toUpperCase();
   }
@@ -168,7 +145,7 @@ const Country = (props) => {
 
   // Windows doesn't support flag emojis
   return (
-    <>
+    <div className="country-flag">
       <TextField
         required={props.required}
         select
@@ -180,22 +157,19 @@ const Country = (props) => {
           native: true,
         }}
       >
-        <option key="" value="" />
+        <option key="" value=""></option>
 
         {_countries.map((option) => (
           <option key={option.iso} value={option.iso}>
-            {!isWindows &&
-              (emoji(option.iso) ? `${emoji(option.iso)} ` : "") + option.name}
-            {isWindows && option.name}
+            {flag(option.iso)} {option.name}
           </option>
         ))}
       </TextField>
       {config.component.country === false && !defaultCountry && (
         <Alert severity="info">{t("target.country.undefined")}</Alert>
       )}
-    </>
+    </div>
   );
 };
 
 export default Country;
-export { emoji, Flag };

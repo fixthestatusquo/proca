@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { useSupabase } from "@lib/supabase";
-import ProgressCounter from "@components/ProgressCounter";
 import Dialog from "@components/Dialog";
 import { TextField, MenuItem, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
-import { decode } from "blurhash";
-//import { decodeBlurHash as decode } from  "fast-blurhash";
-//
+import { thumbHashToDataURL } from "thumbhash";
+import { base64ToBinary } from "@lib/hash";
 
 const useStyles = makeStyles(() => ({
   bimg: {
@@ -60,25 +58,11 @@ const replaceBlur = (event) => {
 
 const getBackground = (picture) => {
   if (!picture.blurhash) return null;
-
-  const ratio = 8;
-  const w = Math.floor(picture.width / ratio),
-    h = Math.floor(picture.height / ratio);
-  const pixels = decode(picture.blurhash, w, h);
-
-  const canvas = document.createElement("canvas");
-  canvas.width = w;
-  canvas.height = h;
-
-  const ctx = canvas.getContext("2d");
-  const imageData = ctx.createImageData(w, h);
-  imageData.data.set(pixels);
-  ctx.scale(ratio, ratio);
-  ctx.putImageData(imageData, 0, 0);
-
-  const dataUrl = canvas.toDataURL();
-  return dataUrl;
-  //  return "url(" + dataUrl + ")";
+  try {
+    return thumbHashToDataURL(base64ToBinary(picture.blurhash));
+  } catch (e) {
+    console.error("can't decode the blurhash",picture.blurhash,e.toString());
+  }
 };
 
 const usePlaceholder = (width, height) =>
@@ -96,16 +80,26 @@ const usePlaceholder = (width, height) =>
   }, [width, height]);
 
 const makeUrl = (pic, campaignName) => {
-  if (campaignName === "taxe_super_profits") {
+  if (campaignName === "restorenaturepics") {
     //TODO: remove legacy
-    return (
-      `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/${campaignName.replace(/_/g, "-")}/public/${pic.hash}.jpg`
-    );
-  }
-
   return (
-    `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/picture/${campaignName}/${pic.hash}.jpg`
+    process.env.REACT_APP_SUPABASE_URL +
+    "/storage/v1/object/public/picture/" +
+    campaignName +
+    "/" +
+    pic.hash +
+    ".jpg"
   );
+  }
+    return (
+      process.env.REACT_APP_SUPABASE_URL +
+      "/storage/v1/object/public/" +
+      campaignName +
+      "/public/" +
+      pic.hash +
+      ".jpg"
+    );
+
 };
 
 const PictureWall = (props) => {
@@ -116,7 +110,7 @@ const PictureWall = (props) => {
   const [country, setCountry] = useState(props.country);
   const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
-  const campaign = config.campaign.name.replaceAll("_", "-");
+  const campaign = config.campaign.name; //.replaceAll("_", "-");
   const placeholder = usePlaceholder(600, 800);
   const handleClose = () => {
     select(false);
@@ -125,7 +119,7 @@ const PictureWall = (props) => {
   useEffect(() => {
     (async () => {
       if (config.component.wall.country !== true) return;
-      const { data, error } = await supabase
+      let { data, error } = await supabase
         .from("picture_by_country")
         .select("area,total")
         .order("total", { ascending: false });
@@ -149,7 +143,7 @@ const PictureWall = (props) => {
       if (country && country !== "?") {
         query = query.eq("area", country);
       }
-      const { data, error } = await query;
+      let { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -174,12 +168,11 @@ const PictureWall = (props) => {
           Choose your country
         </MenuItem>
         {countries.map((option) => (
-          <MenuItem key={option} value={option} />
+          <MenuItem key={option} value={option}></MenuItem>
         ))}
       </TextField>
     );
   };
-  console.log(selected);
   return (
     <>
       <Dialog
@@ -195,7 +188,6 @@ const PictureWall = (props) => {
           />
         )}
       </Dialog>
-      {false && <ProgressCounter />}
       <CountrySelect options={countries} />
       <Grid container spacing={1} justifyContent="center" alignItems="center">
         {pictures.map((d, i) => (

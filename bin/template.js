@@ -342,17 +342,17 @@ if (require.main === module) {
     try {
       try {
         org.readOrg(config.org.name);
-      } catch (e) {
+      } catch {
         try {
           await org.getOrg(config.org.name);
-        } catch (e) {
+        } catch  {
           console.log(
             "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
             config.org.name,
           );
         }
       }
-    } catch (e) {
+    } catch {
       console.log(
         "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
         config.org.name,

@@ -161,7 +161,7 @@ const CreateMeme = (props) => {
     } else {
       setCurrent(0);
     }
-    // eslint-disable-next-line
+     
   }, []); //calling only once
 
   const EmptyItem = () => null;
@@ -337,7 +337,7 @@ const CreateMeme = (props) => {
       },
       false
     );
-    // eslint-disable-next-line
+     
   }, [item, topText, bottomText]);
 
   return (

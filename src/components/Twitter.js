@@ -334,7 +334,7 @@ const Component = (props) => {
           clickable={config.component.twitter?.clickable}
           done={handleDone}
         />
-        {(true || config.component.twitter?.message) && <Message form={form} />}
+        <Message form={form} />
         {hash && <ShowCard hash={hash} />}
         <TweetButton handleClick={handleTweet} done={props.done} />
       </>

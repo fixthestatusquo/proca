@@ -111,7 +111,7 @@ const Thanks = () => {
                 Amount
               </Grid>
               <Grid item xs={6}>
-                {formData.frequency !== "oneoff"
+                {formData.frequency && formData.frequency !== "oneoff"
                   ? t(
                       `donation.frequency.each.${formData.frequency}` /* i18next-extract-disable-line */,
                       { amount: formatMoneyAmount(formData.amount) }

@@ -6,8 +6,9 @@ import { isSet, uuid as getuuid } from "@lib/uuid";
 import { useTranslation } from "react-i18next";
 
 const DispatchPublicComment = () => {
+// it works because data is updated after the action is saved, but it needs to be into a portal, otherwise it will be re-written when switching to the next step after register
   const [dispatched, setDispatched] = useState(false);
-  const [data] = useData();
+  const [data] = useData(); 
   const supabase = useSupabase();
   const { t } = useTranslation();
   const config = useCampaignConfig();

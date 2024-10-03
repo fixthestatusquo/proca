@@ -62,7 +62,7 @@ const EmailComponent = (props) => {
     _setSelection(selection);
   };
   const selectAll = () => {
-    const r = profiles.map((target) => target.procaid);
+    const r = profiles.filter( target => !target.disabled).map((target) => target.procaid);
     _setSelection(r);
   };
 
@@ -145,7 +145,7 @@ const EmailComponent = (props) => {
     }
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
-    } // eslint-disable-next-line
+    }  
   }, [paramEmail, alwaysUpdate]);
 
   const handleMerging = (text) => {
@@ -195,12 +195,12 @@ const EmailComponent = (props) => {
       return undefined;
     });
   }, [
-    // eslint-disable-next-line
+     
     {
       firstname: tokens.firstname,
       country: tokens.country ? getCountryName(tokens.country) : "",
     },
-    // eslint-disable-next-line
+     
     fields,
     tokenKeys,
     data,
@@ -215,7 +215,9 @@ const EmailComponent = (props) => {
     const fetchData = async (url) => {
       await fetch(url)
         .then((res) => {
-          if (!res.ok) throw res.error();
+          if (!res.ok) {
+            throw res.statusText || (res.status + " error");
+          }
           return res.json();
         })
         .then((d) => {
@@ -251,6 +253,7 @@ const EmailComponent = (props) => {
           const placeholder = {
             name: error.toString(),
             description: "Please check your internet connection and try later",
+            disabled: true,
           };
           setProfiles([placeholder]);
           setAllProfiles([placeholder]);
@@ -275,7 +278,7 @@ const EmailComponent = (props) => {
       if (to.length == 0) return;
       setAllProfiles(to);
       setProfiles(to);
-    } // eslint-disable-next-line
+    }  
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterLocale = useCallback(
@@ -721,7 +724,7 @@ const EmailComponent = (props) => {
     [allProfiles, profiles, setError],
   );
 
-  if (selection.length === 0 && profiles.length === 1) {
+  if (selection.length === 0 && profiles.length === 1 && !profiles[0].disabled ) {
     // if only one, select it. needs to be put in an useEffect?
     selectAll();
   }
@@ -841,6 +844,7 @@ const EmailComponent = (props) => {
               actionPage={config.actionPage}
               done={props.done}
               display={displayed(d)}
+              disabled={d.disabled}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               profile={d}

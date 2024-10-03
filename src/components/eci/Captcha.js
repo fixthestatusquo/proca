@@ -83,7 +83,7 @@ export default function Captcha(props) {
     //    setCount((c) => c + 1);
     setFocussed(true);
     //    setValue("captcha", "");
-  }, [errors.captcha]); // eslint-disable-line
+  }, [errors.captcha]);  
 
   useEffect(() => {
     let isLive = true;
@@ -93,7 +93,7 @@ export default function Captcha(props) {
         .then((captcha) => isLive && update(captcha));
     })();
     return () => (isLive = false);
-  }, [count]); // eslint-disable-line
+  }, [count]);  
 
   const handleClick = () => {
     setCount(count + 1);

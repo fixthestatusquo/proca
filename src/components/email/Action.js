@@ -4,6 +4,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
+import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -16,8 +17,16 @@ import EmailIcon from "@material-ui/icons/Email";
 import { addAction } from "@lib/server";
 import uuid from "@lib/uuid";
 
-const EmailAction = ({ profile, display, selection, setSelection }) => {
-  const [disabled, disable] = useState(false);
+const useStyles = makeStyles( theme => ({
+  secondaryText: {
+    marginRight: theme.spacing(2), // Adjust this value as needed
+  },
+}));
+
+const EmailAction = ({ profile, display, disabled: _disabled, selection, setSelection }) => {
+  const classes = useStyles(); // Use the custom styles
+
+  const [disabled, disable] = useState(_disabled);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
   const { t } = useTranslation();
@@ -64,21 +73,22 @@ const EmailAction = ({ profile, display, selection, setSelection }) => {
   if (display === false) {
     return null;
   }
+
+  const _classes = config.component.email?.selectable ? { secondary: classes.secondaryText } : undefined;
   return (
     <ListItem
       data-key={profile.procaid}
       alignItems="flex-start"
       component="div"
+      disableGutters
       selected={selected}
       disabled={disabled}
-      button={true}
+      button={config.component.email?.selectable }
       onClick={() => {
         if (config.component?.email?.split === true) {
           mail();
         } else {
-          config.component?.email?.selectable === true
-            ? toggleSelection(profile.procaid, setSelection)
-            : null;
+            config.component?.email?.selectable && toggleSelection(profile.procaid, setSelection)
         }
       }}
       divider={false}
@@ -86,7 +96,9 @@ const EmailAction = ({ profile, display, selection, setSelection }) => {
       <ListItemAvatar>
         <Avatar src={img()} />
       </ListItemAvatar>
-      <ListItemText primary={profile.name} secondary={profile.description} />
+      <ListItemText primary={profile.name} secondary={profile.description} 
+      classes={_classes}
+/>
       <Selectable
         profile={profile}
         selection={selection}

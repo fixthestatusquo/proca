@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
-import useElementWidth from "@hooks/useElementWidth";
+import { useCompactLayout } from "@hooks/useElementWidth";
 import Url from "@lib/urlparser.js";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
@@ -41,12 +41,9 @@ export default function Register(props) {
   const [data, setData] = useData();
   const { t } = useTranslation();
 
-  const width = useElementWidth("#proca-sepa");
   const [status, setStatus] = useState("default");
   const [errorDetails, setErrorDetails] = useState("");
-  const [compact, setCompact] = useState(true);
-  if ((compact && width > 440) || (!compact && width <= 440))
-    setCompact(width <= 440);
+  const compact = useCompactLayout("#proca-donate",440);
 
   function ErrorS(props) {
     if (props.display)

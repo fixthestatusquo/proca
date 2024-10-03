@@ -142,7 +142,7 @@ export default function ImageStickerComplete(props) {
                   {t("image.takeTitle", "Take a picture with your phone")}
                 </AccordionSummary>
                 <AccordionDetails classes={{ root: classes.accordion }}>
-                  <Camera setCanvas={uploadedCanvas} />
+                  <Camera setCanvas={uploadedCanvas} form={props.form} />
                 </AccordionDetails>
               </Accordion>
               <Accordion
@@ -202,7 +202,7 @@ const ImageStickerKonva = (props) => {
   const data = props.form?.getValues();
   const upload = useUpload(canvasRef, data);
   const classes = useStyles();
-  let stickersData = config.component.sticker.data;
+  let stickersData = config.component.sticker.data || [];
 
   if (props.backgroundCanvas) {
     image = new Image();

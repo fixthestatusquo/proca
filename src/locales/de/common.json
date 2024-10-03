@@ -179,6 +179,7 @@
     "twitter": "{{total}} haben getwittert. Gehen wir zu {{goal}}"
   },
   "read more": "weiterlesen",
+  "region": "Region",
   "register": "Meinen Namen hinzufügen",
   "reminder": {
     "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail senden, um Sie daran zu erinnern, dass Sie das Formular später ausfüllen müssen"
@@ -206,7 +207,7 @@
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
+  "supporterHint": "{{name}} aus {{area}}",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}",

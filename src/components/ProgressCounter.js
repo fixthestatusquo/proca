@@ -36,8 +36,7 @@ const nextStep = (value, steps) => {
       500000, 1000000, 1200000, 1500000, 2000000, 5000000,
     ];
   }
-  let next = false;
-
+  let next = 1;
   steps.some((step) => {
     if (value < step) {
       next = step;
@@ -45,6 +44,7 @@ const nextStep = (value, steps) => {
     }
     return false;
   });
+
   return next;
 };
 

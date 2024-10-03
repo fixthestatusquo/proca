@@ -99,7 +99,7 @@ const GeneratePaper = (props) => {
       id="proca-register"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      url="http://localhost"
+      action="http://localhost"
     >
       <TextField
         select

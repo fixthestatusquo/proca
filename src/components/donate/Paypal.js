@@ -4,7 +4,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PayPalButton from "./PayPalButton";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
-const Paypal = ({ onError, onComplete }) => {
+const Paypal = ({ onError, onComplete, disabled }) => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
@@ -24,6 +24,7 @@ const Paypal = ({ onError, onComplete }) => {
   return (
     <PayPalScriptProvider options={providerOptions}>
       <PayPalButton
+        disabled = {disabled}
         onComplete={onComplete}
         onError={onError}
         frequency={frequency}

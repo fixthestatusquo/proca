@@ -12,7 +12,7 @@ import { imports } from "../../actionPage";
 const Filter = (props) => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const r = [];
+  let r = [];
 
   /*  if (
     //done
@@ -40,7 +40,7 @@ const Filter = (props) => {
   const Filters =
     Object.entries(imports)
       .filter(([key]) => key.startsWith("filter"))
-      .map(([_key, components]) => components) || [];
+      .map(([, components]) => components) || [];
 
   if (
     config.component.email?.filter?.includes("multilingual") &&
@@ -63,7 +63,7 @@ const Filter = (props) => {
           }}
         >
           {!props.languages.includes(config.locale) && (
-            <option key="" value="" />
+            <option key="" value=""></option>
           )}
           {props.languages.map((option) => (
             <option key={option} value={option}>
@@ -93,7 +93,7 @@ const Filter = (props) => {
             native: true,
           }}
         >
-          <option key="" value="" />
+          <option key="" value=""></option>
 
           {data.map((option) => (
             <option key={option.key} value={option.key}>

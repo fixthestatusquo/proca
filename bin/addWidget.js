@@ -30,7 +30,7 @@ const { addPage, pull } = require("./widget");
     console.log(d);
     d = await pull(d.id);
     console.log(d);
-  } catch (e) {
+  } catch {
     process.exit(1);
     //console.error(e);
     // Deal with the fact the chain failed
