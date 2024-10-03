@@ -66,12 +66,32 @@ const tokenize = (message, { profile, url }) => {
   return t;
 };
 
-const pickOne = (locale) => {
-  const text = locale;
-  const v = text
+const toArray = (locale) => {
+  return locale
     .split("\n")
     .map((d) => d.trim())
     .filter((n) => n);
+};
+
+const toObject = (locale, separator) => {
+  const result = {};
+  const arr = toArray(locale);
+  if (!separator) separator = "|";
+
+  arr.forEach((d) => {
+    const t = d.split(separator);
+    if (t.length > 1) result[t[0].trim()] = t[1].trim();
+    else {
+      result[t[0].trim()] = t[0].trim();
+    }
+  });
+  return result;
+};
+
+const pickOne = (locale) => {
+  const text = locale;
+  const v = text.toArray();
+
   let t = []; // use to stack the sentence(s) to be part of the current variant
   let variants = [];
   v.forEach((d) => {
@@ -96,6 +116,8 @@ const truncate = (text, nbParagraphs) => {
 };
 
 export {
+  toArray,
+  toObject,
   pickOne,
   tokenize,
   slugify,

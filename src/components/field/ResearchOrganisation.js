@@ -59,15 +59,19 @@ const AffiliationInput = ({ form }) => {
   const handleInputChange = (event, newInputValue, reason) => {
     setInputValue(newInputValue);
     if (reason === "input") debouncedFetchOptions(newInputValue);
+    if (reason === "clear") {
+      form.setValue("ror",undefined);
+      form.setValue("organisation",undefined);
+    }
     if (reason === "reset") {
       const institution = options.find (d => d.name === newInputValue);
       if (!institution) {
         console.error("didn't find organisation", newInputValue); 
         return;
       }
-console.log(institution);
       form.setValue("ror",institution.id);
       form.setValue("country",institution.country);
+      form.setValue("organisation",institution.name);
     }
   };
 
@@ -96,7 +100,7 @@ console.log(institution);
       renderOption = { option => (<><CountryFlag countryCode={option.country} /> &nbsp; {option.name}</>)}
       renderInput={(params) => (
         <TextField
-          name="affiliation"
+          name="organisation"
           required
           form={form}
           {...params}

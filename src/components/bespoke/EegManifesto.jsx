@@ -1,72 +1,51 @@
 import React from "react";
-import TextField from "@components/TextField";
-import Twitter from "@components/field/Twitter";
 import Checkbox from "@components/field/Checkbox";
-import { FormLabel, Box, Grid } from "@material-ui/core";
-import Collapse from "@material-ui/core/Collapse";
+import { Grid } from "@material-ui/core";
 import Orcid from "@components/field/Orcid";
+import Select from "@components/field/Select";
 import Affiliation from "@components/field/ResearchOrganisation";
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert, AlertTitle } from "@material-ui/lab";
 
-const EggManifesto = ({form}) => {
-	const hasOrganisation = form.watch("has-organisation");
-  const twitterUpdate = account => {
-    if (account.name) {
-      form.setValue("organisation", account.name);
-    }
-  }
+const EggManifesto = ({ form }) => {
+  const [organisation, organisation_sign] = form.watch([
+    "organisation",
+    "organisation_sign",
+  ]);
+  let label = "Sign on the behalf of " + (organisation || "your organisation");
 
-    if (!hasOrganisation) {
-      const names = [ "organisation", "twitter", "picture"];
-      const values = form.getValues(names);
-      names.forEach((name, i) => {
-        if (values[i]) form.setValue(name, "");
-      });
-    }
-
-	return (
+  return (
     <Grid container alignItems="flex-start">
-			<Grid item xs={12}>
-         <Orcid form={form}/>
-         <Affiliation form={form} />
+      <Grid item xs={12}>
+        <Orcid form={form} />
+        <Affiliation form={form} />
+        <Checkbox
+          name="organisation_sign"
+          disabled={!organisation}
+          form={form}
+          label={label}
+        />
       </Grid>
-			<Grid item xs={12}>
-				<Box
-					border={hasOrganisation ? 1 : 0}
-					borderRadius={4}
-					paddingX={1}
-					paddingBottom={hasOrganisation ? 1 : 0}
-					marginTop={0}
-					component="fieldset"
-				>
-					<FormLabel
-						component="legend"
-						style={{ paddingLeft: 8, width: "auto" }}
-					>
-						<Checkbox
-							name="has-organisation"
-							label="Signing as an institution"
-							form={form}
-						/>
-					</FormLabel>
-					<Collapse in={hasOrganisation}>
-						{hasOrganisation && (
-							<>
-								<Twitter form={form} onBlur = {twitterUpdate}/>
-								<TextField
-									label="Organisation"
-									form={form}
-                  name="organisation"
-                  onChange={form.setValue("organisation")}
-								/>
-							</>
-						)}
-					</Collapse>
-				</Box>
-          {hasOrganisation && (<Alert  severity="info" style={{marginTop:8}}><AlertTitle>Your details will not be displayed</AlertTitle>We need them to approve your institution's signature</Alert>)}
-			</Grid>
-		</Grid>
-	);
+      <Grid item xs={12}>
+        {organisation_sign && (
+          <Alert severity="info" style={{ marginTop: 8 }}>
+            <AlertTitle>Your details will not be displayed</AlertTitle>We need
+            them to approve your institution&apos;s signature
+          </Alert>
+        )}
+      </Grid>
+      <Grid item sm={4}>
+        <Select name="gender" options="campaign:profile.gender" form={form} />
+      </Grid>
+      <Grid item sm={8}>
+        <Select
+          name="stage"
+          label="Carrier stage"
+          options="campaign:profile.stage"
+          form={form}
+        />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default EggManifesto;

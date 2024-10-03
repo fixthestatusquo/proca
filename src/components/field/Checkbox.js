@@ -47,7 +47,8 @@ const ProcaCheckbox = (props) => {
               name={props.name}
               control={control}
               render={({ field }) => (
-                <Checkbox {...field} color="primary" checked={field.value} />
+                <Checkbox {...field} color="primary" checked={!!field.value} disabled={props.disabled} />
+
               )}
             />
           }
