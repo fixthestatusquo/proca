@@ -14,8 +14,7 @@ const EggManifesto = ({ form }) => {
   let label = "Sign on the behalf of " + (organisation || "your organisation");
 
   return (
-    <Grid container alignItems="flex-start">
-      <Grid item xs={12}>
+      <><Grid item xs={12}>
         <Orcid form={form} />
         <Affiliation form={form} />
         <Checkbox
@@ -25,14 +24,12 @@ const EggManifesto = ({ form }) => {
           label={label}
         />
       </Grid>
-      <Grid item xs={12}>
         {organisation_sign && (
-          <Alert severity="info" style={{ marginTop: 8 }}>
+          <Grid item><Alert severity="info" style={{ marginTop: 8 }}>
             <AlertTitle>Your details will not be displayed</AlertTitle>We need
             them to approve your institution&apos;s signature
-          </Alert>
+          </Alert></Grid>
         )}
-      </Grid>
       <Grid item sm={4}>
         <Select name="gender" options="campaign:profile.gender" form={form} />
       </Grid>
@@ -44,7 +41,7 @@ const EggManifesto = ({ form }) => {
           form={form}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };
 
