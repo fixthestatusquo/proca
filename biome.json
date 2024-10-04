@@ -1,6 +1,6 @@
 {
   "files": {
-    "ignore": ["*/__tests__/*.js", "build","d","config*", "./src/locales"]
+    "ignore": ["*/__tests__/*.js", "build","d","config*"]
   },
   "formatter": {
     "ignore": ["./d","./config","./src/locales"],
