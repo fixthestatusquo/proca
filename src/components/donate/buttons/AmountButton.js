@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import OtherAmountInput from "./OtherAmount";
 import { useTranslation } from "react-i18next";
 import { useFormatMoney } from "@hooks/useFormatting";
+import useElementWidth from "@hooks/useElementWidth";
 
 const useStyles = makeStyles(theme => ({
   formContainers: {
@@ -79,18 +80,14 @@ export const OtherButton = props => {
 const Amounts = () => {
   const config = useCampaignConfig();
   const [data, setData] = useData();
-  const donateConfig = config.component.donation;
+  const donateConfig = config.component.donation || {};
   const currency = donateConfig.currency;
   // TODO: adjust for currencies?
   const frequency =
-    data.frequency || config.component.donation?.frequency?.default || "oneoff";
-  const configuredAmounts = donateConfig?.amount || {
-    oneoff: [3, 5, 10, 50, 200],
-  };
+    data.frequency || donateConfig.frequency?.default || "oneoff";
+  const amounts = donateConfig?.amount[frequency] || 
+    [3, 5, 10, 50, 200];
 
-  const amounts = [
-    ...(configuredAmounts[frequency] || configuredAmounts["oneoff"]),
-  ];
 
   // const amount = data.amount;
   if (data.initialAmount && !amounts.find(s => s === data.initialAmount)) {
@@ -102,7 +99,9 @@ const Amounts = () => {
   const [showCustomField, toggleCustomField] = useState(false);
   const classes = useStyles();
   const { t } = useTranslation();
-
+  const width = useElementWidth("#proca-donate");
+console.log(width);
+  const cols = width > 300 ? 3 : 6;
   return (
     <>
       <Grid
@@ -113,7 +112,7 @@ const Amounts = () => {
         aria-label="amount"
       >
         {amounts.map(d => (
-          <Grid xs={6} md={3} key={d} item>
+          <Grid xs={cols} key={d} item>
             {/* Maybe we should pass AmountButton the formData handler, so that it's a simpler
                component */}
             <AmountButton
@@ -123,7 +122,7 @@ const Amounts = () => {
             />
           </Grid>
         ))}
-        <Grid xs={6} md={3} key="other" item>
+        <Grid xs={cols}  key="other" item>
           <OtherButton
             onClick={() => toggleCustomField(true)}
             classes={classes}
