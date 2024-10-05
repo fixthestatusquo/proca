@@ -68,7 +68,7 @@ const Signatories = () => {
     <div id="proca-signature">
       <Grid container spacing={1}>
         <Typography variant="h5">
-          {signatories.length} {t("signed","have signed the pledge")}
+          {signatories.length} {t("signed", "have signed the pledge")}
         </Typography>
         <Grid item>
           <TextField
