@@ -101,7 +101,7 @@ const Amounts = () => {
   const { t } = useTranslation();
   const width = useElementWidth("#proca-donate");
 console.log(width);
-  const cols = width > 300 ? 3 : 6;
+  const cols = width > 310 ? 3 : 6;
   return (
     <>
       <Grid
