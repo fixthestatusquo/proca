@@ -2,21 +2,26 @@ import { useEffect } from 'react';
 
 let hasRun = false;
 
-const useHash = ({prefix,onChange}) => {
+export const getHash  = (prefix) => {
   if (!prefix) {
     prefix = "proca_";
   }
 
+     const urlHash = window.location.hash.substring(1); 
+     if (urlHash.startsWith(prefix)) {
+       return urlHash.replace(prefix, "");
+     } 
+}
+
+const useHash = ({prefix,onChange}) => {
   useEffect (() => { 
    if (hasRun) return;
    hasRun = true;
 
-   window.addEventListener('hashchange', function() {
-     const urlHash = window.location.hash.substring(1); 
-     if (urlHash.startsWith(prefix)) {
-       const step = urlHash.replace(prefix, "");
-       onChange(step);
-     }
+   window.addEventListener('hashchange', () => {
+       const step = getHash (prefix);
+       if (step)
+         onChange(step);
   });
 },[]);
 }
