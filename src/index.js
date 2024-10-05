@@ -13,10 +13,13 @@ import ProcaWidget from "./components/Widget.js";
 import { config as Config } from "./actionPage";
 
 let config = {
-  selector: ".proca-widget, #proca-form", // +, "[href='#proca_widget']"
+  selector: ".proca-widget", // +, "[href='#proca_widget']"
 };
 
+
 let rendered = false;
+
+const getJourney = () => Config.journey;
 
 const Alert = (text, severity) => {
   const selector = "proca_alert";
@@ -173,6 +176,7 @@ export {
   ReactDOM,
   set,
   Widget,
+  getJourney,
 };
 
 //      <SignatureForm margin= "dense" variant= "filled" />

@@ -41,7 +41,7 @@ const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
-  useHash ({name:"proca_go", onChange : step => {
+  useHash ({prefix:"proca_", onChange : step => {
         document.body.focus(); // trick to avoid triggering a blur if firstname has the focus
         go(step);
         _scrollTo({ delay: 100, focus: "firstname"});

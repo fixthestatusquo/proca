@@ -3,12 +3,13 @@ const scrollTo = params => {
     delay = 100,
     block = "center",
     selector = ".proca-widget",
+    focus = undefined,
   } = params || {};
   setTimeout(() => {
     const widget = document.querySelector(selector);
     if (!widget) return;
     widget.scrollIntoView({ block: block, behavior: "smooth" });
-    if (params.focus) {
+    if (focus) {
       const field = document.getElementsByName(params.focus);
       if (field.length === 1) {
         setTimeout(() => {
