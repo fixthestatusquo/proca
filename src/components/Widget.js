@@ -16,6 +16,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
+import useHash from "@hooks/useHash";
 import dispatch from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";
 
@@ -40,6 +41,10 @@ const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
+  useHash ({name:"proca_go", onChange : step => {
+        go(step);
+        _scrollTo({ delay: 100, focus: "firstname"});
+}});
 
   const setCurrent = i => {
     if (i >= 0 && journey[i])
@@ -339,7 +344,7 @@ const Widget = props => {
     if (config.component.widget?.autoStart !== false) {
       if (paramStep()) {
         go(paramStep());
-        _scrollTo({ delay: 300 });
+        _scrollTo({ delay: 300});
       } else {
         go(1);
       }
@@ -352,13 +357,7 @@ const Widget = props => {
   }
   const onFabClick = () => {
     dispatch("fab_click", null, null, config);
-    _scrollTo();
-    const firstname = document.getElementsByName("firstname");
-    if (firstname.length === 1) {
-      setTimeout(() => {
-        firstname[0].focus();
-      }, 1000);
-    }
+    _scrollTo({focus:'firstname'});
   };
 
   return (
