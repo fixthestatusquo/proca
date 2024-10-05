@@ -16,7 +16,6 @@ let config = {
   selector: ".proca-widget", // +, "[href='#proca_widget']"
 };
 
-
 let rendered = false;
 
 const getJourney = () => Config.journey;

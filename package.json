@@ -2,11 +2,7 @@
   "name": "@proca/widget",
   "version": "0.9.0-beta.1",
   "private": false,
-  "files": [
-    "bin",
-    "dist",
-    "README.md"
-  ],
+  "files": ["bin", "dist", "README.md"],
   "main": "dist/module.js",
   "run": "bin/index.js",
   "bin": "bin/index.js",
@@ -24,6 +20,7 @@
     "@stripe/react-stripe-js": "^2.7.3",
     "@stripe/stripe-js": "^4.5.0",
     "@supabase/supabase-js": "^2.45.4",
+    "blurhash": "^2.0.5",
     "i18n-iso-countries": "^7.12.0",
     "i18next": "^23.15.1",
     "i18next-extract": "^0.1.3",
@@ -66,32 +63,25 @@
     "@testing-library/user-event": "^14.5.2",
     "babel-plugin-i18next-extract": "^0.10.0",
     "babel-plugin-module-resolver": "^5.0.2",
-    "blurhash": "^2.0.5",
     "browserslist": "^4.24.0",
     "cli-color": "^2.0.4",
     "dotenv": "^16.4.5",
     "esbuild": "^0.17.19",
     "esbuild-plugin-browserslist": "^0.7.2",
     "esbuild-plugin-copy": "^2.1.1",
-    "eslint": "^9.11.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.37.0",
     "i18next-fs-backend": "^2.3.2",
     "lefthook": "^1.7.14",
-    "lint-staged": "^15.2.9",
     "minimist": "^1.2.8",
     "mjml": "^4.15.3",
     "open": "^10.1.0",
     "phoenix": "1.7.14",
-    "prettier": "^3.3.3",
     "simple-git": "^3.27.0",
     "typescript": "^4.9.5",
     "websocket": "^1.0.35"
   },
   "scripts": {
-    "format": "npx @biomejs/biome format --write src/ docs/ webpack/ bin/",
-    "_format": "prettier --write src/**/*.{js,jsson,md} docs/*.md webpack/*.js bin/*.js",
-    "_eslint": "eslint . --fix --max-warnings=0 --cache",
+    "_format": "npx @biomejs/biome format --write src/ docs/ webpack/ bin/ ",
+    "format": "npx @biomejs/biome format --write ",
     "lint": "npx @biomejs/biome lint",
     "build": "node bin/esbuild.js",
     "start": "node bin/esbuild.js --serve ",
@@ -120,11 +110,7 @@
     }
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

@@ -41,11 +41,14 @@ const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
-  useHash ({prefix:"proca_", onChange : step => {
-        document.body.focus(); // trick to avoid triggering a blur if firstname has the focus
-        go(step);
-        _scrollTo({ delay: 100, focus: "firstname"});
-}});
+  useHash({
+    prefix: "proca_",
+    onChange: step => {
+      document.body.focus(); // trick to avoid triggering a blur if firstname has the focus
+      go(step);
+      _scrollTo({ delay: 100, focus: "firstname" });
+    },
+  });
 
   const setCurrent = i => {
     if (i >= 0 && journey[i])
@@ -343,10 +346,10 @@ const Widget = props => {
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
-      const step = getHash () || paramStep ();
+      const step = getHash() || paramStep();
       if (step) {
         go(step);
-        _scrollTo({ delay: 300});
+        _scrollTo({ delay: 300 });
       } else {
         go(1);
       }
@@ -359,7 +362,7 @@ const Widget = props => {
   }
   const onFabClick = () => {
     dispatch("fab_click", null, null, config);
-    _scrollTo({focus:'firstname'});
+    _scrollTo({ focus: "firstname" });
   };
 
   return (

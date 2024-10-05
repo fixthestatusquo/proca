@@ -85,9 +85,7 @@ const Amounts = () => {
   // TODO: adjust for currencies?
   const frequency =
     data.frequency || donateConfig.frequency?.default || "oneoff";
-  const amounts = donateConfig?.amount[frequency] || 
-    [3, 5, 10, 50, 200];
-
+  const amounts = donateConfig?.amount[frequency] || [3, 5, 10, 50, 200];
 
   // const amount = data.amount;
   if (data.initialAmount && !amounts.find(s => s === data.initialAmount)) {
@@ -100,7 +98,7 @@ const Amounts = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const width = useElementWidth("#proca-donate");
-console.log(width);
+  console.log(width);
   const cols = width > 310 ? 3 : 6;
   return (
     <>
@@ -122,7 +120,7 @@ console.log(width);
             />
           </Grid>
         ))}
-        <Grid xs={cols}  key="other" item>
+        <Grid xs={cols} key="other" item>
           <OtherButton
             onClick={() => toggleCustomField(true)}
             classes={classes}

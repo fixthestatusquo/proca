@@ -1,15 +1,15 @@
 {
   "files": {
-    "ignore": ["*/__tests__/*.js", "build","d","config*"]
+    "ignore": ["*/__tests__/*.js", "build", "d", "config*"]
   },
   "formatter": {
-    "ignore": ["./d","./config","./src/locales"],
+    "ignore": ["./d", "./config", "./src/locales"],
     "lineWidth": 80,
     "indentWidth": 2,
     "indentStyle": "space"
   },
   "javascript": {
-    "globals": ["global"] ,
+    "globals": ["global"],
     "formatter": {
       "trailingCommas": "es5",
       "arrowParentheses": "asNeeded",
@@ -21,7 +21,7 @@
     }
   },
   "linter": {
-    "ignore": ["./d","./config*/*"],
+    "ignore": ["./d", "./config*/*"],
     "rules": {
       "recommended": false,
       "a11y": {
