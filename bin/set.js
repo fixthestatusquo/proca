@@ -111,7 +111,7 @@ function update(id, d) {
 
 const isRequired = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map((change) => {
+  changes.map(change => {
     const field = {};
     field[change] = { required: bool };
     update(id, { component: { register: { field: field } } });
@@ -120,7 +120,7 @@ const isRequired = (id, arg, bool) => {
 
 const showHide = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map((change) => {
+  changes.map(change => {
     const field = {};
     field[change] = bool;
     update(id, { component: { register: { field: field } } });
@@ -131,7 +131,7 @@ const args = argv._;
 
 let ids = [];
 
-args.map((arg) => {
+args.map(arg => {
   if (typeof arg !== "number" && arg.match(/^[0-9]+[-][0-9]+$/)) {
     const range = arg.split("-");
     let i = parseInt(range[0]);
@@ -150,14 +150,14 @@ if (ids.length === 0) {
   process.exit(1);
 }
 
-ids.map((id) => {
+ids.map(id => {
   (async () => {
     if (argv.pull) {
       try {
         await pull(id);
       } catch (errors) {
         Array.isArray(errors) &&
-          errors.map((e) => {
+          errors.map(e => {
             console.error("\x1b[31m", e.message);
           });
       }
@@ -250,7 +250,7 @@ ids.map((id) => {
     if (argv.goal) {
       let steps = [];
       if (typeof argv.goal === "string" && argv.goal.indexOf(",") > -1) {
-        steps = argv.goal.split(",").map((g) => parseInt(g));
+        steps = argv.goal.split(",").map(g => parseInt(g));
       } else if (typeof argv.goal === "number") {
         steps.push(argv.goal);
       } else {
@@ -316,7 +316,7 @@ ids.map((id) => {
         await push(id);
       } catch (errors) {
         Array.isArray(errors) &&
-          errors.map((e) => {
+          errors.map(e => {
             console.error("\x1b[31m", e.message);
           });
       }

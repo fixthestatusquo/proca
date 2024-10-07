@@ -1,17 +1,17 @@
 const { readdirSync, readFileSync, writeFileSync } = require("fs");
 
-const getDirectories = (source) =>
+const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
 
 const aggregate = (nameSpace = "common") => {
   const d = {};
   const allLang = getDirectories(__dirname);
-  allLang.map((lang) => {
+  allLang.map(lang => {
     try {
       const content = readFileSync(
-        __dirname + "/" + lang + "/" + nameSpace + ".json",
+        `${__dirname}/${lang}/${nameSpace}.json`,
         "utf8"
       );
       d[lang] = JSON.parse(content);
@@ -22,7 +22,7 @@ const aggregate = (nameSpace = "common") => {
     }
   });
   writeFileSync(
-    __dirname + "/" + nameSpace + ".json",
+    `${__dirname}/${nameSpace}.json`,
     JSON.stringify(d, null, 2),
     "utf8"
   );

@@ -55,9 +55,9 @@ export const allCountries = isoCountries.getNames(
   }
 );
 
-let resources = {};
+const resources = {};
 
-export const getCountryName = (iso) =>
+export const getCountryName = iso =>
   isoCountries.getName(
     iso.toUpperCase(),
     config.lang.toLowerCase().slice(0, 2),

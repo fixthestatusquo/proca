@@ -158,6 +158,14 @@
   },
   "no": "no",
   "party": "Partido",
+  "phone": {
+    "INVALID_COUNTRY": "código de país no válido o inexistente",
+    "INVALID_LENGTH": "Longitud inválida",
+    "MISSING": "campo obligatorio",
+    "NOT_A_NUMBER": "Número de teléfono no válido",
+    "TOO_LONG": "número demasiado largo",
+    "TOO_SHORT": "número demasiado corto"
+  },
   "postcode": {
     "notFound": "este código postal no parece existir en su país",
     "wrongLength": "duración prevista de {{length}} para su país"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} han twitteado. Vamos a {{goal}}"
   },
   "read more": "leer más",
+  "region": "Región",
   "register": "Añade mi nombre",
   "reminder": {
     "intro": "Lo sabemos, su gobierno le pide mucha información. Le enviaremos un único correo electrónico para recordarle que rellene el formulario más adelante"

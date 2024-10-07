@@ -2,7 +2,7 @@ import Checkbox from "./Checkbox";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-const BccOptin = (props) => {
+const BccOptin = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const props2 = {

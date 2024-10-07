@@ -158,6 +158,14 @@
   },
   "no": "ingen",
   "party": "Fest",
+  "phone": {
+    "INVALID_COUNTRY": "manglende eller ugyldig landekode",
+    "INVALID_LENGTH": "Ugyldig længde",
+    "MISSING": "påkrævet felt",
+    "NOT_A_NUMBER": "Ugyldigt telefonnummer",
+    "TOO_LONG": "Nummeret er for langt",
+    "TOO_SHORT": "nummer for kort"
+  },
   "postcode": {
     "notFound": "Dette postnummer ser ikke ud til at eksistere i dit land.",
     "wrongLength": "forventet længde af {{length}} for dit land"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} har twittet. Lad os nå {{goal}}"
   },
   "read more": "Læs mere",
+  "region": "Region",
   "register": "Tilføj mit navn",
   "reminder": {
     "intro": "Vi ved, at din regering beder om mange oplysninger. Vi sender dig en enkelt e-mail for at minde dig om, at du skal udfylde formularen senere."

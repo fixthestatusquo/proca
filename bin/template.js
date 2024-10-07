@@ -18,6 +18,7 @@ const _snarkdown = require("snarkdown");
 
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
+const _pick = require("lodash/pick");
 
 const help = () => {
   console.log(
@@ -29,13 +30,13 @@ const help = () => {
       "--verbose (show the result)",
       "--serve (show template in your browser for dev)",
       "--markdown (handle i18n as markdown)",
-      "--campaign|no-campaign (add the variables from the template into the campaign)",
+      "--campaign (add the variables from the template into the campaign)",
       "--extract (extract into src/locales/en/server.js)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
       "actionpage_id",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
-    ].join("\n"),
+    ].join("\n")
   );
   process.exit(0);
 };
@@ -55,7 +56,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   ],
   alias: { v: "verbose" },
   default: { mjml: "default/thankyou", markdown: true, build: true },
-  unknown: (d) => {
+  unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
     if (allowed.includes(d.split("=")[0].slice(2))) return true;
@@ -72,17 +73,17 @@ const keys = {};
 const needle = "[{|}]";
 let locales = {}; // to use to update the campaign.config from the template keys
 
-const snarkdown = (markdown) => {
+const snarkdown = markdown => {
   const md = markdown.replaceAll("proca_", "proca-").replaceAll("utm_", "utm-"); //snarkdown messes up
   const para = md.split(/(?:\r?\n){2,}/);
   if (para.length === 1) {
     // don't add the paragraph
     return _snarkdown(markdown);
   }
-  const htmls = para.map((l) =>
-    [" ", "\t", "#", "-", "*"].some((ch) => l.startsWith(ch))
+  const htmls = para.map(l =>
+    [" ", "\t", "#", "-", "*"].some(ch => l.startsWith(ch))
       ? _snarkdown(l)
-      : `<p>${_snarkdown(l)}</p>`,
+      : `<p>${_snarkdown(l)}</p>`
   );
   return htmls
     .join("\n\n")
@@ -141,16 +142,16 @@ const updateTranslation = (namespace, parsed) => {
   fs.writeFileSync(file, JSON.stringify(updated, null, 2));
 };
 
-const updateCampaign = (campaign, lang, tplLocales) => {
+const updateCampaign = (campaign, lang, update) => {
   const locales = {};
-  locales[lang] = { "server:": tplLocales.server };
+  locales[lang] = { "server:": update };
   const updated = _merge({}, { config: { locales: locales } }, campaign);
 
   saveCampaign(updated, {});
   console.log(JSON.stringify(updated.config.locales, null, 2));
 };
 
-const deepify = (keys) => {
+const deepify = keys => {
   // convert an array of keys for the t function to the translation json
   let trans = {};
   for (let nskey in keys) {
@@ -164,6 +165,7 @@ const deepify = (keys) => {
 
 const translateTpl = (tpl, lang, markdown) =>
   new Promise((resolve, reject) => {
+    lang && console.warn("unused param", lang);
     const util = htmlparser2.DomUtils;
     const handler = new htmlparser2.DomHandler((error, dom) => {
       if (error) {
@@ -171,12 +173,12 @@ const translateTpl = (tpl, lang, markdown) =>
         reject(error);
       }
       const i18node = util.find(
-        (e) => util.getAttributeValue(e, "i18n"),
+        e => util.getAttributeValue(e, "i18n"),
         dom,
         true,
-        999,
+        999
       );
-      i18node.forEach((d) => {
+      i18node.forEach(d => {
         const text = util.getChildren(d)[0] || {
           type: "text",
           data: d.attribs.i18n,
@@ -205,7 +207,7 @@ const translateTpl = (tpl, lang, markdown) =>
 const saveTemplate = (render, id) => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".html",
+    tmp + "email/actionpage/" + id + ".html"
   );
   if (argv.verbose) {
     console.log(JSON.stringify(render.errors, null, 2));
@@ -220,18 +222,18 @@ const saveTemplate = (render, id) => {
   return render;
 };
 
-const readTemplate = (id) => {
+const readTemplate = id => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".html",
+    tmp + "email/actionpage/" + id + ".html"
   );
   return fs.readFileSync(fileName, "utf8");
 };
 
-const saveConfig = (config) => {
+const saveConfig = config => {
   const jsonFile = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + config.actionpage + ".json",
+    tmp + "email/actionpage/" + config.actionpage + ".json"
   );
 
   const json = {
@@ -247,10 +249,10 @@ const saveConfig = (config) => {
   return json;
 };
 
-const readMjmlTemplate = (tplName) => {
+const readMjmlTemplate = tplName => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/mjml/" + tplName + ".mjml",
+    tmp + "email/mjml/" + tplName + ".mjml"
   );
   let tpl = fs.readFileSync(fileName, "utf8");
   const render = mjmlEngine(tpl, {});
@@ -270,7 +272,7 @@ const i18nRender = async (tplName, lang, markdown) => {
     for (const key in keys) {
       render.html = render.html.replace(
         needle + key,
-        snarkdown(i18n.t(key, "")),
+        snarkdown(i18n.t(key, ""))
       );
     }
   }
@@ -291,13 +293,40 @@ const i18nTplInit = async (campaign, lang = "en") => {
   return server;
 };
 
+const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
+  const file = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
+  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
+  let server = _pick(initial, [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.about",
+    "email.common.signature",
+    "email.common.share",
+    `email.${type}.subject`,
+    "poweredBy",
+  ]);
+  if (type === "doi") {
+    server = _pick(initial, [
+      "email.common.greeting",
+      "email.common.thanks",
+      "email.common.signature",
+      `email.${type}.intro`,
+      `email.${type}.extra`,
+      "email.button.confirmOptin",
+      `email.${type}.subject`,
+      "poweredBy",
+    ]);
+  }
+  return server;
+};
+
 if (require.main === module) {
   if (!argv._.length || argv.help) {
     console.error("missing actionpage id");
     help();
   }
 
-  const getType = (tplName) => {
+  const getType = tplName => {
     const segments = tplName.split("/");
     return segments.slice(-1);
   };
@@ -314,20 +343,20 @@ if (require.main === module) {
     try {
       try {
         org.readOrg(config.org.name);
-      } catch (e) {
+      } catch {
         try {
           await org.getOrg(config.org.name);
-        } catch (e) {
+        } catch {
           console.log(
             "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-            config.org.name,
+            config.org.name
           );
         }
       }
-    } catch (e) {
+    } catch {
       console.log(
         "warning: not enough permissions to fetch the org config, you will not be able to use logo or other org info",
-        config.org.name,
+        config.org.name
       );
       process.exit(1);
     }
@@ -362,9 +391,12 @@ if (require.main === module) {
           console.log(
             "i18n keys",
             keys,
-            JSON.stringify(render.locales, null, 2),
+            JSON.stringify(render.locales, null, 2)
           );
-        } else updateCampaign(campaign, lang, locales);
+        } else {
+          const update = keysToCampaignConfig(config.type[0], lang);
+          updateCampaign(campaign, lang, update);
+        }
       }
     } catch (e) {
       console.log(e);
@@ -376,7 +408,7 @@ if (require.main === module) {
     if (argv.serve) {
       const port = 8025;
       http
-        .createServer(function (req, res) {
+        .createServer(function (_req, res) {
           res.setHeader("Content-type", "text/html");
           res.end(html);
           process.exit(0);

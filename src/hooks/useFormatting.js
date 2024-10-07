@@ -4,7 +4,7 @@ const useFormatMoney = () => {
   const campaignConfig = useCampaignConfig();
   const donateConfig = campaignConfig.component.donation;
 
-  return (amount) => {
+  return amount => {
     const maxDigit = Math.round(amount) === amount ? 0 : 2;
     return Number(amount).toLocaleString(campaignConfig.lang, {
       style: "currency",

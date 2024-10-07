@@ -1,9 +1,12 @@
 // babel.config.js
 
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
 
-  const presets = [["@babel/preset-env", { modules: false }], "@babel/preset-react"];
+  const presets = [
+    ["@babel/preset-env", { modules: false }],
+    "@babel/preset-react",
+  ];
   const plugins = [
     // "macros",
     // 'optimize-clsx',
@@ -13,12 +16,15 @@ module.exports = function(api) {
     // '@babel/plugin-transform-object-assign',
     // '@babel/plugin-proposal-optional-chaining',
     // '@babel/plugin-proposal-nullish-coalescing-operator',
-    ["module-resolver", {
-      "root": "src",
-      "alias": {
-        "locales": "./src/locales",
+    [
+      "module-resolver",
+      {
+        root: "src",
+        alias: {
+          locales: "./src/locales",
+        },
       },
-    }],
+    ],
     //      "@babel/plugin-transform-react-jsx",
     //        "@babel/plugin-transform-modules-commonjs"
 

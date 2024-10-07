@@ -8,7 +8,7 @@ import DonationIcon from "@images/Donate";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
-const ExternalPayment = (props) => {
+const ExternalPayment = props => {
   const { t } = useTranslation();
   const classes = props.classes;
   const [formData] = useData();

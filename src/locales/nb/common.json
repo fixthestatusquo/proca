@@ -17,7 +17,7 @@
   "Organisation": "Organisasjon",
   "Other": "Annet",
   "Phone": "Telefon",
-  "Postal Code": "Postnummer",
+  "Postal Code": "P.nr.",
   "Salutation": "Hilsen",
   "Sorry, we couldn't save": "Beklager, vi kunne ikke lagre",
   "Street": "Gate",
@@ -27,7 +27,7 @@
   "action": {
     "donate": "Donere",
     "eci": "Signer ECI",
-    "email": "Send en e-post",
+    "email": "Send e-post",
     "join": "Bli med",
     "register": "Registrere",
     "remindeSent": "Påminnelse sendt",
@@ -158,6 +158,14 @@
   },
   "no": "Nei",
   "party": "Fest",
+  "phone": {
+    "INVALID_COUNTRY": "manglende eller ugyldig landskode",
+    "INVALID_LENGTH": "Ugyldig lengde",
+    "MISSING": "obligatorisk felt",
+    "NOT_A_NUMBER": "Ugyldig telefonnummer",
+    "TOO_LONG": "nummer for langt",
+    "TOO_SHORT": "nummer for kort"
+  },
   "postcode": {
     "notFound": "Dette postnummeret ser ikke ut til å eksistere i ditt land.",
     "wrongLength": "forventet lengde på {{length}} for ditt land"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} har twitret. La oss gå til {{goal}}"
   },
   "read more": "Les mer",
+  "region": "Region",
   "register": "Legg til navnet mitt",
   "reminder": {
     "intro": "Vi vet at myndighetene dine ber om mye informasjon. Vi sender deg en e-post for å minne deg på å fylle ut skjemaet senere."
@@ -184,9 +193,9 @@
   },
   "select_all": "Velg alle",
   "share": {
-    "intro": "Flott, du har signert 👍. For å mangedoble effekten din, del vidt og bredt for å sikre at alle ser denne underskriftskampanjen 🙏.",
+    "intro": "Tusen takk, du har sendt inn ditt høringsinnspill! 👍 For å mangedoble effekten, del med venner og kjente og få enda flere til å si ifra til regjeringen 🙏",
     "message": "Du bør signere dette!",
-    "title": "Nesten ferdig! Ta neste skritt."
+    "title": "Nesten ferdig!"
   },
   "step": {
     "eci": {

@@ -32,7 +32,7 @@ const {
 } = require("./config.js");
 const api = require("@proca/api");
 
-const readEci = (eci) => {
+const readEci = eci => {
   try {
     return JSON.parse(fs.readFileSync(file(eci), "utf8")).initiative;
   } catch (e) {
@@ -42,7 +42,7 @@ const readEci = (eci) => {
 };
 
 const getLocale = (code, languages) => {
-  const locale = languages.find((d) => d.code === code);
+  const locale = languages.find(d => d.code === code);
   locale.name = locale.title;
   return locale;
 };
@@ -79,7 +79,7 @@ const makeLocalAP = (mainAP, locale, eci) => {
   const eci = readEci(eciid);
   console.log(eci);
   const pages = {};
-  eci.languages.language.forEach((ll) => {
+  eci.languages.language.forEach(ll => {
     pages[ll.code] = makeLocalAP(mainConfig, ll.code, eci);
   });
 
@@ -101,7 +101,7 @@ const makeLocalAP = (mainAP, locale, eci) => {
       campaign: {
         name: campaignName,
         actionPages: Object.values(pages).map(
-          (p) => actionPageFromLocalConfig(null, p).actionPage
+          p => actionPageFromLocalConfig(null, p).actionPage
         ),
       },
     };

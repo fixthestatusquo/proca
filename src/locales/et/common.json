@@ -158,6 +158,14 @@
   },
   "no": "ei",
   "party": "Partei",
+  "phone": {
+    "INVALID_COUNTRY": "puuduv või vigane riigikood",
+    "INVALID_LENGTH": "Vale pikkus",
+    "MISSING": "nõutav väli",
+    "NOT_A_NUMBER": "Vale telefoninumber",
+    "TOO_LONG": "number liiga pikk",
+    "TOO_SHORT": "number liiga lühike"
+  },
   "postcode": {
     "notFound": "seda postiindeksit ei tundu teie riigis olevat olemas.",
     "wrongLength": "eeldatav pikkus {{length}} teie riigi jaoks"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} on twitted. Läheme {{goal}}"
   },
   "read more": "loe edasi",
+  "region": "Piirkond",
   "register": "Lisage minu nimi",
   "reminder": {
     "intro": "Me teame, et teie valitsus küsib palju teavet. Saadame teile ühe e-kirja, et tuletada teile meelde, et täidate vormi hiljem"

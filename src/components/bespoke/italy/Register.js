@@ -33,7 +33,7 @@ import { addSupport, errorMessages } from "./lib/server.js";
 //import uuid from "@lib/uuid.js";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -85,10 +85,10 @@ export default function Register(props) {
   });
   const { handleSubmit, setError, formState } = form;
 
-  const handleVerificationSuccess = (token) => {
+  const handleVerificationSuccess = token => {
     setToken(token);
   };
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     data.tracking = Url.utm();
     if (data.birthDate) {
       data.birthDate = formatDate(data.birthDate);
@@ -112,7 +112,7 @@ export default function Register(props) {
       let handled = false;
       console.log(result.errors.fields, data);
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             switch (field.name) {
               case "birthDate": {
@@ -121,9 +121,7 @@ export default function Register(props) {
                 break;
               }
               case "documentNumber": {
-                const msg =
-                  "eci:form.error.document_it_" +
-                  data.documentType.replace(/\./g, "_");
+                const msg = `eci:form.error.document_it_${data.documentType.replace(/\./g, "_")}`;
                 setError(field.name, {
                   type: "server",
                   message: /* i18next-extract-disable-line */ t(msg),
@@ -131,10 +129,7 @@ export default function Register(props) {
                 break;
               }
               case "postcode": {
-                const msg =
-                  "eci:form.error.oct_error_" +
-                  data.country.toLowerCase() +
-                  "_postalcode";
+                const msg = `eci:form.error.oct_error_${data.country.toLowerCase()}_postalcode`;
                 setError(field.name, {
                   type: "server",
                   message: i18n.exists(msg)
@@ -172,7 +167,7 @@ export default function Register(props) {
     return false;
   };
 
-  function Error(props) {
+  function ErrorS(props) {
     if (props.display)
       return (
         <Snackbar open={true} autoHideDuration={6000}>
@@ -216,7 +211,7 @@ export default function Register(props) {
     >
       <ProgressCounter actionPage={props.actionPage} />
       <Success display={status === "success"} />
-      <Error display={status === "error"} />
+      <ErrorS display={status === "error"} />
       <Container component="main" maxWidth="sm">
         <Box marginBottom={1}>
           <Grid container spacing={0}>
@@ -264,7 +259,7 @@ export default function Register(props) {
                 sitekey={config.component.register.hcaptcha}
                 languageOverride={config.lang}
                 size="compact"
-                onVerify={(token) => handleVerificationSuccess(token)}
+                onVerify={token => handleVerificationSuccess(token)}
               />
             </Grid>
             <EmailConsent

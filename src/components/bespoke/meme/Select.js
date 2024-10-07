@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Item = (props) => {
+const Item = props => {
   const classes = useStyles();
   //<Grid item  xs={12 / props.total}>
   return (

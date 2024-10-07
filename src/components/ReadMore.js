@@ -9,7 +9,7 @@ import { truncate } from "@lib/text";
 //import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import MoreIcon from "@material-ui/icons/MoreHoriz";
 
-const ReadMore = (props) => {
+const ReadMore = props => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   return (

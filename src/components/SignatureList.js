@@ -16,7 +16,7 @@ const ListSignature = () => {
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    (async function () {
+    (async () => {
       c = await getLatest(actionPage, "openletter");
       if (!isCancelled) setList(c);
     })();
@@ -25,22 +25,22 @@ const ListSignature = () => {
     };
   }, [actionPage]);
 
-  const tweet = (screen_name) => {
-    const url = "https://twitter.com/" + screen_name;
+  const tweet = screen_name => {
+    const url = `https://twitter.com/${screen_name}`;
     window.open(
       url,
-      "tweet-" + screen_name,
+      `tweet-${screen_name}`,
       "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=550"
     );
   };
-  const visit = (url) => {
+  const visit = url => {
     if (!url) return;
     window.open(url, "_blank");
   };
 
   return (
     <List dense={true} disablePadding={true}>
-      {list.map((k) => (
+      {list.map(k => (
         <ListItem
           alignItems="flex-start"
           divider={false}
@@ -53,7 +53,7 @@ const ListSignature = () => {
           </ListItemAvatar>
           <ListItemText primary={k.organisation} secondary={k.comment} />
           <ListItemSecondaryAction
-            title={k.twitter + " (" + k.followers_count + " followers)"}
+            title={`${k.twitter} (${k.followers_count} followers)`}
           >
             <IconButton
               edge="end"

@@ -3,7 +3,7 @@ import { getLatest } from "@lib/server.js";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     table: {
       borderCollapse: "separate",
@@ -38,7 +38,7 @@ const ListSignature = () => {
   useEffect(() => {
     let isCancelled = false;
     let c = null;
-    (async function () {
+    (async () => {
       c = await getLatest(actionPage, "openletter");
       if (!isCancelled) setList(c);
     })();
@@ -52,13 +52,13 @@ const ListSignature = () => {
       <table className={classes.table} id="datatable">
         <tbody>
           {list
-            .filter((d) => d.organisation)
+            .filter(d => d.organisation)
             .sort((a, b) =>
               a.organisation.toLowerCase() > b.organisation.toLowerCase()
                 ? 1
                 : -1
             )
-            .map((k) => (
+            .map(k => (
               <tr key={k.twitter}>
                 <td className={classes.trlogo}>
                   <Avatar variant="rounded" className={classes.large}>
@@ -66,7 +66,7 @@ const ListSignature = () => {
                       src={k.picture?.replace("_normal", "_bigger")}
                       alt={k.organisation}
                       title={
-                        k.organisation + (k.comment ? "\n" + k.comment : "")
+                        k.organisation + (k.comment ? `\n${k.comment}` : "")
                       }
                     />
                   </Avatar>
@@ -76,7 +76,7 @@ const ListSignature = () => {
                     <a
                       href={
                         k.url ||
-                        (k.twitter ? "https://twitter.com/" + k.twitter : "#")
+                        (k.twitter ? `https://twitter.com/${k.twitter}` : "#")
                       }
                     >
                       {k.organisation}

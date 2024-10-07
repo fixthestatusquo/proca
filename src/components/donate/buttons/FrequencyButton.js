@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../../hooks/useConfig";
 import { makeStyles } from "@material-ui/styles";
 
-const StyledButton = withStyles((theme) => ({
+const StyledButton = withStyles(theme => ({
   root: {
     padding: theme.spacing(1),
     width: "100%",
@@ -17,7 +17,7 @@ const StyledButton = withStyles((theme) => ({
 const FrequencyButton = ({ buttonValue, selected, classes, children }) => {
   const [, setData] = useData();
 
-  const handleFrequency = (i) => {
+  const handleFrequency = i => {
     setData("frequency", i);
   };
 
@@ -58,7 +58,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
 
   return (
     <Grid container spacing={1} className={classes.formContainers}>
-      {frequencies.map((f) => (
+      {frequencies.map(f => (
         <Grid key={f} item xs={12} md={6}>
           <FrequencyButton
             buttonValue={f}
@@ -67,7 +67,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
           >
             {
               /* i18next-extract-disable-next-line */
-              t("donation.frequency.each." + f.toLowerCase(), {
+              t(`donation.frequency.each.${f.toLowerCase()}`, {
                 defaultValue: f,
               })
             }
@@ -78,7 +78,7 @@ const FrequencyButtons = ({ frequencies, selected, setFrequency }) => {
   );
 };
 
-const Frequencies = (props) => {
+const Frequencies = props => {
   const { t } = useTranslation();
 
   const config = useCampaignConfig();
@@ -97,7 +97,7 @@ const Frequencies = (props) => {
       <Typography variant="h6" paragraph gutterBottom color="textPrimary">
         {
           /*  i18next-extract-disable-next-line */
-          t("donation.frequency.ask." + frequency.toLowerCase(), {
+          t(`donation.frequency.ask.${frequency.toLowerCase()}`, {
             defaultValue: "Make it monthly?",
           })
         }

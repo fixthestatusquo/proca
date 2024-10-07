@@ -1,5 +1,4 @@
 // usage add-partner name/page partner. will create the partner if missing
-//require("cross-fetch/polyfill");
 require("dotenv").config();
 
 const { request, admin, widget } = require("@proca/api");
@@ -7,7 +6,7 @@ const { pull, apiLink } = require("./config");
 const isEqual = require("lodash").isEqual;
 const api = apiLink();
 
-const checkError = (errors) => {
+const checkError = errors => {
   if (errors) {
     throw new Error(JSON.stringify(errors));
   }
@@ -73,7 +72,7 @@ const copy = async (fn, org, tn) => {
   throw new Error("no data returned");
 };
 
-const getOrg = async (org) => {
+const getOrg = async org => {
   const { errors, data } = await request(api, admin.DashOrgOverviewDocument, {
     org,
   });
@@ -98,7 +97,7 @@ const updateConfig = async (apId, cfg) => {
   }
 };
 
-const addOrg = async (partnerOrg) => {
+const addOrg = async partnerOrg => {
   const { errors, data } = await request(api, admin.AddOrgDocument, {
     org: { name: partnerOrg, title: partnerOrg },
   });
@@ -122,7 +121,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   if (joinResult.errors)
     console.error(
       `Could not join ${partnerOrg} as superuser`,
-      joinResult.errors,
+      joinResult.errors
     );
 
   let org = null;
@@ -138,7 +137,7 @@ const addPartner = async (genericPage, partnerOrg) => {
   const newAp = await copy(
     genericPage,
     partnerOrg,
-    pickName(genericPage, partnerOrg),
+    pickName(genericPage, partnerOrg)
   );
   console.log("copy:", newAp);
 
@@ -181,5 +180,5 @@ const [, script, page, partner] = process.argv;
 if (!page || !partner) {
   console.error(`${script} page partner`);
 } else {
-  addPartner(page, partner).catch((e) => console.error(e));
+  addPartner(page, partner).catch(e => console.error(e));
 }

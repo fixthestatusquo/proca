@@ -1,2 +1,4 @@
-const Organisation = ({form, compact}) => <Organisation form={form} compact={compact} />
-export default Organisation
+const Organisation = ({ form, compact }) => (
+  <Organisation form={form} compact={compact} />
+);
+export default Organisation;

@@ -158,6 +158,14 @@
   },
   "no": "nu",
   "party": "Partid",
+  "phone": {
+    "INVALID_COUNTRY": "cod de țară lipsă sau invalid",
+    "INVALID_LENGTH": "Lungime invalidă",
+    "MISSING": "câmp obligatoriu",
+    "NOT_A_NUMBER": "Număr de telefon invalid",
+    "TOO_LONG": "număr prea lung",
+    "TOO_SHORT": "număr prea scurt"
+  },
   "postcode": {
     "notFound": "acest cod poștal nu pare să existe în țara dvs.",
     "wrongLength": "durata preconizată a {{length}} pentru țara dumneavoastră"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
   },
   "read more": "citește mai mult",
+  "region": "Regiunea",
   "register": "Adaugă numele meu",
   "reminder": {
     "intro": "Știm că guvernul dvs. solicită multe informații. Vă vom trimite un singur e-mail pentru a vă reaminti să completați formularul mai târziu."

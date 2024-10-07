@@ -5,9 +5,9 @@ name: Node build dummy widget CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ nope-main ]
   pull_request:
-    branches: [ main ]
+    branches: [ nope-main ]
 
 jobs:
   build:

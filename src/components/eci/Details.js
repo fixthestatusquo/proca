@@ -15,12 +15,7 @@ export default function Details() {
   const { t } = useTranslation();
   const r = /ECI\((.*?)\)([0-9]+)/g.exec(eci.registrationNumber);
   eci.registrationUrl = r
-    ? "https://europa.eu/citizens-initiative/initiatives/details/" +
-      r[1] +
-      "/" +
-      r[2] +
-      "_" +
-      config.lang
+    ? `https://europa.eu/citizens-initiative/initiatives/details/${r[1]}/${r[2]}_${config.lang}`
     : "";
   eci.apiUrl = eci.apiUrl.replace("/api", "");
   return (
@@ -43,7 +38,7 @@ export default function Details() {
           button
           component="a"
           target="_blank"
-          href={eci.apiUrl + "/d/certification.pdf"}
+          href={`${eci.apiUrl}/d/certification.pdf`}
         >
           <ListItemText
             secondary={<FileIcon />}
@@ -66,9 +61,9 @@ export default function Details() {
         <ListItem>
           <ListItemText
             primary={t("eci:initiative.representative")}
-            secondary={eci.organisers.map((o) => {
+            secondary={eci.organisers.map(o => {
               return o.familyName
-                ? o.firstName + " " + o.familyName + "  "
+                ? `${o.firstName} ${o.familyName}  `
                 : o.firstName;
             })}
           />

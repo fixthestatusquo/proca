@@ -158,6 +158,14 @@
   },
   "no": "não",
   "party": "Festa",
+  "phone": {
+    "INVALID_COUNTRY": "código de país ausente ou inválido",
+    "INVALID_LENGTH": "Comprimento inválido",
+    "MISSING": "campo obrigatório",
+    "NOT_A_NUMBER": "Número de telefone inválido",
+    "TOO_LONG": "número muito longo",
+    "TOO_SHORT": "número muito pequeno"
+  },
   "postcode": {
     "notFound": "esse código postal parece não existir em seu país",
     "wrongLength": "Duração esperada de {{length}} para seu país"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} twittaram. Vamos para {{goal}}"
   },
   "read more": "leia mais",
+  "region": "Região",
   "register": "Adicionar meu nome",
   "reminder": {
     "intro": "Sabemos que seu governo está solicitando muitas informações. Nós lhe enviaremos um único e-mail para lembrá-lo de preencher o formulário mais tarde"

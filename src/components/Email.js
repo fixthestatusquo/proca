@@ -45,24 +45,26 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const EmailComponent = (props) => {
+const EmailComponent = props => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const [profiles, setProfiles] = useState(props.targets || []);
   const [selection, _setSelection] = useState(
-    config.component.email?.selectable ? [] : false,
+    config.component.email?.selectable ? [] : false
   );
   const groups = useRef(new Set()); //if selection by group, add them here
   let onlySelected = groups.current.size;
 
   const listRef = useRef(null);
 
-  const setSelection = (selection) => {
+  const setSelection = selection => {
     _setSelection(selection);
   };
   const selectAll = () => {
-    const r = profiles.map((target) => target.procaid);
+    const r = profiles
+      .filter(target => !target.disabled)
+      .map(target => target.procaid);
     _setSelection(r);
   };
 
@@ -73,7 +75,7 @@ const EmailComponent = (props) => {
 
   // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
   const [alwaysUpdate, setAlwaysUpdate] = useState(
-    config.component.email?.multilingual === true,
+    config.component.email?.multilingual === true
   );
   const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
@@ -85,7 +87,7 @@ const EmailComponent = (props) => {
       subject: pickOne(t(["campaign:email.subject", "email.subject"], "")),
       message: t(["campaign:email.body", "email.body"], ""),
     }),
-    [t],
+    [t]
   );
 
   //this is not a "real" MTT, ie. we aren't sending individual emails to the targets but - for instance - weekly digests
@@ -145,10 +147,10 @@ const EmailComponent = (props) => {
     }
     if (fields.message === "" && paramEmail.message) {
       setValue("message", paramEmail.message);
-    } // eslint-disable-next-line
+    }
   }, [paramEmail, alwaysUpdate]);
 
-  const handleMerging = (text) => {
+  const handleMerging = text => {
     if (!alwaysUpdate) {
       return;
     }
@@ -168,7 +170,7 @@ const EmailComponent = (props) => {
   useEffect(() => {
     if (blockUpdate) return;
 
-    ["subject", "message"].map((k) => {
+    ["subject", "message"].map(k => {
       if (data[k] && (!fields[k] || alwaysUpdate)) {
         const defaultValue = form.getValues();
         if (tokenKeys.length) {
@@ -180,12 +182,12 @@ const EmailComponent = (props) => {
             defaultValue: data[k] || defaultValue[k],
             nsSeparator: false,
           };
-          tokenKeys.forEach((d) => (empty[d] = defaultValue[d] || ""));
+          tokenKeys.forEach(d => (empty[d] = defaultValue[d] || ""));
           empty.name = defaultValue.firstname
-            ? defaultValue.firstname + " " + defaultValue.lastname
+            ? `${defaultValue.firstname} ${defaultValue.lastname}`
             : "";
           if (empty.locality) {
-            empty.name += "\n" + empty.locality;
+            empty.name += `\n${empty.locality}`;
           }
           form.setValue(k, t(data[k], empty));
         } else {
@@ -195,12 +197,11 @@ const EmailComponent = (props) => {
       return undefined;
     });
   }, [
-    // eslint-disable-next-line
     {
       firstname: tokens.firstname,
       country: tokens.country ? getCountryName(tokens.country) : "",
     },
-    // eslint-disable-next-line
+
     fields,
     tokenKeys,
     data,
@@ -212,18 +213,20 @@ const EmailComponent = (props) => {
   // todo: clean the dependency
   //
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       await fetch(url)
-        .then((res) => {
-          if (!res.ok) throw res.error();
+        .then(res => {
+          if (!res.ok) {
+            throw res.statusText || res.status + " error";
+          }
           return res.json();
         })
-        .then((d) => {
-          let languages = [];
+        .then(d => {
+          const languages = [];
           if (config.hook && typeof config.hook["target:load"] === "function") {
             d = config.hook["target:load"](d);
           }
-          d.forEach((c) => {
+          d.forEach(c => {
             if (c.locale && !languages.includes(c.locale)) {
               languages.push(c.locale);
             }
@@ -247,10 +250,11 @@ const EmailComponent = (props) => {
             }
           }
         })
-        .catch((error) => {
+        .catch(error => {
           const placeholder = {
             name: error.toString(),
             description: "Please check your internet connection and try later",
+            disabled: true,
           };
           setProfiles([placeholder]);
           setAllProfiles([placeholder]);
@@ -260,7 +264,7 @@ const EmailComponent = (props) => {
       const url =
         typeof config.component.email?.listUrl === "string"
           ? config.component.email.listUrl
-          : "https://widget.proca.app/t/" + config.campaign.name + ".json";
+          : `https://widget.proca.app/t/${config.campaign.name}.json`;
 
       fetchData(url);
     } else {
@@ -268,45 +272,45 @@ const EmailComponent = (props) => {
         typeof config.component.email?.to === "string"
           ? config.component.email.to?.split(",")
           : [];
-      let to = [];
-      emails.forEach((d) => {
+      const to = [];
+      emails.forEach(d => {
         return to.push({ email: d.trim() });
       });
       if (to.length == 0) return;
       setAllProfiles(to);
       setProfiles(to);
-    } // eslint-disable-next-line
+    }
   }, [config.component, config.hook, setAllProfiles]);
 
   const filterLocale = useCallback(
-    (locale) => {
+    locale => {
       if (!locale) {
         return [];
       }
-      let d = allProfiles.filter((d) => {
+      const d = allProfiles.filter(d => {
         //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
         return d.locale === locale;
       });
       setProfiles(d);
       setData("targets", d);
-      setConfig((current) => {
+      setConfig(current => {
         console.log("set lang", locale);
-        let next = { ...current };
+        const next = { ...current };
         next.lang = locale;
         return next;
       });
 
       return d;
     },
-    [allProfiles, setConfig, setData],
+    [allProfiles, setConfig, setData]
   );
 
   const filterArea = useCallback(
-    (area) => {
+    area => {
       if (!area) {
         return [];
       }
-      let d = allProfiles.filter((d) => {
+      let d = allProfiles.filter(d => {
         //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
         return d.area === area && d.constituency === -1;
       });
@@ -315,7 +319,7 @@ const EmailComponent = (props) => {
       }
       return d;
     },
-    [sampleSize, fallbackRandom, allProfiles],
+    [sampleSize, fallbackRandom, allProfiles]
   );
 
   const filterProfiles = useCallback(
@@ -328,7 +332,7 @@ const EmailComponent = (props) => {
       country = country.toLowerCase();
 
       let lang = undefined;
-      let d = allProfiles.filter((d) => {
+      let d = allProfiles.filter(d => {
         if (constituency) {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
@@ -360,16 +364,15 @@ const EmailComponent = (props) => {
           lang = mainLanguage(country, false);
         }
         d = allProfiles.filter(
-          (d) =>
-            (d.locale ? lang.includes(d.locale) : true) &&
-            d.country === country,
+          d =>
+            (d.locale ? lang.includes(d.locale) : true) && d.country === country
         );
         console.log(
           "not lang",
-          lang + "?",
+          `${lang}?`,
           locale,
           lang?.includes("fr"),
-          country,
+          country
         );
       }
       if (d.length === 0 && fallbackArea) {
@@ -403,8 +406,8 @@ const EmailComponent = (props) => {
       }
       //if (lang && config.lang !== lang) {
       if (lang && typeof lang === "string") {
-        setConfig((current) => {
-          let next = { ...current };
+        setConfig(current => {
+          const next = { ...current };
           next.lang = lang || "en";
           return next;
         });
@@ -433,7 +436,7 @@ const EmailComponent = (props) => {
       postcode,
       languages,
       locale,
-    ],
+    ]
   );
 
   useEffect(() => {
@@ -451,18 +454,9 @@ const EmailComponent = (props) => {
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
 
-  const send = (data) => {
-    const hrefGmail = (message) => {
-      return (
-        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
-        message.to +
-        "&su=" +
-        message.subject +
-        (message.cc ? "&cc=" + message.cc : "") +
-        (message.bcc ? "&bcc=" + message.bcc : "") +
-        "&body=" +
-        message.body
-      );
+  const send = data => {
+    const hrefGmail = message => {
+      return `https://mail.google.com/mail/?view=cm&fs=1&to=${message.to}&su=${message.subject}${message.cc ? `&cc=${message.cc}` : ""}${message.bcc ? `&bcc=${message.bcc}` : ""}&body=${message.body}`;
     };
 
     let to = [];
@@ -488,7 +482,7 @@ const EmailComponent = (props) => {
       "comment",
     ]);
     if (!message) message = paramEmail.message;
-    if (comment) message += "\n" + comment;
+    if (comment) message += `\n${comment}`;
 
     const profiles = getTargets();
 
@@ -518,14 +512,7 @@ const EmailComponent = (props) => {
             bcc: bcc,
             body: encodeURIComponent(message),
           })
-        : "mailto:" +
-          to +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          (cc ? "&cc=" + cc : "") +
-          (bcc ? "&bcc=" + bcc : "") +
-          "&body=" +
-          encodeURIComponent(message);
+        : `mailto:${to}?subject=${encodeURIComponent(subject)}${cc ? `&cc=${cc}` : ""}${bcc ? `&bcc=${bcc}` : ""}&body=${encodeURIComponent(message)}`;
 
     if (!to) {
       console.warn("no target, skip sending");
@@ -557,7 +544,7 @@ const EmailComponent = (props) => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
-  const ExtraFields = (props) => {
+  const ExtraFields = props => {
     return (
       <>
         {config.component.email?.field?.subject ? (
@@ -584,7 +571,7 @@ const EmailComponent = (props) => {
               <FormControl fullWidth>
                 <FilledInput
                   fullWidth={true}
-                  placeholder={t("email.salutation_placeholder") + ","}
+                  placeholder={`${t("email.salutation_placeholder")},`}
                   readOnly
                 />
                 <FormHelperText>{t("email.salutation_info")}</FormHelperText>
@@ -625,12 +612,12 @@ const EmailComponent = (props) => {
 
   const onClick = config.component.email?.server !== false ? null : send;
 
-  const prepareData = (data) => {
+  const prepareData = data => {
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
-    if (data.comment) data.message += "\n" + data.comment;
+    if (data.comment) data.message += `\n${data.comment}`;
     if (config.component.email?.salutation) {
-      data.message = "{{target.fields.salutation}},\n" + data.message;
+      data.message = `{{target.fields.salutation}},\n${data.message}`;
     }
 
     if (mttProcessing === false) {
@@ -651,7 +638,7 @@ const EmailComponent = (props) => {
 
   const getTargets = () => {
     if (!selection) return profiles;
-    const filtered = profiles.filter((d) => selection.includes(d.procaid));
+    const filtered = profiles.filter(d => selection.includes(d.procaid));
     if (filtered.length === 0 && selection.length > 0) {
       // edge case: the postcode changed without properly resetting the selection
       setSelection([]);
@@ -672,12 +659,12 @@ const EmailComponent = (props) => {
             groups.current.delete(d.key);
           }
           onlySelected = groups.current.size; // update right away without waiting for a redraw
-          _setSelection((prev) => {
+          _setSelection(prev => {
             let first = null;
             const selection = new Set(prev);
             profiles
-              .filter((target) => target.description === d.key)
-              .forEach((target) => {
+              .filter(target => target.description === d.key)
+              .forEach(target => {
                 if (d.value) {
                   if (!first) first = target.procaid;
                   // Add the procaid to the selection if the profile matches the filter
@@ -699,7 +686,7 @@ const EmailComponent = (props) => {
         if (Array.isArray(d)) {
           console.log("filter from array");
           //        setProfiles (d);
-          _setSelection((prev) => {
+          _setSelection(prev => {
             const selection = [...prev];
             console.log(prev);
             //return prev; debug
@@ -715,7 +702,7 @@ const EmailComponent = (props) => {
         }
         return;
       }
-      const d = allProfiles.filter((d) => {
+      const d = allProfiles.filter(d => {
         return d[key] === value;
       });
 
@@ -732,10 +719,14 @@ const EmailComponent = (props) => {
       console.log("filter profiles");
       setProfiles(d);
     },
-    [allProfiles, profiles, setError],
+    [allProfiles, profiles, setError]
   );
 
-  if (selection.length === 0 && profiles.length === 1) {
+  if (
+    selection.length === 0 &&
+    profiles.length === 1 &&
+    !profiles[0].disabled
+  ) {
     // if only one, select it. needs to be put in an useEffect?
     selectAll();
   }
@@ -743,13 +734,13 @@ const EmailComponent = (props) => {
   let selectAllEnabled = true;
   if (
     config.import &&
-    config.import.find((d) => d.startsWith("filter")) &&
+    config.import.find(d => d.startsWith("filter")) &&
     profiles.length > 30
   ) {
     selectAllEnabled = false;
   }
 
-  const scrollToItem = (key) => {
+  const scrollToItem = key => {
     console.log(onlySelected);
     if (onlySelected) return;
     if (!listRef.current) return;
@@ -767,8 +758,8 @@ const EmailComponent = (props) => {
     });
   };
 
-  const scrollToFirst = (selection) => {
-    const first = profiles.find((d) => {
+  const scrollToFirst = selection => {
+    const first = profiles.find(d => {
       return selection.has(d.procaid);
     });
     if (first) {
@@ -778,7 +769,7 @@ const EmailComponent = (props) => {
     }
   };
 
-  const displayed = (profile) => {
+  const displayed = profile => {
     if (profile.display === false) return false;
     return onlySelected
       ? selection && selection.includes(profile.procaid)
@@ -855,12 +846,13 @@ const EmailComponent = (props) => {
               actionPage={config.actionPage}
               done={props.done}
               display={displayed(d)}
+              disabled={d.disabled}
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               profile={d}
               selection={selection}
               setSelection={setSelection}
-            ></EmailAction>
+            />
           ))}
         </List>
       )}

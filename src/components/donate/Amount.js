@@ -4,8 +4,6 @@ import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardContent, Container, Grid, Typography } from "@material-ui/core";
 
-import useElementWidth from "@hooks/useElementWidth";
-
 import { useTranslation } from "react-i18next";
 import DonateTitle from "./DonateTitle";
 import Steps, { useDonateStep } from "./Stepper";
@@ -14,7 +12,7 @@ import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
 import { Alert } from "@material-ui/lab";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   amount: {
     width: "5em",
   },
@@ -48,22 +46,16 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-const DonateAmount = (props) => {
+const DonateAmount = props => {
   const classes = useStyles();
 
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
-  const width = useElementWidth("#proca-donate");
-
-  const [compact, setCompact] = useState(true);
-  if ((compact && width > 450) || (!compact && width <= 450)) {
-    setCompact(width <= 450);
-  }
-
   const [, setDonateStep] = useDonateStep();
-  const [, setData] = useData();
+  const [data, setData] = useData();
+  const amount = data.amount ? parseFloat(data.amount) : undefined;
   const [complete, setComplete] = useState(false);
 
   return (
@@ -101,6 +93,7 @@ const DonateAmount = (props) => {
             <>
               <PaymentMethodButtons
                 classes={classes}
+                disabled={!amount}
                 onClickStripe={() => {
                   setData("paymentMethod", "stripe");
                   setDonateStep(1);

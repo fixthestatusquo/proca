@@ -1,7 +1,7 @@
 // obsolete
 import { useEffect } from "react";
 
-const Component = (props) => {
+const Component = props => {
   useEffect(() => {
     if (typeof window[props.loader] === "function") {
       setTimeout(window[props.loader], 1);

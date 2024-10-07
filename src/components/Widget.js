@@ -15,6 +15,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
+import useHash, { getHash } from "@hooks/useHash";
 import dispatch from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";
 
@@ -35,33 +36,41 @@ let config = {
 };
 let init = false;
 
-const Widget = (props) => {
+const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
+  useHash({
+    prefix: "proca_",
+    onChange: step => {
+      document.body.focus(); // trick to avoid triggering a blur if firstname has the focus
+      go(step);
+      _scrollTo({ delay: 100, focus: "firstname" });
+    },
+  });
 
-  const setCurrent = (i) => {
+  const setCurrent = i => {
     if (i >= 0 && journey[i])
       dispatch(
-        journey[i].toLowerCase() + ":init",
+        `${journey[i].toLowerCase()}:init`,
         {
           test: !!config.test,
           step: journey[i],
           journey: journey,
         },
         null,
-        config,
+        config
       );
     setTimeout(() => {
       const otherSteps = journey
-        .filter((step, d) => d !== i)
-        .map((d) => ".proca-" + d)
+        .filter((_step, d) => d !== i)
+        .map(d => `.proca-${d}`)
         .join(", ");
       let r = otherSteps ? document.querySelectorAll(otherSteps) : [];
       for (let j = 0; j < r.length; j++) {
         r[j].style.display = "none";
       }
-      r = document.getElementsByClassName("proca-" + journey[i]);
+      r = document.getElementsByClassName(`proca-${journey[i]}`);
       for (let j = 0; j < r.length; j++) {
         r[j].style.display = "block";
       }
@@ -73,10 +82,10 @@ const Widget = (props) => {
 
   //  const theme = useTheme();
   //  const isMobile = useMediaQuery(theme.breakpoints.down("sm"),{noSsr:true});
-  let depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
-  let topMulti = useRef(0); // latest Action level 0 rendered
-  let propsJourney = Object.assign([], props.journey);
-  let isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
+  const depths = []; // one entry per action in the journey, 0 = top level, 1 = top level avec substeps, 2 = substeps
+  const topMulti = useRef(0); // latest Action level 0 rendered
+  const propsJourney = Object.assign([], props.journey);
+  const isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
   const fab = config.component.widget?.fab !== false;
 
   let data = Url.data();
@@ -91,14 +100,17 @@ const Widget = (props) => {
     };
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
-  document.querySelectorAll(props.selector).forEach((dom) => {
+  document.querySelectorAll(props.selector).forEach(dom => {
     data = { ...dom.dataset, ...cookies, ...storage, ...data };
   });
 
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
   config.locales = merge(config.locales, getOverwriteLocales());
-  config.actionPage = parseInt(config.actionPage || config.actionpage, 10);
+  config.actionPage = Number.parseInt(
+    config.actionPage || config.actionpage,
+    10
+  );
 
   if (!config.actionPage) {
     console.assert("No actionPage defined. Can't continue.");
@@ -124,23 +136,11 @@ const Widget = (props) => {
     };
 `;
 
-    let styleSheet = document.createElement("style");
+    const styleSheet = document.createElement("style");
     styleSheet.type = "text/css";
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
   }, [test]);
-
-  useEffect(() => {
-    /*global procaReady*/
-    /*eslint no-undef: "error"*/
-    if (typeof procaReady === "function") {
-      console.log(
-        "obsolete, please use window.addEventListener('proca:init', function(){}); instead",
-      );
-
-      procaReady({}); // NOTE: should we pass config to procaReady?
-    }
-  }, [props]);
 
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {
@@ -154,7 +154,7 @@ const Widget = (props) => {
     scrollNeeded.current = true;
   };
 
-  let journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
+  const journey = propsJourney.reduce((acc, val) => acc.concat(val), []); // fubar edge propsJourney.flat();
   if (current === false) {
     // obsolete?
     setCurrent(0);
@@ -169,7 +169,7 @@ const Widget = (props) => {
         isMobile: isMobile,
         step: journey[current ? current : 0],
       },
-      config,
+      config
     );
     init = true;
   }
@@ -182,9 +182,9 @@ const Widget = (props) => {
     depths.push(0);
   }
 
-  propsJourney.forEach((d) => {
+  propsJourney.forEach(d => {
     if (d instanceof Array) {
-      d.forEach((e, i) => {
+      d.forEach((_e, i) => {
         depths.push(i > 0 ? 2 : 1);
       }); // the first of a multistep is on level 1 (eg dialog, sinon 2)
     } else depths.push(0);
@@ -194,18 +194,18 @@ const Widget = (props) => {
     return steps;
   };
 
-  const go = (action) => {
+  const go = action => {
     let i = null;
     if (typeof action === "number" && action <= journey.length) {
       i = action - 1;
       if (i === current) return forceUpdate(); //trick to force refresh
     } else {
       if (!action) return nextStep();
-      i = journey.findIndex((d) => d.toLowerCase() === action.toLowerCase());
+      i = journey.findIndex(d => d.toLowerCase() === action.toLowerCase());
     }
     if (i === -1) {
       console.error("can't find '", action, "'. options: ", journey);
-      global.proca.Alert("not possible to go to '" + action + "'", "error");
+      global.proca.Alert(`not possible to go to '${action}'`, "error");
       return;
     }
 
@@ -235,7 +235,7 @@ const Widget = (props) => {
   // called once an action has finished to decide what to do next.
   // the result is whatever the action that has finished wants to share to the journey
   //
-  const nextStep = (result) => {
+  const nextStep = result => {
     // setReturnStep(result);
     // nextStep checks if there is a bespoke action to run after the current step (created by calling proca.after)
     //console.log(config.hook);
@@ -247,7 +247,7 @@ const Widget = (props) => {
     ) {
       if (steps[journey[current]].after(result) === false) {
         console.log(
-          "the custom 'after' returned false, we do not go to the next step",
+          "the custom 'after' returned false, we do not go to the next step"
         );
         return;
       }
@@ -267,7 +267,7 @@ const Widget = (props) => {
         "proca:complete",
         { elem: "journey", journey: journey },
         null,
-        config,
+        config
       );
 
       // TODO: what's a nicer thing to do at the end - jumping back is likely to
@@ -278,7 +278,7 @@ const Widget = (props) => {
     }
   };
 
-  const CurrentAction = (props) => {
+  const CurrentAction = props => {
     let Action = null;
 
     switch (depths[current]) {
@@ -307,7 +307,7 @@ const Widget = (props) => {
         ); //break;
       case 1:
       case 2: {
-        let SubAction = steps[journey[current]];
+        const SubAction = steps[journey[current]];
         Action = steps[topMulti.current];
         if (!Action || !SubAction) {
           return (
@@ -345,8 +345,9 @@ const Widget = (props) => {
   if (current === null) {
     // first time we load
     if (config.component.widget?.autoStart !== false) {
-      if (paramStep()) {
-        go(paramStep());
+      const step = getHash() || paramStep();
+      if (step) {
+        go(step);
         _scrollTo({ delay: 300 });
       } else {
         go(1);
@@ -360,13 +361,7 @@ const Widget = (props) => {
   }
   const onFabClick = () => {
     dispatch("fab_click", null, null, config);
-    _scrollTo();
-    const firstname = document.getElementsByName("firstname");
-    if (firstname.length === 1) {
-      setTimeout(() => {
-        firstname[0].focus();
-      }, 1000);
-    }
+    _scrollTo({ focus: "firstname" });
   };
 
   return (

@@ -6,13 +6,10 @@ const Counter = () => {
   const [data, setData] = useState(null);
   const config = useCampaignConfig();
 
-  const url =
-    "https://static.proca.app/ep2024/" +
-    config.campaign.name.replace("_citizen_", "_candidates_") +
-    "-count.json";
+  const url = `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}-count.json`;
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 

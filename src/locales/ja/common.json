@@ -158,6 +158,14 @@
   },
   "no": "ノー",
   "party": "パーティー",
+  "phone": {
+    "INVALID_COUNTRY": "国コードの欠落または無効",
+    "INVALID_LENGTH": "無効な長さ",
+    "MISSING": "必須項目",
+    "NOT_A_NUMBER": "無効な電話番号",
+    "TOO_LONG": "長すぎる数字",
+    "TOO_SHORT": "短すぎる数字"
+  },
   "postcode": {
     "notFound": "この郵便番号はあなたの国には存在しないようです。",
     "wrongLength": "あなたの国で予想される{{length}} の期間"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} がツッコミを入れました。に行ってみましょう。{{goal}}"
   },
   "read more": "読み替える",
+  "region": "地域",
   "register": "私の名前を追加",
   "reminder": {
     "intro": "私たちは、あなたの政府が多くの情報を求めていることを知っています。後日、フォームへの記入を促すメールを1通お送りします。"

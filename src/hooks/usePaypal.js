@@ -47,7 +47,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     });
   };
 
-  const donationError = (err) => {
+  const donationError = err => {
     console.log("onError", err);
     failed({
       message:
@@ -97,16 +97,15 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
 
     buttons = paypal.Buttons({
       fundingSource: paypal.FUNDING.PAYPAL,
-      createSubscription: function (data, actions) {
-        return actions.subscription.create({
+      createSubscription: (_data, actions) =>
+        actions.subscription.create({
           plan_id: plan_id,
           quantity: Math.floor(amount * 100).toString(), // PayPal wants a string
           application_context: {
             shipping_preference: "NO_SHIPPING",
           },
-        });
-      },
-      onApprove: async function (paypalResponse, actions) {
+        }),
+      onApprove: async (paypalResponse, actions) => {
         const order = await actions.order.get();
         const subscription = await actions.subscription.get();
 
@@ -180,10 +179,10 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     const paypal = window.paypal;
 
     buttons = paypal.Buttons({
-      createOrder: function (data, actions) {
+      createOrder: (data, actions) => {
         console.debug("create donation", data);
         return actions.order.create({
-          purchase_units: [{ amount: { value: parseFloat(amount) } }],
+          purchase_units: [{ amount: { value: Number.parseFloat(amount) } }],
           description: campaign || "Donation",
           application_context: {
             shipping_preference: "NO_SHIPPING",
@@ -191,7 +190,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
         });
       },
       fundingSource: paypal.FUNDING.PAYPAL,
-      onApprove: async function (data, actions) {
+      onApprove: async (_data, actions) => {
         const don = await actions.order.capture();
         console.log("onApprove paypalResponse OneOff", don);
 
@@ -223,7 +222,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
         completed(procaResponse);
       },
 
-      onError: function (err) {
+      onError: err => {
         addClick("donation_error", {
           source: "paypal",
           amount: amount,
@@ -287,7 +286,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
     script.src = src;
     script.async = true;
 
-    script.addEventListener("load", function () {
+    script.addEventListener("load", () => {
       setLoadState({ loading: false, loaded: true });
     });
 

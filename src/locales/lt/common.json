@@ -158,6 +158,14 @@
   },
   "no": "ne",
   "party": "Šalis",
+  "phone": {
+    "INVALID_COUNTRY": "trūkstamas arba negaliojantis šalies kodas.",
+    "INVALID_LENGTH": "Netinkamas ilgis",
+    "MISSING": "privalomas laukas",
+    "NOT_A_NUMBER": "Netinkamas telefono numeris",
+    "TOO_LONG": "per ilgas skaičius",
+    "TOO_SHORT": "per trumpas skaičius"
+  },
   "postcode": {
     "notFound": "šis pašto indeksas jūsų šalyje neegzistuoja",
     "wrongLength": "numatoma {{length}} trukmė jūsų šalyje"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
   "read more": "skaityti daugiau",
+  "region": "Regionas",
   "register": "Pridėti mano vardą",
   "reminder": {
     "intro": "Žinome, kad jūsų vyriausybė prašo daug informacijos. Išsiųsime jums vieną el. laišką, kad primintume užpildyti formą vėliau."

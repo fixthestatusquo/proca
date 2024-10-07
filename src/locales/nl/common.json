@@ -158,6 +158,14 @@
   },
   "no": "nee",
   "party": "Partij",
+  "phone": {
+    "INVALID_COUNTRY": "ontbrekende of ongeldige landcode",
+    "INVALID_LENGTH": "Ongeldige lengte",
+    "MISSING": "verplicht veld",
+    "NOT_A_NUMBER": "Ongeldig telefoonnummer",
+    "TOO_LONG": "nummer te lang",
+    "TOO_SHORT": "nummer te kort"
+  },
   "postcode": {
     "notFound": "deze postcode lijkt niet te bestaan in uw land",
     "wrongLength": "verwachte duur van {{length}} voor uw land"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
   "read more": "lees meer",
+  "region": "Regio",
   "register": "Mijn naam toevoegen",
   "reminder": {
     "intro": "We weten dat uw regering veel informatie vraagt. We sturen u een enkele e-mail om u eraan te herinneren het formulier later in te vullen"

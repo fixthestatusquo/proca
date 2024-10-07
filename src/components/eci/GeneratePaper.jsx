@@ -11,17 +11,17 @@ import { slugify } from "@lib/text";
 import ProcaIcon from "@images/Proca";
 import uuid from "@lib/uuid";
 
-const GeneratePaper = (props) => {
+const GeneratePaper = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [data, setData] = useData();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     data.privacy = "opt-in";
     if (data.other) {
       data.partner = slugify(data.other.toLowerCase(), "-");
     }
-    data.email = data.partner + "@paper.eci.invalid";
+    data.email = `${data.partner}@paper.eci.invalid`;
     data.firstname = data.partner;
     data.lastname = data.country;
     const result = await addActionContact(
@@ -34,7 +34,7 @@ const GeneratePaper = (props) => {
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in data) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;
@@ -84,8 +84,8 @@ const GeneratePaper = (props) => {
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
     // todo: workaround until the feature is native react-form ?
-    inputs.forEach((input) => {
-      input.oninvalid = (e) => {
+    inputs.forEach(input => {
+      input.oninvalid = e => {
         setError(e.target.attributes.name.nodeValue, {
           type: e.type,
           message: e.target.validationMessage,
@@ -99,7 +99,7 @@ const GeneratePaper = (props) => {
       id="proca-register"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
-      url="http://localhost"
+      action="http://localhost"
     >
       <TextField
         select
@@ -111,7 +111,7 @@ const GeneratePaper = (props) => {
           native: true,
         }}
       >
-        <option key="" value=""></option>
+        <option key="" value="" />
         {Object.entries(config.component.paper.partners).map(([key, value]) => (
           <option key={key} value={key}>
             {value}
@@ -136,8 +136,8 @@ const GeneratePaper = (props) => {
             native: true,
           }}
         >
-          <option key="" value=""></option>
-          {lang.map((lang) => (
+          <option key="" value="" />
+          {lang.map(lang => (
             <option key={lang} value={lang}>
               {lang}
             </option>

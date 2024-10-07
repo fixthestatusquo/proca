@@ -114,18 +114,19 @@
           class="btn-group btn-group-sm"
           role="toolbar"
           aria-label="Actions for the webmasters"
+          id="controls"
         >
           <button
             class="proca-next btn btn-secondary"
             title="skip to the next action"
             onClick="proca.go()"
           >
-            ⏵
+            ►
           </button>
           <button
             id="btn-help"
             title="How to embed this into your website?"
-            class="btn btn-secondary"
+            class="btn btn-secondary d-none"
             onClick="toggleHelp()"
           >
             ?
@@ -311,6 +312,18 @@
 
         //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
+        createJourneyButtons();
+      }
+
+      function createJourneyButtons() {
+        const controller = document.getElementById("controls");
+        proca.getJourney().forEach((name) => {
+          const a = document.createElement("a");
+          a.className = "btn btn-info";
+          a.href = `#proca_${name}`;
+          a.textContent = name;
+          controller.appendChild(a);
+        });
       }
 
       if (typeof proca === "object") {

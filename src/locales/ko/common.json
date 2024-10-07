@@ -158,6 +158,14 @@
   },
   "no": "아니요",
   "party": "파티",
+  "phone": {
+    "INVALID_COUNTRY": "누락되었거나 잘못된 국가 코드",
+    "INVALID_LENGTH": "잘못된 길이",
+    "MISSING": "필수 필드",
+    "NOT_A_NUMBER": "잘못된 전화 번호",
+    "TOO_LONG": "숫자가 너무 길다",
+    "TOO_SHORT": "번호가 너무 짧음"
+  },
   "postcode": {
     "notFound": "이 우편번호는 귀하의 국가에 존재하지 않는 것 같습니다.",
     "wrongLength": "해당 국가의 예상 {{length}} 길이"
@@ -171,6 +179,7 @@
     "twitter": "{{total}} 님이 트윗했습니다. {{goal}}로 가자"
   },
   "read more": "자세히 보기",
+  "region": "지역",
   "register": "내 이름 추가",
   "reminder": {
     "intro": "정부에서 많은 정보를 요구하고 있다는 것을 알고 있습니다. 나중에 양식을 작성하도록 안내하는 이메일을 한 번 보내드리겠습니다."

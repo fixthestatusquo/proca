@@ -18,14 +18,14 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import SearchIcon from "@material-ui/icons/Search";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   profile: {
     backgroundColor: theme.palette.background.paper,
     padding: "2px",
   },
 }));
 
-const Organisation = (props) => {
+const Organisation = props => {
   const classes = useStyles();
 
   const { t } = useTranslation();
@@ -47,30 +47,28 @@ const Organisation = (props) => {
 
   //variant={options.variant}
   //margin={options.margin}
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     props.form.handleBlur && props.form.handleBlur(e);
     fetchTwitter(e.target.value);
   };
 
-  const fetchTwitter = (screenName) => {
+  const fetchTwitter = screenName => {
     if (!screenName) {
       return;
     }
 
-    const api =
-      "https://twitter.proca.app?screen_name=" +
-      screenName.replace("https://twitter.com/", "");
+    const api = `https://twitter.proca.app?screen_name=${screenName.replace("https://twitter.com/", "")}`;
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
     const field = "twitter";
     async function fetchAPI() {
       await fetch(api)
-        .then((res) => {
+        .then(res => {
           if (!res.ok) {
             throw Error(res.statusText);
           }
           return res.json();
         })
-        .then((res) => {
+        .then(res => {
           if (res && res.error) {
             setProfile({ name: "?", url: "", description: "" });
             setError(field, "api", res.message.errors[0].message);
@@ -79,14 +77,14 @@ const Organisation = (props) => {
           res.name = res.name
             .replace(
               /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
-              "",
+              ""
             ) // no emoji
             .replace(/#\w\w+\s?/g, ""); // no hashtag
           setProfile(res);
           if (res.url) {
             setValue("url", res.url);
             const domain = new URL(res.url).hostname;
-            domain && setValue("email", "@" + domain.replace("www.", ""));
+            domain && setValue("email", `@${domain.replace("www.", "")}`);
           }
           setValue("followers_count", res.followers_count);
 
@@ -95,7 +93,7 @@ const Organisation = (props) => {
           setValue("comment", res.description);
           setValue("twitter", res.screen_name);
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           setProfile({ name: "?", url: "", description: "" });
         });
@@ -109,7 +107,7 @@ const Organisation = (props) => {
     fetchTwitter(getValues("twitter"));
   };
 
-  const handleMouseDown = (event) => {
+  const handleMouseDown = event => {
     event.preventDefault();
   };
 

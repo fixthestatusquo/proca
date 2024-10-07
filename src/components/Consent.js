@@ -21,7 +21,7 @@ import { Controller } from "react-hook-form";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   check: {
     display: "inline-flex",
     alignItems: "center",
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Consent = (props) => {
+const Consent = props => {
   const {
     formState: { errors },
     register,
@@ -96,7 +96,7 @@ const Consent = (props) => {
     setValue("opt-in");
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
   };
 
@@ -198,7 +198,7 @@ const Consent = (props) => {
   );
 };
 
-export const CheckboxConsent = (props) => {
+export const CheckboxConsent = props => {
   const {
     formState: { errors },
     control,
@@ -233,7 +233,7 @@ export const CheckboxConsent = (props) => {
                 <Checkbox
                   {...field}
                   color="primary"
-                  onChange={(e) =>
+                  onChange={e =>
                     field.onChange(e.target.checked ? "opt-in" : "")
                   }
                   checked={field.value === "opt-in"}
@@ -251,7 +251,7 @@ export const CheckboxConsent = (props) => {
   );
 };
 
-export const ConfirmProcessing = (props) => {
+export const ConfirmProcessing = props => {
   const {
     formState: { errors },
     control,
@@ -276,7 +276,7 @@ export const ConfirmProcessing = (props) => {
                 <Checkbox
                   {...field}
                   color="primary"
-                  onChange={(e) => field.onChange(e.target.checked)}
+                  onChange={e => field.onChange(e.target.checked)}
                   checked={field.value}
                 />
               )}
@@ -290,7 +290,7 @@ export const ConfirmProcessing = (props) => {
   );
 };
 
-export const ConsentProcessing = (props) => {
+export const ConsentProcessing = props => {
   const config = useCampaignConfig();
   const classes = useStyles();
   if (

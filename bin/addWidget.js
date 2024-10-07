@@ -11,7 +11,7 @@ const { addPage, pull } = require("./widget");
   if (!argv[1]) {
     console.error("missing parameters, either:");
     console.error(
-      "addWidget {campaign.name} {locale} [ page/name/to/create ] or",
+      "addWidget {campaign.name} {locale} [ page/name/to/create ] or"
     );
     console.error("addWidget {campaign.name} {locale} {organisation_name}");
     return;
@@ -30,7 +30,7 @@ const { addPage, pull } = require("./widget");
     console.log(d);
     d = await pull(d.id);
     console.log(d);
-  } catch (e) {
+  } catch {
     process.exit(1);
     //console.error(e);
     // Deal with the fact the chain failed

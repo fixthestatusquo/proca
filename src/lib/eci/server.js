@@ -28,7 +28,7 @@ async function addSupport(actionType, actionPage, data, options) {
   };
 
   //  const expected="uuid,firstname,lastname,email,country,postcode,locality,address,region,birthdate,privacy,tracking".split(",");
-  let variables = {
+  const variables = {
     actionPage: actionPage,
     action: {
       actionType: actionType,
@@ -72,7 +72,7 @@ async function addSupport(actionType, actionPage, data, options) {
   //  }
 
   if (options.captcha?.mac) {
-    data.captcha += ":" + options.captcha.expiry + ":" + options.captcha.mac;
+    data.captcha += `:${options.captcha.expiry}:${options.captcha.mac}`;
   }
 
   if (options.captcha.audio) {
@@ -91,7 +91,7 @@ async function addSupport(actionType, actionPage, data, options) {
     apiUrl: options.apiUrl, // "https://eci.fixthestatusquo.org/api",
   });
   if (response.errors) {
-    response.errors.forEach((d) => {
+    response.errors.forEach(d => {
       if (d.extensions?.code === "bad_captcha") {
         if (!response.errors.fields) response.errors.fields = [];
         response.errors.fields.push({
@@ -104,7 +104,7 @@ async function addSupport(actionType, actionPage, data, options) {
   }
   return response.addActionContact;
 }
-const errorMessages = (errors) => {
+const errorMessages = errors => {
   return errors.map(({ message }) => message).join(", ");
 };
 

@@ -158,6 +158,14 @@
   },
   "no": "ne",
   "party": "Stranka",
+  "phone": {
+    "INVALID_COUNTRY": "manjkajoča ali neveljavna koda države",
+    "INVALID_LENGTH": "Nepravilna dolžina",
+    "MISSING": "obvezno polje",
+    "NOT_A_NUMBER": "Neveljavna telefonska številka",
+    "TOO_LONG": "predolga številka",
+    "TOO_SHORT": "prekratka številka"
+  },
   "postcode": {
     "notFound": "zdi se, da ta poštna številka v vaši državi ne obstaja",
     "wrongLength": "pričakovano trajanje {{length}} za vašo državo."
@@ -171,6 +179,7 @@
     "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
   },
   "read more": "preberi več",
+  "region": "Regija",
   "register": "Dodaj moje ime",
   "reminder": {
     "intro": "Vemo, da vaša vlada zahteva veliko informacij. Poslali vam bomo eno elektronsko sporočilo, ki vas bo opomnilo, da morate obrazec izpolniti pozneje."
