@@ -44,7 +44,15 @@ const Widget = props => {
   useHash({
     prefix: "proca_",
     onChange: step => {
-      document.body.focus(); // trick to avoid triggering a blur if firstname has the focus
+      // if the focus is on the firstname, don't prevent switching to another step if empty
+      if (
+        document.activeElement.tagName === "INPUT" &&
+        document.activeElement.name === "firstname"
+      ) {
+        setTimeout(() => {
+          document.activeElement.blur();
+        }, 0);
+      }
       go(step);
       _scrollTo({ delay: 100, focus: "firstname" });
     },
