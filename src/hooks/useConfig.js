@@ -1,68 +1,41 @@
-// we have migrated from a single Config context to recoil and multiple atoms.
-// technically, we are migrating, but more or less done
-
 import React, { useEffect, useCallback } from "react";
-
-import {
-  atom,
-  useSetRecoilState,
-  useRecoilValue,
-  useRecoilState,
-} from "recoil";
-
+import { create } from "zustand";
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
 import { merge, set } from "@lib/object";
 
-export let configState = null;
+export let configStore = null;
 
-export const initConfigState = config => {
+export const initConfigState = (config) => {
   if (config.locales) {
     let campaignTitle = false;
-    Object.keys(config.locales).map(k => {
+    Object.keys(config.locales).forEach((k) => {
       if (k.charAt(k.length - 1) === ":") {
         const ns = k.slice(0, -1);
         if (ns === "campaign") {
-          config.locales[k].title =
-            config.locales[k].title || config.campaign.title;
+          config.locales[k].title = config.locales[k].title || config.campaign.title;
           campaignTitle = true;
         }
-        i18next.addResourceBundle(
-          config.lang,
-          ns,
-          config.locales[k],
-          true,
-          true
-        );
+        i18next.addResourceBundle(config.lang, ns, config.locales[k], true, true);
         delete config.locales[k];
       }
-      return true;
     });
     if (!campaignTitle) {
-      i18next.addResourceBundle(
-        config.lang,
-        "campaign",
-        config.campaign,
-        true,
-        true
-      );
+      i18next.addResourceBundle(config.lang, "campaign", config.campaign, true, true);
     }
-    i18next.addResourceBundle(
-      config.lang,
-      "common",
-      config.locales,
-      true,
-      true
-    );
+    i18next.addResourceBundle(config.lang, "common", config.locales, true, true);
   }
   initLayout(config.layout);
   delete config.locales;
-  if (configState) return false;
-  configState = atom({
-    key: "campaign",
-    default: config,
-  });
+
+  if (configStore) return false;
+
+  configStore = create((set) => ({
+    campaignConfig: config,
+    setCampaignConfig: (update) => set((state) => ({ campaignConfig: { ...state.campaignConfig, ...update } })),
+  }));
+
   return true;
 };
 
@@ -70,65 +43,60 @@ export const Config = React.createContext();
 
 const id = "proca-listener";
 
-export const setGlobalState = (atom, key, value) => {
+export const setGlobalState = (key, value) => {
   const event = new CustomEvent("proca-set", {
-    detail: { atom: atom, key: key, value: value },
+    detail: { key, value },
   });
 
   const el = document.getElementById(id);
   if (el) {
     el.dispatchEvent(event);
   } else {
-    // delay until the display is finished
-    setTimeout(setGlobalState, 1, atom, key, value);
+    setTimeout(setGlobalState, 1, key, value);
   }
 };
 
-const goStep = action => {
-  const event = new CustomEvent("proca-go", { detail: { action: action } });
-  if (document.getElementById(id))
+const goStep = (action) => {
+  const event = new CustomEvent("proca-go", { detail: { action } });
+  if (document.getElementById(id)) {
     document.getElementById(id).dispatchEvent(event);
-  else {
-    console.log("timeout", action);
+  } else {
     setTimeout(goStep, 20000, action);
   }
 };
 
 const setHook = (object, action, hook) => {
   const event = new CustomEvent("proca-hook", {
-    detail: { object: object, action: action, hook: hook },
+    detail: { object, action, hook },
   });
   if (document.getElementById(id)) {
     document.getElementById(id).dispatchEvent(event);
   } else {
-    // wait until the rendering is done
     setTimeout(setHook, 1, object, action, hook);
   }
 };
 
-export const ConfigProvider = props => {
-  //  const [config, _setConfig] = useState(props.config);
+export const ConfigProvider = (props) => {
   const setLayout = useSetLayout();
-  const _setCampaignConfig = useSetRecoilState(configState);
+  const { setCampaignConfig } = configStore();
   const [, setData] = useData();
-
   const go = props.go;
 
   const setPartPath = (part, path, value) => {
-    _setCampaignConfig(config => {
-      const d = JSON.parse(JSON.stringify(config));
-      return set(d, `${part}.${path}`, value);
+    setCampaignConfig((config) => {
+      const updatedConfig = JSON.parse(JSON.stringify(config));
+      return set(updatedConfig, `${part}.${path}`, value);
     });
   };
 
   const setPart = (part, toMerge) => {
-    _setCampaignConfig(config => {
-      const d = {};
-      d[part] = toMerge;
-      return merge(config, d);
+    setCampaignConfig((config) => {
+      const update = {};
+      update[part] = toMerge;
+      return merge(config, update);
     });
   };
-  // either set a single key or merge
+
   const handlePart = (part, key, value) => {
     if (typeof key === "string") {
       setPartPath(part, key, value);
@@ -139,14 +107,14 @@ export const ConfigProvider = props => {
 
   const setHook = useCallback(
     (object, action, hook) => {
-      _setCampaignConfig(current => {
+      setCampaignConfig((current) => {
         const next = { ...current };
         next.hook = { ...current.hook };
         next.hook[`${object}:${action}`] = hook;
         return next;
       });
     },
-    [_setCampaignConfig]
+    [setCampaignConfig]
   );
 
   useEffect(() => {
@@ -154,30 +122,19 @@ export const ConfigProvider = props => {
 
     elem.addEventListener(
       "proca-set",
-      e => {
-        switch (e.detail.atom) {
+      (e) => {
+        switch (e.detail.key) {
           case "layout":
-            setLayout(e.detail.key, e.detail.value);
+            setLayout(e.detail.value);
             break;
           case "component":
             handlePart("component", e.detail.key, e.detail.value);
-            break;
-          /*          case "data":
-            handlePart("data", e.detail.key, e.detail.value);
-            handlePart("param", e.detail.key, e.detail.value);
-            break;
-          case "locale":
-            handlePart("locale", e.detail.key, e.detail.value);
-            break;
-*/
-          case "campaign":
-            alert("disabled, use set component or locale");
             break;
           case "data":
             setData(e.detail.key, e.detail.value);
             break;
           default:
-            console.error("you need to specify an atom/namespace"); //setConfig(e.detail.key,e.detail.value);
+            console.error("you need to specify a valid key");
         }
       },
       false
@@ -185,15 +142,13 @@ export const ConfigProvider = props => {
 
     elem.addEventListener(
       "proca-hook",
-      e => {
+      (e) => {
         if (typeof e.detail.hook !== "function")
-          return console.error("After must be a function");
-
+          return console.error("Hook must be a function");
         if (typeof e.detail.action !== "string")
-          return console.error("action must me a string");
-
+          return console.error("Action must be a string");
         if (typeof e.detail.object !== "string")
-          return console.error("object must me a string");
+          return console.error("Object must be a string");
         setHook(e.detail.object, e.detail.action, e.detail.hook);
       },
       false
@@ -201,19 +156,17 @@ export const ConfigProvider = props => {
 
     elem.addEventListener(
       "proca-go",
-      e => {
+      (e) => {
         if (typeof go === "function") {
           go(e.detail.action);
         } else {
-          console.error("ain't no go fct");
+          console.error("No go function available");
         }
       },
       false
     );
   }, [go, setHook, setLayout, handlePart, setData]);
 
-  //setCampaignConfig(config);
-  //<Config.Provider value={{config, setConfig}}>
   return (
     <>
       {props.children}
@@ -222,11 +175,8 @@ export const ConfigProvider = props => {
   );
 };
 
-//export const useConfig = () => (useContext(Config));
-//useConfig should be replaced by useCampaignConfig, useData, useLayout
-export const useCampaignConfig = () => useRecoilValue(configState);
-export const useConfig = () => useRecoilState(configState);
-export const useSetCampaignConfig = () => useSetRecoilState(configState);
+export const useCampaignConfig = () => configStore((state) => state.campaignConfig);
+export const useSetCampaignConfig = () => configStore((state) => state.setCampaignConfig);
 export { set as setConfig };
 export { goStep };
 export { setHook as hook };
