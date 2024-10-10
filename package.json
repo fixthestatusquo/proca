@@ -1,16 +1,17 @@
 {
   "name": "@proca/widget",
-  "version": "0.9.0-beta.1",
+  "version": "1.1.0",
   "private": false,
-  "files": ["bin", "dist", "README.md"],
+  "files": ["bin", "dist", "README.md","SECURITY.md", "code_of_conduct.md","src","webpack","public","biome.js"],
   "main": "dist/module.js",
-  "run": "bin/index.js",
-  "bin": "bin/index.js",
+  "run": "bin/widget.js",
+  "bin": "bin/widget.js",
   "licence": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "https://github.com/TechToThePeople/proca"
   },
+	"keywords": ["widget","petition","proca","campaigning","digital-engagement","social-change","nonprofit","civic-tech","mobilisation","advocacy", "activism","email-campaign","grassroots","gdpr"],
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
