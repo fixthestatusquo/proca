@@ -39,7 +39,8 @@ import {
 import StripeInput from "./StripeInput";
 
 import Country from "../field/Country";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { create } from "zustand";
+
 import DonateTitle from "./DonateTitle";
 import { CallToAction } from "./DonateButton";
 
@@ -50,20 +51,25 @@ const STRIPE_FREQUENCY = {
   yearly: "year",
 };
 
-const stripeErrorAtom = atom({
-  key: "stripe-error",
-  default: undefined,
-});
+const useStripeStore = create((set) => ({
+  stripeError: undefined,
+  stripeComplete: undefined,
+  setStripeError: (error) => set({ stripeError: error }),
+  setStripeComplete: (complete) => set({ stripeComplete: complete }),
+}));
 
-const stripeCompleteAtom = atom({
-  key: "stripe-card-complete",
-  default: undefined,
-});
+const useStripeError = () => {
+  const { stripeError } = useStripeStore();
+  return stripeError;
+};
 
-// const onError = (errors, e) => console.log(errors, e);
+const useStripeComplete = () => {
+  const { stripeComplete } = useStripeStore();
+  return stripeComplete;
+};
 
 const CustomCardElement = props => {
-  const setComplete = useSetRecoilState(stripeCompleteAtom);
+  const { setStripeComplete } = useStripeStore();
   return (
     <CardElement
       {...props}
@@ -126,7 +132,7 @@ const PaymentForm = props => {
         "[component.donation.stripe.productId] to use Stripe."
     );
   }
-  const stripeError = useRecoilValue(stripeErrorAtom);
+ const { stripeError } = useStripeStore();
 
   const form = props.form;
   const {
@@ -247,8 +253,7 @@ const PaymentForm = props => {
 
 const SubmitButton = props => {
   const [isSubmitting, setSubmitting] = useState(false);
-  const setStripeError = useSetRecoilState(stripeErrorAtom);
-  const stripeComplete = useRecoilValue(stripeCompleteAtom);
+  const {stripeError, stripeComplete} = useStripeStore();
   const stripe = useStripe();
 
   const [formData] = useData();
