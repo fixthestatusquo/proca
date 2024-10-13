@@ -324,7 +324,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.err(data);
+    console.error(data);
     throw new Error(data.toString());
   }
 
@@ -511,5 +511,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pull, addPage, getConfig };
+  module.exports = { pull, addPage, getConfig, build, serve };
 }

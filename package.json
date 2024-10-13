@@ -2,7 +2,17 @@
   "name": "@proca/widget",
   "version": "1.1.0",
   "private": false,
-  "files": ["bin", "dist", "README.md","SECURITY.md", "code_of_conduct.md","src","webpack","public","biome.js"],
+  "files": [
+    "bin",
+    "dist",
+    "README.md",
+    "SECURITY.md",
+    "code_of_conduct.md",
+    "src",
+    "webpack",
+    "public",
+    "biome.js"
+  ],
   "main": "dist/module.js",
   "run": "bin/widget.js",
   "bin": "bin/widget.js",
@@ -11,7 +21,22 @@
     "type": "git",
     "url": "https://github.com/TechToThePeople/proca"
   },
-	"keywords": ["widget","petition","proca","campaigning","digital-engagement","social-change","nonprofit","civic-tech","mobilisation","advocacy", "activism","email-campaign","grassroots","gdpr"],
+  "keywords": [
+    "widget",
+    "petition",
+    "proca",
+    "campaigning",
+    "digital-engagement",
+    "social-change",
+    "nonprofit",
+    "civic-tech",
+    "mobilisation",
+    "advocacy",
+    "activism",
+    "email-campaign",
+    "grassroots",
+    "gdpr"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
@@ -76,6 +101,7 @@
     "mjml": "^4.15.3",
     "open": "^10.1.0",
     "phoenix": "1.7.14",
+    "proca": "^0.1.3",
     "simple-git": "^3.27.0",
     "typescript": "^4.9.5",
     "websocket": "^1.0.35"
@@ -110,8 +136,15 @@
       "^locales/(.*)$": "<rootDir>/src/locales/en/$1"
     }
   },
+  "oclif": {
+    "commands": "./bin/commands"
+  },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
