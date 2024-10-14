@@ -317,7 +317,8 @@ export const ConsentProcessing = props => {
       >
         <Trans
           i18nKey={/* i18next-extract-disable-line */ consentProcessing}
-          values={{ organisation: config.organisation }}
+          values={{ organisation: config.organisation}}
+          components={{ url: <a/>, 1: <a href={link} /> }}
         >
           Consent processing according to <a href={link}>privacy policy</a>
         </Trans>
