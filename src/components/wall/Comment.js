@@ -18,15 +18,16 @@ const Wall = props => {
   //  const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
   const campaign = config.campaign.name;
+  const filter = config.component?.wall?.comment?.filter || "enabled";
 
   useEffect(() => {
     (async () => {
       let query = supabase
         .from("comments")
-        .select("id,area,lang,name, comment")
+        .select(`id,area,lang,name,${filter}, comment`)
         .order("created_at", { ascending: false })
         .eq("campaign", campaign)
-        .eq("enabled", true);
+        .eq(filter, true);
 
       if (country) {
         query = query.eq("area", country);
