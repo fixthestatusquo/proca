@@ -5,7 +5,7 @@ const color = require("cli-color");
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
-  : "../config/";
+  : path.resolve(__dirname, '../config') + "/" ;
 
 const API_URL =
   process.env.API_URL ||

@@ -353,7 +353,7 @@ const pull = async (
     saveWidget(config);
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
-  return campaign ? [config, campaign] : campaign;
+  return campaign ? [config, campaignData] : config;
 };
 
 const push = async id => {
