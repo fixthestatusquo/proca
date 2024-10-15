@@ -1,10 +1,10 @@
-import {serve} from '../../esbuild.js';
+import {build} from '../../esbuild.js';
 import { Args, Flags } from "@oclif/core";
 
 import Command from 'proca/src/procaCommand.mjs';
 
 export default class ServeCommand extends Command {
-  static description = "preview the widget"; 
+  static description = "build the widget"; 
  
   static flags = { 
     ...super.globalFlags, 
@@ -17,7 +17,7 @@ export default class ServeCommand extends Command {
 
   async run() {
    const { flags } = await this.parse();
-    this.log('serve',flags.id);
-    await serve (flags.id);
+    this.log('build',flags.id);
+    await build (flags.id);
   }
 }
