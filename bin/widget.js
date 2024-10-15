@@ -511,5 +511,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pull, addPage, getConfig, build, serve };
+  module.exports = { pull, addPage, getConfig, build, serve, push };
 }
