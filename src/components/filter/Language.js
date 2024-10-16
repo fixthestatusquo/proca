@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Select from "@components/field/Select";
 import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
 
 const FilterLanguage = props => {
   const { watch } = props.form;
@@ -8,20 +9,21 @@ const FilterLanguage = props => {
   const setConfig = useSetCampaignConfig();
   const language = watch("language");
   const locales = config.component.email?.languages || "campaign:languages";
+  const { t } = useTranslation();
 
-  useEffect(() => {
+  use = useEffect(() => {
     if (!language) {
     props.selecting(
       "locale",
-      config.locale 
+      config.locale
     );
     return;
     }
-      
+
 
     props.selecting(
       "locale",
-      language 
+      language
     );
 
       setConfig(current => {
@@ -33,9 +35,9 @@ const FilterLanguage = props => {
 
   }, [language, props.country]);
 
-  return <Select form={props.form} name="language"  
+  return <Select form={props.form} name="language"
           required
-    options = {locales}
+    options = {t(locales)}
     select = "key"
 
 />;
