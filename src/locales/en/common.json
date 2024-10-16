@@ -128,7 +128,7 @@
       "yearly": "yearly"
     },
     "iban": "IBAN",
-    "intro": "Donate to {{campaign}}",
+    "intro": "Donate to {{org}}",
     "payment_methods": {
       "card": "Card",
       "default": "Donate",

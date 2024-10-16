@@ -122,7 +122,7 @@
       "yearly": "Jährlich"
     },
     "iban": "IBAN",
-    "intro": "Spenden Sie an {{campaign}}",
+    "intro": "Spenden Sie an {{org}}",
     "payment_methods": {
       "card": "Karte",
       "default": "Jetzt spenden!",

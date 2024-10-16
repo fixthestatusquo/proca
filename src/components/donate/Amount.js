@@ -77,6 +77,7 @@ const DonateAmount = props => {
               <Typography variant="h5" paragraph color="textPrimary">
                 {t("donation.intro", {
                   campaign: config.campaign.title,
+                  org: config.organisation,
                 })}
               </Typography>
             ) : (
