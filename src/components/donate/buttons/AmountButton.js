@@ -91,7 +91,11 @@ const Amounts = () => {
   if (data.initialAmount && !amounts.find(s => s === data.initialAmount)) {
     amounts.push(data.initialAmount);
   }
+  try {
   amounts.sort((a, b) => a - b);
+  } catch {
+console.warn("can't sort");
+  }
 
   const form = useForm();
   const [showCustomField, toggleCustomField] = useState(false);
