@@ -8,7 +8,6 @@ const FilterLanguage = props => {
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const language = watch("language");
-  const locales = config.component.email?.languages || "campaign:languages";
   const { t } = useTranslation();
 
   use = useEffect(() => {
@@ -37,7 +36,7 @@ const FilterLanguage = props => {
 
   return <Select form={props.form} name="language"
           required
-    options = {t(locales)}
+    options = "campaign:languages"
     select = "key"
 
 />;
