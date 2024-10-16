@@ -212,8 +212,6 @@ export const ConfigProvider = props => {
     );
   }, [go, setHook, setLayout, handlePart, setData]);
 
-  //setCampaignConfig(config);
-  //<Config.Provider value={{config, setConfig}}>
   return (
     <>
       {props.children}
@@ -222,8 +220,6 @@ export const ConfigProvider = props => {
   );
 };
 
-//export const useConfig = () => (useContext(Config));
-//useConfig should be replaced by useCampaignConfig, useData, useLayout
 export const useCampaignConfig = () => useRecoilValue(configState);
 export const useConfig = () => useRecoilState(configState);
 export const useSetCampaignConfig = () => useSetRecoilState(configState);

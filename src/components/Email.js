@@ -106,6 +106,7 @@ const EmailComponent = props => {
   useEffect(() => {
     if (!props.targets) return;
     setProfiles(props.targets);
+console.log("targets from props.targets",props.targets.length);
   }, [props.targets]);
 
   useEffect(() => {
@@ -234,9 +235,6 @@ const EmailComponent = props => {
           });
           setAllProfiles(d);
           setLanguages(languages);
-          if (!config.component.email?.filter?.includes("country")) {
-            setProfiles(d);
-          }
           if (postcodeFiltered) {
             setProfiles([]);
           }
@@ -293,13 +291,13 @@ const EmailComponent = props => {
       });
       setProfiles(d);
       setData("targets", d);
-      setConfig(current => {
-        console.log("set lang", locale);
+/*      setConfig(current => {
+        console.log("set lang in filterLocale", locale);
         const next = { ...current };
         next.lang = locale;
         return next;
       });
-
+*/
       return d;
     },
     [allProfiles, setConfig, setData]
@@ -700,6 +698,11 @@ const EmailComponent = props => {
             return selection;
           });
         }
+        if (d === true) {
+  console.log("select all",allProfiles);
+          setProfiles(allProfiles);
+          return;
+        } 
         return;
       }
       const d = allProfiles.filter(d => {
@@ -716,7 +719,7 @@ const EmailComponent = props => {
       } else {
         clearErrors(key);
       }
-      console.log("filter profiles");
+      console.log("filter profiles",d.length);
       setProfiles(d);
     },
     [allProfiles, profiles, setError]
@@ -783,6 +786,7 @@ const EmailComponent = props => {
       )}
       <Filter
         profiles={profiles}
+        maxProfiles = {allProfiles.length}
         form={form}
         selecting={filterTarget}
         country={country}

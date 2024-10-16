@@ -15,6 +15,7 @@ const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
+let nodeEnv = undefined;
 
 const help = (exit = 0) => {
   console.log(
@@ -42,14 +43,15 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const define = env => {
+const define = (env, environment) => {
+  nodeEnv = environment;
   const defined = {
     global: "window",
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
     "process.env.NODE_ENV":
-      '"' + (argv.serve ? "development" : "production") + '"',
+      '"' + (environment || "production") + '"',
   };
 
   Object.keys(env)
@@ -140,7 +142,7 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("<%= organisation %>", config.org.name)
       );
 
-      if (!argv.serve) {
+      if (nodeEnv === 'development') {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
           fs.createReadStream(index),
@@ -155,10 +157,9 @@ let procaPlugin = ({ id, config }) => ({
       }
       save(config);
       runs++;
-      //     console.log(result);
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, () => {
-      if (argv.serve) {
+      if (nodeEnv === 'development') {
         runs === 0
           ? console.log(color.blue("load", config.filename))
           : console.log("reload");
@@ -174,15 +175,14 @@ let procaPlugin = ({ id, config }) => ({
   },
 });
 
-const getConfig = id => {
+const getConfig = (id,environment) => {
   const [, config] = getConfigOverride(id);
-
   return {
     globalName: "proca",
     format: "iife",
     logLevel: "info",
     entryPoints: ["src/index.js"],
-    define: define(env.parsed),
+    define: define(env.parsed,environment),
     bundle: true,
     plugins: [
       procaPlugin({ id: id, config: config }),
@@ -203,8 +203,9 @@ const getConfig = id => {
 };
 
 const serve = async id => {
-  const buildConfig = getConfig(id);
+  const buildConfig = getConfig(id,"development");
   buildConfig.sourcemap = "inline";
+  //buildConfig.sourcemap = true;
   //  buildConfig.plugins.push (eslint);
   buildConfig.banner = {
     //  js: ' (() => new EventSource("/esbuild").onmessage = () => location.reload())();'
@@ -218,7 +219,7 @@ const serve = async id => {
 };
 
 const build = async id => {
-  const buildConfig = getConfig(id);
+  const buildConfig = getConfig(id, "production");
   buildConfig.minify = true;
   if (argv.analyze) buildConfig.metafile = true;
   const result = await esbuild(buildConfig);

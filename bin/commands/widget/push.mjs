@@ -1,4 +1,3 @@
-import {serve} from '../../esbuild.js';
 import { push } from '../../widget.js';
 
 import { Args, Flags } from "@oclif/core";

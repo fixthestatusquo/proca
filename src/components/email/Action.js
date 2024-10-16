@@ -19,7 +19,7 @@ import uuid from "@lib/uuid";
 
 const useStyles = makeStyles(theme => ({
   secondaryText: {
-    marginRight: theme.spacing(2), // Adjust this value as needed
+    marginRight: theme.spacing(4), // Adjust this value as needed
   },
 }));
 
