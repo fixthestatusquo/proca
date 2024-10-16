@@ -27,8 +27,9 @@ const Select = ({ form, name, label, options: key, sort, required, select="value
       } else {
         options = Object.entries(toObject(asString));
       }
+    } else {
+      options = [["error_nolocales", "missing locale:" + key]];
     } 
-    options = [["error_nolocales", "missing locale:" + key]];
   } catch {
       if (typeof key === 'object') {
         options = Object.entries(key);
