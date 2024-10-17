@@ -165,6 +165,11 @@ most fields can either be displayed or hidden, most fields can either be require
 To add helper text for the comment (for example: "Your message may be used..."):
 `locales.common.help.comment: "Your message may be used..."`
 
+### Filter comments
+
+`config.component.wall.comments.filter: FILTER_NAME`
+FILTER_NAME is column in Supabase and it is filtered if FILTER_NAME === true
+
 ## Counter
 
 To show:

@@ -1,18 +1,18 @@
 import React, { useCallback } from "react";
 
-import Url from "../../lib/urlparser.js";
-import uuid from "../../lib/uuid";
+import Url from "@lib/urlparser.js";
+import uuid from "@lib/uuid";
 
-import useData from "../../hooks/useData";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import dispatch from "../../lib/event";
+import useData from "@hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import dispatch from "@lib/event";
 import {
   PayPalButtons,
   FUNDING,
   usePayPalScriptReducer,
   DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
-import { addDonateContact } from "../../lib/server.js";
+import { addDonateContact } from "@lib/server.js";
 import { Box, Button, CircularProgress, makeStyles } from "@material-ui/core";
 
 const _addContactFromPayPal = (setFormData, contact, payer) => {
@@ -162,6 +162,7 @@ const onApproveOrder = async ({
 };
 
 const onCreateOrder = ({ amount, description, actions }) => {
+console.debug(amount,description,actions);
   return actions.order.create({
     purchase_units: [{ amount: { value: Number.parseFloat(amount) } }],
     description: description,
@@ -331,6 +332,8 @@ const ProcaPayPalButton = props => {
 
   const buttonOptions =
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
+
+console.log(buttonOptions);
 
   return (
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">

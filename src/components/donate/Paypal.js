@@ -1,7 +1,7 @@
 import React from "react";
 import useData from "../../hooks/useData";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import PayPalButton from "./PayPalButton";
+import PayPalButton from "./buttons/PayPal";
 import { useCampaignConfig } from "../../hooks/useConfig";
 
 const Paypal = ({ onError, onComplete, disabled }) => {
@@ -9,13 +9,12 @@ const Paypal = ({ onError, onComplete, disabled }) => {
   const donateConfig = config.component.donation;
 
   const [formData] = useData();
-  const frequency = formData.frequency;
+  const frequency = formData.frequency || "oneoff";
 
   const providerOptions = {
     "client-id": donateConfig.paypal.clientId,
     currency: donateConfig.currency.code,
   };
-
   if (frequency !== "oneoff") {
     providerOptions["intent"] = "subscription";
     providerOptions["vault"] = "true";

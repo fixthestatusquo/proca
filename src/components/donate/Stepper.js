@@ -95,7 +95,7 @@ const Steps = () => {
           key="amount"
           onClick={() => {
             setDonateStep(0);
-            goStep("donate_Amount");
+            goStep("Donation");
           }}
         >
           <StyledStepLabel>

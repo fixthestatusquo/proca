@@ -122,7 +122,7 @@
       "yearly": "årlig"
     },
     "iban": "IBAN",
-    "intro": "Doner til {{campaign}}",
+    "intro": "Doner til {{org}}",
     "payment_methods": {
       "card": "Kort",
       "default": "Donere",

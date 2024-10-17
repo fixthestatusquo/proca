@@ -8,7 +8,6 @@ const FilterArea = props => {
   const { watch } = props.form;
   const area = watch("area");
   useEffect(() => {
-    console.log("changing area", area);
     if (!area)
       return props.selecting(() => ({
         filter: "area",

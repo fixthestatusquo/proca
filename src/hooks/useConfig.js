@@ -176,6 +176,7 @@ export const ConfigProvider = (props) => {
 };
 
 export const useCampaignConfig = () => configStore((state) => state.campaignConfig);
+export const useConfig = () => configStore((state) => state.campaignConfig);
 export const useSetCampaignConfig = () => configStore((state) => state.setCampaignConfig);
 export { set as setConfig };
 export { goStep };

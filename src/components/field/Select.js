@@ -4,7 +4,7 @@ import { toObject } from "@lib/text";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
-const Select = ({ form, name, label, options: key, sort, required }) => {
+const Select = ({ form, name, label, options: key, sort, required, select="value" }) => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
   let options = [["error", "error"]];
@@ -28,10 +28,14 @@ const Select = ({ form, name, label, options: key, sort, required }) => {
         options = Object.entries(toObject(asString));
       }
     } else {
-      options = [["error_nolocales", "missing locale " + key]];
-    }
+      options = [["error_nolocales", "missing locale:" + key]];
+    } 
   } catch {
-    console.log("invalid key", key);
+      if (typeof key === 'object') {
+        options = Object.entries(key);
+      } else {
+        console.log("invalid key", key);
+      }
   }
 
   switch (sort) {
@@ -53,10 +57,10 @@ const Select = ({ form, name, label, options: key, sort, required }) => {
         native: true,
       }}
     >
-      <option key="empty" value="" />
+      {!required && <option key="empty" value="" />}
       {options.map(([k, v]) => {
         return (
-          <option key={k} value={v}>
+          <option key={k} value={select === "value" ? v: k}>
             {v}
           </option>
         );
