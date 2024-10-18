@@ -29,12 +29,12 @@
     "eci": "eci",
     "email": "Enviar un correo electrónico",
     "join": "Únase a",
-    "register": "Registro",
+    "register": "Registrar",
     "remindeSent": "Recordatorio enviado",
     "reminder": "Recuérdamelo más tarde",
     "reminderEmail": "Recordármelo por correo electrónico",
     "share": "Compartir",
-    "sign": "Firma",
+    "sign": "¡Firma ahora!",
     "stayInformed": "Seguir recibiendo información",
     "takeAction": "Actúa",
     "twitter": "Tweet"
@@ -48,19 +48,19 @@
   "confirm": "¿Seguro?",
   "consent": {
     "actionConfirmed": "Acción confirmada",
-    "actionRejected": "La acción fue cancelada con éxito",
+    "actionRejected": "La acción se ha cancelado correctamente",
     "confirm": "<0>¿Estás seguro?</0><1>Si seleccionas \"No\", no podrás saber si esta campaña tiene éxito o si hay más acciones que debamos emprender juntos para ganarla. Si selecciona \"Sí\", le mantendremos informado sobre esta y otras campañas urgentes.</1><2>Puede darse de baja en cualquier momento.</2>",
     "confirmAction": "Por favor, recupera el correo electrónico ahora mismo y haz clic en el enlace que contiene (¡comprueba tu carpeta de spam!).\n Sólo así tu acción contará.\nTu confirmación es crucial para el peso político de la acción. Esto garantiza que hay una persona real detrás de cada envío. Esperamos tu confirmación...",
     "confirmOptIn": "No olvide revisar su buzón de correo (incluida la carpeta de spam) y confirmar su suscripción al correo electrónico",
-    "emailSent": "¡Te hemos enviado un correo electrónico a {email}!",
+    "emailSent": "¡Te hemos enviado un correo electrónico a {{email}}!",
     "implicit": "Envía este formulario para recibir correos electrónicos de {{name}}",
-    "intro": "Te mantendremos informado/a de los avances de la campaña",
+    "intro": "Descubre más sobre nuestras campañas, acciones y avances de {{campaign}}",
     "opt-in": "Sí,  {{partner}} mantenme informado/a por correo electrónico",
     "opt-in-both": "Sí, quiero que {{partner}} y {{lead}} me mantengan informado por correo electrónico",
     "opt-out": "No, no me envíes correos electrónicos ni me mantengas informado en el futuro",
     "optInConfirmed": "Suscripción confirmada",
     "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
-    "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar la información, usted está de acuerdo con el uso de datos y cookies de acuerdo con nuestra <1> política de privacidad</1>",
+    "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar información, usted acepta el uso de los datos de acuerdo con nuestra <1>política de privacidad</1>",
     "required": "Su consentimiento es necesario para participar",
     "subButton": {
       "opt-in": "y recibir información",
@@ -71,11 +71,11 @@
     "error": "fecha no válida. formato: DD.MM.AAAA"
   },
   "dateFormat": "DD/MM/YYYY",
-  "dialogTitle": "Mantenme informado/a sobre la campaña",
+  "dialogTitle": "Mantenerme informado sobre la campaña",
   "donation": {
     "amount": {
       "change": "Importe del cambio",
-      "intro": "Elija una cantidad :"
+      "intro": "Elija una cantidad"
     },
     "average": "La donación media es {{amount}}",
     "button": {
@@ -98,7 +98,7 @@
     },
     "form": {
       "error": {
-        "minimum": "La donación mínima es de {{ampount}}"
+        "minimum": "La donación mínima es {{amount}}"
       }
     },
     "frequency": {
@@ -108,16 +108,16 @@
         "weekly": "¿Hacer una donación semanal?"
       },
       "each": {
-        "monthly": "cada mes",
+        "monthly": "cada semana",
         "oneoff": "Una vez",
-        "weekly": "cada año"
+        "weekly": "cada mes"
       },
       "feedback": {
         "monthly": "Estoy donando {{amount}} {{frequency}}",
         "oneoff": "Estoy donando {{amount}}"
       },
       "monthly": "mensualmente",
-      "oneoff": "una sola vez",
+      "oneoff": "una vez",
       "weekly": "semanal",
       "yearly": "anualmente"
     },
@@ -137,9 +137,9 @@
   "email": {
     "invalid_domain": "{{domain}} no puede recibir correos electrónicos",
     "salutation": "Estimado/a señor/a",
-    "salutation_female": "Estimada Señora {{target.last_name}}",
+    "salutation_female": "Estimada Sra. {{target.last_name}}",
     "salutation_info": "(El nombre se pondrá antes del envío)",
-    "salutation_male": "Estimado Señor {{target.last_name}}",
+    "salutation_male": "Estimado Sr. {{target.last_name}}",
     "salutation_placeholder": "Estimado/a [destinatario]"
   },
   "error": {
@@ -175,7 +175,7 @@
     "email": "{{total}} han enviado un correo electrónico. Vamos a {{goal}}",
     "register": "{{total}} se han registrado. Vamos a {{goal}}",
     "share": "{{total}} han compartido. Vamos a {{goal}}",
-    "sign": "{{total}} han firmado. Vamos a por {{goal}}",
+    "sign": "{{total}} han firmado. Vamos a {{goal}}",
     "twitter": "{{total}} han twitteado. Vamos a {{goal}}"
   },
   "read more": "leer más",
@@ -185,7 +185,7 @@
     "intro": "Lo sabemos, su gobierno le pide mucha información. Le enviaremos un único correo electrónico para recordarle que rellene el formulario más adelante"
   },
   "required": "obligatorio",
-  "required field": "Campo obligatorio",
+  "required field": "campo obligatorio",
   "salutations": {
     "f": "Estimad@ {{name}}",
     "m": "Querid@ {{name}}",
@@ -193,7 +193,7 @@
   },
   "select_all": "Seleccionar todo",
   "share": {
-    "intro": "Genial, has firmado 👍. Para multiplicar tu impacto, comparte a diestro y siniestro para que todos vean esta petición 🙏.",
+    "intro": "Genial, has firmado 👍 Para multiplicar tu impacto, comparte a lo largo y ancho para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",
     "title": "¡Ya casi está! Da el siguiente paso."
   },
@@ -223,9 +223,9 @@
     "selected": "{{total}} seleccionado"
   },
   "twitter": {
-    "actionText": "Yo firmé. Tú también deberías hacerlo",
+    "actionText": "¡He firmado! Tú también deberías hacerlo",
     "again": "Tuitear a otra persona",
-    "choice": "¿Qué le gustaría hacer a continuación?",
+    "choice": "¿Qué te gustaría hacer a continuación?",
     "instruction": "Por favor, complete el envío del tweet en la nueva ventana (en twitter.com)",
     "organisation": "La cuenta de Twitter de su organización",
     "screenName": "Cuenta de Twitter"
