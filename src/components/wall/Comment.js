@@ -19,6 +19,7 @@ const Wall = props => {
   const config = useCampaignConfig();
   const campaign = config.campaign.name;
   const filter = config.component.wall?.comment?.filter || "enabled";
+  const limit = config.component.wall?.comment?.limit;
 
   useEffect(() => {
     (async () => {
@@ -28,6 +29,9 @@ const Wall = props => {
         .order("created_at", { ascending: false })
         .eq("campaign", campaign)
         .eq(filter, true);
+
+      if (limit)
+        query.limit (limit)
 
       if (country) {
         query = query.eq("area", country);
