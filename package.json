@@ -44,7 +44,7 @@
     "@paypal/react-paypal-js": "^8.7.0",
     "@shopify/react-intersection-observer": "^4.0.4",
     "@stripe/react-stripe-js": "^2.8.1",
-    "@stripe/stripe-js": "^4.6.0",
+    "@stripe/stripe-js": "^4.8.0",
     "@supabase/supabase-js": "^2.45.6",
     "blurhash": "^2.0.5",
     "i18n-iso-countries": "^7.12.0",
