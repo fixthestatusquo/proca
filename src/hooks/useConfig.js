@@ -33,7 +33,7 @@ export const initConfigState = (config) => {
 
   configStore = create((set) => ({
     campaignConfig: config,
-    setCampaignConfig: (update) => set((state) => ({ campaignConfig: { ...state.campaignConfig, ...update } })),
+    setCampaignConfig: (update) => set((state) => ({ campaignConfig: { ...state.campaignConfig, ...update(state.campaignConfig) } })),
   }));
 
   return true;
