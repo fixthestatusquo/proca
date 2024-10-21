@@ -53,7 +53,7 @@ const DonateAmount = props => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
-  const [, setDonateStep] = useDonateStep();
+  const { setDonateStep } = useDonateStep();
   const [data, setData] = useData();
   const amount = data.amount ? parseFloat(data.amount) : undefined;
   const [complete, setComplete] = useState(false);

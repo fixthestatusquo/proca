@@ -6,7 +6,6 @@ import React, {
   useLayoutEffect,
 } from "react";
 import ProcaRoot from "@components/ProcaRoot";
-//import merge from "lodash.merge";
 import { merge } from "@lib/object";
 import { initConfigState } from "@hooks/useConfig";
 import Url, { step as paramStep } from "@lib/urlparser";
