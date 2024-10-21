@@ -34,12 +34,15 @@ const FilterLanguage = props => {
 
   }, [language, props.country]);
 
-  return <Select form={props.form} name="language"
-          required
-    options = "campaign:languages"
-    select = "key"
-
-/>;
+  return (
+    <Select
+      form={props.form}
+      name="language"
+      label="Language"
+      options="campaign:languages"
+      select = "key"
+      required
+      />);
 
 };
 
