@@ -1,13 +1,13 @@
 {
   "Address": "Aadress",
   "Amount": "Summa",
-  "Another": "Teine",
+  "Another": "Muu",
   "Birthdate": "Sünnikuupäev",
   "City": "Linn",
   "Comment": "Kommentaar",
   "Country": "Riik",
   "Download": "Laadi alla",
-  "Download explanation": "Teie dokument on nüüd valmis, me saadame selle ka teile e-kirjaga.",
+  "Download explanation": "Sinu dokument on nüüd valmis, me saadame selle sulle ka e-kirjaga",
   "Email": "E-posti aadress",
   "First name": "Eesnimi",
   "Language": "Keel",
@@ -20,12 +20,12 @@
   "Postal Code": "Sihtnumber",
   "Salutation": "Tervitus",
   "Sorry, we couldn't save": "Vabandust, me ei saanud salvestada",
-  "Street": "Street",
+  "Street": "Tänav",
   "Subject": "Teema",
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
   "action": {
-    "donate": "Annetada",
+    "donate": "Anneta",
     "eci": "eci",
     "email": "Saada e-kiri",
     "join": "Liitu",
@@ -34,28 +34,28 @@
     "reminder": "Meenuta mulle hiljem",
     "reminderEmail": "Meenuta mulle e-posti teel",
     "share": "Jaga",
-    "sign": "Allkiri",
+    "sign": "Kirjuta alla nüüd!",
     "stayInformed": "Olge kursis",
-    "takeAction": "Võtke meetmeid!",
-    "twitter": "Tweet"
+    "takeAction": "Asu tegutsema",
+    "twitter": "Kirjuta suhtlusvõrgus X"
   },
   "camera": {
-    "start": "käivitada kaamera",
+    "start": "käivita kaamera",
     "take": "Pildistage",
-    "take-another": "Võtke veel üks"
+    "take-another": "Tee veel üks pilt"
   },
-  "closed": "##Kiitus {{total}} toetajatele!\n\nMe oleme selle aktsiooni lõpetanud, kuid meie töö ei lõpe siinkohal, seega palun **jätke oma e-post, et olla kursis järgmiste sammudega**.",
+  "closed": "##Kiitus {{total}}'le toetajatele!\n\nMe oleme selle aktsiooni lõpetanud, kuid meie töö siinkohal ei peatu, seega palun **et olla kursis järgmiste sammudega, jäta meile oma e-posti aadress**",
   "confirm": "Oled sa kindel?",
   "consent": {
     "actionConfirmed": "Tegevus kinnitatud",
-    "actionRejected": "Meede tühistati edukalt",
+    "actionRejected": "Tegevuse katkestamine õnnestus",
     "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
-    "confirmAction": "Oleme saatnud kinnituse lingi e-posti teel järgmisele aadressile:\n {{email}}.\nPalun võtke e-kiri kohe kätte ja klõpsake selles sisalduvale lingile (kontrollige oma rämpsposti kausta!).\n Ainult siis loeb teie tegevus!\nTeie kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame teie kinnitust...",
-    "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh rämpsposti kausta!) ja kinnitada oma e-posti tellimust.",
-    "emailSent": "Saatsime teile e-kirja aadressile {email}!",
+    "confirmAction": "Palun loe seda e-kirja kohe ja klõpsa selles leiduvale lingile (kui kirja pole saabunud, siis kontrolli oma rämpsposti kausta!).\n Ainult siis sinu tehtud on mõju!\nSinu kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame sinu kinnitust...",
+    "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh vajadusel rämpsposti kausta!) ja kinnitada oma e-posti tellimust",
+    "emailSent": "Saatsime sulle e-kirja aadressile {{email}}!",
     "implicit": "Esitage see vorm, et saada e-kirju {{name}}",
-    "intro": "Hoia end kursis energiaharta kampaaniaga ja teiste tegevustega",
-    "opt-in": "Jah, hoia mind e-posti teel kursis",
+    "intro": "Hoia end kursis meie kampaaniatega, tegevustega ja {{campaign}} kampaania edenemisega",
+    "opt-in": "Jah, ma soovin, et {{partner}} hoiab mind e-posti teel kursis",
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
     "optInConfirmed": "Tellimus kinnitatud",
@@ -75,13 +75,13 @@
   "donation": {
     "amount": {
       "change": "Muuda summa",
-      "intro": "Vali summa :"
+      "intro": "Vali summa"
     },
     "average": "Keskmine annetus on {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Anneta {{amount}} iga kuu",
+        "oneoff": "Anneta {{amount}}"
       }
     },
     "error": {
@@ -98,13 +98,13 @@
     },
     "form": {
       "error": {
-        "minimum": "Minimaalne annetus on {{ampount}}"
+        "minimum": "Minimaalne annetus on {{amount}}"
       }
     },
     "frequency": {
       "ask": {
         "monthly": "Teha seda igakuiselt?",
-        "oneoff": "Annetada",
+        "oneoff": "Anneta",
         "weekly": "Teha see iganädalane annetus?"
       },
       "each": {
@@ -122,24 +122,24 @@
       "yearly": "igal aastal"
     },
     "iban": "iban",
-    "intro": "Annetada {{campaign}}",
+    "intro": "Anneta kampaaniale {{campaign}}",
     "payment_methods": {
       "card": "Kaart",
-      "default": "Annetada",
-      "intro": "Kuidas soovite annetada?",
+      "default": "Anneta",
+      "intro": "Kuidas soovid annetada?",
       "paypal": "PayPal",
       "sepa": "SEPA",
       "title": "Makseviis"
     },
-    "thanks": "Täname teid annetuse eest!",
+    "thanks": "Täname sind annetuse eest!",
     "to": "Annetus {{organisation}}"
   },
   "email": {
-    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta.",
+    "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta",
     "salutation": "Lugupeetud härra/naine",
-    "salutation_female": "Lugupeetud {{target.name}}",
+    "salutation_female": "Lugupeetud proua {{target.last_name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
-    "salutation_male": "Lugupeetud  {{target.name}}",
+    "salutation_male": "Lugupeetud härra {{target.last_name}}",
     "salutation_placeholder": "Lugupeetud [saaja],"
   },
   "error": {
@@ -148,8 +148,8 @@
   "image": {
     "addSticker": "lisada kleebiseid",
     "addStickerTitle": "Klõpsake / koputage fotole kleebise lisamiseks",
-    "benefit": "Kui lisate saatmiseks pildi, mida saate järgmises etapis jagada, muudab see teie tegevuse mõjusamaks.",
-    "options": "Kas soovite",
+    "benefit": "Kui lisad saatmiseks pildi, mida saad järgmises etapis jagada, muudab see sinu tegevuse mõjusamaks",
+    "options": "Kas sa soovid teha ühte järgnevast?",
     "publish": "Näeb hea välja, avalda!",
     "select": "vali oma pilt",
     "takeTitle": "Tee oma telefoniga pilt",
@@ -160,14 +160,14 @@
   "party": "Partei",
   "phone": {
     "INVALID_COUNTRY": "puuduv või vigane riigikood",
-    "INVALID_LENGTH": "Vale pikkus",
+    "INVALID_LENGTH": "Vigane pikkus",
     "MISSING": "nõutav väli",
-    "NOT_A_NUMBER": "Vale telefoninumber",
-    "TOO_LONG": "number liiga pikk",
-    "TOO_SHORT": "number liiga lühike"
+    "NOT_A_NUMBER": "Vigane telefoninumber",
+    "TOO_LONG": "telefoninumber on liiga pikk",
+    "TOO_SHORT": "telefoninumber on liiga lühike"
   },
   "postcode": {
-    "notFound": "seda postiindeksit ei tundu teie riigis olevat olemas.",
+    "notFound": "seda sihtnumbrit (postiindeksit) ei tundu leiduma sinu riigis",
     "wrongLength": "eeldatav pikkus {{length}} teie riigi jaoks"
   },
   "progress": {
@@ -187,15 +187,15 @@
   "required": "Palun täitke see väli",
   "required field": "Kohustuslik väli",
   "salutations": {
-    "f": "Ms.",
-    "m": "Hr.",
-    "other": "Muud"
+    "f": "Lugupeetud {{name}}",
+    "m": "Lugupeetud {{name}}",
+    "other": "Lugupeetud {{name}}"
   },
   "select_all": "Valige kõik",
   "share": {
     "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
     "message": "Peaksite sellele alla kirjutama!",
-    "title": "Peaaegu valmis. Üks samm veel!"
+    "title": "Peaaegu valmis! Üks samm veel."
   },
   "step": {
     "eci": {
@@ -218,7 +218,7 @@
       "empty": "ei ole kedagi, kellega ühendust võtta {{area}}",
       "undefined": "Sisestage oma postiindeks"
     },
-    "random_one": "Valitud üks meie {{total}} kõige olulisematest sihtmärkidest.",
+    "random_one": "Valitud üks meie {{total}}'st kõige olulisemast eesmägist",
     "random_other": "Valitud {{count}} meie {{total}} kõige olulisemad sihtmärgid",
     "selected": "{{total}} valitud"
   },

@@ -63,18 +63,17 @@ Front and back are clearly separated. the backend is a bunch of APIs clearly doc
 - `git clone` this repository
 - `npm install`
 - `cp .env.example .env` and put your login + pwd
+- npx proca plugins link
 - npm run pull folowed by the action page id as seen in the backend. For instance
 
-  `npm run widget -- --pull 42`
+  `npx proca widget pull -i 42`
 
   This will create the configuration file for the widget with id `42`. it does also pull the configuration for the campaign into config/campaign/{shortname}.json
 
 - edit `config/42.json` or the config/campaign to adjust the steps, configure the components, change the color, whatever)
-- `npm run widget -- --serve 42` runs a local server with the widget
-- `npm run widget -- --build 42` generates the widget under d/{actionpage.NAME of the widget}
-- `npm run widget -- --push 42` save the local config (under config) to the server
-
-_you can combine the options, eg. npm run widget --pull --build 42, process multiple ids, eg npm run widget --pull --build 42 43 1984_
+- `npx proca widget serve -i 42` runs a local server with the widget
+- `npx proca widget build -i 42` generates the widget under d/{actionpage.NAME of the widget}
+- `npx proca widget push -i 42` save the local config (under config) to the server
 
 You can find more information in this [config documentation](./docs/config.md)
 
