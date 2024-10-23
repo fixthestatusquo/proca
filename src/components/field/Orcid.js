@@ -1,6 +1,7 @@
 import Hidden from "@components/field/Hidden";
 import { useCampaignConfig } from "@hooks/useConfig";
 import OrcidIcon from "@images/OrcidLogo";
+import { decode } from "@lib/jwt";
 import { Button, SvgIcon } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 const Orcid = ({ form }) => {
@@ -10,32 +11,39 @@ const Orcid = ({ form }) => {
   const urlHash = window.location.hash.substring(1); // Remove the leading #
 
   useEffect(async () => {
+
     const userInfo = async () => {
       const params = new URLSearchParams(urlHash);
       const accessToken = params.get("access_token");
       if (!accessToken) return undefined;
+      const jwt = decode(params.get('id_token'));
+      if (jwt.sub) {
+        form.setValue("firstname", jwt.given_name);
+        form.setValue("lastname", jwt.family_name);
+        form.setValue("orcid", jwt.sub);
+      }
+
       try {
-        const response = await fetch("https://orcid.org/oauth/userinfo", {
-          //    const response = await fetch("https://pub.orcid.org/v3.0/0009-0004-9319-0313/record", {
+//        const response = await fetch("https://orcid.org/oauth/userinfo", {
+          const response = await fetch("https://xy.proca.app/orcid/"+jwt.sub, {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+//            Authorization: `Bearer ${accessToken}`,
           },
         });
 
-        if (response.status === 403) {
-          // expired token
-          logIn();
-        }
-        console.log(accessToken);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        form.setValue("firstname", data.given_name);
-        form.setValue("lastname", data.family_name);
-        form.setValue("orcid", data.sub);
+        form.setValue("firstname", data.firstname);
+        form.setValue("lastname", data.lastname);
+        form.setValue("orcid", data.orcid);
+        form.setValue("organisation", data.organisation);
+        form.setValue("ror", data.ror);
+        form.setValue("country", data.country);
+        window.location.hash = '';
         return data;
       } catch (error) {
         console.error("Error:", error);
@@ -53,8 +61,6 @@ const Orcid = ({ form }) => {
     window.location = `https://orcid.org/oauth/authorize?client_id=${clientId}&response_type=token&scope=openid&redirect_uri=${redirect}`;
   };
 
-  user && console.log(user);
-
   return (
     <>
       <Hidden name="orcid" form={form} />
@@ -69,7 +75,7 @@ const Orcid = ({ form }) => {
           </SvgIcon>
         }
       >
-        {user?.sub ? user.sub : "Connect your ORCID ID"}
+        {user?.orcid ? user.orcid : "Connect your ORCID ID"}
       </Button>
     </>
   );

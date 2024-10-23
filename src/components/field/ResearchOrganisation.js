@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { debounce, makeStyles } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -17,9 +17,15 @@ const useStyles = makeStyles(() => ({
 const AffiliationInput = ({ form }) => {
   const classes = useStyles();
   const [options, setOptions] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(form.getValues("organisation") || '');
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect ( () => {
+     if (!form.getValues("organisation")) return;
+     setInputValue ( form.getValues("organisation"));
+     
+  },[form.getValues("organisation")]);
 
   const fetchOptions = async query => {
     if (query.length > 2) {

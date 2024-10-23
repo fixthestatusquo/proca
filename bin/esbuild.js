@@ -142,7 +142,7 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("<%= organisation %>", config.org.name)
       );
 
-      if (nodeEnv === 'development') {
+      if (nodeEnv !== 'development') {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
           fs.createReadStream(index),
