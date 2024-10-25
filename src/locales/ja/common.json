@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "寄付先{{campaign}}",
+    "payment": "支払い",
     "payment_methods": {
       "card": "カード",
       "default": "寄付する",
