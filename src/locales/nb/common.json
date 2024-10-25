@@ -214,7 +214,7 @@
       "empty": "Velg et annet land, det er ingen å kontakte i {{country}}",
       "undefined": "Velg et land"
     },
-    "missing": "Velg minst én av {{total}}",
+    "missing": "Velg minst 1 av {{total}}",
     "postcode": {
       "empty": "det ikke er noen å kontakte i {{area}}",
       "undefined": "Skriv inn postnummeret ditt"

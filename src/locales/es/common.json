@@ -214,7 +214,7 @@
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}",
       "undefined": "Elija un país"
     },
-    "missing": "Seleccione al menos uno de {{total}}",
+    "missing": "Seleccione al menos 1 de {{total}}",
     "postcode": {
       "empty": "no hay nadie con quien contactar en {{area}}",
       "undefined": "Introduzca su código postal"

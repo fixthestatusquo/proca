@@ -219,7 +219,7 @@
       "empty": "Select another country, there is no-one to contact in {{country}}",
       "undefined": "Select a country"
     },
-    "missing": "Select at least one out of {{total}}",
+    "missing": "Select at least 1 out of {{total}}",
     "postcode": {
       "empty": "there is no-one to contact in {{area}}",
       "undefined": "Enter your postcode"
