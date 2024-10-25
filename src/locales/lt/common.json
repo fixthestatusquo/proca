@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Paaukoti {{campaign}}",
+    "payment": "Mokėjimas",
     "payment_methods": {
       "card": "Kortelė",
       "default": "Paaukoti",
