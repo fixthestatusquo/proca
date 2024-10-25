@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Anneta kampaaniale {{campaign}}",
+    "payment": "Maksmine",
     "payment_methods": {
       "card": "Kaart",
       "default": "Anneta",

@@ -123,6 +123,7 @@
     },
     "iban": "ибан",
     "intro": "Пожертвовать на {{campaign}}",
+    "payment": "Оплата",
     "payment_methods": {
       "card": "Карта",
       "default": "Пожертвовать",

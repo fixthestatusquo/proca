@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Spenden Sie an {{org}}",
+    "payment": "Zahlung",
     "payment_methods": {
       "card": "Karte",
       "default": "Jetzt spenden!",

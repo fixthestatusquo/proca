@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Prispieť na {{campaign}}",
+    "payment": "Platba",
     "payment_methods": {
       "card": "Karta",
       "default": "Darujte",

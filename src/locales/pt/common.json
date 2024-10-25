@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Doe para {{campaign}}",
+    "payment": "Pagamento",
     "payment_methods": {
       "card": "Cartão",
       "default": "Doar",
