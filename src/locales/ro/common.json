@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Donează la {{campaign}}",
+    "payment": "Plata",
     "payment_methods": {
       "card": "Card",
       "default": "Donează",
