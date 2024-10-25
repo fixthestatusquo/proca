@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Doneer aan {{campaign}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kaart",
       "default": "Doneer",
