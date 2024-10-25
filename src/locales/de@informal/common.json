@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Spende an {{campaign}}",
+    "payment": "Zahlung",
     "payment_methods": {
       "card": "Karte",
       "default": "Spende",
