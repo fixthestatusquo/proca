@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Lahjoita osoitteeseen {{campaign}}",
+    "payment": "Maksu",
     "payment_methods": {
       "card": "Kortti",
       "default": "Lahjoita",
