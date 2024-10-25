@@ -123,6 +123,7 @@
     },
     "iban": "국제은행계좌번호",
     "intro": "{{campaign}}에 기부",
+    "payment": "결제",
     "payment_methods": {
       "card": "카드",
       "default": "기부하기",
