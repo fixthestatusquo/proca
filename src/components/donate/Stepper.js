@@ -109,7 +109,7 @@ const Steps = () => {
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>{isVeryNarrow ? "" : "Payment"}</StyledStepLabel>
+          <StyledStepLabel>{isVeryNarrow ? "" : t("donation.payment")}</StyledStepLabel>
         </Step>
       </Stepper>
     </Box>

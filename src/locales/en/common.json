@@ -79,6 +79,7 @@
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
+    "payment": "Payment",
     "amount": {
       "change": "Change amount",
       "intro": "Choose an Amount"

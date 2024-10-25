@@ -73,6 +73,7 @@
   "dateFormat": "DD/MM/ÅÅÅÅ",
   "dialogTitle": "Hold meg informert om kampanjen",
   "donation": {
+    "payment": "Betaling",
     "amount": {
       "change": "Endre beløp",
       "intro": "Velg et beløp"
