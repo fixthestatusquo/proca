@@ -46,6 +46,11 @@ const Select = ({ form, name, label, options: key, sort, required, select="value
     default:
       break;
   }
+  if (required && !form.getValues(name)) {
+     const defaultValue = select === "value" ? options[0][1] : options[0][0];
+console.log("set default",name,defaultValue )
+    form.setValue (name,defaultValue);
+  }
   return (
     <TextField
       select={true}

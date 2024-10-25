@@ -12,25 +12,19 @@ const FilterLanguage = props => {
 
   use = useEffect(() => {
     if (!language) {
-    props.selecting(
-      "locale",
-      config.locale
-    );
-    return;
+      console.log("set language to locale", config.locale);
+      props.selecting("locale", config.locale);
+      return;
     }
 
+    props.selecting("locale", language);
 
-    props.selecting(
-      "locale",
-      language
-    );
-
-      setConfig(current => {
-        console.log("set lang", language);
-        const next = { ...current };
-        next.lang = language;
-        return next;
-      });
+    setConfig(current => {
+//      console.log("set lang", language, props.country);
+      const next = { ...current };
+      next.lang = language;
+      return next;
+    });
 
   }, [language, props.country]);
 
@@ -40,10 +34,10 @@ const FilterLanguage = props => {
       name="language"
       label="Language"
       options="campaign:languages"
-      select = "key"
+      select="key"
       required
-      />);
-
+    />
+  );
 };
 
 export default FilterLanguage;

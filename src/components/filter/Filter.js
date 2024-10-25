@@ -30,7 +30,7 @@ console.log("we need to select everything, there aren't any filter");
      props.selecting ( () => true); // return all the profiles
   }
   ,[nbFilters]);
- 
+
   return (
     <>
       {config.component.email?.filter?.includes("country") &&

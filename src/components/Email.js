@@ -102,11 +102,10 @@ const EmailComponent = props => {
     config.component.email?.filter?.includes("multilingual");
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
-
   useEffect(() => {
     if (!props.targets) return;
     setProfiles(props.targets);
-console.log("targets from props.targets",props.targets.length);
+    console.log("targets from props.targets",props.targets.length);
   }, [props.targets]);
 
   useEffect(() => {
@@ -611,6 +610,7 @@ console.log("targets from props.targets",props.targets.length);
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
+
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
@@ -778,6 +778,8 @@ console.log("targets from props.targets",props.targets.length);
       ? selection && selection.includes(profile.procaid)
       : true;
   };
+
+  if (allProfiles.length ===0) return null; // do not render anything before we have profiles
 
   return (
     <Container maxWidth="sm">
