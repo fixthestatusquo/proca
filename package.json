@@ -83,7 +83,7 @@
     "@babel/cli": "^7.25.7",
     "@babel/node": "^7.25.7",
     "@babel/plugin-transform-react-jsx": "^7.25.7",
-    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-env": "^7.25.9",
     "@biomejs/biome": "^1.9.4",
     "@proca/api": "^3.4.0",
     "@testing-library/react": "^12.1.5",
