@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Tabhair do {{org}}",
+    "payment": "Íocaíocht",
     "payment_methods": {
       "card": "Cárta",
       "default": "Síntiúis",

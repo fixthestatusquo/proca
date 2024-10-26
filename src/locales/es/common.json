@@ -122,7 +122,7 @@
       "yearly": "anualmente"
     },
     "iban": "IBAN",
-    "intro": "Donar a {{campaign}}",
+    "intro": "Donar a {{org}}",
     "payment": "Pago",
     "payment_methods": {
       "card": "Tarjeta",
