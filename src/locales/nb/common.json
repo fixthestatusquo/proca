@@ -137,7 +137,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke motta e-post",
-    "salutation": "Kjære deg/dere",
+    "salutation": "Kjære {{target.name}}",
     "salutation_female": "Kjære {{target.name}}",
     "salutation_info": "(Mottakerens navn vil bli lagt til før sending)",
     "salutation_male": "Kjære {{target.name}}",
