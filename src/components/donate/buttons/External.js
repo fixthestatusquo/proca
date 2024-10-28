@@ -42,7 +42,7 @@ const ExternalPayment = props => {
         onClick={onClickExternal}
       >
         <DonationIcon />
-        {t("donation.payment_methods.default", "Donate")}
+        {t( "action.donate", "Donate")}
       </Button>
     </Grid>
   );

@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Donacija za {{campaign}}",
+    "payment": "Plačilo",
     "payment_methods": {
       "card": "Kartica",
       "default": "Podarite",

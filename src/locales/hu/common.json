@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Adományozni a {{campaign}} címre",
+    "payment": "Fizetés",
     "payment_methods": {
       "card": "Kártya",
       "default": "Adományozni",

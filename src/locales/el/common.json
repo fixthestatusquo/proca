@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Δωρεά στο {{campaign}}",
+    "payment": "Πληρωμή",
     "payment_methods": {
       "card": "Κάρτα",
       "default": "Δωρεά",

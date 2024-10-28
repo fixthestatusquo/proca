@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Tabhair do {{org}}",
+    "payment": "Íocaíocht",
     "payment_methods": {
       "card": "Cárta",
       "default": "Síntiúis",
@@ -213,7 +214,7 @@
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}",
       "undefined": "Roghnaigh tír"
     },
-    "missing": "Roghnaigh ceann amháin ar a laghad as {{total}}",
+    "missing": "Roghnaigh 1 ar a laghad as {{total}}",
     "postcode": {
       "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}",
       "undefined": "Cuir isteach do chód poist"

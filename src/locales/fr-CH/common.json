@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Faire un don {{campaign}}",
+    "payment": "Paiement",
     "payment_methods": {
       "card": "Carte",
       "default": "Faire un don",

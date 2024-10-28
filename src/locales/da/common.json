@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Donér til {{campaign}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
       "default": "Donér",

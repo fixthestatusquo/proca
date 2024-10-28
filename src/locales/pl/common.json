@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Przekaż darowiznę na rzecz {{campaign}}.",
+    "payment": "Płatność",
     "payment_methods": {
       "card": "Karta",
       "default": "Darowizna",
