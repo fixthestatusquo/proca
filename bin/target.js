@@ -515,6 +515,7 @@ if (require.main === module) {
       }
       if (argv.push) {
         if (argv.keep) {
+          console.warn(color.red("do not use --keep, use --outdated=disable"));
           argv.outdated = "keep";
         }
 
