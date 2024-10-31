@@ -200,7 +200,12 @@
   },
   "step": {
     "eci": {
-      "secure": "slán"
+      "secure": "slán",
+      "subheader": " ",
+      "title": " "
+    },
+    "register": {
+      "title": " "
     }
   },
   "supporter": {
