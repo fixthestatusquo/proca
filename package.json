@@ -82,7 +82,7 @@
     "@alienfast/i18next-loader": "^2.0.2",
     "@babel/cli": "^7.25.7",
     "@babel/node": "^7.26.0",
-    "@babel/plugin-transform-react-jsx": "^7.25.7",
+    "@babel/plugin-transform-react-jsx": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "@biomejs/biome": "^1.9.4",
     "@proca/api": "^3.4.0",
