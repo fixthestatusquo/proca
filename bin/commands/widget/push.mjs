@@ -9,8 +9,11 @@ export default class FetchCommand extends Command {
  
   static examples = ["<%= config.bin %> <%= command.id %> -o <organisation>"]; 
  
-  static flags = { 
+//	static args = this.multiid();
+
+	static flags = {
     ...super.globalFlags, 
+		//...this.flagify({ multiid: true }),
     id: Flags.string({ 
       char: "i",
       parse: (input) => Number.parseInt(input, 10),

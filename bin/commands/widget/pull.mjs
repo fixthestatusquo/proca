@@ -9,13 +9,12 @@ export default class FetchCommand extends Command {
  
   static examples = ["<%= config.bin %> <%= command.id %> -o <organisation>"]; 
  
-  static flags = { 
-    ...super.globalFlags, 
-    id: Flags.string({ 
-      char: "i",
-      parse: (input) => Number.parseInt(input, 10),
-      required: true,
-    }),
+	static args = Command.multiid();
+
+	static flags = {
+		// flag with no value (-f, --force)
+		...Command.flagify({ multiid: true }),
+//    ...super.globalFlags, 
     campaign: Flags.boolean({ 
       default: true,
       allowNo: true,

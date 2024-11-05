@@ -5,6 +5,14 @@ import { fileURLToPath } from 'url';
 
 export class BuilderCommand extends ProcaCommand {
 
+	static multiid() {
+    return ProcaCommand.multiid ();
+	}
+
+  static flagify (params = {}) {
+    return ProcaCommand.flagify (params);
+  }
+
 	async init() {
     const dirname = path.dirname(fileURLToPath(import.meta.url));
     const defaultConfigDir = path.resolve(dirname, '../config');
