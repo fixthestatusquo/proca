@@ -13,7 +13,8 @@ const EggManifesto = ({ form }) => {
     "organisation",
     "organisation_sign",
   ]);
-  let label = "Sign on the behalf of " + (organisation || "your organisation");
+
+  let label = "Sign on the behalf of " + (organisation || "your organisation or a research group/department");
 
   return (
     <>
@@ -36,7 +37,7 @@ const EggManifesto = ({ form }) => {
         </Grid>
       )}
       <Grid item sm={4}>
-        <Select name="gender" options="campaign:profile.gender" form={form} />
+        <Select name="gender" label="Gender" options="campaign:profile.gender" form={form} />
       </Grid>
       <Grid item sm={8}>
         <Select
