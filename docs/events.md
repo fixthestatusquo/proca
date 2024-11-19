@@ -21,6 +21,7 @@ We have strict privacy protecting practices and We **do not** add any external s
 - EventCategory: "proca widget"
 - event: "share_init"
 
+**Warning**: these events are processed by google if and only when the user gave consent (the cookie consent). In the progressive field we work with in Europe, about half of the supporters usually rejects these events, so take the results given with a pinch of salt, it only represent a part of your audience. Moreover, if your users have additional settings or extensions (we recommend uBlock Origin), these events won't be sent either. Keep that in mind especially when testing, we all lost time trying to understand why the events weren't sent because we had these installed🤷 
 
 ## events
 
