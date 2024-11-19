@@ -154,7 +154,7 @@ const Country = props => {
         select
         name={props.name || "country"}
         onChange={switchCountry}
-        label={t("Country")}
+        label={props.label || t("Country")}
         form={props.form}
         SelectProps={{
           native: true,
