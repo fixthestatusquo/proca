@@ -8,7 +8,19 @@ to make it easier to debug and find the event triggered, you can add in your pag
 
     window.addEventListener("proca", function(e){console.log(e.detail.message,e.detail);});
 
-it will list all the events triggered
+it will list all the events triggered. This is what is done on the preview page of your widget, so if you go there and open the developer console, you will see them.
+
+## Google Tag Manager
+
+We have strict privacy protecting practices and We **do not** add any external script. However, if your website is using GTA already, we are integrating our widget with it and send the event described below. To make it easier for you to process them, we prefix the event with "proca_", and put "proca widget" as the category or "proca widget test" (if in test mode)
+
+- EventCategory: "proca widget"
+- event: "proca_init"
+- EventCategory: "proca widget"
+- event: "petition_init" (or email_init, depending on the event)
+- EventCategory: "proca widget"
+- event: "share_init"
+
 
 ## events
 
