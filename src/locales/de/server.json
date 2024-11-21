@@ -3,7 +3,7 @@
     "common": {
       "greeting": "Hallo {{firstName}}",
       "consent": "\n          ",
-      "thanks": "Vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
+      "thanks": "vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
       "about": "",
       "share": "Helfen Sie uns, unser Ziel zu erreichen, indem Sie die Nachricht verbreiten",
       "follow": "Folgen Sie uns auf:",
@@ -19,14 +19,14 @@
     },
     "button": {
       "confirmAction": "Ja, ich bin ein echter Mensch!",
-      "confirmOptin": "Ich bestätige meine Teilnahme und möchte aktuelle Informationen zu dieser Kampagne und Neuigkeiten von Ihnen erhalten",
+      "confirmOptin": "Ich möchte Neuigkeiten und Updates zu dieser Kampagne erhalten",
       "confirmAlreadyMember": "Ich bestätige meine Teilnahme und erhalte bereits Emails von Ihnen",
       "confirmOptout": "Ich bestätige meine Teilnahme und möchte keine weiteren E-Mails erhalten"
     },
     "doi": {
-      "subject": "Fast geschafft: Bestätigen Sie Ihre Teilnahme",
-      "intro": "Ihre Bestätigung ist wichtig, damit wir sie bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
-      "extra": "Achtung: Ihre Aktion ist nur dann gültig, wenn Sie auf den Bestätigungslink klicken."
+      "subject": "{{campaign.title}} - Vielen Dank für Ihre Teilnahme, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "intro": " Es fehlt noch ein Schritt zur erfolgreichen Anmeldung zum Newsletter, bitte klicken Sie auf diesen Link:",
+      "extra": "Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme eine echte Person steht und keine Fake- oder Spamadressen."
     },
     "thankyou": {
       "intro": "vielen Dank für Ihre Teilnahme an \"{{campaign.title}}\". Wir wissen Ihre Unterstützung zu schätzen!",
