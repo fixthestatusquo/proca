@@ -183,7 +183,7 @@ export default function ShareAction(props) {
             color="primary"
             onClick={next}
           >
-            {t("Next")}
+            {t(typeof config.component.share.next === 'string' ? config.component.share.next : "Next")}
           </Button>
         )}
       </Card>
