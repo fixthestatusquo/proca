@@ -16,9 +16,6 @@ import { useFormatMoney } from "@hooks/useFormatting";
 import useElementWidth from "@hooks/useElementWidth";
 
 const useStyles = makeStyles(theme => ({
-  formContainers: {
-    marginBottom: "1em",
-  },
   root: {
     // padding: theme.spacing(1),
     width: "100%",
@@ -102,13 +99,11 @@ console.warn("can't sort");
   const classes = useStyles();
   const { t } = useTranslation();
   const width = useElementWidth("#proca-donate");
-  console.log(width);
   const cols = width > 310 ? 3 : 6;
   return (
     <>
       <Grid
         container
-        className={classes.formContainers}
         spacing={1}
         role="group"
         aria-label="amount"

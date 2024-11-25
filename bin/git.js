@@ -84,9 +84,14 @@ const deploy = async () => {
       Authorization: "Bearer " + N8N_TOKEN,
     },
   });
-  const body = await response.json();
-  console.log(body);
-  return body;
+  try {
+    const body = await response.json();
+    console.log(body);
+    return body;
+  } catch (e) {
+console.log("error",e,response);
+    return {};
+  }
   //curl -X POST https://workflow.proca.app/webhook/proca-config/pull -H "Authorization: Bearer $N8N_TOKEN"
 };
 
