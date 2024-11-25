@@ -20,11 +20,17 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
         className={classes.number}
         error={!!otherAmountError}
         helperText={otherAmountError}
-        onChange={e => {
+        onBlur={e => {
           const a = Number.parseFloat(e.target.value);
           if (a && a >= 1.0) {
             setData("amount", a);
+          }
+}}
+        onChange={e => {
+          const a = Number.parseFloat(e.target.value);
+          if (a && a >= 1.0) {
             setOtherAmountError("");
+            setData("amount", true);
           } else {
             setOtherAmountError(
               t("donation.form.error.minimum", {
