@@ -5,13 +5,16 @@ import Orcid from "@components/field/Orcid";
 import Select from "@components/field/Select";
 import Affiliation from "@components/field/ResearchOrganisation";
 import { Alert, AlertTitle } from "@material-ui/lab";
+import TextField from "@components/TextField";
+import Country from "@components/field/Country";
 
 const EggManifesto = ({ form }) => {
   const [organisation, organisation_sign] = form.watch([
     "organisation",
     "organisation_sign",
   ]);
-  let label = "Sign on the behalf of " + (organisation || "your organisation");
+
+  let label = "Sign on the behalf of " + (organisation || "your organisation or a research group/department");
 
   return (
     <>
@@ -34,7 +37,7 @@ const EggManifesto = ({ form }) => {
         </Grid>
       )}
       <Grid item sm={4}>
-        <Select name="gender" options="campaign:profile.gender" form={form} />
+        <Select name="gender" label="Gender" options="campaign:profile.gender" form={form} />
       </Grid>
       <Grid item sm={8}>
         <Select
@@ -44,6 +47,21 @@ const EggManifesto = ({ form }) => {
           form={form}
         />
       </Grid>
+      <Grid item sm={8}>
+        <Country
+          form={form}
+          required={false}
+          name="origin"
+          label="Country of origin"/>
+      </Grid>
+      <Grid item sm={4}>
+        <TextField
+          type="number"
+          form={form}
+          name="age"
+          label="Age"
+        />
+        </Grid>
     </>
   );
 };
