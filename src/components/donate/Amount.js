@@ -91,7 +91,6 @@ const DonateAmount = props => {
 
             <Frequencies />
 
-            <>
               <PaymentMethodButtons
                 classes={classes}
                 disabled={!amount}
@@ -110,7 +109,6 @@ const DonateAmount = props => {
                   props.go("donate_Thanks");
                 }}
               />
-            </>
           </CardContent>
         </Grid>
       </Grid>
