@@ -177,6 +177,7 @@ export default function ShareAction(props) {
         {!config.component.share?.top && <Actions {...props} />}
         {config.component.share?.next && (
           <Button
+            size="large"
             endIcon={<SkipNextIcon />}
             className={classes.next}
             variant="contained"
