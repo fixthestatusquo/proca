@@ -1,11 +1,11 @@
 {
   "email": {
     "common": {
-      "greeting": "Bonjour {{firstName}}",
+      "greeting": "Bonjour {{firstName}},",
       "consent": "\n",
       "thanks": "Merci d'avoir signé {{campaign.title}}. Votre soutien est apprécié !",
       "about": "",
-      "share": "Aidez-nous à atteindre notre objectif en faisant [passer le mot]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
+      "share": "Aidez-nous à atteindre notre objectif en faisant passer le mot]((https://widget.proca.app/share?redir={{tracking.encodedLocation}})%3Fproca_go%3DShare).",
       "follow": "Suivez-nous sur :",
       "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission",
       "closing": "Avec votre aide, nous nous rapprochons de notre objectif",
