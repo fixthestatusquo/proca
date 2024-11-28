@@ -163,6 +163,14 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
             of the user journey.
           </p>
         </div>
+        <div class="alert alert-danger proca-Share" role="alert">
+          <p>
+             Please test on your own website. This page is a placeholder to help you embed the widget on your site, not to test it
+            <b
+              >This is normal the share step looks incomplete, because it require to be on your page to be correct</b
+            >
+          </p>
+        </div>
       </div>
       <div class="row" id="help">
         <div class="col">
@@ -345,7 +353,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       });
 
       window.addEventListener("proca", function (e) {
-      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
+//      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
           help.classList.toggle("hidden");
