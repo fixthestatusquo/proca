@@ -345,6 +345,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       });
 
       window.addEventListener("proca", function (e) {
+      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
           help.classList.toggle("hidden");

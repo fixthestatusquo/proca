@@ -353,7 +353,7 @@ export default function ShareAction(props) {
       if (autoClosed) {
         return;
       }
-      addShare("share_confirmed", medium);
+//      addShare("share_confirmed", medium);
       autoClosed = true;
     }
 

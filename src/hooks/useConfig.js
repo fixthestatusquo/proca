@@ -128,7 +128,7 @@ export const ConfigProvider = (props) => {
             setLayout(e.detail.value);
             break;
           case "component":
-            handlePart("component", e.detail.key, e.detail.value);
+            handlePart(e.detail.key, e.detail.value);
             break;
           case "data":
             setData(e.detail.key, e.detail.value);
