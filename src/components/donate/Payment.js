@@ -14,7 +14,7 @@ export default function Payment(props) {
   const { t } = useTranslation();
   const [requestData] = useData();
 
-  const done = (d) => {
+  const done = d => {
     setSubmitted(true);
     props.done(d);
   };
@@ -25,8 +25,8 @@ export default function Payment(props) {
     <Container>
       {submitted && <Alert severity="success">{t("donation.thanks")}</Alert>}
 
-      <Grid container spacing={1}>
-        <Grid item xs={12} justifyContent="center">
+      <Grid container spacing={1} justifyContent="center">
+        <Grid item xs={12}>
           <Steps />
         </Grid>
         <Grid item xs={12}>

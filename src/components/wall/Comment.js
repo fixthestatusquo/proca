@@ -8,29 +8,35 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import QuoteIcon from "@material-ui/icons/FormatQuote";
+import CountryFlag from "react-emoji-flag";
 
-const Wall = (props) => {
+const Wall = props => {
   const supabase = useSupabase();
   const [comments, setComments] = useState([]);
   //  const [country, setCountry] = useState(props.country);
   const country = props.country;
   //  const [countries, setCountries] = useState([]);
   const config = useCampaignConfig();
-  const campaign = config.campaign.name.replaceAll("_", "-");
+  const campaign = config.campaign.name;
+  const filter = config.component.wall?.comment?.filter || "enabled";
+  const limit = config.component.wall?.comment?.limit;
 
   useEffect(() => {
     (async () => {
       let query = supabase
         .from("comments")
-        .select("id,area,lang,name, comment")
-        .order("id", { ascending: false })
+        .select(`id,area,lang,name,comment`)
+        .order("created_at", { ascending: false })
         .eq("campaign", campaign)
-        .eq("enabled", true);
+        .eq(filter, true);
+
+      if (limit)
+        query.limit (limit)
 
       if (country) {
         query = query.eq("area", country);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -42,11 +48,15 @@ const Wall = (props) => {
 
   return (
     <List dense component="div">
-      {comments.map((d) => (
+      {comments.map(d => (
         <Fragment key={d.id}>
           <ListItem alignItems="flex-start" component="div">
             <ListItemIcon>
-              <QuoteIcon color="primary" />
+              {!props.country && d.area && d.area !== "ZZ" ? (
+                <CountryFlag countryCode={d.area} />
+              ) : (
+                <QuoteIcon color="primary" />
+              )}
             </ListItemIcon>
             <ListItemText primary={d.name} secondary={d.comment} />
           </ListItem>

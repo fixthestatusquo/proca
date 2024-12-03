@@ -16,7 +16,7 @@ import MailIcon from "@material-ui/icons/MailOutline";
 import Alert from "@material-ui/lab/Alert";
 import dispatch from "@lib/event";
 
-const RemindMeLater = (props) => {
+const RemindMeLater = props => {
   const config = useCampaignConfig();
   const [data] = useData();
   const { t } = useTranslation();
@@ -29,7 +29,7 @@ const RemindMeLater = (props) => {
     defaultValues: data,
   });
   const { handleSubmit, trigger, setError, formState } = form;
-  const onSubmit = async (formData) => {
+  const onSubmit = async formData => {
     /*    if (emailProvider.current === false) {
       setError("email", {
         type: "mx",
@@ -77,7 +77,7 @@ const RemindMeLater = (props) => {
     if (result.errors) {
       let handled = false;
       if (result.errors.fields) {
-        result.errors.fields.forEach((field) => {
+        result.errors.fields.forEach(field => {
           if (field.name in formData) {
             setError(field.name, { type: "server", message: field.message });
             handled = true;

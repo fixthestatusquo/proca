@@ -11,16 +11,9 @@ import useConfig from "../../hooks/useConfig";
 console.error("we should not be used");
 
 const url = (data, param) => {
-  let postcardUrl =
-    "https://bffa-pdf.herokuapp.com/?" +
-    "qrcode=" +
-    data.contactRef +
-    ":" +
-    param.actionpage +
-    "&country=" +
-    data.country;
-  if (param.pdfUrl) postcardUrl += "&pdf=" + encodeURIComponent(param.pdfUrl);
-  if (param.marginTop) postcardUrl += "&top=" + param.marginTop;
+  let postcardUrl = `https://bffa-pdf.herokuapp.com/?qrcode=${data.contactRef}:${param.actionpage}&country=${data.country}`;
+  if (param.pdfUrl) postcardUrl += `&pdf=${encodeURIComponent(param.pdfUrl)}`;
+  if (param.marginTop) postcardUrl += `&top=${param.marginTop}`;
 
   return postcardUrl;
 };
@@ -33,7 +26,7 @@ function Download(props) {
   };
 
   const handleDownload = () => {
-    let data = config.data;
+    const data = config.data;
     data.actionPage = config.actionPage;
     window.open(url(data), "pdf", "toolbar=0,status=0,width=548,height=775");
     next();

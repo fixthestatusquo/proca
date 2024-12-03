@@ -34,7 +34,7 @@
     "reminder": "Primink man vėliau",
     "reminderEmail": "Priminkite man el. paštu",
     "share": "Dalintis",
-    "sign": "Ženklas",
+    "sign": "Siųsti",
     "stayInformed": "Gauti naujausią informaciją",
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
@@ -55,8 +55,8 @@
     "emailSent": "Išsiuntėme jums laišką adresu {email}!",
     "implicit": "Pateikite šią formą, kad gautumėte el. laiškus iš {{name}}",
     "intro": "Sužinokite daugiau apie mūsų kampanijas, veiksmus ir {{campaign}} pažangą",
-    "opt-in": "Taip, noriu {{partner}} informuoti mane el. Paštu",
-    "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. Paštu",
+    "opt-in": "Taip, noriu, kad {{partner}} informuotų mane el. paštu",
+    "opt-in-both": "Taip, noriu, kad {{partner}} ir {{lead}} informuotų mane el. paštu",
     "opt-out": "Ne, nesiųskite man el. Laiškų ir neatnaujinkite",
     "optInConfirmed": "Prenumerata patvirtinta",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Paaukoti {{campaign}}",
+    "payment": "Mokėjimas",
     "payment_methods": {
       "card": "Kortelė",
       "default": "Paaukoti",
@@ -158,6 +159,14 @@
   },
   "no": "ne",
   "party": "Šalis",
+  "phone": {
+    "INVALID_COUNTRY": "trūkstamas arba negaliojantis šalies kodas.",
+    "INVALID_LENGTH": "Netinkamas ilgis",
+    "MISSING": "privalomas laukas",
+    "NOT_A_NUMBER": "Netinkamas telefono numeris",
+    "TOO_LONG": "per ilgas skaičius",
+    "TOO_SHORT": "per trumpas skaičius"
+  },
   "postcode": {
     "notFound": "šis pašto indeksas jūsų šalyje neegzistuoja",
     "wrongLength": "numatoma {{length}} trukmė jūsų šalyje"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
   "read more": "skaityti daugiau",
+  "region": "Regionas",
   "register": "Pridėti mano vardą",
   "reminder": {
     "intro": "Žinome, kad jūsų vyriausybė prašo daug informacijos. Išsiųsime jums vieną el. laišką, kad primintume užpildyti formą vėliau."

@@ -1,43 +1,43 @@
 {
-    "email": {
-        "common": {
-            "privacy": "Daugiau informacijos apie mūsų privatumo politiką ir jūsų duomenų tvarkymą galite rasti",
-            "consent": "\n          ",
-            "thanks": "Dėkojame, kad dalyvaujate {{campaign.title}}. Jūsų parama yra vertinama!",
-            "closing": "Su jūsų pagalba esame dar vienu žingsniu arčiau savo tikslo",
-            "greeting": "Sveiki {{firstName}}",
-            "share_on": "Dalytis",
-            "unsubscribe": "Jei nenorite ateityje iš mūsų gauti daugiau informacijos, galėsite bet kada atšaukti savo registraciją.",
-            "signature": "Su pagarba,\n\n{{org.title}}",
-            "follow": "Sekite mus:",
-            "donate": "Prašome apsvarstyti galimybę paaukoti lėšų, kad padėtumėte mums įgyvendinti mūsų misiją.",
-            "share": "Padėkite mums pasiekti tikslą [skleisdami informaciją] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-            "duplicate": "Dėkojame už jūsų įsitraukimą ir atsidavimą mūsų tikslui! Tačiau, siekdami išlaikyti autentiškumą ir patikimumą, turime **pašalinti dubliuojančius** parašus, ir panašu, kad jūs (arba kas nors, kas naudojasi {{email}}) jau ėmėtės šio veiksmo.  Galite būti tikri, kad **jūsų pirminis parašas buvo įskaitytas** ir prisidėjo prie mūsų kampanijos.\nJūsų parama buvo neįkainojama, todėl norėtume maloniai paraginti Jus žengti papildomą žingsnį, kad sustiprintumėte savo poveikį. Prašome apsvarstyti galimybę susisiekti su savo draugais ir šeimos nariais ir paraginti juos taip pat imtis veiksmų, naudojant jų pačių el. pašto adresus. Taip galėsime dar labiau išplėsti savo judėjimą ir sukurti dar stipresnį kolektyvinį balsą siekiant pokyčių, kurių siekiame.\nDar kartą nuoširdžiai dėkojame už jūsų nuolatinę paramą ir atsidavimą šiai kampanijai. Kartu galime padaryti ilgalaikį poveikį!",
-            "organisation": "{{org.title}}",
-            "thanksPledge": "Dėkojame, kad pažadėjote {{campaign.title}}. Jūsų informacija bus peržiūrėta ir gausite patvirtinimo el. laišką, jei jūsų profilis bus rodomas svetainėje."
-        },
-        "thankyou": {
-            "subject": "Ačiū, štai ką dar galite padaryti",
-            "intro": "Dėkojame už jūsų dalyvavimą \"{{campaign.title}}\". Jūsų parama yra vertinama!"
-        },
-        "doi": {
-            "extra": "Šį patvirtinimą gavote tam, kad sėkmingai užbaigtumėte registraciją ir leistumėte mums apdoroti jūsų el. pašto adresą ir kitus asmens duomenis, kad galėtumėte gauti naujienas ar naujienlaiškius. Tai yra automatizuota procedūra, todėl šis patvirtinimas reikalingas registracijai atlikti, kad būtų išvengta neautorizuoto registracijos proceso.",
-            "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą",
-            "intro": "Jūsų patvirtinimas yra svarbus, kad būtų galima jį apdoroti. Tai vienintelis būdas užtikrinti, kad už kiekvieno dalyvavimo tikrai slypi žmogus, o tai svarbu siekiant užtikrinti šios kampanijos poveikį ir užkirsti kelią netikroms ir (arba) nepageidaujamoms paraiškoms."
-        },
-        "doi_thankyou": {
-            "subject": "Dėkojame už jūsų partipation{{#privacy.optIn}}, dar vienas žingsnis - patvirtinkite savo el. pašto adresą.{{/privacy.optIn}}"
-        },
-        "button": {
-            "confirmAlreadyMember": "Patvirtinu savo dalyvavimą ir jau gaunu iš jūsų el. laiškus",
-            "confirmOptout": "Patvirtinu savo dalyvavimą, bet ateityje manęs neinformuokite",
-            "confirmAction": "Taip, aš esu tikras žmogus!",
-            "confirmOptin": "Patvirtinu savo dalyvavimą ir noriu gauti iš jūsų naujienas"
-        },
-        "actionConfirm": {
-            "intro": "Jūsų patvirtinimas yra svarbus, kad būtų galima apdoroti jūsų dalyvavimą. Tai vienintelis būdas užtikrinti, kad už kiekvieno dalyvio tikrai slypi konkretus asmuo, o tai svarbu siekiant užtikrinti šios kampanijos poveikį ir užkirsti kelią netikroms (šlamšto) paraiškoms.",
-            "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą"
-        }
+  "email": {
+    "common": {
+      "privacy": "Daugiau informacijos apie mūsų privatumo politiką ir jūsų duomenų tvarkymą galite rasti",
+      "consent": "\n          ",
+      "thanks": "Dėkojame, kad dalyvaujate {{campaign.title}}. Jūsų parama yra vertinama!",
+      "closing": "Su jūsų pagalba esame dar vienu žingsniu arčiau savo tikslo",
+      "greeting": "Sveiki {{firstName}}",
+      "share_on": "Dalytis",
+      "unsubscribe": "Jei nenorite ateityje iš mūsų gauti daugiau informacijos, galėsite bet kada atšaukti savo registraciją.",
+      "signature": "Su pagarba,\n\n{{org.title}}",
+      "follow": "Sekite mus:",
+      "donate": "Prašome apsvarstyti galimybę paaukoti lėšų, kad padėtumėte mums įgyvendinti mūsų misiją.",
+      "share": "Padėkite mums pasiekti tikslą [skleisdami informaciją] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+      "duplicate": "Dėkojame už jūsų įsitraukimą ir atsidavimą mūsų tikslui! Tačiau, siekdami išlaikyti autentiškumą ir patikimumą, turime **pašalinti dubliuojančius** parašus, ir panašu, kad jūs (arba kas nors, kas naudojasi {{email}}) jau ėmėtės šio veiksmo.  Galite būti tikri, kad **jūsų pirminis parašas buvo įskaitytas** ir prisidėjo prie mūsų kampanijos.\nJūsų parama buvo neįkainojama, todėl norėtume maloniai paraginti Jus žengti papildomą žingsnį, kad sustiprintumėte savo poveikį. Prašome apsvarstyti galimybę susisiekti su savo draugais ir šeimos nariais ir paraginti juos taip pat imtis veiksmų, naudojant jų pačių el. pašto adresus. Taip galėsime dar labiau išplėsti savo judėjimą ir sukurti dar stipresnį kolektyvinį balsą siekiant pokyčių, kurių siekiame.\nDar kartą nuoširdžiai dėkojame už jūsų nuolatinę paramą ir atsidavimą šiai kampanijai. Kartu galime padaryti ilgalaikį poveikį!",
+      "organisation": "{{org.title}}",
+      "thanksPledge": "Dėkojame, kad pažadėjote {{campaign.title}}. Jūsų informacija bus peržiūrėta ir gausite patvirtinimo el. laišką, jei jūsų profilis bus rodomas svetainėje."
     },
-    "poweredBy": "ĮGYVENDINTA"
+    "thankyou": {
+      "subject": "Ačiū, štai ką dar galite padaryti",
+      "intro": "Dėkojame už jūsų dalyvavimą \"{{campaign.title}}\". Jūsų parama yra vertinama!"
+    },
+    "doi": {
+      "extra": "Šį patvirtinimą gavote tam, kad sėkmingai užbaigtumėte registraciją ir leistumėte mums apdoroti jūsų el. pašto adresą ir kitus asmens duomenis, kad galėtumėte gauti naujienas ar naujienlaiškius. Tai yra automatizuota procedūra, todėl šis patvirtinimas reikalingas registracijai atlikti, kad būtų išvengta neautorizuoto registracijos proceso.",
+      "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą",
+      "intro": "Jūsų patvirtinimas yra svarbus, kad būtų galima jį apdoroti. Tai vienintelis būdas užtikrinti, kad už kiekvieno dalyvavimo tikrai slypi žmogus, o tai svarbu siekiant užtikrinti šios kampanijos poveikį ir užkirsti kelią netikroms ir (arba) nepageidaujamoms paraiškoms."
+    },
+    "doi_thankyou": {
+      "subject": "Dėkojame už jūsų partipation{{#privacy.optIn}}, dar vienas žingsnis - patvirtinkite savo el. pašto adresą.{{/privacy.optIn}}"
+    },
+    "button": {
+      "confirmAlreadyMember": "Patvirtinu savo dalyvavimą ir jau gaunu iš jūsų el. laiškus",
+      "confirmOptout": "Patvirtinu savo dalyvavimą, bet ateityje manęs neinformuokite",
+      "confirmAction": "Taip, aš esu tikras žmogus!",
+      "confirmOptin": "Patvirtinu savo dalyvavimą ir noriu gauti iš jūsų naujienas"
+    },
+    "actionConfirm": {
+      "intro": "Jūsų patvirtinimas yra svarbus, kad būtų galima apdoroti jūsų dalyvavimą. Tai vienintelis būdas užtikrinti, kad už kiekvieno dalyvio tikrai slypi konkretus asmuo, o tai svarbu siekiant užtikrinti šios kampanijos poveikį ir užkirsti kelią netikroms (šlamšto) paraiškoms.",
+      "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą"
+    }
+  },
+  "poweredBy": "ĮGYVENDINTA"
 }

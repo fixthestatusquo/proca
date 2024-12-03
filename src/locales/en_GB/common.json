@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Donate to {{campaign}}",
+    "payment": "Payment",
     "payment_methods": {
       "card": "Card",
       "default": "Donate",
@@ -158,6 +159,14 @@
   },
   "no": "no",
   "party": "Party",
+  "phone": {
+    "INVALID_COUNTRY": "missing or invalid country code",
+    "INVALID_LENGTH": "Invalid length",
+    "MISSING": "required field",
+    "NOT_A_NUMBER": "Invalid phone number",
+    "TOO_LONG": "number too long",
+    "TOO_SHORT": "number too short"
+  },
   "postcode": {
     "notFound": "this postcode doesn't seem to exist in your country",
     "wrongLength": "expected length of {{length}} for your country"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} have twitted. Let's go to {{goal}}"
   },
   "read more": "read more",
+  "region": "Region",
   "register": "Add my name",
   "reminder": {
     "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
@@ -204,7 +214,7 @@
       "empty": "Select another country, there is no-one to contact in {{country}}",
       "undefined": "Select a country"
     },
-    "missing": "Select at least one out of {{total}}",
+    "missing": "Select at least 1 out of {{total}}",
     "postcode": {
       "empty": "there is no-one to contact in {{area}}",
       "undefined": "Enter your postcode"

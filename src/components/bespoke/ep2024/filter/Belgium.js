@@ -10,7 +10,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import Divider from "@material-ui/core/Divider";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   badge: {
     margin: theme.spacing(0.5),
     border: "none",
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 2px",
       minWidth: "12px",
       right: theme.spacing(1),
-      border: "1px solid " + theme.palette.action.disabledBackground,
+      border: `1px solid ${theme.palette.action.disabledBackground}`,
       background: theme.palette.action.disabledBackground,
     },
   },
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FilterBelgium = (props) => {
+const FilterBelgium = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const classes = useStyles();
@@ -76,8 +76,8 @@ const FilterBelgium = (props) => {
   const [votations, setVotations] = props.votationState;
   const togglesA = ["eu", "federal"];
   const togglesB = ["bru", "vl", "wal"];
-  let selected = [];
-  let enabled = [];
+  const selected = [];
+  const enabled = [];
   //  const hideConstituency = config.locale !== "en";
   const hideConstituency = false;
 
@@ -106,7 +106,7 @@ const FilterBelgium = (props) => {
     }
   });
 
-  const toggle = (name) => {
+  const toggle = name => {
     const toggle2votation = {
       eu: "europe",
       federal: "state",
@@ -116,7 +116,7 @@ const FilterBelgium = (props) => {
     };
     const vname = toggle2votation[name];
     let selected = undefined;
-    setVotations((prevVotation) => {
+    setVotations(prevVotation => {
       selected = prevVotation[vname].selected;
       if (
         selected &&
@@ -161,14 +161,14 @@ const FilterBelgium = (props) => {
             label={t("Constituency")}
             required
             form={props.form}
-            onChange={(e) => {
+            onChange={e => {
               setConstituency(e.target.value);
             }}
             SelectProps={{
               native: true,
             }}
           >
-            <option value="" key=""></option>
+            <option value="" key="" />
             <option value="vl" key="vl">
               Vlaanderen
             </option>
@@ -194,7 +194,7 @@ const FilterBelgium = (props) => {
           size={hideConstituency ? "normal" : "small"}
           value={selected}
         >
-          {togglesA.map((name) => (
+          {togglesA.map(name => (
             <ToggleButton
               aria-label={name}
               title={name}
@@ -206,7 +206,7 @@ const FilterBelgium = (props) => {
             >
               <Avatar
                 alt={name}
-                src={"https://static.proca.app/ep2024/images/" + name + ".png"}
+                src={`https://static.proca.app/ep2024/images/${name}.png`}
               />
             </ToggleButton>
           ))}
@@ -216,7 +216,7 @@ const FilterBelgium = (props) => {
           size={hideConstituency ? "normal" : "small"}
           value={selected}
         >
-          {togglesB.map((name) => (
+          {togglesB.map(name => (
             <ToggleButton
               title={name}
               aria-label={name}
@@ -228,7 +228,7 @@ const FilterBelgium = (props) => {
             >
               <Avatar
                 alt={name}
-                src={"https://static.proca.app/ep2024/images/" + name + ".png"}
+                src={`https://static.proca.app/ep2024/images/${name}.png`}
               />
             </ToggleButton>
           ))}

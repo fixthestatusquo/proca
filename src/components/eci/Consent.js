@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 import EciDialog from "./Popup";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   /* Styles applied to the root element. */
   root: {
     marginTop: theme.spacing(1),
@@ -40,7 +40,7 @@ export default function Register(props) {
     setValue,
   } = props.form;
 
-  const handleCheck = (event) => {
+  const handleCheck = event => {
     setValue(event.target.name, event.target.checked, { shouldValidate: true });
   };
 

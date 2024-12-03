@@ -17,6 +17,7 @@ import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
 //import CountryFlag, { useCountryFlag, flag as emoji } from "@hooks/flag";
 //import { getCountryName } from "@lib/i18n";
 import { imports } from "../../../actionPage";
+import EUGroup from "./EUGroup";
 
 const useStyles = makeStyles({
   container: {
@@ -47,14 +48,11 @@ const ListSignatories = () => {
     //    nativeValidation: true,
   });
 
-  const url =
-    "https://static.proca.app/ep2024/" +
-    config.campaign.name.replace("_citizen_", "_candidates_") +
-    ".json";
+  const url = `https://static.proca.app/ep2024/${config.campaign.name.replace("_citizen_", "_candidates_")}.json`;
 
   const sort = config.component.signature?.sort || false;
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.statusText;
 
@@ -76,9 +74,13 @@ const ListSignatories = () => {
           }
 
           const positionA =
-            a.field.position !== undefined ? a.field.position : Infinity;
+            a.field.position !== undefined
+              ? a.field.position
+              : Number.POSITIVE_INFINITY;
           const positionB =
-            b.field.position !== undefined ? b.field.position : Infinity;
+            b.field.position !== undefined
+              ? b.field.position
+              : Number.POSITIVE_INFINITY;
           if (positionA !== positionB) {
             return positionA - positionB;
           }
@@ -114,17 +116,18 @@ const ListSignatories = () => {
   //console.log(obj);
   const country = config.component.country || form.watch("supporter_country");
   useEffect(() => {
-    const _filtered = data.filter((d) => {
+    const _filtered = data.filter(d => {
       if (country && d.area !== country) return false;
       if (electedOnly && !d.field.elected) return false;
-      return true;
+      if (parties.size === 0) return true;
+      return parties.has(d.field.party);
     });
     setFiltered(_filtered);
-  }, [data, country, setFiltered, electedOnly]);
+  }, [data, country, setFiltered, electedOnly, parties]);
 
   const empty = filtered.length === 0;
   useEffect(() => {
-    const length = data.filter((d) => d.area === country).length;
+    const length = data.filter(d => d.area === country).length;
     if (!country) {
       form.setError("supporter_country", {
         type: "ux",
@@ -142,24 +145,15 @@ const ListSignatories = () => {
       form.clearErrors("supporter_country");
     }
   }, [empty, country]);
-  /*
-  if (filtered.length === 0) {
-    if (electedOnly) {
-      filtered = data.filter( d => d.field.elected);
-    } else {
-      filtered = data;
-    }
-console.log("filtered", filtered.length,data[0]);
-  }
-*/
-  const filterCountry = (d) => d.area === country;
+
+  const filterCountry = d => d.area === country;
 
   const filterSignature = useCallback(
-    (key) => {
+    key => {
       if (typeof key === "function") {
         const d = key(data);
         if (typeof d === "object" && d.filter === "description") {
-          setParties((prevParties) => {
+          setParties(prevParties => {
             const updatedParties = new Set(prevParties);
             if (d.value) {
               updatedParties.add(d.key);
@@ -171,7 +165,7 @@ console.log("filtered", filtered.length,data[0]);
         }
       }
     },
-    [data],
+    [data]
   );
   //};
 
@@ -209,7 +203,7 @@ console.log("filtered");
               control={
                 <Switch
                   checked={electedOnly}
-                  onChange={(event) => setElected(event.target.checked)}
+                  onChange={event => setElected(event.target.checked)}
                   name="elected"
                 />
               }
@@ -221,12 +215,12 @@ console.log("filtered");
       <Party
         selecting={filterSignature}
         country={country}
-        getKey={(d) => d.field.party}
+        getKey={d => d.field.party}
         filterCountry={filterCountry}
         profiles={data}
       />
       <List dense={true} disablePadding={true} className={classes.container}>
-        {filtered.map((d) => (
+        {filtered.map(d => (
           <ListItem
             key={`supporter-${d.externalId}`}
             className={classes.item}
@@ -235,17 +229,24 @@ console.log("filtered");
             <ListItemAvatar>
               <Avatar
                 alt={d.name}
-                src={d.field.picture?.replace(
-                  "https://pbs.twimg.com/profile_images/",
-                  "https://pic.proca.app/twimg/",
-                )}
+                src={
+                  d.field.mep
+                    ? d.field.mep &&
+                      `https://www.europarl.europa.eu/mepphoto/${d.field.mep}.jpg`
+                    : d.field.picture &&
+                      d.field.picture?.replace(
+                        "https://pbs.twimg.com/profile_images/",
+                        "https://pic.proca.app/twimg/"
+                      )
+                }
               />
             </ListItemAvatar>
             <ListItemText
               primary={
-                d.field.elected ? (
+                d.field.eugroup ? (
                   <>
-                    <span title="elected 2024">🇪🇺</span> {d.name}
+                    <EUGroup name={d.field.eugroup} />
+                    {d.name}
                   </>
                 ) : (
                   d.name

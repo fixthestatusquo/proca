@@ -12,7 +12,7 @@ const { saveCampaign, pullCampaign } = require("./campaign");
 const { build, serve } = require("./esbuild");
 //const getId = require("./id");
 const color = require("cli-color");
-const help = (exit) => {
+const help = exit => {
   console.log(
     color.yellow(
       [
@@ -27,8 +27,8 @@ const help = (exit) => {
         "--git (git update [add]+commit the local /config) || --no-git",
         "--push (update the server)",
         "{widget id} or {campaign name}",
-      ].join("\n"),
-    ),
+      ].join("\n")
+    )
   );
   process.exit(exit || 0);
 };
@@ -46,7 +46,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   ],
   default: { git: true, campaign: true },
   alias: { v: "verbose" },
-  unknown: (d) => {
+  unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
     if (allowed.includes(d.split("=")[0].slice(2))) return true;
@@ -55,7 +55,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const string2array = (s) => {
+const string2array = s => {
   if (!s || s.length === 0 || s[0] === "") {
     return null;
   }
@@ -68,16 +68,16 @@ const string2array = (s) => {
   return s;
 };
 
-const array2string = (s) => {
+const array2string = s => {
   if (!s) return "";
   s.forEach((d, i) => {
-    if (typeof s[i] === "string") return;
-    s[i] = s[i].join("+");
+    if (typeof d === "string") return;
+    s[i] = d.join("+");
   });
   return s;
 };
 
-const fetchAll = async (campaign) => {
+const fetchAll = async campaign => {
   const query = `query allPages ($name: String! ) {
   campaign (name:$name) {name ...on PrivateCampaign {
      actionPages {id, name, location}
@@ -89,12 +89,12 @@ const fetchAll = async (campaign) => {
     {
       name: campaign,
     },
-    "allPages",
+    "allPages"
   );
   if (r.errors) {
     console.log(r);
     console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
     );
     throw new Error(r.errors[0].message);
   }
@@ -160,7 +160,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
       campaign: campaignName,
       org: campaign.org.name,
     },
-    "addPage",
+    "addPage"
   );
   if (r.errors) {
     try {
@@ -188,7 +188,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
       campaignName: campaignName,
       orgName: campaign.org.name,
     },
-    r,
+    r
   );
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
@@ -197,7 +197,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
   return r;
 };
 
-const fetchByName = async (name) => {
+const fetchByName = async name => {
   let data = undefined;
 
   const query = `
@@ -232,7 +232,7 @@ query actionPage ($name:String!) {
   return data.actionPage;
 };
 
-const getConfig = (data) => {
+const getConfig = data => {
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
@@ -324,7 +324,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.err(data);
+    console.error(data);
     throw new Error(data.toString());
   }
 
@@ -341,7 +341,7 @@ query actionPage ($id:Int!) {
 };
 const pull = async (
   actionPage,
-  { anonymous = true, campaign = true, save = true },
+  { anonymous = true, campaign = true, save = true }
 ) => {
   //  console.log("file",file(actionPage));
   read(actionPage); // not sure what it does
@@ -353,10 +353,10 @@ const pull = async (
     saveWidget(config);
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
-  return campaign ? [config, campaign] : campaign;
+  return campaign ? [config, campaignData] : config;
 };
 
-const push = async (id) => {
+const push = async id => {
   const query = `
 mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!) {
   updateActionPage(id: $id, input: {name:$name, locale:$locale,config:$config}) {
@@ -376,13 +376,13 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
       config: actionPage.config,
       locale: actionPage.locale,
     },
-    "updateActionPage",
+    "updateActionPage"
   );
 
   if (r.errors) {
     console.log(r);
     console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
+      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
     );
     throw new Error(r.errors[0].message || "can't push");
   }
@@ -404,8 +404,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git",
-      ),
+        "git integration disabled because the config folder isn't on git"
+      )
     );
     argv.git = false;
   }
@@ -418,12 +418,12 @@ if (require.main === module) {
       if (argv._.length > 1) {
         console.error(
           color.red(
-            "either fetch all the widgets of the campaign or with id(s), not both",
-          ),
+            "either fetch all the widgets of the campaign or with id(s), not both"
+          )
         );
         process.exit(1);
       }
-      widgets.forEach((d) => {
+      widgets.forEach(d => {
         ids.push(d.id);
       });
       console.log(color.blue(argv.campaign, "->", ids.length, "widgets"));
@@ -466,13 +466,13 @@ if (require.main === module) {
             console.log(
               runDate(),
               color.green.bold("saved", fileName),
-              color.blue(widget.filename),
+              color.blue(widget.filename)
             );
             r = argv.git && (await commit(id + ".json", msg));
             if (argv.git && !r) {
               // no idea,
               console.warn(
-                color.red("something went wrong, trying to git add"),
+                color.red("something went wrong, trying to git add")
               );
               r = await add(id + ".json");
               console.log(r);
@@ -493,7 +493,7 @@ if (require.main === module) {
           console.log(
             color.green.bold("pushed", id),
             color.blue(result.name),
-            "https://widget.proca.app/d/" + result.name + "/index.html",
+            "https://widget.proca.app/d/" + result.name + "/index.html"
           );
           if (r.summary) console.log(r.summary);
         }
@@ -511,5 +511,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { pull, addPage, getConfig };
+  module.exports = { pull, addPage, getConfig, build, serve, push };
 }

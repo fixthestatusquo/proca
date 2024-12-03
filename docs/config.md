@@ -165,6 +165,11 @@ most fields can either be displayed or hidden, most fields can either be require
 To add helper text for the comment (for example: "Your message may be used..."):
 `locales.common.help.comment: "Your message may be used..."`
 
+### Filter comments
+
+`config.component.wall.comments.filter: FILTER_NAME`
+FILTER_NAME is column in Supabase and it is filtered if FILTER_NAME === true
+
 ## Counter
 
 To show:
@@ -233,7 +238,7 @@ to collect the consent of being contacted
 - `config.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
 - `config.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
-## Email (config.component.email)
+- `config.component.consent.email.sample: number` It limits the number of targets displayed. Filter (`config.component.consent.email.filter: array`,) needs to have at least one string element, `["random"]` usually.
 
 ## Twitter (config.component.twitter)
 
@@ -276,6 +281,14 @@ The Donate steps are configured under the `config.component.donation` key.
 ### Field (config.component.email.field)
 
 - `config.component.email.field.message.disabled: boolean`. Add (non)editable message field.
+
+### Gender
+
+`<Select name="gender" locale="campaign:profile.gender" />`
+in campaign config
+`profile.gender: {"F":"Female","M":"Male","":"Other/prefer not say"}`
+or `"gender": "Female\nMale\nOther"`
+or `"gender": "F|Female\nM|Male"`
 
 ### Replace URL (for prefilled widgets)
 

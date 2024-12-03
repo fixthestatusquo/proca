@@ -6,7 +6,7 @@ import { formatNumber } from "@components/ProgressCounter";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   "@global": {
     "#proca-ribbon": {
       display: "block",
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-let elem = document.createElement("div");
+const elem = document.createElement("div");
 elem.id = "proca-ribbon";
 document.body.prepend(elem);
 

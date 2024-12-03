@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Comment from "@components/CommentWall";
-import Picture from "@components/PictureWall";
+import Comment from "@components/wall/Comment";
+import Picture from "@components/wall/Picture";
 import ProgressCounter from "@components/ProgressCounter";
 import useData from "@hooks/useData";
 import { Paper, AppBar, Tabs, Tab, Box } from "@material-ui/core";
@@ -11,8 +11,7 @@ const Wall = () => {
   const [value, setValue] = useState("comment");
   const [data] = useData();
   const country = data.country && data.country.slice(0, 2).toUpperCase();
-  console.log(country, data);
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
   };
 

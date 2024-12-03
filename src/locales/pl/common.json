@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Przekaż darowiznę na rzecz {{campaign}}.",
+    "payment": "Płatność",
     "payment_methods": {
       "card": "Karta",
       "default": "Darowizna",
@@ -158,6 +159,14 @@
   },
   "no": "nie",
   "party": "Partia",
+  "phone": {
+    "INVALID_COUNTRY": "brakujący lub nieprawidłowy kod kraju",
+    "INVALID_LENGTH": "Nieprawidłowa długość",
+    "MISSING": "wymagane pole",
+    "NOT_A_NUMBER": "Nieprawidłowy numer telefonu",
+    "TOO_LONG": "zbyt długi numer",
+    "TOO_SHORT": "zbyt krótki numer"
+  },
   "postcode": {
     "notFound": "Wydaje się, że ten kod pocztowy nie istnieje w Twoim kraju.",
     "wrongLength": "Przewidywana długość {{length}} dla danego kraju"
@@ -171,6 +180,7 @@
     "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
   },
   "read more": "przeczytaj więcej",
+  "region": "Region",
   "register": "Podpisuję petycję",
   "reminder": {
     "intro": "Wiemy, że Twój rząd prosi o wiele informacji. Wyślemy ci jeden e-mail, aby przypomnieć ci o wypełnieniu formularza później"

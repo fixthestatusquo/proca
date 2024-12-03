@@ -11,7 +11,7 @@ import Country from "./Country";
 import HiddenField from "@components/field/Hidden";
 //import Autocomplete from "@material-ui/lab/Autocomplete";
 
-const Affiliation = (props) => {
+const Affiliation = props => {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const { setValue, watch, getValues, reset } = props.form;
@@ -25,11 +25,11 @@ const Affiliation = (props) => {
     .compare;
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      d.forEach((e) => (e.country = e.country.toUpperCase()));
+      d.forEach(e => (e.country = e.country.toUpperCase()));
       d.sort((a, b) => compare(a.party, b.party));
 
       d.push({ party: "other" });
@@ -44,11 +44,11 @@ const Affiliation = (props) => {
   }, [country]);
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async url => {
       const res = await fetch(url);
       if (!res.ok) throw res.error();
       const d = await res.json();
-      const candidate = d.find((d) => d.externalId === externalId);
+      const candidate = d.find(d => d.externalId === externalId);
       if (candidate) {
         const splitIndex = candidate.name.indexOf(" ");
         const firstname = candidate.name.substring(0, splitIndex);
@@ -67,7 +67,7 @@ const Affiliation = (props) => {
     };
     if (!externalId) return;
     fetchData(
-      `https://widget.proca.app/t/${config.campaign.name.replace("candidates", "citizen")}.json`,
+      `https://widget.proca.app/t/${config.campaign.name.replace("candidates", "citizen")}.json`
     );
   }, [externalId]);
 
@@ -140,11 +140,11 @@ const Affiliation = (props) => {
             native: true,
           }}
         >
-          <option key="empty" value=""></option>
+          <option key="empty" value="" />
           {parties
-            .filter((d) => d.country === country || !d.country)
+            .filter(d => d.country === country || !d.country)
             //            .sort((a, b) => a.party > b.party)
-            .map((d) => {
+            .map(d => {
               return (
                 <option key={d.party + d.eugroup + d.country} value={d.party}>
                   {d.party}

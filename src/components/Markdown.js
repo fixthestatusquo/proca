@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Markdown } from "@components/TTag";
 
-const MarkdownPage = (props) => {
+const MarkdownPage = props => {
   //const data = useData();
   //  const [error, setError] = useState(null);
   const config = useCampaignConfig();

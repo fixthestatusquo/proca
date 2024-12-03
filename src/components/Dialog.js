@@ -34,6 +34,8 @@ const useStyles = makeStyles(() => ({
 function OpenDialog(props) {
   const config = useCampaignConfig();
   const [open, setOpen] = useState(props.dialog || false);
+  const DialogAction = props.Action;
+
   const title =
     props.name ||
     config.param.locales["dialog-title"] ||
@@ -75,6 +77,7 @@ function OpenDialog(props) {
         </DialogTitle>
       ) : null}
       <DialogContent>{props.children}</DialogContent>
+      {DialogAction && <DialogAction />}
     </Dialog>
   );
 }

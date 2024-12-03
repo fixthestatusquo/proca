@@ -34,7 +34,7 @@
     "reminder": "Påminn mig senare",
     "reminderEmail": "Påminn mig via e-post",
     "share": "Dela",
-    "sign": "Skylt",
+    "sign": "Skriv under",
     "stayInformed": "Håll dig uppdaterad",
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Donera till {{campaign}}",
+    "payment": "Betalning",
     "payment_methods": {
       "card": "Kort",
       "default": "Donera",
@@ -158,6 +159,14 @@
   },
   "no": "ingen",
   "party": "Parti",
+  "phone": {
+    "INVALID_COUNTRY": "landskod saknas eller är ogiltig",
+    "INVALID_LENGTH": "Ogiltig längd",
+    "MISSING": "obligatoriskt fält",
+    "NOT_A_NUMBER": "Ogiltigt telefonnummer",
+    "TOO_LONG": "nummer för långt",
+    "TOO_SHORT": "nummer för kort"
+  },
   "postcode": {
     "notFound": "detta postnummer verkar inte finnas i ditt land",
     "wrongLength": "förväntad längd på {{length}} för ditt land"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} har twittrat. Vi går till {{goal}}"
   },
   "read more": "Läs mer",
+  "region": "Region",
   "register": "Lägg till mitt namn",
   "reminder": {
     "intro": "Vi vet att er regering begär mycket information. Vi kommer att skicka ett enda e-postmeddelande för att påminna dig om att fylla i formuläret senare."

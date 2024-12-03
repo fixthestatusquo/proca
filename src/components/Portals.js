@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 
 import { portals } from "../actionPage";
 
-const Portalify = (props) => {
-  let r = [];
+const Portalify = props => {
+  const r = [];
 
-  const Portal = (props) => {
+  const Portal = props => {
     // a portal that returns null doesn't overwrite the existing text
     const r = portals[props.component](props);
     if (r === null && props.original)
-      return <div dangerouslySetInnerHTML={{ __html: props.original }}></div>;
+      return <div dangerouslySetInnerHTML={{ __html: props.original }} />;
     return r;
   };
 
@@ -65,13 +65,13 @@ const Portalify = (props) => {
   return r;
 };
 
-const Portals = (props) => {
-  let r = [];
+const Portals = props => {
+  const r = [];
   props.portals &&
     props.portals.forEach((p, i) => {
       if (typeof p === "string") {
-        r.push(React.createElement(portals[p], { name: p, key: "portal" + i }));
-      } else r.push(<Portalify {...p} dom={props.dom} key={"portal" + i} />);
+        r.push(React.createElement(portals[p], { name: p, key: `portal${i}` }));
+      } else r.push(<Portalify {...p} dom={props.dom} key={`portal${i}`} />);
     });
   return r;
   //  return <Portalify selector='.eci-title' component='eci_Display'/>;

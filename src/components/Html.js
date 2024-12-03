@@ -12,22 +12,22 @@ function Component(props) {
 
   useLayoutEffect(() => {
     const dom = props.dom || ".proca-html";
-    const replacer = (v) => {
+    const replacer = v => {
       // replace tokens {fieldname} by config.data[fieldname] (if it exists)
       const k = v.slice(1, -1);
       return data[k] || v;
     };
     try {
-      let template = document.querySelector(dom);
+      const template = document.querySelector(dom);
       if (template) {
         template.style.display = "none";
         document.getElementById("proca-html-root").innerHTML =
           template.innerHTML.replace(/(\{[^}]+\})/g, replacer);
       } else {
-        setError("missing template dom with class " + dom);
+        setError(`missing template dom with class ${dom}`);
       }
     } catch (e) {
-      setError("missing template dom with class " + dom);
+      setError(`missing template dom with class ${dom}`);
       console.log(e);
     }
     //    return () => {};

@@ -3,7 +3,7 @@ require("./dotenv.js");
 const { api } = require("./config");
 const { stringify } = require("dxid");
 
-const getId = async (name) => {
+const getId = async name => {
   const query = `query actionPage ($name:String!) {
   actionPage (name:$name) {
     id, name, locale, journey
@@ -29,7 +29,7 @@ if (require.main === module) {
     const name = argv[0];
     if (!name)
       return console.error(
-        "node id.js {name} to get the actionpage id based on the path",
+        "node id.js {name} to get the actionpage id based on the path"
       );
     try {
       const d = await getId(name);

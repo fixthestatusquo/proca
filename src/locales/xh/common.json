@@ -16,7 +16,6 @@
   "Next": "Okulandelayo",
   "Organisation": "Umbutho",
   "Other": "Okunye",
-  "party": "Iphathi",
   "Phone": "Ifowuni",
   "Postal Code": "Ikhowudi yeposi",
   "Salutation": "Sibuliso",
@@ -67,10 +66,6 @@
       "opt-in": "kwaye ufumane ulwazi",
       "opt-out": "kwaye ungangigcini ndinolwazi"
     }
-  },
-  "postcode": {
-     "wrongLength":  "ubude obulindelekile be-{{length}} kweli lizwe lakho",
-     "notFound": "le khowudi yeposi ayibonakali ikho kweli lizwe lakho"
   },
   "date": {
     "error": "umhla ongavumelekanga. ifomethi: DD.MM.YYYY"
@@ -162,6 +157,11 @@
     "wanttoadd": "Ufuna ukongeza umfanekiso?"
   },
   "no": "hayi",
+  "party": "Iphathi",
+  "postcode": {
+    "notFound": "le khowudi yeposi ayibonakali ikho kweli lizwe lakho",
+    "wrongLength": "ubude obulindelekile be-{{length}} kweli lizwe lakho"
+  },
   "progress": {
     "donate": "Abayi-{{total}} sele benikele. Masiqhubeke ku-{{goal}}",
     "email": "Abayi-{{total}} sele bethumele i-imeyile. Masiqhubeke ku-{{goal}}",
@@ -199,9 +199,9 @@
     }
   },
   "supporter": {
+    "greeting": "Wamkelekile {{firstname}}!",
     "not_you": "akunguwe?",
-    "welcome": "Wamkelekile emuva, {{firstname}}!",
-    "greeting": "Wamkelekile {{firstname}}!"
+    "welcome": "Wamkelekile emuva, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {

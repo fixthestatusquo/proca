@@ -1,5 +1,4 @@
 import React from "react";
-import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   FormGroup,
@@ -9,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { Controller } from "react-hook-form";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   control: {
     marginTop: "0!important",
     marginBottom: "0!important",
@@ -27,33 +26,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProcaCheckbox = (props) => {
+const ProcaCheckbox = props => {
   const { control } = props.form;
   const classes = useStyles();
-  const config = useCampaignConfig();
 
   //  const { t } = useTranslation();
 
   if (!props.name) return "you need to set ProcaCheckbox props.name";
   return (
     <FormControl
-      className={classes.control + " " + (props.className || "proca-checkbox")}
+      className={`${classes.control} ${props.className || "proca-checkbox"}`}
     >
       <FormGroup>
         <FormControlLabel
           className={classes.check}
           placement="end"
-          required={config.component.consent.bcc}
+          required={props.required}
           control={
             <Controller
               name={props.name}
               control={control}
               render={({ field }) => (
-                <Checkbox {...field} color="primary" checked={field.value} />
+                <Checkbox
+                  {...field}
+                  color="primary"
+                  checked={!!field.value}
+                  disabled={props.disabled}
+                />
               )}
             />
           }
           label={props.label}
+          onChange={props.onChange}
         />
       </FormGroup>
     </FormControl>

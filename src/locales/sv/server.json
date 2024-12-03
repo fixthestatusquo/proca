@@ -1,47 +1,47 @@
 {
-    "email": {
-        "common": {
-            "greeting": "Hej {{firstName}}",
-            "thanks": "Tack för att du skrev under {{campaign.title}}. Ditt stöd är uppskattat!",
-            "share": "Hjälp oss att nå vårt mål genom att sprida ordet.",
-            "follow": "Följ oss på:",
-            "donate": "Överväg att göra en donation för att hjälpa oss att uppnå vårt uppdrag.",
-            "closing": "Med din hjälp är vi ett steg närmare vårt mål.",
-            "unsubscribe": "Om du inte vill få ytterligare information från oss i framtiden kan du när som helst avbryta din registrering",
-            "organisation": "{{org.title}}",
-            "privacy": "Du kan hitta mer information om vår integritetspolicy och behandlingen av dina uppgifter",
-            "consent": "\n          ",
-            "signature": "Med vänlig hälsning,\n\n{{org.title}}",
-            "duplicate": "Tack för ditt engagemang och din hängivenhet till vår sak! Men i vårt åtagande att upprätthålla äkthet och trovärdighet måste vi ta bort dubbla signaturer och det verkar som om du (eller någon som använder {{email}}) redan har vidtagit denna åtgärd.  Du kan vara säker på att din första signatur räknades och bidrog till vår kampanj.\nDitt stöd har varit ovärderligt, och vi vill vänligen uppmuntra dig att ta ytterligare ett steg för att förstärka din inverkan. Överväg att kontakta dina vänner och din familj och uppmana dem att också vidta åtgärder, med hjälp av sina egna e-postadresser. På så sätt kan vi få vår rörelse att växa ytterligare och skapa en ännu starkare kollektiv röst för den förändring vi eftersträvar.\nÄn en gång vill vi framföra vår innerliga tacksamhet för ert fortsatta stöd och engagemang i den här kampanjen. Tillsammans kan vi göra en bestående skillnad!",
-            "share_on": "Dela på",
-            "thanksPledge": "Tack för att du skrivit under löftet {{campaign.title}}. Din information kommer att granskas och du får sedan ett bekräftelsemeddelande om din profil läggs till på hemsidan."
-        },
-        "thankyou": {
-            "intro": "Tack för \"{{campaign.title}}\". Ditt stöd är uppskattat!",
-            "subject": "Tack, så här kan du göra mer"
-        },
-        "doi": {
-            "subject": "Ytterligare ett steg: bekräfta din prenumeration",
-            "confirm": "Klicka på länken nedan för att bekräfta din prenumeration",
-            "confirmButton": "Bekräfta",
-            "intro": "Din bekräftelse är viktig för att vi ska kunna behandla den. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar.",
-            "extra": "Du har fått denna bekräftelse för att framgångsrikt kunna slutföra registreringen och tillåta oss att behandla din e-postadress och andra personuppgifter för att få nyheter eller nyhetsbrev. Detta är en automatiserad procedur och denna bekräftelse krävs för registreringen för att undvika en obehörig registreringsprocess."
-        },
-        "actionConfirm": {
-            "subject": "Ytterligare ett steg: bekräfta din signatur",
-            "confirm": "Klicka på länken nedan för att bekräfta din åtgärd",
-            "confirmButton": "Bekräfta",
-            "intro": "Din bekräftelse är viktig för att vi ska kunna behandla ditt deltagande. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar."
-        },
-        "button": {
-            "confirmOptout": "Jag bekräftar mitt deltagande men håller mig inte uppdaterad i framtiden",
-            "confirmAction": "Ja, jag är en riktig person!",
-            "confirmOptin": "Jag bekräftar mitt deltagande och vill få nyheter från er",
-            "confirmAlreadyMember": "Jag bekräftar mitt deltagande och får redan e-post från dig"
-        },
-        "doi_thankyou": {
-            "subject": "Tack för ditt bidrag{{#privacy.optIn}}, ett steg till, vänligen bekräfta din e-postadress{{/privacy.optIn}}"
-        }
+  "email": {
+    "common": {
+      "greeting": "Hej {{firstName}}",
+      "thanks": "Tack för att du skrev under {{campaign.title}}. Ditt stöd är uppskattat!",
+      "share": "Hjälp oss att nå vårt mål genom att sprida ordet.",
+      "follow": "Följ oss på:",
+      "donate": "Överväg att göra en donation för att hjälpa oss att uppnå vårt uppdrag.",
+      "closing": "Med din hjälp är vi ett steg närmare vårt mål.",
+      "unsubscribe": "Om du inte vill få ytterligare information från oss i framtiden kan du när som helst avbryta din registrering",
+      "organisation": "{{org.title}}",
+      "privacy": "Du kan hitta mer information om vår integritetspolicy och behandlingen av dina uppgifter",
+      "consent": "\n          ",
+      "signature": "Med vänlig hälsning,\n\n{{org.title}}",
+      "duplicate": "Tack för ditt engagemang och din hängivenhet till vår sak! Men i vårt åtagande att upprätthålla äkthet och trovärdighet måste vi ta bort dubbla signaturer och det verkar som om du (eller någon som använder {{email}}) redan har vidtagit denna åtgärd.  Du kan vara säker på att din första signatur räknades och bidrog till vår kampanj.\nDitt stöd har varit ovärderligt, och vi vill vänligen uppmuntra dig att ta ytterligare ett steg för att förstärka din inverkan. Överväg att kontakta dina vänner och din familj och uppmana dem att också vidta åtgärder, med hjälp av sina egna e-postadresser. På så sätt kan vi få vår rörelse att växa ytterligare och skapa en ännu starkare kollektiv röst för den förändring vi eftersträvar.\nÄn en gång vill vi framföra vår innerliga tacksamhet för ert fortsatta stöd och engagemang i den här kampanjen. Tillsammans kan vi göra en bestående skillnad!",
+      "share_on": "Dela på",
+      "thanksPledge": "Tack för att du skrivit under löftet {{campaign.title}}. Din information kommer att granskas och du får sedan ett bekräftelsemeddelande om din profil läggs till på hemsidan."
     },
-    "poweredBy": "KRAFTVERKTURERAD AV"
+    "thankyou": {
+      "intro": "Tack för \"{{campaign.title}}\". Ditt stöd är uppskattat!",
+      "subject": "Tack, så här kan du göra mer"
+    },
+    "doi": {
+      "subject": "Ytterligare ett steg: bekräfta din prenumeration",
+      "confirm": "Klicka på länken nedan för att bekräfta din prenumeration",
+      "confirmButton": "Bekräfta",
+      "intro": "Din bekräftelse är viktig för att vi ska kunna behandla den. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar.",
+      "extra": "Du har fått denna bekräftelse för att framgångsrikt kunna slutföra registreringen och tillåta oss att behandla din e-postadress och andra personuppgifter för att få nyheter eller nyhetsbrev. Detta är en automatiserad procedur och denna bekräftelse krävs för registreringen för att undvika en obehörig registreringsprocess."
+    },
+    "actionConfirm": {
+      "subject": "Ytterligare ett steg: bekräfta din signatur",
+      "confirm": "Klicka på länken nedan för att bekräfta din åtgärd",
+      "confirmButton": "Bekräfta",
+      "intro": "Din bekräftelse är viktig för att vi ska kunna behandla ditt deltagande. Det är det enda sättet vi kan göra det trovärdigt att det verkligen finns en person bakom varje deltagande, och det är viktigt för kampanjens genomslagskraft och för att förhindra falska/spam-inlämningar."
+    },
+    "button": {
+      "confirmOptout": "Jag bekräftar mitt deltagande men håller mig inte uppdaterad i framtiden",
+      "confirmAction": "Ja, jag är en riktig person!",
+      "confirmOptin": "Jag bekräftar mitt deltagande och vill få nyheter från er",
+      "confirmAlreadyMember": "Jag bekräftar mitt deltagande och får redan e-post från dig"
+    },
+    "doi_thankyou": {
+      "subject": "Tack för ditt bidrag{{#privacy.optIn}}, ett steg till, vänligen bekräfta din e-postadress{{/privacy.optIn}}"
+    }
+  },
+  "poweredBy": "KRAFTVERKTURERAD AV"
 }

@@ -1,1 +1,1 @@
-console.log("testing "+window.location.hostname);
+console.log("testing " + window.location.hostname);

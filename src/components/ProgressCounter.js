@@ -7,7 +7,7 @@ import useCount from "@hooks/useCount";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   "@global": {},
   "@keyframes procaPrimaryGrey": {
     "0%": {
@@ -36,15 +36,15 @@ const nextStep = (value, steps) => {
       500000, 1000000, 1200000, 1500000, 2000000, 5000000,
     ];
   }
-  let next = false;
-
-  steps.some((step) => {
+  let next = 1;
+  steps.some(step => {
     if (value < step) {
       next = step;
       return true;
     }
     return false;
   });
+
   return next;
 };
 
@@ -58,7 +58,7 @@ export const formatNumber = (value, separator) => {
   if (!separator)
     // fallback to space
     separator = "\u00A0";
-  return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1" + separator);
+  return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${separator}`);
 };
 
 export default function Progress(props) {
@@ -76,7 +76,7 @@ export default function Progress(props) {
   useEffect(() => {
     const aim = normalise(count, goal);
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
+      setProgress(prevProgress =>
         prevProgress >= aim - 10 ? aim : prevProgress + 10
       );
     }, 500);
@@ -95,13 +95,13 @@ export default function Progress(props) {
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
   const actionName = config.component.register?.button?.split(".")[1] || "sign";
-  const progressKey = i18n.exists("progress." + actionName)
-    ? "progress." + actionName
+  const progressKey = i18n.exists(`progress.${actionName}`)
+    ? `progress.${actionName}`
     : "progress";
 
   return (
     <>
-      <Box className={classes.root + " proca-progress"}>
+      <Box className={`${classes.root} proca-progress`}>
         {t(progressKey, {
           count: formatNumber(count, separator),
           total: formatNumber(count, separator),

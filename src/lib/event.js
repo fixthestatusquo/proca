@@ -2,7 +2,7 @@ const dispatchAnalytics = (message, value) => {
   //https://support.google.com/analytics/answer/9267735?sjid=9242639035351824592-EU no standard events
   if (message === "count") return;
   const action = message.split(":");
-  let param = {};
+  const param = {};
   if (action[1] && action[1] === "complete") {
     param.event = action[0];
   } else {

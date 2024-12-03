@@ -122,7 +122,8 @@
       "yearly": "Jährlich"
     },
     "iban": "IBAN",
-    "intro": "Spenden Sie an {{campaign}}",
+    "intro": "Spenden Sie an {{org}}",
+    "payment": "Zahlung",
     "payment_methods": {
       "card": "Karte",
       "default": "Jetzt spenden!",
@@ -158,6 +159,14 @@
   },
   "no": "nein",
   "party": "Partei",
+  "phone": {
+    "INVALID_COUNTRY": "fehlender oder ungültiger Ländercode",
+    "INVALID_LENGTH": "Ungültige Länge",
+    "MISSING": "Pflichtfeld",
+    "NOT_A_NUMBER": "Ungültige Rufnummer",
+    "TOO_LONG": "Nummer zu lang",
+    "TOO_SHORT": "Nummer zu kurz"
+  },
   "postcode": {
     "notFound": "diese Postleitzahl scheint es in Ihrem Land nicht zu geben",
     "wrongLength": "voraussichtliche Dauer von {{length}} für Ihr Land"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} haben getwittert. Gehen wir zu {{goal}}"
   },
   "read more": "weiterlesen",
+  "region": "Region",
   "register": "Meinen Namen hinzufügen",
   "reminder": {
     "intro": "Wir wissen, dass Ihre Regierung eine Menge Informationen verlangt. Wir werden Ihnen eine E-Mail senden, um Sie daran zu erinnern, dass Sie das Formular später ausfüllen müssen"
@@ -198,7 +208,7 @@
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
-  "supporterHint": "{{name}}, {{area}}",
+  "supporterHint": "{{name}} aus {{area}}",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}",

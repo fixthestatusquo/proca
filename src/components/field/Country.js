@@ -5,28 +5,12 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { useIsWindows } from "@hooks/useDevice";
 import Alert from "@material-ui/lab/Alert";
+import { useCountryFlag, flag } from "react-emoji-flag";
 
 import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
 import countriesJson from "../../data/eu27.json";
-
-const emoji = (country) => {
-  const offset = 127397;
-  let emoji = "";
-
-  if (!country || country.toUpperCase() === "ZZ") return "";
-
-  country
-    .toUpperCase()
-    .split("")
-    .forEach(
-      (char) => (emoji += String.fromCodePoint(char.charCodeAt(0) + offset)),
-    );
-
-  return emoji;
-};
 
 export const addMissingCountries = (countries, compare) => {
   const alreadyHave = {};
@@ -60,9 +44,9 @@ const addAllCountries = () => {
   return d;
 };*/
 
-const addCountries = (list) => {
+const addCountries = list => {
   let d = [];
-  list.map((country) => {
+  list.map(country => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
     return null;
@@ -70,22 +54,17 @@ const addCountries = (list) => {
   return d;
 };
 
-const Flag = (props) => {
-  const country = props.country?.toUpperCase();
-  const d = emoji(country);
-  return <span title={"flag " + d}>{d}</span>;
-};
-
-const Country = (props) => {
+const Country = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const [_countries, setCountries] = useState([]);
   const [, setData] = useData();
-  const isWindows = useIsWindows();
+  useCountryFlag({ className: "country-flag" });
+
   const countries = useMemo(() => {
     let countries = [];
     if (props.countries) {
-      countries = Object.keys(props.countries).map((iso) => ({
+      countries = Object.keys(props.countries).map(iso => ({
         iso: iso.toUpperCase(),
         name: props.countries[iso] || allCountries[iso],
       }));
@@ -102,9 +81,6 @@ const Country = (props) => {
     if (config.component.country?.other !== false) {
       countries.push({ iso: "ZZ", name: t("Other") });
     }
-    if (false || props.other) {
-      countries = addMissingCountries(countries, compare);
-    }
     return countries;
   }, [
     config.component.country?.all,
@@ -118,8 +94,12 @@ const Country = (props) => {
   const { setValue, getValues } = props.form;
 
   let defaultCountry = get("country"); //fetch from the url if set
-  if (!defaultCountry && config.component.country !== undefined) {
-    defaultCountry = config.component.country;
+  if (
+    (!defaultCountry && typeof config.component.country === "string") ||
+    typeof config.component.register?.field?.country === "string"
+  ) {
+    defaultCountry =
+      config.component.country || config.component.register?.field?.country;
     if (typeof defaultCountry === "string")
       defaultCountry = defaultCountry.toUpperCase();
   }
@@ -131,7 +111,7 @@ const Country = (props) => {
     country: defaultCountry,
   });
 
-  const switchCountry = (e) => {
+  const switchCountry = e => {
     setData("country", e.target.value);
   };
 
@@ -141,7 +121,7 @@ const Country = (props) => {
     const country = getValues("country") || "";
     if (location.country === country && countriesLength !== 0) return;
     if (location.country && (!country || typeof country !== "string")) {
-      if (!countries.find((d) => d.iso === location.country)) {
+      if (!countries.find(d => d.iso === location.country)) {
         console.log("visitor from ", location?.country, "but not on our list");
         countries.unshift({
           iso: location.country,
@@ -168,34 +148,31 @@ const Country = (props) => {
 
   // Windows doesn't support flag emojis
   return (
-    <>
+    <div className="country-flag">
       <TextField
         required={props.required}
         select
         name={props.name || "country"}
         onChange={switchCountry}
-        label={t("Country")}
+        label={props.label || t("Country")}
         form={props.form}
         SelectProps={{
           native: true,
         }}
       >
-        <option key="" value=""></option>
+        <option key="" value="" />
 
-        {_countries.map((option) => (
+        {_countries.map(option => (
           <option key={option.iso} value={option.iso}>
-            {!isWindows &&
-              (emoji(option.iso) ? emoji(option.iso) + " " : "") + option.name}
-            {isWindows && option.name}
+            {flag(option.iso)} {option.name}
           </option>
         ))}
       </TextField>
       {config.component.country === false && !defaultCountry && (
         <Alert severity="info">{t("target.country.undefined")}</Alert>
       )}
-    </>
+    </div>
   );
 };
 
 export default Country;
-export { emoji, Flag };

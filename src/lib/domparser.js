@@ -14,7 +14,7 @@ const getOverwriteLocales = (
   }; // dealing with keys that aren't classes
 
   const texts = document.getElementsByClassName("proca-text");
-  let locales = {};
+  const locales = {};
   for (const t of texts) {
     for (const c of t.classList) {
       if (c === "proca-text") continue;
@@ -40,8 +40,8 @@ const getAllData = (
   allowed = allowed.split(",");
   const dom = document.querySelector(selector);
   const texts = document.getElementsByClassName("proca-text");
-  let variants = {};
-  let locales = {};
+  const variants = {};
+  const locales = {};
   for (const t of texts) {
     for (const c of t.classList) {
       if (c === "proca-text") continue;

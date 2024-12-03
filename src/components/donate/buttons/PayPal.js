@@ -1,18 +1,18 @@
 import React, { useCallback } from "react";
 
-import Url from "../../lib/urlparser.js";
-import uuid from "../../lib/uuid";
+import Url from "@lib/urlparser.js";
+import uuid from "@lib/uuid";
 
-import useData from "../../hooks/useData";
-import { useCampaignConfig } from "../../hooks/useConfig";
-import dispatch from "../../lib/event";
+import useData from "@hooks/useData";
+import { useCampaignConfig } from "@hooks/useConfig";
+import dispatch from "@lib/event";
 import {
   PayPalButtons,
   FUNDING,
   usePayPalScriptReducer,
   DISPATCH_ACTION,
 } from "@paypal/react-paypal-js";
-import { addDonateContact } from "../../lib/server.js";
+import { addDonateContact } from "@lib/server.js";
 import { Box, Button, CircularProgress, makeStyles } from "@material-ui/core";
 
 const _addContactFromPayPal = (setFormData, contact, payer) => {
@@ -162,8 +162,9 @@ const onApproveOrder = async ({
 };
 
 const onCreateOrder = ({ amount, description, actions }) => {
+console.debug(amount,description,actions);
   return actions.order.create({
-    purchase_units: [{ amount: { value: parseFloat(amount) } }],
+    purchase_units: [{ amount: { value: Number.parseFloat(amount) } }],
     description: description,
     application_context: {
       shipping_preference: "NO_SHIPPING",
@@ -205,7 +206,7 @@ const LoadingSpinner = () => {
   );
 };
 
-const useFrequencyChange = (frequency) => {
+const useFrequencyChange = frequency => {
   const [{ options }, dispatch] = usePayPalScriptReducer();
 
   let changed = false;
@@ -234,7 +235,7 @@ const useFrequencyChange = (frequency) => {
   return frequency;
 };
 
-const ProcaPayPalButton = (props) => {
+const ProcaPayPalButton = props => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
   const [formData, setFormData] = useData();
@@ -280,7 +281,7 @@ const ProcaPayPalButton = (props) => {
   const plan_id = donateConfig.paypal.planId;
 
   const createSubscription = useCallback(
-    (data, actions) => {
+    (_data, actions) => {
       setFormData("paymentMethod", "paypal");
       return actions.subscription.create({
         plan_id: plan_id,
@@ -331,6 +332,8 @@ const ProcaPayPalButton = (props) => {
 
   const buttonOptions =
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
+
+console.log(buttonOptions);
 
   return (
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">

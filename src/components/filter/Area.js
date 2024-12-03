@@ -3,12 +3,11 @@ import Postcode from "@components/field/Postcode";
 import Alert from "@material-ui/lab/Alert";
 import { useTranslation } from "react-i18next";
 
-const FilterArea = (props) => {
+const FilterArea = props => {
   const { t } = useTranslation();
   const { watch } = props.form;
   const area = watch("area");
   useEffect(() => {
-    console.log("changing area", area);
     if (!area)
       return props.selecting(() => ({
         filter: "area",
@@ -19,7 +18,7 @@ const FilterArea = (props) => {
 
     props.selecting(
       "constituency",
-      area > 9 ? area.toString() : "0" + area.toString(),
+      area > 9 ? area.toString() : `0${area.toString()}`
     );
   }, [area]);
   console.log(area);

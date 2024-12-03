@@ -65,7 +65,7 @@ const help = () => {
 let git = {};
 try {
   git = simpleGit({ baseDir: pathConfig() });
-} catch (e) {
+} catch {
   console.error(
     color.red("can't find config folder ", pathConfig()),
     "create manually or update your .env REACT_APP_CONFIG_FOLDER"
@@ -84,9 +84,14 @@ const deploy = async () => {
       Authorization: "Bearer " + N8N_TOKEN,
     },
   });
-  const body = await response.json();
-  console.log(body);
-  return body;
+  try {
+    const body = await response.json();
+    console.log(body);
+    return body;
+  } catch (e) {
+console.log("error",e,response);
+    return {};
+  }
   //curl -X POST https://workflow.proca.app/webhook/proca-config/pull -H "Authorization: Bearer $N8N_TOKEN"
 };
 
@@ -142,7 +147,7 @@ const pull = async () => {
   return true;
 };
 
-const add = async (file) => {
+const add = async file => {
   try {
     if (file && file.length) {
       await git.add(file);
@@ -163,7 +168,7 @@ const newFiles = async () => {
 
 const parseFiles = () => {
   if (argv._.length === 0) return null;
-  const f = argv._.map((file) =>
+  const f = argv._.map(file =>
     /^\d+$/.test(file) ? file + ".json" : file.replace("config/", "")
   );
   console.log(f);
@@ -180,9 +185,9 @@ const status = async () => {
   ignored: undefined,
   modified
   */
-  "not_added,created,modified,deleted,conflicted".split(",").forEach((type) => {
+  "not_added,created,modified,deleted,conflicted".split(",").forEach(type => {
     if (status[type].length) {
-      status[type].forEach((file) => {
+      status[type].forEach(file => {
         console.log(color.red(type), "config/" + file);
       });
     }

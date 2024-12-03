@@ -18,13 +18,14 @@
   "Other": "Other",
   "party": "Party",
   "Phone": "Phone",
-  "Postal Code": "Postal Code",
+  "Postal Code": "Postcode",
   "Salutation": "Salutation",
   "Sorry, we couldn't save": "Sorry, we couldn't save",
   "Street": "Street",
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
+  "region": "Region",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -69,8 +70,8 @@
     }
   },
   "postcode": {
-     "wrongLength":  "expected length of {{length}} for your country",
-     "notFound": "this postcode doesn't seem to exist in your country"
+    "wrongLength": "expected length of {{length}} for your country",
+    "notFound": "this postcode doesn't seem to exist in your country"
   },
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
@@ -78,6 +79,7 @@
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
+    "payment": "Payment",
     "amount": {
       "change": "Change amount",
       "intro": "Choose an Amount"
@@ -127,7 +129,7 @@
       "yearly": "yearly"
     },
     "iban": "IBAN",
-    "intro": "Donate to {{campaign}}",
+    "intro": "Donate to {{org}}",
     "payment_methods": {
       "card": "Card",
       "default": "Donate",
@@ -138,6 +140,14 @@
     },
     "thanks": "Thank you for your donation!",
     "to": "Donation to {{organisation}}"
+  },
+  "phone": {
+    "MISSING": "required field",
+    "NOT_A_NUMBER": "Invalid phone number",
+    "INVALID_COUNTRY": "missing or invalid country code",
+    "TOO_SHORT": "number too short",
+    "TOO_LONG": "number too long",
+    "INVALID_LENGTH": "Invalid length"
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
@@ -209,7 +219,7 @@
       "empty": "Select another country, there is no-one to contact in {{country}}",
       "undefined": "Select a country"
     },
-    "missing": "Select at least one out of {{total}}",
+    "missing": "Select at least 1 out of {{total}}",
     "postcode": {
       "empty": "there is no-one to contact in {{area}}",
       "undefined": "Enter your postcode"

@@ -2,11 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const { link, basicAuth, tokenAuth } = require("@proca/api");
 const color = require("cli-color");
-//require("cross-fetch/polyfill"); // for the push
 
 const tmp = process.env.REACT_APP_CONFIG_FOLDER
   ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
-  : "../config/";
+  : path.resolve(__dirname, '../config') + "/" ;
 
 const API_URL =
   process.env.API_URL ||

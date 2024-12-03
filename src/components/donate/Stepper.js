@@ -9,32 +9,23 @@ import {
   Stepper,
 } from "@material-ui/core";
 
-import { atom, useRecoilState } from "recoil";
+import { create } from "zustand";
 import { goStep, useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData.js";
 import { useTranslation } from "react-i18next";
 import { useIsVeryNarrow } from "@hooks/useLayout";
 import { useFormatMoney } from "@hooks/useFormatting.js";
 
-const donateStepAtom = atom({ key: "donateStep", default: 0 });
-
-export const useDonateStep = () => {
-  const [donateStep, _setDonateStep] = useRecoilState(donateStepAtom);
-  const setDonateStep = useCallback(
-    (step) => {
-      _setDonateStep(step);
-    },
-    [_setDonateStep]
-  );
-
-  return [donateStep, setDonateStep];
-};
+export const useDonateStep = create((set) => ({
+  donateStep: 0, // Initialize with a default value (change as needed)
+  setDonateStep: (step) => set({ donateStep: step }),
+}));
 
 const iconStyles = makeStyles({ root: { fontSize: "2em" } });
 
-const BiggerStepIcon = (props) => {
+const BiggerStepIcon = props => {
   const classes = iconStyles();
-  return <StepIcon classes={{ root: classes.root }} {...props}></StepIcon>;
+  return <StepIcon classes={{ root: classes.root }} {...props} />;
 };
 
 const labelStyles = makeStyles({
@@ -48,7 +39,7 @@ const labelStyles = makeStyles({
   // active: {},
 });
 
-const StyledStepLabel = (props) => {
+const StyledStepLabel = props => {
   const classes = labelStyles();
   return (
     <StepLabel
@@ -59,7 +50,7 @@ const StyledStepLabel = (props) => {
       }}
       StepIconComponent={BiggerStepIcon}
       {...props}
-    ></StepLabel>
+    />
   );
 };
 
@@ -87,7 +78,7 @@ const AmountTextLabel = ({ donateStep, formData, isVeryNarrow, label }) => {
 
 const Steps = () => {
   const { t } = useTranslation();
-  const [donateStep, setDonateStep] = useDonateStep();
+  const {donateStep, setDonateStep} = useDonateStep();
   const [formData] = useData();
 
   const config = useCampaignConfig();
@@ -104,7 +95,7 @@ const Steps = () => {
           key="amount"
           onClick={() => {
             setDonateStep(0);
-            goStep("donate_Amount");
+            goStep("Donation");
           }}
         >
           <StyledStepLabel>
@@ -118,7 +109,7 @@ const Steps = () => {
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>{isVeryNarrow ? "" : "Payment"}</StyledStepLabel>
+          <StyledStepLabel>{isVeryNarrow ? "" : t("donation.payment")}</StyledStepLabel>
         </Step>
       </Stepper>
     </Box>

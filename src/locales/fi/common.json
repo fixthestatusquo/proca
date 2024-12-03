@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Lahjoita osoitteeseen {{campaign}}",
+    "payment": "Maksu",
     "payment_methods": {
       "card": "Kortti",
       "default": "Lahjoita",
@@ -158,6 +159,14 @@
   },
   "no": "ei",
   "party": "Puolue",
+  "phone": {
+    "INVALID_COUNTRY": "puuttuva tai virheellinen maakoodi",
+    "INVALID_LENGTH": "Virheellinen pituus",
+    "MISSING": "pakollinen kenttä",
+    "NOT_A_NUMBER": "Virheellinen puhelinnumero",
+    "TOO_LONG": "numero liian pitkä",
+    "TOO_SHORT": "numero liian lyhyt"
+  },
   "postcode": {
     "notFound": "Tätä postinumeroa ei näytä olevan olemassa maassasi.",
     "wrongLength": "{{length}} odotettu kesto maassasi"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
   },
   "read more": "Lue lisää",
+  "region": "Alue",
   "register": "Lisää nimeni",
   "reminder": {
     "intro": "Tiedämme, että hallituksenne pyytää paljon tietoja. Lähetämme sinulle yhden sähköpostiviestin, joka muistuttaa sinua täyttämään lomakkeen myöhemmin."

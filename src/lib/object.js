@@ -7,10 +7,10 @@
  * https://stackoverflow.com/questions/27936772/how-to-deep-merge-instead-of-shallow-merge
  */
 export const merge = (...objects) => {
-  const isObject = (obj) => obj && typeof obj === "object";
+  const isObject = obj => obj && typeof obj === "object";
 
   return objects.reduce((prev, obj) => {
-    Object.keys(obj).forEach((key) => {
+    Object.keys(obj).forEach(key => {
       const pVal = prev[key];
       const oVal = obj[key];
 

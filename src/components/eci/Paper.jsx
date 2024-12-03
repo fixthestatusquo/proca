@@ -1,8 +1,6 @@
-import Organisation from '@components/field/Organisation';
+import Organisation from "@components/field/Organisation";
 
-const Paper = ({form, compact}) => {
-  return  (
-    <Organisation form={form} compact={compact} />
-  );
+const Paper = ({ form, compact }) => {
+  return <Organisation form={form} compact={compact} />;
 };
-export default Paper
+export default Paper;

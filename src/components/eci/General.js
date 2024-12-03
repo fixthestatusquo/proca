@@ -19,7 +19,7 @@ export default function Register(props) {
   const compact = props.compact;
   const form = props.form;
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     if (isDate(e.target.value))
       form.clearErrors(e.target.attributes.name.nodeValue);
     else

@@ -112,3 +112,10 @@ mtt {
   country? -> in area or duplicate?
 }
 ```
+
+## target options
+
+To hide or display target:
+
+- field.display: true or false in source file
+- add --display to --publish

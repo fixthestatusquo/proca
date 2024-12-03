@@ -12,13 +12,15 @@ import {
 
 import TextField from "@components/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
+import EmailField from "@components/field/Email";
 
 //import { loadStripe } from "@stripe/stripe-js";
 import useScript from "react-script-hook";
 
 import { useLayout } from "../../hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
-import useElementWidth from "../../hooks/useElementWidth";
+import { useCompactLayout } from "@hooks/useElementWidth";
+
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useTranslation } from "react-i18next";
@@ -37,7 +39,8 @@ import {
 import StripeInput from "./StripeInput";
 
 import Country from "../field/Country";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { create } from "zustand";
+
 import DonateTitle from "./DonateTitle";
 import { CallToAction } from "./DonateButton";
 
@@ -48,25 +51,30 @@ const STRIPE_FREQUENCY = {
   yearly: "year",
 };
 
-const stripeErrorAtom = atom({
-  key: "stripe-error",
-  default: undefined,
-});
+const useStripeStore = create((set) => ({
+  stripeError: undefined,
+  stripeComplete: undefined,
+  setStripeError: (error) => set({ stripeError: error }),
+  setStripeComplete: (complete) => set({ stripeComplete: complete }),
+}));
 
-const stripeCompleteAtom = atom({
-  key: "stripe-card-complete",
-  default: undefined,
-});
+const useStripeError = () => {
+  const { stripeError } = useStripeStore();
+  return stripeError;
+};
 
-// const onError = (errors, e) => console.log(errors, e);
+const useStripeComplete = () => {
+  const { stripeComplete } = useStripeStore();
+  return stripeComplete;
+};
 
-const CustomCardElement = (props) => {
-  const setComplete = useSetRecoilState(stripeCompleteAtom);
+const CustomCardElement = props => {
+  const { setStripeComplete } = useStripeStore();
   return (
     <CardElement
       {...props}
       options={{ hidePostalCode: true }}
-      onChange={(e) => setComplete(e.complete)}
+      onChange={e => setComplete(e.complete)}
     />
   );
 };
@@ -97,7 +105,7 @@ const StripeCard = () => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -113,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaymentForm = (props) => {
+const PaymentForm = props => {
   const layout = useLayout();
   const { t } = useTranslation();
   const config = useCampaignConfig();
@@ -121,11 +129,10 @@ const PaymentForm = (props) => {
   if (!config.component.donation?.stripe?.productId) {
     throw Error(
       "You must configure a Stripe product id " +
-        "[component.donation.stripe.productId] to use Stripe.",
+        "[component.donation.stripe.productId] to use Stripe."
     );
   }
-  const stripeError = useRecoilValue(stripeErrorAtom);
-  const [, setData] = useData();
+ const { stripeError } = useStripeStore();
 
   const form = props.form;
   const {
@@ -133,12 +140,7 @@ const PaymentForm = (props) => {
     formState: { errors },
   } = form;
 
-  const [compact, setCompact] = useState(true);
-
-  const width = useElementWidth("#proca-donate");
-
-  if ((compact && width > 440) || (!compact && width <= 440))
-    setCompact(width <= 440);
+  const compact = useCompactLayout("#proca-donate", 400);
 
   const useTitle = config.component.donation.useTitle;
 
@@ -156,22 +158,23 @@ const PaymentForm = (props) => {
         <Grid item xs={12} sm={compact ? 12 : 6}>
           <TextField
             form={form}
-            classes={classes}
             name="firstname"
             label={t("First name")}
             autoComplete="given-name"
+            required
           />
         </Grid>
         <Grid item xs={12} sm={compact ? 12 : 6}>
           <TextField
             form={form}
-            classes={classes}
             name="lastname"
             label={t("Last name")}
             autoComplete="family-name"
+            required
           />
         </Grid>
-        <Grid item xs={12}>
+        {/* 
+        <Grid item xs={12} display>
           <Controller
             control={control}
             name="email"
@@ -202,6 +205,8 @@ const PaymentForm = (props) => {
             )}
           />
         </Grid>
+*/}
+        <EmailField form={form} required />
         <Grid item xs={12} sm={compact ? 12 : 4}>
           <Controller
             control={control}
@@ -246,10 +251,9 @@ const PaymentForm = (props) => {
   );
 };
 
-const SubmitButton = (props) => {
+const SubmitButton = props => {
   const [isSubmitting, setSubmitting] = useState(false);
-  const setStripeError = useSetRecoilState(stripeErrorAtom);
-  const stripeComplete = useRecoilValue(stripeCompleteAtom);
+  const {stripeError, stripeComplete} = useStripeStore();
   const stripe = useStripe();
 
   const [formData] = useData();
@@ -276,8 +280,7 @@ const SubmitButton = (props) => {
       amount: confirmedIntent.amount,
       currency: confirmedIntent.currency.toUpperCase(),
     };
-
-    if (formData.frequency !== "oneoff") {
+    if (formData.frequency !== "oneoff" && paymentIntent.response.items) {
       const intentResponse = paymentIntent.response;
       const subscriptionPlan = intentResponse.items.data[0].plan;
 
@@ -296,7 +299,7 @@ const SubmitButton = (props) => {
       "stripe",
       config.actionPage,
       procaRequest,
-      config.test,
+      config.test
     );
 
     if (procaResponse.errors) {
@@ -317,13 +320,13 @@ const SubmitButton = (props) => {
         frequency: formData.frequency || "oneoff",
         country: formData.country,
       },
-      procaRequest,
+      procaRequest
     );
 
     props.done(paymentConfirm);
   };
 
-  const onSubmitButtonClick = async (event) => {
+  const onSubmitButtonClick = async event => {
     event.preventDefault();
 
     const btn = event.target;
@@ -331,8 +334,7 @@ const SubmitButton = (props) => {
     setSubmitting(true);
 
     const form = props.form;
-    form.trigger();
-    if (Object.keys(form.errors).length > 0) {
+    if (Object.keys(form.formState.errors).length > 0) {
       btn.disabled = false;
       setSubmitting(false);
       return false;
@@ -356,12 +358,12 @@ const SubmitButton = (props) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    let params = {
+    const params = {
       actionPage: config.actionPage,
       amount: Math.floor(formData.amount * 100),
       currency: currency.code,
       contact: {
-        name: formData.firstname + " " + formData.lastname,
+        name: `${formData.firstname} ${formData.lastname}`,
         email: formData.email,
         address: { country: formData.country, postal_code: formData.postcode },
       },
@@ -394,7 +396,7 @@ const SubmitButton = (props) => {
           },
         },
         // expand: {},
-      },
+      }
     );
 
     if (stripeResponse.error) {
@@ -438,7 +440,7 @@ const SubmitButton = (props) => {
           <CallToAction
             amount={formData.amount}
             currency={currency}
-            frequency={formData.frequency}
+            frequency={formData.frequency || "oneoff"}
           />
         )}
       </Button>
@@ -446,13 +448,13 @@ const SubmitButton = (props) => {
   );
 };
 
-const submitButtonStyles = makeStyles((theme) => ({
+const submitButtonStyles = makeStyles(theme => ({
   submitButton: {
     marginTop: theme.spacing(2),
   },
 }));
 
-const PayWithStripe = (props) => {
+const PayWithStripe = props => {
   // const stripe = useStripe();
   const form = props.form;
   const classes = submitButtonStyles();
@@ -473,15 +475,20 @@ const PayWithStripe = (props) => {
   );
 };
 
-const PaymentFormWrapper = (props) => {
+const PaymentFormWrapper = props => {
   const config = useCampaignConfig();
 
   const [data] = useData();
   let publishableKey =
     config.component.donation?.stripe?.publicKey ||
     process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-  if (config.test && config.component.donation?.stripe?.testKey)
-    publishableKey = config.component.donation.stripe.testKey;
+  if (config.test) {
+    if (config.component.donation?.stripe?.testKey) {
+      publishableKey = config.component.donation.stripe.testKey;
+    } else {
+      console.warn("missing config.component.donation.stripe.testKey");
+    }
+  }
 
   const [stripe, loadStripe] = useState(null);
   const [, error] = useScript({

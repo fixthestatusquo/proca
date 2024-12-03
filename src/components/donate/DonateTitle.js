@@ -31,11 +31,10 @@ const DonateTitle = ({ showAverage = true }) => {
     title = donateConfig.igive;
   } else if (amount) {
     title = t(
-      "donation.frequency.feedback." +
-        frequency /* i18next-extract-disable-line */,
+      `donation.frequency.feedback.${frequency}` /* i18next-extract-disable-line */,
       {
         amount: formatMoneyAmount(amount),
-        frequency: t("donation.frequency.each." + frequency),
+        frequency: t(`donation.frequency.each.${frequency}`),
       }
     );
   } else if (donateConfig.title) {

@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Doe para {{campaign}}",
+    "payment": "Pagamento",
     "payment_methods": {
       "card": "Cartão",
       "default": "Doar",
@@ -158,6 +159,14 @@
   },
   "no": "não",
   "party": "Partido polítical",
+  "phone": {
+    "INVALID_COUNTRY": "código de país em falta ou inválido",
+    "INVALID_LENGTH": "Comprimento inválido",
+    "MISSING": "campo obrigatório",
+    "NOT_A_NUMBER": "Número de telefone inválido",
+    "TOO_LONG": "número demasiado longo",
+    "TOO_SHORT": "número demasiado curto"
+  },
   "postcode": {
     "notFound": "este código postal parece não existir no seu país",
     "wrongLength": "Duração prevista de {{length}} para o seu país"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} tuitou. Vamos para {{goal}}"
   },
   "read more": "consulte Mais informação",
+  "region": "Região",
   "register": "Acrescentar meu nome",
   "reminder": {
     "intro": "Sabemos que seu governo está pedindo muitas informações. Enviaremos um único e-mail para lembrá-lo de preencher o formulário posteriormente"

@@ -13,26 +13,28 @@ import ProcaWidget from "./components/Widget.js";
 import { config as Config } from "./actionPage";
 
 let config = {
-  selector: ".proca-widget, #proca-form", // +, "[href='#proca_widget']"
+  selector: ".proca-widget", // +, "[href='#proca_widget']"
 };
 
 let rendered = false;
 
+const getJourney = () => Config.journey;
+
 const Alert = (text, severity) => {
   const selector = "proca_alert";
-  if (!document.querySelector("#" + selector)) {
-    let elem = document.createElement("div");
+  if (!document.querySelector(`#${selector}`)) {
+    const elem = document.createElement("div");
     elem.id = selector;
     document.body.appendChild(elem);
   }
 
   ReactDOM.render(
     <ProcaAlert text={text} severity={severity} />,
-    document.querySelector("#" + selector),
+    document.querySelector(`#${selector}`)
   );
 };
 
-const initPortals = (portals) => {
+const initPortals = portals => {
   portals.forEach((d, i) => {
     if (typeof d === "string") {
       portals[i] = d.replaceAll("/", "_");
@@ -42,7 +44,7 @@ const initPortals = (portals) => {
   });
 };
 
-const Widget = (args) => {
+const Widget = args => {
   if (rendered) return;
   if (args) config = { ...config, data: args };
   config = { ...config, ...Config };
@@ -55,7 +57,7 @@ const Widget = (args) => {
   config.portal && initPortals(config.portal);
 
   let dom = document.querySelector(config.selector);
-  let frag = document.createDocumentFragment();
+  const frag = document.createDocumentFragment();
   if (!dom) {
     dom = document.createElement("div");
     dom.id = "proca-widget";
@@ -67,12 +69,12 @@ const Widget = (args) => {
     } else {
       //
       alert(
-        "proca script isn't in the body, but no object with 'proca-widget' class",
+        "proca script isn't in the body, but no object with 'proca-widget' class"
       );
       // document.body.appendChild(dom);
     }
   } else {
-    Array.from(dom.childNodes).forEach((d) => {
+    Array.from(dom.childNodes).forEach(d => {
       frag.appendChild(d);
     });
   }
@@ -89,29 +91,29 @@ const Widget = (args) => {
       )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
-    dom,
+    dom
   );
 };
 
-Widget.jump = (step) => {
+Widget.jump = step => {
   // if step is empty, jump to next
   ProcaWidget.action(step);
 };
 
-const go = (action) => {
+const go = action => {
   goStep(action);
   scrollTo({ delay: 300 });
 };
 
 const set = (atom, key, value) => {
-  config[key] = value; // pointless?
+//  config[key] = value; // pointless?
   if ((atom && key && value) || (atom && typeof key === "object")) {
-    return setGlobalState(atom, key, value);
+    return setGlobalState(atom, key);
   }
   setConfig(key, value);
 };
 
-const render = (script) => {
+const render = script => {
   try {
     if (!script) {
       script = {};
@@ -138,7 +140,7 @@ const autoRender = () => {
         });
       } else {
         document.addEventListener("DOMContentLoaded", () =>
-          render(currentScript),
+          render(currentScript)
         );
       }
     } else {
@@ -173,6 +175,7 @@ export {
   ReactDOM,
   set,
   Widget,
+  getJourney,
 };
 
 //      <SignatureForm margin= "dense" variant= "filled" />

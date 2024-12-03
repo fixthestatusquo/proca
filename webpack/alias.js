@@ -7,7 +7,7 @@ const fs = require("fs");
 
 const { getConfigOverride, configFolder } = require("./config");
 
-module.exports = (webpack) => {
+module.exports = webpack => {
   const [, config] = getConfigOverride();
 
   const lang = config.lang; //config.lang ="de" vs config.locale "de@informal or de_AT"

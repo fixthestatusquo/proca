@@ -1,43 +1,43 @@
 {
-    "email": {
-        "button": {
-            "confirmOptin": "Jeg bekrefter min deltakelse og ønsker å motta nyheter fra dere.",
-            "confirmOptout": "Jeg bekrefter min deltakelse, men blir ikke oppdatert i fremtiden",
-            "confirmAction": "Ja, jeg er en ekte person!",
-            "confirmAlreadyMember": "Jeg bekrefter min deltakelse og mottar allerede e-poster fra dere."
-        },
-        "common": {
-            "organisation": "{{org.title}}",
-            "share": "Hjelp oss å nå målet vårt ved å [spre ordet]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
-            "greeting": "Hallo {{firstName}}",
-            "thanks": "Takk for din deltakelse på {{campaign.title}}. Vi setter stor pris på din støtte!",
-            "follow": "Følg oss på:",
-            "donate": "Vær så snill og vurder å gi en donasjon for å hjelpe oss med å nå vårt mål.",
-            "signature": "Med vennlig hilsen,\n\n{{org.title}}",
-            "consent": "\n          ",
-            "closing": "Med din hjelp er vi ett skritt nærmere målet vårt.",
-            "privacy": "Her finner du mer informasjon om våre retningslinjer for personvern og behandlingen av opplysningene dine.",
-            "unsubscribe": "Hvis du ikke ønsker å motta mer informasjon fra oss i fremtiden, kan du når som helst avbryte registreringen.",
-            "duplicate": "Takk for ditt engasjement og din dedikasjon til saken vår! For å opprettholde autentisitet og troverdighet må vi imidlertid fjerne dupliserte signaturer, og det ser ut til at du (eller noen som bruker {{email}}) allerede har gjort dette.  Du kan være trygg på at den første underskriften din ble talt og bidro til kampanjen vår.\nStøtten din har vært uvurderlig, og vi vil gjerne oppfordre deg til å ta et ekstra skritt for å forsterke påvirkningen din. Vi ber deg vurdere å kontakte venner og familie og oppfordre dem til å gjøre det samme med sine egne e-postadresser. På denne måten kan vi få bevegelsen vår til å vokse ytterligere og skape en enda sterkere kollektiv stemme for den forandringen vi ønsker.\nNok en gang vil vi takke deg hjertelig for din fortsatte støtte og ditt engasjement for denne kampanjen. Sammen kan vi gjøre en varig forskjell!",
-            "share_on": "Del på",
-            "thanksPledge": "Takk for at du har gitt tilsagn til {{campaign.title}}. Informasjonen din vil bli gjennomgått, og du vil motta en bekreftelse på e-post hvis profilen din vises på nettstedet."
-        },
-        "doi": {
-            "subject": "Ett trinn til: vennligst bekreft e-postadressen din",
-            "intro": "Bekreftelsen din er viktig for at vi skal kunne behandle den. Det er den eneste måten vi kan gjøre det troverdig at det virkelig står en person bak hver deltakelse, og det er viktig for kampanjens effekt og for å forhindre falske innsendinger/spam.",
-            "extra": "Du har mottatt denne bekreftelsen for å kunne fullføre registreringen, slik at vi kan behandle e-postadressen din og andre personopplysninger for å motta nyheter og nyhetsbrev. Dette er en automatisert prosedyre, og denne bekreftelsen er nødvendig for å unngå en uautorisert registreringsprosess."
-        },
-        "thankyou": {
-            "intro": "Takk for ditt bidrag til \"{{campaign.title}}\". Vi setter stor pris på din støtte!",
-            "subject": "Takk, her er hva mer du kan gjøre"
-        },
-        "actionConfirm": {
-            "subject": "Ett trinn til: vennligst bekreft e-postadressen din",
-            "intro": "Bekreftelsen din er viktig for at vi skal kunne behandle deltakelsen din. Dette er den eneste måten vi kan gjøre det troverdig at det virkelig står en person bak hver deltakelse, og det er viktig for kampanjens effekt og for å forhindre falske innsendinger/spam."
-        },
-        "doi_thankyou": {
-            "subject": "Takk for din deltakelse{{#privacy.optIn}}, ett skritt til, vennligst bekreft e-postadressen din.{{/privacy.optIn}}"
-        }
+  "email": {
+    "button": {
+      "confirmOptin": "Jeg bekrefter min deltakelse og ønsker å motta nyheter fra dere.",
+      "confirmOptout": "Jeg bekrefter min deltakelse, men blir ikke oppdatert i fremtiden",
+      "confirmAction": "Ja, jeg er en ekte person!",
+      "confirmAlreadyMember": "Jeg bekrefter min deltakelse og mottar allerede e-poster fra dere."
     },
-    "poweredBy": "DREVET AV"
+    "common": {
+      "organisation": "{{org.title}}",
+      "share": "Hjelp oss å nå målet vårt ved å [spre ordet]({{tracking.encodedLocation}}%3Fproca_go%3DShare).",
+      "greeting": "Hallo {{firstName}}",
+      "thanks": "Takk for din deltakelse på {{campaign.title}}. Vi setter stor pris på din støtte!",
+      "follow": "Følg oss på:",
+      "donate": "Vær så snill og vurder å gi en donasjon for å hjelpe oss med å nå vårt mål.",
+      "signature": "Med vennlig hilsen,\n\n{{org.title}}",
+      "consent": "\n          ",
+      "closing": "Med din hjelp er vi ett skritt nærmere målet vårt.",
+      "privacy": "Her finner du mer informasjon om våre retningslinjer for personvern og behandlingen av opplysningene dine.",
+      "unsubscribe": "Hvis du ikke ønsker å motta mer informasjon fra oss i fremtiden, kan du når som helst avbryte registreringen.",
+      "duplicate": "Takk for ditt engasjement og din dedikasjon til saken vår! For å opprettholde autentisitet og troverdighet må vi imidlertid fjerne dupliserte signaturer, og det ser ut til at du (eller noen som bruker {{email}}) allerede har gjort dette.  Du kan være trygg på at den første underskriften din ble talt og bidro til kampanjen vår.\nStøtten din har vært uvurderlig, og vi vil gjerne oppfordre deg til å ta et ekstra skritt for å forsterke påvirkningen din. Vi ber deg vurdere å kontakte venner og familie og oppfordre dem til å gjøre det samme med sine egne e-postadresser. På denne måten kan vi få bevegelsen vår til å vokse ytterligere og skape en enda sterkere kollektiv stemme for den forandringen vi ønsker.\nNok en gang vil vi takke deg hjertelig for din fortsatte støtte og ditt engasjement for denne kampanjen. Sammen kan vi gjøre en varig forskjell!",
+      "share_on": "Del på",
+      "thanksPledge": "Takk for at du har gitt tilsagn til {{campaign.title}}. Informasjonen din vil bli gjennomgått, og du vil motta en bekreftelse på e-post hvis profilen din vises på nettstedet."
+    },
+    "doi": {
+      "subject": "Ett trinn til: vennligst bekreft e-postadressen din",
+      "intro": "Bekreftelsen din er viktig for at vi skal kunne behandle den. Det er den eneste måten vi kan gjøre det troverdig at det virkelig står en person bak hver deltakelse, og det er viktig for kampanjens effekt og for å forhindre falske innsendinger/spam.",
+      "extra": "Du har mottatt denne bekreftelsen for å kunne fullføre registreringen, slik at vi kan behandle e-postadressen din og andre personopplysninger for å motta nyheter og nyhetsbrev. Dette er en automatisert prosedyre, og denne bekreftelsen er nødvendig for å unngå en uautorisert registreringsprosess."
+    },
+    "thankyou": {
+      "intro": "Takk for ditt bidrag til \"{{campaign.title}}\". Vi setter stor pris på din støtte!",
+      "subject": "Takk, her er hva mer du kan gjøre"
+    },
+    "actionConfirm": {
+      "subject": "Ett trinn til: vennligst bekreft e-postadressen din",
+      "intro": "Bekreftelsen din er viktig for at vi skal kunne behandle deltakelsen din. Dette er den eneste måten vi kan gjøre det troverdig at det virkelig står en person bak hver deltakelse, og det er viktig for kampanjens effekt og for å forhindre falske innsendinger/spam."
+    },
+    "doi_thankyou": {
+      "subject": "Takk for din deltakelse{{#privacy.optIn}}, ett skritt til, vennligst bekreft e-postadressen din.{{/privacy.optIn}}"
+    }
+  },
+  "poweredBy": "DREVET AV"
 }

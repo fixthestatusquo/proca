@@ -123,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Faire un don à {{campaign}}",
+    "payment": "Paiement",
     "payment_methods": {
       "card": "Carte",
       "default": "Faire un don",
@@ -158,6 +159,14 @@
   },
   "no": "non",
   "party": "Parti",
+  "phone": {
+    "INVALID_COUNTRY": "code pays manquant ou invalide",
+    "INVALID_LENGTH": "Longueur non valide",
+    "MISSING": "champ obligatoire",
+    "NOT_A_NUMBER": "Numéro de téléphone invalide",
+    "TOO_LONG": "numéro trop long",
+    "TOO_SHORT": "nombre trop court"
+  },
   "postcode": {
     "notFound": "ce code postal ne semble pas exister dans votre pays",
     "wrongLength": "durée prévue de {{length}} pour votre pays"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} ont twitté. Allons à {{goal}}"
   },
   "read more": "en savoir plus",
+  "region": "Région",
   "register": "Ajouter mon nom",
   "reminder": {
     "intro": "Nous savons que votre gouvernement vous demande beaucoup d'informations. Nous vous enverrons un seul courriel pour vous rappeler de remplir le formulaire ultérieurement."

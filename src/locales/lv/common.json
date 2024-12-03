@@ -123,6 +123,7 @@
     },
     "iban": "iban",
     "intro": "Ziedot {{campaign}}",
+    "payment": "Maksājums",
     "payment_methods": {
       "card": "Karte",
       "default": "Ziedot",
@@ -158,6 +159,14 @@
   },
   "no": "nav",
   "party": "Puse",
+  "phone": {
+    "INVALID_COUNTRY": "trūkst valsts koda vai tas ir nederīgs.",
+    "INVALID_LENGTH": "Nepareizs garums",
+    "MISSING": "obligātais lauks",
+    "NOT_A_NUMBER": "Nederīgs tālruņa numurs",
+    "TOO_LONG": "pārāk garš numurs",
+    "TOO_SHORT": "pārāk īss numurs"
+  },
   "postcode": {
     "notFound": "šķiet, ka šis pasta indekss jūsu valstī neeksistē.",
     "wrongLength": "paredzamais {{length}} ilgums jūsu valstī"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
   },
   "read more": "lasīt vairāk",
+  "region": "Reģions",
   "register": "Pievienojiet manu vārdu",
   "reminder": {
     "intro": "Mēs zinām, ka jūsu valdība pieprasa daudz informācijas. Mēs nosūtīsim jums vienu e-pasta vēstuli, lai atgādinātu, ka veidlapa jāaizpilda vēlāk."

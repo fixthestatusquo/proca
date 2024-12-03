@@ -48,7 +48,7 @@ const WallOfMeme = () => {
 
   useEffect(() => {
     (async () => {
-      let { data, error } = await supabase
+      const { data, error } = await supabase
         .from("meme_languages")
         .select("lang,total")
         .order("total", { ascending: false });
@@ -71,7 +71,7 @@ const WallOfMeme = () => {
       if (language && language !== "?") {
         query = query.eq("lang", language);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);
@@ -88,12 +88,12 @@ const WallOfMeme = () => {
       variant="filled"
       label="Language"
       value={language}
-      onChange={(e) => setLanguage(e.target.value)}
+      onChange={e => setLanguage(e.target.value)}
     >
       <MenuItem key="?" value="?">
         Choose your language
       </MenuItem>
-      {languages.map((option) => (
+      {languages.map(option => (
         <MenuItem key={option.lang} value={option.lang}>
           {localeName[option.lang]}
         </MenuItem>
@@ -105,16 +105,12 @@ const WallOfMeme = () => {
       <ProgressCounter />
       <LanguageSelect options={languages} />
       <Masonry>
-        {memes.map((d) => (
+        {memes.map(d => (
           <>
             <img
               key={d.hash}
-              src={
-                "https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/" +
-                d.hash +
-                ".jpeg"
-              }
-              alt={d.top + " " + d.bottom}
+              src={`https://vurrrokassxubbxlvufw.supabase.co/storage/v1/object/public/together4forests/meme/${d.hash}.jpeg`}
+              alt={`${d.top} ${d.bottom}`}
             />
           </>
         ))}

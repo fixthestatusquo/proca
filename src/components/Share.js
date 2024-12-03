@@ -13,6 +13,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
+import { decodeHtmlEntities } from "@lib/text";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
@@ -59,7 +60,7 @@ import {
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   emailIcon: {
     cursor: "pointer",
     width: theme.spacing(6),
@@ -99,7 +100,7 @@ export default function ShareAction(props) {
   const metadata = getMetadata(window.document, window.location);
   const { t, i18n } = useTranslation();
 
-  const shareUrl = (component) => {
+  const shareUrl = component => {
     // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
     if (
       component.render?.displayName &&
@@ -111,16 +112,16 @@ export default function ShareAction(props) {
         ? component
         : component.render.displayName.replace("ShareButton-", "");
     const url = new URL(config.component?.share?.url || window.location.href);
-    let params = url.searchParams;
+    const params = url.searchParams;
     if (config.component.share?.compact !== false) {
-      params.set("utm", ".share." + medium);
+      params.set("utm", `.share.${medium}`);
     } else {
       params.set("utm_source", "share");
       params.set("utm_medium", medium);
       //  params.set("utm_campaign", uuid());
       params.set("utm_campaign", "proca");
     }
-    let garbage = [];
+    const garbage = [];
     for (const key of params.keys()) {
       if (key === "doi") garbage.push(key);
       if (key.startsWith("proca_")) garbage.push(key);
@@ -129,11 +130,11 @@ export default function ShareAction(props) {
       config.component.share?.utm === false ||
       config.component.share?.compact
     ) {
-      ["utm_source", "utm_medium", "utm_campaign"].forEach((d) =>
-        garbage.push(d),
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(d =>
+        garbage.push(d)
       );
     }
-    garbage.forEach((key) => params.delete(key));
+    garbage.forEach(key => params.delete(key));
     return url.toString();
   };
   const next = () => {
@@ -152,6 +153,8 @@ export default function ShareAction(props) {
     addAction(actionPage, event, d, config.test);
   };
 
+  metadata.title = decodeHtmlEntities(metadata.title);
+  metadata.description = decodeHtmlEntities(metadata.description);
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
       <EmailConfirm />
@@ -174,13 +177,14 @@ export default function ShareAction(props) {
         {!config.component.share?.top && <Actions {...props} />}
         {config.component.share?.next && (
           <Button
+            size="large"
             endIcon={<SkipNextIcon />}
             className={classes.next}
             variant="contained"
             color="primary"
             onClick={next}
           >
-            {t("Next")}
+            {t(typeof config.component.share.next === 'string' ? config.component.share.next : "Next")}
           </Button>
         )}
       </Card>
@@ -194,7 +198,7 @@ export default function ShareAction(props) {
 
     const shareText = (key, target) => {
       const i18nKey = [
-        "campaign:" + key.replace("-", "."),
+        `campaign:${key.replace("-", ".")}`,
         "campaign:share.default",
         "share.message",
       ];
@@ -203,21 +207,21 @@ export default function ShareAction(props) {
         config.param.locales["share"] ||
         /* i18next-extract-disable-line */ t(i18nKey);
       if (target) {
-        msg += " " + target;
+        msg += ` ${target}`;
       }
       return msg;
     };
 
-    let twitters = [];
+    const twitters = [];
     data.targets &&
       data.targets.length < 2 &&
-      data.targets.forEach((d) => {
-        if (d.screen_name) twitters.push("@" + d.screen_name);
+      data.targets.forEach(d => {
+        if (d.screen_name) twitters.push(`@${d.screen_name}`);
       });
 
     let cardIcons;
 
-    const nativeShare = (medium) => {
+    const nativeShare = medium => {
       addShare("share", medium);
       const url = shareUrl(medium);
       shareWebAPI(url, medium);
@@ -230,18 +234,12 @@ export default function ShareAction(props) {
           url: url,
         })
         .then(() => addShare("share_confirmed", medium))
-        .catch((error) => console.error("Error sharing", error));
+        .catch(error => console.error("Error sharing", error));
     };
 
     const EmailAction = () => {
       const hrefGmail = () => {
-        return (
-          "https://mail.google.com/mail/?view=cm&fs=1" +
-          "&su=" +
-          encodeURIComponent(t("campaign:share.email.subject", "")) +
-          "&body=" +
-          encodeURIComponent(shareText("share.email.body"))
-        );
+        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(t("campaign:share.email.subject", ""))}&body=${encodeURIComponent(shareText("share.email.body"))}`;
       };
 
       const mailto = () => {
@@ -345,7 +343,7 @@ export default function ShareAction(props) {
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
-      "",
+      ""
     );
 
     let autoClosed = true;
@@ -355,7 +353,7 @@ export default function ShareAction(props) {
       if (autoClosed) {
         return;
       }
-      addShare("share_confirmed", medium);
+//      addShare("share_confirmed", medium);
       autoClosed = true;
     }
 
@@ -367,7 +365,7 @@ export default function ShareAction(props) {
       }, 1500);
     }
 
-    let drillProps = Object.assign({}, props);
+    const drillProps = Object.assign({}, props);
     delete drillProps.icon;
     const openShareDialogOnClick = config.component.share
       ? config.component?.share.open !== false
@@ -384,7 +382,7 @@ export default function ShareAction(props) {
     return (
       <IconButton
         {...drillProps}
-        id={"proca-share-" + medium}
+        id={`proca-share-${medium}`}
         component={props.component}
         url={shareUrl(props.component)}
         openShareDialogOnClick={openShareDialogOnClick}

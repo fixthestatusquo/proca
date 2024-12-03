@@ -13,7 +13,7 @@ import HiddenField from "@components/field/Hidden";
 
 import SearchIcon from "@material-ui/icons/Search";
 
-const Twitter = (props) => {
+const Twitter = props => {
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
   //  const { config } = useConfig();
@@ -25,19 +25,17 @@ const Twitter = (props) => {
 
   //variant={options.variant}
   //margin={options.margin}
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     props.form.handleBlur && props.form.handleBlur(e);
     fetchTwitter(e.target.value);
   };
 
-  const fetchTwitter = (screenName) => {
+  const fetchTwitter = screenName => {
     if (!screenName) {
       return;
     }
 
-    const api =
-      "https://twitter.proca.app?screen_name=" +
-      screenName.replace("https://twitter.com/", "");
+    const api = `https://twitter.proca.app?screen_name=${screenName.replace("https://twitter.com/", "")}`;
     //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
     setLoading(true);
     async function fetchAPI() {
@@ -59,7 +57,7 @@ const Twitter = (props) => {
         res.name = res.name
           .replace(
             /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
-            "",
+            ""
           ) // no emoji
           .replace(/#\w\w+\s?/g, ""); // no hashtag
         if (res.url) {
@@ -67,11 +65,12 @@ const Twitter = (props) => {
           const domain = new URL(res.url).hostname;
           domain &&
             !getValues("email") &&
-            setValue("email", "@" + domain.replace("www.", ""));
+            setValue("email", `@${domain.replace("www.", "")}`);
         }
         setValue("followers_count", res.followers_count);
         setValue("picture", res.profile_image_url_https);
         !getValues("comment") && setValue("comment", res.description);
+        props.onBlur?.(res);
       } catch (err) {
         setLoading(false);
         setError(field, { type: "api", message: err.toString() });
@@ -86,7 +85,7 @@ const Twitter = (props) => {
     fetchTwitter(getValues(field));
   };
 
-  const handleMouseDown = (event) => {
+  const handleMouseDown = event => {
     event.preventDefault();
   };
 
@@ -102,7 +101,7 @@ const Twitter = (props) => {
               ? t("help.submit", "use the search icon to get your picture")
               : t(
                   "help.twitter",
-                  "for quicker verification of your submission and display your picture",
+                  "for quicker verification of your submission and display your picture"
                 ))
           }
           InputProps={{

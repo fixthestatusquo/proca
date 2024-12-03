@@ -114,18 +114,19 @@
           class="btn-group btn-group-sm"
           role="toolbar"
           aria-label="Actions for the webmasters"
+          id="controls"
         >
           <button
             class="proca-next btn btn-secondary"
             title="skip to the next action"
             onClick="proca.go()"
           >
-            ⏵
+            ►
           </button>
           <button
             id="btn-help"
             title="How to embed this into your website?"
-            class="btn btn-secondary"
+            class="btn btn-secondary d-none"
             onClick="toggleHelp()"
           >
             ?
@@ -139,8 +140,10 @@
     <div id="root" class="container">
       <div class="proca-progress"></div>
       <div class="proca-widget" id="widget-demo">
-        <div class="alert alert-info proca-Petition" role="alert">
-          <p class="proca-description">
+        <p class="proca-description alert alert-info">
+This text (and all the rest of the page) is written in your CMS, the widget is the action form.
+        </p>
+        <div class="alert alert-warning proca-Petition" role="alert">
             if you want to, you can put a
             <b
               >div with the class="proca-Petition" that will only be shown on
@@ -149,25 +152,23 @@
             of the user journey, for instance to display the text of the
             campaign. <br />This is optional, this text is not part of the
             widget per se, you should put it on your website<br />
-            This is the text of the campaign, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
         </div>
         <div class="alert alert-warning proca-Share" role="alert">
           <p>
             if you want to, you can put a
             <b
               >div with the class="proca-Share" that will only be shown on the
-              petition step</b
+              share step</b
             >
-            of the user journey, for instance to display the text of the
-            campaign. <br />This is optional, this text is not part of the
-            widget per se, you should put it on your website<br />
+            of the user journey.
+          </p>
+        </div>
+        <div class="alert alert-danger proca-Share" role="alert">
+          <p>
+             Please test on your own website. This page is a placeholder to help you embed the widget on your site, not to test it
+            <b
+              >This is normal the share step looks incomplete, because it require to be on your page to be correct</b
+            >
           </p>
         </div>
       </div>
@@ -263,7 +264,8 @@
         </div>
 
         <div class="row">
-          <div class="col"></div>
+          <div class="col proca-messages">
+</div>
           <div></div>
         </div>
       </div>
@@ -311,6 +313,18 @@
 
         //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
+        createJourneyButtons();
+      }
+
+      function createJourneyButtons() {
+        const controller = document.getElementById("controls");
+        proca.getJourney().forEach((name) => {
+          const a = document.createElement("a");
+          a.className = "btn btn-info";
+          a.href = `#proca_${name}`;
+          a.textContent = name;
+          controller.appendChild(a);
+        });
       }
 
       if (typeof proca === "object") {
@@ -339,6 +353,7 @@
       });
 
       window.addEventListener("proca", function (e) {
+//      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
           help.classList.toggle("hidden");

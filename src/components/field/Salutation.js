@@ -4,13 +4,13 @@ import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-const Salutation = (props) => {
+const Salutation = props => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
   const [firstname, lastname] = watch(["firstname", "lastname"]);
   console.log(firstname, lastname);
 
-  let options = t("salutations", {
+  const options = t("salutations", {
     returnObjects: true,
     defaultValues: [
       { m: "Dear Mr. {{name}}" },
@@ -55,7 +55,7 @@ const Salutation = (props) => {
             native: true,
           }}
         >
-          <option key="empty" value=""></option>
+          <option key="empty" value="" />
           {Object.entries(options).map(([k, v]) => {
             return (
               <option key={k} value={k}>

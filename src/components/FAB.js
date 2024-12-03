@@ -67,7 +67,7 @@ const FABAction = (props, ref) => {
 
   if (intersection.isIntersecting) return null;
 
-  const createDom = (id) => {
+  const createDom = id => {
     let el = document.getElementById(id);
     if (!el) {
       el = document.createElement("div");
@@ -82,7 +82,7 @@ const FABAction = (props, ref) => {
   if (config.journey.includes("Petition")) defaultAction = "action.sign";
   if (config.journey.includes("Email")) defaultAction = "action.email";
 
-  let callToAction = t([
+  const callToAction = t([
     "campaign:mainAction",
     config.component.register?.button || "",
     defaultAction,

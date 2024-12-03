@@ -37,7 +37,7 @@ const CallToAction = ({ amount, frequency }) => {
   const { t } = useTranslation();
   const formatMoney = useFormatMoney();
   /* i18next-extract-disable-next-line */
-  return t("donation.button.cta." + frequency.toLowerCase(), {
+  return t(`donation.button.cta.${frequency.toLowerCase()}`, {
     amount: formatMoney(amount),
   });
 };

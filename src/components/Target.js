@@ -14,7 +14,7 @@ import Twitter from "./Twitter";
 export default function Target(props) {
   const [value, setValue] = React.useState("email");
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     setValue(newValue);
   };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { RecoilRoot } from "recoil";
 import ProcaStyle from "@components/ProcaStyle.js";
 import { ConfigProvider } from "@hooks/useConfig";
 
@@ -15,10 +14,8 @@ export default function Container(props) {
   };
 
   return (
-    <RecoilRoot>
       <ConfigProvider go={go} actions={actions} config={config}>
         <ProcaStyle>{props.children}</ProcaStyle>
       </ConfigProvider>
-    </RecoilRoot>
   );
 }
