@@ -1,47 +1,48 @@
 {
-  "poweredBy": "ALIMENTATO DA",
-  "email": {
-    "common": {
-      "greeting": "Ciao {{firstName}}",
-      "thanks": "Grazie per aver firmato il sito {{campaign.title}}. Il vostro sostegno è molto apprezzato!",
-      "share": "Aiutateci a raggiungere il nostro obiettivo diffondendo la notizia.",
-      "follow": "Seguiteci su:",
-      "donate": "Considerate l'opportunità di fare una donazione per aiutarci a realizzare la nostra missione.",
-      "closing": "Con il vostro aiuto, siamo un passo più vicini al nostro obiettivo",
-      "organisation": "{{org.title}}",
-      "consent": "\n          ",
-      "signature": "Cordiali saluti,\n\n{{org.title}}",
-      "privacy": "Potete trovare maggiori informazioni sulla nostra politica sulla privacy e sul trattamento dei vostri dati",
-      "unsubscribe": "Se non desiderate ricevere ulteriori informazioni da noi in futuro, potrete cancellare la vostra registrazione in qualsiasi momento.",
-      "duplicate": "Grazie per il vostro impegno e la vostra dedizione alla nostra causa! Tuttavia, nel nostro impegno a mantenere l'autenticità e la credibilità, dobbiamo rimuovere le firme duplicate e sembra che lei (o qualcuno che utilizza {{email}}) abbia già intrapreso questa azione.  Siate certi che la vostra firma iniziale è stata contata e ha contribuito alla nostra campagna.\nIl vostro sostegno è stato inestimabile e vorremmo gentilmente incoraggiarvi a fare un ulteriore passo per contribuire ad amplificare il vostro impatto. Vi invitiamo a contattare i vostri amici e familiari, esortandoli ad agire anche loro, utilizzando i loro indirizzi e-mail. In questo modo, possiamo far crescere ulteriormente il nostro movimento e creare una voce collettiva ancora più forte per il cambiamento che cerchiamo.\nAncora una volta, vi ringraziamo di cuore per il vostro continuo sostegno e la vostra dedizione a questa campagna. Insieme, possiamo avere un impatto duraturo!",
-      "share_on": "Condividi su",
-      "thanksPledge": "Grazie per esserti impegnato per {{campaign.title}}. I vostri dati saranno esaminati e riceverete un'e-mail di conferma se il vostro profilo sarà visualizzato sul sito web."
-    },
-    "thankyou": {
-      "intro": "Grazie per \"{{campaign.title}}\". Il vostro sostegno è apprezzato!",
-      "subject": "Grazie, ecco cos'altro si può fare"
-    },
-    "doi": {
-      "subject": "Ancora un passo: confermare l'iscrizione",
-      "confirm": "Cliccare sul link sottostante per confermare l'iscrizione",
-      "confirmButton": "Confermare",
-      "intro": "La vostra conferma è importante per poterla elaborare. È l'unico modo per rendere credibile che dietro ogni partecipazione ci sia davvero una persona, il che è importante per l'impatto di questa campagna e per evitare invii falsi/spam.",
-      "extra": "Avete ricevuto questa conferma per completare con successo la registrazione e permetterci di elaborare il vostro indirizzo e-mail e altri dati personali per ricevere notizie o newsletter. Si tratta di una procedura automatizzata e la conferma è necessaria per la registrazione al fine di evitare un processo di registrazione non autorizzato."
-    },
-    "actionConfirm": {
-      "subject": "Ancora un passo: confermare la firma",
-      "confirm": "Cliccate sul link sottostante per confermare la vostra azione",
-      "confirmButton": "Confermare",
-      "intro": "La vostra conferma è importante per poter elaborare la vostra partecipazione. È l'unico modo per rendere credibile che dietro ogni partecipazione ci sia davvero una persona, il che è importante per l'impatto di questa campagna e per evitare invii falsi/spam."
-    },
-    "button": {
-      "confirmOptout": "Confermo la mia partecipazione ma non tenetemi aggiornato in futuro",
-      "confirmAction": "Sì, sono una persona vera!",
-      "confirmOptin": "Confermo la mia partecipazione e desidero ricevere notizie da voi.",
-      "confirmAlreadyMember": "Confermo la mia partecipazione e ricevo già le vostre email"
-    },
-    "doi_thankyou": {
-      "subject": "Grazie per la tua partecipazione{{#privacy.optIn}}, un ulteriore passo, per favore conferma il tuo indirizzo email{{/privacy.optIn}}"
+    "poweredBy": "ALIMENTATO DA",
+    "email": {
+        "common": {
+            "greeting": "Ciao {{firstName}}",
+            "thanks": "Grazie per aver firmato il sito {{campaign.title}}. Il vostro sostegno è molto apprezzato!",
+            "share": "Aiutateci a raggiungere il nostro obiettivo diffondendo la notizia.",
+            "follow": "Seguiteci su:",
+            "donate": "Considerate l'opportunità di fare una donazione per aiutarci a realizzare la nostra missione.",
+            "closing": "Con il vostro aiuto, siamo un passo più vicini al nostro obiettivo",
+            "organisation": "{{org.title}}",
+            "consent": "\n          ",
+            "signature": "Cordiali saluti,\n\n{{org.title}}",
+            "privacy": "Potete trovare maggiori informazioni sulla nostra politica sulla privacy e sul trattamento dei vostri dati",
+            "unsubscribe": "Se non desiderate ricevere ulteriori informazioni da noi in futuro, potrete cancellare la vostra registrazione in qualsiasi momento.",
+            "duplicate": "Grazie per il vostro impegno e la vostra dedizione alla nostra causa! Tuttavia, nel nostro impegno a mantenere l'autenticità e la credibilità, dobbiamo rimuovere le firme duplicate e sembra che lei (o qualcuno che utilizza {{email}}) abbia già intrapreso questa azione.  Siate certi che la vostra firma iniziale è stata contata e ha contribuito alla nostra campagna.\nIl vostro sostegno è stato inestimabile e vorremmo gentilmente incoraggiarvi a fare un ulteriore passo per contribuire ad amplificare il vostro impatto. Vi invitiamo a contattare i vostri amici e familiari, esortandoli ad agire anche loro, utilizzando i loro indirizzi e-mail. In questo modo, possiamo far crescere ulteriormente il nostro movimento e creare una voce collettiva ancora più forte per il cambiamento che cerchiamo.\nAncora una volta, vi ringraziamo di cuore per il vostro continuo sostegno e la vostra dedizione a questa campagna. Insieme, possiamo avere un impatto duraturo!",
+            "share_on": "Condividi su",
+            "thanksPledge": "Grazie per esserti impegnato per {{campaign.title}}. I vostri dati saranno esaminati e riceverete un'e-mail di conferma se il vostro profilo sarà visualizzato sul sito web."
+        },
+        "thankyou": {
+            "intro": "Grazie per \"{{campaign.title}}\". Il vostro sostegno è apprezzato!",
+            "subject": "Grazie, ecco cos'altro si può fare"
+        },
+        "doi": {
+            "subject": "Ancora un passo: confermare l'iscrizione",
+            "confirm": "Cliccare sul link sottostante per confermare l'iscrizione",
+            "confirmButton": "Confermare",
+            "intro": "La vostra conferma è importante per poterla elaborare. È l'unico modo per rendere credibile che dietro ogni partecipazione ci sia davvero una persona, il che è importante per l'impatto di questa campagna e per evitare invii falsi/spam.",
+            "extra": "Avete ricevuto questa conferma per completare con successo la registrazione e permetterci di elaborare il vostro indirizzo e-mail e altri dati personali per ricevere notizie o newsletter. Si tratta di una procedura automatizzata e la conferma è necessaria per la registrazione al fine di evitare un processo di registrazione non autorizzato."
+        },
+        "actionConfirm": {
+            "subject": "Ancora un passo: confermare la firma",
+            "confirm": "Cliccate sul link sottostante per confermare la vostra azione",
+            "confirmButton": "Confermare",
+            "intro": "La vostra conferma è importante per poter elaborare la vostra partecipazione. È l'unico modo per rendere credibile che dietro ogni partecipazione ci sia davvero una persona, il che è importante per l'impatto di questa campagna e per evitare invii falsi/spam.",
+            "extra": "Avete ricevuto questa conferma per completare con successo la registrazione."
+        },
+        "button": {
+            "confirmOptout": "Confermo la mia partecipazione ma non tenetemi aggiornato in futuro",
+            "confirmAction": "Sì, sono una persona vera!",
+            "confirmOptin": "Confermo la mia partecipazione e desidero ricevere notizie da voi.",
+            "confirmAlreadyMember": "Confermo la mia partecipazione e ricevo già le vostre email"
+        },
+        "doi_thankyou": {
+            "subject": "Grazie per la tua partecipazione{{#privacy.optIn}}, un ulteriore passo, per favore conferma il tuo indirizzo email{{/privacy.optIn}}"
+        }
     }
-  }
 }
