@@ -1,1 +1,243 @@
-{}
+{
+  "Address": "Adresa",
+  "Amount": "Shuma",
+  "Another": "Tjetër",
+  "Birthdate": "Data e lindjes",
+  "City": "Qyteti",
+  "Comment": "Koment",
+  "Country": "Vendi",
+  "Download": "Shkarko",
+  "Download explanation": "Dokumenti juaj është gati, po ju dërgojmë edhe një email",
+  "Email": "Email",
+  "First name": "Emri",
+  "Language": "Gjuha",
+  "Last name": "Mbiemri",
+  "Locality": "Zona",
+  "Next": "Tjetër",
+  "Organisation": "Organizata",
+  "Other": "Tjetër",
+  "party": "Palë",
+  "Phone": "Telefoni",
+  "Postal Code": "Kodi postar",
+  "Salutation": "Përshëndetje",
+  "Sorry, we couldn't save": "Na vjen keq, nuk mundëm ta ruanim",
+  "Street": "Rruga",
+  "Subject": "Subjekti",
+  "Thank you": "Faleminderit",
+  "Your message": "Mesazhi juaj",
+  "region": "Rajoni",
+  "action": {
+    "donate": "Dhuroni",
+    "eci": "Nënshkruaj ECI",
+    "email": "Dërgo një email",
+    "join": "Bashkohuni",
+    "register": "Regjistrohuni",
+    "remindeSent": "Kujtesa u dërgua",
+    "reminder": "Më kujtoni më vonë",
+    "reminderEmail": "Më kujtoni me email",
+    "share": "Shpërndaje",
+    "sign": "Nënshkruaj tani!",
+    "stayInformed": "Qëndroni të informuar",
+    "takeAction": "Merrni masë",
+    "twitter": "Cicëroni"
+  },
+  "camera": {
+    "start": "nisni kamerën",
+    "take": "Bëni një foto",
+    "take-another": "Bëni një tjetër"
+  },
+  "closed": "##faleminderit {{total}} mbështetësve!\n\nNe kemi mbyllur këtë veprim, por puna jonë nuk përfundon këtu, prandaj ju lutemi **lini emailin tuaj për të qëndruar të informuar për hapat e ardhshëm**",
+  "confirm": "A jeni i sigurt?",
+  "consent": {
+    "actionConfirmed": "Veprimi u konfirmua",
+    "actionRejected": "Veprimi u anulua me sukses",
+    "confirm": "<0>A jeni i sigurt?</0><1>Duke zgjedhur 'Jo', nuk do të mund të dini nëse kjo fushatë ka sukses, apo nëse ka më shumë veprime që duhet të ndërmarrim së bashku për ta fituar atë. Nëse zgjidhni 'Po', ne do t'ju mbajmë të informuar për këtë dhe për fushatat tona të tjera urgjente.</1><2>Mund të çregjistroheni në çdo kohë.</2>",
+    "confirmAction": "Ju lutemi kontrolloni emailin tuaj tani dhe klikoni në lidhjen që përmban (kontrolloni dosjen e spamit!).\n Vetëm atëherë veprimi juaj do të llogaritet!\nKonfirmimi juaj është thelbësor për peshën politike të veprimit. Kjo garanton që pas çdo dorëzimi ka një person të vërtetë. Ne do të presim konfirmimin tuaj...",
+    "confirmOptIn": "Mos harroni të kontrolloni kutinë tuaj postare (përfshirë dosjen e spam-it!) dhe të konfirmoni pajtimin tuaj me email",
+    "emailSent": "Ne ju kemi dërguar një email në {{email}}!",
+    "implicit": "Dorëzoni këtë formular për të marrë email nga {{name}}",
+    "intro": "Mësoni më shumë rreth fushatave, veprimeve dhe përparimit të {{campaign}}",
+    "opt-in": "Po, dua që {{partner}} të më mbajë të informuar përmes emailit",
+    "opt-in-both": "Po, dua që {{partner}} dhe {{lead}} të më mbajnë të informuar përmes emailit",
+    "opt-out": "Jo, mos më dërgoni email ose mos më mbani të përditësuar në të ardhmen",
+    "optInConfirmed": "Pajtim i konfirmuar",
+    "processing": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave dhe cookies në përputhje me <1>politikën tonë të privatësisë</1>",
+    "processing-nocookie": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave në përputhje me <1>politikën tonë të privatësisë</1>",
+    "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë",
+    "subButton": {
+      "opt-in": "dhe merrni informacion",
+      "opt-out": "dhe mos më mbani të informuar"
+    }
+  },
+  "postcode": {
+    "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj",
+    "notFound": "ky kod postar duket se nuk ekziston në vendin tuaj"
+  },
+  "date": {
+    "error": "data e pavlefshme. formati: DD.MM.YYYY"
+  },
+  "dateFormat": "DD/MM/YYYY",
+  "dialogTitle": "Më mbani të informuar rreth fushatës",
+  "donation": {
+    "payment": "Pagesa",
+    "amount": {
+      "change": "Ndrysho shumën",
+      "intro": "Zgjidhni një Shumë"
+    },
+    "average": "Dhurata mesatare është {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "Dhuroni {{amount}} çdo muaj",
+        "oneoff": "Dhuroni {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Numri i kartës së kreditit mungon"
+      },
+      "form": {
+        "invalid": {
+          "iban": "IBAN"
+        }
+      },
+      "general": "i përgjithshëm",
+      "initialisation": "inicializimi"
+    },
+    "form": {
+      "error": {
+        "minimum": "Dhurata minimale është {{amount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "Bëjeni këtë një dhuratë javore?",
+        "oneoff": "Dhuroni",
+        "weekly": "Bëjeni mujore?"
+      },
+      "each": {
+        "monthly": "çdo javë",
+        "oneoff": "Një herë",
+        "weekly": "çdo muaj"
+      },
+      "feedback": {
+        "monthly": "Po dhuroj {{amount}} {{frequency}}",
+        "oneoff": "Po dhuroj {{amount}}"
+      },
+      "monthly": "mujore",
+      "oneoff": "një herë",
+      "weekly": "javore",
+      "yearly": "vjetore"
+    },
+    "iban": "IBAN",
+    "intro": "Dhuroni për {{org}}",
+    "payment_methods": {
+      "card": "Kartë",
+      "default": "Dhuroni",
+      "intro": "Si dëshironi të dhuroni?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Mënyra e Pagesës"
+    },
+    "thanks": "Faleminderit për dhuratën tuaj!",
+    "to": "Dhuratë për {{organisation}}"
+  },
+  "phone": {
+    "MISSING": "fusha e kërkuar",
+    "NOT_A_NUMBER": "Numri i telefonit është i pavlefshëm",
+    "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
+    "TOO_SHORT": "numri është shumë i shkurtër",
+    "TOO_LONG": "numri është shumë i gjatë",
+    "INVALID_LENGTH": "Gjatësia e pavlefshme"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} nuk mund të pranojë email",
+    "salutation": "I nderuar zotëri/zonjë",
+    "salutation_female": "E nderuar znj. {{target.last_name}}",
+    "salutation_info": "(Emri i marrësit do të vendoset para dërgimit)",
+    "salutation_male": "I nderuar z. {{target.last_name}}",
+    "salutation_placeholder": "I nderuar [marrës]"
+  },
+  "error": {
+    "date": "formati duhet të jetë DD.MM.YYYY"
+  },
+  "image": {
+    "addSticker": "shtoni ngjitëse",
+    "addStickerTitle": "Kliko/Prek për të shtuar një ngjitëse në foto",
+    "benefit": "Shtimi i një imazhi për të dërguar - dhe që mund ta ndani në hapin tjetër - do ta bënte veprimin tuaj më të efektshëm",
+    "options": "A do të dëshironit të bëni një nga këto veprime?",
+    "publish": "Duket mirë, publiko!",
+    "select": "Zgjidhni një nga fotot tona",
+    "takeTitle": "Bëni një foto me telefonin tuaj",
+    "upload": "Ngarkoni një foto",
+    "wanttoadd": "Dëshironi të shtoni një imazh?"
+  },
+  "no": "jo",
+  "progress": {
+    "donate": "{{total}} kanë dhuruar. Le të arrijmë te {{goal}}",
+    "email": "{{total}} kanë dërguar një email. Le të arrijmë te {{goal}}",
+    "register": "{{total}} janë regjistruar. Le të arrijmë te {{goal}}",
+    "share": "{{total}} kanë shpërndarë. Le të arrijmë te {{goal}}",
+    "sign": "{{total}} kanë nënshkruar. Le të arrijmë te {{goal}}",
+    "twitter": "{{total}} kanë cicëruar. Le të arrijmë te {{goal}}"
+  },
+  "read more": "lexo më shumë",
+  "register": "Shtoni emrin tim",
+  "reminder": {
+    "intro": "Ne e dimë që qeveria juaj po kërkon shumë informacion. Ne do t'ju dërgojmë një email të vetëm për t'ju kujtuar të plotësoni formularin më vonë"
+  },
+  "required": "e nevojshme",
+  "required field": "fusha e kërkuar",
+  "salutations": {
+    "f": "I nderuar z. {{name}}",
+    "m": "E nderuar znj. {{name}}",
+    "other": "I nderuar/nderuar {{name}}"
+  },
+  "select_all": "Zgjidh të gjitha",
+  "share": {
+    "intro": "Shkëlqyeshëm, ju e keni nënshkruar 👍. Për të shumëfishuar ndikimin tuaj, shpërndajeni gjerësisht për të siguruar që të gjithë ta shohin këtë peticion 🙏.",
+    "message": "Duhet ta nënshkruash këtë!",
+    "title": "Pothuajse përfunduat! Hidhni hapin tjetër."
+  },
+  "step": {
+    "eci": {
+      "secure": "i sigurt",
+      "subheader": "",
+      "title": ""
+    },
+    "register": {
+      "title": ""
+    }
+  },
+  "supporter": {
+    "not_you": "jo ju?",
+    "welcome": "Mirësevini, {{firstname}}!",
+    "greeting": "Mirë se vini {{firstname}}!"
+  },
+  "supporterHint": "{{name}}, {{area}}",
+  "target": {
+    "country": {
+      "empty": "Zgjidhni një vend tjetër, nuk ka askënd për të kontaktuar në {{country}}",
+      "undefined": "Zgjidhni një vend"
+    },
+    "missing": "Zgjidhni të paktën 1 nga {{total}}",
+    "postcode": {
+      "empty": "nuk ka askënd për të kontaktuar në {{area}}",
+      "undefined": "Vendosni kodin tuaj postar"
+    },
+    "random_one": "Zgjedhur një nga {{total}} objektivat tona më të rëndësishme",
+    "random_other": "Zgjedhur {{count}} nga {{total}} objektivat tona më të rëndësishme",
+    "selected": "{{total}} marrës(i)"
+  },
+  "twitter": {
+    "actionText": "tekst veprimi",
+    "again": "Cicëroni te një person tjetër",
+    "choice": "Çfarë dëshironi të bëni më pas?",
+    "instruction": "Ju lutemi përfundoni dërgimin e cicërimës në dritaren e re (në twitter.com)",
+    "organisation": "Llogaria juaj e organizatës në Twitter",
+    "screenName": "Llogaria në Twitter"
+  },
+  "unknown postcode": "kod postar i panjohur",
+  "yes": "po",
+  "you need to be 18 years old": "duhet të jeni 18 vjeç"
+}
+
