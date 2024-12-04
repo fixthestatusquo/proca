@@ -34,6 +34,7 @@ import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
+import Gender from "@components/field/Gender";
 import { makeStyles } from "@material-ui/core/styles";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
@@ -543,16 +544,6 @@ const EmailComponent = props => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
-  const UnicodeButton = ({ icon, tooltip = "", gender = "" }) => (
-    <Tooltip title={tooltip}>
-      <IconButton
-        size="small"
-        onClick={() => setValue("message", gender ? data[`message_${gender}`] : data.message)}
-      >
-        <Typography variant="h4"> {icon}</Typography>
-      </IconButton>
-    </Tooltip>
-  );
 
   const ExtraFields = props => {
     return (
@@ -878,12 +869,8 @@ const EmailComponent = props => {
       <Collapse
         in={profiles.length > 0 || config.component.email?.server !== false}
       >
-        {(data.message_female || data.message_male) && (
-          <UnicodeButton icon="○" tooltip="no gender letter" />
-        )}
-        {data.message_female && <UnicodeButton icon="♀" gender="female" />}
-        {data.message_male && <UnicodeButton icon="♂" gender="male" />}
 
+        <Gender form={form} data={data} />
         <Register
           form={form}
           emailProvider={emailProvider}
