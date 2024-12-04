@@ -157,10 +157,11 @@ most fields can either be displayed or hidden, most fields can either be require
 
 - `config.component.register.field.organisation`. do we collect the organisation details (with prefill options using twitter)
 - `config.component.register.field.lastname: {required:boolean}`
-- `config.component.register.field.postcode: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.country: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.comment: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.phone: boolean`. (show/hide)
+- `config.component.register.field.postcode: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.country: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.comment: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.phone: boolean` (show/hide)
+- `config.component.register.field.gender: boolean` (show/hide), false by default
 
 To add helper text for the comment (for example: "Your message may be used..."):
 `locales.common.help.comment: "Your message may be used..."`
