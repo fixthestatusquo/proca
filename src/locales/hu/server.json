@@ -1,43 +1,44 @@
 {
-  "email": {
-    "common": {
-      "privacy": "További információkat talál adatvédelmi politikánkról és az Ön adatainak feldolgozásáról.",
-      "consent": "\n          ",
-      "thanks": "Köszönjük, hogy részt vesz a {{campaign.title}} oldalon. Nagyra értékeljük a támogatását!",
-      "closing": "Az önök segítségével egy lépéssel közelebb kerültünk a célunkhoz.",
-      "greeting": "Hello {{firstName}}",
-      "share_on": "Megosztás a",
-      "unsubscribe": "Ha a jövőben nem kíván további információkat kapni tőlünk, bármikor lemondhatja regisztrációját.",
-      "signature": "Tisztelettel,\n\n{{org.title}}",
-      "follow": "Kövessen minket:",
-      "donate": "Kérjük, fontolja meg az adományozás lehetőségét, hogy segítsen küldetésünk megvalósításában.",
-      "share": "Segítsen nekünk elérni célunkat [a hír terjesztésével] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-      "duplicate": "Köszönjük az elkötelezettségüket és az ügyünk iránti elkötelezettségüket! A hitelesség és hitelesség fenntartása érdekében azonban **eltávolítanunk kell a duplikált** aláírásokat, és úgy tűnik, hogy Ön (vagy valaki, aki a {{email}} címet használja) már megtette ezt a lépést.  Nyugodt lehetsz, **az eredeti aláírásodat megszámoltuk** és hozzájárult a kampányunkhoz.\nTámogatásod felbecsülhetetlen értékű volt, és szeretnénk arra bátorítani, hogy tegyél még egy lépést, hogy növeld a hatásodat. Kérjük, fontolja meg, hogy a saját e-mail címét használva szólítsa meg barátait és családtagjait, hogy ők is tegyenek lépéseket. Így tovább növelhetjük mozgalmunk számát, és még erősebb kollektív hangot adhatunk a változásnak, amelyre törekszünk.\nIsmét kifejezzük szívből jövő hálánkat a kampány iránti folyamatos támogatásukért és elkötelezettségükért. Együtt tartós hatást érhetünk el!",
-      "organisation": "{{org.title}}",
-      "thanksPledge": "Köszönjük, hogy felajánlotta a {{campaign.title}}. Adatait átnézzük, és ha profilja megjelenik a honlapon, akkor visszaigazoló e-mailt kap."
+    "email": {
+        "common": {
+            "privacy": "További információkat talál adatvédelmi politikánkról és az Ön adatainak feldolgozásáról.",
+            "consent": "\n          ",
+            "thanks": "Köszönjük, hogy részt vesz a {{campaign.title}} oldalon. Nagyra értékeljük a támogatását!",
+            "closing": "Az önök segítségével egy lépéssel közelebb kerültünk a célunkhoz.",
+            "greeting": "Hello {{firstName}}",
+            "share_on": "Megosztás a",
+            "unsubscribe": "Ha a jövőben nem kíván további információkat kapni tőlünk, bármikor lemondhatja regisztrációját.",
+            "signature": "Tisztelettel,\n\n{{org.title}}",
+            "follow": "Kövessen minket:",
+            "donate": "Kérjük, fontolja meg az adományozás lehetőségét, hogy segítsen küldetésünk megvalósításában.",
+            "share": "Segítsen nekünk elérni célunkat [a hír terjesztésével] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Köszönjük az elkötelezettségüket és az ügyünk iránti elkötelezettségüket! A hitelesség és hitelesség fenntartása érdekében azonban **eltávolítanunk kell a duplikált** aláírásokat, és úgy tűnik, hogy Ön (vagy valaki, aki a {{email}} címet használja) már megtette ezt a lépést.  Nyugodt lehetsz, **az eredeti aláírásodat megszámoltuk** és hozzájárult a kampányunkhoz.\nTámogatásod felbecsülhetetlen értékű volt, és szeretnénk arra bátorítani, hogy tegyél még egy lépést, hogy növeld a hatásodat. Kérjük, fontolja meg, hogy a saját e-mail címét használva szólítsa meg barátait és családtagjait, hogy ők is tegyenek lépéseket. Így tovább növelhetjük mozgalmunk számát, és még erősebb kollektív hangot adhatunk a változásnak, amelyre törekszünk.\nIsmét kifejezzük szívből jövő hálánkat a kampány iránti folyamatos támogatásukért és elkötelezettségükért. Együtt tartós hatást érhetünk el!",
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Köszönjük, hogy felajánlotta a {{campaign.title}}. Adatait átnézzük, és ha profilja megjelenik a honlapon, akkor visszaigazoló e-mailt kap."
+        },
+        "thankyou": {
+            "subject": "Köszönöm, itt van, amit még tehetsz.",
+            "intro": "Köszönjük a részvételt a \"{{campaign.title}}\" számára. Nagyra értékeljük a támogatását!"
+        },
+        "doi": {
+            "extra": "Ezt a visszaigazolást azért kapta, hogy sikeresen befejezze a regisztrációt, és lehetővé tegye számunkra, hogy feldolgozzuk az Ön e-mail címét és egyéb személyes adatait, hogy híreket vagy hírleveleket kaphassunk. Ez egy automatizált eljárás, és ez a megerősítés szükséges a regisztrációhoz, hogy elkerüljük a jogosulatlan regisztrációs folyamatot.",
+            "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét",
+            "intro": "A megerősítés fontos ahhoz, hogy feldolgozhassuk. Ez az egyetlen módja annak, hogy hitelessé tegyük, hogy minden egyes részvétel mögött valóban egy személy áll, és ez fontos a kampány hatása szempontjából, valamint a hamis/spam beküldések megelőzése érdekében."
+        },
+        "doi_thankyou": {
+            "subject": "Köszönjük a részvételt{{#privacy.optIn}}, még egy lépés, kérjük, erősítse meg az e-mail címét.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Megerősítem részvételemet és már kapok e-maileket Öntől",
+            "confirmOptout": "Megerősítem a részvételemet, de a jövőben ne tájékoztassanak a fejleményekről",
+            "confirmAction": "Igen, én egy igazi személy vagyok!",
+            "confirmOptin": "Megerősítem részvételemet és szeretnék híreket kapni Öntől"
+        },
+        "actionConfirm": {
+            "intro": "Az Ön visszaigazolása fontos ahhoz, hogy feldolgozhassuk a részvételét. Ez az egyetlen módja annak, hogy hitelessé tegyük, hogy minden egyes részvétel mögött valóban egy személy áll, és ez fontos a kampány hatása szempontjából, valamint a hamis/spam beküldések megelőzése érdekében.",
+            "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét",
+            "extra": "Ezt a visszaigazolást a regisztráció sikeres befejezéséhez kapta."
+        }
     },
-    "thankyou": {
-      "subject": "Köszönöm, itt van, amit még tehetsz.",
-      "intro": "Köszönjük a részvételt a \"{{campaign.title}}\" számára. Nagyra értékeljük a támogatását!"
-    },
-    "doi": {
-      "extra": "Ezt a visszaigazolást azért kapta, hogy sikeresen befejezze a regisztrációt, és lehetővé tegye számunkra, hogy feldolgozzuk az Ön e-mail címét és egyéb személyes adatait, hogy híreket vagy hírleveleket kaphassunk. Ez egy automatizált eljárás, és ez a megerősítés szükséges a regisztrációhoz, hogy elkerüljük a jogosulatlan regisztrációs folyamatot.",
-      "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét",
-      "intro": "A megerősítés fontos ahhoz, hogy feldolgozhassuk. Ez az egyetlen módja annak, hogy hitelessé tegyük, hogy minden egyes részvétel mögött valóban egy személy áll, és ez fontos a kampány hatása szempontjából, valamint a hamis/spam beküldések megelőzése érdekében."
-    },
-    "doi_thankyou": {
-      "subject": "Köszönjük a részvételt{{#privacy.optIn}}, még egy lépés, kérjük, erősítse meg az e-mail címét.{{/privacy.optIn}}"
-    },
-    "button": {
-      "confirmAlreadyMember": "Megerősítem részvételemet és már kapok e-maileket Öntől",
-      "confirmOptout": "Megerősítem a részvételemet, de a jövőben ne tájékoztassanak a fejleményekről",
-      "confirmAction": "Igen, én egy igazi személy vagyok!",
-      "confirmOptin": "Megerősítem részvételemet és szeretnék híreket kapni Öntől"
-    },
-    "actionConfirm": {
-      "intro": "Az Ön visszaigazolása fontos ahhoz, hogy feldolgozhassuk a részvételét. Ez az egyetlen módja annak, hogy hitelessé tegyük, hogy minden egyes részvétel mögött valóban egy személy áll, és ez fontos a kampány hatása szempontjából, valamint a hamis/spam beküldések megelőzése érdekében.",
-      "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét"
-    }
-  },
-  "poweredBy": "POWERED BY"
+    "poweredBy": "POWERED BY"
 }

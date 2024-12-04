@@ -7,14 +7,17 @@ import CancelIcon from "@material-ui/icons/Cancel";
 const Salutation = props => {
   const { t } = useTranslation();
   const { setValue, watch } = props.form;
+  const [firstname, lastname] = watch(["firstname", "lastname"]);
+  console.log(firstname, lastname);
 
   const options = t("salutations", {
     returnObjects: true,
     defaultValues: [
-      { m: "Dear {{name}}" },
-      { f: "Dear {{name}}" },
+      { m: "Dear Mr. {{name}}" },
+      { f: "Dear Ms. {{name}}" },
       { other: "Dear {{name}}" },
     ],
+    name: firstname,
   });
   const sal = watch("salutation") || "";
   const [open, setOpen] = useState(false);
