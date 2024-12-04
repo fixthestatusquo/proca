@@ -36,7 +36,8 @@
         },
         "actionConfirm": {
             "intro": "Teie kinnitus on oluline, et saaksime teie osalemist menetleda. See on ainus viis, kuidas me saame teha usaldusväärseks, et iga osalemise taga on tõesti inimene, ja see on oluline selle kampaania mõju seisukohalt ning võltsitud/spämmi esitamise vältimiseks.",
-            "subject": "Veel üks samm: palun kinnitage oma e-posti aadress"
+            "subject": "Veel üks samm: palun kinnitage oma e-posti aadress",
+            "extra": "Te olete saanud selle kinnituse, et registreerimine edukalt lõpule viia."
         }
     },
     "poweredBy": "POWERED BY"

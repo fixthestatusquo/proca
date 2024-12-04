@@ -1,43 +1,44 @@
 {
-  "email": {
-    "common": {
-      "privacy": "Več informacij o našem pravilniku o zasebnosti in obdelavi vaših podatkov lahko najdete",
-      "consent": "\n          ",
-      "thanks": "Zahvaljujemo se vam za sodelovanje na spletni strani {{campaign.title}}. Vaša podpora je dobrodošla!",
-      "closing": "Z vašo pomočjo smo še korak bližje cilju",
-      "greeting": "Pozdravljeni {{firstName}}",
-      "share_on": "Delite na",
-      "unsubscribe": "Če od nas v prihodnje ne želite več prejemati informacij, lahko svojo registracijo kadar koli prekličete.",
-      "signature": "S spoštovanjem,\n\n{{org.title}}",
-      "follow": "Sledite nam na:",
-      "donate": "Razmislite o donaciji, ki nam bo pomagala uresničiti naše poslanstvo.",
-      "share": "Pomagajte nam doseči naš cilj tako, da [širite informacije] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-      "duplicate": "Zahvaljujemo se vam za vašo zavzetost in predanost našemu namenu! Vendar pa moramo zaradi ohranjanja avtentičnosti in verodostojnosti **odstraniti podvojene** podpise in zdi se, da ste vi (ali nekdo, ki uporablja {{email}}) to že storili.  Bodite prepričani, da je bil vaš prvotni podpis upoštevan** in je prispeval k naši kampanji.\nVaša podpora je bila neprecenljiva, zato vas vljudno pozivamo, da naredite še dodaten korak in tako povečate svoj vpliv. Prosimo, razmislite o tem, da bi se obrnili na svoje prijatelje in družino ter jih pozvali, naj prav tako ukrepajo, pri čemer naj uporabijo svoje e-poštne naslove. Tako bomo lahko še bolj razširili naše gibanje in ustvarili še močnejši skupni glas za spremembe, za katere si prizadevamo.\nŠe enkrat se vam iskreno zahvaljujemo za vašo nadaljnjo podporo in predanost tej kampanji. Skupaj lahko dosežemo trajni učinek!",
-      "organisation": "{{org.title}}",
-      "thanksPledge": "Zahvaljujemo se vam za obljubo za {{campaign.title}}. Vaši podatki bodo pregledani in prejeli boste potrditveno e-poštno sporočilo, če bo vaš profil prikazan na spletnem mestu."
+    "email": {
+        "common": {
+            "privacy": "Več informacij o našem pravilniku o zasebnosti in obdelavi vaših podatkov lahko najdete",
+            "consent": "\n          ",
+            "thanks": "Zahvaljujemo se vam za sodelovanje na spletni strani {{campaign.title}}. Vaša podpora je dobrodošla!",
+            "closing": "Z vašo pomočjo smo še korak bližje cilju",
+            "greeting": "Pozdravljeni {{firstName}}",
+            "share_on": "Delite na",
+            "unsubscribe": "Če od nas v prihodnje ne želite več prejemati informacij, lahko svojo registracijo kadar koli prekličete.",
+            "signature": "S spoštovanjem,\n\n{{org.title}}",
+            "follow": "Sledite nam na:",
+            "donate": "Razmislite o donaciji, ki nam bo pomagala uresničiti naše poslanstvo.",
+            "share": "Pomagajte nam doseči naš cilj tako, da [širite informacije] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Zahvaljujemo se vam za vašo zavzetost in predanost našemu namenu! Vendar pa moramo zaradi ohranjanja avtentičnosti in verodostojnosti **odstraniti podvojene** podpise in zdi se, da ste vi (ali nekdo, ki uporablja {{email}}) to že storili.  Bodite prepričani, da je bil vaš prvotni podpis upoštevan** in je prispeval k naši kampanji.\nVaša podpora je bila neprecenljiva, zato vas vljudno pozivamo, da naredite še dodaten korak in tako povečate svoj vpliv. Prosimo, razmislite o tem, da bi se obrnili na svoje prijatelje in družino ter jih pozvali, naj prav tako ukrepajo, pri čemer naj uporabijo svoje e-poštne naslove. Tako bomo lahko še bolj razširili naše gibanje in ustvarili še močnejši skupni glas za spremembe, za katere si prizadevamo.\nŠe enkrat se vam iskreno zahvaljujemo za vašo nadaljnjo podporo in predanost tej kampanji. Skupaj lahko dosežemo trajni učinek!",
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Zahvaljujemo se vam za obljubo za {{campaign.title}}. Vaši podatki bodo pregledani in prejeli boste potrditveno e-poštno sporočilo, če bo vaš profil prikazan na spletnem mestu."
+        },
+        "thankyou": {
+            "subject": "Zahvaljujemo se vam, tukaj pa je še nekaj, kar lahko storite.",
+            "intro": "Zahvaljujemo se vam za vašo udeležbo na spletni strani{{campaign.title}}. Vaša podpora je cenjena!"
+        },
+        "doi": {
+            "extra": "To potrditev ste prejeli, da bi uspešno zaključili registracijo in nam omogočili obdelavo vašega e-poštnega naslova in drugih osebnih podatkov za prejemanje novic ali glasil. Gre za avtomatiziran postopek in ta potrditev je potrebna za registracijo, da bi se izognili nepooblaščenemu postopku registracije.",
+            "subject": "Še en korak: potrdite svoj e-poštni naslov",
+            "intro": "Vaša potrditev je pomembna, da jo bomo lahko obdelali. Le tako lahko zagotovimo verodostojnost, da za vsako udeležbo resnično stoji oseba, kar je pomembno za učinek te kampanje in preprečevanje lažnih/spam prijav."
+        },
+        "doi_thankyou": {
+            "subject": "Hvala za vašo partipation{{#privacy.optIn}}, še en korak, potrdite svoj e-poštni naslov.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Potrjujem svojo udeležbo in že prejemam vaša e-poštna sporočila",
+            "confirmOptout": "Potrjujem svojo udeležbo, vendar me v prihodnosti ne obveščajte o novostih",
+            "confirmAction": "Da, sem resnična oseba!",
+            "confirmOptin": "Potrjujem svojo udeležbo in želim prejemati novice od vas"
+        },
+        "actionConfirm": {
+            "intro": "Vaša potrditev je pomembna za obdelavo vašega sodelovanja. Le tako bomo lahko zagotovili verodostojnost, da za vsako udeležbo resnično stoji oseba, kar je pomembno za učinek te kampanje in preprečevanje lažnih/spam prijav.",
+            "subject": "Še en korak: potrdite svoj e-poštni naslov",
+            "extra": "To potrditev ste prejeli, da bi uspešno zaključili registracijo."
+        }
     },
-    "thankyou": {
-      "subject": "Zahvaljujemo se vam, tukaj pa je še nekaj, kar lahko storite.",
-      "intro": "Zahvaljujemo se vam za vašo udeležbo na spletni strani{{campaign.title}}. Vaša podpora je cenjena!"
-    },
-    "doi": {
-      "extra": "To potrditev ste prejeli, da bi uspešno zaključili registracijo in nam omogočili obdelavo vašega e-poštnega naslova in drugih osebnih podatkov za prejemanje novic ali glasil. Gre za avtomatiziran postopek in ta potrditev je potrebna za registracijo, da bi se izognili nepooblaščenemu postopku registracije.",
-      "subject": "Še en korak: potrdite svoj e-poštni naslov",
-      "intro": "Vaša potrditev je pomembna, da jo bomo lahko obdelali. Le tako lahko zagotovimo verodostojnost, da za vsako udeležbo resnično stoji oseba, kar je pomembno za učinek te kampanje in preprečevanje lažnih/spam prijav."
-    },
-    "doi_thankyou": {
-      "subject": "Hvala za vašo partipation{{#privacy.optIn}}, še en korak, potrdite svoj e-poštni naslov.{{/privacy.optIn}}"
-    },
-    "button": {
-      "confirmAlreadyMember": "Potrjujem svojo udeležbo in že prejemam vaša e-poštna sporočila",
-      "confirmOptout": "Potrjujem svojo udeležbo, vendar me v prihodnosti ne obveščajte o novostih",
-      "confirmAction": "Da, sem resnična oseba!",
-      "confirmOptin": "Potrjujem svojo udeležbo in želim prejemati novice od vas"
-    },
-    "actionConfirm": {
-      "intro": "Vaša potrditev je pomembna za obdelavo vašega sodelovanja. Le tako bomo lahko zagotovili verodostojnost, da za vsako udeležbo resnično stoji oseba, kar je pomembno za učinek te kampanje in preprečevanje lažnih/spam prijav.",
-      "subject": "Še en korak: potrdite svoj e-poštni naslov"
-    }
-  },
-  "poweredBy": "Z MOTORJEM"
+    "poweredBy": "Z MOTORJEM"
 }
