@@ -547,7 +547,7 @@ const EmailComponent = props => {
     <Tooltip title={tooltip}>
       <IconButton
         size="small"
-        onClick={() => setValue("message", data[`message_${gender}`])}
+        onClick={() => setValue("message", gender ? data[`message_${gender}`] : data.message)}
       >
         <Typography variant="h4"> {icon}</Typography>
       </IconButton>
