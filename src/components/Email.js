@@ -34,7 +34,6 @@ import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
-import Gender from "@components/field/Gender";
 import { makeStyles } from "@material-ui/core/styles";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
