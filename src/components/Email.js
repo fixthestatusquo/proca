@@ -134,12 +134,13 @@ const EmailComponent = props => {
     formState: { errors },
   } = form;
 
-  const country = watch("country");
   const fields = getValues(["subject", "message"]);
-  const [constituency, postcode, area] = watch([
+  const [country, constituency, postcode, area, gender] = watch([
+    "country",
     "constituency",
     "postcode",
     "area",
+    "gender",
   ]);
 
   const tokenKeys = extractTokens(data["message"] || paramEmail.message);
@@ -453,6 +454,10 @@ const EmailComponent = props => {
     if (!localeFiltered) return;
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
+
+  useEffect(() => {
+        setValue("message", gender ? data[`message_${gender}`] : data.message);
+  }, [gender]);
 
   const send = data => {
     const hrefGmail = message => {
@@ -870,7 +875,6 @@ const EmailComponent = props => {
         in={profiles.length > 0 || config.component.email?.server !== false}
       >
 
-        <Gender form={form} data={data} />
         <Register
           form={form}
           emailProvider={emailProvider}

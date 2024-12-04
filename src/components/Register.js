@@ -31,7 +31,7 @@ import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
-import Salutation from "@components/field/Salutation";
+import Salutation from "@components/field/Gender";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
 import Address from "@components/field/Address";
@@ -425,10 +425,10 @@ export default function Register(props) {
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   //const classField = classes.field;
   const enforceRequired = !data.uuid; // if the user took action, no fields are required
-  const withSalutation = config.component?.register?.field?.salutation;
+  const withSalutation = config.component?.register?.field?.gender;
   const nameWidth = field => {
     if (compact) return 12;
-    if (withSalutation && field === "firstname") return 4;
+    if (withSalutation && field === "firstname") return 5;
     if (withSalutation) return 5;
     return 6;
   };

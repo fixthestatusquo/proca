@@ -7,8 +7,11 @@ import Command from '../../builderCommand.mjs';
 export default class CampaignPush extends Command {
   static description = "pull the campaign from the server to the config file"; 
  
-  static flags = { 
-    ...super.globalFlags, 
+	static args = this.multiid();
+
+	static flags = {
+    //...super.globalFlags, 
+		...this.flagify({ multiid: true }),
     name: Flags.string({ 
       char: "n",
     }),

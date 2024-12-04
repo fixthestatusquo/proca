@@ -21,7 +21,6 @@ const FilterArea = props => {
       area > 9 ? area.toString() : `0${area.toString()}`
     );
   }, [area]);
-  console.log(area);
 
   return (
     <>
