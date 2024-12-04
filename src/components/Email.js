@@ -15,6 +15,7 @@ import {
   FormControl,
   IconButton,
   Typography,
+  Tooltip
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -542,6 +543,17 @@ const EmailComponent = props => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
+  const UnicodeButton = ({ icon, tooltip = "", gender = "" }) => (
+    <Tooltip title={tooltip}>
+      <IconButton
+        size="small"
+        onClick={() => setValue("message", data[`message_${gender}`])}
+      >
+        <Typography variant="h4"> {icon}</Typography>
+      </IconButton>
+    </Tooltip>
+  );
+
   const ExtraFields = props => {
     return (
       <>
@@ -866,6 +878,12 @@ const EmailComponent = props => {
       <Collapse
         in={profiles.length > 0 || config.component.email?.server !== false}
       >
+        {(data.message_female || data.message_male) && (
+          <UnicodeButton icon="○" tooltip="no gender letter" />
+        )}
+        {data.message_female && <UnicodeButton icon="♀" gender="female" />}
+        {data.message_male && <UnicodeButton icon="♂" gender="male" />}
+
         <Register
           form={form}
           emailProvider={emailProvider}
