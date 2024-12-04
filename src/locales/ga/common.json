@@ -188,8 +188,8 @@
   "required": "Líon isteach an réimse seo le do thoil",
   "required field": "réimse riachtanach",
   "salutations": {
-    "f": "A {{name}} a chara",
-    "m": "A {{name}} a chara",
+    "f": "A Uasal {{name}} a chara",
+    "m": "A Uasal, a chara {{name}}",
     "other": "A {{name}} a chara"
   },
   "select_all": "Roghnaigh go léir",
