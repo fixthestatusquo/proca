@@ -73,7 +73,6 @@
   "dateFormat": "DD/MM/ÅÅÅÅ",
   "dialogTitle": "Hold meg informert om kampanjen",
   "donation": {
-    "payment": "Betaling",
     "amount": {
       "change": "Endre beløp",
       "intro": "Velg et beløp"
@@ -124,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Doner til {{org}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
       "default": "Donere",
