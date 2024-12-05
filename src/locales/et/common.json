@@ -188,8 +188,8 @@
   "required": "Palun täitke see väli",
   "required field": "kohustuslik väli",
   "salutations": {
-    "f": "Lugupeetud {{name}}",
-    "m": "Lugupeetud {{name}}",
+    "f": "Lugupeetud härra {{name}}",
+    "m": "Lugupeetud Pr. {{name}}",
     "other": "Lugupeetud {{name}}"
   },
   "select_all": "Vali kõik",
