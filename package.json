@@ -75,7 +75,7 @@
     "thumbhash": "^0.1.1",
     "universal-base64url": "^1.1.0",
     "use-image": "^1.1.1",
-    "uuid": "^10.0.0",
+    "uuid": "^11.0.3",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
