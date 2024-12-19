@@ -31,8 +31,8 @@ const EggManifesto = ({ form }) => {
       {organisation_sign && (
         <Grid item>
           <Alert severity="info" style={{ marginTop: 8 }}>
-            <AlertTitle>Your details will not be displayed</AlertTitle>We need
-            them to approve your institution&apos;s signature
+            <AlertTitle>Your details will not be displayed yet.</AlertTitle>
+            We need to approve your institution's signature
           </Alert>
         </Grid>
       )}
@@ -42,7 +42,7 @@ const EggManifesto = ({ form }) => {
       <Grid item sm={8}>
         <Select
           name="stage"
-          label="Carrier stage"
+          label="Career stage"
           options="campaign:profile.stage"
           form={form}
         />
