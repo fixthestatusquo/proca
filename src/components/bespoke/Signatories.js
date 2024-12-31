@@ -61,7 +61,7 @@ const Signatories = () => {
       const partiesData = await res.json();
       setParties(partiesData);
     };
-    getParties(config.component.party.url);
+    getParties(config.component.party?.url);
   }, []);
 
   return (
@@ -71,15 +71,16 @@ const Signatories = () => {
           {signatories.length} {t("signed", "have signed the pledge")}
         </Typography>
         <Grid item>
-          <TextField
+          {parties.length > 0  &&
+            <TextField
             select={true}
             name="party"
             label={t("party")}
             onChange={e => {
               e.target.value
                 ? setSelection(
-                    signatories.filter(p => p.party == e.target.value)
-                  )
+                  signatories.filter(p => p.party == e.target.value)
+                )
                 : setSelection(signatories);
             }}
             SelectProps={{
@@ -94,7 +95,8 @@ const Signatories = () => {
                 </option>
               );
             })}
-          </TextField>
+            </TextField>
+          }
 
           <List
             dense={true}
