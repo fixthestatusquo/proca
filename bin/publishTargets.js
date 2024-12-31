@@ -53,6 +53,9 @@ console.log(twitters[0],target.fields?.screen_name);
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;
     }
+    if (target.fields.ps) {
+      r.ps = target.fields.ps;
+    }
 
     if (options.email && target.emails?.length) {
       r.email = target.emails[0].email;
