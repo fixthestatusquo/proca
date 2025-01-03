@@ -625,7 +625,7 @@ const EmailComponent = props => {
     if (config.component.email?.salutation) {
       data.message = `{{target.fields.salutation}},\n${data.message}`;
     }
-    if (config.component.email?.ps && target.fields?.ps)
+    if (config.component.email?.ps) {
       data.message = `${data.message}\n\n{{target.fields.ps}},`;
     }
 
