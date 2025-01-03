@@ -626,7 +626,7 @@ const EmailComponent = props => {
       data.message = `{{target.fields.salutation}},\n${data.message}`;
     }
     if (config.component.email?.ps) {
-      data.message = `${data.message}\n\n{{target.fields.ps}},`;
+      data.message = `${data.message}\n\n{{target.fields.ps}}`;
     }
 
     if (mttProcessing === false) {
