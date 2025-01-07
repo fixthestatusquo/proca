@@ -163,7 +163,12 @@ const EmailComponent = props => {
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
 
-  useToken(data["message"], tokens, handleMerging);
+  const getDataWithToken = (key) => { // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
+    //return gender ? data[`message_${gender}`] : data.message;
+    return gender && data[`${key}_${gender}`] ? data[`${key}_${gender}`] : data[key];
+  }
+
+  useToken(getDataWithToken('message'), tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   const checkUpdated = () => {
@@ -182,7 +187,7 @@ const EmailComponent = props => {
 
           const empty = {
             // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
-            defaultValue: data[k] || defaultValue[k],
+            defaultValue: getDataWithToken(k) || defaultValue[k],
             nsSeparator: false,
           };
           tokenKeys.forEach(d => (empty[d] = defaultValue[d] || ""));
@@ -192,9 +197,9 @@ const EmailComponent = props => {
           if (empty.locality) {
             empty.name += `\n${empty.locality}`;
           }
-          form.setValue(k, t(data[k], empty));
+          form.setValue(k, t(getDataWithToken(k), empty));
         } else {
-          form.setValue(k, data[k]);
+          form.setValue(k, getDataWithToken(k));
         }
       }
       return undefined;
@@ -454,9 +459,6 @@ const EmailComponent = props => {
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
 
-  useEffect(() => {
-        setValue("message", gender ? data[`message_${gender}`] : data.message);
-  }, [gender]);
 
   const send = data => {
     const hrefGmail = message => {
@@ -618,7 +620,7 @@ const EmailComponent = props => {
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
-
+console.log("prepare data");
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
