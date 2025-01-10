@@ -26,7 +26,7 @@ const Postcode = props => {
     FR: 5,
     IT: 5,
     PL: 5,
-    CA: 5,
+    CA: 6,
     DK: 4,
     NL: 4,
     NO: 4,
