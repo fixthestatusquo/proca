@@ -116,7 +116,7 @@ export default function ProcaStyle(props) {
               boxShadow: "unset!important",
               border: "unset!important",
               marginBottom: "0!important",
-              float: "auto",
+              flex: "auto",
               // this is where magic happens
               //        '& *': { color: 'rgba(255, 255, 255, 0.7)' },
             },
