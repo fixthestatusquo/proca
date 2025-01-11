@@ -17,7 +17,7 @@
   "Organisation": "Organisatie",
   "Other": "Andere",
   "Phone": "Telefoon",
-  "Postal Code": "Postcode",
+  "Postal Code": "Poskode",
   "Salutation": "Salutatie",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Street": "Straat",
@@ -122,7 +122,8 @@
       "yearly": "jaarlijks"
     },
     "iban": "iban",
-    "intro": "Doneer aan {{campaign}}",
+    "intro": "Doneer aan {{org}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kaart",
       "default": "Doneer",
@@ -158,6 +159,14 @@
   },
   "no": "nee",
   "party": "Partij",
+  "phone": {
+    "INVALID_COUNTRY": "landkode ontbreek of is ongeldig",
+    "INVALID_LENGTH": "Ongeldige lengte",
+    "MISSING": "Verpligte veld",
+    "NOT_A_NUMBER": "Telefoon nommer ongeldig",
+    "TOO_LONG": "nommer is te lank",
+    "TOO_SHORT": "nommer is te kort"
+  },
   "postcode": {
     "notFound": "deze postcode lijkt niet te bestaan in uw land",
     "wrongLength": "verwachte duur van {{length}} voor uw land"
@@ -171,6 +180,7 @@
     "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
   },
   "read more": "lees meer",
+  "region": "Streek",
   "register": "Mijn naam toevoegen",
   "reminder": {
     "intro": "We weten dat uw regering veel informatie vraagt. We sturen u een enkele e-mail om u eraan te herinneren het formulier later in te vullen"
@@ -178,8 +188,8 @@
   "required": "Gelieve dit veld in te vullen",
   "required field": "Verplicht veld",
   "salutations": {
-    "f": "Mevrouw.",
-    "m": "Mr.",
+    "f": "Geagte Mnr. {{name}}",
+    "m": "Geagte Mev. {{name}}",
     "other": "Andere"
   },
   "select_all": "Alles selecteren",
@@ -204,7 +214,7 @@
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}",
       "undefined": "Selecteer een land"
     },
-    "missing": "Kies ten minste één van de {{total}}",
+    "missing": "Kies ten minste een uit {{total}}",
     "postcode": {
       "empty": "is er niemand om contact mee op te nemen in {{area}}",
       "undefined": "Voer uw postcode in"
