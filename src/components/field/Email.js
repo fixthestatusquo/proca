@@ -33,6 +33,13 @@ const EmailField = ({ form, required }) => {
     return true;
   };
 
+  let iconColor = theme.palette.text.secondary;
+  if (form.getFieldState("email").invalid) {
+    iconColor = theme.palette.error.main;
+  }
+  if (provider) {
+    iconColor = theme.palette.success.main;
+  }
   return (
     <>
       <input type="hidden" {...form.register("emailProvider")} />
@@ -50,7 +57,7 @@ const EmailField = ({ form, required }) => {
               {provider === "google.com" ? (
                 <GmailIcon size={28} />
               ) : (
-                <EmailIcon style={{ color: theme.palette.text.secondary }} />
+                <EmailIcon style={{ color: iconColor }} />
               )}
             </InputAdornment>
           ),

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Grid } from "@material-ui/core";
 import { InputAdornment } from "@material-ui/core";
 import CountryFlag from "react-emoji-flag";
-
+import PhoneIcon from "@material-ui/icons/Phone";
 const Phone = ({ form, classField }) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
@@ -20,11 +20,16 @@ const Phone = ({ form, classField }) => {
       form.setValue("phoneCountry", result.country);
       return true;
     } else {
+      form.setValue("phoneCountry", undefined);
       return result.error ? t(`phone.${result.error}`, result.error) : true;
     }
   };
 
   const phoneCountry = form.watch("phoneCountry");
+
+  if (form.getFieldState("phone").invalid) {
+//  iconColor = theme.palette.error.main;
+  }
   return (
     <Grid item xs={12} className={classField}>
       <input type="hidden" {...form.register("phoneCountry")} />
@@ -38,7 +43,7 @@ const Phone = ({ form, classField }) => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {phoneCountry ? <CountryFlag countryCode={phoneCountry} /> : "📞"}
+              {phoneCountry ? <CountryFlag countryCode={phoneCountry} /> : <PhoneIcon color={form.getFieldState("phone").invalid ? "error": "action"} />}
             </InputAdornment>
           ),
         }}
