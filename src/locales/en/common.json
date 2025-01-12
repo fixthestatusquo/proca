@@ -16,7 +16,6 @@
   "Next": "Next",
   "Organisation": "Organisation",
   "Other": "Other",
-  "party": "Party",
   "Phone": "Phone",
   "Postal Code": "Postcode",
   "Salutation": "Salutation",
@@ -25,7 +24,6 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
-  "region": "Region",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -69,17 +67,12 @@
       "opt-out": "and do not keep me informed"
     }
   },
-  "postcode": {
-    "wrongLength": "expected length of {{length}} for your country",
-    "notFound": "this postcode doesn't seem to exist in your country"
-  },
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Keep me informed about the campaign",
   "donation": {
-    "payment": "Payment",
     "amount": {
       "change": "Change amount",
       "intro": "Choose an Amount"
@@ -130,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Donate to {{org}}",
+    "payment": "Payment",
     "payment_methods": {
       "card": "Card",
       "default": "Donate",
@@ -140,14 +134,6 @@
     },
     "thanks": "Thank you for your donation!",
     "to": "Donation to {{organisation}}"
-  },
-  "phone": {
-    "MISSING": "required field",
-    "NOT_A_NUMBER": "Invalid phone number",
-    "INVALID_COUNTRY": "missing or invalid country code",
-    "TOO_SHORT": "number too short",
-    "TOO_LONG": "number too long",
-    "INVALID_LENGTH": "Invalid length"
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
@@ -172,6 +158,19 @@
     "wanttoadd": "Do you want to add an image?"
   },
   "no": "no",
+  "party": "Party",
+  "phone": {
+    "INVALID_COUNTRY": "missing or invalid country code",
+    "INVALID_LENGTH": "Invalid length",
+    "MISSING": "required field",
+    "NOT_A_NUMBER": "Invalid phone number",
+    "TOO_LONG": "number too long",
+    "TOO_SHORT": "number too short"
+  },
+  "postcode": {
+    "notFound": "this postcode doesn't seem to exist in your country",
+    "wrongLength": "expected length of {{length}} for your country"
+  },
   "progress": {
     "donate": "{{total}} have donated. Let's go to {{goal}}",
     "email": "{{total}} have sent an email. Let's go to {{goal}}",
@@ -181,6 +180,7 @@
     "twitter": "{{total}} have twitted. Let's go to {{goal}}"
   },
   "read more": "read more",
+  "region": "Region",
   "register": "Add my name",
   "reminder": {
     "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
@@ -201,7 +201,7 @@
   "step": {
     "eci": {
       "secure": "secure",
-      "subheader": "",
+      "subheader": "\nstep.eci.subheader",
       "title": ""
     },
     "register": {
@@ -209,9 +209,9 @@
     }
   },
   "supporter": {
+    "greeting": "Welcome {{firstname}}!",
     "not_you": "not you?",
-    "welcome": "Welcome back, {{firstname}}!",
-    "greeting": "Welcome {{firstname}}!"
+    "welcome": "Welcome back, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
