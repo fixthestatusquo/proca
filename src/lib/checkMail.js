@@ -1,3 +1,10 @@
+import prefetch from './prefetchDNS';
+
+
+const prefetchDNS = () => {
+  prefetch (process.env.REACT_APP_CHECKMAIL_API_URL);
+  
+}
 const getDomain = email => {
   const parts = email.split("@");
   if (parts.length !== 2) return false;
@@ -23,4 +30,4 @@ const checkMail = async email => {
 };
 
 export default checkMail;
-export { getDomain, checkMail };
+export { getDomain, checkMail, prefetchDNS};

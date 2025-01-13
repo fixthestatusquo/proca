@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { checkMail, getDomain } from "@lib/checkMail";
+import { checkMail, getDomain, prefetchDNS } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
 import TextField from "@components/TextField";
@@ -8,7 +8,6 @@ import { InputAdornment } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import GmailIcon from "../../images/Gmail";
 import { useTheme } from "@material-ui/core/styles";
-
 const EmailField = ({ form, required }) => {
   const theme = useTheme();
   const emailProvider = useRef(undefined); // we don't know the email provider
@@ -50,6 +49,7 @@ const EmailField = ({ form, required }) => {
         type="email"
         label={t("Email")}
         autoComplete="email"
+        onFocus={prefetchDNS}
         required={!!required}
         InputProps={{
           endAdornment: (

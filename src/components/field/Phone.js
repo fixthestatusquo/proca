@@ -1,6 +1,6 @@
 import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { checkPhone } from "@lib/checkPhone";
+import { checkPhone, prefetchDNS } from "@lib/checkPhone";
 //import useData from "@hooks/useData";
 import TextField from "@components/TextField";
 import { useTranslation } from "react-i18next";
@@ -40,6 +40,7 @@ const Phone = ({ form, classField }) => {
         label={t("Phone")}
         autoComplete="tel"
         validate={validatePhone}
+        onFocus={prefetchDNS}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
