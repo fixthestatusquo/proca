@@ -122,7 +122,8 @@
       "yearly": "godišnje"
     },
     "iban": "IBAN",
-    "intro": "Doniraj za {{campaign}}",
+    "intro": "Doniraj organizaciji {{org}}",
+    "payment": "Plaćanje",
     "payment_methods": {
       "card": "Kreditna kartica",
       "default": "Doniraj",
@@ -187,8 +188,8 @@
   "required": "obavezno",
   "required field": "obavezno polje",
   "salutations": {
-    "f": "Poštovana {{name}}",
-    "m": "Poštovani {{name}}",
+    "f": "Poštovani gospodine {{name}}",
+    "m": "Poštovana gospođo {{name}}",
     "other": "Poštovani {{name}}"
   },
   "select_all": "Odaberi sve",
@@ -199,7 +200,8 @@
   },
   "step": {
     "eci": {
-      "secure": "siguran"
+      "secure": "siguran",
+      "subheader": "\nstep.eci.subheader"
     }
   },
   "supporter": {
