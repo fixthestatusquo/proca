@@ -282,6 +282,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
+window.dataLayer = {"push": (d) => console.log(d)};
       let params = {};
       function display() {
         var variants = ["standard", "filled", "outlined"];

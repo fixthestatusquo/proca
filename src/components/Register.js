@@ -326,6 +326,8 @@ export default function Register(props) {
         country: formData.country,
         comment: formData.comment,
         privacy: formData.privacy,
+        email: config.component?.dispatch?.email && formData.email,
+        emailProvider: config.component?.dispatch?.email && emailProvider.current,
       },
       formData,
       config
