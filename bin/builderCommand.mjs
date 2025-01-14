@@ -2,6 +2,7 @@ import ProcaCommand from "proca/src/procaCommand.mjs";
 import { load as loadConfig } from "proca/src/config.mjs";
 import path from 'path';
 import { fileURLToPath } from 'url';
+export {Args, Flags} from "proca/src/index.mjs";
 
 export class BuilderCommand extends ProcaCommand {
 

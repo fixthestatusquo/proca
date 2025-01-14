@@ -1,8 +1,6 @@
 import { pullCampaign as pull } from '../../campaign.js';
 
-import { Args, Flags } from "@oclif/core";
-
-import Command from '../../builderCommand.mjs';
+import Command, { Args, Flags } from '../../builderCommand.mjs';
 
 export default class CampaignPush extends Command {
   static description = "pull the campaign from the server to the config file"; 

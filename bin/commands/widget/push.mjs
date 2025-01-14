@@ -1,8 +1,6 @@
 import { push } from '../../widget.js';
 
-import { Args, Flags } from "@oclif/core";
-
-import Command from '../../builderCommand.mjs';
+import Command, { Args, Flags } from '../../builderCommand.mjs';
 
 export default class FetchCommand extends Command {
   static description = "preview the widget"; 
@@ -17,8 +15,7 @@ export default class FetchCommand extends Command {
     id: Flags.string({ 
       char: "i",
       parse: (input) => Number.parseInt(input, 10),
-      required: true,
-      exactlyOne: ['id', 'campaign']
+//      exactlyOne: ['id', 'campaign']
     }),
     campaign: Flags.string({ 
       char: "c",
