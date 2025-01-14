@@ -10,7 +10,7 @@ const dispatchAnalytics = (message, value, extra) => {
     param.event = action.join("_");
   }
 
-  if (value?.test) {
+  if (value?.test) 
     param.test = true;
   param.source = "proca";
   if (value?.privacy) {
