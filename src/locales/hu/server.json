@@ -38,6 +38,11 @@
             "intro": "Az Ön visszaigazolása fontos ahhoz, hogy feldolgozhassuk a részvételét. Ez az egyetlen módja annak, hogy hitelessé tegyük, hogy minden egyes részvétel mögött valóban egy személy áll, és ez fontos a kampány hatása szempontjából, valamint a hamis/spam beküldések megelőzése érdekében.",
             "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét",
             "extra": "Ezt a visszaigazolást a regisztráció sikeres befejezéséhez kapta."
+        },
+        "confirm": {
+            "subject": "Még egy lépés: kérjük, erősítse meg e-mail címét",
+            "extra": "Ha nem kérte ezt, kérjük, hagyja figyelmen kívül ezt az e-mailt.",
+            "intro": "A visszaigazolás elengedhetetlen a részvétel feldolgozásához. Ez biztosítja, hogy minden egyes beküldés valódi személytől származik, és segít megelőzni a hamis vagy spam beküldéseket."
         }
     },
     "poweredBy": "POWERED BY"
