@@ -38,6 +38,11 @@
             "intro": "Jūsų patvirtinimas yra svarbus, kad būtų galima apdoroti jūsų dalyvavimą. Tai vienintelis būdas užtikrinti, kad už kiekvieno dalyvio tikrai slypi konkretus asmuo, o tai svarbu siekiant užtikrinti šios kampanijos poveikį ir užkirsti kelią netikroms (šlamšto) paraiškoms.",
             "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą",
             "extra": "Šį patvirtinimą gavote norėdami sėkmingai užbaigti registraciją."
+        },
+        "confirm": {
+            "extra": "Jei to neprašėte, ignoruokite šį el. laišką.",
+            "intro": "Jūsų patvirtinimas yra būtinas, kad būtų galima apdoroti jūsų dalyvavimą. Taip užtikrinama, kad kiekvieną paraišką pateikia tikras asmuo, ir išvengiama netikrų ar nepageidaujamų paraiškų.",
+            "subject": "Dar vienas žingsnis: patvirtinkite savo el. pašto adresą"
         }
     },
     "poweredBy": "ĮGYVENDINTA"
