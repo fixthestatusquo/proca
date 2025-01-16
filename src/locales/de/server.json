@@ -1,7 +1,7 @@
 {
   "email": {
     "common": {
-      "greeting": "Hallo {{firstName}}",
+      "greeting": "Hallo {{firstName}},",
       "consent": "\n          ",
       "thanks": "vielen Dank für Ihre Teilnahme an {{campaign.title}}. Wir wissen Ihre Unterstützung zu schätzen!",
       "about": "",
