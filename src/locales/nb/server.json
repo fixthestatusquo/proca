@@ -38,6 +38,11 @@
         },
         "doi_thankyou": {
             "subject": "Takk for din deltakelse{{#privacy.optIn}}, ett skritt til, vennligst bekreft e-postadressen din.{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Ett skritt til: Bekreft e-postadressen din",
+            "extra": "Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.",
+            "intro": "Bekreftelsen din er avgjørende for at vi skal kunne behandle deltakelsen din. Dette sikrer at hver innsending kommer fra en ekte person, og bidrar til å forhindre falske innsendinger eller spam."
         }
     },
     "poweredBy": "DREVET AV"
