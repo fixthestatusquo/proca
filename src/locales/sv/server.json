@@ -42,6 +42,11 @@
         },
         "doi_thankyou": {
             "subject": "Tack för ditt bidrag{{#privacy.optIn}}, ett steg till, vänligen bekräfta din e-postadress{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Ett steg till: vänligen bekräfta din e-postadress",
+            "extra": "Om du inte har begärt detta, vänligen ignorera detta e-postmeddelande.",
+            "intro": "Din bekräftelse är nödvändig för att vi ska kunna behandla ditt deltagande. Detta säkerställer att varje bidrag kommer från en äkta person och hjälper till att förhindra falska bidrag eller spam."
         }
     },
     "poweredBy": "KRAFTVERKTURERAD AV"
