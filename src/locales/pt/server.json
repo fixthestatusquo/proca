@@ -42,6 +42,11 @@
         },
         "doi_thankyou": {
             "subject": "Obrigado pela sua participação{{#privacy.optIn}}, mais um passo, por favor confirme o seu endereço de correio eletrónico{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Mais um passo: confirme o seu endereço de correio eletrónico",
+            "extra": "Se não o solicitou, ignore esta mensagem de correio eletrónico.",
+            "intro": "A sua confirmação é essencial para processar a sua participação. Isto garante que cada participação provém de uma pessoa genuína e ajuda a evitar participações falsas ou spam."
         }
     },
     "poweredBy": "POWERED BY"
