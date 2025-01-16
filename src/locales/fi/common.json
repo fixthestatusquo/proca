@@ -75,7 +75,7 @@
   "donation": {
     "amount": {
       "change": "Muutosmäärä",
-      "intro": "Valitse määrä :"
+      "intro": "Valitse summa"
     },
     "average": "Keskimääräinen lahjoitus on {{amount}}",
     "button": {
