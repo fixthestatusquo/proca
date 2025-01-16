@@ -11,7 +11,7 @@
       "closing": "Mit Ihrer Hilfe sind wir unserem Ziel einen Schritt näher gekommen.",
       "privacy": "Weitere Informationen über unsere Datenschutzpolitik und die Verarbeitung Ihrer Daten finden Sie hier",
       "unsubscribe": "Wenn Sie in Zukunft keine weiteren Informationen von uns erhalten möchten, können Sie Ihre Registrierung jederzeit aufheben",
-      "signature": "Mit freundlichen Grüßen,\n{{org.title}}",
+      "signature": "Mit freundlichen Grüßen,\n\n{{org.title}}",
       "organisation": "{{org.title}}",
       "duplicate": "vielen Dank für Ihr Engagement und Ihren Einsatz für unsere Sache! Um die Authentizität und Glaubwürdigkeit unserer Kampagne zu wahren, müssen wir jedoch doppelte Unterschriften entfernen, und es scheint, dass Sie (oder jemand, der {{email}} verwendet) dies bereits getan haben.  Seien Sie versichert, dass Ihre erste Unterschrift gezählt wurde und zu unserer Kampagne beigetragen hat.\nIhre Unterstützung war von unschätzbarem Wert, und wir möchten Sie freundlich dazu ermutigen, einen weiteren Schritt zu tun, um Ihre Wirkung zu verstärken. Bitte ziehen Sie in Erwägung, Ihre Freunde und Verwandten zu erreichen und sie aufzufordern, ebenfalls aktiv zu werden, indem sie ihre eigenen E-Mail-Adressen verwenden. Auf diese Weise können wir unsere Bewegung weiter ausbauen und eine noch stärkere kollektive Stimme für den von uns angestrebten Wandel bilden.\nNochmals herzlichen Dank für Ihre anhaltende Unterstützung und Ihr Engagement für diese Kampagne. Gemeinsam können wir eine nachhaltige Wirkung erzielen!",
       "share_on": "Weitergeben",
@@ -26,15 +26,15 @@
     "doi": {
       "subject": "{{campaign.title}} - Vielen Dank für Ihre Teilnahme, ein weiterer Schritt, bitte bestätigen Sie Ihre E-Mail-Adresse",
       "intro": " Es fehlt noch ein Schritt zur erfolgreichen Anmeldung zum Newsletter, bitte klicken Sie auf diesen Link:",
-      "extra": "Sie haben diese Bestätigung erhalten, um die Registrierung erfolgreich abzuschließen und uns zu erlauben, Ihre E-Mail-Adresse und andere personenbezogene Daten für den Erhalt von Neuigkeiten oder Newslettern zu verarbeiten."
+      "extra": "Falls Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail bitte einfach."
     },
     "thankyou": {
       "intro": "vielen Dank für Ihre Teilnahme an \"{{campaign.title}}\". Wir wissen Ihre Unterstützung zu schätzen!",
       "subject": "Danke, hier ist, was Sie sonst noch tun können"
     },
-    "actionConfirm": {
-      "intro": "Ihre Bestätigung ist wichtig, damit wir Ihre Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme eine echte Person steht und keine Fake- oder Spamadressen.",
-      "extra": "Sie haben diese Bestätigung erhalten, um die Registrierung erfolgreich abzuschließen.",
+    "confirm": {
+      "intro": "Ihre Bestätigung ist erforderlich, um Ihre Teilnahme zu bearbeiten. So stellen wir sicher, dass jede Einsendung von einer echten Person stammt und gefälschte oder Spam-Einsendungen verhindert werden.",
+      "extra": "Falls Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail bitte einfach.",
       "subject": "Ein weiterer Schritt: Bitte bestätigen Sie Ihre E-Mail-Adresse"
     },
     "doi_thankyou": {
