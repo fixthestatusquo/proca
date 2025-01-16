@@ -38,6 +38,11 @@
             "intro": "Sua confirmação é importante para que possamos processar sua participação. Essa é a única maneira de tornar crível que realmente há uma pessoa por trás de cada participação, o que é importante para o impacto dessa campanha e para evitar envios falsos/spam.",
             "subject": "Mais uma etapa: confirme seu endereço de e-mail",
             "extra": "Você recebeu esta confirmação para concluir o registro com sucesso."
+        },
+        "confirm": {
+            "subject": "Mais uma etapa: confirme seu endereço de e-mail",
+            "extra": "Se você não solicitou isso, ignore este e-mail.",
+            "intro": "Sua confirmação é essencial para processar sua participação. Isso garante que cada envio venha de uma pessoa genuína e ajuda a evitar envios falsos ou de spam."
         }
     },
     "poweredBy": "POTENCIADO POR"
