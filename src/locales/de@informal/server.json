@@ -38,6 +38,11 @@
             "intro": "Deine Bestätigung ist wichtig, damit wir deine Teilnahme bearbeiten können. Nur so können wir glaubhaft machen, dass hinter jeder Teilnahme wirklich eine Person steht, und das ist wichtig für die Wirkung dieser Kampagne und um Fake-/Spam-Einsendungen zu verhindern.",
             "subject": "Ein weiterer Schritt: Bitte bestätige deine E-Mail-Adresse",
             "extra": "Du hast diese Bestätigung erhalten, um die Anmeldung erfolgreich abzuschließen."
+        },
+        "confirm": {
+            "intro": "Deine Bestätigung ist wichtig für die Bearbeitung deiner Teilnahme. Dies stellt sicher, dass jede Einsendung von einer echten Person stammt und hilft, gefälschte oder Spam-Einsendungen zu verhindern.",
+            "subject": "Ein weiterer Schritt: Bitte bestätige deine E-Mail-Adresse",
+            "extra": "Wenn du das nicht angefordert hast, ignoriere bitte diese E-Mail."
         }
     },
     "poweredBy": "ANGETRIEBEN DURCH"
