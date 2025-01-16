@@ -38,6 +38,11 @@
             "subject": "Et skridt mere: Bekræft venligst din e-mailadresse",
             "intro": "Din bekræftelse er vigtig for at kunne behandle din deltagelse. Det er den eneste måde, vi kan gøre det troværdigt, at der virkelig er en person bag hver deltagelse, og det er vigtigt for effekten af denne kampagne og for at forhindre falske/spam indsendelser.",
             "extra": "Du har modtaget denne bekræftelse for at kunne gennemføre registreringen."
+        },
+        "confirm": {
+            "subject": "Et skridt mere: Bekræft venligst din e-mailadresse",
+            "extra": "Hvis du ikke har bedt om det, skal du ignorere denne e-mail.",
+            "intro": "Din bekræftelse er afgørende for, at vi kan behandle din deltagelse. Det sikrer, at hvert indlæg kommer fra en ægte person, og hjælper med at forhindre falske indlæg eller spam."
         }
     },
     "poweredBy": "DREVET AF"
