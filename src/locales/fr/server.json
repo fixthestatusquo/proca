@@ -39,6 +39,11 @@
         },
         "doi_thankyou": {
             "subject": "Merci pour votre participation{{#privacy.optIn}}, une dernière étape, veuillez confirmer votre adresse e-mail.{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Encore une étape : veuillez confirmer votre adresse électronique",
+            "intro": "Votre confirmation est essentielle pour le traitement de votre participation. Cela permet de s'assurer que chaque soumission provient d'une personne authentique et d'éviter les soumissions frauduleuses ou les spams.",
+            "extra": "Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail."
         }
     },
     "poweredBy": "PROPULSÉ PAR"
