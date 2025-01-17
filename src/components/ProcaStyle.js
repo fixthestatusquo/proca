@@ -22,6 +22,10 @@ const useStyles = makeStyles(() =>
       ".proca-text": {
         display: "none",
       },
+              ".proca-widget input": {
+                paddingTop: "23px!important",
+                paddingBottom: "10px!important",
+      },
     },
   }),
 );
@@ -139,6 +143,16 @@ export default function ProcaStyle(props) {
   }
   theme.zIndex.snackbar = 1000000; // we really want that one to be at the top
 
+  /* for v5
+const customStyles = {
+  '#proca-widget input.proca-MuiFilledInput-input': {
+              paddingTop: "23px!important",
+              paddingBottom: "10px!important",
+  },
+};
+
+heme.components.MuiCssBaseline = {  styleOverrides: customStyles,};
+*/
   return (
     <StylesProvider generateClassName={generateClassName}>
       <GlobalStyles />
