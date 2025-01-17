@@ -201,7 +201,7 @@
   "step": {
     "eci": {
       "secure": "slán",
-      "subheader": " ",
+      "subheader": "\nstep.eci.subheader",
       "title": " "
     },
     "register": {
