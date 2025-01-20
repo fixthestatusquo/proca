@@ -200,7 +200,8 @@
   },
   "step": {
     "eci": {
-      "secure": "secure"
+      "secure": "secure",
+      "subheader": "\nstep.eci.subheader"
     }
   },
   "supporter": {
