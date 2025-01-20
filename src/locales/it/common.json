@@ -200,7 +200,8 @@
   },
   "step": {
     "eci": {
-      "secure": "sicuro"
+      "secure": "sicuro",
+      "subheader": "\npasso.eci.sottovoce"
     }
   },
   "supporter": {
