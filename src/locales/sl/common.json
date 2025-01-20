@@ -200,7 +200,8 @@
   },
   "step": {
     "eci": {
-      "secure": "varno"
+      "secure": "varno",
+      "subheader": "\nstep.eci.subheader"
     }
   },
   "supporter": {
