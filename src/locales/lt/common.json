@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "saugus",
-      "subheader": "\nstep.eci.subheader"
+      "secure": "saugus"
     }
   },
   "supporter": {

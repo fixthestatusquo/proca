@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "drošs",
-      "subheader": "\nstep.eci.subheader"
+      "secure": "drošs"
     }
   },
   "supporter": {

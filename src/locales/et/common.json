@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "turvaline",
-      "subheader": "\nstep.eci.subheader"
+      "secure": "turvaline"
     }
   },
   "supporter": {

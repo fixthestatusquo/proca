@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "sikker",
-      "subheader": "\ntrin.eci.underoverskrift"
+      "secure": "sikker"
     }
   },
   "supporter": {

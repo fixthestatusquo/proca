@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "seguro",
-      "subheader": "\netapa.eci.subtítulo"
+      "secure": "seguro"
     }
   },
   "supporter": {

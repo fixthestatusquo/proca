@@ -200,8 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "säker",
-      "subheader": "\nsteg.eci.underrubrik"
+      "secure": "säker"
     }
   },
   "supporter": {
