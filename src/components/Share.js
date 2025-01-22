@@ -313,11 +313,13 @@ export default function ShareAction(props) {
             component={FacebookMessengerShareButton}
           />
           <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
-          <ActionIcon
-            icon={XIcon}
-            title={shareText("share-twitter", twitters.join(" "))}
-            component={TwitterShareButton}
-          />
+          { !config.component?.share?.noTwitter &&
+            <ActionIcon
+              icon={XIcon}
+              title={shareText("share-twitter", twitters.join(" "))}
+              component={TwitterShareButton}
+            />
+          }
           <ActionIcon
             icon={TelegramIcon}
             title={shareText("share-telegram")}
