@@ -67,7 +67,7 @@
     "react-konva": "^17.0.2-6",
     "react-masonry-component": "^6.3.0",
     "react-script-hook": "^1.7.2",
-    "react-share": "^5.1.1",
+    "react-share": "github:fixthestatusquo/react-share#publish",
     "react-swipeable-views": "^0.14.0",
     "react-use": "^17.5.1",
     "recoil": "^0.5.2",
@@ -103,7 +103,7 @@
     "mjml": "^4.15.3",
     "open": "^10.1.0",
     "phoenix": "1.7.14",
-    "proca": "^0.5.3",
+    "proca": "^0.5.5",
     "simple-git": "^3.27.0",
     "websocket": "^1.0.35"
   },

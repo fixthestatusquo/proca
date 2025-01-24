@@ -29,6 +29,7 @@ import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 import GmailIcon from "../images/Gmail";
 
 import {
+  BlueskyShareButton,
   EmailShareButton,
   FacebookShareButton,
   FacebookMessengerShareButton,
@@ -48,6 +49,7 @@ import {
   //  VKShareButton,
   WhatsappShareButton,
   //  WorkplaceShareButton,
+  BlueskyIcon,
   FacebookIcon,
   FacebookMessengerIcon,
   XIcon,
@@ -306,13 +308,25 @@ export default function ShareAction(props) {
             windowHeight={544}
             component={WhatsappShareButton}
           />
+          {config.component?.share?.messennger === true &&
           <ActionIcon
             icon={FacebookMessengerIcon}
             title={shareText("share-fbmessenger")}
             appId="634127320642564"
             component={FacebookMessengerShareButton}
           />
-          <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
+          }
+             
+          {config.component?.share?.facebook !== false &&
+            <ActionIcon icon={FacebookIcon} component={FacebookShareButton} appId="634127320642564"/>
+          }
+          { config.component?.share?.bluesky !== false &&
+            <ActionIcon
+              icon={BlueskyIcon}
+              title={shareText("share-twitter", twitters.join(" "))}
+              component={BlueskyShareButton}
+            />
+          }
           { config.component?.share?.twitter !== false &&
             <ActionIcon
               icon={XIcon}
