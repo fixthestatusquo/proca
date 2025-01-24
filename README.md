@@ -52,17 +52,17 @@ Benchmarked at > 1'000'000 signatures per hour on a 16 cores.
 
 ## Technology
 
-Front and back are clearly separated. the backend is a bunch of APIs clearly documented (so it's easier to build a different front end or switch the back end)
+Front and back are clearly separated. the backend is headless, ie it only provides a [graphQL API](https://doc.proca.app/welcome) (so it's easier to build a different front-end for a specific org or campaign).
 
 - front-end: react, react-hook-form and material-ui
 - [Back-end](../proca-server): elixir
-- api: graphql
+- [api](https://doc.proca.app/welcome): graphql
 
 # Setup and 3 min intro
 
 - `git clone` this repository
 - `npm install`
-- `cp .env.example .env` and put your login + pwd
+- `cp .env.example .env` and put your login + pwd (either your account on our server or your install)
 - npx proca plugins link
 - npm run pull folowed by the action page id as seen in the backend. For instance
 
@@ -79,7 +79,7 @@ You can find more information in this [config documentation](./docs/config.md)
 
 # Documentation and Translation
 
-One of the most common contribution we receive is help on the translations. We are using [weblate](https://hosted.weblate.org/projects/proca) and you are encouraged to participate, either to improve an existing language or request a new one.
+One of the most common contribution we receive is help on the translations. We are using [weblate](https://hosted.weblate.org/projects/proca) and you are encouraged to participate, either to improve any of our 46 existing languages or request a new one.
 
 We are usually following the [material-ui guidelines](https://material.io/design/communication/writing.html#principles):
 
