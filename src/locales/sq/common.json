@@ -16,7 +16,6 @@
   "Next": "Tjetër",
   "Organisation": "Organizata",
   "Other": "Tjetër",
-  "party": "Palë",
   "Phone": "Telefoni",
   "Postal Code": "Kodi postar",
   "Salutation": "Përshëndetje",
@@ -25,7 +24,6 @@
   "Subject": "Subjekti",
   "Thank you": "Faleminderit",
   "Your message": "Mesazhi juaj",
-  "region": "Rajoni",
   "action": {
     "donate": "Dhuroni",
     "eci": "Nënshkruaj ECI",
@@ -69,17 +67,12 @@
       "opt-out": "dhe mos më mbani të informuar"
     }
   },
-  "postcode": {
-    "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj",
-    "notFound": "ky kod postar duket se nuk ekziston në vendin tuaj"
-  },
   "date": {
     "error": "data e pavlefshme. formati: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Më mbani të informuar rreth fushatës",
   "donation": {
-    "payment": "Pagesa",
     "amount": {
       "change": "Ndrysho shumën",
       "intro": "Zgjidhni një Shumë"
@@ -130,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Dhuroni për {{org}}",
+    "payment": "Pagesa",
     "payment_methods": {
       "card": "Kartë",
       "default": "Dhuroni",
@@ -140,14 +134,6 @@
     },
     "thanks": "Faleminderit për dhuratën tuaj!",
     "to": "Dhuratë për {{organisation}}"
-  },
-  "phone": {
-    "MISSING": "fusha e kërkuar",
-    "NOT_A_NUMBER": "Numri i telefonit është i pavlefshëm",
-    "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
-    "TOO_SHORT": "numri është shumë i shkurtër",
-    "TOO_LONG": "numri është shumë i gjatë",
-    "INVALID_LENGTH": "Gjatësia e pavlefshme"
   },
   "email": {
     "invalid_domain": "{{domain}} nuk mund të pranojë email",
@@ -172,6 +158,19 @@
     "wanttoadd": "Dëshironi të shtoni një imazh?"
   },
   "no": "jo",
+  "party": "Palë",
+  "phone": {
+    "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
+    "INVALID_LENGTH": "Gjatësia e pavlefshme",
+    "MISSING": "fusha e kërkuar",
+    "NOT_A_NUMBER": "Numri i telefonit është i pavlefshëm",
+    "TOO_LONG": "numri është shumë i gjatë",
+    "TOO_SHORT": "numri është shumë i shkurtër"
+  },
+  "postcode": {
+    "notFound": "ky kod postar duket se nuk ekziston në vendin tuaj",
+    "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj"
+  },
   "progress": {
     "donate": "{{total}} kanë dhuruar. Le të arrijmë te {{goal}}",
     "email": "{{total}} kanë dërguar një email. Le të arrijmë te {{goal}}",
@@ -181,6 +180,7 @@
     "twitter": "{{total}} kanë cicëruar. Le të arrijmë te {{goal}}"
   },
   "read more": "lexo më shumë",
+  "region": "Rajoni",
   "register": "Shtoni emrin tim",
   "reminder": {
     "intro": "Ne e dimë që qeveria juaj po kërkon shumë informacion. Ne do t'ju dërgojmë një email të vetëm për t'ju kujtuar të plotësoni formularin më vonë"
@@ -200,18 +200,16 @@
   },
   "step": {
     "eci": {
-      "secure": "i sigurt",
-      "subheader": "",
-      "title": ""
+      "secure": "i sigurt"
     },
     "register": {
       "title": ""
     }
   },
   "supporter": {
+    "greeting": "Mirë se vini {{firstname}}!",
     "not_you": "jo ju?",
-    "welcome": "Mirësevini, {{firstname}}!",
-    "greeting": "Mirë se vini {{firstname}}!"
+    "welcome": "Mirësevini, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
@@ -240,4 +238,3 @@
   "yes": "po",
   "you need to be 18 years old": "duhet të jeni 18 vjeç"
 }
-

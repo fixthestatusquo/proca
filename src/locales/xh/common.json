@@ -190,9 +190,7 @@
   },
   "step": {
     "eci": {
-      "secure": "ikhuselekile",
-      "subheader": "",
-      "title": ""
+      "secure": "ikhuselekile"
     },
     "register": {
       "title": ""

@@ -200,9 +200,7 @@
   },
   "step": {
     "eci": {
-      "secure": "безпечний",
-      "subheader": "\nstep.eci.subheader",
-      "title": "І"
+      "secure": "безпечний"
     },
     "register": {
       "title": "І"

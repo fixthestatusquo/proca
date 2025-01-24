@@ -199,9 +199,7 @@
   },
   "step": {
     "eci": {
-      "secure": "ปลอดภัย",
-      "subheader": "",
-      "title": ""
+      "secure": "ปลอดภัย"
     },
     "register": {
       "title": ""
