@@ -34,8 +34,8 @@ console.log("errors",r.errors);
    }
    const [widget, campaign] = r;
    this.log(widget.actionpage,widget.lang,widget.filename,widget.org.name);
-   this.info("pulled widget",'config/'+widget.actionpage +".json");
-   this.info("pulled campaign",'config/campaign/'+campaign.name +".json");
+   this.info('pulled widget config/'+widget.actionpage +".json");
+   this.info('pulled campaign config/campaign/'+campaign.name +".json");
 
   }
 }
