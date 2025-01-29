@@ -83,7 +83,8 @@ export default function ProcaStyle(props) {
           },
           MuiFormControlLabel: {
             root: {
-              maxWidth: "auto",
+              maxWidth: "none",
+              width: "auto"
             },
           },
           MuiFilledInput: {
