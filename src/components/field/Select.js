@@ -4,7 +4,15 @@ import { toObject } from "@lib/text";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
-const Select = ({ form, name, label, options: key, sort, required, select="value" }) => {
+const Select = ({
+  form,
+  name,
+  label,
+  options: key,
+  sort,
+  required,
+  select = "value",
+}) => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
   let options = [["error", "error"]];
@@ -29,13 +37,13 @@ const Select = ({ form, name, label, options: key, sort, required, select="value
       }
     } else {
       options = [["error_nolocales", "missing locale:" + key]];
-    } 
+    }
   } catch {
-      if (typeof key === 'object') {
-        options = Object.entries(key);
-      } else {
-        console.log("invalid key", key);
-      }
+    if (typeof key === "object") {
+      options = Object.entries(key);
+    } else {
+      console.log("invalid key", key);
+    }
   }
 
   switch (sort) {
@@ -47,9 +55,9 @@ const Select = ({ form, name, label, options: key, sort, required, select="value
       break;
   }
   if (required && !form.getValues(name)) {
-     const defaultValue = select === "value" ? options[0][1] : options[0][0];
-console.log("set default",name,defaultValue )
-    form.setValue (name,defaultValue);
+    const defaultValue = select === "value" ? options[0][1] : options[0][0];
+    console.log("set default", name, defaultValue);
+    form.setValue(name, defaultValue);
   }
   return (
     <TextField
@@ -65,7 +73,7 @@ console.log("set default",name,defaultValue )
       {!required && <option key="empty" value="" />}
       {options.map(([k, v]) => {
         return (
-          <option key={k} value={select === "value" ? v: k}>
+          <option key={k} value={select === "value" ? v : k}>
             {v}
           </option>
         );

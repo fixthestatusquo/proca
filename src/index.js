@@ -106,7 +106,7 @@ const go = action => {
 };
 
 const set = (atom, key, value) => {
-//  config[key] = value; // pointless?
+  //  config[key] = value; // pointless?
   if ((atom && key && value) || (atom && typeof key === "object")) {
     return setGlobalState(atom, key);
   }

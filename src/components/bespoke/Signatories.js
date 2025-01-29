@@ -71,32 +71,32 @@ const Signatories = () => {
           {signatories.length} {t("signed", "have signed the pledge")}
         </Typography>
         <Grid item>
-          {parties.length > 0  &&
+          {parties.length > 0 && (
             <TextField
-            select={true}
-            name="party"
-            label={t("party")}
-            onChange={e => {
-              e.target.value
-                ? setSelection(
-                  signatories.filter(p => p.party == e.target.value)
-                )
-                : setSelection(signatories);
-            }}
-            SelectProps={{
-              native: true,
-            }}
-          >
-            <option key="empty" value={null} />
-            {parties.map(d => {
-              return (
-                <option key={d.party} value={d.party}>
-                  {d.party}
-                </option>
-              );
-            })}
+              select={true}
+              name="party"
+              label={t("party")}
+              onChange={e => {
+                e.target.value
+                  ? setSelection(
+                      signatories.filter(p => p.party == e.target.value)
+                    )
+                  : setSelection(signatories);
+              }}
+              SelectProps={{
+                native: true,
+              }}
+            >
+              <option key="empty" value={null} />
+              {parties.map(d => {
+                return (
+                  <option key={d.party} value={d.party}>
+                    {d.party}
+                  </option>
+                );
+              })}
             </TextField>
-          }
+          )}
 
           <List
             dense={true}

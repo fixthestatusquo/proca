@@ -15,7 +15,7 @@ import {
   FormControl,
   IconButton,
   Typography,
-  Tooltip
+  Tooltip,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -107,7 +107,7 @@ const EmailComponent = props => {
   useEffect(() => {
     if (!props.targets) return;
     setProfiles(props.targets);
-    console.log("targets from props.targets",props.targets.length);
+    console.log("targets from props.targets", props.targets.length);
   }, [props.targets]);
 
   useEffect(() => {
@@ -163,12 +163,15 @@ const EmailComponent = props => {
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
 
-  const getDataWithToken = (key) => { // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
+  const getDataWithToken = key => {
+    // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
     //return gender ? data[`message_${gender}`] : data.message;
-    return gender && data[`${key}_${gender}`] ? data[`${key}_${gender}`] : data[key];
-  }
+    return gender && data[`${key}_${gender}`]
+      ? data[`${key}_${gender}`]
+      : data[key];
+  };
 
-  useToken(getDataWithToken('message'), tokens, handleMerging);
+  useToken(getDataWithToken("message"), tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   const checkUpdated = () => {
@@ -298,7 +301,7 @@ const EmailComponent = props => {
       });
       setProfiles(d);
       setData("targets", d);
-/*      setConfig(current => {
+      /*      setConfig(current => {
         console.log("set lang in filterLocale", locale);
         const next = { ...current };
         next.lang = locale;
@@ -459,7 +462,6 @@ const EmailComponent = props => {
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
 
-
   const send = data => {
     const hrefGmail = message => {
       return `https://mail.google.com/mail/?view=cm&fs=1&to=${message.to}&su=${message.subject}${message.cc ? `&cc=${message.cc}` : ""}${message.bcc ? `&bcc=${message.bcc}` : ""}&body=${message.body}`;
@@ -550,7 +552,6 @@ const EmailComponent = props => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
-
   const ExtraFields = props => {
     return (
       <>
@@ -620,7 +621,7 @@ const EmailComponent = props => {
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
-console.log("prepare data");
+    console.log("prepare data");
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
@@ -712,7 +713,7 @@ console.log("prepare data");
           });
         }
         if (d === true) {
-  console.log("select all",allProfiles);
+          console.log("select all", allProfiles);
           setProfiles(allProfiles);
           return;
         }
@@ -732,7 +733,7 @@ console.log("prepare data");
       } else {
         clearErrors(key);
       }
-      console.log("filter profiles",d.length);
+      console.log("filter profiles", d.length);
       setProfiles(d);
     },
     [allProfiles, profiles, setError]
@@ -792,7 +793,7 @@ console.log("prepare data");
       : true;
   };
 
-  if (allProfiles.length ===0) return null; // do not render anything before we have profiles
+  if (allProfiles.length === 0) return null; // do not render anything before we have profiles
 
   return (
     <Container maxWidth="sm">
@@ -801,7 +802,7 @@ console.log("prepare data");
       )}
       <Filter
         profiles={profiles}
-        maxProfiles = {allProfiles.length}
+        maxProfiles={allProfiles.length}
         form={form}
         selecting={filterTarget}
         country={country}
@@ -878,7 +879,6 @@ console.log("prepare data");
       <Collapse
         in={profiles.length > 0 || config.component.email?.server !== false}
       >
-
         <Register
           form={form}
           emailProvider={emailProvider}

@@ -28,7 +28,7 @@ const Phone = ({ form, classField }) => {
   const phoneCountry = form.watch("phoneCountry");
 
   if (form.getFieldState("phone").invalid) {
-//  iconColor = theme.palette.error.main;
+    //  iconColor = theme.palette.error.main;
   }
   return (
     <Grid item xs={12} className={classField}>
@@ -44,7 +44,15 @@ const Phone = ({ form, classField }) => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {phoneCountry ? <CountryFlag countryCode={phoneCountry} /> : <PhoneIcon color={form.getFieldState("phone").invalid ? "error": "action"} />}
+              {phoneCountry ? (
+                <CountryFlag countryCode={phoneCountry} />
+              ) : (
+                <PhoneIcon
+                  color={
+                    form.getFieldState("phone").invalid ? "error" : "action"
+                  }
+                />
+              )}
             </InputAdornment>
           ),
         }}

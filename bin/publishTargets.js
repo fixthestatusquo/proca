@@ -12,7 +12,7 @@ const merge = (targets, twitters, options) => {
       twitters.find(
         d => clean(d.screen_name) === clean(target.fields?.screen_name)
       );
-console.log(twitters[0],target.fields?.screen_name);
+    console.log(twitters[0], target.fields?.screen_name);
     if (!r) {
       // todo, some formatting
       r = {
@@ -154,7 +154,7 @@ const publishTarget = async (campaignName, argv) => {
     let twitters = null;
     try {
       twitters = read("target/twitter/" + name); // the list from twitter
-console.log("twitters",twitters.length);
+      console.log("twitters", twitters.length);
     } catch {
       console.log("no twitter list");
       twitters = [];

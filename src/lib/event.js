@@ -1,4 +1,4 @@
-import {getHash} from './hash';
+import { getHash } from "./hash";
 const dispatchAnalytics = (message, value, extra) => {
   //https://support.google.com/analytics/answer/9267735?sjid=9242639035351824592-EU no standard events
   if (message === "count") return;
@@ -10,17 +10,16 @@ const dispatchAnalytics = (message, value, extra) => {
     param.event = action.join("_");
   }
 
-  if (value?.test) 
-    param.test = true;
+  if (value?.test) param.test = true;
   param.source = "proca";
   if (value?.privacy) {
     param.privacy = value.privacy;
   }
-console.log("GA4",param);
+  console.log("GA4", param);
   window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
 };
 
-const dispatch = (event, data, pii, config) => {
+const dispatch = (event, data, pii) => {
   let elem = document.getElementById("proca");
   if (!elem) {
     console.error("#proca missing");
@@ -30,7 +29,14 @@ const dispatch = (event, data, pii, config) => {
   if (window.dataLayer) {
     dispatchAnalytics(event, data);
     if (pii?.email) {
-       getHash().then ( hash => dispatchAnalytics("user_identified",data,{'gp_user_id':hash,'distinct_id':hash,'registration_type':event,'registration_source':'proca'}));
+      getHash().then(hash =>
+        dispatchAnalytics("user_identified", data, {
+          gp_user_id: hash,
+          distinct_id: hash,
+          registration_type: event,
+          registration_source: "proca",
+        })
+      );
     }
   }
   if (pii) data.contact = pii; //TODO, add a config to remove the option to bubble up pii to the containing page

@@ -17,19 +17,18 @@ const Filter = props => {
       .filter(([key]) => key.startsWith("filter"))
       .map(([, components]) => components) || [];
   let nbFilters = Filters.length;
-  
+
   if (config.component.email?.filter) {
     nbFilters += config.component.email?.filter?.length;
-  } 
+  }
   if (nbFilters === 0 && props.maxProfiles === 0) {
     nbFilters = undefined; // nothing to filter anyway
   }
-  useEffect (() => {
-     if (nbFilters !== 0) return;
-console.log("we need to select everything, there aren't any filter");
-     props.selecting ( () => true); // return all the profiles
-  }
-  ,[nbFilters]);
+  useEffect(() => {
+    if (nbFilters !== 0) return;
+    console.log("we need to select everything, there aren't any filter");
+    props.selecting(() => true); // return all the profiles
+  }, [nbFilters]);
 
   return (
     <>

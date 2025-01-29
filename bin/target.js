@@ -49,7 +49,7 @@ const help = exitValue => {
         "--meps , special formatting, done if 'epid' is a field",
         "--[no-]external_id , publishes the externalid",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
-        "--salutation, true by default, needs field/lang value"
+        "--salutation, true by default, needs field/lang value",
       ].join("\n")
     )
   );

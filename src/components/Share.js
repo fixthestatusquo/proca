@@ -186,7 +186,11 @@ export default function ShareAction(props) {
             color="primary"
             onClick={next}
           >
-            {t(typeof config.component.share.next === 'string' ? config.component.share.next : "Next")}
+            {t(
+              typeof config.component.share.next === "string"
+                ? config.component.share.next
+                : "Next"
+            )}
           </Button>
         )}
       </Card>
@@ -308,32 +312,36 @@ export default function ShareAction(props) {
             windowHeight={544}
             component={WhatsappShareButton}
           />
-          {config.component?.share?.messennger === true &&
-          <ActionIcon
-            icon={FacebookMessengerIcon}
-            title={shareText("share-fbmessenger")}
-            appId="634127320642564"
-            component={FacebookMessengerShareButton}
-          />
-          }
-             
-          {config.component?.share?.facebook !== false &&
-            <ActionIcon icon={FacebookIcon} component={FacebookShareButton} appId="634127320642564"/>
-          }
-          { config.component?.share?.bluesky !== false &&
+          {config.component?.share?.messennger === true && (
+            <ActionIcon
+              icon={FacebookMessengerIcon}
+              title={shareText("share-fbmessenger")}
+              appId="634127320642564"
+              component={FacebookMessengerShareButton}
+            />
+          )}
+
+          {config.component?.share?.facebook !== false && (
+            <ActionIcon
+              icon={FacebookIcon}
+              component={FacebookShareButton}
+              appId="634127320642564"
+            />
+          )}
+          {config.component?.share?.bluesky !== false && (
             <ActionIcon
               icon={BlueskyIcon}
               title={shareText("share-twitter", twitters.join(" "))}
               component={BlueskyShareButton}
             />
-          }
-          { config.component?.share?.twitter !== false &&
+          )}
+          {config.component?.share?.twitter !== false && (
             <ActionIcon
               icon={XIcon}
               title={shareText("share-twitter", twitters.join(" "))}
               component={TwitterShareButton}
             />
-          }
+          )}
           <ActionIcon
             icon={TelegramIcon}
             title={shareText("share-telegram")}
@@ -369,7 +377,7 @@ export default function ShareAction(props) {
       if (autoClosed) {
         return;
       }
-//      addShare("share_confirmed", medium);
+      //      addShare("share_confirmed", medium);
       autoClosed = true;
     }
 

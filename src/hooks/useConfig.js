@@ -7,33 +7,58 @@ import { merge, set } from "@lib/object";
 
 export let configStore = null;
 
-export const initConfigState = (config) => {
+export const initConfigState = config => {
   if (config.locales) {
     let campaignTitle = false;
-    Object.keys(config.locales).forEach((k) => {
+    Object.keys(config.locales).forEach(k => {
       if (k.charAt(k.length - 1) === ":") {
         const ns = k.slice(0, -1);
         if (ns === "campaign") {
-          config.locales[k].title = config.locales[k].title || config.campaign.title;
+          config.locales[k].title =
+            config.locales[k].title || config.campaign.title;
           campaignTitle = true;
         }
-        i18next.addResourceBundle(config.lang, ns, config.locales[k], true, true);
+        i18next.addResourceBundle(
+          config.lang,
+          ns,
+          config.locales[k],
+          true,
+          true
+        );
         delete config.locales[k];
       }
     });
     if (!campaignTitle) {
-      i18next.addResourceBundle(config.lang, "campaign", config.campaign, true, true);
+      i18next.addResourceBundle(
+        config.lang,
+        "campaign",
+        config.campaign,
+        true,
+        true
+      );
     }
-    i18next.addResourceBundle(config.lang, "common", config.locales, true, true);
+    i18next.addResourceBundle(
+      config.lang,
+      "common",
+      config.locales,
+      true,
+      true
+    );
   }
   initLayout(config.layout);
   delete config.locales;
 
   if (configStore) return false;
 
-  configStore = create((set) => ({
+  configStore = create(set => ({
     campaignConfig: config,
-    setCampaignConfig: (update) => set((state) => ({ campaignConfig: { ...state.campaignConfig, ...update(state.campaignConfig) } })),
+    setCampaignConfig: update =>
+      set(state => ({
+        campaignConfig: {
+          ...state.campaignConfig,
+          ...update(state.campaignConfig),
+        },
+      })),
   }));
 
   return true;
@@ -56,7 +81,7 @@ export const setGlobalState = (key, value) => {
   }
 };
 
-const goStep = (action) => {
+const goStep = action => {
   const event = new CustomEvent("proca-go", { detail: { action } });
   if (document.getElementById(id)) {
     document.getElementById(id).dispatchEvent(event);
@@ -76,21 +101,21 @@ const setHook = (object, action, hook) => {
   }
 };
 
-export const ConfigProvider = (props) => {
+export const ConfigProvider = props => {
   const setLayout = useSetLayout();
   const { setCampaignConfig } = configStore();
   const [, setData] = useData();
   const go = props.go;
 
   const setPartPath = (part, path, value) => {
-    setCampaignConfig((config) => {
+    setCampaignConfig(config => {
       const updatedConfig = JSON.parse(JSON.stringify(config));
       return set(updatedConfig, `${part}.${path}`, value);
     });
   };
 
   const setPart = (part, toMerge) => {
-    setCampaignConfig((config) => {
+    setCampaignConfig(config => {
       const update = {};
       update[part] = toMerge;
       return merge(config, update);
@@ -107,7 +132,7 @@ export const ConfigProvider = (props) => {
 
   const setHook = useCallback(
     (object, action, hook) => {
-      setCampaignConfig((current) => {
+      setCampaignConfig(current => {
         const next = { ...current };
         next.hook = { ...current.hook };
         next.hook[`${object}:${action}`] = hook;
@@ -122,7 +147,7 @@ export const ConfigProvider = (props) => {
 
     elem.addEventListener(
       "proca-set",
-      (e) => {
+      e => {
         switch (e.detail.key) {
           case "layout":
             setLayout(e.detail.value);
@@ -142,7 +167,7 @@ export const ConfigProvider = (props) => {
 
     elem.addEventListener(
       "proca-hook",
-      (e) => {
+      e => {
         if (typeof e.detail.hook !== "function")
           return console.error("Hook must be a function");
         if (typeof e.detail.action !== "string")
@@ -156,7 +181,7 @@ export const ConfigProvider = (props) => {
 
     elem.addEventListener(
       "proca-go",
-      (e) => {
+      e => {
         if (typeof go === "function") {
           go(e.detail.action);
         } else {
@@ -175,9 +200,11 @@ export const ConfigProvider = (props) => {
   );
 };
 
-export const useCampaignConfig = () => configStore((state) => state.campaignConfig);
-export const useConfig = () => configStore((state) => state.campaignConfig);
-export const useSetCampaignConfig = () => configStore((state) => state.setCampaignConfig);
+export const useCampaignConfig = () =>
+  configStore(state => state.campaignConfig);
+export const useConfig = () => configStore(state => state.campaignConfig);
+export const useSetCampaignConfig = () =>
+  configStore(state => state.setCampaignConfig);
 export { set as setConfig };
 export { goStep };
 export { setHook as hook };

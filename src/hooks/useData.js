@@ -5,17 +5,18 @@ let formData = null;
 export const initDataState = (urlData, config) => {
   if (formData) return false;
 
-  formData = create((set) => ({
+  formData = create(set => ({
     data: {
       ...{ comment: config.param.locales?.comment || "" },
       ...urlData,
     },
-    setData: (key, value) => set((state) => {
-      if (typeof key === "object") {
-        return { data: { ...state.data, ...key } };
-      }
-      return { data: { ...state.data, [key]: value } };
-    }),
+    setData: (key, value) =>
+      set(state => {
+        if (typeof key === "object") {
+          return { data: { ...state.data, ...key } };
+        }
+        return { data: { ...state.data, [key]: value } };
+      }),
   }));
 
   return true;
@@ -30,4 +31,3 @@ const useData = () => {
 
 export { useData };
 export default useData;
-

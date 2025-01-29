@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import useData from "@hooks/useData";
 import { addAction } from "@lib/server";
-import {utm} from "@lib/urlparser";
+import { utm } from "@lib/urlparser";
 import dispatch from "@lib/event";
 import uuid from "@lib/uuid";
 
@@ -20,16 +20,15 @@ const ExternalPayment = props => {
   const config = useCampaignConfig();
   const donateConfig = config.component.donation;
 
-  useEffect ( ()=> {
+  useEffect(() => {
     if (!formData.amount || formData.amount === true) return;
     onClickExternal();
-      
-  },[formData.amount]);
+  }, [formData.amount]);
 
   const addDonate = (event, amount) => {
     const d = {
       uuid: uuid(),
-      payload: { amount: amount},
+      payload: { amount: amount },
       tracking: utm(),
     };
 
@@ -52,7 +51,6 @@ const ExternalPayment = props => {
     window.open(url, "_blank");
   };
 
-  
   return (
     <Grid item xs={12}>
       <Button
@@ -65,7 +63,7 @@ const ExternalPayment = props => {
         onClick={onClickExternal}
       >
         <DonationIcon />
-        {t( "action.donate", "Donate")}
+        {t("action.donate", "Donate")}
       </Button>
     </Grid>
   );

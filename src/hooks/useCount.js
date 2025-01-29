@@ -6,12 +6,12 @@ import dispatch from "@lib/event.js";
 
 let effectRan = false;
 
-const useCounterStore = create((set) => ({
+const useCounterStore = create(set => ({
   actionCount: null,
-  setCount: (count) => set({ actionCount: count }),
+  setCount: count => set({ actionCount: count }),
 }));
 
-const useInitFromUrl = (actionUrl) => {
+const useInitFromUrl = actionUrl => {
   const { actionCount, setCount } = useCounterStore();
   const [id, setId] = useState(null);
 
@@ -76,4 +76,3 @@ export default function useCounter(actionPage) {
 
   return actionCount || null;
 }
-

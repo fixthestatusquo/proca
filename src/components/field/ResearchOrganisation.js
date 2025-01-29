@@ -17,15 +17,16 @@ const useStyles = makeStyles(() => ({
 const AffiliationInput = ({ form }) => {
   const classes = useStyles();
   const [options, setOptions] = useState([]);
-  const [inputValue, setInputValue] = useState(form.getValues("organisation") || '');
+  const [inputValue, setInputValue] = useState(
+    form.getValues("organisation") || ""
+  );
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect ( () => {
-     if (!form.getValues("organisation")) return;
-     setInputValue ( form.getValues("organisation"));
-     
-  },[form.getValues("organisation")]);
+  useEffect(() => {
+    if (!form.getValues("organisation")) return;
+    setInputValue(form.getValues("organisation"));
+  }, [form.getValues("organisation")]);
 
   const fetchOptions = async query => {
     if (query.length > 2) {

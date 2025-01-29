@@ -91,24 +91,24 @@ const DonateAmount = props => {
 
             <Frequencies />
 
-              <PaymentMethodButtons
-                classes={classes}
-                disabled={!amount}
-                onClickStripe={() => {
-                  setData("paymentMethod", "stripe");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onClickSepa={() => {
-                  setData("paymentMethod", "sepa");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onComplete={() => {
-                  setComplete(true);
-                  props.go("donate_Thanks");
-                }}
-              />
+            <PaymentMethodButtons
+              classes={classes}
+              disabled={!amount}
+              onClickStripe={() => {
+                setData("paymentMethod", "stripe");
+                setDonateStep(1);
+                props.done();
+              }}
+              onClickSepa={() => {
+                setData("paymentMethod", "sepa");
+                setDonateStep(1);
+                props.done();
+              }}
+              onComplete={() => {
+                setComplete(true);
+                props.go("donate_Thanks");
+              }}
+            />
           </CardContent>
         </Grid>
       </Grid>
