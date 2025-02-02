@@ -26,7 +26,7 @@ import { useIsMobile } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
-import GmailIcon from "../images/Gmail";
+import GmailIcon from "@lib/../images/Gmail";
 
 import {
   BlueskyShareButton,
@@ -69,38 +69,17 @@ const useStyles = makeStyles(theme => ({
     height: theme.spacing(6),
     backgroundColor: "#eee",
   },
-  media: {
-    height: 0,
-    paddingTop: "52.5%", // FB ratio
-  },
-  aamargin: {
-    margin: theme.spacing(1),
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-  root: {
-    "& p": { fontSize: theme.typography.pxToRem(16) },
-    "& h3": { fontSize: theme.typography.pxToRem(20) },
-  },
-  next: {
-    margin: theme.spacing(1),
-  },
-  widroot: {
-    "& Button": { justifyContent: "left" },
-    "& span": { justifyContent: "left", padding: "5px 10px" },
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
 }));
 
 export default function ShareAction(props) {
   const classes = useStyles();
   const config = useCampaignConfig();
   const actionPage = config.actionPage;
-  const metadata = getMetadata(window.document, window.location);
   const { t, i18n } = useTranslation();
+  const metadata = getMetadata(window.document, window.location);
+
+  metadata.title = decodeHtmlEntities(metadata.title);
+  metadata.description = decodeHtmlEntities(metadata.description);
 
   const shareUrl = component => {
     // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
@@ -139,10 +118,6 @@ export default function ShareAction(props) {
     garbage.forEach(key => params.delete(key));
     return url.toString();
   };
-  const next = () => {
-    if (props.done instanceof Function) props.done();
-  };
-
   const addShare = (event, medium) => {
     const d = {
       uuid: uuid(),
@@ -155,47 +130,7 @@ export default function ShareAction(props) {
     addAction(actionPage, event, d, config.test);
   };
 
-  metadata.title = decodeHtmlEntities(metadata.title);
-  metadata.description = decodeHtmlEntities(metadata.description);
-  return (
-    <Container component="div" maxWidth="sm" className={classes.root}>
-      <EmailConfirm />
-      <PreviousStepConfirm email={config.component.consent?.email} />
-      <h3>{t("share.title")}</h3>
-      <p>{t("share.intro")}</p>
-      <Card className={classes.root}>
-        {config.component.share?.top && <Actions {...props} />}
-        <CardHeader title={metadata.title} subheader={metadata.provider} />
-        {metadata.image ? (
-          <CardMedia
-            className={classes.media}
-            image={metadata.image}
-            title={metadata.title}
-          />
-        ) : null}
-        <CardContent>
-          <p>{metadata.description}</p>
-        </CardContent>
-        {!config.component.share?.top && <Actions {...props} />}
-        {config.component.share?.next && (
-          <Button
-            size="large"
-            endIcon={<SkipNextIcon />}
-            className={classes.next}
-            variant="contained"
-            color="primary"
-            onClick={next}
-          >
-            {t(
-              typeof config.component.share.next === "string"
-                ? config.component.share.next
-                : "Next"
-            )}
-          </Button>
-        )}
-      </Card>
-    </Container>
-  );
+  return <Actions {...props} />;
 
   function Actions() {
     const { t } = useTranslation();
