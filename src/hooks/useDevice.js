@@ -10,7 +10,7 @@ export const mobileOS = userAgent => {
       return device;
     }
   }
-  return "mobile";
+  return "phone";
 
 };
 
