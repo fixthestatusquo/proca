@@ -3,19 +3,22 @@ const dispatchAnalytics = (message, value, extra) => {
   //https://support.google.com/analytics/answer/9267735?sjid=9242639035351824592-EU no standard events
   if (message === "count") return;
   const action = message.split(":");
-  const param = extra || {};
+  const param = Object.assign({},value,extra);
+  'uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact'.split(',').forEach(attr => {
+        if (param.hasOwnProperty(attr)) {
+            delete param[attr];
+        }
+    });
   if (action[1] && action[1] === "complete") {
     param.event = action[0];
   } else {
     param.event = action.join("_");
   }
-
-  if (value?.test) param.test = true;
-  param.source = "proca";
-  if (value?.privacy) {
-    param.privacy = value.privacy;
+  param.source = "proca"; 
+  if (value?.test) {
+    param.test = true;
+    console.log("GA4", param);
   }
-  console.log("GA4", param);
   window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
 };
 

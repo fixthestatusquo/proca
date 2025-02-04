@@ -1,5 +1,30 @@
 import { useEffect, useState } from "react";
 
+export const mobileOS = userAgent => {
+  userAgent = (userAgent || navigator.userAgent).toLowerCase();
+
+  const devices = ["android", "iphone", "ipad", "ipod"];
+
+  for (const device of devices) {
+    if (userAgent.includes(device)) {
+      return device;
+    }
+  }
+  return "mobile";
+
+};
+
+const useMobileOS = () => {
+  const [type, setType] = useState(false);
+  const UA = navigator.userAgent;
+
+  useEffect(() => {
+    setType(mobileOS(UA));
+  }, [UA]);
+
+  return type;
+};
+
 const useIsMobile = () => {
   // there is another useIsMobile, based on the screen width at src/hooks/useLayout
   const [isMobile, setMobile] = useState(false);
@@ -25,4 +50,4 @@ const useIsWindows = () => {
   return isWin;
 };
 
-export { useIsMobile, useIsWindows };
+export { useIsMobile, useIsWindows, useMobileOS };

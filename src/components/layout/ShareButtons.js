@@ -13,7 +13,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
-import { decodeHtmlEntities } from "@lib/text";
+import { decodeHtmlEntities, pickOne } from "@lib/text";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
-import { useIsMobile } from "@hooks/useDevice";
+import { useIsMobile, mobileOS } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
@@ -132,8 +132,8 @@ export default function ShareAction(props) {
       tracking: Url.utm(),
     };
 
-    dispatch(event.replace("_", ":"), d, null, config);
     if (config.component.share?.anonymous === true) return;
+    dispatch(event.replace("_", ":"), d.payload, null, config);
     addAction(actionPage, event, d, config.test);
   };
 
@@ -169,33 +169,35 @@ export default function ShareAction(props) {
 
     let cardIcons;
 
-    const nativeShare = medium => {
+    const nativeShare = () => {
+      const medium = "native_" + mobileOS();
       addShare("share", medium);
       const url = shareUrl(medium);
-      shareWebAPI(url, medium);
+      shareWebAPI(url);
     };
 
-    const shareWebAPI = (url, medium) => {
+    const shareWebAPI = (url) => {
       navigator
         .share({
           text: shareText("share.default"),
           url: url,
         })
-        .then(() => addShare("share_confirmed", medium))
-        .catch(error => console.error("Error sharing", error));
+        .catch(error => console.error("Error native sharing", error));
     };
 
     const EmailAction = () => {
+      if (config.component.share?.email === false) return null;
+      if (!i18n.exists("campaign:share.email.subject")) return null;
+
+      const subject = pickOne (t("campaign:share.email.subject", ""));
       const hrefGmail = () => {
-        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(t("campaign:share.email.subject", ""))}&body=${encodeURIComponent(shareText("share.email.body"))}`;
+        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(shareText("share.email.body"))}`;
       };
 
       const mailto = () => {
         window.open(hrefGmail(), "_blank");
         addShare("share", "gmail");
       };
-      if (config.component.share?.email === false) return null;
-      if (!i18n.exists("campaign:share.email.subject")) return null;
 
       if (
         data.email?.includes("@gmail") ||
@@ -216,7 +218,7 @@ export default function ShareAction(props) {
         <ActionIcon
           icon={EmailIcon}
           component={EmailShareButton}
-          subject={t("campaign:share.email.subject", "")}
+          subject={subject}
           body={shareText("share.email.body")}
           separator=" "
         />
@@ -225,8 +227,7 @@ export default function ShareAction(props) {
 
     cardIcons = (
       <>
-        {isMobile &&
-          navigator?.canShare &&
+        {isMobile && navigator?.canShare &&
           !(
             config.component.share?.native &&
             config.component.share.native === false
@@ -238,7 +239,7 @@ export default function ShareAction(props) {
                 variant="contained"
                 color="primary"
                 fullWidth
-                onClick={() => nativeShare("webshare_api")}
+                onClick={() => nativeShare()}
               >
                 {t("action.share")}
               </Button>
