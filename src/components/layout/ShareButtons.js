@@ -69,6 +69,13 @@ const useStyles = makeStyles(theme => ({
     height: theme.spacing(6),
     backgroundColor: "#eee",
   },
+  actions: {
+    flexWrap: 'wrap',
+    gap: theme.spacing(1),
+  },
+  action: {
+    flexGrow: 1,
+  }
 }));
 
 export default function ShareAction(props) {
@@ -224,7 +231,7 @@ export default function ShareAction(props) {
             config.component.share?.native &&
             config.component.share.native === false
           ) && (
-            <CardActions>
+            <CardActions className={classes.actions}>
               <Button
                 endIcon={<ShareIcon />}
                 className={classes.next}
@@ -299,6 +306,7 @@ export default function ShareAction(props) {
 
   function ActionIcon(props) {
     const isMobile = useIsMobile();
+    const classes = useStyles();
 
     const medium = props.component.render.displayName.replace(
       "ShareButton-",
@@ -342,6 +350,7 @@ export default function ShareAction(props) {
       <IconButton
         {...drillProps}
         id={`proca-share-${medium}`}
+        className={classes.action}
         component={props.component}
         url={shareUrl(props.component)}
         openShareDialogOnClick={openShareDialogOnClick}
