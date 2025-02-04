@@ -1,6 +1,5 @@
 import { pull } from "../../widget.js";
 
-//import { Args, Flags } from "@oclif/core";
 import Command, { Args, Flags } from "../../builderCommand.mjs";
 
 export default class FetchCommand extends Command {
