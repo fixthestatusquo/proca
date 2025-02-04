@@ -231,7 +231,7 @@ export default function ShareAction(props) {
             config.component.share?.native &&
             config.component.share.native === false
           ) && (
-            <CardActions className={classes.actions}>
+            <CardActions>
               <Button
                 endIcon={<ShareIcon />}
                 className={classes.next}
@@ -244,7 +244,7 @@ export default function ShareAction(props) {
               </Button>
             </CardActions>
           )}
-        <CardActions>
+        <CardActions className={classes.actions} disableSpacing>
           <EmailAction />
 
           <ActionIcon
