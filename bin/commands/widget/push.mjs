@@ -3,7 +3,7 @@ import { push } from "../../widget.js";
 import Command, { Args, Flags } from "../../builderCommand.mjs";
 
 export default class FetchCommand extends Command {
-  static description = "preview the widget";
+  static description = "push to the server the local configuration of the widget";
 
   static examples = ["<%= config.bin %> <%= command.id %> -o <organisation>"];
 

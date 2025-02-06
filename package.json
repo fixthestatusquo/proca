@@ -102,7 +102,7 @@
     "mjml": "^4.15.3",
     "open": "^10.1.0",
     "phoenix": "1.7.14",
-    "proca": "^0.5.6",
+    "proca": "^0.6.0",
     "simple-git": "^3.27.0",
     "websocket": "^1.0.35"
   },
@@ -129,7 +129,8 @@
     "pullCampaign": "node bin/campaign.js --pull",
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging node bin/esbuild.js --serve ",
-    "starts": "HTTPS=true node bin/esbuild.js --serve "
+    "starts": "HTTPS=true node bin/esbuild.js --serve ",
+    "postinstall": "npx proca plugins link ."
   },
   "jest": {
     "moduleNameMapper": {
