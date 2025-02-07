@@ -117,10 +117,16 @@ const Signatories = () => {
                     />
                   </ListItemAvatar>
                 }
-                <ListItemText
-                  primary={(d.first_name + " " + d.last_name).toUpperCase()}
-                  secondary={d.organisation || (d.region || d.party ? d.party + ", " + d.region : d.party)}
-                />
+                {(d.organisation_sign && d.organisation) ?
+                  <ListItemText
+                    primary={d.organisation.toUpperCase()}
+                  />
+                  :
+                  <ListItemText
+                    primary={(d.first_name + " " + d.last_name).toUpperCase()}
+                    secondary={d.organisation || (d.region || d.party ? d.party + ", " + d.region : d.party)}
+                  />
+                }
               </ListItem>
             ))}
           </List>
