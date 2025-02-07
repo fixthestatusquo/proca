@@ -7,6 +7,7 @@ import Affiliation from "@components/field/ResearchOrganisation";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import TextField from "@components/TextField";
 import Country from "@components/field/Country";
+import { useTranslation } from "react-i18next";
 
 const EggManifesto = ({ form }) => {
   const [organisation, organisation_sign] = form.watch([
@@ -18,17 +19,26 @@ const EggManifesto = ({ form }) => {
     "Sign on the behalf of " +
     (organisation || "your organisation or a research group/department");
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Grid item xs={12}>
         <Orcid form={form} />
         <Affiliation form={form} />
-        <Checkbox
-          name="organisation_sign"
-          disabled={!organisation}
-          form={form}
-          label={label}
-        />
+        {organisation_sign &&
+          <TextField
+            name='lab'
+            label={t("lab", "Lab or research group")}
+            form={form}
+          />
+        }
+          <Checkbox
+            name="organisation_sign"
+            disabled={!organisation}
+            form={form}
+            label={label}
+          />
       </Grid>
       {organisation_sign && (
         <Grid item>
