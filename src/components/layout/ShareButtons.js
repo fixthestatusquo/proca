@@ -154,6 +154,8 @@ export default function ShareAction(props) {
         config.param.locales[key] ||
         config.param.locales["share"] ||
         /* i18next-extract-disable-line */ t(i18nKey);
+
+      msg = pickOne(msg);
       if (target) {
         msg += ` ${target}`;
       }
