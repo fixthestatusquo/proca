@@ -40,7 +40,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
-    "@paypal/react-paypal-js": "^8.7.0",
+    "@paypal/react-paypal-js": "^8.8.2",
     "@shopify/react-intersection-observer": "^4.0.4",
     "@stripe/react-stripe-js": "^3.1.1",
     "@stripe/stripe-js": "^4.9.0",
