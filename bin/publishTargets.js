@@ -18,7 +18,7 @@ const merge = (targets, twitters, options) => {
       r = {
         procaid: target.id,
         name: target.name,
-        country: target.area,
+        country: target.fields.country || target.area,
         description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
         //        followers_count: 0,
@@ -49,6 +49,9 @@ const merge = (targets, twitters, options) => {
     }
     if (options.external_id && target.externalId) {
       r.externalId = target.externalId;
+    }
+    if (target.fields.picture) {
+      r.profile_image_url_https = target.fields.picture;
     }
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;

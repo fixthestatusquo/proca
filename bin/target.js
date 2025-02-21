@@ -296,7 +296,7 @@ const formatTarget = async (campaignName, file) => {
         t.locale = t.field.lang.toLowerCase();
         delete t.field.lang;
       } else {
-        const l = mainLanguage(t.area);
+        const l = mainLanguage(t.field.country || t.area);
         if (l) t.locale = l;
       }
 

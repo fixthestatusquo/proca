@@ -751,7 +751,9 @@ const EmailComponent = props => {
   let selectAllEnabled = true;
   if (
     config.import &&
-    config.import.find(d => d.startsWith("filter")) &&
+    (config.import.find(d => d.startsWith("filter")) || 
+     config.component.email?.filter?.includes("postcode") )
+  &&
     profiles.length > 30
   ) {
     selectAllEnabled = false;
@@ -858,7 +860,7 @@ const EmailComponent = props => {
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense ref={listRef}>
           {profiles.length === 0 &&
-            !config.component.email?.filter?.includes("postcode") &&
+           !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}
           {profiles.map((d, i) => (
             <EmailAction
