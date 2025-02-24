@@ -130,7 +130,7 @@
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging node bin/esbuild.js --serve ",
     "starts": "HTTPS=true node bin/esbuild.js --serve ",
-    "postinstall": "npx proca plugins link ."
+    "_postinstall": "npx proca plugins link ."
   },
   "jest": {
     "moduleNameMapper": {
