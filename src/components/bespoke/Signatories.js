@@ -120,6 +120,7 @@ const Signatories = () => {
                 {(d.organisation_sign && d.organisation) ?
                   <ListItemText
                     primary={d.organisation.toUpperCase()}
+                    secondary={d.lab}
                   />
                   :
                   <ListItemText
