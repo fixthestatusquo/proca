@@ -109,25 +109,16 @@ const Signatories = () => {
                 className={classes.item}
                 ContainerComponent="div"
               >
-                {d.picture &&
-                  <ListItemAvatar>
-                    <Avatar
-                      alt={d.first_name + " " + d.last_name}
-                      src={d.picture}
-                    />
-                  </ListItemAvatar>
-                }
-                {(d.organisation_sign && d.organisation) ?
-                  <ListItemText
-                    primary={d.organisation.toUpperCase()}
-                    secondary={d.lab}
+                <ListItemAvatar>
+                  <Avatar
+                    alt={d.first_name + " " + d.last_name}
+                    src={d.picture}
                   />
-                  :
-                  <ListItemText
-                    primary={(d.first_name + " " + d.last_name).toUpperCase()}
-                    secondary={d.organisation || (d.region || d.party ? d.party + ", " + d.region : d.party)}
-                  />
-                }
+                </ListItemAvatar>
+                <ListItemText
+                  primary={d.first_name + " " + d.last_name}
+                  secondary={d.region ? d.party + ", " + d.region : d.party}
+                />
               </ListItem>
             ))}
           </List>
