@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Grid from "@material-ui/core/Grid";
 import { Typography, LinearProgress} from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useTranslation } from "react-i18next";
 import { useSupabase } from "@lib/supabase";
+import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
 
 const useStyles = makeStyles({
   container: {
@@ -41,7 +43,6 @@ const Signatories = () => {
         return null;
       }
       if (!data) return null;
-      console.log("data", data);
 
       // organization signatures need to be approved, but individual are displayed if not rejected
       const filtered = data.filter(
@@ -74,6 +75,11 @@ const Signatories = () => {
                 className={classes.item}
                 ContainerComponent="div"
               >
+                {d.country &&
+                  <ListItemAvatar>
+                    <CountryFlag countryCode={d.country} />
+                  </ListItemAvatar>
+                }
                 {(d.organisation_sign && d.organisation) ?
                   <ListItemText
                     primary={d.organisation.toUpperCase()}
