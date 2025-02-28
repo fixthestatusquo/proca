@@ -280,7 +280,7 @@ export default function ShareAction(props) {
               component={BlueskyShareButton}
             />
           )}
-          {config.component?.share?.twitter !== false && (
+          {config.component?.share?.twitter && (
             <ActionIcon
               icon={XIcon}
               title={shareText("share-twitter", twitters.join(" "))}
