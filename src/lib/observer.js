@@ -6,8 +6,7 @@ class Subject {
 
   // Add an observer
   subscribe(observer, event = null) {
-console.log("obs",observer);
-    this.observers.push({ observer, event });
+    this.observers.push({ observer, observedEvent: event });
   }
 
   // Remove an observer
@@ -17,9 +16,9 @@ console.log("obs",observer);
 
   // Notify observers, pii is data that contain personal information and should not be blindly sent elsewhere-
   notify(event, data, pii) {
-    this.observers.forEach(({ observer, observedEvent }) => {
+    this.observers.forEach(async ({ observer, observedEvent }) => {
       if (!observedEvent || event === observedEvent) {
-        observer(event, data, pii);
+        await observer(event, data, pii);
       }
     });
   }

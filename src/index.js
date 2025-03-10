@@ -105,6 +105,12 @@ const go = action => {
   scrollTo({ delay: 300 });
 };
 
+const get = (key) => {
+  if (!key) {
+    return Config;
+  }
+}
+
 const set = (atom, key, value) => {
   //  config[key] = value; // pointless?
   if ((atom && key && value) || (atom && typeof key === "object")) {
@@ -173,6 +179,7 @@ export {
   hook,
   React,
   ReactDOM,
+  get,
   set,
   Widget,
   getJourney,

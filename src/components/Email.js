@@ -30,7 +30,7 @@ import { useIsMobile } from "@hooks/useDevice";
 import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig, useSetActionType } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
@@ -51,6 +51,7 @@ const EmailComponent = props => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
+  useSetActionType ("mail2target");
   const [profiles, setProfiles] = useState(props.targets || []);
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false

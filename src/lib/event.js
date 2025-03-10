@@ -1,12 +1,10 @@
-import Events from './observer';
-
+import Events from "./observer";
 
 const domObserver = (event, data, pii) => {
-  console.log('dom received event:', event, data, pii);
   let elem = document.getElementById("proca");
   if (!elem) {
     console.error("#proca missing");
-//    dispatchAnalytics("error", "missing #proca");
+    //    dispatchAnalytics("error", "missing #proca");
     elem = window;
   }
   if (pii) data.contact = pii; //TODO, add a config to remove the option to bubble up pii to the containing page
@@ -24,24 +22,26 @@ const domObserver = (event, data, pii) => {
   ); //
 };
 
-
 const dataLayerObserver = (event, data, pii) => {
+//  console.log("GA4 received event:", event, data, pii);
 
   if (event === "count") return;
   const action = event.split(":");
-  const param = Object.assign({},value,extra);
-  'uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact'.split(',').forEach(attr => {
-        if (param.hasOwnProperty(attr)) {
-            delete param[attr];
-        }
+  const param = Object.assign({}, data);
+  "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
+    .split(",")
+    .forEach(attr => {
+      if (param.hasOwnProperty(attr)) {
+        delete param[attr];
+      }
     });
   if (action[1] && action[1] === "complete") {
     param.event = action[0];
   } else {
     param.event = action.join("_");
   }
-  param.source = "proca"; 
-  if (value?.test) {
+  param.source = "proca";
+  if (data?.test) {
     param.test = true;
     console.log("GA4", param);
   }
@@ -56,9 +56,22 @@ Events.subscribe(domObserver);
 
 if (window.dataLayer) {
   Events.subscribe(dataLayerObserver);
+} else {
+  //might need to wait until it loads
+  setTimeout(() => {
+    console.log("dataLayer", window.dataLayer);
+    if (window.dataLayer) {
+      Events.subscribe(dataLayerObserver);
+    }
+  }, 0);
 }
 
+const unsubscribeDataLayer = () => {
+  setTimeout(() => {
+    Events.unsubscribe(dataLayerObserver);
+  },0);
+};
 
 export default dispatch;
 
-export { dispatch };
+export { dispatch, unsubscribeDataLayer };

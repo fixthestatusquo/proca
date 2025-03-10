@@ -52,6 +52,15 @@ export const initConfigState = config => {
 
   configStore = create(set => ({
     campaignConfig: config,
+    setActionType: (type, force) => {
+       set(state => {
+         if (!force && state.campaignConfig?.component?.register?.actionType) return state; //do not update the type if set in the config, unless forced
+         if (!state.campaignConfig.component.register) state.campaignConfig.component.register = {};
+         state.campaignConfig.component.register.actionType = type;
+         return state;
+       })
+    },
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
     setCampaignConfig: update =>
       set(state => ({
         campaignConfig: {
@@ -205,6 +214,15 @@ export const useCampaignConfig = () =>
 export const useConfig = () => configStore(state => state.campaignConfig);
 export const useSetCampaignConfig = () =>
   configStore(state => state.setCampaignConfig);
+export const useSetActionType = (type) => {
+  const setActionType = configStore(state => state.setActionType);
+  useEffect ( () => {
+    if (type)
+      setActionType(type);
+  },[]); 
+  return setActionType;
+}
+
 export { set as setConfig };
 export { goStep };
 export { setHook as hook };
