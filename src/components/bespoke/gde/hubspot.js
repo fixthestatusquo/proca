@@ -38,6 +38,14 @@ const Observer = async (event, data, pii) => {
     send (param);
     return;
   }
+  if (event === "share") {
+    const param= getProperties (event, config);
+    param.event = "page_shared";
+    param.medium = event.medium;
+    send (param);
+    return;
+    
+  }
   if (event.endsWith(":complete")) { // the user has submitted {
     let param= getProperties (event, config);
     param.event = "form_submitted";
@@ -52,15 +60,21 @@ const Observer = async (event, data, pii) => {
     if (pii?.phone) {
       param.phone_field_provided= true;
     }
+    if (pii?.email) {
+      const hash = await getHash();
+      param.gp_user_id= hash;
+      param.distinct_id = hash;
+    }
     send (param);
     if (pii?.email) {
       param = getProperties (event, config);
       const hash = await getHash();
-      param.event = ";
+      param.event = "user_identified";
       param.gp_user_id= hash;
       param.distinct_id = hash;
       param.registration_type= config.component.register?.actionType || "register";
       param.registration_source= "proca";
+console.log("send user_identified", param);
       send (param);
     }
     return;
