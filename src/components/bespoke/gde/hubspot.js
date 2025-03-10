@@ -39,7 +39,7 @@ const Observer = async (event, data, pii) => {
     return;
   }
   if (event.endsWith(":complete")) { // the user has submitted {
-    const param= getProperties (event, config);
+    let param= getProperties (event, config);
     param.event = "form_submitted";
     param.form_plugin="proca";
     param.form_contains_address_field= true;
@@ -52,16 +52,17 @@ const Observer = async (event, data, pii) => {
     if (pii?.phone) {
       param.phone_field_provided= true;
     }
-    if (pii?.email) {
-      const hash = await getHash();
-        /*dispatchAnalytics("user_identified", data, {
-          gp_user_id: hash,
-          distinct_id: hash,
-          registration_type: event,
-          registration_source: "proca",
-        }) */
-    }
     send (param);
+    if (pii?.email) {
+      param = getProperties (event, config);
+      const hash = await getHash();
+      param.event = ";
+      param.gp_user_id= hash;
+      param.distinct_id = hash;
+      param.registration_type= config.component.register?.actionType || "register";
+      param.registration_source= "proca";
+      send (param);
+    }
     return;
   }
 };
