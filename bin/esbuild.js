@@ -214,7 +214,7 @@ const serve = async id => {
   await c.watch();
   const r = await c.serve({ servedir: buildConfig.outdir });
   const open = await import("open");
-  open.default("http://" + r.host + ":" + r.port);
+  open.default("http://" + r.hosts[0] + ":" + r.port);
 };
 
 const build = async id => {
