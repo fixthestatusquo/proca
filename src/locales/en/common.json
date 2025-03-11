@@ -177,7 +177,8 @@
     "register": "{{total}} have registered. Let's go to {{goal}}",
     "share": "{{total}} have shared. Let's go to {{goal}}",
     "sign": "{{total}} have signed. Let's go to {{goal}}",
-    "twitter": "{{total}} have twitted. Let's go to {{goal}}"
+    "twitter": "{{total}} have twitted. Let's go to {{goal}}",
+    "pledge": "{{total}} have pledged. Let's go to {{goal}}"
   },
   "read more": "read more",
   "region": "Region",
