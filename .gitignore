@@ -30,6 +30,7 @@ src/locales/**/eci.json
 .env.*
 .envrc
 .log
+*.swp
 
 npm-debug.log*
 yarn-debug.log*

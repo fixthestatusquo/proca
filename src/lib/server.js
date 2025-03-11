@@ -207,6 +207,8 @@ async function addAction(actionPage, actionType, data, test) {
     variables.payload = JSON.stringify(variables.payload);
   }
   if (data.tracking && Object.keys(data.tracking).length) {
+    if (data.tracking.term)
+      delete data.tracking.term;
     variables.tracking = data.tracking;
   }
   const response = await graphQL("addAction", query, {
@@ -319,6 +321,8 @@ async function addActionContact(actionType, actionPage, data, test) {
   if (data.birthdate) variables.contact.birthDate = data.birthdate;
 
   if (data.tracking && Object.keys(data.tracking).length) {
+    if (data.tracking.term)
+      delete data.tracking.term;
     variables.tracking = data.tracking;
   }
 

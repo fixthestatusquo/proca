@@ -27,7 +27,7 @@ const getProperties = (_event, config) => { //event not used, so far
 
 const send = (event) => {
   if (event.test) { 
-    console.log("hubspot",event);
+    console.log("mixpanel",event);
   }
   window.dataLayer && window.dataLayer.push && window.dataLayer.push(event);
 }
@@ -42,7 +42,7 @@ const getGoal = (actionType) => {
   return complete[actionType] || actionType; //if/when we have new action Types, let's push them without translation to the analytics
 }
 
-const Observer = async (event, _data, pii) => {
+const Observer = async (event, data, pii) => {
   const config = window.proca.get();
   if (event.endsWith(":start")) { // the user has started to interact with the form
     const param= getProperties (event, config);
@@ -56,7 +56,7 @@ const Observer = async (event, _data, pii) => {
   if (event === "share") {
     const param= getProperties (event, config);
     param.event = "page_shared";
-    param.medium = event.medium;
+    param.medium = data.medium;
     send (param);
     return;
     
@@ -65,14 +65,15 @@ const Observer = async (event, _data, pii) => {
     let param= getProperties (event, config);
     param.event = "form_submitted";
     param.form_plugin="proca";
-    param.form_contains_address_field= true;
+    if (config.component?.register?.field?.postcode !== false) {
+      param.form_contains_address_field= true;
+    }
     param.form_id=config.actionpage;
     param.form_goal= getGoal(config.component.register?.actionType);
-
+    param.form_contains_newsletter_subscription = true;
     if (config.component?.register?.field?.phone) {
       param.form_contains_phone_field= true;
-      if (pii?.phone) 
-        param.phone_field_provided= true;
+      param.phone_field_provided= !! pii.phone;
     } else {
       param.form_contains_phone_field= false;
     }
