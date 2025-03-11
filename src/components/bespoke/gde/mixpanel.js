@@ -42,7 +42,7 @@ const getGoal = (actionType) => {
   return complete[actionType] || actionType; //if/when we have new action Types, let's push them without translation to the analytics
 }
 
-const Observer = async (event, data, pii) => {
+const Observer = async (event, _data, pii) => {
   const config = window.proca.get();
   if (event.endsWith(":start")) { // the user has started to interact with the form
     const param= getProperties (event, config);
