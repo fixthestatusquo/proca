@@ -174,6 +174,7 @@
   "progress": {
     "donate": "{{total}}가 기부했습니다. {{goal}}로 가자",
     "email": "{{total}}가 이메일을 보냈습니다. {{goal}}로 가자",
+    "pledge": "{{total}} 서약했습니다. 다음으로 이동합니다. {{goal}}",
     "register": "{{total}}가 등록되었습니다. {{goal}}로 가자",
     "share": "{{total}}가 공유했습니다. {{goal}}로 가자",
     "sign": "{{total}}이(가) 서명했습니다. {{goal}}로 가자",
