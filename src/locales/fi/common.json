@@ -174,6 +174,7 @@
   "progress": {
     "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
     "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
+    "pledge": "{{total}} ovat sitoutuneet. Mennään {{goal}}",
     "register": "{{total}} ovat rekisteröityneet. Mennään osoitteeseen {{goal}}",
     "share": "{{total}} ovat jakaneet. Mennään {{goal}}",
     "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",
