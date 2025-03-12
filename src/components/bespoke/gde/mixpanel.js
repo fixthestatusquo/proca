@@ -35,6 +35,7 @@ const send = (event) => {
 const getGoal = (actionType) => {
   const complete = {
     "signature": "Petition Signup", 
+    "email": "Protestmail Signup", 
     "mail2target": "Protestmail Signup", 
     "register": "Petition Signup",
   };
