@@ -27,7 +27,7 @@ const getProperties = (_event, config) => { //event not used, so far
 
 const send = (event) => {
   if (event.test) { 
-    console.log("mixpanel",event);
+    console.log("mixpanel",event.event, event);
   }
   window.dataLayer && window.dataLayer.push && window.dataLayer.push(event);
 }
@@ -69,6 +69,7 @@ const Observer = async (event, data, pii) => {
       param.form_contains_address_field= true;
     }
     param.form_id=config.actionpage;
+    param.form_contains_newsletter_subscription = true;
     param.form_goal= getGoal(config.component.register?.actionType);
     param.form_contains_newsletter_subscription = true;
     if (config.component?.register?.field?.phone) {
