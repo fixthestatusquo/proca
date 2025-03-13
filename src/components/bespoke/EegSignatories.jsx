@@ -74,6 +74,7 @@ const Signatories = () => {
                 key={`supporter-${d.id}`}
                 className={classes.item}
                 ContainerComponent="div"
+                disableGutters
               >
                 {d.country &&
                   <ListItemAvatar>
@@ -82,8 +83,8 @@ const Signatories = () => {
                 }
                 {(d.organisation_sign && d.organisation) ?
                   <ListItemText
-                    primary={d.organisation.toUpperCase()}
-                    secondary={d.lab}
+                    primary={d.lab.toUpperCase()}
+                    secondary={d.organisation}
                   />
                   :
                   <ListItemText
