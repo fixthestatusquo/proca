@@ -101,7 +101,7 @@
     "minimist": "^1.2.8",
     "mjml": "^4.15.3",
     "open": "^10.1.0",
-    "phoenix": "1.7.14",
+    "phoenix": "1.7.20",
     "proca": "^0.6.0",
     "simple-git": "^3.27.0",
     "websocket": "^1.0.35"
