@@ -112,6 +112,7 @@ const actionPageFromLocalConfig = (id, local) => {
     component: local.component,
     locales: local.locales,
     portal: local.portal,
+    import: local.import,
   };
 
   if (local.test) config.test = true;
@@ -258,6 +259,7 @@ const getConfig = data => {
     layout: data.actionPage.config.layout || {},
     component: data.actionPage.config.component || {},
     portal: data.actionPage.config.portal || [],
+    import: data.actionPage.config.import,
     locales: data.actionPage.config.locales || {},
   };
   if (data.actionPage.config.test) config.test = true;
