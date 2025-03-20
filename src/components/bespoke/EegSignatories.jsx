@@ -34,6 +34,7 @@ const Signatories = () => {
       const q = supabase
         .from("view_signatories_eeg")
         .select("*")
+        .neq('status', 'rejected')
         .order("created_at", { ascending: false });
 
       const { data, error } = await q;
@@ -45,18 +46,19 @@ const Signatories = () => {
       if (!data) return null;
 
       // organization signatures need to be approved, but individual are displayed if not rejected
-      const filtered = data.filter(
-        (signature) =>
-          (signature.organisation_sign === "true" && signature.status === "approved") ||
-          (signature.organisation_sign !== "true" && signature.status !== "rejected")
-      );
-      setSignatories(filtered);
+      // const filtered = data.filter(
+      //   (signature) =>
+      //     (signature.organisation_sign === "true" && signature.status === "approved") ||
+      //     (signature.organisation_sign !== "true" && signature.status !== "rejected")
+      // );
+      setSignatories(data);
+
     };
     getSignatories();
   }, []);
 
   if (!signatories) return  <div id="proca-signature"><LinearProgress /></div>
-
+console.log(signatories)
   return (
     <div id="proca-signature">
       <Grid container spacing={1}>
