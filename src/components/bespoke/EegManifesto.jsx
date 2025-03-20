@@ -20,8 +20,6 @@ const EggManifesto = ({ form }) => {
     t("sign1", "Sign on the behalf of ") +
     (organisation || t("sign2", "your organisation or a research group/department"));
 
-
-
   return (
     <>
       <Grid item xs={12}>

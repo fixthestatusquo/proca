@@ -8,7 +8,8 @@ import { Typography, LinearProgress} from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useTranslation } from "react-i18next";
 import { useSupabase } from "@lib/supabase";
-import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
+import CountryFlag from "react-emoji-flag";
+import countries from "i18n-iso-countries";
 
 const useStyles = makeStyles({
   container: {
@@ -58,7 +59,7 @@ const Signatories = () => {
   }, []);
 
   if (!signatories) return  <div id="proca-signature"><LinearProgress /></div>
-console.log(signatories)
+
   return (
     <div id="proca-signature">
       <Grid container spacing={1}>
@@ -80,7 +81,7 @@ console.log(signatories)
               >
                 {d.country &&
                   <ListItemAvatar>
-                    <CountryFlag countryCode={d.country} />
+                    <CountryFlag countryCode={d.country} title={countries.getName(d.country, "en") || d.country} />
                   </ListItemAvatar>
                 }
                 {(d.organisation_sign && d.organisation) ?
