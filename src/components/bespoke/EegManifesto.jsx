@@ -14,12 +14,11 @@ const EggManifesto = ({ form }) => {
     "organisation",
     "organisation_sign",
   ]);
+  const { t } = useTranslation();
 
   let label =
-    "Sign on the behalf of " +
-    (organisation || "your organisation or a research group/department");
-
-  const { t } = useTranslation();
+    t("sign1", "Sign on the behalf of ") +
+    (organisation || t("sign2", "your organisation or a research group/department"));
 
   return (
     <>
@@ -41,17 +40,17 @@ const EggManifesto = ({ form }) => {
           />
       </Grid>
       {organisation_sign && (
-        <Grid item>
+        <Grid item xs={12}>
           <Alert severity="info" style={{ marginTop: 8 }}>
-            <AlertTitle>Your details will not be displayed yet.</AlertTitle>
-            We need to approve your institution's signature
+            <AlertTitle>{t("alert1", "Your details will not be displayed yet.")}</AlertTitle>
+            {t("alert2", "We need to approve your institution's signature")}
           </Alert>
         </Grid>
       )}
       <Grid item sm={4}>
         <Select
           name="gender"
-          label="Gender"
+          label={t("gender", "Gender")}
           options="campaign:profile.gender"
           form={form}
         />
@@ -59,7 +58,7 @@ const EggManifesto = ({ form }) => {
       <Grid item sm={8}>
         <Select
           name="stage"
-          label="Career stage"
+          label={t("stage", "Career stage")}
           options="campaign:profile.stage"
           form={form}
         />
@@ -69,11 +68,11 @@ const EggManifesto = ({ form }) => {
           form={form}
           required={false}
           name="origin"
-          label="Country of origin"
+          label={t("origin", "Country of origin")}
         />
       </Grid>
       <Grid item sm={4}>
-        <TextField type="number" form={form} name="age" label="Age" />
+        <TextField type="number" form={form} name="age" label={t("age", "Age")} />
       </Grid>
     </>
   );

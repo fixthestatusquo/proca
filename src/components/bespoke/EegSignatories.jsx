@@ -8,7 +8,8 @@ import { Typography, LinearProgress} from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useTranslation } from "react-i18next";
 import { useSupabase } from "@lib/supabase";
-import CountryFlag, { useCountryFlag, flag as emoji } from "react-emoji-flag";
+import CountryFlag from "react-emoji-flag";
+import countries from "i18n-iso-countries";
 
 const useStyles = makeStyles({
   container: {
@@ -34,6 +35,7 @@ const Signatories = () => {
       const q = supabase
         .from("view_signatories_eeg")
         .select("*")
+        .neq('status', 'rejected')
         .order("created_at", { ascending: false });
 
       const { data, error } = await q;
@@ -45,12 +47,13 @@ const Signatories = () => {
       if (!data) return null;
 
       // organization signatures need to be approved, but individual are displayed if not rejected
-      const filtered = data.filter(
-        (signature) =>
-          (signature.organisation_sign === "true" && signature.status === "approved") ||
-          (signature.organisation_sign !== "true" && signature.status !== "rejected")
-      );
-      setSignatories(filtered);
+      // const filtered = data.filter(
+      //   (signature) =>
+      //     (signature.organisation_sign === "true" && signature.status === "approved") ||
+      //     (signature.organisation_sign !== "true" && signature.status !== "rejected")
+      // );
+      setSignatories(data);
+
     };
     getSignatories();
   }, []);
@@ -74,16 +77,17 @@ const Signatories = () => {
                 key={`supporter-${d.id}`}
                 className={classes.item}
                 ContainerComponent="div"
+                disableGutters
               >
                 {d.country &&
                   <ListItemAvatar>
-                    <CountryFlag countryCode={d.country} />
+                    <CountryFlag countryCode={d.country} title={countries.getName(d.country, "en") || d.country} />
                   </ListItemAvatar>
                 }
                 {(d.organisation_sign && d.organisation) ?
                   <ListItemText
-                    primary={d.organisation.toUpperCase()}
-                    secondary={d.lab}
+                    primary={d.lab.toUpperCase()}
+                    secondary={d.organisation}
                   />
                   :
                   <ListItemText
