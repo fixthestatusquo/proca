@@ -238,6 +238,10 @@ export default function Register(props) {
       // implicit true or opt-in or opt-out
     }
     let actionType = config.component.register?.actionType || "register";
+    if (props.targets) {
+      formData.targets = props.targets;
+      actionType = "mail2target";
+    }
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
     }
