@@ -203,6 +203,9 @@
   "step": {
     "eci": {
       "secure": "turvaline"
+    },
+    "register": {
+      "title": " "
     }
   },
   "supporter": {
