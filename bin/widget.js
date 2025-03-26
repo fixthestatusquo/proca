@@ -287,8 +287,6 @@ const getConfig = data => {
       consentEmail.confirmOptIn = true;
       config.email = { thankyou: data.actionPage.thankYouTemplate };
     }
-    console.log(data.actionPage);
-    process.exit(1);
     if (Object.keys(consentEmail).length > 0)
       config.component.consent.email = consentEmail; // we always overwrite based on the templates
   }
@@ -326,7 +324,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.error(data);
+    console.error("ERROR",data);
     throw new Error(data.toString());
   }
 
@@ -345,7 +343,6 @@ const pull = async (
   actionPage,
   { anonymous = true, campaign = true, save = true }
 ) => {
-  //  console.log("file",file(actionPage));
   read(actionPage); // not sure what it does
   const [config, campaignData] = await fetchAPI(actionPage, {
     anonymous: anonymous,
