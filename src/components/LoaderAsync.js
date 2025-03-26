@@ -6,7 +6,8 @@ import get from "lodash/get";
 const LoaderAsync = () => {
   const config = useCampaignConfig();
   const loaders = config.component.loader;
-  const lang = config.lang;
+  const lang = config.locale;
+
   const [, setData] = useData();
   useEffect(() => {
     let isCancelled = false;
