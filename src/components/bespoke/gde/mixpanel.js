@@ -1,26 +1,13 @@
 import Events from '@lib/observer';
 import { getHash } from "@lib/hash";
 import { unsubscribeDataLayer } from '@lib/event';
-import Url from "@lib/urlparser";
 
 const getProperties = (_event, config) => { //event not used, so far
-  const utm = Url.utm();
-//utm.location?
   const properties = {
     test: config.test || undefined,
-    nro: "Germany",
-    office: "Germany",
-    page_title: document.title,
-    page_language: document.documentElement.getAttribute("lang") || config.lang,
-    page_path:  window.location.pathname,
-    page_domain:  window.location.hostname,
-    page_type: "content", 
-    page_platform: "drupal", 
-    utm_campaign:utm.campaign,
-    utm_source: utm.source,
-    utm_medium: utm.medium,
-    utm_content: utm.content || "",
-    utm_term: utm.term || "",
+    form_plugin:"proca",
+    form_id:config.actionpage,
+    form_title: config.filename, // or config.campaign.title? or page title?
   }
   return properties;
 }
