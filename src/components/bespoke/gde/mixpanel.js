@@ -35,8 +35,6 @@ const Observer = async (event, data, pii) => {
   if (event.endsWith(":start")) { // the user has started to interact with the form
     const param= getProperties (event, config);
     param.event = "form_started";
-    param.form_plugin="proca";
-    param.form_id=config.actionpage;
     param.form_goal= getGoal(config.component.register?.actionType);
     send (param);
     return;
