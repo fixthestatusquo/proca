@@ -66,14 +66,9 @@ const Observer = async (event, data, pii) => {
     }
     if (pii?.email) {
       const hash = await getHash();
-      param.gp_user_id= hash;
+      param.user_id= hash;
     }
     send (param);
-    if (pii?.email) { // sending duplicate user_identified, TODO: remove once form_submitted is ok
-      param.event = "user_identified";
-      console.warn("send user_identified", param);
-      send (param);
-    }
     return;
   }
 };
