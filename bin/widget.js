@@ -349,7 +349,39 @@ const pull = async (
     campaign: campaign,
   });
   if (save) {
-    saveWidget(config);
+    const fileName = saveWidget(config);
+/*
+          const msg =
+            config.filename +
+            " for " +
+            config.org.name +
+            " (" +
+            config.organisation +
+            ") in " +
+            config.lang +
+            " part of " +
+            config.campaign.title;
+            let r = null;
+            if (!exists && argv.git) {
+              r = await add(id + ".json");
+              console.log("adding", r);
+            }
+            console.log(
+              runDate(),
+              color.green.bold("saved", fileName),
+              color.blue(widget.filename)
+            );
+            r = argv.git && (await commit(id + ".json", msg));
+            if (argv.git && !r) {
+              // no idea,
+              console.warn(
+                color.red("something went wrong, trying to git add")
+              );
+              r = await add(id + ".json");
+              console.log(r);
+              r = await commit(id + ".json");
+            }
+*/
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
   return campaign ? [config, campaignData] : config;
