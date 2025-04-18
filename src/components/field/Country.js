@@ -71,7 +71,6 @@ const Country = props => {
     } else {
       countries = addCountries(countriesJson, t);
     }
-
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));

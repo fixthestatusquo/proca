@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import Country from "@components/field/Country";
+import Country from "@components/filter/Country";
+//import Country from "@components/field/Country";
 import Alert from "@material-ui/lab/Alert";
 
 import Postcode from "@components/field/Postcode";
@@ -18,6 +19,11 @@ const Filter = props => {
       .map(([, components]) => components) || [];
   let nbFilters = Filters.length;
 
+  if (config.component.email?.filter?.includes("country") &&
+        typeof config.component.country !== "string" ) {
+     Filters.unshift(Country); 
+  }
+
   if (config.component.email?.filter) {
     nbFilters += config.component.email?.filter?.length;
   }
@@ -32,10 +38,6 @@ const Filter = props => {
 
   return (
     <>
-      {config.component.email?.filter?.includes("country") &&
-        typeof config.component.country !== "string" && (
-          <Country form={props.form} list={config.component.email?.countries} />
-        )}
       {config.component.email?.filter?.includes("postcode") && (
         <>
           <Postcode form={props.form} width={12} search={true} />

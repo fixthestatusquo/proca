@@ -413,11 +413,13 @@ const EmailComponent = props => {
         clearErrors("country");
         clearErrors("postcode");
       }
+
       //if (lang && config.lang !== lang) {
       if (lang && typeof lang === "string") {
         setConfig(current => {
           const next = { ...current };
-          next.lang = lang || "en";
+          //next.lang = lang || "en";
+          next.locale = lang || "en";
           return next;
         });
       }

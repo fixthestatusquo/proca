@@ -349,8 +349,8 @@ const pull = async (
     campaign: campaign,
   });
   if (save) {
+          const exists = fileExists(actionPage);
     const fileName = saveWidget(config);
-/*
           const msg =
             config.filename +
             " for " +
@@ -362,26 +362,26 @@ const pull = async (
             " part of " +
             config.campaign.title;
             let r = null;
+console.log("save", exists, argv.git);
             if (!exists && argv.git) {
-              r = await add(id + ".json");
+              r = await add(actionPage + ".json");
               console.log("adding", r);
             }
             console.log(
               runDate(),
               color.green.bold("saved", fileName),
-              color.blue(widget.filename)
+              color.blue(config.filename)
             );
-            r = argv.git && (await commit(id + ".json", msg));
+            r = argv.git && (await commit(actionPage + ".json", msg));
             if (argv.git && !r) {
               // no idea,
               console.warn(
                 color.red("something went wrong, trying to git add")
               );
-              r = await add(id + ".json");
+              r = await add(actionPage + ".json");
               console.log(r);
-              r = await commit(id + ".json");
+              r = await commit(actionPage + ".json");
             }
-*/
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
   return campaign ? [config, campaignData] : config;
@@ -477,39 +477,8 @@ if (require.main === module) {
           //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
           //    backup(actionPage);
           // }
-          const msg =
-            widget.filename +
-            " for " +
-            widget.org.name +
-            " (" +
-            widget.organisation +
-            ") in " +
-            widget.lang +
-            " part of " +
-            widget.campaign.title;
           if (!argv["dry-run"]) {
             const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
-            let r = null;
-            if (!exists && argv.git) {
-              r = await add(id + ".json");
-              console.log("adding", r);
-            }
-            console.log(
-              runDate(),
-              color.green.bold("saved", fileName),
-              color.blue(widget.filename)
-            );
-            r = argv.git && (await commit(id + ".json", msg));
-            if (argv.git && !r) {
-              // no idea,
-              console.warn(
-                color.red("something went wrong, trying to git add")
-              );
-              r = await add(id + ".json");
-              console.log(r);
-              r = await commit(id + ".json");
-            }
-            if (r.summary) console.log(r.summary);
           }
         }
         if (argv.build) {
