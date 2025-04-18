@@ -61,7 +61,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-emoji-flag": "^1.1.4",
-    "react-hook-form": "^7.54.2",
+    "react-hook-form": "^7.55.0",
     "react-i18next": "^15.4.1",
     "react-ipgeolocation": "^1.4.0",
     "react-konva": "^17.0.2-6",
