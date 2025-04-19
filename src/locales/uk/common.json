@@ -138,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} не може отримувати електронні листи",
-    "salutation": "Шановний пане/пані",
+    "salutation": "Шановний пане/пані {{target.last_name}}",
     "salutation_female": "Шановна пані {{target.last_name}}",
     "salutation_info": "(ім'я буде вказано перед відправленням)",
     "salutation_male": "Шановний пане {{target.last_name}}",
