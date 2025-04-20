@@ -96,11 +96,13 @@ export default function ProcaStyle(props) {
               },
               "& select": {
                 height: "1.1876em!important",
+                minHeight: 'auto',
               },
             },
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
+              minHeight: 'auto',
             },
             inputMultiline: {},
             multiline: {
