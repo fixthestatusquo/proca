@@ -37,7 +37,7 @@ const PartyFilter = props => {
   const country = props.country?.toLowerCase();
   const filterCountry = props.filterCountry || (d => d.country === country);
 
-  const url = "https://static.proca.app/ep2024/parties.json";
+  const url = "https://widget.proca.app/t/ep-parties.json";
 
   useEffect(() => {
     const fetchData = async url => {
@@ -46,7 +46,7 @@ const PartyFilter = props => {
 
       const d = await res.json();
       const allParties = d.reduce((map, obj) => {
-        const key = `${obj.country}:${obj.party}`;
+        const key = `${obj.country.toUpperCase()}:${obj.party}`;
         map[key] = obj;
         return map;
       }, {});
@@ -67,15 +67,30 @@ const PartyFilter = props => {
       if (count[key]) {
         count[key].count++;
       } else {
-        count[key] = { count: 1, selected: false };
+        count[key] = { count: 1, selected: false, eugroup: item.eugroup };
       }
     }
 
+const groupOrder = [
+  "GUE/NGL",
+  "Greens/EFA",
+  "S&D",
+  "Renew",
+  "EPP",
+  "ECR",
+  "Patriots",
+  "ESN",
+  "NA",
+];
+
     //list.foreach
     const sortedObject = Object.fromEntries(
-      [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b))
+      [...Object.entries(count)].sort(([a,ae], [b,be]) => {
+        if (ae.eugroup === be.eugroup)
+          return a.localeCompare(b);
+        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup) 
+      })
     );
-
     _setParties(sortedObject);
     //return list[0];
   };
@@ -105,6 +120,7 @@ const PartyFilter = props => {
 
   useEffect(() => {
     if (!props.country) return;
+console.log("selecting",props.selecting);
     setParties(props.profiles);
     //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
   }, [props.selecting, props.country, props.profiles]);

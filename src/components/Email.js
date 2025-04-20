@@ -689,7 +689,6 @@ const EmailComponent = props => {
                   selection.delete(target.procaid);
                 }
               });
-            console.log(groups.current.size, onlySelected);
             if (first) {
               scrollToItem(first);
             } else {
@@ -763,7 +762,6 @@ const EmailComponent = props => {
   }
 
   const scrollToItem = key => {
-    console.log(onlySelected);
     if (onlySelected) return;
     if (!listRef.current) return;
     const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
