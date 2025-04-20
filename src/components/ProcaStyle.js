@@ -93,6 +93,7 @@ export default function ProcaStyle(props) {
               "& input": {
                 height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
                 width: "100%",
+                minHeight: 'auto',
               },
               "& select": {
                 height: "1.1876em!important",
@@ -102,7 +103,6 @@ export default function ProcaStyle(props) {
             input: {
               paddingTop: "23px!important",
               paddingBottom: "10px!important",
-              minHeight: 'auto',
             },
             inputMultiline: {},
             multiline: {
