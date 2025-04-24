@@ -138,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta",
-    "salutation": "Lugupeetud härra/naine",
+    "salutation": "Lugupeetud härra/proua {{target.last_name}}",
     "salutation_female": "Lugupeetud proua {{target.last_name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_male": "Lugupeetud härra {{target.last_name}}",
