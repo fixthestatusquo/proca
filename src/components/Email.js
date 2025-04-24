@@ -246,7 +246,7 @@ const EmailComponent = props => {
           });
           setAllProfiles(d);
           setLanguages(languages);
-          if (postcodeFiltered) {
+          if (postcodeFiltered) { // overwritten?
             setProfiles([]);
           }
           if (config.component.email?.filter?.includes("random")) {
@@ -333,6 +333,7 @@ const EmailComponent = props => {
 
   const filterProfiles = useCallback(
     (country, constituency, area) => {
+console.log("filter profile",constituency);
       if (constituency || area) {
         country = country || "?";
       }
@@ -342,7 +343,7 @@ const EmailComponent = props => {
 
       let lang = undefined;
       let d = allProfiles.filter(d => {
-        if (constituency) {
+        if (constituency || postcodeFiltered) {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
@@ -414,7 +415,6 @@ const EmailComponent = props => {
         clearErrors("postcode");
       }
 
-      //if (lang && config.lang !== lang) {
       if (lang && typeof lang === "string") {
         setConfig(current => {
           const next = { ...current };
@@ -450,12 +450,12 @@ const EmailComponent = props => {
     ]
   );
 
-  useEffect(() => {
+  useEffect(() => { // todo: move into filter/Country
     if (!countryFiltered) return;
     filterProfiles(country);
   }, [country, filterProfiles, countryFiltered]);
 
-  useEffect(() => {
+  useEffect(() => { //todo: move into filter/Postcode
     if (!postcodeFiltered) return;
     filterProfiles(country, constituency, area);
   }, [country, constituency, area, filterProfiles, postcodeFiltered]);
@@ -717,6 +717,10 @@ const EmailComponent = props => {
         if (d === true) {
           console.log("select all", allProfiles);
           setProfiles(allProfiles);
+          return;
+        }
+        if (d === false) {
+          setProfiles([]);
           return;
         }
         return;
