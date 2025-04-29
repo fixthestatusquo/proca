@@ -333,7 +333,6 @@ const EmailComponent = props => {
 
   const filterProfiles = useCallback(
     (country, constituency, area) => {
-console.log("filter profile",constituency);
       if (constituency || area) {
         country = country || "?";
       }
@@ -342,6 +341,7 @@ console.log("filter profile",constituency);
       country = country.toLowerCase();
 
       let lang = undefined;
+console.log("filter profile",constituency);
       let d = allProfiles.filter(d => {
         if (constituency || postcodeFiltered) {
           if (typeof constituency === "object") {
