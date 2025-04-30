@@ -347,7 +347,7 @@ console.log("filter profile",constituency);
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
-          return d.constituency === constituency;
+          return d.constituency.toString() === constituency.toString();
         }
 
         if (d.lang && d.country === country) {
