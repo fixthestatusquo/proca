@@ -138,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
-    "salutation": "A dhuine uasail/a bhean uasail",
+    "salutation": "A dhuine uasail/a bhean uasail {{target.last_name}}",
     "salutation_female": "A Uasal {{target.last_name}} a chara",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
     "salutation_male": "A Uasal {{target.last_name}} a chara",
