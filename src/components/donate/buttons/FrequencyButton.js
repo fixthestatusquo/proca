@@ -90,7 +90,6 @@ const Frequencies = props => {
     data.frequency ||
     config.component.donation?.frequency?.default ||
     "default";
-
   return frequencies.length > 1 ? (
     <>
       {" "}

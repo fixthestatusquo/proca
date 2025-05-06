@@ -109,9 +109,9 @@
         "weekly": "Make it monthly?"
       },
       "each": {
-        "monthly": "each week",
+        "weekly": "each week",
         "oneoff": "Once",
-        "weekly": "each month"
+        "monthly": "each month"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
