@@ -109,9 +109,9 @@
         "weekly": "Зробити це щотижневим подарунком?"
       },
       "each": {
-        "monthly": "Щомісяця",
+        "monthly": "щомісяця",
         "oneoff": "Одноразово",
-        "weekly": "Щороку"
+        "weekly": "щотижня"
       },
       "feedback": {
         "monthly": "Я дарую {{amount}} {{frequency}}",
