@@ -109,9 +109,9 @@
         "weekly": "Teha see iganädalane annetus?"
       },
       "each": {
-        "monthly": "iga nädal",
+        "monthly": "iga kuu",
         "oneoff": "Kui",
-        "weekly": "iga kuu"
+        "weekly": "iga nädal"
       },
       "feedback": {
         "monthly": "Ma annetan {{amount}} {{frequency}}",
