@@ -14,6 +14,12 @@ const src = (props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const _src = urlParams.get("src");
 
+  useEffect ( () => {
+    if (drupalSettings.user) {
+      console.log("connected user");
+      config.test=true;
+    }
+},[]);
   if (!_src) return null;
   const src = _src.split("-");
   if (src.length !== 3) {
