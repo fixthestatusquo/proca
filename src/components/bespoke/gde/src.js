@@ -14,7 +14,7 @@ const src = (props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const _src = urlParams.get("src");
 
-  if (!_src) return;
+  if (!_src) return null;
   const src = _src.split("-");
   if (src.length !== 3) {
     console.error("not the right src length", src);
