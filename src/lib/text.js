@@ -66,9 +66,9 @@ const tokenize = (message, { profile, url }) => {
   return t;
 };
 
-const toArray = locale => {
+const toArray = (locale) => {
   return locale
-    .split("\n")
+    .split(/\r?\n(?=- )/) // only split where a line starts with "- "
     .map(d => d.trim())
     .filter(n => n);
 };
@@ -90,8 +90,9 @@ const toObject = (locale, separator) => {
 
 const pickOne = locale => {
   const text = locale;
+  console.log("text", text);
   const v = toArray(text);
-
+console.log("v", v);
   let t = []; // use to stack the sentence(s) to be part of the current variant
   const variants = [];
   v.forEach(d => {
@@ -104,7 +105,7 @@ const pickOne = locale => {
     }
   });
   variants.push(t.join("\n")); // add the last variant
-
+console.log("variants", variants);
   return variants[Math.floor(Math.random() * variants.length)];
 };
 
