@@ -239,7 +239,7 @@ export default function Register(props) {
     }
     let actionType = config.component.register?.actionType || "register";
     if (props.targets) {
-      formData.targets = props.targets;
+      config.test ? formData.targets = props.targets.slice(0,1) : formData.targets = props.targets;
       actionType = "mail2target";
     }
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
