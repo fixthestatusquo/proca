@@ -95,7 +95,7 @@
     "esbuild-plugin-browserslist": "^0.16.0",
     "esbuild-plugin-copy": "^2.1.1",
     "i18next-fs-backend": "^2.6.0",
-    "lefthook": "^1.11.3",
+    "lefthook": "^1.11.13",
     "minimist": "^1.2.8",
     "mjml": "^4.15.3",
     "open": "^10.1.0",
