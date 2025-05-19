@@ -30,8 +30,7 @@ const help = () => {
       "--verbose (show the result)",
       "--serve (show template in your browser for dev)",
       "--markdown (handle i18n as markdown)",
-      "--campaign (add the variables from the template into the campaign)",
-      "--extract (extract into src/locales/en/server.js)",
+      "--extract (extract default keys for default templates to campaign config)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
       "actionpage_id",
@@ -131,24 +130,13 @@ const pushTemplate = async (config, html) => {
   return data;
 };
 
-const updateTranslation = (namespace, parsed) => {
-  const file = path.resolve(__dirname, "../src/locales/en/server.json");
-  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
-  const updated = _merge({}, parsed[namespace], initial);
-  if (argv["dry-run"]) {
-    console.log(JSON.stringify(updated, null, 2));
-    return;
-  }
-  fs.writeFileSync(file, JSON.stringify(updated, null, 2));
-};
 
 const updateCampaign = (campaign, lang, update) => {
   const locales = {};
-  locales[lang] = { "server:": update };
-  const updated = _merge({}, { config: { locales: locales } }, campaign);
-
-  saveCampaign(updated, {});
-  console.log(JSON.stringify(updated.config.locales, null, 2));
+  const newLocales = _merge({}, locales[lang], { "server:": update });
+  campaign.config.locales[lang] = _merge({}, campaign.config.locales[lang], newLocales);
+  saveCampaign(campaign, {});
+  console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 const deepify = keys => {
@@ -296,14 +284,15 @@ const i18nTplInit = async (campaign, lang = "en") => {
 const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
   const file = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
   const initial = JSON.parse(fs.readFileSync(file, "utf8"));
+  //console.log("initial", initial)
+
   let server = _pick(initial, [
     "email.common.greeting",
     "email.common.thanks",
     "email.common.about",
     "email.common.signature",
     "email.common.share",
-    `email.${type}.subject`,
-    "poweredBy",
+    `email.${type}.subject`
   ]);
   if (type === "doi") {
     server = _pick(initial, [
@@ -313,8 +302,7 @@ const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
       `email.${type}.intro`,
       `email.${type}.extra`,
       "email.button.confirmOptin",
-      `email.${type}.subject`,
-      "poweredBy",
+      `email.${type}.subject`
     ]);
   }
   return server;
@@ -386,7 +374,7 @@ if (require.main === module) {
         saveTemplate(render, id);
         mailConfig = saveConfig(config);
       }
-      if (argv.campaign) {
+      if (argv.extract) {
         if (argv["dry-run"]) {
           console.log(
             "i18n keys",
@@ -394,6 +382,7 @@ if (require.main === module) {
             JSON.stringify(render.locales, null, 2)
           );
         } else {
+          console.log("updating campaign config with server keys");
           const update = keysToCampaignConfig(config.type[0], lang);
           updateCampaign(campaign, lang, update);
         }
