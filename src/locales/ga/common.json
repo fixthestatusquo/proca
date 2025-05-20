@@ -1,7 +1,7 @@
 {
   "Address": "Seoladh",
   "Amount": "Méid",
-  "Another": "Eile",
+  "Another": "Ceann eile",
   "Birthdate": "Dáta breithe",
   "City": "Cathair",
   "Comment": "Tráchtaireacht",
@@ -34,7 +34,7 @@
     "remindeSent": "Meabhrúchán seolta",
     "reminder": "Cuir i gcuimhne dom níos déanaí",
     "reminderEmail": "Cuir i gcuimhne dom trí ríomhphost",
-    "share": "Scair",
+    "share": "Comhroinn",
     "sign": "Sínigh Anois!",
     "stayInformed": "Bí ar an eolas",
     "takeAction": "Déan beart",
@@ -111,7 +111,7 @@
       "each": {
         "monthly": "gach mí",
         "oneoff": "Uair amháin",
-        "weekly": "gach bliain"
+        "weekly": "gach seachtain"
       },
       "feedback": {
         "monthly": "Tá mé ag bronnadh {{amount}} {{frequency}}",
