@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/filter/Country";
 import Postcode from "@components/filter/Postcode";
@@ -9,7 +9,7 @@ import TextField from "@components/TextField";
 import { imports } from "../../actionPage";
 
 const Filter = props => {
-  const { t } = useTranslation();
+//  const { t } = useTranslation();
   const config = useCampaignConfig();
   const Filters =
     Object.entries(imports)

@@ -478,7 +478,7 @@ if (require.main === module) {
           //    backup(actionPage);
           // }
           if (!argv["dry-run"]) {
-            const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
+            saveWidget(widget); 
           }
         }
         if (argv.build) {

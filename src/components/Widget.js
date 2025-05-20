@@ -22,6 +22,9 @@ import { scrollTo as _scrollTo } from "@lib/scroll";
 import { initDataState } from "@hooks/useData";
 
 import Loader from "@components/Loader";
+import { AlertRenderer } from '@components/layout/AlertRenderer';
+import { useAlert } from '@hooks/useAlert';
+
 import { steps } from "../actionPage";
 import Button from "@components/FAB";
 import Alert from "@components/Alert";
@@ -40,6 +43,7 @@ const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
+  const { showAlert} = useAlert();
   useHash({
     prefix: "proca_",
     onChange: step => {
@@ -130,6 +134,11 @@ const Widget = props => {
   const test = config.test;
   useEffect(() => {
     if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
+    showAlert({
+          title: "TEST MODE",
+          text: 'Experiment freely, this action will not be counted',
+          severity: 'warning'
+    });
     const styles = `
 @keyframes procaBackgroundTest {
   0% {
@@ -374,13 +383,13 @@ const Widget = props => {
 
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
+      <AlertRenderer /> 
       <TwoColumns
         dom={props.container}
         hidden={current === null}
         width={config.component.widget?.forceWidth ? 0 : null}
       >
         {fab && <Button done={onFabClick} ref={intersectionRef} />}
-
         <div className="proca-set" ref={intersectionRef}>
           {Number.isInteger(current) && <CurrentAction />}
         </div>

@@ -27,7 +27,6 @@ import DoneIcon from "@material-ui/icons/Done";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import { useForm } from "react-hook-form";
-import useInteraction from "@hooks/useInteraction";
 import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
@@ -200,7 +199,6 @@ export default function Register(props) {
   });
 
   const form = props.form || _form;
-  const interacted = useInteraction(form);
   const { trigger, handleSubmit, setError, getValues, setValue } = form;
 
   const comment = data.comment;
