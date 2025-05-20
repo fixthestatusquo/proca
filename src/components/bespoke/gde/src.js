@@ -27,7 +27,6 @@ const src = (props) => {
     console.error("not the right src length", src);
     return null;
   }
-  const [promocode, promocode_phone, bannerid] = src.map((d) => parse(d));
   params = {
     "promocode": parse(src[0]),
     "promocode_phone": parse(src[1]),

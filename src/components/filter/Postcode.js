@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Postcode from "@components/field/Postcode";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+//import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import Alert from "@material-ui/lab/Alert";
 
@@ -8,8 +8,8 @@ import Alert from "@material-ui/lab/Alert";
 const FilterPostcode = props => {
   const { watch } = props.form;
   const { t } = useTranslation();
-  const config = useCampaignConfig();
-  const setConfig = useSetCampaignConfig();
+//  const config = useCampaignConfig();
+//  const setConfig = useSetCampaignConfig();
   const postcode = watch("postcode");
 
   useEffect(() => {
