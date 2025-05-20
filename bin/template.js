@@ -18,7 +18,7 @@ const _snarkdown = require("snarkdown");
 
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
-const _pick = require("lodash/pick");
+const _get = require("lodash/get");
 
 const help = () => {
   console.log(
@@ -30,8 +30,7 @@ const help = () => {
       "--verbose (show the result)",
       "--serve (show template in your browser for dev)",
       "--markdown (handle i18n as markdown)",
-      "--campaign (add the variables from the template into the campaign)",
-      "--extract (extract into src/locales/en/server.js)",
+      "--extract (extract default keys for default templates to campaign config)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
       "actionpage_id",
@@ -42,7 +41,7 @@ const help = () => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  string: ["mjml", "lang"],
+  string: ["mjml", "lang", "type"],
   boolean: [
     "help",
     "dry-run",
@@ -131,24 +130,20 @@ const pushTemplate = async (config, html) => {
   return data;
 };
 
-const updateTranslation = (namespace, parsed) => {
-  const file = path.resolve(__dirname, "../src/locales/en/server.json");
-  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
-  const updated = _merge({}, parsed[namespace], initial);
-  if (argv["dry-run"]) {
-    console.log(JSON.stringify(updated, null, 2));
-    return;
-  }
-  fs.writeFileSync(file, JSON.stringify(updated, null, 2));
-};
 
 const updateCampaign = (campaign, lang, update) => {
-  const locales = {};
-  locales[lang] = { "server:": update };
-  const updated = _merge({}, { config: { locales: locales } }, campaign);
 
-  saveCampaign(updated, {});
-  console.log(JSON.stringify(updated.config.locales, null, 2));
+  // Overwriting "server:", othewise it would create a mess.
+  for (const lang of Object.keys(update)) {
+      const emailContent = update[lang]?.email;
+      if (!emailContent) continue;
+    if (!campaign.config.locales[lang]) {
+      campaign.config.locales[lang] = {};
+    }
+    campaign.config.locales[lang]["server:"] = emailContent;
+  }
+   saveCampaign(campaign, {});
+   console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 const deepify = keys => {
@@ -192,11 +187,6 @@ const translateTpl = (tpl, lang, markdown) =>
       });
       const r = render(dom);
       locales = deepify(keys);
-      if (argv.extract) {
-        if (argv["dry-run"]) {
-          console.log("i18n keys", keys, JSON.stringify(locales, null, 2));
-        } else updateTranslation("server", locales);
-      }
       resolve(r);
     });
     const parser = new htmlparser2.Parser(handler);
@@ -293,31 +283,54 @@ const i18nTplInit = async (campaign, lang = "en") => {
   return server;
 };
 
-const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
-  const file = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
-  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
-  let server = _pick(initial, [
+const EMAIL_TYPE_KEYS = {
+  thankyou: [
     "email.common.greeting",
     "email.common.thanks",
     "email.common.about",
     "email.common.signature",
     "email.common.share",
-    `email.${type}.subject`,
-    "poweredBy",
-  ]);
-  if (type === "doi") {
-    server = _pick(initial, [
-      "email.common.greeting",
-      "email.common.thanks",
-      "email.common.signature",
-      `email.${type}.intro`,
-      `email.${type}.extra`,
-      "email.button.confirmOptin",
-      `email.${type}.subject`,
-      "poweredBy",
-    ]);
+    "email.thankyou.subject",
+  ],
+  doi: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.doi.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.doi.subject",
+  ]
+};
+
+const generateText = (type, lang) => {
+  let serverLang = null;
+  if (lang !== "en") serverLang = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
+  const serverEn = path.resolve(__dirname, `../src/locales/en/server.json`);
+  const initial = { en: JSON.parse(fs.readFileSync(serverEn, "utf8")) };
+
+  if (serverLang) initial[lang] = JSON.parse(fs.readFileSync(serverLang, "utf8"));
+  const result = {};
+  const keys = EMAIL_TYPE_KEYS[type];
+  if (!keys) {
+    throw new Error(`Unknown email type: ${type}`);
   }
-  return server;
+  const langsToInclude = lang === 'en' ? ['en'] : ['en', lang];
+
+  langsToInclude.forEach((l) => {
+    const source = initial[l];
+    const picked = {};
+
+    keys.forEach((path) => {
+      const value = _get(source, path);
+      if (value !== undefined) {
+        _set(picked, path, value);
+      }
+    });
+
+    result[l] = picked;
+  });
+  return result;
 };
 
 if (require.main === module) {
@@ -386,7 +399,7 @@ if (require.main === module) {
         saveTemplate(render, id);
         mailConfig = saveConfig(config);
       }
-      if (argv.campaign) {
+      if (argv.extract) {
         if (argv["dry-run"]) {
           console.log(
             "i18n keys",
@@ -394,7 +407,7 @@ if (require.main === module) {
             JSON.stringify(render.locales, null, 2)
           );
         } else {
-          const update = keysToCampaignConfig(config.type[0], lang);
+          const update = generateText(argv.type || "thankyou" , lang);
           updateCampaign(campaign, lang, update);
         }
       }
