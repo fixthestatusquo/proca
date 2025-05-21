@@ -32,7 +32,13 @@ const src = (props) => {
     "promocode_phone": parse(src[1]),
     "bannerid": parse(src[2])
   }
-
+  if (!urlParams.has("BannerID") && params.bannerid) {
+    urlParams.set("BannerID", params.bannerid);
+    const url = new URL(window.location.href);
+    url.search = urlParams.toString();
+    window.history.pushState({}, "", url);
+  }
+  
   let custom = props.myref?.current;
   if (!custom) {
     custom=params;
