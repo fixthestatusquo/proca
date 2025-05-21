@@ -18,6 +18,8 @@ const Phone = ({ form, classField, compact }) => {
   const hasCountry = config.component.register?.field?.country !== false;
   const narrowPhone = !compact && hasPostcode && !hasLocality && !hasCountry;
 
+console.log("narrowPhone", narrowPhone, !compact);
+
   const validatePhone = async phone => {
     const result = await checkPhone(form.getValues("country"), phone);
     if (result.is_error === false) {
@@ -36,7 +38,7 @@ const Phone = ({ form, classField, compact }) => {
     //  iconColor = theme.palette.error.main;
   }
   return (
-    <Grid item xs={narrowPhone? 9 : 12} className={classField}>
+    <Grid item xs={12} sm={narrowPhone? 9 : 12} className={classField}>
       <input type="hidden" {...form.register("phoneCountry")} />
       <TextField
         type="tel"
