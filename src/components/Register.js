@@ -539,7 +539,7 @@ export default function Register(props) {
                 <EmailField form={form} required={enforceRequired} />
               </Grid>
               <Address form={form} compact={compact} classField={classField} />
-              <PhoneField form={form} classField={classField} />
+              <PhoneField form={form} classField={classField} compact={compact} />
               {config.component.register?.field?.comment !== false && (
                 <Grid item xs={12} className={classField}>
                   <TextField
