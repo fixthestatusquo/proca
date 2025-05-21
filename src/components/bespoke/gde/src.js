@@ -32,12 +32,15 @@ const src = (props) => {
     "promocode_phone": parse(src[1]),
     "bannerid": parse(src[2])
   }
-  if (!urlParams.has("BannerID") && params.bannerid) {
-    urlParams.set("BannerID", params.bannerid);
-    const url = new URL(window.location.href);
-    url.search = urlParams.toString();
-    window.history.pushState({}, "", url);
-  }
+  document.querySelectorAll('a[href]').forEach(link => { // TODO: only update the donation link
+    try {
+        let url = new URL(link.href, window.location.origin);
+        url.searchParams.set('BannerID', params.bannerid);
+        link.href = url.toString();
+    } catch (e) {
+        console.warn('Malformed URL:', link.href);
+    }
+  });
   
   let custom = props.myref?.current;
   if (!custom) {
