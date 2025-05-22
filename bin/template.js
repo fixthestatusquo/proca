@@ -33,6 +33,7 @@ const help = () => {
       "--extract (extract default keys for default templates to campaign config)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
+      "--type {thankyou, doi, confirm, doi_thankyou, doi_confirm} (default thankyou)",
       "actionpage_id",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
@@ -54,7 +55,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "campaign",
   ],
   alias: { v: "verbose" },
-  default: { mjml: "default/thankyou", markdown: true, build: true },
+  default: { mjml: "default/thankyou", markdown: true, build: true, type: "thankyou" },
   unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
@@ -128,22 +129,6 @@ const pushTemplate = async (config, html) => {
   console.log("pushing", variables.name, "@" + config.lang);
   if (argv.verbose) console.log("data", data);
   return data;
-};
-
-
-const updateCampaign = (campaign, lang, update) => {
-
-  // Overwriting "server:", othewise it would create a mess.
-  for (const lang of Object.keys(update)) {
-      const emailContent = update[lang]?.email;
-      if (!emailContent) continue;
-    if (!campaign.config.locales[lang]) {
-      campaign.config.locales[lang] = {};
-    }
-    campaign.config.locales[lang]["server:"] = emailContent;
-  }
-   saveCampaign(campaign, {});
-   console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 const deepify = keys => {
@@ -300,6 +285,34 @@ const EMAIL_TYPE_KEYS = {
     "email.doi.extra",
     "email.button.confirmOptin",
     "email.doi.subject",
+  ],
+  confirm: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.confirm.intro",
+    "email.confirm.extra",
+    "email.button.confirmAction",
+    "email.confirm.subject",
+  ],
+  doi_thankyou: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.doi.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.doi_thankyou.subject",
+  ],
+  doi_confirm: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.confirm.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.button.confirmOptout",
+    "email.confirm.subject",
   ]
 };
 
@@ -331,6 +344,20 @@ const generateText = (type, lang) => {
     result[l] = picked;
   });
   return result;
+};
+
+const updateCampaign = (campaign, lang, update) => {
+  // Overwriting "server:", othewise it would create a mess.
+  for (const lang of Object.keys(update)) {
+      const emailContent = update[lang]?.email;
+      if (!emailContent) continue;
+    if (!campaign.config.locales[lang]) {
+      campaign.config.locales[lang] = {};
+    }
+    campaign.config.locales[lang]["server:"] = { email: emailContent };
+  }
+   saveCampaign(campaign, {});
+   console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 if (require.main === module) {
@@ -407,7 +434,7 @@ if (require.main === module) {
             JSON.stringify(render.locales, null, 2)
           );
         } else {
-          const update = generateText(argv.type || "thankyou" , lang);
+          const update = generateText(argv.type, lang);
           updateCampaign(campaign, lang, update);
         }
       }
