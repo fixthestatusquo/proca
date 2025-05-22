@@ -298,6 +298,8 @@ const EMAIL_TYPE_KEYS = {
   doi_thankyou: [
     "email.common.greeting",
     "email.common.thanks",
+    "email.common.about",
+    "email.common.share",
     "email.common.signature",
     "email.doi.intro",
     "email.doi.extra",
