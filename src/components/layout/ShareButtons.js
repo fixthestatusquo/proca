@@ -270,7 +270,6 @@ export default function ShareAction(props) {
             <ActionIcon
               icon={FacebookIcon}
               component={FacebookShareButton}
-              appId="634127320642564"
             />
           )}
           {config.component?.share?.bluesky !== false && (

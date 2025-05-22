@@ -4,44 +4,43 @@ const path = require("path");
 const merge = require("lodash").merge;
 
 function getConfigOverride(id) {
-  const config = readConfigOverride(id);
-  if (config) {
-    return config;
-  }
-  throw Error(
-    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
-  );
+const config = readConfigOverride(id);
+if (config) {
+  return config;
+}
+throw Error(
+  "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
+);
 }
 
 function configFolder() {
-  return process.env.REACT_APP_CONFIG_FOLDER
-    ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
-    : "../config/";
+return process.env.REACT_APP_CONFIG_FOLDER
+  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+  : "../config/";
 }
 function readConfigOverride(id) {
-  //  console.log(id);console.trace("Here I am!")
+//  console.log(id);console.trace("Here I am!")
 
-  let apId = id || process.env[envVar] || process.argv[2];
+let apId = id || process.env[envVar] || process.argv[2];
 
-  if (apId) {
-    const configFile = apId + ".json";
-    const fn = path.resolve(__dirname, configFolder() + configFile);
-    try {
-      const config = parseConfig(fs.readFileSync(fn));
-      let campaignConfig = {};
-      if (config.campaign.name) {
-        campaignConfig = parseConfig(
-          fs.readFileSync(
-            path.resolve(
-              __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json",
-            ),
+if (apId) {
+  const configFile = apId + ".json";
+  const fn = path.resolve(__dirname, configFolder() + configFile);
+  try {
+    const config = parseConfig(fs.readFileSync(fn));
+    let campaignConfig = {};
+    if (config.campaign.name) {
+      campaignConfig = parseConfig(
+        fs.readFileSync(
+          path.resolve(
+            __dirname,
+            configFolder() + "/campaign/" + config.campaign.name + ".json",
           ),
-        );
-        if (!config.locales) config.locales = {};
-        ["layout", "component"].map((k) => {
-          config[k] = merge(campaignConfig.config[k], config[k]);
-        });
+        ),
+      );
+      if (!config.locales) config.locales = {};
+      config.layout = merge(campaignConfig.config.layout,config.layout);
+      config.component = merge({share:{},register:{field:{}},consent:{}},campaignConfig.config.component,config.component);
         if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal;
         }

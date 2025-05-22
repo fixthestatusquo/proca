@@ -19,7 +19,7 @@ import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
 import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useComponentConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile } from "@hooks/useDevice";
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
 
 const Share = props => {
   const classes = useStyles();
-  const config = useCampaignConfig();
+  const component = useComponentConfig();
   const metadata = getMetadata(window.document, window.location);
   const { t } = useTranslation();
 
@@ -58,11 +58,11 @@ const Share = props => {
   return (
     <Container component="div" maxWidth="sm" className={classes.root}>
       <EmailConfirm />
-      <PreviousStepConfirm email={config.component.consent?.email} />
+      <PreviousStepConfirm email={component.consent.email} />
       <h3>{t("share.title")}</h3>
       <p>{t("share.intro")}</p>
       <Card className={classes.root}>
-        {config.component.share?.top && <Actions {...props} />}
+        {component.share.top && <Actions {...props} />}
         <CardHeader title={metadata.title} subheader={metadata.provider} />
         {metadata.image ? (
           <CardMedia
@@ -74,8 +74,8 @@ const Share = props => {
         <CardContent>
           <p>{metadata.description}</p>
         </CardContent>
-        {!config.component.share?.top && <Actions {...props} />}
-        {config.component.share?.next && (
+        {!component.share.top && <Actions {...props} />}
+        {component.share.next && (
           <Button
             size="large"
             endIcon={<SkipNextIcon />}
@@ -85,8 +85,8 @@ const Share = props => {
             onClick={next}
           >
             {t(
-              typeof config.component.share.next === "string"
-                ? config.component.share.next
+              typeof component.share.next === "string"
+                ? component.share.next
                 : "Next"
             )}
           </Button>

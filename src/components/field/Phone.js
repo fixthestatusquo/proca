@@ -18,8 +18,6 @@ const Phone = ({ form, classField, compact }) => {
   const hasCountry = config.component.register?.field?.country !== false;
   const narrowPhone = !compact && hasPostcode && !hasLocality && !hasCountry;
 
-console.log("narrowPhone", narrowPhone, !compact);
-
   const validatePhone = async phone => {
     const result = await checkPhone(form.getValues("country"), phone);
     if (result.is_error === false) {

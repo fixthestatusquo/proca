@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import { create } from "zustand";
+import { useShallow } from 'zustand/react/shallow'
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
@@ -60,7 +61,6 @@ export const initConfigState = config => {
          return state;
        })
     },
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
     setCampaignConfig: update =>
       set(state => ({
         campaignConfig: {
@@ -211,6 +211,17 @@ export const ConfigProvider = props => {
 
 export const useCampaignConfig = () =>
   configStore(state => state.campaignConfig);
+
+export const useComponentConfig = () =>
+  configStore(useShallow(state => state.campaignConfig?.component));
+
+export const useJourneyConfig = () =>
+  configStore(
+    (state) => state.campaignConfig.journey,
+    shallow
+  );
+
+
 export const useConfig = () => configStore(state => state.campaignConfig);
 export const useSetCampaignConfig = () =>
   configStore(state => state.setCampaignConfig);
