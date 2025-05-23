@@ -453,6 +453,7 @@ export default function Register(props) {
     props.done();
   };
 
+console.log("custom",config.component.custom);
   return (
     <form
       className={classes.container}
@@ -465,12 +466,12 @@ export default function Register(props) {
       <ErrorS display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled
-          disabled={config.component.register?.disabled === true}
+          disabled={config.component.register.disabled === true}
         >
           <WelcomeSupporter />
           <Box marginBottom={1}>
             <Grid container spacing={1}>
-              {config.component.register?.custom?.top && (
+              {config.component.register.custom?.top && (
                 <CustomField
                   compact={compact}
                   form={form}
@@ -480,7 +481,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
-              {config.component.register?.field?.organisation && (
+              {config.component.register.field.organisation && (
                 <Grid item xs={12} className={classField}>
                   <TextField
                     type="organisation"
@@ -540,6 +541,15 @@ export default function Register(props) {
               </Grid>
               <Address form={form} compact={compact} classField={classField} />
               <PhoneField form={form} classField={classField} compact={compact} />
+              {config.component.register.custom?.comment && (
+                <CustomField
+                  compact={compact}
+                  position="comment"
+                  form={form}
+                  classes={classes}
+                  myref={customField}
+                />
+              )}
               {config.component.register?.field?.comment !== false && (
                 <Grid item xs={12} className={classField}>
                   <TextField
@@ -558,7 +568,8 @@ export default function Register(props) {
               )}
               {props.extraFields &&
                 props.extraFields({ form: form, classes: classes })}
-              {config.component.register?.custom?.bottom && (
+
+              {config.component.register.custom?.bottom && (
                 <CustomField
                   compact={compact}
                   form={form}
@@ -566,7 +577,6 @@ export default function Register(props) {
                   myref={customField}
                 />
               )}
-
               {!data.uuid && (
                 <ConsentBlock
                   organisation={props.organisation}

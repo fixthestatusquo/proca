@@ -5,49 +5,55 @@ import TextField from "@components/TextField";
 import { Grid } from "@material-ui/core";
 import { InputAdornment } from "@material-ui/core";
 import useData from "@hooks/useData";
-import EcoIcon from '@material-ui/icons/Eco';
+import EcoIcon from "@material-ui/icons/Eco";
 //import useToken from "@hooks/useToken";
 
-const AdditionalQuestion = ({classField,form}) => {
+const AdditionalQuestion = ({ classField, form }) => {
   const [data, setData] = useData();
   const original = data.copyMessage;
   const place = form.watch("place");
 
-//  const handleMerging = text => {setData("message", text);};
+  //  const handleMerging = text => {setData("message", text);};
 
-  useEffect ( () => {
-     if (!data.message || original) return;
-     setData("copyMessage",data.message);
-console.log("original set");
+  useEffect(() => {
+    if (!data.message || original) return;
+    setData("copyMessage", data.message);
+    console.log("original set");
+  }, [data.message, original]);
 
-  },[data.message, original]);
-  
   //useToken(original, {custom:{location:place}}, handleMerging);
 
-  useEffect ( () => {
-     if (!original) return;
-     if (!place) return;
+  useEffect(() => {
+    if (!original) return;
+    if (!place) return;
 
-     setData("message",original.replace("{{custom.location}}","Dieser Ort in unserer Stadt benötigt besonders dringend mehr kühlendes Grün: "+place))
-  },[place,original]);
+    setData(
+      "message",
+      original.replace(
+        "{{custom.location}}",
+        "Dieser Ort in unserer Stadt benötigt besonders dringend mehr kühlendes Grün: " +
+          place
+      )
+    );
+  }, [place, original]);
 
   return (
-    <Grid item  className={classField}>
+    <Grid item className={classField}>
       <TextField
         form={form}
         name="place"
-label="Kritischer Ort"
-  helperText="Welcher Ort oder welche Straße in deiner Stadt benötigt besonders dringend mehr kühlendes Grün?"
+        label="Dein Wunschort für mehr Grün"
+        helperText="Welcher Ort oder welche Straße in deiner Stadt benötigt besonders dringend mehr kühlendes Grün?"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-                <EcoIcon color="action"/>
+              <EcoIcon color="action" />
             </InputAdornment>
           ),
         }}
       />
     </Grid>
   );
-}
+};
 
 export default AdditionalQuestion;
