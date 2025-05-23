@@ -12,12 +12,13 @@ const merge = (targets, twitters, options) => {
       twitters.find(
         d => clean(d.screen_name) === clean(target.fields?.screen_name)
       );
+    console.log(twitters[0], target.fields?.screen_name);
     if (!r) {
       // todo, some formatting
       r = {
         procaid: target.id,
         name: target.name,
-        country: target.area,
+        country: target.fields.country || target.area,
         description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
         //        followers_count: 0,
@@ -33,9 +34,10 @@ const merge = (targets, twitters, options) => {
     }
     r.sort =
       target.fields.sort ||
-      (target.fields.last_name
-        ? target.fields.last_name.toLowerCase()
-        : target.name.toLowerCase());
+        target.fields.last_name ||
+        target.fields.lastname ||
+        target.name;
+    r.sort = r.sort.toLowerCase();
     if (options.meps || target.fields.epid) {
       r.description = target.fields.description || target.fields.party;
       r.eugroup = target.fields.eugroup;
@@ -49,8 +51,14 @@ const merge = (targets, twitters, options) => {
     if (options.external_id && target.externalId) {
       r.externalId = target.externalId;
     }
+    if (target.fields.picture) {
+      r.profile_image_url_https = target.fields.picture;
+    }
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;
+    }
+    if (target.fields.ps) {
+      r.ps = target.fields.ps;
     }
 
     if (options.email && target.emails?.length) {
@@ -150,6 +158,7 @@ const publishTarget = async (campaignName, argv) => {
     let twitters = null;
     try {
       twitters = read("target/twitter/" + name); // the list from twitter
+      console.log("twitters", twitters.length);
     } catch {
       console.log("no twitter list");
       twitters = [];

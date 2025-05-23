@@ -6,9 +6,10 @@ import "./lib/i18n";
 import { isTest } from "./lib/urlparser";
 import { scrollTo } from "./lib/scroll";
 
-import ProcaAlert from "./components/Alert.js";
+//import ProcaAlert from "./components/Alert.js";
 import Portals from "./components/Portals.js";
 import ProcaWidget from "./components/Widget.js";
+import {addAlert} from "@hooks/useAlert.js";
 
 import { config as Config } from "./actionPage";
 
@@ -21,17 +22,11 @@ let rendered = false;
 const getJourney = () => Config.journey;
 
 const Alert = (text, severity) => {
-  const selector = "proca_alert";
-  if (!document.querySelector(`#${selector}`)) {
-    const elem = document.createElement("div");
-    elem.id = selector;
-    document.body.appendChild(elem);
+  if (typeof text === 'object') {
+    addAlert(text); return;
   }
+  addAlert({text, severity});
 
-  ReactDOM.render(
-    <ProcaAlert text={text} severity={severity} />,
-    document.querySelector(`#${selector}`)
-  );
 };
 
 const initPortals = portals => {
@@ -82,13 +77,9 @@ const Widget = args => {
 
   // <ProcaWidget config={config} {...config} />,
   rendered = true;
+  
   ReactDOM.render(
     <ProcaWidget {...config} container={frag}>
-      {config.test && (
-        <ProcaAlert title="TEST MODE" severity="warning">
-          Experiment freely, this action will not be counted
-        </ProcaAlert>
-      )}
       <Portals portals={config.portal} dom={frag} />
     </ProcaWidget>,
     dom
@@ -105,10 +96,16 @@ const go = action => {
   scrollTo({ delay: 300 });
 };
 
+const get = (key) => {
+  if (!key) {
+    return Config;
+  }
+}
+
 const set = (atom, key, value) => {
-  config[key] = value; // pointless?
+  //  config[key] = value; // pointless?
   if ((atom && key && value) || (atom && typeof key === "object")) {
-    return setGlobalState(atom, key, value);
+    return setGlobalState(atom, key);
   }
   setConfig(key, value);
 };
@@ -173,6 +170,7 @@ export {
   hook,
   React,
   ReactDOM,
+  get,
   set,
   Widget,
   getJourney,

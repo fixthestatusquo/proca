@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Enviar un correo electrónico",
     "join": "Únase a",
+    "pledge": "Comprométase ahora",
     "register": "Registrar",
     "remindeSent": "Recordatorio enviado",
     "reminder": "Recuérdamelo más tarde",
@@ -122,7 +123,8 @@
       "yearly": "anualmente"
     },
     "iban": "IBAN",
-    "intro": "Donar a {{campaign}}",
+    "intro": "Donar a {{org}}",
+    "payment": "Pago",
     "payment_methods": {
       "card": "Tarjeta",
       "default": "Donar",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} han donado. Vamos a {{goal}}",
     "email": "{{total}} han enviado un correo electrónico. Vamos a {{goal}}",
+    "pledge": "{{total}} se han comprometido. Vamos a {{goal}}",
     "register": "{{total}} se han registrado. Vamos a {{goal}}",
     "share": "{{total}} han compartido. Vamos a {{goal}}",
     "sign": "{{total}} han firmado. Vamos a {{goal}}",
@@ -213,7 +216,7 @@
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}",
       "undefined": "Elija un país"
     },
-    "missing": "Seleccione al menos uno de {{total}}",
+    "missing": "Seleccione al menos 1 de {{total}}",
     "postcode": {
       "empty": "no hay nadie con quien contactar en {{area}}",
       "undefined": "Introduzca su código postal"

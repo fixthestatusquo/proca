@@ -11,6 +11,7 @@ import PaymentMethodButtons from "./PaymentMethodButtons";
 import Frequencies from "./buttons/FrequencyButton";
 import Amounts from "./buttons/AmountButton";
 import { Alert } from "@material-ui/lab";
+import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 
 const useStyles = makeStyles(theme => ({
   amount: {
@@ -61,7 +62,7 @@ const DonateAmount = props => {
   return (
     <Container id="proca-donate" className={classes.container}>
       {complete && <Alert severity="success">{t("donation.thanks")}</Alert>}
-
+      <PreviousStepConfirm email={config.component.consent?.email} />
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Steps />
@@ -91,26 +92,24 @@ const DonateAmount = props => {
 
             <Frequencies />
 
-            <>
-              <PaymentMethodButtons
-                classes={classes}
-                disabled={!amount}
-                onClickStripe={() => {
-                  setData("paymentMethod", "stripe");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onClickSepa={() => {
-                  setData("paymentMethod", "sepa");
-                  setDonateStep(1);
-                  props.done();
-                }}
-                onComplete={() => {
-                  setComplete(true);
-                  props.go("donate_Thanks");
-                }}
-              />
-            </>
+            <PaymentMethodButtons
+              classes={classes}
+              disabled={!amount}
+              onClickStripe={() => {
+                setData("paymentMethod", "stripe");
+                setDonateStep(1);
+                props.done();
+              }}
+              onClickSepa={() => {
+                setData("paymentMethod", "sepa");
+                setDonateStep(1);
+                props.done();
+              }}
+              onComplete={() => {
+                setComplete(true);
+                props.go("donate_Thanks");
+              }}
+            />
           </CardContent>
         </Grid>
       </Grid>

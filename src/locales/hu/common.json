@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "E-mail küldése",
     "join": "Csatlakozzon a",
+    "pledge": "Jelentkezzen most!",
     "register": "Regisztráció",
     "remindeSent": "Emlékeztető küldött",
     "reminder": "Emlékeztess később",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Adományozni a {{campaign}} címre",
+    "payment": "Fizetés",
     "payment_methods": {
       "card": "Kártya",
       "default": "Adományozni",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
     "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
+    "pledge": "{{total}} ígéretet tettek. Menjünk a {{goal}}",
     "register": "{{total}} regisztráltak. Menjünk a {{goal}}",
     "share": "{{total}} megosztották. Menjünk a {{goal}}",
     "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",

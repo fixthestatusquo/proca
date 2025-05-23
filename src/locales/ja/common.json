@@ -29,6 +29,7 @@
     "eci": "ECIに署名する",
     "email": "電子メールを送信する",
     "join": "参加",
+    "pledge": "今すぐ誓約を！",
     "register": "登録",
     "remindeSent": "リマインダーを送信",
     "reminder": "後で思い出してください",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "寄付先{{campaign}}",
+    "payment": "支払い",
     "payment_methods": {
       "card": "カード",
       "default": "寄付する",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} が寄付をしました。に行ってみよう。{{goal}}",
     "email": "{{total}} はメールを送信しました。に行ってみましょう。{{goal}}",
+    "pledge": "{{total}} を誓った。それでは{{goal}}",
     "register": "{{total}} が登録されています。に行ってみましょう。{{goal}}",
     "share": "{{total}} が共有しました。に行ってみましょう。{{goal}}",
     "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}",

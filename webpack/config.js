@@ -39,9 +39,18 @@ function readConfigOverride(id) {
           ),
         );
         if (!config.locales) config.locales = {};
-        ["layout", "component"].map((k) => {
-          config[k] = merge(campaignConfig.config[k], config[k]);
-        });
+        config.layout = merge(campaignConfig.config.layout, config.layout);
+        config.component = merge(
+          {
+            share: {},
+            dispatch: {},
+            register: { field: {} },
+            consent: {},
+            country: {},
+          },
+          campaignConfig.config.component,
+          config.component,
+        );
         if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal;
         }

@@ -14,8 +14,8 @@ export default function Container(props) {
   };
 
   return (
-      <ConfigProvider go={go} actions={actions} config={config}>
-        <ProcaStyle>{props.children}</ProcaStyle>
-      </ConfigProvider>
+    <ConfigProvider go={go} actions={actions} config={config}>
+      <ProcaStyle>{props.children}</ProcaStyle>
+    </ConfigProvider>
   );
 }

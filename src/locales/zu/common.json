@@ -190,9 +190,7 @@
   },
   "step": {
     "eci": {
-      "secure": "kuphephile",
-      "subheader": "",
-      "title": ""
+      "secure": "kuphephile"
     },
     "register": {
       "title": ""

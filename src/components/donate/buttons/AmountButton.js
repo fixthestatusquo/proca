@@ -16,9 +16,6 @@ import { useFormatMoney } from "@hooks/useFormatting";
 import useElementWidth from "@hooks/useElementWidth";
 
 const useStyles = makeStyles(theme => ({
-  formContainers: {
-    marginBottom: "1em",
-  },
   root: {
     // padding: theme.spacing(1),
     width: "100%",
@@ -92,9 +89,9 @@ const Amounts = () => {
     amounts.push(data.initialAmount);
   }
   try {
-  amounts.sort((a, b) => a - b);
+    amounts.sort((a, b) => a - b);
   } catch {
-console.warn("can't sort");
+    console.warn("can't sort");
   }
 
   const form = useForm();
@@ -102,17 +99,10 @@ console.warn("can't sort");
   const classes = useStyles();
   const { t } = useTranslation();
   const width = useElementWidth("#proca-donate");
-  console.log(width);
   const cols = width > 310 ? 3 : 6;
   return (
     <>
-      <Grid
-        container
-        className={classes.formContainers}
-        spacing={1}
-        role="group"
-        aria-label="amount"
-      >
+      <Grid container spacing={1} role="group" aria-label="amount">
         {amounts.map(d => (
           <Grid xs={cols} key={d} item>
             {/* Maybe we should pass AmountButton the formData handler, so that it's a simpler

@@ -1,43 +1,44 @@
 {
-  "email": {
-    "common": {
-      "privacy": "Vairāk informācijas par mūsu konfidencialitātes politiku un jūsu datu apstrādi varat atrast šeit.",
-      "consent": "\n          ",
-      "thanks": "Paldies par dalību {{campaign.title}}. Jūsu atbalsts ir novērtēts!",
-      "closing": "Ar jūsu palīdzību mēs esam soli tuvāk savam mērķim.",
-      "greeting": "Sveiki {{firstName}}",
-      "share_on": "Dalīties ar",
-      "unsubscribe": "Ja nevēlaties turpmāk no mums saņemt turpmāku informāciju, jūs jebkurā laikā varēsiet atcelt savu reģistrāciju.",
-      "signature": "Ar cieņu,\n\n{{org.title}}",
-      "follow": "Sekojiet mums:",
-      "donate": "Lūdzu, apsveriet iespēju veikt ziedojumu, lai palīdzētu mums īstenot mūsu misiju.",
-      "share": "Palīdziet mums sasniegt mērķi, [izplatot informāciju] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-      "duplicate": "Paldies par jūsu iesaistīšanos un uzticību mūsu mērķim! Tomēr, cenšoties saglabāt autentiskumu un uzticamību, mums ir nepieciešams **dzēst dublētos** parakstus, un šķiet, ka jūs (vai kāds, kas izmanto {{email}}) jau esat veicis šo darbību.  Esiet droši, ka **Jūsu sākotnējais paraksts tika ieskaitīts** un veicināja mūsu kampaņu.\nJūsu atbalsts ir bijis nenovērtējams, un mēs vēlamies aicināt Jūs veikt papildu soli, lai palīdzētu palielināt Jūsu ietekmi. Lūdzu, apsveriet iespēju sazināties ar saviem draugiem un ģimenes locekļiem, aicinot arī viņus rīkoties, izmantojot viņu e-pasta adreses. Šādā veidā mēs varam vēl vairāk paplašināt mūsu kustību un radīt vēl spēcīgāku kolektīvo balsi, lai panāktu vēlamās pārmaiņas.\nVēlreiz sirsnīgi pateicamies par jūsu nepārtraukto atbalstu un uzticību šai kampaņai. Kopā mēs varam panākt ilgstošu ietekmi!",
-      "organisation": "{{org.title}}",
-      "thanksPledge": "Paldies par solījumu {{campaign.title}}. Jūsu informācija tiks pārbaudīta, un jūs saņemsiet apstiprinājuma e-pastu, ja jūsu profils tiks parādīts tīmekļa vietnē."
+    "email": {
+        "common": {
+            "privacy": "Vairāk informācijas par mūsu konfidencialitātes politiku un jūsu datu apstrādi varat atrast šeit.",
+            "consent": "\n          ",
+            "thanks": "Paldies par dalību {{campaign.title}}. Jūsu atbalsts ir novērtēts!",
+            "closing": "Ar jūsu palīdzību mēs esam soli tuvāk savam mērķim.",
+            "greeting": "Sveiki {{firstName}}",
+            "share_on": "Dalīties ar",
+            "unsubscribe": "Ja nevēlaties turpmāk no mums saņemt turpmāku informāciju, jūs jebkurā laikā varēsiet atcelt savu reģistrāciju.",
+            "signature": "Ar cieņu,\n\n{{org.title}}",
+            "follow": "Sekojiet mums:",
+            "donate": "Lūdzu, apsveriet iespēju veikt ziedojumu, lai palīdzētu mums īstenot mūsu misiju.",
+            "share": "Palīdziet mums sasniegt mērķi, [izplatot informāciju] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "duplicate": "Paldies par jūsu iesaistīšanos un uzticību mūsu mērķim! Tomēr, cenšoties saglabāt autentiskumu un uzticamību, mums ir nepieciešams **dzēst dublētos** parakstus, un šķiet, ka jūs (vai kāds, kas izmanto {{email}}) jau esat veicis šo darbību.  Esiet droši, ka **Jūsu sākotnējais paraksts tika ieskaitīts** un veicināja mūsu kampaņu.\nJūsu atbalsts ir bijis nenovērtējams, un mēs vēlamies aicināt Jūs veikt papildu soli, lai palīdzētu palielināt Jūsu ietekmi. Lūdzu, apsveriet iespēju sazināties ar saviem draugiem un ģimenes locekļiem, aicinot arī viņus rīkoties, izmantojot viņu e-pasta adreses. Šādā veidā mēs varam vēl vairāk paplašināt mūsu kustību un radīt vēl spēcīgāku kolektīvo balsi, lai panāktu vēlamās pārmaiņas.\nVēlreiz sirsnīgi pateicamies par jūsu nepārtraukto atbalstu un uzticību šai kampaņai. Kopā mēs varam panākt ilgstošu ietekmi!",
+            "organisation": "{{org.title}}",
+            "thanksPledge": "Paldies par solījumu {{campaign.title}}. Jūsu informācija tiks pārbaudīta, un jūs saņemsiet apstiprinājuma e-pastu, ja jūsu profils tiks parādīts tīmekļa vietnē."
+        },
+        "thankyou": {
+            "subject": "Paldies, lūk, ko vēl varat darīt.",
+            "intro": "Paldies par dalību \"{{campaign.title}}\". Jūsu atbalsts ir novērtēts!"
+        },
+        "doi": {
+            "extra": "Jūs saņēmāt šo apstiprinājumu, lai veiksmīgi pabeigtu reģistrāciju un ļautu mums apstrādāt jūsu e-pasta adresi un citus personas datus, lai saņemtu jaunumus vai jaunumus. Šī ir automatizēta procedūra, un šis apstiprinājums ir nepieciešams reģistrācijas veikšanai, lai izvairītos no neautorizēta reģistrācijas procesa.",
+            "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi",
+            "intro": "Jūsu apstiprinājums ir svarīgs, lai to varētu apstrādāt. Tas ir vienīgais veids, kā mēs varam pārliecināties, ka aiz katras dalības patiešām stāv cilvēks, un tas ir svarīgi šīs kampaņas ietekmei un viltus/spama iesniegumu novēršanai."
+        },
+        "doi_thankyou": {
+            "subject": "Paldies par dalību{{#privacy.optIn}}, vēl viens solis, lūdzu, apstipriniet savu e-pasta adresi.{{/privacy.optIn}}"
+        },
+        "button": {
+            "confirmAlreadyMember": "Es apstiprinu savu dalību & jau saņemu e-pastus no jums",
+            "confirmOptout": "Es apstiprinu savu dalību, bet turpmāk mani neinformējiet par jaunumiem",
+            "confirmAction": "Jā, es esmu īsts cilvēks!",
+            "confirmOptin": "Es apstiprinu savu dalību un vēlos saņemt jaunumus no jums."
+        },
+        "actionConfirm": {
+            "intro": "Jūsu apstiprinājums ir svarīgs, lai varētu apstrādāt jūsu dalību. Tas ir vienīgais veids, kā mēs varam pārliecināties, ka aiz katras dalības patiešām ir kāds cilvēks, un tas ir svarīgi, lai nodrošinātu šīs kampaņas ietekmi un novērstu viltus/spama iesniegumus.",
+            "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi",
+            "extra": "Jūs esat saņēmis šo apstiprinājumu, lai veiksmīgi pabeigtu reģistrāciju."
+        }
     },
-    "thankyou": {
-      "subject": "Paldies, lūk, ko vēl varat darīt.",
-      "intro": "Paldies par dalību \"{{campaign.title}}\". Jūsu atbalsts ir novērtēts!"
-    },
-    "doi": {
-      "extra": "Jūs saņēmāt šo apstiprinājumu, lai veiksmīgi pabeigtu reģistrāciju un ļautu mums apstrādāt jūsu e-pasta adresi un citus personas datus, lai saņemtu jaunumus vai jaunumus. Šī ir automatizēta procedūra, un šis apstiprinājums ir nepieciešams reģistrācijas veikšanai, lai izvairītos no neautorizēta reģistrācijas procesa.",
-      "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi",
-      "intro": "Jūsu apstiprinājums ir svarīgs, lai to varētu apstrādāt. Tas ir vienīgais veids, kā mēs varam pārliecināties, ka aiz katras dalības patiešām stāv cilvēks, un tas ir svarīgi šīs kampaņas ietekmei un viltus/spama iesniegumu novēršanai."
-    },
-    "doi_thankyou": {
-      "subject": "Paldies par dalību{{#privacy.optIn}}, vēl viens solis, lūdzu, apstipriniet savu e-pasta adresi.{{/privacy.optIn}}"
-    },
-    "button": {
-      "confirmAlreadyMember": "Es apstiprinu savu dalību & jau saņemu e-pastus no jums",
-      "confirmOptout": "Es apstiprinu savu dalību, bet turpmāk mani neinformējiet par jaunumiem",
-      "confirmAction": "Jā, es esmu īsts cilvēks!",
-      "confirmOptin": "Es apstiprinu savu dalību un vēlos saņemt jaunumus no jums."
-    },
-    "actionConfirm": {
-      "intro": "Jūsu apstiprinājums ir svarīgs, lai varētu apstrādāt jūsu dalību. Tas ir vienīgais veids, kā mēs varam pārliecināties, ka aiz katras dalības patiešām ir kāds cilvēks, un tas ir svarīgi, lai nodrošinātu šīs kampaņas ietekmi un novērstu viltus/spama iesniegumus.",
-      "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi"
-    }
-  },
-  "poweredBy": "AR JAUDU, KO NODROŠINA"
+    "poweredBy": "AR JAUDU, KO NODROŠINA"
 }

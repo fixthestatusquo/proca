@@ -1,34 +1,11 @@
-const dispatchAnalytics = (message, value) => {
-  //https://support.google.com/analytics/answer/9267735?sjid=9242639035351824592-EU no standard events
-  if (message === "count") return;
-  const action = message.split(":");
-  const param = {};
-  if (action[1] && action[1] === "complete") {
-    param.event = action[0];
-  } else {
-    param.event = action.join("_");
-  }
+import Events from "./observer";
 
-  if (value?.test) {
-    param.EventCategory = "proca widget test mode";
-  } else {
-    param.EventCategory = "proca widget";
-  }
-  if (value?.privacy) {
-    param.EventLabel = value.privacy;
-  }
-  window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
-};
-
-const dispatch = (event, data, pii, config) => {
+const domObserver = (event, data, pii) => {
   let elem = document.getElementById("proca");
   if (!elem) {
     console.error("#proca missing");
-    dispatchAnalytics("error", "missing #proca");
+    //    dispatchAnalytics("error", "missing #proca");
     elem = window;
-  }
-  if (config?.component?.widget?.analytics || window.dataLayer) {
-    dispatchAnalytics(event, data);
   }
   if (pii) data.contact = pii; //TODO, add a config to remove the option to bubble up pii to the containing page
   const e = new CustomEvent(event, {
@@ -45,6 +22,56 @@ const dispatch = (event, data, pii, config) => {
   ); //
 };
 
+const dataLayerObserver = (event, data, _pii) => {
+//  console.log("GA4 received event:", event, data, pii);
+
+  if (event === "count") return;
+  const action = event.split(":");
+  const param = Object.assign({}, data);
+  "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
+    .split(",")
+    .forEach(attr => {
+      if (param.hasOwn(attr)) {
+        delete param[attr];
+      }
+    });
+  if (action[1] && action[1] === "complete") {
+    param.event = action[0];
+  } else {
+    param.event = action.join("_");
+  }
+  param.source = "proca";
+  if (data?.test) {
+    param.test = true;
+    console.log("GA4", param);
+  }
+  window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
+};
+
+const dispatch = (event, data, pii) => {
+  Events.notify(event, data, pii);
+};
+
+Events.subscribe(domObserver);
+
+if (window.dataLayer) {
+  Events.subscribe(dataLayerObserver);
+} else {
+  //might need to wait until it loads
+  setTimeout(() => {
+    console.log("dataLayer", window.dataLayer);
+    if (window.dataLayer) {
+      Events.subscribe(dataLayerObserver);
+    }
+  }, 0);
+}
+
+const unsubscribeDataLayer = () => {
+  setTimeout(() => {
+    Events.unsubscribe(dataLayerObserver);
+  },0);
+};
+
 export default dispatch;
 
-export { dispatch };
+export { dispatch, unsubscribeDataLayer };

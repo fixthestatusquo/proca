@@ -41,7 +41,7 @@ const Affiliation = props => {
       return;
     }
     fetchData(
-      config.component.party.url ||
+      config.component.party?.url ||
         "https://static.proca.app/ep2024/parties.json"
     );
   }, [country]);

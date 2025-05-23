@@ -50,8 +50,7 @@ const define = (env, environment) => {
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
-    "process.env.NODE_ENV":
-      '"' + (environment || "production") + '"',
+    "process.env.NODE_ENV": '"' + (environment || "production") + '"',
   };
 
   Object.keys(env)
@@ -142,7 +141,7 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("<%= organisation %>", config.org.name)
       );
 
-      if (nodeEnv === 'development') {
+      if (nodeEnv !== "development") {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
           fs.createReadStream(index),
@@ -159,7 +158,7 @@ let procaPlugin = ({ id, config }) => ({
       runs++;
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, () => {
-      if (nodeEnv === 'development') {
+      if (nodeEnv === "development") {
         runs === 0
           ? console.log(color.blue("load", config.filename))
           : console.log("reload");
@@ -175,14 +174,14 @@ let procaPlugin = ({ id, config }) => ({
   },
 });
 
-const getConfig = (id,environment) => {
+const getConfig = (id, environment) => {
   const [, config] = getConfigOverride(id);
   return {
     globalName: "proca",
     format: "iife",
     logLevel: "info",
     entryPoints: ["src/index.js"],
-    define: define(env.parsed,environment),
+    define: define(env.parsed, environment),
     bundle: true,
     plugins: [
       procaPlugin({ id: id, config: config }),
@@ -203,7 +202,7 @@ const getConfig = (id,environment) => {
 };
 
 const serve = async id => {
-  const buildConfig = getConfig(id,"development");
+  const buildConfig = getConfig(id, "development");
   buildConfig.sourcemap = "inline";
   //buildConfig.sourcemap = true;
   //  buildConfig.plugins.push (eslint);
@@ -215,7 +214,7 @@ const serve = async id => {
   await c.watch();
   const r = await c.serve({ servedir: buildConfig.outdir });
   const open = await import("open");
-  open.default("http://" + r.host + ":" + r.port);
+  open.default("http://" + r.hosts[0] + ":" + r.port);
 };
 
 const build = async id => {

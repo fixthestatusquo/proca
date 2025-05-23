@@ -1,10 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { debounce, makeStyles } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@components/TextField";
 import CountryFlag from "react-emoji-flag";
 import Hidden from "@components/field/Hidden";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,9 +18,17 @@ const useStyles = makeStyles(() => ({
 const AffiliationInput = ({ form }) => {
   const classes = useStyles();
   const [options, setOptions] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(
+    form.getValues("organisation") || ""
+  );
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!form.getValues("organisation")) return;
+    setInputValue(form.getValues("organisation"));
+  }, [form.getValues("organisation")]);
 
   const fetchOptions = async query => {
     if (query.length > 2) {
@@ -96,8 +105,8 @@ const AffiliationInput = ({ form }) => {
         classes={{ root: classes.root }}
         noOptionsText={
           inputValue.length > 2
-            ? "No organisation found"
-            : "Type to search your organisation"
+            ? t("no_org", "No organisation found")
+            : t("org","Type to search your organisation")
         }
         loadingText={"Searching " + inputValue + "..."}
         autoSelect
@@ -113,7 +122,7 @@ const AffiliationInput = ({ form }) => {
             required
             form={form}
             {...params}
-            label="Affiliation"
+            label={t("affiliation", "Affiliation")}
             InputProps={{
               ...params.InputProps,
               endAdornment: (

@@ -29,6 +29,7 @@
     "eci": "Podpišite ECI",
     "email": "Pošlji e-pošto",
     "join": "Pridružite se",
+    "pledge": "Obljubite zdaj!",
     "register": "Register",
     "remindeSent": "Poslan opomnik",
     "reminder": "Spomni me pozneje",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Donacija za {{campaign}}",
+    "payment": "Plačilo",
     "payment_methods": {
       "card": "Kartica",
       "default": "Podarite",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} darovali. Pojdimo na {{goal}}",
     "email": "{{total}} poslali e-poštno sporočilo. Pojdimo na {{goal}}",
+    "pledge": "{{total}} so se zavezali. Pojdimo na {{goal}}",
     "register": "{{total}} so se registrirali. Pojdimo na {{goal}}",
     "share": "{{total}} so delili. Pojdimo na {{goal}}",
     "sign": "{{total}}  oseb se je podpisalo. Pojdimo do {{goal}}",

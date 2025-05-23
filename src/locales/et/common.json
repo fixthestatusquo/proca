@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Saada e-kiri",
     "join": "Liitu",
+    "pledge": "Luba kohe!",
     "register": "Registreeri",
     "remindeSent": "Saadetud meeldetuletus",
     "reminder": "Meenuta mulle hiljem",
@@ -49,7 +50,7 @@
   "consent": {
     "actionConfirmed": "Tegevus kinnitatud",
     "actionRejected": "Tegevuse katkestamine õnnestus",
-    "confirm": "<0> Kas olete kindel? </0> <1> Valides „Ei”, ei saa te teada, kas see kampaania on edukas või on selle võitmiseks vaja veel ühiseid meetmeid. Kui valite „Jah”, teavitame teid sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võite tellimuse igal ajal tühistada. </2>",
+    "confirm": "<0> Kas oled kindel? </0> <1> Valides „Ei“, ei saa sa teada, kas see kampaania on edukas või on selle saavutamiseks vaja veel ühiseid meetmeid. Kui valid „Jah“, teavitame sind sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võid tellimuse igal ajal tühistada. </2>",
     "confirmAction": "Palun loe seda e-kirja kohe ja klõpsa selles leiduvale lingile (kui kirja pole saabunud, siis kontrolli oma rämpsposti kausta!).\n Ainult siis sinu tehtud on mõju!\nSinu kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame sinu kinnitust...",
     "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh vajadusel rämpsposti kausta!) ja kinnitada oma e-posti tellimust",
     "emailSent": "Saatsime sulle e-kirja aadressile {{email}}!",
@@ -59,8 +60,8 @@
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
     "optInConfirmed": "Tellimus kinnitatud",
-    "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
-    "processing-nocookie": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+    "processing": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+    "processing-nocookie": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustud andmete ja küpsiste kasutamisega vastavalt meie <1>privaatsuseeskirjadele</1>",
     "required": "Osalemiseks on vaja teie nõusolekut",
     "subButton": {
       "opt-in": "ja saada teavet",
@@ -68,10 +69,10 @@
     }
   },
   "date": {
-    "error": "kehtetu kuupäev. formaat: KK.MM.AAAA"
+    "error": "vigane kuupäev. vorming: KK.MM.AAAA"
   },
   "dateFormat": "PP/KK/AAAA",
-  "dialogTitle": "Hoidke mind kampaaniaga kursis",
+  "dialogTitle": "Hoia mind kampaaniaga kursis",
   "donation": {
     "amount": {
       "change": "Muuda summa",
@@ -110,7 +111,7 @@
       "each": {
         "monthly": "iga kuu",
         "oneoff": "Kui",
-        "weekly": "igal aastal"
+        "weekly": "iga nädal"
       },
       "feedback": {
         "monthly": "Ma annetan {{amount}} {{frequency}}",
@@ -122,7 +123,8 @@
       "yearly": "igal aastal"
     },
     "iban": "iban",
-    "intro": "Anneta kampaaniale {{campaign}}",
+    "intro": "Anneta organisatsioonile {{org}}",
+    "payment": "Maksmine",
     "payment_methods": {
       "card": "Kaart",
       "default": "Anneta",
@@ -136,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta",
-    "salutation": "Lugupeetud härra/naine",
+    "salutation": "Lugupeetud härra/proua {{target.last_name}}",
     "salutation_female": "Lugupeetud proua {{target.last_name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_male": "Lugupeetud härra {{target.last_name}}",
@@ -154,7 +156,7 @@
     "select": "vali oma pilt",
     "takeTitle": "Tee oma telefoniga pilt",
     "upload": "Pildi üleslaadimine",
-    "wanttoadd": "Kas soovite lisada pildi?"
+    "wanttoadd": "Kas soovid lisada pildi?"
   },
   "no": "ei",
   "party": "Partei",
@@ -168,38 +170,42 @@
   },
   "postcode": {
     "notFound": "seda sihtnumbrit (postiindeksit) ei tundu leiduma sinu riigis",
-    "wrongLength": "eeldatav pikkus {{length}} teie riigi jaoks"
+    "wrongLength": "eeldatav pikkus {{length}} sinu riigi jaoks"
   },
   "progress": {
-    "donate": "{{total}} on annetanud. Läheme {{goal}}",
+    "donate": "{{total}} on annetanud. Võtame eesmärgiks {{goal}}",
     "email": "{{total}} on saatnud e-kirja. Läheme {{goal}}",
-    "register": "{{total}} on registreerunud. Läheme {{goal}}",
+    "pledge": "{{total}} on juba lubanud. Võtame sihiks: {{goal}}",
+    "register": "{{total}} on registreerunud. Võtame eesmärgiks {{goal}}",
     "share": "{{total}} on jagatud. Läheme {{goal}}",
-    "sign": "{{total}} allkirja on kogutud. Eesmärk: {{goal}}",
+    "sign": "{{total}} allkirja on kogutud. Võtame eesmärgiks {{goal}}",
     "twitter": "{{total}} on twitted. Läheme {{goal}}"
   },
   "read more": "loe edasi",
   "region": "Piirkond",
   "register": "Lisage minu nimi",
   "reminder": {
-    "intro": "Me teame, et teie valitsus küsib palju teavet. Saadame teile ühe e-kirja, et tuletada teile meelde, et täidate vormi hiljem"
+    "intro": "Me teame, et sinu valitsus küsib palju teavet. Saadame sulle ühe e-kirja, et tuletada vormi täitmist hiljem meelde"
   },
   "required": "Palun täitke see väli",
-  "required field": "Kohustuslik väli",
+  "required field": "kohustuslik väli",
   "salutations": {
-    "f": "Lugupeetud {{name}}",
-    "m": "Lugupeetud {{name}}",
+    "f": "Lugupeetud härra {{name}}",
+    "m": "Lugupeetud Pr. {{name}}",
     "other": "Lugupeetud {{name}}"
   },
-  "select_all": "Valige kõik",
+  "select_all": "Vali kõik",
   "share": {
-    "intro": "Suurepärane, allkiri on lisatud! 👍 Et allkirjal oleks veel suurem mõju, jagage palun julgelt, et rohkem inimesi sellega liituksid.",
+    "intro": "Suurepärane, sa oled oma allkirja lisanud! 👍 Et allkirjal oleks veel suurem mõju, jaga seda teavet palun julgelt, et rohkem inimesi sellega liituksid 🙏.",
     "message": "Peaksite sellele alla kirjutama!",
     "title": "Peaaegu valmis! Üks samm veel."
   },
   "step": {
     "eci": {
       "secure": "turvaline"
+    },
+    "register": {
+      "title": " "
     }
   },
   "supporter": {
@@ -211,26 +217,26 @@
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}",
-      "undefined": "Valige riik"
+      "undefined": "Vali riik"
     },
-    "missing": "Valige vähemalt üks järgmistest {{total}}",
+    "missing": "Vali vähemalt 1 kokku {{total}}st",
     "postcode": {
       "empty": "ei ole kedagi, kellega ühendust võtta {{area}}",
-      "undefined": "Sisestage oma postiindeks"
+      "undefined": "Sisesta oma postiindeks"
     },
     "random_one": "Valitud üks meie {{total}}'st kõige olulisemast eesmägist",
-    "random_other": "Valitud {{count}} meie {{total}} kõige olulisemad sihtmärgid",
+    "random_other": "Valitud {{count}} meie {{total}}st kõige olulisemast eesmärgist",
     "selected": "{{total}} valitud"
   },
   "twitter": {
-    "actionText": "Kirjutasin alla. sa peaksid ka",
+    "actionText": "üleskutse tegevuseks",
     "again": "Tweet teisele inimesele",
-    "choice": "Mida te tahaksite teha järgmisena?",
+    "choice": "Mida sa tahaksid teha järgmisena?",
     "instruction": "Palun lõpetage säutsu saatmine uues aknas (twitter.com)",
-    "organisation": "Teie organisatsiooni twitteri konto",
+    "organisation": "Sinu organisatsiooni twitteri konto",
     "screenName": "Twitteri konto"
   },
   "unknown postcode": "tundmatu postiindeks",
   "yes": "jah",
-  "you need to be 18 years old": "peate olema 18-aastane"
+  "you need to be 18 years old": "pead olema 18-aastane"
 }

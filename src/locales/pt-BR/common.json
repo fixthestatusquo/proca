@@ -29,6 +29,7 @@
     "eci": "Assinar o ECI",
     "email": "Enviar um e-mail",
     "join": "Aderir",
+    "pledge": "Faça sua promessa agora!",
     "register": "Registro",
     "remindeSent": "Lembrete enviado",
     "reminder": "Lembre-me mais tarde",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Faça uma doação para {{campaign}}",
+    "payment": "Pagamento",
     "payment_methods": {
       "card": "Cartão",
       "default": "Doação",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} doaram. Vamos para {{goal}}",
     "email": "{{total}} enviaram um e-mail. Vamos para {{goal}}",
+    "pledge": "{{total}} se comprometeram. Vamos para {{goal}}",
     "register": "{{total}} se registraram. Vamos para {{goal}}",
     "share": "{{total}} compartilharam. Vamos para {{goal}}",
     "sign": "{{total}} assinaram. Vamos para {{goal}}",

@@ -16,7 +16,6 @@
   "Next": "Next",
   "Organisation": "Organisation",
   "Other": "Other",
-  "party": "Party",
   "Phone": "Phone",
   "Postal Code": "Postcode",
   "Salutation": "Salutation",
@@ -25,12 +24,12 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
-  "region": "Region",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",
     "email": "Send an Email",
     "join": "Join",
+    "pledge": "Pledge now!",
     "register": "Register",
     "remindeSent": "Reminder sent",
     "reminder": "Remind me later",
@@ -68,10 +67,6 @@
       "opt-in": "and receive informations",
       "opt-out": "and do not keep me informed"
     }
-  },
-  "postcode": {
-    "wrongLength": "expected length of {{length}} for your country",
-    "notFound": "this postcode doesn't seem to exist in your country"
   },
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
@@ -114,9 +109,9 @@
         "weekly": "Make it monthly?"
       },
       "each": {
-        "monthly": "each week",
+        "weekly": "each week",
         "oneoff": "Once",
-        "weekly": "each month"
+        "monthly": "each month"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
@@ -129,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Donate to {{org}}",
+    "payment": "Payment",
     "payment_methods": {
       "card": "Card",
       "default": "Donate",
@@ -140,17 +136,9 @@
     "thanks": "Thank you for your donation!",
     "to": "Donation to {{organisation}}"
   },
-  "phone": {
-    "MISSING": "required field",
-    "NOT_A_NUMBER": "Invalid phone number",
-    "INVALID_COUNTRY": "missing or invalid country code",
-    "TOO_SHORT": "number too short",
-    "TOO_LONG": "number too long",
-    "INVALID_LENGTH": "Invalid length"
-  },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-    "salutation": "Dear sir/madam",
+    "salutation": "Dear sir/madam {{target.last_name}}",
     "salutation_female": "Dear Ms {{target.last_name}}",
     "salutation_info": "(The recipient's name will be put before sending)",
     "salutation_male": "Dear Mr {{target.last_name}}",
@@ -171,15 +159,30 @@
     "wanttoadd": "Do you want to add an image?"
   },
   "no": "no",
+  "party": "Party",
+  "phone": {
+    "INVALID_COUNTRY": "missing or invalid country code",
+    "INVALID_LENGTH": "Invalid length",
+    "MISSING": "required field",
+    "NOT_A_NUMBER": "Invalid phone number",
+    "TOO_LONG": "number too long",
+    "TOO_SHORT": "number too short"
+  },
+  "postcode": {
+    "notFound": "this postcode doesn't seem to exist in your country",
+    "wrongLength": "expected length of {{length}} for your country"
+  },
   "progress": {
     "donate": "{{total}} have donated. Let's go to {{goal}}",
     "email": "{{total}} have sent an email. Let's go to {{goal}}",
     "register": "{{total}} have registered. Let's go to {{goal}}",
     "share": "{{total}} have shared. Let's go to {{goal}}",
     "sign": "{{total}} have signed. Let's go to {{goal}}",
-    "twitter": "{{total}} have twitted. Let's go to {{goal}}"
+    "twitter": "{{total}} have twitted. Let's go to {{goal}}",
+    "pledge": "{{total}} have pledged. Let's go to {{goal}}"
   },
   "read more": "read more",
+  "region": "Region",
   "register": "Add my name",
   "reminder": {
     "intro": "We know, your government is asking a lot of information. We will send you a single email to remind you to fill the form later"
@@ -187,8 +190,8 @@
   "required": "required",
   "required field": "required field",
   "salutations": {
-    "f": "Dear {{name}}",
-    "m": "Dear {{name}}",
+    "f": "Dear Mr. {{name}}",
+    "m": "Dear Ms. {{name}}",
     "other": "Dear {{name}}"
   },
   "select_all": "Select all",
@@ -199,18 +202,16 @@
   },
   "step": {
     "eci": {
-      "secure": "secure",
-      "subheader": "",
-      "title": ""
+      "secure": "secure"
     },
     "register": {
       "title": ""
     }
   },
   "supporter": {
+    "greeting": "Welcome {{firstname}}!",
     "not_you": "not you?",
-    "welcome": "Welcome back, {{firstname}}!",
-    "greeting": "Welcome {{firstname}}!"
+    "welcome": "Welcome back, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
@@ -218,7 +219,7 @@
       "empty": "Select another country, there is no-one to contact in {{country}}",
       "undefined": "Select a country"
     },
-    "missing": "Select at least one out of {{total}}",
+    "missing": "Select at least 1 out of {{total}}",
     "postcode": {
       "empty": "there is no-one to contact in {{area}}",
       "undefined": "Enter your postcode"

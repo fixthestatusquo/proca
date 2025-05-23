@@ -29,6 +29,7 @@
     "eci": "Signez l'ICE",
     "email": "Envoyer un courriel",
     "join": "Rejoindre",
+    "pledge": "Faites votre promesse de don maintenant !",
     "register": "Registre",
     "remindeSent": "Rappel envoyé",
     "reminder": "Rappelez-moi plus tard",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Faites un don à {{campaign}}",
+    "payment": "Paiement",
     "payment_methods": {
       "card": "Carte",
       "default": "Faire un don",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} ont fait un don. Rendez-vous à l'adresse suivante {{goal}}",
     "email": "{{total}} ont envoyé un courriel. Rendez-vous sur le site {{goal}}",
+    "pledge": "{{total}} se sont engagés. Rendez-vous à l'adresse suivante {{goal}}",
     "register": "{{total}} se sont inscrits. Rendez-vous sur le site {{goal}}",
     "share": "{{total}} ont partagé. Rendez-vous sur le site de {{goal}}",
     "sign": "{{total}} ont signé. Rendez-vous à l'adresse suivante {{goal}}",

@@ -1,43 +1,44 @@
 {
-  "email": {
-    "common": {
-      "greeting": "Witam {{firstName}}",
-      "consent": "\n          ",
-      "thanks": "Dziękujemy za udział w {{campaign.title}}. Twoje wsparcie jest doceniane!",
-      "share": "Pomóż nam osiągnąć nasz cel poprzez [rozpowszechnianie informacji] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
-      "follow": "Śledź nas na:",
-      "donate": "Prosimy o rozważenie przekazania darowizny, aby pomóc nam w realizacji naszej misji",
-      "closing": "Z twoją pomocą jesteśmy o krok bliżej do naszego celu",
-      "privacy": "Więcej informacji na temat naszej polityki prywatności i przetwarzania danych można znaleźć na stronie",
-      "unsubscribe": "Jeśli użytkownik nie chce otrzymywać od nas dalszych informacji w przyszłości, może anulować rejestrację w dowolnym momencie",
-      "signature": "Z poważaniem,\n\n{{org.title}}",
-      "organisation": "{{org.title}}",
-      "duplicate": "Dziękujemy za zaangażowanie i oddanie naszej sprawie! Jednak w ramach naszego zobowiązania do zachowania autentyczności i wiarygodności musimy **usunąć zduplikowane** podpisy i wygląda na to, że Ty (lub ktoś korzystający z {{email}}) już podjąłeś tę czynność.  Zapewniamy, że **Twój pierwszy podpis został policzony** i przyczynił się do naszej kampanii.\nTwoje wsparcie było nieocenione i chcielibyśmy uprzejmie zachęcić Cię do podjęcia dodatkowego kroku, który pomoże wzmocnić Twój wpływ. Prosimy o rozważenie skontaktowania się z przyjaciółmi i rodziną, zachęcając ich do podjęcia działań przy użyciu ich własnych adresów e-mail. W ten sposób możemy dalej rozwijać nasz ruch i stworzyć jeszcze silniejszy zbiorowy głos na rzecz zmian, których szukamy.\nJeszcze raz serdecznie dziękujemy za nieustające wsparcie i zaangażowanie w tę kampanię. Razem możemy wywrzeć trwały wpływ!",
-      "share_on": "Udostępnij na",
-      "thanksPledge": "Dziękujemy za złożenie deklaracji dla {{campaign.title}}. Twoje informacje zostaną zweryfikowane i otrzymasz wiadomość e-mail z potwierdzeniem, jeśli Twój profil zostanie wyświetlony na stronie."
+    "email": {
+        "common": {
+            "greeting": "Witam {{firstName}}",
+            "consent": "\n          ",
+            "thanks": "Dziękujemy za udział w {{campaign.title}}. Twoje wsparcie jest doceniane!",
+            "share": "Pomóż nam osiągnąć nasz cel poprzez [rozpowszechnianie informacji] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "follow": "Śledź nas na:",
+            "donate": "Prosimy o rozważenie przekazania darowizny, aby pomóc nam w realizacji naszej misji",
+            "closing": "Z twoją pomocą jesteśmy o krok bliżej do naszego celu",
+            "privacy": "Więcej informacji na temat naszej polityki prywatności i przetwarzania danych można znaleźć na stronie",
+            "unsubscribe": "Jeśli użytkownik nie chce otrzymywać od nas dalszych informacji w przyszłości, może anulować rejestrację w dowolnym momencie",
+            "signature": "Z poważaniem,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Dziękujemy za zaangażowanie i oddanie naszej sprawie! Jednak w ramach naszego zobowiązania do zachowania autentyczności i wiarygodności musimy **usunąć zduplikowane** podpisy i wygląda na to, że Ty (lub ktoś korzystający z {{email}}) już podjąłeś tę czynność.  Zapewniamy, że **Twój pierwszy podpis został policzony** i przyczynił się do naszej kampanii.\nTwoje wsparcie było nieocenione i chcielibyśmy uprzejmie zachęcić Cię do podjęcia dodatkowego kroku, który pomoże wzmocnić Twój wpływ. Prosimy o rozważenie skontaktowania się z przyjaciółmi i rodziną, zachęcając ich do podjęcia działań przy użyciu ich własnych adresów e-mail. W ten sposób możemy dalej rozwijać nasz ruch i stworzyć jeszcze silniejszy zbiorowy głos na rzecz zmian, których szukamy.\nJeszcze raz serdecznie dziękujemy za nieustające wsparcie i zaangażowanie w tę kampanię. Razem możemy wywrzeć trwały wpływ!",
+            "share_on": "Udostępnij na",
+            "thanksPledge": "Dziękujemy za złożenie deklaracji dla {{campaign.title}}. Twoje informacje zostaną zweryfikowane i otrzymasz wiadomość e-mail z potwierdzeniem, jeśli Twój profil zostanie wyświetlony na stronie."
+        },
+        "button": {
+            "confirmAction": "Tak, jestem prawdziwą osobą!",
+            "confirmOptin": "Potwierdzam swój udział i chcę otrzymywać wiadomości od Ciebie",
+            "confirmAlreadyMember": "Potwierdzam swój udział i już otrzymuję wiadomości e-mail od Ciebie",
+            "confirmOptout": "Potwierdzam swój udział, ale nie będę informowany w przyszłości"
+        },
+        "doi": {
+            "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
+            "intro": "Twoje potwierdzenie jest ważne, aby móc je przetworzyć. Jest to jedyny sposób, w jaki możemy uwiarygodnić, że za każdym uczestnictwem naprawdę stoi osoba, co jest ważne dla wpływu tej kampanii i zapobiegania fałszywym/spamowym zgłoszeniom.",
+            "extra": "Otrzymałeś to potwierdzenie w celu pomyślnego zakończenia rejestracji i umożliwienia nam przetwarzania Twojego adresu e-mail i innych danych osobowych w celu otrzymywania wiadomości lub biuletynów. Jest to zautomatyzowana procedura i potwierdzenie to jest wymagane do rejestracji, aby uniknąć nieautoryzowanego procesu rejestracji."
+        },
+        "thankyou": {
+            "intro": "Dziękujemy za wsparcie dla \"{{campaign.title}}\". Twoje wsparcie jest doceniane!",
+            "subject": "Dziękuję, oto co jeszcze możesz zrobić"
+        },
+        "doi_thankyou": {
+            "subject": "Dziękujemy za udział{{#privacy.optIn}}, jeszcze jeden krok, proszę potwierdź swój adres e-mail{{/privacy.optIn}}"
+        },
+        "actionConfirm": {
+            "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
+            "intro": "Twoje potwierdzenie jest ważne, aby móc przetworzyć Twój udział. Jest to jedyny sposób, w jaki możemy uwiarygodnić, że za każdym uczestnictwem naprawdę stoi osoba, co jest ważne dla wpływu tej kampanii i zapobiegania fałszywym/spamowym zgłoszeniom.",
+            "extra": "Otrzymałeś to potwierdzenie, aby pomyślnie zakończyć rejestrację."
+        }
     },
-    "button": {
-      "confirmAction": "Tak, jestem prawdziwą osobą!",
-      "confirmOptin": "Potwierdzam swój udział i chcę otrzymywać wiadomości od Ciebie",
-      "confirmAlreadyMember": "Potwierdzam swój udział i już otrzymuję wiadomości e-mail od Ciebie",
-      "confirmOptout": "Potwierdzam swój udział, ale nie będę informowany w przyszłości"
-    },
-    "doi": {
-      "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
-      "intro": "Twoje potwierdzenie jest ważne, aby móc je przetworzyć. Jest to jedyny sposób, w jaki możemy uwiarygodnić, że za każdym uczestnictwem naprawdę stoi osoba, co jest ważne dla wpływu tej kampanii i zapobiegania fałszywym/spamowym zgłoszeniom.",
-      "extra": "Otrzymałeś to potwierdzenie w celu pomyślnego zakończenia rejestracji i umożliwienia nam przetwarzania Twojego adresu e-mail i innych danych osobowych w celu otrzymywania wiadomości lub biuletynów. Jest to zautomatyzowana procedura i potwierdzenie to jest wymagane do rejestracji, aby uniknąć nieautoryzowanego procesu rejestracji."
-    },
-    "thankyou": {
-      "intro": "Dziękujemy za wsparcie dla \"{{campaign.title}}\". Twoje wsparcie jest doceniane!",
-      "subject": "Dziękuję, oto co jeszcze możesz zrobić"
-    },
-    "doi_thankyou": {
-      "subject": "Dziękujemy za udział{{#privacy.optIn}}, jeszcze jeden krok, proszę potwierdź swój adres e-mail{{/privacy.optIn}}"
-    },
-    "actionConfirm": {
-      "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
-      "intro": "Twoje potwierdzenie jest ważne, aby móc przetworzyć Twój udział. Jest to jedyny sposób, w jaki możemy uwiarygodnić, że za każdym uczestnictwem naprawdę stoi osoba, co jest ważne dla wpływu tej kampanii i zapobiegania fałszywym/spamowym zgłoszeniom."
-    }
-  },
-  "poweredBy": "ZASILANY PRZEZ"
+    "poweredBy": "ZASILANY PRZEZ"
 }

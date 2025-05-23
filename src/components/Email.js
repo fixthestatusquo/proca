@@ -10,9 +10,12 @@ import {
   Button,
   Collapse,
   List,
-  FilledInput,
+  TextField as MuiTextField,
   FormHelperText,
   FormControl,
+  IconButton,
+  Typography,
+  Tooltip,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -21,14 +24,14 @@ import EmailAction from "@components/email/Action";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import Filter from "@components/filter/Filter";
-
 import useData from "@hooks/useData";
 import useToken, { extractTokens } from "@hooks/useToken";
 import { useIsMobile } from "@hooks/useDevice";
 import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig, useSetActionType } from "@hooks/useConfig";
+import { useLayout } from "@hooks/useLayout";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
@@ -47,8 +50,10 @@ const useStyles = makeStyles(() => ({
 
 const EmailComponent = props => {
   const classes = useStyles();
+  const layout = useLayout();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
+  useSetActionType ("mail2target");
   const [profiles, setProfiles] = useState(props.targets || []);
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false
@@ -102,11 +107,10 @@ const EmailComponent = props => {
     config.component.email?.filter?.includes("multilingual");
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
-
   useEffect(() => {
     if (!props.targets) return;
     setProfiles(props.targets);
-console.log("targets from props.targets",props.targets.length);
+    console.log("targets from props.targets", props.targets.length);
   }, [props.targets]);
 
   useEffect(() => {
@@ -132,12 +136,13 @@ console.log("targets from props.targets",props.targets.length);
     formState: { errors },
   } = form;
 
-  const country = watch("country");
   const fields = getValues(["subject", "message"]);
-  const [constituency, postcode, area] = watch([
+  const [country, constituency, postcode, area, gender] = watch([
+    "country",
     "constituency",
     "postcode",
     "area",
+    "gender",
   ]);
 
   const tokenKeys = extractTokens(data["message"] || paramEmail.message);
@@ -161,7 +166,15 @@ console.log("targets from props.targets",props.targets.length);
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
 
-  useToken(data["message"], tokens, handleMerging);
+  const getDataWithToken = key => {
+    // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
+    //return gender ? data[`message_${gender}`] : data.message;
+    return gender && data[`${key}_${gender}`]
+      ? data[`${key}_${gender}`]
+      : data[key];
+  };
+
+  useToken(getDataWithToken("message"), tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   const checkUpdated = () => {
@@ -180,7 +193,7 @@ console.log("targets from props.targets",props.targets.length);
 
           const empty = {
             // undo d6d36b51e6a554ed045dde4687c92a1b24a4c9e1 in next line (letters can't be edited)
-            defaultValue: data[k] || defaultValue[k],
+            defaultValue: getDataWithToken(k) || defaultValue[k],
             nsSeparator: false,
           };
           tokenKeys.forEach(d => (empty[d] = defaultValue[d] || ""));
@@ -190,9 +203,9 @@ console.log("targets from props.targets",props.targets.length);
           if (empty.locality) {
             empty.name += `\n${empty.locality}`;
           }
-          form.setValue(k, t(data[k], empty));
+          form.setValue(k, t(getDataWithToken(k), empty));
         } else {
-          form.setValue(k, data[k]);
+          form.setValue(k, getDataWithToken(k));
         }
       }
       return undefined;
@@ -235,7 +248,7 @@ console.log("targets from props.targets",props.targets.length);
           });
           setAllProfiles(d);
           setLanguages(languages);
-          if (postcodeFiltered) {
+          if (postcodeFiltered) { // overwritten?
             setProfiles([]);
           }
           if (config.component.email?.filter?.includes("random")) {
@@ -291,7 +304,7 @@ console.log("targets from props.targets",props.targets.length);
       });
       setProfiles(d);
       setData("targets", d);
-/*      setConfig(current => {
+      /*      setConfig(current => {
         console.log("set lang in filterLocale", locale);
         const next = { ...current };
         next.lang = locale;
@@ -330,12 +343,13 @@ console.log("targets from props.targets",props.targets.length);
       country = country.toLowerCase();
 
       let lang = undefined;
+console.log("filter profile",constituency);
       let d = allProfiles.filter(d => {
-        if (constituency) {
+        if (constituency || postcodeFiltered) {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
-          return d.constituency === constituency;
+          return d.constituency.toString() === constituency.toString();
         }
 
         if (d.lang && d.country === country) {
@@ -402,11 +416,12 @@ console.log("targets from props.targets",props.targets.length);
         clearErrors("country");
         clearErrors("postcode");
       }
-      //if (lang && config.lang !== lang) {
+
       if (lang && typeof lang === "string") {
         setConfig(current => {
           const next = { ...current };
-          next.lang = lang || "en";
+          //next.lang = lang || "en";
+          next.locale = lang || "en";
           return next;
         });
       }
@@ -437,12 +452,12 @@ console.log("targets from props.targets",props.targets.length);
     ]
   );
 
-  useEffect(() => {
+  useEffect(() => { // todo: move into filter/Country
     if (!countryFiltered) return;
     filterProfiles(country);
   }, [country, filterProfiles, countryFiltered]);
 
-  useEffect(() => {
+  useEffect(() => { //todo: move into filter/Postcode
     if (!postcodeFiltered) return;
     filterProfiles(country, constituency, area);
   }, [country, constituency, area, filterProfiles, postcodeFiltered]);
@@ -566,14 +581,14 @@ console.log("targets from props.targets",props.targets.length);
         {config.component.email?.field?.message ? (
           <Grid item xs={12} className={props.classes.field}>
             {config.component.email.salutation && (
-              <FormControl fullWidth>
-                <FilledInput
+                <MuiTextField
+            variant={layout.variant}
+            margin={layout.margin}
                   fullWidth={true}
                   placeholder={`${t("email.salutation_placeholder")},`}
                   readOnly
+                  helperText = {t("email.salutation_info")}
                 />
-                <FormHelperText>{t("email.salutation_info")}</FormHelperText>
-              </FormControl>
             )}
             <TextField
               form={props.form}
@@ -587,6 +602,7 @@ console.log("targets from props.targets",props.targets.length);
                 setBlock(true);
               }}
               label={t("Your message")}
+              helperText={t("message.helper",'')}
             />
           </Grid>
         ) : (
@@ -611,11 +627,15 @@ console.log("targets from props.targets",props.targets.length);
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
+    console.log("prepare data");
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
     if (config.component.email?.salutation) {
       data.message = `{{target.fields.salutation}},\n${data.message}`;
+    }
+    if (config.component.email?.ps) {
+      data.message = `${data.message}\n\n{{target.fields.ps}}`;
     }
 
     if (mttProcessing === false) {
@@ -672,7 +692,6 @@ console.log("targets from props.targets",props.targets.length);
                   selection.delete(target.procaid);
                 }
               });
-            console.log(groups.current.size, onlySelected);
             if (first) {
               scrollToItem(first);
             } else {
@@ -699,10 +718,14 @@ console.log("targets from props.targets",props.targets.length);
           });
         }
         if (d === true) {
-  console.log("select all",allProfiles);
+          console.log("select all", allProfiles);
           setProfiles(allProfiles);
           return;
-        } 
+        }
+        if (d === false) {
+          setProfiles([]);
+          return;
+        }
         return;
       }
       const d = allProfiles.filter(d => {
@@ -719,7 +742,7 @@ console.log("targets from props.targets",props.targets.length);
       } else {
         clearErrors(key);
       }
-      console.log("filter profiles",d.length);
+      console.log("filter profiles", d.length);
       setProfiles(d);
     },
     [allProfiles, profiles, setError]
@@ -737,14 +760,15 @@ console.log("targets from props.targets",props.targets.length);
   let selectAllEnabled = true;
   if (
     config.import &&
-    config.import.find(d => d.startsWith("filter")) &&
+    (config.import.find(d => d.startsWith("filter")) || 
+     config.component.email?.filter?.includes("postcode") )
+  &&
     profiles.length > 30
   ) {
     selectAllEnabled = false;
   }
 
   const scrollToItem = key => {
-    console.log(onlySelected);
     if (onlySelected) return;
     if (!listRef.current) return;
     const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
@@ -779,6 +803,8 @@ console.log("targets from props.targets",props.targets.length);
       : true;
   };
 
+  if (allProfiles.length === 0) return null; // do not render anything before we have profiles
+
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
@@ -786,7 +812,7 @@ console.log("targets from props.targets",props.targets.length);
       )}
       <Filter
         profiles={profiles}
-        maxProfiles = {allProfiles.length}
+        maxProfiles={allProfiles.length}
         form={form}
         selecting={filterTarget}
         country={country}
@@ -842,7 +868,7 @@ console.log("targets from props.targets",props.targets.length);
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense ref={listRef}>
           {profiles.length === 0 &&
-            !config.component.email?.filter?.includes("postcode") &&
+           !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}
           {profiles.map((d, i) => (
             <EmailAction

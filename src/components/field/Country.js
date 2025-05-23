@@ -71,7 +71,6 @@ const Country = props => {
     } else {
       countries = addCountries(countriesJson, t);
     }
-
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));
@@ -154,7 +153,7 @@ const Country = props => {
         select
         name={props.name || "country"}
         onChange={switchCountry}
-        label={t("Country")}
+        label={props.label || t("Country")}
         form={props.form}
         SelectProps={{
           native: true,

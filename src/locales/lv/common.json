@@ -29,6 +29,7 @@
     "eci": "Paraksti EPI",
     "email": "Sūtīt e-pastu",
     "join": "Pievienojies",
+    "pledge": "Soliet tagad!",
     "register": "Reģistrēties",
     "remindeSent": "Nosūtīts atgādinājums",
     "reminder": "Atgādini man vēlāk",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Ziedot {{campaign}}",
+    "payment": "Maksājums",
     "payment_methods": {
       "card": "Karte",
       "default": "Ziedot",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
     "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
+    "pledge": "{{total}} ir apņēmušies. Dosimies uz {{goal}}",
     "register": "{{total}} ir reģistrējušies. Dodamies uz {{goal}}",
     "share": "{{total}} ir dalījušies. Dosimies uz {{goal}}",
     "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",

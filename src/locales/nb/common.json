@@ -29,6 +29,7 @@
     "eci": "Signer ECI",
     "email": "Send e-post",
     "join": "Bli med",
+    "pledge": "Gi ditt bidrag nå!",
     "register": "Registrere",
     "remindeSent": "Påminnelse sendt",
     "reminder": "Minn meg på det senere",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Doner til {{org}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
       "default": "Donere",
@@ -136,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kan ikke motta e-post",
-    "salutation": "Kjære deg/dere",
+    "salutation": "Kjære {{target.name}}",
     "salutation_female": "Kjære {{target.name}}",
     "salutation_info": "(Mottakerens navn vil bli lagt til før sending)",
     "salutation_male": "Kjære {{target.name}}",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} har donert. La oss gå til {{goal}}",
     "email": "{{total}} har sendt en e-post. La oss gå til {{goal}}",
+    "pledge": "{{total}} har lovet. La oss gå til {{goal}}",
     "register": "{{total}} har registrert seg. La oss gå til {{goal}}",
     "share": "{{total}} har delt. La oss gå til {{goal}}",
     "sign": "{{total}} har undertegnet. La oss gå til {{goal}}",
@@ -213,7 +216,7 @@
       "empty": "Velg et annet land, det er ingen å kontakte i {{country}}",
       "undefined": "Velg et land"
     },
-    "missing": "Velg minst én av følgende {{total}}",
+    "missing": "Velg minst 1 av {{total}}",
     "postcode": {
       "empty": "det ikke er noen å kontakte i {{area}}",
       "undefined": "Skriv inn postnummeret ditt"

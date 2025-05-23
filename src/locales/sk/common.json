@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Odoslať e-mail",
     "join": "Pripojte sa k",
+    "pledge": "Prisľúbte teraz!",
     "register": "Registrácia",
     "remindeSent": "Odoslané pripomenutie",
     "reminder": "Pripomeňte mi to neskôr",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Prispieť na {{campaign}}",
+    "payment": "Platba",
     "payment_methods": {
       "card": "Karta",
       "default": "Darujte",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} darovali. Poďme na {{goal}}",
     "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
+    "pledge": "{{total}} sa zaviazali. Poďme na {{goal}}",
     "register": "{{total}} sa zaregistrovali. Poďme na {{goal}}",
     "share": "{{total}} zdieľali. Poďme na {{goal}}",
     "sign": "{{total}} podpísali. Poďme na {{goal}}",

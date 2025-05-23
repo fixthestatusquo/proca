@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Envoyer un courriel",
     "join": "Rejoignez",
+    "pledge": "S'engager maintenant !",
     "register": "Registre",
     "remindeSent": "Rappel envoyé",
     "reminder": "Rappelez-moi plus tard",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Faire un don à {{campaign}}",
+    "payment": "Paiement",
     "payment_methods": {
       "card": "Carte",
       "default": "Faire un don",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} ont fait des dons. Allons à {{goal}}",
     "email": "{{total}} ont envoyé un e-mail. Allons à {{goal}}",
+    "pledge": "{{total}} se sont engagés. Allons à {{goal}}",
     "register": "{{total}} se sont inscrits. Allons à {{goal}}",
     "share": "{{total}} ont partagé. Allons à {{goal}}",
     "sign": "{{total}} Signatures. Objectif : {{goal}}",

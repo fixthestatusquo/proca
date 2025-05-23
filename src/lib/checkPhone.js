@@ -1,3 +1,9 @@
+import prefetch from "./prefetchDNS";
+
+const prefetchDNS = () => {
+  prefetch(getUrl());
+};
+
 const formatNumber = (prefix, number) => "+" + prefix + " " + number;
 const cleanNumber = (prefix, number) => {
   number = number.replace("+" + prefix, "").replace("00" + prefix, "");
@@ -33,9 +39,19 @@ const check = {
   },
 };
 
+const getUrl = () => {
+  let url = "https://check-phone.proca.app";
+  try {
+    url = process.env.REACT_APP_CHECK_PHONE_API_URL;
+  } catch (e) {
+    console.error(e.message);
+  }
+  return url;
+};
+
 const checkPhone = async (country, number) => {
   const result = { is_error: false, number: number };
-
+  const url = getUrl();
   if (!number) return result;
   if (check[country]) {
     try {
@@ -43,12 +59,6 @@ const checkPhone = async (country, number) => {
     } catch {
       console.log("not a", country, "number");
     }
-  }
-  let url = "https://check-phone.proca.app";
-  try {
-    url = process.env.REACT_APP_CHECK_PHONE_API_URL;
-  } catch (e) {
-    console.error(e.message);
   }
   try {
     let lastTwoDigits = undefined; // for privacy reasons, we hide the last two digits
@@ -70,4 +80,4 @@ const checkPhone = async (country, number) => {
 };
 
 export default checkPhone;
-export { checkPhone };
+export { checkPhone, prefetchDNS };

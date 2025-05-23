@@ -1,7 +1,8 @@
 {
   "email": {
     "common": {
-      "greeting": "Hello {{firstName}}",
+      "greeting": "Hello {{firstName}},",
+
       "share_on": "Share on",
       "consent": "\n          ",
       "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
@@ -19,14 +20,14 @@
     },
     "button": {
       "confirmAction": "Yes, I am a real person!",
-      "confirmOptin": "I confirm my participation & want to receive news from you",
+      "confirmOptin": "I want to receive news from you",
       "confirmAlreadyMember": "I confirm my participation & already receive emails from you",
       "confirmOptout": "I confirm my participation but don't keep me updated in future"
     },
     "doi": {
       "subject": "One more step: please confirm your email address",
-      "intro": "Your confirmation is important to be able to process it. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
-      "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process."
+      "intro": "To complete your registration and allow us to process your email address and personal data for delivering news or newsletters, please click the confirmation button below. This automated step ensures your consent and prevents unauthorized registrations.",
+      "extra": "If you didn’t sign up for this subscription, feel free to ignore this email."
     },
     "thankyou": {
       "intro": "Thank you for your participation for \"{{campaign.title}}\". Your support is appreciated!",
@@ -35,9 +36,10 @@
     "doi_thankyou": {
       "subject": "Thank you for your participation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
     },
-    "actionConfirm": {
+    "confirm": {
       "subject": "One more step: please confirm your email address",
-      "intro": "Your confirmation is important to be able to process your participation. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions."
+      "extra": "If you didn’t request this, please ignore this email.",
+      "intro": "Your confirmation is essential for processing your participation. This ensures that each submission comes from a genuine person and helps prevent fake or spam submissions."
     }
   },
   "poweredBy": "POWERED BY"

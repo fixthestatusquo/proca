@@ -1,7 +1,7 @@
 {
   "Address": "Seoladh",
   "Amount": "Méid",
-  "Another": "Eile",
+  "Another": "Ceann eile",
   "Birthdate": "Dáta breithe",
   "City": "Cathair",
   "Comment": "Tráchtaireacht",
@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Seol Ríomhphost",
     "join": "Bígí",
+    "pledge": "Geall anois!",
     "register": "Clár",
     "remindeSent": "Meabhrúchán seolta",
     "reminder": "Cuir i gcuimhne dom níos déanaí",
@@ -110,7 +111,7 @@
       "each": {
         "monthly": "gach mí",
         "oneoff": "Uair amháin",
-        "weekly": "gach bliain"
+        "weekly": "gach seachtain"
       },
       "feedback": {
         "monthly": "Tá mé ag bronnadh {{amount}} {{frequency}}",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Tabhair do {{org}}",
+    "payment": "Íocaíocht",
     "payment_methods": {
       "card": "Cárta",
       "default": "Síntiúis",
@@ -136,7 +138,7 @@
   },
   "email": {
     "invalid_domain": "Ní féidir le {{domain}} ríomhphoist a fháil",
-    "salutation": "A dhuine uasail/a bhean uasail",
+    "salutation": "A dhuine uasail/a bhean uasail {{target.last_name}}",
     "salutation_female": "A Uasal {{target.last_name}} a chara",
     "salutation_info": "(cuirfear an t-ainm roimh é a sheoladh)",
     "salutation_male": "A Uasal {{target.last_name}} a chara",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "Tá {{total}} tugtha. Rachaimid go {{goal}}",
     "email": "Tá ríomhphost seolta ag {{total}}. Rachaimid go {{goal}}",
+    "pledge": "Tá {{total}} geallta. Rachaimid go {{goal}}",
     "register": "Chláraigh {{total}}. Rachaimid go {{goal}}",
     "share": "{{total}} roinnte. Rachaimid go {{goal}}",
     "sign": "Tá {{total}} sínithe. Rachaimid go {{goal}}",
@@ -187,8 +190,8 @@
   "required": "Líon isteach an réimse seo le do thoil",
   "required field": "réimse riachtanach",
   "salutations": {
-    "f": "A {{name}} a chara",
-    "m": "A {{name}} a chara",
+    "f": "A Uasal {{name}} a chara",
+    "m": "A Uasal, a chara {{name}}",
     "other": "A {{name}} a chara"
   },
   "select_all": "Roghnaigh go léir",
@@ -200,6 +203,9 @@
   "step": {
     "eci": {
       "secure": "slán"
+    },
+    "register": {
+      "title": " "
     }
   },
   "supporter": {
@@ -213,7 +219,7 @@
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}",
       "undefined": "Roghnaigh tír"
     },
-    "missing": "Roghnaigh ceann amháin ar a laghad as {{total}}",
+    "missing": "Roghnaigh 1 ar a laghad as {{total}}",
     "postcode": {
       "empty": "níl aon duine le teagmháil a dhéanamh i {{area}}",
       "undefined": "Cuir isteach do chód poist"
@@ -227,7 +233,7 @@
     "again": "Tweet chuig duine eile",
     "choice": "Cad ba mhaith leat a dhéanamh ina dhiaidh sin?",
     "instruction": "Comhlánaigh le do thoil an tweet a sheoladh sa bhfuinneog nua (ar twitter.com)",
-    "organisation": "Cuntas twitter d’eagraíochta",
+    "organisation": "Cuntas Twitter d’eagraíochta",
     "screenName": "Cuntas Twitter"
   },
   "unknown postcode": "cód poist anaithnid",

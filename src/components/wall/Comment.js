@@ -30,8 +30,7 @@ const Wall = props => {
         .eq("campaign", campaign)
         .eq(filter, true);
 
-      if (limit)
-        query.limit (limit)
+      if (limit) query.limit(limit);
 
       if (country) {
         query = query.eq("area", country);

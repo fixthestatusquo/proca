@@ -112,6 +112,7 @@ const actionPageFromLocalConfig = (id, local) => {
     component: local.component,
     locales: local.locales,
     portal: local.portal,
+    import: local.import,
   };
 
   if (local.test) config.test = true;
@@ -258,6 +259,7 @@ const getConfig = data => {
     layout: data.actionPage.config.layout || {},
     component: data.actionPage.config.component || {},
     portal: data.actionPage.config.portal || [],
+    import: data.actionPage.config.import,
     locales: data.actionPage.config.locales || {},
   };
   if (data.actionPage.config.test) config.test = true;
@@ -285,8 +287,6 @@ const getConfig = data => {
       consentEmail.confirmOptIn = true;
       config.email = { thankyou: data.actionPage.thankYouTemplate };
     }
-    console.log(data.actionPage);
-    process.exit(1);
     if (Object.keys(consentEmail).length > 0)
       config.component.consent.email = consentEmail; // we always overwrite based on the templates
   }
@@ -324,7 +324,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.error(data);
+    console.error("ERROR",data);
     throw new Error(data.toString());
   }
 
@@ -343,14 +343,45 @@ const pull = async (
   actionPage,
   { anonymous = true, campaign = true, save = true }
 ) => {
-  //  console.log("file",file(actionPage));
   read(actionPage); // not sure what it does
   const [config, campaignData] = await fetchAPI(actionPage, {
     anonymous: anonymous,
     campaign: campaign,
   });
   if (save) {
-    saveWidget(config);
+          const exists = fileExists(actionPage);
+    const fileName = saveWidget(config);
+          const msg =
+            config.filename +
+            " for " +
+            config.org.name +
+            " (" +
+            config.organisation +
+            ") in " +
+            config.lang +
+            " part of " +
+            config.campaign.title;
+            let r = null;
+console.log("save", exists, argv.git);
+            if (!exists && argv.git) {
+              r = await add(actionPage + ".json");
+              console.log("adding", r);
+            }
+            console.log(
+              runDate(),
+              color.green.bold("saved", fileName),
+              color.blue(config.filename)
+            );
+            r = argv.git && (await commit(actionPage + ".json", msg));
+            if (argv.git && !r) {
+              // no idea,
+              console.warn(
+                color.red("something went wrong, trying to git add")
+              );
+              r = await add(actionPage + ".json");
+              console.log(r);
+              r = await commit(actionPage + ".json");
+            }
     if (argv.campaign) saveCampaign(campaignData, config.lang);
   }
   return campaign ? [config, campaignData] : config;
@@ -436,7 +467,6 @@ if (require.main === module) {
       try {
         let widget = null;
         if (argv.pull) {
-          const exists = fileExists(id);
           const [widget] = await pull(id, {
             anonymous: anonymous,
             campaign: true,
@@ -446,39 +476,8 @@ if (require.main === module) {
           //if (local && JSON.stringify(local) !== JSON.stringify(widget)) {
           //    backup(actionPage);
           // }
-          const msg =
-            widget.filename +
-            " for " +
-            widget.org.name +
-            " (" +
-            widget.organisation +
-            ") in " +
-            widget.lang +
-            " part of " +
-            widget.campaign.title;
           if (!argv["dry-run"]) {
-            const fileName = saveWidget(widget); // don't need to save twice, but easier to get the fileName
-            let r = null;
-            if (!exists && argv.git) {
-              r = await add(id + ".json");
-              console.log("adding", r);
-            }
-            console.log(
-              runDate(),
-              color.green.bold("saved", fileName),
-              color.blue(widget.filename)
-            );
-            r = argv.git && (await commit(id + ".json", msg));
-            if (argv.git && !r) {
-              // no idea,
-              console.warn(
-                color.red("something went wrong, trying to git add")
-              );
-              r = await add(id + ".json");
-              console.log(r);
-              r = await commit(id + ".json");
-            }
-            if (r.summary) console.log(r.summary);
+            saveWidget(widget); 
           }
         }
         if (argv.build) {

@@ -49,14 +49,14 @@
       #help,
       #widget-demo {
         display: block;
-        transform: scaleY(1);
+        _transform: scaleY(1);
         transition: transform 400ms ease 0ms;
       }
 
       #help.hidden,
       #widget-demo.hidden {
         display: none;
-        transform: scaleY(0);
+        _transform: scaleY(0);
         transition: transform 400ms ease 0ms;
       }
       pre {
@@ -109,7 +109,7 @@
       <a class="navbar-brand" href="#"><%= campaign %></a>
 
       <div class="collapse navbar-collapse" id="">
-        <div class="navbar-nav mr-auto"></div>
+        <div class="navbar-nav mr-auto" id="share" class="proca-share"></div>
         <div
           class="btn-group btn-group-sm"
           role="toolbar"
@@ -139,6 +139,7 @@
     >
     <div id="root" class="container">
       <div class="proca-progress"></div>
+<div id="share"></div>
       <div class="proca-widget" id="widget-demo">
         <p class="proca-description alert alert-info">
 This text (and all the rest of the page) is written in your CMS, the widget is the action form.
@@ -161,6 +162,14 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
               share step</b
             >
             of the user journey.
+          </p>
+        </div>
+        <div class="alert alert-danger proca-Share" role="alert">
+          <p>
+             Please test on your own website. This page is a placeholder to help you embed the widget on your site, not to test it
+            <b
+              >This is normal the share step looks incomplete, because it require to be on your page to be correct</b
+            >
           </p>
         </div>
       </div>
@@ -274,6 +283,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
+      window.dataLayer = [];
       let params = {};
       function display() {
         var variants = ["standard", "filled", "outlined"];
@@ -345,6 +355,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       });
 
       window.addEventListener("proca", function (e) {
+//      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
           help.classList.toggle("hidden");

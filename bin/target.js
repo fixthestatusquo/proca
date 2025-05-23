@@ -49,6 +49,7 @@ const help = exitValue => {
         "--meps , special formatting, done if 'epid' is a field",
         "--[no-]external_id , publishes the externalid",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
+        "--salutation, true by default, needs field/lang value",
       ].join("\n")
     )
   );
@@ -71,7 +72,6 @@ const argv = require("minimist")(process.argv.slice(2), {
     "dry-run",
     "allow-duplicate",
     "quiet",
-    "keep",
     "git",
     "pull",
     "digest",
@@ -295,7 +295,7 @@ const formatTarget = async (campaignName, file) => {
         t.locale = t.field.lang.toLowerCase();
         delete t.field.lang;
       } else {
-        const l = mainLanguage(t.area);
+        const l = mainLanguage(t.field.country || t.area);
         if (l) t.locale = l;
       }
 
@@ -439,7 +439,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTa
         );
         console.log(
           color.blue(
-            "you can target --push --keep AND target --publish --source"
+            "you can target --push --outdated=disable AND target --publish --source"
           )
         );
       } else {
@@ -514,9 +514,6 @@ if (require.main === module) {
         await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
-        if (argv.keep) {
-          argv.outdated = "keep";
-        }
 
         if (
           !"keep,delete,disable"

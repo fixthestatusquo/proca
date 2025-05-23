@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Stuur een e-mail",
     "join": "Word lid van",
+    "pledge": "Pledge nu!",
     "register": "Registreren",
     "remindeSent": "Herinnering verzonden",
     "reminder": "Herinner me er later aan",
@@ -123,6 +124,7 @@
     },
     "iban": "iban",
     "intro": "Doneer aan {{campaign}}",
+    "payment": "Betaling",
     "payment_methods": {
       "card": "Kaart",
       "default": "Doneer",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
     "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
+    "pledge": "{{total}} hebben toegezegd. Laten we naar {{goal}}",
     "register": "{{total}} hebben zich geregistreerd. Laten we naar {{goal}}",
     "share": "{{total}} hebben gedeeld. Laten we naar {{goal}}",
     "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan.",

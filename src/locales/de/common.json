@@ -20,7 +20,7 @@
   "Postal Code": "PLZ",
   "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
-  "Street": "Straße",
+  "Street": "Straße, Hausnummer",
   "Subject": "Betreff",
   "Thank you": "Danke schön",
   "Your message": "Ihre Nachricht",
@@ -29,6 +29,7 @@
     "eci": "Unterzeichnen Sie die EBI",
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
+    "pledge": "Verpfänden Sie jetzt!",
     "register": "Registrieren",
     "remindeSent": "Erinnerung gesendet",
     "reminder": "Später erinnern",
@@ -103,14 +104,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Eine wöchentliche Spende?",
+        "weekly": "Eine wöchentliche Spende?",
         "oneoff": "Spenden Sie",
-        "weekly": "Monatlich?"
+        "monthly": "Monatlich?"
       },
       "each": {
-        "monthly": "jede Woche",
+        "weekly": "jede Woche",
         "oneoff": "Sobald",
-        "weekly": "jeden Monat"
+        "monthly": "jeden Monat"
       },
       "feedback": {
         "monthly": "Ich spende {{amount}} {{frequency}}",
@@ -123,6 +124,7 @@
     },
     "iban": "IBAN",
     "intro": "Spenden Sie an {{org}}",
+    "payment": "Zahlung",
     "payment_methods": {
       "card": "Karte",
       "default": "Jetzt spenden!",
@@ -173,6 +175,7 @@
   "progress": {
     "donate": "{{total}} haben gespendet. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
+    "pledge": "{{total}} haben zugesagt. Gehen wir zu {{goal}}",
     "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
     "share": "{{total}} haben es geteilt. Gehen wir zu {{goal}}",
     "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",

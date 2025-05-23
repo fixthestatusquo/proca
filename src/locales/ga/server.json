@@ -1,44 +1,45 @@
 {
-  "email": {
-    "common": {
-      "share_on": "Roinn ar",
-      "consent": "\n          ",
-      "greeting": "Dia duit {{firstName}}",
-      "thanks": "Go raibh maith agat as páirt a ghlacadh in {{campaign.title}}. Tá bhur dtacaíocht buíoch!",
-      "share": "Cabhraigh linn ár sprioc a bhaint amach tríd an scéal a scaipeadh",
-      "follow": "Lean muid ar:",
-      "donate": "Déan machnamh le do thoil ar thabhartas a thabhairt chun cabhrú linn ár misean a bhaint amach",
-      "closing": "Le do chabhair, táimid céim amháin níos gaire don sprioc atá againn",
-      "privacy": "Is féidir leat tuilleadh faisnéise a fháil faoinár bpolasaí príobháideachais agus faoi phróiseáil do shonraí",
-      "unsubscribe": "Mura mian leat tuilleadh eolais a fháil uainn amach anseo, beidh tú in ann do chlárú a chur ar ceal am ar bith",
-      "signature": "Mise le meas,\n\n{{org.title}}",
-      "thanksPledge": "Go raibh maith agat as gealltanas a thabhairt do {{campaign.title}}. Déanfar do shíniú a athbhreithniú agus taispeánfar é ar ár suíomh Gréasáin má cheadaítear é.",
-      "organisation": "{{org.title}}",
-      "duplicate": "Go raibh maith agat as do rannpháirtíocht agus do thiomantas dár gcúis! Mar sin féin, inár dtiomantas chun barántúlacht agus creidiúnacht a choinneáil, ní mór dúinn **sínithe dúblacha** a bhaint agus is cosúil nach bhfuil tú féin (nó duine éigin a úsáideann {{email}}) tar éis an gníomh seo a dhéanamh cheana féin. Bígí cinnte, **cuireadh do shíniú tosaigh san áireamh** agus chuir sé lenár bhfeachtas.\nBhí do thacaíocht thar a bheith luachmhar, agus ba mhaith linn tú a spreagadh le céim bhreise a ghlacadh chun do thionchar a mhéadú. Smaoinigh le do thoil ar dhul i dteagmháil le do chairde agus do mhuintir, ag impí orthu beart a dhéanamh freisin, ag baint úsáide as a seoltaí ríomhphoist féin. Ar an mbealach seo, is féidir linn ár ngluaiseacht a mhéadú tuilleadh agus guth comhchoiteann níos láidre fós a chruthú don athrú atá á lorg againn.\nArís eile, ba mhaith linn ár mbuíochas ó chroí a ghabháil as do thacaíocht agus do thiomantas leanúnach don fheachtas seo. Le chéile, is féidir linn tionchar buan a imirt!",
-      "about": " "
+    "email": {
+        "common": {
+            "share_on": "Roinn ar",
+            "consent": "\n          ",
+            "greeting": "Dia duit {{firstName}}",
+            "thanks": "Go raibh maith agat as páirt a ghlacadh in {{campaign.title}}. Tá bhur dtacaíocht buíoch!",
+            "share": "Cabhraigh linn ár sprioc a bhaint amach tríd an scéal a scaipeadh",
+            "follow": "Lean muid ar:",
+            "donate": "Déan machnamh le do thoil ar thabhartas a thabhairt chun cabhrú linn ár misean a bhaint amach",
+            "closing": "Le do chabhair, táimid céim amháin níos gaire don sprioc atá againn",
+            "privacy": "Is féidir leat tuilleadh faisnéise a fháil faoinár bpolasaí príobháideachais agus faoi phróiseáil do shonraí",
+            "unsubscribe": "Mura mian leat tuilleadh eolais a fháil uainn amach anseo, beidh tú in ann do chlárú a chur ar ceal am ar bith",
+            "signature": "Mise le meas,\n\n{{org.title}}",
+            "thanksPledge": "Go raibh maith agat as gealltanas a thabhairt do {{campaign.title}}. Déanfar do shíniú a athbhreithniú agus taispeánfar é ar ár suíomh Gréasáin má cheadaítear é.",
+            "organisation": "{{org.title}}",
+            "duplicate": "Go raibh maith agat as do rannpháirtíocht agus do thiomantas dár gcúis! Mar sin féin, inár dtiomantas chun barántúlacht agus creidiúnacht a choinneáil, ní mór dúinn **sínithe dúblacha** a bhaint agus is cosúil nach bhfuil tú féin (nó duine éigin a úsáideann {{email}}) tar éis an gníomh seo a dhéanamh cheana féin. Bígí cinnte, **cuireadh do shíniú tosaigh san áireamh** agus chuir sé lenár bhfeachtas.\nBhí do thacaíocht thar a bheith luachmhar, agus ba mhaith linn tú a spreagadh le céim bhreise a ghlacadh chun do thionchar a mhéadú. Smaoinigh le do thoil ar dhul i dteagmháil le do chairde agus do mhuintir, ag impí orthu beart a dhéanamh freisin, ag baint úsáide as a seoltaí ríomhphoist féin. Ar an mbealach seo, is féidir linn ár ngluaiseacht a mhéadú tuilleadh agus guth comhchoiteann níos láidre fós a chruthú don athrú atá á lorg againn.\nArís eile, ba mhaith linn ár mbuíochas ó chroí a ghabháil as do thacaíocht agus do thiomantas leanúnach don fheachtas seo. Le chéile, is féidir linn tionchar buan a imirt!",
+            "about": " "
+        },
+        "button": {
+            "confirmAlreadyMember": "Deimhním mo rannpháirtíocht & faighim ríomhphoist uait cheana féin",
+            "confirmAction": "Sea, is duine fíor mé!",
+            "confirmOptin": "Deimhním mo rannpháirtíocht & ba mhaith liom nuacht a fháil uait",
+            "confirmOptout": "Deimhním mo rannpháirtíocht ach ná coinnigh mé cothrom le dáta amach anseo"
+        },
+        "doi": {
+            "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist",
+            "intro": "Tá do dheimhniú tábhachtach le bheith in ann é a phróiseáil. Is é seo an t-aon bhealach is féidir linn a dhéanamh inchreidte go bhfuil duine i ndáiríre taobh thiar de gach rannpháirtíocht, agus tá sé sin tábhachtach maidir le tionchar an fheachtais seo agus chun aighneachtaí falsa/ turscair a chosc.",
+            "extra": "Tá an deimhniú seo faighte agat chun an clárúchán a chur i gcrích go rathúil agus chun ligean dúinn do sheoladh ríomhphoist agus sonraí pearsanta eile a phróiseáil chun nuacht nó nuachtlitreacha a fháil. Is nós imeachta uathoibrithe é seo agus tá an deimhniú seo ag teastáil don chlárú chun próiseas clárúcháin neamhúdaraithe a sheachaint."
+        },
+        "thankyou": {
+            "subject": "Go raibh maith agat, seo duit cad eile is féidir leat a dhéanamh",
+            "intro": "Go raibh maith agat as do rannpháirtíocht i \"{{campaign.title}}\". Tá bhur dtacaíocht buíoch!"
+        },
+        "actionConfirm": {
+            "intro": "Tá do dheimhniú tábhachtach le bheith in ann do rannpháirtíocht a phróiseáil. Is é seo an t-aon bhealach is féidir linn a dhéanamh inchreidte go bhfuil duine i ndáiríre taobh thiar de gach rannpháirtíocht, agus tá sé sin tábhachtach maidir le tionchar an fheachtais seo agus chun aighneachtaí falsa/ turscair a chosc.",
+            "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist",
+            "extra": "Tá an deimhniú seo faighte agat chun an clárúchán a chur i gcrích go rathúil."
+        },
+        "doi_thankyou": {
+            "subject": "Go raibh maith agat as do rannpháirtíocht{{#privacy.optIn}}, céim amháin eile, deimhnigh do sheoladh ríomhphoist{{/privacy.optIn}}"
+        }
     },
-    "button": {
-      "confirmAlreadyMember": "Deimhním mo rannpháirtíocht & faighim ríomhphoist uait cheana féin",
-      "confirmAction": "Sea, is duine fíor mé!",
-      "confirmOptin": "Deimhním mo rannpháirtíocht & ba mhaith liom nuacht a fháil uait",
-      "confirmOptout": "Deimhním mo rannpháirtíocht ach ná coinnigh mé cothrom le dáta amach anseo"
-    },
-    "doi": {
-      "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist",
-      "intro": "Tá do dheimhniú tábhachtach le bheith in ann é a phróiseáil. Is é seo an t-aon bhealach is féidir linn a dhéanamh inchreidte go bhfuil duine i ndáiríre taobh thiar de gach rannpháirtíocht, agus tá sé sin tábhachtach maidir le tionchar an fheachtais seo agus chun aighneachtaí falsa/ turscair a chosc.",
-      "extra": "Tá an deimhniú seo faighte agat chun an clárúchán a chur i gcrích go rathúil agus chun ligean dúinn do sheoladh ríomhphoist agus sonraí pearsanta eile a phróiseáil chun nuacht nó nuachtlitreacha a fháil. Is nós imeachta uathoibrithe é seo agus tá an deimhniú seo ag teastáil don chlárú chun próiseas clárúcháin neamhúdaraithe a sheachaint."
-    },
-    "thankyou": {
-      "subject": "Go raibh maith agat, seo duit cad eile is féidir leat a dhéanamh",
-      "intro": "Go raibh maith agat as do rannpháirtíocht i \"{{campaign.title}}\". Tá bhur dtacaíocht buíoch!"
-    },
-    "actionConfirm": {
-      "intro": "Tá do dheimhniú tábhachtach le bheith in ann do rannpháirtíocht a phróiseáil. Is é seo an t-aon bhealach is féidir linn a dhéanamh inchreidte go bhfuil duine i ndáiríre taobh thiar de gach rannpháirtíocht, agus tá sé sin tábhachtach maidir le tionchar an fheachtais seo agus chun aighneachtaí falsa/ turscair a chosc.",
-      "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist"
-    },
-    "doi_thankyou": {
-      "subject": "Go raibh maith agat as do rannpháirtíocht{{#privacy.optIn}}, céim amháin eile, deimhnigh do sheoladh ríomhphoist{{/privacy.optIn}}"
-    }
-  },
-  "poweredBy": "CUMHACHTAITHE AG"
+    "poweredBy": "CUMHACHTAITHE AG"
 }

@@ -51,7 +51,7 @@ isoCountries.registerLocale(isoCountriesLang);
 export const allCountries = isoCountries.getNames(
   config.lang.toLowerCase().slice(0, 2),
   {
-    select: "official",
+    select: "alias",
   }
 );
 
@@ -61,7 +61,7 @@ export const getCountryName = iso =>
   isoCountries.getName(
     iso.toUpperCase(),
     config.lang.toLowerCase().slice(0, 2),
-    { select: "official" }
+    { select: "alias" }
   );
 
 const lang = config.lang.length === 2 ? config.lang.toLowerCase() : config.lang;

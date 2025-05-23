@@ -162,7 +162,7 @@ const onApproveOrder = async ({
 };
 
 const onCreateOrder = ({ amount, description, actions }) => {
-console.debug(amount,description,actions);
+  console.debug(amount, description, actions);
   return actions.order.create({
     purchase_units: [{ amount: { value: Number.parseFloat(amount) } }],
     description: description,
@@ -333,7 +333,7 @@ const ProcaPayPalButton = props => {
   const buttonOptions =
     frequency === "oneoff" ? orderOptions : subscriptionOptions;
 
-console.log(buttonOptions);
+  console.log(buttonOptions);
 
   return (
     <Box classes={{ root: classes.root }} className="proca-MuiButton-contained">

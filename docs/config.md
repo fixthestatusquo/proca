@@ -157,10 +157,11 @@ most fields can either be displayed or hidden, most fields can either be require
 
 - `config.component.register.field.organisation`. do we collect the organisation details (with prefill options using twitter)
 - `config.component.register.field.lastname: {required:boolean}`
-- `config.component.register.field.postcode: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.country: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.comment: boolean (show/hide) or {required:boolean}`
-- `config.component.register.field.phone: boolean`. (show/hide)
+- `config.component.register.field.postcode: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.country: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.comment: boolean` (show/hide) or {required:boolean}
+- `config.component.register.field.phone: boolean` (show/hide)
+- `config.component.register.field.gender: boolean` (show/hide), false by default
 
 To add helper text for the comment (for example: "Your message may be used..."):
 `locales.common.help.comment: "Your message may be used..."`
@@ -238,7 +239,7 @@ to collect the consent of being contacted
 - `config.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
 - `config.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
-## Email (config.component.email)
+- `config.component.consent.email.sample: number` It limits the number of targets displayed. Filter (`config.component.consent.email.filter: array`,) needs to have at least one string element, `["random"]` usually.
 
 ## Twitter (config.component.twitter)
 
@@ -253,6 +254,10 @@ to collect the consent of being contacted
 - `config.component.share.top: boolean`. Are the share button above or below image+text shared (taken from meta data)
 - `config.component.share.email: boolean`. Enable the share by email. Brocken now (on some config)
 - `config.component.share.reddit: boolean`: Enable share on reddit
+
+#### To add Twitter to a Share step
+
+- `config.component.share.twitter: true`
 
 ## Change Register button label
 
