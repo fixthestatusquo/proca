@@ -27,13 +27,21 @@ const src = (props) => {
     console.error("not the right src length", src);
     return null;
   }
-  const [promocode, promocode_phone, bannerid] = src.map((d) => parse(d));
   params = {
     "promocode": parse(src[0]),
     "promocode_phone": parse(src[1]),
     "bannerid": parse(src[2])
   }
-
+  document.querySelectorAll('a[href]').forEach(link => { // TODO: only update the donation link
+    try {
+        let url = new URL(link.href, window.location.origin);
+        url.searchParams.set('BannerID', params.bannerid);
+        link.href = url.toString();
+    } catch (e) {
+        console.warn('Malformed URL:', link.href);
+    }
+  });
+  
   let custom = props.myref?.current;
   if (!custom) {
     custom=params;

@@ -22,7 +22,7 @@ const domObserver = (event, data, pii) => {
   ); //
 };
 
-const dataLayerObserver = (event, data, pii) => {
+const dataLayerObserver = (event, data, _pii) => {
 //  console.log("GA4 received event:", event, data, pii);
 
   if (event === "count") return;
@@ -31,7 +31,7 @@ const dataLayerObserver = (event, data, pii) => {
   "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
     .split(",")
     .forEach(attr => {
-      if (param.hasOwnProperty(attr)) {
+      if (param.hasOwn(attr)) {
         delete param[attr];
       }
     });

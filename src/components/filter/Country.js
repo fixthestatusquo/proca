@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import Country from "@components/field/Country";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+//import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 
 const FilterCountry = props => {
   const { watch } = props.form;
-  const config = useCampaignConfig();
-  const setConfig = useSetCampaignConfig();
+//  const config = useCampaignConfig();
+//  const setConfig = useSetCampaignConfig();
   const country = watch("country");
 
   useEffect(() => {

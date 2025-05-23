@@ -18,7 +18,7 @@ const _snarkdown = require("snarkdown");
 
 const _set = require("lodash/set");
 const _merge = require("lodash/merge");
-const _pick = require("lodash/pick");
+const _get = require("lodash/get");
 
 const help = () => {
   console.log(
@@ -33,6 +33,7 @@ const help = () => {
       "--extract (extract default keys for default templates to campaign config)",
       "--push (push the template to proca server)",
       "--mjml {template to use in config/email/mjml, default default/thankyou)",
+      "--type {thankyou, doi, confirm, doi_thankyou, doi_confirm} (default thankyou)",
       "actionpage_id",
       //      "boolean inputs, no validatiton, everything but 'false' will be set to 'true'"
     ].join("\n")
@@ -41,7 +42,7 @@ const help = () => {
 };
 
 const argv = require("minimist")(process.argv.slice(2), {
-  string: ["mjml", "lang"],
+  string: ["mjml", "lang", "type"],
   boolean: [
     "help",
     "dry-run",
@@ -54,7 +55,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "campaign",
   ],
   alias: { v: "verbose" },
-  default: { mjml: "default/thankyou", markdown: true, build: true },
+  default: { mjml: "default/thankyou", markdown: true, build: true, type: "thankyou" },
   unknown: d => {
     const allowed = []; //merge with boolean and string?
     if (d[0] !== "-" || require.main !== module) return true;
@@ -130,15 +131,6 @@ const pushTemplate = async (config, html) => {
   return data;
 };
 
-
-const updateCampaign = (campaign, lang, update) => {
-  const locales = {};
-  const newLocales = _merge({}, locales[lang], { "server:": update });
-  campaign.config.locales[lang] = _merge({}, campaign.config.locales[lang], newLocales);
-  saveCampaign(campaign, {});
-  console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
-};
-
 const deepify = keys => {
   // convert an array of keys for the t function to the translation json
   let trans = {};
@@ -180,11 +172,6 @@ const translateTpl = (tpl, lang, markdown) =>
       });
       const r = render(dom);
       locales = deepify(keys);
-      if (argv.extract) {
-        if (argv["dry-run"]) {
-          console.log("i18n keys", keys, JSON.stringify(locales, null, 2));
-        } else updateTranslation("server", locales);
-      }
       resolve(r);
     });
     const parser = new htmlparser2.Parser(handler);
@@ -281,31 +268,98 @@ const i18nTplInit = async (campaign, lang = "en") => {
   return server;
 };
 
-const keysToCampaignConfig = (type = "thankyou", lang = "de") => {
-  const file = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
-  const initial = JSON.parse(fs.readFileSync(file, "utf8"));
-  //console.log("initial", initial)
-
-  let server = _pick(initial, [
+const EMAIL_TYPE_KEYS = {
+  thankyou: [
     "email.common.greeting",
     "email.common.thanks",
     "email.common.about",
     "email.common.signature",
     "email.common.share",
-    `email.${type}.subject`
-  ]);
-  if (type === "doi") {
-    server = _pick(initial, [
-      "email.common.greeting",
-      "email.common.thanks",
-      "email.common.signature",
-      `email.${type}.intro`,
-      `email.${type}.extra`,
-      "email.button.confirmOptin",
-      `email.${type}.subject`
-    ]);
+    "email.thankyou.subject",
+  ],
+  doi: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.doi.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.doi.subject",
+  ],
+  confirm: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.confirm.intro",
+    "email.confirm.extra",
+    "email.button.confirmAction",
+    "email.confirm.subject",
+  ],
+  doi_thankyou: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.about",
+    "email.common.share",
+    "email.common.signature",
+    "email.doi.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.doi_thankyou.subject",
+  ],
+  doi_confirm: [
+    "email.common.greeting",
+    "email.common.thanks",
+    "email.common.signature",
+    "email.confirm.intro",
+    "email.doi.extra",
+    "email.button.confirmOptin",
+    "email.button.confirmOptout",
+    "email.confirm.subject",
+  ]
+};
+
+const generateText = (type, lang) => {
+  let serverLang = null;
+  if (lang !== "en") serverLang = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
+  const serverEn = path.resolve(__dirname, `../src/locales/en/server.json`);
+  const initial = { en: JSON.parse(fs.readFileSync(serverEn, "utf8")) };
+
+  if (serverLang) initial[lang] = JSON.parse(fs.readFileSync(serverLang, "utf8"));
+  const result = {};
+  const keys = EMAIL_TYPE_KEYS[type];
+  if (!keys) {
+    throw new Error(`Unknown email type: ${type}`);
   }
-  return server;
+  const langsToInclude = lang === 'en' ? ['en'] : ['en', lang];
+
+  langsToInclude.forEach((l) => {
+    const source = initial[l];
+    const picked = {};
+
+    keys.forEach((path) => {
+      const value = _get(source, path);
+      if (value !== undefined) {
+        _set(picked, path, value);
+      }
+    });
+
+    result[l] = picked;
+  });
+  return result;
+};
+
+const updateCampaign = (campaign, lang, update) => {
+  // Overwriting "server:", othewise it would create a mess.
+  for (const lang of Object.keys(update)) {
+      const emailContent = update[lang]?.email;
+      if (!emailContent) continue;
+    if (!campaign.config.locales[lang]) {
+      campaign.config.locales[lang] = {};
+    }
+    campaign.config.locales[lang]["server:"] = { email: emailContent };
+  }
+   saveCampaign(campaign, {});
+   console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 if (require.main === module) {
@@ -382,8 +436,7 @@ if (require.main === module) {
             JSON.stringify(render.locales, null, 2)
           );
         } else {
-          console.log("updating campaign config with server keys");
-          const update = keysToCampaignConfig(config.type[0], lang);
+          const update = generateText(argv.type, lang);
           updateCampaign(campaign, lang, update);
         }
       }

@@ -32,6 +32,7 @@ const ProcaAlert = props => {
       TransitionComponent={Transition}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={props.autoHideDuration}
+       onExited={props.onExited}
     >
       <Alert
         severity={props.severity}
@@ -53,7 +54,7 @@ const ProcaAlert = props => {
 ProcaAlert.defaultProps = {
   autoHideDuration: 4000,
   severity: "info",
-  text: "Hello",
+  text: "Missing text",
 };
 
 ProcaAlert.propTypes = {
