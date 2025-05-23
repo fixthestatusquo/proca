@@ -10,7 +10,7 @@ import {
   Button,
   Collapse,
   List,
-  FilledInput,
+  TextField as MuiTextField,
   FormHelperText,
   FormControl,
   IconButton,
@@ -31,6 +31,7 @@ import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig, useSetCampaignConfig, useSetActionType } from "@hooks/useConfig";
+import { useLayout } from "@hooks/useLayout";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/TextField";
@@ -49,6 +50,7 @@ const useStyles = makeStyles(() => ({
 
 const EmailComponent = props => {
   const classes = useStyles();
+  const layout = useLayout();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   useSetActionType ("mail2target");
@@ -579,14 +581,14 @@ console.log("filter profile",constituency);
         {config.component.email?.field?.message ? (
           <Grid item xs={12} className={props.classes.field}>
             {config.component.email.salutation && (
-              <FormControl fullWidth>
-                <FilledInput
+                <MuiTextField
+            variant={layout.variant}
+            margin={layout.margin}
                   fullWidth={true}
                   placeholder={`${t("email.salutation_placeholder")},`}
                   readOnly
+                  helperText = {t("email.salutation_info")}
                 />
-                <FormHelperText>{t("email.salutation_info")}</FormHelperText>
-              </FormControl>
             )}
             <TextField
               form={props.form}
@@ -600,6 +602,7 @@ console.log("filter profile",constituency);
                 setBlock(true);
               }}
               label={t("Your message")}
+              helperText={t("message.helper",'')}
             />
           </Grid>
         ) : (
