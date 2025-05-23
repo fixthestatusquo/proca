@@ -11,7 +11,7 @@ import { useCompactLayout } from "@hooks/useElementWidth";
 import Url from "@lib/urlparser";
 import { setCookie } from "@lib/cookie";
 import { getDomain } from "@lib/checkMail";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useComponentConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -93,7 +93,7 @@ const ConditionalDisabled = props => {
 
 const SubmitButton = props => {
   const classes = useStyles();
-  const config = useCampaignConfig();
+  const component = useComponentConfig();
   const { formState, setValue, register } = props.form;
   const { t } = useTranslation();
 
@@ -101,7 +101,7 @@ const SubmitButton = props => {
     setValue("privacy", privacy);
     return props.handleClick(e);
   };
-  if (config.component.consent?.buttons) {
+  if (component.consent.buttons) {
     return (
       <>
         <input type="hidden" {...register("privacy", { required: false })} />
@@ -113,11 +113,11 @@ const SubmitButton = props => {
             onClick={e => handleClick(e, "opt-out")}
             disabled={
               formState.isSubmitting ||
-              config.component.register?.disabled === true
+              component.register.disabled === true
             }
           >
             {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
+              t(component.register.button || "action.register")}
             <span className={classes.subText}>
               {t("consent.subButton.opt-out")}
             </span>
@@ -132,11 +132,11 @@ const SubmitButton = props => {
             onClick={e => handleClick(e, "opt-in")}
             disabled={
               formState.isSubmitting ||
-              config.component.register?.disabled === true
+              component.register.disabled === true
             }
           >
             {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
+              t(component.register.button || "action.register")}
             <span className={classes.subText}>
               {t("consent.subButton.opt-in")}
             </span>
@@ -156,7 +156,7 @@ const SubmitButton = props => {
         onClick={props.handleClick}
         size="large"
         disabled={
-          formState.isSubmitting || config.component.register?.disabled === true
+          formState.isSubmitting || component.register.disabled === true
         }
         endIcon={
           <SvgIcon>
@@ -166,7 +166,7 @@ const SubmitButton = props => {
       >
         {" "}
         {props.buttonText ||
-          t(config.component.register?.button || "action.register")}
+          t(component.register.button || "action.register")}
       </Button>
     </Grid>
   );
@@ -227,16 +227,16 @@ export default function Register(props) {
       if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    formData.tracking = Url.utm(config.component.register?.tracking);
+    formData.tracking = Url.utm(component.register.tracking);
 
-    if (config.component.consent?.implicit) {
+    if (component.consent?.implicit) {
       formData.privacy =
-        config.component.consent.implicit === true
+        component.consent.implicit === true
           ? null
-          : config.component.consent.implicit;
+          : component.consent.implicit;
       // implicit true or opt-in or opt-out
     }
-    let actionType = config.component.register?.actionType || "register";
+    let actionType = component.register.actionType || "register";
     if (props.targets) {
       formData.targets = props.targets;
       actionType = "mail2target";
@@ -279,7 +279,7 @@ export default function Register(props) {
         actionType,
         {
           uuid: data.uuid,
-          tracking: Url.utm(config.component?.register?.tracking),
+          tracking: Url.utm(component?.register?.tracking),
           payload: payload,
         },
         config.test
@@ -318,7 +318,7 @@ export default function Register(props) {
     }
 
     dispatch(
-      `${config.component?.register?.actionType || "register"}:complete`,
+      `${component?.register?.actionType || "register"}:complete`,
       {
         uuid: result.contactRef,
         test: !!config.test,
@@ -330,13 +330,13 @@ export default function Register(props) {
       formData,
       config
     );
-    if (config.component.register?.remember) {
+    if (component.register.remember) {
       setCookie("proca_firstname", formData.firstname);
       setCookie("proca_uuid", result.contactRef);
     }
     setStatus("success");
     setData(formData);
-    if (!config.component.share?.anonymous) {
+    if (!component.share?.anonymous) {
       uuid(result.contactRef); // set the global uuid as signature's fingerprint
     }
     props.done &&
@@ -411,11 +411,11 @@ export default function Register(props) {
     );
   }
 
-  let ConsentBlock = config.component.consent?.implicit
+  let ConsentBlock = component.consent?.implicit
     ? ImplicitConsent
     : Consent;
 
-  if (config.component.consent?.buttons) {
+  if (component.consent?.buttons) {
     ConsentBlock = function NoConsent() {
       return null;
     };
@@ -425,7 +425,7 @@ export default function Register(props) {
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   //const classField = classes.field;
   const enforceRequired = !data.uuid; // if the user took action, no fields are required
-  const withSalutation = config.component?.register?.field?.salutation;
+  const withSalutation = component?.register?.field?.salutation;
   const nameWidth = field => {
     if (compact) return 12;
     if (withSalutation && field === "firstname") return 4;
@@ -440,7 +440,7 @@ export default function Register(props) {
     const d = getValues();
     setData(d);
     dispatch(
-      `${config.component?.register?.actionType || "register"}:skip`,
+      `${component?.register?.actionType || "register"}:skip`,
       {
         test: !!config.test,
         country: d.country,
@@ -463,12 +463,12 @@ export default function Register(props) {
       <ErrorS display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled
-          disabled={config.component.register?.disabled === true}
+          disabled={component.register.disabled === true}
         >
           <WelcomeSupporter />
           <Box marginBottom={1}>
             <Grid container spacing={1}>
-              {config.component.register?.custom?.top && (
+              {component.register.custom?.top && (
                 <CustomField
                   compact={compact}
                   form={form}
@@ -478,7 +478,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
-              {config.component.register?.field?.organisation && (
+              {component.register.field?.organisation && (
                 <Grid item xs={12} className={classField}>
                   <TextField
                     type="organisation"
@@ -487,7 +487,7 @@ export default function Register(props) {
                     label={t("Organisation")}
                     required={
                       enforceRequired &&
-                      config.component.register.field.organisation.required
+                      component.register.field.organisation.required
                     }
                   />
                 </Grid>
@@ -509,7 +509,7 @@ export default function Register(props) {
                   required
                 />
               </Grid>
-              {config.component.register?.field?.lastname !== false && (
+              {component.register.field?.lastname !== false && (
                 <Grid item xs={12} sm={nameWidth()} className={classField}>
                   <TextField
                     form={form}
@@ -518,7 +518,7 @@ export default function Register(props) {
                     autoComplete="family-name"
                     required={
                       enforceRequired &&
-                      config.component.register?.field?.lastname?.required
+                      component.register.field?.lastname?.required
                     }
                   />
                 </Grid>
@@ -528,7 +528,7 @@ export default function Register(props) {
                 xs={12}
                 sm={
                   compact ||
-                  config.component.register?.field?.lastname !== false
+                  component.register.field?.lastname !== false
                     ? 12
                     : 6
                 }
@@ -538,7 +538,7 @@ export default function Register(props) {
               </Grid>
               <Address form={form} compact={compact} classField={classField} />
               <PhoneField form={form} classField={classField} />
-              {config.component.register?.field?.comment !== false && (
+              {component.register.field?.comment !== false && (
                 <Grid item xs={12} className={classField}>
                   <TextField
                     form={form}
@@ -547,7 +547,7 @@ export default function Register(props) {
                     maxRows="10"
                     required={
                       enforceRequired &&
-                      config.component.register?.field?.comment?.required
+                      component.register.field?.comment?.required
                     }
                     label={t("Comment")}
                     helperText={t("help.comment", "")}
@@ -556,7 +556,7 @@ export default function Register(props) {
               )}
               {props.extraFields &&
                 props.extraFields({ form: form, classes: classes })}
-              {config.component.register?.custom?.bottom && (
+              {component.register.custom?.bottom && (
                 <CustomField
                   compact={compact}
                   form={form}
@@ -580,7 +580,7 @@ export default function Register(props) {
               />
               <Grid item xs={12}>
                 <ConsentProcessing />
-                {config.component.register?.next && (
+                {component.register.next && (
                   <Button
                     endIcon={<SkipNextIcon />}
                     className={classes.next}
