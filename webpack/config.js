@@ -40,7 +40,17 @@ if (apId) {
       );
       if (!config.locales) config.locales = {};
       config.layout = merge(campaignConfig.config.layout,config.layout);
-      config.component = merge({share:{},register:{field:{}},consent:{}},campaignConfig.config.component,config.component);
+        config.component = merge(
+          {
+            share: {},
+            dispatch: {},
+            register: { field: {} },
+            consent: {},
+            country: undefined,
+          },
+          campaignConfig.config.component,
+          config.component,
+        );
         if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal;
         }

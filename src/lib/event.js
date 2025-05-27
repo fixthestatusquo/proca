@@ -31,7 +31,7 @@ const dataLayerObserver = (event, data, _pii) => {
   "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
     .split(",")
     .forEach(attr => {
-      if (param.hasOwn(attr)) {
+      if (Object.hasOwn(param, attr)) {
         delete param[attr];
       }
     });
