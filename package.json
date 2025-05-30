@@ -64,7 +64,7 @@
     "react-hook-form": "^7.56.1",
     "react-i18next": "^15.4.1",
     "react-ipgeolocation": "^1.4.0",
-    "react-konva": "^17.0.2-6",
+    "react-konva": "^19.0.4",
     "react-masonry-component": "^6.3.0",
     "react-script-hook": "^1.7.2",
     "react-share": "^5.2.2",
