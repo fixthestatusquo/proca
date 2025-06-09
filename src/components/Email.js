@@ -80,7 +80,7 @@ const EmailComponent = props => {
 
   // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
   const [alwaysUpdate, setAlwaysUpdate] = useState(
-    config.component.email?.multilingual === true
+    config.component.email?.filter?.multilingual === true
   );
   const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
@@ -105,6 +105,7 @@ const EmailComponent = props => {
   const postcodeFiltered = config.component.email?.filter?.includes("postcode");
   const localeFiltered =
     config.component.email?.filter?.includes("multilingual");
+console.log("localFiltered",localeFiltered);
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
   useEffect(() => {
@@ -627,7 +628,6 @@ console.log("filter profile",constituency);
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
-    console.log("prepare data");
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;

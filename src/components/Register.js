@@ -250,6 +250,9 @@ export default function Register(props) {
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
     }
+    if (beforeSubmit && typeof beforeSubmit === "function") {
+      formData = await beforeSubmit(formData);
+    }
     if (customField.current.beforeSubmit) {
       formData = await customField.current.beforeSubmit(formData);
     }
@@ -460,7 +463,6 @@ export default function Register(props) {
     props.done();
   };
 
-console.log("custom",config.component.custom);
   return (
     <form
       className={classes.container}
@@ -554,6 +556,7 @@ console.log("custom",config.component.custom);
                   position="comment"
                   form={form}
                   classes={classes}
+                  handleBeforeSubmit={setBeforeSubmit}
                   myref={customField}
                 />
               )}
@@ -581,6 +584,7 @@ console.log("custom",config.component.custom);
                   compact={compact}
                   form={form}
                   classes={classes}
+                  handleBeforeSubmit={setBeforeSubmit}
                   myref={customField}
                 />
               )}

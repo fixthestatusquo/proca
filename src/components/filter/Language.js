@@ -18,7 +18,7 @@ const FilterLanguage = props => {
     props.selecting("locale", language);
 
     setConfig(current => {
-      //      console.log("set lang", language, props.country);
+            console.log("set lang", language, props.country);
       const next = { ...current };
       next.lang = language;
       return next;
