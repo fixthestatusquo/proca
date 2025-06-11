@@ -105,7 +105,6 @@ const EmailComponent = props => {
   const postcodeFiltered = config.component.email?.filter?.includes("postcode");
   const localeFiltered =
     config.component.email?.filter?.includes("multilingual");
-console.log("localFiltered",localeFiltered);
   const sampleSize = config.component.email?.sample || 1;
   const locale = config.locale;
   useEffect(() => {
@@ -335,6 +334,7 @@ console.log("localFiltered",localeFiltered);
   );
 
   const filterProfiles = useCallback(
+// TODO: move the filtering of profiles from here to the filter/XXX ones
     (country, constituency, area) => {
       if (constituency || area) {
         country = country || "?";
@@ -344,7 +344,6 @@ console.log("localFiltered",localeFiltered);
       country = country.toLowerCase();
 
       let lang = undefined;
-console.log("filter profile",constituency);
       let d = allProfiles.filter(d => {
         if (constituency || postcodeFiltered) {
           if (typeof constituency === "object") {
@@ -357,7 +356,7 @@ console.log("filter profile",constituency);
           if (lang === undefined) {
             lang = d.lang;
           } else {
-            if (d.lang !== lang) {
+            if (d.lang !== lang) { // do not change the language when multi-lingual countries (BE)
               lang = false;
             }
           }
@@ -418,10 +417,11 @@ console.log("filter profile",constituency);
         clearErrors("postcode");
       }
 
-      if (lang && typeof lang === "string") {
+      if (lang && typeof lang === "string") { // change language of the letter
         setConfig(current => {
           const next = { ...current };
           //next.lang = lang || "en";
+          if (lang.length === 2) lang = lang + "_" + country.toUpperCase();
           next.locale = lang || "en";
           return next;
         });
