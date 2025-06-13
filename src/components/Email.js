@@ -370,8 +370,9 @@ const EmailComponent = props => {
 
       if (!lang && localeFiltered) {
         // more than one lang in the country
-        if (languages.includes(locale)) {
-          lang = [locale];
+        const _locale =  locale.split('_')[0];
+        if (languages.includes(_locale)) {
+          lang = [_locale];
         } else {
           lang = mainLanguage(country, false);
         }
@@ -383,7 +384,6 @@ const EmailComponent = props => {
           "not lang",
           `${lang}?`,
           locale,
-          lang?.includes("fr"),
           country
         );
       }
