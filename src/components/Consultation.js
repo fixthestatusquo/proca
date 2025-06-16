@@ -24,8 +24,6 @@ import { imports } from "../actionPage";
 
 const Consultation = (props) => {
 
-console.log("Consultation", imports);
-
 const steps = ['survey', 'contact', 'preview'];
  const [activeStep, setActiveStep] = useState(0);
 
@@ -66,7 +64,6 @@ console.log("go to step ", step);
   const enforceRequired= true;
 
 const SurveyStep = imports[config.component.consultation];
-console.log(SurveyStep, config.component);
 
 const DetailsStep = () => {
   const compact = useCompactLayout("#proca-contact", 380);
@@ -90,7 +87,7 @@ return (
         ))}
       </Stepper>
 
-      {activeStep === 0 && <SurveyStep />}
+      {activeStep === 0 && <SurveyStep form={form} />}
         {activeStep === 1 && <DetailsStep />}
 
         
