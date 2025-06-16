@@ -59,7 +59,6 @@ if (window.dataLayer) {
 } else {
   //might need to wait until it loads
   setTimeout(() => {
-    console.log("dataLayer", window.dataLayer);
     if (window.dataLayer) {
       Events.subscribe(dataLayerObserver);
     }
