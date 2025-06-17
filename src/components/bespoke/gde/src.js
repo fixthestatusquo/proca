@@ -37,7 +37,7 @@ const src = (props) => {
         let url = new URL(link.href, window.location.origin);
         url.searchParams.set('BannerID', params.bannerid);
         link.href = url.toString();
-    } catch (e) {
+    } catch (_e) {
         console.warn('Malformed URL:', link.href);
     }
   });
