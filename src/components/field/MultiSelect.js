@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => ({
   },
   checkboxRoot: {
     padding: theme.spacing(0.5), // Smaller checkbox padding
+    "& input": {
+      height: 'auto!important', 
+    },
   },
 }));
 
