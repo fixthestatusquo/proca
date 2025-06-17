@@ -97,7 +97,7 @@ const Consultation = props => {
       <Stepper
         activeStep={activeStep}
         alternativeLabel
-        style={{ width: "100%" }}
+        style={{ width: "100%", backgroundColor: "transparent"  }}
         nonLinear
       >
         {steps.map((label, index) => (

@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(-1), // Negative margin to reduce label space
     paddingTop: theme.spacing(0.5), // Small padding instead of default
     alignItems: "flex-start",
+    color: theme.palette.text.primary, 
     "& .proca-MuiTypography-root": {
       lineHeight: 1.3,
       marginTop: 5, // Optional: slight adjustment to align with checkbox
