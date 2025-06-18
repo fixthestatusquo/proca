@@ -55,13 +55,13 @@
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
     "emailSent": "Vi har sendt dig en e-mail til {email}!",
     "implicit": "Indsend denne formular for at modtage e-mails fra {{name}}",
-    "intro": "Jeg accepterer at {{name}} kontakte mig om kampagnen og andre muligheder for at hjælpe",
-    "opt-in": "Ja, hold mig informeret via e-mail",
+    "intro": "Ja, {{name}} må gerne kontakte mig med nyt om sagen og andre initiativer",
+    "opt-in": "Ja, hold mig gerne informeret",
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
-    "opt-out": "Nej, send mig ikke e-mails, eller hold mig opdateret i fremtiden",
+    "opt-out": "Nej, jeg er ikke interesseret i at blive holdt opdateret",
     "optInConfirmed": "Abonnement bekræftet",
-    "processing": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+   "processing": "Dine personlige oplysninger vil blive holdt private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+   "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage",
     "subButton": {
       "opt-in": "og modtage oplysninger",
@@ -196,7 +196,7 @@
   },
   "select_all": "Vælg alle",
   "share": {
-    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk. Hvis vi er nok, der skriver under, er EU forpligtet til at lytte 🙏.",
+    "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk 🙏",
     "message": "Du skal underskrive dette!",
     "title": "Næsten færdig – nu mangler du blot at dele budskabet"
   },
