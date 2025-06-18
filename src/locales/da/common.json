@@ -60,8 +60,8 @@
     "opt-in-both": "Ja, jeg vil have {{partner}} og {{lead}} til at holde mig informeret via e-mail",
     "opt-out": "Nej, jeg er ikke interesseret i at blive holdt opdateret",
     "optInConfirmed": "Abonnement bekræftet",
-   "processing": "Dine personlige oplysninger vil blive holdt private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-   "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+    "processing": "Dine personlige oplysninger vil blive holdt private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
+    "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "required": "Dit samtykke er nødvendigt for at deltage",
     "subButton": {
       "opt-in": "og modtage oplysninger",
