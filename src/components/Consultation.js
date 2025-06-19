@@ -24,6 +24,8 @@ import NameField from "@components/field/Name";
 import EmailField from "@components/field/Email";
 import PhoneField from "@components/field/Phone";
 import Address from "@components/field/Address";
+import CommentField from "@components/field/Comment";
+
 import { imports } from "../actionPage";
 
 const Consultation = props => {
@@ -57,8 +59,9 @@ const Consultation = props => {
     }),
   });
 
-  const prepareData = () => {
-    console.log("prepareData");
+  const prepareData = (data) => {
+    console.log("prepareData",data);
+    return data;
   };
   const onClick = () => {
     console.log("onClick");
@@ -89,6 +92,9 @@ const Consultation = props => {
         />
         <Address form={form} compact={compact} classField={classField} />
         <PhoneField form={form} classField={classField} compact={compact} />
+        <CommentField form={form} classField={classField} compact={compact} />
+
+//https://snowflaike.proca.app
       </Grid>
     );
   };

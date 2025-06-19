@@ -352,6 +352,10 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
         console.log(e.detail.message, e.detail);
+          const theme = proca.get().layout?.theme;
+          if (theme === 'dark') {
+document.body.style.backgroundColor = "black";
+          }
       });
 
       window.addEventListener("proca", function (e) {
