@@ -170,6 +170,7 @@ const translateTpl = (tpl, lang, markdown) =>
         keys[d.attribs.i18n] = text.data;
         text.data = markdown ? needle + d.attribs.i18n : i18n.t(d.attribs.i18n); // translation to the new language
       });
+      translateAttributes(dom);
       const r = render(dom);
       locales = deepify(keys);
       resolve(r);
@@ -178,6 +179,39 @@ const translateTpl = (tpl, lang, markdown) =>
     parser.write(tpl);
     parser.end();
   });
+
+const translateAttributes = dom => {
+ // walks through all nodes in a parsed HTML/MJML DOM tree
+ // and replaces any attribute values that are marked for internationalization
+ // using the format: i18n:<translation.key>|<optional fallback>
+// eg. replaces href="i18n:email.share.telegram|https://t.me/share?text=default" with href="TEXT from server:email.share.telegram"
+
+  const i18nPattern = /^i18n:([^|]+)(\|(.+))?$/;
+
+  const walk = nodes => {
+    if (!nodes) return;
+
+    nodes.forEach(node => {
+      if (node.attribs) {
+        for (const [attr, val] of Object.entries(node.attribs)) {
+          const match = i18nPattern.exec(val);
+          if (match) {
+            const [, key, , fallback = ""] = match;
+            keys[key] = fallback;
+            const translated = i18n.t(key, fallback);
+            node.attribs[attr] = translated && translated !== key ? translated : fallback;
+          }
+        }
+      }
+
+      if (node.children) {
+        walk(node.children);
+      }
+    });
+  };
+
+  walk(dom);
+};
 
 const saveTemplate = (render, id) => {
   const fileName = path.resolve(
