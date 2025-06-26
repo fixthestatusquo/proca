@@ -160,7 +160,6 @@
   },
   "no": "ei",
   "party": "Partei",
-  "partyHelper": "Kõikide liikmete valimiseks klõpsa partei märgil.",
   "phone": {
     "INVALID_COUNTRY": "puuduv või vigane riigikood",
     "INVALID_LENGTH": "Vigane pikkus",

@@ -160,7 +160,6 @@
   },
   "no": "ei",
   "party": "Puolue",
-  "partyHelper": "Valitse kaikki sen jäsenet valitsemalla puolueen siru.",
   "phone": {
     "INVALID_COUNTRY": "puuttuva tai virheellinen maakoodi",
     "INVALID_LENGTH": "Virheellinen pituus",

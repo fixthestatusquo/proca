@@ -160,7 +160,6 @@
   },
   "no": "ne",
   "party": "Stranka",
-  "partyHelper": "Kliknite žeton stranke, da izberete vse njene člane.",
   "phone": {
     "INVALID_COUNTRY": "manjkajoča ali neveljavna koda države",
     "INVALID_LENGTH": "Nepravilna dolžina",

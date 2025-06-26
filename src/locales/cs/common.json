@@ -160,7 +160,6 @@
   },
   "no": "ne",
   "party": "Strana",
-  "partyHelper": "Kliknutím na žeton strany vyberete všechny její členy.",
   "phone": {
     "INVALID_COUNTRY": "chybějící nebo neplatný kód země",
     "INVALID_LENGTH": "Nesprávná délka",

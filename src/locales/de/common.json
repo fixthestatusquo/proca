@@ -160,7 +160,6 @@
   },
   "no": "nein",
   "party": "Partei",
-  "partyHelper": "Klicken Sie auf einen Parteichip, um alle Mitglieder auszuwählen.",
   "phone": {
     "INVALID_COUNTRY": "fehlender oder ungültiger Ländercode",
     "INVALID_LENGTH": "Ungültige Länge",

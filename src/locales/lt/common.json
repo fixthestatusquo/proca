@@ -160,7 +160,6 @@
   },
   "no": "ne",
   "party": "Šalis",
-  "partyHelper": "Spustelėkite partijos žetoną, kad pasirinktumėte visus jos narius.",
   "phone": {
     "INVALID_COUNTRY": "trūkstamas arba negaliojantis šalies kodas.",
     "INVALID_LENGTH": "Netinkamas ilgis",

@@ -160,7 +160,6 @@
   },
   "no": "ingen",
   "party": "Parti",
-  "partyHelper": "Klicka på ett partichip för att välja alla dess medlemmar.",
   "phone": {
     "INVALID_COUNTRY": "landskod saknas eller är ogiltig",
     "INVALID_LENGTH": "Ogiltig längd",

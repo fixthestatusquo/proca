@@ -160,7 +160,6 @@
   },
   "no": "ingen",
   "party": "Fest",
-  "partyHelper": "Klik på en partichip for at vælge alle dens medlemmer.",
   "phone": {
     "INVALID_COUNTRY": "manglende eller ugyldig landekode",
     "INVALID_LENGTH": "Ugyldig længde",

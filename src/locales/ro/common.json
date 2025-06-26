@@ -160,7 +160,6 @@
   },
   "no": "nu",
   "party": "Partid",
-  "partyHelper": "Faceți clic pe un cip de partid pentru a selecta toți membrii acestuia.",
   "phone": {
     "INVALID_COUNTRY": "cod de țară lipsă sau invalid",
     "INVALID_LENGTH": "Lungime invalidă",
