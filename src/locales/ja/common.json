@@ -160,6 +160,7 @@
   },
   "no": "ノー",
   "party": "パーティー",
+  "party_helper": "パーティーチップをクリックすると、すべてのメンバーが選択されます。",
   "phone": {
     "INVALID_COUNTRY": "国コードの欠落または無効",
     "INVALID_LENGTH": "無効な長さ",
