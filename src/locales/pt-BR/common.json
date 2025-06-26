@@ -160,6 +160,7 @@
   },
   "no": "não",
   "party": "Festa",
+  "partyHelper": "Clique em uma ficha de grupo para selecionar todos os seus membros.",
   "phone": {
     "INVALID_COUNTRY": "código de país ausente ou inválido",
     "INVALID_LENGTH": "Comprimento inválido",
