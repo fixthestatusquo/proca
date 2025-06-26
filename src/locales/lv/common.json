@@ -160,6 +160,7 @@
   },
   "no": "nav",
   "party": "Puse",
+  "party_helper": "Noklikšķiniet uz partijas mikroshēmas, lai atlasītu visus tās dalībniekus.",
   "phone": {
     "INVALID_COUNTRY": "trūkst valsts koda vai tas ir nederīgs.",
     "INVALID_LENGTH": "Nepareizs garums",
