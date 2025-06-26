@@ -160,6 +160,7 @@
   },
   "no": "não",
   "party": "Partido polítical",
+  "party_helper": "Clique numa ficha de grupo para selecionar todos os seus membros.",
   "phone": {
     "INVALID_COUNTRY": "código de país em falta ou inválido",
     "INVALID_LENGTH": "Comprimento inválido",
