@@ -160,6 +160,7 @@
   },
   "no": "nincs",
   "party": "Party",
+  "party_helper": "Kattintson egy pártchipre az összes tagjának kiválasztásához.",
   "phone": {
     "INVALID_COUNTRY": "hiányzó vagy érvénytelen országkód",
     "INVALID_LENGTH": "Érvénytelen hosszúság",

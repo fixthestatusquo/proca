@@ -160,6 +160,7 @@
   },
   "no": "nie",
   "party": "Partia",
+  "party_helper": "Kliknij żeton imprezy, aby wybrać wszystkich jej członków.",
   "phone": {
     "INVALID_COUNTRY": "brakujący lub nieprawidłowy kod kraju",
     "INVALID_LENGTH": "Nieprawidłowa długość",

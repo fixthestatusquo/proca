@@ -160,6 +160,7 @@
   },
   "no": "no",
   "party": "Partito",
+  "party_helper": "Fare clic su una fiche di partito per selezionare tutti i suoi membri.",
   "phone": {
     "INVALID_COUNTRY": "codice paese mancante o non valido",
     "INVALID_LENGTH": "Lunghezza non valida",
