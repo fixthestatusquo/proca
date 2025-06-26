@@ -104,14 +104,14 @@
     },
     "frequency": {
       "ask": {
-        "weekly": "Eine wöchentliche Spende?",
+        "monthly": "Monatlich?",
         "oneoff": "Spenden Sie",
-        "monthly": "Monatlich?"
+        "weekly": "Eine wöchentliche Spende?"
       },
       "each": {
-        "weekly": "jede Woche",
+        "monthly": "jeden Monat",
         "oneoff": "Sobald",
-        "monthly": "jeden Monat"
+        "weekly": "jede Woche"
       },
       "feedback": {
         "monthly": "Ich spende {{amount}} {{frequency}}",
@@ -160,6 +160,7 @@
   },
   "no": "nein",
   "party": "Partei",
+  "partyHelper": "Klicken Sie auf einen Parteichip, um alle Mitglieder auszuwählen.",
   "phone": {
     "INVALID_COUNTRY": "fehlender oder ungültiger Ländercode",
     "INVALID_LENGTH": "Ungültige Länge",
