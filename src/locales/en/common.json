@@ -160,7 +160,7 @@
   },
   "no": "no",
   "party": "Party",
-  "partyHelper": "Click a party chip to select all its members.",
+  "party_helper": "Click a party chip to select all its members.",
   "phone": {
     "INVALID_COUNTRY": "missing or invalid country code",
     "INVALID_LENGTH": "Invalid length",

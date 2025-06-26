@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveIcon from "@material-ui/icons/RemoveCircle";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
   badge: {
@@ -36,7 +39,8 @@ const PartyFilter = props => {
   const getKey = props.getKey || (d => d.description);
   const country = props.country?.toLowerCase();
   const filterCountry = props.filterCountry || (d => d.country === country);
-
+  const theme = useTheme();
+  const { t } = useTranslation();
   const url = "https://widget.proca.app/t/ep-parties.json";
 
   useEffect(() => {
@@ -88,7 +92,7 @@ const groupOrder = [
       [...Object.entries(count)].sort(([a,ae], [b,be]) => {
         if (ae.eugroup === be.eugroup)
           return a.localeCompare(b);
-        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup) 
+        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup)
       })
     );
     _setParties(sortedObject);
@@ -129,7 +133,11 @@ console.log("selecting",props.selecting);
 
   if (parties) {
     return (
-      <div className={classes.root}>
+      <>
+        <div className={classes.root}>
+
+
+
         {Object.entries(parties).map(([name, party]) => {
           const record = allParties[`${props.country}:${name}`] || {
             name: name,
@@ -159,7 +167,14 @@ console.log("selecting",props.selecting);
             </Badge>
           );
         })}
-      </div>
+        </div>
+         {Object.entries(parties).length > 0 && (
+          <FormHelperText component='div'  style={{ margin: 3 }}>
+            {t("party_helper")}
+          </FormHelperText>
+        )}
+
+      </>
     );
   }
   return null;
