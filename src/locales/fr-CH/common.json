@@ -160,6 +160,7 @@
   },
   "no": "non",
   "party": "Parti",
+  "party_helper": "Cliquez sur une puce de parti pour sélectionner tous ses membres.",
   "phone": {
     "INVALID_COUNTRY": "code pays manquant ou invalide",
     "INVALID_LENGTH": "Longueur non valide",
