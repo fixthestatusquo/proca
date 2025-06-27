@@ -34,7 +34,7 @@
     "remindeSent": "Meabhrúchán seolta",
     "reminder": "Cuir i gcuimhne dom níos déanaí",
     "reminderEmail": "Cuir i gcuimhne dom trí ríomhphost",
-    "share": "Comhroinn",
+    "share": "Scair",
     "sign": "Sínigh Anois!",
     "stayInformed": "Bí ar an eolas",
     "takeAction": "Déan beart",
@@ -160,6 +160,7 @@
   },
   "no": "níl",
   "party": "Cóisir",
+  "party_helper": "Cliceáil sliseanna páirtí chun a bhaill uile a roghnú.",
   "phone": {
     "INVALID_COUNTRY": "cód tíre in easnamh nó neamhbhailí",
     "INVALID_LENGTH": "Fad neamhbhailí",
