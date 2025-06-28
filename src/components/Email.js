@@ -866,7 +866,7 @@ const EmailComponent = props => {
         </>
       )}
       {config.component.email?.showTo !== false && (
-        <List className={classes.list} dense ref={listRef}>
+        <List className={classes.list} dense ref={listRef} component="div">
           {profiles.length === 0 &&
            !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}
