@@ -1,1 +1,66 @@
-{}
+{
+  "Place of birth": "பிறந்த இடம்",
+  "form": {
+    "property": {
+      "city": "நகரம்",
+      "postal_code": "அஞ்சல்_குறியீடு",
+      "date-of-birth": "பிறந்த தேதி",
+      "family_names": "famial_names",
+      "street": "தெரு",
+      "street_number": "ச்ட்ரீட்_நம்பர்",
+      "full_first_names": "முழு_முதல்_பெயர்கள்"
+    },
+    "captcha-audio-download": "நீங்கள் கேட்கும் எழுத்துக்களைக் கேட்டு தட்டச்சு செய்க",
+    "captcha-button-arialabel-audio": "கேப்ட்சாவை ஆடியோவுக்கு மாற்றவும்",
+    "captcha-button-arialabel-image": "கேப்ட்சாவை படமாக மாற்றவும்",
+    "captcha-button-arialabel-refresh": "கேப்ட்சாவை புதுப்பிக்கவும்",
+    "captcha-image-title": "படத்தில் நீங்கள் காணும் எழுத்துக்களை உள்ளிடவும்",
+    "certify-info": "இந்த படிவத்தில் நான் வழங்கிய தகவல்கள் சரியானவை என்றும் இந்த முயற்சியை நான் ஏற்கனவே ஆதரிக்கவில்லை என்றும் இதன்மூலம் சான்றளிக்கிறேன்.",
+    "document-number": "எண்",
+    "document-type": "ஆவண வகை",
+    "error": {
+      "oct_error_invaliddateformat": "OCT_ERROR_INVALIDDATEFORMAT",
+      "oct_error_invalidrange": "OCT_ERROR_INVALIDRANGE",
+      "oct_error_invalidsize": "OCT_ERROR_INVALIDSIZE"
+    },
+    "group-address": "குடியிருப்பு",
+    "group-document": "தனிப்பட்ட அடையாளம்",
+    "group-personal": "தனிப்பட்ட செய்தி",
+    "support_country_selected": "ஆதரவு_நாடு_தேர்ந்தெடுக்கப்பட்டது",
+    "support": "உதவி",
+    "support-footer1": "ஒரு ஐரோப்பிய குடிமக்களின் முயற்சியை ஆதரிக்க, நீங்கள் வேண்டும்:",
+    "support-footer2": "1. ஒரு ஐரோப்பிய ஒன்றிய குடிமகனாக இருங்கள் (அதாவது ஐரோப்பிய ஒன்றிய நாட்டின் தேசிய);",
+    "support-footer3": "2. ஐரோப்பிய நாடாளுமன்றத் தேர்தல்களில் வாக்களிக்க போதுமான வயதாகவோ அல்லது சில தேசிய இனங்கள் விசயத்தில் 16 அகவை ஆகவோ இருக்கும்.",
+    "title": "ஐரோப்பிய ஒன்றிய குடிமக்கள் முன்மொழியப்பட்ட இந்த முயற்சியை ஆதரிக்கவும்",
+    "privacy-statement": "நான் <a href=\"{{url}}\" target=\"_blank\" title=\"Read the privacy statement\">தனியுரிமை அறிக்கையைப் படித்தேன் </a> மற்றும் இந்த <a href=\"{{urlRegister}}\" target=\"_blank\"> குடிமக்கள் ’முன்முயற்சி </a>."
+  },
+  "common": {
+    "head-title": {
+      "home": "ஐரோப்பிய குடிமக்களின் முயற்சி"
+    },
+    "more_info": "மேலும்_இன்ஃபோ",
+    "requirements": {
+      "text": "<a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">கட்டுப்பாடு (EU) 2019/788 ஐரோப்பிய குடிமக்களின் முன்முயற்சியில் பின்வரும் தரவை வழங்கவும். </a>"
+    }
+  },
+  "congratulations": {
+    "successfully-title": "உங்கள் உதவி அறிக்கை வெற்றிகரமாக சமர்ப்பிக்கப்பட்டுள்ளது"
+  },
+  "footer": {
+    "conformity-title": "இணக்க சான்றிதழ்"
+  },
+  "initiative": {
+    "register_webpage": "வலைப்பக்கம்_பதிவுசெய்",
+    "representative": "நபர்களைத் தொடர்பு கொள்ளுங்கள்"
+  },
+  "header": {
+    "registration_date": "பதிவு_ டேட்",
+    "registration_number": "பதிவு_நம்பர்"
+  },
+  "howsupport": {
+    "s1_text": "s1_text"
+  },
+  "privacy": {
+    "title": "தனியுரிமை அறிக்கை"
+  }
+}
