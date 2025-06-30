@@ -75,7 +75,6 @@ const Consultation = props => {
 
   const DetailsStep = () => {
     const compact = useCompactLayout("#proca-contact", 380);
-    console.log("compact", compact);
     return (
       <Grid container spacing={1} id="proca-contact">
         <NameField
