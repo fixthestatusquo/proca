@@ -17,19 +17,47 @@ import {
   StepLabel,
   StepButton,
   Paper,
+  Button,
+  Box,
 } from "@material-ui/core";
 import { Collapse } from "@material-ui/core";
 
 import NameField from "@components/field/Name";
-import EmailField from "@components/field/Email";
-import PhoneField from "@components/field/Phone";
 import Address from "@components/field/Address";
 import CommentField from "@components/field/Comment";
 
 import { imports } from "../actionPage";
 
+  const DetailsStep = ({form, handleNext}) => {
+  const classes = useStyles();
+  const config = useCampaignConfig();
+  const [data] = useData();
+  const classField = data.uuid && isValid ? classes.hidden : classes.field;
+  const enforceRequired = true;
+    const compact = useCompactLayout("#proca-contact", 380);
+    return (
+      <Grid container spacing={1} id="proca-contact">
+        <NameField
+          form={form}
+          compact={compact}
+          classField={classField}
+        />
+        <Address form={form} compact={compact} classField={classField} />
+        <CommentField form={form} classField={classField} compact={compact} />
+        <Box display="flex" justifyContent="flex-end">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+              >
+                Next
+              </Button>
+       </Box>
+      </Grid>
+    );
+  };
 const Consultation = props => {
-  const steps = ["survey", "contact", "preview"];
+  const steps = ["survey", "message", "send"];
   const [activeStep, setActiveStep] = useState(0);
 
   // Navigate to a specific step when clicked
@@ -44,7 +72,7 @@ const Consultation = props => {
     }
   };
 
-  //  const handleNext = () => setActiveStep((prev) => prev + 1);
+  const handleNext = () => setActiveStep((prev) => prev + 1);
   //  const handleBack = () => setActiveStep((prev) => prev - 1);
 
   const classes = useStyles();
@@ -68,35 +96,9 @@ const Consultation = props => {
   };
 
   const isValid = Object.keys(form.formState.errors).length === 0;
-  const classField = data.uuid && isValid ? classes.hidden : classes.field;
-  const enforceRequired = true;
 
   const SurveyStep = imports[config.component.consultation];
 
-  const DetailsStep = () => {
-    const compact = useCompactLayout("#proca-contact", 380);
-    return (
-      <Grid container spacing={1} id="proca-contact">
-        <NameField
-          form={form}
-          compact={compact}
-          classField={classField}
-          enforceRequired={enforceRequired}
-        />
-        <EmailField
-          form={form}
-          required={enforceRequired}
-          compact={compact}
-          classField={classField}
-        />
-        <Address form={form} compact={compact} classField={classField} />
-        <PhoneField form={form} classField={classField} compact={compact} />
-        <CommentField form={form} classField={classField} compact={compact} />
-
-//https://snowflaike.proca.app
-      </Grid>
-    );
-  };
   return (
     <>
       <Stepper
@@ -114,13 +116,13 @@ const Consultation = props => {
         ))}
       </Stepper>
 
-      {activeStep === 0 && <SurveyStep form={form} />}
-      {activeStep === 1 && <DetailsStep />}
+      {activeStep === 0 && <SurveyStep form={form} handleNext={handleNext}/>}
+      {activeStep === 1 && <DetailsStep form={form} handleNext={handleNext} />}
 
       {activeStep === 2 && (
         <Register
           form={form}
-          buttonText="Prepare the letter"
+          buttonText="Send"
           done={props.done}
           beforeSubmit={prepareData}
           onClick={onClick}

@@ -10,9 +10,11 @@ import TextField from "@components/TextField";
 const Comment = ({ form, classField, enforceRequired }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
-  const [isLoading, setIsLoading] = useState(false);
+  const [state, setState] = useState('untouched'); //untouched->loading->loaded
+  const isLoading = state === 'loading';
   const { t } = useTranslation();
 
+  
 useEffect(() => {
   console.log("display");
   return () => {
@@ -23,13 +25,13 @@ useEffect(() => {
 }, []);
 
   const fetchData = async () => {
-    setIsLoading(true);
   isValid = form.getValues("firstname");
   if (!isValid) {
     const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error 
 //    console.log("Field is invalid");
     return;
   }    
+    setState('loading');
     const formData = form.getValues();
     delete formData.last_name;
     delete formData.email;
@@ -89,11 +91,11 @@ useEffect(() => {
       //    const data = await response.json(); // Parse JSON response
       //console.log(data);
       //    form.setValue("comment", data.response);
+      setState('loaded');
     } catch (error) {
       console.error("Fetch error:", error);
       form.setValue("comment", "Failed to load the message");
-    } finally {
-      setIsLoading(false); // Stop loading (runs even if error occurs)
+      setState('error');
     }
   };
 
@@ -111,19 +113,25 @@ console.log("loading...",isLoading);
             config.component.register?.field?.comment?.required
           }
           label={t("Comment")}
-          helperText={t("help.comment", "")}
+          helperText={state === 'loaded' &&  "An AI wrote this message, we encourage you to read and customise it to achieve the impact possible"}
         />
       </Grid>
       <Grid item xs={12} className={classField}>
-        <Button
+        {state !== 'loaded' &&<Button
           variant="contained"
-          color="primary"
+          color="secondary"
           onClick={fetchData}
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : null}
         >
-          Help me write the message
-        </Button>
+          {isLoading ? "We're getting your email ready" : "Help me write the message"}
+        </Button>}
+        {state === 'loaded' &&<Button
+variant="outlined" 
+          onClick={fetchData}
+        >
+          Generate another message
+        </Button>}
       </Grid>
     </>
   );

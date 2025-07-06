@@ -1,6 +1,5 @@
 import { useMediaQuery } from "@material-ui/core";
 import { create } from "zustand";
-
 let layoutStore = null;
 
 const init = data => {
@@ -11,7 +10,7 @@ const init = data => {
     button: { variant: "contained" },
     margin: "dense",
     primaryColor: "#1976d2",
-    secondaryColor: "#dc004e",
+    secondaryColor: "#ffa726",
     paletteType: "light",
     backgroundColor: "transparent",
     ...data,
