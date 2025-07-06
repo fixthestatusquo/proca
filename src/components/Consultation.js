@@ -35,7 +35,7 @@ import { imports } from "../actionPage";
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   const enforceRequired = true;
     const compact = useCompactLayout("#proca-contact", 380);
-    return (
+    return (<>
       <Grid container spacing={1} id="proca-contact">
         <NameField
           form={form}
@@ -44,6 +44,7 @@ import { imports } from "../actionPage";
         />
         <Address form={form} compact={compact} classField={classField} />
         <CommentField form={form} classField={classField} compact={compact} />
+      </Grid>
         <Box display="flex" justifyContent="flex-end">
               <Button
                 variant="contained"
@@ -53,8 +54,7 @@ import { imports } from "../actionPage";
                 Next
               </Button>
        </Box>
-      </Grid>
-    );
+    </>);
   };
 const Consultation = props => {
   const steps = ["survey", "message", "send"];
