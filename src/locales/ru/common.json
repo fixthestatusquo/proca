@@ -35,7 +35,7 @@
     "reminder": "Напомните мне позже",
     "reminderEmail": "Напомнить мне по электронной почте",
     "share": "Поделиться",
-    "sign": "Подпишитесь",
+    "sign": "Подпишитесь сейчас!",
     "stayInformed": "Будьте в курсе",
     "takeAction": "Примите меры",
     "twitter": "Твитнуть"
@@ -76,13 +76,13 @@
   "donation": {
     "amount": {
       "change": "Сумма изменений",
-      "intro": "Выберите сумму :"
+      "intro": "Выберите сумму"
     },
-    "average": "Средний размер пожертвования составляет {{amount}}.",
+    "average": "Средний размер пожертвования составляет {{amount}}",
     "button": {
       "cta": {
-        "monthly": "Donate {{amount}} every month",
-        "oneoff": "Donate {{amount}}"
+        "monthly": "Пожертвовать {{amount}} каждый месяц",
+        "oneoff": "Пожертвовать {{amount}}"
       }
     },
     "error": {
@@ -99,7 +99,7 @@
     },
     "form": {
       "error": {
-        "minimum": "Минимальный размер пожертвования составляет {{amount}}."
+        "minimum": "Минимальное пожертвование составляет {{amount}}"
       }
     },
     "frequency": {
@@ -122,7 +122,7 @@
       "weekly": "еженедельно",
       "yearly": "ежегодно"
     },
-    "iban": "ибан",
+    "iban": "IBAN",
     "intro": "Пожертвовать на {{org}}",
     "payment": "Оплата",
     "payment_methods": {
@@ -208,7 +208,7 @@
   },
   "supporter": {
     "greeting": "Добро пожаловать {{firstname}}!",
-    "not_you": "Не  ты?",
+    "not_you": "Не ты?",
     "welcome": "С возвращением {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
@@ -217,12 +217,12 @@
       "empty": "Выберите другую страну, в {{country}} не с кем связаться.",
       "undefined": "Выберите страну"
     },
-    "missing": "Выберите хотя бы один из {{total}}",
+    "missing": "Выберите хотя бы 1 из {{total}}",
     "postcode": {
       "empty": "не с кем связаться в {{area}}",
       "undefined": "Введите ваш почтовый индекс"
     },
-    "random_one": "Выбрана одна из наших {{total}} наиболее важных целей.",
+    "random_one": "Выбрана одна из {{total}} важных целей.",
     "random_other": "Избранные {{count}} из нашего {{total}} наиболее важные цели",
     "selected": "{{total}} выбранный"
   },
