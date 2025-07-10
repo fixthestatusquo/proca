@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<%= lang %>">
+<html lang="<%= lang %>" data-theme="<%= lang %>">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -27,25 +27,30 @@
     />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@eucampaign" />
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-
     <style>
+      .container {
+        padding-top: 60px;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: rgba(var(--pico-card-background-color-rgb), 0.85);
+        border-bottom: 1px solid rgba(var(--pico-border-color-rgb), 0.3);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px); /* Optional frosted glass effect */
+        padding: 0 3em;
+      }
+
+      .navbar-brand {
+        color: var(--pico-color);
+      }
+
       #help,
       #widget-demo {
         display: block;
@@ -71,46 +76,53 @@
       aa.light {
         background: "transparent";
       }
-      html {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
-          "Lucida Typewriter", monospace;
+
+      .alert {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: var(--pico-border-radius);
+      }
+
+      .alert-info {
+        background-color: #e8f4fd;
+        border-color: #b6e0fe;
+        color: #3178c6;
+      }
+
+      .alert-warning {
+        background-color: #fff4e5;
+        border-color: #ffd8a8;
+        color: #c17d00;
+      }
+
+      .alert-primary {
+        background-color: var(--pico-primary-background);
+        border-color: var(--primary-border);
+        color: var(--pico-primary-inverse);
+      }
+      .alert-primary p {
+        color: var(--pico-primary-inverse);
       }
     </style>
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    -->
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <minimal-style style="display: none">
       .proca-widget, #widget-demo {max-width:600px;min-width:300px} .row{
       display: flex; flex-direction: row; flex-wrap: wrap; width:100%; } .col{
       display: flex; flex-direction: column; flex-basis: 100%; padding:0 10px;
       flex:1; } pre {background:#dede; padding: 10px}
     </minimal-style>
-    <style>
-      body {
-        padding-top: 5rem;
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#"><%= campaign %></a>
+      <ul>
+        <li>
+          <b><a class="navbar-brand" href="#"><%= campaign %></a> </b>
+        </li>
+      </ul>
 
-      <div class="collapse navbar-collapse" id="">
-        <div class="navbar-nav mr-auto" id="share" class="proca-share"></div>
-        <div
+      <ul class="collapse navbar-collapse" id="">
+        <li class="navbar-nav mr-auto" id="share" class="proca-share"></li>
+        <li
           class="btn-group btn-group-sm"
           role="toolbar"
           aria-label="Actions for the webmasters"
@@ -131,28 +143,29 @@
           >
             ?
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
     </nav>
     <noscript
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
       <div class="proca-progress"></div>
-<div id="share"></div>
+      <div id="share"></div>
       <div class="proca-widget" id="widget-demo">
         <p class="proca-description alert alert-info">
-This text (and all the rest of the page) is written in your CMS, the widget is the action form.
+          This text (and all the rest of the page) is written in your CMS, the
+          widget is the action form.
         </p>
         <div class="alert alert-warning proca-Petition" role="alert">
-            if you want to, you can put a
-            <b
-              >div with the class="proca-Petition" that will only be shown on
-              the petition step</b
-            >
-            of the user journey, for instance to display the text of the
-            campaign. <br />This is optional, this text is not part of the
-            widget per se, you should put it on your website<br />
+          if you want to, you can put a
+          <b
+            >div with the class="proca-Petition" that will only be shown on the
+            petition step</b
+          >
+          of the user journey, for instance to display the text of the campaign.
+          <br />This is optional, this text is not part of the widget per se,
+          you should put it on your website<br />
         </div>
         <div class="alert alert-warning proca-Share" role="alert">
           <p>
@@ -166,9 +179,11 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
         </div>
         <div class="alert alert-danger proca-Share" role="alert">
           <p>
-             Please test on your own website. This page is a placeholder to help you embed the widget on your site, not to test it
+            Please test on your own website. This page is a placeholder to help
+            you embed the widget on your site, not to test it
             <b
-              >This is normal the share step looks incomplete, because it require to be on your page to be correct</b
+              >This is normal the share step looks incomplete, because it
+              require to be on your page to be correct</b
             >
           </p>
         </div>
@@ -265,8 +280,7 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
         </div>
 
         <div class="row">
-          <div class="col proca-messages">
-</div>
+          <div class="col proca-messages"></div>
           <div></div>
         </div>
       </div>
@@ -322,7 +336,8 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
         const controller = document.getElementById("controls");
         proca.getJourney().forEach((name) => {
           const a = document.createElement("a");
-          a.className = "btn btn-info";
+          a.className = "btn btn-info secondardy";
+          a.role = "button";
           a.href = `#proca_${name}`;
           a.textContent = name;
           controller.appendChild(a);
@@ -352,14 +367,14 @@ This text (and all the rest of the page) is written in your CMS, the widget is t
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
         console.log(e.detail.message, e.detail);
-          const theme = proca.get().layout?.theme;
-          if (theme === 'dark') {
-document.body.style.backgroundColor = "black";
-          }
+        const theme = proca.get().layout?.theme;
+        if (theme === "dark") {
+          document.body.style.backgroundColor = "black";
+        }
       });
 
       window.addEventListener("proca", function (e) {
-//      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
+        //      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
         if (e.detail.message === "init") {
           const help = document.getElementById("help");
           help.classList.toggle("hidden");

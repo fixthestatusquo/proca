@@ -94,6 +94,8 @@ function widgetBuildConfig(webpack, config) {
       plug.options.templateParameters = {
         campaign: config.campaign.title,
         organisation: config.organisation,
+        theme: config.layout.theme || "light",
+        color: config.layout.primaryColor || "#0172ad",
         lang: config.lang,
         filename: config.filename,
       };
