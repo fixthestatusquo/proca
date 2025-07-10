@@ -33,6 +33,9 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <style>
+      html {
+      scroll-padding-top: 60px;
+      }
       .container {
         padding-top: 60px;
       }
@@ -83,10 +86,13 @@
         border-radius: var(--pico-border-radius);
       }
       .alert p,
+      .alert a,
       .alert ul {
         color: inherit;
       }
-
+      .alert a {
+        text-decoration: underline;
+    }
       .alert-info {
         background-color: #e8f4fd;
         border-color: #b6e0fe;
@@ -329,7 +335,7 @@ The widget <i>displayed below</i> provides the progress bar, the form for your s
         const targetPosition =
           target.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
-          top: targetPosition - 80,
+          top: targetPosition -90,
           behavior: "smooth",
         });
       }
