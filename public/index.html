@@ -83,6 +83,9 @@
         border: 1px solid transparent;
         border-radius: var(--pico-border-radius);
       }
+      .alert p {
+        color: inherit;
+      }
 
       .alert-info {
         background-color: #e8f4fd;
@@ -96,12 +99,14 @@
         color: #c17d00;
       }
 
+      .alert-danger {
+        background-color: #f8d7da;
+        border: 1px solid #f5c2c7;
+        color: #842029;
+      }
       .alert-primary {
         background-color: var(--pico-primary-background);
         border-color: var(--primary-border);
-        color: var(--pico-primary-inverse);
-      }
-      .alert-primary p {
         color: var(--pico-primary-inverse);
       }
     </style>
@@ -139,7 +144,7 @@
             id="btn-help"
             title="How to embed this into your website?"
             class="btn btn-secondary d-none"
-            onClick="toggleHelp()"
+            onClick="scrollToAnchor('help')"
           >
             ?
           </button>
@@ -157,17 +162,21 @@
           This text (and all the rest of the page) is written in your CMS, the
           widget is the action form.
         </p>
-        <div class="alert alert-warning proca-Petition" role="alert">
+        <div
+          class="alert alert-warning proca-Petition"
+          id="step-1"
+          role="alert"
+        >
           if you want to, you can put a
           <b
-            >div with the class="proca-Petition" that will only be shown on the
-            petition step</b
+            >div with the class="proca-%step-1%" that will only be shown on the
+            1st step</b
           >
           of the user journey, for instance to display the text of the campaign.
           <br />This is optional, this text is not part of the widget per se,
           you should put it on your website<br />
         </div>
-        <div class="alert alert-warning proca-Share" role="alert">
+        <div class="alert alert-warning proca-Share" id="step-2" role="alert">
           <p>
             if you want to, you can put a
             <b
@@ -180,7 +189,7 @@
         <div class="alert alert-danger proca-Share" role="alert">
           <p>
             Please test on your own website. This page is a placeholder to help
-            you embed the widget on your site, not to test it
+            you embed the widget on your site, not to test it<br />
             <b
               >This is normal the share step looks incomplete, because it
               require to be on your page to be correct</b
@@ -222,7 +231,7 @@
             </p>
             <p class="proca-text [disable]share-whatsapp">Hi, sign that!</p>
             <p class="proca-text [disable]ddd-consent-into"></p>
-            <h2>How to embed this into your website?</h2>
+            <h2 id="help">How to embed this into your website?</h2>
 
             <div class="alert alert-primary">
               <p>
@@ -245,7 +254,7 @@
                 This is the most flexible solution, you can have a full width
                 form, or manage your layout exactly the way your want.
                 <pre class="dynamic">
-&lt;script src="https://%widget_path%">&lt;/script>
+&lt;script src="https://%widget_path%" async>&lt;/script>
           </pre
                 >
               </div>
@@ -297,6 +306,17 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
+      function scrollToAnchor(id) {
+        const target = document.getElementById(id);
+        console.log(id, target);
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: targetPosition - 80,
+          behavior: "smooth",
+        });
+      }
+
       window.dataLayer = [];
       let params = {};
       function display() {
@@ -327,9 +347,13 @@
         if (urlParams.get("actionPage"))
           params.actionPage = urlParams.get("actionPage");
 
-        //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
         createJourneyButtons();
+        const step1 = proca.getJourney()[0];
+        const step1dom = document.getElementById("step-1");
+        step1dom.classList.add("proca-" + step1);
+        console.log(step1dom.innerHTML);
+        step1dom.innerHTML = step1dom.innerHTML.replace("%step-1%", step1);
       }
 
       function createJourneyButtons() {
@@ -367,27 +391,7 @@
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
         console.log(e.detail.message, e.detail);
-        const theme = proca.get().layout?.theme;
-        if (theme === "dark") {
-          document.body.style.backgroundColor = "black";
-        }
       });
-
-      window.addEventListener("proca", function (e) {
-        //      proca.set("component", {share: {url: "https://example.org",open: false,next: false,}});
-        if (e.detail.message === "init") {
-          const help = document.getElementById("help");
-          help.classList.toggle("hidden");
-          //widget-example
-        }
-      });
-
-      function toggleHelp() {
-        let help = document.getElementById("help");
-        help.classList.toggle("hidden");
-        let widget = document.getElementById("widget-demo");
-        widget.classList.toggle("hidden");
-      }
     </script>
   </body>
 </html>
