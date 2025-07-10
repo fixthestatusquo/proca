@@ -53,7 +53,6 @@
 
       #help,
       #widget-demo {
-        display: block;
         _transform: scaleY(1);
         transition: transform 400ms ease 0ms;
       }
@@ -83,7 +82,8 @@
         border: 1px solid transparent;
         border-radius: var(--pico-border-radius);
       }
-      .alert p {
+      .alert p,
+      .alert ul {
         color: inherit;
       }
 
@@ -157,44 +157,61 @@
     <div id="root" class="container">
       <div class="proca-progress"></div>
       <div id="share"></div>
-      <div class="proca-widget" id="widget-demo">
-        <p class="proca-description alert alert-info">
-          This text (and all the rest of the page) is written in your CMS, the
-          widget is the action form.
-        </p>
-        <div
-          class="alert alert-warning proca-Petition"
-          id="step-1"
-          role="alert"
-        >
-          if you want to, you can put a
-          <b
-            >div with the class="proca-%step-1%" that will only be shown on the
-            1st step</b
+      <div class="grid" id="widget-demo">
+        <div role="left-column">
+          <div class="proca-description alert alert-info">
+            <b>This is a Preview. </b>On your live site, you’ll need to write
+            -or paste- the campaign content directly into your CMS/page editor.
+
+            <ul>
+              <li>Title</li>
+
+              <li>Visual (optional image)</li>
+
+              <li>Call-to-action and campaign's demands</li>
+              <li>
+                some additional information/background information (optional)
+              </li>
+            </ul>
+           The campaign coordinator should have provided you a template.
+          </div>
+          <div
+            class="alert alert-warning proca-Petition"
+            id="step-1"
+            role="alert"
           >
-          of the user journey, for instance to display the text of the campaign.
-          <br />This is optional, this text is not part of the widget per se,
-          you should put it on your website<br />
+            Optionally, you can have content only displayed on the 1st step of
+            the supporter's journey. for instance a welcome message and the full
+            background information. <br />
+            Add an html <b>class="proca-%step-1%" </b>on all the content you
+            want to remove afer the supporter took the main action
+          </div>
+          <div class="alert alert-warning proca-Share" id="step-2" role="alert">
+            <p>
+              if you want to, you can put a
+              <b
+                >div with the class="proca-Share" that will only be shown on the
+                share step</b
+              >
+              of the user journey.
+            </p>
+          </div>
+          <div class="alert alert-danger proca-Share" role="alert">
+            <p>
+              Please test on your own website. This page is a placeholder to
+              help you embed the widget on your site, not to test it<br />
+              <b
+                >This is normal the share step looks incomplete, because it
+                require to be on your page to be correct</b
+              >
+            </p>
+          </div>
         </div>
-        <div class="alert alert-warning proca-Share" id="step-2" role="alert">
-          <p>
-            if you want to, you can put a
-            <b
-              >div with the class="proca-Share" that will only be shown on the
-              share step</b
-            >
-            of the user journey.
-          </p>
-        </div>
-        <div class="alert alert-danger proca-Share" role="alert">
-          <p>
-            Please test on your own website. This page is a placeholder to help
-            you embed the widget on your site, not to test it<br />
-            <b
-              >This is normal the share step looks incomplete, because it
-              require to be on your page to be correct</b
-            >
-          </p>
+        <div role="right-column">
+          <div class="alert alert-info">
+The widget <i>displayed below</i> provides the progress bar, the form for your supporters to take action and the social sharing step  
+</div >
+          <div class="proca-widget"></div>
         </div>
       </div>
       <div class="row" id="help">
