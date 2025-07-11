@@ -52,6 +52,7 @@
 }
       
       .proca-widget  {position:relative; z-index:2; opacity:1;background-color: rgba(var(--pico-card-background-color-rgb))}
+      .proca-widget .proca-MuiSnackbar-root {z-index:300}
 
       .container {
         padding-top: 60px;
@@ -59,7 +60,7 @@
       nav {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 2;
         background-color: rgba(var(--pico-card-background-color-rgb), 0.85);
         border-bottom: 1px solid rgba(var(--pico-border-color-rgb), 0.3);
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -86,9 +87,8 @@
         transition: transform 400ms ease 0ms;
       }
       pre {
-        background: #e3e3e3;
         margin-top: 15px;
-        padding: 15px;
+        padding: 15px 15px 0 15px;
       }
 
       aa.dark {
@@ -351,7 +351,6 @@ The widget <i style="cursor:pointer" onClick="toggleVisibility()">displayed belo
     <script>
       function scrollToAnchor(id) {
         const target = document.getElementById(id);
-        console.log(id, target);
         const targetPosition =
           target.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
@@ -395,7 +394,6 @@ The widget <i style="cursor:pointer" onClick="toggleVisibility()">displayed belo
         const step1 = proca.getJourney()[0];
         const step1dom = document.getElementById("step-1");
         step1dom.classList.add("proca-" + step1);
-        console.log(step1dom.innerHTML);
         step1dom.innerHTML = step1dom.innerHTML.replaceAll("%step-1%", step1);
       }
 
