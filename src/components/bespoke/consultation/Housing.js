@@ -190,6 +190,7 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
         questionIds.map(q => {
           // Assuming each question has a `json` field with the data
           const json = questions.find(item => item.id === q);
+          if (!json) return "NO data for question " + q;
           return <GenerateQuestions json={json} form={form} key={json.id} findQuestionById={findQuestionById} />
         })
       }
