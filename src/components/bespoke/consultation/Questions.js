@@ -1,27 +1,47 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { FormControl, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography } from "@material-ui/core";
+import {
+  FormControl,
+  FormLabel,
+  FormControlLabel,
+  Box,
+  Radio,
+  RadioGroup,
+  Typography,
+} from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 
-const GenerateQuestions = ({json, form, findQuestionById}) => {
-    if (json.type === "FreeTextQuestion") {
-      return (<TextInput json={json} key={json.id} form={form} />);
-    }
+const GenerateQuestions = ({ json, form, findQuestionById }) => {
+  if (json.type === "FreeTextQuestion") {
+    return (
+      <TextField
+        form={form}
+        label={json.strippedTitle}
+        name={json.attributeName}
+        multiline
+        minRows={json?.max_length > 255 ? 3 : 1}
+        inputProps={{
+          maxLength: json.max_length || 300,
+        }}
+        helperText={`${(form.watch(json.attributeName) || "").length}/${json.max_length || 300} characters`}
+      />
+    );
+  }
 
-    if (json.type === "SingleChoiceQuestion") {
-      return (
-        <SingleChoiceInput
-          key={json.id}
-          json={json}
-          form={form}
-          findQuestionById={findQuestionById}
-        />
-      );
-    }
+  if (json.type === "SingleChoiceQuestion") {
+    return (
+      <SingleChoiceInput
+        key={json.id}
+        json={json}
+        form={form}
+        findQuestionById={findQuestionById}
+      />
+    );
+  }
 
-    if (json.type === "MultipleChoiceQuestion") {
-       return (
+  if (json.type === "MultipleChoiceQuestion") {
+    return (
       <MultipleChoiceInput
         key={json.id}
         json={json}
@@ -29,52 +49,29 @@ const GenerateQuestions = ({json, form, findQuestionById}) => {
         findQuestionById={findQuestionById}
       />
     );
-    }
+  }
 
-    if (json.type === "Section") {
-      return (
-        <Typography
-          key={json.id}
-          variant="h6"
-          sx={{ mt: 4, mb: 2 }}
-        >
-          {json.strippedTitle || json.title}
-        </Typography>
-      );
-    }
+  if (json.type === "Section") {
+    return (
+      <Typography key={json.id} variant="h6" sx={{ mt: 4, mb: 2 }}>
+        {json.strippedTitle || json.title}
+      </Typography>
+    );
+  }
 
-    if (json.type === "Text") {
-      return (
-        <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
-          {json.strippedTitle}
-        </Typography>
-      );
-    }
+  if (json.type === "Text") {
+    return (
+      <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
+        {json.strippedTitle}
+      </Typography>
+    );
+  }
 
+  if (json.type === "Upload") {
+    return <div key={json.id}>No upload! {json.strippedTitle}</div>;
+  }
 
-    if (json.type === "Upload") {
-      return <div key={json.id}>No upload! {json.strippedTitle}</div>;
-    }
-
-    return 'Unknown question type';
-  };
-
-const TextInput = ({ json, form }) => {
-  return (
-    <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
-      <TextField
-        form={form}
-        name={json.attributeName}
-        multiline
-        minRows={3}
-        inputProps={{
-          maxLength: json.max_length || 300,
-        }}
-        helperText={`${(form.watch(json.attributeName) || "").length}/${json.max_length || 300} characters`}
-      />
-    </FormControl>
-  )
+  return "Unknown question type";
 };
 
 const DependentQuestions = ({ ids, findQuestionById, form }) => {
@@ -92,7 +89,6 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
   );
 };
 
-
 const getDependantIds = (options, selected) => {
   return options
     .filter(opt => selected.includes(String(opt.id)))
@@ -100,7 +96,7 @@ const getDependantIds = (options, selected) => {
       (opt.dependentElementsString?.split(";") || []).filter(Boolean)
     )
     .map(Number);
-}
+};
 
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   const selected = form.watch(json.attributeName) || "";
@@ -127,14 +123,14 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
         )}
       />
 
-    {/* Render dependent elements if any */}
-    {dependentIds.length > 0 && (
-      <DependentQuestions
-        ids={dependentIds}
-        findQuestionById={findQuestionById}
-        form={form}
-      />
-    )}
+      {/* Render dependent elements if any */}
+      {dependentIds.length > 0 && (
+        <DependentQuestions
+          ids={dependentIds}
+          findQuestionById={findQuestionById}
+          form={form}
+        />
+      )}
     </FormControl>
   );
 };
@@ -175,21 +171,25 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   );
 };
 
-
 const Survey = ({ form, ids: questionIds, questions }) => {
-  const findQuestionById = (id) => questions?.find(q => q.id === id);
+  const findQuestionById = id => questions?.find(q => q.id === id);
   if (!questions) return null;
   return (
-      <>
-        {
-          questionIds.map(q => {
-            // Assuming each question has a `json` field with the data
-            const json = questions.find(item => item.id === q);
-            return <GenerateQuestions json={json} form={form} key={json.id} findQuestionById={findQuestionById} />
-          })
-        }
-      </>
-    );
+    <>
+      {questionIds.map(q => {
+        // Assuming each question has a `json` field with the data
+        const json = questions.find(item => item.id === q);
+        return (
+          <GenerateQuestions
+            json={json}
+            form={form}
+            key={json.id}
+            findQuestionById={findQuestionById}
+          />
+        );
+      })}
+    </>
+  );
 };
 
 export default Survey;
