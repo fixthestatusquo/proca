@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-
 import {
   FormControl,
   FormLabel,
@@ -9,6 +8,7 @@ import {
   FormControlLabel,
   Checkbox,
   makeStyles,
+  Typography
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(-1), // Negative margin to reduce label space
     paddingTop: theme.spacing(0.5), // Small padding instead of default
     alignItems: "flex-start",
-    color: theme.palette.text.primary, 
+    color: theme.palette.text.primary,
     "& .proca-MuiTypography-root": {
       lineHeight: 1.3,
       marginTop: 5, // Optional: slight adjustment to align with checkbox
@@ -31,44 +31,56 @@ const useStyles = makeStyles(theme => ({
   checkboxRoot: {
     padding: theme.spacing(0.5), // Smaller checkbox padding
     "& input": {
-      height: 'auto!important', 
+      height: 'auto!important',
     },
   },
 }));
 
-const MultiSelectCheckbox = ({ form, name, label, options }) => {
+const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) => {
   const classes = useStyles();
+  const selectedValues = form.watch(name) || [];
 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
       <FormLabel component="legend">{label}</FormLabel>
+      {maxChoices && (
+        <Typography variant="caption" color="textSecondary">
+          You can select up to {maxChoices} option{maxChoices > 1 ? "s" : ""}
+        </Typography>
+      )}
       <Controller
         name={name}
         control={form.control}
         defaultValue={[]}
         render={({ field }) => (
           <FormGroup>
-            {Object.entries(options).map(([key, label]) => (
-              <FormControlLabel
-                key={key}
-                className={classes.checkboxLabel}
-                control={
-                  <Checkbox
-                    className={classes.checkboxRoot}
-                    checked={field.value.includes(key)}
-                    onChange={e => {
-                      const value = key;
-                      const newValues = e.target.checked
-                        ? [...field.value, value]
-                        : field.value.filter(item => item !== value);
-                      field.onChange(newValues);
-                    }}
-                    color="primary"
-                  />
-                }
-                label={label}
-              />
-            ))}
+            {Object.entries(options).map(([key, label]) => {
+              const isChecked = selectedValues.includes(key);
+              const disableUnchecked =
+                maxChoices && !isChecked && selectedValues.length >= maxChoices;
+
+              return (
+                <FormControlLabel
+                  key={key}
+                  className={classes.checkboxLabel}
+                  control={
+                    <Checkbox
+                      className={classes.checkboxRoot}
+                      checked={isChecked}
+                      onChange={e => {
+                        const newValues = e.target.checked
+                          ? [...selectedValues, key]
+                          : selectedValues.filter(item => item !== key);
+                        field.onChange(newValues);
+                      }}
+                      disabled={disableUnchecked}
+                      color="primary"
+                    />
+                  }
+                  label={label}
+                />
+              );
+            })}
           </FormGroup>
         )}
       />
