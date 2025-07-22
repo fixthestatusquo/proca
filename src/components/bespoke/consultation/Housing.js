@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useConfig,  useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
-import MultiSelect from "@components/field/MultiSelect";
-import SingleSelect from "@components/field/Select";
 import { Controller } from "react-hook-form";
-import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Button, Radio, RadioGroup, Typography } from "@material-ui/core";
+import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography } from "@material-ui/core";
 import TextField from "@components/TextField";
-
-const c = [{}]
 
 const GenerateQuestions = ({json, form}) => {
     if (json.type === "FreeTextQuestion") {
@@ -24,6 +20,7 @@ const GenerateQuestions = ({json, form}) => {
         />
       );
     }
+
     if (json.type === "MultipleChoiceQuestion") {
        return (
       <MultipleChoiceInput
@@ -34,6 +31,7 @@ const GenerateQuestions = ({json, form}) => {
       />
     );
     }
+
     if (json.type === "Section") {
       return (
         <Typography
@@ -79,6 +77,22 @@ const TextInput = ({ json, form }) => {
     </FormControl>
   )
 };
+
+const DependentQuestions = ({ ids, findQuestionById, form }) => {
+  return (
+    <>
+      {ids.map(depId => {
+        const dep = findQuestionById(depId);
+        return dep ? (
+          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
+            <GenerateQuestions json={dep} form={form} />
+          </Box>
+        ) : null;
+      })}
+    </>
+  );
+};
+
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   const selected = form.watch(json.attributeName);
   const selectedOption = json.possibleAnswers.find(opt => String(opt.id) === String(selected));
@@ -105,15 +119,14 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
         )}
       />
 
-      {/* Render dependent elements if any */}
-      {dependentIds.map(depId => {
-        const dep = findQuestionById(Number(depId));
-        return dep ? (
-          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
-            <GenerateQuestions json={dep} form={form} />
-          </Box>
-        ) : null;
-      })}
+    {/* Render dependent elements if any */}
+    {dependentIds.length > 0 && (
+      <DependentQuestions
+        ids={dependentIds}
+        findQuestionById={findQuestionById}
+        form={form}
+      />
+    )}
     </FormControl>
   );
 };
@@ -126,7 +139,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
     const newValues = checked
       ? [...selectedValues, value]
       : selectedValues.filter(v => v !== value);
-
     onChange(newValues);
   };
 
@@ -140,7 +152,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
       <FormLabel component="legend">{json.strippedTitle}</FormLabel>
-
       <Controller
         name={json.attributeName}
         control={form.control}
@@ -151,7 +162,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
               const value = String(opt.id);
               const isChecked = selectedValues.includes(value);
               const disableUnchecked = maxChoices && !isChecked && selectedValues.length >= maxChoices;
-
               return (
                 <FormControlLabel
                   key={value}
@@ -172,22 +182,19 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           </FormGroup>
         )}
       />
-
       <Typography variant="caption" color="textSecondary">
         {maxChoices
           ? `${selectedValues.length}/${maxChoices} selected`
           : `${selectedValues.length} selected`}
       </Typography>
-
       {/* Render dependent questions */}
-      {dependentIds.map(depId => {
-        const dep = findQuestionById(depId);
-        return dep ? (
-          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
-            <GenerateQuestions json={dep} form={form} />
-          </Box>
-        ) : null;
-      })}
+      {dependentIds.length > 0 && (
+        <DependentQuestions
+          ids={dependentIds}
+          findQuestionById={findQuestionById}
+          form={form}
+        />
+      )}
     </FormControl>
   );
 };
@@ -197,8 +204,6 @@ const Survey = ({ form, handleNext }) => {
   const config = useConfig();
   const questions = useCampaignConfig().component?.questions || [];
   const consultLang = i18n.language;
-
-
 
  return (
     <>
