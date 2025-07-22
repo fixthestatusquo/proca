@@ -13,6 +13,21 @@ const Survey = ({ form, handleNext }) => {
   return (<>
 
 {Object.keys(questions).map(k => {
+    if (questions[k].type === "radio") {
+      return (
+        <FormControl component="fieldset" key={k}>
+          <FormLabel component="legend">{questions[k].question}</FormLabel>
+
+          <SingleSelect
+            form={form}
+            label=" "
+            name={k}
+            options={"campaign:questions." + k + ".options"}
+            select="key"
+          />
+        </FormControl>
+      );
+    }
     if (questions[k].type === "single_select") {
       return (
         <FormControl component="fieldset" key={k}>
