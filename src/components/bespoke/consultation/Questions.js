@@ -14,19 +14,7 @@ import MultiSelectCheckbox from "@components/field/MultiSelect";
 
 const GenerateQuestions = ({ json, form, findQuestionById }) => {
   if (json.type === "FreeTextQuestion") {
-    return (
-      <TextField
-        form={form}
-        label={json.strippedTitle}
-        name={json.attributeName}
-        multiline
-        minRows={json?.max_length > 255 ? 3 : 1}
-        inputProps={{
-          maxLength: json.max_length || 300,
-        }}
-        helperText={`${(form.watch(json.attributeName) || "").length}/${json.max_length || 300} characters`}
-      />
-    );
+    return <TextQuestion form={form} json={json} />;
   }
 
   if (json.type === "SingleChoiceQuestion") {
@@ -96,6 +84,32 @@ const getDependantIds = (options, selected) => {
       (opt.dependentElementsString?.split(";") || []).filter(Boolean)
     )
     .map(Number);
+};
+
+const TextQuestion = ({ json, form }) => {
+  const multiline = json.strippedTitle.length > 30 && json.maxCharacters > 100;
+  const question = /^\d/.test(json.strippedTitle); // starts with number - meaning is question
+
+  return (
+    <>
+      {question && (
+        <FormLabel component="legend" style={{ marginTop: 16 }}>
+          {json.strippedTitle}
+        </FormLabel>
+      )}
+      <TextField
+        form={form}
+        label={question ? "" : json.strippedTitle}
+        name={json.attributeName}
+        multiline={multiline}
+        minRows={multiline ? 3 : 1}
+        inputProps={{
+          maxLength: json.maxCharacters || 100,
+        }}
+        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+      />
+    </>
+  );
 };
 
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
