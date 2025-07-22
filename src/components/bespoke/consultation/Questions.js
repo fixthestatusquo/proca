@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useConfig,  useCampaignConfig } from "@hooks/useConfig";
-import { useTranslation } from "react-i18next";
+import React from "react";
 import { Controller } from "react-hook-form";
-import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography, LinearProgress } from "@material-ui/core";
+import { FormControl, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography } from "@material-ui/core";
 import TextField from "@components/field/TextField";
-import MultiSelectCheckbox from "../../field/MultiSelect";
-
+import MultiSelectCheckbox from "@components/field/MultiSelect";
 
 const GenerateQuestions = ({json, form, findQuestionById}) => {
     if (json.type === "FreeTextQuestion") {
@@ -58,7 +55,7 @@ const GenerateQuestions = ({json, form, findQuestionById}) => {
     if (json.type === "Upload") {
       return <div key={json.id}>No upload! {json.strippedTitle}</div>;
     }
-    // Add more logic depending on your json structure
+
     return 'Unknown question type';
   };
 
@@ -95,10 +92,19 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
   );
 };
 
+
+const getDependantIds = (options, selected) => {
+  return options
+    .filter(opt => selected.includes(String(opt.id)))
+    .flatMap(opt =>
+      (opt.dependentElementsString?.split(";") || []).filter(Boolean)
+    )
+    .map(Number);
+}
+
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
-  const selected = form.watch(json.attributeName);
-  const selectedOption = json.possibleAnswers.find(opt => String(opt.id) === String(selected));
-  const dependentIds = selectedOption?.dependentElementsString?.split(";").filter(Boolean) || [];
+  const selected = form.watch(json.attributeName) || "";
+  const dependentIds = getDependantIds(json.possibleAnswers, [selected]);
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
@@ -135,14 +141,9 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
 
 const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   const maxChoices = json.maxChoices ?? null;
-  const selectedValues = form.watch(json.attributeName) || [];
+  const selected = form.watch(json.attributeName) || [];
 
-  const dependentIds = json.possibleAnswers
-    .filter(opt => selectedValues.includes(String(opt.id)))
-    .flatMap(opt =>
-      (opt.dependentElementsString?.split(";") || []).filter(Boolean)
-    )
-    .map(Number);
+  const dependentIds = getDependantIds(json.possibleAnswers, selected);
 
   // Build options map { id: label }
   const options = json.possibleAnswers.reduce((acc, opt) => {
@@ -152,11 +153,12 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
+      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
 
       <MultiSelectCheckbox
         form={form}
         name={json.attributeName}
-        label={json.strippedTitle}
+        label={null} // or pass a sublabel if needed
         options={options}
         maxChoices={maxChoices}
       />
@@ -174,27 +176,20 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 };
 
 
-const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
-  const { i18n } = useTranslation();
-  const config = useConfig();
-
-   const findQuestionById = (id) => questions?.find(q => q.id === id);
-
-   console.log("questions", questions,questionIds);
-   if (!questions) return null;
-
- return (
-    <>
-      {
-        questionIds.map(q => {
-          // Assuming each question has a `json` field with the data
-          const json = questions.find(item => item.id === q);
-          if (!json) return "NO data for question " + q;
-          return <GenerateQuestions json={json} form={form} key={json.id} findQuestionById={findQuestionById} />
-        })
-      }
-    </>
-  );
+const Survey = ({ form, ids: questionIds, questions }) => {
+  const findQuestionById = (id) => questions?.find(q => q.id === id);
+  if (!questions) return null;
+  return (
+      <>
+        {
+          questionIds.map(q => {
+            // Assuming each question has a `json` field with the data
+            const json = questions.find(item => item.id === q);
+            return <GenerateQuestions json={json} form={form} key={json.id} findQuestionById={findQuestionById} />
+          })
+        }
+      </>
+    );
 };
 
 export default Survey;
