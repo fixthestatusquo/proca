@@ -5,36 +5,6 @@ import { Controller } from "react-hook-form";
 import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography, LinearProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 
-const useConsultJson = (lang) => {
-  const url =`https://static.proca.app/survey/14670-European-affordable-housing-plan/consult_${lang}.json`
-
-  const [questions, setQuestions] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
- useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setQuestions(data);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-  fetchData();
-}, [url]);
-
-  return {
-    questions,
-    loading,
-    error
-  };
-};
-
 
 const GenerateQuestions = ({json, form, findQuestionById}) => {
     if (json.type === "FreeTextQuestion") {
@@ -230,17 +200,14 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   );
 };
 
-const Survey = ({ form, handleNext }) => {
+const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const { i18n } = useTranslation();
   const config = useConfig();
-  const questionIds = useCampaignConfig().component?.questions || [];
-
-  const { questions, loading, error } = useConsultJson(i18n.language);
-
-  if (loading) return <LinearProgress/>;
-  if (error) return <p>Error loading consult: {error.message}</p>;
 
    const findQuestionById = (id) => questions?.find(q => q.id === id);
+
+   console.log("questions", questions,questionIds);
+   if (!questions) return null;
 
  return (
     <>

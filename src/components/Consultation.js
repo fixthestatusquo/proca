@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useData from "@hooks/useData";
 import Register, { useStyles } from "@components/Register";
 import { useCompactLayout } from "@hooks/useElementWidth";
@@ -56,9 +56,53 @@ import { imports } from "../actionPage";
        </Box>
     </>);
   };
+
+const useConsultJson = (name,lang) => {
+
+
+  const [questions, setQuestions] = useState(undefined);
+  const [loading, setLoading] = useState(!!name);
+  const [error, setError] = useState(null);
+
+ useEffect(() => {
+  const url =`https://static.proca.app/survey/${name}/consult_${lang}.json`
+  const fetchData = async () => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setQuestions(data);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!name) return undefined;
+  fetchData();
+}, [name,lang]);
+
+  return {
+    questions,
+    loading,
+    error
+  };
+};
+
+
 const Consultation = props => {
-  const steps = ["survey", "message", "send"];
+  const steps = ["you","expert", "citizen","test AI", "send"];
   const [activeStep, setActiveStep] = useState(0);
+  const classes = useStyles();
+  const [data] = useData();
+  useSetActionType("consultation");
+  const config = useCampaignConfig();
+  const questionIds = config.component?.questions || [];
+
+  const { questions, loading, error } = useConsultJson("14670-European-affordable-housing-plan",config.lang);
+
+
 
   // Navigate to a specific step when clicked
   const handleStepClick = step => {
@@ -75,10 +119,6 @@ const Consultation = props => {
   const handleNext = () => setActiveStep((prev) => prev + 1);
   //  const handleBack = () => setActiveStep((prev) => prev - 1);
 
-  const classes = useStyles();
-  const config = useCampaignConfig();
-  const [data] = useData();
-  useSetActionType("consultation");
   const form = useForm({
     //mode: "onBlur",
     //    nativeValidation: true,
@@ -98,6 +138,8 @@ const Consultation = props => {
   const isValid = Object.keys(form.formState.errors).length === 0;
 
   const SurveyStep = imports[config.component.consultation];
+  //if (loading) return <LinearProgress/>;
+  if (error) return <p>Error loading consult: {error.message}</p>;
 
   return (
     <>
@@ -116,10 +158,10 @@ const Consultation = props => {
         ))}
       </Stepper>
 
-      {activeStep === 0 && <SurveyStep form={form} handleNext={handleNext}/>}
-      {activeStep === 1 && <DetailsStep form={form} handleNext={handleNext} />}
+      {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} />}
+      {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={questionIds}/>}
 
-      {activeStep === 2 && (
+      {activeStep === 3 && (
         <Register
           form={form}
           buttonText="Send"
