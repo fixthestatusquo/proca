@@ -34,7 +34,7 @@ import { useCampaignConfig, useSetCampaignConfig, useSetActionType } from "@hook
 import { useLayout } from "@hooks/useLayout";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
@@ -760,7 +760,7 @@ const EmailComponent = props => {
   let selectAllEnabled = true;
   if (
     config.import &&
-    (config.import.find(d => d.startsWith("filter")) || 
+    (config.import.find(d => d.startsWith("filter")) ||
      config.component.email?.filter?.includes("postcode") )
   &&
     profiles.length > 30

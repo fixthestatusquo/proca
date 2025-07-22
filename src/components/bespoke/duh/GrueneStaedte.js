@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { Grid } from "@material-ui/core";
 import { InputAdornment } from "@material-ui/core";
 import useData from "@hooks/useData";
@@ -17,11 +17,11 @@ const AdditionalQuestion = ({ classField, form, handleBeforeSubmit }) => {
     delete data._copyMessage;
     delete data.message_male;
     delete data.message_female;
-    
-    console.log("clean data",data); 
+
+    console.log("clean data",data);
     return data;
 }
- 
+
   handleBeforeSubmit (cleanData);
   //  const handleMerging = text => {setData("message", text);};
 

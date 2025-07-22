@@ -3,7 +3,7 @@ import { useConfig,  useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
 import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography, LinearProgress } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 
 const useConsultJson = (lang) => {
   const url =`https://static.proca.app/survey/14670-European-affordable-housing-plan/consult_${lang}.json`

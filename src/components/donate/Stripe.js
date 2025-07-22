@@ -10,7 +10,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 import EmailField from "@components/field/Email";
 
@@ -164,7 +164,7 @@ const PaymentForm = props => {
             required
           />
         </Grid>
-        {/* 
+        {/*
         <Grid item xs={12} display>
           <Controller
             control={control}

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Grid } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/field/Country";
@@ -43,7 +43,7 @@ const Address = props => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-                <PlaceIcon 
+                <PlaceIcon
                   color={
                     props.form.getFieldState("postcode").invalid ? "error" : "action"
                   }

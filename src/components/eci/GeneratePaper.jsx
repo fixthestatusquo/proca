@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Country from "@components/field/Country";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";

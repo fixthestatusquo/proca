@@ -5,7 +5,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { InputAdornment } from "@material-ui/core";
 import Salutation from "@components/field/Gender";
 import { Grid } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 
 const Name = ({ form, compact, classes, classField, enforceRequired }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Typography, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import { shuffle } from "@lib/array";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSupabase } from "@lib/supabase";

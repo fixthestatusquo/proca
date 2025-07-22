@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { InputAdornment } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useFormatMoney } from "@hooks/useFormatting";
 
 const OtherAmountInput = ({ form, classes, currency, setData }) => {

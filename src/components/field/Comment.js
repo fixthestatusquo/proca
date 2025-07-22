@@ -5,7 +5,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { InputAdornment } from "@material-ui/core";
 import Salutation from "@components/field/Gender";
 import { Grid, Button, CircularProgress } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 
 const Comment = ({ form, classField, enforceRequired }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -14,7 +14,7 @@ const Comment = ({ form, classField, enforceRequired }) => {
   const isLoading = state === 'loading';
   const { t } = useTranslation();
 
-  
+
 useEffect(() => {
   console.log("display");
   return () => {
@@ -27,10 +27,10 @@ useEffect(() => {
   const fetchData = async () => {
   isValid = form.getValues("firstname");
   if (!isValid) {
-    const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error 
+    const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error
 //    console.log("Field is invalid");
     return;
-  }    
+  }
     setState('loading');
     const formData = form.getValues();
     delete formData.last_name;
@@ -127,7 +127,7 @@ console.log("loading...",isLoading);
           {isLoading ? "We're getting your email ready" : "Help me write the message"}
         </Button>}
         {state === 'loaded' &&<Button
-variant="outlined" 
+variant="outlined"
           onClick={fetchData}
         >
           Generate another message

@@ -9,7 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TwitterIcon from "../../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";

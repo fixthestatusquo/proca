@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import CancelIcon from "@material-ui/icons/Cancel";
 

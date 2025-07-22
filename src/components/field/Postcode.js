@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SearchIcon from "@material-ui/icons/Search";

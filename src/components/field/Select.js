@@ -1,5 +1,5 @@
 import React from "react";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { toObject } from "@lib/text";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";

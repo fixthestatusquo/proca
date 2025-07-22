@@ -2,7 +2,7 @@ import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { checkPhone, prefetchDNS } from "@lib/checkPhone";
 //import useData from "@hooks/useData";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { Grid } from "@material-ui/core";
 import { InputAdornment } from "@material-ui/core";

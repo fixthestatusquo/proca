@@ -4,7 +4,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/filter/Country";
 import Postcode from "@components/filter/Postcode";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 //import { imports } from "../../actionPage";
 import { imports } from "../../actionPage";
 
@@ -19,12 +19,11 @@ const Filter = props => {
 
   if (config.component.email?.filter?.includes("country") &&
         typeof config.component.country !== "string" ) {
-     Filters.unshift(Country); 
+     Filters.unshift(Country);
   }
   if (config.component.email?.filter?.includes("postcode")) {
-     Filters.unshift(Postcode); 
-  }  
-  
+     Filters.unshift(Postcode);
+  }
 
   if (config.component.email?.filter) {
     nbFilters += config.component.email?.filter?.length;

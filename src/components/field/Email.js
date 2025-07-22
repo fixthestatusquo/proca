@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { checkMail, getDomain, prefetchDNS } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { Grid, InputAdornment } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";

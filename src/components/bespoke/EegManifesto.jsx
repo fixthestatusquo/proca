@@ -5,7 +5,7 @@ import Orcid from "@components/field/Orcid";
 import Select from "@components/field/Select";
 import Affiliation from "@components/field/ResearchOrganisation";
 import { Alert, AlertTitle } from "@material-ui/lab";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Country from "@components/field/Country";
 import { useTranslation } from "react-i18next";
 
