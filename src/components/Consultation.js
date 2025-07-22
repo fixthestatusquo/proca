@@ -98,10 +98,9 @@ const Consultation = props => {
   const [data] = useData();
   useSetActionType("consultation");
   const config = useCampaignConfig();
-  const questionIds = config.component?.questions || [];
+  const qids = config.component.consultation.steps || {};
 
-  const { questions, loading, error } = useConsultJson("14670-European-affordable-housing-plan",config.lang);
-
+  const { questions, loading, error } = useConsultJson(config.component.consultation.name,config.lang);
 
 
   // Navigate to a specific step when clicked
@@ -137,7 +136,7 @@ const Consultation = props => {
 
   const isValid = Object.keys(form.formState.errors).length === 0;
 
-  const SurveyStep = imports[config.component.consultation];
+  const SurveyStep = imports[config.component.consultation.component];
   //if (loading) return <LinearProgress/>;
   if (error) return <p>Error loading consult: {error.message}</p>;
 
@@ -159,7 +158,7 @@ const Consultation = props => {
       </Stepper>
 
       {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} />}
-      {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={questionIds}/>}
+      {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
 
       {activeStep === 3 && (
         <Register
