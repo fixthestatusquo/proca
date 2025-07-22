@@ -2,10 +2,41 @@ import React, { useState, useEffect } from "react";
 import { useConfig,  useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
-import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography } from "@material-ui/core";
+import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography, LinearProgress } from "@material-ui/core";
 import TextField from "@components/TextField";
 
-const GenerateQuestions = ({json, form}) => {
+const useConsultJson = (lang) => {
+  const url =`https://static.proca.app/survey/14670-European-affordable-housing-plan/consult_${lang}.json`
+
+  const [questions, setQuestions] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setQuestions(data);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchData();
+}, [url]);
+
+  return {
+    questions,
+    loading,
+    error
+  };
+};
+
+
+const GenerateQuestions = ({json, form, findQuestionById}) => {
     if (json.type === "FreeTextQuestion") {
       return (<TextInput json={json} key={json.id} form={form} />);
     }
@@ -16,7 +47,7 @@ const GenerateQuestions = ({json, form}) => {
           key={json.id}
           json={json}
           form={form}
-          findQuestionById={(id) => c.find(q => q.id === id)}
+          findQuestionById={findQuestionById}
         />
       );
     }
@@ -27,7 +58,7 @@ const GenerateQuestions = ({json, form}) => {
         key={json.id}
         json={json}
         form={form}
-        findQuestionById={(id) => c.find(q => q.id === id)}
+        findQuestionById={findQuestionById}
       />
     );
     }
@@ -202,16 +233,22 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 const Survey = ({ form, handleNext }) => {
   const { i18n } = useTranslation();
   const config = useConfig();
-  const questions = useCampaignConfig().component?.questions || [];
-  const consultLang = i18n.language;
+  const questionIds = useCampaignConfig().component?.questions || [];
+
+  const { questions, loading, error } = useConsultJson(i18n.language);
+
+  if (loading) return <LinearProgress/>;
+  if (error) return <p>Error loading consult: {error.message}</p>;
+
+   const findQuestionById = (id) => questions?.find(q => q.id === id);
 
  return (
     <>
       {
-        questions.map(q => {
+        questionIds.map(q => {
           // Assuming each question has a `json` field with the data
-          const json = c.find(item => item.id === q);
-          return <GenerateQuestions json={json} form={form} key={json.id} />
+          const json = questions.find(item => item.id === q);
+          return <GenerateQuestions json={json} form={form} key={json.id} findQuestionById={findQuestionById} />
         })
       }
     </>
