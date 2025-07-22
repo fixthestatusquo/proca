@@ -30,8 +30,8 @@ import { imports } from "../actionPage";
 
   const DetailsStep = ({form, handleNext}) => {
   const classes = useStyles();
-  const config = useCampaignConfig();
   const [data] = useData();
+  const config = useCampaignConfig();
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   const enforceRequired = true;
     const compact = useCompactLayout("#proca-contact", 380);
@@ -43,7 +43,6 @@ import { imports } from "../actionPage";
           classField={classField}
         />
         <Address form={form} compact={compact} classField={classField} />
-        <CommentField form={form} classField={classField} compact={compact} />
       </Grid>
         <Box display="flex" justifyContent="flex-end">
               <Button
@@ -56,6 +55,14 @@ import { imports } from "../actionPage";
        </Box>
     </>);
   };
+
+const TestAIStep = ({form, handleNext}) => {
+  const classes = useStyles();
+  const [data] = useData();
+  const classField = data.uuid && isValid ? classes.hidden : classes.field;
+console.log("test AI");
+        return <CommentField form={form} classField={classField} />
+}
 
 const useConsultJson = (name,lang) => {
 
@@ -106,13 +113,7 @@ const Consultation = props => {
   // Navigate to a specific step when clicked
   const handleStepClick = step => {
     console.log("go to step ", step);
-    if (step < 3) {
-      setActiveStep(step);
-    }
-    if (step < activeStep) {
-      // Allow going back, but restrict jumping ahead
-      setActiveStep(step);
-    }
+    setActiveStep(step);
   };
 
   const handleNext = () => setActiveStep((prev) => prev + 1);
@@ -159,8 +160,9 @@ const Consultation = props => {
 
       {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} />}
       {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
+      {activeStep === 3 && <TestAIStep form={form} handleNext={handleNext} />}
 
-      {activeStep === 3 && (
+      {activeStep === 4 && (
         <Register
           form={form}
           buttonText="Send"
