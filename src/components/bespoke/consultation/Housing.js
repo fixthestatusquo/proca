@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
 import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Radio, RadioGroup, Typography, LinearProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
+import MultiSelectCheckbox from "../../field/MultiSelect";
 
 
 const GenerateQuestions = ({json, form, findQuestionById}) => {
@@ -136,13 +137,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   const maxChoices = json.maxChoices ?? null;
   const selectedValues = form.watch(json.attributeName) || [];
 
-  const handleChange = (value, checked, onChange) => {
-    const newValues = checked
-      ? [...selectedValues, value]
-      : selectedValues.filter(v => v !== value);
-    onChange(newValues);
-  };
-
   const dependentIds = json.possibleAnswers
     .filter(opt => selectedValues.includes(String(opt.id)))
     .flatMap(opt =>
@@ -150,45 +144,25 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
     )
     .map(Number);
 
+  // Build options map { id: label }
+  const options = json.possibleAnswers.reduce((acc, opt) => {
+    acc[String(opt.id)] = opt.text;
+    return acc;
+  }, {});
+
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
       <FormLabel component="legend">{json.strippedTitle}</FormLabel>
-      <Controller
+
+      <MultiSelectCheckbox
+        form={form}
         name={json.attributeName}
-        control={form.control}
-        defaultValue={[]}
-        render={({ field }) => (
-          <FormGroup>
-            {json.possibleAnswers.map(opt => {
-              const value = String(opt.id);
-              const isChecked = selectedValues.includes(value);
-              const disableUnchecked = maxChoices && !isChecked && selectedValues.length >= maxChoices;
-              return (
-                <FormControlLabel
-                  key={value}
-                  control={
-                    <Checkbox
-                      checked={isChecked}
-                      onChange={e =>
-                        handleChange(value, e.target.checked, field.onChange)
-                      }
-                      disabled={disableUnchecked}
-                      color="primary"
-                    />
-                  }
-                  label={opt.text}
-                />
-              );
-            })}
-          </FormGroup>
-        )}
+        label={null} // or pass a sublabel if needed
+        options={options}
+        maxChoices={maxChoices}
       />
-      <Typography variant="caption" color="textSecondary">
-        {maxChoices
-          ? `${selectedValues.length}/${maxChoices} selected`
-          : `${selectedValues.length} selected`}
-      </Typography>
-      {/* Render dependent questions */}
+
+      {/* Render dependent questions if any are selected */}
       {dependentIds.length > 0 && (
         <DependentQuestions
           ids={dependentIds}
@@ -199,6 +173,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
     </FormControl>
   );
 };
+
 
 const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const { i18n } = useTranslation();
