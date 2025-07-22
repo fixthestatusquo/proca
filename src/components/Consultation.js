@@ -28,11 +28,12 @@ import CommentField from "@components/field/Comment";
 
 import { imports } from "../actionPage";
 
-  const DetailsStep = ({form, handleNext}) => {
+  const DetailsStep = ({form, handleNext, questions, SurveyStep}) => {
   const classes = useStyles();
   const [data] = useData();
   const config = useCampaignConfig();
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
+  const qids = config.component.consultation.steps.you.questions;
   const enforceRequired = true;
     const compact = useCompactLayout("#proca-contact", 380);
     return (<>
@@ -44,6 +45,7 @@ import { imports } from "../actionPage";
         />
         <Address form={form} compact={compact} classField={classField} />
       </Grid>
+      <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids}/>
         <Box display="flex" justifyContent="flex-end">
               <Button
                 variant="contained"
@@ -158,7 +160,7 @@ const Consultation = props => {
         ))}
       </Stepper>
 
-      {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} />}
+      {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} questions = {questions} SurveyStep = {SurveyStep} />}
       {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
       {activeStep === 3 && <TestAIStep form={form} handleNext={handleNext} />}
 
