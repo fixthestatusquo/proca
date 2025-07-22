@@ -162,6 +162,7 @@ const Consultation = props => {
 
       {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} questions = {questions} SurveyStep = {SurveyStep} />}
       {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
+      {activeStep === 2 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[2]].questions}/>}
       {activeStep === 3 && <TestAIStep form={form} handleNext={handleNext} />}
 
       {activeStep === 4 && (
