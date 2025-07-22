@@ -1,88 +1,216 @@
-import React from "react";
-//import { useCampaignConfig } from "@hooks/useConfig";
+import React, { useState, useEffect } from "react";
+import { useConfig,  useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import MultiSelect from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/Select";
-import { FormControl, FormLabel, Box, Button } from "@material-ui/core";
+import { Controller } from "react-hook-form";
+import { Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel, Box, Button, Radio, RadioGroup, Typography } from "@material-ui/core";
 import TextField from "@components/TextField";
+
+const c = [{}]
+
+const GenerateQuestions = ({json, form}) => {
+    if (json.type === "FreeTextQuestion") {
+      return (<TextInput json={json} key={json.id} form={form} />);
+    }
+
+    if (json.type === "SingleChoiceQuestion") {
+      return (
+        <SingleChoiceInput
+          key={json.id}
+          json={json}
+          form={form}
+          findQuestionById={(id) => c.find(q => q.id === id)}
+        />
+      );
+    }
+    if (json.type === "MultipleChoiceQuestion") {
+       return (
+      <MultipleChoiceInput
+        key={json.id}
+        json={json}
+        form={form}
+        findQuestionById={(id) => c.find(q => q.id === id)}
+      />
+    );
+    }
+    if (json.type === "Section") {
+      return (
+        <Typography
+          key={json.id}
+          variant="h6"
+          sx={{ mt: 4, mb: 2 }}
+        >
+          {json.strippedTitle || json.title}
+        </Typography>
+      );
+    }
+
+    if (json.type === "Text") {
+      return (
+        <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
+          {json.strippedTitle}
+        </Typography>
+      );
+    }
+
+
+    if (json.type === "Upload") {
+      return <div key={json.id}>No upload! {json.strippedTitle}</div>;
+    }
+    // Add more logic depending on your json structure
+    return 'Unknown question type';
+  };
+
+const TextInput = ({ json, form }) => {
+  return (
+    <FormControl component="fieldset" fullWidth margin="normal">
+      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <TextField
+        form={form}
+        name={json.attributeName}
+        multiline
+        minRows={3}
+        inputProps={{
+          maxLength: json.max_length || 300,
+        }}
+        helperText={`${(form.watch(json.attributeName) || "").length}/${json.max_length || 300} characters`}
+      />
+    </FormControl>
+  )
+};
+const SingleChoiceInput = ({ json, form, findQuestionById }) => {
+  const selected = form.watch(json.attributeName);
+  const selectedOption = json.possibleAnswers.find(opt => String(opt.id) === String(selected));
+  const dependentIds = selectedOption?.dependentElementsString?.split(";").filter(Boolean) || [];
+
+  return (
+    <FormControl component="fieldset" fullWidth margin="normal">
+      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <Controller
+        control={form.control}
+        name={json.attributeName}
+        defaultValue=""
+        render={({ field }) => (
+          <RadioGroup {...field}>
+            {json.possibleAnswers.map(opt => (
+              <FormControlLabel
+                key={opt.id}
+                value={String(opt.id)}
+                control={<Radio />}
+                label={opt.text}
+              />
+            ))}
+          </RadioGroup>
+        )}
+      />
+
+      {/* Render dependent elements if any */}
+      {dependentIds.map(depId => {
+        const dep = findQuestionById(Number(depId));
+        return dep ? (
+          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
+            <GenerateQuestions json={dep} form={form} />
+          </Box>
+        ) : null;
+      })}
+    </FormControl>
+  );
+};
+
+const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
+  const maxChoices = json.maxChoices ?? null;
+  const selectedValues = form.watch(json.attributeName) || [];
+
+  const handleChange = (value, checked, onChange) => {
+    const newValues = checked
+      ? [...selectedValues, value]
+      : selectedValues.filter(v => v !== value);
+
+    onChange(newValues);
+  };
+
+  const dependentIds = json.possibleAnswers
+    .filter(opt => selectedValues.includes(String(opt.id)))
+    .flatMap(opt =>
+      (opt.dependentElementsString?.split(";") || []).filter(Boolean)
+    )
+    .map(Number);
+
+  return (
+    <FormControl component="fieldset" fullWidth margin="normal">
+      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+
+      <Controller
+        name={json.attributeName}
+        control={form.control}
+        defaultValue={[]}
+        render={({ field }) => (
+          <FormGroup>
+            {json.possibleAnswers.map(opt => {
+              const value = String(opt.id);
+              const isChecked = selectedValues.includes(value);
+              const disableUnchecked = maxChoices && !isChecked && selectedValues.length >= maxChoices;
+
+              return (
+                <FormControlLabel
+                  key={value}
+                  control={
+                    <Checkbox
+                      checked={isChecked}
+                      onChange={e =>
+                        handleChange(value, e.target.checked, field.onChange)
+                      }
+                      disabled={disableUnchecked}
+                      color="primary"
+                    />
+                  }
+                  label={opt.text}
+                />
+              );
+            })}
+          </FormGroup>
+        )}
+      />
+
+      <Typography variant="caption" color="textSecondary">
+        {maxChoices
+          ? `${selectedValues.length}/${maxChoices} selected`
+          : `${selectedValues.length} selected`}
+      </Typography>
+
+      {/* Render dependent questions */}
+      {dependentIds.map(depId => {
+        const dep = findQuestionById(depId);
+        return dep ? (
+          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
+            <GenerateQuestions json={dep} form={form} />
+          </Box>
+        ) : null;
+      })}
+    </FormControl>
+  );
+};
 
 const Survey = ({ form, handleNext }) => {
   const { i18n } = useTranslation();
-  //  const config = useCampaignConfig();
-  const questions = i18n.getResourceBundle(i18n.language, "campaign").questions;
-  return (<>
+  const config = useConfig();
+  const questions = useCampaignConfig().component?.questions || [];
+  const consultLang = i18n.language;
 
-{Object.keys(questions).map(k => {
-    if (questions[k].type === "radio") {
-      return (
-        <FormControl component="fieldset" key={k}>
-          <FormLabel component="legend">{questions[k].question}</FormLabel>
 
-          <SingleSelect
-            form={form}
-            label=" "
-            name={k}
-            options={"campaign:questions." + k + ".options"}
-            select="key"
-          />
-        </FormControl>
-      );
-    }
-    if (questions[k].type === "single_select") {
-      return (
-        <FormControl component="fieldset" key={k}>
-          <FormLabel component="legend">{questions[k].question}</FormLabel>
 
-          <SingleSelect
-            form={form}
-            label=" "
-            name={k}
-            options={"campaign:questions." + k + ".options"}
-            select="key"
-          />
-        </FormControl>
-      );
-    }
-
-  if (questions[k].type === "input") {
-          return (
-            <FormControl component="fieldset" key={k} fullWidth margin="normal">
-              <FormLabel component="legend">{questions[k].question}</FormLabel>
-              <TextField
-                form={form}
-                name={k}
-                multiline
-                minRows={3}
-                inputProps={{
-                  maxLength: questions[k].max_length || 300,
-                }}
-                helperText={`${(form.watch(k) || "").length}/${questions[k].max_length || 300} characters`}
-              />
-            </FormControl>
-          );
-        }
-
-    return (
-      <MultiSelect
-        form={form}
-        label={questions[k].question}
-        name={k}
-        options={questions[k].options}
-        key={k}
-      />
-    );
-  })
-}
-        <Box display="flex" justifyContent="flex-end">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-              >
-                Next
-              </Button>
-       </Box>
-</>)
+ return (
+    <>
+      {
+        questions.map(q => {
+          // Assuming each question has a `json` field with the data
+          const json = c.find(item => item.id === q);
+          return <GenerateQuestions json={json} form={form} key={json.id} />
+        })
+      }
+    </>
+  );
 };
 
 export default Survey;
