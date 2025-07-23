@@ -12,7 +12,7 @@ import {
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 
-const GenerateQuestions = ({ json, form, findQuestionById }) => {
+const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
   if (json.type === "FreeTextQuestion") {
     return <TextQuestion form={form} json={json} />;
   }
@@ -88,20 +88,18 @@ const getDependantIds = (options, selected) => {
     .map(Number);
 };
 
-const TextQuestion = ({ json, form }) => {
+const TextQuestion = ({ json, form, dep }) => {
   const multiline = json.strippedTitle.length > 30 && json.maxCharacters > 100;
-  const question = /^\d/.test(json.strippedTitle); // starts with number - meaning is question
-
   return (
     <>
-      {question && (
+      {!dep && (
         <FormLabel component="legend" style={{ marginTop: 16 }}>
           {json.strippedTitle}
         </FormLabel>
       )}
       <TextField
         form={form}
-        label={question ? "" : json.strippedTitle}
+        label={dep ? json.strippedTitle : ""}
         name={json.attributeName}
         multiline={multiline}
         minRows={multiline ? 3 : 1}
@@ -145,6 +143,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
+          dep={true}
         />
       )}
     </FormControl>
@@ -181,6 +180,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
+          dep={true}
         />
       )}
     </FormControl>
