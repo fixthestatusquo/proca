@@ -26,37 +26,9 @@ import NameField from "@components/field/Name";
 import Address from "@components/field/Address";
 import CommentField from "@components/field/Comment";
 
-import { imports } from "../actionPage";
+import SurveyStep from "@components/survey/Questions";
+import DetailsStep from "@components/survey/YouStep";
 
-  const DetailsStep = ({form, handleNext, questions, SurveyStep}) => {
-  const classes = useStyles();
-  const [data] = useData();
-  const config = useCampaignConfig();
-  const classField = data.uuid && isValid ? classes.hidden : classes.field;
-  const qids = config.component.consultation.steps.you.questions;
-  const enforceRequired = true;
-    const compact = useCompactLayout("#proca-contact", 380);
-    return (<>
-      <Grid container spacing={1} id="proca-contact">
-        <NameField
-          form={form}
-          compact={compact}
-          classField={classField}
-        />
-        <Address form={form} compact={compact} classField={classField} />
-      </Grid>
-      <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids}/>
-        <Box display="flex" justifyContent="flex-end">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-              >
-                Next
-              </Button>
-       </Box>
-    </>);
-  };
 
 const TestAIStep = ({form, handleNext}) => {
   const classes = useStyles();
@@ -139,7 +111,6 @@ const Consultation = props => {
 
   const isValid = Object.keys(form.formState.errors).length === 0;
 
-  const SurveyStep = imports[config.component.consultation.component];
   //if (loading) return <LinearProgress/>;
   if (error) return <p>Error loading consult: {error.message}</p>;
 
