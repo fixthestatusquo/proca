@@ -14,7 +14,7 @@ import AITextField from "@components/field/AITextField";
 const useStyles = makeStyles((theme) => ({
   elementMarginTop: {
     marginTop: theme.spacing(3),
-   "& textArea" {
+   "& textarea": {
      minHeight: "auto!important",
    }
   },
