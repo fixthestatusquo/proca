@@ -42,7 +42,7 @@ const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
   if (json.type === "Section") {
     return (
       <Typography key={json.id} variant="h6" sx={{ mt: 4, mb: 2 }}>
-        {json.strippedTitle || json.title}
+        {json.title}
       </Typography>
     );
   }
@@ -50,7 +50,7 @@ const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
   if (json.type === "Text") {
     return (
       <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
-        {json.strippedTitle}
+        {json.title}
       </Typography>
     );
   }
@@ -89,17 +89,17 @@ const getDependantIds = (options, selected) => {
 };
 
 const TextQuestion = ({ json, form, dep }) => {
-  const multiline = json.strippedTitle.length > 30 && json.maxCharacters > 100;
+  const multiline = json.title.length > 30 && json.maxCharacters > 100;
   return (
     <>
       {!dep && (
         <FormLabel component="legend" style={{ marginTop: 16 }}>
-          {json.strippedTitle}
+          {json.title}
         </FormLabel>
       )}
       <TextField
         form={form}
-        label={dep ? json.strippedTitle : ""}
+        label={dep ? json.title : ""}
         name={json.attributeName}
         multiline={multiline}
         minRows={multiline ? 3 : 1}
@@ -118,7 +118,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <FormLabel component="legend">{json.title}</FormLabel>
       <Controller
         control={form.control}
         name={json.attributeName}
@@ -164,7 +164,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <FormLabel component="legend">{json.title}</FormLabel>
 
       <MultiSelectCheckbox
         form={form}
