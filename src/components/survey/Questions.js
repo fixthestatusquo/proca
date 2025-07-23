@@ -151,13 +151,11 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   }, {});
 
   return (
-    <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.title}</FormLabel>
-
+    <>
       <MultiSelectCheckbox
         form={form}
         name={json.attributeName}
-        label={null} // or pass a sublabel if needed
+        label={json.title}
         options={options}
         maxChoices={maxChoices}
       />
@@ -171,7 +169,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           dep={true}
         />
       )}
-    </FormControl>
+    </>
   );
 };
 

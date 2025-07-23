@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
   },
   radioGroup: {
-    marginTop: theme.spacing(-1),
+    marginTop: theme.spacing(-0.5),
   },
   radioLabel: {
     marginBottom: theme.spacing(-1),

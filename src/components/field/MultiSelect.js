@@ -8,8 +8,7 @@ import {
   FormControlLabel,
   FormHelperText,
   Checkbox,
-  makeStyles,
-  Typography
+  makeStyles
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
