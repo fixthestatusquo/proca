@@ -12,7 +12,7 @@ import {
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 
-const GenerateQuestions = ({ json, form, findQuestionById }) => {
+const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
   if (json.type === "FreeTextQuestion") {
     return <TextQuestion form={form} json={json} />;
   }
@@ -42,7 +42,7 @@ const GenerateQuestions = ({ json, form, findQuestionById }) => {
   if (json.type === "Section") {
     return (
       <Typography key={json.id} variant="h6" sx={{ mt: 4, mb: 2 }}>
-        {json.strippedTitle || json.title}
+        {json.title}
       </Typography>
     );
   }
@@ -50,13 +50,15 @@ const GenerateQuestions = ({ json, form, findQuestionById }) => {
   if (json.type === "Text") {
     return (
       <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
-        {json.strippedTitle}
+        {json.title}
       </Typography>
     );
   }
 
   if (json.type === "Upload") {
-    return <div key={json.id}>No upload! {json.strippedTitle}</div>;
+    console.log("Upload question type is not implemented");
+    // Returning null because there are dependant uploads
+    return null;
   }
 
   return "Unknown question type";
@@ -86,20 +88,18 @@ const getDependantIds = (options, selected) => {
     .map(Number);
 };
 
-const TextQuestion = ({ json, form }) => {
-  const multiline = json.strippedTitle.length > 30 && json.maxCharacters > 100;
-  const question = /^\d/.test(json.strippedTitle); // starts with number - meaning is question
-
+const TextQuestion = ({ json, form, dep }) => {
+  const multiline = json.title.length > 30 && json.maxCharacters > 100;
   return (
     <>
-      {question && (
+      {!dep && (
         <FormLabel component="legend" style={{ marginTop: 16 }}>
-          {json.strippedTitle}
+          {json.title}
         </FormLabel>
       )}
       <TextField
         form={form}
-        label={question ? "" : json.strippedTitle}
+        label={dep ? json.title : ""}
         name={json.attributeName}
         multiline={multiline}
         minRows={multiline ? 3 : 1}
@@ -118,7 +118,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <FormLabel component="legend">{json.title}</FormLabel>
       <Controller
         control={form.control}
         name={json.attributeName}
@@ -143,6 +143,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
+          dep={true}
         />
       )}
     </FormControl>
@@ -163,7 +164,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 
   return (
     <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.strippedTitle}</FormLabel>
+      <FormLabel component="legend">{json.title}</FormLabel>
 
       <MultiSelectCheckbox
         form={form}
@@ -179,6 +180,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
+          dep={true}
         />
       )}
     </FormControl>
