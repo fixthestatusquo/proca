@@ -47,7 +47,11 @@ const Consultation = props => {
   const config = useCampaignConfig();
   const qids = config.component.consultation.steps || {};
 
-  const { questions, loading, error } = useConsultJson(config.component.consultation.name,config.lang);
+  if (!config.component.consultation.name) {
+     console.log("No consultation name provided, check campaign config");
+  }
+
+  const { questions, error } = useConsultJson(config.component.consultation.name,config.lang);
 
 
   // Navigate to a specific step when clicked
