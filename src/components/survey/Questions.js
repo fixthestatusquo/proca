@@ -4,41 +4,54 @@ import {
   FormLabel,
   Box,
   Typography,
+  makeStyles,
 } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
 
+const useStyles = makeStyles(theme => ({
+  elementMarginTop: {
+    marginTop: theme.spacing(3),
+  },
+}));
+
 const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
+  const classes = useStyles();
+
   if (json.type === "FreeTextQuestion") {
     return <TextQuestion form={form} json={json} />;
   }
 
   if (json.type === "SingleChoiceQuestion") {
     return (
-      <SingleChoiceInput
-        key={json.id}
-        json={json}
-        form={form}
-        findQuestionById={findQuestionById}
-      />
+      <Box className={classes.elementMarginTop}>
+        <SingleChoiceInput
+          key={json.id}
+          json={json}
+          form={form}
+          findQuestionById={findQuestionById}
+        />
+      </Box>
     );
   }
 
   if (json.type === "MultipleChoiceQuestion") {
     return (
-      <MultipleChoiceInput
-        key={json.id}
-        json={json}
-        form={form}
-        findQuestionById={findQuestionById}
-      />
+      <Box className={classes.elementMarginTop}>
+        <MultipleChoiceInput
+          key={json.id}
+          json={json}
+          form={form}
+          findQuestionById={findQuestionById}
+        />
+      </Box>
     );
   }
 
   if (json.type === "Section") {
     return (
-      <Typography key={json.id} variant="h6" sx={{ mt: 4, mb: 2 }}>
+      <Typography key={json.id} variant="h6" className={classes.elementMarginTop}>
         {json.title}
       </Typography>
     );
@@ -46,7 +59,7 @@ const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
 
   if (json.type === "Text") {
     return (
-      <Typography key={json.id} variant="body1" sx={{ my: 2 }}>
+      <Typography key={json.id} variant="body1" className={classes.elementMarginTop}>
         {json.title}
       </Typography>
     );
@@ -86,11 +99,12 @@ const getDependantIds = (options, selected) => {
 };
 
 const TextQuestion = ({ json, form, dep }) => {
+  const classes = useStyles();
   const multiline = json.title.length > 30 && json.maxCharacters > 100;
   return (
-    <>
+    <Box className={classes.elementMarginTop}>
       {!dep && (
-        <FormLabel component="legend" style={{ marginTop: 16 }}>
+        <FormLabel component="legend">
           {json.title}
         </FormLabel>
       )}
@@ -105,7 +119,7 @@ const TextQuestion = ({ json, form, dep }) => {
         }}
         helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
       />
-    </>
+    </Box>
   );
 };
 
