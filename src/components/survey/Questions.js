@@ -1,16 +1,13 @@
 import React from "react";
-import { Controller } from "react-hook-form";
 import {
   FormControl,
   FormLabel,
-  FormControlLabel,
   Box,
-  Radio,
-  RadioGroup,
   Typography,
 } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
+import SingleSelect from "@components/field/SingleSelect";
 
 const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
   if (json.type === "FreeTextQuestion") {
@@ -113,40 +110,31 @@ const TextQuestion = ({ json, form, dep }) => {
 };
 
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
-  const selected = form.watch(json.attributeName) || "";
+ const selected = form.watch(json.attributeName) || "";
   const dependentIds = getDependantIds(json.possibleAnswers, [selected]);
 
+  const options = json.possibleAnswers.map((opt) => ({
+    id: opt.id,
+    text: opt.text,
+  }));
+
   return (
-    <FormControl component="fieldset" fullWidth margin="normal">
-      <FormLabel component="legend">{json.title}</FormLabel>
-      <Controller
-        control={form.control}
+    <>
+      <SingleSelect
+        form={form}
         name={json.attributeName}
-        defaultValue=""
-        render={({ field }) => (
-          <RadioGroup {...field}>
-            {json.possibleAnswers.map(opt => (
-              <FormControlLabel
-                key={opt.id}
-                value={String(opt.id)}
-                control={<Radio />}
-                label={opt.text}
-              />
-            ))}
-          </RadioGroup>
-        )}
+        options={options}
+        label={json.title}
       />
 
-      {/* Render dependent elements if any */}
       {dependentIds.length > 0 && (
         <DependentQuestions
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
-          dep={true}
         />
       )}
-    </FormControl>
+    </>
   );
 };
 
