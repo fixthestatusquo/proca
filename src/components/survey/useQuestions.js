@@ -5,7 +5,7 @@ const useConsultJson = (name,lang) => {
   const [error, setError] = useState(null);
 
  useEffect(() => {
-  const url =`https://static.proca.app/survey/${name}/consult_${lang}.json`
+  const url =`https://static.proca.app/survey/${name}/${lang}.json`
   const fetchData = async () => {
     try {
       const res = await fetch(url);

@@ -56,7 +56,9 @@ const GenerateQuestions = ({ json, form, findQuestionById }) => {
   }
 
   if (json.type === "Upload") {
-    return <div key={json.id}>No upload! {json.strippedTitle}</div>;
+    console.log("Upload question type is not implemented");
+    // Returning null because there are dependant uploads
+    return null;
   }
 
   return "Unknown question type";
