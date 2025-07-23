@@ -16,6 +16,10 @@ const useStyles = makeStyles(theme => ({
   },
   radioGroup: {
     marginTop: theme.spacing(-0.5),
+    '& input': { 
+    height: 'auto !important',
+    paddingTop: theme.spacing(0.5) + " !important",
+   }
   },
   radioLabel: {
     marginBottom: theme.spacing(-1),
