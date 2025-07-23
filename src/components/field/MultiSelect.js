@@ -6,6 +6,7 @@ import {
   FormLabel,
   FormGroup,
   FormControlLabel,
+  FormHelperText,
   Checkbox,
   makeStyles,
   Typography
@@ -34,6 +35,9 @@ const useStyles = makeStyles(theme => ({
       height: 'auto!important',
     },
   },
+  helperText: {
+  marginTop: 6
+}
 }));
 
 const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) => {
@@ -43,11 +47,6 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
       <FormLabel component="legend">{label}</FormLabel>
-      {maxChoices && (
-        <Typography variant="caption" color="textSecondary">
-          You can select up to {maxChoices} option{maxChoices > 1 ? "s" : ""}
-        </Typography>
-      )}
       <Controller
         name={name}
         control={form.control}
@@ -84,6 +83,11 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) 
           </FormGroup>
         )}
       />
+      {maxChoices && (
+        <FormHelperText className={classes.helperText}>
+          You can select up to {maxChoices} option{maxChoices > 1 ? "s" : ""}
+        </FormHelperText>
+      )}
     </FormControl>
   );
 };
