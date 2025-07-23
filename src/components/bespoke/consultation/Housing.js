@@ -28,7 +28,7 @@ import CommentField from "@components/field/Comment";
 
 import SurveyStep from "@components/survey/Questions";
 import DetailsStep from "@components/survey/YouStep";
-
+import useConsultJson from "@components/survey/useQuestions";
 
 const TestAIStep = ({form, handleNext}) => {
   const classes = useStyles();
@@ -37,40 +37,6 @@ const TestAIStep = ({form, handleNext}) => {
 console.log("test AI");
         return <CommentField form={form} classField={classField} />
 }
-
-const useConsultJson = (name,lang) => {
-
-
-  const [questions, setQuestions] = useState(undefined);
-  const [loading, setLoading] = useState(!!name);
-  const [error, setError] = useState(null);
-
- useEffect(() => {
-  const url =`https://static.proca.app/survey/${name}/consult_${lang}.json`
-  const fetchData = async () => {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setQuestions(data);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (!name) return undefined;
-  fetchData();
-}, [name,lang]);
-
-  return {
-    questions,
-    loading,
-    error
-  };
-};
-
 
 const Consultation = props => {
   const steps = ["you","expert", "citizen","test AI", "send"];
