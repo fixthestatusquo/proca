@@ -26,7 +26,7 @@ import NameField from "@components/field/Name";
 import Address from "@components/field/Address";
 import CommentField from "@components/field/Comment";
 
-import SurveyStep from "@components/survey/Questions";
+import { imports } from "../actionPage";
 
   const DetailsStep = ({form, handleNext, questions, SurveyStep}) => {
   const classes = useStyles();
@@ -139,6 +139,7 @@ const Consultation = props => {
 
   const isValid = Object.keys(form.formState.errors).length === 0;
 
+  const SurveyStep = imports[config.component.consultation.component];
   //if (loading) return <LinearProgress/>;
   if (error) return <p>Error loading consult: {error.message}</p>;
 
