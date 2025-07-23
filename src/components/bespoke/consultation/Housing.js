@@ -30,16 +30,8 @@ import SurveyStep from "@components/survey/Questions";
 import DetailsStep from "@components/survey/YouStep";
 import useConsultJson from "@components/survey/useQuestions";
 
-const TestAIStep = ({form, handleNext}) => {
-  const classes = useStyles();
-  const [data] = useData();
-  const classField = data.uuid && isValid ? classes.hidden : classes.field;
-console.log("test AI");
-        return <AITextField form={form} classField={classField} name="ID156" label="What benefits and challenges do you see related to the construction of new housing, densification (adding floors to a building) or repurposing of existing buildings in your neighbourhood?"/>
-}
-
 const Consultation = props => {
-  const steps = ["you","expert", "citizen","test AI", "send"];
+  const steps = ["you","expert", "citizen", "submit"];
   const [activeStep, setActiveStep] = useState(0);
   const classes = useStyles();
   const [data] = useData();
@@ -47,11 +39,7 @@ const Consultation = props => {
   const config = useCampaignConfig();
   const qids = config.component.consultation.steps || {};
 
-  if (!config.component.consultation.name) {
-     console.log("No consultation name provided, check campaign config");
-  }
-
-  const { questions, error } = useConsultJson(config.component.consultation.name,config.lang);
+  const { questions, error } = useConsultJson(config.component.consultation.name || config.campaign.name ,config.lang);
 
 
   // Navigate to a specific step when clicked
@@ -104,9 +92,8 @@ const Consultation = props => {
       {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} questions = {questions} SurveyStep = {SurveyStep} />}
       {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
       {activeStep === 2 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[2]].questions}/>}
-      {activeStep === 3 && <TestAIStep form={form} handleNext={handleNext} />}
 
-      {activeStep === 4 && (
+      {activeStep === 3 && (
         <Register
           form={form}
           buttonText="Send"

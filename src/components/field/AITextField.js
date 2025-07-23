@@ -36,7 +36,7 @@ useEffect(() => {
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, name: name, stream: true};
+    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, id: name, stream: true};
     console.log("writing...");
     
     console.log (data);
@@ -97,7 +97,6 @@ useEffect(() => {
     }
   };
 
-console.log("loading...",isLoading);
   return (
     <>
       <Grid item xs={12} className={classField}>
@@ -121,7 +120,7 @@ console.log("loading...",isLoading);
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : null}
         >
-          {isLoading ? "We're getting your message ready" : "Help me write the message"}
+          {isLoading ? "AI at work" : "Help me write it"}
         </Button>}
         {state === 'loaded' &&<Button
 variant="outlined"

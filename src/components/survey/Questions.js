@@ -9,75 +9,85 @@ import {
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
+import AITextField from "@components/field/AITextField";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   elementMarginTop: {
     marginTop: theme.spacing(3),
   },
+  section: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(-2),
+  },
 }));
 
-const GenerateQuestions = ({ json, form, findQuestionById, dep=false }) => {
+const GenerateQuestions = ({ json, form, findQuestionById, dep = false }) => {
   const classes = useStyles();
 
-  if (json.type === "FreeTextQuestion") {
-    return <TextQuestion form={form} json={json} />;
-  }
+  switch (json.type) {
+    case "FreeTextQuestion":
+      return <TextQuestion form={form} json={json} />;
+    case "AIAssistedQuestion":
+      return <AITextQuestion form={form} json={json} />;
 
-  if (json.type === "SingleChoiceQuestion") {
-    return (
-      <Box className={classes.elementMarginTop}>
-        <SingleChoiceInput
+    case "SingleChoiceQuestion":
+      return (
+        <Box className={classes.elementMarginTop}>
+          <SingleChoiceInput
+            key={json.id}
+            json={json}
+            form={form}
+            findQuestionById={findQuestionById}
+          />
+        </Box>
+      );
+
+    case "MultipleChoiceQuestion":
+      return (
+        <Box className={classes.elementMarginTop}>
+          <MultipleChoiceInput
+            key={json.id}
+            json={json}
+            form={form}
+            findQuestionById={findQuestionById}
+          />
+        </Box>
+      );
+
+    case "Section":
+      return (
+        <Typography
           key={json.id}
-          json={json}
-          form={form}
-          findQuestionById={findQuestionById}
-        />
-      </Box>
-    );
-  }
-
-  if (json.type === "MultipleChoiceQuestion") {
-    return (
-      <Box className={classes.elementMarginTop}>
-        <MultipleChoiceInput
+          variant="h6"
+          className={classes.section}
+        >
+          {json.title}
+        </Typography>
+      );
+    case "Text":
+      return (
+        <Typography
           key={json.id}
-          json={json}
-          form={form}
-          findQuestionById={findQuestionById}
-        />
-      </Box>
-    );
-  }
+          variant="body1"
+          className={classes.elementMarginTop}
+        >
+          {json.title}
+        </Typography>
+      );
 
-  if (json.type === "Section") {
-    return (
-      <Typography key={json.id} variant="h6" className={classes.elementMarginTop}>
-        {json.title}
-      </Typography>
-    );
+    case "Upload":
+      console.log("Upload question type is not implemented");
+      // Returning null because there are dependant uploads
+      return null;
+    default:
+      return <li>Unknown question type {json.type}</li>;
   }
-
-  if (json.type === "Text") {
-    return (
-      <Typography key={json.id} variant="body1" className={classes.elementMarginTop}>
-        {json.title}
-      </Typography>
-    );
-  }
-
-  if (json.type === "Upload") {
-    console.log("Upload question type is not implemented");
-    // Returning null because there are dependant uploads
-    return null;
-  }
-
-  return "Unknown question type";
 };
 
 const DependentQuestions = ({ ids, findQuestionById, form }) => {
   return (
     <>
-      {ids.map(depId => {
+      {ids.map((depId) => {
         const dep = findQuestionById(depId);
         return dep ? (
           <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
@@ -91,23 +101,38 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
 
 const getDependantIds = (options, selected) => {
   return options
-    .filter(opt => selected.includes(String(opt.id)))
-    .flatMap(opt =>
-      (opt.dependentElementsString?.split(";") || []).filter(Boolean)
+    .filter((opt) => selected.includes(String(opt.id)))
+    .flatMap((opt) =>
+      (opt.dependentElementsString?.split(";") || []).filter(Boolean),
     )
     .map(Number);
 };
+
+
+const AITextQuestion = ({ json, form, dep }) => {
+  const classes = useStyles();
+  return (
+    <Box className={classes.elementMarginTop}>
+      <AITextField
+        form={form}
+        label={json.title}
+        name={json.attributeName}
+        inputProps={{
+          maxLength: json.maxCharacters,
+        }}
+        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+      />
+    </Box>
+  );
+};
+
 
 const TextQuestion = ({ json, form, dep }) => {
   const classes = useStyles();
   const multiline = json.title.length > 30 && json.maxCharacters > 100;
   return (
     <Box className={classes.elementMarginTop}>
-      {!dep && (
-        <FormLabel component="legend">
-          {json.title}
-        </FormLabel>
-      )}
+      {!dep && <FormLabel component="legend">{json.title}</FormLabel>}
       <TextField
         form={form}
         label={dep ? json.title : ""}
@@ -124,7 +149,7 @@ const TextQuestion = ({ json, form, dep }) => {
 };
 
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
- const selected = form.watch(json.attributeName) || "";
+  const selected = form.watch(json.attributeName) || "";
   const dependentIds = getDependantIds(json.possibleAnswers, [selected]);
 
   const options = json.possibleAnswers.map((opt) => ({
@@ -188,13 +213,13 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 };
 
 const Survey = ({ form, ids: questionIds, questions }) => {
-  const findQuestionById = id => questions?.find(q => q.id === id);
+  const findQuestionById = (id) => questions?.find((q) => q.id === id);
   if (!questions) return null;
   return (
     <>
-      {questionIds.map(q => {
+      {questionIds.map((q) => {
         // Assuming each question has a `json` field with the data
-        const json = questions.find(item => item.id === q);
+        const json = questions.find((item) => item.id === q);
         return (
           <GenerateQuestions
             json={json}
