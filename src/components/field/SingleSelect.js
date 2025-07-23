@@ -6,8 +6,31 @@ import {
   FormControlLabel,
   Radio,
   FormHelperText,
+  makeStyles,
 } from "@material-ui/core";
 import { Controller } from "react-hook-form";
+
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+  },
+  radioGroup: {
+    marginTop: theme.spacing(-1),
+  },
+  radioLabel: {
+    marginBottom: theme.spacing(-1),
+    paddingTop: theme.spacing(0.5),
+    alignItems: "flex-start",
+    color: theme.palette.text.primary,
+    "& .proca-MuiTypography-root": {
+      lineHeight: 1.3,
+      marginTop: 5,
+    },
+  },
+  radioRoot: {
+    padding: theme.spacing(0.5),
+  },
+}));
 
 // usage:
 // <SingleSelect
@@ -40,6 +63,7 @@ const SingleSelect = ({
   labelProps = {},
   controlLabelProps = {},
 }) => {
+  const classes = useStyles();
   const {
     control,
     formState: { errors },
@@ -53,25 +77,41 @@ const SingleSelect = ({
       fullWidth
       margin="normal"
       error={hasError}
+      className={classes.formControl}
     >
-      {label && <FormLabel {...labelProps}>{label}</FormLabel>}
+      {label && <FormLabel component="legend" {...labelProps}>{label}</FormLabel>}
 
       <Controller
         control={control}
         name={name}
         defaultValue=""
         render={({ field }) => (
-          <RadioGroup {...field} row={row} {...groupProps}>
+          <RadioGroup
+            {...field}
+            row={row}
+            className={classes.radioGroup}
+            {...groupProps}
+          >
             {options.map((opt, i) => {
               const value = String(getOptionValue(opt));
               const label = getOptionLabel(opt);
+              const isDisabled = typeof controlLabelProps?.disabled === "function"
+                ? controlLabelProps.disabled(opt)
+                : controlLabelProps?.disabled;
+
               return (
                 <FormControlLabel
                   key={i}
                   value={value}
-                  control={<Radio {...radioProps} />}
+                  className={classes.radioLabel}
+                  control={
+                    <Radio
+                      className={classes.radioRoot}
+                      {...radioProps}
+                      disabled={isDisabled}
+                    />
+                  }
                   label={label}
-                  {...controlLabelProps}
                 />
               );
             })}
