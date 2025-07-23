@@ -24,7 +24,7 @@ import { Collapse } from "@material-ui/core";
 
 import NameField from "@components/field/Name";
 import Address from "@components/field/Address";
-import CommentField from "@components/field/Comment";
+import AITextField from "@components/field/AITextField";
 
 import SurveyStep from "@components/survey/Questions";
 import DetailsStep from "@components/survey/YouStep";
@@ -35,7 +35,7 @@ const TestAIStep = ({form, handleNext}) => {
   const [data] = useData();
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
 console.log("test AI");
-        return <CommentField form={form} classField={classField} />
+        return <AITextField form={form} classField={classField} name="ID156" label="What benefits and challenges do you see related to the construction of new housing, densification (adding floors to a building) or repurposing of existing buildings in your neighbourhood?"/>
 }
 
 const Consultation = props => {
