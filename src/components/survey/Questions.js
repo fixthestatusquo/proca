@@ -35,7 +35,7 @@ const Questions = ({ json, form, findQuestionById }) => {
 
     case "SingleChoiceQuestion":
       return (
-        <Box className={classes.elementMarginTop}>
+        <Box className={classes.elementMarginTop} id={json.id}>
           <SingleChoiceInput
             key={json.id}
             json={json}
@@ -47,7 +47,7 @@ const Questions = ({ json, form, findQuestionById }) => {
 
     case "MultipleChoiceQuestion":
       return (
-        <Box className={classes.elementMarginTop}>
+        <Box className={classes.elementMarginTop} id={json.id}>
           <MultipleChoiceInput
             key={json.id}
             json={json}
@@ -61,6 +61,7 @@ const Questions = ({ json, form, findQuestionById }) => {
       return (
         <Typography
           key={json.id}
+          id={json.id}
           variant="h6"
           className={classes.section}
         >
@@ -70,7 +71,7 @@ const Questions = ({ json, form, findQuestionById }) => {
     case "Text":
       return (
         <Typography
-          key={json.id}
+          key={json.id} id={json.id}
           variant="body1"
           className={classes.elementMarginTop}
         >
