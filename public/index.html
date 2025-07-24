@@ -32,40 +32,66 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <style>
+      :root {
+        --pico-form-element-spacing-horizontal: 12px;
+      }
+      textarea {
+        --pico-form-element-spacing-horizontal: 0;
+      }
       html {
-      scroll-padding-top: 60px;
+        scroll-padding-top: 60px;
       }
 
-body.full_width .grid {
-  display: block !important;
-}
+      body.full_width .grid {
+        display: block !important;
+      }
 
-#halfwidth {display:none}
-.full_width #halfwidth {display:block}
-.full_width #fullwidth {display:none}
+      #halfwidth {
+        display: none;
+      }
+      .full_width #halfwidth {
+        display: block;
+      }
+      .full_width #fullwidth {
+        display: none;
+      }
 
-@media (max-width: 768px) {
-  #halfwidth, #fullwidth  {
-    display: none !important;
-  }
-}
-      #make_visible {display:none}
-      .only_widget #make_visible {display:block}
-      .only_widget #make_hidden {display:none}
+      @media (max-width: 768px) {
+        #halfwidth,
+        #fullwidth {
+          display: none !important;
+        }
+      }
+      #make_visible {
+        display: none;
+      }
+      .only_widget #make_visible {
+        display: block;
+      }
+      .only_widget #make_hidden {
+        display: none;
+      }
       .only_widget:before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-color: rgba(var(--pico-card-background-color-rgb), 0.9);
-        backdrop-filter: blur(12px); 
-            z-index: 1;
-}
-      
-      .proca-widget  {position:relative; z-index:2; opacity:1;background-color: rgba(var(--pico-card-background-color-rgb))}
-      .proca-widget .proca-MuiSnackbar-root {z-index:300}
+        backdrop-filter: blur(12px);
+        z-index: 1;
+      }
+
+      .proca-widget {
+        position: relative;
+        z-index: 2;
+        opacity: 1;
+        background-color: rgba(var(--pico-card-background-color-rgb));
+      }
+      .proca-widget .proca-MuiSnackbar-root {
+        z-index: 300;
+      }
 
       .container {
         padding-top: 60px;
@@ -85,7 +111,11 @@ body.full_width .grid {
         color: var(--pico-color);
       }
 
-      nav svg {width:24px; fill: var(--pico-primary-background); cursor:pointer }
+      nav svg {
+        width: 24px;
+        fill: var(--pico-primary-background);
+        cursor: pointer;
+      }
 
       #help,
       #widget-demo {
@@ -124,7 +154,7 @@ body.full_width .grid {
       }
       .alert a {
         text-decoration: underline;
-    }
+      }
       .alert-info {
         background-color: #e8f4fd;
         border-color: #b6e0fe;
@@ -187,15 +217,52 @@ body.full_width .grid {
             ?
           </button>
         </li>
-<svg id="halfwidth" onClick="toggleColumn()" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 12h7v1.5h-7zm0-2.5h7V11h-7zm0 5h7V16h-7zM21 4H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15h-9V6h9v13z"></path></svg>
+        <svg
+          id="halfwidth"
+          onClick="toggleColumn()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M13 12h7v1.5h-7zm0-2.5h7V11h-7zm0 5h7V16h-7zM21 4H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15h-9V6h9v13z"
+          ></path>
+        </svg>
 
+        <svg
+          id="fullwidth"
+          aria-hidden="true"
+          onClick="toggleColumn()"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m4.1653 11.97 15.835 0.02999v1.5l-15.835-0.02999zm0-2.5 15.835 0.02999v1.5l-15.835-0.02999zm0 5 15.835 0.02999v1.5l-15.835-0.02999zm16.835-10.47h-18c-1.1 0-2 0.9-2 2v13c0 1.1 0.9 2 2 2h18c1.1 0 2-0.9 2-2v-13c0-1.1-0.9-2-2-2zm0 15-17.748 0.054242-0.21084-13.074 17.959 0.019819z"
+          />
+        </svg>
 
-<svg id="fullwidth" aria-hidden="true" onClick="toggleColumn()"  focusable="false" viewBox="0 0 24 24">
- <path d="m4.1653 11.97 15.835 0.02999v1.5l-15.835-0.02999zm0-2.5 15.835 0.02999v1.5l-15.835-0.02999zm0 5 15.835 0.02999v1.5l-15.835-0.02999zm16.835-10.47h-18c-1.1 0-2 0.9-2 2v13c0 1.1 0.9 2 2 2h18c1.1 0 2-0.9 2-2v-13c0-1.1-0.9-2-2-2zm0 15-17.748 0.054242-0.21084-13.074 17.959 0.019819z"/>
-</svg>
-
-<svg id="make_visible" onClick="toggleVisibility()" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
-<svg id="make_hidden" onClick="toggleVisibility()" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"></path></svg>
+        <svg
+          id="make_visible"
+          onClick="toggleVisibility()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+          ></path>
+        </svg>
+        <svg
+          id="make_hidden"
+          onClick="toggleVisibility()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"
+          ></path>
+        </svg>
       </ul>
     </nav>
     <noscript
@@ -208,10 +275,10 @@ body.full_width .grid {
         <div role="left-column">
           <div class="proca-description alert alert-info">
             <b>This is a Preview. </b>On your live site, you’ll need to write
-            <i>-or paste-</i> the campaign content directly into your CMS/page editor.
+            <i>-or paste-</i> the campaign content directly into your CMS/page
+            editor.
 
             <ul>
-
               <li>Visual (optional image)</li>
 
               <li>Call-to-action and campaign's demands</li>
@@ -219,27 +286,28 @@ body.full_width .grid {
                 some additional information/background information (optional)
               </li>
             </ul>
-           The campaign coordinator should have provided you a template.
+            The campaign coordinator should have provided you a template.
           </div>
           <div
             class="alert alert-warning proca-Petition proca-Email"
             id="step-1"
             role="alert"
           >
-            Optionally, you can add <a href='https://fixthestatusquo.com/feature/stepcontext/'>contextualise each step</a> of
-            the supporter's journey. For instance show the full campaign 
-            background information before the supporter took action, but ask for donations once they have <br />
+            Optionally, you can add
+            <a href="https://fixthestatusquo.com/feature/stepcontext/"
+              >contextualise each step</a
+            >
+            of the supporter's journey. For instance show the full campaign
+            background information before the supporter took action, but ask for
+            donations once they have <br />
             Add an html <b>class="proca-%step-1%" </b>on all the content you
             want to remove afer the supporter took the %step-1% action
           </div>
           <div class="alert alert-warning proca-Share" id="step-2" role="alert">
             <p>
               Or you can put a
-              <b
-                >class="proca-Share"</b> on the elements you want to show only on the
-                share step
-              >
-              of the user journey.
+              <b>class="proca-Share"</b> on the elements you want to show only
+              on the share step > of the user journey.
             </p>
           </div>
           <div class="alert alert-danger proca-Share" role="alert">
@@ -255,8 +323,13 @@ body.full_width .grid {
         </div>
         <div role="right-column">
           <div class="alert alert-info">
-The widget <i style="cursor:pointer" onClick="toggleVisibility()">displayed below</i> provides the progress bar, the form for your supporters to take action and the social sharing step  
-</div >
+            The widget
+            <i style="cursor: pointer" onClick="toggleVisibility()"
+              >displayed below</i
+            >
+            provides the progress bar, the form for your supporters to take
+            action and the social sharing step
+          </div>
           <div class="proca-widget"></div>
         </div>
       </div>
@@ -374,7 +447,7 @@ The widget <i style="cursor:pointer" onClick="toggleVisibility()">displayed belo
         const targetPosition =
           target.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
-          top: targetPosition -90,
+          top: targetPosition - 90,
           behavior: "smooth",
         });
       }
@@ -429,13 +502,13 @@ The widget <i style="cursor:pointer" onClick="toggleVisibility()">displayed belo
         });
       }
 
-      function toggleVisibility () {
+      function toggleVisibility() {
         //const container = document.getElementById("root");
         const container = document.body;
         container.classList.toggle("only_widget");
       }
 
-      function toggleColumn () {
+      function toggleColumn() {
         //const container = document.getElementById("root");
         const container = document.body;
         container.classList.toggle("full_width");
