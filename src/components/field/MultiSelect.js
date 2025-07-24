@@ -12,9 +12,6 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-  },
   checkboxGroup: {
     marginTop: theme.spacing(-1), // Negative margin to pull items up
   },
@@ -29,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   checkboxRoot: {
-    padding: theme.spacing(0.5), // Smaller checkbox padding
+    padding: theme.spacing(0.5,0.5,0.5,1),
     "& input": {
       height: 'auto!important',
     },
@@ -39,12 +36,12 @@ const useStyles = makeStyles(theme => ({
 }
 }));
 
-const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) => {
+const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
   const classes = useStyles();
   const selectedValues = form.watch(name) || [];
 
   return (
-    <FormControl component="fieldset" className={classes.formControl}>
+    <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
       <Controller
         name={name}
@@ -82,6 +79,7 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null }) 
           </FormGroup>
         )}
       />
+      {children}
       {maxChoices && (
         <FormHelperText className={classes.helperText}>
           You can select up to {maxChoices} option{maxChoices > 1 ? "s" : ""}

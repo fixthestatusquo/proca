@@ -24,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GenerateQuestions = ({ json, form, findQuestionById, dep = false }) => {
+const Questions = ({ json, form, findQuestionById }) => {
   const classes = useStyles();
 
   switch (json.type) {
     case "FreeTextQuestion":
-      return <TextQuestion form={form} json={json} />;
+      return <TextQuestion form={form} json={json}  />;
     case "AIAssistedQuestion":
       return <AITextQuestion form={form} json={json} />;
 
@@ -93,9 +93,7 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
       {ids.map((depId) => {
         const dep = findQuestionById(depId);
         return dep ? (
-          <Box key={dep.id} sx={{ mt: 2, ml: 3 }}>
-            <GenerateQuestions json={dep} form={form} />
-          </Box>
+            <Questions json={dep} form={form} />
         ) : null;
       })}
     </>
@@ -112,7 +110,7 @@ const getDependantIds = (options, selected) => {
 };
 
 
-const AITextQuestion = ({ json, form, dep }) => {
+const AITextQuestion = ({ json, form }) => {
   const classes = useStyles();
   return (
     <Box className={classes.elementMarginTop}>
@@ -130,22 +128,23 @@ const AITextQuestion = ({ json, form, dep }) => {
 };
 
 
-const TextQuestion = ({ json, form, dep }) => {
+const TextQuestion = ({ json, form }) => {
   const classes = useStyles();
   const multiline = json.title.length > 30 && json.maxCharacters > 100;
+  const labelInside = json.title.length <= 30;
   return (
     <Box className={classes.elementMarginTop}>
-      {!dep && <FormLabel component="legend">{json.title}</FormLabel>}
+      {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
       <TextField
         form={form}
-        label={dep ? json.title : ""}
+        label={labelInside ? json.title : ""}
         name={json.attributeName}
         multiline={multiline}
         minRows={multiline ? 3 : 1}
         inputProps={{
           maxLength: json.maxCharacters || 100,
         }}
-        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+        helperText={!labelInside && `${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
       />
     </Box>
   );
@@ -160,14 +159,17 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
     text: opt.text,
   }));
 
+  const row = (Object.keys(options).length <=2 ? true : undefined); // two options, like yes/no
+   console.log (json.attributeName, row); 
   return (
-    <>
       <SingleSelect
+        id={json.id}
         form={form}
         name={json.attributeName}
         options={options}
         label={json.title}
-      />
+        row={row}
+      >
 
       {dependentIds.length > 0 && (
         <DependentQuestions
@@ -176,7 +178,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
           form={form}
         />
       )}
-    </>
+    </SingleSelect>
   );
 };
 
@@ -193,14 +195,14 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   }, {});
 
   return (
-    <>
       <MultiSelectCheckbox
+        id={json.id}
         form={form}
         name={json.attributeName}
         label={json.title}
         options={options}
         maxChoices={maxChoices}
-      />
+      >
 
       {/* Render dependent questions if any are selected */}
       {dependentIds.length > 0 && (
@@ -208,10 +210,9 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           ids={dependentIds}
           findQuestionById={findQuestionById}
           form={form}
-          dep={true}
         />
       )}
-    </>
+      </MultiSelectCheckbox>
   );
 };
 
@@ -224,7 +225,7 @@ const Survey = ({ form, ids: questionIds, questions }) => {
         // Assuming each question has a `json` field with the data
         const json = questions.find((item) => item.id === q);
         return (
-          <GenerateQuestions
+          <Questions
             json={json}
             form={form}
             key={json.id}

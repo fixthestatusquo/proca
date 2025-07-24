@@ -11,9 +11,6 @@ import {
 import { Controller } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-  },
   radioGroup: {
     marginTop: theme.spacing(-0.5),
     '& input': { 
@@ -32,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   radioRoot: {
-    padding: theme.spacing(0.5),
+    padding: theme.spacing(0.5,0.5,0.5,1),
   },
 }));
 
@@ -58,7 +55,8 @@ const SingleSelect = ({
   name,
   label,
   options = [],
-  row = false,
+  children,
+  row=undefined,
   helperText = "",
   getOptionLabel = opt => opt.label ?? opt.text ?? opt,
   getOptionValue = opt => opt.value ?? opt.id ?? opt,
@@ -81,7 +79,6 @@ const SingleSelect = ({
       fullWidth
       margin="normal"
       error={hasError}
-      className={classes.formControl}
     >
       {label && <FormLabel component="legend" {...labelProps}>{label}</FormLabel>}
 
@@ -128,6 +125,7 @@ const SingleSelect = ({
           {hasError ? errors[name]?.message : helperText}
         </FormHelperText>
       )}
+{children}
     </FormControl>
   );
 };
