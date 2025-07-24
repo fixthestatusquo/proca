@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useData from "@hooks/useData";
 import { useStyles } from "@components/Register";
 import { useCompactLayout } from "@hooks/useElementWidth";
 import {
   useCampaignConfig,
 } from "@hooks/useConfig";
-import { useForm } from "react-hook-form";
 import {
-  Box,
-  Button,
   Grid,
 } from "@material-ui/core";
 import NameField from "@components/field/Name";
@@ -36,11 +33,6 @@ const AboutYou = ({ form, handleNext, questions }) => {
         questions={questions}
         ids={qids}
       />
-      <Box display="flex" justifyContent="flex-end">
-        <Button variant="contained" color="primary" onClick={handleNext}>
-          Next
-        </Button>
-      </Box>
     </>
   );
 };

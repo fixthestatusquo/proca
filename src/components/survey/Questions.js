@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  FormControl,
-  FormLabel,
   Box,
+  Button,
+  FormLabel,
   Typography,
   makeStyles,
 } from "@material-ui/core";
@@ -217,7 +217,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   );
 };
 
-const Survey = ({ form, ids: questionIds, questions }) => {
+const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const findQuestionById = (id) => questions?.find((q) => q.id === id);
   if (!questions) return null;
   return (
@@ -234,6 +234,11 @@ const Survey = ({ form, ids: questionIds, questions }) => {
           />
         );
       })}
+      <Box display="flex" justifyContent="flex-end">
+        <Button variant="contained" color="primary" onClick={handleNext}>
+          Next
+        </Button>
+      </Box>
     </>
   );
 };
