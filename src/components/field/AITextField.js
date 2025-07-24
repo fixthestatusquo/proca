@@ -39,6 +39,11 @@ useEffect(() => {
     setState('loading');
     const formData = form.getValues();
     const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, id: name, stream: true};
+    if (formData[name].length < 100) {
+      data[name] = formData[name];
+    } else {
+      data[name] = '';
+    }
     console.log("writing...");
     
     console.log (data);
