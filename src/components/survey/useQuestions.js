@@ -11,6 +11,9 @@ const useConsultJson = (name,lang) => {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
+
+      // EC attributeNames are not unique, so we generate them from IDs
+      data.forEach(item => item.attributeName = String(item.id));
       setQuestions(data);
     } catch (err) {
       setError(err);
