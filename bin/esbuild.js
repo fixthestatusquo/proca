@@ -140,6 +140,7 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("<%= campaign %>", config.campaign.title)
           .replaceAll("<%= organisation %>", config.org.name)
           .replaceAll("<%= theme %>", config.layout.theme || 'light')
+          .replaceAll("<%= background-color %>", config.layout.backgroundColor || undefined)
       );
 
       if (nodeEnv !== "development") {
