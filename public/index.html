@@ -497,7 +497,7 @@
           a.className = "btn btn-info secondardy";
           a.role = "button";
           a.href = `#proca_${name}`;
-          a.textContent = name;
+          a.textContent = name.replace("bespoke_","").replaceAll("_"," ");
           controller.appendChild(a);
         });
       }
