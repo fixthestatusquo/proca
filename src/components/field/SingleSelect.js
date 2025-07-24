@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   radioRoot: {
-    padding: theme.spacing(0.5,0.5,0.5,1),
+    padding: theme.spacing(0.5,0.5,0.5,2.5),
   },
 }));
 

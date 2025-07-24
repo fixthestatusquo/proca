@@ -26,13 +26,14 @@ const useStyles = makeStyles(theme => ({
     },
   },
   checkboxRoot: {
-    padding: theme.spacing(0.5,0.5,0.5,1),
+    padding: theme.spacing(0.5,0.5,0.5,2.5),
     "& input": {
       height: 'auto!important',
     },
   },
   helperText: {
-  marginTop: 6
+  marginTop: theme.spacing(0.5),
+  paddingLeft: theme.spacing(1.5),
 }
 }));
 
