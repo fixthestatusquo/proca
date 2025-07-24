@@ -94,7 +94,7 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
       {ids.map((depId) => {
         const dep = findQuestionById(depId);
         return dep ? (
-            <Questions json={dep} form={form} />
+            <Questions key={dep.id} json={dep} form={form} />
         ) : null;
       })}
     </Box>
@@ -161,7 +161,7 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   }));
 
   const row = (Object.keys(options).length <=2 ? true : undefined); // two options, like yes/no
-   console.log (json.attributeName, row); 
+   console.log (json.attributeName, row);
   return (
       <SingleSelect
         id={json.id}
