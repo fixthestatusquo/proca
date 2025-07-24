@@ -90,14 +90,14 @@ const Questions = ({ json, form, findQuestionById }) => {
 
 const DependentQuestions = ({ ids, findQuestionById, form }) => {
   return (
-    <>
+    <Box mt={-2} ml={1}>
       {ids.map((depId) => {
         const dep = findQuestionById(depId);
         return dep ? (
             <Questions json={dep} form={form} />
         ) : null;
       })}
-    </>
+    </Box>
   );
 };
 
