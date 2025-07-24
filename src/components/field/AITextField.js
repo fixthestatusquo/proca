@@ -111,7 +111,7 @@ useEffect(() => {
           name={name}
           multiline
           maxRows="10"
-          helperText={state === 'loaded' &&  "An AI wrote this message, we encourage you to read and customise it to achieve the impact possible"}
+          helperText={state === 'loaded' &&  "An AI wrote this message, we encourage you to read and customise it to maximise its impact"}
         />
       </Grid>
       <Grid item xs={12} className={classField}>
@@ -127,8 +127,9 @@ useEffect(() => {
         {state === 'loaded' &&<Button
 variant="outlined"
           onClick={fetchData}
+          startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
-          Generate another message
+          Generate another
         </Button>}
       </Grid>
     </>
