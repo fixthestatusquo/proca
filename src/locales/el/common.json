@@ -25,6 +25,7 @@
   "Thank you": "Ευχαριστώ",
   "Your message": "Το μήνυμά σας",
   "action": {
+    "default": "Αναλάβετε δράση",
     "donate": "Δωρεά",
     "eci": "eci",
     "email": "Στείλτε ένα email",
