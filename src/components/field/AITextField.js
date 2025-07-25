@@ -104,17 +104,17 @@ useEffect(() => {
     }
   };
 
+  const labelInside = label.length <= 30;
   return (
     <>
       <Grid item xs={12} className={classField}>
-        <FormLabel component="legend" style={{ marginTop: 16 }}>
-          {label}
-        </FormLabel>
+      {!labelInside && <FormLabel component="legend">{label}</FormLabel>}
 
         <TextField
           form={form}
           name={name}
           multiline
+          label={labelInside && label}
           maxRows="10"
           helperText={state === 'loaded' &&  "An AI wrote this message, we encourage you to read and customise it to maximise its impact"}
         />
