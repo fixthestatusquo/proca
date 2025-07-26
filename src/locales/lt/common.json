@@ -25,6 +25,7 @@
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
   "action": {
+    "default": "Imkitės veiksmų",
     "donate": "Paaukoti",
     "eci": "eci",
     "email": "Siųsti el. laišką",

@@ -25,6 +25,7 @@
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
   "action": {
+    "default": "Gør noget ved det",
     "donate": "Donér",
     "eci": "Skriv under her",
     "email": "Send en e-mail",

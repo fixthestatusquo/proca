@@ -25,6 +25,7 @@
   "Thank you": "Obrigado, senhor",
   "Your message": "Sua mensagem",
   "action": {
+    "default": "Tome uma atitude",
     "donate": "Doação",
     "eci": "Assinar o ECI",
     "email": "Enviar um e-mail",

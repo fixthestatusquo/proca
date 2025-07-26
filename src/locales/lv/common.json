@@ -25,6 +25,7 @@
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
   "action": {
+    "default": "Rīkojieties",
     "donate": "Ziedot",
     "eci": "Paraksti EPI",
     "email": "Sūtīt e-pastu",

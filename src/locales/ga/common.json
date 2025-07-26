@@ -25,6 +25,7 @@
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
   "action": {
+    "default": "Glac gníomh",
     "donate": "Síntiúis",
     "eci": "eci",
     "email": "Seol Ríomhphost",
@@ -34,7 +35,7 @@
     "remindeSent": "Meabhrúchán seolta",
     "reminder": "Cuir i gcuimhne dom níos déanaí",
     "reminderEmail": "Cuir i gcuimhne dom trí ríomhphost",
-    "share": "Scair",
+    "share": "Comhroinn",
     "sign": "Sínigh Anois!",
     "stayInformed": "Bí ar an eolas",
     "takeAction": "Déan beart",
