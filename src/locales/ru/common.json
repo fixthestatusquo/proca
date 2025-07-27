@@ -25,6 +25,7 @@
   "Thank you": "Спасибо",
   "Your message": "Ваше сообщение",
   "action": {
+    "default": "Примите меры",
     "donate": "Пожертвовать",
     "eci": "eci",
     "email": "Отправить письмо",
