@@ -31,7 +31,7 @@ import DetailsStep from "@components/survey/YouStep";
 import useConsultJson from "@components/survey/useQuestions";
 
 const Consultation = props => {
-  const steps = ["you","expert", "citizen", "submit"];
+  const steps = ["you","survey", "submit"];
   const [activeStep, setActiveStep] = useState(0);
   const classes = useStyles();
   const [data] = useData();
@@ -39,7 +39,7 @@ const Consultation = props => {
   const config = useCampaignConfig();
   const qids = config.component.consultation.steps || {};
 
-  const { questions, error } = useConsultJson(config.component.consultation.name || config.campaign.name ,config.lang);
+  const { questions, error } = useConsultJson(config.component.consultation.name || config.campaign.name, config.lang);
 
 
   // Navigate to a specific step when clicked
@@ -56,6 +56,7 @@ const Consultation = props => {
     //    nativeValidation: true,
     defaultValues: Object.assign({}, data, {
       language: config.locale,
+      "153167796": "153167801", // Set default for who are you field
     }),
   });
 
@@ -68,6 +69,8 @@ const Consultation = props => {
   };
 
   const isValid = Object.keys(form.formState.errors).length === 0;
+  const whoareyou = form.watch("153167796");
+  const isCitizen = !whoareyou || whoareyou === "153167801";
 
   //if (loading) return <LinearProgress/>;
   if (error) return <p>Error loading consult: {error.message}</p>;
@@ -88,12 +91,31 @@ const Consultation = props => {
           </Step>
         ))}
       </Stepper>
+    {activeStep === 0 && (
+        <DetailsStep
+          form={form}
+          handleNext={handleNext}
+          questions={questions}
+          SurveyStep={SurveyStep}
+        />
+      )}
+      {activeStep === 1 && (
+        <SurveyStep
+          form={form}
+          handleNext={handleNext}
+          questions={questions}
+          ids={
+            isCitizen
+              ? qids["citizen"]?.questions
+              : qids["expert"]?.questions
+          }
+        />
+      )}
 
-      {activeStep === 0 && <DetailsStep form={form} handleNext={handleNext} questions = {questions} SurveyStep = {SurveyStep} />}
-      {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
-      {activeStep === 2 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[2]].questions}/>}
+      {/* {activeStep === 1 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[1]].questions}/>}
+      {activeStep === 2 && <SurveyStep form={form} handleNext={handleNext} questions = {questions} ids={qids[steps[2]].questions}/>} */}
 
-      {activeStep === 3 && (
+      {activeStep === 2 && (
         <Register
           form={form}
           buttonText="Send"
