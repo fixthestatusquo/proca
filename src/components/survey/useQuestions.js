@@ -4,7 +4,7 @@ import i18next from "i18next";
 
 const localizeConfigQuestions = (config) => {
   const t = i18next.getFixedT(config.lang || 'en');
-  const questions = config?.component?.survey?.questions;
+  const questions = config?.component?.consultation.fields;
   if (!questions) return [];
   const fields = config?.locales?.[config.lang || 'en']?.["campaign:"]?.fields || {};
 
@@ -56,7 +56,6 @@ const useConsultJson = (name, lang = 'en') => {
     const configQuestions = localizeConfigQuestions(config);
     const merged = [...configQuestions, ...remoteQuestions];
 
-
     setQuestions(merged);
     setLoading(false);
   };
@@ -65,8 +64,7 @@ const useConsultJson = (name, lang = 'en') => {
 
   setLoading(true);
 
-  const isRemoteDisabled = config?.component?.survey?.remote === false;
-
+  const isRemoteDisabled = config?.component?.consultation?.remote === false;
   if (isRemoteDisabled) {
     const configQuestions = localizeConfigQuestions(config);
     setQuestions(configQuestions);
