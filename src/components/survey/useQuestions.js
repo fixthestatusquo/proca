@@ -3,7 +3,7 @@ import { useConfig } from "@hooks/useConfig";
 import i18next from "i18next";
 
 const localizeConfigQuestions = (config) => {
-  const t = i18next.getFixedT(config.lang || 'en');
+  const { t } = i18next;
   const questions = config?.component?.consultation.fields;
   if (!questions) return [];
   const fields = config?.locales?.[config.lang || 'en']?.["campaign:"]?.fields || {};
