@@ -15,12 +15,12 @@ const Main = props => {
 
   return (
      <Grid item xs={12}>
-    <Questions
-      form={props.form}
-      handleNext={() => console.log("Next step")}
-      ids={questions.map(q => q.id)}
-      questions={questions}
-      />
+      <Questions
+        form={props.form}
+        handleNext={null}
+        ids={questions.map(q => q.id)}
+        questions={questions}
+        />
       </Grid>
   );
 };
