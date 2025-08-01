@@ -1,37 +1,86 @@
-import React, { useEffect, useState } from "react";
-const useConsultJson = (name,lang) => {
+import { useEffect, useState } from "react";
+import { useConfig } from "@hooks/useConfig";
+import i18next from "i18next";
+
+const localizeConfigQuestions = (config) => {
+  const { t } = i18next;
+  const questions = config?.component?.consultation.fields;
+  if (!questions) return [];
+  const fields = config?.locales?.[config.lang || 'en']?.["campaign:"]?.fields || {};
+
+  return questions.map((q) => {
+    const fieldLocale = fields[q.id] || {};
+
+    const result = {
+      id: q.id,
+      type: q.type,
+      attributeName: q.attributeName || String(q.id),
+      title: fieldLocale.title || t(`campaign:fields.${q.id}.title`, q.title),
+    };
+
+    if (q.possibleAnswers) {
+      result.possibleAnswers = q.possibleAnswers.map((opt) => ({
+        id: opt.id,
+        text:
+          fieldLocale.possibleAnswers?.[opt.id] ||
+          t(`campaign:fields.${q.id}.possibleAnswers.${opt.id}`, opt.text),
+      }));
+    }
+
+    return result;
+  });
+};
+
+const useConsultJson = (name, lang = 'en') => {
+  const config = useConfig();
   const [questions, setQuestions] = useState(undefined);
   const [loading, setLoading] = useState(!!name);
   const [error, setError] = useState(null);
+  const url = `https://static.proca.app/survey/${name}/${lang}.json`;
 
  useEffect(() => {
-  const url =`https://static.proca.app/survey/${name}/${lang}.json`
   const fetchData = async () => {
+    let remoteQuestions = [];
+
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-
-      // EC attributeNames are not unique, so we generate them from IDs
+      console.log("remote data", data);
       data.forEach(item => item.attributeName = String(item.id));
-      setQuestions(data);
+      remoteQuestions = data;
     } catch (err) {
       setError(err);
-    } finally {
-      setLoading(false);
     }
+
+    const configQuestions = localizeConfigQuestions(config);
+    const merged = [...configQuestions, ...remoteQuestions];
+
+    setQuestions(merged);
+    setLoading(false);
   };
 
-  if (!name) return undefined;
+  if (!name) return;
+
+  setLoading(true);
+
+  const isRemoteDisabled = config?.component?.consultation?.remote === false;
+  if (isRemoteDisabled) {
+    const configQuestions = localizeConfigQuestions(config);
+    setQuestions(configQuestions);
+    setLoading(false);
+    return;
+  }
+
   fetchData();
-}, [name,lang]);
+}, [name, lang, config]);
+
 
   return {
     questions,
     loading,
-    error
+    error,
   };
 };
-
 
 export default useConsultJson;
