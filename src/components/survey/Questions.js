@@ -234,11 +234,14 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
           />
         );
       })}
-      <Box display="flex" justifyContent="flex-end">
-        <Button variant="contained" color="primary" onClick={handleNext}>
-          Next
-        </Button>
-      </Box>
+
+      {handleNext && (
+        <Box display="flex" justifyContent="flex-end">
+          <Button variant="contained" color="primary" onClick={handleNext}>
+            Next
+          </Button>
+        </Box>)
+      }
     </>
   );
 };

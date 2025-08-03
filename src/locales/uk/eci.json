@@ -1,1 +1,66 @@
-{}
+{
+  "Place of birth": "Місце народження",
+  "common": {
+    "head-title": {
+      "home": "Європейська громадянська ініціатива"
+    },
+    "more_info": "more_info",
+    "requirements": {
+      "text": "Будь ласка, надайте наступні дані, як того вимагає <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Регламент (ЄС) 2019/788 про Європейську громадянську ініціативу.</a>"
+    }
+  },
+  "congratulations": {
+    "successfully-title": "Вашу заяву про підтримку успішно надіслано"
+  },
+  "footer": {
+    "conformity-title": "Сертифікат відповідності"
+  },
+  "form": {
+    "captcha-audio-download": "Слухайте та вводьте символи, які ви чуєте",
+    "captcha-button-arialabel-audio": "Змінити капчу на аудіо",
+    "captcha-button-arialabel-image": "Змінити капчу на зображення",
+    "captcha-button-arialabel-refresh": "Оновити капчу",
+    "captcha-image-title": "Введіть символи, які ви бачите на зображенні",
+    "certify-info": "Цим я засвідчую, що інформація, надана мною в цій формі, є правильною, і що я ще не підтримував цю ініціативу.",
+    "document-number": "Номер",
+    "document-type": "Тип документа",
+    "error": {
+      "oct_error_invaliddateformat": "oct_error_invaliddateformat",
+      "oct_error_invalidrange": "oct_error_invalidrange",
+      "oct_error_invalidsize": "oct_error_invalidsize"
+    },
+    "group-address": "Проживання",
+    "group-document": "Особиста ідентифікація",
+    "group-personal": "Персональна інформація",
+    "privacy-statement": "Я прочитав(-ла) <a href=\"{{url}}\" target=\"_blank\" title=\"Read the privacy statement\">Заява про конфіденційність</a> і зміст цього <a href=\"{{urlRegister}}\" target=\"_blank\">громадянська ініціатива</a>.",
+    "property": {
+      "city": "Місто",
+      "date-of-birth": "Дата або народження",
+      "family_names": "family_names",
+      "full_first_names": "full_first_names",
+      "postal_code": "postal_code",
+      "street": "Вулиця",
+      "street_number": "street_number"
+    },
+    "support": "Підтримка",
+    "support-footer1": "Щоб підтримати європейську громадянську ініціативу, ви повинні:",
+    "support-footer2": "1. бути громадянином Європейського Союзу (тобто підданим країни ЄС);",
+    "support-footer3": "2. бути достатньо віковим, щоб голосувати на виборах до Європейського парламенту, або, у випадку деяких громадянств, бути віком від 16 років.",
+    "support_country_selected": "support_country_selected",
+    "title": "Підтримайте цю ініціативу, запропоновану громадянами Європейського Союзу"
+  },
+  "header": {
+    "registration_date": "registration_date",
+    "registration_number": "registration_number"
+  },
+  "howsupport": {
+    "s1_text": "s1_text"
+  },
+  "initiative": {
+    "register_webpage": "register_webpage",
+    "representative": "Контактні особи"
+  },
+  "privacy": {
+    "title": "Заява про конфіденційність"
+  }
+}
