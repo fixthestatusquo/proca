@@ -32,6 +32,7 @@ const help = (exit = 0) => {
   );
   process.exit(exit);
 };
+
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "verbose", "serve", "analyze"],
   unknown: d => {

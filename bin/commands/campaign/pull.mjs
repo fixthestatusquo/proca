@@ -1,5 +1,3 @@
-import { pullCampaign as pull } from "../../campaign.js";
-
 import Command, { Args, Flags } from "../../builderCommand.mjs";
 
 export default class CampaignPush extends Command {
@@ -23,12 +21,12 @@ export default class CampaignPush extends Command {
   async run() {
     const { flags } = await this.parse();
     if (flags.campaign) this.error("not implemented yet");
+    const { pullCampaign : pull } = await import("../../campaign.js");
     const r = await pull(flags.name);
     if (r.errors) {
       console.log("errors", r.errors);
       this.error(r.errors);
     }
-    this.info("pulled", r.name, r.locale);
     //console.log(r);
   }
 }

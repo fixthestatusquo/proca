@@ -1,4 +1,3 @@
-import { push } from "../../widget.js";
 
 import Command, { Args, Flags } from "../../builderCommand.mjs";
 
@@ -31,6 +30,7 @@ export default class FetchCommand extends Command {
   async run() {
     const { flags } = await this.parse();
     if (flags.campaign) this.error("not implemented yet");
+    const { push } = await import('../../widget.js');
     const r = await push(flags.id);
     if (r.errors) {
       console.log("errors", r.errors);

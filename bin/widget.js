@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 const {
   api,
   read,
@@ -9,6 +9,7 @@ const {
 } = require("./config");
 const { commit, add, onGit } = require("./git");
 const { saveCampaign, pullCampaign } = require("./campaign");
+
 const { build, serve } = require("./esbuild");
 //const getId = require("./id");
 const color = require("cli-color");
@@ -32,7 +33,10 @@ const help = exit => {
   );
   process.exit(exit || 0);
 };
-const argv = require("minimist")(process.argv.slice(2), {
+
+
+
+const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
   boolean: [
     "help",
     "dry-run",
@@ -362,7 +366,6 @@ const pull = async (
             " part of " +
             config.campaign.title;
             let r = null;
-console.log("save", exists, argv.git);
             if (!exists && argv.git) {
               r = await add(actionPage + ".json");
               console.log("adding", r);

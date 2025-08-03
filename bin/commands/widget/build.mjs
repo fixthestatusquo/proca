@@ -1,4 +1,3 @@
-import { build } from "../../esbuild.js";
 import Command, { Args, Flags } from "proca/src/procaCommand.mjs";
 
 export default class ServeCommand extends Command {
@@ -19,6 +18,7 @@ export default class ServeCommand extends Command {
   async run() {
     const { flags } = await this.parse();
     this.log("build", flags.id);
+    const { build } = await import("../../esbuild.js");
     await build(flags.id);
   }
 }
