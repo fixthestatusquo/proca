@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const env = require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 const path = require("path");
 const cp = require("child_process");
 const fs = require("fs");
@@ -8,7 +8,6 @@ const { pipeline } = require("node:stream/promises");
 const color = require("cli-color");
 const browserslist = require("browserslist");
 
-const { getConfigOverride } = require("../webpack/config");
 const actionPage = require("../webpack/actionPage");
 
 const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
@@ -44,7 +43,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const define = (env, environment) => {
+const define = (environment) => {
   nodeEnv = environment;
   const defined = {
     global: "window",
@@ -54,10 +53,9 @@ const define = (env, environment) => {
     "process.env.NODE_ENV": '"' + (environment || "production") + '"',
   };
 
-  Object.keys(env)
+  Object.keys(process.env)
     .filter(d => d.startsWith("REACT_APP_"))
-    .forEach(d => (defined["process.env." + d] = '"' + env[d] + '"'));
-  //  console.log(defined);process.exit(1);
+    .forEach(d => (defined["process.env." + d] = '"' + process.env[d] + '"'));
   return defined;
 };
 
@@ -178,13 +176,14 @@ let procaPlugin = ({ id, config }) => ({
 });
 
 const getConfig = (id, environment) => {
+  const { getConfigOverride } = require("../webpack/config");
   const [, config] = getConfigOverride(id);
   return {
     globalName: "proca",
     format: "iife",
     logLevel: "info",
     entryPoints: ["src/index.js"],
-    define: define(env.parsed, environment),
+    define: define(environment),
     bundle: true,
     plugins: [
       procaPlugin({ id: id, config: config }),

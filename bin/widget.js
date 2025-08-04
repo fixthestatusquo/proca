@@ -416,7 +416,7 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
   if (r.errors) {
     console.log(r);
     console.log(
-      "check that your .env has the correct AUTH_USER and AUTH_PASSWORD"
+      "check your config $npx proca config user"
     );
     throw new Error(r.errors[0].message || "can't push");
   }

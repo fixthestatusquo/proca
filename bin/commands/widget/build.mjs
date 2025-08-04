@@ -17,7 +17,7 @@ export default class ServeCommand extends Command {
 
   async run() {
     const { flags } = await this.parse();
-    this.log("build", flags.id);
+    this.log("build ...", flags.id);
     const { build } = await import("../../esbuild.js");
     await build(flags.id);
   }

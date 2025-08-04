@@ -1,6 +1,6 @@
 const envVar = "actionpage";
 const fs = require("graceful-fs");
-const path = require("path");
+const path = require("node:path");
 const merge = require("lodash").merge;
 
 function getConfigOverride(id) {
@@ -13,11 +13,8 @@ throw Error(
 );
 }
 
-function configFolder() {
-return process.env.REACT_APP_CONFIG_FOLDER
-  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
-  : "../config/";
-}
+const configFolder =() =>(process.env.PROCA_CONFIG_FOLDER  || path.resolve(__dirname, "../config/"));
+
 function readConfigOverride(id) {
 //  console.log(id);console.trace("Here I am!")
 
@@ -25,7 +22,7 @@ let apId = id || process.env[envVar] || process.argv[2];
 
 if (apId) {
   const configFile = apId + ".json";
-  const fn = path.resolve(__dirname, configFolder() + configFile);
+  const fn = path.resolve(__dirname, configFolder() + '/' + configFile);
   try {
     const config = parseConfig(fs.readFileSync(fn));
     let campaignConfig = {};
@@ -138,7 +135,7 @@ if (apId) {
       }
       return [configFile, config, campaignConfig];
     } catch (e) {
-      const confFolder = path.resolve(__dirname, configFolder());
+      const confFolder = configFolder();
       if (!fs.existsSync(confFolder)) {
         console.error("missing folder", confFolder, ". mkdir it");
         process.exit(1);
