@@ -103,7 +103,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
   upsertCampaign(orgName: $orgName, input: { externalId: $externalId,
     name: $name, config: $config, actionPages: []
   }) {
-    id
+    id, name, title
   }
 }
 `;
@@ -112,13 +112,6 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
   let data;
 
   try {
-    console.log({
-      orgName: campaign.org.name,
-      name: campaign.name,
-      title: campaign.title,
-      externalId: campaign.externalId,
-      config: JSON.stringify(campaign.config),
-    });
     const variables = {
       orgName: campaign.org.name,
       name: campaign.name,
@@ -179,7 +172,8 @@ if (require.main === module) {
       const name = argv._[0];
       let campaign = null;
       let fileName = "campaign/" + name + ".json";
-console.log(argv);
+
+console.log(argv,"running");
       if (argv.pull || !argv.push) {
         try {
           campaign = await pullCampaign(name, anonymous);
@@ -193,8 +187,11 @@ console.log("not pulled");
         //if (local && JSON.stringify(local) !== JSON.stringify(campaign)) {
         //    backup(campaign);
         // }
+     }
         if (argv.push && !argv["dry-run"]) {
+console.log(argv,"pushing before git");
           const r = argv.git && (await commit(fileName, null, 1));
+console.log(argv,"pushing");
           const result = await pushCampaign(name);
           console.log(color.green.bold("pushed", name), color.blue(result.id));
           if (r.summary) console.log(r.summary);
@@ -205,7 +202,6 @@ console.log("not pulled");
           }
           console.log(campaign);
         }
-      }
     } catch (e) {
       console.error(e);
       // Deal with the fact the chain failed
