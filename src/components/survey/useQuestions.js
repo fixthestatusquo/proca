@@ -26,6 +26,8 @@ const localizeConfigQuestions = (config) => {
           t(`campaign:fields.${q.id}.possibleAnswers.${opt.id}`, opt.text),
       }));
     }
+    // overwriting the margin. By default is larger (for fetched fields)
+    if (q.margin) result.margin = q.margin;
 
     return result;
   });
