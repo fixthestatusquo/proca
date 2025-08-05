@@ -46,6 +46,7 @@ Each entry looks like:
 
 - **Type**: One of `FreeTextQuestion`, `SingleChoiceQuestion`, `MultipleChoiceQuestion`, `AIAssistedQuestion`, etc.
 - **Dependencies**: `possibleAnswers[*].dependentElementsString` = semicolon-separated list of child question IDs.
+- **Margin**: Overwrite default margin (3). Useful when adding a few fields to a widget
 
 ---
 
@@ -53,7 +54,13 @@ Each entry looks like:
 
 ### `useConsultJson(name, lang)`
 
-Fetches the blueprint JSON and generates **attributeName** for each field as stingified ID.
+Fetches the blueprint JSON from `static` and generates **attributeName** for each field as stingified ID.
+
+or
+
+Reads the fields from campaign configuration.
+
+It can use both remote and campaign configuration, or one. Disable fetch with `campaign.config.consultation.remote: false`
 
 ### `<Survey />`
 
@@ -82,6 +89,10 @@ A sample use-case, rendering the “you” step of the form:
 ### `Register`
 
 The final step of the consultation flow (`submit`) uses the standard `<Register />` component from Proca’s form ecosystem to collect final contact info
+
+### `Main`
+
+Renders fields as a part of regular widget (sabel).
 
 ---
 
