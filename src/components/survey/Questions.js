@@ -12,20 +12,21 @@ import SingleSelect from "@components/field/SingleSelect";
 import AITextField from "@components/field/AITextField";
 
 const useStyles = makeStyles((theme) => ({
-  elementMarginTop: {
-    marginTop: theme.spacing(3),
-   "& textarea": {
-     minHeight: "auto!important",
-   }
-  },
-  section: {
-    marginTop: theme.spacing(3),
+  elementMarginTop: (props) => ({
+    marginTop: props.margin || theme.spacing(3),
+    "& textarea": {
+      minHeight: "auto!important",
+    },
+  }),
+  section: (props) => ({
+    marginTop: props.margin || theme.spacing(3),
     marginBottom: theme.spacing(-2),
-  },
+  }),
 }));
 
+
 const Questions = ({ json, form, findQuestionById }) => {
-  const classes = useStyles();
+  const classes = useStyles({margin: +json.margin});
 
   switch (json.type) {
     case "FreeTextQuestion":
@@ -112,7 +113,7 @@ const getDependantIds = (options, selected) => {
 
 
 const AITextQuestion = ({ json, form }) => {
-  const classes = useStyles();
+  const classes = useStyles({margin: +json.margin});
   return (
     <Box className={classes.elementMarginTop}>
       <AITextField
@@ -130,7 +131,7 @@ const AITextQuestion = ({ json, form }) => {
 
 
 const TextQuestion = ({ json, form }) => {
-  const classes = useStyles();
+  const classes = useStyles({margin: +json.margin});
   const multiline = json.title.length > 30 && json.maxCharacters > 100;
   const labelInside = json.title.length <= 30;
   return (
