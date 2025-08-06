@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const fs = require("fs");
-require("dotenv").config();
+const { isDirectCli } = require("./dotenv.js");
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
 const { publishTarget } = require("./publishTargets");
@@ -8,14 +8,13 @@ const color = require("cli-color");
 const { mainLanguage } = require("./lang");
 const { mkdirp, read, file, api, fileExists } = require("./config");
 
-const help = exitValue => {
+const help = (exitValue) => {
   console.log(
     color.yellow(
       [
         "options",
         "--help (this command)",
         "--dry-run (show the tagets but don't update the server)",
-        //          "not done --twitter (set up as a separate proca-twitter)",
         "--git (git update [add]+commit into /config/target/) || --no-git",
         "--quiet (less warning displayed)",
         "--pull (from the server)",
@@ -24,7 +23,7 @@ const help = exitValue => {
         "--display (show/hide targets)",
         "--publish (update the public list into /config/target/public and make it live)",
         "{campaign name}",
-      ].join("\n")
+      ].join("\n"),
     ),
 
     color.blackBright(
@@ -36,7 +35,7 @@ const help = exitValue => {
         "--outdated[=delete,disable,keep] (by default, replace all the contacts and delete those that aren't on the file, option to disable or keep)",
         "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--disable or keep)",
         "--file=file (by default, config/target/source/{campaign name}.json",
-      ].join("\n")
+      ].join("\n"),
     ),
 
     color.blackBright(
@@ -50,110 +49,89 @@ const help = exitValue => {
         "--[no-]external_id , publishes the externalid",
         "--fields=fieldA,fieldB add extra fields present in source, eg for custom filtering",
         "--salutation, true by default, needs field/lang value",
-      ].join("\n")
-    )
+      ].join("\n"),
+    ),
   );
   process.exit(+exitValue);
 };
 
-const argv = require("minimist")(process.argv.slice(2), {
-  default: {
-    git: true,
-    salutation: true,
-    external_id: true,
-    source: true,
-    outdated: "delete",
-    quiet: false,
-    "allow-duplicate": false,
-  },
-  string: ["file", "fields", "outdated"],
-  boolean: [
-    "help",
-    "dry-run",
-    "allow-duplicate",
-    "quiet",
-    "git",
-    "pull",
-    "digest",
-    "push",
-    "publish",
-    //   "twitter",
-    "source",
-    "salutation",
-    "meps",
-    "external_id",
-    "email",
-    "display",
-  ],
-  unknown: d => {
-    const allowed = []; //merge with boolean and string?
-    if (d[0] !== "-") return true;
-    if (allowed.includes(d.split("=")[0].slice(2))) return true;
-    console.log(color.red("unknown param", d));
-    help(1);
-  },
-});
+const argv =
+  isDirectCli() &&
+  require("minimist")(process.argv.slice(2), {
+    default: {
+      git: true,
+      salutation: true,
+      external_id: true,
+      source: true,
+      outdated: "delete",
+      quiet: false,
+      "allow-duplicate": false,
+    },
+    string: ["file", "fields", "outdated"],
+    boolean: [
+      "help",
+      "dry-run",
+      "allow-duplicate",
+      "quiet",
+      "git",
+      "pull",
+      "digest",
+      "push",
+      "publish",
+      //   "twitter",
+      "source",
+      "salutation",
+      "meps",
+      "external_id",
+      "email",
+      "display",
+    ],
+    unknown: (d) => {
+      const allowed = []; //merge with boolean and string?
+      if (d[0] !== "-") return true;
+      if (allowed.includes(d.split("=")[0].slice(2))) return true;
+      console.log(color.red("unknown param", d));
+      help(1);
+    },
+  });
 
-if (argv._.length !== 1) {
-  if (argv._.length === 0) {
-    console.log(color.red("missing campaign name"), argv._);
-  } else {
-    console.log(color.red("only one campaign param allowed"), argv._);
-  }
-  help(true);
-}
-
-const parseEmail = text => {
+const parseEmail = (text, argv) => {
   const emails =
     text && text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
   if (!emails) {
     !argv.quiet && console.log("failed to parse as an email", text);
     return [];
   }
-  return emails.map(email => ({ email: email })); // proca api requires an array of {email:bla@example.org}
+  return emails.map((email) => ({ email: email })); // proca api requires an array of {email:bla@example.org}
 };
 
-const getCampaignTargets = async name => {
-  const query = `
-query GetCampaignTargets($name: String!) {
-  campaign(name:$name) {
-  ... on PrivateCampaign {
-    targets {
-      id name area fields locale externalId
-      ... on PrivateTarget {
-          emails { email, emailStatus }
-        }
-      }
-    }
-  }
-}
-`;
+const getCampaignTargets = async (name) => {
+  const query = `\nquery GetCampaignTargets($name: String!) {\n  campaign(name:$name) {\n  ... on PrivateCampaign {\n    targets {\n      id name area fields locale externalId\n      ... on PrivateTarget {\n          emails { email, emailStatus }\n        }\n      }\n    }\n  }\n}\n`;
 
   const data = await api(query, { name }, "GetCampaignTargets");
   if (!data.campaign) throw new Error("can't find campaign " + name);
   if (!data.campaign.targets || data.campaign.targets.length === 0)
     throw new Error("No targets.");
-  data.campaign.targets = data.campaign.targets.map(t => {
+  data.campaign.targets = data.campaign.targets.map((t) => {
     if (t.fields) t.fields = JSON.parse(t.fields);
     return t;
   });
   return data.campaign.targets;
 };
 
-const countEmailStatus = targets => {
-  return targets.reduce((acc, { emails }) => {
+const countEmailStatus = (targets) =>
+  targets.reduce((acc, { emails }) => {
     if (emails.length > 1) {
       console.warn("more than one email per target", emails);
     }
     emails.forEach(
-      ({ emailStatus }) =>
-        (acc[emailStatus] = acc[emailStatus] ? acc[emailStatus] + 1 : 1)
+      ({ emailStatus }) => (acc[emailStatus] = acc[emailStatus] + 1 || 1),
     );
     return acc;
   }, {});
-};
 
-const pullTarget = async name => {
+const pullTarget = async (name, argv) => {
+console.log("argv",argv);
   let targets = await getCampaignTargets(name);
   const status = countEmailStatus(targets);
   if (targets.length === 0) {
@@ -163,7 +141,7 @@ const pullTarget = async name => {
   if (argv.source) {
     const sources = read("target/source/" + name); // the list of targets from the source
     const c = targets.filter(
-      t => -1 !== sources.findIndex(d => d.externalId === t.externalId)
+      (t) => -1 !== sources.findIndex((d) => d.externalId === t.externalId),
     );
     if (targets.length !== c.length) {
       console.log("total server vs source", targets.length, c.length);
@@ -174,24 +152,24 @@ const pullTarget = async name => {
     console.log("status", status);
   }
 
-  await saveTargets(argv.file || name, targets);
+  await saveTargets(argv.file || name, targets, argv);
   console.log("save target");
   return targets;
 };
 
-const readTarget = targetName => {
+const readTarget = (targetName) => {
   const fileName = file("target/" + targetName);
   const target = JSON.parse(fs.readFileSync(fileName));
   return target;
 };
 
-const saveDigest = async (targetName, targets) => {
+const saveDigest = async (targetName, targets, argv) => {
   mkdirp("target/digest");
   const fileName = file("target/digest/" + targetName);
   const exists = fileExists("target/digest/" + targetName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("saving " + targets.length + " targets into", fileName)
+    color.green.bold("saving " + targets.length + " targets into", fileName),
   );
   let r = null;
   const msg = "saving " + targets.length + " targets";
@@ -206,12 +184,12 @@ const saveDigest = async (targetName, targets) => {
   return fileName;
 };
 
-const saveTargets = async (targetName, targets) => {
+const saveTargets = async (targetName, targets, argv) => {
   const fileName = file("target/server/" + targetName);
   const exists = fileExists("target/server/" + targetName);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("pulled " + targets.length + " targets into", fileName)
+    color.green.bold("pulled " + targets.length + " targets into", fileName),
   );
   let r = null;
   const msg = "saving " + targets.length + " targets";
@@ -226,12 +204,12 @@ const saveTargets = async (targetName, targets) => {
   return fileName;
 };
 
-const getTwitter = async target => {
+const getTwitter = async (target) => {
   const targetName =
     (target.config.twitter && target.config.twitter.screen_name) || target.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + targetName
+      "https://twitter.proca.app/?screen_name=" + targetName,
     );
 
     if (res.status >= 400) {
@@ -251,7 +229,7 @@ const getTwitter = async target => {
   }
 };
 
-const summary = campaign => {
+const summary = (campaign, argv) => {
   const source = read("target/source/" + campaign);
   const server = read("target/server/" + campaign);
   const publict = read("target/public/" + campaign);
@@ -265,11 +243,11 @@ const summary = campaign => {
   console.log("public :", publict.length);
 };
 
-const formatTarget = async (campaignName, file) => {
+const formatTarget = async (campaignName, file, argv) => {
   const campaign = read("campaign/" + campaignName);
   const salutations = {};
   if (argv.salutation) {
-    Object.keys(campaign.config.locales).forEach(lang => {
+    Object.keys(campaign.config.locales).forEach((lang) => {
       const common = campaign.config.locales[lang]["common:"];
       const salutation = common?.salutation;
       if (salutation) salutations[lang] = salutation;
@@ -300,7 +278,7 @@ const formatTarget = async (campaignName, file) => {
       }
 
       if (!t.emails) {
-        t.emails = parseEmail(t.email);
+        t.emails = parseEmail(t.email, argv);
         delete t.email;
       }
       if (t.field.avatar === null) {
@@ -330,7 +308,7 @@ const formatTarget = async (campaignName, file) => {
           });
         } else {
           let language = t.locale ? t.locale.replace("_", "-") : "en";
-          await i18n.loadLanguages(t.locale || "en", err => {
+          await i18n.loadLanguages(t.locale || "en", (err) => {
             if (!err) return;
             console.warn(color.red("missing language", language));
           });
@@ -354,7 +332,7 @@ const formatTarget = async (campaignName, file) => {
       }
       let dupe = false;
       !argv["allow-duplicate"] &&
-        t.emails.forEach(d => {
+        t.emails.forEach((d) => {
           if (added.has(d.email)) {
             !argv.quiet && console.log("target already set", t.name, d.email);
             dupe = true;
@@ -390,10 +368,11 @@ const formatTarget = async (campaignName, file) => {
   return formattedTargets;
 };
 
-const digestTarget = async (campaignName, file) => {
-  const targets = await formatTarget(campaignName, file);
+const digestTarget = async (campaignName, argv) => {
+  const file = argv.file || campaignName;
+  const targets = await formatTarget(campaignName, file, argv);
   console.log("targets", targets.length, file);
-  const formattedTargets = targets.map(d => {
+  const formattedTargets = targets.map((d) => {
     d.email = d.emails[0].email;
     const fields = JSON.parse(d.fields);
     delete d.emails;
@@ -404,19 +383,16 @@ const digestTarget = async (campaignName, file) => {
     return { ...fields, ...d };
   });
 
-  saveDigest(argv.file || campaignName, formattedTargets);
+  saveDigest(argv.file || campaignName, formattedTargets, argv);
 };
 
-const pushTarget = async (campaignName, file) => {
+const pushTarget = async (campaignName, argv) => {
+  const file = argv.file || campaignName;
   const campaign = read("campaign/" + campaignName);
-  const formattedTargets = await formatTarget(campaignName, file);
+  const formattedTargets = await formatTarget(campaignName, file, argv);
   console.log("targets", formattedTargets.length);
 
-  const query = `
-mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTargets!) {
-  upsertTargets(campaignId: $id, outdatedTargets: $outdated, targets: $targets) {id}
-}
-`;
+  const query = `\nmutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTargets!) {\n  upsertTargets(campaignId: $id, outdatedTargets: $outdated, targets: $targets) {id}\n}\n`;
 
   const ids = await api(
     query,
@@ -425,22 +401,22 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTa
       targets: formattedTargets,
       outdated: argv.outdated.toUpperCase(),
     },
-    "UpsertTargets"
+    "UpsertTargets",
   );
   if (ids.errors) {
-    ids.errors.forEach(d => {
+    ids.errors.forEach((d) => {
       if (d.message === "has messages") {
         console.error(
           color.red(
             "can't remove contact id " +
               d.path[2] +
-              " because is has supporters' messages waiting to be sent"
-          )
+              " because is has supporters' messages waiting to be sent",
+          ),
         );
         console.log(
           color.blue(
-            "you can target --push --outdated=disable AND target --publish --source"
-          )
+            "you can target --push --outdated=disable AND target --publish --source",
+          ),
         );
       } else {
         const line = d.path[2];
@@ -451,7 +427,7 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTa
           formattedTargets[line]?.name,
           formattedTargets[line]?.emails
             ? color.red(formattedTargets[line]?.emails[0].email)
-            : color.red(formattedTargets[line])
+            : color.red(formattedTargets[line]),
         );
       }
     });
@@ -461,23 +437,15 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTa
   return ids.upsertTargets;
 };
 
-const getTarget = async name => {
+const getTarget = async (name, argv) => {
   const extraQuery =
     (argv.pages ? " actionPages {id name locale}" : "") +
     (argv.users ? " users {email lastSigninAt role}" : "");
 
   const query =
-    `
-query GetTarget($name: String!) {
-  target(name:$name) {
-  ... on PrivateTarget {
-      id name title processing {emailFrom,supporterConfirm,doiThankYou} config ` +
+    `\nquery GetTarget($name: String!) {\n  target(name:$name) {\n  ... on PrivateTarget {\n      id name title processing {emailFrom,supporterConfirm,doiThankYou} config ` +
     extraQuery +
-    `
-    }
-  }
-}
-`;
+    `\n    }\n  }\n}\n`;
 
   const data = await api(query, { name }, "GetTarget");
   if (!data.target) throw new Error("can't find target " + name);
@@ -485,13 +453,23 @@ query GetTarget($name: String!) {
   if (data.target.config) data.target.config = JSON.parse(data.target.config);
   return data.target;
 };
+
 if (require.main === module) {
   // this is run directly from the command line as in node xxx.js
+  if (argv._.length !== 1) {
+    if (argv._.length === 0) {
+      console.log(color.red("missing campaign name"), argv._);
+    } else {
+      console.log(color.red("only one campaign param allowed"), argv._);
+    }
+    help(true);
+  }
+
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git"
-      )
+        "git integration disabled because the config folder isn't on git",
+      ),
     );
     argv.git = false;
   }
@@ -504,17 +482,16 @@ if (require.main === module) {
       if (!(argv.push || argv.pull || argv.publish || argv.digest)) {
         summary(name);
         console.error(
-          color.red("missing action, either --push --pull --publish --digest")
+          color.red("missing action, either --push --pull --publish --digest"),
         );
         process.exit(1);
       }
       if (argv.digest) {
         //        await pullTarget(name, argv.file || name);
         console.log(argv.file, name, argv.file || name);
-        await digestTarget(name, argv.file || name);
+        await digestTarget(name, argv);
       }
       if (argv.push) {
-
         if (
           !"keep,delete,disable"
             .split(",")
@@ -523,15 +500,15 @@ if (require.main === module) {
           console.error(
             color.red("invalid outdated, must be keep, delete or disable"),
             argv.outdated,
-            "keep,delete,disable"
+            "keep,delete,disable",
           );
           process.exit(1);
         }
-        await pushTarget(name, argv.file || name);
+        await pushTarget(name, argv);
         console.log("push done");
       }
       if (argv.pull) {
-        await pullTarget(name, argv.file || name);
+        await pullTarget(name, argv);
         console.log("pull done");
       }
       if (argv.publish) {
@@ -551,5 +528,8 @@ if (require.main === module) {
     pushTarget,
     readTarget,
     getTwitter,
+    digestTarget,
+    formatTarget,
+    summary,
   };
 }

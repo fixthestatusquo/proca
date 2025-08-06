@@ -1,7 +1,37 @@
+#!/usr/bin/env node
 const fs = require("fs");
-require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
+
+/* proca format:
+   {
+    area: 'FI',
+    externalId: 'rec0XJIF02o6UzWfk',
+    fields: {
+      description: 'Ministry of Agriculture and Forestry',
+      name: 'Jari Leppä',
+      screen_name: '@JariLeppa'
+    },
+    id: '2c10c12c-d78e-4696-ab57-926b487d74b5',
+    name: 'Jari Leppä'
+  },
+ * twitter format:
+ {
+    id: 1092130388296826900,
+    name: 'Erki Savisaar',
+    screen_name: 'ErkiSavisaar',
+    location: 'Tallinn, Estonia',
+    description: 'Hariduselt IT-mees kuid rahva soovil edendan Eesti elu saadikuna Riigikogus',
+    url: 'https://www.facebook.com/savisaarerki/',
+    profile_image_url_https: 'https://pbs.twimg.com/profile_images/1092137006040313857/3n9Rd92s_normal.jpg',
+    followers_count: 19,
+    lang: null,
+    verified: false,
+    country: ''
+  }
+*/
+
 
 const clean = screenName => screenName?.replace("@", "").toLowerCase().trim();
 
@@ -98,33 +128,6 @@ const merge = (targets, twitters, options) => {
   return merged;
 };
 
-/* proca format:
-   {
-    area: 'FI',
-    externalId: 'rec0XJIF02o6UzWfk',
-    fields: {
-      description: 'Ministry of Agriculture and Forestry',
-      name: 'Jari Leppä',
-      screen_name: '@JariLeppa'
-    },
-    id: '2c10c12c-d78e-4696-ab57-926b487d74b5',
-    name: 'Jari Leppä'
-  },
- * twitter format:
- {
-    id: 1092130388296826900,
-    name: 'Erki Savisaar',
-    screen_name: 'ErkiSavisaar',
-    location: 'Tallinn, Estonia',
-    description: 'Hariduselt IT-mees kuid rahva soovil edendan Eesti elu saadikuna Riigikogus',
-    url: 'https://www.facebook.com/savisaarerki/',
-    profile_image_url_https: 'https://pbs.twimg.com/profile_images/1092137006040313857/3n9Rd92s_normal.jpg',
-    followers_count: 19,
-    lang: null,
-    verified: false,
-    country: ''
-  }
-*/
 const saveTargets = (campaignName, targets, argv) => {
   const fileName = file("target/public/" + campaignName);
   if (argv.verbose) console.log(fileName, targets);
@@ -136,11 +139,7 @@ const saveTargets = (campaignName, targets, argv) => {
 
 const publishTarget = async (campaignName, argv) => {
   const name = argv.file ? argv.file : campaignName;
-  /*
-  const publicEmail = argv.email || false;
-  const display = argv.display || false;
-  const meps = argv.meps || false;
-*/
+
   try {
     read("campaign/" + name); // the config file
     let targets = read("target/server/" + campaignName); // the list of targets from proca server
@@ -165,14 +164,7 @@ const publishTarget = async (campaignName, argv) => {
     }
 
     const merged = merge(targets, twitters || [], argv);
-    /*
-      email: publicEmail,
-      display: display,
-      meps: meps,
-      externalId: argv.external_id,
-    });
-*/
-    //    const d = await pullCampaign(argv[0]);
+
     let removed = 0;
     const d = merged.filter(d => {
       if (d) return true;
@@ -181,10 +173,7 @@ const publishTarget = async (campaignName, argv) => {
     });
     console.log("removed", removed);
     if (d) {
-      //if (argv.sort) {
       const sort = argv.sort || "sort";
-      //d.sort((a, b) => b?.followers_count - a?.followers_count); still need to figure out the order
-      //d.sort((a, b) => a[sort] - b[sort]);
       d.sort((a, b) => a[sort].localeCompare(b[sort]));
 
       const c = saveTargets(name, d, argv);
@@ -201,14 +190,14 @@ const publishTarget = async (campaignName, argv) => {
       }
       return d;
     }
-  } catch (e) {
+  }
+  catch (e) {
     console.error(e);
     return e;
-    // Deal with the fact the chain failed
   }
 };
 
-if (require.main === module) {
+if (isDirectCli() && require.main === module) {
   const argv = require("minimist")(process.argv.slice(2), {
     boolean: [
       "help",
