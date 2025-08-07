@@ -10,6 +10,7 @@ import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
 import AITextField from "@components/field/AITextField";
+import SnowflakeTextField from "@components/field/SnowflakeTextField";
 
 const useStyles = makeStyles((theme) => ({
   elementMarginTop: (props) => ({
@@ -31,6 +32,17 @@ const Questions = ({ json, form, findQuestionById }) => {
   switch (json.type) {
     case "FreeTextQuestion":
       return <TextQuestion form={form} json={json}  />;
+    case "SnowflakeAssistedQuestion":
+      return <SnowflakeTextField form={form} 
+
+        label={json.title}
+        name={json.attributeName}
+        inputProps={{
+          maxLength: json.maxCharacters,
+        }}
+        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+
+ />;
     case "AIAssistedQuestion":
       return <AITextQuestion form={form} json={json} />;
 
