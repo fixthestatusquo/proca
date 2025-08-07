@@ -98,7 +98,6 @@ i18n
         "ol",
         "ul",
         "li",
-        "a",
       ],
     },
     interpolation: {

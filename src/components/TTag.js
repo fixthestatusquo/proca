@@ -10,7 +10,6 @@ export const snarkdown = md => {
         ? _snarkdown(l)
         : `<p>${_snarkdown(l)}</p>`
     );
-
   return htmls.join("\n\n");
 };
 
