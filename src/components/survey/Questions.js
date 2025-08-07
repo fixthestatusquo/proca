@@ -242,7 +242,7 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
           <Questions
             json={json}
             form={form}
-            key={json.id}
+            key={json.id || json.attributeName}
             findQuestionById={findQuestionById}
           />
         );
