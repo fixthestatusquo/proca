@@ -22,8 +22,9 @@ import { scrollTo as _scrollTo } from "@lib/scroll";
 import { initDataState } from "@hooks/useData";
 
 import Loader from "@components/Loader";
+
 import { AlertRenderer } from '@components/layout/AlertRenderer';
-import { useAlert } from '@hooks/useAlert';
+import { useAddAlert } from '@hooks/useAlert';
 
 import { steps } from "../actionPage";
 import Button from "@components/FAB";
@@ -43,7 +44,7 @@ const Widget = props => {
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
-  const { showAlert} = useAlert();
+  const showAlert = useAddAlert();
   useHash({
     prefix: "proca_",
     onChange: step => {
@@ -137,7 +138,8 @@ const Widget = props => {
     showAlert({
           title: "TEST MODE",
           text: 'Experiment freely, this action will not be counted',
-          severity: 'warning'
+          severity: 'warning',
+    autoHideDuration: 10000000
     });
     const styles = `
 @keyframes procaBackgroundTest {

@@ -8,6 +8,7 @@ const alertStore = create((set) => ({
       id: Date.now(),
       timestamp: new Date().toISOString()
     };
+console.log('add alert');
     set((state) => ({ alerts: [...state.alerts, newAlert] }));
   },
   removeAlert: (id) => {
@@ -32,20 +33,17 @@ export function removeAlert(id) {
 // Still export the React hook for components
 export const useAlertStore = alertStore;
 
-export const useAlert = (componentName) => {
+
+export const useAddAlert = () => {
+  const { addAlert } = useAlertStore();
+  return addAlert;
+}
+
+export const useAlert = () => {
   const { addAlert, removeAlert } = useAlertStore();
   
   return {
-    showAlert: (alert) => {
-      if (process.env.NODE_ENV === 'development') {
-        console.log(`[Alert] ${componentName}:`, alert);
-      }
-      
-      addAlert({ 
-        ...alert, 
-        componentOrigin: componentName 
-      });
-    },
+    showAlert: addAlert,
     dismissAlert: removeAlert,
     dismissAll: () => useAlertStore.getState().clearAllAlerts()
   };

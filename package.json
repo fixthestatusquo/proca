@@ -111,29 +111,24 @@
     "build": "node bin/esbuild.js",
     "start": "node bin/esbuild.js --serve ",
     "deploy": "bash bin/deploy.sh",
-    "org": "node bin/org.js",
-    "widget": "node bin/widget.js",
-    "set": "node bin/set.js",
-    "pull": "node bin/widget.js --pull",
-    "push": "node bin/widget.js --push",
-    "git": "node bin/git.js",
+    "org": "npx proca org pull",
+    "widget": "npx proca widget",
+    "pull": "npx proca widget pull",
+    "push": "npx proca widget push",
+    "git": "npx proca git status",
     "i18n": "NODE_ENV=development babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'",
     "i18n:mjml": "NODE_ENV=development babel -f .babelrc.mjml 'config/email/**/*.mjml'",
-    "campaign": "node bin/campaign.js",
+    "campaign": "npx proca campaign",
     "template": "node bin/template.js",
     "digest": "node bin/digest.js",
-    "target": "node bin/target.js",
-    "pushCampaign": "node bin/campaign.js --push",
-    "pullCampaign": "node bin/campaign.js --pull",
+    "target": "npx proca target",
+    "pushCampaign": "npx proca campaign push",
+    "pullCampaign": "npx proca campaign pull",
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging node bin/esbuild.js --serve ",
     "starts": "HTTPS=true node bin/esbuild.js --serve ",
-    "_postinstall": "npx proca plugins link ."
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^locales/(.*)$": "<rootDir>/src/locales/en/$1"
-    }
+    "_postinstall": "npx proca plugins link .",
+    "postinstall": "if [ -z \"$PROCA_NO_RECURSE\" ]; then PROCA_NO_RECURSE=1 npx proca plugins link .; fi"
   },
   "oclif": {
     "commands": "./bin/commands"
