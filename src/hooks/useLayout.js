@@ -1,9 +1,8 @@
 import { useMediaQuery } from "@material-ui/core";
 import { create } from "zustand";
-
 let layoutStore = null;
 
-const init = (data) => {
+const init = data => {
   if (layoutStore) return false;
 
   const defaultLayout = {
@@ -11,20 +10,21 @@ const init = (data) => {
     button: { variant: "contained" },
     margin: "dense",
     primaryColor: "#1976d2",
-    secondaryColor: "#dc004e",
+    secondaryColor: "#ffa726",
     paletteType: "light",
     backgroundColor: "transparent",
     ...data,
   };
 
-  layoutStore = create((set) => ({
+  layoutStore = create(set => ({
     layout: defaultLayout,
-    setLayout: (key, value) => set((state) => {
-      if (typeof key === "object") {
-        return { layout: { ...state.layout, ...key } };
-      }
-      return { layout: { ...state.layout, [key]: value } };
-    }),
+    setLayout: (key, value) =>
+      set(state => {
+        if (typeof key === "object") {
+          return { layout: { ...state.layout, ...key } };
+        }
+        return { layout: { ...state.layout, [key]: value } };
+      }),
   }));
 
   return true;
@@ -51,4 +51,3 @@ const useIsVeryNarrow = () => {
 
 export { useSetLayout, useLayout, init, useIsMobile, useIsVeryNarrow };
 export default useLayout;
-

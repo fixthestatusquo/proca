@@ -8,7 +8,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import { useForm } from "react-hook-form";

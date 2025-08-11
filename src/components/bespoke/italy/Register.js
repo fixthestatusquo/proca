@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { formatDate } from "@lib/date";
 
 import { Box, Button, Snackbar } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import ProcaIcon from "@images/Proca";

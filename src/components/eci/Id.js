@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import documentType from "@data/document_types_name.json";
 import { useTranslation } from "react-i18next";
 export default function Register(props) {

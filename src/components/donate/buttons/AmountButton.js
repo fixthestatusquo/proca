@@ -89,9 +89,9 @@ const Amounts = () => {
     amounts.push(data.initialAmount);
   }
   try {
-  amounts.sort((a, b) => a - b);
+    amounts.sort((a, b) => a - b);
   } catch {
-console.warn("can't sort");
+    console.warn("can't sort");
   }
 
   const form = useForm();
@@ -102,12 +102,7 @@ console.warn("can't sort");
   const cols = width > 310 ? 3 : 6;
   return (
     <>
-      <Grid
-        container
-        spacing={1}
-        role="group"
-        aria-label="amount"
-      >
+      <Grid container spacing={1} role="group" aria-label="amount">
         {amounts.map(d => (
           <Grid xs={cols} key={d} item>
             {/* Maybe we should pass AmountButton the formData handler, so that it's a simpler

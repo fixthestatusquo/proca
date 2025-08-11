@@ -25,10 +25,12 @@
   "Thank you": "Obrigado, senhor",
   "Your message": "Sua mensagem",
   "action": {
+    "default": "Tome uma atitude",
     "donate": "Doação",
     "eci": "Assinar o ECI",
     "email": "Enviar um e-mail",
     "join": "Aderir",
+    "pledge": "Faça sua promessa agora!",
     "register": "Registro",
     "remindeSent": "Lembrete enviado",
     "reminder": "Lembre-me mais tarde",
@@ -159,6 +161,7 @@
   },
   "no": "não",
   "party": "Festa",
+  "party_helper": "Clique em uma ficha de grupo para selecionar todos os seus membros.",
   "phone": {
     "INVALID_COUNTRY": "código de país ausente ou inválido",
     "INVALID_LENGTH": "Comprimento inválido",
@@ -174,6 +177,7 @@
   "progress": {
     "donate": "{{total}} doaram. Vamos para {{goal}}",
     "email": "{{total}} enviaram um e-mail. Vamos para {{goal}}",
+    "pledge": "{{total}} se comprometeram. Vamos para {{goal}}",
     "register": "{{total}} se registraram. Vamos para {{goal}}",
     "share": "{{total}} compartilharam. Vamos para {{goal}}",
     "sign": "{{total}} assinaram. Vamos para {{goal}}",

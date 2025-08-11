@@ -10,7 +10,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 // We can't use the goodies of our material ui wrapper, because it triggers too many redraw and sometimes clear the stripe field (credit cards when it shouldn't)
 import EmailField from "@components/field/Email";
 
@@ -51,22 +51,13 @@ const STRIPE_FREQUENCY = {
   yearly: "year",
 };
 
-const useStripeStore = create((set) => ({
+const useStripeStore = create(set => ({
   stripeError: undefined,
   stripeComplete: undefined,
-  setStripeError: (error) => set({ stripeError: error }),
-  setStripeComplete: (complete) => set({ stripeComplete: complete }),
+  setStripeError: error => set({ stripeError: error }),
+  setStripeComplete: complete => set({ stripeComplete: complete }),
 }));
 
-const useStripeError = () => {
-  const { stripeError } = useStripeStore();
-  return stripeError;
-};
-
-const useStripeComplete = () => {
-  const { stripeComplete } = useStripeStore();
-  return stripeComplete;
-};
 
 const CustomCardElement = props => {
   const { setStripeComplete } = useStripeStore();
@@ -74,7 +65,7 @@ const CustomCardElement = props => {
     <CardElement
       {...props}
       options={{ hidePostalCode: true }}
-      onChange={e => setComplete(e.complete)}
+      onChange={e => setStripeComplete(e.complete)}
     />
   );
 };
@@ -132,7 +123,7 @@ const PaymentForm = props => {
         "[component.donation.stripe.productId] to use Stripe."
     );
   }
- const { stripeError } = useStripeStore();
+  const { stripeError } = useStripeStore();
 
   const form = props.form;
   const {
@@ -173,7 +164,7 @@ const PaymentForm = props => {
             required
           />
         </Grid>
-        {/* 
+        {/*
         <Grid item xs={12} display>
           <Controller
             control={control}
@@ -253,7 +244,7 @@ const PaymentForm = props => {
 
 const SubmitButton = props => {
   const [isSubmitting, setSubmitting] = useState(false);
-  const {stripeError, stripeComplete} = useStripeStore();
+  const { stripeComplete, setStripeError } = useStripeStore();
   const stripe = useStripe();
 
   const [formData] = useData();

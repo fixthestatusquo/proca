@@ -8,7 +8,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TwitterIcon from "../../images/Twitter.js";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import HiddenField from "@components/field/Hidden";
 
 import SearchIcon from "@material-ui/icons/Search";

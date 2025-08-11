@@ -255,6 +255,10 @@ to collect the consent of being contacted
 - `config.component.share.email: boolean`. Enable the share by email. Brocken now (on some config)
 - `config.component.share.reddit: boolean`: Enable share on reddit
 
+#### To add Twitter to a Share step
+
+- `config.component.share.twitter: true`
+
 ## Change Register button label
 
 - `config.component.register.button: 'whateverLabel'`

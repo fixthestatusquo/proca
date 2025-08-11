@@ -22,8 +22,12 @@ const useStyles = makeStyles(() =>
       ".proca-text": {
         display: "none",
       },
+      ".proca-widget input": {
+        paddingTop: "23px!important",
+        paddingBottom: "10px!important",
+      },
     },
-  }),
+  })
 );
 
 const GlobalStyles = () => {
@@ -46,7 +50,7 @@ export default function ProcaStyle(props) {
           htmlFontSize: Number.parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
-              .getPropertyValue("font-size"),
+              .getPropertyValue("font-size")
           ), // get the actual font size
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
@@ -77,15 +81,23 @@ export default function ProcaStyle(props) {
           MuiFormControl: {
             root: { marginTop: "8px!important", marginBottom: "4px!important" },
           },
+          MuiFormControlLabel: {
+            root: {
+              maxWidth: "none",
+              width: "auto"
+            },
+          },
           MuiFilledInput: {
             root: {
               margin: "0px!important",
               "& input": {
                 height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
                 width: "100%",
+                minHeight: 'auto',
               },
               "& select": {
                 height: "1.1876em!important",
+                minHeight: 'auto',
               },
             },
             input: {
@@ -100,6 +112,7 @@ export default function ProcaStyle(props) {
                 minHeight: "23px!important",
                 paddingTop: "0!important",
                 paddingBottom: "0!important",
+                maxWidth: "none",
               },
             },
             marginDense: {},
@@ -124,13 +137,14 @@ export default function ProcaStyle(props) {
               border: "unset!important",
               marginBottom: "0!important",
               flex: "auto",
+              maxWidth: "none",
               // this is where magic happens
               //        '& *': { color: 'rgba(255, 255, 255, 0.7)' },
             },
           },
         },
       }),
-    [layout],
+    [layout]
   );
   // palette.background.default
   for (const d in theme.zIndex) {
@@ -139,6 +153,16 @@ export default function ProcaStyle(props) {
   }
   theme.zIndex.snackbar = 1000000; // we really want that one to be at the top
 
+  /* for v5
+const customStyles = {
+  '#proca-widget input.proca-MuiFilledInput-input': {
+              paddingTop: "23px!important",
+              paddingBottom: "10px!important",
+  },
+};
+
+heme.components.MuiCssBaseline = {  styleOverrides: customStyles,};
+*/
   return (
     <StylesProvider generateClassName={generateClassName}>
       <GlobalStyles />

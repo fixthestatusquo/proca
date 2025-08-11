@@ -16,10 +16,12 @@ import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Container, Box, Button, Snackbar, Grid } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Alert from "@material-ui/lab/Alert";
+import NameField from "@components/field/Name";
 import EmailField from "@components/field/Email";
 import PhoneField from "@components/field/Phone";
+import Address from "@components/field/Address";
 
 import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -31,16 +33,14 @@ import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
 import ImplicitConsent from "@components/ImplicitConsent";
 
-import Salutation from "@components/field/Gender";
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
-import Address from "@components/field/Address";
 
 import { addActionContact, addAction } from "@lib/server.js";
 import dispatch from "@lib/event.js";
 import uuid, { isSet as isUuid } from "@lib/uuid.js";
 
-const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -199,7 +199,6 @@ export default function Register(props) {
   });
 
   const form = props.form || _form;
-
   const { trigger, handleSubmit, setError, getValues, setValue } = form;
 
   const comment = data.comment;
@@ -238,11 +237,21 @@ export default function Register(props) {
     }
     let actionType = config.component.register?.actionType || "register";
     if (props.targets) {
+
       formData.targets = props.targets;
+
+     if (config.test && props.targets.length > 1)  {
+          formData.targets = props.targets.slice(0,1);
+          console.warn ("TEST mode, sending only one test email not " + props.targets.length)
+        }
+
       actionType = "mail2target";
     }
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
+    }
+    if (beforeSubmit && typeof beforeSubmit === "function") {
+      formData = await beforeSubmit(formData);
     }
     if (customField.current.beforeSubmit) {
       formData = await customField.current.beforeSubmit(formData);
@@ -327,7 +336,8 @@ export default function Register(props) {
         comment: formData.comment,
         privacy: formData.privacy,
         email: config.component?.dispatch?.email && formData.email,
-        emailProvider: config.component?.dispatch?.email && emailProvider.current,
+        emailProvider:
+          config.component?.dispatch?.email && emailProvider.current,
       },
       formData,
       config
@@ -427,13 +437,6 @@ export default function Register(props) {
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   //const classField = classes.field;
   const enforceRequired = !data.uuid; // if the user took action, no fields are required
-  const withSalutation = config.component?.register?.field?.gender;
-  const nameWidth = field => {
-    if (compact) return 12;
-    if (withSalutation && field === "firstname") return 5;
-    if (withSalutation) return 5;
-    return 6;
-  };
 
   if (typeof props.buttonNext === "string") {
     buttonNext = props.buttonNext;
@@ -465,12 +468,12 @@ export default function Register(props) {
       <ErrorS display={status === "error"} />
       <Container component="div" maxWidth="sm">
         <ConditionalDisabled
-          disabled={config.component.register?.disabled === true}
+          disabled={config.component.register.disabled === true}
         >
           <WelcomeSupporter />
           <Box marginBottom={1}>
             <Grid container spacing={1}>
-              {config.component.register?.custom?.top && (
+              {config.component.register.custom?.top && (
                 <CustomField
                   compact={compact}
                   form={form}
@@ -480,7 +483,7 @@ export default function Register(props) {
                   classes={classes}
                 />
               )}
-              {config.component.register?.field?.organisation && (
+              {config.component.register.field.organisation && (
                 <Grid item xs={12} className={classField}>
                   <TextField
                     type="organisation"
@@ -494,52 +497,20 @@ export default function Register(props) {
                   />
                 </Grid>
               )}
-              {withSalutation && (
-                <Salutation form={form} compact={compact} classes={classes} />
-              )}
-              <Grid
-                item
-                xs={12}
-                sm={nameWidth("firstname")}
-                className={classField}
-              >
-                <TextField
-                  form={form}
-                  name="firstname"
-                  label={t("First name")}
-                  autoComplete="given-name"
-                  required
-                />
-              </Grid>
-              {config.component.register?.field?.lastname !== false && (
-                <Grid item xs={12} sm={nameWidth()} className={classField}>
-                  <TextField
-                    form={form}
-                    name="lastname"
-                    label={t("Last name")}
-                    autoComplete="family-name"
-                    required={
-                      enforceRequired &&
-                      config.component.register?.field?.lastname?.required
-                    }
-                  />
-                </Grid>
-              )}
-              <Grid
-                item
-                xs={12}
-                sm={
-                  compact ||
-                  config.component.register?.field?.lastname !== false
-                    ? 12
-                    : 6
-                }
-                className={classField}
-              >
-                <EmailField form={form} required={enforceRequired} />
-              </Grid>
+              <NameField form={form} compact={compact} classField={classField} enforceRequired={enforceRequired}/>
+              <EmailField form={form} required={enforceRequired} compact={compact} classField={classField}/>
               <Address form={form} compact={compact} classField={classField} />
-              <PhoneField form={form} classField={classField} />
+              <PhoneField form={form} classField={classField} compact={compact} />
+              {config.component.register.custom?.comment && (
+                <CustomField
+                  compact={compact}
+                  position="comment"
+                  form={form}
+                  classes={classes}
+                  handleBeforeSubmit={setBeforeSubmit}
+                  myref={customField}
+                />
+              )}
               {config.component.register?.field?.comment !== false && (
                 <Grid item xs={12} className={classField}>
                   <TextField
@@ -558,15 +529,16 @@ export default function Register(props) {
               )}
               {props.extraFields &&
                 props.extraFields({ form: form, classes: classes })}
-              {config.component.register?.custom?.bottom && (
+
+              {config.component.register.custom?.bottom && (
                 <CustomField
                   compact={compact}
                   form={form}
                   classes={classes}
+                  handleBeforeSubmit={setBeforeSubmit}
                   myref={customField}
                 />
               )}
-
               {!data.uuid && (
                 <ConsentBlock
                   organisation={props.organisation}

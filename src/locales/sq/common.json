@@ -16,7 +16,6 @@
   "Next": "Tjetër",
   "Organisation": "Organizata",
   "Other": "Tjetër",
-  "party": "Palë",
   "Phone": "Telefoni",
   "Postal Code": "Kodi postar",
   "Salutation": "Përshëndetje",
@@ -25,7 +24,6 @@
   "Subject": "Subjekti",
   "Thank you": "Faleminderit",
   "Your message": "Mesazhi juaj",
-  "region": "Rajoni",
   "action": {
     "donate": "Dhuroni",
     "eci": "Nënshkruaj ECI",
@@ -56,12 +54,12 @@
     "confirmOptIn": "Mos harroni të kontrolloni kutinë tuaj postare (përfshirë dosjen e spam-it!) dhe të konfirmoni pajtimin tuaj me email",
     "emailSent": "Ne ju kemi dërguar një email në {{email}}!",
     "implicit": "Dorëzoni këtë formular për të marrë email nga {{name}}",
-    "intro": "Mësoni më shumë rreth fushatave, veprimeve dhe përparimit të {{campaign}}",
-    "opt-in": "Po, dua që {{partner}} të më mbajë të informuar përmes emailit",
+    "intro": "Mëso më shumë rreth fushatave, aksioneve dhe progresit të {{campaign}}",
+    "opt-in": "Po, dua që {{partner}} të më mbajë të informuar/e përmes email-it",
     "opt-in-both": "Po, dua që {{partner}} dhe {{lead}} të më mbajnë të informuar përmes emailit",
-    "opt-out": "Jo, mos më dërgoni email ose mos më mbani të përditësuar në të ardhmen",
+    "opt-out": "Jo, nuk dua të marr email-e apo përditësime në të ardhmen",
     "optInConfirmed": "Pajtim i konfirmuar",
-    "processing": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave dhe cookies në përputhje me <1>politikën tonë të privatësisë</1>",
+    "processing": "Të dhënat tuaja personale do të ruhen në mënyrë konfidenciale dhe të sigurt. Duke dërguar këtë informacion, ju pranoni përdorimin e të dhënave dhe gjurmëve digjitale sipas <1>politikës sonë të privatësisë</1>.",
     "processing-nocookie": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave në përputhje me <1>politikën tonë të privatësisë</1>",
     "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë",
     "subButton": {
@@ -69,17 +67,12 @@
       "opt-out": "dhe mos më mbani të informuar"
     }
   },
-  "postcode": {
-    "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj",
-    "notFound": "ky kod postar duket se nuk ekziston në vendin tuaj"
-  },
   "date": {
     "error": "data e pavlefshme. formati: DD.MM.YYYY"
   },
   "dateFormat": "DD/MM/YYYY",
   "dialogTitle": "Më mbani të informuar rreth fushatës",
   "donation": {
-    "payment": "Pagesa",
     "amount": {
       "change": "Ndrysho shumën",
       "intro": "Zgjidhni një Shumë"
@@ -130,6 +123,7 @@
     },
     "iban": "IBAN",
     "intro": "Dhuroni për {{org}}",
+    "payment": "Pagesa",
     "payment_methods": {
       "card": "Kartë",
       "default": "Dhuroni",
@@ -140,14 +134,6 @@
     },
     "thanks": "Faleminderit për dhuratën tuaj!",
     "to": "Dhuratë për {{organisation}}"
-  },
-  "phone": {
-    "MISSING": "fusha e kërkuar",
-    "NOT_A_NUMBER": "Numri i telefonit është i pavlefshëm",
-    "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
-    "TOO_SHORT": "numri është shumë i shkurtër",
-    "TOO_LONG": "numri është shumë i gjatë",
-    "INVALID_LENGTH": "Gjatësia e pavlefshme"
   },
   "email": {
     "invalid_domain": "{{domain}} nuk mund të pranojë email",
@@ -172,6 +158,19 @@
     "wanttoadd": "Dëshironi të shtoni një imazh?"
   },
   "no": "jo",
+  "party": "Palë",
+  "phone": {
+    "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
+    "INVALID_LENGTH": "Gjatësia e pavlefshme",
+    "MISSING": "fusha e kërkuar",
+    "NOT_A_NUMBER": "Numri i telefonit është i pavlefshëm",
+    "TOO_LONG": "numri është shumë i gjatë",
+    "TOO_SHORT": "numri është shumë i shkurtër"
+  },
+  "postcode": {
+    "notFound": "ky kod postar duket se nuk ekziston në vendin tuaj",
+    "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj"
+  },
   "progress": {
     "donate": "{{total}} kanë dhuruar. Le të arrijmë te {{goal}}",
     "email": "{{total}} kanë dërguar një email. Le të arrijmë te {{goal}}",
@@ -181,6 +180,7 @@
     "twitter": "{{total}} kanë cicëruar. Le të arrijmë te {{goal}}"
   },
   "read more": "lexo më shumë",
+  "region": "Rajoni",
   "register": "Shtoni emrin tim",
   "reminder": {
     "intro": "Ne e dimë që qeveria juaj po kërkon shumë informacion. Ne do t'ju dërgojmë një email të vetëm për t'ju kujtuar të plotësoni formularin më vonë"
@@ -200,18 +200,16 @@
   },
   "step": {
     "eci": {
-      "secure": "i sigurt",
-      "subheader": "",
-      "title": ""
+      "secure": "i sigurt"
     },
     "register": {
       "title": ""
     }
   },
   "supporter": {
+    "greeting": "Mirë se vini {{firstname}}!",
     "not_you": "jo ju?",
-    "welcome": "Mirësevini, {{firstname}}!",
-    "greeting": "Mirë se vini {{firstname}}!"
+    "welcome": "Mirësevini, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
   "target": {
@@ -240,4 +238,3 @@
   "yes": "po",
   "you need to be 18 years old": "duhet të jeni 18 vjeç"
 }
-

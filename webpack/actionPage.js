@@ -13,10 +13,8 @@ const stepComponent = {
   button: "FAB",
   twitter: "Twitter",
   dialog: "Dialog",
-  Ep: "Ep",
-  html: "Html",
   register: "Register",
-  "register.CH": "bespoke/Register-CH",
+//  "register.CH": "bespoke/Register-CH",
 };
 
 module.exports = id => {

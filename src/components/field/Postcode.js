@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import SearchIcon from "@material-ui/icons/Search";
@@ -49,7 +49,8 @@ const Postcode = props => {
       if (constituency) setValue("constituency", "");
       return;
     }
-    const api = `https://${country}.proca.app/${postcode}`;
+    config.component?.share?.url
+    const api = config.component.postcode?.url ? `${config.component.postcode.url}/${postcode}`  : `https://${country}.proca.app/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)
@@ -112,43 +113,6 @@ const Postcode = props => {
         }),
       });
     }
-    // if the right length, the lookup if performed automatially already by the useEffect above
-    /*
-    const postcode = props.form.getValues("postcode");
-    const api = "https://" + props.country + ".proca.app/" + postcode;
-    if (props.constituency) return;
-    const setValue = props.form.setValue;
-    const fetchAPI = async () => {
-      await fetch(api)
-        .then((res) => {
-
-          if (!res.ok) {
-            setValue("locality", "");
-            setValue("area", "");
-            setValue("constituency", "");
-
-            props.form.setError("postcode", {
-              type: "network",
-              message:
-                res.status === 404
-                  ? t("unknown postcode")
-                  : res.statusText || "Network error",
-            });
-          }
-          return res.json();
-        })
-        .then(() => {
-          console.warn("should be handled into the address");
-        })
-        .catch((err) => {
-          props.form.setError("postcode", {
-            type: "network",
-            message: (err && err.toString()) || "Network error",
-          });
-        });
-    };
-    fetchAPI(postcode);
-*/
   };
 
   return (

@@ -29,6 +29,7 @@
     "eci": "Signer l'ICE",
     "email": "Envoyer un courriel",
     "join": "Rejoindre",
+    "pledge": "S'engager maintenant !",
     "register": "Registre",
     "remindeSent": "Rappel envoyé",
     "reminder": "Rappelez-moi plus tard",
@@ -159,6 +160,7 @@
   },
   "no": "non",
   "party": "Parti",
+  "party_helper": "Cliquez sur une puce de parti pour sélectionner tous ses membres.",
   "phone": {
     "INVALID_COUNTRY": "code pays manquant ou invalide",
     "INVALID_LENGTH": "Longueur non valide",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} ont fait un don. Allons à {{goal}}",
     "email": "{{total}} ont envoyé un courriel. Allons à {{goal}}",
+    "pledge": "{{total}} se sont engagés. Allons à {{goal}}",
     "register": "{{total}} se sont inscrits. Allons à {{goal}}",
     "share": "{{total}} ont partagé. Allons à {{goal}}",
     "sign": "{{total}} ont signé. Allons à {{goal}}",

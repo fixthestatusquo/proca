@@ -1,0 +1,111 @@
+import React, { useState } from "react";
+import useData from "@hooks/useData";
+import Register from "@components/Register";
+import {
+  useCampaignConfig,
+  useSetActionType,
+} from "@hooks/useConfig";
+import { useForm } from "react-hook-form";
+import {
+  Stepper,
+  Step,
+  StepButton
+} from "@material-ui/core";
+
+import SurveyStep from "@components/survey/Questions";
+import DetailsStep from "@components/survey/YouStep";
+import useConsultJson from "@components/survey/useQuestions";
+
+const Consultation = props => {
+  const steps = ["you","survey", "submit"];
+  const [activeStep, setActiveStep] = useState(0);
+  const [data] = useData();
+  useSetActionType("consultation");
+  const config = useCampaignConfig();
+  const qids = config.component.consultation.steps || {};
+
+  const { questions, error } = useConsultJson(config.component.consultation.name || config.campaign.name, config.lang);
+
+
+  // Navigate to a specific step when clicked
+  const handleStepClick = step => {
+    console.log("go to step ", step);
+    setActiveStep(step);
+  };
+
+  const handleNext = () => setActiveStep((prev) => prev + 1);
+  //  const handleBack = () => setActiveStep((prev) => prev - 1);
+
+  const form = useForm({
+    //mode: "onBlur",
+    //    nativeValidation: true,
+    defaultValues: Object.assign({}, data, {
+      language: config.locale,
+      "153167796": "153167801", // Set default for who are you field
+    }),
+  });
+
+  const prepareData = (data) => {
+    console.log("prepareData",data);
+    return data;
+  };
+  const onClick = () => {
+    console.log("onClick");
+  };
+
+  const isValid = Object.keys(form.formState.errors).length === 0;
+  const whoareyou = form.watch("153167796");
+  const isCitizen = !whoareyou || whoareyou === "153167801";
+
+  if (error) return <p>Error loading consult: {error.message}</p>;
+
+  return (
+    <>
+      <Stepper
+        activeStep={activeStep}
+        alternativeLabel
+        style={{ width: "100%", backgroundColor: "transparent"  }}
+        nonLinear
+      >
+        {steps.map((label, index) => (
+          <Step key={label}>
+            <StepButton onClick={() => handleStepClick(index)}>
+              {label}
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
+    {activeStep === 0 && (
+        <DetailsStep
+          form={form}
+          handleNext={handleNext}
+          questions={questions}
+          SurveyStep={SurveyStep}
+        />
+      )}
+      {activeStep === 1 && (
+        <SurveyStep
+          form={form}
+          handleNext={handleNext}
+          questions={questions}
+          ids={
+            isCitizen
+              ? qids["citizen"]?.questions
+              : qids["expert"]?.questions
+          }
+        />
+      )}
+      {activeStep === 2 && (
+        <Register
+          form={form}
+          buttonText="Send"
+          done={props.done}
+          beforeSubmit={prepareData}
+          onClick={onClick}
+        />
+      )}
+    </>
+  );
+};
+
+export default Consultation;

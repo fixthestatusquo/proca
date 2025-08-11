@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const env = require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 const path = require("path");
 const cp = require("child_process");
 const fs = require("fs");
@@ -8,7 +8,6 @@ const { pipeline } = require("node:stream/promises");
 const color = require("cli-color");
 const browserslist = require("browserslist");
 
-const { getConfigOverride } = require("../webpack/config");
 const actionPage = require("../webpack/actionPage");
 
 const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
@@ -32,6 +31,7 @@ const help = (exit = 0) => {
   );
   process.exit(exit);
 };
+
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "verbose", "serve", "analyze"],
   unknown: d => {
@@ -43,21 +43,19 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const define = (env, environment) => {
+const define = (environment) => {
   nodeEnv = environment;
   const defined = {
     global: "window",
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
-    "process.env.NODE_ENV":
-      '"' + (environment || "production") + '"',
+    "process.env.NODE_ENV": '"' + (environment || "production") + '"',
   };
 
-  Object.keys(env)
+  Object.keys(process.env)
     .filter(d => d.startsWith("REACT_APP_"))
-    .forEach(d => (defined["process.env." + d] = '"' + env[d] + '"'));
-  //  console.log(defined);process.exit(1);
+    .forEach(d => (defined["process.env." + d] = '"' + process.env[d] + '"'));
   return defined;
 };
 
@@ -140,9 +138,11 @@ let procaPlugin = ({ id, config }) => ({
           .replaceAll("<%= lang %>", config.lang)
           .replaceAll("<%= campaign %>", config.campaign.title)
           .replaceAll("<%= organisation %>", config.org.name)
+          .replaceAll("<%= theme %>", config.layout.theme || 'light')
+          .replaceAll("<%= background-color %>", config.layout.backgroundColor || undefined)
       );
 
-      if (nodeEnv !== 'development') {
+      if (nodeEnv !== "development") {
         const index = "d/" + config.filename + "/index.js";
         await pipeline(
           fs.createReadStream(index),
@@ -159,7 +159,7 @@ let procaPlugin = ({ id, config }) => ({
       runs++;
     });
     build.onLoad({ filter: /.*src\/actionPage\.js$/ }, () => {
-      if (nodeEnv === 'development') {
+      if (nodeEnv === "development") {
         runs === 0
           ? console.log(color.blue("load", config.filename))
           : console.log("reload");
@@ -175,14 +175,15 @@ let procaPlugin = ({ id, config }) => ({
   },
 });
 
-const getConfig = (id,environment) => {
+const getConfig = (id, environment) => {
+  const { getConfigOverride } = require("../webpack/config");
   const [, config] = getConfigOverride(id);
   return {
     globalName: "proca",
     format: "iife",
     logLevel: "info",
     entryPoints: ["src/index.js"],
-    define: define(env.parsed,environment),
+    define: define(environment),
     bundle: true,
     plugins: [
       procaPlugin({ id: id, config: config }),
@@ -203,7 +204,7 @@ const getConfig = (id,environment) => {
 };
 
 const serve = async id => {
-  const buildConfig = getConfig(id,"development");
+  const buildConfig = getConfig(id, "development");
   buildConfig.sourcemap = "inline";
   //buildConfig.sourcemap = true;
   //  buildConfig.plugins.push (eslint);
@@ -215,7 +216,7 @@ const serve = async id => {
   await c.watch();
   const r = await c.serve({ servedir: buildConfig.outdir });
   const open = await import("open");
-  open.default("http://" + r.host + ":" + r.port);
+  open.default("http://" + r.hosts[0] + ":" + r.port);
 };
 
 const build = async id => {

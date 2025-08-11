@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Skicka ett e-postmeddelande",
     "join": "Gå med i",
+    "pledge": "Pledge nu!",
     "register": "Registrera",
     "remindeSent": "Påminnelse skickad",
     "reminder": "Påminn mig senare",
@@ -159,6 +160,7 @@
   },
   "no": "ingen",
   "party": "Parti",
+  "party_helper": "Klicka på ett partichip för att välja alla dess medlemmar.",
   "phone": {
     "INVALID_COUNTRY": "landskod saknas eller är ogiltig",
     "INVALID_LENGTH": "Ogiltig längd",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} har donerat. Vi går till {{goal}}",
     "email": "{{total}} har skickat ett e-postmeddelande. Vi går till {{goal}}",
+    "pledge": "{{total}} har lovat. Låt oss gå till {{goal}}",
     "register": "{{total}} har registrerat sig. Vi går till {{goal}}",
     "share": "{{total}} har delat med sig av. Vi går till {{goal}}",
     "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}",

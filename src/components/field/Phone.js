@@ -2,16 +2,21 @@ import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { checkPhone, prefetchDNS } from "@lib/checkPhone";
 //import useData from "@hooks/useData";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { Grid } from "@material-ui/core";
 import { InputAdornment } from "@material-ui/core";
 import CountryFlag from "react-emoji-flag";
 import PhoneIcon from "@material-ui/icons/Phone";
-const Phone = ({ form, classField }) => {
+const Phone = ({ form, classField, compact }) => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   if (!config.component.register?.field?.phone) return null;
+
+  const hasPostcode = config.component.register?.field?.postcode !== false;
+  const hasLocality = config.component.register?.field?.locality;
+  const hasCountry = config.component.register?.field?.country !== false;
+  const narrowPhone = !compact && hasPostcode && !hasLocality && !hasCountry;
 
   const validatePhone = async phone => {
     const result = await checkPhone(form.getValues("country"), phone);
@@ -28,10 +33,10 @@ const Phone = ({ form, classField }) => {
   const phoneCountry = form.watch("phoneCountry");
 
   if (form.getFieldState("phone").invalid) {
-//  iconColor = theme.palette.error.main;
+    //  iconColor = theme.palette.error.main;
   }
   return (
-    <Grid item xs={12} className={classField}>
+    <Grid item xs={12} sm={narrowPhone? 9 : 12} className={classField}>
       <input type="hidden" {...form.register("phoneCountry")} />
       <TextField
         type="tel"
@@ -44,7 +49,15 @@ const Phone = ({ form, classField }) => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {phoneCountry ? <CountryFlag countryCode={phoneCountry} /> : <PhoneIcon color={form.getFieldState("phone").invalid ? "error": "action"} />}
+              {phoneCountry ? (
+                <CountryFlag countryCode={phoneCountry} />
+              ) : (
+                <PhoneIcon
+                  color={
+                    form.getFieldState("phone").invalid ? "error" : "action"
+                  }
+                />
+              )}
             </InputAdornment>
           ),
         }}

@@ -29,6 +29,7 @@
     "eci": "ECI 서명",
     "email": "이메일 보내기",
     "join": "가입하다",
+    "pledge": "지금 서약하세요!",
     "register": "등록하다",
     "remindeSent": "알림 전송",
     "reminder": "나중에 알림",
@@ -159,6 +160,7 @@
   },
   "no": "아니요",
   "party": "파티",
+  "party_helper": "파티 칩을 클릭하면 모든 멤버를 선택할 수 있습니다.",
   "phone": {
     "INVALID_COUNTRY": "누락되었거나 잘못된 국가 코드",
     "INVALID_LENGTH": "잘못된 길이",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}}가 기부했습니다. {{goal}}로 가자",
     "email": "{{total}}가 이메일을 보냈습니다. {{goal}}로 가자",
+    "pledge": "{{total}} 서약했습니다. 다음으로 이동합니다. {{goal}}",
     "register": "{{total}}가 등록되었습니다. {{goal}}로 가자",
     "share": "{{total}}가 공유했습니다. {{goal}}로 가자",
     "sign": "{{total}}이(가) 서명했습니다. {{goal}}로 가자",

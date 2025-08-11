@@ -2,7 +2,7 @@
 const fs = require("fs");
 const { pathConfig } = require("./config");
 const simpleGit = require("simple-git");
-require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 const color = require("cli-color");
 const actions = [
   "help",
@@ -15,12 +15,12 @@ const actions = [
   "push",
 ];
 
-const argv = require("minimist")(process.argv.slice(2), {
+const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
   boolean: actions,
   alias: { v: "verbose" },
 });
 
-if (argv._[0] && actions.includes(argv._[0])) {
+if (argv._ && argv._[0] && actions.includes(argv._[0])) {
   argv[argv._[0]] = true;
   argv._.shift();
 }
@@ -68,7 +68,7 @@ try {
 } catch {
   console.error(
     color.red("can't find config folder ", pathConfig()),
-    "create manually or update your .env REACT_APP_CONFIG_FOLDER"
+    "create or check proca config init"
   );
   process.exit(1);
 }
@@ -89,7 +89,7 @@ const deploy = async () => {
     console.log(body);
     return body;
   } catch (e) {
-console.log("error",e,response);
+    console.log("error", e, response);
     return {};
   }
   //curl -X POST https://workflow.proca.app/webhook/proca-config/pull -H "Authorization: Bearer $N8N_TOKEN"
@@ -235,6 +235,7 @@ if (require.main === module) {
     add,
     commit,
     deploy,
+    status,
     push,
     pull,
     onGit,

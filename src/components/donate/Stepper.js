@@ -16,9 +16,9 @@ import { useTranslation } from "react-i18next";
 import { useIsVeryNarrow } from "@hooks/useLayout";
 import { useFormatMoney } from "@hooks/useFormatting.js";
 
-export const useDonateStep = create((set) => ({
+export const useDonateStep = create(set => ({
   donateStep: 0, // Initialize with a default value (change as needed)
-  setDonateStep: (step) => set({ donateStep: step }),
+  setDonateStep: step => set({ donateStep: step }),
 }));
 
 const iconStyles = makeStyles({ root: { fontSize: "2em" } });
@@ -78,7 +78,7 @@ const AmountTextLabel = ({ donateStep, formData, isVeryNarrow, label }) => {
 
 const Steps = () => {
   const { t } = useTranslation();
-  const {donateStep, setDonateStep} = useDonateStep();
+  const { donateStep, setDonateStep } = useDonateStep();
   const [formData] = useData();
 
   const config = useCampaignConfig();
@@ -109,7 +109,9 @@ const Steps = () => {
           </StyledStepLabel>
         </Step>
         <Step key="payment">
-          <StyledStepLabel>{isVeryNarrow ? "" : t("donation.payment")}</StyledStepLabel>
+          <StyledStepLabel>
+            {isVeryNarrow ? "" : t("donation.payment")}
+          </StyledStepLabel>
         </Step>
       </Stepper>
     </Box>

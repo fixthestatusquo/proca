@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import { isDate, parse } from "@lib/date";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 
 const Birthdate = props => {

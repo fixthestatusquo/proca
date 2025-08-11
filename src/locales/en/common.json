@@ -29,6 +29,7 @@
     "eci": "Sign the ECI",
     "email": "Send an Email",
     "join": "Join",
+    "pledge": "Pledge now!",
     "register": "Register",
     "remindeSent": "Reminder sent",
     "reminder": "Remind me later",
@@ -37,6 +38,7 @@
     "sign": "Sign Now!",
     "stayInformed": "Stay informed",
     "takeAction": "Take action",
+    "default": "Take action",
     "twitter": "Tweet"
   },
   "camera": {
@@ -108,9 +110,9 @@
         "weekly": "Make it monthly?"
       },
       "each": {
-        "monthly": "each week",
+        "weekly": "each week",
         "oneoff": "Once",
-        "weekly": "each month"
+        "monthly": "each month"
       },
       "feedback": {
         "monthly": "I'm donating {{amount}} {{frequency}}",
@@ -137,7 +139,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} cannot receive emails",
-    "salutation": "Dear sir/madam",
+    "salutation": "Dear sir/madam {{target.last_name}}",
     "salutation_female": "Dear Ms {{target.last_name}}",
     "salutation_info": "(The recipient's name will be put before sending)",
     "salutation_male": "Dear Mr {{target.last_name}}",
@@ -159,6 +161,7 @@
   },
   "no": "no",
   "party": "Party",
+  "party_helper": "Click a party chip to select all its members.",
   "phone": {
     "INVALID_COUNTRY": "missing or invalid country code",
     "INVALID_LENGTH": "Invalid length",
@@ -177,7 +180,8 @@
     "register": "{{total}} have registered. Let's go to {{goal}}",
     "share": "{{total}} have shared. Let's go to {{goal}}",
     "sign": "{{total}} have signed. Let's go to {{goal}}",
-    "twitter": "{{total}} have twitted. Let's go to {{goal}}"
+    "twitter": "{{total}} have twitted. Let's go to {{goal}}",
+    "pledge": "{{total}} have pledged. Let's go to {{goal}}"
   },
   "read more": "read more",
   "region": "Region",
@@ -200,9 +204,7 @@
   },
   "step": {
     "eci": {
-      "secure": "secure",
-      "subheader": "\nstep.eci.subheader",
-      "title": ""
+      "secure": "secure"
     },
     "register": {
       "title": ""

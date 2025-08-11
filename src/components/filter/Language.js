@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import Select from "@components/field/Select";
 import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
-import { useTranslation } from "react-i18next";
 
 const FilterLanguage = props => {
   const { watch } = props.form;
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const language = watch("language");
-  const { t } = useTranslation();
 
-  use = useEffect(() => {
+  useEffect(() => {
     if (!language) {
       console.log("set language to locale", config.locale);
       props.selecting("locale", config.locale);
@@ -20,12 +18,11 @@ const FilterLanguage = props => {
     props.selecting("locale", language);
 
     setConfig(current => {
-//      console.log("set lang", language, props.country);
+            console.log("set lang", language, props.country);
       const next = { ...current };
       next.lang = language;
       return next;
     });
-
   }, [language, props.country]);
 
   return (

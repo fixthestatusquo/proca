@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Trimiteți un e-mail",
     "join": "Alăturați-vă",
+    "pledge": "Promiteți acum!",
     "register": "Înregistrare",
     "remindeSent": "Trimitere de memento",
     "reminder": "Adu-mi aminte mai târziu.",
@@ -159,6 +160,7 @@
   },
   "no": "nu",
   "party": "Partid",
+  "party_helper": "Faceți clic pe un cip de partid pentru a selecta toți membrii acestuia.",
   "phone": {
     "INVALID_COUNTRY": "cod de țară lipsă sau invalid",
     "INVALID_LENGTH": "Lungime invalidă",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} au donat. Să mergem la {{goal}}",
     "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
+    "pledge": "{{total}} au promis. Să mergem la {{goal}}",
     "register": "{{total}} s-au înregistrat. Să mergem la {{goal}}",
     "share": "{{total}} au împărtășit. Să mergem la {{goal}}",
     "sign": "{{total}} au semnat. Hai să strângem {{goal}}",

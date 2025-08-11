@@ -1,12 +1,14 @@
 import React from "react";
 
 import { Grid } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Country from "@components/field/Country";
 import Postcode from "@components/field/Postcode";
 import HiddenField from "@components/field/Hidden";
+import PlaceIcon from '@material-ui/icons/Place';
+import { InputAdornment } from "@material-ui/core";
 
 const Address = props => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -38,6 +40,17 @@ const Address = props => {
             label={t("City")}
             required={config.component.register?.field?.locality?.required}
             customValidity={props.customValidity}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+                <PlaceIcon
+                  color={
+                    props.form.getFieldState("postcode").invalid ? "error" : "action"
+                  }
+/>
+            </InputAdornment>
+          ),
+        }}
           />
         </Grid>
       )}

@@ -10,12 +10,12 @@ import {
   Button,
   Collapse,
   List,
-  FilledInput,
+  TextField as MuiTextField,
   FormHelperText,
   FormControl,
   IconButton,
   Typography,
-  Tooltip
+  Tooltip,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
@@ -30,10 +30,11 @@ import { useIsMobile } from "@hooks/useDevice";
 import { sample } from "@lib/array";
 import Register from "@components/Register";
 import { useTranslation } from "react-i18next";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig, useSetActionType } from "@hooks/useConfig";
+import { useLayout } from "@hooks/useLayout";
 import { useForm } from "react-hook-form";
 import { Grid, Container } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { mainLanguage } from "@lib/i18n";
 import { getCountryName } from "@lib/i18n";
@@ -49,8 +50,10 @@ const useStyles = makeStyles(() => ({
 
 const EmailComponent = props => {
   const classes = useStyles();
+  const layout = useLayout();
   const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
+  useSetActionType ("mail2target");
   const [profiles, setProfiles] = useState(props.targets || []);
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false
@@ -77,7 +80,7 @@ const EmailComponent = props => {
 
   // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
   const [alwaysUpdate, setAlwaysUpdate] = useState(
-    config.component.email?.multilingual === true
+    config.component.email?.filter?.multilingual === true
   );
   const [blockUpdate, setBlock] = useState(false);
   const isMobile = useIsMobile();
@@ -107,7 +110,7 @@ const EmailComponent = props => {
   useEffect(() => {
     if (!props.targets) return;
     setProfiles(props.targets);
-    console.log("targets from props.targets",props.targets.length);
+    console.log("targets from props.targets", props.targets.length);
   }, [props.targets]);
 
   useEffect(() => {
@@ -163,12 +166,15 @@ const EmailComponent = props => {
 
   if (tokenKeys.includes("targets")) tokens.targets = profiles;
 
-  const getDataWithToken = (key) => { // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
+  const getDataWithToken = key => {
+    // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
     //return gender ? data[`message_${gender}`] : data.message;
-    return gender && data[`${key}_${gender}`] ? data[`${key}_${gender}`] : data[key];
-  }
+    return gender && data[`${key}_${gender}`]
+      ? data[`${key}_${gender}`]
+      : data[key];
+  };
 
-  useToken(getDataWithToken('message'), tokens, handleMerging);
+  useToken(getDataWithToken("message"), tokens, handleMerging);
   // # todo more reacty, use the returned value instead of the handleMerging callback
 
   const checkUpdated = () => {
@@ -242,7 +248,7 @@ const EmailComponent = props => {
           });
           setAllProfiles(d);
           setLanguages(languages);
-          if (postcodeFiltered) {
+          if (postcodeFiltered) { // overwritten?
             setProfiles([]);
           }
           if (config.component.email?.filter?.includes("random")) {
@@ -298,7 +304,7 @@ const EmailComponent = props => {
       });
       setProfiles(d);
       setData("targets", d);
-/*      setConfig(current => {
+      /*      setConfig(current => {
         console.log("set lang in filterLocale", locale);
         const next = { ...current };
         next.lang = locale;
@@ -328,6 +334,7 @@ const EmailComponent = props => {
   );
 
   const filterProfiles = useCallback(
+// TODO: move the filtering of profiles from here to the filter/XXX ones
     (country, constituency, area) => {
       if (constituency || area) {
         country = country || "?";
@@ -338,18 +345,18 @@ const EmailComponent = props => {
 
       let lang = undefined;
       let d = allProfiles.filter(d => {
-        if (constituency) {
+        if (constituency || postcodeFiltered) {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
-          return d.constituency === constituency;
+          return d.constituency.toString() === constituency.toString();
         }
 
         if (d.lang && d.country === country) {
           if (lang === undefined) {
             lang = d.lang;
           } else {
-            if (d.lang !== lang) {
+            if (d.lang !== lang) { // do not change the language when multi-lingual countries (BE)
               lang = false;
             }
           }
@@ -363,8 +370,9 @@ const EmailComponent = props => {
 
       if (!lang && localeFiltered) {
         // more than one lang in the country
-        if (languages.includes(locale)) {
-          lang = [locale];
+        const _locale =  locale.split('_')[0];
+        if (languages.includes(_locale)) {
+          lang = [_locale];
         } else {
           lang = mainLanguage(country, false);
         }
@@ -376,7 +384,6 @@ const EmailComponent = props => {
           "not lang",
           `${lang}?`,
           locale,
-          lang?.includes("fr"),
           country
         );
       }
@@ -409,11 +416,13 @@ const EmailComponent = props => {
         clearErrors("country");
         clearErrors("postcode");
       }
-      //if (lang && config.lang !== lang) {
-      if (lang && typeof lang === "string") {
+
+      if (lang && typeof lang === "string") { // change language of the letter
         setConfig(current => {
           const next = { ...current };
-          next.lang = lang || "en";
+          //next.lang = lang || "en";
+          if (lang.length === 2) lang = lang + "_" + country.toUpperCase();
+          next.locale = lang || "en";
           return next;
         });
       }
@@ -444,12 +453,12 @@ const EmailComponent = props => {
     ]
   );
 
-  useEffect(() => {
+  useEffect(() => { // todo: move into filter/Country
     if (!countryFiltered) return;
     filterProfiles(country);
   }, [country, filterProfiles, countryFiltered]);
 
-  useEffect(() => {
+  useEffect(() => { //todo: move into filter/Postcode
     if (!postcodeFiltered) return;
     filterProfiles(country, constituency, area);
   }, [country, constituency, area, filterProfiles, postcodeFiltered]);
@@ -458,7 +467,6 @@ const EmailComponent = props => {
     if (!localeFiltered) return;
     filterLocale(locale);
   }, [filterLocale, localeFiltered, locale]);
-
 
   const send = data => {
     const hrefGmail = message => {
@@ -550,7 +558,6 @@ const EmailComponent = props => {
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
-
   const ExtraFields = props => {
     return (
       <>
@@ -575,14 +582,14 @@ const EmailComponent = props => {
         {config.component.email?.field?.message ? (
           <Grid item xs={12} className={props.classes.field}>
             {config.component.email.salutation && (
-              <FormControl fullWidth>
-                <FilledInput
+                <MuiTextField
+            variant={layout.variant}
+            margin={layout.margin}
                   fullWidth={true}
                   placeholder={`${t("email.salutation_placeholder")},`}
                   readOnly
+                  helperText = {t("email.salutation_info")}
                 />
-                <FormHelperText>{t("email.salutation_info")}</FormHelperText>
-              </FormControl>
             )}
             <TextField
               form={props.form}
@@ -596,6 +603,7 @@ const EmailComponent = props => {
                 setBlock(true);
               }}
               label={t("Your message")}
+              helperText={t("message.helper",'')}
             />
           </Grid>
         ) : (
@@ -620,7 +628,6 @@ const EmailComponent = props => {
   const onClick = config.component.email?.server !== false ? null : send;
 
   const prepareData = data => {
-console.log("prepare data");
     if (!data.privacy) data.privacy = getValues("privacy");
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
@@ -685,7 +692,6 @@ console.log("prepare data");
                   selection.delete(target.procaid);
                 }
               });
-            console.log(groups.current.size, onlySelected);
             if (first) {
               scrollToItem(first);
             } else {
@@ -712,8 +718,12 @@ console.log("prepare data");
           });
         }
         if (d === true) {
-  console.log("select all",allProfiles);
+          console.log("select all", allProfiles);
           setProfiles(allProfiles);
+          return;
+        }
+        if (d === false) {
+          setProfiles([]);
           return;
         }
         return;
@@ -732,7 +742,7 @@ console.log("prepare data");
       } else {
         clearErrors(key);
       }
-      console.log("filter profiles",d.length);
+      console.log("filter profiles", d.length);
       setProfiles(d);
     },
     [allProfiles, profiles, setError]
@@ -750,14 +760,15 @@ console.log("prepare data");
   let selectAllEnabled = true;
   if (
     config.import &&
-    config.import.find(d => d.startsWith("filter")) &&
+    (config.import.find(d => d.startsWith("filter")) ||
+     config.component.email?.filter?.includes("postcode") )
+  &&
     profiles.length > 30
   ) {
     selectAllEnabled = false;
   }
 
   const scrollToItem = key => {
-    console.log(onlySelected);
     if (onlySelected) return;
     if (!listRef.current) return;
     const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
@@ -792,7 +803,7 @@ console.log("prepare data");
       : true;
   };
 
-  if (allProfiles.length ===0) return null; // do not render anything before we have profiles
+  if (allProfiles.length === 0) return null; // do not render anything before we have profiles
 
   return (
     <Container maxWidth="sm">
@@ -801,7 +812,7 @@ console.log("prepare data");
       )}
       <Filter
         profiles={profiles}
-        maxProfiles = {allProfiles.length}
+        maxProfiles={allProfiles.length}
         form={form}
         selecting={filterTarget}
         country={country}
@@ -855,9 +866,9 @@ console.log("prepare data");
         </>
       )}
       {config.component.email?.showTo !== false && (
-        <List className={classes.list} dense ref={listRef}>
+        <List className={classes.list} dense ref={listRef} component="div">
           {profiles.length === 0 &&
-            !config.component.email?.filter?.includes("postcode") &&
+           !config.component.email?.filter?.includes("postcode") &&
             !constituency && <SkeletonListItem />}
           {profiles.map((d, i) => (
             <EmailAction
@@ -878,7 +889,6 @@ console.log("prepare data");
       <Collapse
         in={profiles.length > 0 || config.component.email?.server !== false}
       >
-
         <Register
           form={form}
           emailProvider={emailProvider}

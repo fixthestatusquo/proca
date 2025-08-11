@@ -25,10 +25,12 @@
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
   "action": {
+    "default": "Asu tegutsema",
     "donate": "Anneta",
     "eci": "eci",
     "email": "Saada e-kiri",
     "join": "Liitu",
+    "pledge": "Luba kohe!",
     "register": "Registreeri",
     "remindeSent": "Saadetud meeldetuletus",
     "reminder": "Meenuta mulle hiljem",
@@ -59,7 +61,7 @@
     "opt-in-both": "Jah, ma tahan, et {{partner}} ja {{lead}} hoiaksid mind e-posti teel kursis",
     "opt-out": "Ei, ära saada mulle tulevikus e-kirju",
     "optInConfirmed": "Tellimus kinnitatud",
-    "processing": "Teie isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
+    "processing": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustud andmete ja küpsiste kasutamisega vastavalt meie <1>privaatsuseeskirjadele</1>",
     "required": "Osalemiseks on vaja teie nõusolekut",
     "subButton": {
@@ -108,9 +110,9 @@
         "weekly": "Teha see iganädalane annetus?"
       },
       "each": {
-        "monthly": "iga nädal",
+        "monthly": "iga kuu",
         "oneoff": "Kui",
-        "weekly": "iga kuu"
+        "weekly": "iga nädal"
       },
       "feedback": {
         "monthly": "Ma annetan {{amount}} {{frequency}}",
@@ -137,7 +139,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} ei saa e-kirju vastu võtta",
-    "salutation": "Lugupeetud härra/naine",
+    "salutation": "Lugupeetud härra/proua {{target.last_name}}",
     "salutation_female": "Lugupeetud proua {{target.last_name}}",
     "salutation_info": "(nimi pannakse enne saatmist)",
     "salutation_male": "Lugupeetud härra {{target.last_name}}",
@@ -159,6 +161,7 @@
   },
   "no": "ei",
   "party": "Partei",
+  "party_helper": "Kõikide liikmete valimiseks klõpsa partei märgil.",
   "phone": {
     "INVALID_COUNTRY": "puuduv või vigane riigikood",
     "INVALID_LENGTH": "Vigane pikkus",
@@ -174,6 +177,7 @@
   "progress": {
     "donate": "{{total}} on annetanud. Võtame eesmärgiks {{goal}}",
     "email": "{{total}} on saatnud e-kirja. Läheme {{goal}}",
+    "pledge": "{{total}} on juba lubanud. Võtame sihiks: {{goal}}",
     "register": "{{total}} on registreerunud. Võtame eesmärgiks {{goal}}",
     "share": "{{total}} on jagatud. Läheme {{goal}}",
     "sign": "{{total}} allkirja on kogutud. Võtame eesmärgiks {{goal}}",
@@ -201,6 +205,9 @@
   "step": {
     "eci": {
       "secure": "turvaline"
+    },
+    "register": {
+      "title": " "
     }
   },
   "supporter": {

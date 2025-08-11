@@ -5,7 +5,7 @@ import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { TextField as MUITextField, Button, Snackbar } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import Alert from "@material-ui/lab/Alert";
 
 import SendIcon from "@material-ui/icons/Send";

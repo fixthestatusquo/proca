@@ -87,8 +87,9 @@
       "other": "eile..."
     },
     "requirements": {
-      "text": "Cuir na sonraí seo a leanas ar fáil, mar a cheanglaítear le <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Rialachán (AE) 2019/788 maidir leis an Tionscnamh Eorpach ó na saoránaigh</a>."
-    }
+      "text": "Cuir na sonraí seo a leanas ar fáil, mar a cheanglaítear le <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Rialachán (AE) 2019/788 maidir leis an tionscnamh Eorpach ó shaoránaigh.</a>"
+    },
+    "more_info": "tuilleadh_eolais"
   },
   "header": {
     "closing.date": "Deireadh na tréimhse bailiúcháin",
@@ -101,7 +102,9 @@
     "total-supporters": "Líon iomlán na sínitheoirí",
     "goto-facebook": "Ár leathanach Facebook.",
     "goto-twitter": "Ár leathanach Twitter.",
-    "gohome-title": "Baile"
+    "gohome-title": "Baile",
+    "registration_date": "dáta_clárúcháin",
+    "registration_number": "uimhir_chláraithe"
   },
   "initiative": {
     "public.webpage": "Suíomh gréasáin an tionscnaimh seo (más ann dó):",
@@ -109,7 +112,8 @@
     "objectives": "Cuspóirí",
     "representative": "Daoine teagmhála",
     "legal-entity": "Eintiteas dlítheanach",
-    "partially-registered": "Níl ach cuid den tionscnamh seo cláraithe. Léigh an Cinneadh ón gCoimisiún maidir le raon feidhme an tionscnaimh chláraithe."
+    "partially-registered": "Níl ach cuid den tionscnamh seo cláraithe. Léigh an Cinneadh ón gCoimisiún maidir le raon feidhme an tionscnaimh chláraithe.",
+    "register_webpage": "leathanach_gréasáin_cláraithe"
   },
   "form": {
     "title": "Tacaigh leis an tionscnamh seo atá molta ag saoránaigh den Aontas",
@@ -123,8 +127,8 @@
     "group-document": "Doiciméad aitheantais phearsanta",
     "group-personal": "Eolas pearsanta",
     "group-address": "Áit chónaithe",
-    "certify-info": "Deimhním leis seo go bhfuil an t-eolas atá tugtha agam san fhoirm seo ceart agus nár thacaigh mé leis an tionscnamh seo cheana.",
-    "privacy-statement": "Tá an ráiteas <a href=\"{{url}}\" target=\"_blank\" title=\"príobháideachais agus\">príobháideachais</a> agus ábhar an tionscnaimh ó <a href=\"{{urlRegister}}\" target=\"_blank\">na saoránaigh léite agam</a>.",
+    "certify-info": "Deimhním leis seo go bhfuil an fhaisnéis atá curtha ar fáil agam sa bhfoirm seo ceart agus nár thacaigh mé leis an tionscnamh seo cheana féin.",
+    "privacy-statement": "Léigh mé an <a href=\"{{url}}\" target=\"_blank\" title=\"Léigh an ráiteas príobháideachta\">ráiteas príobháideachta</a> agus ábhar an <a href=\"{{urlRegister}}\" target=\"_blank\">tionscnaimh seo ó shaoránaigh</a>.",
     "certify-info-eID": "Deimhním leis seo nár thacaigh mé leis an tionscnamh seo ó na saoránaigh cheana.",
     "support": "Tacaigh leis",
     "document-number": "Uimhir",
@@ -134,8 +138,8 @@
     "captcha-audio-download": "Éist agus clóscríobh na carachtair a chloisfidh tú",
     "link-support": "Conas clárú le tionscnamh Eorpach ó na saoránaigh",
     "support-footer1": "Chun tacú le tionscnamh Eorpach ó na saoránaigh, ní mór duit:",
-    "support-footer2": "1. a bheith i do shaoránach den Aontas Eorpach (i.e. náisiúnach de Bhallstát);",
-    "support-footer3": "2. a bheith aosta go leor le vótáil i dtoghcháin Pharlaimint na hEorpa nó, i gcás náisiúntachtaí áirithe, a bheith 16 bliana d’aois.",
+    "support-footer2": "1. bheith i do shaoránach den Aontas Eorpach (i.e. náisiúnach de thír AE);",
+    "support-footer3": "2. a bheith sean go leor chun vótáil i dtoghcháin Pharlaimint na hEorpa nó, i gcás roinnt náisiúntachtaí, a bheith 16 bliana d'aois.",
     "support-footer4": "Tuilleadh eolais",
     "support-footerDE": "Má tá cónaí ort lasmuigh den Ghearmáin, is gá duit d’áit bhuanchónaithe reatha a bheith cláraithe agat leis an ionadaíocht taidhleoireachta ábhartha de chuid na Gearmáine.",
     "optional-validacion-desc": "Tá an fhormáid inar chuir mé isteach m&apos;uimhir (doiciméid) aitheantais phearsanta agus/nó mo chód poist cruinn",
@@ -157,7 +161,11 @@
       "personal.number": "",
       "registration.certificate": "",
       "residence.permit": "",
-      "citizens.card": ""
+      "citizens.card": "",
+      "street_number": "uimhir_sráide",
+      "family_names": "sloinnte_ainmneacha",
+      "full_first_names": "céadainmneacha_lána",
+      "postal_code": "cód_poist"
     },
     "error": {
       "oct.error.propertytypemismatch": "Formáid neamhbhailí",
@@ -216,8 +224,15 @@
       "document.ro.personal.id": "Formáid neamhbhailí. Is gá an fhormáid seo a úsáid: NNNNNNNNNNNNN (N = uimhir)",
       "document.se.personal.number": "Formáid neamhbhailí. Is gá an fhormáid seo a úsáid: BBMMDD-NNNN nó BBBBMMDD-NNNN nó BBMMDDNNNN nó BBBBMMDDNNNN (B = bliain, M = mí, D = lá, N = uimhir)",
       "document.si.personal.number": "Formáid neamhbhailí. Is gá an fhormáid seo a úsáid: NNNNNNNNNNNNN (N = uimhir)",
-      "document.invalid": "Luach neamhbhailí"
-    }
+      "document.invalid": "Luach neamhbhailí",
+      "oct_error_invaliddateformat": "formáid_dáta_neamhbhailí_earráid_oct",
+      "oct_error_invalidrange": "raon_neamhbhailí_earráide_oct",
+      "oct_error_invalidsize": "méid_neamhbhailí_earráide_oct"
+    },
+    "captcha-button-arialabel-audio": "Athraigh captcha go fuaim",
+    "captcha-button-arialabel-image": "Athraigh an captcha go híomhá",
+    "captcha-button-arialabel-refresh": "Athnuachan captcha",
+    "support_country_selected": "tír_tacaíochta_roghnaithe"
   },
   "howsupport": {
     "s1.title": "Eolas a fháil",
@@ -227,7 +242,8 @@
     "s2.link": "https://europa.eu/citizens-initiative/ceisteanna-coitianta_ga#Tacaiocht-a-thabhairt",
     "s3.title": "Cad",
     "s3.text": "a tharlóidh anois?",
-    "support-by-title": "Conas clárú le tionscnamh Eorpach ó na saoránaigh"
+    "support-by-title": "Conas clárú le tionscnamh Eorpach ó na saoránaigh",
+    "s1_text": "téacs_s1"
   },
   "footer": {
     "ocs.version": "Lárchóras Bailithe Ar Líne",
@@ -343,5 +359,6 @@
     "challenge": "Dúshlán",
     "challenge-result": "Toradh an dúshláin",
     "copy-text": "An téacs a chóipeáil"
-  }
+  },
+  "Place of birth": "Áit bhreithe"
 }

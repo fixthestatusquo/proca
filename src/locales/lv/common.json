@@ -25,10 +25,12 @@
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
   "action": {
+    "default": "Rīkojieties",
     "donate": "Ziedot",
     "eci": "Paraksti EPI",
     "email": "Sūtīt e-pastu",
     "join": "Pievienojies",
+    "pledge": "Soliet tagad!",
     "register": "Reģistrēties",
     "remindeSent": "Nosūtīts atgādinājums",
     "reminder": "Atgādini man vēlāk",
@@ -159,6 +161,7 @@
   },
   "no": "nav",
   "party": "Puse",
+  "party_helper": "Noklikšķiniet uz partijas mikroshēmas, lai atlasītu visus tās dalībniekus.",
   "phone": {
     "INVALID_COUNTRY": "trūkst valsts koda vai tas ir nederīgs.",
     "INVALID_LENGTH": "Nepareizs garums",
@@ -174,6 +177,7 @@
   "progress": {
     "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
     "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
+    "pledge": "{{total}} ir apņēmušies. Dosimies uz {{goal}}",
     "register": "{{total}} ir reģistrējušies. Dodamies uz {{goal}}",
     "share": "{{total}} ir dalījušies. Dosimies uz {{goal}}",
     "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",

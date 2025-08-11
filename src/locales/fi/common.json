@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Lähetä sähköpostia",
     "join": "Liity",
+    "pledge": "Lupaa nyt!",
     "register": "Rekisteröi",
     "remindeSent": "Muistutus lähetetty",
     "reminder": "Muistuta minua myöhemmin",
@@ -75,7 +76,7 @@
   "donation": {
     "amount": {
       "change": "Muutosmäärä",
-      "intro": "Valitse määrä :"
+      "intro": "Valitse summa"
     },
     "average": "Keskimääräinen lahjoitus on {{amount}}",
     "button": {
@@ -159,6 +160,7 @@
   },
   "no": "ei",
   "party": "Puolue",
+  "party_helper": "Valitse kaikki sen jäsenet valitsemalla puolueen siru.",
   "phone": {
     "INVALID_COUNTRY": "puuttuva tai virheellinen maakoodi",
     "INVALID_LENGTH": "Virheellinen pituus",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
     "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
+    "pledge": "{{total}} ovat sitoutuneet. Mennään {{goal}}",
     "register": "{{total}} ovat rekisteröityneet. Mennään osoitteeseen {{goal}}",
     "share": "{{total}} ovat jakaneet. Mennään {{goal}}",
     "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",

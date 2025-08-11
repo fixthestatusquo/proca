@@ -29,6 +29,7 @@
     "eci": "Signer ECI",
     "email": "Send e-post",
     "join": "Bli med",
+    "pledge": "Gi ditt bidrag nå!",
     "register": "Registrere",
     "remindeSent": "Påminnelse sendt",
     "reminder": "Minn meg på det senere",
@@ -159,6 +160,7 @@
   },
   "no": "Nei",
   "party": "Fest",
+  "party_helper": "Klikk på en partibrikke for å velge alle medlemmene.",
   "phone": {
     "INVALID_COUNTRY": "manglende eller ugyldig landskode",
     "INVALID_LENGTH": "Ugyldig lengde",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} har donert. La oss gå til {{goal}}",
     "email": "{{total}} har sendt en e-post. La oss gå til {{goal}}",
+    "pledge": "{{total}} har lovet. La oss gå til {{goal}}",
     "register": "{{total}} har registrert seg. La oss gå til {{goal}}",
     "share": "{{total}} har delt. La oss gå til {{goal}}",
     "sign": "{{total}} har undertegnet. La oss gå til {{goal}}",

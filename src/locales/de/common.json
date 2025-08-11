@@ -20,15 +20,17 @@
   "Postal Code": "PLZ",
   "Salutation": "Anrede",
   "Sorry, we couldn't save": "Sorry, wir konnten nicht speichern",
-  "Street": "Straße",
+  "Street": "Straße, Hausnummer",
   "Subject": "Betreff",
   "Thank you": "Danke schön",
   "Your message": "Ihre Nachricht",
   "action": {
+    "default": "Maßnahmen ergreifen",
     "donate": "Spenden Sie",
     "eci": "Unterzeichnen Sie die EBI",
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
+    "pledge": "Verpfänden Sie jetzt!",
     "register": "Registrieren",
     "remindeSent": "Erinnerung gesendet",
     "reminder": "Später erinnern",
@@ -103,14 +105,14 @@
     },
     "frequency": {
       "ask": {
-        "monthly": "Eine wöchentliche Spende?",
+        "monthly": "Monatlich?",
         "oneoff": "Spenden Sie",
-        "weekly": "Monatlich?"
+        "weekly": "Eine wöchentliche Spende?"
       },
       "each": {
-        "monthly": "jede Woche",
+        "monthly": "jeden Monat",
         "oneoff": "Sobald",
-        "weekly": "jeden Monat"
+        "weekly": "jede Woche"
       },
       "feedback": {
         "monthly": "Ich spende {{amount}} {{frequency}}",
@@ -159,6 +161,7 @@
   },
   "no": "nein",
   "party": "Partei",
+  "party_helper": "Klicken Sie auf einen Parteichip, um alle Mitglieder auszuwählen.",
   "phone": {
     "INVALID_COUNTRY": "fehlender oder ungültiger Ländercode",
     "INVALID_LENGTH": "Ungültige Länge",
@@ -174,6 +177,7 @@
   "progress": {
     "donate": "{{total}} haben gespendet. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
+    "pledge": "{{total}} haben zugesagt. Gehen wir zu {{goal}}",
     "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
     "share": "{{total}} haben es geteilt. Gehen wir zu {{goal}}",
     "sign": "{{total}} haben unterzeichnet. Erreichen wir {{goal}}",

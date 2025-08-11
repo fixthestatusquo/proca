@@ -6,6 +6,8 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const GenerateJsonPlugin = require("generate-json-webpack-plugin");
 
+console.error ("output isn't used anymore");
+
 module.exports = webpack => {
   if (process.env["BUILD_PACKAGE"] && process.env["NPM"]) {
     packageBuildConfig(webpack);
@@ -92,8 +94,10 @@ function widgetBuildConfig(webpack, config) {
   for (const plug of webpack.plugins) {
     if (plug instanceof HtmlWebpackPlugin) {
       plug.options.templateParameters = {
-        campaign: config.campaign.title,
+        campaign: config.campaign.title + "aaa",
         organisation: config.organisation,
+        theme: config.layout.theme || "light",
+        color: config.layout.primaryColor || "#0172ad",
         lang: config.lang,
         filename: config.filename,
       };

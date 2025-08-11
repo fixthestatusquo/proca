@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
         <CircularProgress color="inherit" />
       </Backdrop>
 */
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "./hooks/useEciTranslation";
 
 export default function Register(props) {

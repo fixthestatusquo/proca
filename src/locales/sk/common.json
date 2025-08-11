@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Odoslať e-mail",
     "join": "Pripojte sa k",
+    "pledge": "Prisľúbte teraz!",
     "register": "Registrácia",
     "remindeSent": "Odoslané pripomenutie",
     "reminder": "Pripomeňte mi to neskôr",
@@ -159,6 +160,7 @@
   },
   "no": "nie",
   "party": "Strana",
+  "party_helper": "Kliknutím na žetón strany vyberiete všetkých jej členov.",
   "phone": {
     "INVALID_COUNTRY": "chýbajúci alebo neplatný kód krajiny",
     "INVALID_LENGTH": "Neplatná dĺžka",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} darovali. Poďme na {{goal}}",
     "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
+    "pledge": "{{total}} sa zaviazali. Poďme na {{goal}}",
     "register": "{{total}} sa zaregistrovali. Poďme na {{goal}}",
     "share": "{{total}} zdieľali. Poďme na {{goal}}",
     "sign": "{{total}} podpísali. Poďme na {{goal}}",

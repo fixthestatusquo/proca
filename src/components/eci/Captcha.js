@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
 import { Grid, Box, Button } from "@material-ui/core";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import IconButton from "@material-ui/core/IconButton";
 import PlayIcon from "@material-ui/icons/RecordVoiceOver";

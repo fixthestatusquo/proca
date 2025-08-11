@@ -1,16 +1,18 @@
 const fs = require("fs");
 const path = require("path");
-const { link, basicAuth, tokenAuth } = require("@proca/api");
 const color = require("cli-color");
 
-const tmp = process.env.REACT_APP_CONFIG_FOLDER
-  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+
+const tmp = process.env.PROCA_CONFIG_FOLDER
+  ?  process.env.PROCA_CONFIG_FOLDER  + "/"
   : path.resolve(__dirname, '../config') + "/" ;
+
 
 const API_URL =
   process.env.API_URL ||
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
+
 
 const now = new Date();
 const runDate = (date = now) =>
@@ -19,7 +21,7 @@ const runDate = (date = now) =>
     .replace("T", " ")
     .slice(0, -5);
 
-const pathConfig = () => path.resolve(__dirname, tmp);
+const pathConfig = () => tmp;
 
 const checked = (fileName) => {
   if (fileName.toString().includes("..")) {
@@ -77,16 +79,16 @@ const api = async (query, variables, name = "query", anonymous = false) => {
     });
 
     if (res.status === 401) {
-      console.error("permission error");
+      console.error("permission error", API_URL);
       console.log(
-        "check that your .env has the correct AUTH_USER and AUTH_PASSWORD",
+        "check your setup, proca config server and proca config user",
       );
       throw new Error(res.statusText);
     }
 
     if (res.status === 404) {
       console.error("invalid api url");
-      console.log("check that your .env has the correct REACT_APP_API_URL");
+      console.log("$proca config server #to check your config");
       throw new Error(res.statusText);
     }
 
@@ -117,9 +119,9 @@ const api = async (query, variables, name = "query", anonymous = false) => {
 const authHeader = () => {
   let headers = {};
   if (process.env.PROCA_TOKEN) {
-    headers = tokenAuth({
-      token: process.env.PROCA_TOKEN,
-    });
+    headers = {
+     authorization: 'Bearer ' + process.env.PROCA_TOKEN,
+    };
   } else {
     if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
       console.error(color.red("missing PROCA_TOKEN in your env"));
@@ -132,18 +134,11 @@ const authHeader = () => {
       ),
       color.blue("\n$proca token |  sed 's/Bearer /PROCA_TOKEN=/' >> .env"),
     );
-    headers = basicAuth({
-      username: process.env.AUTH_USER,
-      password: process.env.AUTH_PASSWORD,
-    });
+    process.exit(1);
   }
   return headers;
 };
 
-const apiLink = () => {
-  const c = link(API_URL, authHeader());
-  return c;
-};
 
 module.exports = {
   authHeader,
@@ -154,7 +149,6 @@ module.exports = {
   file,
   fileExists,
   save,
-  apiLink,
   checked,
   mkdirp,
   runDate,

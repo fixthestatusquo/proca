@@ -1,7 +1,7 @@
 {
   "email": {
     "common": {
-      "greeting": "Hello {{firstName}}",
+      "greeting": "Hello {{firstName}},",
 
       "share_on": "Share on",
       "consent": "\n          ",

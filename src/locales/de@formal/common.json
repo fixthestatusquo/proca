@@ -29,6 +29,7 @@
     "eci": "Unterschreiben Sie die EBI",
     "email": "Senden Sie eine E-Mail",
     "join": "Beitreten",
+    "pledge": "Pfänden Sie jetzt!",
     "register": "Registrieren Sie sich",
     "remindeSent": "Erinnerung gesendet",
     "reminder": "Erinnern Sie mich später",
@@ -159,6 +160,7 @@
   },
   "no": "keine",
   "party": "Party",
+  "party_helper": "Klicken Sie auf einen Party-Chip, um alle Mitglieder auszuwählen.",
   "phone": {
     "INVALID_COUNTRY": "fehlender oder ungültiger Ländercode",
     "INVALID_LENGTH": "Ungültige Länge",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
     "email": "{{total}} haben eine E-Mail gesendet. Gehen wir zu {{goal}}",
+    "pledge": "{{total}} haben zugesagt. Gehen wir zu {{goal}}",
     "register": "{{total}} haben sich registriert. Gehen wir zu {{goal}}",
     "share": "{{total}} geteilt haben. Gehen wir zu {{goal}}",
     "sign": "{{total}} unterzeichnet haben. Gehen wir zu {{goal}}",

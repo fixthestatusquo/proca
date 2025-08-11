@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveIcon from "@material-ui/icons/RemoveCircle";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
   badge: {
@@ -36,8 +39,9 @@ const PartyFilter = props => {
   const getKey = props.getKey || (d => d.description);
   const country = props.country?.toLowerCase();
   const filterCountry = props.filterCountry || (d => d.country === country);
-
-  const url = "https://static.proca.app/ep2024/parties.json";
+  const theme = useTheme();
+  const { t } = useTranslation();
+  const url = "https://widget.proca.app/t/ep-parties.json";
 
   useEffect(() => {
     const fetchData = async url => {
@@ -46,7 +50,7 @@ const PartyFilter = props => {
 
       const d = await res.json();
       const allParties = d.reduce((map, obj) => {
-        const key = `${obj.country}:${obj.party}`;
+        const key = `${obj.country.toUpperCase()}:${obj.party}`;
         map[key] = obj;
         return map;
       }, {});
@@ -67,15 +71,30 @@ const PartyFilter = props => {
       if (count[key]) {
         count[key].count++;
       } else {
-        count[key] = { count: 1, selected: false };
+        count[key] = { count: 1, selected: false, eugroup: item.eugroup };
       }
     }
 
+const groupOrder = [
+  "GUE/NGL",
+  "Greens/EFA",
+  "S&D",
+  "Renew",
+  "EPP",
+  "ECR",
+  "Patriots",
+  "ESN",
+  "NA",
+];
+
     //list.foreach
     const sortedObject = Object.fromEntries(
-      [...Object.entries(count)].sort(([a], [b]) => a.localeCompare(b))
+      [...Object.entries(count)].sort(([a,ae], [b,be]) => {
+        if (ae.eugroup === be.eugroup)
+          return a.localeCompare(b);
+        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup)
+      })
     );
-
     _setParties(sortedObject);
     //return list[0];
   };
@@ -105,6 +124,7 @@ const PartyFilter = props => {
 
   useEffect(() => {
     if (!props.country) return;
+console.log("selecting",props.selecting);
     setParties(props.profiles);
     //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
   }, [props.selecting, props.country, props.profiles]);
@@ -113,7 +133,11 @@ const PartyFilter = props => {
 
   if (parties) {
     return (
-      <div className={classes.root}>
+      <>
+        <div className={classes.root}>
+
+
+
         {Object.entries(parties).map(([name, party]) => {
           const record = allParties[`${props.country}:${name}`] || {
             name: name,
@@ -143,7 +167,14 @@ const PartyFilter = props => {
             </Badge>
           );
         })}
-      </div>
+        </div>
+         {Object.entries(parties).length > 0 && (
+          <FormHelperText component='div'  style={{ margin: 3 }}>
+            {t("party_helper")}
+          </FormHelperText>
+        )}
+
+      </>
     );
   }
   return null;

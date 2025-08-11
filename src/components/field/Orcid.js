@@ -11,12 +11,11 @@ const Orcid = ({ form }) => {
   const urlHash = window.location.hash.substring(1); // Remove the leading #
 
   useEffect(async () => {
-
     const userInfo = async () => {
       const params = new URLSearchParams(urlHash);
       const accessToken = params.get("access_token");
       if (!accessToken) return undefined;
-      const jwt = decode(params.get('id_token'));
+      const jwt = decode(params.get("id_token"));
       if (jwt.sub) {
         form.setValue("firstname", jwt.given_name);
         form.setValue("lastname", jwt.family_name);
@@ -24,11 +23,11 @@ const Orcid = ({ form }) => {
       }
 
       try {
-//        const response = await fetch("https://orcid.org/oauth/userinfo", {
-          const response = await fetch("https://xy.proca.app/orcid/"+jwt.sub, {
+        //        const response = await fetch("https://orcid.org/oauth/userinfo", {
+        const response = await fetch("https://xy.proca.app/orcid/" + jwt.sub, {
           method: "GET",
           headers: {
-//            Authorization: `Bearer ${accessToken}`,
+            //            Authorization: `Bearer ${accessToken}`,
           },
         });
 
@@ -43,7 +42,7 @@ const Orcid = ({ form }) => {
         form.setValue("organisation", data.organisation);
         form.setValue("ror", data.ror);
         form.setValue("country", data.country);
-        window.location.hash = '';
+        window.location.hash = "";
         return data;
       } catch (error) {
         console.error("Error:", error);

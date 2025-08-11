@@ -29,6 +29,7 @@
     "eci": "eci",
     "email": "Invia un'e-mail",
     "join": "Unisciti a",
+    "pledge": "Impegnatevi ora!",
     "register": "Registra",
     "remindeSent": "Invio di un promemoria",
     "reminder": "Ricordami più tardi",
@@ -159,6 +160,7 @@
   },
   "no": "no",
   "party": "Partito",
+  "party_helper": "Fare clic su una fiche di partito per selezionare tutti i suoi membri.",
   "phone": {
     "INVALID_COUNTRY": "codice paese mancante o non valido",
     "INVALID_LENGTH": "Lunghezza non valida",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "{{total}} hanno donato. Andiamo a {{goal}}",
     "email": "{{total}} hanno inviato un'e-mail. Andiamo a {{goal}}",
+    "pledge": "{{total}} si sono impegnati. Andiamo a {{goal}}",
     "register": "{{total}} si sono registrati. Andiamo a {{goal}}",
     "share": "{{total}} hanno condiviso. Andiamo a {{goal}}",
     "sign": "{{total}} hanno firmato. Andiamo a {{goal}}",

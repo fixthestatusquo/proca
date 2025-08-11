@@ -29,6 +29,7 @@
     "eci": "Podpisz EIO",
     "email": "Wyślij wiadomość e-mail",
     "join": "Dołącz",
+    "pledge": "Zastaw się teraz!",
     "register": "Zarejestruj",
     "remindeSent": "Przypomnienie wysłane",
     "reminder": "Przypomnij mi później",
@@ -159,6 +160,7 @@
   },
   "no": "nie",
   "party": "Partia",
+  "party_helper": "Kliknij żeton imprezy, aby wybrać wszystkich jej członków.",
   "phone": {
     "INVALID_COUNTRY": "brakujący lub nieprawidłowy kod kraju",
     "INVALID_LENGTH": "Nieprawidłowa długość",
@@ -174,6 +176,7 @@
   "progress": {
     "donate": "Przekazano {{total}}. Osiągnijmy {{goal}}",
     "email": "{{total}} wysłali maila. Wejdźmy na stronę {{goal}}",
+    "pledge": "{{total}} zobowiązały się. Przejdźmy do {{goal}}",
     "register": "Zarejestrowało się {{total}}. Osiągnijmy {{goal}}",
     "share": "{{total}} podzielili się. Chodźmy do {{goal}}",
     "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}",

@@ -3,7 +3,7 @@ import { Grid, InputAdornment, IconButton, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import RegisteredIcon from "@material-ui/icons/HowToReg";
 import { get } from "@lib/urlparser";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import CancelIcon from "@material-ui/icons/Cancel";

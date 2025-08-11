@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import { checkMail, getDomain, prefetchDNS } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
-import { InputAdornment } from "@material-ui/core";
+import { Grid, InputAdornment } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import GmailIcon from "../../images/Gmail";
 import { useTheme } from "@material-ui/core/styles";
-const EmailField = ({ form, required }) => {
+const EmailField = ({ form, required, compact, classField }) => {
   const theme = useTheme();
   const emailProvider = useRef(undefined); // we don't know the email provider
   const provider = form.watch("emailProvider");
@@ -40,7 +40,17 @@ const EmailField = ({ form, required }) => {
     iconColor = theme.palette.success.main;
   }
   return (
-    <>
+              <Grid
+                item
+                xs={12}
+                sm={
+                  compact ||
+                  config.component.register?.field?.lastname !== false
+                    ? 12
+                    : 6
+                }
+                className={classField}
+              >
       <input type="hidden" {...form.register("emailProvider")} />
       <TextField
         form={form}
@@ -63,7 +73,7 @@ const EmailField = ({ form, required }) => {
           ),
         }}
       />
-    </>
+    </Grid>
   );
 };
 

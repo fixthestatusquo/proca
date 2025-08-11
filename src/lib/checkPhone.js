@@ -1,8 +1,8 @@
-import prefetch from './prefetchDNS';
+import prefetch from "./prefetchDNS";
 
 const prefetchDNS = () => {
-  prefetch (getUrl());
-}
+  prefetch(getUrl());
+};
 
 const formatNumber = (prefix, number) => "+" + prefix + " " + number;
 const cleanNumber = (prefix, number) => {
@@ -47,7 +47,7 @@ const getUrl = () => {
     console.error(e.message);
   }
   return url;
-}
+};
 
 const checkPhone = async (country, number) => {
   const result = { is_error: false, number: number };

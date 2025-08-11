@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import useData from "@hooks/useData";
 import { get } from "@lib/urlparser";
-import TextField from "@components/TextField";
+import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -71,7 +71,6 @@ const Country = props => {
     } else {
       countries = addCountries(countriesJson, t);
     }
-
     const compare = new Intl.Collator(config.lang.substring(0, 2).toLowerCase())
       .compare;
     countries.sort((a, b) => compare(a.name, b.name));
