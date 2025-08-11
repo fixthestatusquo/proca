@@ -38,6 +38,11 @@
             "intro": "Confirmarea dumneavoastră este importantă pentru a putea procesa participarea dumneavoastră. Acesta este singurul mod în care putem face credibil faptul că există cu adevărat o persoană în spatele fiecărei participări, iar acest lucru este important pentru impactul acestei campanii și pentru a preveni trimiterile false/spam.",
             "subject": "Încă un pas: vă rugăm să vă confirmați adresa de e-mail",
             "extra": "Ați primit această confirmare pentru a finaliza cu succes înregistrarea."
+        },
+        "confirm": {
+            "intro": "Confirmarea dvs. este esențială pentru procesarea participării dvs. Acest lucru asigură faptul că fiecare înscriere provine de la o persoană autentică și ajută la prevenirea înscrierilor false sau spam.",
+            "subject": "Încă un pas: vă rugăm să vă confirmați adresa de e-mail",
+            "extra": "Dacă nu ați solicitat acest lucru, vă rugăm să ignorați acest e-mail."
         }
     },
     "poweredBy": "ALIMENTAT DE"

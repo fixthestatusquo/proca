@@ -38,6 +38,11 @@
         },
         "doi_thankyou": {
             "subject": "Thank you for your participation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "One more step: please confirm your email address",
+            "intro": "Your confirmation is essential for processing your participation. This ensures that each submission comes from a genuine person and helps prevent fake or spam submissions.",
+            "extra": "If you didn’t request this, please ignore this email."
         }
     },
     "poweredBy": "POWERED BY"

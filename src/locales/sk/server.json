@@ -38,6 +38,11 @@
             "intro": "Vaše potvrdenie je dôležité na to, aby sme mohli spracovať vašu účasť. Len tak môžeme zabezpečiť dôveryhodnosť, že za každou účasťou je skutočne osoba, čo je dôležité pre účinok tejto kampane a na zabránenie falošným/spamovým príspevkom.",
             "subject": "Ešte jeden krok: potvrďte svoju e-mailovú adresu",
             "extra": "Toto potvrdenie ste dostali, aby ste úspešne dokončili registráciu."
+        },
+        "confirm": {
+            "subject": "Ešte jeden krok: potvrďte svoju e-mailovú adresu",
+            "extra": "Ak ste o to nepožiadali, ignorujte tento e-mail.",
+            "intro": "Vaše potvrdenie je nevyhnutné na spracovanie vašej účasti. Tým sa zabezpečí, že každý príspevok pochádza od skutočnej osoby, a zabráni sa falošným alebo spamovým príspevkom."
         }
     },
     "poweredBy": "POHONOM"

@@ -42,6 +42,11 @@
         },
         "doi_thankyou": {
             "subject": "Gracias por su participación{{#privacy.optIn}}, un paso más, por favor confirme su dirección de correo electrónico{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Un paso más: Confirme su dirección de correo electrónico",
+            "extra": "Si no lo ha solicitado, ignore este correo electrónico.",
+            "intro": "Su confirmación es esencial para procesar su participación. Esto garantiza que cada envío procede de una persona auténtica y ayuda a evitar envíos falsos o spam."
         }
     },
     "poweredBy": "DESARROLLADO POR"
