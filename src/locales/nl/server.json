@@ -42,6 +42,11 @@
         },
         "doi_thankyou": {
             "subject": "Bedankt voor je deelname{{#privacy.optIn}}, nog één stap, bevestig alsjeblieft je e-mailadres{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Nog één stap: bevestig je e-mailadres",
+            "extra": "Als je hier niet om hebt gevraagd, negeer deze e-mail dan.",
+            "intro": "Uw bevestiging is essentieel voor het verwerken van uw deelname. Dit zorgt ervoor dat elke inzending afkomstig is van een echte persoon en helpt nep- of spam-inzendingen te voorkomen."
         }
     },
     "poweredBy": "GEVOED DOOR"

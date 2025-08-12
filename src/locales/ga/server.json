@@ -20,13 +20,13 @@
         "button": {
             "confirmAlreadyMember": "Deimhním mo rannpháirtíocht & faighim ríomhphoist uait cheana féin",
             "confirmAction": "Sea, is duine fíor mé!",
-            "confirmOptin": "Deimhním mo rannpháirtíocht & ba mhaith liom nuacht a fháil uait",
+            "confirmOptin": "Ba mhaith liom nuacht a fháil uait",
             "confirmOptout": "Deimhním mo rannpháirtíocht ach ná coinnigh mé cothrom le dáta amach anseo"
         },
         "doi": {
             "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist",
-            "intro": "Tá do dheimhniú tábhachtach le bheith in ann é a phróiseáil. Is é seo an t-aon bhealach is féidir linn a dhéanamh inchreidte go bhfuil duine i ndáiríre taobh thiar de gach rannpháirtíocht, agus tá sé sin tábhachtach maidir le tionchar an fheachtais seo agus chun aighneachtaí falsa/ turscair a chosc.",
-            "extra": "Tá an deimhniú seo faighte agat chun an clárúchán a chur i gcrích go rathúil agus chun ligean dúinn do sheoladh ríomhphoist agus sonraí pearsanta eile a phróiseáil chun nuacht nó nuachtlitreacha a fháil. Is nós imeachta uathoibrithe é seo agus tá an deimhniú seo ag teastáil don chlárú chun próiseas clárúcháin neamhúdaraithe a sheachaint."
+            "intro": "Chun do chlárú a chríochnú agus ligean dúinn do sheoladh ríomhphoist agus do shonraí pearsanta a phróiseáil chun nuacht nó nuachtlitreacha a sheachadadh, cliceáil an cnaipe deimhnithe thíos le do thoil. Cinntíonn an chéim uathoibrithe seo do thoiliú agus cuireann sé cosc ar chlárúcháin neamhúdaraithe.",
+            "extra": "Mura ndearna tú clárú don síntiús seo, bíodh leisce ort neamhaird a dhéanamh den ríomhphost seo."
         },
         "thankyou": {
             "subject": "Go raibh maith agat, seo duit cad eile is féidir leat a dhéanamh",
@@ -39,6 +39,11 @@
         },
         "doi_thankyou": {
             "subject": "Go raibh maith agat as do rannpháirtíocht{{#privacy.optIn}}, céim amháin eile, deimhnigh do sheoladh ríomhphoist{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Céim amháin eile: deimhnigh do sheoladh ríomhphoist le do thoil",
+            "extra": "Mura ndearna tú iarratas air seo, déan neamhaird den ríomhphost seo le do thoil.",
+            "intro": "Tá do dheimhniú riachtanach chun do rannpháirtíocht a phróiseáil. Cinntíonn sé seo go dtagann gach aighneacht ó dhuine fíor agus cuidíonn sé le cosc a chur ar aighneachtaí falsa nó turscair."
         }
     },
     "poweredBy": "CUMHACHTAITHE AG"

@@ -38,6 +38,11 @@
             "intro": "Votre confirmation est importante pour pouvoir traiter votre participation. C'est la seule façon de rendre crédible le fait qu'il y a vraiment une personne derrière chaque participation, ce qui est important pour l'impact de cette campagne et pour éviter les soumissions frauduleuses ou les spams.",
             "subject": "Encore une étape : veuillez confirmer votre adresse électronique",
             "extra": "Vous avez reçu cette confirmation afin de compléter l'inscription avec succès."
+        },
+        "confirm": {
+            "subject": "Encore une étape : veuillez confirmer votre adresse électronique",
+            "extra": "Si vous ne l'avez pas demandé, veuillez ignorer cet e-mail.",
+            "intro": "Votre confirmation est essentielle pour le traitement de votre participation. Cela permet de s'assurer que chaque soumission provient d'une personne authentique et d'éviter les soumissions frauduleuses ou les spams."
         }
     },
     "poweredBy": "ALIMENTÉ PAR"

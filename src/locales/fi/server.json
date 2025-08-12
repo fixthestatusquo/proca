@@ -38,6 +38,11 @@
             "intro": "Vahvistuksesi on tärkeä, jotta voimme käsitellä osallistumisesi. Tämä on ainoa tapa, jolla voimme varmistaa, että jokaisen osallistumisen takana todella on henkilö, mikä on tärkeää kampanjan vaikutuksen kannalta ja väärennettyjen tai roskapostitettujen osallistumisten estämiseksi.",
             "subject": "Vielä yksi vaihe: vahvista sähköpostiosoitteesi",
             "extra": "Olet saanut tämän vahvistuksen, jotta voit suorittaa rekisteröinnin onnistuneesti."
+        },
+        "confirm": {
+            "subject": "Vielä yksi vaihe: vahvista sähköpostiosoitteesi",
+            "extra": "Jos et ole pyytänyt tätä, jätä tämä sähköposti huomiotta.",
+            "intro": "Vahvistuksesi on välttämätön osallistumisesi käsittelyä varten. Näin varmistetaan, että jokainen osallistuminen tulee aidolta henkilöltä, ja estetään väärennetyt tai roskapostitetut osallistumiset."
         }
     },
     "poweredBy": "POWERED BY"

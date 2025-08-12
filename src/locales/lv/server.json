@@ -38,6 +38,11 @@
             "intro": "Jūsu apstiprinājums ir svarīgs, lai varētu apstrādāt jūsu dalību. Tas ir vienīgais veids, kā mēs varam pārliecināties, ka aiz katras dalības patiešām ir kāds cilvēks, un tas ir svarīgi, lai nodrošinātu šīs kampaņas ietekmi un novērstu viltus/spama iesniegumus.",
             "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi",
             "extra": "Jūs esat saņēmis šo apstiprinājumu, lai veiksmīgi pabeigtu reģistrāciju."
+        },
+        "confirm": {
+            "subject": "Vēl viens solis: lūdzu, apstipriniet savu e-pasta adresi",
+            "extra": "Ja neesat to pieprasījis, lūdzu, ignorējiet šo e-pastu.",
+            "intro": "Jūsu apstiprinājums ir būtisks, lai apstrādātu jūsu dalību. Tas nodrošina, ka katrs iesniegums nāk no īstas personas, un palīdz novērst viltotu vai surogātpasta iesniegumu iesniegšanu."
         }
     },
     "poweredBy": "AR JAUDU, KO NODROŠINA"

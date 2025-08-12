@@ -38,6 +38,11 @@
             "intro": "Vaša potrditev je pomembna za obdelavo vašega sodelovanja. Le tako bomo lahko zagotovili verodostojnost, da za vsako udeležbo resnično stoji oseba, kar je pomembno za učinek te kampanje in preprečevanje lažnih/spam prijav.",
             "subject": "Še en korak: potrdite svoj e-poštni naslov",
             "extra": "To potrditev ste prejeli, da bi uspešno zaključili registracijo."
+        },
+        "confirm": {
+            "subject": "Še en korak: potrdite svoj e-poštni naslov",
+            "extra": "Če tega niste zahtevali, tega e-poštnega sporočila ne upoštevajte.",
+            "intro": "Vaša potrditev je nujna za obdelavo vaše udeležbe. S tem je zagotovljeno, da vsako prijavo pošlje prava oseba, in preprečeno pošiljanje lažnih ali neželenih prijav."
         }
     },
     "poweredBy": "Z MOTORJEM"

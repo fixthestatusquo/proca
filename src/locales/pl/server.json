@@ -38,6 +38,11 @@
             "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
             "intro": "Twoje potwierdzenie jest ważne, aby móc przetworzyć Twój udział. Jest to jedyny sposób, w jaki możemy uwiarygodnić, że za każdym uczestnictwem naprawdę stoi osoba, co jest ważne dla wpływu tej kampanii i zapobiegania fałszywym/spamowym zgłoszeniom.",
             "extra": "Otrzymałeś to potwierdzenie, aby pomyślnie zakończyć rejestrację."
+        },
+        "confirm": {
+            "subject": "Jeszcze jeden krok: potwierdź swój adres e-mail",
+            "extra": "Jeśli o to nie prosiłeś, zignoruj tę wiadomość.",
+            "intro": "Potwierdzenie jest niezbędne do przetworzenia zgłoszenia. Gwarantuje to, że każde zgłoszenie pochodzi od prawdziwej osoby i pomaga zapobiegać fałszywym lub spamowym zgłoszeniom."
         }
     },
     "poweredBy": "ZASILANY PRZEZ"

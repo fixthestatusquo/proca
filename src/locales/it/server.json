@@ -43,6 +43,11 @@
         },
         "doi_thankyou": {
             "subject": "Grazie per la tua partecipazione{{#privacy.optIn}}, un ulteriore passo, per favore conferma il tuo indirizzo email{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "extra": "Se non l'avete richiesto, ignorate questa e-mail.",
+            "subject": "Un ulteriore passo: confermare l'indirizzo e-mail",
+            "intro": "La vostra conferma è essenziale per elaborare la vostra partecipazione. In questo modo si garantisce che ogni invio provenga da una persona autentica e si evitano invii falsi o di spam."
         }
     }
 }

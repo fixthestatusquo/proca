@@ -5,7 +5,7 @@
             "consent": "\n          ",
             "thanks": "Täname teid osalemise eest aadressil {{campaign.title}}. Teie toetus on teretulnud!",
             "closing": "Sinu abiga oleme oma eesmärgile ühe sammu võrra lähemal",
-            "greeting": "Tere {{firstName}}",
+            "greeting": "Tere {{firstName}},",
             "share_on": "Jaga edasi",
             "unsubscribe": "Kui sa ei soovi meilt tulevikus enam teavet saada, saad oma liitumise igal ajal tühistada",
             "signature": "Lugupidamisega,\n\n{{org.title}}",
@@ -14,16 +14,17 @@
             "share": "Aita meil saavutada oma eesmärki levitades teavet",
             "duplicate": "Aitäh teile pühendumise eest meie asja eest! Kuid meie kohustus säilitada autentsust ja usaldusväärsust nõuab, et me **kustutaksime** dubleerivad allkirjad ja tundub, et teie (või keegi, kes kasutab {{email}}) on selle juba teinud.  Võite olla kindel, et **teie esialgne allkiri on loetud** ja et see on meie kampaaniale kaasa aidanud.\nTeie toetus on olnud hindamatu väärtusega ja me soovime teid julgustada tegema veel ühe sammu, et aidata kaasa teie mõju suurendamisele. Palun kaaluge võimalust pöörduda oma sõprade ja pereliikmete poole, kutsudes neid samuti üles tegutsema, kasutades oma e-posti aadressi. Nii saame oma liikumist veelgi laiendada ja luua veelgi tugevama kollektiivse hääle muutuste saavutamiseks, mida me taotleme.\nTäname teid veel kord südamest teie jätkuva toetuse ja pühendumise eest sellele kampaaniale. Üheskoos saame avaldada püsivat mõju!",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Aitäh, et toetad {{campaign.title}} kampaaniat. Sinu allkiri kontrollitakse üle ja kinnitamise korral kuvatakse veebisaidis."
+            "thanksPledge": "Aitäh, et toetad {{campaign.title}} kampaaniat. Sinu allkiri kontrollitakse üle ja kinnitamise korral kuvatakse veebisaidis.",
+            "about": " "
         },
         "thankyou": {
             "subject": "Tänan teid, siin on, mida veel saate teha",
             "intro": "Täname sind osalemise eest kampaanias „{{campaign.title}}“. Sinu toetus on teretulnud!"
         },
         "doi": {
-            "extra": "Te olete saanud selle kinnituse, et edukalt lõpule viia registreerimine ja võimaldada meil töödelda teie e-posti aadressi ja muid isikuandmeid uudiste või uudiskirjade saamiseks. Tegemist on automatiseeritud menetlusega ja see kinnitus on vajalik registreerimiseks, et vältida volitamata registreerimisprotsessi.",
+            "extra": "Kui sa ei ole seda tellinud, võid seda e-kirja eirata.",
             "subject": "Veel üks samm: palun kinnitage oma e-posti aadress",
-            "intro": "Teie kinnitus on oluline, et seda saaks töödelda. See on ainus viis, kuidas me saame teha usaldusväärseks, et iga osalemise taga on tõesti inimene, ja see on oluline selle kampaania mõju seisukohalt ning võltsitud/spämmi esitamise vältimiseks."
+            "intro": "Registreerimise lõpuleviimiseks ja sinu e-posti aadressi ja isikuandmete töötlemiseks uudiste või uudiskirjade edastamiseks klõpsa palun allpool olevale kinnitamisnupule. See automaatne samm tagab sinu nõusoleku ja hoiab ära volitamata registreerimise."
         },
         "doi_thankyou": {
             "subject": "Täname sind osalemise eest{{#privacy.optIn}}, üks liigutus veel, palun kinnita oma e-posti aadress{{/privacy.optIn}}"
@@ -32,12 +33,17 @@
             "confirmAlreadyMember": "Kinnitan oma osalemist ja juba saan teie e-kirju",
             "confirmOptout": "Kinnitan oma osalemise, kuid ei pea mind tulevikus kursis hoidma",
             "confirmAction": "Jah, ma olen tõeline inimene!",
-            "confirmOptin": "Kinnitan oma osalemist ja soovin saada teilt uudiseid"
+            "confirmOptin": "Soovin saada sinult uudiseid"
         },
         "actionConfirm": {
             "intro": "Teie kinnitus on oluline, et saaksime teie osalemist menetleda. See on ainus viis, kuidas me saame teha usaldusväärseks, et iga osalemise taga on tõesti inimene, ja see on oluline selle kampaania mõju seisukohalt ning võltsitud/spämmi esitamise vältimiseks.",
             "subject": "Veel üks samm: palun kinnitage oma e-posti aadress",
             "extra": "Te olete saanud selle kinnituse, et registreerimine edukalt lõpule viia."
+        },
+        "confirm": {
+            "subject": "Veel üks samm: palun kinnitage oma e-posti aadress",
+            "extra": "Kui te ei ole seda taotlenud, siis palun ignoreerige seda e-kirja.",
+            "intro": "Teie kinnitus on oluline teie osalemise töötlemiseks. See tagab, et iga osalemine pärineb tõeliselt ja aitab vältida võltsitud või rämpsposti sisestamist."
         }
     },
     "poweredBy": "POWERED BY"
