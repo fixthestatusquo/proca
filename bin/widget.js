@@ -385,7 +385,7 @@ const pull = async (
               console.log(r);
               r = await commit(actionPage + ".json");
             }
-    if (argv.campaign) saveCampaign(campaignData, config.lang);
+    if (campaign) saveCampaign(campaignData, config.lang);
   }
   return campaign ? [config, campaignData] : config;
 };
