@@ -5,7 +5,7 @@
             "consent": "\n          ",
             "thanks": "Täname teid osalemise eest aadressil {{campaign.title}}. Teie toetus on teretulnud!",
             "closing": "Sinu abiga oleme oma eesmärgile ühe sammu võrra lähemal",
-            "greeting": "Tere {{firstName}}",
+            "greeting": "Tere {{firstName}},",
             "share_on": "Jaga edasi",
             "unsubscribe": "Kui sa ei soovi meilt tulevikus enam teavet saada, saad oma liitumise igal ajal tühistada",
             "signature": "Lugupidamisega,\n\n{{org.title}}",
