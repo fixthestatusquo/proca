@@ -291,7 +291,7 @@
             </ul>
             The campaign coordinator should have provided you a template.
           </div>
-<div class="proca-Petition"></div>
+<div class="proca-Petition proca-demand"></div>
           <div
             class="alert alert-warning proca-Petition proca-Email"
             id="step-1"
@@ -407,7 +407,7 @@
                 <pre class="dynamic">
 &lt;script src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">
-  &lt;div class="proca-description">Loading text...&lt;/div>
+  &lt;div class="our-demand">What we want.../div>
 &lt;/div>
           </pre
                 >
@@ -487,6 +487,7 @@
           params.actionPage = urlParams.get("actionPage");
 
         proca.Widget(params);
+        proca.set("layout",{"snackTop":100}); // to deal with the fixed topbar
         createJourneyButtons();
         const step1 = proca.getJourney()[0];
         const step1dom = document.getElementById("step-1");
@@ -540,6 +541,7 @@
 */
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
+        
         console.log(e.detail.message, e.detail);
       });
     </script>

@@ -27,7 +27,7 @@ const useStyles = makeStyles(() =>
         paddingBottom: "10px!important",
       },
     },
-  })
+  }),
 );
 
 const GlobalStyles = () => {
@@ -50,13 +50,16 @@ export default function ProcaStyle(props) {
           htmlFontSize: Number.parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
-              .getPropertyValue("font-size")
+              .getPropertyValue("font-size"),
           ), // get the actual font size
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
         },
         overrides: {
           MuiSnackbar: {
+            anchorOriginTopCenter: {
+              top: layout.snackTop && layout.snackTop + "px!important",
+            },
             root: {
               zIndex: 30003,
             },
@@ -84,7 +87,7 @@ export default function ProcaStyle(props) {
           MuiFormControlLabel: {
             root: {
               maxWidth: "none",
-              width: "auto"
+              width: "auto",
             },
           },
           MuiFilledInput: {
@@ -93,11 +96,11 @@ export default function ProcaStyle(props) {
               "& input": {
                 height: "1.1876em!important", //can't be on input otherwise the height of the comment multiline field can't expand
                 width: "100%",
-                minHeight: 'auto',
+                minHeight: "auto",
               },
               "& select": {
                 height: "1.1876em!important",
-                minHeight: 'auto',
+                minHeight: "auto",
               },
             },
             input: {
@@ -144,7 +147,7 @@ export default function ProcaStyle(props) {
           },
         },
       }),
-    [layout]
+    [layout],
   );
   // palette.background.default
   for (const d in theme.zIndex) {
