@@ -3,7 +3,7 @@
         "common": {
             "share_on": "Roinn ar",
             "consent": "\n          ",
-            "greeting": "Dia duit {{firstName}}",
+            "greeting": "Haigh {{firstName}},",
             "thanks": "Go raibh maith agat as páirt a ghlacadh in {{campaign.title}}. Tá bhur dtacaíocht buíoch!",
             "share": "Cabhraigh linn ár sprioc a bhaint amach tríd an scéal a scaipeadh",
             "follow": "Lean muid ar:",
