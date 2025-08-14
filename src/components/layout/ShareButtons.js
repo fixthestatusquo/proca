@@ -26,6 +26,7 @@ import { useIsMobile, mobileOS } from "@hooks/useDevice";
 import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
+import ShareUrl from "@components/layout/ShareUrl";
 import GmailIcon from "@lib/../images/Gmail";
 
 import {
@@ -247,6 +248,10 @@ export default function ShareAction(props) {
               </Button>
             </CardActions>
           )}
+            <CardActions>
+<ShareUrl url={shareUrl('copy')}  onCopy={()=>addShare('share','copy')}/>
+            </CardActions>
+
         <CardActions className={classes.actions} disableSpacing>
           <EmailAction />
 
