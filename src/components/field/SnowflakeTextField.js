@@ -6,8 +6,6 @@ import { InputAdornment } from "@material-ui/core";
 import Salutation from "@components/field/Gender";
 import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
-import AIIcon from "../../images/AI";
-import SvgIcon from "@material-ui/core/SvgIcon";
 
 const Comment = ({ form, classField, enforceRequired, name, label }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -85,14 +83,12 @@ console.log(e);
           color="secondary"
           onClick={fetchData}
           disabled={isLoading}
-          startIcon={isLoading ? <CircularProgress size={20} /> : <SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
           Help me write it
         </Button>}
         {state === 'loaded' &&<Button
 variant="outlined"
           onClick={fetchData}
-          startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
           Give me another
         </Button>}
