@@ -6,24 +6,19 @@ const localizeConfigQuestions = (config) => {
   const { t } = i18next;
   const questions = config?.component?.consultation.fields;
   if (!questions) return [];
-  const fields = config?.locales?.[config.lang || 'en']?.["campaign:"]?.fields || {};
 
   return questions.map((q) => {
-    const fieldLocale = fields[q.id] || {};
-
     const result = {
       id: q.id,
       type: q.type,
       attributeName: q.attributeName || String(q.id),
-      title: fieldLocale.title || t(`campaign:fields.${q.id}.title`, q.title),
+      title: t(`campaign:fields.${q.id}.title`, q.title),
     };
 
     if (q.possibleAnswers) {
       result.possibleAnswers = q.possibleAnswers.map((opt) => ({
         id: opt.id,
-        text:
-          fieldLocale.possibleAnswers?.[opt.id] ||
-          t(`campaign:fields.${q.id}.possibleAnswers.${opt.id}`, opt.text),
+        text: t(`campaign:fields.${q.id}.possibleAnswers.${opt.id}`, opt.text),
       }));
     }
     // overwriting the margin. By default is larger (for fetched fields)
