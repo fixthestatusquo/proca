@@ -36,7 +36,7 @@ export default class CampaignTranslate extends Command {
     }),
   };
 
-  async LLMtranslate(text, from, to) {
+  async translateLLM(text, from, to) {
     const accountId = process.env.CF_ACCOUNT;
     const authToken = process.env.CF_TOKEN;
 
@@ -47,10 +47,8 @@ export default class CampaignTranslate extends Command {
     }
 
     // Using Llama-2, a general purpose LLM, with a system prompt for translation.
-    const model = "@cf/meta/llama-2-7b-chat-int8";
+    const model = "@cf/meta/llama-3.1-8b-instruct";
     const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
-
-    this.log(`Translating via Cloudflare LLM...`);
 
     const response = await fetch(url, {
       method: "POST",
@@ -162,7 +160,7 @@ export default class CampaignTranslate extends Command {
               .split("\n- ")
               .filter((l) => l.trim() !== "");
 
-            this.log(`Translating markdown list: ${currentPath.join(".")}`);
+            this.log(`Translating list: ${currentPath.join(".")}`);
             const translatedLines = await Promise.all(
               lines.map(async (line) => {
                 const content = line.trim();
@@ -170,7 +168,8 @@ export default class CampaignTranslate extends Command {
                   console.log("skip translation ", content);
                   return "- " + content;
                 }
-                const translatedContent = await this.translate(
+//                const translatedContent = await this.translate(
+                const translatedContent = await this.translateLLM(
                   content,
                   from,
                   to,
