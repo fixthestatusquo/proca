@@ -85,7 +85,7 @@ export default function Progress(props) {
     };
   }, [count, goal]);
 
-  if (config.component.counter?.disabled === false) return null;
+  if (config.component.counter?.disabled === true) return null;
   if (!config.test ) {
     if (!count || count <= min) {
       return <Box mt={1}>&nbsp;</Box>;
