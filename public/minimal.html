@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="<%= lang %>">
+<!doctype html>
+<html lang="<%= lang %>" data-theme="<%= theme %>">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
     <link
       rel="alternate"
       type="application/json+oembed"
@@ -27,40 +26,115 @@
     />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@eucampaign" />
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-
     <style>
-#help, #widget-demo {
-  display:block;
-    transform: scaleY(1);
-    transition: transform 400ms ease 0ms;
-}
+      :root {
+  --pico-background-color: <%= background-color %>; /* Light mode */
+  --pico-background-color-dark: <%= background-color %>; /* Dark mode (optional) */
+        --pico-form-element-spacing-horizontal: 12px;
+        --pico-h6-color: var(--pico-color);
+      }
+      textarea {
+        --pico-form-element-spacing-horizontal: 0;
+      }
+      html {
+        scroll-padding-top: 60px;
+      }
 
-#help.hidden, #widget-demo.hidden {
-  display:none;
-    transform: scaleY(0);
-    transition: transform 400ms ease 0ms;
-}
+      body.full_width .grid {
+        display: block !important;
+      }
+
+      #halfwidth {
+        display: none;
+      }
+      .full_width #halfwidth {
+        display: block;
+      }
+      .full_width #fullwidth {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        #halfwidth,
+        #fullwidth {
+          display: none !important;
+        }
+      }
+      #make_visible {
+        display: none;
+      }
+      .only_widget #make_visible {
+        display: block;
+      }
+      .only_widget #make_hidden {
+        display: none;
+      }
+      .only_widget:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(var(--pico-card-background-color-rgb), 0.9);
+        backdrop-filter: blur(12px);
+        z-index: 1;
+      }
+
+      .proca-widget {
+        position: relative;
+        z-index: 2;
+        opacity: 1;
+        background-color: rgba(var(--pico-card-background-color-rgb));
+      }
+      .proca-widget .proca-MuiSnackbar-root {
+        z-index: 300;
+      }
+
+      .container {
+        padding-top: 60px;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        background-color: rgba(var(--pico-card-background-color-rgb), 0.85);
+        border-bottom: 1px solid rgba(var(--pico-border-color-rgb), 0.3);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px); /* Optional frosted glass effect */
+        padding: 0 3em;
+      }
+
+      .navbar-brand {
+        color: var(--pico-color);
+      }
+
+      nav svg {
+        width: 24px;
+        fill: var(--pico-primary-background);
+        cursor: pointer;
+      }
+
+      #help,
+      #widget-demo {
+        _transform: scaleY(1);
+        transition: transform 400ms ease 0ms;
+      }
+
+      #help.hidden,
+      #widget-demo.hidden {
+        display: none;
+        _transform: scaleY(0);
+        transition: transform 400ms ease 0ms;
+      }
       pre {
-        background: #e3e3e3;
         margin-top: 15px;
-        padding: 15px;
+        padding: 15px 15px 0 15px;
       }
 
       aa.dark {
@@ -69,74 +143,180 @@
       aa.light {
         background: "transparent";
       }
-      html {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        nope.font-family: "Courier New", Courier, "Lucida Sans Typewriter",
-          "Lucida Typewriter", monospace;
+
+      .alert {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: var(--pico-border-radius);
+      }
+      .alert p,
+      .alert a,
+      .alert ul {
+        color: inherit;
+      }
+      .alert a {
+        text-decoration: underline;
+      }
+      .alert-info {
+        background-color: #e8f4fd;
+        border-color: #b6e0fe;
+        color: #3178c6;
+      }
+
+      .alert-warning {
+        background-color: #fff4e5;
+        border-color: #ffd8a8;
+        color: #c17d00;
+      }
+
+      .alert-danger {
+        background-color: #f8d7da;
+        border: 1px solid #f5c2c7;
+        color: #842029;
+      }
+      .alert-primary {
+        background-color: var(--pico-primary-background);
+        border-color: var(--primary-border);
+        color: var(--pico-primary-inverse);
       }
     </style>
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    -->
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <minimal-style style="display: none">
       .proca-widget, #widget-demo {max-width:600px;min-width:300px} .row{
       display: flex; flex-direction: row; flex-wrap: wrap; width:100%; } .col{
       display: flex; flex-direction: column; flex-basis: 100%; padding:0 10px;
       flex:1; } pre {background:#dede; padding: 10px}
     </minimal-style>
-    <style>
-      body {
-        padding-top: 5rem;
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#"><%= campaign %></a>
+      <ul>
+        <li>
+          <b><a class="navbar-brand" href="#"><%= campaign %></a> </b>
+        </li>
+      </ul>
 
-      <div class="collapse navbar-collapse" id="">
-        <div class="navbar-nav mr-auto"></div>
-        <div
+      <ul class="collapse navbar-collapse" id="">
+        <li class="navbar-nav mr-auto" id="share" class="proca-share"></li>
+        <li
           class="btn-group btn-group-sm"
           role="toolbar"
           aria-label="Actions for the webmasters"
+          id="controls"
         >
           <button
             class="proca-next btn btn-secondary"
             title="skip to the next action"
             onClick="proca.go()"
           >
-            ⏵
+            ►
           </button>
           <button
             id="btn-help"
             title="How to embed this into your website?"
-            class="btn btn-secondary"
-            onClick="toggleHelp()"
+            class="btn btn-secondary d-none"
+            onClick="scrollToAnchor('help')"
           >
             ?
           </button>
-        </div>
-      </div>
+        </li>
+        <svg
+          id="halfwidth"
+          onClick="toggleColumn()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M13 12h7v1.5h-7zm0-2.5h7V11h-7zm0 5h7V16h-7zM21 4H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15h-9V6h9v13z"
+          ></path>
+        </svg>
+
+        <svg
+          id="fullwidth"
+          aria-hidden="true"
+          onClick="toggleColumn()"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m4.1653 11.97 15.835 0.02999v1.5l-15.835-0.02999zm0-2.5 15.835 0.02999v1.5l-15.835-0.02999zm0 5 15.835 0.02999v1.5l-15.835-0.02999zm16.835-10.47h-18c-1.1 0-2 0.9-2 2v13c0 1.1 0.9 2 2 2h18c1.1 0 2-0.9 2-2v-13c0-1.1-0.9-2-2-2zm0 15-17.748 0.054242-0.21084-13.074 17.959 0.019819z"
+          />
+        </svg>
+
+        <svg
+          id="make_visible"
+          onClick="toggleVisibility()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+          ></path>
+        </svg>
+        <svg
+          id="make_hidden"
+          onClick="toggleVisibility()"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"
+          ></path>
+        </svg>
+      </ul>
     </nav>
     <noscript
       >You need to enable JavaScript to participate to this campaign.</noscript
     >
     <div id="root" class="container">
       <div class="proca-progress"></div>
-      <div class="proca-widget" id="widget-demo">
+      <div id="share"></div>
+      <div class="_grid" id="widget-demo">
+        <div role="left-column">
+          <div class="alert alert-info">
+            <b>This is a Preview. </b>On your live site, you’ll need to write
+            <i>-or paste-</i> the campaign content directly into your CMS/page
+            editor.
+
+            <ul>
+              <li>Visual (optional image)</li>
+
+              <li>Call-to-action and campaign's demands</li>
+              <li>
+                some additional information/background information (optional)
+              </li>
+            </ul>
+            The campaign coordinator should have provided you a template.
+          </div>
+        </div>
+        <div role="right-column">
+          <div class="alert alert-info">
+            The widget
+            <i style="cursor: pointer" onClick="toggleVisibility()"
+              >displayed below</i
+            >
+            provides the progress bar, the form for your supporters to take
+            action and the social sharing step
+          </div>
+          <div class="proca-widget">
+
+<div class="proca-Petition proca-demand"></div>
+          <div class="alert alert-danger proca-Share" role="alert">
+            <p>
+              Please test on your own website. This page is a placeholder to
+              help you embed the widget on your site, not to test it<br />
+              <b
+                >This is normal the share step looks incomplete, because it
+                require to be on your page to be correct</b
+              >
+            </p>
+          </div>
+
+</div>
+        </div>
       </div>
       <div class="row" id="help">
         <div class="col">
@@ -154,32 +334,40 @@
               Your personal information will be kept private and held
               securely....&lt;1&gt;privacy&lt;/1&gt;
             </p>
+            <p class="proca-text [disable]email_subject">variant A</p>
+            <p class="proca-text [disable]email_body">
+              Another Long long text with lines and shit
+            </p>
             <p class="proca-text [disable]comment">variant A</p>
             <p class="proca-text [disable]comment">variant B</p>
             <p class="proca-text [disable]consent_intro">
               I want to receive the newsletter from {{name}}
             </p>
             <p class="proca-text [disable]sign-now">Do it now!</p>
-            <p class="proca-text share">
+            <p class="proca-text [disable]share">
               I signed <%= campaign %>, you should sign too!
             </p>
-            <p class="proca-text share-twitter">
+            <p class="proca-text [disable]share-twitter">
               I signed #<%=campaign %>, you should too!
             </p>
-            <p class="proca-text [remove]-share-whatsapp">Hi, sign that!</p>
+            <p class="proca-text [disable]share-whatsapp">Hi, sign that!</p>
             <p class="proca-text [disable]ddd-consent-into"></p>
-            <h2>How to embed this into your website?</h2>
+            <h2 id="help">How to embed this into your website?</h2>
 
             <div class="alert alert-primary">
               <p>
-            For a more complete information, including how to modify the social media messages, please <a href="https://proca.app/guide/embedding/">check out our guide</a>
-            </p>
-            <p>
-              You simply need to copy paste in your website editor, for instance
-              wordpress. The specific instructions depends of your website,
-              check with your webmaster or search how to add "raw html" + your
-              CMS.
-            </p>
+                For a more complete information, including how to modify the
+                social media messages, please
+                <a href="https://proca.app/guide/embedding/"
+                  >check out our guide</a
+                >
+              </p>
+              <p>
+                You simply need to copy paste in your website editor, for
+                instance wordpress. The specific instructions depends of your
+                website, check with your webmaster or search how to add "raw
+                html" + your CMS.
+              </p>
             </div>
             <div class="row">
               <div class="col">
@@ -187,30 +375,29 @@
                 This is the most flexible solution, you can have a full width
                 form, or manage your layout exactly the way your want.
                 <pre class="dynamic">
-&lt;script src="https://%widget_path%">&lt;/script>
+&lt;script src="https://%widget_path%" async>&lt;/script>
           </pre
                 >
               </div>
               <div class="col">
                 <h4>Action tool and campaign text (two columns)</h4>
-                If you want a little help and have something in two columns
-                (like the example above), it's almost the same, but you put the
-                text you want on the left hand column as the content of the
-                widget
+                If you want a little help and have a widget with two columns
+                (like the example on this page), it's almost the same, but you
+                put the text you want on the left hand column as the content of
+                the widget
                 <pre class="dynamic">
 &lt;script src="https://%widget_path%">&lt;/script>
 &lt;div class="proca-widget">
-  &lt;div class="proca-description">&lt;/div>
-  Put here the title and text of the campaign
+  &lt;div class="our-demand">What we want.../div>
 &lt;/div>
           </pre
                 >
-            <p>
-              <i
-                >You can put the first line wherever you want, the other lines
-                has to be where you want the form to be displayed</i
-              >
-            </p>
+                <p>
+                  <i
+                    >You can put the first line wherever you want, the other
+                    lines has to be where you want the form to be displayed</i
+                  >
+                </p>
               </div>
             </div>
             <p>
@@ -223,7 +410,7 @@
         </div>
 
         <div class="row">
-          <div class="col"></div>
+          <div class="col proca-messages"></div>
           <div></div>
         </div>
       </div>
@@ -240,7 +427,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      let params ={};
+      function scrollToAnchor(id) {
+        const target = document.getElementById(id);
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: targetPosition - 90,
+          behavior: "smooth",
+        });
+      }
+
+      window.dataLayer = [];
+      let params = {};
       function display() {
         var variants = ["standard", "filled", "outlined"];
         var urlParams = new URLSearchParams(window.location.search);
@@ -250,11 +448,15 @@
         var widget_shortcode = window.location.pathname
           .replace("/index.html", "")
           .replace("/d/", "");
-        for (let d of document.getElementsByClassName("dynamic")) {
+
+        let dynamicElements = document.getElementsByClassName("dynamic");
+        for (var i = 0; i < dynamicElements.length; i++) {
+          const d = dynamicElements[i];
+
           d.innerHTML = d.innerHTML.replace("%widget_path%", widget_path);
           d.innerHTML = d.innerHTML.replace(
             "%widget_shortcode%",
-            widget_shortcode
+            widget_shortcode,
           );
         }
 
@@ -265,8 +467,37 @@
         if (urlParams.get("actionPage"))
           params.actionPage = urlParams.get("actionPage");
 
-        //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
+        proca.set("layout",{"snackTop":100}); // to deal with the fixed topbar
+        createJourneyButtons();
+        const step1 = proca.getJourney()[0];
+        const step1dom = document.getElementById("step-1");
+        step1dom.classList.add("proca-" + step1);
+        step1dom.innerHTML = step1dom.innerHTML.replaceAll("%step-1%", step1);
+      }
+
+      function createJourneyButtons() {
+        const controller = document.getElementById("controls");
+        proca.getJourney().forEach((name) => {
+          const a = document.createElement("a");
+          a.className = "btn btn-info secondardy";
+          a.role = "button";
+          a.href = `#proca_${name}`;
+          a.textContent = name.replace("bespoke_","").replaceAll("_"," ");
+          controller.appendChild(a);
+        });
+      }
+
+      function toggleVisibility() {
+        //const container = document.getElementById("root");
+        const container = document.body;
+        container.classList.toggle("only_widget");
+      }
+
+      function toggleColumn() {
+        //const container = document.getElementById("root");
+        const container = document.body;
+        container.classList.toggle("full_width");
       }
 
       if (typeof proca === "object") {
@@ -281,25 +512,19 @@
     </script>
 
     <script>
+      /* example of how to filter
+      window.addEventListener("proca", e => {
+        if (e.detail.message !== "init") return;
+        proca.hook("target","load", d => {
+          return d.filter (d => d.screen_name !== "whatever");
+        })
+      });
+*/
       // example of how to be informed of changes in the widget and modify the journey
       window.addEventListener("proca", function (e) {
-        console.log(e.type, e.detail);
+        
+        console.log(e.detail.message, e.detail);
       });
-
-      window.addEventListener("proca", function (e) {
-        if (e.detail.message === "init") {
-          const help = document.getElementById("help");
-          help.classList.toggle('hidden');
-          //widget-example
-        }
-      });
-
-      function toggleHelp () {
-          let help = document.getElementById("help");
-          help.classList.toggle('hidden');
-          let widget = document.getElementById("widget-demo");
-          widget.classList.toggle('hidden');
-      }
     </script>
   </body>
 </html>
