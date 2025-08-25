@@ -39,7 +39,7 @@ useEffect(() => {
     setState('loading');
     const formData = form.getValues();
     const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, id: name};
-     
+
     try {
         let url =
           loaders.url || "https://" + config.campaign.name + ".proca.app/";
@@ -52,7 +52,7 @@ useEffect(() => {
 console.log(e);
           });
           json = await d.json();
-            form.setValue(name, json.message); 
+            form.setValue(name, json.message);
 
       setState('loaded');
     } catch (error) {
@@ -84,13 +84,13 @@ console.log(e);
           onClick={fetchData}
           disabled={isLoading}
         >
-          Help me write it
+         {t("help_write", "Help me write it")}
         </Button>}
         {state === 'loaded' &&<Button
 variant="outlined"
           onClick={fetchData}
         >
-          Give me another
+          {t("give_another", "Give me another")}
         </Button>}
       </Grid>
     </>
