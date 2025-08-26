@@ -74,7 +74,7 @@ console.log(e);
           multiline
           label={labelInside && label}
           maxRows="10"
-          helperText={state === 'loaded' &&  "We encourage you to read and customise it to maximise its impact"}
+          helperText={state === 'loaded' &&  t("customize_text", "We encourage you to read and customise it to maximise its impact")}
         />
       </Grid>
       <Grid item xs={12} className={classField}>
