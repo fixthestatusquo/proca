@@ -24,6 +24,9 @@
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
+   "customize_text": "Pročitajte i prilagodite kako biste maksimizirali utjecaj poruke",
+  "help_write": "Želim pomoć da napišem poruku",
+  "give_another": "Želim drugi odgovor",
   "action": {
     "donate": "Doniraj",
     "eci": "Potpiši ECI",
