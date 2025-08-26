@@ -72,6 +72,7 @@
       "opt-out": "és nem tájékoztatnak engem"
     }
   },
+  "customize_text": "Arra bátorítjuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
   "date": {
     "error": "érvénytelen dátum. formátum: MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "a formátumnak DD.MM.YYYY-nek kell lennie."
   },
+  "give_another": "Adj még egy",
+  "help_write": "Segíts megírni",
   "image": {
     "addSticker": "matricák hozzáadása",
     "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",
