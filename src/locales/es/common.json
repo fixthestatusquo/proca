@@ -72,6 +72,7 @@
       "opt-out": "y no me mantienes informado"
     }
   },
+  "customize_text": "Te animamos a leerlo y personalizarlo para maximizar su impacto",
   "date": {
     "error": "fecha no válida. formato: DD.MM.AAAA"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "el formato debe ser DD.MM.AAAA"
   },
+  "give_another": "Dame otra",
+  "help_write": "Ayúdame a escribirlo",
   "image": {
     "addSticker": "añadir pegatinas",
     "addStickerTitle": "Pulsa para añadir una pegatina a la foto",

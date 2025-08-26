@@ -72,6 +72,7 @@
       "opt-out": "och inte håller mig informerad"
     }
   },
+  "customize_text": "Vi uppmuntrar dig att läsa och anpassa den för att maximera dess effekt",
   "date": {
     "error": "ogiltigt datum. format: DD.MM.YYYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "Formatet ska vara DD.MM.ÅÅÅÅ"
   },
+  "give_another": "Ge mig en till",
+  "help_write": "Hjälp mig att skriva det",
   "image": {
     "addSticker": "lägga till klistermärken",
     "addStickerTitle": "Klicka/trycka för att lägga till klistermärke i fotot",

@@ -72,6 +72,7 @@
       "opt-out": "og ikke holder mig underrettet"
     }
   },
+  "customize_text": "Vi opfordrer dig til at læse og tilpasse den, så den får størst mulig effekt.",
   "date": {
     "error": "ugyldig dato. format: DD.MM.YYYYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formatet skal være DD.MM.ÅÅÅÅ"
   },
+  "give_another": "Giv mig en til",
+  "help_write": "Hjælp mig med at skrive den",
   "image": {
     "addSticker": "tilføje klistermærker",
     "addStickerTitle": "Klik/tryk for at tilføje et klistermærke til et foto",

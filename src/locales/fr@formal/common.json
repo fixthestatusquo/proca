@@ -72,6 +72,7 @@
       "opt-out": "et ne me tenez pas informé"
     }
   },
+  "customize_text": "Nous vous encourageons à le lire et à le personnaliser afin d'en maximiser l'impact.",
   "date": {
     "error": "Date invalide. format : DD.MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "le format doit être DD.MM.YYYY"
   },
+  "give_another": "Donnez-m'en un autre",
+  "help_write": "Aidez-moi à l'écrire",
   "image": {
     "addSticker": "ajouter des autocollants",
     "addStickerTitle": "Cliquez/Tapez pour ajouter un autocollant à l'image",

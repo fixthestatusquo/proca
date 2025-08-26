@@ -72,6 +72,7 @@
       "opt-out": "e non mi tenete informato"
     }
   },
+  "customize_text": "Vi invitiamo a leggerlo e a personalizzarlo per massimizzarne l'impatto.",
   "date": {
     "error": "data non valida. formato: GG.MM.AAAA"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "Il formato deve essere GG.MM.AAAA"
   },
+  "give_another": "Dammi un altro",
+  "help_write": "Aiutami a scriverlo",
   "image": {
     "addSticker": "aggiungere adesivi",
     "addStickerTitle": "Fare clic/toccare per aggiungere un adesivo alla foto",
