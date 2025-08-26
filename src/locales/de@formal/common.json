@@ -72,6 +72,7 @@
       "opt-out": "und halten Sie mich nicht auf dem Laufenden"
     }
   },
+  "customize_text": "Wir ermutigen Sie, ihn zu lesen und anzupassen, um seine Wirkung zu maximieren",
   "date": {
     "error": "Ungültiges Datum. Format: TT.MM.JJJJ"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "Format sollte DD.MM.YYYY sein"
   },
+  "give_another": "Geben Sie mir noch eine",
+  "help_write": "Helfen Sie mir, ihn zu schreiben",
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen Sie, um dem Bild einen Aufkleber hinzuzufügen.",
