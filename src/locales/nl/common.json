@@ -72,6 +72,7 @@
       "opt-out": "en houdt me niet op de hoogte"
     }
   },
+  "customize_text": "We moedigen je aan om het te lezen en aan te passen om de impact te maximaliseren",
   "date": {
     "error": "ongeldige datum. formaat: DD.MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formaat moet DD.MM.YYYY zijn"
   },
+  "give_another": "Geef me nog een",
+  "help_write": "Help me het te schrijven",
   "image": {
     "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
