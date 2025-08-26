@@ -37,23 +37,21 @@ const useStyles = makeStyles(theme => ({
 }
 }));
 
-const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
+const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, defaultSelected = [], children }) => {
   const classes = useStyles();
-  const selectedValues = form.watch(name) || [];
-
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
       <Controller
         name={name}
         control={form.control}
-        defaultValue={[]}
+        defaultValue={defaultSelected}
         render={({ field }) => (
           <FormGroup>
             {Object.entries(options).map(([key, label]) => {
-              const isChecked = selectedValues.includes(key);
+              const isChecked = (field.value || []).includes(key);
               const disableUnchecked =
-                maxChoices && !isChecked && selectedValues.length >= maxChoices;
+                maxChoices && !isChecked && (field.value || []).length >= maxChoices;
 
               return (
                 <FormControlLabel
@@ -65,8 +63,8 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
                       checked={isChecked}
                       onChange={e => {
                         const newValues = e.target.checked
-                          ? [...selectedValues, key]
-                          : selectedValues.filter(item => item !== key);
+                          ? [...(field.value || []), key]
+                          : (field.value || []).filter(item => item !== key);
                         field.onChange(newValues);
                       }}
                       disabled={disableUnchecked}
@@ -80,6 +78,7 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
           </FormGroup>
         )}
       />
+
       {children}
       {maxChoices && (
         <FormHelperText className={classes.helperText}>
