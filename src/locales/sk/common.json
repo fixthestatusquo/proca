@@ -72,6 +72,7 @@
       "opt-out": "a neinformujte ma"
     }
   },
+  "customize_text": "Odporúčame vám, aby ste si ho prečítali a prispôsobili tak, aby ste maximalizovali jeho účinok",
   "date": {
     "error": "neplatný dátum. formát: MM.RRRR"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formát by mal byť DD.MM.RRRR"
   },
+  "give_another": "Dajte mi ďalšie",
+  "help_write": "Pomôžte mi to napísať",
   "image": {
     "addSticker": "pridať nálepky",
     "addStickerTitle": "Kliknutím/poklepaním pridáte nálepku na fotografiu",
