@@ -72,6 +72,7 @@
       "opt-out": "나에게 계속 정보를 제공하지 않습니다."
     }
   },
+  "customize_text": "이 문서를 읽고 맞춤 설정하여 그 효과를 극대화하는 것이 좋습니다.",
   "date": {
     "error": "잘못된 날짜 형식입니다: DD.MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "형식은 DD.MM.YYYY여야 합니다."
   },
+  "give_another": "하나 더 주세요",
+  "help_write": "작성하는 데 도움",
   "image": {
     "addSticker": "스티커 추가",
     "addStickerTitle": "사진에 스티커를 추가하려면 클릭/탭하세요.",
