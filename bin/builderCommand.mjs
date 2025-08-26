@@ -20,7 +20,6 @@ export class BuilderCommand extends ProcaCommand {
 //    const userConfig = loadConfig(this.config.configDir);
 //console.log(this.config);
 //    this.config.dataDir =
-//      userConfig?.REACT_APP_CONFIG_FOLDER || defaultConfigDir;
   }
 
 }

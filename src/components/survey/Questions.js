@@ -174,7 +174,6 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   }));
 
   const row = (Object.keys(options).length <=2 ? true : undefined); // two options, like yes/no
-   console.log (json.attributeName, row);
   return (
       <SingleSelect
         id={json.id}

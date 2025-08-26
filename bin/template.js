@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require("./dotenv.js");
+const {isDirectCli} = require("./dotenv.js");
 
 const fs = require("fs");
 const path = require("path");
@@ -41,7 +41,7 @@ const help = () => {
   process.exit(0);
 };
 
-const argv = require("minimist")(process.argv.slice(2), {
+const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
   string: ["mjml", "lang", "type"],
   boolean: [
     "help",
@@ -65,8 +65,8 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const tmp = process.env.REACT_APP_CONFIG_FOLDER
-  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+const tmp = process.env.PROCA_CONFIG_FOLDER
+  ? "../" + process.env.PROCA_CONFIG_FOLDER + "/"
   : "../config/";
 
 const keys = {};
@@ -92,7 +92,7 @@ const snarkdown = markdown => {
 };
 
 const pushTemplate = async (config, html) => {
-  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String!,$id: Int!) {
+  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String!,$widgetId: Int) {
     template: upsertTemplate (orgName:$orgName, input: {
       html: $html,
       subject: $subject,
@@ -123,7 +123,7 @@ const pushTemplate = async (config, html) => {
     locale: config.lang,
     html: html,
     subject: i18n.t("email." + config.type + ".subject"),
-    id: config.actionpage,
+    widgetId: config.actionpage,
   };
   const data = await api(query, variables, "upsertTemplate");
   console.log("pushing", variables.name, "@" + config.lang);
@@ -497,5 +497,5 @@ if (require.main === module) {
   })();
 } else {
   //export a bunch
-  module.exports = { i18nRender, i18nTplInit };
+  module.exports = { i18nRender, i18nTplInit, push: pushTemplate };
 }

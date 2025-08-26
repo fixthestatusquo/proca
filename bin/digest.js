@@ -12,8 +12,8 @@ const { mkdirp, read } = require("./config");
 const { i18nRender, i18nTplInit } = require("./template.js");
 const configOverride = require("./lang").configOverride;
 
-const tmp = process.env.REACT_APP_CONFIG_FOLDER
-  ? "../" + process.env.REACT_APP_CONFIG_FOLDER + "/"
+const tmp = process.env.PROCA_CONFIG_FOLDER
+  ? "../" + process.env.PROCA_CONFIG_FOLDER + "/"
   : "../config/";
 
 const help = () => {
