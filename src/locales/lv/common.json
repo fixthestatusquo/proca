@@ -72,6 +72,7 @@
       "opt-out": "un neinformē mani"
     }
   },
+  "customize_text": "Aicinām to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
   "date": {
     "error": "nederīgs datums. formāts: DD.MM.GGGGG"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formātam jābūt DD.MM.GGGGG."
   },
+  "give_another": "Dodiet man vēl vienu",
+  "help_write": "Palīdziet man to uzrakstīt",
   "image": {
     "addSticker": "pievienot uzlīmes",
     "addStickerTitle": "Noklikšķiniet/pieskarieties, lai pievienotu uzlīmi fotoattēlam",
