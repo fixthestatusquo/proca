@@ -72,6 +72,7 @@
       "opt-out": "eikä pidä minua ajan tasalla"
     }
   },
+  "customize_text": "Kannustamme sinua lukemaan ja muokkaamaan sitä, jotta sen vaikutus olisi mahdollisimman suuri.",
   "date": {
     "error": "virheellinen päivämäärä. format: MM.VVVV"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "Muodon pitäisi olla DD.MM.YYYY."
   },
+  "give_another": "Anna minulle toinen",
+  "help_write": "Auta minua kirjoittamaan se",
   "image": {
     "addSticker": "lisätä tarroja",
     "addStickerTitle": "Lisää tarra valokuvaan napsauttamalla sitä",
