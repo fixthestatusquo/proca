@@ -208,10 +208,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
     return acc;
   }, {});
 
-  const defaultSelected = json.possibleAnswers
-  .filter(answer => answer.selected)
-  .map(answer => String(answer.id));
-
   return (
       <MultiSelectCheckbox
         id={json.id}
@@ -220,7 +216,6 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
         label={json.title}
         options={options}
         maxChoices={maxChoices}
-        defaultSelected={defaultSelected}
       >
 
       {/* Render dependent questions if any are selected */}

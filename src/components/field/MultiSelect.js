@@ -37,21 +37,23 @@ const useStyles = makeStyles(theme => ({
 }
 }));
 
-const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, defaultSelected = [], children }) => {
+const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
   const classes = useStyles();
+  const selectedValues = (form.watch(name) || []).map(String);
+
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
-      <Controller
+     <Controller
         name={name}
         control={form.control}
-        defaultValue={defaultSelected}
+        defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
         render={({ field }) => (
           <FormGroup>
             {Object.entries(options).map(([key, label]) => {
-              const isChecked = (field.value || []).includes(key);
+              const isChecked = selectedValues.includes(key);
               const disableUnchecked =
-                maxChoices && !isChecked && (field.value || []).length >= maxChoices;
+                maxChoices && !isChecked && selectedValues.length >= maxChoices;
 
               return (
                 <FormControlLabel
@@ -63,8 +65,8 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, de
                       checked={isChecked}
                       onChange={e => {
                         const newValues = e.target.checked
-                          ? [...(field.value || []), key]
-                          : (field.value || []).filter(item => item !== key);
+                          ? [...selectedValues, key]
+                          : selectedValues.filter(item => item !== key);
                         field.onChange(newValues);
                       }}
                       disabled={disableUnchecked}
@@ -78,7 +80,6 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, de
           </FormGroup>
         )}
       />
-
       {children}
       {maxChoices && (
         <FormHelperText className={classes.helperText}>

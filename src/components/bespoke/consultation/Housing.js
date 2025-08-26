@@ -42,6 +42,8 @@ const Consultation = props => {
     defaultValues: Object.assign({}, data, {
       language: config.locale,
       "153167796": "153167801", // Set default for who are you field
+      "153168234": "153168235",
+      "153168227": [153168232, 153168233]
     }),
   });
 
