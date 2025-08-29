@@ -39,15 +39,15 @@ const useStyles = makeStyles(theme => ({
 
 const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
   const classes = useStyles();
-  const selectedValues = form.watch(name) || [];
+  const selectedValues = (form.watch(name) || []).map(String);
 
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
-      <Controller
+     <Controller
         name={name}
         control={form.control}
-        defaultValue={[]}
+        defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
         render={({ field }) => (
           <FormGroup>
             {Object.entries(options).map(([key, label]) => {

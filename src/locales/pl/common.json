@@ -72,6 +72,7 @@
       "opt-out": "i nie informuj mnie na bieżąco"
     }
   },
+  "customize_text": "Zachęcamy do zapoznania się z nim i dostosowania go, aby zmaksymalizować jego wpływ",
   "date": {
     "error": "Nieprawidłowa data. format: DD.MM.RRRR"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "format powinien być DD.MM.RRRR"
   },
+  "give_another": "Daj mi jeszcze jeden",
+  "help_write": "Pomóż mi to napisać",
   "image": {
     "addSticker": "Dodaj naklejki",
     "addStickerTitle": "Kliknij/stuknij, aby dodać naklejkę do zdjęcia",

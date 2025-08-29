@@ -72,6 +72,7 @@
       "opt-out": "in me ne obveščajte"
     }
   },
+  "customize_text": "Priporočamo vam, da ga preberete in prilagodite, da bo njegov učinek čim večji.",
   "date": {
     "error": "neveljaven datum. format: MM.RRRR"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "format mora biti DD.MM.LLLLL"
   },
+  "give_another": "Dajte mi še eno",
+  "help_write": "Pomagajte mi ga napisati",
   "image": {
     "addSticker": "dodajanje nalepk",
     "addStickerTitle": "Kliknite/tipnite za dodajanje nalepke na fotografijo",

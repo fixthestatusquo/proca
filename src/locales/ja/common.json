@@ -72,6 +72,7 @@
       "opt-out": "で、私に情報を与えない"
     }
   },
+  "customize_text": "その効果を最大限にするために、ぜひお読みいただき、カスタマイズしてください。",
   "date": {
     "error": "無効な日付のフォーマットです。DD.MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "フォーマットはDD.MM.YYYYです。"
   },
+  "give_another": "もう一つくれ",
+  "help_write": "書くのを手伝って",
   "image": {
     "addSticker": "シールを貼る",
     "addStickerTitle": "クリック/タップで写真にステッカーを追加",

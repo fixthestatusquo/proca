@@ -20,6 +20,7 @@
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
+
   "Salutation": "Saudação",
   "Shareable link": "Ligação partilhável",
   "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
@@ -38,7 +39,7 @@
     "remindeSent": "Lembrete enviado",
     "reminder": "Lembre-me mais tarde",
     "reminderEmail": "Lembre-me por e-mail",
-    "share": "Compartilhe",
+    "share": "Partilhe",
     "sign": "Assine",
     "stayInformed": "Mantenha-se informado",
     "takeAction": "Tome medidas!",
@@ -54,7 +55,7 @@
   "consent": {
     "actionConfirmed": "Acção confirmada",
     "actionRejected": "A acção foi cancelada com sucesso",
-    "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', manteremo-lo atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
+    "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', mantê-lo-emos atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
     "confirmAction": "Enviamos um link de confirmação por e-mail para o seguinte endereço:\n {{email}}\nPor favor, recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Só então a sua acção contará!\nA sua confirmação é crucial para o peso político da acção. Isto garante que há uma pessoa real por trás de cada envio. Nós aguardaremos a sua confirmação...",
     "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo sua pasta de spam!) e confirmar sua assinatura de e-mail",
     "emailSent": "Nós lhe enviamos um e-mail para {email}!",
@@ -72,6 +73,7 @@
       "opt-out": "e não me mantenha informado"
     }
   },
+  "customize_text": "Convidamo-lo a ler e a personalizá-lo para maximizar o seu impacto",
   "date": {
     "error": "data inválida. formato: DD.MM.AAAA"
   },
@@ -151,6 +153,8 @@
   "error": {
     "date": "O formato deve ser DD.MM.AAAA"
   },
+  "give_another": "Dê-me outro",
+  "help_write": "Ajuda-me a escrevê-lo",
   "image": {
     "addSticker": "adicionar adesivos",
     "addStickerTitle": "Clique/toque para adicionar adesivo à foto",

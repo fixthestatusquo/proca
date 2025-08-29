@@ -72,6 +72,7 @@
       "opt-out": "și nu mă țineți la curent"
     }
   },
+  "customize_text": "Vă încurajăm să citiți mesajul și îl personalizați pentru a-i maximiza impactul",
   "date": {
     "error": "dată invalidă. format: DD.MM.AAAA"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formatul trebuie să fie DD.MM.AAAA"
   },
+  "give_another": "Generează alt mesaj",
+  "help_write": "Ajută-mă să o scriu",
   "image": {
     "addSticker": "adăugați autocolante",
     "addStickerTitle": "Faceți clic/Tap pentru a adăuga autocolant la fotografie",

@@ -27,6 +27,9 @@
   "Subject": "Subject",
   "Thank you": "Thank you",
   "Your message": "Your message",
+  "customize_text": "We encourage you to read and customise it to maximise its impact",
+  "help_write": "Help me write it",
+  "give_another": "Give me another",
   "action": {
     "donate": "Donate",
     "eci": "Sign the ECI",

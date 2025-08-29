@@ -33,7 +33,7 @@ const Questions = ({ json, form, findQuestionById }) => {
     case "FreeTextQuestion":
       return <TextQuestion form={form} json={json}  />;
     case "SnowflakeAssistedQuestion":
-      return <SnowflakeTextField form={form} 
+      return <SnowflakeTextField form={form}
 
         label={json.title}
         name={json.attributeName}

@@ -72,6 +72,7 @@
       "opt-out": "and do not keep me informed"
     }
   },
+  "customize_text": "We encourage you to read and customise it to maximise its impact",
   "date": {
     "error": "invalid date. format: DD.MM.YYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "format should be DD.MM.YYYY"
   },
+  "give_another": "Give me another",
+  "help_write": "Help me write it",
   "image": {
     "addSticker": "add stickers",
     "addStickerTitle": "Click/Tap to add a sticker to the picture",

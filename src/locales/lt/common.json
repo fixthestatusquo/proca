@@ -72,6 +72,7 @@
       "opt-out": "ir neinformuokite manęs"
     }
   },
+  "customize_text": "Raginame jus perskaityti ir pritaikyti ją, kad poveikis būtų kuo didesnis.",
   "date": {
     "error": "negaliojanti data. formatas: DD.MM.MM.YYYYY"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "formatas turėtų būti DD.MM.YYYY"
   },
+  "give_another": "Duokite man dar vieną",
+  "help_write": "Padėkite man jį parašyti",
   "image": {
     "addSticker": "pridėti lipdukų",
     "addStickerTitle": "Spustelėkite / bakstelėkite, jei norite pridėti lipduką prie nuotraukos",
