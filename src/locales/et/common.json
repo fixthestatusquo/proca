@@ -72,7 +72,7 @@
       "opt-out": "ja ei teavita mind"
     }
   },
-  "customize_text": "Me julgustame teid seda lugema ja kohandama, et selle mõju maksimeerida.",
+  "customize_text": "Et mõju olem parim võimalik, siis me julgustame sind seda lugema ja kohandama",
   "date": {
     "error": "vigane kuupäev. vorming: KK.MM.AAAA"
   },
@@ -153,7 +153,7 @@
     "date": "vorming peaks olema DD.MM.YYYY"
   },
   "give_another": "Anna mulle veel üks",
-  "help_write": "Aidake mul seda kirjutada",
+  "help_write": "Aita mul seda kirjutada",
   "image": {
     "addSticker": "lisada kleebiseid",
     "addStickerTitle": "Klõpsake / koputage fotole kleebise lisamiseks",
