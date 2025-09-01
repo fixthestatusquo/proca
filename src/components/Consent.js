@@ -93,7 +93,8 @@ const Consent = props => {
         });
 
   const optin = () => {
-    setValue("opt-in");
+      setValue("opt-in");
+      props.form.setValue("privacy", "opt-in");
   };
 
   const handleChange = event => {
