@@ -72,6 +72,7 @@
       "opt-out": "agus ná coimeád ar an eolas mé"
     }
   },
+  "customize_text": "Molaimid duit é a léamh agus a shaincheapadh chun a thionchar a uasmhéadú",
   "date": {
     "error": "dáta neamhbhailí. formáid: LL.MM.BBBB"
   },
@@ -151,6 +152,8 @@
   "error": {
     "date": "ba cheart go mbeadh an fhormáid LL.MM.BBBB"
   },
+  "give_another": "Tabhair ceann eile dom",
+  "help_write": "Cabhraigh liom é a scríobh",
   "image": {
     "addSticker": "greamáin a chur leis",
     "addStickerTitle": "Cliceáil/Tapáil chun an greamán a chur leis an ngrianghraf",
