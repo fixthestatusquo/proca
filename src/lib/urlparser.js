@@ -125,7 +125,7 @@ const socialiseReferrer = (domain, utm) => {
 };
 
 const utm = (record = true) => {
-  const allowlist = ["source", "medium", "campaign", "content", "term"];
+  const allowlist = ["source", "medium", "campaign", "content"];
   if (record === false) {
     return {};
   }
