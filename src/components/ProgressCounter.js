@@ -98,7 +98,7 @@ export default function Progress(props) {
   const actionName = config.component.register?.button?.split(".")[1] || "sign";
   const progressKey = i18n.exists(`progress.${actionName}`)
     ? `progress.${actionName}`
-    : "progress";
+    : "progress.sign";
 
   return (
     <>
