@@ -186,7 +186,7 @@
     "pledge": "{{total}} so se zavezali. Pojdimo na {{goal}}",
     "register": "{{total}} so se registrirali. Pojdimo na {{goal}}",
     "share": "{{total}} so delili. Pojdimo na {{goal}}",
-    "sign": "{{total}}  oseb se je podpisalo. Pojdimo do {{goal}}",
+    "sign": "{{total}} oseb se je podpisalo. Pojdimo do {{goal}}",
     "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
   },
   "read more": "preberi več",

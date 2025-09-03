@@ -186,7 +186,7 @@
     "pledge": "{{total}} zobowiązały się. Przejdźmy do {{goal}}",
     "register": "Zarejestrowało się {{total}}. Osiągnijmy {{goal}}",
     "share": "{{total}} podzielili się. Chodźmy do {{goal}}",
-    "sign": "{{total}}  osób już podpisało. Dążymy do {{goal}}",
+    "sign": "{{total}} osób już podpisało. Dążymy do {{goal}}",
     "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
   },
   "read more": "przeczytaj więcej",
