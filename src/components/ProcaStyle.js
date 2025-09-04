@@ -22,6 +22,7 @@ const useStyles = makeStyles(() =>
       ".proca-text": {
         display: "none",
       },
+      "#proca-widget textarea": {minHeight: "unset !important"},
       ".proca-widget input": {
         paddingTop: "23px!important",
         paddingBottom: "10px!important",
