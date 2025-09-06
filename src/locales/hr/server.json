@@ -3,12 +3,12 @@
         "common": {
             "share": "Pomogni nam postići naš cilj slanjem vijesti drugima",
             "donate": "Doniraj novac kako bismo ostvarili našu misiju",
-            "greeting": "Bok {{firstName}}",
+            "greeting": "Zdravo {{firstName}},",
             "closing": "Uz tvoju pomoć se približavamo našem cilju",
             "unsubscribe": "Ako ubuduće ne želiš primati informacije, tvoju registraciju možeš otkazati bilo kada",
             "sincerely": "S poštovanjem,",
             "thanks": "Hvala ti na sudjelovanju u kampanji {{campaign.title}}. Cijenimo tvoju podršku!",
-            "thanksPledge": "Hvala vam što ste se podržali {{campaign.title}}. Podaci će biti pregledani i ako vaš glas bude prihvaćen, vaš profil će biti prikazan na web stranici kampanje.",
+            "thanksPledge": "Hvala ti što podržavaš kampanju {{campaign.title}}. Podaci će se pregledati i ako tvoj glas bude prihvaćen, tvoj će se profil prikazati na web stranici kampanje.",
             "follow": "Prati nas na:",
             "privacy": "Pronađi daljnje informacije o našoj politici privatnosti i obradi tvojih podataka",
             "consent": "\n          ",
@@ -23,9 +23,9 @@
         },
         "doi": {
             "confirmButton": "Da, ja sam stvarna osoba!",
-            "extra": "Ova potvrda služi za uspješno dovršavanje registracije i dozvoljava nam obradu tvoje e-mail adrese i drugih osobnih podataka za primanje novosti ili biltena. Ovo je automatizirani postupak i ova je potvrda potrebna za registraciju kako bi se izbjegao neovlašteni postupak registracije.",
+            "extra": "Ako se nisi prijavio/la za ovu pretplatu, slobodno zanemari ovaj e-mail.",
             "subject": "Još jedan korak: potvrdi tvoju e-mail adresu",
-            "intro": "Tvoja potvrda je važna kako bismo je mogli obraditi. Samo na taj način možemo potvrditi da iza svakog sudjelovanja doista stoji osoba, što je važno za učinak ove kampanje i sprečavanje lažnih/spam prijava."
+            "intro": "Za završavanje registracije i omogućavanje obrade tvoje e-mail adrese i osobnih podataka za slanje vijesti ili biltena, klikni na gumb za potvrdu. Ovaj automatski korak osigurava tvoju suglasnost i sprečava neovlaštene registracije."
         },
         "actionConfirm": {
             "subject": "Još jedan korak: potvrdi tvoju e-mail adresu",
@@ -40,7 +40,12 @@
             "confirmAlreadyMember": "Potvrđujem sudjelovanje i već primam vašu e-poštu",
             "confirmOptout": "Potvrđujem sudjelovanje, ali ne želim primati obavijesti",
             "confirmAction": "Da, ja sam stvarna osoba!",
-            "confirmOptin": "Potvrđujem sudjelovanje i želim primati novosti"
+            "confirmOptin": "Želim primati novosti"
+        },
+        "confirm": {
+            "subject": "Još jedan korak: potvrdi tvoju e-mail adresu",
+            "extra": "Ako ovo nisi zatražio/la, zanemari ovaj e-mail.",
+            "intro": "Tvoja je potvrda ključna za obradu tvog sudjelovanja. To osigurava da svaka prijava dolazi od stvarne osobe i pomaže u sprečavanju lažnih ili neželjenih prijava."
         }
     },
     "poweredBy": "OMOGUĆUJE"
