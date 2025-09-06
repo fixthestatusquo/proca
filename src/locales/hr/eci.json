@@ -121,7 +121,7 @@
     "public_webpage": "Web-stranica ove inicijative (ako postoji):"
   },
   "form": {
-    "title": "Podržite ovu inicijativu koju su predložili građani Europske unije",
+    "title": "Podrži ovu inicijativu koju su predložili građani Europske unije",
     "country.from": "Odaberite zemlju vašeg državljanstva:",
     "support-country": "Podržite ovu građansku inicijativu ispunjavanjem obrasca ili korištenjem eOI-a",
     "fill-form": "Ispunite obrazac",
@@ -139,12 +139,12 @@
     "document-number": "Broj",
     "document-type": "Vrsta dokumenta",
     "other-country": "Odredite zemlju",
-    "captcha-image-title": "Upišite znakove sa slike",
-    "captcha-audio-download": "Poslušajte i upišite znakove koje ste čuli",
+    "captcha-image-title": "Upiši znakove sa slike",
+    "captcha-audio-download": "Slušaj i utipkaj znakove čuješ",
     "link-support": "Kako podržati europsku građansku inicijativu",
     "support-footer1": "Preduvjeti za podržavanje europske građanske inicijative:",
-    "support-footer2": "1. Morate biti građanin Europske unije (državljanin jedne od država članica EU-a);",
-    "support-footer3": "2. Morate biti punoljetni (imati pravo glasa na izborima za Europski parlament) ili, u slučaju nekih država članica, imati navršenih 16 godina.",
+    "support-footer2": "1. Moraš biti građanin Europske unije (državljanin jedne od država članica EU-a);",
+    "support-footer3": "2. Moraš biti punoljetan/na (imati pravo glasa na izborima za Europski parlament) ili, u slučaju nekih država članica, imati navršenih 16 godina.",
     "support-footer4": "Daljnje informacije",
     "support-footerDE": "Njemački državljani koji borave izvan zemlje, moraju o svojem trenutačnom stalnom boravištu obavijestiti nadležno njemačko diplomatsko predstavništvo.",
     "optional-validacion-desc": "Format mojeg osobnog identifikacijskog broja (dokument) i/ili poštanskog broja je točan",
@@ -292,7 +292,7 @@
     "captcha-button-arialabel-audio": "Promijeni captcha u zvuk",
     "captcha-button-arialabel-image": "Promijeni captcha u sliku",
     "country_from": "Odaberite zemlju vašeg državljanstva:",
-    "support_country_selected": "Zemlja vašeg državljanstva",
+    "support_country_selected": "support_country_selected",
     "generic_error": "Ispravite pogreške u obrascu za izjavu o podršci"
   },
   "howsupport": {
