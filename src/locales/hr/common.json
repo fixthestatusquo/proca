@@ -5,6 +5,8 @@
   "Birthdate": "Datum rođenja",
   "City": "Grad",
   "Comment": "Komentar",
+  "Copied!": "Kopirano!",
+  "Copy to clipboard": "Kopiraj u međuspremnik",
   "Country": "Zemlja",
   "Download": "Preuzimanje",
   "Download explanation": "Tvoj je dokument sada spreman. Poslat ćemo ga i tebi putem e-maila",
@@ -19,19 +21,19 @@
   "Phone": "Telefon",
   "Postal Code": "Poštanski broj",
   "Salutation": "Oslovljavanje",
+  "Shareable link": "Dijeljiva poveznica",
   "Sorry, we couldn't save": "Žao nam je, nismo uspjeli spremiti",
   "Street": "Ulica",
   "Subject": "Predmet",
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
-   "customize_text": "Pročitajte i prilagodite kako biste maksimizirali utjecaj poruke",
-  "help_write": "Želim pomoć da napišem poruku",
-  "give_another": "Želim drugi odgovor",
   "action": {
+    "default": "Poduzmi akciju",
     "donate": "Doniraj",
     "eci": "Potpiši ECI",
     "email": "Pošalji e-mail",
     "join": "Pridruži se",
+    "pledge": "Podrži sada!",
     "register": "Registriraj se",
     "remindeSent": "Podsjetnik je poslan",
     "reminder": "Podsjeti me kasnije",
@@ -70,6 +72,7 @@
       "opt-out": "i nemoj me obavještavati"
     }
   },
+  "customize_text": "Pročitajte i prilagodite kako biste maksimizirali utjecaj poruke",
   "date": {
     "error": "nevažeći datum. format: DD.MM.YYYY"
   },
@@ -111,9 +114,9 @@
         "weekly": "Mjesečna donacija?"
       },
       "each": {
-        "monthly": "svaki tjedan",
+        "monthly": "svaki mjesec",
         "oneoff": "Jednom",
-        "weekly": "svaki mjesec"
+        "weekly": "svaki tjedan"
       },
       "feedback": {
         "monthly": "Doniram {{amount}} {{frequency}}",
@@ -140,7 +143,7 @@
   },
   "email": {
     "invalid_domain": "Domena {{domain}} ne može primati e-poštu",
-    "salutation": "Poštovani gospodine/ Poštovana gospođo",
+    "salutation": "Poštovani gospodine/ Poštovana gospođo {{target.last_name}}",
     "salutation_female": "Poštovana gospođo {{target.last_name}}",
     "salutation_info": "(Ime primatelja će biti postavljeno prije slanja)",
     "salutation_male": "Poštovani gospodine {{target.last_name}}",
@@ -149,6 +152,8 @@
   "error": {
     "date": "format mora biti DD.MM.YYYY"
   },
+  "give_another": "Želim drugi odgovor",
+  "help_write": "Želim pomoć da napišem poruku",
   "image": {
     "addSticker": "dodaj naljepnice",
     "addStickerTitle": "Klikni/Dodirni za dodavanje naljepnice fotografiji",
@@ -162,6 +167,7 @@
   },
   "no": "ne",
   "party": "Stranka",
+  "party_helper": "Klikni na oznaku stranke za biranje svih njenih članova.",
   "phone": {
     "INVALID_COUNTRY": "kod zemlje nedostaje ili nije ispravan",
     "INVALID_LENGTH": "Neispravna duljina",
@@ -177,6 +183,7 @@
   "progress": {
     "donate": "Broj osoba koje su donirale: {{total}}. Sljedeći cilj je: {{goal}}",
     "email": "Broj osoba koje su poslale e-mail: {{total}}. Sljedeći cilj je: {{goal}}",
+    "pledge": "Broj osoba koje podržavaju: {{total}}. Sljedeći cilj je: {{goal}}",
     "register": "Broj osoba koje su se registrirale: {{total}}. Sljedeći cilj je: {{goal}}",
     "share": "Broj osoba koje su dijelile: {{total}}. Sljedeći cilj je: {{goal}}",
     "sign": "Broj osoba koje su potpisale: {{total}}. Sljedeći cilj je: {{goal}}",
