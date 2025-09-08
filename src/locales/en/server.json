@@ -2,12 +2,12 @@
   "email": {
     "common": {
       "greeting": "Hello {{firstName}},",
-
+      "is_it_me": "If you did not take this action, please click [here](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) to remove it.",
       "share_on": "Share on",
       "consent": "\n          ",
       "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
       "thanksPledge": "Thank you for pledging for {{campaign.title}}. Your signature will be reviewed and will be displayed on our website if approved.",
-      "about": "",
+      "about": "So far {{campaign.stats.supporterCount}} supporters took the action.",
       "share": "Help us reach our goal by spreading the word",
       "follow": "Follow us on:",
       "donate": "Please consider making a donation to help us achieve our mission",
