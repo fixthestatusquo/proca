@@ -24,6 +24,7 @@ const localizeConfigQuestions = (config) => {
     // overwriting the margin. By default is larger (for fetched fields)
     if (q.margin) result.margin = q.margin;
 
+    if (q.required) result.required = q.required;
     return result;
   });
 };
@@ -72,7 +73,7 @@ const useConsultJson = (name, lang = 'en') => {
   fetchData();
 }, [name, lang, config]);
 
-
+console.log("Questions", questions, loading, error);
   return {
     questions,
     loading,

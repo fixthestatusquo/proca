@@ -33,6 +33,7 @@ const Questions = ({ json, form, findQuestionById }) => {
     case "FreeTextQuestion":
       return <TextQuestion form={form} json={json}  />;
     case "SnowflakeAssistedQuestion":
+      console.log("Render SnowflakeAssistedQuestion", json);
       return <SnowflakeTextField form={form}
 
         label={json.title}
@@ -41,6 +42,7 @@ const Questions = ({ json, form, findQuestionById }) => {
           maxLength: json.maxCharacters,
         }}
         helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+        required={json.required || false}
 
  />;
     case "AIAssistedQuestion":
