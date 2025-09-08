@@ -44,7 +44,6 @@ const useConsultJson = (name, lang = 'en') => {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      console.log("remote data", data);
       data.forEach(item => item.attributeName = String(item.id));
       remoteQuestions = data;
     } catch (err) {
@@ -73,7 +72,6 @@ const useConsultJson = (name, lang = 'en') => {
   fetchData();
 }, [name, lang, config]);
 
-console.log("Questions", questions, loading, error);
   return {
     questions,
     loading,

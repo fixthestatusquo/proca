@@ -81,7 +81,7 @@ console.log(e);
           maxRows="10"
           required={
             // enforceRequired &&
-            required
+            required || `config..component.register.field.${name}.required` || false
           }
           helperText={
             state === "loaded" &&
