@@ -14,7 +14,9 @@
             "share": "Segítsen nekünk elérni célunkat [a hír terjesztésével] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Köszönjük az elkötelezettségüket és az ügyünk iránti elkötelezettségüket! A hitelesség és hitelesség fenntartása érdekében azonban **eltávolítanunk kell a duplikált** aláírásokat, és úgy tűnik, hogy Ön (vagy valaki, aki a {{email}} címet használja) már megtette ezt a lépést.  Nyugodt lehetsz, **az eredeti aláírásodat megszámoltuk** és hozzájárult a kampányunkhoz.\nTámogatásod felbecsülhetetlen értékű volt, és szeretnénk arra bátorítani, hogy tegyél még egy lépést, hogy növeld a hatásodat. Kérjük, fontolja meg, hogy a saját e-mail címét használva szólítsa meg barátait és családtagjait, hogy ők is tegyenek lépéseket. Így tovább növelhetjük mozgalmunk számát, és még erősebb kollektív hangot adhatunk a változásnak, amelyre törekszünk.\nIsmét kifejezzük szívből jövő hálánkat a kampány iránti folyamatos támogatásukért és elkötelezettségükért. Együtt tartós hatást érhetünk el!",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Köszönjük, hogy felajánlotta a {{campaign.title}}. Adatait átnézzük, és ha profilja megjelenik a honlapon, akkor visszaigazoló e-mailt kap."
+            "thanksPledge": "Köszönjük, hogy felajánlotta a {{campaign.title}}. Adatait átnézzük, és ha profilja megjelenik a honlapon, akkor visszaigazoló e-mailt kap.",
+            "about": "Eddig a {{campaign.stats.supporterCount}} támogatói vállalták az akciót.",
+            "is_it_me": "Ha nem végezte el ezt a műveletet, kérjük, kattintson [itt](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) a törléshez."
         },
         "thankyou": {
             "subject": "Köszönöm, itt van, amit még tehetsz.",
