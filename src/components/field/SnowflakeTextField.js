@@ -7,20 +7,19 @@ import Salutation from "@components/field/Gender";
 import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 
-const Comment = ({ form, classField, enforceRequired, name, label }) => {
+const Comment = ({ form, classField, enforceRequired, name, label, required }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const loaders = config.component.loader;
   const lang = config.locale;
-  const [state, setState] = useState('untouched'); //untouched->loading->loaded
-  const isLoading = state === 'loading';
+  const [state, setState] = useState("untouched"); // untouched->loading->loaded
+  const isLoading = state === "loading";
   const { t } = useTranslation();
 
-  if (!name) name="comment";
-  if (!label) label=t(name);
+  if (!name) name = "comment";
+  if (!label) label = t(name);
 
-
-useEffect(() => {
+ useEffect(() => {
   return () => {
     console.log("unload");
     // Cancel any ongoing fetch if component unmounts
@@ -38,13 +37,18 @@ useEffect(() => {
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, id: name};
+    const data = {
+      firstname: formData.firstname,
+      country: formData.country,
+      locality: formData.locality,
+      question: label,
+      id: name,
+    };
 
     try {
-        let url =
-          loaders.url || "https://" + config.campaign.name + ".proca.app/";
-        if (loaders.url === false) return null;
-        if (loaders.appendLocale === true) url += lang;
+      let url = loaders.url || "https://" + config.campaign.name + ".proca.app/";
+      if (loaders.url === false) return null;
+      if (loaders.appendLocale === true) url += lang;
 
         let d = null;
         let json = null;
@@ -54,19 +58,20 @@ console.log(e);
           json = await d.json();
             form.setValue(name, json.message);
 
-      setState('loaded');
+      setState("loaded");
     } catch (error) {
       console.error("Fetch error:", error);
       form.setValue(name, "Failed to load the message");
-      setState('error');
+      setState("error");
     }
   };
 
   const labelInside = label.length <= 30;
+
   return (
     <>
       <Grid item xs={12} className={classField}>
-      {!labelInside && <FormLabel component="legend">{label}</FormLabel>}
+        {!labelInside && <FormLabel component="legend">{label}</FormLabel>}
 
         <TextField
           form={form}
@@ -74,24 +79,35 @@ console.log(e);
           multiline
           label={labelInside && label}
           maxRows="10"
-          helperText={state === 'loaded' &&  t("customize_text", "We encourage you to read and customise it to maximise its impact")}
+          required={
+            // enforceRequired &&
+            required || `config..component.register.field.${name}.required` || false
+          }
+          helperText={
+            state === "loaded" &&
+            t(
+              "customize_text",
+              "We encourage you to read and customise it to maximise its impact"
+            )
+          }
         />
       </Grid>
       <Grid item xs={12} className={classField}>
-        {state !== 'loaded' &&<Button
-          variant="contained"
-          color="secondary"
-          onClick={fetchData}
-          disabled={isLoading}
-        >
-         {t("help_write", "Help me write it")}
-        </Button>}
-        {state === 'loaded' &&<Button
-variant="outlined"
-          onClick={fetchData}
-        >
-          {t("give_another", "Give me another")}
-        </Button>}
+        {state !== "loaded" && (
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={fetchData}
+            disabled={isLoading}
+          >
+            {t("help_write", "Help me write it")}
+          </Button>
+        )}
+        {state === "loaded" && (
+          <Button variant="outlined" onClick={fetchData}>
+            {t("give_another", "Give me another")}
+          </Button>
+        )}
       </Grid>
     </>
   );

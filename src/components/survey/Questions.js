@@ -41,6 +41,7 @@ const Questions = ({ json, form, findQuestionById }) => {
           maxLength: json.maxCharacters,
         }}
         helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+        required={json.required || false}
 
  />;
     case "AIAssistedQuestion":

@@ -14,7 +14,9 @@
             "share": "Ajude-nos a atingir nossa meta [divulgando a notícia] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Obrigado por seu engajamento e dedicação à nossa causa! No entanto, em nosso compromisso de manter a autenticidade e a credibilidade, precisamos **remover assinaturas duplicadas** e parece que você (ou alguém usando {{email}}) já tomou essa providência.  Fique tranquilo, pois **sua assinatura inicial foi contada** e contribuiu para nossa campanha.\nSeu apoio tem sido inestimável e gostaríamos de incentivá-lo a dar um passo adicional para ajudar a ampliar seu impacto. Por favor, considere a possibilidade de entrar em contato com seus amigos e familiares, incentivando-os a agir também, usando seus próprios endereços de e-mail. Dessa forma, poderemos aumentar ainda mais nosso movimento e criar uma voz coletiva ainda mais forte para a mudança que buscamos.\nMais uma vez, agradecemos sinceramente seu apoio e dedicação contínuos a esta campanha. Juntos, podemos causar um impacto duradouro!",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Obrigado por se comprometer com o {{campaign.title}}. Suas informações serão analisadas e você receberá um e-mail de confirmação se o seu perfil for exibido no site."
+            "thanksPledge": "Obrigado por se comprometer com o {{campaign.title}}. Suas informações serão analisadas e você receberá um e-mail de confirmação se o seu perfil for exibido no site.",
+            "about": "Até o momento, os apoiadores do {{campaign.stats.supporterCount}} entraram em ação.",
+            "is_it_me": "Se você não realizou essa ação, clique [aqui](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) para removê-la."
         },
         "thankyou": {
             "subject": "Obrigado, aqui está o que mais você pode fazer",
