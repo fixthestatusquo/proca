@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 //import useCount from "@hooks/useCount.js";
 import { CountUp }from 'countup.js';
-import {useComponentConfig} from "@hooks/useConfig.js";
+import {useCampaignConfig} from "@hooks/useConfig.js";
 
 function getThousandsSeparator(locale = navigator.language) {
   const numberFormat = new Intl.NumberFormat(locale);
@@ -11,27 +11,28 @@ function getThousandsSeparator(locale = navigator.language) {
 }
 
 export default function Counter(props) {
-  const component = useComponentConfig();  
-  const countupRef = useRef(null);
+  const {component, locale} = useCampaignConfig();  
+  const countup = useRef(null);
+  const countUpRef = useRef(null);
   const step = component.counter.step || 1;
   const from = new Date(component.counter.start);  
   const counter =(now = new Date()) =>  Math.floor((now - from) / 1000 * step);
-  const goal = useRef(counter());
-  let countUpAnim;
- console.log (counter);
-  useEffect(() => {
+  useLayoutEffect(() => {
     initCountUp();
+    const interval = setInterval(() => {
+      countUpRef.current.update(counter());
+    }, 2000);
   }, []);
 
   async function initCountUp() {
-    countUpAnim = new CountUp(countupRef.current, goal.current,{enableScrollSpy:true, duration:2 });
-    if (!countUpAnim.error) {
-      countUpAnim.start(()=>{goal.current = counter();countUpAnim.update(goal.current )});
+    countUpRef.current = new CountUp(countup.current, counter(),{enableScrollSpy:true, duration:1.5,  useEasing: true, separator: getThousandsSeparator(locale)});
+    if (!countUpRef.current.error) {
+      countUpRef.current.start();
     } else {
-      console.error(countUpAnim.error);
+      console.error(countUpRef.current.error);
     }
   }
   
 //  const count = useCount(props.actionPage) || props.count;
-  return <div ref={countupRef}>100</div>;
+  return <span ref={countup}>100</span>;
 }
