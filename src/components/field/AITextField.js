@@ -46,7 +46,6 @@ useEffect(() => {
     }
     console.log("writing...");
     
-    console.log (data);
      
     try {
       const response = await fetch(
