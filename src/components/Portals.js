@@ -40,7 +40,9 @@ const Portalify = props => {
     found = true;
     r.push(
       ReactDOM.createPortal(
-        <Portal {...props} key={props.selector + i} original={dom.innerHTML} />,
+        <Portal {...props} key={props.selector + i} original={dom.innerHTML} 
+         children={dom.innerHTML}
+/>,
         dom
       )
     );
@@ -54,6 +56,7 @@ const Portalify = props => {
           <Portal
             {...props}
             key={props.selector + i}
+            children={dom.innerHTML}
             original={dom.innerHTML}
           />,
           dom

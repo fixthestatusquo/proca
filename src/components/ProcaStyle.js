@@ -42,7 +42,7 @@ export default function ProcaStyle(props) {
     () =>
       createTheme({
         palette: {
-          primary: { main: layout.primaryColor },
+          primary: { main: layout.primaryColor, contrastText: layout.contrastText },
           secondary: { main: layout.secondaryColor },
           type: layout.theme,
         },

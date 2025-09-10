@@ -6,7 +6,7 @@ import {useComponentConfig} from "@hooks/useConfig.js";
 const useStyles = makeStyles((theme) => ({
   countdownContainer: {
     padding: theme.spacing(1),
-    textAlign: 'center',
+  textAlign: 'center',
     background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
     color: theme.palette.primary.contrastText,
     borderRadius: theme.spacing(1),
