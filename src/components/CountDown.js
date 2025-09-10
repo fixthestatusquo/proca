@@ -1,7 +1,7 @@
 import React,{ useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Typography, Box } from '@material-ui/core';
 import simplyCountdown from 'simplycountdown.js';
+import {useComponentConfig} from "@hooks/useConfig.js";
 
 const useStyles = makeStyles((theme) => ({
   countdownContainer: {
@@ -78,15 +78,19 @@ const useStyles = makeStyles((theme) => ({
 const  Countdown = () => {
   const countdownRef = useRef(null);
   const classes = useStyles();
+  const component = useComponentConfig();
+  const date = new Date(component.countdown.date);
+
 
   useEffect(() => {
     const countdown = simplyCountdown(countdownRef.current, {
-      year: 2025,
-      month: 12,
-      day: 31,
-      hours: 24,
-      minutes: 0,
-      seconds: 0,
+    year: date.getFullYear(),
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+    hours: date.getHours(),
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds(),
+countUp: true,
       plural: true,
       inline: false,
         words: { // Custom labels, with lambda for plurals

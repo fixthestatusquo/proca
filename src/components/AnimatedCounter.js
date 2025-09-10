@@ -12,7 +12,7 @@ function getThousandsSeparator(locale = navigator.language) {
   return groupPart ? groupPart.value :  '\u202F';
 }
 
-export default function Counter(props) {
+export default function Counter() {
   const {component} = useCampaignConfig();  
   const countup = useRef(null);
   const countUpRef = useRef(null);
@@ -21,7 +21,7 @@ export default function Counter(props) {
   const counter =(now = new Date()) =>  Math.floor((now - from) / 1000 * step);
   useLayoutEffect(() => {
     initCountUp();
-    const interval = setInterval(() => {
+    setInterval(() => {
       countUpRef.current.update(counter());
     }, 2000);
   }, []);
@@ -36,5 +36,5 @@ export default function Counter(props) {
   }
   
 //  const count = useCount(props.actionPage) || props.count;
-  return <span ref={countup}>100</span>;
+  return <span ref={countup}>?</span>;
 }
