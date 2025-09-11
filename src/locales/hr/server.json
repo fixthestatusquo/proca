@@ -15,7 +15,9 @@
             "share_on": "Dijeli na",
             "signature": "S poštovanjem,\n\n{{org.title}}",
             "duplicate": "Hvala ti na tvom angažmanu i predanosti za našu stvar! Međutim, u našoj predanosti za održavanje autentičnosti i vjerodostojnosti, moramo **ukloniti duplikate** potpisa i čini se da si ti (ili netko tko koristi {{email}}), već poduzeo ovu radnju. Ne brini, **tvoj početni potpis je uračunat** i doprinio je našoj kampanji.\nTvoja je podrška od neprocjenjive vrijednosti i željeli bismo te potaknuti da poduzmeš dodatni korak za povečavanje tvog utjecaja. Obrati se svojim prijateljima i obitelji, te ih potakni da i oni nešto poduzmu koristeći svoje e-mail adrese. Na taj način možemo dalje razvijati naš pokret i stvoriti još jači kolektivni glas za promjenu koju tražimo.\nPuno ti hvala za tvoju kontinuiranu potporu i predanost ovoj kampanji. Zajedno možemo ostvariti trajan učinak!",
-            "organisation": "{{org.title}}"
+            "organisation": "{{org.title}}",
+            "is_it_me": "Ako nisi poduzeo/la ovu radnju, klikni [ovdje](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) za uklanjanje.",
+            "about": "Do sada je sudjelovalo {{campaign.stats.supporterCount}} podržavatelja."
         },
         "thankyou": {
             "intro": "Hvala ti na sudjelovanju u kampanji „{{campaign.title}}”. Cijenimo tvoju podršku!",
