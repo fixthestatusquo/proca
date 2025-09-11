@@ -182,6 +182,9 @@ To hide if support count lower than some number:
 To customize steps:
 The counter will automatically calculate next goals so that goal always escapes the current number (keeps being motivating but is not reached). You can set the goal "steps" - successive signature counts to reach by setting an array `config.component.counter.steps`. Set to single value (`[1000]`) to fix the goal at 1000.
 
+To put custom counter:
+`config.component.counter.url: some_url_on_static`
+
 Counter is always shown in test mode!
 
 ## Markdown
