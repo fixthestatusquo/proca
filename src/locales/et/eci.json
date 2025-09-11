@@ -87,8 +87,9 @@
       "other": "Muud..."
     },
     "requirements": {
-      "text": "Palun esitage järgmised andmed, mida nõutakse <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">määrusega (EL) 2019/788 Euroopa kodanikualgatuse kohta</a>."
-    }
+      "text": "Palun sisesta järgmised andmed, mida nõutakse <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">määrusega (EL) 2019/788 Euroopa kodanikualgatuse kohta.</a>"
+    },
+    "more_info": "Lisateave"
   },
   "header": {
     "closing.date": "Kogumisperioodi lõpp",
@@ -100,7 +101,9 @@
     "current.supporters": "Allakirjutajate arv praeguse seisuga",
     "total-supporters": "Allakirjutajate arv kokku",
     "goto-facebook": "Külastage meie Facebooki lehte.",
-    "goto-twitter": "Külastage meie Twitteri lehte."
+    "goto-twitter": "Külastage meie Twitteri lehte.",
+    "registration_date": "Registreerimise kuupäev",
+    "registration_number": "Registreerimisnumber"
   },
   "initiative": {
     "public.webpage": "Algatuse veebisait (kui see on olemas):",
@@ -108,10 +111,11 @@
     "objectives": "Eesmärgid",
     "representative": "Kontaktisikud",
     "legal-entity": "Juriidiline isik",
-    "partially-registered": "Ainult osa (teatavad osad) sellest algatusest on registreeritud. Palun lugege komisjoni otsust registreeritud algatuse ulatuse kohta."
+    "partially-registered": "Ainult osa (teatavad osad) sellest algatusest on registreeritud. Palun lugege komisjoni otsust registreeritud algatuse ulatuse kohta.",
+    "register_webpage": "Registreerimise veebileht"
   },
   "form": {
-    "title": "Toetage seda Euroopa Liidu kodanike väljapakutud algatust",
+    "title": "Toeta seda Euroopa Liidu kodanike loodud algatust",
     "country.from": "Valige kodakondsusjärgne riik:",
     "support-country": "Toetage seda kodanikualgatust, täites vormi või kasutades e-identimist",
     "fill-form": "Täitke vorm",
@@ -123,7 +127,7 @@
     "group-personal": "Isikuandmed",
     "group-address": "Elukoht",
     "certify-info": "Kinnitan, et käesolevas vormis esitatud teave on õige ja et ma ei ole kõnealust algatust varem toetanud.",
-    "privacy-statement": "Olen tutvunud <a href=\"{{url}}\" target=\"_blank\" title=\"avaldusega isikuandmete puutumatuse kohta\">avaldusega isikuandmete puutumatuse kohta</a> ja käesoleva <a href=\"{{urlRegister}}\" target=\"_blank\">kodanikualgatuse sisuga</a>.",
+    "privacy-statement": "Olen tutvunud <a href=\"{{url}}\" target=\"_blank\" title=\"Isikuandmete kaitse reeglitega\">isikuandmete kaitse reeglitega</a> ja käesoleva <a href=\"{{urlRegister}}\" target=\"_blank\">kodanikualgatuse sisuga</a>.",
     "certify-info-eID": "Kinnitan, et ma ei ole kõnealust algatust varem toetanud.",
     "support": "Toeta",
     "document-number": "Number",
@@ -132,9 +136,9 @@
     "captcha-image-title": "Sisestage tähemärgid, mida näete pildil",
     "captcha-audio-download": "Kuulake ja sisestage tähemärgid, mida kuulete",
     "link-support": "Kuidas Euroopa kodanikualgatusele alla kirjutada?",
-    "support-footer1": "Euroopa kodanikualgatuse toetamiseks peate olema:",
+    "support-footer1": "Euroopa kodanikualgatuse toetamiseks pead olema:",
     "support-footer2": "1. Euroopa Liidu kodanik (st ühe ELi liikmesriigi kodanik);",
-    "support-footer3": "2. Euroopa Parlamendi valimisteks kehtestatud valimisõiguslikus eas või teatavate liikmesriikide puhul 16aastane.",
+    "support-footer3": "2. Euroopa Parlamendi valimisteks kehtestatud valimisõiguslikus eas või mõnede liikmesriikide puhul vähemalt 16-aastane.",
     "support-footer4": "Lisateave",
     "support-footerDE": "Kui elate väljaspool Saksamaad, peate olema registreerinud oma praeguse alalise elukoha asjaomases Saksamaa diplomaatilises esinduses",
     "optional-validacion-desc": "Minu isikukoodi / isikut tõendava dokumendi numbri ja/või sihtnumbri vorming on õige",
@@ -232,11 +236,11 @@
     "ocs.version": "Keskne veebipõhine toetusavalduste kogumise süsteem",
     "privacy-title": "Vaadake avaldust isikuandmete puutumatuse kohta",
     "privacy-link": "https://europa.eu/citizens-initiative/privacy-policy_en#Signatories-personal-data-1",
-    "conformity-title": "Vaadake vastavustõendit"
+    "conformity-title": "Vaata vastavustõendit"
   },
   "congratulations": {
     "title": "TÄNAME!",
-    "successfully-title": "Teie toetusavaldus on esitatud!",
+    "successfully-title": "Sinu toetusavalduse esitamine õnnestus",
     "Keep-your-signature": "Päringu esitamiseks läheb Teil vaja eespool esitatud viiteandmeid",
     "download-signature-identifier": " Laadi alla toetusavalduse tunnusnumber",
     "signature-identifier": "Toetusavalduse tunnusnumber",
@@ -308,7 +312,7 @@
     "info": ""
   },
   "privacy": {
-    "title": "Avaldusega isikuandmete puutumatuse kohta",
+    "title": "Teave isikuandmete kaitse kohta",
     "info": "Vastavalt määrusele (EL) 2016/679 (isikuandmete kaitse üldmäärus) kasutatakse teie isikuandmeid, mis on sellel vormil esitatud, üksnes algatuse toetamiseks ja need tehakse pädevatele riiklikele asutustele kättesaadavaks ainult kontrollimiseks ja tõendamiseks. Teil on õigus taotleda algatuse korraldajate rühmalt juurdepääsu oma isikuandmetele, nende andmete parandamist, kustutamist ja nende töötlemisele piirangute seadmist.\nKorraldajate rühm säilitab teie andmeid maksimaalse säilitamisaja jooksul, mis on üks kuu pärast algatuse esitamist Euroopa Komisjonile või 21 kuud pärast kogumisperioodi algust, olenevalt sellest, kumb kuupäev on varasem. Haldus- või kohtumenetluse korral võib andmeid säilitada kauem, maksimaalselt üks kuu pärast menetluse lõppu.\nIlma et see piiraks muude halduslike või õiguslike kaitsevahendite kohaldamist, on teil õigus esitada kaebus andmekaitseasutusele, eelkõige liikmesriigis, kus on teie alaline elukoht, töökoht või väidetava rikkumise toimumiskoht, kui leiate, et teie andmeid on töödeldud õigusvastaselt.\nAlgatuse korraldajate rühma või asjakohasel juhul korraldajate rühma loodud juriidilise isiku esindaja on vastutav töötleja isikuandmete kaitse üldmääruse tähenduses ning temaga saab ühendust võtta käesoleval vormil esitatud kontaktandmete abil.\nAndmekaitseametniku (kui see on olemas) kontaktandmed on kättesaadavad toetusavalduse vormi punktis 4 esitatud algatuse veebiaadressil Euroopa Komisjoni registris.\nTeie isikuandmeid vastu võtva ja töötleva riikliku asutuse ja riiklike andmekaitseasutuste kontaktandmed on kättesaadavad aadressil http://ec.europa.eu/citizens-initiative/public/data-protection?lg=et."
   },
   "disabled": {
@@ -342,5 +346,6 @@
     "challenge": "Autentimiskood",
     "challenge-result": "Autentimiskoodi vastus",
     "copy-text": "Kopeeri tekst"
-  }
+  },
+  "Place of birth": "Sünnikoht"
 }
