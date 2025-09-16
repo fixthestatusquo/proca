@@ -40,7 +40,7 @@ console.log("field",name);
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: fetchPrompted};
+    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
     if (formData[name].length < 100) {
       data[name] = formData[name];
     } else {
