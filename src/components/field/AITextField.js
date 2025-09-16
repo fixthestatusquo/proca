@@ -40,7 +40,7 @@ console.log("field",name);
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
+    const data = {firstname:formData.firstname, lang: config.lang, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
     if (formData[name].length < 100) {
       data[name] = formData[name];
     } else {
@@ -132,6 +132,12 @@ console.log("field",name);
 
   const text = form.watch(name) || '';
   const labelInside = label.length <= 30;
+
+  const helperText = () => {
+    const counter = text.length +'/'+maxLength ;
+    return counter && (state === 'loaded' && ". An AI wrote this message, we encourage you to read and customise it to maximise its impact");
+  }
+
   return (
     <>
       <Grid item xs={12} className={classField}>
@@ -143,8 +149,9 @@ console.log("field",name);
           multiline
           label={labelInside && label}
           maxRows="10"
+          onKeyDown={() => setState ('modified')}
           error={text?.length > maxLength}
-         helperText={state === 'loaded' && text.length <maxLength? "An AI wrote this message, we encourage you to read and customise it to maximise its impact" :text?.length +'/'+maxLength  +' characters'}
+         helperText={helperText()}
         />
       </Grid>
       <Grid item xs={12} className={classField}>
