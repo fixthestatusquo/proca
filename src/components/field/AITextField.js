@@ -9,9 +9,10 @@ import TextField from "@components/field/TextField";
 import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
-const Comment = ({ form, classField, enforceRequired, name, label }) => {
+const Comment = ({ form, classField, enforceRequired, name, label, maxLength }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
+  const fetchPrompted = false;
   const [state, setState] = useState('untouched'); //untouched->loading->loaded
   const isLoading = state === 'loading';
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ const Comment = ({ form, classField, enforceRequired, name, label }) => {
 
 
 useEffect(() => {
+console.log("field",name);
   return () => {
     console.log("unload");
     // Cancel any ongoing fetch if component unmounts
@@ -38,7 +40,7 @@ useEffect(() => {
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: label, id: name, stream: true};
+    const data = {firstname:formData.firstname, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: fetchPrompted};
     if (formData[name].length < 100) {
       data[name] = formData[name];
     } else {
@@ -49,7 +51,10 @@ useEffect(() => {
      
     try {
       const response = await fetch(
-        "https://snowflaike.proca.app/" + config.campaign.name,
+        //"https://snowflaike.proca.app/" + config.campaign.name,
+//"http://localhost:8787"
+        "https://snowflaike.proca.app"
++ (fetchPrompted ? '/' : "/~/") + config.campaign.name,
         {
           method: "POST",
           headers: {
@@ -65,11 +70,26 @@ useEffect(() => {
         throw new Error("No response body");
       }
 
+      if (response.headers.get('Content-Type') === 'application/json') { // not a stream
+        const data = await response.json();
+         const d = data.response;
+            form.setValue(name, d);
+            if (d.length > maxLength) {
+              console.log(d.length +'/'+maxLength);
+              form.setError(name,{
+                type: 'length',
+                message: d.length +'/'+maxLength,
+              });
+            }
+        setState('loaded');
+        return;
+      }
+
       const reader = response.body.getReader();
+
       const decoder = new TextDecoder();
       let buffer = "";
       let aggregatedResponse = "";
-
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -89,6 +109,13 @@ useEffect(() => {
             const data = JSON.parse(jsonStr);
             aggregatedResponse += data.response || "";
             form.setValue(name, aggregatedResponse);
+            if (aggregatedResponse.length > maxLength) {
+              console.log(aggregatedResponse.length +'/'+maxLength);
+              form.setError(name,{
+                type: 'length',
+                message: aggregatedResponse.length +'/'+maxLength,
+              });
+            }
           } catch (e) {
             console.error("Error parsing JSON:", e);
           }
@@ -103,6 +130,7 @@ useEffect(() => {
     }
   };
 
+  const text = form.watch(name) || '';
   const labelInside = label.length <= 30;
   return (
     <>
@@ -115,7 +143,8 @@ useEffect(() => {
           multiline
           label={labelInside && label}
           maxRows="10"
-          helperText={state === 'loaded' &&  "An AI wrote this message, we encourage you to read and customise it to maximise its impact"}
+          error={text?.length > maxLength}
+         helperText={state === 'loaded' && text.length <maxLength? "An AI wrote this message, we encourage you to read and customise it to maximise its impact" :text?.length +'/'+maxLength  +' characters'}
         />
       </Grid>
       <Grid item xs={12} className={classField}>

@@ -133,10 +133,7 @@ const AITextQuestion = ({ json, form }) => {
         form={form}
         label={json.title}
         name={json.attributeName}
-        inputProps={{
-          maxLength: json.maxCharacters,
-        }}
-        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+          maxLength= {json.maxCharacters}
       />
     </Box>
   );
