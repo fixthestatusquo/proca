@@ -81,6 +81,7 @@ const  Countdown = () => {
   const component = useComponentConfig();
   const date = new Date(component.countdown.date);
 
+  const countUp = date > new Date();
 
   useEffect(() => {
     const countdown = simplyCountdown(countdownRef.current, {
@@ -90,7 +91,7 @@ const  Countdown = () => {
     hours: date.getHours(),
     minutes: date.getMinutes(),
     seconds: date.getSeconds(),
-countUp: true,
+countUp: countUp,
       plural: true,
       inline: false,
         words: { // Custom labels, with lambda for plurals
