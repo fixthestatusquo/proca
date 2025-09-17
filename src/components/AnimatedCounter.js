@@ -60,7 +60,7 @@ export default function Counter(props) {
     initCountUp();
     setInterval(() => {
       countUpRef.current?.update(counter());
-    }, 2000);
+    }, step * 1000);
   }, [component.counter]);
 
   async function initCountUp() {
