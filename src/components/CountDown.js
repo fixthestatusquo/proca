@@ -81,7 +81,7 @@ const  Countdown = () => {
   const component = useComponentConfig();
   const date = new Date(component.countdown.date);
 
-  const countUp = date > new Date();
+  const countUp = date <= new Date();
 
   useEffect(() => {
     const countdown = simplyCountdown(countdownRef.current, {
