@@ -22,7 +22,6 @@ const Comment = ({ form, classField, enforceRequired, name, label, maxLength }) 
 
 
 useEffect(() => {
-console.log("field",name);
   return () => {
     console.log("unload");
     // Cancel any ongoing fetch if component unmounts
