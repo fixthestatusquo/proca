@@ -1,4 +1,4 @@
-import React, {Suspense } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -7,12 +7,10 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import TextField from "@components/field/TextField";
-import LinearProgress from "@material-ui/core";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
 import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
-import * as Fields from "../field";
 
 const useStyles = makeStyles((theme) => ({
   elementMarginTop: (props) => ({
@@ -27,19 +25,6 @@ const useStyles = makeStyles((theme) => ({
   }),
 }));
 
-export const DynamicField = ({ name, form }) => {
-  const key = name.charAt(0).toUpperCase() + name.slice(1);
-  const FieldComponent = Fields[key];
-
-  if (!FieldComponent) {
-    throw new Error(`Unknown field: ${name}`);
-  }
-  return (
-    <Suspense fallback={<LinearProgress />}>
-      <FieldComponent form={form} />
-    </Suspense>
-  );
-};
 
 const Questions = ({ json, form, findQuestionById }) => {
   const classes = useStyles({margin: +json.margin});
@@ -112,8 +97,6 @@ const Questions = ({ json, form, findQuestionById }) => {
       console.log("Upload question type is not implemented");
       // Returning null because there are dependant uploads
       return null;
-    case "field":
-      return <DynamicField name={json.title} form={form} />
     default:
       return <li>Unknown question type {json.type}</li>;
   }

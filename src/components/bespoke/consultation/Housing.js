@@ -6,39 +6,29 @@ import {
   useSetActionType,
 } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
-import {
-  Stepper,
-  Step,
-  StepButton
-} from "@material-ui/core";
+import { Stepper, Step, StepButton } from "@material-ui/core";
 
 import SurveyStep from "@components/survey/Questions";
-import DetailsStep from "@components/survey/YouStep";
+import Country from "@components/field/Country";
 import useConsultJson from "@components/survey/useQuestions";
 
-const Consultation = props => {
-  const steps = ["you","survey", "submit"];
+const Consultation = (props) => {
+  const steps = ["survey", "submit"];
   const [activeStep, setActiveStep] = useState(0);
   const [data] = useData();
   useSetActionType("consultation");
   const config = useCampaignConfig();
   const qids = config.component.consultation.steps || {};
 
-  const { questions, error } = useConsultJson(config.component.consultation.name || config.campaign.name, config.lang);
+  const { questions, error } = useConsultJson(
+    config.component.consultation.name || config.campaign.name,
+    config.lang
+  );
 
-
-  // Navigate to a specific step when clicked
-  const handleStepClick = step => {
-    console.log("go to step ", step);
-    setActiveStep(step);
-  };
-
+  const handleStepClick = (step) => setActiveStep(step);
   const handleNext = () => setActiveStep((prev) => prev + 1);
-  //  const handleBack = () => setActiveStep((prev) => prev - 1);
 
   const form = useForm({
-    //mode: "onBlur",
-    //    nativeValidation: true,
     defaultValues: Object.assign({}, data, {
       language: config.locale,
       "153167796": "153167801", // Set default for who are you field
@@ -67,16 +57,12 @@ const Consultation = props => {
   });
 
   const prepareData = (data) => {
-    console.log("prepareData",data);
+    console.log("prepareData", data);
     return data;
   };
-  const onClick = () => {
-    console.log("onClick");
-  };
+  const onClick = () => console.log("onClick");
 
   const isValid = Object.keys(form.formState.errors).length === 0;
-  const whoareyou = form.watch("153167796");
-  const isCitizen = !whoareyou || whoareyou === "153167801";
 
   if (error) return <p>Error loading consult: {error.message}</p>;
 
@@ -85,7 +71,7 @@ const Consultation = props => {
       <Stepper
         activeStep={activeStep}
         alternativeLabel
-        style={{ width: "100%", backgroundColor: "transparent"  }}
+        style={{ width: "100%", backgroundColor: "transparent" }}
         nonLinear
       >
         {steps.map((label, index) => (
@@ -96,27 +82,24 @@ const Consultation = props => {
           </Step>
         ))}
       </Stepper>
-    {activeStep === 0 && (
-        <DetailsStep
-          form={form}
-          handleNext={handleNext}
-          questions={questions}
-          SurveyStep={SurveyStep}
+
+      {/* Only the citizen survey step */}
+      {activeStep === 0 && (
+        <>
+        <Country
+        form={form}
         />
-      )}
-      {activeStep === 1 && (
         <SurveyStep
           form={form}
           handleNext={handleNext}
           questions={questions}
-          ids={
-            isCitizen
-              ? qids["citizen"]?.questions
-              : qids["expert"]?.questions
-          }
-        />
+          ids={qids["citizen"]?.questions}
+          />
+          </>
       )}
-      {activeStep === 2 && (
+
+      {/* Register step */}
+      {activeStep === 1 && (
         <Register
           form={form}
           buttonText="Send"
