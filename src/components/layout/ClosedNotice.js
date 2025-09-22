@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import useCount from "@hooks/useCount";
 import { formatNumber } from "@components/ProgressCounter";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import { useIsMobile } from "@hooks/useLayout";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -66,10 +67,25 @@ document.body.prepend(elem);
 
 const Closed = () => {
   const config = useCampaignConfig();
+  const setConfig = useSetCampaignConfig();
   const count = useCount(config.actionPage);
   const classes = useStyles();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    setConfig(current => {
+            console.log("remove fab");
+      const next = { ...current };
+      if (next.component.widget) {
+        next.component.widget.fab = false;
+      } else {
+        next.component.widget ={fab:false};
+      } ;
+      return next;
+    });
+  },[isMobile]);
+  useEffect(() => {
+// disable the FAB
     document.addEventListener("mousedown", () => {
       const ribbon = document.getElementById("proca-ribbon");
       window.setTimeout(() => (ribbon.style.display = "none"), 500);
@@ -91,6 +107,7 @@ const Closed = () => {
     box = classes.box;
   }
   if (config.component.widget?.closed !== true) return null;
+  if (isMobile) return null;
   return ReactDOM.createPortal(
     <div className={root}>
       <Box className={box} boxShadow={3}>
