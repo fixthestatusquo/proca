@@ -38,7 +38,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
+  console.log("Rendering MultiSelectCheckbox", { name, label, options, maxChoices });
   const classes = useStyles();
+  const { t } = useTranslation();
   const selectedValues = (form.watch(name) || []).map(String);
 
   return (
@@ -83,7 +85,10 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
       {children}
       {maxChoices && (
         <FormHelperText className={classes.helperText}>
-          You can select up to {maxChoices} option{maxChoices > 1 ? "s" : ""}
+          {t("select_options", {
+            count: maxChoices,
+            defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`
+          })}
         </FormHelperText>
       )}
     </FormControl>
