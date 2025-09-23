@@ -205,6 +205,8 @@
     "other": "Muut"
   },
   "select_all": "Valitse kaikki",
+  "select_options": "Voit valita enintään {{count}} vaihtoehdon",
+  "select_options_plural": "Voit valita enintään {{count}} vaihtoehtoja",
   "share": {
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
