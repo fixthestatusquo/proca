@@ -28,6 +28,7 @@
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
   "action": {
+    "consultation": "Lähetä",
     "default": "Ryhdy toimiin",
     "donate": "Lahjoita",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
+  "ai_work": "Tekoäly työssä",
   "camera": {
     "start": "käynnistä kamera",
     "take": "Ota kuva",
@@ -213,12 +215,14 @@
       "secure": "turvallinen"
     }
   },
+  "submit": "Lähetä",
   "supporter": {
     "greeting": "Tervetuloa {{firstname}}!",
     "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Tutkimus",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}.",
