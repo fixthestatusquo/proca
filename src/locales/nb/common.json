@@ -45,6 +45,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "ai_check": "Denne meldingen er skrevet av en AI, og vi oppfordrer deg til å lese og tilpasse den for å maksimere effekten",
   "ai_work": "AI på jobb",
   "camera": {
     "start": "start kameraet",
