@@ -14,7 +14,9 @@
             "share": "Pomôžte nám dosiahnuť náš cieľ [šírením informácií](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Ďakujeme vám za vašu angažovanosť a oddanosť našej veci! V rámci nášho záväzku zachovať autenticitu a dôveryhodnosť však musíme **odstrániť duplicitné** podpisy a zdá sa, že vy (alebo niekto, kto používa {{email}}) ste už túto činnosť vykonali.  Uisťujeme vás, že **vaš pôvodný podpis bol započítaný** a prispel k našej kampani.\nVaša podpora bola neoceniteľná a my by sme vás radi vyzvali, aby ste urobili ďalší krok, ktorý pomôže posilniť váš vplyv. Zvážte, prosím, možnosť osloviť svojich priateľov a rodinu a vyzvať ich, aby sa tiež zapojili do akcie, pričom použite ich vlastné e-mailové adresy. Takto môžeme ďalej rozvíjať naše hnutie a vytvoriť ešte silnejší kolektívny hlas pre zmenu, o ktorú sa snažíme.\nEšte raz vám vyjadrujeme úprimnú vďaku za vašu neustálu podporu a oddanosť tejto kampani. Spoločne môžeme dosiahnuť trvalý vplyv!",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Ďakujeme, že ste sa prihlásili na {{campaign.title}}. Vaše údaje budú skontrolované a ak sa váš profil zobrazí na webovej stránke, dostanete potvrdzujúci e-mail."
+            "thanksPledge": "Ďakujeme, že ste sa prihlásili na {{campaign.title}}. Vaše údaje budú skontrolované a ak sa váš profil zobrazí na webovej stránke, dostanete potvrdzujúci e-mail.",
+            "about": "Akciu zatiaľ podnikli priaznivci {{campaign.stats.supporterCount}}.",
+            "is_it_me": "Ak ste túto akciu nevykonali, kliknite na [tu](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}), aby ste ju odstránili."
         },
         "thankyou": {
             "subject": "Ďakujeme, tu je ďalšia ponuka, čo môžete urobiť",
