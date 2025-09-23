@@ -28,6 +28,7 @@
   "Thank you": "Спасибо",
   "Your message": "Ваше сообщение",
   "action": {
+    "consultation": "Отправить",
     "default": "Примите меры",
     "donate": "Пожертвовать",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Примите меры",
     "twitter": "Твитнуть"
   },
+  "ai_work": "ИИ на работе",
   "camera": {
     "start": "запустить камеру",
     "take": "Сфотографироваться",
@@ -213,12 +215,14 @@
       "secure": "безопасный"
     }
   },
+  "submit": "Отправить",
   "supporter": {
     "greeting": "Добро пожаловать {{firstname}}!",
     "not_you": "Не ты?",
     "welcome": "С возвращением {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Исследование",
   "target": {
     "country": {
       "empty": "Выберите другую страну, в {{country}} нет никого, с кем можно было бы связаться.\\",
