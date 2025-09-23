@@ -28,6 +28,7 @@
   "Thank you": "شكرًا لك",
   "Your message": "رسالتك",
   "action": {
+    "consultation": "إرسال",
     "default": "اتخذ إجراءً",
     "donate": "يتبرع",
     "eci": "قم بالتوقيع على ECI",
@@ -44,6 +45,7 @@
     "takeAction": "أبدي فعل",
     "twitter": "سقسقة"
   },
+  "ai_work": "الذكاء الاصطناعي في العمل",
   "camera": {
     "start": "ابدأ الكاميرا",
     "take": "التقط صورة",
@@ -213,12 +215,14 @@
       "secure": "يؤمن"
     }
   },
+  "submit": "إرسال",
   "supporter": {
     "greeting": "مرحباً {{firstname}}!",
     "not_you": "ليس انت؟",
     "welcome": "مرحبًا بك مرة أخرى ، {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "المسح",
   "target": {
     "country": {
       "empty": "حدد دولة أخرى ، لا يوجد أحد للاتصال به في {{country}}",
