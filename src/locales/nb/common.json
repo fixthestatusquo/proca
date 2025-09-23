@@ -28,6 +28,7 @@
   "Thank you": "Takk",
   "Your message": "Din melding",
   "action": {
+    "consultation": "Send",
     "default": "Gjør noe",
     "donate": "Donere",
     "eci": "Signer ECI",
@@ -44,6 +45,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "ai_work": "AI på jobb",
   "camera": {
     "start": "start kameraet",
     "take": "Ta bilde",
@@ -213,12 +215,14 @@
       "secure": "sikre"
     }
   },
+  "submit": "Send inn",
   "supporter": {
     "greeting": "Velkommen {{firstname}}!",
     "not_you": "ikke deg?",
     "welcome": "Velkommen tilbake, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Spørreundersøkelse",
   "target": {
     "country": {
       "empty": "Velg et annet land, det er ingen å kontakte i {{country}}",
