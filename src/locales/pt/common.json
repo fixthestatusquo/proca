@@ -205,6 +205,9 @@
     "other": "Outros"
   },
   "select_all": "Selecionar tudo",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Pode selecionar até {{count}} opções",
   "share": {
     "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",
