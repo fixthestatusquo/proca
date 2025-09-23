@@ -28,6 +28,7 @@
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "action": {
+    "consultation": "Stuur",
     "default": "Actie ondernemen",
     "donate": "Doneer",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
+  "ai_work": "AI aan het werk",
   "camera": {
     "start": "start de camera",
     "take": "Maak een foto",
@@ -213,12 +215,14 @@
       "secure": "beveiligde"
     }
   },
+  "submit": "Stuur  in",
   "supporter": {
     "greeting": "Welkom {{firstname}}!",
     "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
   "supporterHint": "{{name}} van {{area}}",
+  "survey": "Enquête",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}",
