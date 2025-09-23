@@ -205,6 +205,9 @@
     "other": "Chère {{name}}"
   },
   "select_all": "Tout sélectionner",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Vous pouvez sélectionner jusqu'à {{count}} options",
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez loin pour vous assurer que tout le monde voit cette pétition 🙏.",
     "message": "Vous devriez signer ce document !",
