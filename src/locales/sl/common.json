@@ -45,6 +45,7 @@
     "takeAction": "Ukrepajte!",
     "twitter": "Tweet"
   },
+  "ai_check": "To sporočilo je napisala umetna inteligenca, priporočamo vam, da ga preberete in prilagodite, da bo njegov učinek čim večji.",
   "ai_work": "Umetna inteligenca pri delu",
   "camera": {
     "start": "zagon fotoaparata",
