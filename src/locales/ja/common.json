@@ -45,6 +45,7 @@
     "takeAction": "テイクアクション",
     "twitter": "ツイート"
   },
+  "ai_check": "AIがこのメッセージを書きました。",
   "ai_work": "仕事におけるAI",
   "camera": {
     "start": "カメラを起動する",
