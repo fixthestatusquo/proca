@@ -28,6 +28,7 @@
   "Thank you": "Děkujeme",
   "Your message": "Vaše zpráva",
   "action": {
+    "consultation": "Odeslat",
     "default": "Přijměte opatření",
     "donate": "Darovat",
     "eci": "Podepsat ECI",
@@ -44,6 +45,7 @@
     "takeAction": "Podnikněte kroky",
     "twitter": "Twít"
   },
+  "ai_work": "Umělá inteligence při práci",
   "camera": {
     "start": "spuštění fotoaparátu",
     "take": "Vyfotografujte se",
@@ -216,12 +218,14 @@
       "title": " "
     }
   },
+  "submit": "Odeslat",
   "supporter": {
     "greeting": "Vítejte {{firstname}}!",
     "not_you": "nejste to vy?",
     "welcome": "Vítejte zpět {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Průzkum",
   "target": {
     "country": {
       "empty": "Vyberte jinou zemi, v {{country}} není nikdo, koho by bylo možné kontaktovat",
