@@ -28,6 +28,7 @@
   "Thank you": "дякую",
   "Your message": "Ваше повідомлення",
   "action": {
+    "consultation": "Надіслати",
     "default": "Вжити заходів",
     "donate": "Обдарувати",
     "eci": "Підписати ECI",
@@ -44,6 +45,7 @@
     "takeAction": "Дійте",
     "twitter": "Твітнути"
   },
+  "ai_work": "ШІ в роботі",
   "camera": {
     "start": "запустіть камеру",
     "take": "Сфотографуйте",
@@ -216,12 +218,14 @@
       "title": "І"
     }
   },
+  "submit": "Надіслати",
   "supporter": {
     "greeting": "Ласкаво просимо {{firstname}}!",
     "not_you": "не ви?",
     "welcome": "Ласкаво просимо назад, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Опитування",
   "target": {
     "country": {
       "empty": "Виберіть іншу країну, у {{country}} немає з ким зв’язатися",
