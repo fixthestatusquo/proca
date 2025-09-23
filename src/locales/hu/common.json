@@ -205,6 +205,8 @@
     "other": "Egyéb"
   },
   "select_all": "Válasszon ki mindent",
+  "select_options": "Legfeljebb a {{count}} opciót választhatja ki.",
+  "select_options_plural": "Legfeljebb a {{count}} oldalon választhat",
   "share": {
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",
