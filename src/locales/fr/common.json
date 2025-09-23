@@ -158,7 +158,8 @@
   "error": {
     "date": "le format doit être JJ.MM.AAAA"
   },
-  "give_another": "Donnez-m'en un autre",
+  "ai_check": "Ce message a été rédigé par une IA. Nous vous encourageons à le lire et à le personnaliser pour en maximiser l'impact",
+  "give_another": "Générer un autre",
   "help_write": "Aidez-moi à l'écrire",
   "image": {
     "addSticker": "ajouter des autocollants",

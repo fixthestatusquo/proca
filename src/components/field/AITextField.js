@@ -132,7 +132,7 @@ useEffect(() => {
 
   const helperText = () => {
     const counter = text.length +'/'+maxLength ;
-    return counter && (state === 'loaded' && ". An AI wrote this message, we encourage you to read and customise it to maximise its impact");
+    return counter && state === 'loaded' && `. ${t('ai_check', 'An AI wrote this message, we encourage you to read and customise it to maximise its impact')}`;
   }
 
   return (
@@ -166,7 +166,7 @@ variant="outlined"
           onClick={fetchData}
           startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
-          Generate another
+          {t("give_another", "Generate another")}
         </Button>}
       </Grid>
     </>
