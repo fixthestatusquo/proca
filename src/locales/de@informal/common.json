@@ -205,6 +205,8 @@
     "other": "Hallo {{name}}"
   },
   "select_all": "Alle auswählen",
+  "select_options": "Du kannst bis zu {{count}} auswählen.",
+  "select_options_plural": "Du kannst bis zu {{count}} Optionen auswählen",
   "share": {
     "intro": "Toll, Du hast unterschrieben 👍. Um Deine Wirkung zu vervielfachen, teile diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Das solltest Du unterschreiben!",
