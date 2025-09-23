@@ -28,6 +28,7 @@
   "Thank you": "Gracias",
   "Your message": "Su mensaje",
   "action": {
+    "consultation": "Enviar",
     "default": "Actúa",
     "donate": "Donar",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Actúa",
     "twitter": "Tweet"
   },
+  "ai_work": "La IA en el trabajo",
   "camera": {
     "start": "encender la cámara",
     "take": "Haz una foto",
@@ -213,12 +215,14 @@
       "secure": "seguro"
     }
   },
+  "submit": "Enviar",
   "supporter": {
     "greeting": "¡Bienvenid@ {{firstname}}!",
     "not_you": "¿No es usted?",
     "welcome": "¡Bienvenido de nuevo {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Encuesta",
   "target": {
     "country": {
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}",
