@@ -205,6 +205,8 @@
     "other": "Övriga"
   },
   "select_all": "Välj alla",
+  "select_options": "Du kan välja upp till {{count}} alternativ",
+  "select_options_plural": "Du kan välja upp till {{count}} alternativ",
   "share": {
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
