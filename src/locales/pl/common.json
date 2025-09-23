@@ -28,6 +28,7 @@
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
   "action": {
+    "consultation": "Wyślij",
     "default": "Podejmij działanie",
     "donate": "Przekaż darowiznę",
     "eci": "Podpisz EIO",
@@ -44,6 +45,7 @@
     "takeAction": "Podejmij działanie",
     "twitter": "Tweetnij"
   },
+  "ai_work": "Sztuczna inteligencja w pracy",
   "camera": {
     "start": "uruchom kamerkę",
     "take": "Zrób zdjęcie",
@@ -213,12 +215,14 @@
       "secure": "bezpieczny"
     }
   },
+  "submit": "Prześlij",
   "supporter": {
     "greeting": "Witamy {{firstname}}!",
     "not_you": "to nie ty?",
     "welcome": "Witamy z powrotem {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Ankieta",
   "target": {
     "country": {
       "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}.",
