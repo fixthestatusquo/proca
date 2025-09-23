@@ -11,6 +11,7 @@ import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
 import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   elementMarginTop: (props) => ({
@@ -228,6 +229,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 };
 
 const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
+  const { t } = useTranslation();
   const findQuestionById = (id) => questions?.find((q) => q.id === id);
   if (!questions) return null;
   return (
@@ -248,7 +250,7 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
       {handleNext && (
         <Box display="flex" justifyContent="flex-end">
           <Button variant="contained" color="primary" onClick={handleNext}>
-            Next
+           {t("Next", "Next")}
           </Button>
         </Box>)
       }

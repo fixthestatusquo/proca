@@ -46,8 +46,6 @@ useEffect(() => {
       data[name] = '';
     }
     console.log("writing...");
-    
-     
     try {
       const response = await fetch(
         //"https://snowflaike.proca.app/" + config.campaign.name,
@@ -161,7 +159,7 @@ useEffect(() => {
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : <SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
-          {isLoading ? "AI at work" : "Help me write it"}
+          {isLoading ? t("ai_work", "AI at work") : t("help_write", "Help me write it")}
         </Button>}
         {state === 'loaded' &&<Button
 variant="outlined"

@@ -11,9 +11,12 @@ import { Stepper, Step, StepButton } from "@material-ui/core";
 import SurveyStep from "@components/survey/Questions";
 import Country from "@components/field/Country";
 import useConsultJson from "@components/survey/useQuestions";
+import { useTranslation } from "react-i18next";
 
 const Consultation = (props) => {
-  const steps = ["survey", "submit"];
+
+  const { t } = useTranslation();
+  const steps = [t("survey", "Survey"), t("submit", "Submit")];
   const [activeStep, setActiveStep] = useState(0);
   const [data] = useData();
   useSetActionType("consultation");
@@ -102,7 +105,7 @@ const Consultation = (props) => {
       {activeStep === 1 && (
         <Register
           form={form}
-          buttonText="Send"
+          buttonText={t("action.consultation", "Send")}
           done={props.done}
           beforeSubmit={prepareData}
           onClick={onClick}
