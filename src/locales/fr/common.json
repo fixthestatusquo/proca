@@ -27,17 +27,12 @@
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
-  "select_options_one": "Vous pouvez sélectionner jusqu’à {{count}} option",
-  "select_options_other": "Vous pouvez sélectionner jusqu’à {{count}} options",
-  "ai_work": "IA au travail",
-  "submit": "Envoyer",
-  "survey": "Sondage",
   "action": {
+    "consultation": "Envoyer",
     "default": "Agir",
     "donate": "Faire un don",
     "eci": "Signez l'ICE",
     "email": "Envoyer un courriel",
-    "consultation": "Envoyer",
     "join": "Rejoignez",
     "pledge": "Je m'engage",
     "register": "S'inscrire",
@@ -50,6 +45,7 @@
     "takeAction": "Passez à l'action",
     "twitter": "Tweetter"
   },
+  "ai_work": "IA au travail",
   "camera": {
     "start": "démarrer la caméra",
     "take": "Prenez une photo",
@@ -220,12 +216,14 @@
       "secure": "sécurisé"
     }
   },
+  "submit": "Envoyer",
   "supporter": {
     "greeting": "Bienvenue {{firstname}} !",
     "not_you": "pas vous ?",
     "welcome": "Bienvenue à nouveau {{firstname}} !"
   },
   "supporterHint": "{{name}} à {{area}}",
+  "survey": "Sondage",
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter en {{country}}",
