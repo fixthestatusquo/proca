@@ -28,6 +28,7 @@
   "Thank you": "Danke schön",
   "Your message": "Ihre Nachricht",
   "action": {
+    "consultation": "Senden Sie",
     "default": "Maßnahmen ergreifen",
     "donate": "Spenden Sie",
     "eci": "Unterzeichnen Sie die EBI",
@@ -44,6 +45,7 @@
     "takeAction": "Aktiv werden",
     "twitter": "Tweet"
   },
+  "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
     "take": "Foto machen",
@@ -213,12 +215,14 @@
       "secure": "sicher"
     }
   },
+  "submit": "Einreichen",
   "supporter": {
     "greeting": "Willkommen {{firstname}}!",
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
   "supporterHint": "{{name}} aus {{area}}",
+  "survey": "Umfrage",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}",
