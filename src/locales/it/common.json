@@ -205,6 +205,9 @@
     "other": "Altro"
   },
   "select_all": "Seleziona tutti",
+  "select_options_0": "È possibile selezionare fino a {{count}} opzione",
+  "select_options_1": "",
+  "select_options_2": "È possibile selezionare fino a {{count}} opzioni",
   "share": {
     "intro": "Grande, hai firmato 👍. Per moltiplicare il tuo impatto, condividi in lungo e in largo per assicurarti che tutti vedano questa petizione 🙏.",
     "message": "Dovresti firmare questo!",
