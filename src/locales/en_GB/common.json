@@ -45,6 +45,7 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
   "ai_work": "AI at work",
   "camera": {
     "start": "start the camera",
