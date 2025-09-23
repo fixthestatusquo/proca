@@ -205,6 +205,9 @@
     "other": "Estimad@ {{name}}"
   },
   "select_all": "Seleccionar todo",
+  "select_options_0": "Puede seleccionar hasta la opción {{count}}",
+  "select_options_1": "",
+  "select_options_2": "Puede seleccionar hasta {{count}} opciones",
   "share": {
     "intro": "Genial, has firmado 👍 Para multiplicar tu impacto, comparte a lo largo y ancho para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",
