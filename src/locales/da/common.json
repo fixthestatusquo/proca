@@ -28,6 +28,7 @@
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
   "action": {
+    "consultation": "Send",
     "default": "Gør noget ved det",
     "donate": "Donér",
     "eci": "Skriv under her",
@@ -44,6 +45,7 @@
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
+  "ai_work": "AI på arbejde",
   "camera": {
     "start": "starte kameraet",
     "take": "Tag et billede",
@@ -213,12 +215,14 @@
       "secure": "sikker"
     }
   },
+  "submit": "Indsend",
   "supporter": {
     "greeting": "Velkommen {{firstname}}!",
     "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Undersøgelse",
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}",
