@@ -28,6 +28,7 @@
   "Thank you": "Благодарим ви",
   "Your message": "Вашето съобщение",
   "action": {
+    "consultation": "Изпрати",
     "default": "Предприемете действия",
     "donate": "Дарете",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Предприемете действия!",
     "twitter": "Tweet"
   },
+  "ai_work": "AI на работното място",
   "camera": {
     "start": "стартиране на камерата",
     "take": "Направете снимка",
@@ -213,12 +215,14 @@
       "secure": "защитен"
     }
   },
+  "submit": "Подаване на",
   "supporter": {
     "greeting": "Добре дошли {{firstname}}!",
     "not_you": "не и вие?",
     "welcome": "Добре дошли отново {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Проучване",
   "target": {
     "country": {
       "empty": "Изберете друга държава, ако няма с кого да се свържете в {{country}}",
