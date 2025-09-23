@@ -28,6 +28,7 @@
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
   "action": {
+    "consultation": "Saada",
     "default": "Asu tegutsema",
     "donate": "Anneta",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Asu tegutsema",
     "twitter": "Kirjuta suhtlusvõrgus X"
   },
+  "ai_work": "AI tööl",
   "camera": {
     "start": "käivita kaamera",
     "take": "Pildistage",
@@ -216,12 +218,14 @@
       "title": " "
     }
   },
+  "submit": "Esita",
   "supporter": {
     "greeting": "Tere tulemast {{firstname}}!",
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Uuring",
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}",
