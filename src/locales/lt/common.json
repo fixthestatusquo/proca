@@ -205,6 +205,9 @@
     "other": "Kita"
   },
   "select_all": "Pasirinkite visus",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Galite pasirinkti iki {{count}} parinkčių.",
   "share": {
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",
