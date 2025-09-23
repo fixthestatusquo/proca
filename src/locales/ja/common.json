@@ -28,6 +28,7 @@
   "Thank you": "ありがとうございました。",
   "Your message": "メッセージ",
   "action": {
+    "consultation": "送信",
     "default": "行動を起こす",
     "donate": "寄付する",
     "eci": "ECIに署名する",
@@ -44,6 +45,7 @@
     "takeAction": "テイクアクション",
     "twitter": "ツイート"
   },
+  "ai_work": "仕事におけるAI",
   "camera": {
     "start": "カメラを起動する",
     "take": "写真を撮る",
@@ -213,12 +215,14 @@
       "secure": "確保"
     }
   },
+  "submit": "投稿する",
   "supporter": {
     "greeting": "ようこそ{{firstname}} ！",
     "not_you": "じゃなくて？",
     "welcome": "おかえりなさい、{{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "アンケート",
   "target": {
     "country": {
       "empty": "他の国を選択し、連絡する人がいない。{{country}}",
