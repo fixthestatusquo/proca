@@ -28,6 +28,7 @@
   "Thank you": "Thank you",
   "Your message": "Your message",
   "action": {
+    "consultation": "Send",
     "default": "Take action",
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -44,6 +45,7 @@
     "takeAction": "Take action",
     "twitter": "Tweet"
   },
+  "ai_work": "AI at work",
   "camera": {
     "start": "start the camera",
     "take": "Take picture",
@@ -213,12 +215,14 @@
       "secure": "secure"
     }
   },
+  "submit": "Submit",
   "supporter": {
     "greeting": "Welcome {{firstname}}!",
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Survey",
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}",
