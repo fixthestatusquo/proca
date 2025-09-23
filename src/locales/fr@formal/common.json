@@ -28,6 +28,7 @@
   "Thank you": "Merci de votre attention.",
   "Your message": "Votre message",
   "action": {
+    "consultation": "Envoyer",
     "default": "Passez à l'action",
     "donate": "Faire un don",
     "eci": "Signez l'ICE",
@@ -44,6 +45,7 @@
     "takeAction": "Passez à l'action",
     "twitter": "Tweet"
   },
+  "ai_work": "L'IA au travail",
   "camera": {
     "start": "démarrer l'appareil photo",
     "take": "Prenez une photo",
@@ -213,12 +215,14 @@
       "secure": "sécurisé"
     }
   },
+  "submit": "Soumettre",
   "supporter": {
     "greeting": "Bienvenue {{firstname}}!",
     "not_you": "pas vous ?",
     "welcome": "Bienvenue, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Enquête",
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter à l'étranger. {{country}}",
