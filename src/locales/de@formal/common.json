@@ -45,6 +45,7 @@
     "takeAction": "Handeln Sie",
     "twitter": "Tweet"
   },
+  "ai_check": "Diese Nachricht wurde von einer KI verfasst. Wir empfehlen Ihnen, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren.",
   "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
