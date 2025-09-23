@@ -28,6 +28,7 @@
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
   "action": {
+    "consultation": "Siųsti",
     "default": "Imkitės veiksmų",
     "donate": "Paaukoti",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
+  "ai_work": "Dirbtinis intelektas darbe",
   "camera": {
     "start": "įjungti fotoaparatą",
     "take": "Nufotografuokite",
@@ -213,12 +215,14 @@
       "secure": "saugus"
     }
   },
+  "submit": "Pateikti",
   "supporter": {
     "greeting": "Sveiki atvykę į {{firstname}}!",
     "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Apklausa",
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}",
