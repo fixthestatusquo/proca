@@ -28,6 +28,7 @@
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
   "action": {
+    "consultation": "Trimiteți",
     "default": "Luați măsuri",
     "donate": "Donează",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
+  "ai_work": "IA la lucru",
   "camera": {
     "start": "porniți camera",
     "take": "Faceți o fotografie",
@@ -213,12 +215,14 @@
       "secure": "securizat"
     }
   },
+  "submit": "Trimite",
   "supporter": {
     "greeting": "Bine ați venit {{firstname}}!",
     "not_you": "Nu tu?",
     "welcome": "Bine ați revenit {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Anchetă",
   "target": {
     "country": {
       "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}.",
