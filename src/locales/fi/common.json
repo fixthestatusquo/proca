@@ -45,6 +45,7 @@
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
+  "ai_check": "Tekoäly kirjoitti tämän viestin, kehotamme sinua lukemaan sen ja muokkaamaan sitä sen vaikutuksen maksimoimiseksi.",
   "ai_work": "Tekoäly työssä",
   "camera": {
     "start": "käynnistä kamera",
