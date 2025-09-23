@@ -205,6 +205,10 @@
     "other": "Drugo"
   },
   "select_all": "Izberite vse",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "",
+  "select_options_3": "Izberete lahko do {{count}} možnosti.",
   "share": {
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",
