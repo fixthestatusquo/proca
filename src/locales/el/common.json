@@ -28,6 +28,7 @@
   "Thank you": "Ευχαριστώ",
   "Your message": "Το μήνυμά σας",
   "action": {
+    "consultation": "Στείλτε",
     "default": "Αναλάβετε δράση",
     "donate": "Δωρεά",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Αναλάβετε δράση!",
     "twitter": "Tweet"
   },
+  "ai_work": "Η τεχνητή νοημοσύνη στην εργασία",
   "camera": {
     "start": "εκκινήστε την κάμερα",
     "take": "Τραβήξτε φωτογραφία",
@@ -213,12 +215,14 @@
       "secure": "ασφαλές"
     }
   },
+  "submit": "Υποβολή",
   "supporter": {
     "greeting": "Καλώς ήρθατε {{firstname}}!",
     "not_you": "όχι εσύ;",
     "welcome": "Καλώς ήρθατε πίσω {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Έρευνα",
   "target": {
     "country": {
       "empty": "Επιλέξτε μια άλλη χώρα, δεν υπάρχει κανείς για να επικοινωνήσετε στο {{country}}",
