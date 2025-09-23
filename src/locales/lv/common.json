@@ -28,6 +28,7 @@
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
   "action": {
+    "consultation": "Sūtīt",
     "default": "Rīkojieties",
     "donate": "Ziedot",
     "eci": "Paraksti EPI",
@@ -44,6 +45,7 @@
     "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
+  "ai_work": "Mākslīgais intelekts darbā",
   "camera": {
     "start": "palaidiet kameru",
     "take": "Uzņemiet attēlu",
@@ -213,12 +215,14 @@
       "secure": "drošs"
     }
   },
+  "submit": "Iesniegt",
   "supporter": {
     "greeting": "Laipni lūdzam {{firstname}}!",
     "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Aptauja",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}",
