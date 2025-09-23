@@ -205,6 +205,9 @@
     "other": "Inne"
   },
   "select_all": "Wybierz wszystko",
+  "select_options_0": "Można wybrać maksymalnie opcję {{count}}",
+  "select_options_1": "",
+  "select_options_2": "Można wybrać do {{count}} opcji",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",
