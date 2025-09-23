@@ -28,6 +28,7 @@
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
   "action": {
+    "consultation": "Küldje el a",
     "default": "Tegyen lépéseket",
     "donate": "Adományozni",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
   },
+  "ai_work": "AI munka közben",
   "camera": {
     "start": "indítsa el a kamerát",
     "take": "Fényképezzen",
@@ -213,12 +215,14 @@
       "secure": "biztonságos"
     }
   },
+  "submit": "Küldje be a",
   "supporter": {
     "greeting": "Üdvözöljük {{firstname}}!",
     "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Felmérés",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni.",
