@@ -45,6 +45,7 @@
     "takeAction": "Asu tegutsema",
     "twitter": "Kirjuta suhtlusvõrgus X"
   },
+  "ai_check": "Selle sõnumi on kirjutanud tehisintellektuaal, soovitame teil seda lugeda ja kohandada, et selle mõju oleks võimalikult suur",
   "ai_work": "AI tööl",
   "camera": {
     "start": "käivita kaamera",
