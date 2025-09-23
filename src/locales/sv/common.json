@@ -28,6 +28,7 @@
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
   "action": {
+    "consultation": "Skicka",
     "default": "Vidta åtgärder",
     "donate": "Donera",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
   },
+  "ai_work": "AI på jobbet",
   "camera": {
     "start": "starta kameran",
     "take": "Ta en bild",
@@ -213,12 +215,14 @@
       "secure": "säker"
     }
   },
+  "submit": "Skicka in",
   "supporter": {
     "greeting": "Välkommen {{firstname}}!",
     "not_you": "inte du?",
     "welcome": "Välkommen tillbaka {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Undersökning",
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}.",
