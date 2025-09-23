@@ -205,6 +205,9 @@
     "other": "Vážení {{name}}"
   },
   "select_all": "Vybrat vše",
+  "select_options_0": "Můžete si vybrat až {{count}} možnost",
+  "select_options_1": "",
+  "select_options_2": "Můžete si vybrat až z {{count}} možností.",
   "share": {
     "intro": "Skvělé, podepsali jste 👍. Abyste znásobili svůj dopad, sdílejte ji široko daleko, aby tuto petici viděl každý 🙏.",
     "message": "Měli byste to podepsat!",
