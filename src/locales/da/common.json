@@ -45,6 +45,7 @@
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
+  "ai_check": "En AI skrev denne besked, vi opfordrer dig til at læse og tilpasse den for at maksimere dens effekt.",
   "ai_work": "AI på arbejde",
   "camera": {
     "start": "starte kameraet",
