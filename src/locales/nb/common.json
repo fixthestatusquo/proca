@@ -206,8 +206,7 @@
     "other": "Kjære {{target.name}}"
   },
   "select_all": "Velg alle",
-  "select_options": "Du kan velge opptil {{count}} alternativ",
-  "select_options_plural": "Du kan velge opptil {{count}} alternativer",
+  "select_options": "Du kan velge opptil {{opt}}",
   "share": {
     "intro": "Tusen takk, du har sendt inn ditt høringsinnspill! 👍 For å mangedoble effekten, del med venner og kjente og få enda flere til å si ifra til regjeringen 🙏",
     "message": "Du bør signere dette!",

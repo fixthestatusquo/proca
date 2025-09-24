@@ -206,8 +206,7 @@
     "other": "Andere"
   },
   "select_all": "Alles selecteren",
-  "select_options": "U kunt maximaal {{count}} optie selecteren",
-  "select_options_plural": "Je kunt maximaal {{count}} opties selecteren",
+  "select_options": "Je kunt maximaal {{opt}} selecteren",
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",

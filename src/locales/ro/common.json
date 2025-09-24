@@ -206,9 +206,7 @@
     "other": "Altele"
   },
   "select_all": "Selectați toate",
-  "select_options_0": "Puteți selecta până la {{count}} opțiune",
-  "select_options_1": "",
-  "select_options_2": "Puteți selecta până la {{count}} opțiuni",
+  "select_options": "Poți selecta până la {{opt}}",
   "share": {
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
