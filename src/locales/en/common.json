@@ -28,7 +28,7 @@
   "Thank you": "Thank you",
   "Your message": "Your message",
   "customize_text": "We encourage you to read and customise it to maximise its impact",
-  "select_options": "You can select up to {{count}}",
+  "select_options": "You can select up to {{opt}}",
   "help_write": "Help me write it",
   "ai_work": "AI at work",
   "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",

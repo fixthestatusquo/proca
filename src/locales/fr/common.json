@@ -27,7 +27,7 @@
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
-  "select_options": "Vous pouvez sélectionner jusqu’à {{count}}",
+  "select_options": "Vous pouvez sélectionner jusqu’à {{opt}}",
   "ai_work": "IA au travail",
   "submit": "Envoyer",
   "survey": "Sondage",

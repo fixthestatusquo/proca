@@ -86,7 +86,7 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
       {maxChoices && (
         <FormHelperText className={classes.helperText}>
           {t("select_options", {
-            count: maxChoices,
+            opt: maxChoices,
             defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`
           })}
         </FormHelperText>
