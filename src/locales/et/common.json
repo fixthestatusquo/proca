@@ -206,8 +206,7 @@
     "other": "Lugupeetud {{name}}"
   },
   "select_all": "Vali kõik",
-  "select_options": "Saate valida kuni {{count}} valikuvõimaluse",
-  "select_options_plural": "Saate valida kuni {{count}} võimalusi",
+  "select_options": "Saate valida kuni {{opt}}",
   "share": {
     "intro": "Suurepärane, sa oled oma allkirja lisanud! 👍 Et allkirjal oleks veel suurem mõju, jaga seda teavet palun julgelt, et rohkem inimesi sellega liituksid 🙏.",
     "message": "Peaksite sellele alla kirjutama!",

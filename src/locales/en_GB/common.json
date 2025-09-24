@@ -206,8 +206,7 @@
     "other": "Dear {{name}}"
   },
   "select_all": "Select all",
-  "select_options": "You can select up to {{count}} option",
-  "select_options_plural": "You can select up to {{count}} options",
+  "select_options": "You can select up to {{opt}}",
   "share": {
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
     "message": "You should sign this!",
