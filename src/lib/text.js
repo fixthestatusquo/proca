@@ -1,5 +1,6 @@
 const decodeHtmlEntities = encodedString => {
   const tempElement = document.createElement("textarea");
+  if (!encodedString) return '';
   tempElement.innerHTML = encodedString;
   return tempElement.value;
 };

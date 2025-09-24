@@ -248,9 +248,6 @@ export default function ShareAction(props) {
               </Button>
             </CardActions>
           )}
-            <CardActions>
-<ShareUrl url={shareUrl('copy')}  onCopy={()=>addShare('share','copy')}/>
-            </CardActions>
 
         <CardActions className={classes.actions} disableSpacing>
           <EmailAction />
@@ -306,6 +303,9 @@ export default function ShareAction(props) {
             summary={shareText("share-linkedin") || metadata.description}
           />
         </CardActions>
+            <CardActions>
+<ShareUrl url={shareUrl('copy')}  onCopy={()=>addShare('share','copy')}/>
+            </CardActions>
       </>
     );
     return cardIcons;

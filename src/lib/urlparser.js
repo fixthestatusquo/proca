@@ -129,12 +129,12 @@ const utm = (record = true) => {
   if (record === false) {
     return {};
   }
-  const utm = { source: "", medium: "", campaign: "" };
+  const utm = { source: "", medium: "", campaign: "", content: undefined };
   let shortcut = parse(["utm"]).utm;
   if (shortcut) {
     // instead of having utm_xxx, we can have utm=campaign.source.medium
-    const [campaign, source, medium] = shortcut.split(".");
-    shortcut = { source, medium, campaign };
+    const [campaign, source, medium, content] = shortcut.split(".");
+    shortcut = { source, medium, campaign, content };
   }
 
   Object.assign(
@@ -161,6 +161,9 @@ const utm = (record = true) => {
     socialiseReferrer(u.hostname, utm);
   }
   utm.location = document.location.origin + document.location.pathname;
+  if (utm.content === undefined) {
+    delete utm.content
+  }
   return utm;
 };
 

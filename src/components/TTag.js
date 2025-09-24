@@ -32,6 +32,20 @@ const TTag = props => {
       />
     );
   }
+
+// Extract React components from props
+  const components = {};
+  const values = {};
+  
+  Object.keys(props).forEach(key => {
+    if (key === 'message') return;
+    
+    if (React.isValidElement(props[key])) {
+      components[key] = props[key];
+    } else {
+      values[key] = props[key];
+    }
+  });
   return <Markdown text={props.message} {...props} />;
   //return <Trans t={tbr} i18nKey={props.message}></Trans>;
   //return /* i18next-extract-disable-line */ t(props.message);
