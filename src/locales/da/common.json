@@ -206,8 +206,7 @@
     "other": "Andre"
   },
   "select_all": "Vælg alle",
-  "select_options": "Du kan vælge op til {{count}}",
-  "select_options_plural": "Du kan vælge op til {{count}}",
+  "select_options": "Du kan vælge op til {{opt}}",
   "share": {
     "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk 🙏",
     "message": "Du skal underskrive dette!",
