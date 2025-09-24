@@ -288,7 +288,7 @@ export default function Register(props) {
         actionType,
         {
           uuid: data.uuid,
-          tracking: Url.utm(config.component?.register?.tracking),
+          tracking: Url.utm(config.component.register?.tracking),
           payload: payload,
         },
         config.test
@@ -327,7 +327,7 @@ export default function Register(props) {
     }
 
     dispatch(
-      `${config.component?.register?.actionType || "register"}:complete`,
+      `${config.component.register.actionType || "register"}:complete`,
       {
         uuid: result.contactRef,
         test: !!config.test,
@@ -335,9 +335,9 @@ export default function Register(props) {
         country: formData.country,
         comment: formData.comment,
         privacy: formData.privacy,
-        email: config.component?.dispatch?.email && formData.email,
+        email: config.component.dispatch?.email && formData.email,
         emailProvider:
-          config.component?.dispatch?.email && emailProvider.current,
+          config.component.dispatch?.email && emailProvider.current,
       },
       formData,
       config
@@ -445,7 +445,7 @@ export default function Register(props) {
     const d = getValues();
     setData(d);
     dispatch(
-      `${config.component?.register?.actionType || "register"}:skip`,
+      `${config.component.register?.actionType || "register"}:skip`,
       {
         test: !!config.test,
         country: d.country,
