@@ -206,9 +206,7 @@
     "other": "Citi"
   },
   "select_all": "Atlasiet visus",
-  "select_options_0": "Varat izvēlēties līdz pat {{opt}}",
-  "select_options_1": "",
-  "select_options_2": "",
+  "select_options": "Varat izvēlēties līdz pat {{opt}}",
   "share": {
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",

@@ -206,7 +206,7 @@
     "other": "拝啓{{target.name}}"
   },
   "select_all": "すべて選択",
-  "select_options": "{{count}} 。",
+  "select_options": "最大で{{opt}}件選択できます",
   "share": {
     "intro": "素晴らしい、あなたは署名しました👍。あなたの影響力を倍増させるために、この請願書🙏を皆に見てもらうために、広く共有してください。",
     "message": "これにサインしてください",
