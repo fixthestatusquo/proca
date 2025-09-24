@@ -206,8 +206,8 @@
     "other": "Autre"
   },
   "select_all": "Sélectionner tout",
-  "select_options": "",
-  "select_options_plural": "Tu peux sélectionner jusqu'à {{count}} options",
+  "select_options": "Tu peux sélectionner jusqu'à {{opt}}",
+  "select_options_plural": "",
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez largement pour que tout le monde voit ce petition🙏.",
     "message": "Vous devriez signer ceci !",
