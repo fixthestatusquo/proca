@@ -27,11 +27,16 @@
   "Subject": "Objet",
   "Thank you": "Merci",
   "Your message": "Votre message",
+  "select_options": "Vous pouvez sélectionner jusqu’à {{opt}}",
+  "ai_work": "IA au travail",
+  "submit": "Envoyer",
+  "survey": "Sondage",
   "action": {
     "default": "Agir",
     "donate": "Faire un don",
     "eci": "Signez l'ICE",
     "email": "Envoyer un courriel",
+    "consultation": "Envoyer",
     "join": "Rejoignez",
     "pledge": "Je m'engage",
     "register": "S'inscrire",
@@ -152,7 +157,8 @@
   "error": {
     "date": "le format doit être JJ.MM.AAAA"
   },
-  "give_another": "Donnez-m'en un autre",
+  "ai_check": "Ce message a été rédigé par une IA. Nous vous encourageons à le lire et à le personnaliser pour en maximiser l'impact",
+  "give_another": "Générer un autre",
   "help_write": "Aidez-moi à l'écrire",
   "image": {
     "addSticker": "ajouter des autocollants",

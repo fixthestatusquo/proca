@@ -4,7 +4,7 @@
             "greeting": "Bonjour {{firstName}},",
             "consent": "\n          ",
             "thanks": "Merci de votre participation à {{campaign.title}}. Votre soutien est apprécié !",
-            "about": "",
+            "about": "Jusqu'à présent, {{campaign.stats.supporterCount}} supporters ont pris part à l'action.",
             "share": "Aidez-nous à atteindre notre objectif en faisant passer le message",
             "follow": "Suivez-nous sur :",
             "donate": "Veuillez envisager de faire un don pour nous aider à accomplir notre mission",
@@ -15,7 +15,8 @@
             "organisation": "{{org.title}}",
             "duplicate": "Nous vous remercions pour votre engagement et votre dévouement à notre cause ! Cependant, dans le cadre de notre engagement à maintenir l'authenticité et la crédibilité, nous devons supprimer les signatures en double et il semble que vous (ou quelqu'un utilisant {{email}}) ayez déjà pris cette mesure.  Soyez assuré que votre signature initiale a été prise en compte et a contribué à notre campagne.\nVotre soutien a été inestimable et nous aimerions vous encourager à faire un pas supplémentaire pour amplifier votre impact. N'hésitez pas à contacter vos amis et votre famille pour les inciter à agir eux aussi, en utilisant leur propre adresse électronique. De cette manière, nous pourrons faire grandir notre mouvement et créer une voix collective encore plus forte pour le changement que nous recherchons.\nUne fois de plus, nous vous remercions sincèrement pour votre soutien et votre dévouement à cette campagne. Ensemble, nous pouvons avoir un impact durable !",
             "share_on": "Partager sur",
-            "thanksPledge": "Merci de vous être engagé.e pour {{campaign.title}}. Votre signature sera vérifiée et sera affichée sur notre site web si elle est approuvée."
+            "thanksPledge": "Merci de vous être engagé.e pour {{campaign.title}}. Votre signature sera vérifiée et sera affichée sur notre site web si elle est approuvée.",
+            "is_it_me": "Si vous n'avez pas effectué cette action, veuillez cliquer [ici](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) pour la supprimer."
         },
         "button": {
             "confirmAction": "Oui, je suis une personne réelle !",

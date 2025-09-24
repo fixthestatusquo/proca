@@ -46,8 +46,6 @@ useEffect(() => {
       data[name] = '';
     }
     console.log("writing...");
-    
-     
     try {
       const response = await fetch(
         //"https://snowflaike.proca.app/" + config.campaign.name,
@@ -134,7 +132,7 @@ useEffect(() => {
 
   const helperText = () => {
     const counter = text.length +'/'+maxLength ;
-    return counter && (state === 'loaded' && ". An AI wrote this message, we encourage you to read and customise it to maximise its impact");
+    return counter && state === 'loaded' && `. ${t('ai_check', 'An AI wrote this message, we encourage you to read and customise it to maximise its impact')}`;
   }
 
   return (
@@ -161,14 +159,14 @@ useEffect(() => {
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : <SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
-          {isLoading ? "AI at work" : "Help me write it"}
+          {isLoading ? t("ai_work", "AI at work") : t("help_write", "Help me write it")}
         </Button>}
         {state === 'loaded' &&<Button
 variant="outlined"
           onClick={fetchData}
           startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
-          Generate another
+          {t("give_another", "Generate another")}
         </Button>}
       </Grid>
     </>
