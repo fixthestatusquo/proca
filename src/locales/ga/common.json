@@ -28,6 +28,7 @@
   "Thank you": "Go raibh maith agat",
   "Your message": "Do theachtaireacht",
   "action": {
+    "consultation": "Seol",
     "default": "Glac gníomh",
     "donate": "Síntiúis",
     "eci": "eci",
@@ -44,6 +45,7 @@
     "takeAction": "Déan beart",
     "twitter": "Tweet"
   },
+  "ai_work": "AI ag an obair",
   "camera": {
     "start": "tús a chur leis an gceamara",
     "take": "Glac pictiúr",
@@ -203,6 +205,11 @@
     "other": "A {{name}} a chara"
   },
   "select_all": "Roghnaigh go léir",
+  "select_options_0": "Is féidir leat suas le {{count}} rogha a roghnú",
+  "select_options_1": "Is féidir leat suas le {{count}} roghanna a roghnú",
+  "select_options_2": "Is féidir leat suas le {{count}} roghanna a roghnú",
+  "select_options_3": "Is féidir leat suas le {{count}} roghanna a roghnú",
+  "select_options_4": "Is féidir leat suas le {{count}} roghanna a roghnú",
   "share": {
     "intro": "Go hiontach, tá tú sínithe 👍. Chun do thionchar a iolrú, roinn i gcéin agus i gcóngar chun a chinntiú go bhfeiceann gach duine an achainí seo🙏.",
     "message": "Ba chóir duit é seo a shíniú!",
@@ -216,12 +223,14 @@
       "title": " "
     }
   },
+  "submit": "Cuir isteach",
   "supporter": {
     "greeting": "Fáilte {{firstname}}!",
     "not_you": "nach tusa?",
     "welcome": "Fáilte ar ais {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Suirbhé",
   "target": {
     "country": {
       "empty": "Roghnaigh tír eile, níl aon duine le teagmháil a dhéanamh léi {{country}}",

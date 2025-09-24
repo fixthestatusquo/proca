@@ -28,6 +28,7 @@
   "Thank you": "Danke",
   "Your message": "Deine Nachricht",
   "action": {
+    "consultation": "Sende",
     "default": "Maßnahmen ergreifen",
     "donate": "Spenden",
     "eci": "Initiative unterschreiben",
@@ -44,6 +45,8 @@
     "takeAction": "Werde aktiv",
     "twitter": "Tweet"
   },
+  "ai_check": "Eine KI hat diese Nachricht verfasst. Wir empfehlen dir, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren",
+  "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "die Kamera starten",
     "take": "Foto machen",
@@ -203,6 +206,8 @@
     "other": "Hallo {{name}}"
   },
   "select_all": "Alle auswählen",
+  "select_options": "Du kannst bis zu {{count}} auswählen.",
+  "select_options_plural": "Du kannst bis zu {{count}} Optionen auswählen",
   "share": {
     "intro": "Toll, Du hast unterschrieben 👍. Um Deine Wirkung zu vervielfachen, teile diese Petition überall, damit alle sie sehen 🙏.",
     "message": "Das solltest Du unterschreiben!",
@@ -213,12 +218,14 @@
       "secure": "sicher"
     }
   },
+  "submit": "einreichen",
   "supporter": {
     "greeting": "Willkommen {{firstname}}!",
     "not_you": "Nicht Du?",
     "welcome": "Willkommen zurück {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Umfrage",
   "target": {
     "country": {
       "empty": "Wähle ein anderes Land, in {{country}} ist niemand zu erreichen",

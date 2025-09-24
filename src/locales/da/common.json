@@ -28,6 +28,7 @@
   "Thank you": "tak skal du have",
   "Your message": "Din besked",
   "action": {
+    "consultation": "Send",
     "default": "Gør noget ved det",
     "donate": "Donér",
     "eci": "Skriv under her",
@@ -44,6 +45,8 @@
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
+  "ai_check": "En AI skrev denne besked, vi opfordrer dig til at læse og tilpasse den for at maksimere dens effekt.",
+  "ai_work": "AI på arbejde",
   "camera": {
     "start": "starte kameraet",
     "take": "Tag et billede",
@@ -203,6 +206,8 @@
     "other": "Andre"
   },
   "select_all": "Vælg alle",
+  "select_options": "Du kan vælge op til {{count}}",
+  "select_options_plural": "Du kan vælge op til {{count}}",
   "share": {
     "intro": "Tusind tak for din underskrift 👍. Vi håber, at du vil hjælpe med at sprede budskabet ved at dele underskriftsindsamlingen i dit netværk 🙏",
     "message": "Du skal underskrive dette!",
@@ -213,12 +218,14 @@
       "secure": "sikker"
     }
   },
+  "submit": "Indsend",
   "supporter": {
     "greeting": "Velkommen {{firstname}}!",
     "not_you": "ikke dig?",
     "welcome": "Velkommen tilbage {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Undersøgelse",
   "target": {
     "country": {
       "empty": "Vælg et andet land, der er ingen at kontakte i {{country}}",

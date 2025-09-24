@@ -28,6 +28,7 @@
   "Thank you": "Dziękuję",
   "Your message": "Twoja wiadomość",
   "action": {
+    "consultation": "Wyślij",
     "default": "Podejmij działanie",
     "donate": "Przekaż darowiznę",
     "eci": "Podpisz EIO",
@@ -44,6 +45,8 @@
     "takeAction": "Podejmij działanie",
     "twitter": "Tweetnij"
   },
+  "ai_check": "Ta wiadomość została napisana przez sztuczną inteligencję, zachęcamy do jej przeczytania i dostosowania, aby zmaksymalizować jej wpływ",
+  "ai_work": "Sztuczna inteligencja w pracy",
   "camera": {
     "start": "uruchom kamerkę",
     "take": "Zrób zdjęcie",
@@ -203,6 +206,9 @@
     "other": "Inne"
   },
   "select_all": "Wybierz wszystko",
+  "select_options_0": "Można wybrać maksymalnie opcję {{count}}",
+  "select_options_1": "",
+  "select_options_2": "Można wybrać do {{count}} opcji",
   "share": {
     "intro": "Świetnie, że podpisałeś 👍. Aby zwielokrotnić swój wpływ, udostępnij swoim znajomym informację o tej petycji 🙏.",
     "message": "Powinieneś to podpisać!",
@@ -213,12 +219,14 @@
       "secure": "bezpieczny"
     }
   },
+  "submit": "Prześlij",
   "supporter": {
     "greeting": "Witamy {{firstname}}!",
     "not_you": "to nie ty?",
     "welcome": "Witamy z powrotem {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Ankieta",
   "target": {
     "country": {
       "empty": "Wybierz inny kraj, nie ma nikogo, z kim można się skontaktować w {{country}}.",

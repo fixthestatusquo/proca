@@ -20,7 +20,6 @@
   "Other": "Outro",
   "Phone": "Telefone",
   "Postal Code": "Código postal",
-
   "Salutation": "Saudação",
   "Shareable link": "Ligação partilhável",
   "Sorry, we couldn't save": "Desculpe, não conseguimos salvar",
@@ -29,6 +28,7 @@
   "Thank you": "Obrigado",
   "Your message": "A sua mensagem",
   "action": {
+    "consultation": "Enviar",
     "default": "Tomar medidas",
     "donate": "Doe",
     "eci": "eci",
@@ -45,6 +45,8 @@
     "takeAction": "Tome medidas!",
     "twitter": "Tweet"
   },
+  "ai_check": "Esta mensagem foi escrita por uma IA. Recomendamos que a leia e a personalize para maximizar o seu impacto",
+  "ai_work": "A IA no trabalho",
   "camera": {
     "start": "iniciar a câmera",
     "take": "Tire uma foto",
@@ -204,6 +206,9 @@
     "other": "Outros"
   },
   "select_all": "Selecionar tudo",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Pode selecionar até {{count}} opções",
   "share": {
     "intro": "Ótimo, já assinaste 👍. Para gerar mais impacto, partilha esta petição com o máximo de pessoas possível 🙏.",
     "message": "Devias assinar isto!",
@@ -214,12 +219,14 @@
       "secure": "seguro"
     }
   },
+  "submit": "Enviar",
   "supporter": {
     "greeting": "Bem-vindo {{firstname}}!",
     "not_you": "não você?",
     "welcome": "Bem-vindo de volta {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Inquérito",
   "target": {
     "country": {
       "empty": "Selecione outro país, não há ninguém para contactar em {{country}}",

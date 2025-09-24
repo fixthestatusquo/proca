@@ -28,6 +28,7 @@
   "Thank you": "Danke schön",
   "Your message": "Ihre Nachricht",
   "action": {
+    "consultation": "Senden Sie",
     "default": "Maßnahmen ergreifen",
     "donate": "Spenden Sie",
     "eci": "Unterzeichnen Sie die EBI",
@@ -44,6 +45,8 @@
     "takeAction": "Aktiv werden",
     "twitter": "Tweet"
   },
+  "ai_check": "Eine KI hat diese Nachricht verfasst. Wir empfehlen Ihnen, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren",
+  "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
     "take": "Foto machen",
@@ -203,6 +206,8 @@
     "other": "Weitere..."
   },
   "select_all": "Alle auswählen",
+  "select_options": "Sie können bis zu {{count}} auswählen.",
+  "select_options_plural": "Sie können bis zu {{count}} Optionen auswählen.",
   "share": {
     "intro": "Toll, Sie haben unterschrieben 👍. Um Ihre Wirkung zu vervielfachen, teilen Sie sie weit und breit, damit jeder diese Petition sieht 🙏.",
     "message": "Sie sollten das unterschreiben!",
@@ -213,12 +218,14 @@
       "secure": "sicher"
     }
   },
+  "submit": "Einreichen",
   "supporter": {
     "greeting": "Willkommen {{firstname}}!",
     "not_you": "Sie nicht?",
     "welcome": "Willkommen zurück, {{firstname}}!"
   },
   "supporterHint": "{{name}} aus {{area}}",
+  "survey": "Umfrage",
   "target": {
     "country": {
       "empty": "Wählen Sie ein anderes Land, es gibt niemanden, den Sie in {{country}}",

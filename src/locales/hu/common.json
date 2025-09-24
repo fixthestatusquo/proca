@@ -28,6 +28,7 @@
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
   "action": {
+    "consultation": "Küldje el a",
     "default": "Tegyen lépéseket",
     "donate": "Adományozni",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
   },
+  "ai_check": "Ezt az üzenetet egy mesterséges intelligencia írta, javasoljuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
+  "ai_work": "AI munka közben",
   "camera": {
     "start": "indítsa el a kamerát",
     "take": "Fényképezzen",
@@ -203,6 +206,8 @@
     "other": "Egyéb"
   },
   "select_all": "Válasszon ki mindent",
+  "select_options": "Legfeljebb a {{count}} opciót választhatja ki.",
+  "select_options_plural": "Legfeljebb a {{count}} oldalon választhat",
   "share": {
     "intro": "Köszönjük, hogy aláírtad! 👍 Utolsó lépésként arra kérünk, hogy oszd meg a petíciót másokkal is, hogy mindenkihez eljuthasson! 🙏.",
     "message": "Ezt alá kellene írnia!",
@@ -213,12 +218,14 @@
       "secure": "biztonságos"
     }
   },
+  "submit": "Küldje be a",
   "supporter": {
     "greeting": "Üdvözöljük {{firstname}}!",
     "not_you": "Nem te?",
     "welcome": "Üdvözöljük újra {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Felmérés",
   "target": {
     "country": {
       "empty": "Válasszon egy másik országot, a {{country}} országban nincs kihez fordulni.",

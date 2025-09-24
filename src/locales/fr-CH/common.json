@@ -28,6 +28,7 @@
   "Thank you": "Merci de votre attention.",
   "Your message": "Votre message",
   "action": {
+    "consultation": "Envoyer",
     "default": "Agir",
     "donate": "Faire un don",
     "eci": "Signer l'ICE",
@@ -44,6 +45,8 @@
     "takeAction": "Agir",
     "twitter": "Tweet"
   },
+  "ai_check": "Une IA a écrit ce message, nous vous encourageons à le lire et à le personnaliser pour en maximiser l'impact.",
+  "ai_work": "L'IA au travail",
   "camera": {
     "start": "démarrer l'appareil photo",
     "take": "Prendre une photo",
@@ -203,6 +206,9 @@
     "other": "Chère {{name}}"
   },
   "select_all": "Tout sélectionner",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Vous pouvez sélectionner jusqu'à {{count}} options",
   "share": {
     "intro": "Super, vous avez signé 👍. Pour multiplier votre impact, partagez loin pour vous assurer que tout le monde voit cette pétition 🙏.",
     "message": "Vous devriez signer ce document !",
@@ -213,12 +219,14 @@
       "secure": "sécurisé"
     }
   },
+  "submit": "Soumettre",
   "supporter": {
     "greeting": "Bienvenue {{firstname}}!",
     "not_you": "pas vous ?",
     "welcome": "Bienvenue, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Enquête",
   "target": {
     "country": {
       "empty": "Sélectionnez un autre pays, il n'y a personne à contacter à l'étranger. {{country}}",

@@ -28,6 +28,7 @@
   "Thank you": "Paldies",
   "Your message": "Jūsu ziņa",
   "action": {
+    "consultation": "Sūtīt",
     "default": "Rīkojieties",
     "donate": "Ziedot",
     "eci": "Paraksti EPI",
@@ -44,6 +45,8 @@
     "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
+  "ai_check": "Šo ziņu uzrakstīja mākslīgais intelekts, un mēs aicinām jūs to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
+  "ai_work": "Mākslīgais intelekts darbā",
   "camera": {
     "start": "palaidiet kameru",
     "take": "Uzņemiet attēlu",
@@ -203,6 +206,9 @@
     "other": "Citi"
   },
   "select_all": "Atlasiet visus",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Varat izvēlēties līdz pat {{count}} opcijas.",
   "share": {
     "intro": "Lieliski, jūs esat parakstījis 👍. Lai vairotu savu ietekmi, dalieties tālu un plaši, lai pārliecinātos, ka visi redz šo petīciju🙏.",
     "message": "Jums to vajadzētu parakstīt!",
@@ -213,12 +219,14 @@
       "secure": "drošs"
     }
   },
+  "submit": "Iesniegt",
   "supporter": {
     "greeting": "Laipni lūdzam {{firstname}}!",
     "not_you": "ne jūs?",
     "welcome": "Laipni lūdzam atpakaļ {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Aptauja",
   "target": {
     "country": {
       "empty": "Izvēlieties citu valsti, nav ar ko sazināties {{country}}",

@@ -28,6 +28,7 @@
   "Thank you": "Hvala vam",
   "Your message": "Vaše sporočilo",
   "action": {
+    "consultation": "Pošlji",
     "default": "Ukrepajte",
     "donate": "Podarite",
     "eci": "Podpišite ECI",
@@ -44,6 +45,8 @@
     "takeAction": "Ukrepajte!",
     "twitter": "Tweet"
   },
+  "ai_check": "To sporočilo je napisala umetna inteligenca, priporočamo vam, da ga preberete in prilagodite, da bo njegov učinek čim večji.",
+  "ai_work": "Umetna inteligenca pri delu",
   "camera": {
     "start": "zagon fotoaparata",
     "take": "Fotografirajte",
@@ -203,6 +206,10 @@
     "other": "Drugo"
   },
   "select_all": "Izberite vse",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "",
+  "select_options_3": "Izberete lahko do {{count}} možnosti.",
   "share": {
     "intro": "Hvala za vaš podpis👍. Podprite kampanjo in razširite glas o njej z deljenjem te peticije.",
     "message": "Moral bi to podpisati!",
@@ -213,12 +220,14 @@
       "secure": "varno"
     }
   },
+  "submit": "Pošlji",
   "supporter": {
     "greeting": "Dobrodošli {{firstname}}!",
     "not_you": "vas ne?",
     "welcome": "Dobrodošli nazaj {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Anketa",
   "target": {
     "country": {
       "empty": "Izberite drugo državo, v {{country}} ni nikogar, ki bi ga lahko kontaktiral.",

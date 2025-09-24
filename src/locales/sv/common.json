@@ -28,6 +28,7 @@
   "Thank you": "Tack.",
   "Your message": "Ditt meddelande",
   "action": {
+    "consultation": "Skicka",
     "default": "Vidta åtgärder",
     "donate": "Donera",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
   },
+  "ai_check": "En AI skrev detta meddelande, vi uppmanar dig att läsa och anpassa det för att maximera dess effekt",
+  "ai_work": "AI på jobbet",
   "camera": {
     "start": "starta kameran",
     "take": "Ta en bild",
@@ -203,6 +206,8 @@
     "other": "Övriga"
   },
   "select_all": "Välj alla",
+  "select_options": "Du kan välja upp till {{count}} alternativ",
+  "select_options_plural": "Du kan välja upp till {{count}} alternativ",
   "share": {
     "intro": "Tack för din underskrift👍\nFör att sprida budskapet, dela gärna namninsamlingen med dina vänner!",
     "message": "Du borde underteckna detta!",
@@ -213,12 +218,14 @@
       "secure": "säker"
     }
   },
+  "submit": "Skicka in",
   "supporter": {
     "greeting": "Välkommen {{firstname}}!",
     "not_you": "inte du?",
     "welcome": "Välkommen tillbaka {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Undersökning",
   "target": {
     "country": {
       "empty": "Välj ett annat land, det finns ingen att kontakta i {{country}}.",

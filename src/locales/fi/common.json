@@ -28,6 +28,7 @@
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
   "action": {
+    "consultation": "Lähetä",
     "default": "Ryhdy toimiin",
     "donate": "Lahjoita",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
+  "ai_check": "Tekoäly kirjoitti tämän viestin, kehotamme sinua lukemaan sen ja muokkaamaan sitä sen vaikutuksen maksimoimiseksi.",
+  "ai_work": "Tekoäly työssä",
   "camera": {
     "start": "käynnistä kamera",
     "take": "Ota kuva",
@@ -203,6 +206,8 @@
     "other": "Muut"
   },
   "select_all": "Valitse kaikki",
+  "select_options": "Voit valita enintään {{count}} vaihtoehdon",
+  "select_options_plural": "Voit valita enintään {{count}} vaihtoehtoja",
   "share": {
     "intro": "Kiitos allekirjoituksestasi! 👍 Moninkertaista vaikutuksesi: pyydä läheisiäsi allekirjoittamaan vetoomus jakamalla sitä 🙏.",
     "message": "Sinun tulisi allekirjoittaa tämä!",
@@ -213,12 +218,14 @@
       "secure": "turvallinen"
     }
   },
+  "submit": "Lähetä",
   "supporter": {
     "greeting": "Tervetuloa {{firstname}}!",
     "not_you": "etkö sinä?",
     "welcome": "Tervetuloa takaisin {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Tutkimus",
   "target": {
     "country": {
       "empty": "Valitse toinen maa, ei ole ketään, johon ottaa yhteyttä {{country}}.",

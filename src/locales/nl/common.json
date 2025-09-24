@@ -28,6 +28,7 @@
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "action": {
+    "consultation": "Stuur",
     "default": "Actie ondernemen",
     "donate": "Doneer",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
+  "ai_check": "Een AI schreef dit bericht, we raden je aan het te lezen en aan te passen om de impact ervan te maximaliseren",
+  "ai_work": "AI aan het werk",
   "camera": {
     "start": "start de camera",
     "take": "Maak een foto",
@@ -203,6 +206,8 @@
     "other": "Andere"
   },
   "select_all": "Alles selecteren",
+  "select_options": "U kunt maximaal {{count}} optie selecteren",
+  "select_options_plural": "Je kunt maximaal {{count}} opties selecteren",
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
@@ -213,12 +218,14 @@
       "secure": "beveiligde"
     }
   },
+  "submit": "Stuur  in",
   "supporter": {
     "greeting": "Welkom {{firstname}}!",
     "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
   "supporterHint": "{{name}} van {{area}}",
+  "survey": "Enquête",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}",

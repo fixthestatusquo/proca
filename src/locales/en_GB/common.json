@@ -28,6 +28,7 @@
   "Thank you": "Thank you",
   "Your message": "Your message",
   "action": {
+    "consultation": "Send",
     "default": "Take action",
     "donate": "Donate",
     "eci": "Sign the ECI",
@@ -44,6 +45,8 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
+  "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
+  "ai_work": "AI at work",
   "camera": {
     "start": "start the camera",
     "take": "Take picture",
@@ -203,6 +206,8 @@
     "other": "Dear {{name}}"
   },
   "select_all": "Select all",
+  "select_options": "You can select up to {{count}} option",
+  "select_options_plural": "You can select up to {{count}} options",
   "share": {
     "intro": "Great, you’ve signed 👍. To multiply your impact, share far and wide to make sure everyone sees this petition🙏.",
     "message": "You should sign this!",
@@ -213,12 +218,14 @@
       "secure": "secure"
     }
   },
+  "submit": "Submit",
   "supporter": {
     "greeting": "Welcome {{firstname}}!",
     "not_you": "not you?",
     "welcome": "Welcome back, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Survey",
   "target": {
     "country": {
       "empty": "Select another country, there is no-one to contact in {{country}}",

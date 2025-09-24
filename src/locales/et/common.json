@@ -28,6 +28,7 @@
   "Thank you": "Aitäh",
   "Your message": "Teie sõnum",
   "action": {
+    "consultation": "Saada",
     "default": "Asu tegutsema",
     "donate": "Anneta",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Asu tegutsema",
     "twitter": "Kirjuta suhtlusvõrgus X"
   },
+  "ai_check": "Selle sõnumi on kirjutanud tehisintellektuaal, soovitame teil seda lugeda ja kohandada, et selle mõju oleks võimalikult suur",
+  "ai_work": "AI tööl",
   "camera": {
     "start": "käivita kaamera",
     "take": "Pildistage",
@@ -203,6 +206,8 @@
     "other": "Lugupeetud {{name}}"
   },
   "select_all": "Vali kõik",
+  "select_options": "Saate valida kuni {{count}} valikuvõimaluse",
+  "select_options_plural": "Saate valida kuni {{count}} võimalusi",
   "share": {
     "intro": "Suurepärane, sa oled oma allkirja lisanud! 👍 Et allkirjal oleks veel suurem mõju, jaga seda teavet palun julgelt, et rohkem inimesi sellega liituksid 🙏.",
     "message": "Peaksite sellele alla kirjutama!",
@@ -216,12 +221,14 @@
       "title": " "
     }
   },
+  "submit": "Esita",
   "supporter": {
     "greeting": "Tere tulemast {{firstname}}!",
     "not_you": "mitte sina?",
     "welcome": "Tere tulemast tagasi {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Uuring",
   "target": {
     "country": {
       "empty": "Valige teine riik, seal ei ole kedagi, kellega ühendust võtta {{country}}",

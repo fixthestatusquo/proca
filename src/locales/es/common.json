@@ -28,6 +28,7 @@
   "Thank you": "Gracias",
   "Your message": "Su mensaje",
   "action": {
+    "consultation": "Enviar",
     "default": "Actúa",
     "donate": "Donar",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Actúa",
     "twitter": "Tweet"
   },
+  "ai_check": "Una IA escribió este mensaje, te animamos a leerlo y personalizarlo para maximizar su impacto",
+  "ai_work": "La IA en el trabajo",
   "camera": {
     "start": "encender la cámara",
     "take": "Haz una foto",
@@ -203,6 +206,9 @@
     "other": "Estimad@ {{name}}"
   },
   "select_all": "Seleccionar todo",
+  "select_options_0": "Puede seleccionar hasta la opción {{count}}",
+  "select_options_1": "",
+  "select_options_2": "Puede seleccionar hasta {{count}} opciones",
   "share": {
     "intro": "Genial, has firmado 👍 Para multiplicar tu impacto, comparte a lo largo y ancho para que todos vean esta petición 🙏.",
     "message": "¡Deberías firmar esto!",
@@ -213,12 +219,14 @@
       "secure": "seguro"
     }
   },
+  "submit": "Enviar",
   "supporter": {
     "greeting": "¡Bienvenid@ {{firstname}}!",
     "not_you": "¿No es usted?",
     "welcome": "¡Bienvenido de nuevo {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Encuesta",
   "target": {
     "country": {
       "empty": "Selecciona otro país, no hay nadie con quien contactar en {{country}}",

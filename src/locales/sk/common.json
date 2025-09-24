@@ -28,6 +28,7 @@
   "Thank you": "Ďakujeme!",
   "Your message": "Vaša správa",
   "action": {
+    "consultation": "Odoslať",
     "default": "Prijmite opatrenia",
     "donate": "Darujte",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Podniknite kroky!",
     "twitter": "Tweet"
   },
+  "ai_check": "Túto správu napísala umelá inteligencia, odporúčame vám, aby ste si ju prečítali a prispôsobili, aby mala čo najväčší účinok",
+  "ai_work": "Umelá inteligencia pri práci",
   "camera": {
     "start": "spustenie fotoaparátu",
     "take": "Urobte si obrázok",
@@ -203,6 +206,9 @@
     "other": "Iné"
   },
   "select_all": "Zvoliť všetkých",
+  "select_options_0": "Môžete si vybrať až {{count}} možnosť",
+  "select_options_1": "",
+  "select_options_2": "Môžete si vybrať až {{count}} možnosti",
   "share": {
     "intro": "Výborne, podpísali ste 👍. Ak chcete znásobiť svoj vplyv, zdieľajte široko ďaleko, aby ste sa uistili, že všetci vidia túto petíciu🙏.",
     "message": "Toto by ste mali podpísať!",
@@ -213,12 +219,14 @@
       "secure": "Zabezpečený"
     }
   },
+  "submit": "Odoslať",
   "supporter": {
     "greeting": "Vitajte na {{firstname}}!",
     "not_you": "nie vy?",
     "welcome": "Vitajte späť {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Prieskum",
   "target": {
     "country": {
       "empty": "Vyberte inú krajinu, v {{country}} nie je nikoho, koho by ste mohli kontaktovať",

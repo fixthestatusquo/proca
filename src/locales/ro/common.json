@@ -28,6 +28,7 @@
   "Thank you": "Mulțumesc",
   "Your message": "Mesajul dumneavoastră",
   "action": {
+    "consultation": "Trimiteți",
     "default": "Luați măsuri",
     "donate": "Donează",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
+  "ai_check": "Un AI a scris acest mesaj, vă încurajăm să îl citiți și să îl personalizați pentru a-i maximiza impactul",
+  "ai_work": "IA la lucru",
   "camera": {
     "start": "porniți camera",
     "take": "Faceți o fotografie",
@@ -203,6 +206,9 @@
     "other": "Altele"
   },
   "select_all": "Selectați toate",
+  "select_options_0": "Puteți selecta până la {{count}} opțiune",
+  "select_options_1": "",
+  "select_options_2": "Puteți selecta până la {{count}} opțiuni",
   "share": {
     "intro": "Super, ai semnat 👍. Pentru a vă multiplica impactul, împărtășiți în mare parte pentru a vă asigura că toată lumea vede această petiție🙏.",
     "message": "Ar trebui să semnezi asta!",
@@ -213,12 +219,14 @@
       "secure": "securizat"
     }
   },
+  "submit": "Trimite",
   "supporter": {
     "greeting": "Bine ați venit {{firstname}}!",
     "not_you": "Nu tu?",
     "welcome": "Bine ați revenit {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Anchetă",
   "target": {
     "country": {
       "empty": "Selectați o altă țară, nu există nimeni de contactat în {{country}}.",

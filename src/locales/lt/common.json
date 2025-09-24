@@ -28,6 +28,7 @@
   "Thank you": "Ačiū",
   "Your message": "Jūsų žinutė",
   "action": {
+    "consultation": "Siųsti",
     "default": "Imkitės veiksmų",
     "donate": "Paaukoti",
     "eci": "eci",
@@ -44,6 +45,8 @@
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
+  "ai_check": "Šią žinutę parašė dirbtinis intelektas, raginame ją perskaityti ir pritaikyti, kad ji būtų kuo paveikesnė.",
+  "ai_work": "Dirbtinis intelektas darbe",
   "camera": {
     "start": "įjungti fotoaparatą",
     "take": "Nufotografuokite",
@@ -203,6 +206,9 @@
     "other": "Kita"
   },
   "select_all": "Pasirinkite visus",
+  "select_options_0": "",
+  "select_options_1": "",
+  "select_options_2": "Galite pasirinkti iki {{count}} parinkčių.",
   "share": {
     "intro": "Puiku, jūs pasirašėte 👍. Norėdami padauginti savo poveikį, dalinkitės toli ir plačiai, kad visi matytų šią peticiją🙏.",
     "message": "Turėtumėte tai pasirašyti!",
@@ -213,12 +219,14 @@
       "secure": "saugus"
     }
   },
+  "submit": "Pateikti",
   "supporter": {
     "greeting": "Sveiki atvykę į {{firstname}}!",
     "not_you": "ne jūs?",
     "welcome": "Sveiki sugrįžę {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Apklausa",
   "target": {
     "country": {
       "empty": "Pasirinkite kitą šalį, nėra su kuo susisiekti {{country}}",
