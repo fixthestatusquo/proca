@@ -14,7 +14,9 @@
             "share": "Aidez-nous à atteindre notre objectif en [faisant passer le mot] (https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
             "duplicate": "Merci pour votre engagement et votre dévouement à notre cause ! Cependant, dans le cadre de notre engagement à maintenir l'authenticité et la crédibilité, nous devons **supprimer les signatures en double** et il semble que toi (ou quelqu'un utilisant {{email}}) ait déjà pris cette mesure.  Rassurez-vous, **votre signature initiale a été prise en compte** et a contribué à notre campagne.\nVotre soutien a été inestimable, et nous aimerions vous encourager à faire un pas supplémentaire pour aider à amplifier votre impact. Pense à contacter tes amis et ta famille, en les incitant à agir eux aussi, en utilisant leur propre adresse électronique. De cette façon, nous pourrons faire grandir notre mouvement et créer une voix collective encore plus forte pour le changement que nous recherchons.\nUne fois de plus, nous te remercions sincèrement pour ton soutien continu et ton dévouement à cette campagne. Ensemble, nous pouvons avoir un impact durable !",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Merci d'avoir fait une promesse de don pour {{campaign.title}}. Vos informations seront examinées et vous recevrez un courriel de confirmation si votre profil est affiché sur le site Web."
+            "thanksPledge": "Merci d'avoir fait une promesse de don pour {{campaign.title}}. Vos informations seront examinées et vous recevrez un courriel de confirmation si votre profil est affiché sur le site Web.",
+            "about": "Jusqu'à présent, {{campaign.stats.supporterCount}} partisans ont pris l'action.",
+            "is_it_me": "Si tu n'as pas effectué cette action, clique sur [ici](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) pour la supprimer."
         },
         "thankyou": {
             "subject": "Merci, voici ce que tu peux faire d'autre",
