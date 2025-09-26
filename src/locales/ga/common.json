@@ -45,6 +45,7 @@
     "takeAction": "Déan beart",
     "twitter": "Tweet"
   },
+  "ai_check": "Scríobh AI an teachtaireacht seo, molaimid duit í a léamh agus a shaincheapadh chun a tionchar a uasmhéadú",
   "ai_work": "AI ag an obair",
   "camera": {
     "start": "tús a chur leis an gceamara",
@@ -154,7 +155,7 @@
   "error": {
     "date": "ba cheart go mbeadh an fhormáid LL.MM.BBBB"
   },
-  "give_another": "Tabhair ceann eile dom",
+  "give_another": "Gin ceann eile",
   "help_write": "Cabhraigh liom é a scríobh",
   "image": {
     "addSticker": "greamáin a chur leis",
