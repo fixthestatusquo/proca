@@ -28,6 +28,7 @@
   "Thank you": "Hvala",
   "Your message": "Tvoja poruka",
   "action": {
+    "consultation": "Pošalji",
     "default": "Poduzmi akciju",
     "donate": "Doniraj",
     "eci": "Potpiši ECI",
@@ -44,6 +45,8 @@
     "takeAction": "Poduzmi akciju",
     "twitter": "Tweet"
   },
+  "ai_check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
+  "ai_work": "Umjetna inteligencija na poslu",
   "camera": {
     "start": "pokreni kameru",
     "take": "Snimi sliku",
@@ -152,7 +155,7 @@
   "error": {
     "date": "format mora biti DD.MM.YYYY"
   },
-  "give_another": "Želim drugi odgovor",
+  "give_another": "Generiraj jednu drugu",
   "help_write": "Želim pomoć da napišem poruku",
   "image": {
     "addSticker": "dodaj naljepnice",
@@ -203,6 +206,7 @@
     "other": "Poštovani {{name}}"
   },
   "select_all": "Odaberi sve",
+  "select_options": "Možeš odabrati do {{opt}}",
   "share": {
     "intro": "Sjajno, hvala na podršci 👍. Za još veći utjecaj, podijeli ovu peticiju nadaleko i naširoko 🙏.",
     "message": "Ovo se isplati potpisati!",
@@ -213,12 +217,14 @@
       "secure": "siguran"
     }
   },
+  "submit": "Pošalji",
   "supporter": {
     "greeting": "Zdravo {{firstname}}!",
     "not_you": "nisi ti?",
     "welcome": "Dobro došao, dobro došla natrag {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Anketa",
   "target": {
     "country": {
       "empty": "Odaberi jednu drugu zemlju, nema kontakta za zemlju {{country}}",
