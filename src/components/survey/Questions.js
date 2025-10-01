@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect } from "react";
 import {
   Box,
   Button,
@@ -235,6 +235,39 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const { t } = useTranslation();
   const findQuestionById = (id) => questions?.find((q) => q.id === id);
+
+  // check if all required questions are filled and enable the Next button
+  // required are defined in the question json
+  const [allFilled, setAllFilled] = React.useState(false);
+
+  useEffect(() => {
+    if (!questions) {
+      setAllFilled(false);
+      return;
+    }
+
+    const requiredFields = questions
+      .filter(q => q.required)
+      .map(q => q.attributeName);
+
+    if (requiredFields.length === 0) {
+      setAllFilled(true);
+      return;
+    }
+
+    const subscription = form.watch((values) => {
+      const notFilled = requiredFields.filter(attr => {
+        const val = values[attr];
+        return val === undefined || val === "" || (Array.isArray(val) && val.length === 0);
+      });
+
+      setAllFilled(notFilled.length === 0);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [form, questions]);
+
+
   if (!questions) return null;
   return (
     <>
@@ -257,7 +290,8 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
             variant="contained"
             color="primary"
             onClick={handleNext}
-            disabled={!form.formState.isValid}
+            // disabled={!form.formState.isValid} wasn't working properly
+            disabled={!allFilled}
           >
            {t("Next", "Next")}
           </Button>

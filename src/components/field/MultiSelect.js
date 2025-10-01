@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
-  console.log("Rendering MultiSelectCheckbox", { name, label, options, maxChoices });
   const classes = useStyles();
   const { t } = useTranslation();
   const selectedValues = (form.watch(name) || []).map(String);
