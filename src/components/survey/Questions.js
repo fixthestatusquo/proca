@@ -134,7 +134,8 @@ const AITextQuestion = ({ json, form }) => {
         form={form}
         label={json.title}
         name={json.attributeName}
-          maxLength= {json.maxCharacters}
+        maxLength={json.maxCharacters}
+        required={json.required || false}
       />
     </Box>
   );
@@ -150,6 +151,7 @@ const TextQuestion = ({ json, form }) => {
       {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
       <TextField
         form={form}
+        required={json.required || false}
         label={labelInside ? json.title : ""}
         name={json.attributeName}
         multiline={multiline}
@@ -180,7 +182,8 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
         name={json.attributeName}
         options={options}
         label={json.title}
-        row={row}
+      row={row}
+      required={json.required || false}
       >
 
       {dependentIds.length > 0 && (
@@ -213,7 +216,8 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
         name={json.attributeName}
         label={json.title}
         options={options}
-        maxChoices={maxChoices}
+      maxChoices={maxChoices}
+      required={json.required || false}
       >
 
       {/* Render dependent questions if any are selected */}
@@ -249,7 +253,12 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
 
       {handleNext && (
         <Box display="flex" justifyContent="flex-end">
-          <Button variant="contained" color="primary" onClick={handleNext}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleNext}
+            disabled={!form.formState.isValid}
+          >
            {t("Next", "Next")}
           </Button>
         </Box>)

@@ -121,6 +121,7 @@ const TextFieldProca = props => {
               errors && errors[props.name] && errors[props.name].message
             }
             {...drillProps}
+            required={props.required || false}
           />
         );
       }}
