@@ -41,6 +41,9 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
   const classes = useStyles();
   const { t } = useTranslation();
   const selectedValues = (form.watch(name) || []).map(String);
+  if (!maxChoices) maxChoices = options.length;
+
+  console.log("JSON options", maxChoices);
 
   return (
     <FormControl component="fieldset">
@@ -82,7 +85,8 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
         )}
       />
       {children}
-      {maxChoices && (
+      {/* insane, but EC has zero! */}
+      {maxChoices && maxChoices > 0 (
         <FormHelperText className={classes.helperText}>
           {t("select_options", {
             opt: maxChoices,
