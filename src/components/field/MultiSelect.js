@@ -43,8 +43,6 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
   const selectedValues = (form.watch(name) || []).map(String);
   if (!maxChoices) maxChoices = options.length;
 
-  console.log("JSON options", maxChoices);
-
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
