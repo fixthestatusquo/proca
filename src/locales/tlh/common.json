@@ -13,8 +13,6 @@
   "Locality": "veng",
   "Next": "Dor",
   "Organisation": "ghotpuʼ",
-
-
   "Other": "toH",
   "Phone": "Qum mI",
   "Postal Code": "Qum mIʼ chIm",
@@ -164,6 +162,21 @@
     "upload": "Qum image",
     "wanttoadd": "image yIchoH?"
   },
+  "progress": {
+  "donate": "{{total}} nob. yIchoH {{goal}}",
+  "email": "{{total}} Qum mIʼ yIghItlh. yIchoH {{goal}}",
+  "register": "{{total}} pong yIghItlh. yIchoH {{goal}}",
+  "share": "{{total}} boq. yIchoH {{goal}}",
+  "sign": "{{total}} maq. yIchoH {{goal}}",
+  "pledge": "{{total}} vIghItlh. yIchoH {{goal}}"
+  },
+  "share": {
+  "intro": "majQaʼ, maq 🔥. yIqel ‘ej boq tuʼluʼbeʼ, Hoch yIlegh tlhIH ⚔️🛡️.",
+  "message": "maq Qo’!",
+  "title": "tInwI’! yIqel qet."
+},
+
+
   "no": "ghobeʼ",
   "yes": "HIjaʼ",
   "select_all": "Hoch vIchoH"
