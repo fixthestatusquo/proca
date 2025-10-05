@@ -1,0 +1,183 @@
+{
+  "Address": "juH",
+  "Amount": "nIv",
+  "Another": "vIʼ",
+  "Birthdate": "qoS jaj",
+  "City": "veng",
+  "Comment": "QIn",
+  "Country": "Sep",
+  "Email": "Qum mIʼ",
+  "First name": "pong waʼ",
+  "Language": "Hol",
+  "Last name": "pong Qav",
+  "Locality": "veng",
+  "Next": "Dor",
+  "Organisation": "ghotpuʼ",
+  "Other": "toH",
+  "Phone": "Qum mI",
+  "Postal Code": "Qum mIʼ chIm",
+  "Salutation": "Quch",
+  "Sorry, we couldn't save": "majQa'! Qo' vISevbe'",
+  "Street": "Daq",
+  "Shareable link": "boq wIghItlh",
+  "Copied!": "wIghItlh!",
+  "Copy to clipboard": "wIghItlh",
+  "Subject": "ghItlh",
+  "Thank you": "qatlhoʼ",
+  "Your message": "SoH QIn",
+  "customize_text": "vIjatlh 'ej tlhap vItaH",
+  "select_options": "laH SoQ DaH choH {{opt}}",
+  "help_write": "vIjatlh",
+  "ai_work": "AI vIghItlh",
+  "ai_check": "AI QIn. vIjatlh 'ej tlhap vItaH",
+  "give_another": "vIghItlh vIʼ",
+  "submit": "ngeH",
+  "survey": "Suq",
+  "action": {
+    "donate": "nob",
+    "email": "Qum mIʼ",
+    "consultation": "qep",
+    "join": "maj",
+    "pledge": "vIghItlh",
+    "register": "ghItlh",
+    "share": "boq",
+    "sign": "maq",
+    "stayInformed": "yIQum",
+    "takeAction": "ngeH",
+    "default": "ngeH"
+  },
+  "camera": {
+    "start": "Qong",
+    "take": "ghItlh",
+    "take-another": "ghItlh vIʼ"
+  },
+  "closed": "##qatlhoʼ {{total}}!",
+  "confirm": "bIjatlh?",
+  "consent": {
+    "actionConfirmed": "ngeH Qap",
+    "actionRejected": "ngeH wIpoSbe'",
+    "confirm": "<0>bIjatlh?</0><1>ghobeʼ: SoH Qu'be'. HIjaʼ: wIghItlh.</1><2>DaH jup yIghItlh.</2>",
+    "confirmAction": "Email yIghItlh, link yIclick. Qo' vIghItlh, ngeH Qap!",
+    "confirmOptIn": "Email yIcheck, Qo' spam!",
+    "emailSent": "Email yIghItlh {{email}}!",
+    "implicit": "Form ngeH, {{name}} jImej",
+    "intro": "{{campaign}} 'ej qep vIghItlh",
+    "opt-in": "HIjaʼ, {{partner}} yIghItlh",
+    "opt-out": "ghobeʼ, jImej",
+    "optInConfirmed": "ngeH Qap",
+    "processing": "SoH De' yIghItlh, vItlhutlh.  <1>privacy policy</1> yIQum",
+    "required": "SoH Qum",
+    "subButton": {
+      "opt-in": "yIghItlh",
+      "opt-out": "jImej"
+    }
+  },
+  "date": {
+    "error": "Qo' jaj. format: DD.MM.YYYY"
+  },
+  "dateFormat": "DD/MM/YYYY",
+  "dialogTitle": "Campaign yIQum",
+  "donation": {
+    "amount": {
+      "change": "nIv choH",
+      "intro": "nIv yIchoH"
+    },
+    "average": "nIv vIghItlh {{amount}}",
+    "button": {
+      "cta": {
+        "monthly": "nob {{amount}} jar jar",
+        "oneoff": "nob {{amount}}"
+      }
+    },
+    "error": {
+      "card": {
+        "missing": "Credit card chIm"
+      },
+      "form": {
+        "invalid": {
+          "iban": "iban"
+        }
+      },
+      "general": "qat",
+      "initialisation": "Qapla'"
+    },
+    "form": {
+      "error": {
+        "minimum": "nIv chIm {{amount}}"
+      }
+    },
+    "frequency": {
+      "ask": {
+        "monthly": "jar jar nob?",
+        "oneoff": "nob",
+        "weekly": "jar"
+      },
+      "each": {
+        "weekly": "jar",
+        "oneoff": "wa'",
+        "monthly": "jar jar"
+      },
+      "feedback": {
+        "monthly": "nob {{amount}} {{frequency}}",
+        "oneoff": "nob {{amount}}"
+      },
+      "monthly": "jar jar",
+      "oneoff": "wa'",
+      "weekly": "jar",
+      "yearly": "DIS"
+    },
+    "iban": "IBAN",
+    "intro": "nob {{org}}",
+    "payment": "Qum",
+    "payment_methods": {
+      "card": "ghItlh",
+      "default": "nob",
+      "intro": "qat yIchoH?",
+      "paypal": "PayPal",
+      "sepa": "SEPA",
+      "title": "Qum mIʼ"
+    },
+    "thanks": "qatlhoʼ nob!",
+    "to": "nob {{organisation}}"
+  },
+  "email": {
+    "invalid_domain": "{{domain}} Qo' Qumbe'",
+    "salutation": "Quch {{target.last_name}}",
+    "salutation_female": "Quch Ms {{target.last_name}}",
+    "salutation_info": "(pong yIghItlh)",
+    "salutation_male": "Quch Mr {{target.last_name}}",
+    "salutation_placeholder": "Quch [recipient]"
+  },
+  "error": {
+    "date": "format DD.MM.YYYY"
+  },
+  "image": {
+    "addSticker": "Sticker yIchoH",
+    "addStickerTitle": "Sticker yIchoH Daq",
+    "benefit": "De' wIghItlh, boq vItaH",
+    "options": "vIchoH Qapla'",
+    "publish": "Qapla', publish!",
+    "select": "wIchoH",
+    "takeTitle": "Qum phone",
+    "upload": "Qum image",
+    "wanttoadd": "image yIchoH?"
+  },
+  "progress": {
+  "donate": "{{total}} nob. yIchoH {{goal}}",
+  "email": "{{total}} Qum mIʼ yIghItlh. yIchoH {{goal}}",
+  "register": "{{total}} pong yIghItlh. yIchoH {{goal}}",
+  "share": "{{total}} boq. yIchoH {{goal}}",
+  "sign": "{{total}} maq. yIchoH {{goal}}",
+  "pledge": "{{total}} vIghItlh. yIchoH {{goal}}"
+  },
+  "share": {
+  "intro": "majQaʼ, maq 🔥. yIqel ‘ej boq tuʼluʼbeʼ, Hoch yIlegh tlhIH ⚔️🛡️.",
+  "message": "maq Qo’!",
+  "title": "tInwI’! yIqel qet."
+},
+
+
+  "no": "ghobeʼ",
+  "yes": "HIjaʼ",
+  "select_all": "Hoch vIchoH"
+}

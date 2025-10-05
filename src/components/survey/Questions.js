@@ -104,12 +104,19 @@ const Questions = ({ json, form, findQuestionById }) => {
 };
 
 const DependentQuestions = ({ ids, findQuestionById, form }) => {
+  if (!Array.isArray(ids) || ids.length === 0) return null;
+
   return (
     <Box mt={-2} ml={1}>
       {ids.map((depId) => {
         const dep = findQuestionById(depId);
         return dep ? (
-            <Questions key={dep.id} json={dep} form={form} />
+          <Questions
+            key={dep.id}
+            json={dep}
+            form={form}
+            findQuestionById={findQuestionById}
+          />
         ) : null;
       })}
     </Box>
@@ -234,7 +241,8 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 
 const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const { t } = useTranslation();
-  const findQuestionById = (id) => questions?.find((q) => q.id === id);
+  const findQuestionById = (id) =>
+    questions?.find((q) => String(q.id) === String(id));
 
   // check if all required questions are filled and enable the Next button
   // required are defined in the question json
