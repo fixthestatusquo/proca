@@ -249,31 +249,41 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const [allFilled, setAllFilled] = React.useState(false);
 
   useEffect(() => {
-    if (!questions) {
-      setAllFilled(false);
-      return;
-    }
+  if (!questions || !questionIds) {
+    setAllFilled(false);
+    return;
+  }
 
-    const requiredFields = questions
-      .filter(q => q.required)
-      .map(q => q.attributeName);
+  // Only include the questions with IDs from questionIds
+  const visibleQuestions = questions.filter(q =>
+    questionIds.includes(q.id)
+  );
 
-    if (requiredFields.length === 0) {
-      setAllFilled(true);
-      return;
-    }
+  const requiredFields = visibleQuestions
+    .filter(q => q.required)
+    .map(q => q.attributeName);
 
-    const subscription = form.watch((values) => {
-      const notFilled = requiredFields.filter(attr => {
-        const val = values[attr];
-        return val === undefined || val === "" || (Array.isArray(val) && val.length === 0);
-      });
+  if (requiredFields.length === 0) {
+    setAllFilled(true);
+    return;
+  }
 
-      setAllFilled(notFilled.length === 0);
+  const subscription = form.watch(values => {
+    const notFilled = requiredFields.filter(attr => {
+      const val = values[attr];
+      return (
+        val === undefined ||
+        val === "" ||
+        (Array.isArray(val) && val.length === 0)
+      );
     });
 
-    return () => subscription.unsubscribe();
-  }, [form, questions]);
+    console.log("Not filled required fields:", notFilled);
+    setAllFilled(notFilled.length === 0);
+  });
+
+  return () => subscription.unsubscribe();
+}, [form, questions, questionIds]);
 
 
   if (!questions) return null;
