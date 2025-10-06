@@ -2,12 +2,39 @@ import React, { useState, useEffect } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { InputAdornment } from "@material-ui/core";
-import Salutation from "@components/field/Gender";
 import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
+
+const languages = {
+  bg: "Bulgarian",
+  cs: "Czech",
+  da: "Danish",
+  de: "German",
+  el: "Greek",
+  en: "English",
+  es: "Spanish",
+  et: "Estonian",
+  fi: "Finnish",
+  fr: "French",
+  ga: "Irish",
+  hr: "Croatian",
+  hu: "Hungarian",
+  it: "Italian",
+  lt: "Lithuanian",
+  lv: "Latvian",
+  mt: "Maltese",
+  nl: "Dutch",
+  pl: "Polish",
+  pt: "Portuguese",
+  ro: "Romanian",
+  sk: "Slovak",
+  sl: "Slovenian",
+  sv: "Swedish",
+  qk: "Klingon"
+};
+
 
 const Comment = ({ form, classField, enforceRequired, name, label, maxLength }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -39,7 +66,7 @@ useEffect(() => {
 */
     setState('loading');
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, lang: config.lang, country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
+    const data = {firstname:formData.firstname, lang: languages[config.lang], country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
     if (formData[name].length < 100) {
       data[name] = formData[name];
     } else {
