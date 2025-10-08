@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main,
   },
   h3: {
-    color: "inherit"
+    color: theme.palette.primary.contrastText
   },
   ribbon: {
     backgroundColor: theme.palette.primary.main,
