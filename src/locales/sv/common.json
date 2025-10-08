@@ -170,7 +170,7 @@
   },
   "no": "ingen",
   "party": "Parti",
-  "party_helper": "Klicka på ett partichip för att välja alla dess medlemmar.",
+  "party_helper": "Klicka på ett parti för att välja alla dess medlemmar.",
   "phone": {
     "INVALID_COUNTRY": "landskod saknas eller är ogiltig",
     "INVALID_LENGTH": "Ogiltig längd",
