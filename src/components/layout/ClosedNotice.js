@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     backgroundColor: theme.palette.primary.main,
   },
+  h3: {
+    color: "inherit"
+  },
   ribbon: {
     backgroundColor: theme.palette.primary.main,
     color: "white",
@@ -111,7 +114,7 @@ const Closed = () => {
   return ReactDOM.createPortal(
     <div className={root}>
       <Box className={box} boxShadow={3}>
-        <h3>{formatNumber(count)}</h3>
+        <h3 className={classes.h3}>{formatNumber(count)}</h3>
         <span className={classes.span}>
           Thank you - Благодаря ти - Hvala vam - Děkujib – Tack – Bedankt –
           Aitäh – Kiitos – Merci – Danke – ευχαριστώ – Kösz – Grazie – Paldies -

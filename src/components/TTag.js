@@ -1,6 +1,7 @@
 import React from "react";
-import { Trans, useTranslation } from "react-i18next";
+import { Trans,  useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const snarkdown = md => {
   const htmls = md
@@ -13,10 +14,26 @@ export const snarkdown = md => {
   return htmls.join("\n\n");
 };
 
-export const Markdown = props => {
+// markdown overrides the title color, this is how we fix it
+const useStyles = makeStyles((theme) => ({
+  markdown: {
+    color: theme.palette.primary.contrastText,
+    "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
+      color: "inherit !important",
+    },
+  },
+}));
+
+export const Markdown = (props) => {
   const { t } = useTranslation();
-  const tbr = key => snarkdown(t(key, props));
-  return <Trans t={tbr} i18nKey={props.text} />;
+  const tbr = (key) => snarkdown(t(key, props));
+  const classes = useStyles();
+
+  return (
+    <div className={classes.markdown}>
+      <Trans t={tbr} i18nKey={props.text} />
+    </div>
+  );
 };
 
 const TTag = props => {
@@ -36,10 +53,8 @@ const TTag = props => {
 // Extract React components from props
   const components = {};
   const values = {};
-  
   Object.keys(props).forEach(key => {
     if (key === 'message') return;
-    
     if (React.isValidElement(props[key])) {
       components[key] = props[key];
     } else {
