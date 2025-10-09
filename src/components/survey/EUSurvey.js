@@ -35,7 +35,7 @@ const Consultation = (props) => {
     defaultValues: Object.assign({}, data, {
       language: config.locale,
       ...(config.component.consultation.default || {})
-      // format of default values:
+      // format of default values (arrays for multiselect, single value for single select, text for textfield):
       // "153167796": "153167801",
       // "153168305": [153168308, 153168309],
       // "153168311": [153168314, 153168315, 153168316],
