@@ -6,6 +6,7 @@ import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import { useTheme } from "@material-ui/core/styles";
 
 const languages = {
   bg: "Bulgarian",
@@ -37,8 +38,12 @@ const languages = {
 
 
 const Comment = ({ form, classField, required, name, label, maxLength, help }) => {
- //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+  if (required) {
+    console.log("props", { form, classField, required, name, label, maxLength, help });
+  }
+   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
+  const theme = useTheme();
   const fetchPrompted = false;
   const [state, setState] = useState('untouched'); //untouched->loading->loaded
   const isLoading = state === 'loading';
@@ -162,12 +167,18 @@ useEffect(() => {
     return counter && state === 'loaded' && `. ${t('ai_check', 'An AI wrote this message, we encourage you to read and customise it to maximise its impact')}`;
   }
 
+  const fieldError = form.formState.errors[name];
+
   return (
     <>
       <Grid item xs={12} className={classField}>
-      {!labelInside && <FormLabel component="legend" required={required}>{label}</FormLabel>}
+        {!labelInside &&
+          <FormLabel component="legend"
+            required={required}
+            style={{ color: fieldError ? theme.palette.error.main : undefined }}
+          >{label}</FormLabel>}
 
-       <TextField
+        <TextField
           form={form}
           name={name}
           multiline
@@ -176,8 +187,11 @@ useEffect(() => {
           maxRows="10"
           onKeyDown={() => setState('modified')}
           maxLength={maxLength}
-          error={text?.length > maxLength}
-          helperText={help || helperText()}
+          error={!!fieldError || (text?.length > maxLength)}
+          helperText={
+            fieldError?.message ||
+            (text?.length > maxLength ? `${text.length}/${maxLength}` : help || helperText())
+          }
         />
       </Grid>
       <Grid item xs={12} className={classField}>
@@ -191,7 +205,7 @@ useEffect(() => {
           {isLoading ? t("ai_work", "AI at work") : t("help_write", "Help me write it")}
         </Button>}
         {state === 'loaded' &&<Button
-variant="outlined"
+          variant="outlined"
           onClick={fetchData}
           startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
         >
