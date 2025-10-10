@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -246,16 +246,28 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const findQuestionById = (id) =>
     questions?.find((q) => String(q.id) === String(id));
 
- // const [showRequiredNotice, setShowRequiredNotice] = useState(false);
+  const smoothScroll = (fieldName) => {
+      const input = document.querySelector(`[name="${fieldName}"]`);
+      if (!input) return;
+
+      const rect = input.getBoundingClientRect();
+      const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
+
+      window.scrollTo({
+        top: absoluteY,
+        behavior: "smooth",
+      });
+
+      setTimeout(() => input.focus?.(), 300);
+  };
 
   const handleContinue = async () => {
     const valid = await form.trigger();
     if (!valid) {
-     // setShowRequiredNotice(true);
+      firstErrorKey = Object.keys(form.formState.errors)[0];
+      smoothScroll(firstErrorKey);
       return;
-    }
-
-    // setShowRequiredNotice(false);
+    };
    handleNext?.() ?? true;
   };
 
@@ -263,7 +275,6 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   return (
     <>
       {questionIds.map((q) => {
-        // Assuming each question has a `json` field with the data
         const json = questions.find((item) => item.id === q);
         return (
           <Questions
@@ -274,9 +285,6 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
           />
         );
       })}
-      {/* {showRequiredNotice && (
-        <p>fill in all required</p>
-      )} */}
       {handleNext && (
         <Box display="flex" justifyContent="flex-end">
           <Button
