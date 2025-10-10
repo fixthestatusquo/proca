@@ -32,7 +32,7 @@ const Questions = ({ json, form, findQuestionById }) => {
 
   switch (json.type) {
     case "FreeTextQuestion":
-      return <TextQuestion form={form} json={json}  />;
+      return <TextQuestion form={form} json={json} />;
     case "SnowflakeAssistedQuestion":
       return <SnowflakeTextField form={form}
 
@@ -44,7 +44,7 @@ const Questions = ({ json, form, findQuestionById }) => {
         helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
         required={json.required || false}
 
- />;
+      />;
     case "AIAssistedQuestion":
       return <AITextQuestion form={form} json={json} />;
 
@@ -134,20 +134,22 @@ const getDependantIds = (options, selected) => {
 
 
 const AITextQuestion = ({ json, form }) => {
-  const classes = useStyles({margin: +json.margin});
+  const classes = useStyles({ margin: +json.margin });
+  const { id, title, help, maxCharacters, required, attributeName } = json;
+
   return (
     <Box className={classes.elementMarginTop}>
       <AITextField
         form={form}
-        label={json.title}
-        name={json.attributeName}
-        maxLength={json.maxCharacters}
-        required={json.required || false}
+        label={title}
+        name={attributeName || String(id)}
+        maxLength={maxCharacters}
+        required={required || false}
+        help={help}
       />
     </Box>
   );
 };
-
 
 const TextQuestion = ({ json, form }) => {
   const classes = useStyles({margin: +json.margin});

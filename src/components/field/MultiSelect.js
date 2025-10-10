@@ -42,7 +42,6 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
   const { t } = useTranslation();
   const selectedValues = (form.watch(name) || []).map(String);
   if (!maxChoices) maxChoices = options.length;
-  console.log("Max choices:", maxChoices);
 
   return (
     <FormControl component="fieldset">

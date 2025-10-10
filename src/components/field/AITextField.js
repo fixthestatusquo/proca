@@ -36,8 +36,8 @@ const languages = {
 };
 
 
-const Comment = ({ form, classField, enforceRequired, name, label, maxLength }) => {
-  //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+const Comment = ({ form, classField, required, name, label, maxLength, help }) => {
+ //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const fetchPrompted = false;
   const [state, setState] = useState('untouched'); //untouched->loading->loaded
@@ -165,17 +165,19 @@ useEffect(() => {
   return (
     <>
       <Grid item xs={12} className={classField}>
-      {!labelInside && <FormLabel component="legend">{label}</FormLabel>}
+      {!labelInside && <FormLabel component="legend" required={required}>{label}</FormLabel>}
 
-        <TextField
+       <TextField
           form={form}
           name={name}
           multiline
-          label={labelInside && label}
+          required={required}
+          label={labelInside ? label : ""}
           maxRows="10"
-          onKeyDown={() => setState ('modified')}
+          onKeyDown={() => setState('modified')}
+          maxLength={maxLength}
           error={text?.length > maxLength}
-         helperText={helperText()}
+          helperText={help || helperText()}
         />
       </Grid>
       <Grid item xs={12} className={classField}>
