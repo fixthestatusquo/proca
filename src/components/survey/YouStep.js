@@ -2,12 +2,8 @@ import React from "react";
 import useData from "@hooks/useData";
 import { useStyles } from "@components/Register";
 import { useCompactLayout } from "@hooks/useElementWidth";
-import {
-  useCampaignConfig,
-} from "@hooks/useConfig";
-import {
-  Grid,
-} from "@material-ui/core";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { Grid } from "@material-ui/core";
 import NameField from "@components/field/Name";
 import Address from "@components/field/Address";
 

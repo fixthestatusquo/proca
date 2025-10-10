@@ -8,7 +8,7 @@ import {
   FormControlLabel,
   FormHelperText,
   Checkbox,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -26,18 +26,25 @@ const useStyles = makeStyles(theme => ({
     },
   },
   checkboxRoot: {
-    padding: theme.spacing(0.5,0.5,0.5,2.5),
+    padding: theme.spacing(0.5, 0.5, 0.5, 2.5),
     "& input": {
-      height: 'auto!important',
+      height: "auto!important",
     },
   },
   helperText: {
-  marginTop: theme.spacing(0.5),
-  paddingLeft: theme.spacing(1.5),
-}
+    marginTop: theme.spacing(0.5),
+    paddingLeft: theme.spacing(1.5),
+  },
 }));
 
-const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, children }) => {
+const MultiSelectCheckbox = ({
+  form,
+  name,
+  label,
+  options,
+  maxChoices = null,
+  children,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const selectedValues = (form.watch(name) || []).map(String);
@@ -46,7 +53,7 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
-     <Controller
+      <Controller
         name={name}
         control={form.control}
         defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
@@ -88,7 +95,7 @@ const MultiSelectCheckbox = ({ form, name, label, options, maxChoices = null, ch
         <FormHelperText className={classes.helperText}>
           {t("select_options", {
             opt: maxChoices,
-            defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`
+            defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`,
           })}
         </FormHelperText>
       )}

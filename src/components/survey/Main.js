@@ -1,9 +1,6 @@
 import React from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
-import {
-  Grid,
-  LinearProgress
-} from "@material-ui/core";
+import { Grid, LinearProgress } from "@material-ui/core";
 import useQuestions from "@components/survey/useQuestions";
 import Questions from "@components/survey/Questions";
 
@@ -14,14 +11,14 @@ const Main = props => {
   if (loading) return <LinearProgress />;
 
   return (
-     <Grid item xs={12}>
+    <Grid item xs={12}>
       <Questions
         form={props.form}
         handleNext={handleNext}
         ids={questions.map(q => q.id)}
         questions={questions}
-        />
-      </Grid>
+      />
+    </Grid>
   );
 };
 

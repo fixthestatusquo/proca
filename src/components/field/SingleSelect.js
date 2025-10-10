@@ -13,10 +13,10 @@ import { Controller } from "react-hook-form";
 const useStyles = makeStyles(theme => ({
   radioGroup: {
     marginTop: theme.spacing(-0.5),
-    '& input': {
-    height: 'auto !important',
-    paddingTop: theme.spacing(0.5) + " !important",
-   }
+    "& input": {
+      height: "auto !important",
+      paddingTop: theme.spacing(0.5) + " !important",
+    },
   },
   radioLabel: {
     marginBottom: theme.spacing(-1),
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   radioRoot: {
-    padding: theme.spacing(0.5,0.5,0.5,2.5),
+    padding: theme.spacing(0.5, 0.5, 0.5, 2.5),
   },
 }));
 
@@ -81,12 +81,11 @@ const SingleSelect = ({
       margin="normal"
       error={hasError}
     >
-      {label && <FormLabel
-        component="legend"
-        {...labelProps}
-        required={required}
-      >
-        {label}</FormLabel>}
+      {label && (
+        <FormLabel component="legend" {...labelProps} required={required}>
+          {label}
+        </FormLabel>
+      )}
 
       <Controller
         control={control}
@@ -113,7 +112,13 @@ const SingleSelect = ({
                   key={i}
                   value={value}
                   className={classes.radioLabel}
-                  control={<Radio className={classes.radioRoot} {...radioProps} disabled={isDisabled} />}
+                  control={
+                    <Radio
+                      className={classes.radioRoot}
+                      {...radioProps}
+                      disabled={isDisabled}
+                    />
+                  }
                   label={label}
                 />
               );
@@ -127,7 +132,7 @@ const SingleSelect = ({
           {hasError ? errors[name]?.message : helperText}
         </FormHelperText>
       )}
-{children}
+      {children}
     </FormControl>
   );
 };

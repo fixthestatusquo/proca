@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
-import {
-  useCampaignConfig,
-  useSetActionType,
-} from "@hooks/useConfig";
+import { useCampaignConfig, useSetActionType } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";
 import { Stepper, Step, StepButton } from "@material-ui/core";
 
@@ -13,8 +10,7 @@ import Country from "@components/field/Country";
 import useConsultJson from "@components/survey/useQuestions";
 import { useTranslation } from "react-i18next";
 
-const Consultation = (props) => {
-
+const Consultation = props => {
   const { t } = useTranslation();
   const steps = [t("survey", "Survey"), t("submit", "Submit")];
   const [activeStep, setActiveStep] = useState(0);
@@ -28,13 +24,13 @@ const Consultation = (props) => {
     config.lang
   );
 
-  const handleStepClick = (step) => setActiveStep(step);
-  const handleNext = () => setActiveStep((prev) => prev + 1);
+  const handleStepClick = step => setActiveStep(step);
+  const handleNext = () => setActiveStep(prev => prev + 1);
 
   const form = useForm({
     defaultValues: Object.assign({}, data, {
       language: config.locale,
-      ...(config.component.consultation.default || {})
+      ...(config.component.consultation.default || {}),
       // format of default values (arrays for multiselect, single value for single select, text for textfield):
       // "153167796": "153167801",
       // "153168305": [153168308, 153168309],
@@ -42,7 +38,7 @@ const Consultation = (props) => {
     }),
   });
 
-  const prepareData = (data) => {
+  const prepareData = data => {
     console.log("prepareData", data);
     return data;
   };
@@ -72,16 +68,14 @@ const Consultation = (props) => {
       {/* Only the citizen survey step */}
       {activeStep === 0 && (
         <>
-        <Country
-        form={form}
-        />
-        <SurveyStep
-          form={form}
-          handleNext={handleNext}
-          questions={questions}
-          ids={qids["citizen"]?.questions}
+          <Country form={form} />
+          <SurveyStep
+            form={form}
+            handleNext={handleNext}
+            questions={questions}
+            ids={qids["citizen"]?.questions}
           />
-          </>
+        </>
       )}
 
       {/* Register step */}

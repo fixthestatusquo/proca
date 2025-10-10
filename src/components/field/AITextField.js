@@ -33,57 +33,80 @@ const languages = {
   sk: "Slovak",
   sl: "Slovenian",
   sv: "Swedish",
-  qk: "Klingon"
+  qk: "Klingon",
 };
 
-
-const Comment = ({ form, classField, required, name, label, maxLength, help }) => {
+const Comment = ({
+  form,
+  classField,
+  required,
+  name,
+  label,
+  maxLength,
+  help,
+}) => {
   if (required) {
-    console.log("props", { form, classField, required, name, label, maxLength, help });
+    console.log("props", {
+      form,
+      classField,
+      required,
+      name,
+      label,
+      maxLength,
+      help,
+    });
   }
-   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
+  //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const theme = useTheme();
   const fetchPrompted = false;
-  const [state, setState] = useState('untouched'); //untouched->loading->loaded
-  const isLoading = state === 'loading';
+  const [state, setState] = useState("untouched"); //untouched->loading->loaded
+  const isLoading = state === "loading";
   const { t } = useTranslation();
 
-  if (!name) name="comment";
-  if (!label) label=t(name);
+  if (!name) name = "comment";
+  if (!label) label = t(name);
 
-
-useEffect(() => {
-  return () => {
-    console.log("unload");
-    // Cancel any ongoing fetch if component unmounts
-    // You might need an AbortController for this
-  };
-}, []);
+  useEffect(() => {
+    return () => {
+      console.log("unload");
+      // Cancel any ongoing fetch if component unmounts
+      // You might need an AbortController for this
+    };
+  }, []);
 
   const fetchData = async () => {
-/*  isValid = form.getValues("firstname");
+    /*  isValid = form.getValues("firstname");
   if (!isValid) {
     const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error
 //    console.log("Field is invalid");
     return;
   }
 */
-    setState('loading');
+    setState("loading");
     const formData = form.getValues();
-    const data = {firstname:formData.firstname, lang: languages[config.lang], country: formData.country, locality: formData.locality, question: fetchPrompted? label : name, id: name, stream: true};
+    const data = {
+      firstname: formData.firstname,
+      lang: languages[config.lang],
+      country: formData.country,
+      locality: formData.locality,
+      question: fetchPrompted ? label : name,
+      id: name,
+      stream: true,
+    };
     if (formData[name].length < 100) {
       data[name] = formData[name];
     } else {
-      data[name] = '';
+      data[name] = "";
     }
     console.log("writing...");
     try {
       const response = await fetch(
         //"https://snowflaike.proca.app/" + config.campaign.name,
-//"http://localhost:8787"
-        "https://snowflaike.proca.app"
-+ (fetchPrompted ? '/' : "/~/") + config.campaign.name,
+        //"http://localhost:8787"
+        "https://snowflaike.proca.app" +
+          (fetchPrompted ? "/" : "/~/") +
+          config.campaign.name,
         {
           method: "POST",
           headers: {
@@ -99,18 +122,19 @@ useEffect(() => {
         throw new Error("No response body");
       }
 
-      if (response.headers.get('Content-Type') === 'application/json') { // not a stream
+      if (response.headers.get("Content-Type") === "application/json") {
+        // not a stream
         const data = await response.json();
-         const d = data.response;
-            form.setValue(name, d);
-            if (d.length > maxLength) {
-              console.log(d.length +'/'+maxLength);
-              form.setError(name,{
-                type: 'length',
-                message: d.length +'/'+maxLength,
-              });
-            }
-        setState('loaded');
+        const d = data.response;
+        form.setValue(name, d);
+        if (d.length > maxLength) {
+          console.log(d.length + "/" + maxLength);
+          form.setError(name, {
+            type: "length",
+            message: d.length + "/" + maxLength,
+          });
+        }
+        setState("loaded");
         return;
       }
 
@@ -139,10 +163,10 @@ useEffect(() => {
             aggregatedResponse += data.response || "";
             form.setValue(name, aggregatedResponse);
             if (aggregatedResponse.length > maxLength) {
-              console.log(aggregatedResponse.length +'/'+maxLength);
-              form.setError(name,{
-                type: 'length',
-                message: aggregatedResponse.length +'/'+maxLength,
+              console.log(aggregatedResponse.length + "/" + maxLength);
+              form.setError(name, {
+                type: "length",
+                message: aggregatedResponse.length + "/" + maxLength,
               });
             }
           } catch (e) {
@@ -151,32 +175,40 @@ useEffect(() => {
         }
       }
 
-      setState('loaded');
+      setState("loaded");
     } catch (error) {
       console.error("Fetch error:", error);
       form.setValue(name, "Failed to load the message");
-      setState('error');
+      setState("error");
     }
   };
 
-  const text = form.watch(name) || '';
+  const text = form.watch(name) || "";
   const labelInside = label.length <= 30;
 
   const helperText = () => {
-    const counter = text.length +'/'+maxLength ;
-    return counter && state === 'loaded' && `. ${t('ai_check', 'An AI wrote this message, we encourage you to read and customise it to maximise its impact')}`;
-  }
+    const counter = text.length + "/" + maxLength;
+    return (
+      counter &&
+      state === "loaded" &&
+      `. ${t("ai_check", "An AI wrote this message, we encourage you to read and customise it to maximise its impact")}`
+    );
+  };
 
   const fieldError = form.formState.errors[name];
 
   return (
     <>
       <Grid item xs={12} className={classField}>
-        {!labelInside &&
-          <FormLabel component="legend"
+        {!labelInside && (
+          <FormLabel
+            component="legend"
             required={required}
             style={{ color: fieldError ? theme.palette.error.main : undefined }}
-          >{label}</FormLabel>}
+          >
+            {label}
+          </FormLabel>
+        )}
 
         <TextField
           form={form}
@@ -185,32 +217,52 @@ useEffect(() => {
           required={required}
           label={labelInside ? label : ""}
           maxRows="10"
-          onKeyDown={() => setState('modified')}
+          onKeyDown={() => setState("modified")}
           maxLength={maxLength}
-          error={!!fieldError || (text?.length > maxLength)}
+          error={!!fieldError || text?.length > maxLength}
           helperText={
             fieldError?.message ||
-            (text?.length > maxLength ? `${text.length}/${maxLength}` : help || helperText())
+            (text?.length > maxLength
+              ? `${text.length}/${maxLength}`
+              : help || helperText())
           }
         />
       </Grid>
       <Grid item xs={12} className={classField}>
-        {state !== 'loaded' &&<Button
-          variant="contained"
-          color="secondary"
-          onClick={fetchData}
-          disabled={isLoading}
-          startIcon={isLoading ? <CircularProgress size={20} /> : <SvgIcon size={20}><AIIcon /></SvgIcon> }
-        >
-          {isLoading ? t("ai_work", "AI at work") : t("help_write", "Help me write it")}
-        </Button>}
-        {state === 'loaded' &&<Button
-          variant="outlined"
-          onClick={fetchData}
-          startIcon={<SvgIcon size={20}><AIIcon /></SvgIcon> }
-        >
-          {t("give_another", "Generate another")}
-        </Button>}
+        {state !== "loaded" && (
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={fetchData}
+            disabled={isLoading}
+            startIcon={
+              isLoading ? (
+                <CircularProgress size={20} />
+              ) : (
+                <SvgIcon size={20}>
+                  <AIIcon />
+                </SvgIcon>
+              )
+            }
+          >
+            {isLoading
+              ? t("ai_work", "AI at work")
+              : t("help_write", "Help me write it")}
+          </Button>
+        )}
+        {state === "loaded" && (
+          <Button
+            variant="outlined"
+            onClick={fetchData}
+            startIcon={
+              <SvgIcon size={20}>
+                <AIIcon />
+              </SvgIcon>
+            }
+          >
+            {t("give_another", "Generate another")}
+          </Button>
+        )}
       </Grid>
     </>
   );
