@@ -189,9 +189,9 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
         name={json.attributeName}
         options={options}
         label={json.title}
-      row={row}
-      required={json.required || false}
-      >
+        row={row}
+        required={json.required || false}
+        >
 
       {dependentIds.length > 0 && (
         <DependentQuestions
@@ -244,47 +244,18 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const findQuestionById = (id) =>
     questions?.find((q) => String(q.id) === String(id));
 
-  // check if all required questions are filled and enable the Next button
-  // required are defined in the question json
-  const [allFilled, setAllFilled] = React.useState(false);
+ // const [showRequiredNotice, setShowRequiredNotice] = useState(false);
 
-  useEffect(() => {
-  if (!questions || !questionIds) {
-    setAllFilled(false);
-    return;
-  }
+  const handleContinue = async () => {
+    const valid = await form.trigger();
+    if (!valid) {
+     // setShowRequiredNotice(true);
+      return;
+    }
 
-  // Only include the questions with IDs from questionIds
-  const visibleQuestions = questions.filter(q =>
-    questionIds.includes(q.id)
-  );
-
-  const requiredFields = visibleQuestions
-    .filter(q => q.required)
-    .map(q => q.attributeName);
-
-  if (requiredFields.length === 0) {
-    setAllFilled(true);
-    return;
-  }
-
-  const subscription = form.watch(values => {
-    const notFilled = requiredFields.filter(attr => {
-      const val = values[attr];
-      return (
-        val === undefined ||
-        val === "" ||
-        (Array.isArray(val) && val.length === 0)
-      );
-    });
-
-    console.log("Not filled required fields:", notFilled);
-    setAllFilled(notFilled.length === 0);
-  });
-
-  return () => subscription.unsubscribe();
-}, [form, questions, questionIds]);
-
+    // setShowRequiredNotice(false);
+   handleNext?.() ?? true;
+  };
 
   if (!questions) return null;
   return (
@@ -301,15 +272,15 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
           />
         );
       })}
-
+      {/* {showRequiredNotice && (
+        <p>fill in all required</p>
+      )} */}
       {handleNext && (
         <Box display="flex" justifyContent="flex-end">
           <Button
             variant="contained"
             color="primary"
-            onClick={handleNext}
-            // disabled={!form.formState.isValid} wasn't working properly
-            disabled={!allFilled}
+            onClick={handleContinue}
           >
            {t("Next", "Next")}
           </Button>

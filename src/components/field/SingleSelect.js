@@ -13,7 +13,7 @@ import { Controller } from "react-hook-form";
 const useStyles = makeStyles(theme => ({
   radioGroup: {
     marginTop: theme.spacing(-0.5),
-    '& input': { 
+    '& input': {
     height: 'auto !important',
     paddingTop: theme.spacing(0.5) + " !important",
    }
@@ -56,7 +56,8 @@ const SingleSelect = ({
   label,
   options = [],
   children,
-  row=undefined,
+  row = undefined,
+  required = false,
   helperText = "",
   getOptionLabel = opt => opt.label ?? opt.text ?? opt,
   getOptionValue = opt => opt.value ?? opt.id ?? opt,
@@ -80,12 +81,18 @@ const SingleSelect = ({
       margin="normal"
       error={hasError}
     >
-      {label && <FormLabel component="legend" {...labelProps}>{label}</FormLabel>}
+      {label && <FormLabel
+        component="legend"
+        {...labelProps}
+        required={required}
+      >
+        {label}</FormLabel>}
 
       <Controller
         control={control}
         name={name}
         defaultValue=""
+        rules={required ? { required: true } : {}}
         render={({ field }) => (
           <RadioGroup
             {...field}
@@ -96,22 +103,17 @@ const SingleSelect = ({
             {options.map((opt, i) => {
               const value = String(getOptionValue(opt));
               const label = getOptionLabel(opt);
-              const isDisabled = typeof controlLabelProps?.disabled === "function"
-                ? controlLabelProps.disabled(opt)
-                : controlLabelProps?.disabled;
+              const isDisabled =
+                typeof controlLabelProps?.disabled === "function"
+                  ? controlLabelProps.disabled(opt)
+                  : controlLabelProps?.disabled;
 
               return (
                 <FormControlLabel
                   key={i}
                   value={value}
                   className={classes.radioLabel}
-                  control={
-                    <Radio
-                      className={classes.radioRoot}
-                      {...radioProps}
-                      disabled={isDisabled}
-                    />
-                  }
+                  control={<Radio className={classes.radioRoot} {...radioProps} disabled={isDisabled} />}
                   label={label}
                 />
               );
