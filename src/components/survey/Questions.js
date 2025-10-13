@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -13,38 +13,38 @@ import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
 import { useTranslation } from "react-i18next";
 
-const useStyles = makeStyles((theme) => ({
-  elementMarginTop: (props) => ({
+const useStyles = makeStyles(theme => ({
+  elementMarginTop: props => ({
     marginTop: props.margin || theme.spacing(3),
     "& textarea": {
       minHeight: "auto!important",
     },
   }),
-  section: (props) => ({
+  section: props => ({
     marginTop: props.margin || theme.spacing(3),
     marginBottom: theme.spacing(-2),
   }),
 }));
 
-
 const Questions = ({ json, form, findQuestionById }) => {
-  const classes = useStyles({margin: +json.margin});
+  const classes = useStyles({ margin: +json.margin });
 
   switch (json.type) {
     case "FreeTextQuestion":
-      return <TextQuestion form={form} json={json}  />;
+      return <TextQuestion form={form} json={json} />;
     case "SnowflakeAssistedQuestion":
-      return <SnowflakeTextField form={form}
-
-        label={json.title}
-        name={json.attributeName}
-        inputProps={{
-          maxLength: json.maxCharacters,
-        }}
-        helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
-        required={json.required || false}
-
- />;
+      return (
+        <SnowflakeTextField
+          form={form}
+          label={json.title}
+          name={json.attributeName}
+          inputProps={{
+            maxLength: json.maxCharacters,
+          }}
+          helperText={`${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+          required={json.required || false}
+        />
+      );
     case "AIAssistedQuestion":
       return <AITextQuestion form={form} json={json} />;
 
@@ -86,7 +86,8 @@ const Questions = ({ json, form, findQuestionById }) => {
     case "Text":
       return (
         <Typography
-          key={json.id} id={json.id}
+          key={json.id}
+          id={json.id}
           variant="body1"
           className={classes.elementMarginTop}
         >
@@ -108,7 +109,7 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
 
   return (
     <Box mt={-2} ml={1}>
-      {ids.map((depId) => {
+      {ids.map(depId => {
         const dep = findQuestionById(depId);
         return dep ? (
           <Questions
@@ -125,32 +126,33 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
 
 const getDependantIds = (options, selected) => {
   return options
-    .filter((opt) => selected.includes(String(opt.id)))
-    .flatMap((opt) =>
-      (opt.dependentElementsString?.split(";") || []).filter(Boolean),
+    .filter(opt => selected.includes(String(opt.id)))
+    .flatMap(opt =>
+      (opt.dependentElementsString?.split(";") || []).filter(Boolean)
     )
     .map(Number);
 };
 
-
 const AITextQuestion = ({ json, form }) => {
-  const classes = useStyles({margin: +json.margin});
+  const classes = useStyles({ margin: +json.margin });
+  const { id, title, help, maxCharacters, required, attributeName } = json;
+
   return (
     <Box className={classes.elementMarginTop}>
       <AITextField
         form={form}
-        label={json.title}
-        name={json.attributeName}
-        maxLength={json.maxCharacters}
-        required={json.required || false}
+        label={title}
+        name={attributeName || String(id)}
+        maxLength={maxCharacters}
+        required={required || false}
+        help={help}
       />
     </Box>
   );
 };
 
-
 const TextQuestion = ({ json, form }) => {
-  const classes = useStyles({margin: +json.margin});
+  const classes = useStyles({ margin: +json.margin });
   const multiline = json.title.length > 30 && json.maxCharacters > 100;
   const labelInside = json.title.length <= 30;
   return (
@@ -166,7 +168,10 @@ const TextQuestion = ({ json, form }) => {
         inputProps={{
           maxLength: json.maxCharacters || 100,
         }}
-        helperText={!labelInside && `${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`}
+        helperText={
+          !labelInside &&
+          `${(form.watch(json.attributeName) || "").length}/${json.maxCharacters || 100} characters`
+        }
       />
     </Box>
   );
@@ -176,23 +181,22 @@ const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   const selected = form.watch(json.attributeName) || "";
   const dependentIds = getDependantIds(json.possibleAnswers, [selected]);
 
-  const options = json.possibleAnswers.map((opt) => ({
+  const options = json.possibleAnswers.map(opt => ({
     id: opt.id,
     text: opt.text,
   }));
 
-  const row = (Object.keys(options).length <=2 ? true : undefined); // two options, like yes/no
+  const row = Object.keys(options).length <= 2 ? true : undefined; // two options, like yes/no
   return (
-      <SingleSelect
-        id={json.id}
-        form={form}
-        name={json.attributeName}
-        options={options}
-        label={json.title}
+    <SingleSelect
+      id={json.id}
+      form={form}
+      name={json.attributeName}
+      options={options}
+      label={json.title}
       row={row}
       required={json.required || false}
-      >
-
+    >
       {dependentIds.length > 0 && (
         <DependentQuestions
           ids={dependentIds}
@@ -217,16 +221,15 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   }, {});
 
   return (
-      <MultiSelectCheckbox
-        id={json.id}
-        form={form}
-        name={json.attributeName}
-        label={json.title}
-        options={options}
+    <MultiSelectCheckbox
+      id={json.id}
+      form={form}
+      name={json.attributeName}
+      label={json.title}
+      options={options}
       maxChoices={maxChoices}
       required={json.required || false}
-      >
-
+    >
       {/* Render dependent questions if any are selected */}
       {dependentIds.length > 0 && (
         <DependentQuestions
@@ -235,53 +238,63 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
           form={form}
         />
       )}
-      </MultiSelectCheckbox>
+    </MultiSelectCheckbox>
   );
 };
 
-const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
+const Survey = ({
+  form,
+  handleNext = undefined,
+  ids: questionIds,
+  questions,
+  selection // { selection: [id, ...] or undefined
+}) => {
   const { t } = useTranslation();
-  const findQuestionById = (id) =>
-    questions?.find((q) => String(q.id) === String(id));
 
-  // check if all required questions are filled and enable the Next button
-  // required are defined in the question json
-  const [allFilled, setAllFilled] = React.useState(false);
+  const findQuestionById = id =>
+    questions?.find(q => String(q.id) === String(id));
 
-  useEffect(() => {
-    if (!questions) {
-      setAllFilled(false);
-      return;
-    }
+  const smoothScroll = fieldName => {
+    const input = document.querySelector(`[name="${fieldName}"]`);
+    if (!input) return;
 
-    const requiredFields = questions
-      .filter(q => q.required)
-      .map(q => q.attributeName);
+    const rect = input.getBoundingClientRect();
+    const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
 
-    if (requiredFields.length === 0) {
-      setAllFilled(true);
-      return;
-    }
-
-    const subscription = form.watch((values) => {
-      const notFilled = requiredFields.filter(attr => {
-        const val = values[attr];
-        return val === undefined || val === "" || (Array.isArray(val) && val.length === 0);
-      });
-
-      setAllFilled(notFilled.length === 0);
+    window.scrollTo({
+      top: absoluteY,
+      behavior: "smooth",
     });
 
-    return () => subscription.unsubscribe();
-  }, [form, questions]);
+    setTimeout(() => input.focus?.(), 300);
+  };
 
+  const handleContinue = async () => {
+    const valid = await form.trigger();
+    if (!valid) {
+      const firstErrorKey = Object.keys(form.formState.errors)[0];
+      smoothScroll(firstErrorKey);
+      return;
+    }
+    handleNext?.() ?? true;
+  };
 
   if (!questions) return null;
+
+  const NextButton = (
+    <Box display="flex" justifyContent="flex-end" mb={2}>
+      <Button variant="contained" color="primary" onClick={handleContinue}>
+        {t("Next", "Next")}
+      </Button>
+    </Box>
+  );
+
   return (
     <>
-      {questionIds.map((q) => {
-        // Assuming each question has a `json` field with the data
-        const json = questions.find((item) => item.id === q);
+      {handleNext && NextButton}
+
+      {questionIds.map(q => {
+        const json = questions.find(item => item.id === q);
         return (
           <Questions
             json={json}
@@ -292,19 +305,7 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
         );
       })}
 
-      {handleNext && (
-        <Box display="flex" justifyContent="flex-end">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleNext}
-            // disabled={!form.formState.isValid} wasn't working properly
-            disabled={!allFilled}
-          >
-           {t("Next", "Next")}
-          </Button>
-        </Box>)
-      }
+      {handleNext && NextButton}
     </>
   );
 };

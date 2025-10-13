@@ -10,7 +10,6 @@ export const AlertRenderer = () => {
   const currentAlert = alerts[0];
 
   const handleExited = () => {
-console.log("exit");
     if (currentAlert) {
 //      removeAlert(currentAlert.id);
     }
@@ -24,7 +23,7 @@ console.log("exit");
           onExited={handleExited}
         />
       )}
-      
+
     </>
   );
 };

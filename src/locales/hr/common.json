@@ -46,7 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
-  "ai_work": "Umjetna inteligencija na poslu",
+  "ai_work": "AI generira odgovor",
   "camera": {
     "start": "pokreni kameru",
     "take": "Snimi sliku",
@@ -155,8 +155,8 @@
   "error": {
     "date": "format mora biti DD.MM.YYYY"
   },
-  "give_another": "Generiraj jednu drugu",
-  "help_write": "Želim pomoć da napišem poruku",
+  "give_another": "Generiraj drugi odgovor",
+  "help_write": "Želim pomoć u pisanju odgovora",
   "image": {
     "addSticker": "dodaj naljepnice",
     "addStickerTitle": "Klikni/Dodirni za dodavanje naljepnice fotografiji",
