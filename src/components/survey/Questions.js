@@ -247,7 +247,7 @@ const Survey = ({
   handleNext = undefined,
   ids: questionIds,
   questions,
-  singleQuestion // { singleQuestion: id } or undefined
+  selection // { selection: [id, ...] or undefined
 }) => {
   const { t } = useTranslation();
 
@@ -281,21 +281,23 @@ const Survey = ({
 
   if (!questions) return null;
 
-  // Single-question mode
-  if (singleQuestion) {
-    const id = singleQuestion;
-    const question = questions.find(q => String(q.id) === String(id));
-    if (!question) return null;
+  // selection of questions to disoplay on register with custom component
+    if (selection?.length) {
+      const filtered = selection
+        .map(id => findQuestionById(id))
+        .filter(Boolean); // remove any IDs that didn't match
 
-    return (
-      <Questions
-        json={question}
-        form={form}
-        key={question.id || question.attributeName}
-        findQuestionById={findQuestionById}
-      />
-    );
-  }
+      if (!filtered.length) return null;
+
+      return filtered.map(question => (
+        <Questions
+          json={question}
+          form={form}
+          key={question.id || question.attributeName}
+          findQuestionById={findQuestionById}
+        />
+      ));
+    }
 
   const NextButton = (
     <Box display="flex" justifyContent="flex-end" mb={2}>

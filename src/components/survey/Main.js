@@ -17,7 +17,7 @@ const Main = props => {
         handleNext={props.handleNext ?? (() => {})}
         ids={questions.map(q => q.id)}
         questions={questions}
-        singleQuestion={config.component.consultation?.singleQuestion}
+        selection={config.component.consultation?.selection}
       />
     </Grid>
   );
