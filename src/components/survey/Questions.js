@@ -242,8 +242,15 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   );
 };
 
-const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
+const Survey = ({
+  form,
+  handleNext = undefined,
+  ids: questionIds,
+  questions,
+  singleQuestion // { singleQuestion: id } or undefined
+}) => {
   const { t } = useTranslation();
+
   const findQuestionById = id =>
     questions?.find(q => String(q.id) === String(id));
 
@@ -273,6 +280,22 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   };
 
   if (!questions) return null;
+
+  // Single-question mode
+  if (singleQuestion) {
+    const id = singleQuestion;
+    const question = questions.find(q => String(q.id) === String(id));
+    if (!question) return null;
+
+    return (
+      <Questions
+        json={question}
+        form={form}
+        key={question.id || question.attributeName}
+        findQuestionById={findQuestionById}
+      />
+    );
+  }
 
   const NextButton = (
     <Box display="flex" justifyContent="flex-end" mb={2}>

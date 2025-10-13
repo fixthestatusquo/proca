@@ -14,9 +14,10 @@ const Main = props => {
     <Grid item xs={12}>
       <Questions
         form={props.form}
-        handleNext={handleNext}
+        handleNext={props.handleNext ?? (() => {})}
         ids={questions.map(q => q.id)}
         questions={questions}
+        singleQuestion={config.component.consultation?.singleQuestion}
       />
     </Grid>
   );
