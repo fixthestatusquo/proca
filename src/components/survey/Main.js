@@ -15,9 +15,10 @@ const Main = props => {
       <Questions
         form={props.form}
         handleNext={props.handleNext ?? undefined}
-        ids={questions.map(q => q.id)}
+        // config.component.consultation?.selection
+        // selection of questions to disoplay on register with custom component
+        ids={config.component.consultation?.selection || questions.map(q => q.id)}
         questions={questions}
-        selection={config.component.consultation?.selection}
       />
     </Grid>
   );

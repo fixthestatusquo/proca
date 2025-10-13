@@ -281,24 +281,6 @@ const Survey = ({
 
   if (!questions) return null;
 
-  // selection of questions to disoplay on register with custom component
-    if (selection?.length) {
-      const filtered = selection
-        .map(id => findQuestionById(id))
-        .filter(Boolean); // remove any IDs that didn't match
-
-      if (!filtered.length) return null;
-
-      return filtered.map(question => (
-        <Questions
-          json={question}
-          form={form}
-          key={question.id || question.attributeName}
-          findQuestionById={findQuestionById}
-        />
-      ));
-    }
-
   const NextButton = (
     <Box display="flex" justifyContent="flex-end" mb={2}>
       <Button variant="contained" color="primary" onClick={handleContinue}>

@@ -45,17 +45,6 @@ const Comment = ({
   maxLength,
   help,
 }) => {
-  if (required) {
-    console.log("props", {
-      form,
-      classField,
-      required,
-      name,
-      label,
-      maxLength,
-      help,
-    });
-  }
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const theme = useTheme();
