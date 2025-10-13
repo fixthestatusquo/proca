@@ -68,7 +68,9 @@ const Consultation = props => {
       {/* Only the citizen survey step */}
       {activeStep === 0 && (
         <>
-          <Country form={form} />
+          {(config.component.consultation.country !== false) &&
+            <Country form={form} />
+          }
           <SurveyStep
             form={form}
             handleNext={handleNext}
