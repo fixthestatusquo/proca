@@ -14,7 +14,7 @@ const Main = props => {
     <Grid item xs={12}>
       <Questions
         form={props.form}
-        handleNext={props.handleNext ?? (() => {})}
+        handleNext={props.handleNext ?? undefined}
         ids={questions.map(q => q.id)}
         questions={questions}
         selection={config.component.consultation?.selection}
