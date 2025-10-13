@@ -265,7 +265,7 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   const handleContinue = async () => {
     const valid = await form.trigger();
     if (!valid) {
-      firstErrorKey = Object.keys(form.formState.errors)[0];
+      const firstErrorKey = Object.keys(form.formState.errors)[0];
       smoothScroll(firstErrorKey);
       return;
     }
@@ -273,8 +273,19 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
   };
 
   if (!questions) return null;
+
+  const NextButton = (
+    <Box display="flex" justifyContent="flex-end" mb={2}>
+      <Button variant="contained" color="primary" onClick={handleContinue}>
+        {t("Next", "Next")}
+      </Button>
+    </Box>
+  );
+
   return (
     <>
+      {handleNext && NextButton}
+
       {questionIds.map(q => {
         const json = questions.find(item => item.id === q);
         return (
@@ -286,13 +297,8 @@ const Survey = ({ form, handleNext, ids: questionIds, questions }) => {
           />
         );
       })}
-      {handleNext && (
-        <Box display="flex" justifyContent="flex-end">
-          <Button variant="contained" color="primary" onClick={handleContinue}>
-            {t("Next", "Next")}
-          </Button>
-        </Box>
-      )}
+
+      {handleNext && NextButton}
     </>
   );
 };
