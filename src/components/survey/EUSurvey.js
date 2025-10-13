@@ -39,10 +39,8 @@ const Consultation = props => {
   });
 
   const prepareData = data => {
-    console.log("prepareData", data);
     return data;
   };
-  const onClick = () => console.log("onClick");
 
   // @ivana, not used const isValid = Object.keys(form.formState.errors).length === 0;
 
@@ -87,7 +85,6 @@ const Consultation = props => {
           buttonText={t("action.consultation", "Send")}
           done={props.done}
           beforeSubmit={prepareData}
-          onClick={onClick}
         />
       )}
     </>

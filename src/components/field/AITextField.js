@@ -67,13 +67,13 @@ const Comment = ({
   if (!name) name = "comment";
   if (!label) label = t(name);
 
-  useEffect(() => {
-    return () => {
-      console.log("unload");
-      // Cancel any ongoing fetch if component unmounts
-      // You might need an AbortController for this
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("unload");
+  //     // Cancel any ongoing fetch if component unmounts
+  //     // You might need an AbortController for this
+  //   };
+  // }, []);
 
   const fetchData = async () => {
     /*  isValid = form.getValues("firstname");

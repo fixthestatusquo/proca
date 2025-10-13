@@ -3,12 +3,12 @@ import { create } from 'zustand';
 const alertStore = create((set) => ({
   alerts: [],
   addAlert: (alert) => {
-    const newAlert = { 
-      ...alert, 
+    const newAlert = {
+      ...alert,
       id: Date.now(),
       timestamp: new Date().toISOString()
     };
-console.log('add alert');
+
     set((state) => ({ alerts: [...state.alerts, newAlert] }));
   },
   removeAlert: (id) => {
@@ -22,7 +22,7 @@ export function addAlert(alert) {
     componentOrigin: 'external', // Mark as coming from outside React
     autoHideDuration: alert.autoHideDuration ?? 6000
   });
-  
+
   return alertStore.getState().alerts.slice(-1)[0]?.id;
 }
 
@@ -41,7 +41,7 @@ export const useAddAlert = () => {
 
 export const useAlert = () => {
   const { addAlert, removeAlert } = useAlertStore();
-  
+
   return {
     showAlert: addAlert,
     dismissAlert: removeAlert,
