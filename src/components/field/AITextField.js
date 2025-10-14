@@ -8,33 +8,6 @@ import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
 
-const languages = {
-  bg: "Bulgarian",
-  cs: "Czech",
-  da: "Danish",
-  de: "German",
-  el: "Greek",
-  en: "English",
-  es: "Spanish",
-  et: "Estonian",
-  fi: "Finnish",
-  fr: "French",
-  ga: "Irish",
-  hr: "Croatian",
-  hu: "Hungarian",
-  it: "Italian",
-  lt: "Lithuanian",
-  lv: "Latvian",
-  mt: "Maltese",
-  nl: "Dutch",
-  pl: "Polish",
-  pt: "Portuguese",
-  ro: "Romanian",
-  sk: "Slovak",
-  sl: "Slovenian",
-  sv: "Swedish",
-  qk: "Klingon",
-};
 
 const Comment = ({
   form,
@@ -76,7 +49,7 @@ const Comment = ({
     const formData = form.getValues();
     const data = {
       firstname: formData.firstname,
-      lang: languages[config.lang],
+      lang: config.lang,
       country: formData.country,
       locality: formData.locality,
       question: fetchPrompted ? label : name,
