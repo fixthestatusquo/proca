@@ -2,7 +2,7 @@
 import { Command, Args, Flags } from "proca/src/procaCommand.mjs";
 
 export default class ServeCommand extends Command {
-  static description = "preview the widget";
+  static description = "serve the local version of the widget";
 
   static args = this.multiid();
 

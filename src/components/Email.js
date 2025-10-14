@@ -323,8 +323,12 @@ const EmailComponent = props => {
       }
       let d = allProfiles.filter(d => {
         //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
-        return d.area === area && d.constituency === -1;
+        //return d.area === area && d.constituency === -1;
+        return d.area === area;
       });
+      if (sampleSize) {
+        d = sample(d, sampleSize);
+      }
       if (d.length === 0) {
         d = sample(allProfiles, sampleSize || fallbackRandom);
       }
@@ -387,8 +391,7 @@ const EmailComponent = props => {
           country
         );
       }
-      if (d.length === 0 && fallbackArea) {
-        console.log("fallback area");
+      if (d.length === 0 && fallbackArea && area) {
         d = filterArea(area);
       }
       if (d.length === 0 && fallbackRandom && !fallbackArea) {
