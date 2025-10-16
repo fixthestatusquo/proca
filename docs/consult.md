@@ -1,121 +1,135 @@
-# Consultation form architecture
+---
+# 🗳️ Consultation
 
-EU consultation-like form supports different question types, user roles (citizen, expert, etc.), and localized content.
+Dynamic React component that replicates the **European Commission’s public consultation forms** — allowing organizations to collect responses through a customizable, embeddable form.
+
+It provides an adaptable, configurable survey experience with registration and optional AI-assisted input fields.
+---
+
+## ⚙️ Overview
+
+Dynamically renders fully modular survey based on configuration and remote JSON schemas, enabling:
+
+- **Customizable form questions** — include/exclude questions or sections per campaign
+- **Overridden text and translations**
+- **Pre-filled or pre-checked answers**
+- **AI-assisted fields** (via `snowflaike.proca.app` endpoint)
+- **Step-based navigation** (Survey → Register)
 
 ---
 
-## 🔧 JSON Configuration (Campaign-Level)
+## 🚀 How It Works
 
-Campaign includes a JSON config like:
+### 1. Configuration
+
+Each campaign defines its widget configuration under:
 
 ```json
-"config": {
+{
   "component": {
     "consultation": {
-        "steps": {
-        "citizen": { "questions": ["id1", "id2", ...] },
-        "expert": { "questions": ["id1", "id2", ...] },
-        "you": { "questions": ["id1", "id2",] }
-      }
+      "name": "green-deal-survey",
+      "steps": {
+        "citizen": {
+          "questions": [153167796, 153168305, 153168311]
+        }
+      },
+      "default": {
+        "country": "DE"
+      },
+      "selection": [153167796, 153168305]
     }
   }
 }
 ```
 
----
+Only elements from the configured questions list will be rendered.
+Required fields from the original EU consultation form must either be included or have a predefined default value.
 
-## 📦 Blueprint JSON (Survey Definition)
+The widget combines:
 
-Hosted at:
+- **Local config questions** (from campaign config)
+- **Remote JSON questions** (fetched from `https://static.proca.app/survey/{name}/{lang}.json`)
 
-```
-https://static.proca.app/survey/<campaign>/<lang>.json
-```
+### 2. Data Loading (`useQuestions`)
 
-Each entry looks like:
+`useQuestions`:
+
+- Fetches the remote JSON schema of questions
+- Merges it with campaign-defined overrides (titles, required flags, margins, translations)
+- Supports disabling remote fetch via `config.component.consultation.remote = false`
+
+### 4. Steps
+
+- **Step 0 – Survey:** renders dynamic questions via `<SurveyStep />` (citizen questions only)
+- **Step 1 – Register:** wraps the registration form
+
+#### 4.1 Injecting custom survey fields on the Register step
+
+Allows adding extra fields to the registration step by specifying question ID(s) in `config.component.consultation.selection` array. To render those questions, in the campaign config add:
 
 ```json
-{
-  "id": 153168224,
-  "type": "SingleChoiceQuestion",
-  "title": "How should EU regulate housing?",
-  "possibleAnswers": [...]
-  ...
+"register": {
+  "custom": {
+    "top": ["survey_Main"]
+  },
+  "import": ["survey/Main"]
 }
 ```
 
-- **Type**: One of `FreeTextQuestion`, `SingleChoiceQuestion`, `MultipleChoiceQuestion`, `AIAssistedQuestion`, etc.
-- **Dependencies**: `possibleAnswers[*].dependentElementsString` = semicolon-separated list of child question IDs.
-- **Margin**: Overwrite default margin (3). Useful when adding a few fields to a widget
+---
+
+## 🧠 Question Rendering
+
+The `Questions` component renders questions defined by ID list, using a flexible schema from the JSON definition.
+
+Supported `type` values and components:
+
+| Type                        | Component               | Description                         |
+| --------------------------- | ----------------------- | ----------------------------------- |
+| `FreeTextQuestion`          | `<TextField>`           | Plain text input                    |
+| `SnowflakeAssistedQuestion` | `<SnowflakeTextField>`  | AI-assisted field via Snowflake API |
+| `AIAssistedQuestion`        | `<AITextField>`         | GPT-based text suggestion           |
+| `SingleChoiceQuestion`      | `<SingleSelect>`        | Radio buttons (single choice)       |
+| `MultipleChoiceQuestion`    | `<MultiSelectCheckbox>` | Checkbox group (multi choice)       |
+| `Section`                   | Typography heading      |                                     |
+| `Text`                      | Informational paragraph |                                     |
+| `Upload`                    | Not yet implemented     |                                     |
+
+Each question supports:
+
+- `required`
+- `maxCharacters`
+- `possibleAnswers` (with `dependentElementsString`)
+- `margin` override
+- `attributeName` (used as form field key)
 
 ---
 
-## 🧩 Key React Components
+## 💡 Dependent Questions
 
-### `useConsultJson(name, lang)`
+Some questions trigger sub-questions based on selected answers.
 
-Fetches the blueprint JSON from `static` and generates **attributeName** for each field as stingified ID.
-
-or
-
-Reads the fields from campaign configuration.
-
-It can use both remote and campaign configuration, or one. Disable fetch with `campaign.config.consultation.remote: false`
-
-### `<Survey />`
-
-Renders a list of questions based on a provided list of question IDs in campaign config.
-
-```jsx
-<Survey form={form} handleNext={handleNext} questions={questions} ids={qids} />
+```js
+"possibleAnswers": [
+  {
+    "id": 1,
+    "text": "Yes",
+    "dependentElementsString": "2;3"
+  },
+  {
+    "id": 4,
+    "text": "No"
+  }
+]
 ```
 
-### `<Questions />`
-
-Switch component that maps JSON types to field components:
-
-- `TextField`, `AITextField`
-- `SingleSelect`, `MultiSelectCheckbox`
-- `Typography` for `Text`/`Section`
-- Supports dependent questions
-
-### `<AboutYou />`
-
-A sample use-case, rendering the “you” step of the form:
-
-- Includes name + address fields
-- Appends relevant questions using `<SurveyStep />`
-
-### `Register`
-
-The final step of the consultation flow (`submit`) uses the standard `<Register />` component from Proca’s form ecosystem to collect final contact info
-
-### `Main`
-
-Renders fields as a part of regular widget (sabel).
+When "Yes" is selected, questions `2` and `3` are dynamically rendered as dependent fields.
 
 ---
 
-## ✅ Supported Question Types
+## 🧱 Extensibility
 
-| Type                     | Component             | Notes                |
-| ------------------------ | --------------------- | -------------------- |
-| `FreeTextQuestion`       | `TextField`           | Multi-line if long   |
-| `AIAssistedQuestion`     | `AITextField`         | AI-assisted input    |
-| `SingleChoiceQuestion`   | `SingleSelect`        | Radio                |
-| `MultipleChoiceQuestion` | `MultiSelectCheckbox` | Optional max choices |
-| `Section`, `Text`        | `Typography`          | Headings or info     |
-| `Upload`                 | _Not yet implemented_ | Logs warning         |
+- Add new question types in `Questions.jsx`
 
 ---
-
-## 🧠 Dependencies
-
-- Answers can trigger follow-up questions using `dependentElementsString`.
-
----
-
-## 📌 Known gaps
-
-- `Upload` question type not implemented
-- Required field not solved
