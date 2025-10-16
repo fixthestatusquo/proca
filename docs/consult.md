@@ -1,10 +1,8 @@
----
 # 🗳️ Consultation
 
 Dynamic React component that replicates the **European Commission’s public consultation forms** — allowing organizations to collect responses through a customizable, embeddable form.
 
 It provides an adaptable, configurable survey experience with registration and optional AI-assisted input fields.
----
 
 ## ⚙️ Overview
 
