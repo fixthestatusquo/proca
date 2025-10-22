@@ -563,16 +563,23 @@ console.log(d);
   //    <TwitterText text={actionText} handleChange={handleChange} label="Your message to them"/>
   //
 
+  if (!config.component.email) {
+    config.component.email = {field: {subject: {required: true}, message: {required: true}}};
+  } else {
+    if (!config.component.email?.field) {
+      config.component.email.field = {subject: {required: true}, message: {required: true}};
+    }
+  }
   const ExtraFields = props => {
     return (
       <>
-        {config.component.email?.field?.subject ? (
+        {config.component.email.field.subject !==false ? (
           <Grid item xs={12} className={props.classes.field}>
             <TextField
               form={props.form}
               name="subject"
               disabled={!!config.component.email.field.subject.disabled}
-              required={config.component.email?.field?.subject?.required}
+              required={config.component.email.field.subject.required}
               label={t("Subject")}
               onChange={checkUpdated}
               onClick={() => {
@@ -584,7 +591,7 @@ console.log(d);
           <input type="hidden" {...props.form.register("subject")} />
         )}
 
-        {config.component.email?.field?.message ? (
+        {config.component.email.field.message !== false ? (
           <Grid item xs={12} className={props.classes.field}>
             {config.component.email.salutation && (
                 <MuiTextField
