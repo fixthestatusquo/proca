@@ -265,6 +265,7 @@ const EmailComponent = props => {
           const placeholder = {
             name: error.toString(),
             description: "Please check your internet connection and try later",
+            constituency: "",
             disabled: true,
           };
           setProfiles([placeholder]);
@@ -353,6 +354,7 @@ const EmailComponent = props => {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
+console.log(d);
           return d.constituency.toString() === constituency.toString();
         }
 
