@@ -354,7 +354,6 @@ const EmailComponent = props => {
           if (typeof constituency === "object") {
             return constituency.includes(d.constituency);
           }
-console.log(d);
           return d.constituency.toString() === constituency.toString();
         }
 
