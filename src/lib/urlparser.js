@@ -100,7 +100,15 @@ const socialiseReferrer = (domain, utm) => {
     utm.medium = "youtube";
     return true;
   }
-  if (domain === "com.google.android.gm") {
+  if (domain === "www.linkedin.com" ||
+    domain === "com.linkedin.android" ||
+	domain === "lnkd.in"
+    ) {
+    utm.source = "social";
+    utm.medium = "linkedin";
+    return true;
+  }
+  if (domain === "com.google.android.gm" || domain === "mail.google.com") {
     utm.source = "email";
     utm.medium = "gmail";
     return true;
