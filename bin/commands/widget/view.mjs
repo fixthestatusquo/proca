@@ -19,7 +19,7 @@ export default class ServeCommand extends Command {
     const { flags } = await this.parse();
     const { read } = await import("../../config.js");
     const config= await read(flags.id);
-    const url = { privacy: config.org.privacyPolicy, home: config.org.url, preview: 'https://widget.proca.app/d/'+ config.filename +'.html' , live : config.location};
+    const url = { privacy: config.org.privacyPolicy, home: config.org.url, preview: 'https://widget.proca.app/d/'+ config.filename +'/index.html' , live : config.location};
     const open = await import("open");
     if (flags.preview) {
      open.default(url.preview);
