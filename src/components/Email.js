@@ -200,9 +200,9 @@ const EmailComponent = props => {
           empty.name = defaultValue.firstname
             ? `${defaultValue.firstname} ${defaultValue.lastname}`
             : "";
-          if (empty.locality) {
-            empty.name += `\n${empty.locality}`;
-          }
+          empty.locality = defaultValue.locality || "";
+          empty.signature = empty.name;
+          if (empty.locality) empty.signature = empty.name + `\n${empty.locality}`
           form.setValue(k, t(getDataWithToken(k), empty));
         } else {
           form.setValue(k, getDataWithToken(k));
