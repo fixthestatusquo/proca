@@ -12,6 +12,7 @@ import SingleSelect from "@components/field/SingleSelect";
 import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
 import { useTranslation } from "react-i18next";
+import Select from "@components/field/Select";
 
 const useStyles = makeStyles(theme => ({
   elementMarginTop: props => ({
@@ -93,6 +94,17 @@ const Questions = ({ json, form, findQuestionById }) => {
         >
           {json.title}
         </Typography>
+      );
+
+    case "Selection":
+      return(
+      <Select
+            form={form}
+            name={(json.id).toString()}
+            label={json.title}
+            options={json.options}
+            required={json.required}
+        />
       );
 
     case "Upload":
