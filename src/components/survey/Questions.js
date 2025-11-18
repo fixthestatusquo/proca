@@ -265,13 +265,15 @@ const normalizeSelectOptions = (arr) =>
 const SelectionQuestion = ({ json, form, findQuestionById }) => {
   const selected = form.watch(String(json.id)) || "";
 
+  const labelInside = json.title.length <= 85;
  const dependentIds = getDependantIds(json.options, [String(selected)]);
   return (
     <>
+      {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
       <Select
         form={form}
         name={String(json.id)}
-        label={json.title}
+        label={labelInside ? json.title : false}
         options={normalizeSelectOptions(json.options)}
         required={json.required}
         native // optional

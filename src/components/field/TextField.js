@@ -133,7 +133,7 @@ const TextFieldProca = props => {
       }}
       inputRef={refA}
       name={props.name}
-      label={/* i18next-extract-disable-line */ t(props.name)}
+      label={/* i18next-extract-disable-line */ props.label || t(props.name)}
     />
   );
 };

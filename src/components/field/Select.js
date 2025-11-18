@@ -60,13 +60,14 @@ const Select = ({
     console.log("set default", name, defaultValue);
     form.setValue(name, defaultValue);
   }
+  console.log(label,name, t(label === false ? "": label || name ));
   return (
     <>
     <TextField
       select={true}
       name={name}
       required={required}
-      label={t(label || name)}
+      label={label === false ? "": t(label || name)}
       form={form}
       SelectProps={{
         native: true,
