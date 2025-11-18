@@ -57,10 +57,8 @@ const Select = ({
   }
   if (required && !form.getValues(name)) {
     const defaultValue = select === "value" ? options[0][1] : options[0][0];
-    console.log("set default", name, defaultValue);
     form.setValue(name, defaultValue);
   }
-  console.log(label,name, t(label === false ? "": label || name ));
   return (
     <>
     <TextField
