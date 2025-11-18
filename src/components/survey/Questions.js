@@ -97,15 +97,17 @@ const Questions = ({ json, form, findQuestionById }) => {
       );
 
     case "Selection":
-      return(
-      <Select
-            form={form}
-            name={(json.id).toString()}
-            label={json.title}
-            options={json.options}
-            required={json.required}
-        />
-      );
+  return (
+      <SelectionQuestion
+        json={json}
+        form={form}
+        findQuestionById={findQuestionById}
+      />
+
+  );
+
+
+
 
     case "Upload":
       console.log("Upload question type is not implemented");
@@ -135,10 +137,12 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
     </Box>
   );
 };
+const normalize = val => Array.isArray(val) ? val : [val];
 
 const getDependantIds = (options, selected) => {
+  const sel = normalize(selected).map(String);
   return options
-    .filter(opt => selected.includes(String(opt.id)))
+    .filter(opt => sel.includes(String(opt.id)))
     .flatMap(opt =>
       (opt.dependentElementsString?.split(";") || []).filter(Boolean)
     )
@@ -253,6 +257,37 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
     </MultiSelectCheckbox>
   );
 };
+
+const normalizeSelectOptions = (arr) =>
+  Object.fromEntries(arr.map(opt => [String(opt.id), opt.text]));
+
+
+const SelectionQuestion = ({ json, form, findQuestionById }) => {
+  const selected = form.watch(String(json.id)) || "";
+
+ const dependentIds = getDependantIds(json.options, [String(selected)]);
+  return (
+    <>
+      <Select
+        form={form}
+        name={String(json.id)}
+        label={json.title}
+        options={normalizeSelectOptions(json.options)}
+        required={json.required}
+        native // optional
+      />
+
+      {dependentIds.length > 0 && (
+        <DependentQuestions
+          ids={dependentIds}
+          findQuestionById={findQuestionById}
+          form={form}
+        />
+      )}
+    </>
+  );
+};
+
 
 const Survey = ({
   form,

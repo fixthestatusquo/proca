@@ -12,6 +12,7 @@ const Select = ({
   sort,
   required,
   select = "value",
+  children
 }) => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
@@ -60,6 +61,7 @@ const Select = ({
     form.setValue(name, defaultValue);
   }
   return (
+    <>
     <TextField
       select={true}
       name={name}
@@ -78,7 +80,9 @@ const Select = ({
           </option>
         );
       })}
-    </TextField>
+      </TextField>
+      {children}
+        </>
   );
 };
 
