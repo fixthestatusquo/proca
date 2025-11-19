@@ -280,11 +280,11 @@ const SelectionQuestion = ({ json, answers, form, findQuestionById }) => {
 
   return (
     <>
-      {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
+      <FormLabel component="legend">{json.title}</FormLabel>
       <Select
         form={form}
         name={String(json.id)}
-        label={labelInside ? json.title : false}
+        label={false}
         options={answers}
         required={json.required}
         select={"key"}
@@ -309,7 +309,7 @@ const MatrixQuestion = ({ json, form, findQuestionById }) => {
     .map(id => findQuestionById(id))
     .filter(Boolean)
     .forEach(a => {
-      answers[a.id.toString()] = a.title;
+      answers[a.id.toString()] = a.title.toLowerCase();
     });
 
   return (
