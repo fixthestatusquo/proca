@@ -150,19 +150,6 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
 const normalize = val => Array.isArray(val) ? val : [val];
 
 
-const getDependentIdsFromString = (dependentString, selected) => {
-  if (!dependentString) return [];
-
-  const sel = normalize(selected).map(String);
-
-  // Split the string, trim, filter out empty, convert to numbers
-  return dependentString
-    .split(";")
-    .map(s => s.trim())
-    .filter(Boolean)
-    .map(Number)
-    .filter(id => sel.includes(String(id))); // only keep IDs that are in selected
-};
 
 const getDependentIds = (options, selected) => {
   const sel = normalize(selected).map(String);
@@ -285,12 +272,12 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
 };
 
 const SelectionQuestion = ({ json, answers, form, findQuestionById }) => {
-
-
-    const selected = form.watch(String(json.id)) || "";
-
   const labelInside = json.title.length <= 85;
-  const dependentIds = getDependentIdsFromString(json.dependentElementsString, [String(selected)]);
+
+  // for this type, the dependent depends on all responses to a question
+  // example 160002720 from animalconsult
+  const dependentIds = json?.dependentElements || [];
+
   return (
     <>
       {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
