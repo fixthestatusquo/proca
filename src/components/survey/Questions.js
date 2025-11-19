@@ -290,7 +290,7 @@ const SelectionQuestion = ({ json, answers, form, findQuestionById }) => {
     const selected = form.watch(String(json.id)) || "";
 
   const labelInside = json.title.length <= 85;
-  const dependentIds = getDependentIdsFromString(json.dependentElementsString, [String(selected)] );
+  const dependentIds = getDependentIdsFromString(json.dependentElementsString, [String(selected)]);
   return (
     <>
       {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
@@ -300,7 +300,7 @@ const SelectionQuestion = ({ json, answers, form, findQuestionById }) => {
         label={labelInside ? json.title : false}
         options={answers}
         required={json.required}
-        native // optional
+        select={"key"}
       />
 
       {dependentIds.length > 0 && (
