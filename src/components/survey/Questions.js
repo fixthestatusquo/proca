@@ -106,12 +106,22 @@ const Questions = ({ json, form, findQuestionById }) => {
 
   );
 
+    case "Matrix":
+  return (
+    <MatrixQuestion
+      json={json}
+      form={form}
+      findQuestionById={findQuestionById}
+    />
+  );
+
+
 
 
 
     case "Upload":
       console.log("Upload question type is not implemented");
-      // Returning null because there are dependant uploads
+      // Returning null because there are dependent uploads
       return null;
     default:
       return <li>Unknown question type {json.type}</li>;
@@ -139,7 +149,22 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
 };
 const normalize = val => Array.isArray(val) ? val : [val];
 
-const getDependantIds = (options, selected) => {
+
+const getDependentIdsFromString = (dependentString, selected) => {
+  if (!dependentString) return [];
+
+  const sel = normalize(selected).map(String);
+
+  // Split the string, trim, filter out empty, convert to numbers
+  return dependentString
+    .split(";")
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(Number)
+    .filter(id => sel.includes(String(id))); // only keep IDs that are in selected
+};
+
+const getDependentIds = (options, selected) => {
   const sel = normalize(selected).map(String);
   return options
     .filter(opt => sel.includes(String(opt.id)))
@@ -148,6 +173,7 @@ const getDependantIds = (options, selected) => {
     )
     .map(Number);
 };
+
 
 const AITextQuestion = ({ json, form }) => {
   const classes = useStyles({ margin: +json.margin });
@@ -195,7 +221,7 @@ const TextQuestion = ({ json, form }) => {
 
 const SingleChoiceInput = ({ json, form, findQuestionById }) => {
   const selected = form.watch(json.attributeName) || "";
-  const dependentIds = getDependantIds(json.possibleAnswers, [selected]);
+  const dependentIds = getDependentIds(json.possibleAnswers, [selected]);
 
   const options = json.possibleAnswers.map(opt => ({
     id: opt.id,
@@ -228,7 +254,7 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   const maxChoices = json.maxChoices ?? null;
   const selected = form.watch(json.attributeName) || [];
 
-  const dependentIds = getDependantIds(json.possibleAnswers, selected);
+  const dependentIds = getDependentIds(json.possibleAnswers, selected);
 
   // Build options map { id: label }
   const options = json.possibleAnswers.reduce((acc, opt) => {
@@ -258,15 +284,13 @@ const MultipleChoiceInput = ({ json, form, findQuestionById }) => {
   );
 };
 
-const normalizeSelectOptions = (arr) =>
-  Object.fromEntries(arr.map(opt => [String(opt.id), opt.text]));
+const SelectionQuestion = ({ json, answers, form, findQuestionById }) => {
 
 
-const SelectionQuestion = ({ json, form, findQuestionById }) => {
-  const selected = form.watch(String(json.id)) || "";
+    const selected = form.watch(String(json.id)) || "";
 
   const labelInside = json.title.length <= 85;
- const dependentIds = getDependantIds(json.options, [String(selected)]);
+  const dependentIds = getDependentIdsFromString(json.dependentElementsString, [String(selected)] );
   return (
     <>
       {!labelInside && <FormLabel component="legend">{json.title}</FormLabel>}
@@ -274,7 +298,7 @@ const SelectionQuestion = ({ json, form, findQuestionById }) => {
         form={form}
         name={String(json.id)}
         label={labelInside ? json.title : false}
-        options={normalizeSelectOptions(json.options)}
+        options={answers}
         required={json.required}
         native // optional
       />
@@ -289,6 +313,53 @@ const SelectionQuestion = ({ json, form, findQuestionById }) => {
     </>
   );
 };
+
+const MatrixQuestion = ({ json, form, findQuestionById }) => {
+  const classes = useStyles({ margin: +json.margin });
+
+  const answers = {};
+  json.answers
+    .map(id => findQuestionById(id))
+    .filter(Boolean)
+    .forEach(a => {
+      answers[a.id.toString()] = a.title;
+    });
+
+  return (
+    <Box
+      className={classes.elementMarginTop}
+      p={2} // padding inside
+      mb={3} // margin bottom
+      border={1} // 1px solid border
+      borderColor="grey.400"
+      borderRadius={4} // rounded corners
+      bgcolor="grey.100" // light background
+    >
+      <Typography variant="h6" style={{ marginBottom: 16 }}>
+        {json.title}
+      </Typography>
+
+      {json.questions.map(rowId => {
+        const row = findQuestionById(rowId);
+        if (!row) return null;
+
+        return (
+          <Box key={row.id} mt={2}>
+            <SelectionQuestion
+              json={row}
+              form={form}
+              findQuestionById={findQuestionById}
+              answers={answers}
+            />
+          </Box>
+        );
+      })}
+    </Box>
+  );
+};
+
+
+
 
 
 const Survey = ({
