@@ -13,7 +13,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
-import { decodeHtmlEntities, pickOne } from "@lib/text";
+import { decodeHtmlEntities, pickOne, tokenize } from "@lib/text";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
 import Url from "@lib/urlparser";
@@ -90,12 +90,6 @@ export default function ShareAction(props) {
   metadata.description = decodeHtmlEntities(metadata.description);
 
   const shareUrl = component => {
-    // the share by email is assumed to have the url already set in the body, skip adding it as a footer of the message
-    if (
-      component.render?.displayName &&
-      component.render.displayName.includes("email")
-    )
-      return "";
     const medium =
       typeof component === "string"
         ? component
@@ -193,8 +187,9 @@ export default function ShareAction(props) {
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
       const subject = pickOne (t("campaign:share.email.subject", ""));
+      const body = tokenize(t("campaign:share.email.body"),{url:shareUrl("email")});
       const hrefGmail = () => {
-        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(shareText("share.email.body"))}`;
+        return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       };
 
       const mailto = () => {
@@ -222,7 +217,7 @@ export default function ShareAction(props) {
           icon={EmailIcon}
           component={EmailShareButton}
           subject={subject}
-          body={shareText("share.email.body")}
+          body={body}
           separator=" "
         />
       );

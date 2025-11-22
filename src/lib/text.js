@@ -31,7 +31,6 @@ const slugify = (text, placeholder = "_") =>
 const tokenize = (message, { profile, url }) => {
   let screen_name = "";
   let t = message;
-  if (!profile) return message;
   if (Array.isArray(profile)) {
     const r = profile.map(d =>
       d?.screen_name?.startsWith("@")
@@ -40,17 +39,17 @@ const tokenize = (message, { profile, url }) => {
     );
     screen_name = r.join(" @");
   } else {
-    screen_name = profile.screen_name;
+    screen_name = profile?.screen_name;
   }
   //    let t = typeof profile.actionText == "function" ? profile.actionText(profile): profile.actionText;
 
-  if (!screen_name) return t;
-  if (t.includes("{@}") || t.includes(screen_name)) {
-    t = t.replace("{@}", `@${screen_name}`);
-  } else {
-    t = `.@${screen_name} ${t}`;
+  if (screen_name) {
+    if (t.includes("{@}") || t.includes(screen_name)) {
+      t = t.replace("{@}", `@${screen_name}`);
+    } else {
+      t = `.@${screen_name} ${t}`;
+    }
   }
-
   if (t.includes("{image}")) {
     t = t.replace(
       "{image}",
