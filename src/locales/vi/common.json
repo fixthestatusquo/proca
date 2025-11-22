@@ -5,6 +5,8 @@
   "Birthdate": "Ngày sinh",
   "City": "Thành phố",
   "Comment": "Bình luận",
+  "Copied!": "Đã sao chép!",
+  "Copy to clipboard": "Sao chép vào khay nhớ tạm",
   "Country": "Quốc gia",
   "Download": "Tải xuống",
   "Download explanation": "Tài liệu của bạn hiện đã sẵn sàng, chúng tôi cũng đang gửi nó qua email cho bạn",
@@ -14,20 +16,25 @@
   "Last name": "Họ",
   "Locality": "Địa phương",
   "Next": "Tiếp theo",
+  "Organisation": "Tổ chức",
   "Other": "Khác",
   "Phone": "Điện thoại",
   "Postal Code": "Mã bưu điện",
   "Salutation": "Lời chào",
+  "Shareable link": "Liên kết có thể chia sẻ",
   "Sorry, we couldn't save": "Xin lỗi, chúng tôi không thể lưu",
   "Street": "Đường phố",
   "Subject": "Môn học",
   "Thank you": "Cảm ơn bạn",
   "Your message": "Tin nhắn của bạn",
   "action": {
+    "consultation": "Gửi",
+    "default": "Hãy hành động",
     "donate": "Quyên tặng",
     "eci": "Ký ECI",
     "email": "Gửi Email",
     "join": "Tham gia",
+    "pledge": "Hãy cam kết ngay bây giờ!",
     "register": "Đăng ký",
     "remindeSent": "đã gửi lời nhắc",
     "reminder": "Nhắc tôi sau",
@@ -38,6 +45,8 @@
     "takeAction": "takeAction",
     "twitter": "tiếng riu ríu"
   },
+  "ai_check": "Thông điệp này được viết bởi trí tuệ nhân tạo (AI). Chúng tôi khuyến khích bạn đọc và tùy chỉnh nó để tối đa hóa tác động của nó.",
+  "ai_work": "Trí tuệ nhân tạo trong công việc",
   "camera": {
     "start": "khởi động máy ảnh",
     "take": "Chụp ảnh",
@@ -66,6 +75,7 @@
       "opt-out": "và không thông báo cho tôi"
     }
   },
+  "customize_text": "Chúng tôi khuyến khích quý vị đọc và tùy chỉnh tài liệu này để tối đa hóa hiệu quả của nó.",
   "date": {
     "error": "ngày không hợp lệ. định dạng: DD.MM.YYYY"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "IBAN",
     "intro": "Quyên góp cho {0}",
+    "payment": "Thanh toán",
     "payment_methods": {
       "card": "Thẻ",
       "default": "Quyên tặng",
@@ -141,6 +152,11 @@
     "salutation_male": "Kính gửi {{target.name}}",
     "salutation_placeholder": "Kính gửi [người nhận]"
   },
+  "error": {
+    "date": "Định dạng nên là DD.MM.YYYY"
+  },
+  "give_another": "Tạo thêm một cái khác",
+  "help_write": "Giúp tôi viết nó.",
   "image": {
     "addSticker": "thêm nhãn dán",
     "addStickerTitle": "Nhấp/Nhấn để thêm nhãn dán vào ảnh",
@@ -153,15 +169,31 @@
     "wanttoadd": "Bạn có muốn thêm một hình ảnh?"
   },
   "no": "KHÔNG",
+  "party": "Đảng",
+  "party_helper": "Nhấp vào một chip nhóm để chọn tất cả thành viên của nó.",
+  "phone": {
+    "INVALID_COUNTRY": "Mã quốc gia bị thiếu hoặc không hợp lệ",
+    "INVALID_LENGTH": "Độ dài không hợp lệ",
+    "MISSING": "Trường bắt buộc",
+    "NOT_A_NUMBER": "Số điện thoại không hợp lệ",
+    "TOO_LONG": "Số quá dài",
+    "TOO_SHORT": "Số quá ngắn"
+  },
+  "postcode": {
+    "notFound": "Mã bưu chính này dường như không tồn tại ở quốc gia của bạn.",
+    "wrongLength": "Chiều dài dự kiến của \" {{length}} \" cho quốc gia của bạn"
+  },
   "progress": {
     "donate": "{{total}} đã quyên góp. Hãy chuyển đến {{goal}}",
     "email": "{{total}} đã gửi email. Hãy chuyển đến {{goal}}",
+    "pledge": "{{total}} đã cam kết. Hãy cùng nhau đến {{goal}}",
     "register": "{{total}} đã đăng ký. Hãy chuyển đến {{goal}}",
     "share": "{{total}} đã chia sẻ. Hãy đến với {{goal}}",
     "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}",
     "twitter": "{{total}} đã twitted. Hãy chuyển đến {{goal}}"
   },
   "read more": "đọc thêm",
+  "region": "Khu vực",
   "register": "Thêm tên của tôi",
   "reminder": {
     "intro": "Chúng tôi biết, chính phủ của bạn đang hỏi rất nhiều thông tin. Chúng tôi sẽ gửi cho bạn một email để nhắc bạn điền vào biểu mẫu sau"
@@ -173,6 +205,8 @@
     "m": "Kính gửi {{name}}",
     "other": "Kính gửi {{name}}"
   },
+  "select_all": "Chọn tất cả",
+  "select_options": "Bạn có thể chọn tối đa {{opt}}",
   "share": {
     "intro": "Tuyệt vời, bạn đã ký kết 👍. Để nhân rộng tầm ảnh hưởng của bạn, hãy chia sẻ rộng rãi để đảm bảo mọi người đều nhìn thấy kiến nghị này 🙏.",
     "message": "Bạn nên ký tên này!",
@@ -183,18 +217,23 @@
       "secure": "chắc chắn"
     }
   },
+  "submit": "Gửi",
   "supporter": {
+    "greeting": "Chào mừng đến với {{firstname}}!",
     "not_you": "không phải bạn?",
     "welcome": "Chào mừng bạn trở lại, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Khảo sát",
   "target": {
     "country": {
-      "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}"
+      "empty": "Chọn một quốc gia khác, không có ai để liên hệ trong {{country}}",
+      "undefined": "Chọn quốc gia"
     },
     "missing": "Chọn ít nhất một trong số {{total}}",
     "postcode": {
-      "empty": "không có ai để liên hệ trong {{area}}"
+      "empty": "không có ai để liên hệ trong {{area}}",
+      "undefined": "Nhập mã bưu chính của bạn"
     },
     "random_one": "Đã chọn một trong những mục tiêu quan trọng nhất {{total}} của chúng tôi",
     "random_other": "Đã chọn {{count}} trong số {{total}} mục tiêu quan trọng nhất của chúng tôi",
@@ -205,7 +244,8 @@
     "again": "Tweet cho người khác",
     "choice": "Bạn thich lam gi tiêp theo?",
     "instruction": "Vui lòng hoàn tất việc gửi tweet trong cửa sổ mới (trên twitter.com)",
-    "organisation": "Tài khoản twitter tổ chức của bạn"
+    "organisation": "Tài khoản twitter tổ chức của bạn",
+    "screenName": "Tài khoản Twitter"
   },
   "unknown postcode": "mã bưu điện không xác định",
   "yes": "Đúng",
