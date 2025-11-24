@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "doi_thankyou": {
+            "subject": "Cảm ơn bạn đã tham gia{{#privacy.optIn}}, vui lòng xác nhận địa chỉ email của bạn.{{/privacy.optIn}}"
+        },
+        "doi": {
+            "subject": "Bước tiếp theo: Vui lòng xác nhận địa chỉ email của bạn.",
+            "extra": "Nếu bạn không đăng ký gói đăng ký này, vui lòng bỏ qua email này.",
+            "intro": "Để hoàn tất việc đăng ký và cho phép chúng tôi xử lý địa chỉ email và thông tin cá nhân của bạn để gửi tin tức hoặc bản tin, vui lòng nhấp vào nút xác nhận bên dưới. Bước tự động này đảm bảo sự đồng ý của bạn và ngăn chặn các đăng ký không được ủy quyền."
+        },
+        "common": {
+            "privacy": "Bạn có thể tìm thêm thông tin về chính sách bảo mật của chúng tôi và việc xử lý dữ liệu của bạn.",
+            "unsubscribe": "Nếu quý khách không muốn nhận thêm thông tin từ chúng tôi trong tương lai, quý khách có thể hủy đăng ký bất cứ lúc nào.",
+            "thanks": "Cảm ơn bạn đã tham gia vào {{campaign.title}}. Sự ủng hộ của bạn thật sự được trân trọng!",
+            "about": "Cho đến nay, những người ủng hộ phong trào \" {{campaign.stats.supporterCount}} \" đã thực hiện hành động.",
+            "greeting": "Xin chào {{firstName}},",
+            "organisation": "{{org.title}}",
+            "share_on": "Chia sẻ trên",
+            "consent": "\n          ",
+            "signature": "Kính thư,{{org.title}}",
+            "is_it_me": "Nếu bạn chưa thực hiện hành động này, vui lòng nhấp vào [đây](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) để xóa nó.",
+            "thanksPledge": "Cảm ơn bạn đã ký tên ủng hộ chiến dịch \" {{campaign.title}}\". Chữ ký của bạn sẽ được xem xét và sẽ được hiển thị trên trang web của chúng tôi nếu được chấp thuận.",
+            "share": "Hãy giúp chúng tôi đạt được mục tiêu bằng cách chia sẻ thông tin.",
+            "follow": "Theo dõi chúng tôi trên:",
+            "donate": "Xin vui lòng cân nhắc việc đóng góp để giúp chúng tôi thực hiện sứ mệnh của mình.",
+            "closing": "Với sự giúp đỡ của bạn, chúng ta đã tiến gần hơn một bước đến mục tiêu của mình.",
+            "duplicate": "Cảm ơn bạn đã tham gia và cam kết với mục tiêu của chúng tôi! Tuy nhiên, trong cam kết duy trì tính xác thực và uy tín, chúng tôi cần phải **loại bỏ các chữ ký trùng lặp** và có vẻ như bạn (hoặc ai đó sử dụng địa chỉ email {{email}}) đã thực hiện hành động này.  Hãy yên tâm, **chữ ký ban đầu của bạn đã được tính** và đóng góp cho chiến dịch của chúng tôi.\nSự ủng hộ của bạn vô cùng quý giá, và chúng tôi mong muốn khuyến khích bạn thực hiện thêm một bước nữa để tăng cường tác động của mình. Vui lòng cân nhắc liên hệ với bạn bè và gia đình, khuyến khích họ cũng tham gia hành động bằng cách sử dụng địa chỉ email của riêng họ. Như vậy, chúng ta có thể tiếp tục phát triển phong trào và tạo ra một tiếng nói tập thể mạnh mẽ hơn cho sự thay đổi mà chúng ta mong muốn.\nMột lần nữa, chúng tôi xin gửi lời cảm ơn chân thành nhất đến sự ủng hộ và cam kết của bạn đối với chiến dịch này. Cùng nhau, chúng ta có thể tạo ra một tác động lâu dài!"
+        },
+        "thankyou": {
+            "intro": "Cảm ơn bạn đã tham gia chương trình \"{{campaign.title}}\". Sự ủng hộ của bạn thật sự được trân trọng!",
+            "subject": "Cảm ơn bạn, đây là những điều khác bạn có thể làm."
+        },
+        "button": {
+            "confirmAction": "Vâng, tôi là một người thật!",
+            "confirmOptin": "Tôi muốn nhận tin tức từ bạn.",
+            "confirmAlreadyMember": "Tôi xác nhận sự tham gia của mình và đã nhận được email từ quý vị.",
+            "confirmOptout": "Tôi xác nhận sự tham gia của mình nhưng không muốn nhận thông tin cập nhật trong tương lai."
+        },
+        "confirm": {
+            "subject": "Bước tiếp theo: Vui lòng xác nhận địa chỉ email của bạn.",
+            "extra": "Nếu bạn không yêu cầu email này, vui lòng bỏ qua email này.",
+            "intro": "Xác nhận của bạn là điều cần thiết để xử lý việc tham gia của bạn. Điều này đảm bảo rằng mỗi lần nộp đơn đều đến từ một người thật và giúp ngăn chặn các đơn nộp giả mạo hoặc spam."
+        }
+    },
+    "poweredBy": "Được cung cấp bởi"
+}
