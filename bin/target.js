@@ -300,9 +300,7 @@ const formatTarget = async (campaignName, file) => {
       }
 
       if (!t.emails) {
-
         t.emails = parseEmail(t.email);
-console.log("parsed emails:", t.emails);
         delete t.email;
       }
       if (t.field.avatar === null) {
@@ -345,10 +343,9 @@ console.log("parsed emails:", t.emails);
               first_name: t.field.first_name,
             },
           });
-          // console.log("change language", t.locale,language, t.field.salutation);
-
         }
-        if (!t.locale?.startsWith("nb")) t.field.salutation = (t.field.salutation ?? "") + ",";
+        if (!t.locale?.startsWith("nb")&& !t.field?.lang?.startsWith("nb")) t.field.salutation = (t.field.salutation ?? "") + ",";
+     console.log("salutation for", t.name, t.field.salutation);
       }
       t.fields = JSON.stringify(t.field);
       delete t.field;
@@ -412,7 +409,6 @@ const digestTarget = async (campaignName, file) => {
 };
 
 const pushTarget = async (campaignName, file) => {
-  console.log("in pushTargetaaaaaaaaaaaaaaa", campaignName, file);
   const campaign = read("campaign/" + campaignName);
   const formattedTargets = await formatTarget(campaignName, file);
   console.log("targets", formattedTargets.length);
@@ -433,7 +429,6 @@ mutation UpsertTargets($id: Int!, $targets: [TargetInput!]!,$outdated:OutdatedTa
     },
     "UpsertTargets"
   );
-  console.log("ids", ids);
   if (ids.errors) {
     ids.errors.forEach(d => {
       if (d.message === "has messages") {
@@ -534,8 +529,6 @@ if (require.main === module) {
           );
           process.exit(1);
         }
-
-        console.log(888888888, name, argv.file || name);
         await pushTarget(name, argv.file || name);
         console.log("push done");
       }
