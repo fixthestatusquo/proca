@@ -643,7 +643,7 @@ const EmailComponent = props => {
     if (!data.message) data.message = getValues("message");
     if (data.comment) data.message += `\n${data.comment}`;
     if (config.component.email?.salutation) {
-      data.message = `{{target.fields.salutation}},\n${data.message}`;
+      data.message = `{{target.fields.salutation}}\n${data.message}`;
     }
     if (config.component.email?.ps) {
       data.message = `${data.message}\n\n{{target.fields.ps}}`;
