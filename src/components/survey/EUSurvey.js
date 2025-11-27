@@ -27,10 +27,23 @@ const Consultation = props => {
   const handleStepClick = step => setActiveStep(step);
   const handleNext = () => setActiveStep(prev => prev + 1);
 
+ const normalizeDefaults = (def) =>
+  Object.fromEntries(
+    Object.entries(def).map(([key, value]) => {
+      if (value?.multilingual) {
+        return [key, t(`campaign:${key}`, value.multilingual)];
+      }
+      return [key, value];
+    })
+  );
+
+const d = config.component.consultation?.default || {};
+const def = normalizeDefaults(d);
+
   const form = useForm({
     defaultValues: Object.assign({}, data, {
       language: config.locale,
-      ...(config.component.consultation.default || {}),
+      ...def
       // format of default values (arrays for multiselect, single value for single select, text for textfield):
       // "153167796": "153167801",
       // "153168305": [153168308, 153168309],
