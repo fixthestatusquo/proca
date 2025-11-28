@@ -94,7 +94,7 @@
     "cli-color": "^2.0.4",
     "dotenv": "^16.5.0",
     "esbuild": "^0.25.1",
-    "esbuild-plugin-browserslist": "^0.16.0",
+    "esbuild-plugin-browserslist": "^2.0.0",
     "esbuild-plugin-copy": "^2.1.1",
     "i18next-fs-backend": "^2.6.0",
     "lefthook": "^1.11.13",
