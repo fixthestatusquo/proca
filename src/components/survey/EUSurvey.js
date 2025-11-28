@@ -30,9 +30,7 @@ const Consultation = props => {
  const normalizeDefaults = (def) =>
   Object.fromEntries(
     Object.entries(def).map(([key, value]) => {
-      if (value?.multilingual) {
-        return [key, t(`campaign:${key}`, value.multilingual)];
-      }
+      if (value?.multilingual) return [key, t(key, value.multilingual)];
       return [key, value];
     })
   );

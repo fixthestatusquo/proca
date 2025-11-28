@@ -71,23 +71,16 @@ if (apId) {
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
-        if (
-          // TODO: investigate
-          campaignConfig.config.portal &&
-          campaignConfig.config.portal[0] === "Snowflake" &&
+      if (config.component.consultation?.default &&
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang] &&
-          campaignConfig.config.locales[config.lang]["letter:"]
+          campaignConfig.config.locales[config.lang]["survey:"]
         ) {
-          console.log("IT SHOULD NOT HAPPEN");
-          process.exit(1);
           config.locales = merge(
-            {
-              "letter:": campaignConfig.config.locales[config.lang]["letter:"],
-            },
+            campaignConfig.config.locales[config.lang]["survey:"],
             config.locales,
           );
-          delete campaignConfig.config.locales[config.lang]["letter:"];
+          delete campaignConfig.config.locales[config.lang]["survey:"];
         }
         if (
           campaignConfig.config.locales &&
