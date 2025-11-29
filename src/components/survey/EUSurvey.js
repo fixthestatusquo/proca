@@ -10,6 +10,22 @@ import Country from "@components/field/Country";
 import useConsultJson from "@components/survey/useQuestions";
 import { useTranslation } from "react-i18next";
 
+// helper to to check for errors and scroll smoothly an element with errors
+export const validateAndFocus = async (form) => {
+  const valid = await form.trigger();
+  if (!valid) {
+    const first = Object.keys(form.formState.errors)[0];
+
+    // focus the field
+    const el = document.querySelector(`[name="${first}"]`);
+    if (el) el.focus();
+    // scroll to the field
+    smoothScroll(first);
+    return false;
+  }
+  return true;
+};
+
 const Consultation = props => {
   const { t } = useTranslation();
   const steps = [t("survey", "Survey"), t("submit", "Submit")];
@@ -67,7 +83,16 @@ const def = normalizeDefaults(d);
       >
         {steps.map((label, index) => (
           <Step key={label}>
-            <StepButton onClick={() => handleStepClick(index)}>
+            <StepButton
+              onClick={async () => {
+                if (index === 1 && activeStep === 0) {
+                  const valid = await validateAndFocus(form);
+                  if (!valid) return;
+                }
+
+                handleStepClick(index);
+              }}
+            >
               {label}
             </StepButton>
           </Step>

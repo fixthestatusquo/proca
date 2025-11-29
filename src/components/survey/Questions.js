@@ -13,6 +13,7 @@ import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
 import { useTranslation } from "react-i18next";
 import Select from "@components/field/Select";
+import { validateAndFocus } from "./EUSurvey";
 
 const useStyles = makeStyles(theme => ({
   elementMarginTop: props => ({
@@ -376,15 +377,12 @@ const Survey = ({
     setTimeout(() => input.focus?.(), 300);
   };
 
-  const handleContinue = async () => {
-    const valid = await form.trigger();
-    if (!valid) {
-      const firstErrorKey = Object.keys(form.formState.errors)[0];
-      smoothScroll(firstErrorKey);
-      return;
-    }
-    handleNext?.() ?? true;
-  };
+ const handleContinue = async () => {
+  const valid = await validateAndFocus(form);
+   if (!valid) return;
+  handleNext?.();
+};
+
 
   if (!questions) return null;
 
