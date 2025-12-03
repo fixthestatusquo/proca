@@ -4,39 +4,40 @@ const path = require("node:path");
 const merge = require("lodash").merge;
 
 function getConfigOverride(id) {
-const config = readConfigOverride(id);
-if (config) {
-  return config;
-}
-throw Error(
-  "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
-);
+  const config = readConfigOverride(id);
+  if (config) {
+    return config;
+  }
+  throw Error(
+    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
+  );
 }
 
-const configFolder =() =>(process.env.PROCA_CONFIG_FOLDER  || path.resolve(__dirname, "../config/"));
+const configFolder = () =>
+  process.env.PROCA_CONFIG_FOLDER || path.resolve(__dirname, "../config/");
 
 function readConfigOverride(id) {
-//  console.log(id);console.trace("Here I am!")
+  //  console.log(id);console.trace("Here I am!")
 
-let apId = id || process.env[envVar] || process.argv[2];
+  let apId = id || process.env[envVar] || process.argv[2];
 
-if (apId) {
-  const configFile = apId + ".json";
-  const fn = path.resolve(__dirname, configFolder() + '/' + configFile);
-  try {
-    const config = parseConfig(fs.readFileSync(fn));
-    let campaignConfig = {};
-    if (config.campaign.name) {
-      campaignConfig = parseConfig(
-        fs.readFileSync(
-          path.resolve(
-            __dirname,
-            configFolder() + "/campaign/" + config.campaign.name + ".json",
+  if (apId) {
+    const configFile = apId + ".json";
+    const fn = path.resolve(__dirname, configFolder() + "/" + configFile);
+    try {
+      const config = parseConfig(fs.readFileSync(fn));
+      let campaignConfig = {};
+      if (config.campaign.name) {
+        campaignConfig = parseConfig(
+          fs.readFileSync(
+            path.resolve(
+              __dirname,
+              configFolder() + "/campaign/" + config.campaign.name + ".json",
+            ),
           ),
-        ),
-      );
-      if (!config.locales) config.locales = {};
-      config.layout = merge(campaignConfig.config.layout,config.layout);
+        );
+        if (!config.locales) config.locales = {};
+        config.layout = merge(campaignConfig.config.layout, config.layout);
         config.component = merge(
           {
             share: {},
@@ -71,15 +72,14 @@ if (apId) {
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
-      if (config.component.consultation?.default &&
+        if (
+          config.component.consultation?.default &&
           campaignConfig.config.locales &&
           campaignConfig.config.locales[config.lang] &&
           campaignConfig.config.locales[config.lang]["survey:"]
         ) {
-          config.locales = merge(
-            campaignConfig.config.locales[config.lang]["survey:"],
-            config.locales,
-          );
+          config.locales["survey:"] =
+            campaignConfig.config.locales[config.lang]["survey:"];
           delete campaignConfig.config.locales[config.lang]["survey:"];
         }
         if (
