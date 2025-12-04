@@ -126,6 +126,33 @@ When "Yes" is selected, questions `2` and `3` are dynamically rendered as depend
 
 ---
 
+## Translations
+
+To default answers in multiple languages, put `multilingual: fallback` in `component.consultation`.
+Animalconsult example:
+
+```js
+"component": {
+     "consultation": {
+                  "160002721": {
+            "multilingual": "Fish and fish products"
+          }
+     }
+}
+```
+
+and add translations under `campaign: survey.id` in locales:
+
+```js
+"de": {
+        "campaign:": {
+          "survey": {
+            "160002721": "Fisch und Fischprodukte"
+          }
+        }
+}
+```
+
 ## 🧱 Extensibility
 
 - Add new question types in `Questions.jsx`
