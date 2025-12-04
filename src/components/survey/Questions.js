@@ -98,23 +98,23 @@ const Questions = ({ json, form, findQuestionById }) => {
       );
 
     case "Selection":
-  return (
-      <SelectionQuestion
-        json={json}
-        form={form}
-        findQuestionById={findQuestionById}
-      />
+      return (
+        <SelectionQuestion
+          json={json}
+          form={form}
+          findQuestionById={findQuestionById}
+        />
 
-  );
+      );
 
     case "Matrix":
-  return (
-    <MatrixQuestion
-      json={json}
-      form={form}
-      findQuestionById={findQuestionById}
-    />
-  );
+      return (
+        <MatrixQuestion
+          json={json}
+          form={form}
+          findQuestionById={findQuestionById}
+        />
+      );
 
 
 
@@ -377,17 +377,17 @@ const Survey = ({
     setTimeout(() => input.focus?.(), 300);
   };
 
- const handleContinue = async () => {
-  const valid = await validateAndFocus(form);
-   if (!valid) return;
-  handleNext?.();
-};
+  const handleContinue = async () => {
+    const valid = await validateAndFocus(form);
+    if (!valid) return;
+    handleNext?.();
+  };
 
 
   if (!questions) return null;
 
   const NextButton = (
-    <Box display="flex" justifyContent="flex-end" mb={2}>
+    <Box display="flex" justifyContent="flex-end" mb={2} className="next-top">
       <Button variant="contained" color="primary" onClick={handleContinue}>
         {t("Next", "Next")}
       </Button>
