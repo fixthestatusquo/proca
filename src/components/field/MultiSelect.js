@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
   FormControl,
@@ -47,7 +47,6 @@ const MultiSelectCheckbox = ({
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const selectedValues = (form.watch(name) || []).map(String);
   if (!maxChoices) maxChoices = options.length;
 
   return (
@@ -57,7 +56,13 @@ const MultiSelectCheckbox = ({
         name={name}
         control={form.control}
         defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
-        render={({ field }) => (
+        rules={{
+          validate: value => value.length > 0 || "You must select at least one option"
+        }}
+        render={({ field }) => {
+          const selectedValues = (field.value || []).map(String);
+
+          return (
           <FormGroup>
             {Object.entries(options).map(([key, label]) => {
               const isChecked = selectedValues.includes(key);
@@ -87,8 +92,9 @@ const MultiSelectCheckbox = ({
               );
             })}
           </FormGroup>
-        )}
-      />
+        );
+      }}
+    />
       {children}
       {/* insane, but EC has zero! */}
       {maxChoices && maxChoices > 0 && (
@@ -97,6 +103,11 @@ const MultiSelectCheckbox = ({
             opt: maxChoices,
             defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`,
           })}
+        </FormHelperText>
+      )}
+      {form.formState.errors[name] && (
+        <FormHelperText error>
+          {form.formState.errors[name].message}
         </FormHelperText>
       )}
     </FormControl>
