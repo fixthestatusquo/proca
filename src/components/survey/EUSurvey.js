@@ -10,6 +10,21 @@ import Country from "@components/field/Country";
 import useConsultJson from "@components/survey/useQuestions";
 import { useTranslation } from "react-i18next";
 
+export const smoothScroll = fieldName => {
+    const input = document.querySelector(`[name="${fieldName}"]`);
+    if (!input) return;
+
+    const rect = input.getBoundingClientRect();
+    const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
+
+    window.scrollTo({
+      top: absoluteY,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => input.focus?.(), 300);
+};
+
 // helper to to check for errors and scroll smoothly an element with errors
 export const validateAndFocus = async (form) => {
   const valid = await form.trigger();

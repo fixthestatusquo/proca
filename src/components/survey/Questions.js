@@ -346,10 +346,6 @@ const MatrixQuestion = ({ json, form, findQuestionById }) => {
   );
 };
 
-
-
-
-
 const Survey = ({
   form,
   handleNext = undefined,
@@ -361,21 +357,6 @@ const Survey = ({
 
   const findQuestionById = id =>
     questions?.find(q => String(q.id) === String(id));
-
-  const smoothScroll = fieldName => {
-    const input = document.querySelector(`[name="${fieldName}"]`);
-    if (!input) return;
-
-    const rect = input.getBoundingClientRect();
-    const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
-
-    window.scrollTo({
-      top: absoluteY,
-      behavior: "smooth",
-    });
-
-    setTimeout(() => input.focus?.(), 300);
-  };
 
   const handleContinue = async () => {
     const valid = await validateAndFocus(form);
