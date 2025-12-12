@@ -83,7 +83,7 @@
   "devDependencies": {
     "@absinthe/socket": "^0.2.1",
     "@alienfast/i18next-loader": "^2.0.2",
-    "@babel/cli": "^7.27.2",
+    "@babel/cli": "^7.28.3",
     "@babel/node": "^7.26.0",
     "@babel/plugin-transform-react-jsx": "^7.25.9",
     "@babel/preset-env": "^7.27.2",
