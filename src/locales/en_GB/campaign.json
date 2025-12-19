@@ -1,1 +1,26 @@
-{}
+{
+  "description": "put the goal of the campaign and core demand",
+  "actions": {
+    "petition": {
+      "default": "Hey! I just signed this petition and thought you might want to support it too: {url}",
+      "email": {
+        "subject": "Will you sign this petition with me?",
+        "body": "Hi,\n\nI just signed a petition about something I really care about, and I'm reaching out to people I think might want to support it too.\n\nEvery signature helps build momentum and shows decision-makers that people care about this issue. It only takes a minute to add your name:\n\n{url}\n\nI'd really appreciate your support on this. Thanks for taking the time to consider it!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Help me send a message",
+      "email": {
+        "body": "Hi,\n\nI just sent an email about an issue I care about, and I wanted to see if you'd join me in making our voices heard.\n\nThere's a pre-written template that makes it really easy - you can personalize it or send it as-is. It only takes a couple of minutes:\n\n{url}\n\nThe more people who reach out, the harder it is to ignore. Would you consider adding your voice?\n\nThanks so much",
+        "default": "Hey! I just sent a message about this issue - would you consider adding your voice? It's super quick: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Join me in supporting this cause",
+      "body": "Hi,\n\nI recently took action on something I care about and wanted to share it with you. I think you might be interested in participating too.\n\nIt only takes a few minutes, and I believe it could make a real difference. Here's the link if you'd like to join:\n\n{url}\n\nThanks for considering it!"
+    },
+    "default": "Hey! I just took action on something important - want to join me? {url}"
+  }
+}
