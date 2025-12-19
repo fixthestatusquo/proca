@@ -1,1 +1,26 @@
-{}
+{
+  "description": "sprioc an fheachtais agus an t-éileamh lárnach a chur",
+  "actions": {
+    "petition": {
+      "default": "Haigh! Shínigh mé an achainí seo díreach agus cheap mé go mb’fhéidir gur mhaith leat tacú léi freisin: {url}",
+      "email": {
+        "subject": "An síneoidh tú an achainí seo liom?",
+        "body": "Haigh,\n\nShínigh mé achainí díreach faoi rud a bhfuil cúram mór orm faoi, agus táim ag dul i dteagmháil le daoine a cheapann mé a d'fhéadfadh a bheith ag iarraidh tacú leis freisin.\n\nCabhraíonn gach síniú le móiminteam a thógáil agus léiríonn sé do lucht cinnteoireachta go bhfuil cúram ar dhaoine faoin gceist seo. Ní thógann sé ach nóiméad d'ainm a chur leis:\n\n{url}\n\nBheinn fíorbhuíoch as do thacaíocht air seo. Go raibh maith agat as an am a thógáil chun é a bhreithniú!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Cabhraigh liom teachtaireacht a sheoladh",
+      "email": {
+        "body": "Haigh,\n\nChuir mé ríomhphost chugam faoi cheist a bhfuil cúram orm fúithi, agus ba mhaith liom a fheiceáil an mbeadh tú sásta páirt a ghlacadh liom chun ár nglórtha a chur in iúl.\n\nTá teimpléad réamhscríofa ann a fhágann go bhfuil sé an-éasca - is féidir leat é a phearsantú nó é a sheoladh mar atá. Ní thógann sé ach cúpla nóiméad:\n\n{url}\n\nDá mhéad daoine a dhéanann teagmháil, is deacra neamhaird a dhéanamh air. An mbeadh tú sásta do ghlór féin a chur leis?\n\nGo raibh míle maith agat",
+        "default": "Haigh! Chuir mé teachtaireacht chugam faoin gceist seo díreach anois - an mbeadh suim agat do ghlór a chur leis? Tá sé thar a bheith gasta: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Bí liom chun tacú leis an gcúis seo",
+      "body": "Haigh,\n\nRinne mé beart le déanaí ar rud a bhfuil cúram orm faoi agus theastaigh uaim é a roinnt leat. Ceapaim go mbeadh suim agat páirt a ghlacadh freisin.\n\nNí thógann sé ach cúpla nóiméad, agus creidim go bhféadfadh sé difríocht mhór a dhéanamh. Seo an nasc más mian leat páirt a ghlacadh:\n\n{url}\n\nGo raibh maith agat as ucht smaoineamh air!"
+    },
+    "default": "Haigh! Rinne mé beart ar rud éigin tábhachtach díreach anois - ar mhaith leat a bheith liom? {url}"
+  }
+}
