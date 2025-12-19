@@ -1,1 +1,26 @@
-{}
+{
+  "description": "navedite cilj kampanje in glavno povpraševanje.",
+  "actions": {
+    "petition": {
+      "default": "Pravkar sem podpisala to peticijo in pomislila, da bi jo morda želeli podpreti tudi vi: {url}",
+      "email": {
+        "subject": "Ali boste skupaj z mano podpisali to peticijo?",
+        "body": "Pozdravljeni,\n\npravkar sem podpisal peticijo o nečem, kar mi je zelo pomembno, in se obračam na ljudi, za katere menim, da bi jo morda želeli podpreti tudi oni.\n\nVsak podpis pripomore k večji dinamiki in odločevalcem pokaže, da ljudem ni vseeno za to vprašanje. Za dodajanje svojega imena potrebujete le minuto:\n\n{url}: Prijavite svoje ime in priimek.\n\nResnično bi bil hvaležen za vašo podporo pri tem. Hvala, ker ste si vzeli čas in razmislili o tem!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Pomagajte mi poslati sporočilo",
+      "email": {
+        "body": "Pozdravljeni,\n\npravkar sem poslala e-pošto o vprašanju, ki mi je pomembno, in želela sem vedeti, ali se mi boste pridružili, da se naš glas sliši.\n\nNa voljo je vnaprej pripravljena predloga, ki vam to zelo olajša - lahko jo prilagodite ali pošljete takšno, kot je. To vam vzame le nekaj minut:\n\n{url}\n\nVeč kot je ljudi, ki se oglasijo, težje jih je ignorirati. Bi razmislili o tem, da bi dodali svoj glas?\n\nNajlepša hvala.",
+        "default": "Pravkar sem poslal sporočilo o tem vprašanju - ali bi se lahko pridružili tudi vi? To je zelo hitro: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Pridružite se mi in podprite ta namen",
+      "body": "Pozdravljeni,\n\npred kratkim sem se odločil za nekaj, kar mi je pomembno, in sem želel to deliti z vami. Mislim, da bi tudi vas lahko zanimalo sodelovanje.\n\nPotrebujete le nekaj minut, verjamem pa, da lahko to resnično nekaj spremeni. Tukaj je povezava, če se želite pridružiti:\n\nČe želite sodelovati, se lahko pridružite: {url}\n\nHvala za razmislek!"
+    },
+    "default": "Hej! Pravkar sem se odločil za nekaj pomembnega - se mi želite pridružiti? {url}"
+  }
+}
