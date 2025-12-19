@@ -1,1 +1,26 @@
-{}
+{
+  "description": "izvirzīt kampaņas mērķi un pamatpieprasījumu",
+  "actions": {
+    "petition": {
+      "default": "Es tikko parakstīju šo lūgumrakstu un domāju, ka arī jūs varētu vēlēties to atbalstīt: {url}",
+      "email": {
+        "subject": "Vai jūs kopā ar mani parakstīsiet šo lūgumrakstu?",
+        "body": "Sveiki,\n\nEs tikko parakstīju lūgumrakstu par kaut ko, kas man patiešām rūp, un es vēršos pie cilvēkiem, kuri, manuprāt, arī vēlētos to atbalstīt.\n\nKatrs paraksts palīdz palielināt impulsu un parāda lēmumu pieņēmējiem, ka cilvēkiem rūp šis jautājums. Lai pievienotu savu vārdu, ir nepieciešama tikai viena minūte:\n\nLūdzu, pievienojiet savu vārdu un uzvārdu: {url}\n\nEs ļoti novērtēšu jūsu atbalstu šajā jautājumā. Paldies, ka veltījāt laiku, lai to apsvērtu!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Palīdziet man nosūtīt ziņu",
+      "email": {
+        "body": "Sveiki,\n\nEs tikko nosūtīju e-pasta vēstuli par jautājumu, kas man rūp, un es gribēju uzzināt, vai jūs pievienosieties man, lai mūsu balsis tiktu sadzirdētas.\n\nŠeit ir iepriekš sagatavota veidne, kas to padara ļoti vienkāršu - varat to personalizēt vai arī sūtīt tā, kā tas ir. Tas aizņem tikai pāris minūtes:\n\n{url}\n\nJo vairāk cilvēku sazinās, jo grūtāk to ignorēt. Vai jūs apsverat iespēju pievienot savu balsi?\n\nLiels paldies",
+        "default": "Es tikko nosūtīju ziņu par šo jautājumu - vai jūs apsverat iespēju pievienot savu viedokli? Tas ir ļoti ātri: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Pievienojieties man, atbalstot šo mērķi",
+      "body": "Sveiki,\n\nNesen es sāku rīkoties saistībā ar kaut ko, kas man rūp, un gribēju dalīties ar jums. Domāju, ka arī jūs varētu būt ieinteresēts piedalīties.\n\nTas aizņem tikai dažas minūtes, un es ticu, ka tas varētu kaut ko mainīt. Šeit ir saite, ja vēlaties pievienoties:\n\n{url}\n\nPaldies, ka apsverat šo iespēju!"
+    },
+    "default": "Ei! Es tikko sāku rīkoties kādā svarīgā jautājumā - vai vēlaties pievienoties man? {url}"
+  }
+}

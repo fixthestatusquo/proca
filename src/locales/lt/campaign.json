@@ -1,1 +1,26 @@
-{}
+{
+  "description": "nurodyti kampanijos tikslą ir pagrindinį poreikį.",
+  "actions": {
+    "petition": {
+      "default": "Ką tik pasirašiau šią peticiją ir pamaniau, kad galbūt ir jūs norėsite ją paremti: {url}",
+      "email": {
+        "subject": "Ar kartu su manimi pasirašysite šią peticiją?",
+        "body": "Sveiki,\n\nką tik pasirašiau peticiją dėl to, kas man labai rūpi, ir kreipiuosi į žmones, kurie, mano manymu, taip pat norėtų ją paremti.\n\nKiekvienas parašas padeda didinti pagreitį ir parodo sprendimų priėmėjams, kad žmonėms rūpi šis klausimas. Pridėti savo vardą ir pavardę užtruksite tik minutę:\n\nPasirašykite savo vardą ir pavardę: {url}\n\nBūčiau labai dėkingas už jūsų paramą. Ačiū, kad skyrėte laiko ir apsvarstėte!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Padėkite man išsiųsti žinutę",
+      "email": {
+        "body": "Sveiki,\n\nką tik išsiunčiau laišką apie man rūpimą problemą ir norėjau sužinoti, ar prisijungsite prie manęs, kad mūsų balsas būtų išgirstas.\n\nYra iš anksto parengtas šablonas, kuris labai palengvina šią užduotį - galite jį suasmeninti arba siųsti tokį, koks jis yra. Tai užtruks tik porą minučių:\n\n{url}\n\nKuo daugiau žmonių kreipiasi, tuo sunkiau juos ignoruoti. Ar apsvarstytumėte galimybę pridėti savo balsą?\n\nLabai ačiū",
+        "default": "Ką tik nusiunčiau žinutę apie šį klausimą - gal galėtumėte pridėti savo balsą? Tai labai greita: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Prisijunkite prie manęs ir paremkite šią priežastį",
+      "body": "Sveiki,\n\nNeseniai ėmiausi veiksmų, kurie man rūpi, ir norėjau jais pasidalyti su jumis. Manau, kad jums taip pat būtų įdomu dalyvauti.\n\nTai užtruks tik kelias minutes, ir tikiu, kad tai gali iš tikrųjų pakeisti situaciją. Jei norėtumėte prisijungti, rasite nuorodą:\n\nJei norite prisijungti, prašome prisijungti: {url}\n\nAčiū, kad apsvarstėte!"
+    },
+    "default": "Ei! Ką tik ėmiausi svarbių veiksmų - ar norite prisijungti prie manęs? {url}"
+  }
+}

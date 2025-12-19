@@ -1,1 +1,26 @@
-{}
+{
+  "description": "sæt målet for kampagnen og kernebehovet",
+  "actions": {
+    "petition": {
+      "default": "Hej! Jeg har lige underskrevet denne underskriftsindsamling og tænkte, at du måske også ville støtte den: {url}.",
+      "email": {
+        "subject": "Vil du underskrive denne underskriftsindsamling sammen med mig?",
+        "body": "Hej,\n\nJeg har lige underskrevet en underskriftsindsamling om noget, der virkelig ligger mig på sinde, og jeg henvender mig til folk, som jeg tror også vil støtte den.\n\nHver underskrift hjælper med at skabe momentum og viser beslutningstagerne, at folk bekymrer sig om dette emne. Det tager kun et minut at tilføje dit navn:\n\n{url}\n\nJeg ville virkelig sætte pris på din støtte til dette. Tak, fordi du tog dig tid til at overveje det!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Hjælp mig med at sende en besked",
+      "email": {
+        "body": "Hej,\n\nJeg har lige sendt en e-mail om et emne, der ligger mig på sinde, og jeg ville høre, om du ville være med til at få vores stemmer hørt.\n\nDer er en forudskrevet skabelon, som gør det virkelig nemt - du kan gøre den personlig eller sende den, som den er. Det tager kun et par minutter:\n\n{url}\n\nJo flere, der rækker ud, jo sværere er det at ignorere. Vil du overveje at tilføje din stemme?\n\nTusind tak for det",
+        "default": "Hej! Jeg har lige sendt en besked om dette emne - vil du overveje at tilføje din stemme? Det er superhurtigt: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Vær med til at støtte denne sag",
+      "body": "Hej,\n\nJeg har for nylig gjort noget ved noget, der ligger mig på sinde, og jeg vil gerne dele det med dig. Jeg tror, at du måske også er interesseret i at deltage.\n\nDet tager kun et par minutter, og jeg tror, at det kan gøre en reel forskel. Her er linket, hvis du gerne vil være med:\n\n{url}\n\nTak, fordi du overvejede det!"
+    },
+    "default": "Hej! Jeg har lige gjort noget vigtigt - vil du være med? {url}"
+  }
+}

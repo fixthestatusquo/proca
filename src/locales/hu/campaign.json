@@ -1,1 +1,26 @@
-{}
+{
+  "description": "a kampány célját és az alapvető igényeket",
+  "actions": {
+    "petition": {
+      "default": "Szia! Most írtam alá ezt a petíciót, és gondoltam, talán te is támogatni szeretnéd: {url}",
+      "email": {
+        "subject": "Aláírnád velem együtt ezt a petíciót?",
+        "body": "Szia,\n\nMost írtam alá egy petíciót valamiről, ami nagyon fontos számomra, és most keresek olyan embereket, akik szerintem szintén támogatni szeretnék.\n\nMinden aláírás segít lendületet venni, és megmutatja a döntéshozóknak, hogy az embereket érdekli ez a kérdés. Csak egy percet vesz igénybe a neved hozzáadása:\n\n{url}\n\nNagyra értékelném, ha támogatna ebben a kérdésben. Köszönöm, hogy időt szánsz rá!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Segítsen üzenetet küldeni",
+      "email": {
+        "body": "Szia,\n\nMost küldtem egy e-mailt egy számomra fontos kérdésről, és szeretném tudni, hogy csatlakoznátok-e hozzám, hogy hallassuk a hangunkat.\n\nVan egy előre megírt sablon, amely nagyon megkönnyíti a dolgot - személyre szabhatod, vagy elküldheted úgy, ahogy van. Mindössze néhány percet vesz igénybe:\n\n{url}\n\nMinél többen jelentkeznek, annál nehezebb figyelmen kívül hagyni. Megfontolná, hogy Ön is csatlakozzon?\n\nKöszönöm szépen",
+        "default": "Szia! Most küldtem egy üzenetet ezzel a témával kapcsolatban - megtennéd, hogy hozzászólsz? Szuper gyors: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Csatlakozzon hozzám, hogy támogassuk ezt az ügyet",
+      "body": "Szia,\n\nNemrég tettem valamit, ami fontos nekem, és szerettem volna megosztani veletek. Szerintem téged is érdekelhet a részvétel.\n\nCsak néhány percet vesz igénybe, és úgy gondolom, hogy valódi változást hozhat. Itt a link, ha szeretnél csatlakozni:\n\n{url}\n\nKöszönöm, hogy fontolóra vetted!"
+    },
+    "default": "Hé! Épp most tettem valami fontosat - akarsz csatlakozni hozzám? {url}"
+  }
+}
