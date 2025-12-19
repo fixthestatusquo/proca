@@ -1,1 +1,26 @@
-{}
+{
+  "description": "colocar a meta da campanha e a demanda principal",
+  "actions": {
+    "petition": {
+      "default": "Acabei de assinar esta petição e achei que você também gostaria de apoiá-la: {url}",
+      "email": {
+        "subject": "Você assinará esta petição comigo?",
+        "body": "Hi,\n\nAcabei de assinar uma petição sobre algo que realmente me interessa e estou entrando em contato com pessoas que acho que também gostariam de apoiá-la.\n\nCada assinatura ajuda a criar um impulso e mostra aos tomadores de decisão que as pessoas se preocupam com essa questão. Leva apenas um minuto para adicionar seu nome:\n\n{url}\n\nEu realmente apreciaria seu apoio a essa questão. Obrigado por dedicar seu tempo para pensar no assunto!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ajude-me a enviar uma mensagem",
+      "email": {
+        "body": "Hi,\n\nAcabei de enviar um e-mail sobre um assunto que me interessa e gostaria de saber se você se juntaria a mim para fazer com que nossas vozes fossem ouvidas.\n\nHá um modelo pré-escrito que facilita muito - você pode personalizá-lo ou enviá-lo como está. Leva apenas alguns minutos:\n\n{url}\n\nQuanto mais pessoas entrarem em contato, mais difícil será ignorar. Você consideraria acrescentar sua voz?\n\nMuito obrigado",
+        "default": "Acabei de enviar uma mensagem sobre esse problema. Você poderia dar sua opinião? É super rápido: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Junte-se a mim no apoio a essa causa",
+      "body": "Hi,\n\nRecentemente, tomei uma atitude em relação a algo que me interessa e gostaria de compartilhá-la com você. Acho que você também pode estar interessado em participar.\n\nLeva apenas alguns minutos, e acredito que isso pode fazer uma diferença real. Aqui está o link se você quiser participar:\n\n{url}\n\nObrigado por considerar essa possibilidade!"
+    },
+    "default": "Acabei de tomar uma atitude em relação a algo importante - quer se juntar a mim? {url}"
+  }
+}
