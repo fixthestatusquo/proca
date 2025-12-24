@@ -1,0 +1,26 @@
+{
+  "description": "panna kampaania eesmärk ja põhinõudlus",
+  "actions": {
+    "petition": {
+      "default": "Hei! Ma kirjutasin just alla sellele petitsioonile ja mõtlesin, et ehk tahate ka teie seda toetada: {url}",
+      "email": {
+        "subject": "Kas kirjutate koos minuga sellele petitsioonile alla?",
+        "body": "Tere,\n\nKirjutasin just alla petitsioonile, mis puudutab midagi, mis mulle väga tähtis on, ja pöördun inimeste poole, kes minu arvates võiksid seda samuti toetada.\n\nIga allkiri aitab luua hoogu ja näitab otsustajatele, et inimesed hoolivad sellest küsimusest. Oma nime lisamine võtab vaid minuti:\n\n{url}\n\nOleksin väga tänulik, kui toetaksid seda. Aitäh, et võtate aega, et seda kaaluda!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Aidake mul saata sõnum",
+      "email": {
+        "body": "Tere,\n\nMa just saatsin e-kirja ühe teema kohta, mis mind huvitab, ja tahtsin näha, kas te ühinete minuga, et meie häält kuuldavaks teha.\n\nOn olemas eelnevalt kirjutatud mall, mis teeb selle väga lihtsaks - saate seda isikupärastada või saata sellisena, nagu see on. See võtab vaid paar minutit:\n\n{url}\n\nMida rohkem inimesi pöördub, seda raskem on seda ignoreerida. Kas te kaaluksite oma hääle lisamist?\n\nSuur tänu.",
+        "default": "Hei! Saatsin just sõnumi selle teema kohta - kas te kaaluksite oma hääle lisamist? See on super kiire: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Ühinege minuga selle eesmärgi toetamisel",
+      "body": "Tere,\n\nHiljuti võtsin midagi ette, mis mind huvitab, ja tahtsin seda teiega jagada. Ma arvan, et ka teid võiks huvitada osalemine.\n\nSee võtab vaid mõned minutid ja ma usun, et see võib tõesti midagi muuta. Siin on link, kui soovite liituda:\n\n{url}\n\nTäname, et kaalute seda!"
+    },
+    "default": "Hei! Ma tegin just midagi olulist - tahad minuga ühineda? {url}"
+  }
+}

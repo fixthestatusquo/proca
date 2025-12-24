@@ -1,0 +1,26 @@
+{
+  "description": "zet het doel van de campagne en de kernvraag",
+  "actions": {
+    "petition": {
+      "default": "Hé! Ik heb net deze petitie ondertekend en ik dacht dat jij die misschien ook wel wilde steunen: {url}",
+      "email": {
+        "subject": "Wil je deze petitie samen met mij ondertekenen?",
+        "body": "Hoi,\n\nIk heb net een petitie ondertekend over iets waar ik echt om geef, en ik probeer mensen te bereiken van wie ik denk dat ze het ook willen steunen.\n\nElke handtekening helpt om een momentum op te bouwen en laat besluitvormers zien dat mensen om deze kwestie geven. Het kost maar een minuut om je naam toe te voegen:\n\n{url}\n\nIk zou je steun hierbij erg op prijs stellen. Bedankt dat je de tijd neemt om erover na te denken!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Help me een bericht te sturen",
+      "email": {
+        "body": "Hoi,\n\nIk heb net een e-mail gestuurd over een onderwerp dat mij na aan het hart ligt en ik wilde weten of jullie samen met mij onze stem willen laten horen.\n\nEr is een vooraf geschreven sjabloon dat het heel gemakkelijk maakt - je kunt het personaliseren of het versturen zoals het is. Het duurt maar een paar minuten:\n\n{url}\n\nHoe meer mensen een bericht sturen, hoe moeilijker het is om het te negeren. Zou je willen overwegen om je stem toe te voegen?\n\nHeel erg bedankt",
+        "default": "Ik heb net een bericht gestuurd over deze kwestie - zou je willen overwegen om je stem te laten horen? Het is supersnel: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Steun samen met mij dit doel",
+      "body": "Hoi,\n\nIk heb onlangs actie ondernomen voor iets waar ik om geef en ik wilde het met jullie delen. Ik denk dat je ook wel geïnteresseerd bent om mee te doen.\n\nHet kost maar een paar minuten en ik denk dat het echt een verschil kan maken. Hier is de link als je mee wilt doen:\n\n{url}\n\nBedankt voor het overwegen!"
+    },
+    "default": "Hé! Ik heb net actie ondernomen voor iets belangrijks - wil je met me meedoen? {url}"
+  }
+}

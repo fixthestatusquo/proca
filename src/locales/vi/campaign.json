@@ -1,0 +1,26 @@
+{
+  "description": "Đặt mục tiêu của chiến dịch và yêu cầu cốt lõi.",
+  "actions": {
+    "petition": {
+      "default": "Này! Mình vừa ký vào bản kiến nghị này và nghĩ rằng bạn cũng có thể muốn ủng hộ nó: {url}",
+      "email": {
+        "subject": "Bạn có đồng ý ký vào bản kiến nghị này cùng tôi không?",
+        "body": "Chào,\n\nTôi vừa ký vào một bản kiến nghị về một vấn đề mà tôi thực sự quan tâm, và tôi đang liên hệ với những người mà tôi nghĩ có thể muốn ủng hộ nó.\n\nMỗi chữ ký đều góp phần tạo đà và cho thấy với những người ra quyết định rằng mọi người quan tâm đến vấn đề này. Chỉ mất một phút để ký tên:\n\n{url}\n\nTôi thực sự đánh giá cao sự ủng hộ của bạn trong việc này. Cảm ơn bạn đã dành thời gian để xem xét!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Giúp tôi gửi một tin nhắn.",
+      "email": {
+        "body": "Chào,  \n\nTôi vừa gửi một email về một vấn đề mà tôi quan tâm, và tôi muốn xem liệu bạn có muốn tham gia cùng tôi để tiếng nói của chúng ta được lắng nghe không.\n\nCó một mẫu email sẵn có giúp việc này trở nên rất dễ dàng - bạn có thể tùy chỉnh nó hoặc gửi nguyên bản. Chỉ mất vài phút:  \n\n{url}  \n\nCàng nhiều người tham gia, càng khó để phớt lờ. Bạn có thể cân nhắc thêm tiếng nói của mình không?  \n\nCảm ơn rất nhiều.",
+        "default": "Này! Tôi vừa gửi một tin nhắn về vấn đề này - bạn có thể cân nhắc tham gia ý kiến không? Rất nhanh chóng: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Hãy cùng tôi ủng hộ cho sự nghiệp này.",
+      "body": "Chào bạn,\n\nGần đây, tôi đã thực hiện một hành động liên quan đến điều tôi quan tâm và muốn chia sẻ với bạn. Tôi nghĩ bạn cũng có thể quan tâm và muốn tham gia.\n\nChỉ mất vài phút thôi, và tôi tin rằng điều này có thể tạo ra sự khác biệt thực sự. Dưới đây là liên kết nếu bạn muốn tham gia:\n\n{url}\n\nCảm ơn bạn đã xem xét!"
+    },
+    "default": "Này! Tôi vừa thực hiện một việc quan trọng - bạn có muốn tham gia cùng tôi không? {url}"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "description": "stabiliți obiectivul campaniei și cererea principală",
+  "actions": {
+    "petition": {
+      "default": "Hei! Tocmai am semnat această petiție și m-am gândit că poate vrei să o susții și tu: {url}",
+      "email": {
+        "subject": "Veți semna această petiție împreună cu mine?",
+        "body": "Bună,\n\nTocmai am semnat o petiție cu privire la un subiect care mă interesează foarte mult și mă adresez unor persoane care cred că ar dori să o susțină și ele.\n\nFiecare semnătură ajută la crearea unui impuls și arată factorilor de decizie că oamenilor le pasă de această problemă. Nu durează decât un minut să vă adăugați numele:\n\n{url}\n\nAș aprecia foarte mult sprijinul dvs. în această privință. Vă mulțumesc că v-ați făcut timp să vă gândiți la asta!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ajutați-mă să trimit un mesaj",
+      "email": {
+        "body": "Bună,\n\nTocmai am trimis un e-mail despre o problemă care mă preocupă și am vrut să văd dacă mi te alături în a ne face vocile auzite.\n\nExistă un model prestabilit care simplifică foarte mult lucrurile - îl puteți personaliza sau trimite așa cum este. Durează doar câteva minute:\n\n{url}\n\nCu cât sunt mai mulți cei care ne contactează, cu atât este mai greu de ignorat. Vă gândiți să vă adăugați vocea?\n\nVă mulțumim foarte mult",
+        "default": "Hei! Tocmai am trimis un mesaj despre această problemă - te-ai gândi să-ți adaugi vocea? Este foarte rapid: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Alăturați-vă mie în susținerea acestei cauze",
+      "body": "Bună,\n\nRecent am luat măsuri în legătură cu ceva ce mă interesează și am vrut să le împărtășesc cu tine. Cred că ai putea fi și tu interesat să participi.\n\nDurează doar câteva minute și cred că ar putea face o diferență reală. Iată linkul dacă doriți să vă alăturați:\n\n{url}\n\nMulțumesc că te-ai gândit la asta!"
+    },
+    "default": "Hei! Tocmai am luat măsuri cu privire la ceva important - vrei să mi te alături? {url}"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "description": "das Ziel der Kampagne und die Kernforderung formulieren",
+  "actions": {
+    "petition": {
+      "default": "Hey! Ich habe gerade diese Petition unterschrieben und dachte, du möchtest sie vielleicht auch unterstützen: {url}",
+      "email": {
+        "subject": "Wirst du diese Petition mit mir unterschreiben?",
+        "body": "Hi,\n\nIch habe gerade eine Petition für etwas unterschrieben, das mir sehr am Herzen liegt, und ich wende mich an Leute, von denen ich denke, dass sie es auch unterstützen wollen.\n\nJede Unterschrift gibt der Petition mehr Schwung und zeigt den Entscheidungsträgern, dass dieses Thema den Menschen am Herzen liegt. Es dauert nur eine Minute, um deinen Namen hinzuzufügen:\n\n{url}\n\nIch würde mich sehr über deine Unterstützung freuen. Danke, dass du dir die Zeit nimmst, darüber nachzudenken!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Hilf mir, eine Nachricht zu senden",
+      "email": {
+        "body": "Hi,\n\nIch habe gerade eine E-Mail zu einem Thema geschrieben, das mir am Herzen liegt, und wollte wissen, ob du dich mir anschließen würdest, um unserer Stimme Gehör zu verschaffen.\n\nEs gibt eine vorgefertigte Vorlage, die es dir leicht macht - du kannst sie personalisieren oder einfach so versenden. Es dauert nur ein paar Minuten:\n\n{url}\n\nJe mehr Menschen sich melden, desto schwieriger ist es, sie zu ignorieren. Würdest du deine Stimme hinzufügen?\n\nVielen Dank!",
+        "default": "Hey! Ich habe gerade eine Nachricht zu diesem Thema geschickt - würdest du dich vielleicht auch dazu äußern? Das geht ganz schnell: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Unterstütze mit mir diese Sache",
+      "body": "Hi,\n\nIch habe mich kürzlich für etwas eingesetzt, das mir wichtig ist, und wollte es mit dir teilen. Ich denke, du bist vielleicht auch daran interessiert, mitzumachen.\n\nEs dauert nur ein paar Minuten, und ich glaube, dass es einen echten Unterschied machen kann. Hier ist der Link, wenn du mitmachen möchtest:\n\n{url}\n\nDanke, dass du es dir überlegt hast!"
+    },
+    "default": "Hey! Ich habe gerade etwas Wichtiges in Angriff genommen - willst du mitmachen? {url}"
+  }
+}

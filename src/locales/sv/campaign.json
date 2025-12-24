@@ -1,0 +1,26 @@
+{
+  "description": "sätta målet för kampanjen och kärnkravet",
+  "actions": {
+    "petition": {
+      "default": "Hej! Jag har just undertecknat den här framställningen och tänkte att du kanske vill stödja den också: {url}",
+      "email": {
+        "subject": "Kommer du att underteckna denna petition med mig?",
+        "body": "Hej,\n\nJag har precis skrivit under en namninsamling om något som jag verkligen bryr mig om, och jag vill nå ut till människor som jag tror kanske vill stödja det också.\n\nVarje underskrift hjälper till att bygga upp ett momentum och visar beslutsfattarna att människor bryr sig om den här frågan. Det tar bara en minut att lägga till ditt namn:\n\n{url}\n\nJag skulle verkligen uppskatta ditt stöd i den här frågan. Tack för att du tar dig tid att överväga det!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Hjälp mig att skicka ett meddelande",
+      "email": {
+        "body": "Hej,\n\nJag skickade precis ett mejl om en fråga som jag bryr mig om, och jag ville se om du skulle göra mig sällskap för att göra våra röster hörda.\n\nDet finns en förskriven mall som gör det väldigt enkelt - du kan anpassa det eller skicka det som det är. Det tar bara ett par minuter:\n\n{url}\n\nJu fler som hör av sig, desto svårare blir det att ignorera. Skulle du kunna tänka dig att lägga till din röst?\n\nTack så mycket",
+        "default": "Hej! Jag skickade just ett meddelande om den här frågan - skulle du kunna tänka dig att lägga till din röst? Det går supersnabbt: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Hjälp mig att stödja denna sak",
+      "body": "Hej,\n\nJag har nyligen agerat på något som jag bryr mig om och ville dela det med dig. Jag tror att du kanske också är intresserad av att delta.\n\nDet tar bara några minuter, och jag tror att det kan göra verklig skillnad. Här är länken om du vill gå med:\n\n{url}\n\nTack för att du överväger det!"
+    },
+    "default": "Hej! Jag har precis gjort något viktigt - vill du följa med? {...}"
+  }
+}

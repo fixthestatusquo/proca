@@ -1,0 +1,26 @@
+{
+  "description": "sette målet for kampanjen og kjernebehovet",
+  "actions": {
+    "petition": {
+      "default": "Hei! Jeg har nettopp signert dette oppropet og tenkte at du kanskje også ville støtte det: {url}",
+      "email": {
+        "subject": "Vil du skrive under på dette oppropet sammen med meg?",
+        "body": "Hei,\n\nJeg har nettopp skrevet under på et opprop om noe jeg virkelig bryr meg om, og jeg vil nå ut til folk jeg tror kanskje vil støtte det også.\n\nHver eneste underskrift bidrar til å skape momentum og viser beslutningstakerne at folk bryr seg om denne saken. Det tar bare et minutt å legge til navnet ditt:\n\n{url}\n\nJeg setter stor pris på din støtte i denne saken. Takk for at du tar deg tid til å vurdere det!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Hjelp meg å sende en melding",
+      "email": {
+        "body": "Hei,\n\nJeg sendte nettopp en e-post om en sak jeg bryr meg om, og jeg ville høre om du ville være med på å gjøre vår stemme hørt.\n\nDet finnes en ferdigskrevet mal som gjør det veldig enkelt - du kan tilpasse den eller sende den som den er. Det tar bare et par minutter:\n\n{url}\n\nJo flere som tar kontakt, desto vanskeligere er det å ignorere. Kunne du tenke deg å legge til din stemme?\n\nTusen takk",
+        "default": "Hei! Jeg sendte nettopp en melding om denne saken - kan du tenke deg å legge til din stemme? Det er superraskt: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Bli med meg og støtt denne saken",
+      "body": "Hei,\n\nJeg har nylig tatt grep om noe jeg bryr meg om, og jeg vil gjerne dele det med deg. Jeg tror kanskje du også er interessert i å delta.\n\nDet tar bare noen få minutter, og jeg tror det kan gjøre en stor forskjell. Her er lenken hvis du vil bli med:\n\n{url}\n\nTakk for at du vurderte det!"
+    },
+    "default": "Hei! Jeg har nettopp tatt grep om noe viktig - vil du bli med meg? {...}"
+  }
+}

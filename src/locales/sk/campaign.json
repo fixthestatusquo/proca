@@ -1,0 +1,26 @@
+{
+  "description": "uviesť cieľ kampane a hlavný dopyt",
+  "actions": {
+    "petition": {
+      "default": "Ahoj! Práve som podpísala túto petíciu a napadlo ma, že by ste ju mohli podporiť aj vy: {url}",
+      "email": {
+        "subject": "Podpíšete túto petíciu spolu so mnou?",
+        "body": "Ahoj,\n\npráve som podpísal petíciu za niečo, na čom mi veľmi záleží, a oslovujem ľudí, o ktorých si myslím, že by ju tiež mohli podporiť.\n\nKaždý podpis pomáha budovať dynamiku a ukazuje rozhodujúcim činiteľom, že ľuďom na tejto otázke záleží. Pridanie vášho mena trvá len minútu:\n\n{url}\n\nVeľmi by som ocenil vašu podporu v tejto veci. Ďakujem, že ste si našli čas a zvážili to!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Pomôžte mi poslať správu",
+      "email": {
+        "body": "Ahoj,\n\nPráve som poslal e-mail o probléme, na ktorom mi záleží, a chcel som vedieť, či sa ku mne pridáte, aby naše hlasy boli vypočuté.\n\nK dispozícii je predpripravená šablóna, vďaka ktorej je to naozaj jednoduché - môžete si ju prispôsobiť alebo ju poslať tak, ako je. Zaberie to len pár minút:\n\n{url}\n\nČím viac ľudí vás osloví, tým ťažšie je to ignorovať. Zvážili by ste pridať svoj hlas?\n\nĎakujem veľmi pekne",
+        "default": "Ahoj! Práve som poslal správu o tomto probléme - zvážili by ste, či sa k nemu pridáte? Je to veľmi rýchle: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Pridajte sa ku mne a podporte túto vec",
+      "body": "Ahoj,\n\nNedávno som podnikla kroky v súvislosti s niečím, na čom mi záleží, a chcela som sa s vami o ne podeliť. Myslím, že by vás to mohlo tiež zaujímať.\n\nZaberie to len pár minút a verím, že to môže mať skutočný význam. Ak sa chcete pridať, tu je odkaz:\n\nAk sa chcete zapojiť, môžete sa zapojiť: {url}\n\nĎakujeme, že o tom uvažujete!"
+    },
+    "default": "Hej! Práve som podnikol niečo dôležité - chcete sa ku mne pridať? {url}"
+  }
+}

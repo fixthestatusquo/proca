@@ -1,0 +1,26 @@
+{
+  "description": "mets l'objectif de la campagne et la demande principale",
+  "actions": {
+    "petition": {
+      "default": "Hey ! Je viens de signer cette pétition et j'ai pensé que tu pourrais vouloir la soutenir aussi : {url}",
+      "email": {
+        "subject": "Veux-tu signer cette pétition avec moi ?",
+        "body": "Salut,\n\nJe viens de signer une pétition sur un sujet qui me tient vraiment à cœur, et je m'adresse à des personnes qui, je pense, pourraient vouloir la soutenir aussi.\n\nChaque signature contribue à créer un élan et montre aux décideurs que les gens se soucient de cette question. Cela ne prend qu'une minute pour ajouter ton nom :\n\n{url}\n\nJ'apprécierais vraiment ton soutien sur ce sujet. Merci de prendre le temps d'y réfléchir !"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Aide-moi à envoyer un message",
+      "email": {
+        "body": "Salut,\n\nJe viens d'envoyer un courriel à propos d'un problème qui me tient à cœur, et je voulais savoir si tu te joindrais à moi pour faire entendre notre voix.\n\nIl existe un modèle pré-rédigé qui facilite grandement la tâche - tu peux le personnaliser ou l'envoyer tel quel. Cela ne prend que quelques minutes :\n\n{url}\n\nPlus il y a de gens qui tendent la main, plus il est difficile de les ignorer. Envisagerais-tu d'ajouter ta voix ?\n\nMerci beaucoup.",
+        "default": "Je viens d'envoyer un message à ce sujet - pourrais-tu ajouter ta voix ? C'est très rapide : {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Rejoins-moi pour soutenir cette cause",
+      "body": "Salut,\n\nJ'ai récemment agi sur un sujet qui me tient à cœur et je voulais le partager avec toi. Je pense que cela pourrait t'intéresser de participer toi aussi.\n\nCela ne prend que quelques minutes et je crois que cela pourrait faire une réelle différence. Voici le lien si tu souhaites participer :\n\n{url}\n\nMerci d'y réfléchir !"
+    },
+    "default": "Hé ! Je viens de prendre des mesures importantes - veux-tu te joindre à moi ? {url}"
+  }
+}

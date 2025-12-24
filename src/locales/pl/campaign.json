@@ -1,0 +1,26 @@
+{
+  "description": "określić cel kampanii i główne zapotrzebowanie",
+  "actions": {
+    "petition": {
+      "default": "Hej! Właśnie podpisałem tę petycję i pomyślałem, że ty też możesz chcieć ją poprzeć: {url}",
+      "email": {
+        "subject": "Czy podpiszesz ze mną tę petycję?",
+        "body": "Cześć,\n\nWłaśnie podpisałem petycję w sprawie, na której bardzo mi zależy, i zwracam się do osób, które moim zdaniem również mogłyby ją poprzeć.\n\nKażdy podpis pomaga nabrać rozpędu i pokazuje decydentom, że ludziom zależy na tej sprawie. Dodanie swojego nazwiska zajmuje tylko minutę:\n\n{url}\n\nBędę naprawdę wdzięczny za wsparcie w tej sprawie. Dzięki za poświęcenie czasu na rozważenie tego!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Pomóż mi wysłać wiadomość",
+      "email": {
+        "body": "Cześć,\n\nWłaśnie wysłałem e-maila w sprawie, na której mi zależy i chciałem sprawdzić, czy przyłączysz się do mnie, aby nasz głos został usłyszany.\n\nIstnieje wstępnie napisany szablon, który sprawia, że jest to naprawdę łatwe - możesz go spersonalizować lub wysłać tak, jak jest. Zajmuje to tylko kilka minut:\n\n{url}\n\nIm więcej osób się odezwie, tym trudniej będzie to zignorować. Czy rozważyłbyś dodanie swojego głosu?\n\nWielkie dzięki",
+        "default": "Hej! Właśnie wysłałem wiadomość w tej sprawie - czy rozważyłbyś dodanie swojego głosu? To bardzo szybkie: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Dołącz do mnie we wspieraniu tej sprawy",
+      "body": "Cześć,\n\nNiedawno podjąłem działania w sprawie, na której mi zależy i chciałem się tym z wami podzielić. Myślę, że ty też możesz być zainteresowany udziałem.\n\nZajmuje to tylko kilka minut, a wierzę, że może to naprawdę coś zmienić. Oto link, jeśli chcesz dołączyć:\n\n{url}\n\nDziękuję za rozważenie tego!"
+    },
+    "default": "Właśnie podjąłem działania w ważnej sprawie - chcesz do mnie dołączyć? {url}"
+  }
+}

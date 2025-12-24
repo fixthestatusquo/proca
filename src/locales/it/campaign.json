@@ -1,0 +1,26 @@
+{
+  "description": "mettere l'obiettivo della campagna e la domanda principale",
+  "actions": {
+    "petition": {
+      "default": "Ho appena firmato questa petizione e ho pensato che anche tu volessi sostenerla: {url}",
+      "email": {
+        "subject": "Firmate con me questa petizione?",
+        "body": "Ciao,\n\nHo appena firmato una petizione su un argomento che mi sta molto a cuore e sto contattando le persone che ritengo possano sostenerla.\n\nOgni firma contribuisce a creare uno slancio e a mostrare ai responsabili delle decisioni che la gente ha a cuore questo problema. Ci vuole solo un minuto per aggiungere il proprio nome:\n\n{url}\n\nApprezzerei molto il vostro sostegno su questo tema. Grazie per aver dedicato del tempo a questo progetto!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Aiutami a inviare un messaggio",
+      "email": {
+        "body": "Ciao,\n\nHo appena inviato un'e-mail su un problema che mi sta a cuore e volevo sapere se vi sareste uniti a me per far sentire la nostra voce.\n\nC'è un modello pre-scritto che rende il tutto molto semplice: potete personalizzarlo o inviarlo così com'è. Ci vogliono solo un paio di minuti:\n\n{url}\n\nPiù persone si fanno sentire, più è difficile ignorarle. Volete aggiungere la vostra voce?\n\nGrazie mille",
+        "default": "Ehi! Ho appena inviato un messaggio su questo problema - vorresti aggiungere la tua voce? È velocissimo: {url}"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Unitevi a me nel sostenere questa causa",
+      "body": "Ciao,\n\nDi recente ho intrapreso un'azione su qualcosa che mi sta a cuore e volevo condividerla con voi. Penso che anche voi potreste essere interessati a partecipare.\n\nCi vogliono solo pochi minuti e credo che potrebbe fare davvero la differenza. Ecco il link se volete partecipare:\n\n{url}\n\nGrazie per averci pensato!"
+    },
+    "default": "Ehi! Ho appena intrapreso un'azione importante: vuoi unirti a me? {url}"
+  }
+}
