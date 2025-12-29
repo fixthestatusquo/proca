@@ -5,7 +5,7 @@
             "consent": "\n          ",
             "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
             "closing": "With your help, we’re one step closer to our goal",
-            "greeting": "Hello {{firstName}}",
+            "greeting": "Hello {{firstName}},",
             "share_on": "Share on",
             "unsubscribe": "If you do not wish to receive further information from us in the future, you will be able to cancel your registration at any time",
             "signature": "Yours sincerely,\n\n{{org.title}}",
