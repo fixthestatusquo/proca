@@ -49,7 +49,7 @@ function readConfigOverride(id) {
           config.component,
         );
         if (!config.portal || config.portal.length === 0) {
-          config.portal = campaignConfig.config.portal;
+          config.portal = campaignConfig.config.portal || [];
         }
         if (!config.import || config.import.length === 0) {
           config.import = campaignConfig.config.import;
