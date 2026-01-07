@@ -1,15 +1,10 @@
 import React from "react";
 
 import {
-  Container,
   IconButton,
   //  ButtonGroup,
   Button,
-  Card,
-  CardHeader,
   CardActions,
-  CardContent,
-  CardMedia,
   Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
@@ -20,12 +15,9 @@ import Url from "@lib/urlparser";
 import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShareIcon from "@material-ui/icons/Share";
 import { useIsMobile, mobileOS } from "@hooks/useDevice";
 import useData from "@hooks/useData";
-import EmailConfirm from "@components/layout/EmailConfirm";
-import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 import ShareUrl from "@components/layout/ShareUrl";
 import GmailIcon from "@lib/../images/Gmail";
 
@@ -186,8 +178,8 @@ export default function ShareAction(props) {
       if (config.component.share?.email === false) return null;
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
-      const subject = pickOne (t("campaign:share.email.subject", ""));
-      const body = tokenize(t("campaign:share.email.body"),{url:shareUrl("email")});
+      const subject = pickOne(t("campaign:share.email.subject", ""));
+      const body = tokenize(t("campaign:share.email.body"), { url: shareUrl("email") });
       const hrefGmail = () => {
         return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       };
@@ -298,9 +290,9 @@ export default function ShareAction(props) {
             summary={shareText("share-linkedin") || metadata.description}
           />
         </CardActions>
-            <CardActions>
-<ShareUrl url={shareUrl('copy')}  onCopy={()=>addShare('share','copy')}/>
-            </CardActions>
+        <CardActions>
+          <ShareUrl url={shareUrl('copy')} onCopy={() => addShare('share', 'copy')} />
+        </CardActions>
       </>
     );
     return cardIcons;
