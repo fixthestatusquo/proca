@@ -56,7 +56,7 @@ const tokenize = (message, { profile, url }) => {
       profile.reduce((acc, d) => (d.image ? `${acc}\n${d.image}` : acc), "")
     );
   }
-  if (url) {
+  if (url !== undefined) {
     if (t.includes("{url}")) {
       t = t.replace("{url}", url);
     } else {
