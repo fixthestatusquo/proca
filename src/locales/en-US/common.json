@@ -3,7 +3,7 @@
   "Amount": "Amount",
   "Another": "Another",
   "Birthdate": "Birth date",
-  "City": "City",
+  "City": "–””‘City",
   "Comment": "Comment",
   "Copied!": "Copied!",
   "Copy to clipboard": "Copy to clipboard",
@@ -155,7 +155,7 @@
   "error": {
     "date": "format should be DD.MM.YYYY"
   },
-  "give_another": "Give me another",
+  "give_another": "Give me another   “‘ “",
   "help_write": "Help me write it",
   "image": {
     "addSticker": "add stickers",
