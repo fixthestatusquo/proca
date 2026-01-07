@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
       </Backdrop>
 */
 import { useCompactLayout } from "@hooks/useElementWidth";
-import Url from "@lib/urlparser";
+import { utm } from "@lib/urlparser";
 import { setCookie } from "@lib/cookie";
 import { getDomain } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -226,7 +226,7 @@ export default function Register(props) {
       if (emailProvider.current) formData.emailProvider = emailProvider.current;
     }
 
-    formData.tracking = Url.utm(config.component.register?.tracking);
+    formData.tracking = utm(config.component.register?.tracking);
 
     if (config.component.consent?.implicit) {
       formData.privacy =
@@ -240,10 +240,10 @@ export default function Register(props) {
 
       formData.targets = props.targets;
 
-     if (config.test && props.targets.length > 1)  {
-          formData.targets = props.targets.slice(0,1);
-          console.warn ("TEST mode, sending only one test email not " + props.targets.length)
-        }
+      if (config.test && props.targets.length > 1) {
+        formData.targets = props.targets.slice(0, 1);
+        console.warn("TEST mode, sending only one test email not " + props.targets.length)
+      }
 
       actionType = "mail2target";
     }
@@ -288,7 +288,7 @@ export default function Register(props) {
         actionType,
         {
           uuid: data.uuid,
-          tracking: Url.utm(config.component.register?.tracking),
+          tracking: utm(config.component.register?.tracking),
           payload: payload,
         },
         config.test
@@ -497,8 +497,8 @@ export default function Register(props) {
                   />
                 </Grid>
               )}
-              <NameField form={form} compact={compact} classField={classField} enforceRequired={enforceRequired}/>
-              <EmailField form={form} required={enforceRequired} compact={compact} classField={classField}/>
+              <NameField form={form} compact={compact} classField={classField} enforceRequired={enforceRequired} />
+              <EmailField form={form} required={enforceRequired} compact={compact} classField={classField} />
               <Address form={form} compact={compact} classField={classField} />
               <PhoneField form={form} classField={classField} compact={compact} />
               {config.component.register.custom?.comment && (
