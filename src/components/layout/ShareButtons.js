@@ -87,6 +87,7 @@ export default function ShareAction(props) {
         ? component
         : component.render.displayName.replace("ShareButton-", "");
     const url = new URL(config.component?.share?.url || window.location.href);
+    url.hash = "";
     const params = url.searchParams;
     if (config.component.share?.compact !== false) {
       params.set("utm", `.share.${medium}`);
@@ -143,6 +144,8 @@ export default function ShareAction(props) {
         /* i18next-extract-disable-line */ t(i18nKey);
 
       msg = pickOne(msg);
+      msg = tokenize(msg, { url: '' }); //remove the url token, it's set separately
+      console.log(msg);
       if (target) {
         msg += ` ${target}`;
       }
