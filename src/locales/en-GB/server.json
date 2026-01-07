@@ -5,16 +5,16 @@
             "consent": "\n          ",
             "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
             "closing": "With your help, we’re one step closer to our goal",
-            "greeting": "Hello {{firstName}}",
+            "greeting": "Hello {{firstName}},",
             "share_on": "Share on",
             "unsubscribe": "If you do not wish to receive further information from us in the future, you will be able to cancel your registration at any time",
             "signature": "Yours sincerely,\n\n{{org.title}}",
             "follow": "Follow us on:",
             "donate": "Please consider making a donation to help us achieve our mission",
-            "share": "Help us reach our goal by [spreading the word](https://widget.proca.app/share?redir={{tracking.encodedLocation}}).",
+            "share": "Help us reach our goal by spreading the word",
             "duplicate": "Thank you for your engagement and dedication to our cause! However, in our commitment to maintain authenticity and credibility, we need to **remove duplicate** signatures and it appears than you (or someone using {{email}}) have already taken this action.  Rest assured, **your initial signature was counted** and contributed to our campaign.\nYour support has been invaluable, and we would like to kindly encourage you to take an additional step to help amplify your impact. Please consider reaching out to your friends and family, urging them to take action too, using their own email addresses. This way, we can further grow our movement and create an even stronger collective voice for the change we seek.\nOnce again, we extend our heartfelt gratitude for your continued support and dedication to this campaign. Together, we can make a lasting impact!",
             "organisation": "{{org.title}}",
-            "thanksPledge": "Thank you for pledging for {{campaign.title}}. Your information will be reviewed and you will receive a confirmation email if your profile is displayed on the website.",
+            "thanksPledge": "Thank you for pledging for {{campaign.title}}. Your signature will be reviewed and will be displayed on our website if approved.",
             "about": "So far {{campaign.stats.supporterCount}} supporters took the action.",
             "is_it_me": "If you did not take this action, please click [here](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) to remove it."
         },
@@ -34,7 +34,7 @@
             "confirmAlreadyMember": "I confirm my participation & already receive emails from you",
             "confirmOptout": "I confirm my participation but don't keep me updated in future",
             "confirmAction": "Yes, I am a real person!",
-            "confirmOptin": "I confirm my participation & want to receive news from you"
+            "confirmOptin": "I want to receive news from you"
         },
         "actionConfirm": {
             "intro": "Your confirmation is important to be able to process your participation. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions.",
