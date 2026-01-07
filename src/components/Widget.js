@@ -8,7 +8,7 @@ import React, {
 import ProcaRoot from "@components/ProcaRoot";
 import { merge } from "@lib/object";
 import { initConfigState } from "@hooks/useConfig";
-import Url, { step as paramStep } from "@lib/urlparser";
+import Url, { step as paramStep, get as urlGet } from "@lib/urlparser";
 import { getCookie } from "@lib/cookie";
 import { getItems } from "@lib/localStorage";
 import { getAllData, getOverwriteLocales } from "@lib/domparser";
@@ -16,7 +16,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import useHash, { getHash } from "@hooks/useHash";
-import dispatch from "@lib/event";
+import { dispatch, pageViewed } from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";
 
 import { initDataState } from "@hooks/useData";
@@ -38,6 +38,10 @@ let config = {
   component: {},
   locale: {},
 };
+
+if (urlGet("utm")) { // we are using the utm shortcut form
+  pageViewed(utm);
+}
 let init = false;
 
 const Widget = props => {
@@ -136,10 +140,10 @@ const Widget = props => {
   useEffect(() => {
     if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
     showAlert({
-          title: "TEST MODE",
-          text: 'Experiment freely, this action will not be counted',
-          severity: 'warning',
-    autoHideDuration: 10000000
+      title: "TEST MODE",
+      text: 'Experiment freely, this action will not be counted',
+      severity: 'warning',
+      autoHideDuration: 10000000
     });
     const styles = `
 @keyframes procaBackgroundTest {
@@ -385,7 +389,7 @@ const Widget = props => {
 
   return (
     <ProcaRoot go={go} actions={getActions} config={config}>
-      <AlertRenderer /> 
+      <AlertRenderer />
       <TwoColumns
         dom={props.container}
         hidden={current === null}
