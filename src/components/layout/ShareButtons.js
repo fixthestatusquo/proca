@@ -201,6 +201,7 @@ export default function ShareAction(props) {
           <Avatar
             title={t("campaign:share.email.subject", "")}
             onClick={mailto}
+            url=""
             className={classes.emailIcon}
           >
             <GmailIcon />
@@ -212,6 +213,7 @@ export default function ShareAction(props) {
           icon={EmailIcon}
           component={EmailShareButton}
           subject={subject}
+          url="" // do not add the url
           body={body}
           separator=" "
         />
@@ -249,7 +251,7 @@ export default function ShareAction(props) {
             windowHeight={544}
             component={WhatsappShareButton}
           />
-          {config.component?.share?.messennger === true && (
+          {config.component?.share?.messenger === true && (
             <ActionIcon
               icon={FacebookMessengerIcon}
               title={shareText("share-fbmessenger")}
@@ -349,7 +351,7 @@ export default function ShareAction(props) {
         id={`proca-share-${medium}`}
         className={classes.action}
         component={props.component}
-        url={shareUrl(props.component)}
+        url={'url' in props ? props.url : shareUrl(props.component)}
         openShareDialogOnClick={openShareDialogOnClick}
         onClick={onClick}
         title={props.title || props.share || t("share.message")}

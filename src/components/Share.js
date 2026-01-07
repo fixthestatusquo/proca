@@ -2,28 +2,17 @@ import React from "react";
 import Actions from "@components/layout/ShareButtons";
 import {
   Container,
-  IconButton,
-  //  ButtonGroup,
   Button,
   Card,
   CardHeader,
-  CardActions,
   CardContent,
   CardMedia,
-  Avatar,
 } from "@material-ui/core";
 import { getMetadata } from "page-metadata-parser";
 import { decodeHtmlEntities } from "@lib/text";
-import uuid from "@lib/uuid";
-import { addAction } from "@lib/server";
-import Url from "@lib/urlparser";
-import dispatch from "@lib/event";
 import { useTranslation } from "react-i18next";
 import { useComponentConfig } from "@hooks/useConfig";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import ShareIcon from "@material-ui/icons/Share";
-import { useIsMobile } from "@hooks/useDevice";
-import useData from "@hooks/useData";
 import EmailConfirm from "@components/layout/EmailConfirm";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 import { makeStyles } from "@material-ui/core/styles";
