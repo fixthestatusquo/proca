@@ -16,7 +16,7 @@ import { getAllData, getOverwriteLocales } from "@lib/domparser";
 //import { useTheme } from "@material-ui/core/styles";
 import { useIsMobile } from "@hooks/useLayout";
 import useHash, { getHash } from "@hooks/useHash";
-import { dispatch, pageViewed } from "@lib/event";
+import { dispatch } from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";
 
 import { initDataState } from "@hooks/useData";
@@ -39,9 +39,6 @@ let config = {
   locale: {},
 };
 
-if (urlGet("utm")) { // we are using the utm shortcut form
-  pageViewed(utm);
-}
 let init = false;
 
 const Widget = props => {
