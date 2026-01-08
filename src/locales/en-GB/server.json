@@ -23,9 +23,9 @@
             "intro": "Thank you for your participation for \"{{campaign.title}}\". Your support is appreciated!"
         },
         "doi": {
-            "extra": "You have received this confirmation in order to successfully complete the registration and allowing us to process your email address and other personal data to receive news or newsletters. This is an automated procedure and this confirmation is required for the registration to avoid an unauthorized registration process.",
+            "extra": "If you didn’t sign up for this subscription, feel free to ignore this email.",
             "subject": "One more step: please confirm your email address",
-            "intro": "Your confirmation is important to be able to process it. This is the only way we can make it credible that there really is a person behind every participation, and that is important for the impact of this campaign and to prevent fake/spam submissions."
+            "intro": "To complete your registration and allow us to process your email address and personal data for delivering news or newsletters, please click the confirmation button below. This automated step ensures your consent and prevents unauthorised registrations."
         },
         "doi_thankyou": {
             "subject": "Thank you for your participation{{#privacy.optIn}}, one more step, please confirm your email address{{/privacy.optIn}}"
