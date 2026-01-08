@@ -1,5 +1,5 @@
 import React from "react";
-import { Trans,  useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,7 +50,7 @@ const TTag = props => {
     );
   }
 
-// Extract React components from props
+  // Extract React components from props
   const components = {};
   const values = {};
   Object.keys(props).forEach(key => {
