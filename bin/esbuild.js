@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {isDirectCli} = require("./dotenv.js");
+const { isDirectCli } = require("./dotenv.js");
 const path = require("path");
 const cp = require("child_process");
 const fs = require("fs");
@@ -126,8 +126,12 @@ let procaPlugin = ({ id, config }) => ({
         config.layout &&
         (config.layout.HtmlTemplate || config.layout.template)
       ) {
+        let template = config.layout.HtmlTemplate || config.layout.template;
+        if (!template.endsWith(".html")) {
+          template += ".html";
+        }
         file =
-          "./public/" + (config.layout.HtmlTemplate || config.layout.template);
+          "./public/" + template;
       }
       const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
