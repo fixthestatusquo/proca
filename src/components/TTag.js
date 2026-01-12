@@ -17,7 +17,7 @@ export const snarkdown = md => {
 // markdown overrides the title color, this is how we fix it
 const useStyles = makeStyles((theme) => ({
   markdown: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
       color: "inherit !important",
     },
