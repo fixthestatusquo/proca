@@ -22,7 +22,7 @@ export default class FetchCommand extends Command {
 
   async pull (id, flags = {}) {
     const { pull } = await import("../../widget.js");
-    return await pull(flags.id, {
+    return await pull(id, {
       anonymous: false,
       campaign: flags.campaign,
       argv: flags
@@ -35,8 +35,9 @@ export default class FetchCommand extends Command {
     if (r.errors) {
       console.log("errors", r.errors);
       this.error(r.errors);
+      return;
     }
-    const [widget, campaign] = r;
+    const [, campaign] = r;
     this.info("saved campaign "+process.env.PROCA_CONFIG_FOLDER+"/campaign/" + campaign.name + ".json");
   }
 }
