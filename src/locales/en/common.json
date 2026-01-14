@@ -173,7 +173,7 @@
   },
   "no": "no",
   "party": "Party",
-  "party_helper": "Click a party chip to select all its members.",
+  "party_helper": "Click a party chip to select all its members",
   "phone": {
     "INVALID_COUNTRY": "missing or invalid country code",
     "INVALID_LENGTH": "Invalid length",
@@ -187,13 +187,13 @@
     "wrongLength": "expected length of {{length}} for your country"
   },
   "progress": {
-    "donate": "{{total}} have donated. Let's go to {{goal}}",
-    "email": "{{total}} have sent an email. Let's go to {{goal}}",
-    "register": "{{total}} have registered. Let's go to {{goal}}",
-    "share": "{{total}} have shared. Let's go to {{goal}}",
-    "sign": "{{total}} have signed. Let's go to {{goal}}",
-    "twitter": "{{total}} have twitted. Let's go to {{goal}}",
-    "pledge": "{{total}} have pledged. Let's go to {{goal}}"
+    "donate": "{{total}} have donated. Let's get to {{goal}}",
+    "email": "{{total}} have sent an email. Let's get to {{goal}}",
+    "register": "{{total}} have registered. Let's get to {{goal}}",
+    "share": "{{total}} have shared. Let's get to {{goal}}",
+    "sign": "{{total}} have signed. Let's get to {{goal}}",
+    "twitter": "{{total}} have twitted. Let's get to {{goal}}",
+    "pledge": "{{total}} have pledged. Let's get to {{goal}}"
   },
   "read more": "read more",
   "region": "Region",
