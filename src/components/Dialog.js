@@ -65,7 +65,7 @@ function OpenDialog(props) {
       onClose={handleClose}
       TransitionComponent={Transition}
       fullScreen={props.fullScreen || fullScreen}
-      maxWidth={props.maxWidth}
+      maxWidth={props.maxWidth || "md"}
       hideBackdrop={props.hideBackdrop || false}
     >
       {title ? (
