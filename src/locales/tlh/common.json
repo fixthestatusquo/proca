@@ -5,6 +5,8 @@
   "Birthdate": "qoS jaj",
   "City": "veng",
   "Comment": "QIn",
+  "Copied!": "wIghItlh!",
+  "Copy to clipboard": "wIghItlh",
   "Country": "Sep",
   "Email": "Qum mIʼ",
   "First name": "pong waʼ",
@@ -17,35 +19,27 @@
   "Phone": "Qum mI",
   "Postal Code": "Qum mIʼ chIm",
   "Salutation": "Quch",
+  "Shareable link": "boq wIghItlh",
   "Sorry, we couldn't save": "majQa'! Qo' vISevbe'",
   "Street": "Daq",
-  "Shareable link": "boq wIghItlh",
-  "Copied!": "wIghItlh!",
-  "Copy to clipboard": "wIghItlh",
   "Subject": "ghItlh",
   "Thank you": "qatlhoʼ",
   "Your message": "SoH QIn",
-  "customize_text": "vIjatlh 'ej tlhap vItaH",
-  "select_options": "laH SoQ DaH choH {{opt}}",
-  "help_write": "vIjatlh",
-  "ai_work": "AI vIghItlh",
-  "ai_check": "AI QIn. vIjatlh 'ej tlhap vItaH",
-  "give_another": "vIghItlh vIʼ",
-  "submit": "ngeH",
-  "survey": "Suq",
   "action": {
+    "consultation": "qep",
+    "default": "ngeH",
     "donate": "nob",
     "email": "Qum mIʼ",
-    "consultation": "qep",
     "join": "maj",
     "pledge": "vIghItlh",
     "register": "ghItlh",
     "share": "boq",
     "sign": "maq",
     "stayInformed": "yIQum",
-    "takeAction": "ngeH",
-    "default": "ngeH"
+    "takeAction": "ngeH"
   },
+  "ai_check": "AI QIn. vIjatlh 'ej tlhap vItaH",
+  "ai_work": "AI vIghItlh",
   "camera": {
     "start": "Qong",
     "take": "ghItlh",
@@ -72,6 +66,7 @@
       "opt-out": "jImej"
     }
   },
+  "customize_text": "vIjatlh 'ej tlhap vItaH",
   "date": {
     "error": "Qo' jaj. format: DD.MM.YYYY"
   },
@@ -113,9 +108,9 @@
         "weekly": "jar"
       },
       "each": {
-        "weekly": "jar",
+        "monthly": "jar jar",
         "oneoff": "wa'",
-        "monthly": "jar jar"
+        "weekly": "jar"
       },
       "feedback": {
         "monthly": "nob {{amount}} {{frequency}}",
@@ -151,6 +146,8 @@
   "error": {
     "date": "format DD.MM.YYYY"
   },
+  "give_another": "vIghItlh vIʼ",
+  "help_write": "vIjatlh",
   "image": {
     "addSticker": "Sticker yIchoH",
     "addStickerTitle": "Sticker yIchoH Daq",
@@ -162,22 +159,23 @@
     "upload": "Qum image",
     "wanttoadd": "image yIchoH?"
   },
-  "progress": {
-  "donate": "{{total}} nob. yIchoH {{goal}}",
-  "email": "{{total}} Qum mIʼ yIghItlh. yIchoH {{goal}}",
-  "register": "{{total}} pong yIghItlh. yIchoH {{goal}}",
-  "share": "{{total}} boq. yIchoH {{goal}}",
-  "sign": "{{total}} maq. yIchoH {{goal}}",
-  "pledge": "{{total}} vIghItlh. yIchoH {{goal}}"
-  },
-  "share": {
-  "intro": "majQaʼ, maq 🔥. yIqel ‘ej boq tuʼluʼbeʼ, Hoch yIlegh tlhIH ⚔️🛡️.",
-  "message": "maq Qo’!",
-  "title": "tInwI’! yIqel qet."
-},
-
-
   "no": "ghobeʼ",
-  "yes": "HIjaʼ",
-  "select_all": "Hoch vIchoH"
+  "progress": {
+    "donate": "{{total}} nob. yIchoH {{goal}}",
+    "email": "{{total}} Qum mIʼ yIghItlh. yIchoH {{goal}}",
+    "pledge": "{{total}} vIghItlh. yIchoH {{goal}}",
+    "register": "{{total}} pong yIghItlh. yIchoH {{goal}}",
+    "share": "{{total}} boq. yIchoH {{goal}}",
+    "sign": "{{total}} maq. yIchoH {{goal}}"
+  },
+  "select_all": "Hoch vIchoH",
+  "select_options": "laH SoQ DaH choH {{opt}}",
+  "share": {
+    "intro": "majQaʼ, maq 🔥. yIqel ‘ej boq tuʼluʼbeʼ, Hoch yIlegh tlhIH ⚔️🛡️.",
+    "message": "maq Qo’!",
+    "title": "tInwI’! yIqel qet."
+  },
+  "submit": "ngeH",
+  "survey": "Suq",
+  "yes": "HIjaʼ"
 }
