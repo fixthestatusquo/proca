@@ -714,19 +714,7 @@ const EmailComponent = props => {
         if (Array.isArray(d)) {
           console.log("filter from array");
           //        setProfiles (d);
-          _setSelection(prev => {
-            const selection = [...prev];
-            console.log(prev);
-            //return prev; debug
-            const index = 0;
-            //      select(index === -1);
-            if (index > -1) {
-              selection.splice(index, 1);
-            } else {
-              selection.push(key);
-            }
-            return selection;
-          });
+          _setSelection(d);
         }
         if (d === true) {
           console.log("select all", allProfiles);
