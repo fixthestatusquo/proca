@@ -2,7 +2,7 @@
   "description": "kampanjan tavoite ja keskeinen kysyntä",
   "actions": {
     "petition": {
-      "default": "Hei! Allekirjoitin juuri tämän vetoomuksen ja ajattelin, että sinäkin voisit tukea sitä: {url}",
+      "default": "Hei! Allekirjoitin juuri tämän vetoomuksen ja ajattelin, että sinäkin voisit tukea sitä.",
       "email": {
         "subject": "Allekirjoitatko tämän vetoomuksen kanssani?",
         "body": "Hei,\n\nAllekirjoitin juuri vetoomuksen, joka koskee jotakin, josta todella välitän, ja yritän tavoittaa ihmisiä, joiden uskon haluavan myös tukea sitä.\n\nJokainen allekirjoitus auttaa luomaan vauhtia ja osoittaa päättäjille, että ihmiset välittävät tästä asiasta. Nimen lisääminen vie vain minuutin:\n\n{url}\n\nOlisin todella kiitollinen tuestanne tässä asiassa. Kiitos, että otat aikaa harkita asiaa!"
@@ -12,7 +12,7 @@
       "subject": "Auta minua lähettämään viesti",
       "email": {
         "body": "Hei,\n\nLähetin juuri sähköpostia asiasta, josta välitän, ja halusin kysyä, haluaisitko liittyä minuun ja saada äänemme kuuluviin.\n\nTässä on valmiiksi kirjoitettu malli, joka tekee siitä todella helppoa - voit muokata sitä tai lähettää sen sellaisenaan. Siihen menee vain muutama minuutti:\n\n{url}\n\nMitä useampi ihminen ottaa yhteyttä, sitä vaikeampi on jättää huomiotta. Harkitsisitko oman äänesi lisäämistä?\n\nPaljon kiitoksia.",
-        "default": "Hei! Lähetin juuri viestiä tästä asiasta - voisitko lisätä äänesi? Se on erittäin nopea: {url}"
+        "default": "Hei! Lähetin juuri viestiä tästä asiasta - voisitko lisätä äänesi? Se on erittäin nopeaa: "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Tukekaa kanssani tätä asiaa",
       "body": "Hei,\n\nOlen hiljattain ryhtynyt toimiin jonkin tärkeän asian suhteen ja halusin jakaa sen kanssanne. Uskon, että sinäkin voisit olla kiinnostunut osallistumaan.\n\nSe vie vain muutaman minuutin, ja uskon, että sillä voi olla todellista merkitystä. Tässä on linkki, jos haluat liittyä mukaan:\n\n{url}\n\nKiitos, että harkitsit asiaa!"
     },
-    "default": "Hei! Tein juuri jotain tärkeää - haluatko liittyä seuraani? {url}"
+    "default": "Hei! Tein juuri jotain tärkeää - haluatko liittyä seuraani?"
   }
 }
