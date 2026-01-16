@@ -124,7 +124,6 @@ const groupOrder = [
 
   useEffect(() => {
     if (!props.country) return;
-console.log("selecting",props.selecting);
     setParties(props.profiles);
     //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
   }, [props.selecting, props.country, props.profiles]);
