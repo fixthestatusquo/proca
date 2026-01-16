@@ -12,7 +12,8 @@ const Select = ({
   sort,
   required,
   select = "value",
-  children
+  children,
+  onChange,
 }) => {
   const config = useCampaignConfig();
   const { t, i18n } = useTranslation();
@@ -61,27 +62,28 @@ const Select = ({
   }
   return (
     <>
-    <TextField
-      select={true}
-      name={name}
-      required={required}
-      label={label === false ? "": t(label || name)}
-      form={form}
-      SelectProps={{
-        native: true,
-      }}
-    >
-      {!required && <option key="empty" value="" />}
-      {options.map(([k, v]) => {
-        return (
-          <option key={k} value={select === "value" ? v : k}>
-            {v}
-          </option>
-        );
-      })}
+      <TextField
+        select={true}
+        name={name}
+        required={required}
+        label={label === false ? "" : t(label || name)}
+        form={form}
+        onChange={onChange}
+        SelectProps={{
+          native: true,
+        }}
+      >
+        {!required && <option key="empty" value="" />}
+        {options.map(([k, v]) => {
+          return (
+            <option key={k} value={select === "value" ? v : k}>
+              {v}
+            </option>
+          );
+        })}
       </TextField>
       {children}
-        </>
+    </>
   );
 };
 
