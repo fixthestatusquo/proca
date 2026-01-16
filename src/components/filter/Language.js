@@ -1,29 +1,32 @@
-import React, { useEffect } from "react";
 import Select from "@components/field/Select";
-import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
+import { useSetCampaignConfig } from "@hooks/useConfig";
+import { useEffect } from "react";
 
 const FilterLanguage = props => {
   const { watch } = props.form;
-  const config = useCampaignConfig();
+  //  const config = useCampaignConfig();
   const setConfig = useSetCampaignConfig();
   const language = watch("language");
 
   useEffect(() => {
-    if (!language) {
-      console.log("set language to locale", config.locale);
-      props.selecting("locale", config.locale);
-      return;
+    let select = props.profiles
+      .filter(d => d.lang === language)
+      .map(d => d.procaid);
+    if (select.length === 0 && language.length > 2) {
+      // we deal with fr_BE or de_AT...
+      const lang = language.slice(0, 2);
+      select = props.profiles.filter(d => d.lang === lang).map(d => d.procaid);
     }
-
-    props.selecting("locale", language);
-
-    setConfig(current => {
-            console.log("set lang", language, props.country);
-      const next = { ...current };
-      next.lang = language;
-      return next;
-    });
-  }, [language, props.country]);
+    if (select.length > 0) {
+      setConfig(current => {
+        // we are forcing to reload the letter
+        const next = { ...current };
+        next.locale = language;
+        return next;
+      });
+    }
+    props.selecting(() => select);
+  }, [props.profiles, language, setConfig, props.selecting]);
 
   return (
     <Select
