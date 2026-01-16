@@ -98,6 +98,12 @@ const resolveCountryList = config => {
   };
 };
 
+const fullpath = file => 
+    path.resolve(
+      __dirname,
+      "../" + file
+    );
+
 let procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
@@ -120,8 +126,9 @@ let procaPlugin = ({ id, config }) => ({
         sideEffects: false,
       };
     });
+    
     build.onEnd(async () => {
-      let file = "./public/index.html";
+      let file = fullpath("./public/index.html");
       if (
         config.layout &&
         (config.layout.HtmlTemplate || config.layout.template)
@@ -131,7 +138,7 @@ let procaPlugin = ({ id, config }) => ({
           template += ".html";
         }
         file =
-          "./public/" + template;
+          fullpath("./public/" + template);
       }
       const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
