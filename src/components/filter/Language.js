@@ -35,7 +35,6 @@ const FilterLanguage = props => {
       label="Language"
       options="campaign:languages"
       select="key"
-      required
     />
   );
 };
