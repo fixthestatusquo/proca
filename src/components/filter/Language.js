@@ -8,7 +8,9 @@ const FilterLanguage = props => {
   const setConfig = useSetCampaignConfig();
   const language = watch("language");
 
-  useEffect(() => {
+  const selectLanguage = event => {
+    console.log(event.target);
+    const language = event.target.value;
     let select = props.profiles
       .filter(d => d.lang === language)
       .map(d => d.procaid);
@@ -26,7 +28,7 @@ const FilterLanguage = props => {
       });
     }
     props.selecting(() => select);
-  }, [props.profiles, language, setConfig, props.selecting]);
+  };
 
   return (
     <Select
@@ -35,6 +37,7 @@ const FilterLanguage = props => {
       label="Language"
       options="campaign:languages"
       select="key"
+      onChange={selectLanguage}
     />
   );
 };
