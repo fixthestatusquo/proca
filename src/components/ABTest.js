@@ -1,30 +1,30 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useComponentConfig, useSetCampaignConfig } from "@hooks/useConfig";
 
-const setVariant= value => 
+const setVariant = value => 
     const url = new URL(window.location.href);
-    url.searchParams.set('utm_content', value);
-    window.history.replaceState(null, '', url);
+  url.searchParams.set('utm_content', value);
+  window.history.replaceState(null, '', url);
 }
 
 
-const ABTest  = () => {
-  const component = useComponentConfig ();
+const ABTest = () => {
+  const component = useComponentConfig();
   setConfig = useSetCampaignConfig();
   console.log(component.test);
-  useEffect (() => {
+  useEffect(() => {
     const variant = Math.random() < 0.5;
-    setVariant (variant ? 'A': 'B'); 
+    setVariant(variant ? 'A' : 'B');
     setConfig(current => {
-      if ( variant ) {
+      if (variant) {
         return current;
       };
-
+      console.log("AB", config);
       const next = { ...current };
-//      next.component.register.field.phone = true;
+      //      next.component.register.field.phone = true;
       return next;
-  });
-  },[]);
+    });
+  }, []);
 
   return null;
 };
