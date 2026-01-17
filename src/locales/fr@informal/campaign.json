@@ -2,7 +2,7 @@
   "description": "mets l'objectif de la campagne et la demande principale",
   "actions": {
     "petition": {
-      "default": "Hey ! Je viens de signer cette pétition et j'ai pensé que tu pourrais vouloir la soutenir aussi : {url}",
+      "default": "Hé ! Je viens de signer cette pétition et j'ai pensé que tu voudrais peut-être la soutenir aussi.",
       "email": {
         "subject": "Veux-tu signer cette pétition avec moi ?",
         "body": "Salut,\n\nJe viens de signer une pétition sur un sujet qui me tient vraiment à cœur, et je m'adresse à des personnes qui, je pense, pourraient vouloir la soutenir aussi.\n\nChaque signature contribue à créer un élan et montre aux décideurs que les gens se soucient de cette question. Cela ne prend qu'une minute pour ajouter ton nom :\n\n{url}\n\nJ'apprécierais vraiment ton soutien sur ce sujet. Merci de prendre le temps d'y réfléchir !"

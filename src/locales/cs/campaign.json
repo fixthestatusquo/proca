@@ -2,7 +2,7 @@
   "description": "uvést cíl kampaně a hlavní poptávku",
   "actions": {
     "petition": {
-      "default": "Ahoj! Právě jsem podepsala tuto petici a napadlo mě, že byste ji mohli chtít podpořit také: {url}",
+      "default": "Ahoj! Právě jsem podepsala tuto petici a napadlo mě, že byste ji mohli chtít podpořit také.",
       "email": {
         "subject": "Podepíšete tuto petici se mnou?",
         "body": "Ahoj,\n\nprávě jsem podepsal petici za něco, na čem mi opravdu záleží, a oslovuji lidi, o kterých si myslím, že by ji také mohli podpořit.\n\nKaždý podpis pomáhá budovat dynamiku a ukazuje rozhodujícím činitelům, že lidem na tomto problému záleží. Přidání vašeho jména zabere jen minutu:\n\n{url}\n\nVelmi bych ocenil vaši podporu v této věci. Děkuji, že jste si udělali čas a zvážili to!"
@@ -12,7 +12,7 @@
       "subject": "Pomozte mi poslat zprávu",
       "email": {
         "body": "Ahoj,\n\nPrávě jsem poslal e-mail o problému, na kterém mi záleží, a chtěl jsem vědět, jestli se ke mně připojíte, aby naše hlasy byly slyšet.\n\nK dispozici je předpřipravená šablona, díky které je to opravdu snadné - můžete si ji přizpůsobit nebo ji poslat tak, jak je. Zabere to jen pár minut:\n\n{url}\n\nČím více lidí se ozve, tím těžší je ignorovat. Zvážili byste přidat svůj hlas?\n\nDěkuji mnohokrát",
-        "default": "Ahoj! Právě jsem poslal zprávu o tomto problému - zvážil bys, zda bys mohl přidat svůj hlas? Je to super rychlé: {url}"
+        "default": "Ahoj! Právě jsem poslal zprávu o tomto problému - mohl bys přidat svůj hlas? Je to velmi rychlé: "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Připojte se ke mně a podpořte tuto věc",
       "body": "Ahoj,\n\nNedávno jsem podnikl kroky v něčem, na čem mi záleží, a chtěl jsem se s vámi o ně podělit. Myslím, že by vás to mohlo také zajímat.\n\nZabere to jen pár minut a věřím, že to může mít skutečný význam. Pokud byste se chtěli připojit, zde je odkaz:\n\nPokud se chcete zapojit, můžete se připojit: {url}\n\nDíky, že o tom uvažujete!"
     },
-    "default": "Ahoj! Právě jsem podnikl něco důležitého - chcete se ke mně přidat? {url}"
+    "default": "Ahoj! Právě jsem podnikl něco důležitého - chceš se ke mně přidat?"
   }
 }

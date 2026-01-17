@@ -2,7 +2,7 @@
   "description": "das Ziel der Kampagne und die Kernforderung formulieren",
   "actions": {
     "petition": {
-      "default": "Hey! Ich habe gerade diese Petition unterschrieben und dachte, Sie möchten sie vielleicht auch unterstützen: {url}",
+      "default": "Hey! Ich habe gerade diese Petition unterschrieben und dachte, Sie möchten sie vielleicht auch unterstützen",
       "email": {
         "subject": "Werden Sie diese Petition mit mir unterschreiben?",
         "body": "Hallo,\n\nIch habe gerade eine Petition zu einem Thema unterzeichnet, das mir sehr am Herzen liegt, und ich wende mich an Menschen, von denen ich denke, dass sie die Petition ebenfalls unterstützen möchten.\n\nJede Unterschrift trägt dazu bei, eine Dynamik zu erzeugen und zeigt den Entscheidungsträgern, dass dieses Thema den Menschen am Herzen liegt. Es dauert nur eine Minute, um Ihren Namen hinzuzufügen:\n\n{url}\n\nIch würde mich sehr über Ihre Unterstützung in dieser Sache freuen. Danke, dass Sie sich die Zeit nehmen, darüber nachzudenken!"
@@ -12,7 +12,7 @@
       "subject": "Helfen Sie mir, eine Nachricht zu senden",
       "email": {
         "body": "Hallo,\n\nIch habe gerade eine E-Mail zu einem Thema geschrieben, das mir sehr am Herzen liegt, und wollte fragen, ob Sie sich mir anschließen würden, um unseren Stimmen Gehör zu verschaffen.\n\nEs gibt eine vorgefertigte Vorlage, die es Ihnen wirklich leicht macht - Sie können sie personalisieren oder einfach so versenden. Es dauert nur ein paar Minuten:\n\n{url}\n\nJe mehr Menschen sich melden, desto schwieriger ist es, sie zu ignorieren. Würden Sie Ihre Stimme hinzufügen?\n\nHerzlichen Dank",
-        "default": "Hallo! Ich habe soeben eine Nachricht zu diesem Thema geschickt - würden Sie sich dazu äußern? Es geht ganz schnell: {url}"
+        "default": "Hallo! Ich habe soeben eine Nachricht zu diesem Thema geschickt - könnten Sie sich dazu äußern? Es geht ganz schnell: "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Unterstützen Sie mit mir diese Sache",
       "body": "Hallo,\n\nich habe mich kürzlich für etwas eingesetzt, das mir am Herzen liegt, und wollte es mit Ihnen teilen. Ich denke, dass Sie vielleicht auch daran interessiert sind, mitzumachen.\n\nEs dauert nur ein paar Minuten, und ich glaube, dass es einen echten Unterschied machen kann. Hier ist der Link, wenn Sie mitmachen möchten:\n\n{url}\n\nDanke, dass Sie daran gedacht haben!"
     },
-    "default": "Hey! Ich habe gerade etwas Wichtiges in Angriff genommen - wollen Sie mitmachen? {url}"
+    "default": "Hey! Ich habe gerade etwas Wichtiges in Angriff genommen - wollen Sie mitmachen?"
   }
 }

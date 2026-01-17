@@ -2,7 +2,7 @@
   "description": "a kampány célját és az alapvető igényeket",
   "actions": {
     "petition": {
-      "default": "Szia! Most írtam alá ezt a petíciót, és gondoltam, talán te is támogatni szeretnéd: {url}",
+      "default": "Szia! Most írtam alá ezt a petíciót, és gondoltam, talán te is támogatni szeretnéd.",
       "email": {
         "subject": "Aláírnád velem együtt ezt a petíciót?",
         "body": "Szia,\n\nMost írtam alá egy petíciót valamiről, ami nagyon fontos számomra, és most keresek olyan embereket, akik szerintem szintén támogatni szeretnék.\n\nMinden aláírás segít lendületet venni, és megmutatja a döntéshozóknak, hogy az embereket érdekli ez a kérdés. Csak egy percet vesz igénybe a neved hozzáadása:\n\n{url}\n\nNagyra értékelném, ha támogatna ebben a kérdésben. Köszönöm, hogy időt szánsz rá!"

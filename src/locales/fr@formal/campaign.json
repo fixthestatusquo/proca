@@ -2,7 +2,7 @@
   "description": "mettre en avant l'objectif de la campagne et la demande principale",
   "actions": {
     "petition": {
-      "default": "Je viens de signer cette pétition et j'ai pensé que vous souhaiteriez également la soutenir : {url}",
+      "default": "Je viens de signer cette pétition et j'ai pensé que vous souhaiteriez également la soutenir.",
       "email": {
         "subject": "Signerez-vous cette pétition avec moi ?",
         "body": "Bonjour,\n\nJe viens de signer une pétition sur un sujet qui me tient vraiment à cœur et je m'adresse à des personnes qui, je pense, pourraient vouloir la soutenir également.\n\nChaque signature contribue à créer un élan et montre aux décideurs que les gens se soucient de cette question. Cela ne prend qu'une minute pour ajouter votre nom :\n\n{url}\n\nJ'apprécierais vraiment votre soutien sur ce sujet. Merci de prendre le temps d'y réfléchir !"
@@ -12,7 +12,7 @@
       "subject": "Aidez-moi à envoyer un message",
       "email": {
         "body": "Bonjour,\n\nJe viens d'envoyer un courriel au sujet d'une question qui me tient à cœur et je voulais savoir si vous vous joindriez à moi pour faire entendre notre voix.\n\nIl existe un modèle pré-rédigé qui facilite grandement la tâche : vous pouvez le personnaliser ou l'envoyer tel quel. Cela ne prend que quelques minutes :\n\n{url}\n\nPlus il y a de personnes qui se manifestent, plus il est difficile de les ignorer. Envisagez-vous d'ajouter votre voix ?\n\nNous vous remercions de tout cœur.",
-        "default": "Je viens d'envoyer un message à ce sujet. Pourriez-vous ajouter votre voix ? C'est très rapide : {url}"
+        "default": "Je viens d'envoyer un message à ce sujet. Pourriez-vous ajouter votre voix ? C'est très rapide : "
       }
     }
   },
