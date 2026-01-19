@@ -150,7 +150,7 @@
     "salutation_female": "Vážená pani  {{target.last_name}}",
     "salutation_info": "(meno sa uvedie pred odoslaním)",
     "salutation_male": "Vážený pán {{target.last_name}}",
-    "salutation_placeholder": "Vážený [príjemca],"
+    "salutation_placeholder": "Vážený [príjemca]"
   },
   "error": {
     "date": "formát by mal byť DD.MM.RRRR"
