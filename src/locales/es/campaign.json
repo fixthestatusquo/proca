@@ -2,7 +2,7 @@
   "description": "exponer el objetivo de la campaña y la demanda principal",
   "actions": {
     "petition": {
-      "default": "Acabo de firmar esta petición y he pensado que quizá tú también quieras apoyarla: {url}",
+      "default": "Acabo de firmar esta petición y he pensado que quizá tú también querrías apoyarla.",
       "email": {
         "subject": "¿Firmarás conmigo esta petición?",
         "body": "Hola,\n\nAcabo de firmar una petición sobre algo que realmente me importa, y estoy contactando con gente que creo que podría querer apoyarla también.\n\nCada firma ayuda a crear impulso y demuestra a los responsables de la toma de decisiones que la gente se preocupa por este tema. Sólo se tarda un minuto en añadir tu nombre:\n\n{url}\n\nApreciaría mucho tu apoyo. Gracias por tomarte el tiempo de considerarlo."
@@ -12,7 +12,7 @@
       "subject": "Ayúdame a enviar un mensaje",
       "email": {
         "body": "Hola,\n\nAcabo de enviar un correo sobre un tema que me preocupa, y quería saber si te unirías a mí para hacer oír nuestra voz.\n\nHay una plantilla preescrita que te lo pone muy fácil: puedes personalizarla o enviarla tal cual. Sólo te llevará un par de minutos:\n\n{url}\n\nCuantas más personas se pongan en contacto, más difícil será ignorarlas. ¿Considerarías la posibilidad de sumar tu voz?\n\nMuchas gracias",
-        "default": "Acabo de enviar un mensaje sobre este tema: ¿podrías hacer oír tu voz? Es super rápido: {url}"
+        "default": "Acabo de enviar un mensaje sobre este tema: ¿podrías hacer oír tu voz? Es muy rápido: "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Únase a mí para apoyar esta causa",
       "body": "Hola,\n\nRecientemente he actuado en algo que me preocupa y quería compartirlo contigo. Creo que a ti también te interesaría participar.\n\nSólo te llevará unos minutos y creo que puede marcar una verdadera diferencia. Aquí tienes el enlace si quieres unirte:\n\n{url}\n\n¡Gracias por considerarlo!"
     },
-    "default": "Acabo de pasar a la acción en algo importante, ¿quieres unirte a mí? {url}"
+    "default": "Acabo de pasar a la acción en algo importante, ¿quieres unirte a mí?"
   }
 }
