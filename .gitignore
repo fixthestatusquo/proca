@@ -12,7 +12,7 @@
 # production
 src/locales/**/eci.json
 /src/locales/common.json
-/src/locales/en/campaign.json
+#/src/locales/en/campaign.json
 /build
 /dist
 /d
