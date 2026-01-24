@@ -34,9 +34,9 @@ const merge = (targets, twitters, options) => {
     }
     r.sort =
       target.fields.sort ||
-        target.fields.last_name ||
-        target.fields.lastname ||
-        target.name;
+      target.fields.last_name ||
+      target.fields.lastname ||
+      target.name;
     r.sort = r.sort.toLowerCase();
     if (options.meps || target.fields.epid) {
       r.description = target.fields.description || target.fields.party;
