@@ -23,6 +23,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const useStyles = makeStyles(theme => ({
   DialogContent: {
     color: theme.palette.text.primary,
+    "& p, & li": {
+      color: theme.palette.text.primary,
+    },
   },
   dialogTitle: {
     display: "flex",
