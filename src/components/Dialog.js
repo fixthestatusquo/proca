@@ -20,7 +20,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
+  DialogContent: {
+    color: theme.palette.text.primary,
+  },
   dialogTitle: {
     display: "flex",
     justifyContent: "space-between",
@@ -76,7 +79,9 @@ function OpenDialog(props) {
           </IconButton>
         </DialogTitle>
       ) : null}
-      <DialogContent>{props.children}</DialogContent>
+      <DialogContent className={classes.DialogContent}>
+        {props.children}
+      </DialogContent>
       {DialogAction && <DialogAction />}
     </Dialog>
   );
