@@ -1,5 +1,6 @@
 import React from "react";
 import Actions from "@components/layout/ShareButtons";
+import DonateButton from "@components/layout/DonateButton";
 import {
   Container,
   Button,
@@ -64,6 +65,7 @@ const Share = props => {
           <p>{metadata.description}</p>
         </CardContent>
         {!component.share.top && <Actions {...props} />}
+        <DonateButton className={classes.next} />
         {component.share.next && (
           <Button
             size="large"
