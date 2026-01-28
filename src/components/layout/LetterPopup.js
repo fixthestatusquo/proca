@@ -18,7 +18,7 @@ const ReadMore = () => {
     let isCancelled = false;
     if (!open) return;
 
-    (async function() {
+    (async function () {
       let url =
         "https://" + config.campaign.name + ".proca.app/" + config.locale;
 

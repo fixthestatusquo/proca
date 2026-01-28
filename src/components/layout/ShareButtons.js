@@ -63,12 +63,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#eee",
   },
   actions: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
     gap: theme.spacing(1),
   },
   action: {
     flexGrow: 1,
-  }
+  },
 }));
 
 export default function ShareAction(props) {
@@ -144,8 +144,7 @@ export default function ShareAction(props) {
         /* i18next-extract-disable-line */ t(i18nKey);
 
       msg = pickOne(msg);
-      msg = tokenize(msg, { url: '' }); //remove the url token, it's set separately
-      console.log(msg);
+      msg = tokenize(msg, { url: "" }); //remove the url token, it's set separately
       if (target) {
         msg += ` ${target}`;
       }
@@ -168,7 +167,7 @@ export default function ShareAction(props) {
       shareWebAPI(url);
     };
 
-    const shareWebAPI = (url) => {
+    const shareWebAPI = url => {
       navigator
         .share({
           text: shareText("share.default"),
@@ -182,7 +181,9 @@ export default function ShareAction(props) {
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
       const subject = pickOne(t("campaign:share.email.subject", ""));
-      const body = tokenize(t("campaign:share.email.body"), { url: shareUrl("email") });
+      const body = tokenize(t("campaign:share.email.body"), {
+        url: shareUrl("email"),
+      });
       const hrefGmail = () => {
         return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       };
@@ -222,7 +223,8 @@ export default function ShareAction(props) {
 
     cardIcons = (
       <>
-        {isMobile && navigator?.canShare &&
+        {isMobile &&
+          navigator?.canShare &&
           !(
             config.component.share?.native &&
             config.component.share.native === false
@@ -261,10 +263,7 @@ export default function ShareAction(props) {
           )}
 
           {config.component?.share?.facebook !== false && (
-            <ActionIcon
-              icon={FacebookIcon}
-              component={FacebookShareButton}
-            />
+            <ActionIcon icon={FacebookIcon} component={FacebookShareButton} />
           )}
           {config.component?.share?.bluesky !== false && (
             <ActionIcon
@@ -296,7 +295,10 @@ export default function ShareAction(props) {
           />
         </CardActions>
         <CardActions>
-          <ShareUrl url={shareUrl('copy')} onCopy={() => addShare('share', 'copy')} />
+          <ShareUrl
+            url={shareUrl("copy")}
+            onCopy={() => addShare("share", "copy")}
+          />
         </CardActions>
       </>
     );
@@ -351,7 +353,7 @@ export default function ShareAction(props) {
         id={`proca-share-${medium}`}
         className={classes.action}
         component={props.component}
-        url={'url' in props ? props.url : shareUrl(props.component)}
+        url={"url" in props ? props.url : shareUrl(props.component)}
         openShareDialogOnClick={openShareDialogOnClick}
         onClick={onClick}
         title={props.title || props.share || t("share.message")}

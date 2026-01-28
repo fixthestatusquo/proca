@@ -1,5 +1,10 @@
 import { useCampaignConfig } from "./useConfig";
 
+const useFormatNumber = () => {
+  const campaignConfig = useCampaignConfig();
+  return d => Number(d).toLocaleString(campaignConfig.lang);
+};
+
 const useFormatMoney = () => {
   const campaignConfig = useCampaignConfig();
   const donateConfig = campaignConfig.component.donation;
@@ -15,4 +20,4 @@ const useFormatMoney = () => {
   };
 };
 
-export { useFormatMoney };
+export { useFormatMoney, useFormatNumber };

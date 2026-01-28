@@ -45,7 +45,7 @@ const TwoColumns = props => {
   if (leftContent && leftContent.length > 0) {
     return (
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12 - width} id={id}>
+        <Grid item xs={12} sm={12 - width} id={id} className="proca-left">
           {leftContent.map((c, i) => {
             const Component = portals[c.component];
             return <Component {...c} key={i} />;
