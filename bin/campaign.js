@@ -32,23 +32,23 @@ const help = () => {
           "--git (git update [add]+commit the local /config) || --no-git",
           "--push (update the server)",
           "campaign {campaign name}",
-        ].join("\n"),
-      ),
+        ].join("\n")
+      )
     );
     process.exit(0);
   }
 };
 
-const saveCampaign = (campaign) => {
+const saveCampaign = campaign => {
   //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
     file("campaign/" + campaign.name),
-    JSON.stringify(campaign, null, 2),
+    JSON.stringify(campaign, null, 2)
   );
   return "campaign/" + checked(campaign.name) + ".json";
 };
 
-const getCampaign = async (name) => {
+const getCampaign = async name => {
   const query = `
 query getCampaign ($name:String!){
   campaign (name:$name) {
@@ -64,7 +64,7 @@ query getCampaign ($name:String!){
   return data.campaign;
 };
 
-const pullCampaign = async (name) => {
+const pullCampaign = async name => {
   const fileName = "campaign/" + name + ".json";
   const campaign = await getCampaign(name);
   const msg =
@@ -78,7 +78,10 @@ const pullCampaign = async (name) => {
       r = await add(fileName);
       console.log("adding", r);
     }
-    console.log(color.green.bold("saved", file("campaign/" + campaign.name)), color.blue(campaign.name));
+    console.log(
+      color.green.bold("saved", file("campaign/" + campaign.name)),
+      color.blue(campaign.name)
+    );
     r = argv.git && (await commit(fileName, msg));
     if (argv.git && !r) {
       // no nameea,
@@ -92,11 +95,11 @@ const pullCampaign = async (name) => {
   return campaign;
 };
 
-const readCampaign = (name) => {
+const readCampaign = name => {
   return read("campaign/" + name);
 };
 
-const pushCampaign = async (name) => {
+const pushCampaign = async name => {
   const campaign = read("campaign/" + name);
   const query = `
 mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $externalId: Int) {
@@ -149,7 +152,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
     throw new Error(
       "created a new campaign instead of editing the existing one",
       data.upsertCampaign.id,
-      campaign.id,
+      campaign.id
     );
   }
   return data.upsertCampaign;
@@ -161,8 +164,8 @@ if (require.main === module) {
   if (!onGit()) {
     console.warn(
       color.italic.yellow(
-        "git integration disabled because the config folder isn't on git",
-      ),
+        "git integration disabled because the config folder isn't on git"
+      )
     );
     argv.git = false;
   }
@@ -173,13 +176,13 @@ if (require.main === module) {
       let campaign = null;
       let fileName = "campaign/" + name + ".json";
 
-console.log(argv,"running");
+      console.log(argv, "running");
       if (argv.pull || !argv.push) {
         try {
           campaign = await pullCampaign(name, anonymous);
-console.log("pulled");
+          console.log("pulled");
         } catch (e) {
-console.log("not pulled");
+          console.log("not pulled");
           console.error("error", color.red(e));
           process.exit(1);
         }
@@ -187,21 +190,21 @@ console.log("not pulled");
         //if (local && JSON.stringify(local) !== JSON.stringify(campaign)) {
         //    backup(campaign);
         // }
-     }
-        if (argv.push && !argv["dry-run"]) {
-console.log(argv,"pushing before git");
-          const r = argv.git && (await commit(fileName, null, 1));
-console.log(argv,"pushing");
-          const result = await pushCampaign(name);
-          console.log(color.green.bold("pushed", name), color.blue(result.id));
-          if (r.summary) console.log(r.summary);
+      }
+      if (argv.push && !argv["dry-run"]) {
+        console.log(argv, "pushing before git");
+        const r = argv.git && (await commit(fileName, null, 1));
+        console.log(argv, "pushing");
+        const result = await pushCampaign(name);
+        console.log(color.green.bold("pushed", name), color.blue(result.id));
+        if (r.summary) console.log(r.summary);
+      }
+      if (argv["dry-run"] || argv.verbose) {
+        if (!campaign) {
+          campaign = await readCampaign(name);
         }
-        if (argv["dry-run"] || argv.verbose) {
-          if (!campaign) {
-            campaign = await readCampaign(name);
-          }
-          console.log(campaign);
-        }
+        console.log(campaign);
+      }
     } catch (e) {
       console.error(e);
       // Deal with the fact the chain failed
