@@ -14,7 +14,7 @@ const stepComponent = {
   twitter: "Twitter",
   dialog: "Dialog",
   register: "Register",
-//  "register.CH": "bespoke/Register-CH",
+  //  "register.CH": "bespoke/Register-CH",
 };
 
 module.exports = id => {
@@ -33,12 +33,12 @@ module.exports = id => {
 function createCode(config) {
   const nl = "\n";
   let steps = [];
-  let portals = [];
-  let imports = [];
+  const portals = [];
+  const imports = [];
   const components = new Set();
 
   if (config.journey) {
-    if (!(config.journey instanceof Array)) {
+    if (!Array.isArray(config.journey)) {
       throw new Error(
         `config.journey should be an array!, is: ${config.journey}`
       );
@@ -50,7 +50,7 @@ function createCode(config) {
   }
 
   if (config.portal) {
-    if (!(config.portal instanceof Array)) {
+    if (!Array.isArray(config.portal)) {
       throw new Error(
         `config.portal should be an array!, is: ${config.portal}`
       );
