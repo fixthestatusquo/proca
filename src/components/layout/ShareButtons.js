@@ -181,9 +181,18 @@ export default function ShareAction(props) {
       if (!i18n.exists("campaign:share.email.subject")) return null;
 
       const subject = pickOne(t("campaign:share.email.subject", ""));
-      const body = tokenize(t("campaign:share.email.body"), {
+      let name = data.firstname;
+      if (data.lastname) name += " " + data.lastname;
+      let signature = name;
+      if (data.locality) signature += "\n" + data.locality;
+
+      const body = t("campaign:share.email.body", {
         url: shareUrl("email"),
+        name,
+        signature,
+        // needed?        ...data,
       });
+
       const hrefGmail = () => {
         return `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       };
