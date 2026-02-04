@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {isDirectCli} = require("./dotenv.js");
+const { isDirectCli } = require("./dotenv.js");
 
 const fs = require("fs");
 const path = require("path");
@@ -41,29 +41,36 @@ const help = () => {
   process.exit(0);
 };
 
-const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
-  string: ["mjml", "lang", "type"],
-  boolean: [
-    "help",
-    "dry-run",
-    "extract",
-    "verbose",
-    "build",
-    "push",
-    "serve",
-    "markdown",
-    "campaign",
-  ],
-  alias: { v: "verbose" },
-  default: { mjml: "default/thankyou", markdown: true, build: true, type: "thankyou" },
-  unknown: d => {
-    const allowed = []; //merge with boolean and string?
-    if (d[0] !== "-" || require.main !== module) return true;
-    if (allowed.includes(d.split("=")[0].slice(2))) return true;
-    console.error("unknown param", d);
-    help(1);
-  },
-});
+const argv =
+  isDirectCli() &&
+  require("minimist")(process.argv.slice(2), {
+    string: ["mjml", "lang", "type"],
+    boolean: [
+      "help",
+      "dry-run",
+      "extract",
+      "verbose",
+      "build",
+      "push",
+      "serve",
+      "markdown",
+      "campaign",
+    ],
+    alias: { v: "verbose" },
+    default: {
+      mjml: "default/thankyou",
+      markdown: true,
+      build: true,
+      type: "thankyou",
+    },
+    unknown: d => {
+      const allowed = []; //merge with boolean and string?
+      if (d[0] !== "-" || require.main !== module) return true;
+      if (allowed.includes(d.split("=")[0].slice(2))) return true;
+      console.error("unknown param", d);
+      help(1);
+    },
+  });
 
 const tmp = process.env.PROCA_CONFIG_FOLDER
   ? "../" + process.env.PROCA_CONFIG_FOLDER + "/"
@@ -181,10 +188,10 @@ const translateTpl = (tpl, lang, markdown) =>
   });
 
 const translateAttributes = dom => {
- // walks through all nodes in a parsed HTML/MJML DOM tree
- // and replaces any attribute values that are marked for internationalization
- // using the format: i18n:<translation.key>|<optional fallback>
-// eg. replaces href="i18n:email.share.telegram|https://t.me/share?text=default" with href="TEXT from server:email.share.telegram"
+  // walks through all nodes in a parsed HTML/MJML DOM tree
+  // and replaces any attribute values that are marked for internationalization
+  // using the format: i18n:<translation.key>|<optional fallback>
+  // eg. replaces href="i18n:email.share.telegram|https://t.me/share?text=default" with href="TEXT from server:email.share.telegram"
 
   const i18nPattern = /^i18n:([^|]+)(\|(.+))?$/;
 
@@ -199,7 +206,8 @@ const translateAttributes = dom => {
             const [, key, , fallback = ""] = match;
             keys[key] = fallback;
             const translated = i18n.t(key, fallback);
-            node.attribs[attr] = translated && translated !== key ? translated : fallback;
+            node.attribs[attr] =
+              translated && translated !== key ? translated : fallback;
           }
         }
       }
@@ -349,28 +357,30 @@ const EMAIL_TYPE_KEYS = {
     "email.button.confirmOptin",
     "email.button.confirmOptout",
     "email.confirm.subject",
-  ]
+  ],
 };
 
 const generateText = (type, lang) => {
   let serverLang = null;
-  if (lang !== "en") serverLang = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
+  if (lang !== "en")
+    serverLang = path.resolve(__dirname, `../src/locales/${lang}/server.json`);
   const serverEn = path.resolve(__dirname, `../src/locales/en/server.json`);
   const initial = { en: JSON.parse(fs.readFileSync(serverEn, "utf8")) };
 
-  if (serverLang) initial[lang] = JSON.parse(fs.readFileSync(serverLang, "utf8"));
+  if (serverLang)
+    initial[lang] = JSON.parse(fs.readFileSync(serverLang, "utf8"));
   const result = {};
   const keys = EMAIL_TYPE_KEYS[type];
   if (!keys) {
     throw new Error(`Unknown email type: ${type}`);
   }
-  const langsToInclude = lang === 'en' ? ['en'] : ['en', lang];
+  const langsToInclude = lang === "en" ? ["en"] : ["en", lang];
 
-  langsToInclude.forEach((l) => {
+  langsToInclude.forEach(l => {
     const source = initial[l];
     const picked = {};
 
-    keys.forEach((path) => {
+    keys.forEach(path => {
       const value = _get(source, path);
       if (value !== undefined) {
         _set(picked, path, value);
@@ -385,15 +395,15 @@ const generateText = (type, lang) => {
 const updateCampaign = (campaign, lang, update) => {
   // Overwriting "server:", othewise it would create a mess.
   for (const lang of Object.keys(update)) {
-      const emailContent = update[lang]?.email;
-      if (!emailContent) continue;
+    const emailContent = update[lang]?.email;
+    if (!emailContent) continue;
     if (!campaign.config.locales[lang]) {
       campaign.config.locales[lang] = {};
     }
     campaign.config.locales[lang]["server:"] = { email: emailContent };
   }
-   saveCampaign(campaign, {});
-   console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
+  saveCampaign(campaign, {});
+  console.log(JSON.stringify(campaign.config.locales[lang], null, 2));
 };
 
 if (require.main === module) {

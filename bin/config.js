@@ -2,17 +2,14 @@ const fs = require("fs");
 const path = require("path");
 const color = require("cli-color");
 
-
 const tmp = process.env.PROCA_CONFIG_FOLDER
-  ?  process.env.PROCA_CONFIG_FOLDER  + "/"
-  : path.resolve(__dirname, '../config') + "/" ;
-
+  ? process.env.PROCA_CONFIG_FOLDER + "/"
+  : path.resolve(__dirname, "../config") + "/";
 
 const API_URL =
   process.env.API_URL ||
   process.env.REACT_APP_API_URL ||
   "https://api.proca.app/api";
-
 
 const now = new Date();
 const runDate = (date = now) =>
@@ -23,7 +20,7 @@ const runDate = (date = now) =>
 
 const pathConfig = () => tmp;
 
-const checked = (fileName) => {
+const checked = fileName => {
   if (fileName.toString().includes("..")) {
     console.error("the filename is invalid ", fileName);
     throw new Error("invalid filename ", fileName);
@@ -31,7 +28,7 @@ const checked = (fileName) => {
   return fileName;
 };
 // mkdir -p
-const mkdirp = (pathToFile) => {
+const mkdirp = pathToFile => {
   if (!pathToFile) {
     console.log("need a path to folder to create");
     process.exit(1);
@@ -39,15 +36,20 @@ const mkdirp = (pathToFile) => {
   pathToFile = "config/" + pathToFile;
   fs.mkdirSync(pathToFile, { recursive: true });
 };
-const file = (id) => {
-  return path.resolve(__dirname, tmp + checked(id) + ".json");
+const file = id => {
+  if (!process.env.PROCA_CONFIG_FOLDER) {
+    console.warn("missing PROCA_CONFIG_FOLDER env");
+    return path.resolve(__dirname, tmp + checked(id) + ".json");
+  }
+  console.debug(process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json");
+  return process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json";
 };
 
-const fileExists = (id) => {
+const fileExists = id => {
   return fs.existsSync(file(id));
 };
 
-const read = (id) => {
+const read = id => {
   try {
     return JSON.parse(fs.readFileSync(file(id), "utf8"));
   } catch (e) {
@@ -81,7 +83,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
     if (res.status === 401) {
       console.error("permission error", API_URL);
       console.log(
-        "check your setup, proca config server and proca config user",
+        "check your setup, proca config server and proca config user"
       );
       throw new Error(res.statusText);
     }
@@ -99,12 +101,12 @@ const api = async (query, variables, name = "query", anonymous = false) => {
     const resJson = await res.json();
 
     if (resJson.errors) {
-      resJson.errors.forEach((e) =>
+      resJson.errors.forEach(e =>
         console.error(
           `${e.message}: ${e.path && e.path.join("->")} ${
             e.extensions ? JSON.stringify(e.extensions) : ""
-          }`,
-        ),
+          }`
+        )
       );
       return resJson;
     }
@@ -120,7 +122,7 @@ const authHeader = () => {
   let headers = {};
   if (process.env.PROCA_TOKEN) {
     headers = {
-     authorization: 'Bearer ' + process.env.PROCA_TOKEN,
+      authorization: "Bearer " + process.env.PROCA_TOKEN,
     };
   } else {
     if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {
@@ -130,15 +132,14 @@ const authHeader = () => {
     }
     console.warn(
       color.red(
-        "remove AUTH_USER and AUTH_PASSWORD and put PROCA_TOKEN in your env",
+        "remove AUTH_USER and AUTH_PASSWORD and put PROCA_TOKEN in your env"
       ),
-      color.blue("\n$proca token |  sed 's/Bearer /PROCA_TOKEN=/' >> .env"),
+      color.blue("\n$proca token |  sed 's/Bearer /PROCA_TOKEN=/' >> .env")
     );
     process.exit(1);
   }
   return headers;
 };
-
 
 module.exports = {
   authHeader,
