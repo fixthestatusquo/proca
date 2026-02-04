@@ -13,7 +13,7 @@ const LoaderAsync = () => {
     let isCancelled = false;
     if (!loaders) return;
     if (loaders.json) {
-      (async function() {
+      (async function () {
         let url =
           loaders.url || "https://" + config.campaign.name + ".proca.app/";
         if (loaders.url === false) return null;
@@ -58,7 +58,7 @@ const LoaderAsync = () => {
       })();
     } else {
       Object.entries(loaders).map(([k, v]) => {
-        (async function() {
+        (async function () {
           let url = v.url;
           if (!url) return null;
           if (v.appendLocale === true) url += lang;
