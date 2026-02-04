@@ -1,6 +1,6 @@
 const decodeHtmlEntities = encodedString => {
   const tempElement = document.createElement("textarea");
-  if (!encodedString) return '';
+  if (!encodedString) return "";
   tempElement.innerHTML = encodedString;
   return tempElement.value;
 };
@@ -66,7 +66,7 @@ const tokenize = (message, { profile, url }) => {
   return t;
 };
 
-const toArray = (locale) => {
+const toArray = locale => {
   return locale
     .split(/\r?\n(?=- )/) // only split where a line starts with '- '
     .map(d => d.trim())
