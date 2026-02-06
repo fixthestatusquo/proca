@@ -6,13 +6,11 @@ import Command, { Flags } from "../../builderCommand.mjs";
 export default class CampaignTranslate extends Command {
   static description =
     "Export a campaign's locale file";
+  
+  static args = this.multiid();
 
   static flags = {
-    campaign: Flags.string({
-      char: "c",
-      description: "Name of the campaign to translate.",
-      required: true,
-    }),
+    ...this.flagify({ multiid: true }),
     lang: Flags.string({
       default: "en",
     }),
@@ -62,7 +60,7 @@ console.log("## " + currentPath);
 
   async run() {
     const { flags } = await this.parse(CampaignTranslate);
-    const { campaign, lang } = flags;
+    const { name: campaign, lang } = flags;
     this.dryRun = flags['dry-run'];
 
     const filePath = path.join(
