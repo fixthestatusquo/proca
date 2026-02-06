@@ -3,13 +3,12 @@ import Command, { Args, Flags } from "../../builderCommand.mjs";
 export default class FetchCommand extends Command {
   static description = "pull the widget (and campaign) configuration from the server";
 
-  static examples = ["<%= config.bin %> <%= command.id %> -o <organisation>"];
-
   static args = Command.multiid();
 
   static flags = {
     ...Command.flagify({ multiid: true }),
     campaign: Flags.boolean({
+      description: "pull the campaign as well",
       default: true,
       allowNo: true,
     }),
@@ -33,11 +32,10 @@ export default class FetchCommand extends Command {
     const { flags } = await this.parse();
     const r = await this.pull (flags.id, flags);
     if (r.errors) {
-      console.log("errors", r.errors);
       this.error(r.errors);
       return;
     }
     const [, campaign] = r;
-    this.info("saved campaign "+process.env.PROCA_CONFIG_FOLDER+"/campaign/" + campaign.name + ".json");
+    campaign && this.info("saved campaign "+process.env.PROCA_CONFIG_FOLDER+"/campaign/" + campaign.name + ".json");
   }
 }

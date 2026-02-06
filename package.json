@@ -100,7 +100,7 @@
     "mjml": "^4.15.3",
     "open": "^11.0.0",
     "phoenix": "1.7.14",
-    "proca": "^1.7.8",
+    "proca": "^1.8.3",
     "simple-git": "^3.27.0",
     "websocket": "^1.0.35"
   },
@@ -109,6 +109,7 @@
     "format": "npx @biomejs/biome format --write ",
     "lint": "npx @biomejs/biome lint",
     "build": "node bin/esbuild.js",
+    "oclif": "oclif manifest && oclif readme --plugin-directory bin/commands --readme-path=../../README.md",
     "start": "node bin/esbuild.js --serve ",
     "deploy": "bash bin/deploy.sh",
     "org": "npx proca org pull",
@@ -127,11 +128,12 @@
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging node bin/esbuild.js --serve ",
     "starts": "HTTPS=true node bin/esbuild.js --serve ",
-    "_postinstall": "npx proca plugins link .",
     "postinstall": "if [ -z \"$PROCA_NO_RECURSE\" ]; then PROCA_NO_RECURSE=1 npx proca plugins link .; fi"
   },
   "oclif": {
-    "commands": "./bin/commands"
+    "commands": "./bin/commands",
+    "bin": "proca",
+    "topicSeparator": " "
   },
   "browserslist": {
     "production": [
