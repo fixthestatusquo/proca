@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {isDirectCli} = require("./dotenv.js");
+const { isDirectCli } = require("./dotenv.js");
 const {
   api,
   read,
@@ -34,30 +34,30 @@ const help = exit => {
   process.exit(exit || 0);
 };
 
-
-
-const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
-  boolean: [
-    "help",
-    "dry-run",
-    "pull",
-    "verbose",
-    "push",
-    "git",
-    "campaign",
-    "build",
-    "serve",
-  ],
-  default: { git: true, campaign: true },
-  alias: { v: "verbose" },
-  unknown: d => {
-    const allowed = []; //merge with boolean and string?
-    if (d[0] !== "-" || require.main !== module) return true;
-    if (allowed.includes(d.split("=")[0].slice(2))) return true;
-    console.log(color.red("unknown param", d));
-    help(1);
-  },
-});
+const argv =
+  isDirectCli() &&
+  require("minimist")(process.argv.slice(2), {
+    boolean: [
+      "help",
+      "dry-run",
+      "pull",
+      "verbose",
+      "push",
+      "git",
+      "campaign",
+      "build",
+      "serve",
+    ],
+    default: { git: true, campaign: true },
+    alias: { v: "verbose" },
+    unknown: d => {
+      const allowed = []; //merge with boolean and string?
+      if (d[0] !== "-" || require.main !== module) return true;
+      if (allowed.includes(d.split("=")[0].slice(2))) return true;
+      console.log(color.red("unknown param", d));
+      help(1);
+    },
+  });
 
 const string2array = s => {
   if (!s || s.length === 0 || s[0] === "") {
@@ -301,7 +301,7 @@ const getConfig = data => {
 };
 
 const fetchAPI = async (actionPage, { campaign = true }) => {
-  let data = undefined;
+  let data;
 
   const query = `
 query actionPage ($id:Int!) {
@@ -328,7 +328,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.error("ERROR",data);
+    console.error("ERROR", data);
     throw new Error(data.toString());
   }
 
@@ -336,7 +336,7 @@ query actionPage ($id:Int!) {
   if (campaign) {
     return [config, data.actionPage.campaign];
   }
-  return config;
+  return [config];
   //  const ap = argv.public ? data.actionPage : data.org.actionPage
 
   //  let t = null
@@ -353,41 +353,39 @@ const pull = async (
     campaign: campaign,
   });
   if (save) {
-          const exists = fileExists(actionPage);
+    const exists = fileExists(actionPage);
     const fileName = saveWidget(config);
-          const msg =
-            config.filename +
-            " for " +
-            config.org.name +
-            " (" +
-            config.organisation +
-            ") in " +
-            config.lang +
-            " part of " +
-            config.campaign.title;
-            let r = null;
-            if (!exists && argv.git) {
-              r = await add(actionPage + ".json");
-              console.log("adding", r);
-            }
-            console.log(
-              runDate(),
-              color.green.bold("saved", fileName),
-              color.blue(config.filename)
-            );
-            r = argv.git && (await commit(actionPage + ".json", msg));
-            if (argv.git && !r) {
-              // no idea,
-              console.warn(
-                color.red("something went wrong, trying to git add")
-              );
-              r = await add(actionPage + ".json");
-              console.log(r);
-              r = await commit(actionPage + ".json");
-            }
+    const msg =
+      config.filename +
+      " for " +
+      config.org.name +
+      " (" +
+      config.organisation +
+      ") in " +
+      config.lang +
+      " part of " +
+      config.campaign.title;
+    let r = null;
+    if (!exists && argv.git) {
+      r = await add(actionPage + ".json");
+      console.log("adding", r);
+    }
+    console.log(
+      runDate(),
+      color.green.bold("saved", fileName),
+      color.blue(config.filename)
+    );
+    r = argv.git && (await commit(actionPage + ".json", msg));
+    if (argv.git && !r) {
+      // no idea,
+      console.warn(color.red("something went wrong, trying to git add"));
+      r = await add(actionPage + ".json");
+      console.log(r);
+      r = await commit(actionPage + ".json");
+    }
     if (campaign) saveCampaign(campaignData, config.lang);
   }
-  return campaign ? [config, campaignData] : config;
+  return campaign ? [config, campaignData] : [config];
 };
 
 const push = async id => {
@@ -415,9 +413,7 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
 
   if (r.errors) {
     console.log(r);
-    console.log(
-      "check your config $npx proca config user"
-    );
+    console.log("check your config $npx proca config user");
     throw new Error(r.errors[0].message || "can't push");
   }
   r = r.updateActionPage;
@@ -481,7 +477,7 @@ if (require.main === module) {
           //    backup(actionPage);
           // }
           if (!argv["dry-run"]) {
-            saveWidget(widget); 
+            saveWidget(widget);
           }
         }
         if (argv.build) {
