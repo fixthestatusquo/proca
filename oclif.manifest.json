@@ -4,7 +4,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -14,7 +14,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -30,13 +29,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -59,6 +51,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -75,15 +76,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         },
@@ -122,7 +114,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -132,7 +124,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -148,13 +139,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -177,6 +161,13 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -192,13 +183,6 @@
           "char": "x",
           "description": "dxid",
           "name": "dxid",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "name": "name",
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
@@ -229,7 +213,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -239,7 +223,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -255,13 +238,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -284,6 +260,13 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -299,13 +282,6 @@
           "char": "x",
           "description": "dxid",
           "name": "dxid",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "name": "name",
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
@@ -340,7 +316,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -356,13 +331,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -450,7 +418,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -460,7 +428,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -476,13 +443,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -505,6 +465,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "name": "id",
@@ -518,15 +487,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         }
@@ -552,20 +512,16 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
       },
       "description": "pull the widget (and campaign) configuration from the server",
-      "examples": [
-        "<%= config.bin %> <%= command.id %> -o <organisation>"
-      ],
       "flags": {
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -581,13 +537,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -610,6 +559,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<widget>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -629,16 +587,8 @@
           "multiple": false,
           "type": "option"
         },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
-          "multiple": false,
-          "type": "option"
-        },
         "campaign": {
+          "description": "pull the campaign as well",
           "name": "campaign",
           "allowNo": true,
           "type": "boolean"
@@ -669,7 +619,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -682,7 +632,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -698,13 +647,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -727,6 +669,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "name": "id",
@@ -739,15 +690,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         },
@@ -785,7 +727,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -795,7 +737,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -811,13 +752,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -840,6 +774,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -856,15 +799,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         }
@@ -890,7 +824,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -900,7 +834,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -916,13 +849,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -945,6 +871,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -961,15 +896,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         },
@@ -1001,7 +927,7 @@
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -1014,7 +940,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -1030,13 +955,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -1059,6 +977,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "name": "id",
@@ -1071,15 +998,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         },
@@ -1113,79 +1031,11 @@
         "push.mjs"
       ]
     },
-    "git:status": {
-      "aliases": [],
-      "args": {},
-      "flags": {
-        "json": {
-          "description": "Format output as json",
-          "exclusive": [
-            "human",
-            "csv",
-            "markdown"
-          ],
-          "helpGroup": "OUTPUT",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "env": {
-          "description": "allow to switch between configurations (server or users)",
-          "name": "env",
-          "default": "default",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "csv": {
-          "description": "Format output as csv",
-          "helpGroup": "OUTPUT",
-          "name": "csv",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "markdown": {
-          "description": "Format output as markdown table",
-          "helpGroup": "OUTPUT",
-          "name": "markdown",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "simplify": {
-          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
-          "helpGroup": "OUTPUT",
-          "name": "simplify",
-          "allowNo": true,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "git:status",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "strict": true,
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "git",
-        "status.mjs"
-      ]
-    },
     "target:publish": {
       "aliases": [],
       "args": {
         "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
           "hidden": true,
           "name": "id_name_dxid"
         }
@@ -1195,7 +1045,6 @@
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -1211,13 +1060,6 @@
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
-        },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
-          "helpGroup": "OUTPUT",
-          "name": "human",
-          "allowNo": false,
-          "type": "boolean"
         },
         "csv": {
           "description": "Format output as csv",
@@ -1239,6 +1081,15 @@
           "name": "simplify",
           "allowNo": true,
           "type": "boolean"
+        },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
         },
         "id": {
           "char": "i",
@@ -1256,15 +1107,6 @@
           "description": "dxid",
           "name": "dxid",
           "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         },
@@ -1295,24 +1137,14 @@
         "publish.mjs"
       ]
     },
-    "campaign:widget:pull": {
+    "locale:cache": {
       "aliases": [],
-      "args": {
-        "id_name_dxid": {
-          "description": "it's better to use -i <id> or -x <dxid> or -n <name>, but you can for convenience",
-          "hidden": true,
-          "name": "id_name_dxid"
-        }
-      },
-      "description": "pull all the widgets of a campaign",
-      "examples": [
-        "$ proca-cli campaign widget pull climate-action"
-      ],
+      "args": {},
+      "description": "Reads and writes config files from the locale/cache",
       "flags": {
         "json": {
           "description": "Format output as json",
           "exclusive": [
-            "human",
             "csv",
             "markdown"
           ],
@@ -1329,10 +1161,234 @@
           "multiple": false,
           "type": "option"
         },
-        "human": {
-          "description": "Format output to be read on screen by a human [default]",
+        "csv": {
+          "description": "Format output as csv",
           "helpGroup": "OUTPUT",
-          "name": "human",
+          "name": "csv",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "markdown": {
+          "description": "Format output as markdown table",
+          "helpGroup": "OUTPUT",
+          "name": "markdown",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "simplify": {
+          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
+          "helpGroup": "OUTPUT",
+          "name": "simplify",
+          "allowNo": true,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hidden": true,
+      "hiddenAliases": [],
+      "id": "locale:cache",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "strict": true,
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "cache.mjs"
+      ]
+    },
+    "locale:pull": {
+      "aliases": [],
+      "args": {},
+      "description": "git pull of the config folder from the remote main",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:pull",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "pull.mjs"
+      ]
+    },
+    "locale:push": {
+      "aliases": [],
+      "args": {},
+      "description": "git push of the config folder to the remote main",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:push",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "push.mjs"
+      ]
+    },
+    "locale:status": {
+      "aliases": [],
+      "args": {},
+      "description": "git status of the config folder",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:status",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "status.mjs"
+      ]
+    },
+    "campaign:widget:pull": {
+      "aliases": [],
+      "args": {
+        "id_name_dxid": {
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
+          "hidden": true,
+          "name": "id_name_dxid"
+        }
+      },
+      "description": "pull all the widgets of a campaign",
+      "examples": [
+        "$ proca-cli campaign widget pull climate-action"
+      ],
+      "flags": {
+        "json": {
+          "description": "Format output as json",
+          "exclusive": [
+            "csv",
+            "markdown"
+          ],
+          "helpGroup": "OUTPUT",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "env": {
+          "description": "allow to switch between configurations (server or users)",
+          "name": "env",
+          "default": "default",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "csv": {
+          "description": "Format output as csv",
+          "helpGroup": "OUTPUT",
+          "name": "csv",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "markdown": {
+          "description": "Format output as markdown table",
+          "helpGroup": "OUTPUT",
+          "name": "markdown",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "simplify": {
+          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
+          "helpGroup": "OUTPUT",
+          "name": "simplify",
+          "allowNo": true,
+          "type": "boolean"
+        },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
+        "id": {
+          "char": "i",
+          "exclusive": [
+            "name",
+            "dxid"
+          ],
+          "name": "id",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "dxid": {
+          "char": "x",
+          "description": "dxid",
+          "name": "dxid",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "campaign:widget:pull",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": true,
+      "hooks": {},
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "campaign",
+        "widget",
+        "pull.mjs"
+      ]
+    },
+    "locale:campaign:read": {
+      "aliases": [
+        "campaign:read"
+      ],
+      "args": {
+        "id_name_dxid": {
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
+          "hidden": true,
+          "name": "id_name_dxid"
+        }
+      },
+      "description": "Reads a campaign configuration file",
+      "flags": {
+        "env": {
+          "description": "allow to switch between configurations (server or users)",
+          "name": "env",
+          "default": "default",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "json": {
+          "description": "Format output as json",
+          "exclusive": [
+            "csv",
+            "markdown"
+          ],
+          "helpGroup": "OUTPUT",
+          "name": "json",
           "allowNo": false,
           "type": "boolean"
         },
@@ -1357,6 +1413,15 @@
           "allowNo": true,
           "type": "boolean"
         },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<campaign>",
+          "multiple": false,
+          "type": "option"
+        },
         "id": {
           "char": "i",
           "exclusive": [
@@ -1376,32 +1441,138 @@
           "multiple": false,
           "type": "option"
         },
-        "name": {
-          "char": "n",
-          "description": "name",
-          "name": "name",
+        "config": {
+          "description": "display the config",
+          "name": "config",
+          "allowNo": true,
+          "type": "boolean"
+        },
+        "locale": {
+          "description": "display a locale",
+          "name": "locale",
           "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
           "multiple": false,
           "type": "option"
         }
       },
       "hasDynamicHelp": false,
+      "hidden": false,
       "hiddenAliases": [],
-      "id": "campaign:widget:pull",
+      "id": "locale:campaign:read",
       "pluginAlias": "@proca/widget",
       "pluginName": "@proca/widget",
       "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": true,
-      "hooks": {},
       "isESM": true,
       "relativePath": [
         "bin",
         "commands",
+        "locale",
         "campaign",
+        "read.mjs"
+      ]
+    },
+    "locale:widget:read": {
+      "aliases": [
+        "widget:read"
+      ],
+      "args": {
+        "id_name_dxid": {
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
+          "hidden": true,
+          "name": "id_name_dxid"
+        }
+      },
+      "description": "Reads a widget configuration file",
+      "flags": {
+        "env": {
+          "description": "allow to switch between configurations (server or users)",
+          "name": "env",
+          "default": "default",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "json": {
+          "description": "Format output as json",
+          "exclusive": [
+            "csv",
+            "markdown"
+          ],
+          "helpGroup": "OUTPUT",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "csv": {
+          "description": "Format output as csv",
+          "helpGroup": "OUTPUT",
+          "name": "csv",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "markdown": {
+          "description": "Format output as markdown table",
+          "helpGroup": "OUTPUT",
+          "name": "markdown",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "simplify": {
+          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
+          "helpGroup": "OUTPUT",
+          "name": "simplify",
+          "allowNo": true,
+          "type": "boolean"
+        },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<widget>",
+          "multiple": false,
+          "type": "option"
+        },
+        "id": {
+          "char": "i",
+          "exclusive": [
+            "name",
+            "dxid"
+          ],
+          "name": "id",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "dxid": {
+          "char": "x",
+          "description": "dxid",
+          "name": "dxid",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "config": {
+          "description": "display the config",
+          "name": "config",
+          "allowNo": true,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:widget:read",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
         "widget",
-        "pull.mjs"
+        "read.mjs"
       ]
     }
   },

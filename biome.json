@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "files": {
-    "includes": ["**/*.{js,ts,jsx,tsx,json}"],
+    "includes": ["**/*.{js,ts,,mjs,jsx,tsx,json}"],
     "experimentalScannerIgnores": [
       "build/**",
       "d/**",

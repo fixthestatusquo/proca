@@ -6,7 +6,7 @@ export default class FetchCommand extends Command {
   static args = Command.multiid();
 
   static flags = {
-    ...Command.flagify({ multiid: true }),
+    ...Command.flagify({ multiid: true, name: "widget" }),
     campaign: Flags.boolean({
       description: "pull the campaign as well",
       default: true,
@@ -33,7 +33,6 @@ export default class FetchCommand extends Command {
     const r = await this.pull (flags.id, flags);
     if (r.errors) {
       this.error(r.errors);
-      return;
     }
     const [, campaign] = r;
     campaign && this.info("saved campaign "+process.env.PROCA_CONFIG_FOLDER+"/campaign/" + campaign.name + ".json");

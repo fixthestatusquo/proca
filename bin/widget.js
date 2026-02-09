@@ -145,12 +145,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
 `;
 
   if (!orgName) {
-    try {
-      campaign = await pullCampaign(campaignName);
-    } catch (e) {
-      console.log("error", e);
-      throw e;
-    }
+    campaign = await pullCampaign(campaignName);
   }
 
   if (!campaign) {
@@ -229,12 +224,15 @@ query actionPage ($name:String!) {
 
   try {
     data = await api(query, { name: name }, "actionPage", true);
+    if (!data.actionPage) {
+      console.log("error in api call", data);
+      throw new Error(data.toString());
+    }
+    return data.actionPage;
   } catch (err) {
-    console.log(err);
-    throw err;
+    console.log("error xxxx", err, data.errors);
+    throw new Error(data.toString());
   }
-  if (!data.actionPage) throw new Error(data.toString());
-  return data.actionPage;
 };
 
 const getConfig = data => {
@@ -328,8 +326,7 @@ query actionPage ($id:Int!) {
   //data = await api(query, { id: actionPage }, "actionPage", anonymous);
   data = await api(query, { id: actionPage }, "actionPage");
   if (!data.actionPage) {
-    console.error("ERROR", data);
-    throw new Error(data.toString());
+    throw new Error(data.errors.map(d => d.message).join(" "));
   }
 
   const config = getConfig(data);

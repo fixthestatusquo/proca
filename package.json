@@ -90,6 +90,7 @@
     "@biomejs/biome": "^2.2.5",
     "babel-plugin-i18next-extract": "^0.10.0",
     "babel-plugin-module-resolver": "^5.0.2",
+    "baseline-browser-mapping": "^2.9.19",
     "cli-color": "^2.0.4",
     "dotenv": "^16.5.0",
     "esbuild": "^0.27.2",
@@ -100,7 +101,7 @@
     "mjml": "^4.15.3",
     "open": "^11.0.0",
     "phoenix": "1.7.14",
-    "proca": "^1.8.3",
+    "proca": "^2.2.1",
     "simple-git": "^3.27.0",
     "websocket": "^1.0.35"
   },

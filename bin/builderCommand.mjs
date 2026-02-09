@@ -14,14 +14,13 @@ export class BuilderCommand extends ProcaCommand {
 
   async init() {
     await super.init();
-//    const dirname = path.dirname(fileURLToPath(import.meta.url));
-//    const defaultConfigDir = path.resolve(dirname, "../config");
+    //    const dirname = path.dirname(fileURLToPath(import.meta.url));
+    //    const defaultConfigDir = path.resolve(dirname, "../config");
 
-//    const userConfig = loadConfig(this.config.configDir);
-//console.log(this.config);
-//    this.config.dataDir =
+    //    const userConfig = loadConfig(this.config.configDir);
+    //console.log(this.config);
+    //    this.config.dataDir =
   }
-
 }
 
 export default BuilderCommand;

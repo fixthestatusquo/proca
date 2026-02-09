@@ -41,7 +41,7 @@ const file = id => {
     console.warn("missing PROCA_CONFIG_FOLDER env");
     return path.resolve(__dirname, tmp + checked(id) + ".json");
   }
-  console.debug(process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json");
+  //  console.debug(process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json");
   return process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json";
 };
 
@@ -113,7 +113,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
 
     return resJson.data;
   } catch (err) {
-    console.error(err);
+    console.error("api error", err);
     throw err;
   }
 };

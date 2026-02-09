@@ -106,14 +106,20 @@ Please note that this project is released with a [Contributor Covenant](code_of_
 * [`proca campaign markdown`](#proca-campaign-markdown)
 * [`proca campaign pull`](#proca-campaign-pull)
 * [`proca campaign push`](#proca-campaign-push)
+* [`proca campaign read`](#proca-campaign-read)
 * [`proca campaign translate`](#proca-campaign-translate)
 * [`proca campaign widget pull`](#proca-campaign-widget-pull)
-* [`proca git status`](#proca-git-status)
+* [`proca locale campaign read`](#proca-locale-campaign-read)
+* [`proca locale pull`](#proca-locale-pull)
+* [`proca locale push`](#proca-locale-push)
+* [`proca locale status`](#proca-locale-status)
+* [`proca locale widget read`](#proca-locale-widget-read)
 * [`proca target publish`](#proca-target-publish)
 * [`proca template push`](#proca-template-push)
 * [`proca widget build`](#proca-widget-build)
 * [`proca widget pull`](#proca-widget-pull)
 * [`proca widget push`](#proca-widget-push)
+* [`proca widget read`](#proca-widget-read)
 * [`proca widget serve`](#proca-widget-serve)
 * [`proca widget view`](#proca-widget-view)
 
@@ -123,12 +129,12 @@ Export a campaign's locale file
 
 ```
 USAGE
-  $ proca campaign markdown [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+  $ proca campaign markdown [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
     <the_short_name> | -x <value>] [--lang <value>] [--namespace <value>]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
       --lang=<value>           [default: en]
@@ -136,7 +142,6 @@ FLAGS
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -151,8 +156,8 @@ pull the campaign from the server to the config file
 
 ```
 USAGE
-  $ proca campaign pull [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
-    <value> | -x <value>] [--git]
+  $ proca campaign pull [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n <value> | -x
+    <value>] [--git]
 
 FLAGS
   -i, --id=<value>
@@ -163,7 +168,6 @@ FLAGS
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -178,8 +182,8 @@ push the campaign from the config file to the server
 
 ```
 USAGE
-  $ proca campaign push [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
-    <value> | -x <value>] [--git]
+  $ proca campaign push [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n <value> | -x
+    <value>] [--git]
 
 FLAGS
   -i, --id=<value>
@@ -190,7 +194,6 @@ FLAGS
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -199,14 +202,44 @@ DESCRIPTION
   push the campaign from the config file to the server
 ```
 
+## `proca campaign read`
+
+Reads a campaign configuration file
+
+```
+USAGE
+  $ proca campaign read [--env <value>] [--json | --csv | --markdown] [--simplify] [-i <value> | -n <campaign> | -x
+    <value>] [--config] [--locale <value>]
+
+FLAGS
+  -i, --id=<value>
+  -n, --name=<campaign>  name (technical short name, also called slug)
+  -x, --dxid=<value>     dxid
+      --[no-]config      display the config
+      --env=<value>      [default: default] allow to switch between configurations (server or users)
+      --locale=<value>   display a locale
+
+OUTPUT FLAGS
+  --csv            Format output as csv
+  --json           Format output as json
+  --markdown       Format output as markdown table
+  --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
+
+DESCRIPTION
+  Reads a campaign configuration file
+
+ALIASES
+  $ proca campaign read
+```
+
 ## `proca campaign translate`
 
 Translate a campaign's locale file from one language to another.
 
 ```
 USAGE
-  $ proca campaign translate -c <value> --to <value> [--json | --human | --csv | --markdown] [--env <value>]
-    [--simplify] [--from <value>] [--force] [--namespace <value>] [--dry-run]
+  $ proca campaign translate -c <value> --to <value> [--json | --csv | --markdown] [--env <value>] [--simplify] [--from
+    <value>] [--force] [--namespace <value>] [--dry-run]
 
 FLAGS
   -c, --campaign=<value>   (required) Name of the campaign to translate.
@@ -219,7 +252,6 @@ FLAGS
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -234,18 +266,17 @@ pull all the widgets of a campaign
 
 ```
 USAGE
-  $ proca campaign widget pull [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+  $ proca campaign widget pull [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
     <the_short_name> | -x <value>]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -257,21 +288,99 @@ EXAMPLES
   $ proca-cli campaign widget pull climate-action
 ```
 
-## `proca git status`
+## `proca locale campaign read`
+
+Reads a campaign configuration file
 
 ```
 USAGE
-  $ proca git status [--json | --human | --csv | --markdown] [--env <value>] [--simplify]
+  $ proca locale campaign read [--env <value>] [--json | --csv | --markdown] [--simplify] [-i <value> | -n <campaign> | -x
+    <value>] [--config] [--locale <value>]
 
 FLAGS
-  --env=<value>  [default: default] allow to switch between configurations (server or users)
+  -i, --id=<value>
+  -n, --name=<campaign>  name (technical short name, also called slug)
+  -x, --dxid=<value>     dxid
+      --[no-]config      display the config
+      --env=<value>      [default: default] allow to switch between configurations (server or users)
+      --locale=<value>   display a locale
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
+
+DESCRIPTION
+  Reads a campaign configuration file
+
+ALIASES
+  $ proca campaign read
+```
+
+## `proca locale pull`
+
+git pull of the config folder from the remote main
+
+```
+USAGE
+  $ proca locale pull
+
+DESCRIPTION
+  git pull of the config folder from the remote main
+```
+
+## `proca locale push`
+
+git push of the config folder to the remote main
+
+```
+USAGE
+  $ proca locale push
+
+DESCRIPTION
+  git push of the config folder to the remote main
+```
+
+## `proca locale status`
+
+git status of the config folder
+
+```
+USAGE
+  $ proca locale status
+
+DESCRIPTION
+  git status of the config folder
+```
+
+## `proca locale widget read`
+
+Reads a widget configuration file
+
+```
+USAGE
+  $ proca locale widget read [--env <value>] [--json | --csv | --markdown] [--simplify] [-i <value> | -n <widget> | -x
+    <value>] [--config]
+
+FLAGS
+  -i, --id=<value>
+  -n, --name=<widget>  name (technical short name, also called slug)
+  -x, --dxid=<value>   dxid
+      --[no-]config    display the config
+      --env=<value>    [default: default] allow to switch between configurations (server or users)
+
+OUTPUT FLAGS
+  --csv            Format output as csv
+  --json           Format output as json
+  --markdown       Format output as markdown table
+  --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
+
+DESCRIPTION
+  Reads a widget configuration file
+
+ALIASES
+  $ proca widget read
 ```
 
 ## `proca target publish`
@@ -280,12 +389,12 @@ publish the targets for the campaign to be accessible from the widget
 
 ```
 USAGE
-  $ proca target publish [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+  $ proca target publish [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
     <the_short_name> | -x <value>] [--campaign] [--git]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
   --[no-]campaign
       --env=<value>            [default: default] allow to switch between configurations (server or users)
@@ -293,7 +402,6 @@ FLAGS
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -308,20 +416,19 @@ push to the server a template
 
 ```
 USAGE
-  $ proca template push [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value>] [-x
-    <value>] [-n <the_short_name>] [-c <value>] [--git]
+  $ proca template push [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <the_short_name>] [-i
+    <value>] [-x <value>] [-c <value>] [--git]
 
 FLAGS
   -c, --campaign=<value>       push all the widgets of that campaign [WIP]
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
       --[no-]git               commit the changes to git
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -339,18 +446,17 @@ build the widget
 
 ```
 USAGE
-  $ proca widget build -i <value> [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-x
-    <value>] [-n <the_short_name>]
+  $ proca widget build -i <value> [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <the_short_name>]
+    [-x <value>]
 
 FLAGS
   -i, --id=<value>             (required)
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -365,29 +471,25 @@ pull the widget (and campaign) configuration from the server
 
 ```
 USAGE
-  $ proca widget pull [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
-    <the_short_name> | -x <value>] [--campaign] [--git]
+  $ proca widget pull [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n <widget> | -x
+    <value>] [--campaign] [--git]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
-  -x, --dxid=<value>           dxid
-  --[no-]campaign
-      --env=<value>            [default: default] allow to switch between configurations (server or users)
-      --[no-]git               commit the changes to git
+  -n, --name=<widget>  name (technical short name, also called slug)
+  -x, --dxid=<value>   dxid
+      --[no-]campaign  pull the campaign as well
+      --env=<value>    [default: default] allow to switch between configurations (server or users)
+      --[no-]git       commit the changes to git
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
 
 DESCRIPTION
   pull the widget (and campaign) configuration from the server
-
-EXAMPLES
-  $ proca widget pull -o <organisation>
 ```
 
 ## `proca widget push`
@@ -396,20 +498,19 @@ push to the server the local configuration of the widget
 
 ```
 USAGE
-  $ proca widget push [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value>] [-x
-    <value>] [-n <the_short_name>] [-c <value>] [--git]
+  $ proca widget push [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <the_short_name>] [-i
+    <value>] [-x <value>] [-c <value>] [--git]
 
 FLAGS
   -c, --campaign=<value>       push all the widgets of that campaign [WIP]
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
       --[no-]git               commit the changes to git
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -421,24 +522,52 @@ EXAMPLES
   $ proca widget push -o <organisation>
 ```
 
+## `proca widget read`
+
+Reads a widget configuration file
+
+```
+USAGE
+  $ proca widget read [--env <value>] [--json | --csv | --markdown] [--simplify] [-i <value> | -n <widget> | -x
+    <value>] [--config]
+
+FLAGS
+  -i, --id=<value>
+  -n, --name=<widget>  name (technical short name, also called slug)
+  -x, --dxid=<value>   dxid
+      --[no-]config    display the config
+      --env=<value>    [default: default] allow to switch between configurations (server or users)
+
+OUTPUT FLAGS
+  --csv            Format output as csv
+  --json           Format output as json
+  --markdown       Format output as markdown table
+  --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
+
+DESCRIPTION
+  Reads a widget configuration file
+
+ALIASES
+  $ proca widget read
+```
+
 ## `proca widget serve`
 
 serve the local version of the widget
 
 ```
 USAGE
-  $ proca widget serve [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+  $ proca widget serve [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
     <the_short_name> | -x <value>]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
@@ -453,19 +582,18 @@ view the widget
 
 ```
 USAGE
-  $ proca widget view [--json | --human | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+  $ proca widget view [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
     <the_short_name> | -x <value>] [--preview]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name
+  -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
       --preview                view the preview widget instead of the live version
 
 OUTPUT FLAGS
   --csv            Format output as csv
-  --human          Format output to be read on screen by a human [default]
   --json           Format output as json
   --markdown       Format output as markdown table
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
