@@ -101,6 +101,7 @@ Before starting to change something, we recommend you to contact us (create an i
 Please note that this project is released with a [Contributor Covenant](code_of_conduct.md). By participating in this project you agree to abide by its terms.
 
 # All the commands 
+These are all the command line commands to build and manage the locale cache (by default under the config folder). To see all the other commands, check [proca-cli](https://github.com/fixthestatusquo/proca-cli/?tab=readme-ov-file#commands)
 
 <!-- commands -->
 * [`proca campaign markdown`](#proca-campaign-markdown)
