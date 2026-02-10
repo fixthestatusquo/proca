@@ -106,6 +106,7 @@ export default class Locale extends Command {
       "?": "not_added",
       A: "added",
       U: "conflicted",
+      D: "deleted",
     };
     try {
       const status = await this.git.status(filePath ? [filePath] : []);

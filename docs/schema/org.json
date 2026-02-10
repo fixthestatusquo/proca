@@ -1,0 +1,4251 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Org",
+    "definitions": {
+        "Org": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/OrgConfig"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "personalData": {
+                    "$ref": "#/definitions/PersonalData"
+                },
+                "processing": {
+                    "$ref": "#/definitions/Processing"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Service"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "config",
+                "id",
+                "name",
+                "title"
+            ],
+            "title": "Org"
+        },
+        "OrgConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "layout": {
+                    "$ref": "#/definitions/StickyLayout"
+                },
+                "locale": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "privacy": {
+                    "$ref": "#/definitions/Privacy"
+                },
+                "twitter": {
+                    "$ref": "#/definitions/Twitter"
+                },
+                "url": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "qt-uri-protocols": [
+                                "http",
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".html"
+                            ]
+                        }
+                    ]
+                },
+                "campaignTemplate": {
+                    "$ref": "#/definitions/CampaignTemplate"
+                },
+                "dashboard": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Dashboard"
+                    }
+                },
+                "country": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "OrgConfig"
+        },
+        "CampaignTemplate": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "petition": {
+                    "$ref": "#/definitions/Petition"
+                },
+                "mtt": {
+                    "$ref": "#/definitions/Mtt"
+                },
+                "basic": {
+                    "$ref": "#/definitions/Basic"
+                },
+                "basic-petition": {
+                    "$ref": "#/definitions/BasicPetition"
+                },
+                "gp-mtt-1": {
+                    "$ref": "#/definitions/GpMtt1"
+                },
+                "gp-mtt-2": {
+                    "$ref": "#/definitions/GpMtt2"
+                },
+                "no-primary-color": {
+                    "$ref": "#/definitions/NoPrimaryColor"
+                },
+                "petition_hateaid": {
+                    "$ref": "#/definitions/PetitionHateaid"
+                },
+                "gpd-protestmail-bundestagsabgeordnete": {
+                    "$ref": "#/definitions/GpdProtestmailBundestagsabgeordnete"
+                },
+                "gpd-protestmail-einfach": {
+                    "$ref": "#/definitions/GpdProtestmailEinfach"
+                },
+                "stophateCopy": {
+                    "$ref": "#/definitions/StophateCopy"
+                },
+                "petition-lc": {
+                    "$ref": "#/definitions/PetitionLc"
+                }
+            },
+            "required": [],
+            "title": "CampaignTemplate"
+        },
+        "Basic": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/BasicConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "Basic"
+        },
+        "BasicConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/PurpleComponent"
+                }
+            },
+            "required": [
+                "component"
+            ],
+            "title": "BasicConfig"
+        },
+        "PurpleComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/PurpleConsent"
+                },
+                "register": {
+                    "$ref": "#/definitions/PurpleRegister"
+                },
+                "sync": {
+                    "$ref": "#/definitions/PurpleSync"
+                }
+            },
+            "required": [
+                "consent",
+                "register",
+                "sync"
+            ],
+            "title": "PurpleComponent"
+        },
+        "PurpleConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/PurpleEmail"
+                },
+                "implicit": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "PurpleConsent"
+        },
+        "PurpleEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmAction": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "confirmAction"
+            ],
+            "title": "PurpleEmail"
+        },
+        "PurpleRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "field": {
+                    "$ref": "#/definitions/PurpleField"
+                }
+            },
+            "required": [
+                "field"
+            ],
+            "title": "PurpleRegister"
+        },
+        "PurpleField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "email": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "firstname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "lastname": {
+                    "type": "boolean"
+                },
+                "locality": {
+                    "type": "boolean"
+                },
+                "organisation": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "email",
+                "firstname",
+                "lastname",
+                "locality",
+                "organisation",
+                "phone",
+                "postcode"
+            ],
+            "title": "PurpleField"
+        },
+        "PurpleSync": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "data_source": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "listid": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "zip_field": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "data_source",
+                "listid",
+                "zip_field"
+            ],
+            "title": "PurpleSync"
+        },
+        "BasicPetition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/BasicPetitionConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "BasicPetition"
+        },
+        "BasicPetitionConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/FluffyComponent"
+                },
+                "locales": {
+                    "$ref": "#/definitions/PurpleLocales"
+                }
+            },
+            "required": [
+                "component",
+                "locales"
+            ],
+            "title": "BasicPetitionConfig"
+        },
+        "FluffyComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "register": {
+                    "$ref": "#/definitions/FluffyRegister"
+                }
+            },
+            "required": [
+                "register"
+            ],
+            "title": "FluffyComponent"
+        },
+        "FluffyRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "field": {
+                    "$ref": "#/definitions/FluffyField"
+                }
+            },
+            "required": [
+                "field"
+            ],
+            "title": "FluffyRegister"
+        },
+        "FluffyField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "firstname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "organisation": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "email",
+                "firstname",
+                "organisation",
+                "phone"
+            ],
+            "title": "FluffyField"
+        },
+        "PurpleLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "en": {
+                    "$ref": "#/definitions/PurpleEn"
+                }
+            },
+            "required": [
+                "en"
+            ],
+            "title": "PurpleLocales"
+        },
+        "PurpleEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                }
+            },
+            "required": [
+                "partner:"
+            ],
+            "title": "PurpleEn"
+        },
+        "Partner": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "onboarding": {
+                    "$ref": "#/definitions/Onboarding"
+                }
+            },
+            "required": [
+                "onboarding"
+            ],
+            "title": "Partner"
+        },
+        "Onboarding": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "intro": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "welcome": {
+                    "type": "string"
+                },
+                "partnership": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "intro",
+                "title",
+                "welcome"
+            ],
+            "title": "Onboarding"
+        },
+        "GpMtt1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/GpMtt1_Config"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "GpMtt1"
+        },
+        "GpMtt1_Config": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/TentacledComponent"
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "layout": {
+                    "$ref": "#/definitions/PurpleLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/FluffyLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "journey",
+                "layout",
+                "locales",
+                "portal"
+            ],
+            "title": "GpMtt1_Config"
+        },
+        "TentacledComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/PurpleConsent"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "email": {
+                    "$ref": "#/definitions/FluffyEmail"
+                },
+                "loader": {
+                    "$ref": "#/definitions/Loader"
+                },
+                "register": {
+                    "$ref": "#/definitions/TentacledRegister"
+                },
+                "sync": {
+                    "$ref": "#/definitions/FluffySync"
+                }
+            },
+            "required": [
+                "consent",
+                "country",
+                "email",
+                "loader",
+                "register"
+            ],
+            "title": "TentacledComponent"
+        },
+        "FluffyEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmAction": {
+                    "type": "boolean"
+                },
+                "field": {
+                    "$ref": "#/definitions/TentacledField"
+                },
+                "filter": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "progress": {
+                    "type": "boolean"
+                },
+                "salutation": {
+                    "type": "boolean"
+                },
+                "server": {
+                    "type": "boolean"
+                },
+                "showTo": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "confirmAction",
+                "field",
+                "progress",
+                "salutation",
+                "server",
+                "showTo"
+            ],
+            "title": "FluffyEmail"
+        },
+        "TentacledField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "message": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "subject": {
+                    "$ref": "#/definitions/FirstnameClass"
+                }
+            },
+            "required": [
+                "message",
+                "subject"
+            ],
+            "title": "TentacledField"
+        },
+        "Loader": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "appendLocale": {
+                    "type": "boolean"
+                },
+                "json": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "appendLocale",
+                "json"
+            ],
+            "title": "Loader"
+        },
+        "TentacledRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "actionType": {
+                    "type": "string"
+                },
+                "button": {
+                    "type": "string"
+                },
+                "field": {
+                    "$ref": "#/definitions/StickyField"
+                }
+            },
+            "required": [
+                "actionType",
+                "button",
+                "field"
+            ],
+            "title": "TentacledRegister"
+        },
+        "StickyField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "locality": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "$ref": "#/definitions/FirstnameClass"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "lastname",
+                "locality",
+                "phone",
+                "postcode"
+            ],
+            "title": "StickyField"
+        },
+        "FluffySync": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "promoCode": {
+                    "$ref": "#/definitions/PromoCode"
+                }
+            },
+            "required": [
+                "promoCode"
+            ],
+            "title": "FluffySync"
+        },
+        "PromoCode": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "default",
+                "phone"
+            ],
+            "title": "PromoCode"
+        },
+        "PurpleLayout": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "primaryColor": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "primaryColor"
+            ],
+            "title": "PurpleLayout"
+        },
+        "FluffyLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/PurpleDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/FluffyEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "FluffyLocales"
+        },
+        "PurpleDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/PurpleCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/PurpleCommon"
+                },
+                "letter:": {
+                    "$ref": "#/definitions/PurpleLetter"
+                },
+                "server:": {
+                    "$ref": "#/definitions/PurpleServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "letter:",
+                "server:"
+            ],
+            "title": "PurpleDe"
+        },
+        "PurpleCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "share": {
+                    "$ref": "#/definitions/PurpleShare"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "PurpleCampaign"
+        },
+        "PurpleShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/TentacledEmail"
+                },
+                "whatsapp": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email",
+                "whatsapp"
+            ],
+            "title": "PurpleShare"
+        },
+        "TentacledEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "body": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "body"
+            ],
+            "title": "TentacledEmail"
+        },
+        "PurpleCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/CommonEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "PurpleCommon"
+        },
+        "CommonEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "salutation": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "salutation"
+            ],
+            "title": "CommonEmail"
+        },
+        "PurpleLetter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "part-F": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "part-F"
+            ],
+            "title": "PurpleLetter"
+        },
+        "PurpleServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/StickyEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "PurpleServer"
+        },
+        "StickyEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "button": {
+                    "$ref": "#/definitions/PurpleButton"
+                },
+                "common": {
+                    "$ref": "#/definitions/FluffyCommon"
+                },
+                "doi": {
+                    "$ref": "#/definitions/PurpleDoi"
+                }
+            },
+            "required": [
+                "button",
+                "common",
+                "doi"
+            ],
+            "title": "StickyEmail"
+        },
+        "PurpleButton": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmOptin": {
+                    "type": "string"
+                },
+                "confirmOptout": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "confirmOptin",
+                "confirmOptout"
+            ],
+            "title": "PurpleButton"
+        },
+        "FluffyCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "about": {
+                    "type": "string"
+                },
+                "greeting": {
+                    "type": "string"
+                },
+                "organisation": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "thanks": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "about",
+                "greeting",
+                "organisation",
+                "signature",
+                "thanks"
+            ],
+            "title": "FluffyCommon"
+        },
+        "PurpleDoi": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "extra": {
+                    "type": "string"
+                },
+                "intro": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "extra",
+                "intro",
+                "subject"
+            ],
+            "title": "PurpleDoi"
+        },
+        "FluffyEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "common:": {
+                    "$ref": "#/definitions/PurpleCommon"
+                },
+                "server:": {
+                    "$ref": "#/definitions/FluffyServer"
+                }
+            },
+            "required": [
+                "common:",
+                "server:"
+            ],
+            "title": "FluffyEn"
+        },
+        "FluffyServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/IndigoEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "FluffyServer"
+        },
+        "IndigoEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "common": {
+                    "$ref": "#/definitions/TentacledCommon"
+                }
+            },
+            "required": [
+                "common"
+            ],
+            "title": "IndigoEmail"
+        },
+        "TentacledCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "greeting": {
+                    "type": "string"
+                },
+                "organisation": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "greeting",
+                "organisation"
+            ],
+            "title": "TentacledCommon"
+        },
+        "PortalClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "selector": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "component",
+                "message",
+                "selector"
+            ],
+            "title": "PortalClass"
+        },
+        "GpMtt2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/GpMtt2_Config"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "GpMtt2"
+        },
+        "GpMtt2_Config": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/TentacledComponent"
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "layout": {
+                    "$ref": "#/definitions/PurpleLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/TentacledLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "journey",
+                "layout",
+                "locales",
+                "portal"
+            ],
+            "title": "GpMtt2_Config"
+        },
+        "TentacledLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/FluffyDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/TentacledEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "TentacledLocales"
+        },
+        "FluffyDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FluffyCampaign"
+                },
+                "letter:": {
+                    "$ref": "#/definitions/FluffyLetter"
+                },
+                "server:": {
+                    "$ref": "#/definitions/PurpleServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "letter:",
+                "server:"
+            ],
+            "title": "FluffyDe"
+        },
+        "FluffyCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "share": {
+                    "$ref": "#/definitions/FluffyShare"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "share",
+                "title"
+            ],
+            "title": "FluffyCampaign"
+        },
+        "FluffyShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/IndecentEmail"
+                },
+                "twitter": {
+                    "type": "string"
+                },
+                "whatsapp": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email",
+                "twitter",
+                "whatsapp"
+            ],
+            "title": "FluffyShare"
+        },
+        "IndecentEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "body",
+                "subject"
+            ],
+            "title": "IndecentEmail"
+        },
+        "FluffyLetter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "part-H": {
+                    "type": "string"
+                },
+                "part-I": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "part-H",
+                "part-I"
+            ],
+            "title": "FluffyLetter"
+        },
+        "TentacledEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "letter:": {
+                    "$ref": "#/definitions/FluffyLetter"
+                },
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                },
+                "server:": {
+                    "$ref": "#/definitions/FluffyServer"
+                }
+            },
+            "required": [
+                "letter:",
+                "partner:",
+                "server:"
+            ],
+            "title": "TentacledEn"
+        },
+        "GpdProtestmailBundestagsabgeordnete": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/GpdProtestmailBundestagsabgeordneteConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "GpdProtestmailBundestagsabgeordnete"
+        },
+        "GpdProtestmailBundestagsabgeordneteConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/StickyComponent"
+                },
+                "import": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "layout": {
+                    "$ref": "#/definitions/FluffyLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/StickyLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "import",
+                "journey",
+                "layout",
+                "locales",
+                "portal"
+            ],
+            "title": "GpdProtestmailBundestagsabgeordneteConfig"
+        },
+        "StickyComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/PurpleConsent"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "email": {
+                    "$ref": "#/definitions/FluffyEmail"
+                },
+                "loader": {
+                    "$ref": "#/definitions/Loader"
+                },
+                "register": {
+                    "$ref": "#/definitions/StickyRegister"
+                },
+                "sync": {
+                    "$ref": "#/definitions/FluffySync"
+                }
+            },
+            "required": [
+                "consent",
+                "country",
+                "email",
+                "loader",
+                "register",
+                "sync"
+            ],
+            "title": "StickyComponent"
+        },
+        "StickyRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "actionType": {
+                    "type": "string"
+                },
+                "button": {
+                    "type": "string"
+                },
+                "field": {
+                    "$ref": "#/definitions/IndigoField"
+                }
+            },
+            "required": [
+                "actionType",
+                "button",
+                "field"
+            ],
+            "title": "StickyRegister"
+        },
+        "IndigoField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "locality": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "lastname",
+                "locality",
+                "phone",
+                "postcode"
+            ],
+            "title": "IndigoField"
+        },
+        "FluffyLayout": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "primaryColor": {
+                    "type": "string"
+                },
+                "template": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "primaryColor",
+                "template"
+            ],
+            "title": "FluffyLayout"
+        },
+        "StickyLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/TentacledDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/StickyEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "StickyLocales"
+        },
+        "TentacledDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/TentacledCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/PurpleCommon"
+                },
+                "server:": {
+                    "$ref": "#/definitions/TentacledServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "server:"
+            ],
+            "title": "TentacledDe"
+        },
+        "TentacledCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "share": {
+                    "$ref": "#/definitions/TentacledShare"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "TentacledCampaign"
+        },
+        "TentacledShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/IndecentEmail"
+                },
+                "whatsapp": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email",
+                "whatsapp"
+            ],
+            "title": "TentacledShare"
+        },
+        "TentacledServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/HilariousEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "TentacledServer"
+        },
+        "HilariousEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "button": {
+                    "$ref": "#/definitions/PurpleButton"
+                },
+                "common": {
+                    "$ref": "#/definitions/StickyCommon"
+                },
+                "doi": {
+                    "$ref": "#/definitions/PurpleDoi"
+                }
+            },
+            "required": [
+                "button",
+                "common",
+                "doi"
+            ],
+            "title": "HilariousEmail"
+        },
+        "StickyCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "greeting": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "thanks": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "greeting",
+                "signature",
+                "thanks"
+            ],
+            "title": "StickyCommon"
+        },
+        "StickyEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/TentacledCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/PurpleCommon"
+                },
+                "letter:": {
+                    "$ref": "#/definitions/TentacledLetter"
+                },
+                "server:": {
+                    "$ref": "#/definitions/StickyServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "letter:",
+                "server:"
+            ],
+            "title": "StickyEn"
+        },
+        "TentacledLetter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "part-1": {
+                    "type": "string"
+                },
+                "part-2": {
+                    "type": "string"
+                },
+                "part-3": {
+                    "type": "string"
+                },
+                "part-4": {
+                    "type": "string"
+                },
+                "part-5": {
+                    "type": "string"
+                },
+                "part-6": {
+                    "type": "string"
+                },
+                "part-7": {
+                    "type": "string"
+                },
+                "part-8": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "part-1",
+                "part-2",
+                "part-3",
+                "part-4",
+                "part-5",
+                "part-6",
+                "part-7",
+                "part-8",
+                "subject"
+            ],
+            "title": "TentacledLetter"
+        },
+        "StickyServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/AmbitiousEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "StickyServer"
+        },
+        "AmbitiousEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "common": {
+                    "$ref": "#/definitions/IndigoCommon"
+                }
+            },
+            "required": [
+                "common"
+            ],
+            "title": "AmbitiousEmail"
+        },
+        "IndigoCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "greeting": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "greeting"
+            ],
+            "title": "IndigoCommon"
+        },
+        "GpdProtestmailEinfach": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/GpdProtestmailEinfachConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "GpdProtestmailEinfach"
+        },
+        "GpdProtestmailEinfachConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/TentacledComponent"
+                },
+                "import": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "layout": {
+                    "$ref": "#/definitions/FluffyLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/IndigoLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "import",
+                "journey",
+                "layout",
+                "locales",
+                "portal"
+            ],
+            "title": "GpdProtestmailEinfachConfig"
+        },
+        "IndigoLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/StickyDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/IndigoEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "IndigoLocales"
+        },
+        "StickyDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/StickyCampaign"
+                },
+                "server:": {
+                    "$ref": "#/definitions/TentacledServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "server:"
+            ],
+            "title": "StickyDe"
+        },
+        "StickyCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "share": {
+                    "$ref": "#/definitions/FluffyShare"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "StickyCampaign"
+        },
+        "IndigoEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "letter:": {
+                    "$ref": "#/definitions/TentacledLetter"
+                },
+                "server:": {
+                    "$ref": "#/definitions/StickyServer"
+                }
+            },
+            "required": [
+                "letter:",
+                "server:"
+            ],
+            "title": "IndigoEn"
+        },
+        "Mtt": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/MttConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "Mtt"
+        },
+        "MttConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/IndigoComponent"
+                },
+                "import": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "locales": {
+                    "$ref": "#/definitions/IndecentLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "journey",
+                "locales",
+                "portal"
+            ],
+            "title": "MttConfig"
+        },
+        "IndigoComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/FluffyConsent"
+                },
+                "counter": {
+                    "$ref": "#/definitions/ComponentCounter"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "donation": {
+                    "$ref": "#/definitions/PurpleDonation"
+                },
+                "email": {
+                    "$ref": "#/definitions/CunningEmail"
+                },
+                "loader": {
+                    "$ref": "#/definitions/Loader"
+                },
+                "register": {
+                    "$ref": "#/definitions/IndigoRegister"
+                },
+                "share": {
+                    "$ref": "#/definitions/StickyShare"
+                },
+                "widget": {
+                    "$ref": "#/definitions/Widget"
+                }
+            },
+            "required": [
+                "donation",
+                "email",
+                "loader",
+                "register",
+                "share"
+            ],
+            "title": "IndigoComponent"
+        },
+        "FluffyConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "implicit": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "implicit"
+            ],
+            "title": "FluffyConsent"
+        },
+        "ComponentCounter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": [
+                "steps"
+            ],
+            "title": "ComponentCounter"
+        },
+        "PurpleDonation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "$ref": "#/definitions/PurpleAmount"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "external": {
+                    "$ref": "#/definitions/Redirect"
+                },
+                "monthly": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "amount",
+                "currency",
+                "external",
+                "monthly"
+            ],
+            "title": "PurpleDonation"
+        },
+        "PurpleAmount": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "oneoff": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": [
+                "oneoff"
+            ],
+            "title": "PurpleAmount"
+        },
+        "Currency": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "symbol"
+            ],
+            "title": "Currency"
+        },
+        "Redirect": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                }
+            },
+            "required": [
+                "url"
+            ],
+            "title": "Redirect"
+        },
+        "CunningEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "counter": {
+                    "$ref": "#/definitions/CounterUnion"
+                },
+                "field": {
+                    "$ref": "#/definitions/IndecentField"
+                },
+                "filter": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "listUrl": {
+                    "type": "boolean"
+                },
+                "salutation": {
+                    "type": "boolean"
+                },
+                "selectable": {
+                    "type": "boolean"
+                },
+                "progress": {
+                    "type": "boolean"
+                },
+                "sample": {
+                    "type": "integer"
+                },
+                "server": {
+                    "type": "boolean"
+                },
+                "showTo": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "counter",
+                "field",
+                "filter",
+                "listUrl",
+                "salutation",
+                "selectable"
+            ],
+            "title": "CunningEmail"
+        },
+        "CounterCounter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "min": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "min"
+            ],
+            "title": "CounterCounter"
+        },
+        "IndecentField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "message": {
+                    "$ref": "#/definitions/SubjectClass"
+                },
+                "subject": {
+                    "$ref": "#/definitions/SubjectClass"
+                }
+            },
+            "required": [
+                "message",
+                "subject"
+            ],
+            "title": "IndecentField"
+        },
+        "SubjectClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "disabled": {
+                    "type": "boolean"
+                },
+                "required": {
+                    "type": "boolean"
+                }
+            },
+            "required": [],
+            "title": "SubjectClass"
+        },
+        "IndigoRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "actionType": {
+                    "type": "string"
+                },
+                "button": {
+                    "type": "string"
+                },
+                "field": {
+                    "$ref": "#/definitions/HilariousField"
+                },
+                "remember": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "actionType",
+                "button",
+                "field"
+            ],
+            "title": "IndigoRegister"
+        },
+        "HilariousField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "gender": {
+                    "type": "boolean"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/Lastname"
+                },
+                "locality": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "lastname",
+                "postcode"
+            ],
+            "title": "HilariousField"
+        },
+        "FirstnameClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "required": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "required"
+            ],
+            "title": "FirstnameClass"
+        },
+        "StickyShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "type": "boolean"
+                },
+                "next": {
+                    "$ref": "#/definitions/Next"
+                },
+                "top": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "next"
+            ],
+            "title": "StickyShare"
+        },
+        "Widget": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mobileVersion": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "mobileVersion"
+            ],
+            "title": "Widget"
+        },
+        "IndecentLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "en": {
+                    "$ref": "#/definitions/IndecentEn"
+                },
+                "fr": {
+                    "$ref": "#/definitions/PurpleFr"
+                },
+                "de": {
+                    "$ref": "#/definitions/Headers"
+                },
+                "it": {
+                    "$ref": "#/definitions/Headers"
+                },
+                "ja": {
+                    "$ref": "#/definitions/Headers"
+                },
+                "ko": {
+                    "$ref": "#/definitions/Headers"
+                }
+            },
+            "required": [
+                "en"
+            ],
+            "title": "IndecentLocales"
+        },
+        "Headers": {
+            "type": "object",
+            "additionalProperties": false,
+            "title": "Headers"
+        },
+        "IndecentEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FrCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/IndecentCommon"
+                },
+                "letter:": {
+                    "$ref": "#/definitions/StickyLetter"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "letter:"
+            ],
+            "title": "IndecentEn"
+        },
+        "FrCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "share": {
+                    "$ref": "#/definitions/IndigoShare"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "FrCampaign"
+        },
+        "IndigoShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "email": {
+                    "$ref": "#/definitions/IndecentEmail"
+                },
+                "twitter": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "default"
+            ],
+            "title": "IndigoShare"
+        },
+        "IndecentCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Next": {
+                    "type": "string"
+                },
+                "action": {
+                    "$ref": "#/definitions/Action"
+                },
+                "consent": {
+                    "$ref": "#/definitions/FluffyConsent"
+                },
+                "share": {
+                    "$ref": "#/definitions/CommonShare"
+                },
+                "target": {
+                    "$ref": "#/definitions/Target"
+                },
+                "progress": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Next"
+            ],
+            "title": "IndecentCommon"
+        },
+        "Action": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "donate": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "donate"
+            ],
+            "title": "Action"
+        },
+        "CommonShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "intro": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "intro",
+                "title"
+            ],
+            "title": "CommonShare"
+        },
+        "Target": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "postcode": {
+                    "$ref": "#/definitions/Postcode"
+                }
+            },
+            "required": [
+                "postcode"
+            ],
+            "title": "Target"
+        },
+        "Postcode": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "undefined": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "undefined"
+            ],
+            "title": "Postcode"
+        },
+        "StickyLetter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "part-1": {
+                    "type": "string"
+                },
+                "part-1_female": {
+                    "type": "string"
+                },
+                "part-1_male": {
+                    "type": "string"
+                },
+                "part-2": {
+                    "type": "string"
+                },
+                "part-2_female": {
+                    "type": "string"
+                },
+                "part-2_male": {
+                    "type": "string"
+                },
+                "part-3": {
+                    "type": "string"
+                },
+                "part-3_female": {
+                    "type": "string"
+                },
+                "part-3_male": {
+                    "type": "string"
+                },
+                "part-4": {
+                    "type": "string"
+                },
+                "part-4_female": {
+                    "type": "string"
+                },
+                "part-4_male": {
+                    "type": "string"
+                },
+                "part-5": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "part-6": {
+                    "type": "string"
+                },
+                "part-7": {
+                    "type": "string"
+                },
+                "part-8": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "part-1",
+                "part-2",
+                "part-3",
+                "part-4",
+                "part-5",
+                "subject"
+            ],
+            "title": "StickyLetter"
+        },
+        "PurpleFr": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FrCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/IndecentCommon"
+                },
+                "letter:": {
+                    "$ref": "#/definitions/FrLetter"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "letter:"
+            ],
+            "title": "PurpleFr"
+        },
+        "FrLetter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "part-5": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "part-5"
+            ],
+            "title": "FrLetter"
+        },
+        "NoPrimaryColor": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/NoPrimaryColorConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "NoPrimaryColor"
+        },
+        "NoPrimaryColorConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/TentacledComponent"
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "locales": {
+                    "$ref": "#/definitions/TentacledLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PortalElement"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "journey",
+                "locales",
+                "portal"
+            ],
+            "title": "NoPrimaryColorConfig"
+        },
+        "Petition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/PetitionConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "Petition"
+        },
+        "PetitionConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/IndecentComponent"
+                },
+                "locales": {
+                    "$ref": "#/definitions/HilariousLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {}
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "import": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "component",
+                "locales",
+                "portal"
+            ],
+            "title": "PetitionConfig"
+        },
+        "IndecentComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/PurpleConsent"
+                },
+                "register": {
+                    "$ref": "#/definitions/IndecentRegister"
+                },
+                "counter": {
+                    "$ref": "#/definitions/ComponentCounter"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "donation": {
+                    "$ref": "#/definitions/FluffyDonation"
+                },
+                "share": {
+                    "$ref": "#/definitions/IndecentShare"
+                },
+                "sync": {
+                    "$ref": "#/definitions/FluffySync"
+                }
+            },
+            "required": [
+                "consent",
+                "register"
+            ],
+            "title": "IndecentComponent"
+        },
+        "FluffyDonation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "$ref": "#/definitions/FluffyAmount"
+                },
+                "currency": {
+                    "$ref": "#/definitions/Currency"
+                },
+                "external": {
+                    "$ref": "#/definitions/Redirect"
+                },
+                "monthly": {
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "$ref": "#/definitions/Frequency"
+                }
+            },
+            "required": [
+                "amount",
+                "currency",
+                "external"
+            ],
+            "title": "FluffyDonation"
+        },
+        "FluffyAmount": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "oneoff": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "default": {
+                    "type": "integer"
+                },
+                "monthly": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": [
+                "oneoff"
+            ],
+            "title": "FluffyAmount"
+        },
+        "Frequency": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "default",
+                "options"
+            ],
+            "title": "Frequency"
+        },
+        "IndecentRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "field": {
+                    "$ref": "#/definitions/AmbitiousField"
+                },
+                "custom": {
+                    "$ref": "#/definitions/Custom"
+                }
+            },
+            "required": [
+                "field"
+            ],
+            "title": "IndecentRegister"
+        },
+        "Custom": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "top": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "top"
+            ],
+            "title": "Custom"
+        },
+        "AmbitiousField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "email": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "firstname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/Lastname"
+                },
+                "organisation": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "$ref": "#/definitions/Lastname"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "email",
+                "firstname",
+                "lastname",
+                "phone",
+                "postcode"
+            ],
+            "title": "AmbitiousField"
+        },
+        "IndecentShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "type": "boolean"
+                },
+                "next": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "email",
+                "next"
+            ],
+            "title": "IndecentShare"
+        },
+        "HilariousLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/IndigoDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/HilariousEn"
+                },
+                "fr": {
+                    "$ref": "#/definitions/FluffyFr"
+                }
+            },
+            "required": [
+                "en"
+            ],
+            "title": "HilariousLocales"
+        },
+        "IndigoDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FrCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/HilariousCommon"
+                },
+                "server:": {
+                    "$ref": "#/definitions/IndigoServer"
+                }
+            },
+            "required": [
+                "campaign:"
+            ],
+            "title": "IndigoDe"
+        },
+        "HilariousCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "street": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "street"
+            ],
+            "title": "HilariousCommon"
+        },
+        "IndigoServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/MagentaEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "IndigoServer"
+        },
+        "MagentaEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "button": {
+                    "$ref": "#/definitions/FluffyButton"
+                },
+                "common": {
+                    "$ref": "#/definitions/AmbitiousCommon"
+                },
+                "doi": {
+                    "$ref": "#/definitions/PurpleDoi"
+                }
+            },
+            "required": [
+                "button",
+                "common",
+                "doi"
+            ],
+            "title": "MagentaEmail"
+        },
+        "FluffyButton": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmAction": {
+                    "type": "string"
+                },
+                "confirmOptin": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "confirmAction",
+                "confirmOptin"
+            ],
+            "title": "FluffyButton"
+        },
+        "AmbitiousCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "duplicate": {
+                    "type": "string"
+                },
+                "greeting": {
+                    "type": "string"
+                },
+                "organisation": {
+                    "type": "string"
+                },
+                "privacy": {
+                    "type": "string"
+                },
+                "thanks": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "duplicate",
+                "greeting",
+                "organisation",
+                "privacy",
+                "thanks"
+            ],
+            "title": "AmbitiousCommon"
+        },
+        "HilariousEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/IndigoCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/CunningCommon"
+                },
+                "server:": {
+                    "$ref": "#/definitions/IndigoServer"
+                },
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                }
+            },
+            "required": [
+                "campaign:"
+            ],
+            "title": "HilariousEn"
+        },
+        "IndigoCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "share": {
+                    "$ref": "#/definitions/IndigoShare"
+                },
+                "landing": {
+                    "$ref": "#/definitions/Landing"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "IndigoCampaign"
+        },
+        "Landing": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title"
+            ],
+            "title": "Landing"
+        },
+        "CunningCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "street": {
+                    "type": "string"
+                },
+                "consent": {
+                    "$ref": "#/definitions/TentacledConsent"
+                },
+                "Next": {
+                    "type": "string"
+                },
+                "share": {
+                    "$ref": "#/definitions/CommonShare"
+                }
+            },
+            "required": [
+                "consent"
+            ],
+            "title": "CunningCommon"
+        },
+        "TentacledConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmAction": {
+                    "type": "string"
+                },
+                "emailSent": {
+                    "type": "string"
+                },
+                "implicit": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "TentacledConsent"
+        },
+        "FluffyFr": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FrCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/MagentaCommon"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:"
+            ],
+            "title": "FluffyFr"
+        },
+        "MagentaCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Next": {
+                    "type": "string"
+                },
+                "consent": {
+                    "$ref": "#/definitions/FluffyConsent"
+                },
+                "share": {
+                    "$ref": "#/definitions/CommonShare"
+                }
+            },
+            "required": [
+                "Next",
+                "consent",
+                "share"
+            ],
+            "title": "MagentaCommon"
+        },
+        "PetitionLc": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/PetitionLcConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "PetitionLc"
+        },
+        "PetitionLcConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/HilariousComponent"
+                },
+                "journey": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "layout": {
+                    "$ref": "#/definitions/PurpleLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/AmbitiousLocales"
+                }
+            },
+            "required": [
+                "component",
+                "journey",
+                "layout",
+                "locales"
+            ],
+            "title": "PetitionLcConfig"
+        },
+        "HilariousComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/StickyConsent"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "redirect": {
+                    "$ref": "#/definitions/Redirect"
+                },
+                "register": {
+                    "$ref": "#/definitions/HilariousRegister"
+                },
+                "share": {
+                    "$ref": "#/definitions/HilariousShare"
+                }
+            },
+            "required": [
+                "consent",
+                "country",
+                "redirect",
+                "register",
+                "share"
+            ],
+            "title": "HilariousComponent"
+        },
+        "StickyConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/PurpleEmail"
+                },
+                "implicit": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "email",
+                "implicit"
+            ],
+            "title": "StickyConsent"
+        },
+        "HilariousRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "field": {
+                    "$ref": "#/definitions/CunningField"
+                }
+            },
+            "required": [
+                "field"
+            ],
+            "title": "HilariousRegister"
+        },
+        "CunningField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "email": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "firstname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "locality": {
+                    "type": "boolean"
+                },
+                "organisation": {
+                    "type": "boolean"
+                },
+                "phone": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "street": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "email",
+                "firstname",
+                "lastname",
+                "locality",
+                "organisation",
+                "phone",
+                "postcode",
+                "street"
+            ],
+            "title": "CunningField"
+        },
+        "HilariousShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "next": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "next"
+            ],
+            "title": "HilariousShare"
+        },
+        "AmbitiousLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/IndecentDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/AmbitiousEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "AmbitiousLocales"
+        },
+        "IndecentDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/IndecentCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/FriskyCommon"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:"
+            ],
+            "title": "IndecentDe"
+        },
+        "IndecentCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "share": {
+                    "$ref": "#/definitions/IndigoShare"
+                }
+            },
+            "required": [
+                "share"
+            ],
+            "title": "IndecentCampaign"
+        },
+        "FriskyCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Street": {
+                    "type": "string"
+                },
+                "consent": {
+                    "$ref": "#/definitions/IndigoConsent"
+                }
+            },
+            "required": [
+                "Street",
+                "consent"
+            ],
+            "title": "FriskyCommon"
+        },
+        "IndigoConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmAction": {
+                    "type": "string"
+                },
+                "emailSent": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "confirmAction",
+                "emailSent"
+            ],
+            "title": "IndigoConsent"
+        },
+        "AmbitiousEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/FrCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/MischievousCommon"
+                },
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "partner:"
+            ],
+            "title": "AmbitiousEn"
+        },
+        "MischievousCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Street": {
+                    "type": "string"
+                },
+                "consent": {
+                    "$ref": "#/definitions/IndecentConsent"
+                }
+            },
+            "required": [
+                "Street",
+                "consent"
+            ],
+            "title": "MischievousCommon"
+        },
+        "IndecentConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "emailSent": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "emailSent"
+            ],
+            "title": "IndecentConsent"
+        },
+        "PetitionHateaid": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/PetitionHateaidConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "PetitionHateaid"
+        },
+        "PetitionHateaidConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/AmbitiousComponent"
+                },
+                "layout": {
+                    "$ref": "#/definitions/TentacledLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/CunningLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "component",
+                "layout",
+                "locales"
+            ],
+            "title": "PetitionHateaidConfig"
+        },
+        "AmbitiousComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/HilariousConsent"
+                },
+                "register": {
+                    "$ref": "#/definitions/AmbitiousRegister"
+                },
+                "counter": {
+                    "$ref": "#/definitions/ComponentCounter"
+                }
+            },
+            "required": [
+                "consent",
+                "register"
+            ],
+            "title": "AmbitiousComponent"
+        },
+        "HilariousConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/FriskyEmail"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "title": "HilariousConsent"
+        },
+        "FriskyEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmOptIn": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "confirmOptIn"
+            ],
+            "title": "FriskyEmail"
+        },
+        "AmbitiousRegister": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "field": {
+                    "$ref": "#/definitions/MagentaField"
+                }
+            },
+            "required": [
+                "field"
+            ],
+            "title": "AmbitiousRegister"
+        },
+        "MagentaField": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "type": "boolean"
+                },
+                "country": {
+                    "type": "boolean"
+                },
+                "lastname": {
+                    "$ref": "#/definitions/FirstnameClass"
+                },
+                "organisation": {
+                    "type": "boolean"
+                },
+                "postcode": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "comment",
+                "country",
+                "lastname",
+                "organisation",
+                "postcode"
+            ],
+            "title": "MagentaField"
+        },
+        "TentacledLayout": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "variant": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "variant"
+            ],
+            "title": "TentacledLayout"
+        },
+        "CunningLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/HilariousDe"
+                },
+                "en": {
+                    "$ref": "#/definitions/CunningEn"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "CunningLocales"
+        },
+        "HilariousDe": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/HilariousCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/BraggadociousCommon"
+                },
+                "server:": {
+                    "$ref": "#/definitions/IndecentServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "server:"
+            ],
+            "title": "HilariousDe"
+        },
+        "HilariousCampaign": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "share": {
+                    "$ref": "#/definitions/AmbitiousShare"
+                }
+            },
+            "required": [
+                "description",
+                "share"
+            ],
+            "title": "HilariousCampaign"
+        },
+        "AmbitiousShare": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "twitter": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "default"
+            ],
+            "title": "AmbitiousShare"
+        },
+        "BraggadociousCommon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/AmbitiousConsent"
+                },
+                "progress": {
+                    "type": "string"
+                },
+                "share": {
+                    "$ref": "#/definitions/Landing"
+                }
+            },
+            "required": [
+                "consent",
+                "progress"
+            ],
+            "title": "BraggadociousCommon"
+        },
+        "AmbitiousConsent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirm": {
+                    "type": "string"
+                },
+                "intro": {
+                    "type": "string"
+                },
+                "opt-in": {
+                    "type": "string"
+                },
+                "opt-out": {
+                    "type": "string"
+                },
+                "processing": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "confirm",
+                "intro",
+                "opt-in",
+                "opt-out",
+                "processing"
+            ],
+            "title": "AmbitiousConsent"
+        },
+        "IndecentServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/MischievousEmail"
+                },
+                "poweredBy": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email",
+                "poweredBy"
+            ],
+            "title": "IndecentServer"
+        },
+        "MischievousEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "button": {
+                    "$ref": "#/definitions/TentacledButton"
+                },
+                "common": {
+                    "$ref": "#/definitions/Common1"
+                },
+                "doi": {
+                    "$ref": "#/definitions/FluffyDoi"
+                },
+                "doi_thankyou": {
+                    "$ref": "#/definitions/DoiThankyou"
+                }
+            },
+            "required": [
+                "button",
+                "common",
+                "doi",
+                "doi_thankyou"
+            ],
+            "title": "MischievousEmail"
+        },
+        "TentacledButton": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmOptin": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "confirmOptin"
+            ],
+            "title": "TentacledButton"
+        },
+        "Common1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "about": {
+                    "type": "string"
+                },
+                "closing": {
+                    "type": "string"
+                },
+                "duplicate": {
+                    "type": "string"
+                },
+                "greeting": {
+                    "type": "string"
+                },
+                "organisation": {
+                    "type": "string"
+                },
+                "share": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "thanks": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "about",
+                "closing",
+                "duplicate",
+                "greeting",
+                "share",
+                "thanks"
+            ],
+            "title": "Common1"
+        },
+        "FluffyDoi": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "intro": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "intro"
+            ],
+            "title": "FluffyDoi"
+        },
+        "DoiThankyou": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "subject": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "subject"
+            ],
+            "title": "DoiThankyou"
+        },
+        "CunningEn": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/HilariousCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/BraggadociousCommon"
+                },
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                },
+                "server:": {
+                    "$ref": "#/definitions/HilariousServer"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "server:"
+            ],
+            "title": "CunningEn"
+        },
+        "HilariousServer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "email": {
+                    "$ref": "#/definitions/BraggadociousEmail"
+                },
+                "poweredBy": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "email",
+                "poweredBy"
+            ],
+            "title": "HilariousServer"
+        },
+        "BraggadociousEmail": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "button": {
+                    "$ref": "#/definitions/TentacledButton"
+                },
+                "common": {
+                    "$ref": "#/definitions/Common1"
+                },
+                "doi": {
+                    "$ref": "#/definitions/FluffyDoi"
+                },
+                "doiThankyou": {
+                    "$ref": "#/definitions/DoiThankyou"
+                }
+            },
+            "required": [
+                "button",
+                "common",
+                "doi",
+                "doiThankyou"
+            ],
+            "title": "BraggadociousEmail"
+        },
+        "StophateCopy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "config": {
+                    "$ref": "#/definitions/StophateCopyConfig"
+                }
+            },
+            "required": [
+                "config"
+            ],
+            "title": "StophateCopy"
+        },
+        "StophateCopyConfig": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "component": {
+                    "$ref": "#/definitions/CunningComponent"
+                },
+                "layout": {
+                    "$ref": "#/definitions/TentacledLayout"
+                },
+                "locales": {
+                    "$ref": "#/definitions/MagentaLocales"
+                },
+                "portal": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "component",
+                "layout",
+                "locales",
+                "portal"
+            ],
+            "title": "StophateCopyConfig"
+        },
+        "CunningComponent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "consent": {
+                    "$ref": "#/definitions/HilariousConsent"
+                },
+                "register": {
+                    "$ref": "#/definitions/AmbitiousRegister"
+                }
+            },
+            "required": [
+                "consent",
+                "register"
+            ],
+            "title": "CunningComponent"
+        },
+        "MagentaLocales": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "de": {
+                    "$ref": "#/definitions/EnClass"
+                },
+                "en": {
+                    "$ref": "#/definitions/EnClass"
+                }
+            },
+            "required": [
+                "de",
+                "en"
+            ],
+            "title": "MagentaLocales"
+        },
+        "EnClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "campaign:": {
+                    "$ref": "#/definitions/HilariousCampaign"
+                },
+                "common:": {
+                    "$ref": "#/definitions/Common2"
+                },
+                "server:": {
+                    "$ref": "#/definitions/IndecentServer"
+                },
+                "partner:": {
+                    "$ref": "#/definitions/Partner"
+                }
+            },
+            "required": [
+                "campaign:",
+                "common:",
+                "server:"
+            ],
+            "title": "EnClass"
+        },
+        "Common2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "progress": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "progress"
+            ],
+            "title": "Common2"
+        },
+        "Dashboard": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "label"
+            ],
+            "title": "Dashboard"
+        },
+        "StickyLayout": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "primaryColor": {
+                    "$ref": "#/definitions/PrimaryColorUnion"
+                }
+            },
+            "required": [
+                "primaryColor"
+            ],
+            "title": "StickyLayout"
+        },
+        "PrimaryColorClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "alpha": {
+                    "type": "integer"
+                },
+                "css": {
+                    "$ref": "#/definitions/CSS"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "hex": {
+                    "type": "string"
+                },
+                "hsl": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "hsv": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "raw": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "rgb": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "value": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "alpha",
+                "css",
+                "format",
+                "hex",
+                "hsl",
+                "hsv",
+                "name",
+                "raw",
+                "rgb",
+                "value"
+            ],
+            "title": "PrimaryColorClass"
+        },
+        "CSS": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "backgroundColor": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "backgroundColor"
+            ],
+            "title": "CSS"
+        },
+        "Privacy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "policyUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".html",
+                        ".php"
+                    ]
+                }
+            },
+            "required": [
+                "policyUrl"
+            ],
+            "title": "Privacy"
+        },
+        "Twitter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "followers_count": {
+                    "type": "integer"
+                },
+                "friends_count": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "lang": {
+                    "type": "null"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "picture": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg",
+                        ".png"
+                    ]
+                },
+                "screen_name": {
+                    "type": "string"
+                },
+                "statuses_count": {
+                    "type": "integer"
+                },
+                "url": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "http",
+                                "https"
+                            ]
+                        }
+                    ]
+                },
+                "avatar": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg",
+                        ".png"
+                    ]
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "$ref": "#/definitions/TwitterMessage"
+                }
+            },
+            "required": [],
+            "title": "Twitter"
+        },
+        "TwitterMessage": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_headers": {
+                    "$ref": "#/definitions/Headers"
+                },
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Error"
+                    }
+                }
+            },
+            "required": [
+                "_headers",
+                "errors"
+            ],
+            "title": "TwitterMessage"
+        },
+        "Error": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "message"
+            ],
+            "title": "Error"
+        },
+        "PersonalData": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "doiThankYou": {
+                    "type": "boolean"
+                },
+                "supporterConfirm": {
+                    "type": "boolean"
+                },
+                "supporterConfirmTemplate": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/SupporterConfirmTemplate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "doiThankYou",
+                "supporterConfirm",
+                "supporterConfirmTemplate"
+            ],
+            "title": "PersonalData"
+        },
+        "Processing": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "customActionConfirm": {
+                    "type": "boolean"
+                },
+                "customActionDeliver": {
+                    "type": "boolean"
+                },
+                "customEventDeliver": {
+                    "type": "boolean"
+                },
+                "customSupporterConfirm": {
+                    "type": "boolean"
+                },
+                "detailBackend": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DetailBackend"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "doiThankYou": {
+                    "type": "boolean"
+                },
+                "emailBackend": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DetailBackend"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "emailFrom": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "emailTemplates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "eventBackend": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DetailBackend"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "pushBackend": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DetailBackend"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "storageBackend": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DetailBackend"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "supporterConfirm": {
+                    "type": "boolean"
+                },
+                "supporterConfirmTemplate": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/SupporterConfirmTemplate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "doiThankYou",
+                "emailFrom",
+                "supporterConfirm"
+            ],
+            "title": "Processing"
+        },
+        "Service": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "host": {
+                    "$ref": "#/definitions/HostUnion"
+                },
+                "name": {
+                    "$ref": "#/definitions/DetailBackend"
+                },
+                "path": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "host",
+                "name",
+                "path"
+            ],
+            "title": "Service"
+        },
+        "PortalElement": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/PortalClass"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "title": "PortalElement"
+        },
+        "CounterUnion": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "#/definitions/CounterCounter"
+                }
+            ],
+            "title": "CounterUnion"
+        },
+        "Lastname": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "#/definitions/FirstnameClass"
+                }
+            ],
+            "title": "Lastname"
+        },
+        "Next": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "title": "Next"
+        },
+        "PrimaryColorUnion": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/PrimaryColorClass"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "title": "PrimaryColorUnion"
+        },
+        "HostUnion": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/HostEnum"
+                },
+                {
+                    "type": "string",
+                    "format": "uri"
+                }
+            ],
+            "title": "HostUnion"
+        },
+        "SupporterConfirmTemplate": {
+            "type": "string",
+            "enum": [
+                "confirm",
+                "doi",
+                "instytut_confirm",
+                "together4forests/en/optin_action"
+            ],
+            "title": "SupporterConfirmTemplate"
+        },
+        "DetailBackend": {
+            "type": "string",
+            "enum": [
+                "MAILJET",
+                "SQS",
+                "WEBHOOK",
+                "STRIPE",
+                "TEST_STRIPE",
+                "SUPABASE"
+            ],
+            "title": "DetailBackend"
+        },
+        "HostEnum": {
+            "type": "string",
+            "enum": [
+                "",
+                "eu-central-1"
+            ],
+            "title": "HostEnum"
+        }
+    }
+}

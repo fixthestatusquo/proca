@@ -1,0 +1,2717 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Widget",
+  "definitions": {
+    "Widget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionpage": {
+          "$ref": "#/definitions/Actionpage"
+        },
+        "organisation": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "lead": {
+          "$ref": "#/definitions/Coordinator"
+        },
+        "campaign": {
+          "$ref": "#/definitions/Campaign"
+        },
+        "journey": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Journey"
+          }
+        },
+        "layout": {
+          "$ref": "#/definitions/Layout"
+        },
+        "component": {
+          "$ref": "#/definitions/ComponentClass"
+        },
+        "portal": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PortalElement"
+          }
+        },
+        "locales": {
+          "$ref": "#/definitions/WidgetLocales"
+        },
+        "template": {
+          "type": "boolean"
+        },
+        "org": {
+          "$ref": "#/definitions/Org"
+        },
+        "test": {
+          "type": "boolean"
+        },
+        "location": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["http", "https"],
+          "qt-uri-extensions": [".html", ".php"]
+        },
+        "components": {
+          "$ref": "#/definitions/Components"
+        },
+        "actionPage": {
+          "type": "integer"
+        },
+        "extraSupporters": {
+          "type": "integer"
+        },
+        "email": {
+          "$ref": "#/definitions/WidgetEmail"
+        },
+        "import": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selector": {
+          "type": "string"
+        },
+        "privacy_url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "_journey": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "twitter_targets": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        "register": {
+          "$ref": "#/definitions/WidgetRegister"
+        }
+      },
+      "required": ["filename", "lang", "organisation"],
+      "title": "Widget"
+    },
+    "Coordinator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["title"],
+      "title": "Campaign"
+    },
+    "Campaign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["title"],
+      "title": "Campaign"
+    },
+    "ComponentClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "register": {
+          "$ref": "#/definitions/ComponentRegister"
+        },
+        "consent": {
+          "$ref": "#/definitions/ComponentConsent"
+        },
+        "eci": {
+          "$ref": "#/definitions/ComponentEci"
+        },
+        "widget": {
+          "$ref": "#/definitions/ComponentWidget"
+        },
+        "country": {
+          "$ref": "#/definitions/ImplicitUnion"
+        },
+        "email": {
+          "$ref": "#/definitions/ComponentEmail"
+        },
+        "twitter": {
+          "$ref": "#/definitions/ComponentTwitter"
+        },
+        "share": {
+          "$ref": "#/definitions/ComponentShare"
+        },
+        "useCount": {
+          "$ref": "#/definitions/UseCount"
+        },
+        "loader": {
+          "$ref": "#/definitions/LoaderUnion"
+        },
+        "field": {
+          "$ref": "#/definitions/ComponentField"
+        },
+        "counter": {
+          "$ref": "#/definitions/CounterUnion"
+        },
+        "meme": {
+          "$ref": "#/definitions/ComponentMeme"
+        },
+        "donation": {
+          "$ref": "#/definitions/Donation"
+        },
+        "redirect": {
+          "$ref": "#/definitions/LandingClass"
+        },
+        "reminder": {
+          "type": "boolean"
+        },
+        "wall": {
+          "$ref": "#/definitions/Wall"
+        },
+        "picture": {
+          "$ref": "#/definitions/Picture"
+        },
+        "tweet": {
+          "$ref": "#/definitions/Tweet"
+        },
+        "//share": {
+          "$ref": "#/definitions/Share"
+        },
+        "html": {
+          "$ref": "#/definitions/HTML"
+        },
+        "landing": {
+          "$ref": "#/definitions/LandingClass"
+        },
+        "signature": {
+          "$ref": "#/definitions/Signature"
+        },
+        "iframe": {
+          "$ref": "#/definitions/Iframe"
+        },
+        "sync": {
+          "$ref": "#/definitions/Sync"
+        },
+        "initiative": {
+          "$ref": "#/definitions/Initiative"
+        },
+        "survey": {
+          "$ref": "#/definitions/Survey"
+        },
+        "external": {
+          "$ref": "#/definitions/LandingClass"
+        },
+        "DonateAmount": {
+          "$ref": "#/definitions/DonateAmount"
+        },
+        "locales": {
+          "$ref": "#/definitions/Components"
+        },
+        "portal": {
+          "type": "array",
+          "items": {}
+        },
+        "Ep": {
+          "$ref": "#/definitions/Ep"
+        }
+      },
+      "required": [],
+      "title": "ComponentClass"
+    },
+    "Share": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "openDialog": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": ["openDialog", "url"],
+      "title": "Share"
+    },
+    "DonateAmount": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "monthly": {
+          "$ref": "#/definitions/MonthlyClass"
+        },
+        "oneoff": {
+          "$ref": "#/definitions/MonthlyClass"
+        }
+      },
+      "required": ["currency", "monthly", "oneoff"],
+      "title": "DonateAmount"
+    },
+    "Currency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/Code"
+        },
+        "symbol": {
+          "$ref": "#/definitions/Symbol"
+        }
+      },
+      "required": ["code", "symbol"],
+      "title": "Currency"
+    },
+    "Ep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listUrl": {
+          "type": "string"
+        }
+      },
+      "required": ["listUrl"],
+      "title": "Ep"
+    },
+    "ComponentConsent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "boolean"
+        },
+        "privacyPolicy": {
+          "type": "string",
+          "qt-uri-protocols": ["http", "https"],
+          "qt-uri-extensions": [".html", ".php"]
+        },
+        "split": {
+          "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/definitions/ConsentEmail"
+        },
+        "implicit": {
+          "$ref": "#/definitions/ImplicitUnion"
+        },
+        "confirm": {
+          "type": "boolean"
+        },
+        "confirmProcessing": {
+          "type": "boolean"
+        },
+        "benefit": {
+          "type": "boolean"
+        },
+        "checkbox": {
+          "type": "boolean"
+        },
+        "gdpr": {
+          "type": "boolean"
+        },
+        "content": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": [],
+      "title": "ComponentConsent"
+    },
+    "ConsentEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "confirmOptIn": {
+          "type": "boolean"
+        },
+        "confirmAction": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ConsentEmail"
+    },
+    "CounterClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "$ref": "#/definitions/Actionpage"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "CounterClass"
+    },
+    "Donation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "$ref": "#/definitions/Amount"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "external": {
+          "$ref": "#/definitions/DonationExternal"
+        },
+        "monthly": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".html"]
+        },
+        "frequency": {
+          "$ref": "#/definitions/Frequency"
+        },
+        "paypal": {
+          "$ref": "#/definitions/Paypal"
+        },
+        "stripe": {
+          "$ref": "#/definitions/Stripe"
+        },
+        "oneoff": {
+          "$ref": "#/definitions/Oneoff"
+        },
+        "average": {
+          "type": "integer"
+        },
+        "payrexx": {
+          "$ref": "#/definitions/Payrexx"
+        }
+      },
+      "required": [],
+      "title": "Donation"
+    },
+    "Amount": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "oneoff": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "default": {
+          "type": "integer"
+        },
+        "monthly": {
+          "$ref": "#/definitions/MonthlyUnion"
+        }
+      },
+      "required": ["oneoff"],
+      "title": "Amount"
+    },
+    "MonthlyClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["default"],
+      "title": "MonthlyClass"
+    },
+    "DonationExternal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "qt-uri-protocols": ["https"]
+        },
+        "_url": {
+          "type": "string"
+        },
+        "_url_": {
+          "type": "string"
+        }
+      },
+      "required": ["url"],
+      "title": "DonationExternal"
+    },
+    "Frequency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "option": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["default"],
+      "title": "Frequency"
+    },
+    "Oneoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "average": {
+          "type": "integer"
+        },
+        "default": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["average", "default"],
+      "title": "Oneoff"
+    },
+    "Paypal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "clientId": {
+          "type": "string"
+        }
+      },
+      "required": ["clientId"],
+      "title": "Paypal"
+    },
+    "Payrexx": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cid": {
+          "type": "string"
+        }
+      },
+      "required": ["cid"],
+      "title": "Payrexx"
+    },
+    "Stripe": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "productId": {
+          "type": "string"
+        },
+        "publicKey": {
+          "type": "string"
+        }
+      },
+      "required": ["productId", "publicKey"],
+      "title": "Stripe"
+    },
+    "ComponentEci": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionpage": {
+          "type": "integer"
+        },
+        "apiUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "hcaptcha": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "organisers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Organiser"
+          }
+        },
+        "registrationDate": {
+          "type": "string"
+        },
+        "registrationNumber": {
+          "$ref": "#/definitions/RegistrationNumber"
+        },
+        "geocountries": {
+          "type": "array",
+          "items": {}
+        },
+        "starts": {
+          "$ref": "#/definitions/Starts"
+        },
+        "readMore": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ComponentEci"
+    },
+    "Organiser": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/EmailUnion"
+        },
+        "familyName": {
+          "$ref": "#/definitions/FamilyName"
+        },
+        "firstName": {
+          "$ref": "#/definitions/FirstName"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": ["email", "firstName", "role"],
+      "title": "Organiser"
+    },
+    "ComponentEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "showTo": {
+          "type": "boolean"
+        },
+        "bcc": {
+          "$ref": "#/definitions/Bcc"
+        },
+        "listUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        "filter": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "field": {
+          "$ref": "#/definitions/EmailField"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        },
+        "cc": {
+          "type": "boolean"
+        },
+        "progress": {
+          "type": "boolean"
+        },
+        "to": {
+          "type": "string"
+        },
+        "selectable": {
+          "type": "boolean"
+        },
+        "aalistUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        "counter": {
+          "type": "boolean"
+        },
+        "salutation": {
+          "type": "boolean"
+        },
+        "sender": {
+          "$ref": "#/definitions/Sender"
+        },
+        "server": {
+          "$ref": "#/definitions/Server"
+        }
+      },
+      "required": [],
+      "title": "ComponentEmail"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "land": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Land"
+          }
+        }
+      },
+      "required": ["land"],
+      "title": "Data"
+    },
+    "Land": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": ["key", "value"],
+      "title": "Land"
+    },
+    "EmailField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageUnion"
+        },
+        "subject": {
+          "$ref": "#/definitions/MessageUnion"
+        },
+        "comment": {
+          "type": "boolean"
+        }
+      },
+      "required": ["message"],
+      "title": "EmailField"
+    },
+    "SubjectClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disabled": {
+          "type": "boolean"
+        }
+      },
+      "required": ["disabled"],
+      "title": "SubjectClass"
+    },
+    "Sender": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["email", "name"],
+      "title": "Sender"
+    },
+    "Server": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processing": {
+          "type": "boolean"
+        }
+      },
+      "required": ["processing"],
+      "title": "Server"
+    },
+    "LandingClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": ["url"],
+      "title": "LandingClass"
+    },
+    "ComponentField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "postcode": {
+          "type": "boolean"
+        }
+      },
+      "required": ["postcode"],
+      "title": "ComponentField"
+    },
+    "HTML": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "button": {
+          "type": "boolean"
+        }
+      },
+      "required": ["button"],
+      "title": "HTML"
+    },
+    "Iframe": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "string"
+        },
+        "height": {
+          "type": "string",
+          "format": "integer"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "successMessage": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": ["hash", "height", "successMessage", "url", "width"],
+      "title": "Iframe"
+    },
+    "Initiative": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prefixActionPage": {
+          "type": "string"
+        }
+      },
+      "required": ["prefixActionPage"],
+      "title": "Initiative"
+    },
+    "LoaderClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "appendLocale": {
+          "type": "boolean"
+        },
+        "json": {
+          "type": "boolean"
+        },
+        "comment": {
+          "$ref": "#/definitions/LoaderComment"
+        }
+      },
+      "required": [],
+      "title": "LoaderClass"
+    },
+    "CommentClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/URL"
+        },
+        "appendLocale": {
+          "type": "boolean"
+        }
+      },
+      "required": ["url"],
+      "title": "CommentClass"
+    },
+    "Components": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "Components"
+    },
+    "ComponentMeme": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "list": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        "upload": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ComponentMeme"
+    },
+    "Picture": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "upload": {
+          "type": "boolean"
+        }
+      },
+      "required": ["upload"],
+      "title": "Picture"
+    },
+    "ComponentRegister": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/definitions/RegisterField"
+        },
+        "actionType": {
+          "type": "string"
+        },
+        "button": {
+          "$ref": "#/definitions/ButtonEnum"
+        },
+        "country": {
+          "$ref": "#/definitions/ImplicitUnion"
+        },
+        "custom": {
+          "$ref": "#/definitions/Custom"
+        },
+        "next": {
+          "type": "boolean"
+        },
+        "captcha": {
+          "$ref": "#/definitions/CAPTCHA"
+        },
+        "hcaptcha": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "action": {
+          "type": "string"
+        },
+        "sticker": {
+          "$ref": "#/definitions/Sticker"
+        },
+        "widget": {
+          "$ref": "#/definitions/RegisterWidget"
+        }
+      },
+      "required": [],
+      "title": "ComponentRegister"
+    },
+    "CAPTCHA": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitekey": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": ["sitekey"],
+      "title": "CAPTCHA"
+    },
+    "Custom": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bottom": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": ["bottom"],
+      "title": "Custom"
+    },
+    "RegisterField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comment": {
+          "$ref": "#/definitions/CountryUnion"
+        },
+        "country": {
+          "$ref": "#/definitions/CountryUnion"
+        },
+        "lastname": {
+          "$ref": "#/definitions/CountryUnion"
+        },
+        "postcode": {
+          "$ref": "#/definitions/CountryUnion"
+        },
+        "phone": {
+          "type": "boolean"
+        },
+        "organisation": {
+          "$ref": "#/definitions/Organisation"
+        },
+        "salutation": {
+          "type": "boolean"
+        },
+        "street": {
+          "type": "boolean"
+        },
+        "firstname": {
+          "$ref": "#/definitions/FirstnameClass"
+        },
+        "locality": {
+          "$ref": "#/definitions/CountryUnion"
+        },
+        "gender": {
+          "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/definitions/FirstnameClass"
+        }
+      },
+      "required": [],
+      "title": "RegisterField"
+    },
+    "FirstnameClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": ["required"],
+      "title": "FirstnameClass"
+    },
+    "Lastname": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mandatory": {
+          "type": "boolean"
+        }
+      },
+      "required": ["mandatory"],
+      "title": "Lastname"
+    },
+    "Sticker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "baseUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        },
+        "picture": {
+          "type": "string"
+        }
+      },
+      "required": ["background", "baseUrl", "data", "picture"],
+      "title": "Sticker"
+    },
+    "Datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "required": ["alt", "url", "width"],
+      "title": "Datum"
+    },
+    "RegisterWidget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fab": {
+          "type": "boolean"
+        },
+        "closed": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "RegisterWidget"
+    },
+    "ComponentShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "utm": {
+          "type": "boolean"
+        },
+        "anonymous": {
+          "type": "boolean"
+        },
+        "top": {
+          "type": "boolean"
+        },
+        "next": {
+          "$ref": "#/definitions/NextUnion"
+        },
+        "reddit": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "twitter": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ComponentShare"
+    },
+    "Signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sort": {
+          "type": "string"
+        }
+      },
+      "required": ["sort"],
+      "title": "Signature"
+    },
+    "Survey": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Question"
+          }
+        }
+      },
+      "required": ["questions"],
+      "title": "Survey"
+    },
+    "Question": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "attributeName": {
+          "type": "string"
+        },
+        "help": {
+          "type": "null"
+        },
+        "maxCharacters": {
+          "type": "integer"
+        },
+        "maxChoices": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["id"],
+      "title": "Question"
+    },
+    "Sync": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "promoCode": {
+          "$ref": "#/definitions/PromoCode"
+        }
+      },
+      "required": ["promoCode"],
+      "title": "Sync"
+    },
+    "PromoCode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        }
+      },
+      "required": ["default"],
+      "title": "PromoCode"
+    },
+    "Tweet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "button": {
+          "type": "string"
+        }
+      },
+      "required": ["button"],
+      "title": "Tweet"
+    },
+    "ComponentTwitter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "listUrl": {
+          "type": "string",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        ".hash": {
+          "type": "string"
+        },
+        "actionUrl": {
+          "type": "boolean"
+        },
+        "multilingual": {
+          "type": "boolean"
+        },
+        "sample": {
+          "type": "integer"
+        },
+        "message": {
+          "$ref": "#/definitions/TwitterMessage"
+        },
+        "ok.listUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        }
+      },
+      "required": [],
+      "title": "ComponentTwitter"
+    },
+    "TwitterMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "show": {
+          "type": "boolean"
+        }
+      },
+      "required": ["show"],
+      "title": "TwitterMessage"
+    },
+    "UseCount": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".json"]
+        },
+        "nope.apiUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": [],
+      "title": "UseCount"
+    },
+    "Wall": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "type": "boolean"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Wall"
+    },
+    "ComponentWidget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mobileVersion": {
+          "type": "boolean"
+        },
+        "autoStart": {
+          "type": "boolean"
+        },
+        "analytics": {
+          "type": "boolean"
+        },
+        "forceWidth": {
+          "$ref": "#/definitions/ForceWidth"
+        },
+        "delay": {
+          "type": "integer"
+        },
+        "fab": {
+          "type": "boolean"
+        },
+        "closed": {
+          "type": "boolean"
+        },
+        "validationMessage": {
+          "type": "boolean"
+        },
+        "nope.forceWidth": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "ComponentWidget"
+    },
+    "WidgetEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "thankyou": {
+          "type": "string"
+        }
+      },
+      "required": ["thankyou"],
+      "title": "WidgetEmail"
+    },
+    "Layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primaryColor": {
+          "type": "string"
+        },
+        "HtmlTemplate": {
+          "$ref": "#/definitions/HTMLTemplate"
+        },
+        "built": {
+          "type": "integer"
+        },
+        "variant": {
+          "$ref": "#/definitions/Variant"
+        },
+        "sprimaryColor": {
+          "type": "string"
+        },
+        "theme": {
+          "$ref": "#/definitions/Theme"
+        },
+        "template": {
+          "type": "string"
+        },
+        "purpleprimaryColor": {
+          "type": "string"
+        },
+        "notprimaryColor": {
+          "type": "string"
+        },
+        "_theme": {
+          "$ref": "#/definitions/Theme"
+        },
+        "secondaryColor": {
+          "type": "string"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "contrastText": {
+          "type": "string"
+        },
+        "snackTop": {
+          "type": "integer"
+        },
+        "update": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "no.paletteType": {
+          "$ref": "#/definitions/Theme"
+        }
+      },
+      "required": [],
+      "title": "Layout"
+    },
+    "WidgetLocales": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "campaign:": {
+          "$ref": "#/definitions/LocalesCampaign"
+        },
+        "common:": {
+          "$ref": "#/definitions/LocalesCommon"
+        },
+        "share": {
+          "$ref": "#/definitions/LocalesShare"
+        },
+        "Sign now!": {
+          "type": "string"
+        },
+        "register": {
+          "type": "string"
+        },
+        "twitter": {
+          "$ref": "#/definitions/LocalesTwitter"
+        },
+        "email": {
+          "$ref": "#/definitions/LocalesEmail"
+        },
+        "dialogTitle": {
+          "type": "string"
+        },
+        "No Thanks": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "string"
+        },
+        "progress_plural": {
+          "type": "string"
+        },
+        "action": {
+          "$ref": "#/definitions/Action"
+        },
+        "consent": {
+          "$ref": "#/definitions/LocalesConsent"
+        },
+        "eci:": {
+          "$ref": "#/definitions/Eci"
+        },
+        "step": {
+          "$ref": "#/definitions/Step"
+        },
+        "congratulations": {
+          "$ref": "#/definitions/Congratulations"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "First name": {
+          "type": "string"
+        },
+        "Last name": {
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/definitions/Target"
+        },
+        "Next": {
+          "type": "string"
+        },
+        "partner:": {
+          "$ref": "#/definitions/Partner"
+        },
+        "server:": {
+          "$ref": "#/definitions/ServerClass"
+        },
+        "_No Thanks": {
+          "type": "string"
+        },
+        "reminder": {
+          "$ref": "#/definitions/Reminder"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "guideline": {
+          "type": "string"
+        },
+        "letter:": {
+          "$ref": "#/definitions/Letter"
+        },
+        "eci:common.form.property.street": {
+          "type": "string"
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "en": {
+          "$ref": "#/definitions/En"
+        },
+        "registrati": {
+          "type": "string"
+        },
+        "Download explanation": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "WidgetLocales"
+    },
+    "Action": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stayInformed": {
+          "type": "string"
+        },
+        "eci": {
+          "type": "string"
+        },
+        "join": {
+          "type": "string"
+        },
+        "share": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "_stayInformed": {
+          "type": "string"
+        },
+        "remindeSent": {
+          "type": "string"
+        },
+        "reminder": {
+          "type": "string"
+        },
+        "reminderEmail": {
+          "type": "string"
+        },
+        "sign": {
+          "type": "string"
+        },
+        "adopt": {
+          "type": "string"
+        },
+        "donate": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Action"
+    },
+    "LocalesCampaign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "original": {
+          "type": "string",
+          "format": "boolean"
+        },
+        "site": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["http", "https"]
+        },
+        "title": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "share": {
+          "$ref": "#/definitions/PurpleShare"
+        },
+        "meme": {
+          "$ref": "#/definitions/CampaignMeme"
+        },
+        "closed": {
+          "type": "string"
+        },
+        "donation": {
+          "$ref": "#/definitions/Reminder"
+        },
+        "nok.description": {
+          "type": "string"
+        },
+        "languages": {
+          "$ref": "#/definitions/Languages"
+        },
+        "email": {
+          "$ref": "#/definitions/CampaignEmail"
+        }
+      },
+      "required": [],
+      "title": "LocalesCampaign"
+    },
+    "Reminder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        }
+      },
+      "required": ["intro"],
+      "title": "Reminder"
+    },
+    "CampaignEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": ["body", "subject"],
+      "title": "CampaignEmail"
+    },
+    "Languages": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fr": {
+          "type": "string"
+        },
+        "nl": {
+          "type": "string"
+        }
+      },
+      "required": ["fr", "nl"],
+      "title": "Languages"
+    },
+    "CampaignMeme": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "send": {
+          "type": "string"
+        }
+      },
+      "required": ["send"],
+      "title": "CampaignMeme"
+    },
+    "PurpleShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "twitter": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "email": {
+          "$ref": "#/definitions/CampaignEmail"
+        },
+        "bluesky": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "PurpleShare"
+    },
+    "LocalesCommon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Comment": {
+          "type": "string"
+        },
+        "Postal Code": {
+          "type": "string"
+        },
+        "consent": {
+          "$ref": "#/definitions/CommonConsent"
+        },
+        "read more": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "LocalesCommon"
+    },
+    "CommonConsent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "opt-in": {
+          "type": "string"
+        }
+      },
+      "required": ["opt-in"],
+      "title": "CommonConsent"
+    },
+    "Congratulations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "successfully-title": {
+          "type": "string"
+        }
+      },
+      "required": ["successfully-title"],
+      "title": "Congratulations"
+    },
+    "LocalesConsent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "opt-in": {
+          "type": "string"
+        },
+        "opt-out": {
+          "type": "string"
+        },
+        "confirm": {
+          "type": "string"
+        },
+        "processing": {
+          "type": "string"
+        },
+        "implicit": {
+          "type": "string"
+        },
+        "confirmOptIn": {
+          "type": "string"
+        },
+        "emailSent": {
+          "type": "string"
+        },
+        "optInConfirmed": {
+          "type": "string"
+        },
+        "aaintro": {
+          "type": "string"
+        },
+        "aaopt-in": {
+          "type": "string"
+        },
+        "confirmAction": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "LocalesConsent"
+    },
+    "Eci": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "congratulations": {
+          "$ref": "#/definitions/Congratulations"
+        },
+        "form": {
+          "$ref": "#/definitions/Form"
+        },
+        "common": {
+          "$ref": "#/definitions/EciCommon"
+        }
+      },
+      "required": [],
+      "title": "Eci"
+    },
+    "EciCommon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "$ref": "#/definitions/Form"
+        }
+      },
+      "required": ["form"],
+      "title": "EciCommon"
+    },
+    "Form": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "property": {
+          "$ref": "#/definitions/Property"
+        }
+      },
+      "required": ["property"],
+      "title": "Form"
+    },
+    "Property": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "street_number": {
+          "type": "string"
+        }
+      },
+      "required": ["street_number"],
+      "title": "Property"
+    },
+    "LocalesEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "body<2": {
+          "type": "string"
+        }
+      },
+      "required": ["body", "subject"],
+      "title": "LocalesEmail"
+    },
+    "En": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "campaign:": {
+          "$ref": "#/definitions/EnCampaign"
+        },
+        "common:": {
+          "$ref": "#/definitions/EnCommon"
+        },
+        "partner:": {
+          "$ref": "#/definitions/Partner"
+        }
+      },
+      "required": ["campaign:", "common:", "partner:"],
+      "title": "En"
+    },
+    "EnCampaign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "share": {
+          "$ref": "#/definitions/FluffyShare"
+        }
+      },
+      "required": ["description", "share"],
+      "title": "EnCampaign"
+    },
+    "FluffyShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        }
+      },
+      "required": ["default", "twitter"],
+      "title": "FluffyShare"
+    },
+    "EnCommon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "field_AITextField": {
+          "type": "string"
+        }
+      },
+      "required": ["field_AITextField"],
+      "title": "EnCommon"
+    },
+    "Partner": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "onboarding": {
+          "$ref": "#/definitions/Onboarding"
+        }
+      },
+      "required": ["onboarding"],
+      "title": "Partner"
+    },
+    "Onboarding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "partnership": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "welcome": {
+          "type": "string"
+        }
+      },
+      "required": ["intro", "partnership", "title", "welcome"],
+      "title": "Onboarding"
+    },
+    "Letter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "part-1": {
+          "type": "string"
+        },
+        "part-2": {
+          "type": "string"
+        },
+        "part-3": {
+          "type": "string"
+        },
+        "part-4": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": ["part-1", "part-2", "part-3", "part-4", "subject"],
+      "title": "Letter"
+    },
+    "ServerClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/ServerEmail"
+        },
+        "poweredBy": {
+          "type": "string"
+        }
+      },
+      "required": ["email"],
+      "title": "ServerClass"
+    },
+    "ServerEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "button": {
+          "$ref": "#/definitions/ButtonClass"
+        },
+        "common": {
+          "$ref": "#/definitions/EmailCommon"
+        },
+        "doiThankyou": {
+          "$ref": "#/definitions/DoiThankyou"
+        },
+        "doi": {
+          "$ref": "#/definitions/Reminder"
+        },
+        "actionConfirm": {
+          "$ref": "#/definitions/ActionConfirm"
+        }
+      },
+      "required": [],
+      "title": "ServerEmail"
+    },
+    "ActionConfirm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": ["extra", "intro", "subject"],
+      "title": "ActionConfirm"
+    },
+    "ButtonClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "confirmOptin": {
+          "type": "string"
+        },
+        "confirmOptout": {
+          "type": "string"
+        }
+      },
+      "required": ["confirmOptin"],
+      "title": "ButtonClass"
+    },
+    "EmailCommon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "about": {
+          "type": "string"
+        },
+        "closing": {
+          "type": "string"
+        },
+        "duplicate": {
+          "type": "string"
+        },
+        "greeting": {
+          "type": "string"
+        },
+        "share": {
+          "type": "string"
+        },
+        "thanks": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "required": ["closing", "greeting", "thanks"],
+      "title": "EmailCommon"
+    },
+    "DoiThankyou": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "type": "string"
+        }
+      },
+      "required": ["subject"],
+      "title": "DoiThankyou"
+    },
+    "LocalesShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "email": {
+          "$ref": "#/definitions/CampaignEmail"
+        },
+        "dummy.message": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "LocalesShare"
+    },
+    "Step": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eci": {
+          "$ref": "#/definitions/StepEci"
+        },
+        "register": {
+          "$ref": "#/definitions/StepRegister"
+        }
+      },
+      "required": ["eci"],
+      "title": "Step"
+    },
+    "StepEci": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subheader": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "secure": {
+          "type": "string"
+        },
+        "_subheader": {
+          "type": "string"
+        },
+        "_title": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "StepEci"
+    },
+    "StepRegister": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "_title": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "StepRegister"
+    },
+    "Target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "random": {
+          "type": "string"
+        }
+      },
+      "required": ["random"],
+      "title": "Target"
+    },
+    "LocalesTwitter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionText": {
+          "type": "string"
+        },
+        "no.actionUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "actionUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      },
+      "required": ["actionText"],
+      "title": "LocalesTwitter"
+    },
+    "Org": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "privacyPolicy": {
+          "type": "string",
+          "qt-uri-protocols": ["http", "https"],
+          "qt-uri-extensions": [".htm", ".html", ".pdf", ".php"]
+        },
+        "url": {
+          "type": "string",
+          "qt-uri-protocols": ["http", "https"],
+          "qt-uri-extensions": [".faro", ".html"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Org"
+    },
+    "PortalClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "$ref": "#/definitions/ComponentEnum"
+        },
+        "message": {
+          "$ref": "#/definitions/MessageEnum"
+        },
+        "selector": {
+          "$ref": "#/definitions/Selector"
+        },
+        "column": {
+          "type": "string"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "dangerouslySet": {
+          "type": "boolean"
+        },
+        "create": {
+          "type": "string"
+        }
+      },
+      "required": ["component"],
+      "title": "PortalClass"
+    },
+    "WidgetRegister": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "$ref": "#/definitions/Fields"
+        },
+        "share": {
+          "$ref": "#/definitions/RegisterShare"
+        },
+        "locales": {
+          "$ref": "#/definitions/RegisterLocales"
+        }
+      },
+      "required": ["fields", "locales", "share"],
+      "title": "WidgetRegister"
+    },
+    "Fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lastname": {
+          "$ref": "#/definitions/Lastname"
+        },
+        "firstname": {
+          "$ref": "#/definitions/Firstname"
+        },
+        "country": {
+          "$ref": "#/definitions/CountryClass"
+        }
+      },
+      "required": ["country", "firstname", "lastname"],
+      "title": "Fields"
+    },
+    "CountryClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "display": {
+          "type": "boolean"
+        },
+        "list": {
+          "type": "string"
+        }
+      },
+      "required": ["display", "list"],
+      "title": "CountryClass"
+    },
+    "Firstname": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "display": {
+          "type": "boolean"
+        }
+      },
+      "required": ["display"],
+      "title": "Firstname"
+    },
+    "RegisterLocales": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Sign now!": {
+          "type": "string"
+        }
+      },
+      "required": ["Sign now!"],
+      "title": "RegisterLocales"
+    },
+    "RegisterShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "facebook": {
+          "$ref": "#/definitions/Firstname"
+        },
+        "twitter": {
+          "$ref": "#/definitions/ShareTwitter"
+        }
+      },
+      "required": ["facebook", "twitter"],
+      "title": "RegisterShare"
+    },
+    "ShareTwitter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["tags"],
+      "title": "ShareTwitter"
+    },
+    "Actionpage": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string",
+          "format": "integer"
+        }
+      ],
+      "title": "Actionpage"
+    },
+    "ImplicitUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "ImplicitUnion"
+    },
+    "CounterUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/CounterClass"
+        }
+      ],
+      "title": "CounterUnion"
+    },
+    "MonthlyUnion": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        {
+          "$ref": "#/definitions/MonthlyClass"
+        }
+      ],
+      "title": "MonthlyUnion"
+    },
+    "EmailUnion": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/EmailEnum"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "title": "EmailUnion"
+    },
+    "MessageUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/SubjectClass"
+        }
+      ],
+      "title": "MessageUnion"
+    },
+    "LoaderUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/LoaderClass"
+        }
+      ],
+      "title": "LoaderUnion"
+    },
+    "LoaderComment": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/CommentClass"
+        }
+      ],
+      "title": "LoaderComment"
+    },
+    "URL": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        }
+      ],
+      "title": "URL"
+    },
+    "CountryUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/FirstnameClass"
+        }
+      ],
+      "title": "CountryUnion"
+    },
+    "Organisation": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/Lastname"
+        }
+      ],
+      "title": "Organisation"
+    },
+    "NextUnion": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/NextEnum"
+        }
+      ],
+      "title": "NextUnion"
+    },
+    "ForceWidth": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "ForceWidth"
+    },
+    "Journey": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Journey"
+    },
+    "PortalElement": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/PortalClass"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "PortalElement"
+    },
+    "Code": {
+      "type": "string",
+      "enum": ["EUR", "CHF"],
+      "title": "Code"
+    },
+    "Symbol": {
+      "type": "string",
+      "enum": ["€", ".-"],
+      "title": "Symbol"
+    },
+    "EmailEnum": {
+      "type": "string",
+      "enum": [
+        "ciurcina@studiolegale.it",
+        "substitute@freesharing.eu",
+        "riccardo.coluccini@hermescenter.org",
+        "diego.naranjo@edri.org",
+        "silvia.pastorelli@gmail.com",
+        "silviadiazperez.1984@gmail.com",
+        "demo@example.org",
+        "test@example.org"
+      ],
+      "title": "EmailEnum"
+    },
+    "FamilyName": {
+      "type": "string",
+      "enum": [
+        "Ciurcina",
+        "Galtieri",
+        "Coluccini",
+        "Naranjo Barroso",
+        "Pastorelli",
+        "Díaz Pérez",
+        "Demo",
+        "Test"
+      ],
+      "title": "FamilyName"
+    },
+    "FirstName": {
+      "type": "string",
+      "enum": [
+        "Marco",
+        "Roberto",
+        "Associazione GOIPE",
+        "Riccardo",
+        "Diego Javier",
+        "Silvia",
+        "Sílvia",
+        "von demo",
+        "de la test"
+      ],
+      "title": "FirstName"
+    },
+    "Role": {
+      "type": "string",
+      "enum": ["representative", "substitute", "legal entity"],
+      "title": "Role"
+    },
+    "RegistrationNumber": {
+      "type": "string",
+      "enum": [
+        "REQ.ECI(2020)000004",
+        "REQ.ECI(2021)000001",
+        "ECI(2021)000004",
+        "REQ.ECI(1970)000001",
+        "REQ.ECI(2020)000005"
+      ],
+      "title": "RegistrationNumber"
+    },
+    "Starts": {
+      "type": "string",
+      "enum": ["email"],
+      "title": "Starts"
+    },
+    "Bcc": {
+      "type": "string",
+      "enum": [
+        "rsi@campax.org",
+        "info@campax.org",
+        "pt-presidency@proca.foundation",
+        "speculation.tax@climateandjobs.eu"
+      ],
+      "title": "Bcc"
+    },
+    "ButtonEnum": {
+      "type": "string",
+      "enum": [
+        "Stay informed",
+        "campaign:meme.send",
+        "Envoyer la photo",
+        "action.stayInformed",
+        "action.sign",
+        "action.consultation"
+      ],
+      "title": "ButtonEnum"
+    },
+    "NextEnum": {
+      "type": "string",
+      "enum": ["action.donate", "action.adopt"],
+      "title": "NextEnum"
+    },
+    "HTMLTemplate": {
+      "type": "string",
+      "enum": [
+        "eci.html",
+        "openletter.html",
+        "eci-public.html",
+        "withtext.html",
+        "simple.html",
+        "button.html",
+        "long.html",
+        "target.html",
+        "CH-initiative.html",
+        "multiaction.html"
+      ],
+      "title": "HTMLTemplate"
+    },
+    "Theme": {
+      "type": "string",
+      "enum": ["dark", "light"],
+      "title": "Theme"
+    },
+    "Variant": {
+      "type": "string",
+      "enum": ["outlined"],
+      "title": "Variant"
+    },
+    "ComponentEnum": {
+      "type": "string",
+      "enum": [
+        "T",
+        "eci/More",
+        "Counter",
+        "SignatureLogo",
+        "TTag",
+        "eci/ReadMore",
+        "bespoke/meme/Wall",
+        "bespoke/meme/CreateMeme",
+        "PictureWall",
+        "ReadMore",
+        "field/StickerImage",
+        "field/Camera",
+        "Wall",
+        "CommentWall",
+        "bespoke/ep2024/signatories",
+        "eci/Counter",
+        "ProgressCounter",
+        "SignatureList",
+        "SignatureTable",
+        "Target"
+      ],
+      "title": "ComponentEnum"
+    },
+    "MessageEnum": {
+      "type": "string",
+      "enum": [
+        "campaign:title",
+        "campaign:description",
+        "eci:form.title",
+        "campaign:name",
+        "guideline",
+        "campaign:letter",
+        "campaign:guideline"
+      ],
+      "title": "MessageEnum"
+    },
+    "Selector": {
+      "type": "string",
+      "enum": [
+        ".eci-title",
+        ".eci-support",
+        ".eci-description",
+        ".eci-more",
+        ".eci-name",
+        ".proca-counter",
+        ".proca-logo",
+        ".proca-description",
+        ".proca-title",
+        ".eci-readmore",
+        ".proca-notawall",
+        ".proca-notafield",
+        ".proca-notafield2",
+        ".proca-supporters",
+        ".proca-Petition",
+        ".supporters",
+        ".proca-progress",
+        ".proca-signature",
+        ".proca-table",
+        ".proca-secondary"
+      ],
+      "title": "Selector"
+    }
+  }
+}
