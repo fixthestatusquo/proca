@@ -62,9 +62,9 @@ Front and back are clearly separated. the backend is headless, ie it only provid
 
 - `git clone` this repository
 - `npm install`
-- `cp .env.example .env` and put your login + pwd (either your account on our server or your install)
-- npx proca plugins link
-- npm run pull folowed by the action page id as seen in the backend. For instance
+- npx proca config folder
+- proca config init --token API-xxx
+- get your widget's configuration from the server
 
   `npx proca widget pull -i 42`
 
