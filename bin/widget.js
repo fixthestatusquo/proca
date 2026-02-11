@@ -239,15 +239,13 @@ const getConfig = data => {
   data.actionPage.config = JSON.parse(data.actionPage.config);
   data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
   data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
-  let config = {
+  const config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
     org: {
       name: data.actionPage.org.name,
-      privacyPolicy:
-        (data.actionPage.org.config.privacy &&
-          data.actionPage.org.config.privacy.policyUrl) ||
-        "",
+      privacyPolicy: data.actionPage.org.config.privacy?.policyUrl || "",
+      primaryColor: data.actionPage.org.config.layout?.primaryColor || "",
       url: data.actionPage.org.config.url || "",
     },
     lang: data.actionPage.locale,

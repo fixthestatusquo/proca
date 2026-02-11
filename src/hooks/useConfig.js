@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import { create } from "zustand";
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from "zustand/react/shallow";
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
@@ -46,6 +46,10 @@ export const initConfigState = config => {
       true
     );
   }
+  if (!config.layout?.primaryColor && config.org.primaryColor) {
+    console.log("set color");
+    config.layout.primaryColor = config.org.primaryColor;
+  }
   initLayout(config.layout);
   delete config.locales;
 
@@ -54,12 +58,14 @@ export const initConfigState = config => {
   configStore = create(set => ({
     campaignConfig: config,
     setActionType: (type, force) => {
-       set(state => {
-         if (!force && state.campaignConfig?.component?.register?.actionType) return state; //do not update the type if set in the config, unless forced
-         if (!state.campaignConfig.component.register) state.campaignConfig.component.register = {};
-         state.campaignConfig.component.register.actionType = type;
-         return state;
-       })
+      set(state => {
+        if (!force && state.campaignConfig?.component?.register?.actionType)
+          return state; //do not update the type if set in the config, unless forced
+        if (!state.campaignConfig.component.register)
+          state.campaignConfig.component.register = {};
+        state.campaignConfig.component.register.actionType = type;
+        return state;
+      });
     },
     setCampaignConfig: update =>
       set(state => ({
@@ -216,23 +222,18 @@ export const useComponentConfig = () =>
   configStore(useShallow(state => state.campaignConfig?.component));
 
 export const useJourneyConfig = () =>
-  configStore(
-    (state) => state.campaignConfig.journey,
-    shallow
-  );
-
+  configStore(state => state.campaignConfig.journey, shallow);
 
 export const useConfig = () => configStore(state => state.campaignConfig);
 export const useSetCampaignConfig = () =>
   configStore(state => state.setCampaignConfig);
-export const useSetActionType = (type) => {
+export const useSetActionType = type => {
   const setActionType = configStore(state => state.setActionType);
-  useEffect ( () => {
-    if (type)
-      setActionType(type);
-  },[]); 
+  useEffect(() => {
+    if (type) setActionType(type);
+  }, []);
   return setActionType;
-}
+};
 
 export { set as setConfig };
 export { goStep };
