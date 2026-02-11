@@ -239,16 +239,16 @@ Translate a campaign's locale file from one language to another.
 
 ```
 USAGE
-  $ proca campaign translate -c <value> --to <value> [--json | --csv | --markdown] [--env <value>] [--simplify] [--from
-    <value>] [--force] [--namespace <value>] [--dry-run]
+  $ proca campaign translate --to <value> [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <campaign>]
+    [--from <value>] [--force] [--namespace <value>] [--dry-run]
 
 FLAGS
-  -c, --campaign=<value>   (required) Name of the campaign to translate.
+  -n, --name=<campaign>    name (technical short name, also called slug)
       --dry-run            Perform a dry run without saving changes
       --env=<value>        [default: default] allow to switch between configurations (server or users)
       --force              Force overwrite of existing translations.
       --from=<value>       [default: en] Source language for translation.
-      --namespace=<value>  Limit translation to a specific namespace (e.g., widget, form)
+      --namespace=<value>  Limit translation to a specific namespace (e.g., common, campaign, letter)
       --to=<value>         (required) Target language for translation.
 
 OUTPUT FLAGS
