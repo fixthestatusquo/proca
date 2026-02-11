@@ -6,6 +6,7 @@ import useCount from "@hooks/useCount";
 //3,014,823 have signed. Let’s get to 4,500,000!
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { useIntersection } from "@shopify/react-intersection-observer";
 
 const useStyles = makeStyles(theme => ({
   "@global": {},
@@ -62,7 +63,9 @@ export const formatNumber = (value, separator) => {
 };
 
 export default function Progress(props) {
-  const { t, i18n } = useTranslation();
+  const [intersection, ref] = useIntersection();
+
+  const { t } = useTranslation();
   let count = props.count;
   count = useCount(props.actionPage) || props.count;
   const config = useCampaignConfig();
@@ -73,20 +76,27 @@ export default function Progress(props) {
 
   const [progress, setProgress] = React.useState(1);
 
+  const intersecting = intersection.isIntersecting;
+
   useEffect(() => {
+    if (!intersecting) {
+      setProgress(0);
+      return;
+    }
+
     const aim = normalise(count, goal);
     const timer = setInterval(() => {
       setProgress(prevProgress =>
         prevProgress >= aim - 10 ? aim : prevProgress + 10
       );
-    }, 500);
+    }, 200);
     return () => {
       clearInterval(timer);
     };
-  }, [count, goal]);
+  }, [count, goal, intersecting]);
 
   if (config.component.counter?.disabled === true) return null;
-  if (!config.test ) {
+  if (!config.test) {
     if (!count || count <= min) {
       return <Box mt={1}>&nbsp;</Box>;
     }
@@ -95,11 +105,14 @@ export default function Progress(props) {
   }
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
-  const actionName = config.component.register.actionType || config.component.register?.button?.split(".")[1] || "sign";
+  const actionName =
+    config.component.register.actionType ||
+    config.component.register?.button?.split(".")[1] ||
+    "sign";
   return (
     <>
-      <Box className={`${classes.root} proca-progress`}>
-        {t([`progress.${actionName}`,"progress.sign","progress"], {
+      <Box className={`${classes.root} proca-progress`} ref={ref}>
+        {t([`progress.${actionName}`, "progress.sign", "progress"], {
           count: formatNumber(count, separator),
           total: formatNumber(count, separator),
           goal: formatNumber(goal, separator),
