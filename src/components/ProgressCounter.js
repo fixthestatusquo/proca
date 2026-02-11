@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.primary.main,
     },
     "100%": {
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
     },
   },
   animated: {
