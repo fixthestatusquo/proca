@@ -12,16 +12,19 @@ const useStyles = makeStyles(theme => ({
   "@global": {},
   "@keyframes procaPrimaryGrey": {
     "0%": {
-      color: theme.palette.text.primary,
-    },
-    "100%": {
       color: theme.palette.primary.main,
     },
+    "100%": {
+      color: theme.palette.text.primary,
+    },
+  },
+  animated: {
+    animation: `$procaPrimaryGrey 3s ${theme.transitions.easing.easeOut}`,
+    //    animationFillMode: "forwards",
   },
   root: {
     fontSize: theme.typography.pxToRem(18),
     fontWeight: "bold",
-    animation: `$procaPrimaryGrey 3s ${theme.transitions.easing.easeOut}`,
     color: theme.palette.text.secondary,
     width: "100%",
     "& > * + *": {
@@ -81,8 +84,10 @@ export default function Progress(props) {
   useEffect(() => {
     if (!intersecting) {
       setProgress(0);
+      ref.current?.classList.remove(classes.animated);
       return;
     }
+    ref.current?.classList.add(classes.animated);
 
     const aim = normalise(count, goal);
     const timer = setInterval(() => {
@@ -110,15 +115,13 @@ export default function Progress(props) {
     config.component.register?.button?.split(".")[1] ||
     "sign";
   return (
-    <>
-      <Box className={`${classes.root} proca-progress`} ref={ref}>
-        {t([`progress.${actionName}`, "progress.sign", "progress"], {
-          count: formatNumber(count, separator),
-          total: formatNumber(count, separator),
-          goal: formatNumber(goal, separator),
-        })}
-        <LinearProgress variant="determinate" value={progress} />
-      </Box>
-    </>
+    <Box className={`${classes.root} proca-progress`} ref={ref}>
+      {t([`progress.${actionName}`, "progress.sign", "progress"], {
+        count: formatNumber(count, separator),
+        total: formatNumber(count, separator),
+        goal: formatNumber(goal, separator),
+      })}
+      <LinearProgress variant="determinate" value={progress} />
+    </Box>
   );
 }
