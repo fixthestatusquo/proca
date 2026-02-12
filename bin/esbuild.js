@@ -220,7 +220,7 @@ const serve = async id => {
   };
   const c = await context(buildConfig);
   await c.watch();
-  const r = await c.serve({ servedir: buildConfig.outdir });
+  const r = await c.serve({ servedir: buildConfig.outdir, port: 1984 });
   const open = await import("open");
   open.default("http://" + r.hosts[0] + ":" + r.port);
 };
