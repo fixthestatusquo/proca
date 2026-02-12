@@ -2,14 +2,38 @@ import React, { useEffect, useState } from "react";
 //import Alert from "@components/Alert";
 import { Alert } from "@material-ui/lab";
 import BugReportIcon from "@material-ui/icons/BugReport";
+import { makeStyles } from "@material-ui/core/styles";
 
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Grid } from "@material-ui/core";
 //import useData from "@hooks/useData";
 import { parse } from "dxid";
+
+const useGlobalStyles = makeStyles({
+  "@global": {
+    ".proca-MuiFilledInput-root": {
+      backgroundColor: "#f5f5f5",
+      "&:hover": {
+        backgroundColor: "#fcfcfc",
+      },
+      "&.Mui-focused": {
+        backgroundColor: "#fcfcfc",
+      },
+    },
+    "#proca_submit": {
+      borderRadius: "32px",
+      fontSize: "24px",
+      color: "white",
+      textTransform: "none",
+    },
+  },
+});
+
 const src = props => {
+  console.log("here");
   let params = {};
   const config = useCampaignConfig();
+  useGlobalStyles();
   const [open, setOpen] = useState(true);
   //const [data, setData] = useData();
   const urlParams = new URLSearchParams(window.location.search);

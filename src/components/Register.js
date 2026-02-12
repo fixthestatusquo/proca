@@ -149,6 +149,7 @@ const SubmitButton = props => {
   return (
     <Grid item xs={12}>
       <Button
+        id="proca_submit"
         color="primary"
         variant="contained"
         className={classes.act}
@@ -237,12 +238,13 @@ export default function Register(props) {
     }
     let actionType = config.component.register?.actionType || "register";
     if (props.targets) {
-
       formData.targets = props.targets;
 
       if (config.test && props.targets.length > 1) {
         formData.targets = props.targets.slice(0, 1);
-        console.warn("TEST mode, sending only one test email not " + props.targets.length)
+        console.warn(
+          "TEST mode, sending only one test email not " + props.targets.length
+        );
       }
 
       actionType = "mail2target";
@@ -497,10 +499,24 @@ export default function Register(props) {
                   />
                 </Grid>
               )}
-              <NameField form={form} compact={compact} classField={classField} enforceRequired={enforceRequired} />
-              <EmailField form={form} required={enforceRequired} compact={compact} classField={classField} />
+              <NameField
+                form={form}
+                compact={compact}
+                classField={classField}
+                enforceRequired={enforceRequired}
+              />
+              <EmailField
+                form={form}
+                required={enforceRequired}
+                compact={compact}
+                classField={classField}
+              />
               <Address form={form} compact={compact} classField={classField} />
-              <PhoneField form={form} classField={classField} compact={compact} />
+              <PhoneField
+                form={form}
+                classField={classField}
+                compact={compact}
+              />
               {config.component.register.custom?.comment && (
                 <CustomField
                   compact={compact}
