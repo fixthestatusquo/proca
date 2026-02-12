@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const { isDirectCli } = require("./dotenv.js");
-const path = require("path");
-const cp = require("child_process");
-const fs = require("fs");
+const path = require("node:path");
+const cp = require("node:child_process");
+const fs = require("node:fs");
 const zlib = require("node:zlib");
 const { pipeline } = require("node:stream/promises");
 const color = require("cli-color");
@@ -15,6 +15,8 @@ const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
 let nodeEnv = undefined;
+
+const fullpath = file => path.resolve(__dirname, "../", file);
 
 const help = (exit = 0) => {
   console.log(
@@ -43,7 +45,7 @@ const argv = require("minimist")(process.argv.slice(2), {
   },
 });
 
-const define = (environment) => {
+const define = environment => {
   nodeEnv = environment;
   const defined = {
     global: "window",
@@ -62,10 +64,7 @@ const define = (environment) => {
 const save = config => {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../d/" + config.filename + "/config-" + hash + ".json"
-    ),
+    fullpath("d/" + config.filename + "/config-" + hash + ".json"),
     JSON.stringify(config, null, 2)
   );
   if (argv.verbose) {
@@ -98,12 +97,6 @@ const resolveCountryList = config => {
   };
 };
 
-const fullpath = file => 
-    path.resolve(
-      __dirname,
-      "../" + file
-    );
-
 let procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
@@ -126,7 +119,7 @@ let procaPlugin = ({ id, config }) => ({
         sideEffects: false,
       };
     });
-    
+
     build.onEnd(async () => {
       let file = fullpath("./public/index.html");
       if (
@@ -137,24 +130,26 @@ let procaPlugin = ({ id, config }) => ({
         if (!template.endsWith(".html")) {
           template += ".html";
         }
-        file =
-          fullpath("./public/" + template);
+        file = fullpath("./public/" + template);
       }
       const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
-        "d/" + config.filename + "/index.html",
+        fullpath("d/" + config.filename + "/index.html"),
         html
           .replace("<body>", "<body><script src='./index.js'></script>")
           .replaceAll("%PUBLIC_URL%", "/")
           .replaceAll("<%= lang %>", config.lang)
           .replaceAll("<%= campaign %>", config.campaign.title)
           .replaceAll("<%= organisation %>", config.org.name)
-          .replaceAll("<%= theme %>", config.layout.theme || 'light')
-          .replaceAll("<%= background-color %>", config.layout.backgroundColor || undefined)
+          .replaceAll("<%= theme %>", config.layout.theme || "light")
+          .replaceAll(
+            "<%= background-color %>",
+            config.layout.backgroundColor || undefined
+          )
       );
 
       if (nodeEnv !== "development") {
-        const index = "d/" + config.filename + "/index.js";
+        const index = fullpath("d/" + config.filename + "/index.js");
         await pipeline(
           fs.createReadStream(index),
           zlib.createGzip({}),
@@ -193,7 +188,7 @@ const getConfig = (id, environment) => {
     globalName: "proca",
     format: "iife",
     logLevel: "info",
-    entryPoints: ["src/index.js"],
+    entryPoints: [fullpath("src/index.js")],
     define: define(environment),
     bundle: true,
     plugins: [
@@ -201,8 +196,8 @@ const getConfig = (id, environment) => {
       copy({
         watch: true,
         assets: {
-          from: ["./public/embed.html"],
-          to: ["./"],
+          from: [fullpath("./public/embed.html")],
+          to: [fullpath("./")],
         },
       }),
       esbuildPluginBrowserslist(browserslist("defaults"), {
@@ -210,7 +205,7 @@ const getConfig = (id, environment) => {
       }),
     ],
     loader: { ".js": "jsx" },
-    outdir: "d/" + config.filename,
+    outdir: fullpath("d/" + config.filename),
   };
 };
 
