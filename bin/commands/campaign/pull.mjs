@@ -21,7 +21,7 @@ export default class CampaignPush extends Command {
   async run() {
     const { flags } = await this.parse();
     if (flags.campaign) this.error("not implemented yet");
-    const { pullCampaign : pull } = await import("../../campaign.js");
+    const { pullCampaign: pull } = await import("../../campaign.js");
     const r = await pull(flags.name);
     if (r.errors) {
       console.log("errors", r.errors);
