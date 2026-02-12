@@ -420,6 +420,128 @@
         "translate.mjs"
       ]
     },
+    "locale:cache": {
+      "aliases": [],
+      "args": {},
+      "description": "Reads and writes config files from the locale/cache",
+      "flags": {
+        "json": {
+          "description": "Format output as json",
+          "exclusive": [
+            "csv",
+            "markdown"
+          ],
+          "helpGroup": "OUTPUT",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "env": {
+          "description": "allow to switch between configurations (server or users)",
+          "name": "env",
+          "default": "default",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "csv": {
+          "description": "Format output as csv",
+          "helpGroup": "OUTPUT",
+          "name": "csv",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "markdown": {
+          "description": "Format output as markdown table",
+          "helpGroup": "OUTPUT",
+          "name": "markdown",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "simplify": {
+          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
+          "helpGroup": "OUTPUT",
+          "name": "simplify",
+          "allowNo": true,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hidden": true,
+      "hiddenAliases": [],
+      "id": "locale:cache",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "strict": true,
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "cache.mjs"
+      ]
+    },
+    "locale:pull": {
+      "aliases": [],
+      "args": {},
+      "description": "git pull of the config folder from the remote main",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:pull",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "pull.mjs"
+      ]
+    },
+    "locale:push": {
+      "aliases": [],
+      "args": {},
+      "description": "git push of the config folder to the remote main",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:push",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "push.mjs"
+      ]
+    },
+    "locale:status": {
+      "aliases": [],
+      "args": {},
+      "description": "git status of the config folder",
+      "flags": {},
+      "hasDynamicHelp": false,
+      "hidden": false,
+      "hiddenAliases": [],
+      "id": "locale:status",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "locale",
+        "status.mjs"
+      ]
+    },
     "target:publish": {
       "aliases": [],
       "args": {
@@ -526,114 +648,6 @@
         "publish.mjs"
       ]
     },
-    "template:push": {
-      "aliases": [],
-      "args": {
-        "id_name_dxid": {
-          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
-          "hidden": true,
-          "name": "id_name_dxid"
-        }
-      },
-      "description": "push to the server a template",
-      "examples": [
-        "<%= config.bin %> <%= command.id %> -o <organisation>"
-      ],
-      "flags": {
-        "json": {
-          "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
-          "helpGroup": "OUTPUT",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "env": {
-          "description": "allow to switch between configurations (server or users)",
-          "name": "env",
-          "default": "default",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "csv": {
-          "description": "Format output as csv",
-          "helpGroup": "OUTPUT",
-          "name": "csv",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "markdown": {
-          "description": "Format output as markdown table",
-          "helpGroup": "OUTPUT",
-          "name": "markdown",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "simplify": {
-          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
-          "helpGroup": "OUTPUT",
-          "name": "simplify",
-          "allowNo": true,
-          "type": "boolean"
-        },
-        "name": {
-          "char": "n",
-          "description": "name (technical short name, also called slug)",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
-          "multiple": false,
-          "type": "option"
-        },
-        "id": {
-          "char": "i",
-          "name": "id",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "dxid": {
-          "char": "x",
-          "description": "dxid",
-          "name": "dxid",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "campaign": {
-          "char": "c",
-          "description": "push all the widgets of that campaign [WIP]",
-          "name": "campaign",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "git": {
-          "description": "commit the changes to git",
-          "name": "git",
-          "allowNo": true,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "template:push",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "strict": true,
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "template",
-        "push.mjs"
-      ]
-    },
     "widget:build": {
       "aliases": [],
       "args": {
@@ -696,8 +710,11 @@
         },
         "id": {
           "char": "i",
+          "exclusive": [
+            "name",
+            "dxid"
+          ],
           "name": "id",
-          "required": true,
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
@@ -845,9 +862,6 @@
         }
       },
       "description": "push to the server the local configuration of the widget",
-      "examples": [
-        "<%= config.bin %> <%= command.id %> -o <organisation>"
-      ],
       "flags": {
         "json": {
           "description": "Format output as json",
@@ -900,6 +914,10 @@
         },
         "id": {
           "char": "i",
+          "exclusive": [
+            "name",
+            "dxid"
+          ],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -909,14 +927,6 @@
           "char": "x",
           "description": "dxid",
           "name": "dxid",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "campaign": {
-          "char": "c",
-          "description": "push all the widgets of that campaign [WIP]",
-          "name": "campaign",
           "hasDynamicHelp": false,
           "multiple": false,
           "type": "option"
@@ -1143,10 +1153,19 @@
         "view.mjs"
       ]
     },
-    "locale:cache": {
+    "template:push": {
       "aliases": [],
-      "args": {},
-      "description": "Reads and writes config files from the locale/cache",
+      "args": {
+        "id_name_dxid": {
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
+          "hidden": true,
+          "name": "id_name_dxid"
+        }
+      },
+      "description": "push to the server a template",
+      "examples": [
+        "<%= config.bin %> <%= command.id %> -o <organisation>"
+      ],
       "flags": {
         "json": {
           "description": "Format output as json",
@@ -1187,12 +1206,49 @@
           "name": "simplify",
           "allowNo": true,
           "type": "boolean"
+        },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
+        "id": {
+          "char": "i",
+          "name": "id",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "dxid": {
+          "char": "x",
+          "description": "dxid",
+          "name": "dxid",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "campaign": {
+          "char": "c",
+          "description": "push all the widgets of that campaign [WIP]",
+          "name": "campaign",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "git": {
+          "description": "commit the changes to git",
+          "name": "git",
+          "allowNo": true,
+          "type": "boolean"
         }
       },
       "hasDynamicHelp": false,
-      "hidden": true,
       "hiddenAliases": [],
-      "id": "locale:cache",
+      "id": "template:push",
       "pluginAlias": "@proca/widget",
       "pluginName": "@proca/widget",
       "pluginType": "core",
@@ -1201,68 +1257,8 @@
       "relativePath": [
         "bin",
         "commands",
-        "locale",
-        "cache.mjs"
-      ]
-    },
-    "locale:pull": {
-      "aliases": [],
-      "args": {},
-      "description": "git pull of the config folder from the remote main",
-      "flags": {},
-      "hasDynamicHelp": false,
-      "hidden": false,
-      "hiddenAliases": [],
-      "id": "locale:pull",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "pull.mjs"
-      ]
-    },
-    "locale:push": {
-      "aliases": [],
-      "args": {},
-      "description": "git push of the config folder to the remote main",
-      "flags": {},
-      "hasDynamicHelp": false,
-      "hidden": false,
-      "hiddenAliases": [],
-      "id": "locale:push",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
+        "template",
         "push.mjs"
-      ]
-    },
-    "locale:status": {
-      "aliases": [],
-      "args": {},
-      "description": "git status of the config folder",
-      "flags": {},
-      "hasDynamicHelp": false,
-      "hidden": false,
-      "hiddenAliases": [],
-      "id": "locale:status",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "status.mjs"
       ]
     },
     "campaign:widget:pull": {

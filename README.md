@@ -447,11 +447,11 @@ build the widget
 
 ```
 USAGE
-  $ proca widget build -i <value> [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <the_short_name>]
-    [-x <value>]
+  $ proca widget build [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+    <the_short_name> | -x <value>]
 
 FLAGS
-  -i, --id=<value>             (required)
+  -i, --id=<value>
   -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
       --env=<value>            [default: default] allow to switch between configurations (server or users)
@@ -499,11 +499,10 @@ push to the server the local configuration of the widget
 
 ```
 USAGE
-  $ proca widget push [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <the_short_name>] [-i
-    <value>] [-x <value>] [-c <value>] [--git]
+  $ proca widget push [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
+    <the_short_name> | -x <value>] [--git]
 
 FLAGS
-  -c, --campaign=<value>       push all the widgets of that campaign [WIP]
   -i, --id=<value>
   -n, --name=<the_short_name>  name (technical short name, also called slug)
   -x, --dxid=<value>           dxid
@@ -518,9 +517,6 @@ OUTPUT FLAGS
 
 DESCRIPTION
   push to the server the local configuration of the widget
-
-EXAMPLES
-  $ proca widget push -o <organisation>
 ```
 
 ## `proca widget read`

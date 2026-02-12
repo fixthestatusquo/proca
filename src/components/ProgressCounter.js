@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     "0%": {
       color: theme.palette.primary.main,
     },
+    "80%": {
+      color: theme.palette.text.primary,
+    },
     "100%": {
       color: theme.palette.text.secondary,
     },
