@@ -12,7 +12,7 @@ const setVariant = value => {
 
 const ABTest = () => {
   const component = useComponentConfig();
-  setConfig = useSetCampaignConfig();
+  const setConfig = useSetCampaignConfig();
 
   const variants = component.test;
   useEffect(() => {
