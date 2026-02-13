@@ -76,7 +76,19 @@ const Observer = async (event, data, pii) => {
   dataLayerObserver(event, data);
 };
 
-Events.subscribe(Observer);
+const ActObserver = async (event, data, pii) => {
+  console.log(event);
+  if (event.endsWith(":complete")) {
+    const events = window.getTargetStateEvents("#single-sign-up", e2);
+    console.log("done", events);
+    events.forEach(event => {
+      window.dispatchEvent(event);
+    });
+  }
+};
+
 unsubscribeDataLayer();
+Events.subscribe(Observer);
+Events.subscribe(ActObserver);
 
 export default Observer;
