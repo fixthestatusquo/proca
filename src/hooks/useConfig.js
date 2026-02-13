@@ -47,7 +47,6 @@ export const initConfigState = config => {
     );
   }
   if (!config.layout?.primaryColor && config.org.primaryColor) {
-    console.log("set color");
     config.layout.primaryColor = config.org.primaryColor;
   }
   initLayout(config.layout);

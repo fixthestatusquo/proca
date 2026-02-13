@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useComponentConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { merge } from "@lib/object";
 import dispatch from "@lib/event.js";
 
+let tested = false;
 const setVariant = value => {
   const url = new URL(window.location.href);
+  dispatch("ab_variant", { variant: value });
   url.searchParams.set("utm_content", value);
   window.history.replaceState(null, "", url);
-  dispatch("ab_variant", value);
 };
 
 const ABTest = () => {
@@ -16,9 +17,9 @@ const ABTest = () => {
 
   const variants = component.test;
   useEffect(() => {
-    if (!variants?.length) return;
+    if (!variants?.length || tested) return;
+    tested = true;
     const variant = Math.floor(Math.random() * variants.length);
-    console.log("variant", variant);
     setVariant(variants[variant].name || String.fromCharCode(65 + variant));
     setConfig(current => {
       const config = { component: variants[variant].component };

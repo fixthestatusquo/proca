@@ -4,7 +4,6 @@ const domObserver = (event, data, pii) => {
   let elem = document.getElementById("proca");
   if (!elem) {
     console.error("#proca missing");
-    //    dispatchAnalytics("error", "missing #proca");
     elem = window;
   }
   if (pii) data.contact = pii; //TODO, add a config to remove the option to bubble up pii to the containing page
@@ -22,12 +21,22 @@ const domObserver = (event, data, pii) => {
   ); //
 };
 
-const dataLayerObserver = (event, data, _pii) => {
-//  console.log("GA4 received event:", event, data, pii);
+const getParam = data => {
+  switch (typeof data) {
+    case "object":
+      return Object.assign({}, data);
+    case "string":
+      return { value: data };
+  }
+  console.warn("unprocessed data", typeof data);
+  return {};
+};
 
+const dataLayerObserver = (event, data, _pii) => {
+  //  console.log("GA4 received event:", event, data, pii);
   if (event === "count") return;
   const action = event.split(":");
-  const param = Object.assign({}, data);
+  let param = getParam(data);
   "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
     .split(",")
     .forEach(attr => {
@@ -68,9 +77,9 @@ if (window.dataLayer) {
 const unsubscribeDataLayer = () => {
   setTimeout(() => {
     Events.unsubscribe(dataLayerObserver);
-  },0);
+  }, 0);
 };
 
 export default dispatch;
 
-export { dispatch, unsubscribeDataLayer };
+export { dispatch, unsubscribeDataLayer, dataLayerObserver };

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 //import Alert from "@components/Alert";
 import { Alert } from "@material-ui/lab";
-import BugReportIcon from "@material-ui/icons/BugReport";
+import SettingsIcon from "@material-ui/icons/Settings";
+import StatsIcon from "@material-ui/icons/ShowChart";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { useCampaignConfig } from "@hooks/useConfig";
-import { Grid } from "@material-ui/core";
+import { Grid, Chip } from "@material-ui/core";
 //import useData from "@hooks/useData";
 import { parse } from "dxid";
 
@@ -30,7 +31,6 @@ const useGlobalStyles = makeStyles({
 });
 
 const src = props => {
-  console.log("here");
   let params = {};
   const config = useCampaignConfig();
   useGlobalStyles();
@@ -39,8 +39,7 @@ const src = props => {
   const urlParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
-    if (window.drupalSettings && window.drupalSettings.user) {
-      console.log("connected user");
+    if (window.drupalSettings?.user) {
       config.test = true;
     }
   }, []);
@@ -59,7 +58,7 @@ const src = props => {
     document.querySelectorAll("a[href]").forEach(link => {
       // TODO: only update the donation link
       try {
-        let url = new URL(link.href, window.location.origin);
+        const url = new URL(link.href, window.location.origin);
         url.searchParams.set("BannerID", params.bannerid);
         link.href = url.toString();
       } catch (_e) {
@@ -76,20 +75,21 @@ const src = props => {
     return (
       <Grid item xs={12}>
         <Alert
-          icon={<BugReportIcon fontSize="inherit" />}
+          icon={<SettingsIcon fontSize="inherit" />}
           severity="info"
           onClose={() => setOpen(false)}
         >
+          <Chip
+            label="Stats"
+            component="a"
+            icon={<StatsIcon />}
+            href={`https://we.fixthestatusquo.org/widget/${config.actionPage}/stats`}
+            target="_blank"
+            variant="outlined"
+            color="primary"
+            clickable
+          />
           <ul>
-            <li>
-              <a
-                href={
-                  "https://we.fixthestatusquo.org/widget/" + config.actionPage
-                }
-              >
-                Widget admin
-              </a>
-            </li>
             {Object.entries(params).map(([key, value]) => (
               <li key={key}>
                 <b>{key}</b> = {value}

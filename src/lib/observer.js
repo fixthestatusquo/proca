@@ -24,7 +24,6 @@ class Subject {
   }
 }
 
-
 const eventSubject = new Subject();
 export default eventSubject;
 export { Subject, eventSubject };

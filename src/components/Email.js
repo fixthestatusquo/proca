@@ -394,6 +394,7 @@ const EmailComponent = props => {
         );
         console.log("not lang", `${lang}?`, locale, country);
       }
+      console.log(fallbackArea, area);
       if (d.length === 0 && fallbackArea && area) {
         d = filterArea(area);
       }
