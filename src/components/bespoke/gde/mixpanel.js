@@ -79,7 +79,9 @@ const Observer = async (event, data, pii) => {
 const ActObserver = async (event, data, pii) => {
   console.log(event);
   if (event.endsWith(":complete")) {
-    const events = window.getTargetStateEvents("#single-sign-up", e2);
+    const events = window.getTargetStateEvents("#single-sign-up", {
+      0: document.querySelector("gpd-engage-form"),
+    });
     console.log("done", events);
     events.forEach(event => {
       window.dispatchEvent(event);
