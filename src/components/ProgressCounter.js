@@ -139,9 +139,9 @@ export default function Progress(props) {
         {t([`progress.${actionName}`, "progress.sign", "progress"], {
           count: formatNumber(count, separator),
           total: formatNumber(count, separator),
-        })}{" "}
+        })}
       </span>
-      {"\u200B"}
+      <wbr />
       <span className="goal">
         {t([`progressGoal.${actionName}`, "progressGoal.default"], {
           goal: formatNumber(goal, separator),
