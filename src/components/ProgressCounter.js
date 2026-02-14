@@ -44,7 +44,10 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     color: theme.palette.text.secondary,
     width: "100%",
-    "& > * + *": {
+    display: "flex",
+    flexWrap: "wrap",
+    columnGap: "0.25em",
+    "& > div": {
       marginTop: theme.spacing(2),
     },
   },
@@ -134,19 +137,20 @@ export default function Progress(props) {
   if (actionName === "signature") actionName = "sign";
 
   return (
-    <Box className={`${classes.root} proca-progress`} ref={ref}>
-      <span className="count">
-        {t([`progress.${actionName}`, "progress.sign", "progress"], {
-          count: formatNumber(count, separator),
-          total: formatNumber(count, separator),
-        })}
-      </span>
-      <wbr />
-      <span className="goal">
-        {t([`progressGoal.${actionName}`, "progressGoal.default"], {
-          goal: formatNumber(goal, separator),
-        })}
-      </span>
+    <Box className="proca-progress">
+      <div className={classes.root} ref={ref}>
+        <span className="count">
+          {t([`progress.${actionName}`, "progress.sign", "progress"], {
+            count: formatNumber(count, separator),
+            total: formatNumber(count, separator),
+          })}
+        </span>
+        <span className="goal">
+          {t([`progressGoal.${actionName}`, "progressGoal.default"], {
+            goal: formatNumber(goal, separator),
+          })}
+        </span>
+      </div>
       <LinearProgress variant="determinate" value={progress} />
     </Box>
   );
