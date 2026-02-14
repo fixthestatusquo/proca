@@ -193,7 +193,8 @@
     "twitter": "{{total}} haben getwittert."
   },
   "progressGoal": {
-    "default": "Gehen wir zu {{goal}}"
+    "default": "Gehen wir zu {{goal}}",
+    "sign": "Gehen wir zu {{goal}}"
   },
   "read more": "weiterlesen",
   "region": "Region",
