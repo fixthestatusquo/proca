@@ -192,6 +192,10 @@
     "sign": "{{total}} podpísali.",
     "twitter": "{{total}} twitted."
   },
+  "progressGoal": {
+    "default": "Poďme na {{goal}}",
+    "sign": "Poďme do {{goal}}"
+  },
   "read more": "čítaj viac",
   "region": "Región",
   "register": "Pridajte moje meno",
@@ -249,8 +253,5 @@
   },
   "unknown postcode": "neznáme PSČ",
   "yes": "áno",
-  "you need to be 18 years old": "musíte mať 18 rokov",
-  "progressGoal": {
-    "default": "Poďme na {{goal}}"
-  }
+  "you need to be 18 years old": "musíte mať 18 rokov"
 }
