@@ -193,7 +193,8 @@
     "twitter": "{{total}} ir twitted."
   },
   "progressGoal": {
-    "default": "Dosimies uz {{goal}}"
+    "default": "Dosimies uz {{goal}}",
+    "sign": "Dosimies uz {{goal}}"
   },
   "read more": "Lasīt latviski",
   "region": "Reģions",
