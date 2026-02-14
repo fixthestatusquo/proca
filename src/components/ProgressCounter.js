@@ -10,20 +10,34 @@ import { useIntersection } from "@shopify/react-intersection-observer";
 
 const useStyles = makeStyles(theme => ({
   "@global": {},
-  "@keyframes procaPrimaryGrey": {
+  "@keyframes Count": {
     "0%": {
       color: theme.palette.primary.main,
     },
     "70%": {
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
+    },
+  },
+  "@keyframes Goal": {
+    "0%": {
+      color: theme.palette.text.secondary,
+    },
+    "50%": {
+      color: theme.palette.primary.main,
     },
     "100%": {
       color: theme.palette.text.secondary,
     },
   },
   animated: {
-    animation: `$procaPrimaryGrey 3s ${theme.transitions.easing.easeOut}`,
-    //    animationFillMode: "forwards",
+    "& .count": {
+      animation: `$Count 3s ${theme.transitions.easing.easeOut}`,
+      //    animationFillMode: "forwards",
+    },
+    "& .goal": {
+      animation: `$Goal 3s ${theme.transitions.easing.easeOut}`,
+      //    animationFillMode: "forwards",
+    },
   },
   root: {
     fontSize: theme.typography.pxToRem(18),
@@ -119,23 +133,20 @@ export default function Progress(props) {
     "sign";
   if (actionName === "signature") actionName = "sign";
 
-  console.log(
-    actionName,
-    t([`progressGoal.${actionName}`, "progressGoal.sign", "progressGoal"], {
-      goal: formatNumber(goal, separator),
-    })
-  );
-
   return (
     <Box className={`${classes.root} proca-progress`} ref={ref}>
-      {t([`progress.${actionName}`, "progress.sign", "progress"], {
-        count: formatNumber(count, separator),
-        total: formatNumber(count, separator),
-      })}{" "}
+      <span className="count">
+        {t([`progress.${actionName}`, "progress.sign", "progress"], {
+          count: formatNumber(count, separator),
+          total: formatNumber(count, separator),
+        })}{" "}
+      </span>
       {"\u200B"}
-      {t([`progressGoal.${actionName}`, "progressGoal.default"], {
-        goal: formatNumber(goal, separator),
-      })}
+      <span className="goal">
+        {t([`progressGoal.${actionName}`, "progressGoal.default"], {
+          goal: formatNumber(goal, separator),
+        })}
+      </span>
       <LinearProgress variant="determinate" value={progress} />
     </Box>
   );
