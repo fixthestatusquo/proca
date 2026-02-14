@@ -192,6 +192,9 @@
     "sign": "{{total}} pasirašė. Pasiekime {{goal}}",
     "twitter": "{{total}} twitted. Eikime į {{goal}}"
   },
+  "progressGoal": {
+    "default": "Keliaukime į {{goal}}"
+  },
   "read more": "skaityti daugiau",
   "region": "Regionas",
   "register": "Pridėti mano vardą",
