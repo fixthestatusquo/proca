@@ -193,7 +193,8 @@
     "twitter": "{{total}}...na twittach."
   },
   "progressGoal": {
-    "default": "Chodźmy do {{goal}}"
+    "default": "Chodźmy do {{goal}}",
+    "sign": "Chodźmy do {{goal}}"
   },
   "read more": "przeczytaj więcej",
   "region": "Region",
