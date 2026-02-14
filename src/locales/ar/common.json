@@ -193,7 +193,8 @@
     "twitter": "توأمت {{total}}. دعنا نذهب إلى {{goal}}"
   },
   "progressGoal": {
-    "default": "دعنا نصل إلى {{goal}}"
+    "default": "دعنا نصل إلى {{goal}}",
+    "sign": "دعنا نذهب إلى {{goal}}"
   },
   "read more": "اقرأ أكثر",
   "region": "المنطقة",
