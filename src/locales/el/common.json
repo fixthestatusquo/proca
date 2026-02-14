@@ -193,7 +193,8 @@
     "twitter": "{{total}} έχουν twitted."
   },
   "progressGoal": {
-    "default": "Ας πάμε στο {{goal}}"
+    "default": "Ας πάμε στο {{goal}}",
+    "sign": "Ας πάμε στο {{goal}}"
   },
   "read more": "διαβάστε περισσότερα",
   "region": "Περιοχή",
