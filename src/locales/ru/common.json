@@ -193,7 +193,8 @@
     "twitter": "{{total}} в Твиттере."
   },
   "progressGoal": {
-    "default": "Давайте перейдем к {{goal}}"
+    "default": "Давайте перейдем к {{goal}}",
+    "sign": "Пойдемте в {{goal}}"
   },
   "read more": "читать далее",
   "region": "Регион",
