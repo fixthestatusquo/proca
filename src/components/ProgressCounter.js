@@ -45,11 +45,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     width: "100%",
     display: "flex",
+    lineHeight: "1.3",
+    alignItems: "baseline",
     flexWrap: "wrap",
     columnGap: "0.25em",
-    "& > div": {
-      marginTop: theme.spacing(2),
-    },
+    rowGap: 0,
   },
 }));
 

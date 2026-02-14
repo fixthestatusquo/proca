@@ -59,23 +59,23 @@ export const initConfigState = config => {
     setActionType: (type, force) => {
       set(state => {
         if (!force && state.campaignConfig?.component?.register?.actionType)
-          return state; //do not update the type if set in the config, unless forced
-        if (!state.campaignConfig.component.register)
-          state.campaignConfig.component.register = {};
-        state.campaignConfig.component.register.actionType = type;
-        return state;
+          return state;
+        return {
+          campaignConfig: merge(state.campaignConfig, {
+            component: {
+              register: {
+                actionType: type,
+              },
+            },
+          }),
+        };
       });
     },
     setCampaignConfig: update =>
       set(state => ({
-        campaignConfig: {
-          ...state.campaignConfig,
-          ...update(state.campaignConfig),
-        },
+        campaignConfig: merge(state.campaignConfig, update),
       })),
   }));
-
-  return true;
 };
 
 export const Config = React.createContext();
