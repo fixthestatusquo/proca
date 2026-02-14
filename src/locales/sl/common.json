@@ -193,7 +193,8 @@
     "twitter": "{{total}} so tvitnili."
   },
   "progressGoal": {
-    "default": "Pojdimo na {{goal}}"
+    "default": "Pojdimo na {{goal}}",
+    "sign": "Pojdimo v {{goal}}"
   },
   "read more": "preberi več",
   "region": "Regija",
