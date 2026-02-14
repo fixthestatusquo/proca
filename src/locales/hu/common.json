@@ -193,7 +193,8 @@
     "twitter": "{{total}} twitteltek."
   },
   "progressGoal": {
-    "default": "Menjünk a {{goal}}"
+    "default": "Menjünk a {{goal}}",
+    "sign": "Menjünk a {{goal}}"
   },
   "read more": "tovább",
   "region": "Régió",
