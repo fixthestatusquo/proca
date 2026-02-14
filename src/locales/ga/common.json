@@ -192,6 +192,9 @@
     "sign": "Tá {{total}} sínithe.",
     "twitter": "Tá {{total}} tar éis tvuíteáil."
   },
+  "progressGoal": {
+    "default": "A ligean ar {{goal}} a bhaint amach"
+  },
   "read more": "Leigh níos mó",
   "region": "Réigiún",
   "register": "Cuir m’ainm leis",
@@ -252,10 +255,5 @@
   },
   "unknown postcode": "cód poist anaithnid",
   "yes": "tá",
-  "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois",
-  "progressGoal": {
-    "default": "A ligean ar {{goal}} a bhaint amach",
-    "email": "A ligean ar aghaidh go {{goal}}",
-    "twitter": "A ligean ar {{goal}} dul ar aghaidh"
-  }
+  "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois"
 }

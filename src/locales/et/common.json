@@ -192,6 +192,9 @@
     "sign": "{{total}} allkirja on kogutud.",
     "twitter": "{{total}} on twitted."
   },
+  "progressGoal": {
+    "default": "Võtame eesmärgiks {{goal}}"
+  },
   "read more": "loe edasi",
   "region": "Piirkond",
   "register": "Lisage minu nimi",
@@ -252,12 +255,5 @@
   },
   "unknown postcode": "tundmatu postiindeks",
   "yes": "jah",
-  "you need to be 18 years old": "pead olema 18-aastane",
-  "progressGoal": {
-    "default": "Võtame eesmärgiks {{goal}}",
-    "email": "Läheme {{goal}}",
-    "pledge": "Võtame sihiks: {{goal}}",
-    "share": "Läheme {{goal}}",
-    "twitter": "Läheme {{goal}}"
-  }
+  "you need to be 18 years old": "pead olema 18-aastane"
 }

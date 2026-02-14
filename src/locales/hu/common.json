@@ -192,6 +192,9 @@
     "sign": "{{total}} fő aláírta.",
     "twitter": "{{total}} twitteltek."
   },
+  "progressGoal": {
+    "default": "Menjünk a {{goal}}"
+  },
   "read more": "tovább",
   "region": "Régió",
   "register": "Add hozzá a nevemet",
@@ -249,9 +252,5 @@
   },
   "unknown postcode": "ismeretlen irányítószám",
   "yes": "igen",
-  "you need to be 18 years old": "18 évesnek kell lenned",
-  "progressGoal": {
-    "default": "Menjünk a {{goal}}",
-    "sign": "Célozzuk meg a(z) {{goal}} aláírást"
-  }
+  "you need to be 18 years old": "18 évesnek kell lenned"
 }

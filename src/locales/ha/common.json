@@ -161,6 +161,9 @@
     "sign": "{{total}} sun sanya hannu.",
     "twitter": "{{total}} sun yi sharhi."
   },
+  "progressGoal": {
+    "default": "Mu je zuwa {{goal}}"
+  },
   "read more": "kara karantawa",
   "register": "Ƙara sunana",
   "reminder": {
@@ -209,9 +212,5 @@
   },
   "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
   "yes": "iya",
-  "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
-  "progressGoal": {
-    "default": "Mu je zuwa {{goal}}",
-    "sign": "Bari mu je {{goal}}"
-  }
+  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }

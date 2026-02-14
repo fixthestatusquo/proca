@@ -192,6 +192,9 @@
     "sign": "{{total}} au semnat.",
     "twitter": "{{total}} au twittat."
   },
+  "progressGoal": {
+    "default": "Să mergem la {{goal}}"
+  },
   "read more": "citește mai mult",
   "region": "Regiunea",
   "register": "Adaugă numele meu",
@@ -249,9 +252,5 @@
   },
   "unknown postcode": "cod poștal necunoscut",
   "yes": "da",
-  "you need to be 18 years old": "trebuie să ai 18 ani",
-  "progressGoal": {
-    "default": "Să mergem la {{goal}}",
-    "sign": "Hai să strângem {{goal}}"
-  }
+  "you need to be 18 years old": "trebuie să ai 18 ani"
 }

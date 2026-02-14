@@ -161,6 +161,9 @@
     "sign": "{{total}} sinatu dute.",
     "twitter": "{{total}} twitteatu dute."
   },
+  "progressGoal": {
+    "default": "Goazen {{goal}}"
+  },
   "read more": "Irakurri gehiago",
   "register": "Gehitu nire izena",
   "reminder": {
@@ -209,9 +212,5 @@
   },
   "unknown postcode": "posta-kode ezezaguna",
   "yes": "bai",
-  "you need to be 18 years old": "18 urte izan behar dituzu",
-  "progressGoal": {
-    "default": "Goazen {{goal}}",
-    "sign": "Goazen {{goal}} atalera"
-  }
+  "you need to be 18 years old": "18 urte izan behar dituzu"
 }
