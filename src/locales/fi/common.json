@@ -193,7 +193,8 @@
     "twitter": "{{total}} ovat twiitanneet."
   },
   "progressGoal": {
-    "default": "Mennään osoitteeseen {{goal}}"
+    "default": "Mennään osoitteeseen {{goal}}",
+    "sign": "Mennään {{goal}}"
   },
   "read more": "Lue lisää",
   "region": "Alue",
