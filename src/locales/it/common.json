@@ -192,6 +192,10 @@
     "sign": "{{total}} hanno firmato.",
     "twitter": "{{total}} hanno twittato."
   },
+  "progressGoal": {
+    "default": "Andiamo a {{goal}}",
+    "sign": "Andiamo a {{goal}}"
+  },
   "read more": "Per saperne di più",
   "region": "Regione",
   "register": "Aggiungi il mio nome",
@@ -249,8 +253,5 @@
   },
   "unknown postcode": "codice postale sconosciuto",
   "yes": "sì",
-  "you need to be 18 years old": "devi avere 18 anni",
-  "progressGoal": {
-    "default": "Andiamo a {{goal}}"
-  }
+  "you need to be 18 years old": "devi avere 18 anni"
 }
