@@ -193,7 +193,8 @@
     "twitter": "{{total}} са написали twitted."
   },
   "progressGoal": {
-    "default": "Нека отидем в {{goal}}"
+    "default": "Нека отидем в {{goal}}",
+    "sign": "Да отидем в {{goal}}"
   },
   "read more": "прочетете повече",
   "region": "Регион",
