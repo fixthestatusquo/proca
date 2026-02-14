@@ -193,7 +193,8 @@
     "twitter": "{{total}} au twittat."
   },
   "progressGoal": {
-    "default": "Să mergem la {{goal}}"
+    "default": "Să mergem la {{goal}}",
+    "sign": "Să mergem la {{goal}}"
   },
   "read more": "citește mai mult",
   "region": "Regiunea",
