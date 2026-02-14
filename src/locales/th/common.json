@@ -193,7 +193,8 @@
     "twitter": "{{total}} ได้ทวีตแล้ว ไปยัง {{goal}}"
   },
   "progressGoal": {
-    "default": "มาเริ่มกันเลย{{goal}}"
+    "default": "มาเริ่มกันเลย{{goal}}",
+    "sign": "ไปกันเถอะ{{goal}}"
   },
   "read more": "อ่านเพิ่มเติม",
   "region": "ภูมิภาค",
