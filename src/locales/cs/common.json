@@ -193,7 +193,8 @@
     "twitter": "{{total}} napsali na twitteru."
   },
   "progressGoal": {
-    "default": "Pojďme na {{goal}}"
+    "default": "Pojďme na {{goal}}",
+    "sign": "Pojďme do {{goal}}"
   },
   "read more": "Přečtěte si více",
   "region": "Region",
