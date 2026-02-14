@@ -184,13 +184,13 @@
     "wrongLength": "fad ionchais de {{length}} le do thír"
   },
   "progress": {
-    "donate": "Tá síntiús tugtha ag {{total}}. A ligean ar {{goal}} a bhaint amach",
-    "email": "Tá ríomhphost seolta ag {{total}}. A ligean ar aghaidh go {{goal}}",
-    "pledge": "Tá gealltanas tugtha ag {{total}}. A ligean ar {{goal}} a bhaint amach",
-    "register": "Tá {{total}} cláraithe. A ligean ar {{goal}} a bhaint amach",
-    "share": "Tá roinnte ag {{total}}. A ligean ar {{goal}} a bhaint amach",
-    "sign": "Tá {{total}} sínithe. A ligean ar {{goal}} a bhaint amach",
-    "twitter": "Tá {{total}} tar éis tvuíteáil. A ligean ar {{goal}} dul ar aghaidh"
+    "donate": "Tá síntiús tugtha ag {{total}}.",
+    "email": "Tá ríomhphost seolta ag {{total}}.",
+    "pledge": "Tá gealltanas tugtha ag {{total}}.",
+    "register": "Tá {{total}} cláraithe.",
+    "share": "Tá roinnte ag {{total}}.",
+    "sign": "Tá {{total}} sínithe.",
+    "twitter": "Tá {{total}} tar éis tvuíteáil."
   },
   "read more": "Leigh níos mó",
   "region": "Réigiún",
@@ -252,5 +252,10 @@
   },
   "unknown postcode": "cód poist anaithnid",
   "yes": "tá",
-  "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois"
+  "you need to be 18 years old": "ní mór duit a bheith 18 mbliana d’aois",
+  "progressGoal": {
+    "default": "A ligean ar {{goal}} a bhaint amach",
+    "email": "A ligean ar aghaidh go {{goal}}",
+    "twitter": "A ligean ar {{goal}} dul ar aghaidh"
+  }
 }

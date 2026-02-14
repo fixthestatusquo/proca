@@ -161,12 +161,12 @@
   },
   "no": "ghobeʼ",
   "progress": {
-    "donate": "{{total}} nob. yIchoH {{goal}}",
-    "email": "{{total}} Qum mIʼ yIghItlh. yIchoH {{goal}}",
-    "pledge": "{{total}} vIghItlh. yIchoH {{goal}}",
-    "register": "{{total}} pong yIghItlh. yIchoH {{goal}}",
-    "share": "{{total}} boq. yIchoH {{goal}}",
-    "sign": "{{total}} maq. yIchoH {{goal}}"
+    "donate": "{{total}} nob.",
+    "email": "{{total}} Qum mIʼ yIghItlh.",
+    "pledge": "{{total}} vIghItlh.",
+    "register": "{{total}} pong yIghItlh.",
+    "share": "{{total}} boq.",
+    "sign": "{{total}} maq."
   },
   "select_all": "Hoch vIchoH",
   "select_options": "laH SoQ DaH choH {{opt}}",
@@ -177,5 +177,8 @@
   },
   "submit": "ngeH",
   "survey": "Suq",
-  "yes": "HIjaʼ"
+  "yes": "HIjaʼ",
+  "progressGoal": {
+    "default": "yIchoH {{goal}}"
+  }
 }

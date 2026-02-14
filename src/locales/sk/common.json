@@ -184,13 +184,13 @@
     "wrongLength": "očakávaná dĺžka {{length}} pre vašu krajinu"
   },
   "progress": {
-    "donate": "{{total}} darovali. Poďme na {{goal}}",
-    "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
-    "pledge": "{{total}} sa zaviazali. Poďme na {{goal}}",
-    "register": "{{total}} sa zaregistrovali. Poďme na {{goal}}",
-    "share": "{{total}} zdieľali. Poďme na {{goal}}",
-    "sign": "{{total}} podpísali. Poďme na {{goal}}",
-    "twitter": "{{total}} twitted. Poďme na {{goal}}"
+    "donate": "{{total}} darovali.",
+    "email": "{{total}} poslali e-mail.",
+    "pledge": "{{total}} sa zaviazali.",
+    "register": "{{total}} sa zaregistrovali.",
+    "share": "{{total}} zdieľali.",
+    "sign": "{{total}} podpísali.",
+    "twitter": "{{total}} twitted."
   },
   "read more": "čítaj viac",
   "region": "Región",
@@ -249,5 +249,8 @@
   },
   "unknown postcode": "neznáme PSČ",
   "yes": "áno",
-  "you need to be 18 years old": "musíte mať 18 rokov"
+  "you need to be 18 years old": "musíte mať 18 rokov",
+  "progressGoal": {
+    "default": "Poďme na {{goal}}"
+  }
 }

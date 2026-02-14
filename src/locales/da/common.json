@@ -184,13 +184,13 @@
     "wrongLength": "forventet længde af {{length}} for dit land"
   },
   "progress": {
-    "donate": "{{total}} har doneret. Lad os nå {{goal}}",
-    "email": "{{total}} har sendt en e-mail. Lad os nå {{goal}}",
-    "pledge": "{{total}} har forpligtet sig. Lad os gå til {{goal}}",
-    "register": "{{total}} har registreret. Lad os nå {{goal}}",
-    "share": "{{total}} har delt. Lad os nå {{goal}}",
-    "sign": "{{total}} har skrevet under. Lad os nå {{goal}}",
-    "twitter": "{{total}} har twittet. Lad os nå {{goal}}"
+    "donate": "{{total}} har doneret.",
+    "email": "{{total}} har sendt en e-mail.",
+    "pledge": "{{total}} har forpligtet sig.",
+    "register": "{{total}} har registreret.",
+    "share": "{{total}} har delt.",
+    "sign": "{{total}} har skrevet under.",
+    "twitter": "{{total}} har twittet."
   },
   "read more": "Læs mere",
   "region": "Region",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "ukendt postnummer",
   "yes": "ja",
-  "you need to be 18 years old": "du skal være 18 år gammel"
+  "you need to be 18 years old": "du skal være 18 år gammel",
+  "progressGoal": {
+    "default": "Lad os nå {{goal}}",
+    "pledge": "Lad os gå til {{goal}}"
+  }
 }

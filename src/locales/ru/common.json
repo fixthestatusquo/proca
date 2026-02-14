@@ -184,13 +184,13 @@
     "wrongLength": "ожидаемая длина {{length}} для вашей страны"
   },
   "progress": {
-    "donate": "{{total}} пожертвовали. Пойдемте в {{goal}}",
-    "email": "{{total}} отправили письмо. Давайте перейдем к {{goal}}",
-    "pledge": "{{total}} пообещали. Пойдемте в {{goal}}",
-    "register": "{{total}} зарегистрировались. Давайте перейдем к {{goal}}",
-    "share": "{{total}} поделились. Давайте перейдем к {{goal}}",
-    "sign": "{{total}} подписали. Переходим к {{goal}}",
-    "twitter": "{{total}} в Твиттере. Давайте перейдем к {{goal}}"
+    "donate": "{{total}} пожертвовали.",
+    "email": "{{total}} отправили письмо.",
+    "pledge": "{{total}} пообещали.",
+    "register": "{{total}} зарегистрировались.",
+    "share": "{{total}} поделились.",
+    "sign": "{{total}} подписали.",
+    "twitter": "{{total}} в Твиттере."
   },
   "read more": "читать далее",
   "region": "Регион",
@@ -249,5 +249,11 @@
   },
   "unknown postcode": "неизвестный почтовый индекс",
   "yes": "да",
-  "you need to be 18 years old": "тебе должно быть 18 лет"
+  "you need to be 18 years old": "тебе должно быть 18 лет",
+  "progressGoal": {
+    "default": "Давайте перейдем к {{goal}}",
+    "donate": "Пойдемте в {{goal}}",
+    "pledge": "Пойдемте в {{goal}}",
+    "sign": "Переходим к {{goal}}"
+  }
 }

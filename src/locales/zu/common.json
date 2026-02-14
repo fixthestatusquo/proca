@@ -163,12 +163,12 @@
     "wrongLength": "ubude obulindelekile be-{{length}} bezwe lakho"
   },
   "progress": {
-    "donate": "Abangu-{{total}} sebevele banikele. Asiqhubekele ku-{{goal}}",
-    "email": "Abangu-{{total}} sebevele bathumele i-imeyili. Asiqhubekele ku-{{goal}}",
-    "register": "Abangu-{{total}} sebevele babhalisile. Asiqhubekele ku-{{goal}}",
-    "share": "Abangu-{{total}} sebevele babelane. Asiqhubekele ku-{{goal}}",
-    "sign": "Abangu-{{total}} sebevele basayine. Asiqhubekele ku-{{goal}}",
-    "twitter": "Abangu-{{total}} sebevele bathumele i-tweet. Asiqhubekele ku-{{goal}}"
+    "donate": "Abangu-{{total}} sebevele banikele.",
+    "email": "Abangu-{{total}} sebevele bathumele i-imeyili.",
+    "register": "Abangu-{{total}} sebevele babhalisile.",
+    "share": "Abangu-{{total}} sebevele babelane.",
+    "sign": "Abangu-{{total}} sebevele basayine.",
+    "twitter": "Abangu-{{total}} sebevele bathumele i-tweet."
   },
   "read more": "funda kabanzi",
   "register": "Faka igama lami",
@@ -226,5 +226,8 @@
   },
   "unknown postcode": "ikhodi yeposi engaziwa",
   "yes": "yebo",
-  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala"
+  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala",
+  "progressGoal": {
+    "default": "Asiqhubekele ku-{{goal}}"
+  }
 }

@@ -154,12 +154,12 @@
   },
   "no": "le",
   "progress": {
-    "donate": "{{total}} taw donazzjoni. Ejja mmorru għal {{goal}}",
-    "email": "{{total}} bagħtu email. Ejja mmorru għal {{goal}}",
-    "register": "{{total}} irreġistraw. Ejja mmorru għal {{goal}}",
-    "share": "{{total}} qasmu. Ejja mmorru għal {{goal}}",
-    "sign": "{{total}} iffirmaw. Ejja mmorru għal {{goal}}",
-    "twitter": "{{total}} twitted. Ejja mmorru għal {{goal}}"
+    "donate": "{{total}} taw donazzjoni.",
+    "email": "{{total}} bagħtu email.",
+    "register": "{{total}} irreġistraw.",
+    "share": "{{total}} qasmu.",
+    "sign": "{{total}} iffirmaw.",
+    "twitter": "{{total}} twitted."
   },
   "read more": "Aqra iktar",
   "register": "Żid ismi",
@@ -209,5 +209,8 @@
   },
   "unknown postcode": "kodiċi postali mhux magħruf",
   "yes": "iva",
-  "you need to be 18 years old": "trid tkun 18-il sena"
+  "you need to be 18 years old": "trid tkun 18-il sena",
+  "progressGoal": {
+    "default": "Ejja mmorru għal {{goal}}"
+  }
 }

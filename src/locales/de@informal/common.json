@@ -184,13 +184,13 @@
     "wrongLength": "voraussichtliche Länge von {{length}} für dein Land"
   },
   "progress": {
-    "donate": "{{total}} gespendet haben. Gehen wir zu {{goal}}",
-    "email": "{{total}} haben eine E-Mail geschickt. Gehen wir zu {{goal}}",
-    "pledge": "{{total}} haben zugesagt. Gehen wir zu {{goal}}",
-    "register": "{{total}} haben sich angemeldet. Gehen wir zu {{goal}}",
-    "share": "{{total}} geteilt haben. Gehen wir zu {{goal}}",
-    "sign": "{{total}} haben unterzeichnet. Nächstes Ziel: {{goal}}",
-    "twitter": "{{total}} getwittert haben. Gehen wir zu {{goal}}"
+    "donate": "{{total}} gespendet haben.",
+    "email": "{{total}} haben eine E-Mail geschickt.",
+    "pledge": "{{total}} haben zugesagt.",
+    "register": "{{total}} haben sich angemeldet.",
+    "share": "{{total}} geteilt haben.",
+    "sign": "{{total}} haben unterzeichnet.",
+    "twitter": "{{total}} getwittert haben."
   },
   "read more": "mehr lesen",
   "region": "Region",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "unbekannte Postleitzahl",
   "yes": "ja",
-  "you need to be 18 years old": "Du musst 18 Jahre alt sein"
+  "you need to be 18 years old": "Du musst 18 Jahre alt sein",
+  "progressGoal": {
+    "default": "Gehen wir zu {{goal}}",
+    "sign": "Nächstes Ziel: {{goal}}"
+  }
 }

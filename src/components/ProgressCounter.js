@@ -113,15 +113,27 @@ export default function Progress(props) {
   }
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
-  const actionName =
+  let actionName =
     config.component.register.actionType ||
     config.component.register?.button?.split(".")[1] ||
     "sign";
+  if (actionName === "signature") actionName = "sign";
+
+  console.log(
+    actionName,
+    t([`progressGoal.${actionName}`, "progressGoal.sign", "progressGoal"], {
+      goal: formatNumber(goal, separator),
+    })
+  );
+
   return (
     <Box className={`${classes.root} proca-progress`} ref={ref}>
       {t([`progress.${actionName}`, "progress.sign", "progress"], {
         count: formatNumber(count, separator),
         total: formatNumber(count, separator),
+      })}{" "}
+      {"\u200B"}
+      {t([`progressGoal.${actionName}`, "progressGoal.default"], {
         goal: formatNumber(goal, separator),
       })}
       <LinearProgress variant="determinate" value={progress} />

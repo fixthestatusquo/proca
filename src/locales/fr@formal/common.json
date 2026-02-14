@@ -184,13 +184,13 @@
     "wrongLength": "durée prévue de {{length}} pour votre pays"
   },
   "progress": {
-    "donate": "{{total}} ont fait un don. Rendez-vous à l'adresse suivante {{goal}}",
-    "email": "{{total}} ont envoyé un courriel. Rendez-vous sur le site {{goal}}",
-    "pledge": "{{total}} se sont engagés. Rendez-vous à l'adresse suivante {{goal}}",
-    "register": "{{total}} se sont inscrits. Rendez-vous sur le site {{goal}}",
-    "share": "{{total}} ont partagé. Rendez-vous sur le site de {{goal}}",
-    "sign": "{{total}} ont signé. Rendez-vous à l'adresse suivante {{goal}}",
-    "twitter": "{{total}} ont twitté. Rendez-vous sur le site {{goal}}"
+    "donate": "{{total}} ont fait un don.",
+    "email": "{{total}} ont envoyé un courriel.",
+    "pledge": "{{total}} se sont engagés.",
+    "register": "{{total}} se sont inscrits.",
+    "share": "{{total}} ont partagé.",
+    "sign": "{{total}} ont signé.",
+    "twitter": "{{total}} ont twitté."
   },
   "read more": "en savoir plus",
   "region": "Région",
@@ -249,5 +249,12 @@
   },
   "unknown postcode": "code postal inconnu",
   "yes": "oui",
-  "you need to be 18 years old": "vous devez avoir 18 ans"
+  "you need to be 18 years old": "vous devez avoir 18 ans",
+  "progressGoal": {
+    "default": "Rendez-vous à l'adresse suivante {{goal}}",
+    "email": "Rendez-vous sur le site {{goal}}",
+    "register": "Rendez-vous sur le site {{goal}}",
+    "share": "Rendez-vous sur le site de {{goal}}",
+    "twitter": "Rendez-vous sur le site {{goal}}"
+  }
 }

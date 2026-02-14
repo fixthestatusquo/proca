@@ -184,13 +184,13 @@
     "wrongLength": "אורך צפוי של {{length}} עבור המדינה שלך"
   },
   "progress": {
-    "donate": "{{total}} תרמו. בוא נלך אל {{goal}}",
-    "email": "{{total}} שלחו אימייל. בוא נלך אל {{goal}}",
-    "pledge": "{{total}} התחייבו. בואו נלך ל {{goal}}",
-    "register": "{{total}} נרשמו. בוא נלך אל {{goal}}",
-    "share": "{{total}} שיתפו. בוא נלך אל {{goal}}",
-    "sign": "{{total}} חתמו. בוא נלך אל {{goal}}",
-    "twitter": "{{total}} צייצו. בוא נלך אל {{goal}}"
+    "donate": "{{total}} תרמו.",
+    "email": "{{total}} שלחו אימייל.",
+    "pledge": "{{total}} התחייבו.",
+    "register": "{{total}} נרשמו.",
+    "share": "{{total}} שיתפו.",
+    "sign": "{{total}} חתמו.",
+    "twitter": "{{total}} צייצו."
   },
   "read more": "קרא עוד",
   "region": "אזור",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "מיקוד לא ידוע",
   "yes": "כן",
-  "you need to be 18 years old": "אתה צריך להיות בן 18"
+  "you need to be 18 years old": "אתה צריך להיות בן 18",
+  "progressGoal": {
+    "default": "בוא נלך אל {{goal}}",
+    "pledge": "בואו נלך ל {{goal}}"
+  }
 }

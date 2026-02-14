@@ -184,13 +184,13 @@
     "wrongLength": "Duração esperada de {{length}} para seu país"
   },
   "progress": {
-    "donate": "{{total}} doaram. Vamos para {{goal}}",
-    "email": "{{total}} enviaram um e-mail. Vamos para {{goal}}",
-    "pledge": "{{total}} se comprometeram. Vamos para {{goal}}",
-    "register": "{{total}} se registraram. Vamos para {{goal}}",
-    "share": "{{total}} compartilharam. Vamos para {{goal}}",
-    "sign": "{{total}} assinaram. Vamos para {{goal}}",
-    "twitter": "{{total}} twittaram. Vamos para {{goal}}"
+    "donate": "{{total}} doaram.",
+    "email": "{{total}} enviaram um e-mail.",
+    "pledge": "{{total}} se comprometeram.",
+    "register": "{{total}} se registraram.",
+    "share": "{{total}} compartilharam.",
+    "sign": "{{total}} assinaram.",
+    "twitter": "{{total}} twittaram."
   },
   "read more": "leia mais",
   "region": "Região",
@@ -249,5 +249,8 @@
   },
   "unknown postcode": "código postal desconhecido",
   "yes": "sim",
-  "you need to be 18 years old": "você precisa ter 18 anos de idade"
+  "you need to be 18 years old": "você precisa ter 18 anos de idade",
+  "progressGoal": {
+    "default": "Vamos para {{goal}}"
+  }
 }

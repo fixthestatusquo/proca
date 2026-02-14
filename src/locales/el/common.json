@@ -184,13 +184,13 @@
     "wrongLength": "αναμενόμενη διάρκεια του {{length}} για τη χώρα σας"
   },
   "progress": {
-    "donate": "{{total}} έχουν δωρίσει. Ας πάμε στο {{goal}}",
-    "email": "{{total}} έχουν στείλει ένα email. Ας πάμε στο {{goal}}",
-    "pledge": "{{total}} έχουν δεσμευτεί. Ας πάμε στο {{goal}}",
-    "register": "{{total}} έχουν εγγραφεί. Ας πάμε στο {{goal}}",
-    "share": "{{total}} έχουν μοιραστεί. Ας πάμε στο {{goal}}",
-    "sign": "{{total}}  έχουν υπογράψει. Ας φτάσουμε τους {{goal}}",
-    "twitter": "{{total}} έχουν twitted. Ας πάμε στο {{goal}}"
+    "donate": "{{total}} έχουν δωρίσει.",
+    "email": "{{total}} έχουν στείλει ένα email.",
+    "pledge": "{{total}} έχουν δεσμευτεί.",
+    "register": "{{total}} έχουν εγγραφεί.",
+    "share": "{{total}} έχουν μοιραστεί.",
+    "sign": "{{total}}  έχουν υπογράψει.",
+    "twitter": "{{total}} έχουν twitted."
   },
   "read more": "διαβάστε περισσότερα",
   "region": "Περιοχή",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "άγνωστος ταχυδρομικός κώδικας",
   "yes": "ναι",
-  "you need to be 18 years old": "πρέπει να είστε 18 ετών"
+  "you need to be 18 years old": "πρέπει να είστε 18 ετών",
+  "progressGoal": {
+    "default": "Ας πάμε στο {{goal}}",
+    "sign": "Ας φτάσουμε τους {{goal}}"
+  }
 }

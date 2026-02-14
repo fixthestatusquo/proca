@@ -184,13 +184,13 @@
     "wrongLength": "Chiều dài dự kiến của \" {{length}} \" cho quốc gia của bạn"
   },
   "progress": {
-    "donate": "{{total}} đã quyên góp. Hãy chuyển đến {{goal}}",
-    "email": "{{total}} đã gửi email. Hãy chuyển đến {{goal}}",
-    "pledge": "{{total}} đã cam kết. Hãy cùng nhau đến {{goal}}",
-    "register": "{{total}} đã đăng ký. Hãy chuyển đến {{goal}}",
-    "share": "{{total}} đã chia sẻ. Hãy đến với {{goal}}",
-    "sign": "{{total}} đã ký. Hãy chuyển đến {{goal}}",
-    "twitter": "{{total}} đã twitted. Hãy chuyển đến {{goal}}"
+    "donate": "{{total}} đã quyên góp.",
+    "email": "{{total}} đã gửi email.",
+    "pledge": "{{total}} đã cam kết.",
+    "register": "{{total}} đã đăng ký.",
+    "share": "{{total}} đã chia sẻ.",
+    "sign": "{{total}} đã ký.",
+    "twitter": "{{total}} đã twitted."
   },
   "read more": "đọc thêm",
   "region": "Khu vực",
@@ -249,5 +249,10 @@
   },
   "unknown postcode": "mã bưu điện không xác định",
   "yes": "Đúng",
-  "you need to be 18 years old": "bạn cần đủ 18 tuổi"
+  "you need to be 18 years old": "bạn cần đủ 18 tuổi",
+  "progressGoal": {
+    "default": "Hãy chuyển đến {{goal}}",
+    "pledge": "Hãy cùng nhau đến {{goal}}",
+    "share": "Hãy đến với {{goal}}"
+  }
 }
