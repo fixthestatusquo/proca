@@ -193,7 +193,8 @@
     "twitter": "{{total}} hebben getwitterd."
   },
   "progressGoal": {
-    "default": "Laten we naar {{goal}}"
+    "default": "Laten we naar {{goal}}",
+    "sign": "Laten we naar {{goal}}"
   },
   "read more": "lees meer",
   "region": "Regio",
