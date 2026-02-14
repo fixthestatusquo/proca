@@ -193,7 +193,8 @@
     "twitter": "{{total}} ont twitté."
   },
   "progressGoal": {
-    "default": "Allons sur {{goal}}"
+    "default": "Allons sur {{goal}}",
+    "sign": "Allons à {{goal}}"
   },
   "read more": "en savoir plus",
   "region": "Région",
