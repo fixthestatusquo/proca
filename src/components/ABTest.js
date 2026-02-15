@@ -21,9 +21,7 @@ const ABTest = () => {
     tested = true;
     const variant = Math.floor(Math.random() * variants.length);
     setVariant(variants[variant].name || String.fromCharCode(65 + variant));
-    setConfig(current => {
       const config = { component: variants[variant].component };
-      console.log("AB", current, config, merge(current, config));
       //      const next = { ...current };
       //      next.component.register.field.phone = true;
       return merge(current, config);
