@@ -76,16 +76,15 @@ const Observer = async (event, data, pii) => {
   dataLayerObserver(event, data);
 };
 
-const ActObserver = async (event, data, pii) => {
-  console.log(event);
+const ActObserver = async event => {
   if (event.endsWith(":complete")) {
     const events = window.getTargetStateEvents("#single-sign-up", {
       0: document.querySelector("gpd-engage-form"),
     });
-    console.log("done", events);
     events.forEach(event => {
       window.dispatchEvent(event);
     });
+    proca.set("component", "widget.fab", false);
   }
 };
 
