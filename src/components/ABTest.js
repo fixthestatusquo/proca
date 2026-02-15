@@ -21,11 +21,9 @@ const ABTest = () => {
     tested = true;
     const variant = Math.floor(Math.random() * variants.length);
     setVariant(variants[variant].name || String.fromCharCode(65 + variant));
-      const config = { component: variants[variant].component };
-      //      const next = { ...current };
-      //      next.component.register.field.phone = true;
-      return merge(current, config);
-    });
+    const config = { component: variants[variant].component };
+    //TODO, handle variants on layout, locale and portal
+    setConfig(config);
   }, [variants]);
 
   return null;

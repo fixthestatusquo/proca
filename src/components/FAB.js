@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
 */
 const FABAction = (props, ref) => {
   //  const theme = useTheme();
-  const [compact, setCompact] = useState(false);
+  const [compact, setCompact] = useState(false); //display the text and the counter if !compact
   const { t } = useTranslation();
   const config = useCampaignConfig();
   const [intersection, intersectionRef] = useIntersection();
@@ -63,6 +63,10 @@ const FABAction = (props, ref) => {
 
   useEffect(() => {
     setCompact(false);
+    return () => {
+      console.log("widget visible");
+      // Clean up resources
+    };
   }, [intersection.isIntersecting, setCompact]);
 
   if (intersection.isIntersecting) return null;
