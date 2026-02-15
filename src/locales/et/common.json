@@ -193,7 +193,8 @@
     "twitter": "{{total}} on twitted."
   },
   "progressGoal": {
-    "default": "Võtame eesmärgiks {{goal}}"
+    "default": "Võtame eesmärgiks {{goal}}",
+    "sign": "Lähme {{goal}}"
   },
   "read more": "loe edasi",
   "region": "Piirkond",
