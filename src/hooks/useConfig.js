@@ -6,9 +6,40 @@ import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
 import { merge, set } from "@lib/object";
 
-export let configStore = null;
+export const configStore = create(set => ({
+  campaignConfig: null,
+  setActionType: (type, force) => {
+    set(state => {
+      if (!force && state.campaignConfig?.component?.register?.actionType)
+        return state;
+      return {
+        campaignConfig: merge(state.campaignConfig, {
+          component: {
+            register: {
+              actionType: type,
+            },
+          },
+        }),
+      };
+    });
+  },
+  setCampaignConfig: update => {
+    if (typeof update === "function") {
+      return set(state => ({ campaignConfig: update(state.campaignConfig) }));
+    } else {
+      return set(state => {
+        return {
+          campaignConfig: merge(state.campaignConfig || {}, update),
+        };
+      });
+    }
+  },
+}));
 
 export const initConfigState = config => {
+  // Early return if already initialized
+  if (configStore.getState().campaignConfig) return false;
+
   if (config.locales) {
     let campaignTitle = false;
     Object.keys(config.locales).forEach(k => {
@@ -51,47 +82,15 @@ export const initConfigState = config => {
   }
   initLayout(config.layout);
   delete config.locales;
-
-  if (configStore) return false;
-
-  configStore = create(set => ({
-    campaignConfig: config,
-    setActionType: (type, force) => {
-      set(state => {
-        if (!force && state.campaignConfig?.component?.register?.actionType)
-          return state;
-        return {
-          campaignConfig: merge(state.campaignConfig, {
-            component: {
-              register: {
-                actionType: type,
-              },
-            },
-          }),
-        };
-      });
-    },
-    setCampaignConfig: update => {
-      if (typeof update === "function") {
-        return set(state => ({ campaignConfig: update(state.campaignConfig) }));
-      } else {
-        return set(state => {
-          return {
-            campaignConfig: merge(state.campaignConfig, update),
-          };
-        });
-      }
-    },
-  }));
+  // TODO: check if we need to store config.layout in the campaign config
+  configStore.getState().setCampaignConfig(config);
 };
-
-export const Config = React.createContext();
 
 const id = "proca-listener";
 
-export const setGlobalState = (key, value) => {
+export const setGlobalState = (part, key, value) => {
   const event = new CustomEvent("proca-set", {
-    detail: { key, value },
+    detail: { part, key, value },
   });
 
   const el = document.getElementById(id);
@@ -129,10 +128,9 @@ export const ConfigProvider = props => {
   const go = props.go;
 
   const setPartPath = (part, path, value) => {
-    setCampaignConfig(config => {
-      const updatedConfig = JSON.parse(JSON.stringify(config));
-      return set(updatedConfig, `${part}.${path}`, value);
-    });
+    const _part = set({}, `${part}.${path}`, value);
+    setCampaignConfig(_part);
+    return;
   };
 
   const setPart = (part, toMerge) => {
@@ -167,18 +165,19 @@ export const ConfigProvider = props => {
     elem.addEventListener(
       "proca-set",
       e => {
-        switch (e.detail.key) {
+        const { part, key, value } = e.detail;
+        switch (part) {
           case "layout":
-            setLayout(e.detail.value);
+            setLayout(key, value);
             break;
           case "component":
-            handlePart(e.detail.key, e.detail.value);
+            handlePart(part, key, value);
             break;
           case "data":
-            setData(e.detail.key, e.detail.value);
+            setData(part, key, value);
             break;
           default:
-            console.error("you need to specify a valid key");
+            console.error("you need to specify a valid part");
         }
       },
       false
