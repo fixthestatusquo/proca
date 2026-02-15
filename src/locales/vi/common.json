@@ -193,7 +193,8 @@
     "twitter": "{{total}} đã twitted."
   },
   "progressGoal": {
-    "default": "Hãy chuyển đến {{goal}}"
+    "default": "Hãy chuyển đến {{goal}}",
+    "sign": "Hãy đi đến {{goal}}"
   },
   "read more": "đọc thêm",
   "region": "Khu vực",
