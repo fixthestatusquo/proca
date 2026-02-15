@@ -192,6 +192,10 @@
     "sign": "{{total}} osób już podpisało.",
     "twitter": "{{total}}...na twittach."
   },
+  "progressGoal": {
+    "default": "Chodźmy do {{goal}}",
+    "sign": "Dążymy do {{goal}}"
+  },
   "read more": "przeczytaj więcej",
   "region": "Region",
   "register": "Podpisuję petycję",
@@ -249,13 +253,5 @@
   },
   "unknown postcode": "nieznany kod pocztowy",
   "yes": "tak",
-  "you need to be 18 years old": "musisz mieć ukończone 18 lat",
-  "progressGoal": {
-    "default": "Chodźmy do {{goal}}",
-    "donate": "Osiągnijmy {{goal}}",
-    "email": "Wejdźmy na stronę {{goal}}",
-    "pledge": "Przejdźmy do {{goal}}",
-    "register": "Osiągnijmy {{goal}}",
-    "sign": "Dążymy do {{goal}}"
-  }
+  "you need to be 18 years old": "musisz mieć ukończone 18 lat"
 }

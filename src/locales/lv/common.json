@@ -192,6 +192,10 @@
     "sign": "{{total}} ir parakstījušies.",
     "twitter": "{{total}} ir twitted."
   },
+  "progressGoal": {
+    "default": "Dosimies uz {{goal}}",
+    "sign": "Dodamies uz {{goal}}"
+  },
   "read more": "Lasīt latviski",
   "region": "Reģions",
   "register": "Pievienojiet manu vārdu",
@@ -249,12 +253,5 @@
   },
   "unknown postcode": "nezināms pasta indekss",
   "yes": "jā",
-  "you need to be 18 years old": "jums jābūt 18 gadus vecam",
-  "progressGoal": {
-    "default": "Dosimies uz {{goal}}",
-    "email": "Dodamies uz {{goal}}",
-    "register": "Dodamies uz {{goal}}",
-    "sign": "Dodamies uz {{goal}}",
-    "twitter": "Iesim uz {{goal}}"
-  }
+  "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }

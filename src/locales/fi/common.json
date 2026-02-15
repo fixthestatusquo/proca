@@ -192,6 +192,10 @@
     "sign": "{{total}} on allekirjoittanut.",
     "twitter": "{{total}} ovat twiitanneet."
   },
+  "progressGoal": {
+    "default": "Mennään osoitteeseen {{goal}}",
+    "sign": "Tavoite: {{goal}}"
+  },
   "read more": "Lue lisää",
   "region": "Alue",
   "register": "Lisää nimeni",
@@ -249,11 +253,5 @@
   },
   "unknown postcode": "tuntematon postinumero",
   "yes": "kyllä",
-  "you need to be 18 years old": "sinun on oltava 18-vuotias",
-  "progressGoal": {
-    "default": "Mennään osoitteeseen {{goal}}",
-    "pledge": "Mennään {{goal}}",
-    "share": "Mennään {{goal}}",
-    "sign": "Tavoite: {{goal}}"
-  }
+  "you need to be 18 years old": "sinun on oltava 18-vuotias"
 }
