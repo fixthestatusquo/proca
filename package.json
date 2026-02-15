@@ -78,7 +78,7 @@
     "universal-base64url": "^1.1.0",
     "use-image": "^1.1.4",
     "uuid": "^10.0.0",
-    "zustand": "^4.5.5"
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@absinthe/socket": "^0.2.1",
@@ -93,7 +93,7 @@
     "baseline-browser-mapping": "^2.9.19",
     "cli-color": "^2.0.4",
     "dotenv": "^16.5.0",
-    "esbuild": "^0.27.2",
+    "esbuild": "^0.27.3",
     "esbuild-plugin-copy": "^2.1.1",
     "i18next-fs-backend": "^2.6.0",
     "lefthook": "^2.0.16",
