@@ -1,15 +1,22 @@
 import React from "react";
 import "./polyfill";
 import ReactDOM from "react-dom";
-import { goStep, hook, setConfig, setGlobalState } from "./hooks/useConfig";
+import {
+  goStep,
+  hook,
+  setConfig,
+  setGlobalState,
+  configStore,
+} from "./hooks/useConfig";
 import "./lib/i18n";
+import { get as getPath } from "./lib/object";
 import { isTest } from "./lib/urlparser";
 import { scrollTo } from "./lib/scroll";
 
 //import ProcaAlert from "./components/Alert.js";
 import Portals from "./components/Portals.js";
 import ProcaWidget from "./components/Widget.js";
-import {addAlert} from "@hooks/useAlert.js";
+import { addAlert } from "@hooks/useAlert.js";
 
 import { config as Config } from "./actionPage";
 
@@ -22,11 +29,11 @@ let rendered = false;
 const getJourney = () => Config.journey;
 
 const Alert = (text, severity) => {
-  if (typeof text === 'object') {
-    addAlert(text); return;
+  if (typeof text === "object") {
+    addAlert(text);
+    return;
   }
-  addAlert({text, severity});
-
+  addAlert({ text, severity });
 };
 
 const initPortals = portals => {
@@ -77,7 +84,7 @@ const Widget = args => {
 
   // <ProcaWidget config={config} {...config} />,
   rendered = true;
-  
+
   ReactDOM.render(
     <ProcaWidget {...config} container={frag}>
       <Portals portals={config.portal} dom={frag} />
@@ -96,11 +103,13 @@ const go = action => {
   scrollTo({ delay: 300 });
 };
 
-const get = (key) => {
-  if (!key) {
-    return Config;
+const get = key => {
+  const state = configStore.getState();
+  if (key) {
+    return getPath(state.campaignConfig, key);
   }
-}
+  return state.campaignConfig;
+};
 
 const set = (atom, key, value) => {
   //  config[key] = value; // pointless?
