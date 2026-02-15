@@ -161,6 +161,9 @@
     "sign": "{{total}} hunn ënnerschriwwen.",
     "twitter": "{{total}} hunn twitted."
   },
+  "progressGoal": {
+    "default": "Loosst eis op {{goal}}"
+  },
   "read more": "liesen méi",
   "register": "Füügt mäi Numm dobäi",
   "reminder": {
@@ -209,9 +212,5 @@
   },
   "unknown postcode": "onbekannt Postleitzuel",
   "yes": "Jo",
-  "you need to be 18 years old": "Dir musst 18 Joer al sinn",
-  "progressGoal": {
-    "default": "Loosst eis op {{goal}}",
-    "sign": "Loosst eis {{goal}} erreechen"
-  }
+  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
 }

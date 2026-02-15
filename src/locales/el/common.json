@@ -192,6 +192,10 @@
     "sign": "{{total}}  έχουν υπογράψει.",
     "twitter": "{{total}} έχουν twitted."
   },
+  "progressGoal": {
+    "default": "Ας πάμε στο {{goal}}",
+    "sign": "Ας πάμε στο {{goal}}"
+  },
   "read more": "διαβάστε περισσότερα",
   "region": "Περιοχή",
   "register": "Προσθέστε το όνομά μου",
@@ -249,9 +253,5 @@
   },
   "unknown postcode": "άγνωστος ταχυδρομικός κώδικας",
   "yes": "ναι",
-  "you need to be 18 years old": "πρέπει να είστε 18 ετών",
-  "progressGoal": {
-    "default": "Ας πάμε στο {{goal}}",
-    "sign": "Ας φτάσουμε τους {{goal}}"
-  }
+  "you need to be 18 years old": "πρέπει να είστε 18 ετών"
 }

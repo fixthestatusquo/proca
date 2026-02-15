@@ -192,6 +192,10 @@
     "sign": "{{total}} підписали.",
     "twitter": "{{total}} написали у твіттері."
   },
+  "progressGoal": {
+    "default": "Давайте перейдемо до {{goal}}",
+    "sign": "Перейдемо до {{goal}}"
+  },
   "read more": "читати далі",
   "region": "Регіон",
   "register": "Додати моє ім’я",
@@ -252,11 +256,5 @@
   },
   "unknown postcode": "невідомий поштовий індекс",
   "yes": "Так.",
-  "you need to be 18 years old": "вам має бути 18 років",
-  "progressGoal": {
-    "default": "Давайте перейдемо до {{goal}}",
-    "email": "Перейдемо до {{goal}}",
-    "register": "Перейдемо до {{goal}}",
-    "sign": "Перейдемо до {{goal}}"
-  }
+  "you need to be 18 years old": "вам має бути 18 років"
 }

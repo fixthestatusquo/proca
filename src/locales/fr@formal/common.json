@@ -192,6 +192,10 @@
     "sign": "{{total}} ont signé.",
     "twitter": "{{total}} ont twitté."
   },
+  "progressGoal": {
+    "default": "Rendez-vous à l'adresse suivante {{goal}}",
+    "sign": "Allons à {{goal}}"
+  },
   "read more": "en savoir plus",
   "region": "Région",
   "register": "Ajouter mon nom",
@@ -249,12 +253,5 @@
   },
   "unknown postcode": "code postal inconnu",
   "yes": "oui",
-  "you need to be 18 years old": "vous devez avoir 18 ans",
-  "progressGoal": {
-    "default": "Rendez-vous à l'adresse suivante {{goal}}",
-    "email": "Rendez-vous sur le site {{goal}}",
-    "register": "Rendez-vous sur le site {{goal}}",
-    "share": "Rendez-vous sur le site de {{goal}}",
-    "twitter": "Rendez-vous sur le site {{goal}}"
-  }
+  "you need to be 18 years old": "vous devez avoir 18 ans"
 }

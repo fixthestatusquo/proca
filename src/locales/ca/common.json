@@ -161,6 +161,9 @@
     "sign": "{{total}} han signat.",
     "twitter": "{{total}} han twitteat."
   },
+  "progressGoal": {
+    "default": "Anem a {{goal}}"
+  },
   "read more": "Llegeix més",
   "register": "Afegeix el meu nom",
   "reminder": {
@@ -209,9 +212,5 @@
   },
   "unknown postcode": "codi postal desconegut",
   "yes": "sí",
-  "you need to be 18 years old": "Ha de ser major d'edat",
-  "progressGoal": {
-    "default": "Anem a {{goal}}",
-    "sign": "Volem arribar a {{goal}}"
-  }
+  "you need to be 18 years old": "Ha de ser major d'edat"
 }

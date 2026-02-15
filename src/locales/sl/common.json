@@ -192,6 +192,10 @@
     "sign": "{{total}} oseb se je podpisalo.",
     "twitter": "{{total}} so tvitnili."
   },
+  "progressGoal": {
+    "default": "Pojdimo na {{goal}}",
+    "sign": "Pojdimo v {{goal}}"
+  },
   "read more": "preberi več",
   "region": "Regija",
   "register": "Dodaj moje ime",
@@ -249,9 +253,5 @@
   },
   "unknown postcode": "neznana poštna številka",
   "yes": "da",
-  "you need to be 18 years old": "moraš biti star 18 let",
-  "progressGoal": {
-    "default": "Pojdimo na {{goal}}",
-    "sign": "Pojdimo do {{goal}}"
-  }
+  "you need to be 18 years old": "moraš biti star 18 let"
 }
