@@ -204,7 +204,7 @@ export const ConfigProvider = props => {
       },
       false
     );
-  }, [go, setHook, setLayout, handlePart, setData]);
+  }, [go, setHook, setLayout, setData]);
 
   return (
     <>
@@ -226,6 +226,7 @@ export const useJourneyConfig = () =>
 export const useConfig = () => configStore(state => state.campaignConfig);
 export const useSetCampaignConfig = () =>
   configStore(state => state.setCampaignConfig);
+
 export const useSetActionType = type => {
   const setActionType = configStore(state => state.setActionType);
   useEffect(() => {
