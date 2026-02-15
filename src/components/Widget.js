@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import ProcaRoot from "@components/ProcaRoot";
 import { merge } from "@lib/object";
-import { initConfigState } from "@hooks/useConfig";
+import { initConfigState, useComponentConfig } from "@hooks/useConfig";
 import Url, { step as paramStep, get as urlGet } from "@lib/urlparser";
 import { getCookie } from "@lib/cookie";
 import { getItems } from "@lib/localStorage";
@@ -23,8 +23,8 @@ import { initDataState } from "@hooks/useData";
 
 import Loader from "@components/Loader";
 
-import { AlertRenderer } from '@components/layout/AlertRenderer';
-import { useAddAlert } from '@hooks/useAlert';
+import { AlertRenderer } from "@components/layout/AlertRenderer";
+import { useAddAlert } from "@hooks/useAlert";
 
 import { steps } from "../actionPage";
 import Button from "@components/FAB";
@@ -100,8 +100,6 @@ const Widget = props => {
   const topMulti = useRef(0); // latest Action level 0 rendered
   const propsJourney = Object.assign([], props.journey);
   const isMobile = useIsMobile(paramStep()); // paramStep contains the proca_go http param, if set, never mobile
-  const fab = config.component.widget?.fab !== false;
-
   let data = Url.data();
   if (props) config = { ...config, ...props };
 
@@ -130,7 +128,8 @@ const Widget = props => {
     console.assert("No actionPage defined. Can't continue.");
   }
   initConfigState(config);
-
+  const component = useComponentConfig();
+  const fab = component.widget?.fab !== false;
   initDataState(data, config);
 
   const test = config.test;
@@ -138,9 +137,9 @@ const Widget = props => {
     if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
     showAlert({
       title: "TEST MODE",
-      text: 'Experiment freely, this action will not be counted',
-      severity: 'warning',
-      autoHideDuration: 10000000
+      text: "Experiment freely, this action will not be counted",
+      severity: "warning",
+      autoHideDuration: 10000000,
     });
     const styles = `
 @keyframes procaBackgroundTest {
@@ -157,7 +156,6 @@ const Widget = props => {
 `;
 
     const styleSheet = document.createElement("style");
-    styleSheet.type = "text/css";
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
   }, [test]);
@@ -192,14 +190,6 @@ const Widget = props => {
       config
     );
     init = true;
-  }
-
-  if (props.loader) {
-    //obsolete, to be removed
-    config.loader = props.loader;
-    journey.unshift("loader");
-    steps["loader"] = Loader;
-    depths.push(0);
   }
 
   propsJourney.forEach(d => {

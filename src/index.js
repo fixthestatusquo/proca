@@ -113,10 +113,13 @@ const get = key => {
 
 const set = (atom, key, value) => {
   //  config[key] = value; // pointless?
-  if ((atom && key && value) || (atom && typeof key === "object")) {
-    return setGlobalState(atom, key);
+  if (
+    (atom && key && value !== undefined) ||
+    (atom && typeof key === "object")
+  ) {
+    return setGlobalState(atom, key, value);
   }
-  setConfig(key, value);
+  console.error("set not planned", atom, key, value);
 };
 
 const render = script => {
