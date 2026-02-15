@@ -193,7 +193,8 @@
     "twitter": "{{total}} ont twitté."
   },
   "progressGoal": {
-    "default": "Rendez-vous à l'adresse suivante {{goal}}"
+    "default": "Rendez-vous à l'adresse suivante {{goal}}",
+    "sign": "Allons à {{goal}}"
   },
   "read more": "en savoir plus",
   "region": "Région",
