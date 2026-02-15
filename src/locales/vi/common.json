@@ -192,6 +192,10 @@
     "sign": "{{total}} đã ký.",
     "twitter": "{{total}} đã twitted."
   },
+  "progressGoal": {
+    "default": "Hãy chuyển đến {{goal}}",
+    "sign": "Hãy đi đến {{goal}}"
+  },
   "read more": "đọc thêm",
   "region": "Khu vực",
   "register": "Thêm tên của tôi",
@@ -249,10 +253,5 @@
   },
   "unknown postcode": "mã bưu điện không xác định",
   "yes": "Đúng",
-  "you need to be 18 years old": "bạn cần đủ 18 tuổi",
-  "progressGoal": {
-    "default": "Hãy chuyển đến {{goal}}",
-    "pledge": "Hãy cùng nhau đến {{goal}}",
-    "share": "Hãy đến với {{goal}}"
-  }
+  "you need to be 18 years old": "bạn cần đủ 18 tuổi"
 }

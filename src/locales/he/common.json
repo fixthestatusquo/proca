@@ -192,6 +192,10 @@
     "sign": "{{total}} חתמו.",
     "twitter": "{{total}} צייצו."
   },
+  "progressGoal": {
+    "default": "בוא נלך אל {{goal}}",
+    "sign": "בואו נלך ל {{goal}}"
+  },
   "read more": "קרא עוד",
   "region": "אזור",
   "register": "הוסף את שמי",
@@ -249,9 +253,5 @@
   },
   "unknown postcode": "מיקוד לא ידוע",
   "yes": "כן",
-  "you need to be 18 years old": "אתה צריך להיות בן 18",
-  "progressGoal": {
-    "default": "בוא נלך אל {{goal}}",
-    "pledge": "בואו נלך ל {{goal}}"
-  }
+  "you need to be 18 years old": "אתה צריך להיות בן 18"
 }
