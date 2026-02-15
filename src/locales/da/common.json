@@ -193,7 +193,8 @@
     "twitter": "{{total}} har twittet."
   },
   "progressGoal": {
-    "default": "Lad os nå {{goal}}"
+    "default": "Lad os nå {{goal}}",
+    "sign": "Lad os gå til {{goal}}"
   },
   "read more": "Læs mere",
   "region": "Region",
