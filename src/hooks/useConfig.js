@@ -71,10 +71,17 @@ export const initConfigState = config => {
         };
       });
     },
-    setCampaignConfig: update =>
-      set(state => ({
-        campaignConfig: merge(state.campaignConfig, update),
-      })),
+    setCampaignConfig: update => {
+      if (typeof update === "function") {
+        return set(state => ({ campaignConfig: update(state.campaignConfig) }));
+      } else {
+        return set(state => {
+          return {
+            campaignConfig: merge(state.campaignConfig, update),
+          };
+        });
+      }
+    },
   }));
 };
 
@@ -117,7 +124,7 @@ const setHook = (object, action, hook) => {
 
 export const ConfigProvider = props => {
   const setLayout = useSetLayout();
-  const { setCampaignConfig } = configStore();
+  const setCampaignConfig = useSetCampaignConfig();
   const [, setData] = useData();
   const go = props.go;
 
@@ -129,11 +136,9 @@ export const ConfigProvider = props => {
   };
 
   const setPart = (part, toMerge) => {
-    setCampaignConfig(config => {
-      const update = {};
-      update[part] = toMerge;
-      return merge(config, update);
-    });
+    const update = {};
+    update[part] = toMerge;
+    setCampaignConfig(update);
   };
 
   const handlePart = (part, key, value) => {
@@ -217,9 +222,11 @@ export const ConfigProvider = props => {
 export const useCampaignConfig = () =>
   configStore(state => state.campaignConfig);
 
-export const useComponentConfig = () =>
-  configStore(useShallow(state => state.campaignConfig?.component));
-
+export const useComponentConfig = () => {
+  //return configStore.(useShallow(state => state.campaignConfig?.component));
+  if (!configStore) return undefined;
+  return configStore(state => state.campaignConfig?.component);
+};
 export const useJourneyConfig = () =>
   configStore(state => state.campaignConfig.journey, shallow);
 
