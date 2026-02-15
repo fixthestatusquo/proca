@@ -193,7 +193,8 @@
     "twitter": "{{total}} צייצו."
   },
   "progressGoal": {
-    "default": "בוא נלך אל {{goal}}"
+    "default": "בוא נלך אל {{goal}}",
+    "sign": "בואו נלך ל {{goal}}"
   },
   "read more": "קרא עוד",
   "region": "אזור",
