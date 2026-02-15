@@ -192,6 +192,10 @@
     "sign": "{{total}} がサインしました。に行ってみよう。{{goal}}",
     "twitter": "{{total}} がツッコミを入れました。に行ってみましょう。{{goal}}"
   },
+  "progressGoal": {
+    "default": "さあ、始めよう{{goal}}",
+    "sign": "に行こう。{{goal}}"
+  },
   "read more": "読み替える",
   "region": "地域",
   "register": "私の名前を追加",
