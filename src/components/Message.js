@@ -9,6 +9,7 @@ import TextField from "@components/field/TextField";
 import { useData } from "@hooks/useData";
 import { useForm } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
+import DoneIcon from "@material-ui/icons/Done";
 
 export const useStyles = makeStyles((theme) => ({
   submit: {
@@ -53,6 +54,7 @@ const PublicMessage = (props) => {
         />
       </Grid>
       <Button
+        endIcon={<DoneIcon />}
         className={classes.submit}
         variant="contained"
         onClick={handleSubmit((data) => onSubmit(data))}
@@ -66,7 +68,6 @@ const PublicMessage = (props) => {
         variant="contained"
         className={classes.submit}
         onClick={handleSubmit((data) => onSubmit(data, true))}
-        startIcon={<SkipNextIcon />}
       >
         {t("Send message and donate")}
       </Button>
