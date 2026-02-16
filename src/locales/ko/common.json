@@ -192,6 +192,10 @@
     "sign": "{{total}}이(가) 서명했습니다. {{goal}}로 가자",
     "twitter": "{{total}} 님이 트윗했습니다. {{goal}}로 가자"
   },
+  "progressGoal": {
+    "default": "다음으로 이동해 보겠습니다. {{goal}}",
+    "sign": "다음으로 이동합니다. {{goal}}"
+  },
   "read more": "자세히 보기",
   "region": "지역",
   "register": "내 이름 추가",

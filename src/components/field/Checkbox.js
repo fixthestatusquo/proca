@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     // For correct alignment with the text.
     verticalAlign: "middle",
     WebkitTapHighlightColor: "transparent",
+    paddingLeft: "4px",
     marginLeft: -11,
     marginRight: 16, // used for row presentation of radio/checkbox
     "& span": { fontSize: theme.typography.pxToRem(13) },
@@ -49,6 +50,7 @@ const ProcaCheckbox = props => {
               render={({ field }) => (
                 <Checkbox
                   {...field}
+                  value={field.value || ""}
                   color="primary"
                   checked={!!field.value}
                   disabled={props.disabled}

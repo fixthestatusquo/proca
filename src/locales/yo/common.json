@@ -154,12 +154,12 @@
   },
   "no": "rara",
   "progress": {
-    "donate": "{{total}} ti ṣetọrẹ. Jẹ ki a lọ si {{goal}}",
-    "email": "{{total}} ti fi imeeli ranṣẹ. Jẹ ki a lọ si {{goal}}",
-    "register": "{{total}} ti forukọsilẹ. Jẹ ki a lọ si {{goal}}",
-    "share": "{{total}} ti pin. Jẹ ki a lọ si {{goal}}",
-    "sign": "{{total}} ti fowo si. Jẹ ki a lọ si {{goal}}",
-    "twitter": "{{total}} ti twitter. Jẹ ki a lọ si {{goal}}"
+    "donate": "{{total}} ti ṣetọrẹ.",
+    "email": "{{total}} ti fi imeeli ranṣẹ.",
+    "register": "{{total}} ti forukọsilẹ.",
+    "share": "{{total}} ti pin.",
+    "sign": "{{total}} ti fowo si.",
+    "twitter": "{{total}} ti twitter."
   },
   "read more": "ka siwaju",
   "register": "Fi orukọ mi kun",
@@ -209,5 +209,8 @@
   },
   "unknown postcode": "aimọ koodu ifiweranṣẹ",
   "yes": "beeni",
-  "you need to be 18 years old": "o nilo lati jẹ ọdun 18"
+  "you need to be 18 years old": "o nilo lati jẹ ọdun 18",
+  "progressGoal": {
+    "default": "Jẹ ki a lọ si {{goal}}"
+  }
 }

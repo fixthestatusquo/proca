@@ -184,13 +184,17 @@
     "wrongLength": "Saisissez votre code postal"
   },
   "progress": {
-    "donate": "{{total}} ont fait un don. Allons à {{goal}}",
-    "email": "{{total}} ont envoyé un courriel. Allons à {{goal}}",
-    "pledge": "{{total}} se sont engagés. Allons à {{goal}}",
-    "register": "{{total}} se sont inscrits. Allons à {{goal}}",
-    "share": "{{total}} ont partagé. Allons à {{goal}}",
-    "sign": "{{total}} ont signé. Allons à {{goal}}",
-    "twitter": "{{total}} ont twitté. Allons à {{goal}}"
+    "donate": "{{total}} ont fait un don.",
+    "email": "{{total}} ont envoyé un courriel.",
+    "pledge": "{{total}} se sont engagés.",
+    "register": "{{total}} se sont inscrits.",
+    "share": "{{total}} ont partagé.",
+    "sign": "{{total}} ont signé.",
+    "twitter": "{{total}} ont twitté."
+  },
+  "progressGoal": {
+    "default": "Allons à {{goal}}",
+    "sign": "Allons à {{goal}}"
   },
   "read more": "en savoir plus",
   "region": "Région",

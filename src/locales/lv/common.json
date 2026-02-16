@@ -184,13 +184,17 @@
     "wrongLength": "paredzamais {{length}} ilgums jūsu valstī"
   },
   "progress": {
-    "donate": "{{total}} ir ziedojuši. Dosimies uz {{goal}}",
-    "email": "{{total}} ir nosūtījuši e-pastu. Dodamies uz {{goal}}",
-    "pledge": "{{total}} ir apņēmušies. Dosimies uz {{goal}}",
-    "register": "{{total}} ir reģistrējušies. Dodamies uz {{goal}}",
-    "share": "{{total}} ir dalījušies. Dosimies uz {{goal}}",
-    "sign": "{{total}} ir parakstījušies. Dodamies uz {{goal}}",
-    "twitter": "{{total}} ir twitted. Iesim uz {{goal}}"
+    "donate": "{{total}} ir ziedojuši.",
+    "email": "{{total}} ir nosūtījuši e-pastu.",
+    "pledge": "{{total}} ir apņēmušies.",
+    "register": "{{total}} ir reģistrējušies.",
+    "share": "{{total}} ir dalījušies.",
+    "sign": "{{total}} ir parakstījušies.",
+    "twitter": "{{total}} ir twitted."
+  },
+  "progressGoal": {
+    "default": "Dosimies uz {{goal}}",
+    "sign": "Dodamies uz {{goal}}"
   },
   "read more": "Lasīt latviski",
   "region": "Reģions",

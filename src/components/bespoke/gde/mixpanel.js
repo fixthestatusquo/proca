@@ -1,6 +1,6 @@
 import Events from "@lib/observer";
 import { getHash } from "@lib/hash";
-import { unsubscribeDataLayer } from "@lib/event";
+import { unsubscribeDataLayer, dataLayerObserver } from "@lib/event";
 
 const getProperties = (_event, config) => {
   //event not used, so far
@@ -17,7 +17,7 @@ const send = event => {
   if (event.test) {
     console.log("mixpanel", event.event, event);
   }
-  window.dataLayer && window.dataLayer.push && window.dataLayer.push(event);
+  window.dataLayer?.push?.(event);
 };
 
 const getGoal = actionType => {
@@ -32,7 +32,7 @@ const getGoal = actionType => {
 };
 
 const Observer = async (event, data, pii) => {
-  const config = window.proca.get();
+  const config = window.proca?.get?.();
   if (event.endsWith(":start")) {
     // the user has started to interact with the form
     const param = getProperties(event, config);
@@ -70,12 +70,26 @@ const Observer = async (event, data, pii) => {
       const hash = await getHash();
       param.user_id = hash;
     }
-    send(param);
     return;
+  }
+
+  dataLayerObserver(event, data);
+};
+
+const ActObserver = async event => {
+  if (event.endsWith(":complete")) {
+    const events = window.getTargetStateEvents("#single-sign-up", {
+      0: document.querySelector("gpd-engage-form"),
+    });
+    events.forEach(event => {
+      window.dispatchEvent(event);
+    });
+    proca.set("component", "widget.fab", false);
   }
 };
 
-Events.subscribe(Observer);
 unsubscribeDataLayer();
+Events.subscribe(Observer);
+Events.subscribe(ActObserver);
 
 export default Observer;

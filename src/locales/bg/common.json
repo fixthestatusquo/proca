@@ -9,7 +9,6 @@
   "Copy to clipboard": "Копиране в клипборда",
   "Country": "Държава",
   "Download": "Изтегли",
-
   "Download explanation": "Документът ви е готов, ние го изпращаме и на вас.",
   "Email": "Имейл",
   "First name": "Собствено име",
@@ -185,13 +184,13 @@
     "wrongLength": "очаквана продължителност на {{length}} за вашата страна"
   },
   "progress": {
-    "donate": "{{total}} са направили дарения. Нека отидем в {{goal}}",
-    "email": "{{total}} изпратих имейл. Нека отидем в {{goal}}",
-    "pledge": "{{total}} са поели ангажимент. Нека отидем в {{goal}}",
-    "register": "{{total}} са се регистрирали. Нека отидем в {{goal}}",
-    "share": "{{total}} са споделили. Нека отидем в {{goal}}",
-    "sign": "{{total}} са подписали. Да достигнем {{goal}}",
-    "twitter": "{{total}} са написали twitted. Нека отидем в {{goal}}"
+    "donate": "{{total}} са направили дарения.",
+    "email": "{{total}} изпратих имейл.",
+    "pledge": "{{total}} са поели ангажимент.",
+    "register": "{{total}} са се регистрирали.",
+    "share": "{{total}} са споделили.",
+    "sign": "{{total}} са подписали.",
+    "twitter": "{{total}} са написали twitted."
   },
   "read more": "прочетете повече",
   "region": "Регион",
@@ -250,5 +249,9 @@
   },
   "unknown postcode": "неизвестен пощенски код",
   "yes": "да",
-  "you need to be 18 years old": "трябва да сте на 18 години"
+  "you need to be 18 years old": "трябва да сте на 18 години",
+  "progressGoal": {
+    "default": "Нека отидем в {{goal}}",
+    "sign": "Да достигнем {{goal}}"
+  }
 }

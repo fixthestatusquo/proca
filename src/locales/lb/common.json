@@ -154,12 +154,12 @@
   },
   "no": "Nee",
   "progress": {
-    "donate": "{{total}} hunn gespent. Loosst eis op {{goal}}",
-    "email": "{{total}} hunn eng E-Mail geschéckt. Loosst eis op {{goal}}",
-    "register": "{{total}} registréiert hunn. Loosst eis op {{goal}}",
-    "share": "{{total}} gedeelt hunn. Loosst eis op {{goal}}",
-    "sign": "{{total}} hunn ënnerschriwwen. Loosst eis {{goal}} erreechen",
-    "twitter": "{{total}} hunn twitted. Loosst eis op {{goal}}"
+    "donate": "{{total}} hunn gespent.",
+    "email": "{{total}} hunn eng E-Mail geschéckt.",
+    "register": "{{total}} registréiert hunn.",
+    "share": "{{total}} gedeelt hunn.",
+    "sign": "{{total}} hunn ënnerschriwwen.",
+    "twitter": "{{total}} hunn twitted."
   },
   "read more": "liesen méi",
   "register": "Füügt mäi Numm dobäi",
@@ -209,5 +209,9 @@
   },
   "unknown postcode": "onbekannt Postleitzuel",
   "yes": "Jo",
-  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
+  "you need to be 18 years old": "Dir musst 18 Joer al sinn",
+  "progressGoal": {
+    "default": "Loosst eis op {{goal}}",
+    "sign": "Loosst eis {{goal}} erreechen"
+  }
 }

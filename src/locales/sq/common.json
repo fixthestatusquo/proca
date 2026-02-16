@@ -172,12 +172,12 @@
     "wrongLength": "gjatësia e pritur është {{length}} për vendin tuaj"
   },
   "progress": {
-    "donate": "{{total}} kanë dhuruar. Le të arrijmë te {{goal}}",
-    "email": "{{total}} kanë dërguar një email. Le të arrijmë te {{goal}}",
-    "register": "{{total}} janë regjistruar. Le të arrijmë te {{goal}}",
-    "share": "{{total}} kanë shpërndarë. Le të arrijmë te {{goal}}",
-    "sign": "{{total}} kanë nënshkruar. Le të arrijmë te {{goal}}",
-    "twitter": "{{total}} kanë cicëruar. Le të arrijmë te {{goal}}"
+    "donate": "{{total}} kanë dhuruar.",
+    "email": "{{total}} kanë dërguar një email.",
+    "register": "{{total}} janë regjistruar.",
+    "share": "{{total}} kanë shpërndarë.",
+    "sign": "{{total}} kanë nënshkruar.",
+    "twitter": "{{total}} kanë cicëruar."
   },
   "read more": "lexo më shumë",
   "region": "Rajoni",
@@ -236,5 +236,8 @@
   },
   "unknown postcode": "kod postar i panjohur",
   "yes": "po",
-  "you need to be 18 years old": "duhet të jeni 18 vjeç"
+  "you need to be 18 years old": "duhet të jeni 18 vjeç",
+  "progressGoal": {
+    "default": "Le të arrijmë te {{goal}}"
+  }
 }

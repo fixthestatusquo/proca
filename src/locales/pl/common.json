@@ -184,13 +184,17 @@
     "wrongLength": "Przewidywana długość {{length}} dla danego kraju"
   },
   "progress": {
-    "donate": "Przekazano {{total}}. Osiągnijmy {{goal}}",
-    "email": "{{total}} wysłali maila. Wejdźmy na stronę {{goal}}",
-    "pledge": "{{total}} zobowiązały się. Przejdźmy do {{goal}}",
-    "register": "Zarejestrowało się {{total}}. Osiągnijmy {{goal}}",
-    "share": "{{total}} podzielili się. Chodźmy do {{goal}}",
-    "sign": "{{total}} osób już podpisało. Dążymy do {{goal}}",
-    "twitter": "{{total}}...na twittach. Chodźmy do {{goal}}"
+    "donate": "Przekazano {{total}}.",
+    "email": "{{total}} wysłali maila.",
+    "pledge": "{{total}} zobowiązały się.",
+    "register": "Zarejestrowało się {{total}}.",
+    "share": "{{total}} podzielili się.",
+    "sign": "{{total}} osób już podpisało.",
+    "twitter": "{{total}}...na twittach."
+  },
+  "progressGoal": {
+    "default": "Chodźmy do {{goal}}",
+    "sign": "Dążymy do {{goal}}"
   },
   "read more": "przeczytaj więcej",
   "region": "Region",

@@ -10,29 +10,46 @@ import { useIntersection } from "@shopify/react-intersection-observer";
 
 const useStyles = makeStyles(theme => ({
   "@global": {},
-  "@keyframes procaPrimaryGrey": {
+  "@keyframes Count": {
     "0%": {
       color: theme.palette.primary.main,
     },
     "80%": {
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
+    },
+  },
+  "@keyframes Goal": {
+    "0%": {
+      color: theme.palette.text.secondary,
+    },
+    "50%": {
+      color: theme.palette.primary.main,
     },
     "100%": {
       color: theme.palette.text.secondary,
     },
   },
   animated: {
-    animation: `$procaPrimaryGrey 3s ${theme.transitions.easing.easeOut}`,
-    //    animationFillMode: "forwards",
+    "& .count": {
+      animation: `$Count 3s ${theme.transitions.easing.easeOut}`,
+      //    animationFillMode: "forwards",
+    },
+    "& .goal": {
+      animation: `$Goal 3s ${theme.transitions.easing.easeOut}`,
+      //    animationFillMode: "forwards",
+    },
   },
   root: {
     fontSize: theme.typography.pxToRem(18),
     fontWeight: "bold",
     color: theme.palette.text.secondary,
     width: "100%",
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
+    display: "flex",
+    lineHeight: "1.3",
+    alignItems: "baseline",
+    flexWrap: "wrap",
+    columnGap: "0.25em",
+    rowGap: 0,
   },
 }));
 
@@ -113,17 +130,27 @@ export default function Progress(props) {
   }
 
   // we are checking if the progress key matching button.action exists, if not, we use the default progress.sign
-  const actionName =
+  let actionName =
     config.component.register.actionType ||
     config.component.register?.button?.split(".")[1] ||
     "sign";
+  if (actionName === "signature") actionName = "sign";
+
   return (
-    <Box className={`${classes.root} proca-progress`} ref={ref}>
-      {t([`progress.${actionName}`, "progress.sign", "progress"], {
-        count: formatNumber(count, separator),
-        total: formatNumber(count, separator),
-        goal: formatNumber(goal, separator),
-      })}
+    <Box className="proca-progress">
+      <div className={classes.root} ref={ref}>
+        <span className="count">
+          {t([`progress.${actionName}`, "progress.sign", "progress"], {
+            count: formatNumber(count, separator),
+            total: formatNumber(count, separator),
+          })}
+        </span>
+        <span className="goal">
+          {t([`progressGoal.${actionName}`, "progressGoal.default"], {
+            goal: formatNumber(goal, separator),
+          })}
+        </span>
+      </div>
       <LinearProgress variant="determinate" value={progress} />
     </Box>
   );

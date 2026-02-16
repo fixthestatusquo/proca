@@ -39,15 +39,7 @@ const check = {
   },
 };
 
-const getUrl = () => {
-  let url = "https://check-phone.proca.app";
-  try {
-    url = process.env.REACT_APP_CHECK_PHONE_API_URL;
-  } catch (e) {
-    console.error(e.message);
-  }
-  return url;
-};
+const getUrl = () => process.env.REACT_APP_CHECK_PHONE_API_URL;
 
 const checkPhone = async (country, number) => {
   const result = { is_error: false, number: number };

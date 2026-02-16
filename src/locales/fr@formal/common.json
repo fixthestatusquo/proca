@@ -184,13 +184,17 @@
     "wrongLength": "durée prévue de {{length}} pour votre pays"
   },
   "progress": {
-    "donate": "{{total}} ont fait un don. Rendez-vous à l'adresse suivante {{goal}}",
-    "email": "{{total}} ont envoyé un courriel. Rendez-vous sur le site {{goal}}",
-    "pledge": "{{total}} se sont engagés. Rendez-vous à l'adresse suivante {{goal}}",
-    "register": "{{total}} se sont inscrits. Rendez-vous sur le site {{goal}}",
-    "share": "{{total}} ont partagé. Rendez-vous sur le site de {{goal}}",
-    "sign": "{{total}} ont signé. Rendez-vous à l'adresse suivante {{goal}}",
-    "twitter": "{{total}} ont twitté. Rendez-vous sur le site {{goal}}"
+    "donate": "{{total}} ont fait un don.",
+    "email": "{{total}} ont envoyé un courriel.",
+    "pledge": "{{total}} se sont engagés.",
+    "register": "{{total}} se sont inscrits.",
+    "share": "{{total}} ont partagé.",
+    "sign": "{{total}} ont signé.",
+    "twitter": "{{total}} ont twitté."
+  },
+  "progressGoal": {
+    "default": "Rendez-vous à l'adresse suivante {{goal}}",
+    "sign": "Allons à {{goal}}"
   },
   "read more": "en savoir plus",
   "region": "Région",

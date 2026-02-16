@@ -184,13 +184,13 @@
     "wrongLength": "očekivana duljina od {{length}} za tvoju zemlju"
   },
   "progress": {
-    "donate": "Broj osoba koje su donirale: {{total}}. Sljedeći cilj je: {{goal}}",
-    "email": "Broj osoba koje su poslale e-mail: {{total}}. Sljedeći cilj je: {{goal}}",
-    "pledge": "Broj osoba koje podržavaju: {{total}}. Sljedeći cilj je: {{goal}}",
-    "register": "Broj osoba koje su se registrirale: {{total}}. Sljedeći cilj je: {{goal}}",
-    "share": "Broj osoba koje su dijelile: {{total}}. Sljedeći cilj je: {{goal}}",
-    "sign": "Broj osoba koje su potpisale: {{total}}. Sljedeći cilj je: {{goal}}",
-    "twitter": "Broj osoba koje su poslali tweet: {{total}}. Sljedeći cilj je: {{goal}}"
+    "donate": "Broj osoba koje su donirale: {{total}}.",
+    "email": "Broj osoba koje su poslale e-mail: {{total}}.",
+    "pledge": "Broj osoba koje podržavaju: {{total}}.",
+    "register": "Broj osoba koje su se registrirale: {{total}}.",
+    "share": "Broj osoba koje su dijelile: {{total}}.",
+    "sign": "Broj osoba koje su potpisale: {{total}}.",
+    "twitter": "Broj osoba koje su poslali tweet: {{total}}."
   },
   "read more": "saznaj više",
   "region": "Regija",
@@ -249,5 +249,8 @@
   },
   "unknown postcode": "nepoznat poštanski broj",
   "yes": "da",
-  "you need to be 18 years old": "moraš imati 18 godina"
+  "you need to be 18 years old": "moraš imati 18 godina",
+  "progressGoal": {
+    "default": "Sljedeći cilj je: {{goal}}"
+  }
 }

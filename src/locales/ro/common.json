@@ -184,13 +184,13 @@
     "wrongLength": "durata preconizată a {{length}} pentru țara dumneavoastră"
   },
   "progress": {
-    "donate": "{{total}} au donat. Să mergem la {{goal}}",
-    "email": "{{total}} au trimis un e-mail. Să mergem la {{goal}}",
-    "pledge": "{{total}} au promis. Să mergem la {{goal}}",
-    "register": "{{total}} s-au înregistrat. Să mergem la {{goal}}",
-    "share": "{{total}} au împărtășit. Să mergem la {{goal}}",
-    "sign": "{{total}} au semnat. Hai să strângem {{goal}}",
-    "twitter": "{{total}} au twittat. Să mergem la {{goal}}"
+    "donate": "{{total}} au donat.",
+    "email": "{{total}} au trimis un e-mail.",
+    "pledge": "{{total}} au promis.",
+    "register": "{{total}} s-au înregistrat.",
+    "share": "{{total}} au împărtășit.",
+    "sign": "{{total}} au semnat.",
+    "twitter": "{{total}} au twittat."
   },
   "read more": "citește mai mult",
   "region": "Regiunea",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "cod poștal necunoscut",
   "yes": "da",
-  "you need to be 18 years old": "trebuie să ai 18 ani"
+  "you need to be 18 years old": "trebuie să ai 18 ani",
+  "progressGoal": {
+    "default": "Să mergem la {{goal}}",
+    "sign": "Hai să strângem {{goal}}"
+  }
 }

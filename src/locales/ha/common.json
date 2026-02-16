@@ -154,12 +154,12 @@
   },
   "no": "a'a",
   "progress": {
-    "donate": "{{total}} sun ba da gudummawa. Mu je zuwa {{goal}}",
-    "email": "{{total}} sun aika imel. Mu je zuwa {{goal}}",
-    "register": "{{total}} sun yi rajista. Mu je zuwa {{goal}}",
-    "share": "{{total}} sun raba. Mu je zuwa {{goal}}",
-    "sign": "{{total}} sun sanya hannu. Bari mu je {{goal}}",
-    "twitter": "{{total}} sun yi sharhi. Mu je zuwa {{goal}}"
+    "donate": "{{total}} sun ba da gudummawa.",
+    "email": "{{total}} sun aika imel.",
+    "register": "{{total}} sun yi rajista.",
+    "share": "{{total}} sun raba.",
+    "sign": "{{total}} sun sanya hannu.",
+    "twitter": "{{total}} sun yi sharhi."
   },
   "read more": "kara karantawa",
   "register": "Ƙara sunana",
@@ -209,5 +209,9 @@
   },
   "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
   "yes": "iya",
-  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
+  "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
+  "progressGoal": {
+    "default": "Mu je zuwa {{goal}}",
+    "sign": "Bari mu je {{goal}}"
+  }
 }

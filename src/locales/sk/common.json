@@ -184,13 +184,17 @@
     "wrongLength": "očakávaná dĺžka {{length}} pre vašu krajinu"
   },
   "progress": {
-    "donate": "{{total}} darovali. Poďme na {{goal}}",
-    "email": "{{total}} poslali e-mail. Poďme na {{goal}}",
-    "pledge": "{{total}} sa zaviazali. Poďme na {{goal}}",
-    "register": "{{total}} sa zaregistrovali. Poďme na {{goal}}",
-    "share": "{{total}} zdieľali. Poďme na {{goal}}",
-    "sign": "{{total}} podpísali. Poďme na {{goal}}",
-    "twitter": "{{total}} twitted. Poďme na {{goal}}"
+    "donate": "{{total}} darovali.",
+    "email": "{{total}} poslali e-mail.",
+    "pledge": "{{total}} sa zaviazali.",
+    "register": "{{total}} sa zaregistrovali.",
+    "share": "{{total}} zdieľali.",
+    "sign": "{{total}} podpísali.",
+    "twitter": "{{total}} twitted."
+  },
+  "progressGoal": {
+    "default": "Poďme na {{goal}}",
+    "sign": "Poďme do {{goal}}"
   },
   "read more": "čítaj viac",
   "region": "Región",

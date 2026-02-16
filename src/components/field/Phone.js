@@ -36,7 +36,7 @@ const Phone = ({ form, classField, compact }) => {
     //  iconColor = theme.palette.error.main;
   }
   return (
-    <Grid item xs={12} sm={narrowPhone? 9 : 12} className={classField}>
+    <Grid item xs={12} sm={narrowPhone ? 9 : 12} className={classField}>
       <input type="hidden" {...form.register("phoneCountry")} />
       <TextField
         type="tel"

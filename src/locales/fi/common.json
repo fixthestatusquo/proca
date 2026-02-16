@@ -184,13 +184,17 @@
     "wrongLength": "{{length}} odotettu kesto maassasi"
   },
   "progress": {
-    "donate": "{{total}} ovat lahjoittaneet. Mennään osoitteeseen {{goal}}",
-    "email": "{{total}} ovat lähettäneet sähköpostia. Mennään osoitteeseen {{goal}}",
-    "pledge": "{{total}} ovat sitoutuneet. Mennään {{goal}}",
-    "register": "{{total}} ovat rekisteröityneet. Mennään osoitteeseen {{goal}}",
-    "share": "{{total}} ovat jakaneet. Mennään {{goal}}",
-    "sign": "{{total}} on allekirjoittanut. Tavoite: {{goal}}",
-    "twitter": "{{total}} ovat twiitanneet. Mennään osoitteeseen {{goal}}"
+    "donate": "{{total}} ovat lahjoittaneet.",
+    "email": "{{total}} ovat lähettäneet sähköpostia.",
+    "pledge": "{{total}} ovat sitoutuneet.",
+    "register": "{{total}} ovat rekisteröityneet.",
+    "share": "{{total}} ovat jakaneet.",
+    "sign": "{{total}} on allekirjoittanut.",
+    "twitter": "{{total}} ovat twiitanneet."
+  },
+  "progressGoal": {
+    "default": "Mennään osoitteeseen {{goal}}",
+    "sign": "Tavoite: {{goal}}"
   },
   "read more": "Lue lisää",
   "region": "Alue",

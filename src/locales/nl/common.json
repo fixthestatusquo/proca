@@ -184,13 +184,13 @@
     "wrongLength": "verwachte duur van {{length}} voor uw land"
   },
   "progress": {
-    "donate": "{{total}} hebben gedoneerd. Laten we naar {{goal}}",
-    "email": "{{total}} hebben een e-mail gestuurd. Laten we naar {{goal}}",
-    "pledge": "{{total}} hebben toegezegd. Laten we naar {{goal}}",
-    "register": "{{total}} hebben zich geregistreerd. Laten we naar {{goal}}",
-    "share": "{{total}} hebben gedeeld. Laten we naar {{goal}}",
-    "sign": "{{total}} hebben getekend. Laten we voor {{goal}} gaan.",
-    "twitter": "{{total}} hebben getwitterd. Laten we naar {{goal}}"
+    "donate": "{{total}} hebben gedoneerd.",
+    "email": "{{total}} hebben een e-mail gestuurd.",
+    "pledge": "{{total}} hebben toegezegd.",
+    "register": "{{total}} hebben zich geregistreerd.",
+    "share": "{{total}} hebben gedeeld.",
+    "sign": "{{total}} hebben getekend.",
+    "twitter": "{{total}} hebben getwitterd."
   },
   "read more": "lees meer",
   "region": "Regio",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "onbekende postcode",
   "yes": "ja",
-  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
+  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn",
+  "progressGoal": {
+    "default": "Laten we naar {{goal}}",
+    "sign": "Laten we voor {{goal}} gaan."
+  }
 }

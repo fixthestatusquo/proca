@@ -154,12 +154,12 @@
   },
   "no": "ez",
   "progress": {
-    "donate": "{{total}} dohaintza egin dute. Goazen {{goal}}",
-    "email": "{{total}}-ek mezu elektroniko bat bidali du. Goazen {{goal}}",
-    "register": "{{total}} erregistratu dira. Goazen {{goal}}",
-    "share": "{{total}} partekatu dute. Goazen {{goal}}",
-    "sign": "{{total}} sinatu dute. Goazen {{goal}} atalera",
-    "twitter": "{{total}} twitteatu dute. Goazen {{goal}}"
+    "donate": "{{total}} dohaintza egin dute.",
+    "email": "{{total}}-ek mezu elektroniko bat bidali du.",
+    "register": "{{total}} erregistratu dira.",
+    "share": "{{total}} partekatu dute.",
+    "sign": "{{total}} sinatu dute.",
+    "twitter": "{{total}} twitteatu dute."
   },
   "read more": "Irakurri gehiago",
   "register": "Gehitu nire izena",
@@ -209,5 +209,9 @@
   },
   "unknown postcode": "posta-kode ezezaguna",
   "yes": "bai",
-  "you need to be 18 years old": "18 urte izan behar dituzu"
+  "you need to be 18 years old": "18 urte izan behar dituzu",
+  "progressGoal": {
+    "default": "Goazen {{goal}}",
+    "sign": "Goazen {{goal}} atalera"
+  }
 }

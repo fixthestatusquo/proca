@@ -184,13 +184,17 @@
     "wrongLength": "förväntad längd på {{length}} för ditt land"
   },
   "progress": {
-    "donate": "{{total}} har donerat. Vi går till {{goal}}",
-    "email": "{{total}} har skickat ett e-postmeddelande. Vi går till {{goal}}",
-    "pledge": "{{total}} har lovat. Låt oss gå till {{goal}}",
-    "register": "{{total}} har registrerat sig. Vi går till {{goal}}",
-    "share": "{{total}} har delat med sig av. Vi går till {{goal}}",
-    "sign": "{{total}} har undertecknat. Låt oss gå till {{goal}}",
-    "twitter": "{{total}} har twittrat. Vi går till {{goal}}"
+    "donate": "{{total}} har donerat.",
+    "email": "{{total}} har skickat ett e-postmeddelande.",
+    "pledge": "{{total}} har lovat.",
+    "register": "{{total}} har registrerat sig.",
+    "share": "{{total}} har delat med sig av.",
+    "sign": "{{total}} har undertecknat.",
+    "twitter": "{{total}} har twittrat."
+  },
+  "progressGoal": {
+    "default": "Vi går till {{goal}}",
+    "sign": "Låt oss gå till {{goal}}"
   },
   "read more": "Läs mer",
   "region": "Region",

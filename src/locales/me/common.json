@@ -107,7 +107,7 @@
     "invalid_domain": "{{domain}} ne može da prima e-poštu"
   },
   "progress": {
-    "sign": "{{total}} potpisa. Idemo na {{goal}}"
+    "sign": "{{total}} potpisa."
   },
   "register": "Dodaj moje ime",
   "share": {
@@ -123,5 +123,8 @@
   "twitter": {
     "actionText": "Ja sam potpisao/potpisala. Potpiši i ti"
   },
-  "you need to be 18 years old": "morate imati 18 godina"
+  "you need to be 18 years old": "morate imati 18 godina",
+  "progressGoal": {
+    "default": "Idemo na {{goal}}"
+  }
 }

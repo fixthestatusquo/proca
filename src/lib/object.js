@@ -8,23 +8,26 @@
  */
 export const merge = (...objects) => {
   const isObject = obj => obj && typeof obj === "object";
-
   return objects.reduce((prev, obj) => {
+    const result = Object.assign({}, prev);
     Object.keys(obj).forEach(key => {
-      const pVal = prev[key];
+      const pVal = result[key];
       const oVal = obj[key];
-
       if (Array.isArray(pVal) && Array.isArray(oVal)) {
-        prev[key] = pVal.concat(...oVal);
+        result[key] = pVal.concat(...oVal);
       } else if (isObject(pVal) && isObject(oVal)) {
-        prev[key] = merge(pVal, oVal);
+        result[key] = merge(pVal, oVal);
       } else {
-        prev[key] = oVal;
+        result[key] = oVal;
       }
     });
-
-    return prev;
+    return result;
   }, {});
+};
+
+export const get = (object, path) => {
+  if (!object || !path) return undefined;
+  return path.split(".").reduce((current, prop) => current?.[prop], object);
 };
 
 export const set = (obj, path, value) => {

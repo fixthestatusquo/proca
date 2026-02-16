@@ -53,6 +53,8 @@ const define = environment => {
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
     "process.env.NODE_ENV": '"' + (environment || "production") + '"',
+    "process.env.REACT_APP_CHECK_PHONE_API_URL":
+      '"https://check-phone.proca.app"',
   };
 
   Object.keys(process.env)

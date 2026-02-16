@@ -154,12 +154,12 @@
   },
   "no": "no",
   "progress": {
-    "donate": "{{total}} han donat. Anem a {{goal}}",
-    "email": "{{total}} han enviat un correu electrònic. Anem a {{goal}}",
-    "register": "{{total}} s'han registrat. Anem a {{goal}}",
-    "share": "{{total}} han compartit. Anem a {{goal}}",
-    "sign": "{{total}} han signat. Volem arribar a {{goal}}",
-    "twitter": "{{total}} han twitteat. Anem a {{goal}}"
+    "donate": "{{total}} han donat.",
+    "email": "{{total}} han enviat un correu electrònic.",
+    "register": "{{total}} s'han registrat.",
+    "share": "{{total}} han compartit.",
+    "sign": "{{total}} han signat.",
+    "twitter": "{{total}} han twitteat."
   },
   "read more": "Llegeix més",
   "register": "Afegeix el meu nom",
@@ -209,5 +209,9 @@
   },
   "unknown postcode": "codi postal desconegut",
   "yes": "sí",
-  "you need to be 18 years old": "Ha de ser major d'edat"
+  "you need to be 18 years old": "Ha de ser major d'edat",
+  "progressGoal": {
+    "default": "Anem a {{goal}}",
+    "sign": "Volem arribar a {{goal}}"
+  }
 }

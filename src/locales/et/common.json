@@ -184,13 +184,17 @@
     "wrongLength": "eeldatav pikkus {{length}} sinu riigi jaoks"
   },
   "progress": {
-    "donate": "{{total}} on annetanud. Võtame eesmärgiks {{goal}}",
-    "email": "{{total}} on saatnud e-kirja. Läheme {{goal}}",
-    "pledge": "{{total}} on juba lubanud. Võtame sihiks: {{goal}}",
-    "register": "{{total}} on registreerunud. Võtame eesmärgiks {{goal}}",
-    "share": "{{total}} on jagatud. Läheme {{goal}}",
-    "sign": "{{total}} allkirja on kogutud. Võtame eesmärgiks {{goal}}",
-    "twitter": "{{total}} on twitted. Läheme {{goal}}"
+    "donate": "{{total}} on annetanud.",
+    "email": "{{total}} on saatnud e-kirja.",
+    "pledge": "{{total}} on juba lubanud.",
+    "register": "{{total}} on registreerunud.",
+    "share": "{{total}} on jagatud.",
+    "sign": "{{total}} allkirja on kogutud.",
+    "twitter": "{{total}} on twitted."
+  },
+  "progressGoal": {
+    "default": "Võtame eesmärgiks {{goal}}",
+    "sign": "Lähme {{goal}}"
   },
   "read more": "loe edasi",
   "region": "Piirkond",

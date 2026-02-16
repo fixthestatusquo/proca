@@ -11,14 +11,13 @@ import {
   FormControl,
   FormControlLabel,
   Collapse,
-  Checkbox,
 } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Controller } from "react-hook-form";
-
+import Checkbox from "@components/field/Checkbox";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -93,8 +92,8 @@ const Consent = props => {
         });
 
   const optin = () => {
-      setValue("opt-in");
-      props.form.setValue("privacy", "opt-in");
+    setValue("opt-in");
+    props.form.setValue("privacy", "opt-in");
   };
 
   const handleChange = event => {
@@ -200,56 +199,16 @@ const Consent = props => {
 };
 
 export const CheckboxConsent = props => {
-  const {
-    formState: { errors },
-    control,
-  } = props.form;
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  const classes = useStyles();
-
-  return (
-    <FormControl
-      className="proca-consent"
-      error={!!(errors && errors.privacy)}
-      required={config.component.consent.checkbox.required}
-    >
-      <FormGroup>
-        <Controller
-          name="privacy"
-          control={control}
-          rules={{
-            required:
-              config.component.consent.checkbox.required &&
-              t(["consent.required", "required"]),
-          }}
-          defaultValue={config.component.consent.gdpr === false}
-          render={({ field }) => (
-            <FormControlLabel
-              className={classes.check}
-              placement="end"
-              error={!!(errors && errors.privacy)}
-              required={config.component.consent.checkbox.required}
-              control={
-                <Checkbox
-                  {...field}
-                  color="primary"
-                  onChange={e =>
-                    field.onChange(e.target.checked ? "opt-in" : "")
-                  }
-                  checked={field.value === "opt-in"}
-                />
-              }
-              label={t("consent.opt-in", { partner: config.organisation })}
-            />
-          )}
-        />
-      </FormGroup>
-      <FormHelperText>
-        {errors?.privacy && (errors.privacy.message || t("consent.required"))}
-      </FormHelperText>
-    </FormControl>
-  );
+  const props2 = {
+    ...props,
+    ...{
+      name: "privacy",
+      label: t("consent.opt-in", { partner: config.organisation }),
+    },
+  };
+  return Checkbox(props2);
 };
 
 export const ConfirmProcessing = props => {
@@ -321,7 +280,10 @@ export const ConsentProcessing = props => {
           values={{ organisation: config.organisation }}
           components={{ url: <a />, 1: <a href={link} target="_blank" /> }}
         >
-          Consent processing according to <a href={link} target="_blank" >privacy policy</a>
+          Consent processing according to{" "}
+          <a href={link} target="_blank">
+            privacy policy
+          </a>
         </Trans>
       </Box>
     </Grid>

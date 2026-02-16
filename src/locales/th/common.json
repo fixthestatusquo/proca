@@ -192,6 +192,10 @@
     "sign": "{{total}} ได้ลงนามแล้ว ไปยัง {{goal}}",
     "twitter": "{{total}} ได้ทวีตแล้ว ไปยัง {{goal}}"
   },
+  "progressGoal": {
+    "default": "มาเริ่มกันเลย{{goal}}",
+    "sign": "ไปกันเถอะ{{goal}}"
+  },
   "read more": "อ่านเพิ่มเติม",
   "region": "ภูมิภาค",
   "register": "เพิ่มชื่อของฉัน",

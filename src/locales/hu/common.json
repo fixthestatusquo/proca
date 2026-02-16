@@ -184,13 +184,13 @@
     "wrongLength": "a {{length}} várható hossza az Ön országában"
   },
   "progress": {
-    "donate": "{{total}} adományoztak. Menjünk a {{goal}}",
-    "email": "{{total}} küldött egy e-mailt. Menjünk a {{goal}}",
-    "pledge": "{{total}} ígéretet tettek. Menjünk a {{goal}}",
-    "register": "{{total}} regisztráltak. Menjünk a {{goal}}",
-    "share": "{{total}} megosztották. Menjünk a {{goal}}",
-    "sign": "{{total}} fő aláírta. Célozzuk meg a(z) {{goal}} aláírást",
-    "twitter": "{{total}} twitteltek. Menjünk a {{goal}}"
+    "donate": "{{total}} adományoztak.",
+    "email": "{{total}} küldött egy e-mailt.",
+    "pledge": "{{total}} ígéretet tettek.",
+    "register": "{{total}} regisztráltak.",
+    "share": "{{total}} megosztották.",
+    "sign": "{{total}} fő aláírta.",
+    "twitter": "{{total}} twitteltek."
   },
   "read more": "tovább",
   "region": "Régió",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "ismeretlen irányítószám",
   "yes": "igen",
-  "you need to be 18 years old": "18 évesnek kell lenned"
+  "you need to be 18 years old": "18 évesnek kell lenned",
+  "progressGoal": {
+    "default": "Menjünk a {{goal}}",
+    "sign": "Célozzuk meg a(z) {{goal}} aláírást"
+  }
 }

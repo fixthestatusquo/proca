@@ -184,13 +184,13 @@
     "wrongLength": "pričakovano trajanje {{length}} za vašo državo."
   },
   "progress": {
-    "donate": "{{total}} darovali. Pojdimo na {{goal}}",
-    "email": "{{total}} poslali e-poštno sporočilo. Pojdimo na {{goal}}",
-    "pledge": "{{total}} so se zavezali. Pojdimo na {{goal}}",
-    "register": "{{total}} so se registrirali. Pojdimo na {{goal}}",
-    "share": "{{total}} so delili. Pojdimo na {{goal}}",
-    "sign": "{{total}} oseb se je podpisalo. Pojdimo do {{goal}}",
-    "twitter": "{{total}} so tvitnili. Pojdimo na {{goal}}"
+    "donate": "{{total}} darovali.",
+    "email": "{{total}} poslali e-poštno sporočilo.",
+    "pledge": "{{total}} so se zavezali.",
+    "register": "{{total}} so se registrirali.",
+    "share": "{{total}} so delili.",
+    "sign": "{{total}} oseb se je podpisalo.",
+    "twitter": "{{total}} so tvitnili."
   },
   "read more": "preberi več",
   "region": "Regija",
@@ -249,5 +249,9 @@
   },
   "unknown postcode": "neznana poštna številka",
   "yes": "da",
-  "you need to be 18 years old": "moraš biti star 18 let"
+  "you need to be 18 years old": "moraš biti star 18 let",
+  "progressGoal": {
+    "default": "Pojdimo na {{goal}}",
+    "sign": "Pojdimo do {{goal}}"
+  }
 }

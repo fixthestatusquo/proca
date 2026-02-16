@@ -11,7 +11,6 @@ function prefetchDNS(url) {
   link.rel = "dns-prefetch";
   link.href = url;
   document.head.appendChild(link);
-  //  console.log("Prefetch added for:", url, document.head);
 }
 
 export default prefetchDNS;

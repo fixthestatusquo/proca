@@ -184,13 +184,13 @@
     "wrongLength": "očekávaná délka {{length}} pro vaši zemi"
   },
   "progress": {
-    "donate": "{{total}} darovali. Pojďme na {{goal}}",
-    "email": "{{total}} odeslali e-mail. Pojďme na {{goal}}",
-    "pledge": "{{total}} se zavázaly. Pojďme na {{goal}}",
-    "register": "{{total}} se zaregistrovali. Pojďme na {{goal}}",
-    "share": "{{total}} sdíleli. Pojďme na {{goal}}",
-    "sign": "{{total}} lidí podepsalo. Pokračujme k {{goal}}",
-    "twitter": "{{total}} napsali na twitteru. Pojďme na {{goal}}"
+    "donate": "{{total}} darovali.",
+    "email": "{{total}} odeslali e-mail.",
+    "pledge": "{{total}} se zavázaly.",
+    "register": "{{total}} se zaregistrovali.",
+    "share": "{{total}} sdíleli.",
+    "sign": "{{total}} lidí podepsalo.",
+    "twitter": "{{total}} napsali na twitteru."
   },
   "read more": "Přečtěte si více",
   "region": "Region",
@@ -252,5 +252,9 @@
   },
   "unknown postcode": "neznámé PSČ",
   "yes": "ano",
-  "you need to be 18 years old": "musíte mít 18 let"
+  "you need to be 18 years old": "musíte mít 18 let",
+  "progressGoal": {
+    "default": "Pojďme na {{goal}}",
+    "sign": "Pokračujme k {{goal}}"
+  }
 }
