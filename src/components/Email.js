@@ -394,9 +394,17 @@ const EmailComponent = props => {
         );
         console.log("not lang", `${lang}?`, locale, country);
       }
-      console.log(fallbackArea, area);
-      if (d.length === 0 && fallbackArea && area) {
-        d = filterArea(area);
+      if (d.length === 0 && fallbackArea) {
+        if (area) {
+          d = filterArea(area);
+        } else {
+          d = allProfiles.filter(d => {
+            //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
+            //return d.area === area && d.constituency === -1;
+            const fallbackCountry = fallbackArea.toLowerCase();
+            return d.country === fallbackCountry;
+          });
+        }
       }
       if (d.length === 0 && fallbackRandom && !fallbackArea) {
         d = sample(allProfiles, sampleSize || fallbackRandom);
