@@ -161,6 +161,10 @@
     "sign": "{{total}} су потписали.",
     "twitter": "[Кс0Кс] су твитовали."
   },
+  "progressGoal": {
+    "default": "Идемо на [Кс36Кс]",
+    "sign": "Идемо на {{goal}}"
+  },
   "read more": "Опширније",
   "register": "Додај моје име",
   "reminder": {
@@ -209,12 +213,5 @@
   },
   "unknown postcode": "непознати поштански број",
   "yes": "да",
-  "you need to be 18 years old": "треба да имате 18 година",
-  "progressGoal": {
-    "default": "Идемо на [Кс36Кс]",
-    "email": "Идемо на [Кс42Кс]",
-    "register": "Идемо на [Кс39Кс]",
-    "share": "Идемо на [Кс35Кс]",
-    "sign": "Идемо на {{goal}}"
-  }
+  "you need to be 18 years old": "треба да имате 18 година"
 }

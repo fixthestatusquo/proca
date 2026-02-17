@@ -192,6 +192,10 @@
     "sign": "{{total}} har skrevet under.",
     "twitter": "{{total}} har twittet."
   },
+  "progressGoal": {
+    "default": "Lad os nå {{goal}}",
+    "sign": "Lad os gå til {{goal}}"
+  },
   "read more": "Læs mere",
   "region": "Region",
   "register": "Tilføj mit navn",
@@ -249,9 +253,5 @@
   },
   "unknown postcode": "ukendt postnummer",
   "yes": "ja",
-  "you need to be 18 years old": "du skal være 18 år gammel",
-  "progressGoal": {
-    "default": "Lad os nå {{goal}}",
-    "pledge": "Lad os gå til {{goal}}"
-  }
+  "you need to be 18 years old": "du skal være 18 år gammel"
 }

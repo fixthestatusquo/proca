@@ -192,6 +192,10 @@
     "sign": "{{total}} подписали.",
     "twitter": "{{total}} в Твиттере."
   },
+  "progressGoal": {
+    "default": "Давайте перейдем к {{goal}}",
+    "sign": "Переходим к {{goal}}"
+  },
   "read more": "читать далее",
   "region": "Регион",
   "register": "Добавить мое имя",
@@ -249,11 +253,5 @@
   },
   "unknown postcode": "неизвестный почтовый индекс",
   "yes": "да",
-  "you need to be 18 years old": "тебе должно быть 18 лет",
-  "progressGoal": {
-    "default": "Давайте перейдем к {{goal}}",
-    "donate": "Пойдемте в {{goal}}",
-    "pledge": "Пойдемте в {{goal}}",
-    "sign": "Переходим к {{goal}}"
-  }
+  "you need to be 18 years old": "тебе должно быть 18 лет"
 }
