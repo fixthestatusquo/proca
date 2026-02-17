@@ -27,12 +27,19 @@ const PublicMessage = (props) => {
   const { handleSubmit } = form;
   const { t } = useTranslation();
 
-  const onSubmit = (formData, redirect = false) => {
+  const onSubmit = (formData, sendMessage = true) => {
     setData({ ...data, ...formData });
-    if (redirect) {
-      window.location.href =
-        window.location.origin + window.location.pathname + "#donate_Amount";
+    if (sendMessage) {
+      console.log("message data", { ...data, ...formData });
+      setData({ ...data, ...formData });
     }
+    props.done &&
+      props.done({
+        firstname: formData.firstname,
+        country: formData.country,
+        privacy: formData.privacy,
+        comment: formData.comment,
+      });
   };
 
   const text = t(
@@ -40,7 +47,7 @@ const PublicMessage = (props) => {
     "**Send your message** to the decision makers and show your support for the cause.",
   );
   return (
-    <form id="dispatch-comment" onSubmit={handleSubmit(onSubmit)}>
+    <form id="dispatch-comment">
       <Markdown text={text} />
       <Country {...props} form={form} />
       <Grid item xs={12}>
@@ -57,7 +64,7 @@ const PublicMessage = (props) => {
         endIcon={<DoneIcon />}
         className={classes.submit}
         variant="contained"
-        onClick={handleSubmit((data) => onSubmit(data))}
+        onClick={handleSubmit((data) => onSubmit(data, true))}
         style={{ backgroundColor: config.layout.primaryColor }}
       >
         {t("Send message")}
@@ -67,9 +74,9 @@ const PublicMessage = (props) => {
         endIcon={<SkipNextIcon />}
         variant="contained"
         className={classes.submit}
-        onClick={handleSubmit((data) => onSubmit(data, true))}
+        onClick={handleSubmit((data) => onSubmit(data))}
       >
-        {t("Send message and donate")}
+        {t("Skip")}
       </Button>
     </form>
   );
