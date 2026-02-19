@@ -28,9 +28,7 @@ const PublicMessage = (props) => {
   const { t } = useTranslation();
 
   const onSubmit = (formData, sendMessage = true) => {
-    setData({ ...data, ...formData });
-    if (sendMessage) {
-      console.log("message data", { ...data, ...formData });
+   if (sendMessage) {
       setData({ ...data, ...formData });
     }
     props.done &&
