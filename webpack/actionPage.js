@@ -14,7 +14,6 @@ const stepComponent = {
   twitter: "Twitter",
   dialog: "Dialog",
   register: "Register",
-  message: "Message",
   //  "register.CH": "bespoke/Register-CH",
 };
 

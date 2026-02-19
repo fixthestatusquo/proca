@@ -6,36 +6,31 @@ import { Markdown } from "@components/TTag";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
-import { getHash } from "@hooks/useHash";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   submit: {
     width: "100%",
     marginTop: "10px",
   },
 }));
 
-const Choice = (props) => {
+const Choice = props => {
   const classes = useStyles();
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const { go } = props;
 
-  const currentStep = getHash();
-
-  if (currentStep !== "Dialog") return null;
-
   const handleYes = () => {
-    go("message");
+    go("Message");
   };
 
   const handleNo = () => {
-    go("share");
+    go("Share");
   };
 
   const text = t(
     "campaign:choice.intro",
-    "Would you like to send a message to decision makers?",
+    "Would you like to send a message to decision makers?"
   );
 
   return (
