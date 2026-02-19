@@ -185,7 +185,7 @@
   },
   "progress": {
     "donate": "{{total}} darovali.",
-    "email": "{{total}} poslali e-poštno sporočilo.",
+    "email": "{{total}} nas je že poslalo e-poštno sporočilo",
     "pledge": "{{total}} so se zavezali.",
     "register": "{{total}} so se registrirali.",
     "share": "{{total}} so delili.",
@@ -252,6 +252,7 @@
   "you need to be 18 years old": "moraš biti star 18 let",
   "progressGoal": {
     "default": "Pojdimo na {{goal}}",
+
     "sign": "Pojdimo do {{goal}}"
   }
 }
