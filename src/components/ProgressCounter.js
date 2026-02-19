@@ -140,6 +140,7 @@ export default function Progress(props) {
   [`progress.${actionName}`, "progress.sign", "progress"],
   {
     count: formatNumber(count, separator),
+    total: formatNumber(count, separator),
     goal: formatNumber(goal, separator),
     returnDetails: true,
   }
