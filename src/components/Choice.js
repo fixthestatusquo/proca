@@ -8,9 +8,14 @@ import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles(theme => ({
+  buttonContainer: {
+    display: "flex",
+    gap: theme.spacing(1),
+    marginTop: theme.spacing(2),
+  },
   submit: {
-    width: "100%",
-    marginTop: "10px",
+    flex: 1,
+    marginTop: theme.spacing(2),
   },
 }));
 
