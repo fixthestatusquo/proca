@@ -5,6 +5,8 @@
   "Birthdate": "Geboortedatum",
   "City": "Stad",
   "Comment": "Opmerkingen",
+  "Copied!": "Kopieer!",
+  "Copy to clipboard": "Kopieer na knipbord",
   "Country": "Land",
   "Download": "Download",
   "Download explanation": "Uw document is nu klaar, we mailen het ook naar u",
@@ -19,16 +21,20 @@
   "Phone": "Telefoon",
   "Postal Code": "Poskode",
   "Salutation": "Salutatie",
+  "Shareable link": "Deelbare skakel",
   "Sorry, we couldn't save": "Sorry, we konden dit niet opslaan",
   "Street": "Straat",
   "Subject": "Onderwerp",
   "Thank you": "Dank u.",
   "Your message": "Uw bericht",
   "action": {
+    "consultation": "Stuur",
+    "default": "Neem aksie",
     "donate": "Doneer",
     "eci": "eci",
     "email": "Stuur een e-mail",
     "join": "Word lid van",
+    "pledge": "Beloof nou!",
     "register": "Registreren",
     "remindeSent": "Herinnering verzonden",
     "reminder": "Herinner me er later aan",
@@ -39,6 +45,8 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
+  "ai_check": "'n KI het hierdie boodskap geskryf, ons moedig jou aan om dit te lees en aan te pas om die impak te maksimeer.",
+  "ai_work": "KI aan die werk",
   "camera": {
     "start": "start de camera",
     "take": "Maak een foto",
@@ -67,6 +75,7 @@
       "opt-out": "en houdt me niet op de hoogte"
     }
   },
+  "customize_text": "Ons moedig jou aan om dit te lees en aan te pas om die impak te maksimeer.",
   "date": {
     "error": "ongeldige datum. formaat: DD.MM.YYYY"
   },
@@ -146,6 +155,8 @@
   "error": {
     "date": "formaat moet DD.MM.YYYY zijn"
   },
+  "give_another": "Génereer nog een",
+  "help_write": "Help my om dit te skryf",
   "image": {
     "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
@@ -159,6 +170,7 @@
   },
   "no": "nee",
   "party": "Partij",
+  "party_helper": "Klik op 'n partytjiechip om al sy lede te kies.",
   "phone": {
     "INVALID_COUNTRY": "landkode ontbreek of is ongeldig",
     "INVALID_LENGTH": "Ongeldige lengte",
@@ -174,10 +186,15 @@
   "progress": {
     "donate": "{{total}} hebben gedoneerd.",
     "email": "{{total}} hebben een e-mail gestuurd.",
+    "pledge": "{{total}} het belowe",
     "register": "{{total}} hebben zich geregistreerd.",
     "share": "{{total}} hebben gedeeld.",
     "sign": "{{total}} hebben getekend.",
     "twitter": "{{total}} hebben getwitterd."
+  },
+  "progressGoal": {
+    "default": "Laten we naar {{goal}}",
+    "sign": "Laten we voor {{goal}} gaan."
   },
   "read more": "lees meer",
   "region": "Streek",
@@ -193,6 +210,7 @@
     "other": "Andere"
   },
   "select_all": "Alles selecteren",
+  "select_options": "Jy kan tot kies {{opt}}",
   "share": {
     "intro": "Geweldig, je hebt getekend 👍. Deel deze actie wijd om ervoor te zorgen dat iedereen deze ziet en kan steunen🙏.",
     "message": "Teken dit!",
@@ -203,12 +221,14 @@
       "secure": "beveiligde"
     }
   },
+  "submit": "Indien",
   "supporter": {
     "greeting": "Welkom {{firstname}}!",
     "not_you": "jij niet?",
     "welcome": "Welkom terug {{firstname}}!"
   },
   "supporterHint": "{{name}} van {{area}}",
+  "survey": "Onderzoek",
   "target": {
     "country": {
       "empty": "Kies een ander land, er is niemand te bereiken in {{country}}",
@@ -233,9 +253,5 @@
   },
   "unknown postcode": "onbekende postcode",
   "yes": "ja",
-  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn",
-  "progressGoal": {
-    "default": "Laten we naar {{goal}}",
-    "sign": "Laten we voor {{goal}} gaan."
-  }
+  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }
