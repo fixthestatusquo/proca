@@ -5,6 +5,8 @@
   "Birthdate": "Usuku lokuzalwa",
   "City": "Idolobha",
   "Comment": "Amazwana",
+  "Copied!": "Kukopishwe!",
+  "Copy to clipboard": "Kopisha ebhodini lokunamathisela",
   "Country": "Izwe",
   "Download": "Landa",
   "Download explanation": "Umbhalo wakho ulungile manje, siwuthumela nge-imeyili kuwe",
@@ -19,16 +21,20 @@
   "Phone": "Ifoni",
   "Postal Code": "Ikhodi yePosi",
   "Salutation": "Ukubingelela",
+  "Shareable link": "Isixhumanisi esabelana ngaso",
   "Sorry, we couldn't save": "Uxolo, asikwazanga ukusindisa",
   "Street": "Umgwaqo",
   "Subject": "Isihloko",
   "Thank you": "Ngiyabonga",
   "Your message": "Umyalezo wakho",
   "action": {
+    "consultation": "Thumela",
+    "default": "Thatha isinyathelo",
     "donate": "Nikelani",
     "eci": "Sayina i-ECI",
     "email": "Thumela i-imeyili",
     "join": "Joyina",
+    "pledge": "Thembisa manje!",
     "register": "Bhalisa",
     "remindeSent": "Isikhumbuzo sithunyelwe",
     "reminder": "Ngikhumbuze kamuva",
@@ -39,6 +45,8 @@
     "takeAction": "Thatha isinyathelo",
     "twitter": "Tweet"
   },
+  "ai_check": "I-AI ibhale lo myalezo, sikukhuthaza ukuthi uwufunde futhi uwulungise ukuze uthole umthelela omkhulu.",
+  "ai_work": "Ubuhlakani bokufanisa emsebenzini",
   "camera": {
     "start": "qala ikhamera",
     "take": "Thatha isithombe",
@@ -67,6 +75,7 @@
       "opt-out": "futhi ungangigcini nginolwazi"
     }
   },
+  "customize_text": "Siyakukhuthaza ukuthi uyifunde futhi uyilungise ukuze ithuthukise umthelela wayo.",
   "date": {
     "error": "usuku olungavumelekile. ifomethi: DD.MM.YYYY"
   },
@@ -123,6 +132,7 @@
     },
     "iban": "IBAN",
     "intro": "Nikelani ku-{{campaign}}",
+    "payment": "Ukukhokha",
     "payment_methods": {
       "card": "Ikhadi",
       "default": "Nikelani",
@@ -145,6 +155,8 @@
   "error": {
     "date": "ifomethi kufanele ibe DD.MM.YYYY"
   },
+  "give_another": "Khiqiza omunye",
+  "help_write": "Ngisize ngiyibhale",
   "image": {
     "addSticker": "faka izitika",
     "addStickerTitle": "Chofoza/Thepha ukuze ungeze isitifiketi esithombeni",
@@ -158,6 +170,15 @@
   },
   "no": "cha",
   "party": "Iphathi",
+  "party_helper": "Chofoza i-chip yeqembu ukukhetha wonke amalungu ayo",
+  "phone": {
+    "INVALID_COUNTRY": "Ikhodi yezwe elilahlekile noma engalungile",
+    "INVALID_LENGTH": "Ubude obungalungile",
+    "MISSING": "Insimu edingekayo",
+    "NOT_A_NUMBER": "Inombolo yocingo engalungile",
+    "TOO_LONG": "Inombolo ide kakhulu",
+    "TOO_SHORT": "Inombolo imfushane kakhulu"
+  },
   "postcode": {
     "notFound": "le khodi yeposi ibonakala ingekho ezweni lakho",
     "wrongLength": "ubude obulindelekile be-{{length}} bezwe lakho"
@@ -165,12 +186,18 @@
   "progress": {
     "donate": "Abangu-{{total}} sebevele banikele.",
     "email": "Abangu-{{total}} sebevele bathumele i-imeyili.",
+    "pledge": "{{total}} bathembise",
     "register": "Abangu-{{total}} sebevele babhalisile.",
     "share": "Abangu-{{total}} sebevele babelane.",
     "sign": "Abangu-{{total}} sebevele basayine.",
     "twitter": "Abangu-{{total}} sebevele bathumele i-tweet."
   },
+  "progressGoal": {
+    "default": "Asiqhubekele ku-{{goal}}",
+    "sign": "Ake siye e {{goal}}"
+  },
   "read more": "funda kabanzi",
+  "region": "Isifunda",
   "register": "Faka igama lami",
   "reminder": {
     "intro": "Siyazi, uhulumeni wakho ucelwa ulwazi oluningi. Sizokuthumela i-imeyili eyodwa ukukukhumbuza ukuthi ugcwalise ifomu kamuva"
@@ -183,6 +210,7 @@
     "other": "Mnumzane/Nkosikazi {{name}}"
   },
   "select_all": "Khetha konke",
+  "select_options": "Ungakhetha kuze kufike ku- {{opt}}",
   "share": {
     "intro": "Kuhle, ususayinile 👍. Ukukhulisa umthelela wakho, yabelana kabanzi ukuze uqinisekise ukuthi wonke umuntu uyabona lesi sicelo 🙏.",
     "message": "Kufanele usayine lokhu!",
@@ -196,12 +224,14 @@
       "title": ""
     }
   },
+  "submit": "Thumela",
   "supporter": {
     "greeting": "Siyakwamukela {{firstname}}!",
     "not_you": "hhayi wena?",
     "welcome": "Siyakwamukela emuva, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Ucwaningo",
   "target": {
     "country": {
       "empty": "Khetha elinye izwe, akekho umuntu ongaxhumana naye ku-{{country}}",
@@ -226,8 +256,5 @@
   },
   "unknown postcode": "ikhodi yeposi engaziwa",
   "yes": "yebo",
-  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala",
-  "progressGoal": {
-    "default": "Asiqhubekele ku-{{goal}}"
-  }
+  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala"
 }
