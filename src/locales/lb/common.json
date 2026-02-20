@@ -5,6 +5,8 @@
   "Birthdate": "Gebuertsdatum",
   "City": "Stad",
   "Comment": "Kommentéieren",
+  "Copied!": "Kopieéiert!",
+  "Copy to clipboard": "Kopie op d'Zouschneidplack",
   "Country": "Land",
   "Download": "Download",
   "Download explanation": "Ärt Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
@@ -14,20 +16,25 @@
   "Last name": "Familljennumm",
   "Locality": "Uertschaft",
   "Next": "Nächst",
+  "Organisation": "Organisatioun",
   "Other": "Aner",
   "Phone": "Telefon",
   "Postal Code": "Postleitzuel",
   "Salutation": "Salut",
+  "Shareable link": "Deelbare Link",
   "Sorry, we couldn't save": "Pardon, mir konnten net späicheren",
   "Street": "Strooss",
   "Subject": "Sujet",
   "Thank you": "Merci",
   "Your message": "Äre Message",
   "action": {
+    "consultation": "Schécken",
+    "default": "Handelt",
     "donate": "Spenden",
     "eci": "Ënnerschreift d'ECI",
     "email": "Schéckt eng E-Mail",
     "join": "Maacht mat",
+    "pledge": "Verspriech elo!",
     "register": "Aschreiwen",
     "remindeSent": "Erënnerung geschéckt",
     "reminder": "Erënnert mech méi spéit",
@@ -38,6 +45,8 @@
     "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
+  "ai_check": "Eng KI huet dës Noriicht geschriwwen, mir encouragéieren Iech, se ze liesen an unzepassen, fir hiren Impakt ze maximéieren.",
+  "ai_work": "KI bei der Aarbecht",
   "camera": {
     "start": "Start der Kamera",
     "take": "Foto maachen",
@@ -66,6 +75,7 @@
       "opt-out": "an haalt mech net um Laafenden"
     }
   },
+  "customize_text": "Mir encouragéieren Iech, et ze liesen an unzepassen, fir säi Impakt ze maximéieren.",
   "date": {
     "error": "ongëlteg Datum. Format: DD.MM.JJJJ"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "IBAN",
     "intro": "Spenden op {{campaign}}",
+    "payment": "Bezuelung",
     "payment_methods": {
       "card": "Kaart",
       "default": "Spenden",
@@ -141,6 +152,11 @@
     "salutation_male": "Léif {{target.name}}",
     "salutation_placeholder": "Léif [Empfänger]"
   },
+  "error": {
+    "date": "Dat Format soll DD.MM.YYYY sinn."
+  },
+  "give_another": "Generéiert en aneren",
+  "help_write": "Hëlleft mir et ze schreiwen.",
   "image": {
     "addSticker": "addéiere Stickeren",
     "addStickerTitle": "Klickt / Tippen fir Sticker op d'Foto ze addéieren",
@@ -153,15 +169,35 @@
     "wanttoadd": "Wëllt Dir e Bild addéieren?"
   },
   "no": "Nee",
+  "party": "Party",
+  "party_helper": "Klickt op e Parteichip, fir all seng Memberen auszewielen.",
+  "phone": {
+    "INVALID_COUNTRY": "Fehlt de Lännercode oder ass en ongëlteg.",
+    "INVALID_LENGTH": "Onvalidé Längt",
+    "MISSING": "Pflichtfeld",
+    "NOT_A_NUMBER": "Onvalidé Telefonsnummer",
+    "TOO_LONG": "Zuel ze laang",
+    "TOO_SHORT": "Zuel ze kuerz"
+  },
+  "postcode": {
+    "notFound": "Dëse Postcode schéngt an Ärem Land net ze existéieren.",
+    "wrongLength": "erwaart Längt vun engem {{length}} fir Äert Land"
+  },
   "progress": {
     "donate": "{{total}} hunn gespent.",
     "email": "{{total}} hunn eng E-Mail geschéckt.",
+    "pledge": "{{total}} hunn versprach",
     "register": "{{total}} registréiert hunn.",
     "share": "{{total}} gedeelt hunn.",
     "sign": "{{total}} hunn ënnerschriwwen.",
     "twitter": "{{total}} hunn twitted."
   },
+  "progressGoal": {
+    "default": "Loosst eis op {{goal}}",
+    "sign": "Loosst eis {{goal}} erreechen"
+  },
   "read more": "liesen méi",
+  "region": "Regioun",
   "register": "Füügt mäi Numm dobäi",
   "reminder": {
     "intro": "Mir wëssen, Är Regierung freet vill Informatioun. Mir schécken Iech eng eenzeg E-Mail fir Iech drun ze erënneren de Formulaire méi spéit auszefëllen"
@@ -173,6 +209,8 @@
     "m": "Léiwen {{target.name}}",
     "other": "Léif {{target.name}}"
   },
+  "select_all": "Alles auswielen",
+  "select_options": "Dir kënnt bis zu auswielen. {{opt}}",
   "share": {
     "intro": "Super, du hues ënnerschriwwen 👍. Fir Ären Impakt ze multiplizéieren, deelt wäit a breet fir sécherzestellen datt jiddereen dës Petitioun gesäit 🙏.",
     "message": "Dir sollt dëst ënnerschreiwen!",
@@ -183,18 +221,23 @@
       "secure": "sécher"
     }
   },
+  "submit": "Ofginn",
   "supporter": {
+    "greeting": "Wëllkomm op {{firstname}}!",
     "not_you": "net Dir?",
     "welcome": "Wëllkomm zréck, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Ëmfro",
   "target": {
     "country": {
-      "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}"
+      "empty": "Wielt en anert Land, et gëtt keen ze kontaktéieren an {{country}}",
+      "undefined": "Wielt e Land"
     },
     "missing": "Wielt op d'mannst een aus {{total}}",
     "postcode": {
-      "empty": "et gëtt keen ze kontaktéieren an {{area}}"
+      "empty": "et gëtt keen ze kontaktéieren an {{area}}",
+      "undefined": "Gitt Äre Postcode an"
     },
     "random_one": "Wielt ee vun eise {{total}} wichtegsten Ziler",
     "random_other": "Ausgewielt {{count}} vun eise {{total}} wichtegst Ziler",
@@ -205,13 +248,10 @@
     "again": "Tweet un eng aner Persoun",
     "choice": "Wat wëllt Dir als nächst maachen?",
     "instruction": "Vervollstännegt w.e.g. den Tweet an enger neier Fënster (op twitter.com)",
-    "organisation": "Twitter Account vun Ärer Organisatioun"
+    "organisation": "Twitter Account vun Ärer Organisatioun",
+    "screenName": "Twitter-Kont"
   },
   "unknown postcode": "onbekannt Postleitzuel",
   "yes": "Jo",
-  "you need to be 18 years old": "Dir musst 18 Joer al sinn",
-  "progressGoal": {
-    "default": "Loosst eis op {{goal}}",
-    "sign": "Loosst eis {{goal}} erreechen"
-  }
+  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
 }
