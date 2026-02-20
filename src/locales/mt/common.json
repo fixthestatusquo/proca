@@ -5,6 +5,8 @@
   "Birthdate": "Data tat-twelid",
   "City": "Belt",
   "Comment": "Kumment",
+  "Copied!": "Kopjat!",
+  "Copy to clipboard": "Kopja fil-memorja tal-qtugħ",
   "Country": "Pajjiż",
   "Download": "Niżżel",
   "Download explanation": "Id-dokument tiegħek issa huwa lest, aħna nibagħtulek email ukoll.",
@@ -14,20 +16,25 @@
   "Last name": "Kunjom",
   "Locality": "Lokalità",
   "Next": "Li jmiss",
+  "Organisation": "Organizzazzjoni",
   "Other": "Oħrajn",
   "Phone": "Telefon",
   "Postal Code": "Kodiċi postali",
   "Salutation": "Tislima",
+  "Shareable link": "Link maqsum",
   "Sorry, we couldn't save": "Jiddispjacini, ma stajniex niffrankaw",
   "Street": "Triq",
   "Subject": "Suġġett",
   "Thank you": "Grazzi",
   "Your message": "Il-messaġġ tiegħek",
   "action": {
+    "consultation": "Ibgħat",
+    "default": "Ħu azzjoni",
     "donate": "Agħti donazzjoni",
     "eci": "eci",
     "email": "Ibgħat Email",
     "join": "Jingħaqad",
+    "pledge": "Agħmel wegħda issa!",
     "register": "Irreġistra",
     "remindeSent": "Tifkira mibgħuta",
     "reminder": "Fakkarni aktar tard",
@@ -38,6 +45,8 @@
     "takeAction": "Ħu Azzjoni!",
     "twitter": "Tweet"
   },
+  "ai_check": "Intelliġenza Artifiċjali kitbet dan il-messaġġ, nħeġġuk taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
+  "ai_work": "Intelliġenza Artifiċjali fil-post tax-xogħol",
   "camera": {
     "start": "ibda l-kamera",
     "take": "Ħu stampa",
@@ -66,6 +75,7 @@
       "opt-out": "u iżżommniex infurmat"
     }
   },
+  "customize_text": "Ninkoraġġuk biex taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
   "date": {
     "error": "data invalida. format: JJ.XX.SSSS"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "iban",
     "intro": "Agħti donazzjoni lil {{campaign}}",
+    "payment": "Ħlas",
     "payment_methods": {
       "card": "Card",
       "default": "Agħti donazzjoni",
@@ -141,6 +152,11 @@
     "salutation_male": "Għeżież {{target.name}}",
     "salutation_placeholder": "Għażiż [riċevitur],"
   },
+  "error": {
+    "date": "Il-format għandu jkun DD.MM.YYYY"
+  },
+  "give_another": "Ġenera ieħor",
+  "help_write": "Għinni niktebha",
   "image": {
     "addSticker": "żid stikers",
     "addStickerTitle": "Ikklikkja/ Tektek biex iżżid stiker mar-ritratt",
@@ -153,15 +169,35 @@
     "wanttoadd": "Trid iżżid immaġini?"
   },
   "no": "le",
+  "party": "Festa",
+  "party_helper": "Ikklikkja fuq chip tal-partit biex tagħżel lill-membri kollha tiegħu.",
+  "phone": {
+    "INVALID_COUNTRY": "Kodiċi tal-pajjiż nieqes jew invalidu",
+    "INVALID_LENGTH": "Twila mhux valida",
+    "MISSING": "qasam meħtieġ",
+    "NOT_A_NUMBER": "Numru tat-telefon invalidu",
+    "TOO_LONG": "In-numru huwa twil wisq",
+    "TOO_SHORT": "in-numru qasir wisq"
+  },
+  "postcode": {
+    "notFound": "Dan il-kodiċi postali jidher li ma jeżistix fil-pajjiż tiegħek.",
+    "wrongLength": "It-tul mistenni tal- {{length}} għall-pajjiż tiegħek"
+  },
   "progress": {
     "donate": "{{total}} taw donazzjoni.",
     "email": "{{total}} bagħtu email.",
+    "pledge": "{{total}} wegħdu",
     "register": "{{total}} irreġistraw.",
     "share": "{{total}} qasmu.",
     "sign": "{{total}} iffirmaw.",
     "twitter": "{{total}} twitted."
   },
+  "progressGoal": {
+    "default": "Ejja mmorru għal {{goal}}",
+    "sign": "Ejja mmorru għal {{goal}}"
+  },
   "read more": "Aqra iktar",
+  "region": "Reġjun",
   "register": "Żid ismi",
   "reminder": {
     "intro": "Nafu, il-gvern tiegħek qed jitlob ħafna informazzjoni. Nibagħtulek email waħda biex infakkruk biex timla l-formola aktar tard"
@@ -173,6 +209,8 @@
     "m": "Mr.",
     "other": "Oħrajn"
   },
+  "select_all": "Agħżel kollox",
+  "select_options": "Tista' tagħżel sa {{opt}}",
   "share": {
     "intro": "Kbira, iffirmajt 👍. Biex timmultiplika l-impatt tiegħek, taqsam il-bogħod u l-wisa 'biex tiżgura li kulħadd jara din il-petizzjoni🙏.",
     "message": "Għandek tiffirma dan!",
@@ -183,18 +221,23 @@
       "secure": "sigur"
     }
   },
+  "submit": "Ibgħat",
   "supporter": {
+    "greeting": "Merħba {{firstname}}!",
     "not_you": "mhux int?",
     "welcome": "Merħba lura {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Stħarriġ",
   "target": {
     "country": {
-      "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}"
+      "empty": "Agħżel pajjiż ieħor, m'hemm ħadd x'tikkuntattja f'{{country}}",
+      "undefined": "Agħżel pajjiż"
     },
     "missing": "Agħżel mill-inqas wieħed minn {{total}}",
     "postcode": {
-      "empty": "m'hemm ħadd x'tikkuntattja f'{{area}}"
+      "empty": "m'hemm ħadd x'tikkuntattja f'{{area}}",
+      "undefined": "Daħħal il-kodiċi postali tiegħek"
     },
     "random_one": "Għażlet waħda mill-aktar miri importanti tagħna {{total}}.",
     "random_other": "{{count}} magħżula mill-{{total}} l-aktar miri importanti tagħna",
@@ -205,12 +248,10 @@
     "again": "Tweet lil persuna oħra",
     "choice": "X'tixtieq tagħmel wara?",
     "instruction": "Jekk jogħġbok imla ibgħat it-tweet fit-tieqa l-ġdida (fuq twitter.com)",
-    "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek"
+    "organisation": "Il-kont ta' twitter tal-organizzazzjoni tiegħek",
+    "screenName": "Kont ta' Twitter"
   },
   "unknown postcode": "kodiċi postali mhux magħruf",
   "yes": "iva",
-  "you need to be 18 years old": "trid tkun 18-il sena",
-  "progressGoal": {
-    "default": "Ejja mmorru għal {{goal}}"
-  }
+  "you need to be 18 years old": "trid tkun 18-il sena"
 }
