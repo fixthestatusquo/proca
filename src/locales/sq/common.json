@@ -5,6 +5,8 @@
   "Birthdate": "Data e lindjes",
   "City": "Qyteti",
   "Comment": "Koment",
+  "Copied!": "Kopjuar!",
+  "Copy to clipboard": "Kopjo në clipboard",
   "Country": "Vendi",
   "Download": "Shkarko",
   "Download explanation": "Dokumenti juaj është gati, po ju dërgojmë edhe një email",
@@ -19,16 +21,20 @@
   "Phone": "Telefoni",
   "Postal Code": "Kodi postar",
   "Salutation": "Përshëndetje",
+  "Shareable link": "Lidhje e ndarëshme",
   "Sorry, we couldn't save": "Na vjen keq, nuk mundëm ta ruanim",
   "Street": "Rruga",
   "Subject": "Subjekti",
   "Thank you": "Faleminderit",
   "Your message": "Mesazhi juaj",
   "action": {
+    "consultation": "Dërgo",
+    "default": "Veproni",
     "donate": "Dhuroni",
     "eci": "Nënshkruaj ECI",
     "email": "Dërgo një email",
     "join": "Bashkohuni",
+    "pledge": "Bëj një premtim tani!",
     "register": "Regjistrohuni",
     "remindeSent": "Kujtesa u dërgua",
     "reminder": "Më kujtoni më vonë",
@@ -39,6 +45,8 @@
     "takeAction": "Merrni masë",
     "twitter": "Cicëroni"
   },
+  "ai_check": "Një inteligjencë artificiale shkroi këtë mesazh, ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
+  "ai_work": "Inteligjenca artificiale në punë",
   "camera": {
     "start": "nisni kamerën",
     "take": "Bëni një foto",
@@ -67,6 +75,7 @@
       "opt-out": "dhe mos më mbani të informuar"
     }
   },
+  "customize_text": "Ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
   "date": {
     "error": "data e pavlefshme. formati: DD.MM.YYYY"
   },
@@ -146,6 +155,8 @@
   "error": {
     "date": "formati duhet të jetë DD.MM.YYYY"
   },
+  "give_another": "Gjeneroni një tjetër",
+  "help_write": "Më ndihmo ta shkruaj",
   "image": {
     "addSticker": "shtoni ngjitëse",
     "addStickerTitle": "Kliko/Prek për të shtuar një ngjitëse në foto",
@@ -159,6 +170,7 @@
   },
   "no": "jo",
   "party": "Palë",
+  "party_helper": "Klikoni një çip partie për të zgjedhur të gjithë anëtarët e saj",
   "phone": {
     "INVALID_COUNTRY": "kodi i vendit mungon ose është i pavlefshëm",
     "INVALID_LENGTH": "Gjatësia e pavlefshme",
@@ -174,10 +186,15 @@
   "progress": {
     "donate": "{{total}} kanë dhuruar.",
     "email": "{{total}} kanë dërguar një email.",
+    "pledge": "{{total}} kanë premtuar",
     "register": "{{total}} janë regjistruar.",
     "share": "{{total}} kanë shpërndarë.",
     "sign": "{{total}} kanë nënshkruar.",
     "twitter": "{{total}} kanë cicëruar."
+  },
+  "progressGoal": {
+    "default": "Le të arrijmë te {{goal}}",
+    "sign": "Të shkojmë në {{goal}}"
   },
   "read more": "lexo më shumë",
   "region": "Rajoni",
@@ -193,6 +210,7 @@
     "other": "I nderuar/nderuar {{name}}"
   },
   "select_all": "Zgjidh të gjitha",
+  "select_options": "Ju mund të zgjidhni deri në {{opt}}",
   "share": {
     "intro": "Shkëlqyeshëm, ju e keni nënshkruar 👍. Për të shumëfishuar ndikimin tuaj, shpërndajeni gjerësisht për të siguruar që të gjithë ta shohin këtë peticion 🙏.",
     "message": "Duhet ta nënshkruash këtë!",
@@ -206,12 +224,14 @@
       "title": ""
     }
   },
+  "submit": "Dorëzo",
   "supporter": {
     "greeting": "Mirë se vini {{firstname}}!",
     "not_you": "jo ju?",
     "welcome": "Mirësevini, {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Anketa",
   "target": {
     "country": {
       "empty": "Zgjidhni një vend tjetër, nuk ka askënd për të kontaktuar në {{country}}",
@@ -236,8 +256,5 @@
   },
   "unknown postcode": "kod postar i panjohur",
   "yes": "po",
-  "you need to be 18 years old": "duhet të jeni 18 vjeç",
-  "progressGoal": {
-    "default": "Le të arrijmë te {{goal}}"
-  }
+  "you need to be 18 years old": "duhet të jeni 18 vjeç"
 }
