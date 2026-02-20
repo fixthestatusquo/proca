@@ -5,6 +5,8 @@
   "Birthdate": "Urtebetetze data",
   "City": "Hiria",
   "Comment": "Iruzkina utzi",
+  "Copied!": "Kopiatuta!",
+  "Copy to clipboard": "Hautatutakoa kopiatuta",
   "Country": "Herrialdea",
   "Download": "Deskargatu",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
@@ -14,20 +16,25 @@
   "Last name": "Abizena",
   "Locality": "Herria",
   "Next": "Hurrengoa",
+  "Organisation": "Antolaketa",
   "Other": "Beste bat",
   "Phone": "Telefonoa",
   "Postal Code": "Posta kodea",
   "Salutation": "Agurra",
+  "Shareable link": "Partekagarria den esteka",
   "Sorry, we couldn't save": "Ezin izan dugu gorde",
   "Street": "Kalea",
   "Subject": "Gaia",
   "Thank you": "Eskerrik asko!",
   "Your message": "Zure mezua",
   "action": {
+    "consultation": "Bidali",
+    "default": "Ekin",
     "donate": "Dohaintza eman",
     "eci": "eci",
     "email": "Bidali mezu elektroniko bat",
     "join": "Sartu",
+    "pledge": "Orain konpromisoa hartu!",
     "register": "Izena eman",
     "remindeSent": "Bidali da abisua",
     "reminder": "Gogoratu geroago",
@@ -38,6 +45,8 @@
     "takeAction": "Hartu ekintza!",
     "twitter": "Txio egin"
   },
+  "ai_check": "Adimen Artifizial batek mezu hau idatzi du; haren eragina maximizatzeko, irakurtzea eta pertsonalizatzea gomendatzen dizugu.",
+  "ai_work": "Adimen artifiziala lanean",
   "camera": {
     "start": "kamera martxan jarri",
     "take": "Atera argazkia",
@@ -66,6 +75,7 @@
       "opt-out": "eta ez nazazu informatuta eduki"
     }
   },
+  "customize_text": "Bere eragina maximizatzeko, irakurtzea eta pertsonalizatzea gomendatzen dizugu.",
   "date": {
     "error": "data baliogabea. formatua: DD.MM.AAAA"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "iban",
     "intro": "Dohaintza egin {{campaign}}",
+    "payment": "Ordainketa",
     "payment_methods": {
       "card": "Txartela",
       "default": "Dohaintza eman",
@@ -141,6 +152,11 @@
     "salutation_male": "{{target.name}} maitea",
     "salutation_placeholder": "[Hartzailea] maitea,"
   },
+  "error": {
+    "date": "Formatoa DD.MM.YYYY izan behar da."
+  },
+  "give_another": "Beste bat sortu",
+  "help_write": "Lagundu iezadazu idazten",
   "image": {
     "addSticker": "eranskailuak gehitu",
     "addStickerTitle": "Egin klik/Sakatu eranskailua argazkiari gehitzeko",
@@ -153,15 +169,35 @@
     "wanttoadd": "Irudi bat gehitu nahi duzu?"
   },
   "no": "ez",
+  "party": "Festa",
+  "party_helper": "Egin klik alderdi-txip batean bere kide guztiak hautatzeko.",
+  "phone": {
+    "INVALID_COUNTRY": "Herrialde kodea falta da edo baliogabea da",
+    "INVALID_LENGTH": "Luzera baliogabea",
+    "MISSING": "Beharrezko eremua",
+    "NOT_A_NUMBER": "Telefono zenbaki baliogabea",
+    "TOO_LONG": "Zenbakia luzeegia",
+    "TOO_SHORT": "zenbakia laburregia"
+  },
+  "postcode": {
+    "notFound": "Posta-kode hau ez dirudi zure herrialdean existitzen denik.",
+    "wrongLength": "Zure herrialderako {{length}} -en espero den iraupena"
+  },
   "progress": {
     "donate": "{{total}} dohaintza egin dute.",
     "email": "{{total}}-ek mezu elektroniko bat bidali du.",
+    "pledge": "{{total}} konpromisoa hartu dute.",
     "register": "{{total}} erregistratu dira.",
     "share": "{{total}} partekatu dute.",
     "sign": "{{total}} sinatu dute.",
     "twitter": "{{total}} twitteatu dute."
   },
+  "progressGoal": {
+    "default": "Goazen {{goal}}",
+    "sign": "Goazen {{goal}} atalera"
+  },
   "read more": "Irakurri gehiago",
+  "region": "Eskualdea",
   "register": "Gehitu nire izena",
   "reminder": {
     "intro": "Badakigu zure gobernuak informazio asko eskatzen duela. Mezu elektroniko bakarra bidaliko dizugu geroago formularioa bete behar duzula gogorarazteko"
@@ -173,6 +209,8 @@
     "m": "Jauna.",
     "other": "Bestela"
   },
+  "select_all": "Denak hautatu",
+  "select_options": "Hainbeste arte hauta dezakezu {{opt}}",
   "share": {
     "intro": "Primeran, sinatu duzu 👍. Zure eragina biderkatzeko, partekatu urrun eta zabaldu eskaera hau denek ikus dezaten🙏.",
     "message": "Hau sinatu beharko zenuke!",
@@ -183,18 +221,23 @@
       "secure": "seguru"
     }
   },
+  "submit": "Bidali",
   "supporter": {
+    "greeting": "Ongi etorri {{firstname}}!",
     "not_you": "zu ez?",
     "welcome": "Ongi etorri berriro {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Inkesta",
   "target": {
     "country": {
-      "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}"
+      "empty": "Hautatu beste herrialde bat, ez dago inor harremanetan jartzeko {{country}}",
+      "undefined": "Aukeratu herrialde bat"
     },
     "missing": "Hautatu gutxienez bat {{total}}",
     "postcode": {
-      "empty": "ez dago inor harremanetan jartzeko {{area}}"
+      "empty": "ez dago inor harremanetan jartzeko {{area}}",
+      "undefined": "Sartu zure posta-kodea"
     },
     "random_one": "Gure {{total}} helburu garrantzitsuenetako bat hautatu dugu",
     "random_other": "Gure {{total}} helburu garrantzitsuenetatik {{count}} hautatu dugu",
@@ -205,13 +248,10 @@
     "again": "Txio egin beste pertsona bati",
     "choice": "Zer egin nahiko zenuke hurrengoan?",
     "instruction": "Mesedez, osatu txioa leiho berrian bidaltzen (twitter.com-en)",
-    "organisation": "Zure erakundearen twitter kontua"
+    "organisation": "Zure erakundearen twitter kontua",
+    "screenName": "Twitter kontua"
   },
   "unknown postcode": "posta-kode ezezaguna",
   "yes": "bai",
-  "you need to be 18 years old": "18 urte izan behar dituzu",
-  "progressGoal": {
-    "default": "Goazen {{goal}}",
-    "sign": "Goazen {{goal}} atalera"
-  }
+  "you need to be 18 years old": "18 urte izan behar dituzu"
 }
