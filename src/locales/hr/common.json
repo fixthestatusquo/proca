@@ -192,6 +192,10 @@
     "sign": "Broj osoba koje su potpisale: {{total}}.",
     "twitter": "Broj osoba koje su poslali tweet: {{total}}."
   },
+  "progressGoal": {
+    "default": "Sljedeći cilj je: {{goal}}",
+    "sign": "Idemo u {{goal}}"
+  },
   "read more": "saznaj više",
   "region": "Regija",
   "register": "Dodaj moje ime",
@@ -249,8 +253,5 @@
   },
   "unknown postcode": "nepoznat poštanski broj",
   "yes": "da",
-  "you need to be 18 years old": "moraš imati 18 godina",
-  "progressGoal": {
-    "default": "Sljedeći cilj je: {{goal}}"
-  }
+  "you need to be 18 years old": "moraš imati 18 godina"
 }
