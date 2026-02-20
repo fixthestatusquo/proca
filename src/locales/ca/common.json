@@ -5,6 +5,8 @@
   "Birthdate": "Data de naixement",
   "City": "ciutat",
   "Comment": "Comentari",
+  "Copied!": "Copiat!",
+  "Copy to clipboard": "Còpia al porta-retalls",
   "Country": "País",
   "Download": "Descarrega",
   "Download explanation": "El vostre document ja està a punt, també us l’enviarem per correu electrònic.",
@@ -14,20 +16,25 @@
   "Last name": "Cognoms",
   "Locality": "Localitat",
   "Next": "Següent",
+  "Organisation": "Organització",
   "Other": "Altres",
   "Phone": "Telèfon",
   "Postal Code": "Codi postal",
   "Salutation": "Salutació",
+  "Shareable link": "Enllaç compartible",
   "Sorry, we couldn't save": "No hem pogut desar",
   "Street": "carrer",
   "Subject": "Assignatura",
   "Thank you": "Gràcies",
   "Your message": "El teu missatge",
   "action": {
+    "consultation": "Enviar",
+    "default": "Actua",
     "donate": "Donar",
     "eci": "eci",
     "email": "Enviar un correu electrònic",
     "join": "Uneix-te",
+    "pledge": "Fes el teu compromís ara!",
     "register": "Registra't",
     "remindeSent": "Recordatori enviat",
     "reminder": "Recorda-m'ho més tard",
@@ -38,6 +45,8 @@
     "takeAction": "Actuar!",
     "twitter": "Tuitejar"
   },
+  "ai_check": "Una IA ha escrit aquest missatge, t'animem a llegir-lo i personalitzar-lo per maximitzar-ne l'impacte.",
+  "ai_work": "IA en acció",
   "camera": {
     "start": "engegueu la càmera",
     "take": "Fes una foto",
@@ -66,6 +75,7 @@
       "opt-out": "i no em mantinguis informat"
     }
   },
+  "customize_text": "Us animem a llegir-lo i personalitzar-lo per maximitzar-ne l'impacte.",
   "date": {
     "error": "data no vàlida. format: DD.MM.AAAA"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "iban",
     "intro": "Dona a {{campaign}}",
+    "payment": "Pagament",
     "payment_methods": {
       "card": "Targeta",
       "default": "Donar",
@@ -141,6 +152,11 @@
     "salutation_male": "Benvolgut {{target.name}}",
     "salutation_placeholder": "Benvolgut [destinatari],"
   },
+  "error": {
+    "date": "El format ha de ser DD.MM.AAAA"
+  },
+  "give_another": "Genera'n un altre",
+  "help_write": "Ajuda'm a escriure-ho",
   "image": {
     "addSticker": "afegir adhesius",
     "addStickerTitle": "Feu clic/toqueu per afegir un adhesiu a la foto",
@@ -153,15 +169,35 @@
     "wanttoadd": "Vols afegir una imatge?"
   },
   "no": "no",
+  "party": "Festa",
+  "party_helper": "Feu clic en un xip de partit per seleccionar-ne tots els membres.",
+  "phone": {
+    "INVALID_COUNTRY": "codi de país incorrecte o no vàlid",
+    "INVALID_LENGTH": "Llargada no vàlida",
+    "MISSING": "camp obligatori",
+    "NOT_A_NUMBER": "Número de telèfon invàlid",
+    "TOO_LONG": "Número massa llarg",
+    "TOO_SHORT": "Número massa curt"
+  },
+  "postcode": {
+    "notFound": "Aquest codi postal no sembla existir al vostre país.",
+    "wrongLength": "Llargada esperada d' {{length}} per al vostre país"
+  },
   "progress": {
     "donate": "{{total}} han donat.",
     "email": "{{total}} han enviat un correu electrònic.",
+    "pledge": "{{total}} s'han compromès",
     "register": "{{total}} s'han registrat.",
     "share": "{{total}} han compartit.",
     "sign": "{{total}} han signat.",
     "twitter": "{{total}} han twitteat."
   },
+  "progressGoal": {
+    "default": "Anem a {{goal}}",
+    "sign": "Volem arribar a {{goal}}"
+  },
   "read more": "Llegeix més",
+  "region": "Regió",
   "register": "Afegeix el meu nom",
   "reminder": {
     "intro": "Sabem que el vostre govern demana molta informació. T'enviarem un únic correu electrònic per recordar-te que has d'omplir el formulari més endavant"
@@ -173,6 +209,8 @@
     "m": "Sr.",
     "other": "Altres"
   },
+  "select_all": "Selecciona-ho tot",
+  "select_options": "Podeu seleccionar fins a {{opt}}",
   "share": {
     "intro": "Genial, heu signat 👍. Per multiplicar el vostre impacte, compartiu-lo a tot arreu per assegurar-vos que tothom vegi aquesta petició🙏.",
     "message": "Hauríeu de signar això!",
@@ -183,18 +221,23 @@
       "secure": "segur"
     }
   },
+  "submit": "Enviar",
   "supporter": {
+    "greeting": "Benvingut, {{firstname}}!",
     "not_you": "no tu?",
     "welcome": "Benvingut de nou {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Enquesta",
   "target": {
     "country": {
-      "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}"
+      "empty": "Seleccioneu un altre país, no hi ha ningú amb qui contactar a {{country}}",
+      "undefined": "Seleccioneu un país"
     },
     "missing": "Seleccioneu almenys un de {{total}}",
     "postcode": {
-      "empty": "no hi ha ningú amb qui contactar a {{area}}"
+      "empty": "no hi ha ningú amb qui contactar a {{area}}",
+      "undefined": "Introdueix el teu codi postal"
     },
     "random_one": "Hem seleccionat un dels nostres objectius més importants {{total}}.",
     "random_other": "S'han seleccionat {{count}} dels nostres objectius més importants {{total}}.",
@@ -205,13 +248,10 @@
     "again": "Tuitejar a una altra persona",
     "choice": "Què t'agradaria fer després?",
     "instruction": "Si us plau, completeu l'enviament del tuit a la nova finestra (a twitter.com)",
-    "organisation": "El compte de Twitter de la vostra organització"
+    "organisation": "El compte de Twitter de la vostra organització",
+    "screenName": "Compte de Twitter"
   },
   "unknown postcode": "codi postal desconegut",
   "yes": "sí",
-  "you need to be 18 years old": "Ha de ser major d'edat",
-  "progressGoal": {
-    "default": "Anem a {{goal}}",
-    "sign": "Volem arribar a {{goal}}"
-  }
+  "you need to be 18 years old": "Ha de ser major d'edat"
 }
