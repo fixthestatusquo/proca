@@ -251,8 +251,7 @@
   "yes": "da",
   "you need to be 18 years old": "moraš biti star 18 let",
   "progressGoal": {
-    "default": "Pojdimo na {{goal}}",
-
-    "sign": "Pojdimo do {{goal}}"
+    "default": "Dosežimo {{goal}}",
+    "sign": "Dosežimo {{goal}}"
   }
 }
