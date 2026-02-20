@@ -102,7 +102,7 @@
     "open": "^11.0.0",
     "phoenix": "1.7.14",
     "proca": "^2.2.1",
-    "simple-git": "^3.27.0",
+    "simple-git": "^3.31.1",
     "websocket": "^1.0.35"
   },
   "scripts": {
