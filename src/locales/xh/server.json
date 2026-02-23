@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Molo {{firstName}},",
+            "share_on": "Yabelana",
+            "consent": "\n          ",
+            "thanks": "Enkosi ngokuthatha inxaxheba kwi- {{campaign.title}}. Inkxaso yakho siyayixabisa!",
+            "thanksPledge": "Enkosi ngokuzibophelela kwakho kwi {{campaign.title}}. Utyikityo lwakho luza kuphononongwa kwaye luza kuboniswa kwiwebhusayithi yethu ukuba lwamkelwe.",
+            "about": "Ukuza kuthi ga ngoku abaxhasi be {{campaign.stats.supporterCount}} bathathe amanyathelo.",
+            "share": "Sincede sifikelele usukelo lwethu ngokusasaza ilizwi.",
+            "follow": "Silandele ku:",
+            "donate": "Nceda ucinge ngokwenza umnikelo ukusinceda sifezekise injongo yethu.",
+            "closing": "Ngoncedo lwenu, sisondele ngenyathelo elinye kwinjongo yethu.",
+            "privacy": "Ungafumana iinkcukacha ezithe vetshe malunga nomgaqo-nkqubo wethu wobumfihlo nokulungiswa kwedatha yakho.",
+            "unsubscribe": "Ukuba awunqweneli ukufumana ulwazi olongezelelweyo kuthi kwixesha elizayo, uya kukwazi ukurhoxisa ubhaliso lwakho nangaliphi na ixesha.",
+            "signature": "Ngokunyanisekileyo,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Enkosi ngokuzibandakanya kwakho nokuzinikela kwakho kwisizathu sethu! Nangona kunjalo, ekuzibopheleleni kwethu ekugcineni ukunyaniseka nokuthenjwa, kufuneka **sisuse iisayini eziphindaphindiweyo** kwaye kubonakala ngathi wena (okanye umntu osebenzisa i- {{email}}) sele uthathe eli nyathelo. Qiniseka, **isayini yakho yokuqala ibaliwe** kwaye ibe negalelo kwiphulo lethu.\nInkxaso yakho ibe yeyona ibalulekileyo, kwaye singathanda ukukukhuthaza ngobubele ukuba uthathe inyathelo elongezelelweyo ukunceda ukwandisa impembelelo yakho. Nceda ucinge ngokunxibelelana nabahlobo bakho nosapho lwakho, ubakhuthaze nabo ukuba bathathe amanyathelo, besebenzisa iidilesi zabo ze-imeyile. Ngale ndlela, singakwazi ukukhulisa umbutho wethu ngakumbi kwaye sidale ilizwi elinamandla ngakumbi elimanyeneyo lotshintsho esilufunayo.\nKwakhona, sinikela umbulelo wethu onzulu ngenxa yenkxaso yakho eqhubekayo nokuzinikela kwakho kweli phulo. Sikunye, singenza impembelelo ehlala ihleli!",
+            "is_it_me": "Ukuba awuyenzanga le nto, nceda ucofe [apha](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) ukuze uyisuse."
+        },
+        "button": {
+            "confirmAction": "Ewe, ndingumntu wokwenene!",
+            "confirmOptin": "Ndifuna ukufumana iindaba ezivela kuwe",
+            "confirmAlreadyMember": "Ndiyakuqinisekisa ukuba ndiza kuthatha inxaxheba kwaye sele ndifumana ii-imeyile ezivela kuni.",
+            "confirmOptout": "Ndiyakuqinisekisa ukuba ndiza kuthatha inxaxheba, kodwa sukundazisa kwixesha elizayo."
+        },
+        "doi": {
+            "subject": "Inyathelo elinye: nceda uqinisekise idilesi yakho ye-imeyile.",
+            "intro": "Ukuze ugqibezele ubhaliso lwakho kwaye usivumele ukuba siqhube idilesi yakho ye-imeyile kunye neenkcukacha zakho zobuqu ukuze sikuthumelele iindaba okanye iincwadana zeendaba, nceda ucofe iqhosha lokuqinisekisa elingezantsi. Eli nyathelo lenzeke ngokuzenzekelayo liqinisekisa imvume yakho kwaye lithintela ubhaliso olungagunyaziswanga.",
+            "extra": "Ukuba awuzibhalisanga kule ntengiselwano, khululeka ungayihoyi le imeyile."
+        },
+        "thankyou": {
+            "intro": "Enkosi ngokuthatha kwakho inxaxheba kwi-\"{{campaign.title}}\". Inkxaso yakho siyayixabisa!",
+            "subject": "Enkosi, nantsi enye into onokuyenza."
+        },
+        "doi_thankyou": {
+            "subject": "Enkosi ngokuthatha kwakho inxaxheba{{#privacy.optIn}}, inyathelo elinye nje, nceda uqinisekise idilesi yakho ye-imeyile{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Inyathelo elinye: nceda uqinisekise idilesi yakho ye-imeyile.",
+            "extra": "Ukuba awuyicelanga le nto, nceda ungayihoyi le imeyile.",
+            "intro": "Ukuqinisekiswa kwakho kubalulekile ukuze siqhubeke nokulungiselela ukuthatha kwakho inxaxheba. Oku kuqinisekisa ukuba isicelo ngasinye sivela kumntu wokwenene kwaye kunceda ekuthinteleni izicelo ezingeyonyani okanye ezingeyomfuneko."
+        }
+    },
+    "poweredBy": "IXHASWE NGU"
+}
