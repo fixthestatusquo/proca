@@ -5,7 +5,7 @@ const HiddenField = props => {
   const { name, value } = props;
 
   useEffect(() => {
-    if (!value) return;
+    if (value === undefined) return;
     setValue(name, value);
   }, [name, value, setValue]);
 

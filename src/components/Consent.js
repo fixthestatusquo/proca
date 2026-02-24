@@ -17,9 +17,8 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Controller } from "react-hook-form";
-import Checkbox from "@components/field/Checkbox";
 import { makeStyles } from "@material-ui/core/styles";
-
+import CheckboxConsent from "@components/consent/Checkbox";
 const useStyles = makeStyles(theme => ({
   check: {
     display: "inline-flex",
@@ -196,19 +195,6 @@ const Consent = props => {
       </Grid>
     </Fragment>
   );
-};
-
-export const CheckboxConsent = props => {
-  const { t } = useTranslation();
-  const config = useCampaignConfig();
-  const props2 = {
-    ...props,
-    ...{
-      name: "privacy",
-      label: t("consent.opt-in", { partner: config.organisation }),
-    },
-  };
-  return Checkbox(props2);
 };
 
 export const ConfirmProcessing = props => {
