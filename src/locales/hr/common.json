@@ -1,7 +1,7 @@
 {
   "Address": "Adresa",
   "Amount": "Iznos",
-  "Another": "Drugi",
+  "Another": "Drugo",
   "Birthdate": "Datum rođenja",
   "City": "Grad",
   "Comment": "Komentar",
@@ -46,7 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
-  "ai_work": "AI generira odgovor",
+  "ai_work": "UI generira odgovor",
   "camera": {
     "start": "pokreni kameru",
     "take": "Snimi sliku",
@@ -75,7 +75,7 @@
       "opt-out": "i nemoj me obavještavati"
     }
   },
-  "customize_text": "Pročitajte i prilagodite kako biste maksimizirali utjecaj poruke",
+  "customize_text": "Pročitaj i prilagodi tekst za maksimiziranje utjecaja poruke",
   "date": {
     "error": "nevažeći datum. format: DD.MM.YYYY"
   },
@@ -170,7 +170,7 @@
   },
   "no": "ne",
   "party": "Stranka",
-  "party_helper": "Klikni na oznaku stranke za biranje svih njenih članova.",
+  "party_helper": "Klikni na oznaku stranke za biranje svih njenih članova",
   "phone": {
     "INVALID_COUNTRY": "kod zemlje nedostaje ili nije ispravan",
     "INVALID_LENGTH": "Neispravna duljina",
@@ -194,7 +194,7 @@
   },
   "progressGoal": {
     "default": "Sljedeći cilj je: {{goal}}",
-    "sign": "Idemo u {{goal}}"
+    "sign": "Dosegnimo {{goal}}"
   },
   "read more": "saznaj više",
   "region": "Regija",
