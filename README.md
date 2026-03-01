@@ -126,20 +126,19 @@ These are all the command line commands to build and manage the locale cache (by
 
 ## `proca campaign markdown`
 
-Export a campaign's locale file
+generate a markdown based on the config file of the campaign
 
 ```
 USAGE
-  $ proca campaign markdown [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n
-    <the_short_name> | -x <value>] [--lang <value>] [--namespace <value>]
+  $ proca campaign markdown [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n <value> | -x
+    <value>] [--lang <value>]
 
 FLAGS
   -i, --id=<value>
-  -n, --name=<the_short_name>  name (technical short name, also called slug)
-  -x, --dxid=<value>           dxid
-      --env=<value>            [default: default] allow to switch between configurations (server or users)
-      --lang=<value>           [default: en]
-      --namespace=<value>      Limit translation to a specific namespace (e.g., common, letter, campaign)
+  -n, --name=<value>
+  -x, --dxid=<value>  dxid
+      --env=<value>   [default: default] allow to switch between configurations (server or users)
+      --lang=<value>  [default: en] language to display as markdown
 
 OUTPUT FLAGS
   --csv            Format output as csv
@@ -148,7 +147,7 @@ OUTPUT FLAGS
   --[no-]simplify  flatten and filter to output only the most important attributes, mostly relevant for json
 
 DESCRIPTION
-  Export a campaign's locale file
+  generate a markdown based on the config file of the campaign
 ```
 
 ## `proca campaign pull`

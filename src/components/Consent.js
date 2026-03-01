@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -7,43 +7,20 @@ import {
   RadioGroup,
   FormHelperText,
   FormLabel,
-  FormGroup,
   FormControl,
   FormControlLabel,
   Collapse,
 } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
-
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { Controller } from "react-hook-form";
+
 import { makeStyles } from "@material-ui/core/styles";
 import CheckboxConsent from "@components/consent/Checkbox";
+import ConfirmProcessing from "@components/consent/ConfirmProcessing";
+import ButtonConsent from "@components/consent/Button";
+
 const useStyles = makeStyles(theme => ({
-  check: {
-    display: "inline-flex",
-    alignItems: "center",
-    cursor: "pointer",
-    // For correct alignment with the text.
-    verticalAlign: "middle",
-    WebkitTapHighlightColor: "transparent",
-    marginLeft: -11,
-    marginRight: 16, // used for row presentation of radio/checkbox
-    color: theme.palette.text.secondary,
-    "& span": { fontSize: theme.typography.pxToRem(13) },
-    //    "& :hover": { color: theme.palette.primary.main },
-  },
-  bigHelper: {
-    marginLeft: theme.spacing(0),
-    marginRight: theme.spacing(0),
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-    fontSize: theme.typography.pxToRem(16),
-    width: "100%",
-    color: theme.palette.text.primary,
-    padding: "4px",
-    lineHeight: "1.3em",
-  },
   label: {
     "& span": {
       color: theme.palette.text.primary,
@@ -104,29 +81,45 @@ const Consent = props => {
   if (config.component?.consent?.checkbox)
     return <CheckboxConsent {...props} />;
 
+  if (config.component?.consent?.button) return <ButtonConsent {...props} />;
+
   return (
-    <Fragment>
-      <Grid item xs={12}>
-        <FormControl component="fieldset" error={!!(errors && errors.privacy)}>
-          {consentIntro && (
-            <FormLabel
-              component="legend"
-              error={typeof errors.privacy === "object"}
-            >
-              {consentIntro} *
-            </FormLabel>
-          )}
-          <RadioGroup
-            aria-label="privacy consent"
-            name="privacy"
-            onChange={handleChange}
-            required
+    <Grid item xs={12}>
+      <FormControl component="fieldset" error={!!(errors && errors.privacy)}>
+        {consentIntro && (
+          <FormLabel
+            component="legend"
+            error={typeof errors.privacy === "object"}
           >
-            {(!config.component?.consent?.split || coordinator) && (
+            {consentIntro} *
+          </FormLabel>
+        )}
+        <RadioGroup
+          aria-label="privacy consent"
+          name="privacy"
+          onChange={handleChange}
+          required
+        >
+          {(!config.component?.consent?.split || coordinator) && (
+            <FormControlLabel
+              value="opt-in"
+              checked={value === "opt-in"}
+              className={classes.label}
+              control={
+                <Radio
+                  color="primary"
+                  {...register("privacy", { required: true })}
+                />
+              }
+              label={t("consent.opt-in", { partner: config.organisation })}
+            />
+          )}
+          {config.component?.consent?.split && !coordinator && (
+            <>
               <FormControlLabel
                 value="opt-in"
-                checked={value === "opt-in"}
                 className={classes.label}
+                checked={value === "opt-in"}
                 control={
                   <Radio
                     color="primary"
@@ -135,104 +128,49 @@ const Consent = props => {
                 }
                 label={t("consent.opt-in", { partner: config.organisation })}
               />
-            )}
-            {config.component?.consent?.split && !coordinator && (
-              <>
-                <FormControlLabel
-                  value="opt-in"
-                  className={classes.label}
-                  checked={value === "opt-in"}
-                  control={
-                    <Radio
-                      color="primary"
-                      {...register("privacy", { required: true })}
-                    />
-                  }
-                  label={t("consent.opt-in", { partner: config.organisation })}
-                />
-                <FormControlLabel
-                  value="opt-in-both"
-                  className={classes.label}
-                  control={<Radio {...register("privacy")} color="primary" />}
-                  label={t("consent.opt-in-both", {
-                    lead: config.lead.title,
-                    partner: config.organisation,
-                  })}
-                />
-              </>
-            )}
-            <FormControlLabel
-              value="opt-out"
-              checked={value === "opt-out"}
-              control={
-                <Radio
-                  {...register("privacy", {
-                    required: t(["consent.required", "required field"]),
-                  })}
-                />
-              }
-              className={classes.label}
-              label={t("consent.opt-out")}
-            />
-            {confirmOptOut && (
-              <Collapse in={value === "opt-out"}>
-                <Alert severity="warning">
-                  <Trans i18nKey="consent.confirm">
-                    <AlertTitle>Sure?</AlertTitle>
-                    <span>explanation</span>
-                    <b>unsubscribe at any time</b>
-                  </Trans>
-                  <Button variant="contained" onClick={optin}>
-                    {t("consent.opt-in", { partner: config.organisation })}
-                  </Button>
-                </Alert>
-              </Collapse>
-            )}
-          </RadioGroup>
-          <FormHelperText>{errors?.privacy?.message}</FormHelperText>
-        </FormControl>
-        <ConfirmProcessing form={props.form} />
-      </Grid>
-    </Fragment>
-  );
-};
-
-export const ConfirmProcessing = props => {
-  const {
-    formState: { errors },
-    control,
-  } = props.form; // errors are in formState in React Hook Form 7
-  const { t } = useTranslation();
-  const config = useCampaignConfig();
-  const classes = useStyles();
-  if (!config.component.consent?.confirmProcessing) return null;
-  return (
-    <FormControl error={!!(errors && errors.consentProcessing)}>
-      <FormGroup>
-        <FormControlLabel
-          className={classes.check}
-          placement="end"
-          control={
-            <Controller
-              name="consentProcessing"
-              control={control}
-              defaultValue={false}
-              rules={{ required: t(["consent.required", "required"]) }}
-              render={({ field }) => (
-                <Checkbox
-                  {...field}
-                  color="primary"
-                  onChange={e => field.onChange(e.target.checked)}
-                  checked={field.value}
-                />
-              )}
-            />
-          }
-          label={<ConsentProcessing checkboxLabel={true} />}
-        />
-        <FormHelperText>{errors.consentProcessing?.message}</FormHelperText>
-      </FormGroup>
-    </FormControl>
+              <FormControlLabel
+                value="opt-in-both"
+                className={classes.label}
+                control={<Radio {...register("privacy")} color="primary" />}
+                label={t("consent.opt-in-both", {
+                  lead: config.lead.title,
+                  partner: config.organisation,
+                })}
+              />
+            </>
+          )}
+          <FormControlLabel
+            value="opt-out"
+            checked={value === "opt-out"}
+            control={
+              <Radio
+                {...register("privacy", {
+                  required: t(["consent.required", "required field"]),
+                })}
+              />
+            }
+            className={classes.label}
+            label={t("consent.opt-out")}
+          />
+          {confirmOptOut && (
+            <Collapse in={value === "opt-out"}>
+              <Alert severity="warning">
+                <Trans i18nKey="consent.confirm">
+                  <AlertTitle>Sure?</AlertTitle>
+                  <span>explanation</span>
+                  <b>unsubscribe at any time</b>
+                </Trans>
+                <Button variant="contained" onClick={optin}>
+                  {t("consent.opt-in", { partner: config.organisation })}
+                </Button>
+              </Alert>
+            </Collapse>
+          )}
+        </RadioGroup>
+        <FormHelperText>{errors?.privacy?.message}</FormHelperText>
+      </FormControl>
+      <ConfirmProcessing form={props.form} />
+    </Grid>
   );
 };
 

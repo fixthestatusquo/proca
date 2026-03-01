@@ -64,7 +64,6 @@ const FABAction = (props, ref) => {
   useEffect(() => {
     setCompact(false);
     return () => {
-      console.log("widget visible");
       // Clean up resources
     };
   }, [intersection.isIntersecting, setCompact]);

@@ -4,7 +4,7 @@ import { Grid, FormHelperText } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
-import { ConfirmProcessing } from "@components/Consent";
+import ConfirmProcessing from "@components/consent/ConfirmProcessing";
 
 import { makeStyles } from "@material-ui/core/styles";
 

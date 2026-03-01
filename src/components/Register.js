@@ -97,53 +97,8 @@ const SubmitButton = props => {
   const { formState, setValue, register } = props.form;
   const { t } = useTranslation();
 
-  const handleClick = (e, privacy) => {
-    setValue("privacy", privacy);
-    return props.handleClick(e);
-  };
-  if (config.component.consent?.buttons) {
-    return (
-      <>
-        <input type="hidden" {...register("privacy", { required: false })} />
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="contained"
-            classes={{ label: classes.withSubText }}
-            fullWidth
-            onClick={e => handleClick(e, "opt-out")}
-            disabled={
-              formState.isSubmitting ||
-              config.component.register?.disabled === true
-            }
-          >
-            {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
-            <span className={classes.subText}>
-              {t("consent.subButton.opt-out")}
-            </span>
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Button
-            color="primary"
-            variant="contained"
-            classes={{ label: classes.withSubText }}
-            fullWidth
-            onClick={e => handleClick(e, "opt-in")}
-            disabled={
-              formState.isSubmitting ||
-              config.component.register?.disabled === true
-            }
-          >
-            {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
-            <span className={classes.subText}>
-              {t("consent.subButton.opt-in")}
-            </span>
-          </Button>
-        </Grid>
-      </>
-    );
+  if (config.component.consent?.button) {
+    return null;
   }
 
   return (
