@@ -1,102 +1,89 @@
-#!/usr/bin/env node
-import { readFile, writeFile } from "fs/promises";
-import path from "path";
-import Command, { Flags } from "../../builderCommand.mjs";
+import Command, { Args, Flags } from "../../builderCommand.mjs";
 
-export default class CampaignTranslate extends Command {
+export default class CampaignPush extends Command {
   static description =
-    "Export a campaign's locale file";
-  
+    "generate a markdown based on the config file of the campaign";
+
   static args = this.multiid();
 
   static flags = {
+    //...super.globalFlags,
     ...this.flagify({ multiid: true }),
-    lang: Flags.string({
-      default: "en",
+    name: Flags.string({
+      char: "n",
     }),
-    namespace: Flags.string({
-      description:
-        "Limit translation to a specific namespace (e.g., common, letter, campaign)",
-      required: false,
+    lang: Flags.string({
+      description: "language to display as markdown",
+      default: "en",
     }),
   };
 
-  getValue(obj, keyPath) {
-    return keyPath.reduce((curr, key) => curr && curr[key], obj);
-  }
+  jsonToMarkdown(locales) {
+    const skipped = ["partner:", "onboarding"];
 
-  // Helper to set a nested value in an object based on a path array.
-  setValue(obj, keyPath, value) {
-    let current = obj;
-    for (let i = 0; i < keyPath.length - 1; i++) {
-      const key = keyPath[i];
-      if (!current[key] || typeof current[key] !== "object") {
-        current[key] = {};
+    let markdown = "";
+
+    // Iterate through top-level keys (e.g., "campaign:")
+    for (const level1Key in locales) {
+      if (skipped.includes(level1Key)) continue;
+      markdown += `# ${level1Key}\n\n`;
+
+      const level1Obj = locales[level1Key];
+      if (typeof level1Obj === "string") {
+        markdown += `${level1Obj}\n\n`;
+        continue;
       }
-      current = current[key];
-    }
-    current[keyPath[keyPath.length - 1]] = value;
-  }
+      // Iterate through second-level keys
+      for (const level2Key in level1Obj) {
+        markdown += `## ${level2Key}\n\n`;
 
-  async traverse(source, target, { lang, path = [] }) {
-    for (const key of Object.keys(source)) {
-      const currentPath = [...path, key];
-      const sourceValue = source[key];
+        const level2Obj = level1Obj[level2Key];
 
-      if (typeof sourceValue === "string" && sourceValue.trim() !== "") {
-console.log("## " + currentPath);
+        // If level2Obj is a string, just output it
+        if (typeof level2Obj === "string") {
+          markdown += `${level2Obj}\n\n`;
+        } else if (typeof level2Obj === "object" && level2Obj !== null) {
+          // Flatten from third level onwards
+          function flattenAndFormat(obj, keyPath = "") {
+            for (const key in obj) {
+              const value = obj[key];
+              const newPath = keyPath ? `${keyPath}.${key}` : key;
 
-            console.log(sourceValue.trim());
-      } else if (typeof sourceValue === "object" && sourceValue !== null) {
-        await this.traverse(
-          sourceValue,
-          this.getValue(target, [key]),
-          { lang, path: currentPath },
-        );
-      } else if (sourceValue.trim() === "") {
+              if (
+                typeof value === "object" &&
+                value !== null &&
+                !Array.isArray(value)
+              ) {
+                // Recursively flatten nested objects
+                flattenAndFormat(value, newPath);
+              } else {
+                // Add markdown section at third level and below
+                markdown += `### ${newPath}\n\n`;
+                markdown += `${value}\n\n`;
+              }
+            }
+          }
+
+          flattenAndFormat(level2Obj);
+        }
       }
     }
+    return markdown;
   }
 
   async run() {
-    const { flags } = await this.parse(CampaignTranslate);
-    const { name: campaign, lang } = flags;
-    this.dryRun = flags['dry-run'];
-
-    const filePath = path.join(
-      process.cwd(),
-      "config/campaign",
-      `${campaign}.json`,
-    );
-
-      const fileContent = await readFile(filePath, "utf-8");
-      const data = JSON.parse(fileContent);
-
-      let sourceLocaleRoot = data.config?.locales?.[lang];
-      if (!sourceLocaleRoot) {
-        this.error(`Source locale "${from}" not found in ${filePath}`);
-      }
-
-
-      let sourceLocale, targetLocale;
-
-
-      if (flags.namespace) {
-        const namespace = flags.namespace + ":";
-        this.log(`Restricting to namespace: ${namespace}`);
-        sourceLocale = this.getValue(sourceLocaleRoot, [namespace]);
-        if (!sourceLocale) {
-          this.error(
-            `Namespace "${namespace}" not found in source locale "${from}"`,
-          );
-        }
-
-      } else {
-        sourceLocale = sourceLocaleRoot;
-      }
-
-
-      await this.traverse(sourceLocale, targetLocale, { lang
-      });
+    const { flags } = await this.parse();
+    const { readCampaign: read } = await import("../../campaign.js");
+    const data = await read(flags.name);
+    if (data.errors) {
+      console.log("errors", data.errors);
+      this.error(data.errors);
+    }
+    const locales = data.config.locales;
+    if (!locales[flags.lang]) {
+      throw new Error(`No locales ${flags.lang}`);
+    }
+    const result = this.jsonToMarkdown(locales[flags.lang]);
+    console.log(result);
   }
 }
