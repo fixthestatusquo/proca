@@ -1,1 +1,26 @@
-{}
+{
+  "description": "postavi cilj kampanje i osnovni zahtjev",
+  "actions": {
+    "petition": {
+      "default": "Hej! Upravo sam potpisao/la ovu peticiju i pomislio/la sam da bi je i ti možda htio/htjela podržati",
+      "email": {
+        "subject": "Hoćeš li potpisati ovu peticiju sa mnom?",
+        "body": "Zdravo,\n\nupravo sam potpisao/la peticiju za temu koja mi je vrlo važna i javljam se ljudima za koje mislim da bi je možda također htjeli podržati.\n\nSvaki potpis pomaže u stvaranju dinamike i pokazuje donositeljima odluka da je ljudima stalo do ovog pitanja. Potrebna je samo minuta da dodaš svoje ime:\n\n{url}\n\nTvoja podrška je važna. Hvala ti na razmatranju!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Pomogni mi poslati poruku",
+      "email": {
+        "default": "Hej! Upravo sam poslao/la poruku o ovom problemu – želiš li dodati tvoj glas? Super je brzo: ",
+        "body": "Zdravo,\n\nupravo sam poslao/la e-mail na temu koja mi je vrlo važna. Hoćeš li mi se pridružiti kako bismo zajedno dali do znanja svoje mišljenje?\n\nPostoji unaprijed pripremljeni predložak koji sve čini vrlo jednostavnim – možeš ga prilagoditi ili poslati nepromijenjen. Traje samo par minuta:\n\n{url}\n\nŠto se više ljudi javi, to će nas biti teže ignorirati. Možeš li dodati svoj glas?\n\nPuno hvala"
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Pridruži mi se u podržati ovaj slučaj",
+      "body": "Zdravo,\n\nnedavno sam poduzeo/la nešto po pitanju teme koja mi je vrlo važna i želio/željela sam to podijeliti s tobom. Mislim da bi tebe također moglo zanimati pri tome sudjelovati.\n\nPotrebno je samo nekoliko minuta, a vjerujem da bi to moglo napraviti stvarnu razliku. Evo poveznice ako se želiš pridružiti:\n\n{url}\n\nHvala ti na razmatranju sudjelovati!"
+    },
+    "default": "Hej! Upravo sam poduzeo/la nešto važno – želiš li mi se pridružiti?"
+  }
+}
