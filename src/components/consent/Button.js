@@ -37,7 +37,7 @@ const ConsentButtons = props => {
           variant="contained"
           classes={{ label: classes.withSubText }}
           fullWidth
-          onClick={e => handleClick("opt-out")}
+          onClick={() => handleClick("opt-out")}
           disabled={
             formState.isSubmitting ||
             config.component.register?.disabled === true
@@ -45,9 +45,7 @@ const ConsentButtons = props => {
         >
           {props.buttonText ||
             t(config.component.register?.button || "action.register")}
-          <span className={classes.subText}>
-            {t("consent.subButton.opt-out")}
-          </span>
+          <span className={classes.subText}>{t("consent.button.opt-out")}</span>
         </Button>
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -56,7 +54,7 @@ const ConsentButtons = props => {
           variant="contained"
           classes={{ label: classes.withSubText }}
           fullWidth
-          onClick={e => handleClick("opt-in")}
+          onClick={() => handleClick("opt-in")}
           disabled={
             formState.isSubmitting ||
             config.component.register?.disabled === true
@@ -64,9 +62,7 @@ const ConsentButtons = props => {
         >
           {props.buttonText ||
             t(config.component.register?.button || "action.register")}
-          <span className={classes.subText}>
-            {t("consent.subButton.opt-in")}
-          </span>
+          <span className={classes.subText}>{t("consent.button.opt-in")}</span>
         </Button>
       </Grid>
     </>

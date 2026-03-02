@@ -50,7 +50,8 @@ const Observer = async (event, data, pii) => {
   }
   if (event.endsWith(":complete")) {
     // the user has submitted {
-    let param = getProperties(event, config);
+    const param = getProperties(event, config);
+    console.log("event", param);
     param.event = "form_submitted";
     param.form_plugin = "proca";
     if (config.component?.register?.field?.postcode !== false) {

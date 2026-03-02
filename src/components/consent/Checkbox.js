@@ -63,12 +63,12 @@ const Confirm = props => {
                 fullWidth
                 onClick={setOptIn}
               >
-                {t(["consent.checkbox.confirm.yes", "yes"])}
+                {t(["consent.checkbox.confirm.opt-in", "yes"])}
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Button variant="contained" fullWidth onClick={triggerSubmit}>
-                {t(["consent.checkbox.confirm.no", "no"])}
+                {t(["consent.checkbox.confirm.opt-out", "no"])}
               </Button>
             </Grid>
           </Grid>
