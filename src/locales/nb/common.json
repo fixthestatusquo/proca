@@ -70,7 +70,7 @@
     "processing": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av data og informasjonskapsler i samsvar med vår <1>personvernerklæring</1>.",
     "processing-nocookie": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av opplysningene i samsvar med vår <1>personvernerklæring</1>.",
     "required": "Ditt samtykke er nødvendig for å delta",
-    "subButton": {
+    "button": {
       "opt-in": "og motta informasjon",
       "opt-out": "og ikke holde meg informert"
     }

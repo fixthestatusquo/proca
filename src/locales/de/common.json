@@ -70,7 +70,7 @@
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich",
-    "subButton": {
+    "button": {
       "opt-in": "und Informationen erhalten",
       "opt-out": "und keine infos erhalten"
     }
@@ -146,7 +146,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation": "Sehr geehrte Damen und Herren",
+    "salutation": "Sehr geehrte:r {{target.name}}",
     "salutation_female": "Sehr geehrte Frau {{target.last_name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
     "salutation_male": "Sehr geehrter Herr {{target.last_name}}",

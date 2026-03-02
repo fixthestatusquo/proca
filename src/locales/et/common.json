@@ -70,7 +70,7 @@
     "processing": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustud andmete ja küpsiste kasutamisega vastavalt meie <1>privaatsuseeskirjadele</1>",
     "required": "Osalemiseks on vaja teie nõusolekut",
-    "subButton": {
+    "button": {
       "opt-in": "ja saada teavet",
       "opt-out": "ja ei teavita mind"
     }

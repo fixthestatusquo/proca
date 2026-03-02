@@ -61,7 +61,7 @@
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
     "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
     "required": "Ana buƙatar izinin ku don shiga",
-    "subButton": {
+    "button": {
       "opt-in": "da karɓar bayanai",
       "opt-out": "kuma kar a bani labari"
     }

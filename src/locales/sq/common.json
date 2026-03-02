@@ -62,7 +62,7 @@
     "processing": "Të dhënat tuaja personale do të ruhen në mënyrë konfidenciale dhe të sigurt. Duke dërguar këtë informacion, ju pranoni përdorimin e të dhënave dhe gjurmëve digjitale sipas <1>politikës sonë të privatësisë</1>.",
     "processing-nocookie": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave në përputhje me <1>politikën tonë të privatësisë</1>",
     "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë",
-    "subButton": {
+    "button": {
       "opt-in": "dhe merrni informacion",
       "opt-out": "dhe mos më mbani të informuar"
     }

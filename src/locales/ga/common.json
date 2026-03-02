@@ -70,7 +70,7 @@
     "processing": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí agus fianáin de réir ár mbeartas príobháideachta <1> </1>",
     "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
     "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh",
-    "subButton": {
+    "button": {
       "opt-in": "agus faisnéis a fháil",
       "opt-out": "agus ná coimeád ar an eolas mé"
     }

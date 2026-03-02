@@ -70,7 +70,7 @@
     "processing": "Vaši osebni podatki obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "processing-nocookie": "Vaši osebni podatki so v Umanoteri obravnavani z največjo mero zaupnosti. S podpisom peticije se strinjate z uporabo podatkov v skladu z našim <1> pravilnikom o zasebnosti </1>.",
     "required": "Za sodelovanje je potrebno vaše soglasje.",
-    "subButton": {
+    "button": {
       "opt-in": "in prejemanje informacij",
       "opt-out": "in me ne obveščajte"
     }

@@ -70,7 +70,7 @@
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
     "required": "Norint dalyvauti, reikia jūsų sutikimo.",
-    "subButton": {
+    "button": {
       "opt-in": "ir gauti informaciją",
       "opt-out": "ir neinformuokite manęs"
     }

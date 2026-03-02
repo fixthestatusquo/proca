@@ -70,7 +70,7 @@
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "required": "Lai nosūtītu epastu, jāatzīmē viena no izvēlēm.",
-    "subButton": {
+    "button": {
       "opt-in": "un saņemt informāciju",
       "opt-out": "un neinformē mani"
     }

@@ -61,7 +61,7 @@
     "processing": "Ваши лични подаци ће бити приватни и безбедни. Слањем информација пристајете на употребу података и колачића у складу са нашом <1> политиком приватности </1>",
     "processing-nocookie": "Vaši podaci neće biti javno objavljeni i biće čuvani na privatnom i bezbednom mestu. Upisivanjem podataka pristajete na njihovo korišćenje u skladu sa našom <1>politikom privatnosti</1>",
     "required": "За учешће је потребна ваша сагласност",
-    "subButton": {
+    "button": {
       "opt-in": "и примати информације",
       "opt-out": "и немојте ме обавештавати"
     }

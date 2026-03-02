@@ -76,9 +76,16 @@
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
     "required": "Your consent is needed to participate",
-    "subButton": {
+    "button": {
       "opt-in": "and receive informations",
       "opt-out": "and do not keep me informed"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Are you sure you don't want to receive updates on the progress of this and other campaigns?",
+        "opt-in": "Yes, I do want campaign updates",
+        "opt-out": "No, no updates please"
+      }
     }
   },
   "date": {
@@ -258,4 +265,3 @@
     "default": "Let's get to {{goal}}"
   }
 }
-

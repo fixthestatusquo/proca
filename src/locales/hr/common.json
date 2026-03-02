@@ -70,7 +70,7 @@
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potrebna tvoja suglasnost",
-    "subButton": {
+    "button": {
       "opt-in": "i primaj informacije",
       "opt-out": "i nemoj me obavještavati"
     }

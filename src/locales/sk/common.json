@@ -70,7 +70,7 @@
     "processing": "Vaše osobné údaje bezpečne chránime a uchovávame v súkromí. Odoslaním informácií súhlasíte s používaním údajov a súborov cookie v súlade s našimi zásadami ochrany <1>osobných údajov</1>",
     "processing-nocookie": "Vaše osobné údaje budú uchované v súkromí a bezpečne. Odoslaním informácií vyjadrujete súhlas s použitím údajov a súborov cookie v súlade s našimi <1> pravidlami ochrany osobných údajov </1>",
     "required": "Na účasť je potrebný váš súhlas",
-    "subButton": {
+    "button": {
       "opt-in": "a prijímať informácie",
       "opt-out": "a neinformujte ma"
     }

@@ -62,7 +62,7 @@
     "processing": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha namakhukhi ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
     "processing-nocookie": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
     "required": "Imvume yakho iyadingeka ukuze ubambe iqhaza",
-    "subButton": {
+    "button": {
       "opt-in": "futhi uthole ulwazi",
       "opt-out": "futhi ungangigcini nginolwazi"
     }

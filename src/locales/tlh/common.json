@@ -61,7 +61,7 @@
     "optInConfirmed": "ngeH Qap",
     "processing": "SoH De' yIghItlh, vItlhutlh.  <1>privacy policy</1> yIQum",
     "required": "SoH Qum",
-    "subButton": {
+    "button": {
       "opt-in": "yIghItlh",
       "opt-out": "jImej"
     }

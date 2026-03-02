@@ -61,7 +61,7 @@
     "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun iwwermëttelt, weist Dir Iech averstanen mat der Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
     "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Mat der Iwwermëttlung vun Informatiounen weist Dir Iech averstanen mat der Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
     "required": "Är Zoustëmmung ass néideg fir matzemaachen",
-    "subButton": {
+    "button": {
       "opt-in": "a kréien Informatiounen",
       "opt-out": "an haalt mech net um Laafenden"
     }

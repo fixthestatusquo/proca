@@ -70,7 +70,7 @@
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
     "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika",
-    "subButton": {
+    "button": {
       "opt-in": "i otrzymywać informacje",
       "opt-out": "i nie informuj mnie na bieżąco"
     }

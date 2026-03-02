@@ -70,7 +70,7 @@
     "processing": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "processing-nocookie": "Din personliga information kommer att hållas privat och förvaras säkert. Genom att skicka information samtycker du till användning av data och kakor i enlighet med vår <1> sekretesspolicy </1>",
     "required": "Ditt samtycke krävs för att delta",
-    "subButton": {
+    "button": {
       "opt-in": "och ta emot information.",
       "opt-out": "och inte håller mig informerad"
     }
