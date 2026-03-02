@@ -94,7 +94,7 @@ const TextFieldProca = props => {
 
         if (props.onChange) {
           handleChange = async e => {
-            await onChange(e);
+            onChange(e);
             props.onChange(e);
           };
         }
@@ -102,7 +102,6 @@ const TextFieldProca = props => {
         if (
           errors &&
           errors[props.name] &&
-          errors &&
           errors[props.name].type === "warning"
         )
           classesname += ` ${classes.warning}`;
