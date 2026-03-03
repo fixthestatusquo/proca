@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Përshëndetje {{firstName}},",
+            "share_on": "Ndaj në",
+            "consent": "\n          ",
+            "thanks": "Faleminderit për pjesëmarrjen në {{campaign.title}}. Mbështetja juaj është e vlerësuar!",
+            "thanksPledge": "Faleminderit që keni premtuar për {{campaign.title}}. Nënshkrimi juaj do të rishikohet dhe, nëse miratohet, do të shfaqet në faqen tonë të internetit.",
+            "about": "Deri tani mbështetësit e {{campaign.stats.supporterCount}} kanë ndërmarrë veprimin.",
+            "share": "Ndihmoni na të arrijmë qëllimin tonë duke përhapur lajmin.",
+            "follow": "Na ndiqni në:",
+            "donate": "Ju lutemi konsideroni të bëni një donacion për të na ndihmuar të arrijmë misionin tonë.",
+            "closing": "Me ndihmën tuaj, jemi një hap më afër qëllimit tonë.",
+            "privacy": "Mund të gjeni më shumë informacion rreth politikës sonë të privatësisë dhe përpunimit të të dhënave tuaja.",
+            "unsubscribe": "Nëse nuk dëshironi të merrni më informacione nga ne në të ardhmen, do të mund të anuloni regjistrimin tuaj në çdo kohë.",
+            "signature": "Me respekt,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Faleminderit për angazhimin dhe përkushtimin tuaj ndaj kauzës sonë! Megjithatë, në përpjekje për të ruajtur autenticitetin dhe besueshmërinë, ne duhet të heqim firmat e dyfishta dhe duket se ju (ose dikush që përdor {{email}}) tashmë e keni bërë këtë veprim.  Jini të sigurt, firma juaj fillestare u numërua dhe kontribuoi në fushatën tonë.\nMbështetja juaj ka qenë e paçmueshme, dhe dëshirojmë t'ju inkurajojmë që të ndërmerrni një hap shtesë për të ndihmuar në zgjerimin e ndikimit tuaj. Ju lutemi, merrni në konsideratë t'u drejtoheni miqve dhe familjes suaj, duke i nxitur ata të veprojnë gjithashtu, duke përdorur adresat e tyre të emailit. Në këtë mënyrë, ne mund të rrisim më tej lëvizjen tonë dhe të krijojmë një zë kolektiv edhe më të fortë për ndryshimin që kërkojmë.\nEdhe një herë, shprehim mirënjohjen tonë të thellë për mbështetjen dhe përkushtimin tuaj të vazhdueshëm ndaj kësaj fushate. Së bashku, mund të bëjmë një ndikim të qëndrueshëm!",
+            "is_it_me": "Nëse nuk e keni ndërmarrë këtë veprim, ju lutemi klikoni [këtu](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) për ta hequr atë."
+        },
+        "button": {
+            "confirmAction": "Po, unë jam një person i vërtetë!",
+            "confirmOptin": "Dua të marr lajme nga ju",
+            "confirmAlreadyMember": "Konfirmoj pjesëmarrjen time dhe tashmë marr email-e nga ju.",
+            "confirmOptout": "Konfirmoj pjesëmarrjen time, por mos më mbani të informuar në të ardhmen."
+        },
+        "doi": {
+            "subject": "Një hap tjetër: ju lutemi konfirmoni adresën tuaj të emailit",
+            "intro": "Për të përfunduar regjistrimin tuaj dhe për të na lejuar të përpunojmë adresën tuaj të emailit dhe të dhënat personale për dërgimin e lajmeve ose buletineve, ju lutemi klikoni butonin e konfirmimit më poshtë. Ky hap i automatizuar siguron pëlqimin tuaj dhe parandalon regjistrimet e paautorizuara.",
+            "extra": "Nëse nuk jeni regjistruar për këtë abonim, ndjehuni të lirë ta injoroni këtë email."
+        },
+        "thankyou": {
+            "intro": "Faleminderit për pjesëmarrjen tuaj në \"{{campaign.title}}\". Mbështetja juaj është e vlerësuar!",
+            "subject": "Faleminderit, këtu është çfarë tjetër mund të bëni"
+        },
+        "doi_thankyou": {
+            "subject": "Faleminderit për pjesëmarrjen tuaj{{#privacy.optIn}}, edhe një hap tjetër, ju lutem konfirmoni adresën tuaj të emailit{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Një hap tjetër: ju lutemi konfirmoni adresën tuaj të emailit",
+            "extra": "Nëse nuk e keni kërkuar këtë, ju lutemi injoroni këtë email.",
+            "intro": "Konfirmimi juaj është thelbësor për përpunimin e pjesëmarrjes suaj. Kjo siguron që çdo dërgim vjen nga një person i vërtetë dhe ndihmon në parandalimin e dërgesave të rreme ose spam."
+        }
+    },
+    "poweredBy": "Furnizuar nga"
+}

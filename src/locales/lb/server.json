@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Moien {{firstName}},",
+            "thanks": "Merci fir Är Participatioun am {{campaign.title}}. Är Ënnerstëtzung gëtt geschätzt!",
+            "about": "Bis elo hu {{campaign.stats.supporterCount}} -Ënnerstëtzer d'Aktioun ënnerholl.",
+            "share": "Hëlleft eis, eist Zil z'erreechen, andeems Dir d'Wuert verbreet.",
+            "follow": "Follegt eis op:",
+            "donate": "W.e.g. iwwerleet eng Spende ze maachen, fir eis ze hëllefen, eis Missioun z'erreechen.",
+            "closing": "Mat ärer Hëllef si mir ee Schrëtt méi no un eisem Zil.",
+            "privacy": "Dir fannt méi Informatiounen iwwer eis Privatsphärpolitik an d'Veraarbechtung vun äre Donnéeën.",
+            "unsubscribe": "Wann Dir keng weider Informatiounen vun eis an der Zukunft wëllt kréien, kënnt Dir Är Umeldung zu all Moment ofmellen.",
+            "consent": "\n          ",
+            "signature": "Mat frëndleche Gréiss,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Merci fir Äert Engagement an Är Oofgab fir eis Saach! Allerdéngs, an eisem Engagement fir Authentizitéit a Kredibilitéit ze erhalen, musse mir **duplizéiert** Ënnerschrëften ewechhuelen, an et schéngt, datt Dir (oder iergendeen, deen {{email}} benotzt) dëst schonn gemaach hutt.   Sidd verséchert, **Är éischt Ënnerschrëft gouf gezielt** a huet zu eiser Kampagne bäigedroen. \nÄre Support war onschätzbar, a mir wëllen Iech gären encouragéieren, e weidere Schrëtt ze maachen, fir Ären Impakt nach ze vergréisseren. W.e.g. kontaktéiert Är Frënn a Famill a frot se och dozou op, mat hiren eegene E-Mailadressen ze handelen. Op dës Manéier kënne mir eis Bewegung weider ausbauen an eng nach méi staark kollektiv Stëmm fir déi Ännerung schafen, déi mir sichen.\nNach eng Kéier soen mir Iech e häerzlechen Merci fir Äre weideren Support an Är Engagement an dëser Campagne. Zesumme kënne mir en dauerhaften Impakt maachen!",
+            "share_on": "Op deelen",
+            "thanksPledge": "Merci datt Dir Iech fir {{campaign.title}} engagéiert hutt. Är Ënnerschrëft gëtt iwwerpréift a gëtt, wann se guttgeheescht ass, op eiser Websäit ugewisen.",
+            "is_it_me": "Wann Dir dës Aktioun net ënnerholl hutt, klickt w.e.g. [heie](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) fir se ze läschen."
+        },
+        "thankyou": {
+            "intro": "Merci fir Är Participatioun un \"{{campaign.title}}\". Är Ënnerstëtzung gëtt geschätzt!",
+            "subject": "Merci, hei ass wat Dir nach maache kënnt"
+        },
+        "doi": {
+            "subject": "Nach ee Schrëtt: w.e.g. bestätegt Är E-Mail-Adress",
+            "intro": "Fir Är Umeldung ofzeschléissen an eis erlaaben, Är E-Mail-Adress an perséinlech Donnéeën fir d'Liwwerung vu Neiegkeeten oder Newsletter ze veraarbechten, klickt w.e.g. op de Bestätegungsknopf hei ënnen. Dëse automatiséierte Schrëtt garantéiert Är Zoustëmmung a verhënnert onautoriséiert Umeldungen.",
+            "extra": "Wann Dir Iech net fir dëse Abonnement ugemellt hutt, fillt Iech fräi, dës E-Mail ze ignoréieren."
+        },
+        "button": {
+            "confirmAction": "Jo, ech sinn eng richteg Persoun!",
+            "confirmOptin": "Ech wëll Neiegkeeten vun Iech kréien.",
+            "confirmAlreadyMember": "Ech bestätegen meng Participatioun a kréien schonn E-Mailen vun Iech.",
+            "confirmOptout": "Ech bestätegen meng Participatioun, mee behal mech net weider op dem neiste Stand."
+        },
+        "doi_thankyou": {
+            "subject": "Merci fir Är Participatioun{{#privacy.optIn}}, nach ee Schrëtt, w.e.g. bestätegt Är E-Mail-Adress{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Nach ee Schrëtt: w.e.g. bestätegt Är E-Mail-Adress",
+            "extra": "Wann Dir dëst net ugefrot hutt, ignoréiert w.e.g. dës E-Mail.",
+            "intro": "Är Bestätegung ass wesentlech fir Är Participatioun ze veraarbechten. Dëst suergt dofir, datt all Aschreiwung vun enger reeller Persoun kënnt, an hëlleft, gefälschte oder Spam-Aschreiwungen ze verhënneren."
+        }
+    },
+    "poweredBy": "GEDRIEWEN VUN"
+}

@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Bongu {{firstName}},",
+            "share_on": "Ixerred fuq",
+            "consent": "\n          Il-kelma 'kelma' hija kelma.\n          ",
+            "thanks": "Grazzi għall-parteċipazzjoni tiegħek fil- {{campaign.title}}. Apprezzjaw l-appoġġ tiegħek!",
+            "about": "S'issa, l-appoġġaturi ta' {{campaign.stats.supporterCount}} ħadu azzjoni.",
+            "share": "Għinna nilħqu l-għan tagħna billi tixxerred il-kelma.",
+            "follow": "Segwina fuq:",
+            "donate": "Jekk jogħġbok ikkunsidra li tagħti donazzjoni biex tgħinna nilħqu l-missjoni tagħna.",
+            "closing": "Bil-għajnuna tiegħek, aħna pass eqreb lejn il-mira tagħna.",
+            "privacy": "Tista' ssib aktar informazzjoni dwar il-politika tagħna dwar il-privatezza u l-ipproċessar tad-dejta tiegħek.",
+            "unsubscribe": "Jekk ma tridx tirċievi aktar informazzjoni mingħandna fil-futur, tkun tista' tikkansella r-reġistrazzjoni tiegħek fi kwalunkwe ħin.",
+            "signature": "Sinċerament tiegħek,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Grazzi għall-involviment u d-dedikazzjoni tiegħek għall-kawża tagħna! Madankollu, fil-impenn tagħna li nżommu l-awtentiċità u l-kredibilità, irridu nneħħu l-firma duplikata u jidher li int (jew xi ħadd li juża {{email}}) diġà ħadt din l-azzjoni. Kun assigurat, il-firma inizjali tiegħek ġiet kkalkulata u kkontribwiet għall-kampanja tagħna.\nL-appoġġ tiegħek kien ta' valur kbir, u nixtiequ nħeġġuk b'mod ġentili biex tieħu pass addizzjonali biex tgħin timmassimizza l-impatt tiegħek. Jekk jogħġbok, ikkunsidra li tikkuntattja lill-ħbieb u lill-familja tiegħek, u tħeġġiġhom biex jieħdu azzjoni wkoll, billi jużaw l-indirizzi email tagħhom stess. B'dan il-mod, nistgħu nikbru aktar il-moviment tagħna u noħolqu vuċi kollettiva anke aktar b'saħħitha għat-tibdil li qed infittxu.\nGħal darb'oħra, nistqarrulkom il-gratitudni sinċiera tagħna għall-appoġġ u d-dedikazzjoni kontinwa tiegħek f'din il-kampanja. Flimkien, nistgħu nagħmlu impatt li jdum!",
+            "thanksPledge": "Grazzi talli wegħedt għal {{campaign.title}}. Is-sinjatura tiegħek se tiġi riveduta u se tintwera fuq is-sit web tagħna jekk tiġi approvata.",
+            "is_it_me": "Jekk ma ħadtx din l-azzjoni, jekk jogħġbok ikklikkja [hawn](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) biex tneħħiha."
+        },
+        "button": {
+            "confirmAction": "Iva, jien persuna reali!",
+            "confirmOptin": "Nixtieq nirċievi aħbarijiet mingħandek.",
+            "confirmAlreadyMember": "Nikkonferma l-parteċipazzjoni tiegħi u diġà nirċievi emails mingħandkom.",
+            "confirmOptout": "Nikkonferma l-parteċipazzjoni tiegħi, imma ma żommunix aġġornat fil-futur."
+        },
+        "doi": {
+            "subject": "Pass ieħor: jekk jogħġbok ikkonferma l-indirizz tal-email tiegħek",
+            "intro": "Biex tlesti r-reġistrazzjoni tiegħek u tippermettilna nipproċessaw l-indirizz elettroniku u d-dejta personali tiegħek biex nibgħatulek aħbarijiet jew newsletters, jekk jogħġbok ikklikkja l-buttuna tal-konferma hawn taħt. Dan il-pass awtomatizzat jiżgura l-kunsens tiegħek u jipprevjeni reġistrazzjonijiet mhux awtorizzati.",
+            "extra": "Jekk ma rreġistrajtx għal din l-abbonament, tista' tinjoraha din l-email."
+        },
+        "thankyou": {
+            "intro": "Grazzi għall-parteċipazzjoni tiegħek fil-{{campaign.title}}. Apprezzjaw l-appoġġ tiegħek!",
+            "subject": "Grazzi, hawn x'tista' tagħmel ukoll"
+        },
+        "doi_thankyou": {
+            "subject": "Grazzi għall-parteċipazzjoni tiegħek{{#privacy.optIn}}, pass ieħor, jekk jogħġbok ikkonferma l-indirizz email tiegħek{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Pass ieħor: jekk jogħġbok ikkonferma l-indirizz tal-email tiegħek",
+            "extra": "Jekk ma talabtx dan, jekk jogħġbok injora din l-email.",
+            "intro": "Il-konferma tiegħek hija essenzjali biex nipproċessaw il-parteċipazzjoni tiegħek. Dan jiżgura li kull sottomissjoni tiġi minn persuna reali u jgħin jipprevjeni sottomissjonijiet foloz jew spam."
+        }
+    },
+    "poweredBy": "Imħaddem minn"
+}
