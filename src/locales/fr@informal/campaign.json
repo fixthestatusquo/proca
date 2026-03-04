@@ -12,7 +12,7 @@
       "subject": "Aide-moi à envoyer un message",
       "email": {
         "body": "Salut,\n\nJe viens d'envoyer un courriel à propos d'un problème qui me tient à cœur, et je voulais savoir si tu te joindrais à moi pour faire entendre notre voix.\n\nIl existe un modèle pré-rédigé qui facilite grandement la tâche - tu peux le personnaliser ou l'envoyer tel quel. Cela ne prend que quelques minutes :\n\n{url}\n\nPlus il y a de gens qui tendent la main, plus il est difficile de les ignorer. Envisagerais-tu d'ajouter ta voix ?\n\nMerci beaucoup.",
-        "default": "Je viens d'envoyer un message à ce sujet - pourrais-tu ajouter ta voix ? C'est très rapide : {url}"
+        "default": "Je viens d'envoyer un message à ce sujet - pourrais-tu ajouter ta voix ? C'est très rapide : "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Rejoins-moi pour soutenir cette cause",
       "body": "Salut,\n\nJ'ai récemment agi sur un sujet qui me tient à cœur et je voulais le partager avec toi. Je pense que cela pourrait t'intéresser de participer toi aussi.\n\nCela ne prend que quelques minutes et je crois que cela pourrait faire une réelle différence. Voici le lien si tu souhaites participer :\n\n{url}\n\nMerci d'y réfléchir !"
     },
-    "default": "Hé ! Je viens de prendre des mesures importantes - veux-tu te joindre à moi ? {url}"
+    "default": "Hé ! Je viens d'agir sur quelque chose d'important - tu veux te joindre à moi ?"
   }
 }
