@@ -58,9 +58,8 @@ const Observer = async (event, data, pii) => {
       param.form_contains_address_field = true;
     }
     param.form_id = config.actionpage;
-    param.form_contains_newsletter_subscription = true;
     param.form_goal = getGoal(config.component.register?.actionType);
-    param.form_contains_newsletter_subscription = true;
+    param.form_contains_newsletter_subscription = true; //TO CHECK
     if (config.component?.register?.field?.phone) {
       param.form_contains_phone_field = true;
       param.phone_field_provided = !!pii.phone;

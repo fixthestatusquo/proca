@@ -1024,112 +1024,6 @@
         "push.mjs"
       ]
     },
-    "target:publish": {
-      "aliases": [],
-      "args": {
-        "id_name_dxid": {
-          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
-          "hidden": true,
-          "name": "id_name_dxid"
-        }
-      },
-      "description": "publish the targets for the campaign to be accessible from the widget",
-      "flags": {
-        "json": {
-          "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
-          "helpGroup": "OUTPUT",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "env": {
-          "description": "allow to switch between configurations (server or users)",
-          "name": "env",
-          "default": "default",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "csv": {
-          "description": "Format output as csv",
-          "helpGroup": "OUTPUT",
-          "name": "csv",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "markdown": {
-          "description": "Format output as markdown table",
-          "helpGroup": "OUTPUT",
-          "name": "markdown",
-          "allowNo": false,
-          "type": "boolean"
-        },
-        "simplify": {
-          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
-          "helpGroup": "OUTPUT",
-          "name": "simplify",
-          "allowNo": true,
-          "type": "boolean"
-        },
-        "name": {
-          "char": "n",
-          "description": "name (technical short name, also called slug)",
-          "name": "name",
-          "hasDynamicHelp": false,
-          "helpValue": "<the_short_name>",
-          "multiple": false,
-          "type": "option"
-        },
-        "id": {
-          "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
-          "name": "id",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "dxid": {
-          "char": "x",
-          "description": "dxid",
-          "name": "dxid",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "campaign": {
-          "name": "campaign",
-          "allowNo": true,
-          "type": "boolean"
-        },
-        "git": {
-          "description": "commit the changes to git",
-          "name": "git",
-          "allowNo": true,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "target:publish",
-      "pluginAlias": "@proca/widget",
-      "pluginName": "@proca/widget",
-      "pluginType": "core",
-      "strict": true,
-      "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "target",
-        "publish.mjs"
-      ]
-    },
     "locale:cache": {
       "aliases": [],
       "args": {},
@@ -1250,6 +1144,112 @@
         "commands",
         "locale",
         "status.mjs"
+      ]
+    },
+    "target:publish": {
+      "aliases": [],
+      "args": {
+        "id_name_dxid": {
+          "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
+          "hidden": true,
+          "name": "id_name_dxid"
+        }
+      },
+      "description": "publish the targets for the campaign to be accessible from the widget",
+      "flags": {
+        "json": {
+          "description": "Format output as json",
+          "exclusive": [
+            "csv",
+            "markdown"
+          ],
+          "helpGroup": "OUTPUT",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "env": {
+          "description": "allow to switch between configurations (server or users)",
+          "name": "env",
+          "default": "default",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "csv": {
+          "description": "Format output as csv",
+          "helpGroup": "OUTPUT",
+          "name": "csv",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "markdown": {
+          "description": "Format output as markdown table",
+          "helpGroup": "OUTPUT",
+          "name": "markdown",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "simplify": {
+          "description": "flatten and filter to output only the most important attributes, mostly relevant for json",
+          "helpGroup": "OUTPUT",
+          "name": "simplify",
+          "allowNo": true,
+          "type": "boolean"
+        },
+        "name": {
+          "char": "n",
+          "description": "name (technical short name, also called slug)",
+          "name": "name",
+          "hasDynamicHelp": false,
+          "helpValue": "<the_short_name>",
+          "multiple": false,
+          "type": "option"
+        },
+        "id": {
+          "char": "i",
+          "exclusive": [
+            "name",
+            "dxid"
+          ],
+          "name": "id",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "dxid": {
+          "char": "x",
+          "description": "dxid",
+          "name": "dxid",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "campaign": {
+          "name": "campaign",
+          "allowNo": true,
+          "type": "boolean"
+        },
+        "git": {
+          "description": "commit the changes to git",
+          "name": "git",
+          "allowNo": true,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "target:publish",
+      "pluginAlias": "@proca/widget",
+      "pluginName": "@proca/widget",
+      "pluginType": "core",
+      "strict": true,
+      "isESM": true,
+      "relativePath": [
+        "bin",
+        "commands",
+        "target",
+        "publish.mjs"
       ]
     },
     "campaign:widget:pull": {

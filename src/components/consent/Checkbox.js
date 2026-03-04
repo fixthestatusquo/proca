@@ -47,7 +47,7 @@ const Confirm = props => {
         validate={validate}
       />
       <Dialog
-        name={t("dialogTitle", "")}
+        name={t(["consent.checkbox.confirm.title", "dialogTitle"], "")}
         dialog={confirmed === false}
         close={close}
       >
