@@ -1,1 +1,26 @@
-{}
+{
+  "description": "beka inhloso yomkhankaso nesidingo esiyinhloko",
+  "actions": {
+    "petition": {
+      "default": "Sawubona! Ngisanda kusayina le petishini futhi ngangicabanga ukuthi nawe ungayisekela.",
+      "email": {
+        "subject": "Ungasayina yini lesi sicelo nami?",
+        "body": "Sawubona,\n\nNgisanda kusayina isicelo mayelana nento engiyikhathalelayo kakhulu, futhi ngifinyelela kubantu engicabanga ukuthi bangase bafune ukusisekela naso.\n\nYonke isiginesha isiza ukwakha umfutho futhi ikhombisa abathathi-zinqumo ukuthi abantu bayakhathalela lolu daba. Kuthatha umzuzu owodwa kuphela ukungeza igama lakho:\n\n{url}\n\nNgizokwazisa kakhulu ukwesekwa kwakho kulokhu. Ngiyabonga ngokuthatha isikhathi sakho ukucabangela lokhu!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ngisize ngithumele umyalezo",
+      "email": {
+        "body": "Sawubona,\n\nNgisanda ukuthumela i-imeyili mayelana nodaba engilukhathalele, futhi bengifuna ukubona ukuthi uzohlanganyela nami ekwenzeni amazwi ethu azwakale.\n\nKukhona itempulethi esivele yabhalwa eyenza kube lula kakhulu - ungayenza yakho noma uyithumele njengoba injalo. Kuthatha imizuzu embalwa nje:\n\n{url}\n\nLapho abantu abaningi bexhumana, kuba nzima kakhulu ukunganaki. Ungacabanga yini ukwengeza izwi lakho?\n\nNgiyabonga kakhulu",
+        "default": "Sawubona! Ngisanda kuthumela umlayezo mayelana nalolu daba – ungacabanga yini ukwengeza izwi lakho? Kuyashesha kakhulu: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Ungangijoyina ekusekeleni lo mkhankaso",
+      "body": "Sawubona,\n\nMuva nje ngithathe isinyathelo ngento engiyikhathalelayo futhi bengifuna ukwabelana ngayo nawe. Ngicabanga ukuthi nawe ungase ube nentshisekelo yokubamba iqhaza.\n\nKuthatha imizuzu embalwa nje, futhi ngikholwa ukuthi kungaba nomthelela omkhulu. Nansi isixhumanisi uma ungathanda ukujoyina:\n\n{url}\n\nNgiyabonga ngokucabangela lokhu!"
+    },
+    "default": "Hey! Ngisanda ukuthatha isinyathelo entweni ebalulekile - ufuna ukungijoyina?"
+  }
+}
