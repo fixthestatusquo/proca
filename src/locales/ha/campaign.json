@@ -1,1 +1,26 @@
-{}
+{
+  "description": "Sanya burin kamfen da babban buƙata",
+  "actions": {
+    "petition": {
+      "default": "Sannu! Na sanya hannu a wannan bukatar, kuma na yi tunanin cewa kai ma za ka so ka goyi bayanta.",
+      "email": {
+        "subject": "Za ka sanya hannu a wannan bukatar tare da ni?",
+        "body": "Sannu,\n\nNa sanya hannu a wata takardar roƙo kan wani abu da nake matuƙar damuwa da shi, kuma ina tuntuɓar mutanen da nake tunanin za su iya goyon baya ma.\n\nKowane sa hannu yana taimakawa wajen ƙara ƙarfi kuma yana nuna wa masu yanke shawara cewa mutane suna damuwa da wannan batu. Yana ɗaukar minti ɗaya kawai don ƙara sunanka:\n\n{url}\n\nZan yi matuƙar godiya da goyon bayanka a kan wannan. Na gode da ɗaukar lokaci don la'akari da shi!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Taimaka mini a aika saƙo",
+      "email": {
+        "body": "Sannu,\n\nNa aiko da imel yanzu kan wani batu da nake damuwa da shi, kuma ina so in ga ko za ka zo tare da ni mu sa muryarmu ta ji.\n\nAkwai samfurin imel da aka riga aka rubuta wanda ke sauƙaƙa komai - za ka iya gyara shi yadda kake so ko ka aiko da shi yadda yake. Zai ɗauki mintuna kaɗan ne kawai:\n\n{url}\n\nYayin da mutane da yawa suka tuntuɓa, zai fi wuya a yi watsi da shi. Za ka yi la'akari da ƙara muryarka?\n\nNa gode sosai",
+        "default": "Sannu! Na tura saƙo ne game da wannan batu – za ka yi la'akari da ƙara muryarka? Yana da sauri sosai: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Ku zo ku goyi bayan wannan manufa tare da ni.",
+      "body": "Sannu,\n\nKwanan nan na ɗauki mataki kan wani abu da nake damuwa da shi, kuma na so in raba shi da ku. Ina tsammanin kuna iya sha'awar shiga ma.\n\nYana ɗaukar mintuna kaɗan ne kawai, kuma ina ganin zai iya kawo babban canji. Ga mahaɗin idan kuna son shiga:\n\n{url}\n\nNa gode da la'akari!"
+    },
+    "default": "Sannu! Na ɗauki mataki kan wani abu mai muhimmanci – kana son ka zo tare da ni?"
+  }
+}

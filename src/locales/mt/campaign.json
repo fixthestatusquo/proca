@@ -1,1 +1,26 @@
-{}
+{
+  "description": "poġġi l-għan tal-kampanja u d-domanda ewlenija",
+  "actions": {
+    "petition": {
+      "default": "Hey! Għadni kemm iffirma din il-petizzjoni u ħsibt li forsi tixtieq tappoġġjaha wkoll.",
+      "email": {
+        "subject": "Se tiffirma din il-petizzjoni miegħi?",
+        "body": "Ħelow,\n\nAppena ffirmajt petizzjoni dwar xi ħaġa li jimpurtani ħafna, u qed nikkuntattja nies li naħseb li forsi jridu jappoġġjawha wkoll.\n\nKull firma tgħin biex tinbena momentum u turi lil dawk li jieħdu d-deċiżjonijiet li n-nies jimpurtahom din il-kwistjoni. Tieħu biss minuta biex iżżid ismek:\n\n{url}\n\nNapprezza ħafna l-appoġġ tiegħek f'dan. Grazzi talli ħadt il-ħin biex tikkunsidrah!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Għinni nibgħat messaġġ",
+      "email": {
+        "body": "Ħej,\n\nBgħatt email issa dwar kwistjoni li jimpurtani, u ridt nara jekk tixtieq tingħaqad miegħi biex il-vuċijiet tagħna jinstemgħu.\n\nHemm mudell lest minn qabel li jagħmilha tassew faċli – tista' tippersonalizzah jew tibgħatuh kif inhu. Tieħu biss ftit minuti:\n\n{url}\n\nKemm aktar nies jikkuntattjaw, iktar ikun diffiċli li jiġu injorati. Tista' tikkunsidra li żżid il-vuċi tiegħek?\n\nGrazzi ħafna",
+        "default": "Hey! Bgħatt messaġġ dwar din il-kwistjoni ftit ilu – tikkunsidra li żżid il-vuċi tiegħek? Huwa super malajr: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Ingħaqad miegħi biex nappoġġjaw din il-kawża.",
+      "body": "Ħelow,\n\nRiċentement ħadt azzjoni dwar xi ħaġa li jimpurtani u ridt naqsmha miegħek. Naħseb li jista' jkun li inti wkoll tkun interessat/a tipparteċipa.\n\nJieħu biss ftit minuti, u nemmen li jista' jagħmel differenza vera. Hawnhekk għandek il-link jekk tixtieq tingħaqad:\n\n{url}\n\nGrazzi talli kkunsidrajt!"
+    },
+    "default": "Hey! Għamilt azzjoni dwar xi ħaġa importanti – trid tingħaqad miegħi?"
+  }
+}

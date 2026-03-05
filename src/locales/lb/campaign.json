@@ -1,1 +1,26 @@
-{}
+{
+  "description": "Setzt d'Zil vun der Kampagne an d'Haaptufuerderung",
+  "actions": {
+    "petition": {
+      "default": "Hey! Ech hu grad dës Petition ënnerschriwwen a geduecht, datt du se och ënnerstëtze wëlls.",
+      "email": {
+        "subject": "Wëlls du dës Petitioun mat mir ënnerschreiwen?",
+        "body": "Salut,\n\nEch hu grad eng Petition ënnerschriwwen iwwer eppes, wat mir ganz wichteg ass, an ech kontaktéieren Leit, vun deenen ech mengen, si kéinten et och ënnerstëtzen.\n\nAll Ënnerschrëft hëlleft, Schwung opzebauen, an weist de Verantwortlechen, datt d'Leit sech ëm dëse Sujet këmmeren. Et dauert nëmmen eng Minutt, fir Ären Numm derbäi ze setzen:\n\n{url}\n\nEch wier Iech fir Är Ënnerstëtzung ganz dankbar. Merci, datt Dir Iech d'Zäit geholl hutt, et ze iwwerleeën!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Hëlleft mir eng Noriicht ze schécken",
+      "email": {
+        "body": "Salut,\n\nEch hu grad eng E-Mail iwwer e Sujet geschéckt, deen mir wichteg ass, a ech wollt froen, ob Dir matmaacht, fir eis Stëmmen héieren ze loossen.\n\nEt gëtt eng virgeschriwwen Virlag, déi et ganz einfach mécht - Dir kënnt se personaliséieren oder esou wéi se ass verschécken. Et dauert nëmmen e puer Minutten:\n\n{url}\n\nJe méi Leit sech mellen, desto méi schwéier ass et, et ze ignoréieren. Wëllt Dir och Är Stëmm derbäisetzen?\n\nVillmools Merci",
+        "default": "Hey! Ech hu grad eng Noriicht iwwer dëse Problem geschéckt – géifs du drun denken, deng Stëmm derbäizesetzen? Et dauert nëmmen e Moment: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Schléiss dech mir un, fir dës Saach z'ënnerstëtzen.",
+      "body": "Salut,\n\nEch hu viru kuerzem eppes ënnerholl, wat mir wichteg ass, a wollt et mat dir deelen. Ech mengen, et kéint dech och interesséieren matzemaachen.\n\nEt dauert nëmmen e puer Minutten, an ech gleewen, et kéint en Ënnerscheed maachen. Hei ass de Link, wanns de matmaache wëlls:\n\n{url}\n\nMerci datt du der doru geduecht hues!"
+    },
+    "default": "Hey! Ech hu grad eppes Wichteges ënnerholl – wëlls du matmaachen?"
+  }
+}

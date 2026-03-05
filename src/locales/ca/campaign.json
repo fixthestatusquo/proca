@@ -1,1 +1,26 @@
-{}
+{
+  "description": "posar l'objectiu de la campanya i la demanda principal",
+  "actions": {
+    "petition": {
+      "default": "Ei! Acabo de signar aquesta petició i he pensat que potser tu també voldries donar-hi suport.",
+      "email": {
+        "subject": "Vols signar aquesta petició amb mi?",
+        "body": "Hola,\n\nAcabo de signar una petició sobre una cosa que em preocupa molt, i m'adreço a persones que crec que també la podrien voler donar suport.\n\nCada signatura ajuda a agafar impuls i demostra als responsables que la gent es preocupa per aquest tema. Només cal un minut per afegir-hi el teu nom:\n\n{url}\n\nAgrairia molt el teu suport. Gràcies per dedicar-hi un moment!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ajuda'm a enviar un missatge",
+      "email": {
+        "body": "Hola,\n\nAcabo d'enviar un correu electrònic sobre un tema que em preocupa, i volia saber si t'hi sumaries per fer sentir la nostra veu.\n\nHi ha una plantilla prèvia que ho fa molt fàcil: la pots personalitzar o enviar-la tal qual. Només triga un parell de minuts:\n\n{url}\n\nCom més gent s'hi sumi, més difícil serà ignorar-ho. T'hi sumaries?\n\nMoltes gràcies",
+        "default": "Ei! Acabo d'enviar un missatge sobre aquest tema: consideraríeu afegir-hi la vostra veu? És molt ràpid: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Uneix-te a mi per donar suport a aquesta causa.",
+      "body": "Hola,\n\nFa poc vaig fer una acció per una causa que em preocupa i m'agradaria compartir-la amb tu. Crec que a tu també t'interessaria participar-hi.\n\nNomés triga uns minuts i crec que podria marcar una diferència real. Aquí tens l'enllaç si t'hi vols sumar:\n\n{url}\n\nGràcies per considerar-ho!"
+    },
+    "default": "Ei! Acabo de fer alguna cosa important: vols unir-te a mi?"
+  }
+}

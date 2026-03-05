@@ -1,1 +1,26 @@
-{}
+{
+  "description": "vendos qëllimin e fushatës dhe kërkesën kryesore",
+  "actions": {
+    "petition": {
+      "default": "Hej! Sapo nënshkrova këtë peticion dhe mendova se ndoshta edhe ti do të doje ta mbështesje.",
+      "email": {
+        "subject": "A do ta nënshkruash këtë peticion me mua?",
+        "body": "Përshëndetje,\n\nSapo kam nënshkruar një peticion për një çështje që më intereson shumë, dhe po i kontaktoj njerëzit që mendoj se mund të duan ta mbështesin edhe ata.\n\nÇdo nënshkrim ndihmon në krijimin e një impulsi dhe u tregon vendimmarrësve se njerëzit kujdesen për këtë çështje. Duhet vetëm një minutë për të shtuar emrin tuaj:\n\n{url}\n\nDo ta vlerësoja shumë mbështetjen tuaj në këtë. Faleminderit që i kushtuat kohë për ta marrë në konsideratë!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Më ndihmo të dërgoj një mesazh",
+      "email": {
+        "body": "Përshëndetje,\n\nSapo dërgova një email për një çështje që më shqetëson, dhe doja të shihja nëse do t'i bashkoheshit meje për t'i bërë zërat tanë të dëgjohen.\n\nEkziston një model i parapërgatitur që e bën shumë të lehtë - mund ta personalizoni ose ta dërgoni ashtu siç është. Merr vetëm disa minuta:\n\n{url}\n\nSa më shumë njerëz të shkruajnë, aq më e vështirë bëhet t'i injorojnë. A do ta merrnit parasysh të shtonit edhe zërin tuaj?\n\nFaleminderit shumë",
+        "default": "Hej! Sapo dërgova një mesazh për këtë çështje – a do të konsideroje të shtoje edhe zërin tënd? Është shumë e shpejtë: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Bashkohuni me mua për të mbështetur këtë kauzë",
+      "body": "Përshëndetje,\n\nSë fundmi ndërmora një veprim për diçka që më intereson dhe desha ta ndaj me ju. Mendoj se edhe ju mund të jeni të interesuar të merrni pjesë.\n\nDuhen vetëm disa minuta, dhe besoj se mund të bëjë një ndryshim të vërtetë. Ja linku nëse dëshironi të bashkoheni:\n\n{url}\n\nFaleminderit që e merrni në konsideratë!"
+    },
+    "default": "Hej! Sapo ndërmora një veprim për diçka të rëndësishme – dëshiron të më bashkohesh?"
+  }
+}
