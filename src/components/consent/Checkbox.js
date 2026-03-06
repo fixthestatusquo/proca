@@ -16,6 +16,11 @@ const Confirm = props => {
     "https://proca.app/privacy_policy";
 
   const triggerSubmit = () => {
+    console.log(
+      props.form.control._fields?.privacy,
+      props.form.control._fields?.privacy?._f?.ref?.current,
+      props.form.control._fields?.privacy?._f?.ref?.current?.closest("form")
+    );
     props.form.control._fields?.privacy?._f?.ref?.current
       ?.closest("form")
       .dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
@@ -31,7 +36,7 @@ const Confirm = props => {
       return;
     }
     setConfirmed(false);
-    return "double check if consent opt-out";
+    return "do you want to opt-out?";
   };
   const setOptIn = () => {
     props.form.setValue("privacy", "opt-in");
