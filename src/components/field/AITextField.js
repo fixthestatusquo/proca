@@ -8,7 +8,6 @@ import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
 
-
 const Comment = ({
   form,
   classField,
@@ -21,7 +20,8 @@ const Comment = ({
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const theme = useTheme();
-  const fetchPrompted = false;
+  const fetchPrompted = config.component.message?.prompted || false;
+  console.log("prompted", fetchPrompted);
   const [state, setState] = useState("untouched"); //untouched->loading->loaded
   const isLoading = state === "loading";
   const { t } = useTranslation();
@@ -29,14 +29,10 @@ const Comment = ({
   if (!name) name = "comment";
   if (!label) label = t(name);
 
-  // useEffect(() => {
-  //   return () => {
-  //     console.log("unload");
-  //     // Cancel any ongoing fetch if component unmounts
-  //     // You might need an AbortController for this
-  //   };
-  // }, []);
-
+  const regenerate = async () => {
+    form.setValue("comment", "");
+    return await fetchData();
+  };
   const fetchData = async () => {
     /*  isValid = form.getValues("firstname");
   if (!isValid) {
@@ -56,7 +52,7 @@ const Comment = ({
       id: name,
       stream: true,
     };
-    if (formData[name].length < 100) {
+    if (formData[name].length < 200) {
       data[name] = formData[name];
     } else {
       data[name] = "";
@@ -215,7 +211,7 @@ const Comment = ({
         {state === "loaded" && (
           <Button
             variant="outlined"
-            onClick={fetchData}
+            onClick={regenerate}
             startIcon={
               <SvgIcon size={20}>
                 <AIIcon />

@@ -31,7 +31,6 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Consent, { ConsentProcessing } from "@components/Consent";
-import ImplicitConsent from "@components/ImplicitConsent";
 
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
@@ -380,16 +379,6 @@ export default function Register(props) {
     );
   }
 
-  let ConsentBlock = config.component.consent?.implicit
-    ? ImplicitConsent
-    : Consent;
-
-  if (config.component.consent?.buttons) {
-    ConsentBlock = function NoConsent() {
-      return null;
-    };
-  }
-
   const isValid = Object.keys(form.formState.errors).length === 0;
   const classField = data.uuid && isValid ? classes.hidden : classes.field;
   //const classField = classes.field;
@@ -511,7 +500,7 @@ export default function Register(props) {
                 />
               )}
               {!data.uuid && (
-                <ConsentBlock
+                <Consent
                   organisation={props.organisation}
                   privacy_url={config.privacyUrl}
                   intro={props.consentIntro}

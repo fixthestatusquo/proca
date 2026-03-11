@@ -19,6 +19,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CheckboxConsent from "@components/consent/Checkbox";
 import ConfirmProcessing from "@components/consent/ConfirmProcessing";
 import ButtonConsent from "@components/consent/Button";
+import ImplicitConsent from "@components/consent/Implicit";
 
 const useStyles = makeStyles(theme => ({
   label: {
@@ -57,6 +58,11 @@ const Consent = props => {
   const config = useCampaignConfig();
   const classes = useStyles();
 
+  if (config.component.consent?.implicit) return <ImplicitConsent {...props} />;
+
+  if (config.component.consent?.buttons) {
+    return null;
+  }
   const coordinator = config.lead.name === config.org.name;
 
   const consentIntro =
