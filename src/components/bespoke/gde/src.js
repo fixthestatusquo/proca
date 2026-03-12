@@ -13,6 +13,23 @@ import { parse } from "dxid";
 
 const useGlobalStyles = makeStyles({
   "@global": {
+    ".proca-widget h3": {
+      fontSize: "1.6rem",
+      letterSpacing: "-0.01em",
+      fontWeight: 700,
+      lineHeight: "1.125",
+      marginBottom: "1.5rem",
+    },
+    ".proca-MuiButton-label": {
+      fontWeight: "600",
+      letterSpacing: "-0.01em",
+    },
+    ".proca-MuiButton-containedSizeSmall": {
+      padding: "2px 10px",
+      fontSize: "0.65rem",
+      color: "#fff",
+      boxShadow: "none",
+    },
     ".proca-MuiFilledInput-root": {
       backgroundColor: "#f5f5f5",
       "&:hover": {
