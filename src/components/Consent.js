@@ -58,7 +58,8 @@ const Consent = props => {
   const config = useCampaignConfig();
   const classes = useStyles();
 
-  if (config.component.consent?.implicit) return <ImplicitConsent {...props} />;
+  if (config.component.consent?.implicit !== undefined)
+    return <ImplicitConsent {...props} />;
 
   if (config.component.consent?.buttons) {
     return null;
