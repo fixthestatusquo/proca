@@ -6,6 +6,7 @@ import StatsIcon from "@material-ui/icons/ShowChart";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { useCampaignConfig } from "@hooks/useConfig";
+import useInteraction from "@hooks/useInteraction";
 import { Grid, Chip } from "@material-ui/core";
 //import useData from "@hooks/useData";
 import { parse } from "dxid";
@@ -33,6 +34,7 @@ const useGlobalStyles = makeStyles({
 const src = props => {
   let params = {};
   const config = useCampaignConfig();
+  useInteraction(props.form); //sends events when the user starts filling the form
   useGlobalStyles();
   const [open, setOpen] = useState(true);
   //const [data, setData] = useData();

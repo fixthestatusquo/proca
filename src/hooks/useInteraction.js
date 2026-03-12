@@ -3,7 +3,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import dispatch from "@lib/event.js";
 
 // Custom hook to detect the first interaction with the form
-const useFirstInteraction = form => {
+export const useFirstInteraction = form => {
   const {
     formState: { isDirty },
   } = form;
