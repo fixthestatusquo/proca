@@ -33,6 +33,7 @@ const getGoal = actionType => {
 
 const Observer = async (event, data, pii) => {
   const config = window.proca?.get?.();
+  console.log("mixpanel event", event, config);
   if (event.endsWith(":start")) {
     // the user has started to interact with the form
     const param = getProperties(event, config);
@@ -51,7 +52,7 @@ const Observer = async (event, data, pii) => {
   if (event.endsWith(":complete")) {
     // the user has submitted {
     const param = getProperties(event, config);
-    console.log("event", param);
+    console.log("form_submitted", param);
     param.event = "form_submitted";
     param.form_plugin = "proca";
     if (config.component?.register?.field?.postcode !== false) {
@@ -60,9 +61,15 @@ const Observer = async (event, data, pii) => {
     param.form_id = config.actionpage;
     param.form_goal = getGoal(config.component.register?.actionType);
     param.form_contains_newsletter_subscription = true; //TO CHECK
+    if (config.component.sync?.promoCode?.default) {
+      param.werbecode = config.component.sync.promoCode.default;
+    }
     if (config.component?.register?.field?.phone) {
       param.form_contains_phone_field = true;
       param.phone_field_provided = !!pii.phone;
+      if (config.component.sync?.promoCode?.phone) {
+        param.werbecode = config.component.sync.promoCode.phone;
+      }
     } else {
       param.form_contains_phone_field = false;
     }
@@ -78,9 +85,10 @@ const Observer = async (event, data, pii) => {
 
 const ActObserver = async event => {
   if (event.endsWith(":complete")) {
-    const events = window.getTargetStateEvents("#single-sign-up", {
-      0: document.querySelector("gpd-engage-form"),
-    });
+    const events =
+      window.getTargetStateEvents?.("#single-sign-up", {
+        0: document.querySelector("gpd-engage-form"),
+      }) || [];
     events.forEach(event => {
       window.dispatchEvent(event);
     });
