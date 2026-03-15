@@ -1,7 +1,8 @@
 import Command, { Args, Flags } from "../../builderCommand.mjs";
 
 export default class FetchCommand extends Command {
-  static description = "pull the widget (and campaign) configuration from the server";
+  static description =
+    "pull the widget (and campaign) configuration from the server";
 
   static args = Command.multiid();
 
@@ -19,22 +20,29 @@ export default class FetchCommand extends Command {
     }),
   };
 
-  async pull (id, flags = {}) {
+  async pull(id, flags = {}) {
     const { pull } = await import("../../widget.js");
     return await pull(id, {
       anonymous: false,
       campaign: flags.campaign,
-      argv: flags
+      argv: flags,
     });
   }
 
   async run() {
     const { flags } = await this.parse();
-    const r = await this.pull (flags.id, flags);
+    const r = await this.pull(flags.id, flags);
     if (r.errors) {
       this.error(r.errors);
     }
     const [, campaign] = r;
-    campaign && this.info("saved campaign "+process.env.PROCA_CONFIG_FOLDER+"/campaign/" + campaign.name + ".json");
+    campaign &&
+      this.info(
+        "saved campaign " +
+          process.env.PROCA_CONFIG_FOLDER +
+          "/campaign/" +
+          campaign.name +
+          ".json"
+      );
   }
 }

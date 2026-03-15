@@ -344,8 +344,9 @@ const formatTarget = async (campaignName, file) => {
             },
           });
         }
-        if (!t.locale?.startsWith("nb")&& !t.field?.lang?.startsWith("nb")) t.field.salutation = (t.field.salutation ?? "") + ",";
-     console.log("salutation for", t.name, t.field.salutation);
+        if (!t.locale?.startsWith("nb") && !t.field?.lang?.startsWith("nb"))
+          t.field.salutation = (t.field.salutation ?? "") + ",";
+        console.log("salutation for", t.name, t.field.salutation);
       }
       t.fields = JSON.stringify(t.field);
       delete t.field;
@@ -516,7 +517,6 @@ if (require.main === module) {
         await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
-
         if (
           !"keep,delete,disable"
             .split(",")

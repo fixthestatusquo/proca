@@ -11,7 +11,6 @@ export const mobileOS = userAgent => {
     }
   }
   return "phone";
-
 };
 
 const useMobileOS = () => {

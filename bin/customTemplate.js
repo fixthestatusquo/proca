@@ -6,14 +6,13 @@ const path = require("path");
 const minimist = require("minimist");
 const { api } = require("./config");
 
-
 const args = minimist(process.argv.slice(2), {
   string: ["html", "name", "org", "lang", "subject"],
   boolean: ["help"],
   alias: { h: "help" },
 });
 
-const fail = (msg) => {
+const fail = msg => {
   console.error(`❌ ${msg}`);
   process.exit(1);
 };
@@ -48,7 +47,6 @@ const help = () => {
 };
 
 if (args.help) help();
-
 
 // ---- validate args ----
 const { html, name, org, lang, subject } = args;
@@ -91,8 +89,6 @@ mutation query ($input: EmailTemplateInput!, $orgName: String!) {
   upsertTemplate(input: $input, orgName: $orgName)
 }
 `;
-
-
 
 const variables = {
   input,

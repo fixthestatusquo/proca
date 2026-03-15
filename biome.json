@@ -12,7 +12,8 @@
   "formatter": {
     "lineWidth": 80,
     "indentWidth": 2,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "includes": ["bin/**", "src/**", "!src/locales/**", "!config/**"]
   },
   "javascript": {
     "globals": ["global"],

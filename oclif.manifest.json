@@ -13,10 +13,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -60,10 +57,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -94,12 +88,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "campaign",
-        "markdown.mjs"
-      ]
+      "relativePath": ["bin", "commands", "campaign", "markdown.mjs"]
     },
     "campaign:pull": {
       "aliases": [],
@@ -114,10 +103,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -161,10 +147,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -193,12 +176,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "campaign",
-        "pull.mjs"
-      ]
+      "relativePath": ["bin", "commands", "campaign", "pull.mjs"]
     },
     "campaign:push": {
       "aliases": [],
@@ -213,10 +191,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -260,10 +235,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -292,12 +264,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "campaign",
-        "push.mjs"
-      ]
+      "relativePath": ["bin", "commands", "campaign", "push.mjs"]
     },
     "campaign:translate": {
       "aliases": [],
@@ -312,10 +279,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -404,12 +368,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "campaign",
-        "translate.mjs"
-      ]
+      "relativePath": ["bin", "commands", "campaign", "translate.mjs"]
     },
     "widget:build": {
       "aliases": [],
@@ -424,10 +383,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -473,10 +429,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -501,12 +454,7 @@
       "enableJsonFlag": true,
       "hooks": {},
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "widget",
-        "build.mjs"
-      ]
+      "relativePath": ["bin", "commands", "widget", "build.mjs"]
     },
     "widget:pull": {
       "aliases": [],
@@ -521,10 +469,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -570,10 +515,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -608,12 +550,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "widget",
-        "pull.mjs"
-      ]
+      "relativePath": ["bin", "commands", "widget", "pull.mjs"]
     },
     "widget:push": {
       "aliases": [],
@@ -628,10 +565,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -677,10 +611,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -709,12 +640,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "widget",
-        "push.mjs"
-      ]
+      "relativePath": ["bin", "commands", "widget", "push.mjs"]
     },
     "widget:serve": {
       "aliases": [],
@@ -729,10 +655,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -778,10 +701,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -806,12 +726,7 @@
       "enableJsonFlag": true,
       "hooks": {},
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "widget",
-        "serve.mjs"
-      ]
+      "relativePath": ["bin", "commands", "widget", "serve.mjs"]
     },
     "widget:view": {
       "aliases": [],
@@ -826,10 +741,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -875,10 +787,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -909,12 +818,7 @@
       "enableJsonFlag": true,
       "hooks": {},
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "widget",
-        "view.mjs"
-      ]
+      "relativePath": ["bin", "commands", "widget", "view.mjs"]
     },
     "template:push": {
       "aliases": [],
@@ -926,16 +830,11 @@
         }
       },
       "description": "push to the server a template",
-      "examples": [
-        "<%= config.bin %> <%= command.id %> -o <organisation>"
-      ],
+      "examples": ["<%= config.bin %> <%= command.id %> -o <organisation>"],
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1017,12 +916,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "template",
-        "push.mjs"
-      ]
+      "relativePath": ["bin", "commands", "template", "push.mjs"]
     },
     "locale:cache": {
       "aliases": [],
@@ -1031,10 +925,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1079,12 +970,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "cache.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "cache.mjs"]
     },
     "locale:pull": {
       "aliases": [],
@@ -1099,12 +985,7 @@
       "pluginName": "@proca/widget",
       "pluginType": "core",
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "pull.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "pull.mjs"]
     },
     "locale:push": {
       "aliases": [],
@@ -1119,12 +1000,7 @@
       "pluginName": "@proca/widget",
       "pluginType": "core",
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "push.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "push.mjs"]
     },
     "locale:status": {
       "aliases": [],
@@ -1139,12 +1015,7 @@
       "pluginName": "@proca/widget",
       "pluginType": "core",
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "status.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "status.mjs"]
     },
     "target:publish": {
       "aliases": [],
@@ -1159,10 +1030,7 @@
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1208,10 +1076,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -1245,12 +1110,7 @@
       "pluginType": "core",
       "strict": true,
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "target",
-        "publish.mjs"
-      ]
+      "relativePath": ["bin", "commands", "target", "publish.mjs"]
     },
     "campaign:widget:pull": {
       "aliases": [],
@@ -1262,16 +1122,11 @@
         }
       },
       "description": "pull all the widgets of a campaign",
-      "examples": [
-        "$ proca-cli campaign widget pull climate-action"
-      ],
+      "examples": ["$ proca-cli campaign widget pull climate-action"],
       "flags": {
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1317,10 +1172,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -1345,18 +1197,10 @@
       "enableJsonFlag": true,
       "hooks": {},
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "campaign",
-        "widget",
-        "pull.mjs"
-      ]
+      "relativePath": ["bin", "commands", "campaign", "widget", "pull.mjs"]
     },
     "locale:campaign:read": {
-      "aliases": [
-        "campaign:read"
-      ],
+      "aliases": ["campaign:read"],
       "args": {
         "id_name_dxid": {
           "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
@@ -1376,10 +1220,7 @@
         },
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1417,10 +1258,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -1456,18 +1294,10 @@
       "pluginName": "@proca/widget",
       "pluginType": "core",
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "campaign",
-        "read.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "campaign", "read.mjs"]
     },
     "locale:widget:read": {
-      "aliases": [
-        "widget:read"
-      ],
+      "aliases": ["widget:read"],
       "args": {
         "id_name_dxid": {
           "description": "convenience, but try to use -i <id> or -x <dxid> or -n <name> instead",
@@ -1487,10 +1317,7 @@
         },
         "json": {
           "description": "Format output as json",
-          "exclusive": [
-            "csv",
-            "markdown"
-          ],
+          "exclusive": ["csv", "markdown"],
           "helpGroup": "OUTPUT",
           "name": "json",
           "allowNo": false,
@@ -1528,10 +1355,7 @@
         },
         "id": {
           "char": "i",
-          "exclusive": [
-            "name",
-            "dxid"
-          ],
+          "exclusive": ["name", "dxid"],
           "name": "id",
           "hasDynamicHelp": false,
           "multiple": false,
@@ -1560,13 +1384,7 @@
       "pluginName": "@proca/widget",
       "pluginType": "core",
       "isESM": true,
-      "relativePath": [
-        "bin",
-        "commands",
-        "locale",
-        "widget",
-        "read.mjs"
-      ]
+      "relativePath": ["bin", "commands", "locale", "widget", "read.mjs"]
     }
   },
   "version": "1.1.0"

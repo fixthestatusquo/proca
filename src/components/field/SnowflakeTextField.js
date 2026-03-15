@@ -7,7 +7,14 @@ import Salutation from "@components/field/Gender";
 import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 
-const Comment = ({ form, classField, enforceRequired, name, label, required }) => {
+const Comment = ({
+  form,
+  classField,
+  enforceRequired,
+  name,
+  label,
+  required,
+}) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const loaders = config.component.loader;
@@ -19,23 +26,23 @@ const Comment = ({ form, classField, enforceRequired, name, label, required }) =
   if (!name) name = "comment";
   if (!label) label = t(name);
 
- useEffect(() => {
-  return () => {
-    console.log("unload");
-    // Cancel any ongoing fetch if component unmounts
-    // You might need an AbortController for this
-  };
-}, []);
+  useEffect(() => {
+    return () => {
+      console.log("unload");
+      // Cancel any ongoing fetch if component unmounts
+      // You might need an AbortController for this
+    };
+  }, []);
 
   const fetchData = async () => {
-/*  isValid = form.getValues("firstname");
+    /*  isValid = form.getValues("firstname");
   if (!isValid) {
     const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error
 //    console.log("Field is invalid");
     return;
   }
 */
-    setState('loading');
+    setState("loading");
     const formData = form.getValues();
     const data = {
       firstname: formData.firstname,
@@ -46,17 +53,18 @@ const Comment = ({ form, classField, enforceRequired, name, label, required }) =
     };
 
     try {
-      let url = loaders.url || "https://" + config.campaign.name + ".proca.app/";
+      let url =
+        loaders.url || "https://" + config.campaign.name + ".proca.app/";
       if (loaders.url === false) return null;
       if (loaders.appendLocale === true) url += lang;
 
-        let d = null;
-        let json = null;
-          d = await fetch(url).catch(e => {
-console.log(e);
-          });
-          json = await d.json();
-            form.setValue(name, json.message);
+      let d = null;
+      let json = null;
+      d = await fetch(url).catch(e => {
+        console.log(e);
+      });
+      json = await d.json();
+      form.setValue(name, json.message);
 
       setState("loaded");
     } catch (error) {
@@ -81,7 +89,9 @@ console.log(e);
           maxRows="10"
           required={
             // enforceRequired &&
-            required || `config..component.register.field.${name}.required` || false
+            required ||
+            `config..component.register.field.${name}.required` ||
+            false
           }
           helperText={
             state === "loaded" &&

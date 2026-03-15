@@ -107,9 +107,9 @@ const EmailAction = ({
       <ListItemText
         primary={profile.name}
         secondary={profile.description}
-  secondaryTypographyProps={{
-    component: 'div', 
-  }}
+        secondaryTypographyProps={{
+          component: "div",
+        }}
         classes={_classes}
       />
       <Selectable

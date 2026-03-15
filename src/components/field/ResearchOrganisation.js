@@ -106,7 +106,7 @@ const AffiliationInput = ({ form }) => {
         noOptionsText={
           inputValue.length > 2
             ? t("no_org", "No organisation found")
-            : t("org","Type to search your organisation")
+            : t("org", "Type to search your organisation")
         }
         loadingText={"Searching " + inputValue + "..."}
         autoSelect

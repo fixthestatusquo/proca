@@ -11,22 +11,22 @@ import useConsultJson from "@components/survey/useQuestions";
 import { useTranslation } from "react-i18next";
 
 export const smoothScroll = fieldName => {
-    const input = document.querySelector(`[name="${fieldName}"]`);
-    if (!input) return;
+  const input = document.querySelector(`[name="${fieldName}"]`);
+  if (!input) return;
 
-    const rect = input.getBoundingClientRect();
-    const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
+  const rect = input.getBoundingClientRect();
+  const absoluteY = window.scrollY + rect.top - window.innerHeight / 3;
 
-    window.scrollTo({
-      top: absoluteY,
-      behavior: "smooth",
-    });
+  window.scrollTo({
+    top: absoluteY,
+    behavior: "smooth",
+  });
 
-    setTimeout(() => input.focus?.(), 300);
+  setTimeout(() => input.focus?.(), 300);
 };
 
 // helper to to check for errors and scroll smoothly an element with errors
-export const validateAndFocus = async (form) => {
+export const validateAndFocus = async form => {
   const valid = await form.trigger();
   if (!valid) {
     const first = Object.keys(form.formState.errors)[0];
@@ -58,21 +58,22 @@ const Consultation = props => {
   const handleStepClick = step => setActiveStep(step);
   const handleNext = () => setActiveStep(prev => prev + 1);
 
- const normalizeDefaults = (def) =>
-  Object.fromEntries(
-    Object.entries(def).map(([key, value]) => {
-      if (value?.multilingual) return [key, t(`campaign:survey.${key}`, value.multilingual)];
-      return [key, value];
-    })
-  );
+  const normalizeDefaults = def =>
+    Object.fromEntries(
+      Object.entries(def).map(([key, value]) => {
+        if (value?.multilingual)
+          return [key, t(`campaign:survey.${key}`, value.multilingual)];
+        return [key, value];
+      })
+    );
 
-const d = config.component.consultation?.default || {};
-const def = normalizeDefaults(d);
+  const d = config.component.consultation?.default || {};
+  const def = normalizeDefaults(d);
 
   const form = useForm({
     defaultValues: Object.assign({}, data, {
       language: config.locale,
-      ...def
+      ...def,
       // format of default values (arrays for multiselect, single value for single select, text for textfield):
       // "153167796": "153167801",
       // "153168305": [153168308, 153168309],
@@ -117,9 +118,9 @@ const def = normalizeDefaults(d);
       {/* Only the citizen survey step */}
       {activeStep === 0 && (
         <>
-          {(config.component.consultation.country !== false) &&
+          {config.component.consultation.country !== false && (
             <Country form={form} />
-          }
+          )}
           <SurveyStep
             form={form}
             handleNext={handleNext}

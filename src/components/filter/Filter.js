@@ -9,7 +9,7 @@ import TextField from "@components/field/TextField";
 import { imports } from "../../actionPage";
 
 const Filter = props => {
-//  const { t } = useTranslation();
+  //  const { t } = useTranslation();
   const config = useCampaignConfig();
   const Filters =
     Object.entries(imports)
@@ -17,12 +17,14 @@ const Filter = props => {
       .map(([, components]) => components) || [];
   let nbFilters = Filters.length;
 
-  if (config.component.email?.filter?.includes("country") &&
-        typeof config.component.country !== "string" ) {
-     Filters.unshift(Country);
+  if (
+    config.component.email?.filter?.includes("country") &&
+    typeof config.component.country !== "string"
+  ) {
+    Filters.unshift(Country);
   }
   if (config.component.email?.filter?.includes("postcode")) {
-     Filters.unshift(Postcode);
+    Filters.unshift(Postcode);
   }
 
   if (config.component.email?.filter) {

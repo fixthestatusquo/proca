@@ -2,7 +2,7 @@
 const fs = require("fs");
 const { pathConfig } = require("./config");
 const simpleGit = require("simple-git");
-const {isDirectCli} = require("./dotenv.js");
+const { isDirectCli } = require("./dotenv.js");
 const color = require("cli-color");
 const actions = [
   "help",
@@ -15,10 +15,12 @@ const actions = [
   "push",
 ];
 
-const argv = isDirectCli() && require("minimist")(process.argv.slice(2), {
-  boolean: actions,
-  alias: { v: "verbose" },
-});
+const argv =
+  isDirectCli() &&
+  require("minimist")(process.argv.slice(2), {
+    boolean: actions,
+    alias: { v: "verbose" },
+  });
 
 if (argv._ && argv._[0] && actions.includes(argv._[0])) {
   argv[argv._[0]] = true;

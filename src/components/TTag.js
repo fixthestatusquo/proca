@@ -15,7 +15,7 @@ export const snarkdown = md => {
 };
 
 // markdown overrides the title color, this is how we fix it
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   markdown: {
     color: theme.palette.text.primary,
     "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Markdown = (props) => {
+export const Markdown = props => {
   const { t } = useTranslation();
-  const tbr = (key) => snarkdown(t(key, props));
+  const tbr = key => snarkdown(t(key, props));
   const classes = useStyles();
 
   return (
@@ -54,7 +54,7 @@ const TTag = props => {
   const components = {};
   const values = {};
   Object.keys(props).forEach(key => {
-    if (key === 'message') return;
+    if (key === "message") return;
     if (React.isValidElement(props[key])) {
       components[key] = props[key];
     } else {

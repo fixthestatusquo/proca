@@ -4,7 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Grid from "@material-ui/core/Grid";
-import { Typography, LinearProgress} from "@material-ui/core";
+import { Typography, LinearProgress } from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useTranslation } from "react-i18next";
 import { useSupabase } from "@lib/supabase";
@@ -35,7 +35,7 @@ const Signatories = () => {
       const q = supabase
         .from("view_signatories_eeg")
         .select("*")
-        .neq('status', 'rejected')
+        .neq("status", "rejected")
         .order("created_at", { ascending: false });
 
       const { data, error } = await q;
@@ -53,12 +53,16 @@ const Signatories = () => {
       //     (signature.organisation_sign !== "true" && signature.status !== "rejected")
       // );
       setSignatories(data);
-
     };
     getSignatories();
   }, []);
 
-  if (!signatories) return  <div id="proca-signature"><LinearProgress /></div>
+  if (!signatories)
+    return (
+      <div id="proca-signature">
+        <LinearProgress />
+      </div>
+    );
 
   return (
     <div id="proca-signature">
@@ -79,22 +83,25 @@ const Signatories = () => {
                 ContainerComponent="div"
                 disableGutters
               >
-                {d.country &&
+                {d.country && (
                   <ListItemAvatar>
-                    <CountryFlag countryCode={d.country} title={countries.getName(d.country, "en") || d.country} />
+                    <CountryFlag
+                      countryCode={d.country}
+                      title={countries.getName(d.country, "en") || d.country}
+                    />
                   </ListItemAvatar>
-                }
-                {(d.organisation_sign && d.organisation) ?
+                )}
+                {d.organisation_sign && d.organisation ? (
                   <ListItemText
                     primary={d.lab.toUpperCase()}
                     secondary={d.organisation}
                   />
-                  :
+                ) : (
                   <ListItemText
                     primary={(d.first_name + " " + d.last_name).toUpperCase()}
                     secondary={d.organisation}
                   />
-                }
+                )}
               </ListItem>
             ))}
           </List>

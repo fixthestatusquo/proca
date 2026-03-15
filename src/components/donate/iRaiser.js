@@ -2,7 +2,6 @@ import React, { useLayoutEffect } from "react";
 import { useComponentConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
 
-
 const iRaiserFrame = () => {
   const component = useComponentConfig();
 
@@ -15,25 +14,29 @@ const iRaiserFrame = () => {
       return;
     }
 
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = scriptUrl;
     script.async = true;
 
     script.onload = () => {
-      console.log('iRaiser loaded');
+      console.log("iRaiser loaded");
       window.IRaiserFrame.init();
     };
 
     document.body.appendChild(script);
-
   }, [component]);
 
-  if (!component?.donation?.iraiser) return "ERROR: you need to add component.donation.iraiser {url, cid}";
+  if (!component?.donation?.iraiser)
+    return "ERROR: you need to add component.donation.iraiser {url, cid}";
   const href = `${component.donation.iraiser.url}/b?cid=${component.donation.iraiser.cid}#iraiser_native`;
 
-  return <>
-    <a id="iraiser_frame" href={href}>donate</a>
-  </>;
-}
+  return (
+    <>
+      <a id="iraiser_frame" href={href}>
+        donate
+      </a>
+    </>
+  );
+};
 
 export default iRaiserFrame;

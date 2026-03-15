@@ -20,10 +20,7 @@ export default function SignatureForm(props) {
         borderRadius="borderRadius"
         p={1}
       >
-        <TTag
-          message="campaign:closed"
-          total={formatNumber(count)}
-        />
+        <TTag message="campaign:closed" total={formatNumber(count)} />
       </Box>
       <Register {...props} buttonText={t("action.stayInformed")} />
     </Container>

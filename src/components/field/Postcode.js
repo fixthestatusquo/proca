@@ -49,8 +49,10 @@ const Postcode = props => {
       if (constituency) setValue("constituency", "");
       return;
     }
-    config.component?.share?.url
-    const api = config.component.postcode?.url ? `${config.component.postcode.url}/${postcode}`  : `https://${country}.proca.app/${postcode}`;
+    config.component?.share?.url;
+    const api = config.component.postcode?.url
+      ? `${config.component.postcode.url}/${postcode}`
+      : `https://${country}.proca.app/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)

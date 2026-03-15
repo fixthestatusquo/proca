@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main,
   },
   h3: {
-    color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
   },
   ribbon: {
     backgroundColor: theme.palette.primary.main,
@@ -77,18 +77,18 @@ const Closed = () => {
 
   useEffect(() => {
     setConfig(current => {
-            console.log("remove fab");
+      console.log("remove fab");
       const next = { ...current };
       if (next.component.widget) {
         next.component.widget.fab = false;
       } else {
-        next.component.widget ={fab:false};
-      } ;
+        next.component.widget = { fab: false };
+      }
       return next;
     });
-  },[isMobile]);
+  }, [isMobile]);
   useEffect(() => {
-// disable the FAB
+    // disable the FAB
     document.addEventListener("mousedown", () => {
       const ribbon = document.getElementById("proca-ribbon");
       window.setTimeout(() => (ribbon.style.display = "none"), 500);

@@ -18,31 +18,34 @@ const EggManifesto = ({ form }) => {
 
   let label =
     t("sign1", "Sign on the behalf of ") +
-    (organisation || t("sign2", "your organisation or a research group/department"));
+    (organisation ||
+      t("sign2", "your organisation or a research group/department"));
 
   return (
     <>
       <Grid item xs={12}>
         <Orcid form={form} />
         <Affiliation form={form} />
-        {organisation_sign &&
+        {organisation_sign && (
           <TextField
-            name='lab'
+            name="lab"
             label={t("lab", "Lab or research group")}
             form={form}
           />
-        }
-          <Checkbox
-            name="organisation_sign"
-            disabled={!organisation}
-            form={form}
-            label={label}
-          />
+        )}
+        <Checkbox
+          name="organisation_sign"
+          disabled={!organisation}
+          form={form}
+          label={label}
+        />
       </Grid>
       {organisation_sign && (
         <Grid item xs={12}>
           <Alert severity="info" style={{ marginTop: 8 }}>
-            <AlertTitle>{t("alert1", "Your details will not be displayed yet.")}</AlertTitle>
+            <AlertTitle>
+              {t("alert1", "Your details will not be displayed yet.")}
+            </AlertTitle>
             {t("alert2", "We need to approve your institution's signature")}
           </Alert>
         </Grid>
@@ -72,7 +75,12 @@ const EggManifesto = ({ form }) => {
         />
       </Grid>
       <Grid item sm={4}>
-        <TextField type="number" form={form} name="age" label={t("age", "Age")} />
+        <TextField
+          type="number"
+          form={form}
+          name="age"
+          label={t("age", "Age")}
+        />
       </Grid>
     </>
   );

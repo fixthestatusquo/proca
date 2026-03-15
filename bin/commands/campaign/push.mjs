@@ -20,7 +20,7 @@ export default class CampaignPush extends Command {
 
   async run() {
     const { flags } = await this.parse();
-    const { pushCampaign : push } = await import("../../campaign.js");
+    const { pushCampaign: push } = await import("../../campaign.js");
     const r = await push(flags.name);
     if (r.errors) {
       console.log("errors", r.errors);

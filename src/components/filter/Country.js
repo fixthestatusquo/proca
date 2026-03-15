@@ -4,17 +4,15 @@ import Country from "@components/field/Country";
 
 const FilterCountry = props => {
   const { watch } = props.form;
-//  const config = useCampaignConfig();
-//  const setConfig = useSetCampaignConfig();
+  //  const config = useCampaignConfig();
+  //  const setConfig = useSetCampaignConfig();
   const country = watch("country");
 
   useEffect(() => {
-// TODO: move the filtering of profiles from Mail component to here
+    // TODO: move the filtering of profiles from Mail component to here
   }, [country, props.country]);
 
-  return (
-    <Country form={props.form} />
-  );
+  return <Country form={props.form} />;
 };
 
 export default FilterCountry;

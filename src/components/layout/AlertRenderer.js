@@ -1,7 +1,7 @@
-import React from 'react';
-import { useAlertStore } from '@hooks/useAlert';
+import React from "react";
+import { useAlertStore } from "@hooks/useAlert";
 
-import Alert  from "@components/Alert";
+import Alert from "@components/Alert";
 
 export const AlertRenderer = () => {
   const alerts = useAlertStore(state => state.alerts);
@@ -11,7 +11,7 @@ export const AlertRenderer = () => {
 
   const handleExited = () => {
     if (currentAlert) {
-//      removeAlert(currentAlert.id);
+      //      removeAlert(currentAlert.id);
     }
   };
   return (
@@ -23,7 +23,6 @@ export const AlertRenderer = () => {
           onExited={handleExited}
         />
       )}
-
     </>
   );
 };

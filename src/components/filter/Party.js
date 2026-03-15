@@ -75,24 +75,23 @@ const PartyFilter = props => {
       }
     }
 
-const groupOrder = [
-  "GUE/NGL",
-  "Greens/EFA",
-  "S&D",
-  "Renew",
-  "EPP",
-  "ECR",
-  "Patriots",
-  "ESN",
-  "NA",
-];
+    const groupOrder = [
+      "GUE/NGL",
+      "Greens/EFA",
+      "S&D",
+      "Renew",
+      "EPP",
+      "ECR",
+      "Patriots",
+      "ESN",
+      "NA",
+    ];
 
     //list.foreach
     const sortedObject = Object.fromEntries(
-      [...Object.entries(count)].sort(([a,ae], [b,be]) => {
-        if (ae.eugroup === be.eugroup)
-          return a.localeCompare(b);
-        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup)
+      [...Object.entries(count)].sort(([a, ae], [b, be]) => {
+        if (ae.eugroup === be.eugroup) return a.localeCompare(b);
+        return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup);
       })
     );
     _setParties(sortedObject);
@@ -134,45 +133,41 @@ const groupOrder = [
     return (
       <>
         <div className={classes.root}>
-
-
-
-        {Object.entries(parties).map(([name, party]) => {
-          const record = allParties[`${props.country}:${name}`] || {
-            name: name,
-          };
-          const AvatarParty = record.picture && (
-            <Avatar alt={name} src={record.picture} />
-          );
-          return (
-            <Badge
-              key={name}
-              badgeContent={party.count}
-              color="default"
-              overlap="rectangular"
-              className={classes.badge}
-              invisible={party.count < 2}
-            >
-              <Chip
-                title={name}
-                label={record.acronym || name}
-                clickable
-                avatar={AvatarParty}
-                color={party.selected ? "primary" : "default"}
-                onClick={() => toggle(name)}
-                onDelete={() => toggle(name)}
-                deleteIcon={party.selected ? <RemoveIcon /> : <AddIcon />}
-              />
-            </Badge>
-          );
-        })}
+          {Object.entries(parties).map(([name, party]) => {
+            const record = allParties[`${props.country}:${name}`] || {
+              name: name,
+            };
+            const AvatarParty = record.picture && (
+              <Avatar alt={name} src={record.picture} />
+            );
+            return (
+              <Badge
+                key={name}
+                badgeContent={party.count}
+                color="default"
+                overlap="rectangular"
+                className={classes.badge}
+                invisible={party.count < 2}
+              >
+                <Chip
+                  title={name}
+                  label={record.acronym || name}
+                  clickable
+                  avatar={AvatarParty}
+                  color={party.selected ? "primary" : "default"}
+                  onClick={() => toggle(name)}
+                  onDelete={() => toggle(name)}
+                  deleteIcon={party.selected ? <RemoveIcon /> : <AddIcon />}
+                />
+              </Badge>
+            );
+          })}
         </div>
-         {Object.entries(parties).length > 0 && (
-          <FormHelperText component='div'  style={{ margin: 3 }}>
+        {Object.entries(parties).length > 0 && (
+          <FormHelperText component="div" style={{ margin: 3 }}>
             {t("party_helper")}
           </FormHelperText>
         )}
-
       </>
     );
   }

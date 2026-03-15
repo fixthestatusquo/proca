@@ -13,16 +13,16 @@ const AdditionalQuestion = ({ classField, form, handleBeforeSubmit }) => {
   const original = data._copyMessage;
   const place = form.watch("place");
 
-  const cleanData = (data) => {
+  const cleanData = data => {
     delete data._copyMessage;
     delete data.message_male;
     delete data.message_female;
 
-    console.log("clean data",data);
+    console.log("clean data", data);
     return data;
-}
+  };
 
-  handleBeforeSubmit (cleanData);
+  handleBeforeSubmit(cleanData);
   //  const handleMerging = text => {setData("message", text);};
 
   useEffect(() => {

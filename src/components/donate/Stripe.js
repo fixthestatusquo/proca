@@ -58,7 +58,6 @@ const useStripeStore = create(set => ({
   setStripeComplete: complete => set({ stripeComplete: complete }),
 }));
 
-
 const CustomCardElement = props => {
   const { setStripeComplete } = useStripeStore();
   return (

@@ -137,30 +137,26 @@ export default function Progress(props) {
   if (actionName === "signature") actionName = "sign";
 
   const countResult = t(
-  [`progress.${actionName}`, "progress.sign", "progress"],
-  {
-    count: formatNumber(count, separator),
-    total: formatNumber(count, separator),
-    goal: formatNumber(goal, separator),
-    returnDetails: true,
-  }
-);
-
-
+    [`progress.${actionName}`, "progress.sign", "progress"],
+    {
+      count: formatNumber(count, separator),
+      total: formatNumber(count, separator),
+      goal: formatNumber(goal, separator),
+      returnDetails: true,
+    }
+  );
 
   return (
     <Box className="proca-progress">
       <div className={classes.root} ref={ref}>
-        <span className="count">
-          {countResult.res}
-        </span>
-        {countResult.usedKey !== "progress" &&
-          (<span className="goal">
+        <span className="count">{countResult.res}</span>
+        {countResult.usedKey !== "progress" && (
+          <span className="goal">
             {t([`progressGoal.${actionName}`, "progressGoal.default"], {
               goal: formatNumber(goal, separator),
             })}
           </span>
-          )}
+        )}
       </div>
       <LinearProgress variant="determinate" value={progress} />
     </Box>

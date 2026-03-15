@@ -40,17 +40,14 @@ const EmailField = ({ form, required, compact, classField }) => {
     iconColor = theme.palette.success.main;
   }
   return (
-              <Grid
-                item
-                xs={12}
-                sm={
-                  compact ||
-                  config.component.register?.field?.lastname !== false
-                    ? 12
-                    : 6
-                }
-                className={classField}
-              >
+    <Grid
+      item
+      xs={12}
+      sm={
+        compact || config.component.register?.field?.lastname !== false ? 12 : 6
+      }
+      className={classField}
+    >
       <input type="hidden" {...form.register("emailProvider")} />
       <TextField
         form={form}

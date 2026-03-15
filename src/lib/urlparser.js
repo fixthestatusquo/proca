@@ -100,10 +100,11 @@ const socialiseReferrer = (domain, utm) => {
     utm.medium = "youtube";
     return true;
   }
-  if (domain === "www.linkedin.com" ||
+  if (
+    domain === "www.linkedin.com" ||
     domain === "com.linkedin.android" ||
-	domain === "lnkd.in"
-    ) {
+    domain === "lnkd.in"
+  ) {
     utm.source = "social";
     utm.medium = "linkedin";
     return true;
@@ -170,7 +171,7 @@ const utm = (record = true) => {
   }
   utm.location = document.location.origin + document.location.pathname;
   if (utm.content === undefined) {
-    delete utm.content
+    delete utm.content;
   }
   return utm;
 };

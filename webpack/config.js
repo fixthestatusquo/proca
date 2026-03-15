@@ -9,11 +9,12 @@ function getConfigOverride(id) {
     return config;
   }
   throw Error(
-    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n",
+    "\n\n\n           Oops ! Tell me which config file to use: yarn command *config*\n\n\n"
   );
 }
 
-const configFolder = () => (process.env.PROCA_CONFIG_FOLDER || path.resolve(__dirname, "../config/"));
+const configFolder = () =>
+  process.env.PROCA_CONFIG_FOLDER || path.resolve(__dirname, "../config/");
 
 function readConfigOverride(id) {
   //  console.log(id);console.trace("Here I am!")
@@ -22,7 +23,7 @@ function readConfigOverride(id) {
 
   if (apId) {
     const configFile = apId + ".json";
-    const fn = path.resolve(__dirname, configFolder() + '/' + configFile);
+    const fn = path.resolve(__dirname, configFolder() + "/" + configFile);
     try {
       const config = parseConfig(fs.readFileSync(fn));
       let campaignConfig = {};
@@ -31,9 +32,9 @@ function readConfigOverride(id) {
           fs.readFileSync(
             path.resolve(
               __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json",
-            ),
-          ),
+              configFolder() + "/campaign/" + config.campaign.name + ".json"
+            )
+          )
         );
         if (!config.locales) config.locales = {};
         config.layout = merge(campaignConfig.config.layout, config.layout);
@@ -46,7 +47,7 @@ function readConfigOverride(id) {
             country: undefined,
           },
           campaignConfig.config.component,
-          config.component,
+          config.component
         );
         if (!config.portal || config.portal.length === 0) {
           config.portal = campaignConfig.config.portal || [];
@@ -64,11 +65,10 @@ function readConfigOverride(id) {
           config.component.loader = merge(
             {
               json: true,
-              appendLocale: true
+              appendLocale: true,
             },
-            config.component.loader,
+            config.component.loader
           );
-
         }
         if (
           campaignConfig.config.locales &&
@@ -77,7 +77,7 @@ function readConfigOverride(id) {
         ) {
           config.locales = merge(
             campaignConfig.config.locales[config.lang]["common:"],
-            config.locales,
+            config.locales
           );
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
@@ -87,11 +87,11 @@ function readConfigOverride(id) {
         ) {
           let campaigns = merge(
             campaignConfig.config.locales[config.lang]["campaign:"],
-            config.locales["campaign:"],
+            config.locales["campaign:"]
           );
           Object.keys(campaignConfig.config.locales[config.lang])
-            .filter((d) => d.slice(-1) !== ":")
-            .forEach((d) => {
+            .filter(d => d.slice(-1) !== ":")
+            .forEach(d => {
               //                typeof campaignConfig.config.locales[config.lang][d] ===
               //                  "string",
               if (
@@ -104,7 +104,7 @@ function readConfigOverride(id) {
                   config.locales["campaign:"] = {};
                 campaigns[d] = merge(
                   campaignConfig.config.locales[config.lang][d],
-                  config.locales["campaign:"][d],
+                  config.locales["campaign:"][d]
                 );
               }
             });
@@ -134,7 +134,7 @@ function readConfigOverride(id) {
       }
       console.error(
         `Cannot read action page config for actionpage=${apId}, did You yarn pull ${apId}?`,
-        e.message,
+        e.message
       );
       throw e;
     }

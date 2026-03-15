@@ -15,15 +15,15 @@ const extractTokens = text => {
     tokens.push("lastname");
     tokens.push("locality");
   }
-   if (tokens.includes("name")) {
+  if (tokens.includes("name")) {
     tokens.push("firstname");
     tokens.push("lastname");
-   }
+  }
   if (tokens.includes("locality")) tokens.push("locality");
   if (tokens.includes("target.name") || tokens.includes("target.salutation")) {
     tokens.push("targets");
   }
- return [...new Set(tokens)];
+  return [...new Set(tokens)];
 };
 
 const applyToken = (text, token, data, t) => {
@@ -31,13 +31,13 @@ const applyToken = (text, token, data, t) => {
   if (token.includes("signature")) {
     data.signature = `${data.firstname || ""} ${data.lastname || ""}`;
     if (data.locality) data.signature += `\n${data.locality}`;
-  };
+  }
   if (token.includes("name")) {
     data.name = `${data.firstname || ""} ${data.lastname || ""}`;
-  };
+  }
   if (token.includes("locality")) {
     data.locality = data.locality || "";
-  };
+  }
   if (data.targets && data.targets.length > 0) {
     data.target = {};
     if (token.includes("target.name")) {

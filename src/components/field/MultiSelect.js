@@ -57,44 +57,47 @@ const MultiSelectCheckbox = ({
         control={form.control}
         defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
         rules={{
-          validate: value => value.length > 0 || "You must select at least one option"
+          validate: value =>
+            value.length > 0 || "You must select at least one option",
         }}
         render={({ field }) => {
           const selectedValues = (field.value || []).map(String);
 
           return (
-          <FormGroup>
-            {Object.entries(options).map(([key, label]) => {
-              const isChecked = selectedValues.includes(key);
-              const disableUnchecked =
-                maxChoices && !isChecked && selectedValues.length >= maxChoices;
+            <FormGroup>
+              {Object.entries(options).map(([key, label]) => {
+                const isChecked = selectedValues.includes(key);
+                const disableUnchecked =
+                  maxChoices &&
+                  !isChecked &&
+                  selectedValues.length >= maxChoices;
 
-              return (
-                <FormControlLabel
-                  key={key}
-                  className={classes.checkboxLabel}
-                  control={
-                    <Checkbox
-                      className={classes.checkboxRoot}
-                      checked={isChecked}
-                      onChange={e => {
-                        const newValues = e.target.checked
-                          ? [...selectedValues, key]
-                          : selectedValues.filter(item => item !== key);
-                        field.onChange(newValues);
-                      }}
-                      disabled={disableUnchecked}
-                      color="primary"
-                    />
-                  }
-                  label={label}
-                />
-              );
-            })}
-          </FormGroup>
-        );
-      }}
-    />
+                return (
+                  <FormControlLabel
+                    key={key}
+                    className={classes.checkboxLabel}
+                    control={
+                      <Checkbox
+                        className={classes.checkboxRoot}
+                        checked={isChecked}
+                        onChange={e => {
+                          const newValues = e.target.checked
+                            ? [...selectedValues, key]
+                            : selectedValues.filter(item => item !== key);
+                          field.onChange(newValues);
+                        }}
+                        disabled={disableUnchecked}
+                        color="primary"
+                      />
+                    }
+                    label={label}
+                  />
+                );
+              })}
+            </FormGroup>
+          );
+        }}
+      />
       {children}
       {/* insane, but EC has zero! */}
       {maxChoices && maxChoices > 0 && (
