@@ -22,6 +22,7 @@ import NameField from "@components/field/Name";
 import EmailField from "@components/field/Email";
 import PhoneField from "@components/field/Phone";
 import Address from "@components/field/Address";
+import Organisation from "@components/field/Organisation";
 
 import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -430,18 +431,12 @@ export default function Register(props) {
                 />
               )}
               {config.component.register.field.organisation && (
-                <Grid item xs={12} className={classField}>
-                  <TextField
-                    type="organisation"
-                    form={form}
-                    name="organisation"
-                    label={t("Organisation")}
-                    required={
-                      enforceRequired &&
-                      config.component.register.field.organisation.required
-                    }
-                  />
-                </Grid>
+                <Organisation
+                  form={form}
+                  classField={classField}
+                  compact={compact}
+                  enforceRequired={enforceRequired}
+                />
               )}
               <NameField
                 form={form}
