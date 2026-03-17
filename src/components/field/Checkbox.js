@@ -9,11 +9,21 @@ import {
 import { Controller } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
-  control: {
-    marginTop: "0!important",
-    marginBottom: "0!important",
-  },
+  control: {},
   check: {
+    display: "inline-flex",
+    alignItems: "center",
+    cursor: "pointer",
+    // For correct alignment with the text.
+    verticalAlign: "middle",
+    WebkitTapHighlightColor: "transparent",
+    paddingLeft: 4,
+    marginRight: 4,
+    "& span": {
+      lineHeight: "1.1em!important",
+    },
+  },
+  compactCheck: {
     display: "inline-flex",
     alignItems: "center",
     cursor: "pointer",
