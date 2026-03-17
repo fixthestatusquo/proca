@@ -67,7 +67,7 @@ const Observer = async (event, data, pii) => {
     if (config.component?.register?.field?.phone) {
       param.form_contains_phone_field = true;
       param.phone_field_provided = !!pii.phone;
-      if (config.component.sync?.promoCode?.phone) {
+      if (pii.phone) {
         param.werbecode = config.component.sync.promoCode.phone;
       }
     } else {
