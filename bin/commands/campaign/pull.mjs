@@ -25,8 +25,6 @@ export default class CampaignPush extends Command {
   pull = async name => {
     const campaign = await getCampaign({ name });
     const r = await this.save(campaign);
-    //    this.info(`saved ${this.fileName}`);
-
     return { file: this.fileName, ...campaign, ...r };
   };
 

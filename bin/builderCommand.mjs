@@ -73,6 +73,28 @@ export class BuilderCommand extends ProcaCommand {
     return fs.existsSync(this.getFile());
   };
 
+  uncommited = async ({ file, commit = false, exit = true }) => {
+    if (!this.git) return false;
+    if (!file) file = this.getFile();
+    const status = await this.git.status();
+    const relative = path.relative(this.config.procaConfig.folder, file);
+
+    const hasChanges = status.modified.includes(relative);
+    if (!hasChanges) return false;
+    if (commit) {
+      this.git.commit(this.gitMessage(data, file));
+    }
+    if (exit) {
+      this.log(await this.diff(file));
+      this.error(`Your local changes to ${file} would be overwritten`, {
+        code: "git error",
+        exit: 1,
+        suggestions: ["run with --auto to commit the changes before pulling"],
+      });
+    }
+    return true;
+  };
+
   read = async ({ commit }) => {
     try {
       const file = this.getFile();
@@ -86,17 +108,24 @@ export class BuilderCommand extends ProcaCommand {
       }
       return data;
     } catch (e) {
-      console.error("no local copy of " + this.getFile(), e.message);
+      console.error(`no local copy of ${file}: ${e.message}`);
       return null;
     }
   };
+
+  _stringify = obj =>
+    JSON.stringify(
+      obj,
+      (_key, value) => (value === null || value === "" ? undefined : value),
+      2
+    ) + "\n";
 
   stringify = obj =>
     JSON.stringify(
       obj,
       (_key, value) => (value === null ? undefined : value),
       2
-    );
+    ) + "\n";
 
   diff = async file => {
     const diff = await this.git.diff([file || this.fileName]);
@@ -118,6 +147,7 @@ export class BuilderCommand extends ProcaCommand {
     if (this.git && !this.fileExists(file)) {
       needToAdd = true;
     }
+    this.uncommited({ file }); //exit if unsaved, better to always stash?
     fs.writeFileSync(file, this.stringify(json));
     if (this.git) {
       if (needToAdd) {
