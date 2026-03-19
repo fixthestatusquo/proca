@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import WebIcon from "@mui/icons-material/Home";
 
 const Organisation = ({ form, classField, enforceRequired }) => {
   const component = useComponentConfig();
@@ -50,7 +51,7 @@ const Organisation = ({ form, classField, enforceRequired }) => {
                 </IconButton>
               ) : (
                 <SvgIcon>
-                  <TwitterIcon />
+                  <WebIcon />
                 </SvgIcon>
               )}
             </InputAdornment>
