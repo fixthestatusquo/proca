@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import TextField from "@components/field/TextField";
 import { useComponentConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -7,11 +7,59 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import WebIcon from "@material-ui/icons/Link";
+import WebErrorIcon from "@material-ui/icons/LinkOff";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { useTheme } from "@material-ui/core/styles";
 
+const StateIcon = ({ state, onClick }) => {
+  const theme = useTheme();
+  const handleMouseDown = event => {
+    event.preventDefault();
+  };
+
+  /*  let iconColor = theme.palette.text.secondary;
+    ic   onColor = theme.palette.error.main;
+    iconColor = theme.palette.success.main;
+-                <IconButton
+-                  aria-label="Fetch organisation details"
+-                  onClick={onClick}
+-                  onMouseDown={handleMouseDown}
+-                >
+-                  {loading ? <CircularProgress size={24} /> : <SearchIcon />}
+-                </IconButton>
+
+   */ //<EmailIcon style={{ color: iconColor }} />
+  switch (state) {
+    case "loading":
+      return (
+        <CircularProgress
+          size={18}
+          style={{ color: theme.palette.text.secondary }}
+        />
+      );
+    case "touched":
+      return (
+        <IconButton
+          aria-label="Fetch organisation details"
+          onClick={onClick}
+          onMouseDown={handleMouseDown}
+        >
+          <SearchIcon />
+        </IconButton>
+      );
+    case "nok":
+      return <WebErrorIcon style={{ color: theme.palette.error.main }} />;
+    case "ok":
+      return <WebIcon style={{ color: theme.palette.success.main }} />;
+    case "empty":
+      return <WebIcon />;
+    default:
+      return <SearchIcon />;
+  }
+};
 const Organisation = ({ form, classField, enforceRequired }) => {
   const component = useComponentConfig();
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState("empty");
   const { setValue, getValues, setError, watch } = form;
   const organisation = component.register.field.organisation;
   const array = watch(["organisation", "logo", "description", "url"]);
@@ -41,10 +89,10 @@ const Organisation = ({ form, classField, enforceRequired }) => {
     const api = `https://metapi.proca.app?url=${url}`;
     async function fetchAPI() {
       const field = "url";
-      setLoading(true);
+      setState("loading");
       await fetch(api)
         .then(res => {
-          setLoading(false);
+          setState("nok");
           if (!res.ok) {
             setError(field, {
               type: "metapi_error",
@@ -56,14 +104,15 @@ const Organisation = ({ form, classField, enforceRequired }) => {
           return res.json();
         })
         .then(res => {
-          setLoading(false);
           if (res && res.error) {
+            setState("nok");
             setError(field, {
               type: "metapi_error",
               message: "Can't load the site. " + res.error,
             });
             return;
           }
+          setState("ok");
           res.name = res.name
             .replace(
               /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
@@ -98,13 +147,32 @@ const Organisation = ({ form, classField, enforceRequired }) => {
     fetchMeta(getValues("url"));
   };
 
-  const handleBlur = e => {
-    form.handleBlur && form.handleBlur(e);
-    fetchMeta(getValues("url"));
+  const handleChange = e => {
+    const value = e.target.value.trim();
+    if (value === "") {
+      setState("empty");
+      return;
+    }
+    if (e.target.validity && state !== "touched") {
+      setState("touched");
+      return;
+    }
+    if (
+      value.startsWith("http://") ||
+      value.startsWith("https://") ||
+      "https://".startsWith(value) ||
+      "http://".startsWith(value)
+    ) {
+      console.log("still typing");
+      return;
+    }
+    const corrected = `https://${value}`;
+    setValue("url", corrected);
   };
 
-  const handleMouseDown = event => {
-    event.preventDefault();
+  const handleBlur = e => {
+    form.handleBlur?.(e);
+    fetchMeta(getValues("url"));
   };
 
   const { t } = useTranslation();
@@ -113,26 +181,15 @@ const Organisation = ({ form, classField, enforceRequired }) => {
       <TextField
         name="url"
         type="url"
-        label={t("url")}
+        label={t("url", "Organisation Website")}
         placeholder="https://"
         form={form}
         onBlur={handleBlur}
+        onChange={handleChange}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {field.url ? (
-                <IconButton
-                  aria-label="Fetch organisation details"
-                  onClick={handleClick}
-                  onMouseDown={handleMouseDown}
-                >
-                  {loading ? <CircularProgress size={24} /> : <SearchIcon />}
-                </IconButton>
-              ) : (
-                <SvgIcon>
-                  <WebIcon />
-                </SvgIcon>
-              )}
+              <StateIcon state={state} onClick={handleClick} />
             </InputAdornment>
           ),
         }}
