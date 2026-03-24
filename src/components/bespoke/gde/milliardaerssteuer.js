@@ -1,0 +1,36 @@
+import Message from "@components/field/AITextField";
+import MultiSelectCheckbox from "@components/field/MultiSelect";
+import TextField from "@components/field/TextField";
+import { useComponentConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
+
+const CustomMessage = ({ form }) => {
+  const { t } = useTranslation();
+  const component = useComponentConfig();
+  return (
+    <>
+      <MultiSelectCheckbox
+        name="topics"
+        form={form}
+        maxChoices={3}
+        options={component.topics}
+      />
+      <TextField
+        form={form}
+        name="subject"
+        required={true}
+        label={t("Subject")}
+      />
+      <Message
+        form={form}
+        required={true}
+        name="message"
+        fields={["topics", "firstname"]}
+        recipient="Sehr geehrter Herr Wegner"
+        label={t("Your message")}
+      />
+    </>
+  );
+};
+
+export default CustomMessage;
