@@ -1,20 +1,27 @@
 import React from "react";
-import { useCampaignConfig } from "@hooks/useConfig";
-import Alert from "@components/Alert";
+import { useComponentConfig } from "@hooks/useConfig";
+import Alert from "@material-ui/lab/Alert";
 import { AlertTitle } from "@material-ui/lab";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const Redirect = () => {
-  const config = useCampaignConfig();
-  const url = config.component?.redirect?.url || "/";
-  if (!config.component?.redirect?.url) {
+  const component = useComponentConfig();
+  const url = component.redirect?.url;
+  if (!url) {
     return (
-      <Alert severity="error" autoHideDuration={5000}>
+      <Alert severity="error">
         <AlertTitle> Missing URL to redirect to</AlertTitle>
+        config.component.redirect.url
       </Alert>
     );
   }
   document.location.href = url;
-  return null;
+  return (
+    <>
+      <Alert severty="info">Loading...</Alert>
+      <LinearProgress />
+    </>
+  );
 };
 
 export default Redirect;
