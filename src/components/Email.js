@@ -404,6 +404,11 @@ const EmailComponent = props => {
       if (d.length === 0 && fallbackRandom && !fallbackArea) {
         d = sample(allProfiles, sampleSize || fallbackRandom);
       }
+      if (d.length === 0) {
+        d = allProfiles.filter(d => {
+          return d.fallback === true;
+        });
+      }
       if (d.length === 0 && postcodeFiltered && (!!constituency || !!area)) {
         setError("postcode", {
           message: t("target.postcode.empty", {
