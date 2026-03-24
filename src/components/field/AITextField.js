@@ -15,6 +15,8 @@ const Comment = ({
   name,
   label,
   maxLength,
+  fields,
+  recipient,
   help,
 }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -25,6 +27,7 @@ const Comment = ({
   const [state, setState] = useState("untouched"); //untouched->loading->loaded
   const isLoading = state === "loading";
   const { t } = useTranslation();
+  console.log("loading", name, label);
 
   if (!name) name = "comment";
   if (!label) label = t(name);
@@ -34,13 +37,6 @@ const Comment = ({
     return await fetchData();
   };
   const fetchData = async () => {
-    /*  isValid = form.getValues("firstname");
-  if (!isValid) {
-    const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error
-//    console.log("Field is invalid");
-    return;
-  }
-*/
     setState("loading");
     const formData = form.getValues();
     const data = {
@@ -49,9 +45,16 @@ const Comment = ({
       country: formData.country,
       locality: formData.locality,
       question: fetchPrompted ? label : name,
+      recipient: recipient,
       id: name,
       stream: true,
     };
+    console.log(fields, recipient);
+    if (fields) {
+      fields.forEach(d => {
+        data[d] = formData[d];
+      });
+    }
     if (formData[name].length < 200) {
       data[name] = formData[name];
     } else {
