@@ -24,13 +24,14 @@ const Choice = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const { go } = props;
+  const choice = config.component.choice;
 
   const handleYes = () => {
-    go("Message");
+    go(choice.yes || "Message");
   };
 
   const handleNo = () => {
-    go("Share");
+    go(choice.no || "Share");
   };
 
   const text = t(
