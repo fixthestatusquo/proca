@@ -404,7 +404,7 @@ const EmailComponent = props => {
       if (d.length === 0 && fallbackRandom && !fallbackArea) {
         d = sample(allProfiles, sampleSize || fallbackRandom);
       }
-      if (d.length === 0) {
+      if (d.length === 0 && constituency) {
         d = allProfiles.filter(d => {
           return d.fallback === true;
         });
