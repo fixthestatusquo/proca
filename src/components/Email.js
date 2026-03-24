@@ -11,11 +11,6 @@ import {
   Collapse,
   List,
   TextField as MuiTextField,
-  FormHelperText,
-  FormControl,
-  IconButton,
-  Typography,
-  Tooltip,
 } from "@material-ui/core";
 
 import Alert from "@material-ui/lab/Alert";
