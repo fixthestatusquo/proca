@@ -617,7 +617,7 @@ const EmailComponent = props => {
                 margin={layout.margin}
                 fullWidth={true}
                 placeholder={`${t("email.salutation_placeholder")},`}
-                readOnly
+                disabled
                 helperText={t("email.salutation_info")}
               />
             )}
