@@ -251,7 +251,6 @@
   "yes": "ja",
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein",
   "progressGoal": {
-    "default": "Gehen wir zu {{goal}}",
-    "sign": "Erreichen wir {{goal}}"
+    "default": "Schaffen wir {{goal}}?"
   }
 }
