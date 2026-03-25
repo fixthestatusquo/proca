@@ -24,7 +24,7 @@ const Choice = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const { go } = props;
-  const choice = config.component.choice;
+  const choice = config.component.choice || {};
 
   const handleYes = () => {
     go(choice.yes || "Message");
