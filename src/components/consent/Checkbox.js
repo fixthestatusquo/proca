@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Checkbox from "@components/field/Checkbox";
 import Hidden from "@components/field/Hidden";
+import ConsentProcessing from "@components/consent/Processing";
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Dialog from "@components/Dialog";
@@ -116,6 +117,7 @@ const CheckboxConsent = props => {
     <>
       {confirm && <Confirm form={props.form} />}
       <Checkbox {...props2} />
+      <ConsentProcessing i18nKey="consent.preprocessing" large />
     </>
   );
   // return Checkbox(props2);

@@ -1,5 +1,6 @@
 import React from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import ConsentProcessing from "@components/consent/Processing";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Controller } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
@@ -37,7 +38,7 @@ const ConfirmProcessing = props => {
   const classes = useStyles();
   if (!config.component.consent?.confirmProcessing) return null;
   return (
-    <FormControl error={!!(errors && errors.consentProcessing)}>
+    <FormControl error={!!errors?.consentProcessing}>
       <FormGroup>
         <FormControlLabel
           className={classes.check}

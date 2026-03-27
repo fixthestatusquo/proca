@@ -31,7 +31,8 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Consent, { ConsentProcessing } from "@components/Consent";
+import Consent from "@components/Consent";
+import ConsentProcessing from "@components/consent/Processing";
 
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
