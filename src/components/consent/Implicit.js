@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useLayout } from "@hooks/useLayout";
 import ConfirmProcessing from "@components/consent/ConfirmProcessing";
+import ConsentProcessing from "@components/consent/Processing";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -48,20 +49,16 @@ const ImplicitConsent = props => {
         <ConfirmProcessing form={props.form} />
       </Grid>
       {config.component.consent.implicit === "opt-in" && (
-        <>
-          <Grid item xs={12}>
-            <FormHelperText
-              className={classes.bigHelper}
-              margin={layout.margin}
-            >
-              {t("consent.implicit", {
-                name: config.organisation,
-                campaign: config.campaign.title,
-              })}
-            </FormHelperText>
-          </Grid>
-        </>
+        <Grid item xs={12}>
+          <FormHelperText className={classes.bigHelper} margin={layout.margin}>
+            {t("consent.implicit", {
+              name: config.organisation,
+              campaign: config.campaign.title,
+            })}
+          </FormHelperText>
+        </Grid>
       )}
+      <ConsentProcessing i18nKey="consent.preprocessing" large left />
     </>
   );
 };
