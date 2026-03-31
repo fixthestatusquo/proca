@@ -150,7 +150,7 @@
     "salutation_female": "Geachte mevrouw {{target.last_name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_male": "Geachte heer {{target.last_name}}",
-    "salutation_placeholder": "Geachte [ontvanger],"
+    "salutation_placeholder": "Geachte [ontvanger]"
   },
   "error": {
     "date": "formaat moet DD.MM.YYYY zijn"
