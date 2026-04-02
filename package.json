@@ -101,14 +101,14 @@
     "mjml": "^4.15.3",
     "open": "^11.0.0",
     "phoenix": "1.7.14",
-    "proca": "^2.4.0",
+    "proca": "^2.5.0",
     "simple-git": "^3.32.3",
     "websocket": "^1.0.35"
   },
   "scripts": {
-    "_format": "npx @biomejs/biome format --write src/ docs/ webpack/ bin/ ",
     "format": "npx @biomejs/biome format --write ",
-    "lint": "npx @biomejs/biome lint",
+    "lint": "npx @biomejs/biome lint --write ",
+    "biome": "npx @biomejs/biome check --write ",
     "build": "npx proca widget build",
     "oclif": "npx oclif manifest && oclif readme --plugin-directory bin/commands --readme-path=../../README.md",
     "start": "npx proca widget serve",
