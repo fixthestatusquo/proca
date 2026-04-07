@@ -1,1 +1,26 @@
-{}
+{
+  "description": "definir o objetivo da campanha e a procura principal",
+  "actions": {
+    "petition": {
+      "default": "Acabei de assinar esta petição e pensei que talvez quisesse apoiá-la também",
+      "email": {
+        "subject": "Assina esta petição comigo?",
+        "body": "Hi,\n\nAcabei de assinar uma petição sobre um assunto que me interessa muito e estou a contactar pessoas que penso que também a podem apoiar.\n\nCada assinatura ajuda a criar uma dinâmica e mostra aos decisores que as pessoas se preocupam com esta questão. Só demora um minuto a acrescentar o seu nome:\n\n{url}\n\nAgradecia imenso o vosso apoio nesta questão. Obrigado por dedicarem algum tempo a pensar no assunto!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ajude-me a enviar uma mensagem",
+      "email": {
+        "body": "Hi,\n\nAcabei de enviar uma mensagem de correio eletrónico sobre um assunto que me preocupa e queria saber se se juntariam a mim para fazer ouvir as nossas vozes.\n\nExiste um modelo pré-escrito que o torna muito fácil - pode personalizá-lo ou enviá-lo tal como está. Demora apenas alguns minutos:\n\n{url}\n\nQuanto mais pessoas entrarem em contacto, mais difícil será ignorar. Consideraria juntar a sua voz?\n\nMuito obrigado",
+        "default": "Acabei de enviar uma mensagem sobre este assunto. É muito rápido: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Junte-se a mim para apoiar esta causa",
+      "body": "Hi,\n\nRecentemente, tomei medidas em relação a algo que me interessa e queria partilhá-las convosco. Penso que também podes estar interessado em participar.\n\nDemora apenas alguns minutos e acredito que pode fazer uma diferença real. Aqui está o link se quiser participar:\n\n{url}\n\nObrigado por considerares o assunto!"
+    },
+    "default": "Acabei de tomar medidas relativamente a algo importante - quer juntar-se a mim?"
+  }
+}
