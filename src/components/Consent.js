@@ -9,7 +9,8 @@ import ImplicitConsent from "@components/consent/Implicit";
 const Consent = props => {
   const config = useCampaignConfig();
 
-  if (config.component.consent?.implicit !== undefined)
+  if (config.component.consent?.implicit != null)
+    // nullish is on purpose, it needs to catch both undefined and null
     return <ImplicitConsent {...props} />;
 
   if (config.component.consent?.buttons) {
