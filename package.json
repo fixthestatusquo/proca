@@ -95,7 +95,7 @@
     "dotenv": "^16.5.0",
     "esbuild": "^0.27.3",
     "esbuild-plugin-copy": "^2.1.1",
-    "i18next-fs-backend": "^2.6.0",
+    "i18next-fs-backend": "^2.6.4",
     "lefthook": "^2.0.16",
     "minimist": "^1.2.8",
     "mjml": "^4.15.3",
