@@ -6,9 +6,9 @@ const getProperties = (_event, config) => {
   //event not used, so far
   const properties = {
     test: config.test || undefined,
-    form_plugin: "proca",
+    form_plugin: "Proca",
     form_id: config.actionpage,
-    form_title: config.filename, // or config.campaign.title? or page title?
+    form_title: config.campaign.title || config.filename,
   };
   return properties;
 };
@@ -33,7 +33,7 @@ const getGoal = actionType => {
 
 const Observer = async (event, data, pii) => {
   const config = window.proca?.get?.();
-  console.log("mixpanel event", event, config);
+  //  console.log("mixpanel event", event, config, pii);
   if (event.endsWith(":start")) {
     // the user has started to interact with the form
     const param = getProperties(event, config);
@@ -54,13 +54,12 @@ const Observer = async (event, data, pii) => {
     const param = getProperties(event, config);
     console.log("form_submitted", param);
     param.event = "form_submitted";
-    param.form_plugin = "proca";
     if (config.component?.register?.field?.postcode !== false) {
       param.form_contains_address_field = true;
     }
     param.form_id = config.actionpage;
     param.form_goal = getGoal(config.component.register?.actionType);
-    param.form_contains_newsletter_subscription = true; //TO CHECK
+    param.form_contains_newsletter_subscribed = true; //TO CHECK
     if (config.component.sync?.promoCode?.default) {
       param.werbecode = config.component.sync.promoCode.default;
     }
@@ -77,6 +76,7 @@ const Observer = async (event, data, pii) => {
       const hash = await getHash();
       param.user_id = hash;
     }
+    send(param);
     return;
   }
 
