@@ -73,7 +73,7 @@ const Observer = async (event, data, pii) => {
       param.form_contains_phone_field = false;
     }
     if (pii?.email) {
-      const hash = await getHash();
+      const hash = await getHash(pii.email);
       param.user_id = hash;
     }
     send(param);
