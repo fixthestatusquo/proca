@@ -237,6 +237,8 @@ to collect the consent of being contacted
 `config.component.implicit: "opt-in" - adds a line 'Submit this form to receive emails from {{org}}'
 `config.component.consent.confirm === false`- removes "Are you sure" question.`config.component.consent.benefit === false` - removes "Are you sure" when picture not added.
 
+if the consent is set to "implicit" on campaign level, to put back radio buttons on specific widget use `consent.implicit : null` in widget config.
+
 ### Email (config.component.consent.email)
 
 - `config.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
