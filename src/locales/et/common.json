@@ -193,7 +193,7 @@
     "twitter": "{{total}} on twitted."
   },
   "progressGoal": {
-    "default": "Võtame eesmärgiks {{goal}}",
+    "default": "Saame täis {{goal}}",
     "sign": "Lähme {{goal}}"
   },
   "read more": "loe edasi",
