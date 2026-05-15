@@ -194,7 +194,7 @@
   },
   "progressGoal": {
     "default": "Saame täis {{goal}}",
-    "sign": "Lähme {{goal}}"
+    "sign": "Saame täis {{goal}}"
   },
   "read more": "loe edasi",
   "region": "Piirkond",
