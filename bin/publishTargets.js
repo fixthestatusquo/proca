@@ -57,6 +57,9 @@ const merge = (targets, twitters, options) => {
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;
     }
+    if (target.fields.fallback) {
+      r.fallback = target.fields.fallback;
+    }
     if (target.fields.ps) {
       r.ps = target.fields.ps;
     }
