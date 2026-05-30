@@ -11,7 +11,7 @@
     "mailtotarget": {
       "subject": "Help me send a message",
       "email": {
-        "body": "Hi,\n\nI just sent an email about an issue I care about, and I wanted to see if you'd join me in making our voices heard.\n\nThere's a pre-written template that makes it really easy - you can personalize it or send it as-is. It only takes a couple of minutes:\n\n{url}\n\nThe more people who reach out, the harder it is to ignore. Would you consider adding your voice?\n\nThanks so much",
+        "body": "Hi,\n\nI just sent an email about an issue I care about, and I wanted to see if you'd join me in making our voices heard.\n\nThere's a pre-written template that makes it really easy - you can personalise it or send it as-is. It only takes a couple of minutes:\n\n{url}\n\nThe more people who reach out, the harder it is to ignore. Would you consider adding your voice?\n\nThanks so much",
         "default": "Hey! I just sent a message about this issue - would you consider adding your voice? It's super quick: "
       }
     }
