@@ -4,9 +4,11 @@ import TextField from "@components/field/TextField";
 import { useComponentConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 
-const CustomMessage = ({ form }) => {
+const CustomMessage = ({ form, getTargets }) => {
   const { t } = useTranslation();
   const component = useComponentConfig();
+  console.log(getTargets());
+  const targets = getTargets();
   return (
     <>
       <MultiSelectCheckbox
@@ -26,7 +28,7 @@ const CustomMessage = ({ form }) => {
         required={true}
         name="message"
         fields={["topics", "firstname"]}
-        recipient="Sehr geehrter Herr Wegner"
+        recipient={targets?.[0]?.salutation}
         label={t("Your message")}
       />
     </>

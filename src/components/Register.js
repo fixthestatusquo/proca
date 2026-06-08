@@ -334,6 +334,9 @@ export default function Register(props) {
     }
   };
 
+  const getTargets = () => {
+    return props.targets;
+  };
   /*
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -493,6 +496,7 @@ export default function Register(props) {
                   classes={classes}
                   handleBeforeSubmit={setBeforeSubmit}
                   myref={customField}
+                  getTargets={getTargets}
                 />
               )}
               {!data.uuid && (
