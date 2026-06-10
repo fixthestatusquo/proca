@@ -1,1 +1,66 @@
-{}
+{
+  "Place of birth": "Place of birth",
+  "common": {
+    "head-title": {
+      "home": "European Citizens' Initiative"
+    },
+    "more_info": "more_info",
+    "requirements": {
+      "text": "Please provide the following data, as required by <a href=\"{{url}}\" class=\"dgtc-link\" target=\"_blank\">Regulation (EU) 2019/788 on the European citizens’ initiative.</a>"
+    }
+  },
+  "congratulations": {
+    "successfully-title": "Your statement of support has been submitted successfully"
+  },
+  "footer": {
+    "conformity-title": "Conformity certificate"
+  },
+  "form": {
+    "captcha-audio-download": "Listen and type the characters you hear",
+    "captcha-button-arialabel-audio": "Change captcha to audio",
+    "captcha-button-arialabel-image": "Change captcha to image",
+    "captcha-button-arialabel-refresh": "Refresh captcha",
+    "captcha-image-title": "Enter the characters you see in the picture",
+    "certify-info": "I hereby certify that the information that I have provided in this form is correct and that I have not already supported this initiative.",
+    "document-number": "Number",
+    "document-type": "Document type",
+    "error": {
+      "oct_error_invaliddateformat": "oct_error_invaliddateformat",
+      "oct_error_invalidrange": "oct_error_invalidrange",
+      "oct_error_invalidsize": "oct_error_invalidsize"
+    },
+    "group-address": "Residence",
+    "group-document": "Personal identification",
+    "group-personal": "Personal information",
+    "privacy-statement": "I have read the <a href=\"{{url}}\" target=\"_blank\" title=\"Read the privacy statement\">Privacy statement</a> and the content of this <a href=\"{{urlRegister}}\" target=\"_blank\">citizens’ initiative</a>.",
+    "property": {
+      "city": "City",
+      "date-of-birth": "Date of birth",
+      "family_names": "family_names",
+      "full_first_names": "full_first_names",
+      "postal_code": "postal_code",
+      "street": "Street",
+      "street_number": "street_number"
+    },
+    "support": "Support",
+    "support-footer1": "To support a European citizens’ initiative, you must:",
+    "support-footer2": "1. be a European Union citizen (i.e. a national of an EU country);",
+    "support-footer3": "2. be old enough to vote in European Parliament elections or, in the case of some nationalities, be 16 years old.",
+    "support_country_selected": "support_country_selected",
+    "title": "Support this initiative proposed by European Union citizens"
+  },
+  "header": {
+    "registration_date": "registration_date",
+    "registration_number": "registration_number"
+  },
+  "howsupport": {
+    "s1_text": "s1_text"
+  },
+  "initiative": {
+    "register_webpage": "register_webpage",
+    "representative": "Contact persons"
+  },
+  "privacy": {
+    "title": "Privacy statement"
+  }
+}
