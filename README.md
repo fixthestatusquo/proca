@@ -156,15 +156,12 @@ pull the campaign from the server to the config file
 
 ```
 USAGE
-  $ proca campaign pull [--json | --csv | --markdown] [--env <value>] [--simplify] [-i <value> | -n <value> | -x
-    <value>] [--git]
+  $ proca campaign pull [--json | --csv | --markdown] [--env <value>] [--simplify] [-n <campaign>] [--git]
 
 FLAGS
-  -i, --id=<value>
-  -n, --name=<value>
-  -x, --dxid=<value>  dxid
-      --env=<value>   [default: default] allow to switch between configurations (server or users)
-      --[no-]git      commit the changes to git
+  -n, --name=<campaign>  name (technical short name, also called slug)
+      --env=<value>      [default: default] allow to switch between configurations (server or users)
+      --[no-]git         commit the changes to git
 
 OUTPUT FLAGS
   --csv            Format output as csv
