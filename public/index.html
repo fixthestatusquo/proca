@@ -32,12 +32,37 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <style>
+
+    :root, :host {
+  --pico-form-element-spacing-vertical: 0px;
+  --pico-form-element-spacing-horizontal: 0px;
+}
+
+
+    input:not([type="checkbox"], [type="radio"], [type="range"]) {
+  --pico-form-element-spacing-vertical: 0px;
+}
+    :where(input, select, textarea) {
+  --pico-form-element-spacing-vertical: 0px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
       :root {
+
   --pico-background-color: <%= background-color %>; /* Light mode */
   --pico-background-color-dark: <%= background-color %>; /* Dark mode (optional) */
+      --pico-form-element-spacing-vertical: 0px;
         --pico-form-element-spacing-horizontal: 12px;
         --pico-h6-color: var(--pico-color);
       }
+
+    [type="text"],
+[type="email"],
+[type="password"],
+select,
+textarea {
+  --pico-form-element-spacing-vertical: 0px;
+}
       textarea {
         --pico-form-element-spacing-horizontal: 0;
       }
@@ -277,7 +302,7 @@
       <div class="grid" id="widget-demo">
         <div role="left-column">
           <div class="alert alert-info">
-            <b>This is a Preview. </b>On your live site, you’ll need to write
+            <b>AAThis is a Preview. </b>On your live site, you’ll need to write
             <i>-or paste-</i> the campaign content directly into your CMS/page
             editor.
 
