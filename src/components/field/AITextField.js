@@ -23,15 +23,12 @@ const Comment = ({
   const config = useCampaignConfig();
   const theme = useTheme();
   const fetchPrompted = config.component.message?.prompted || false;
-  console.log("prompted", fetchPrompted);
   const [state, setState] = useState("untouched"); //untouched->loading->loaded
   const isLoading = state === "loading";
   const { t } = useTranslation();
-  console.log("loading", name, label);
 
   if (!name) name = "comment";
   if (!label) label = t(name);
-
   const regenerate = async () => {
     form.setValue("comment", "");
     return await fetchData();
@@ -121,7 +118,12 @@ const Comment = ({
             if (jsonStr.trim() === "[DONE]") continue;
 
             const data = JSON.parse(jsonStr);
-            aggregatedResponse += data.response || "";
+            const content = data.choices?.[0]?.delta?.content || "";
+            if (content) {
+              aggregatedResponse += content || "";
+            } else {
+              aggregatedResponse += data.response || "";
+            }
             form.setValue(name, aggregatedResponse);
             if (aggregatedResponse.length > maxLength) {
               console.log(aggregatedResponse.length + "/" + maxLength);
