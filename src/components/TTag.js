@@ -3,8 +3,11 @@ import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
 import { makeStyles } from "@material-ui/core/styles";
 
+export const stripScripts = str =>
+  str.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+
 export const snarkdown = md => {
-  const htmls = md
+  const htmls = stripScripts(md)
     .split(/(?:\r?\n){2,}/)
     .map(l =>
       [" ", "\t", "#", "-", "*"].some(ch => l.startsWith(ch))
