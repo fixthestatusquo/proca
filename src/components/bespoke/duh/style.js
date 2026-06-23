@@ -1,5 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Events from "@lib/observer";
+//import { unsubscribeDataLayer, dataLayerObserver } from "@lib/event";
+
+const Observer = async (event, data) => {
+  //  const config = window.proca?.get?.();
+  console.log("event", event);
+  if (event === "share:init") {
+    proca.set("component", "widget.fab", false);
+    console.log("change style");
+    document.querySelectorAll(".petitionSidebar__imageWrapper").forEach(el => {
+      el.style.display = "none";
+    });
+    //    petitionSidebar__imageWrapper
+  }
+};
+Events.subscribe(Observer);
 
 const useGlobalStyles = makeStyles({
   "@global": {
