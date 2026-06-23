@@ -32,6 +32,16 @@ export const Markdown = props => {
   const tbr = key => snarkdown(t(key, props));
   const classes = useStyles();
 
+  if (props.dangerouslySet === true) {
+    return (
+      <div
+        className={classes.markdown}
+        dangerouslySetInnerHTML={{
+          __html: snarkdown(t(props.text, props)),
+        }}
+      />
+    );
+  }
   return (
     <div className={classes.markdown}>
       <Trans t={tbr} i18nKey={props.text} />
