@@ -8,13 +8,17 @@ const Observer = async (event, data) => {
   console.log("event", event);
   if (event === "share:init") {
     proca.set("component", "widget.fab", false);
-    console.log("change style");
-    document.querySelectorAll(".petitionSidebar__imageWrapper").forEach(el => {
-      el.style.display = "none";
-    });
+    document
+      .querySelectorAll(
+        ".petitionSidebar__imageWrapper, .section--petitionSidebar"
+      )
+      .forEach(el => {
+        el.style.display = "none";
+      });
     //    petitionSidebar__imageWrapper
   }
 };
+console.log("observer");
 Events.subscribe(Observer);
 
 const useGlobalStyles = makeStyles({
