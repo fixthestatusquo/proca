@@ -10,7 +10,7 @@ const Observer = async (event, data) => {
     proca.set("component", "widget.fab", false);
     document
       .querySelectorAll(
-        ".petitionSidebar__imageWrapper, .section--petitionSidebar"
+        ".petitionSidebar__imageWrapper, .section--petitionSidebar, .petitionWidget__header"
       )
       .forEach(el => {
         el.style.display = "none";
