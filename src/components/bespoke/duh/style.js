@@ -15,7 +15,12 @@ const Observer = async (event, data) => {
       .forEach(el => {
         el.style.display = "none";
       });
-    //    petitionSidebar__imageWrapper
+    document.querySelectorAll(".petitionSidebar__sidebar").forEach(el => {
+      el.style.marginTop = "auto";
+      el.style.width = "auto";
+      el.style.maxWidth = "none";
+      el.style.position = "initial";
+    });
   }
 };
 console.log("observer");
