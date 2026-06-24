@@ -16,8 +16,9 @@ const Observer = async (event, data) => {
         el.style.display = "none";
       });
 
-    document.querySelectorAll("div.petitionSidebar__content").forEach(el => {
-      el.style.display = "block!important";
+    document.querySelectorAll(".petitionSidebar__content").forEach(el => {
+      el.style.display = "block";
+      console.log("el", el);
     });
     document.querySelectorAll(".petitionSidebar__sidebar").forEach(el => {
       el.style.marginTop = "auto";
