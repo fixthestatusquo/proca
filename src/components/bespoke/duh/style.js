@@ -17,9 +17,9 @@ const Observer = async (event, data) => {
       });
 
     document
-      .querySelectorAll(".petitionSidebar__content container-boxed")
+      .querySelectorAll("div.petitionSidebar__content container-boxed")
       .forEach(el => {
-        el.style.display = "block";
+        el.style.display = "block!important";
       });
     document.querySelectorAll(".petitionSidebar__sidebar").forEach(el => {
       el.style.marginTop = "auto";
