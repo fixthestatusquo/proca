@@ -15,6 +15,12 @@ const Observer = async (event, data) => {
       .forEach(el => {
         el.style.display = "none";
       });
+
+    document
+      .querySelectorAll(".petitionSidebar__content container-boxed")
+      .forEach(el => {
+        el.style.display = "block";
+      });
     document.querySelectorAll(".petitionSidebar__sidebar").forEach(el => {
       el.style.marginTop = "auto";
       el.style.width = "auto";
