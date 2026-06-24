@@ -7,7 +7,7 @@ const Observer = async (event, data) => {
   //  const config = window.proca?.get?.();
   console.log("event", event);
   if (event === "share:init") {
-    proca.set("component", "widget.fab", false);
+    proca?.set("component", "widget.fab", false);
     document
       .querySelectorAll(
         ".petitionSidebar__imageWrapper, .section--petitionSidebar, .petitionWidget__header"

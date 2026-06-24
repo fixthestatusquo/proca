@@ -97,7 +97,7 @@ export const setGlobalState = (part, key, value) => {
   if (el) {
     el.dispatchEvent(event);
   } else {
-    setTimeout(setGlobalState, 1, key, value);
+    setTimeout(setGlobalState, 1, part, key, value);
   }
 };
 
@@ -177,7 +177,7 @@ export const ConfigProvider = props => {
             setData(part, key, value);
             break;
           default:
-            console.error("you need to specify a valid part");
+            console.error("you need to specify a valid part", e.detail);
         }
       },
       false
