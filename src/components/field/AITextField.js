@@ -8,6 +8,7 @@ import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
+import dispatch from "@lib/event";
 
 const Comment = ({
   form,
@@ -57,7 +58,7 @@ const Comment = ({
     } else {
       data[name] = "";
     }
-    console.log("writing...");
+    dispatch("snowflaike", { prompt: data[name].length });
     try {
       const response = await fetch(
         //"https://snowflaike.proca.app/" + config.campaign.name,

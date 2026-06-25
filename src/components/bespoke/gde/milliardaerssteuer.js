@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 const CustomMessage = ({ form, getTargets }) => {
   const { t } = useTranslation();
   const component = useComponentConfig();
-  console.log(getTargets());
   const targets = getTargets();
   return (
     <>
