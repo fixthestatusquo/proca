@@ -7,6 +7,7 @@ import TextField from "@components/field/TextField";
 import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
 
 const Comment = ({
   form,
@@ -46,7 +47,6 @@ const Comment = ({
       id: name,
       stream: true,
     };
-    console.log(fields, recipient);
     if (fields) {
       fields.forEach(d => {
         data[d] = formData[d];
@@ -151,10 +151,32 @@ const Comment = ({
 
   const helperText = () => {
     const counter = text.length + "/" + maxLength;
+
+    return (
+      state === "loaded" && (
+        <Alert severity="warning">
+          {t("ai_check")}
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            onClick={regenerate}
+            startIcon={
+              <SvgIcon size={20}>
+                <AIIcon />
+              </SvgIcon>
+            }
+          >
+            {t("give_another", "Generate another")}
+          </Button>
+        </Alert>
+      )
+    );
+
     return (
       counter &&
       state === "loaded" &&
-      `. ${t("ai_check", "An AI wrote this message, we encourage you to read and customise it to maximise its impact")}`
+      `${t("ai_check", "An AI wrote this message, we encourage you to read and customise it to maximise its impact")}`
     );
   };
 
@@ -163,6 +185,13 @@ const Comment = ({
   return (
     <>
       <Grid item xs={12} className={classField}>
+        {state !== "loaded" && !isLoading && (
+          <Alert severity="info">
+            {t("ai_tip", {
+              button: t("help_write"),
+            })}
+          </Alert>
+        )}
         {!labelInside && (
           <FormLabel
             component="legend"
@@ -185,9 +214,7 @@ const Comment = ({
           error={!!fieldError || text?.length > maxLength}
           helperText={
             fieldError?.message ||
-            (text?.length > maxLength
-              ? `${text.length}/${maxLength}`
-              : help || helperText())
+            (text?.length > maxLength ? `${text.length}/${maxLength}` : help)
           }
         />
       </Grid>
@@ -213,19 +240,7 @@ const Comment = ({
               : t("help_write", "Help me write it")}
           </Button>
         )}
-        {state === "loaded" && (
-          <Button
-            variant="outlined"
-            onClick={regenerate}
-            startIcon={
-              <SvgIcon size={20}>
-                <AIIcon />
-              </SvgIcon>
-            }
-          >
-            {t("give_another", "Generate another")}
-          </Button>
-        )}
+        {helperText()}
       </Grid>
     </>
   );
