@@ -9,6 +9,7 @@ import {
   FormHelperText,
   Checkbox,
   makeStyles,
+  Grid,
 } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -50,70 +51,71 @@ const MultiSelectCheckbox = ({
   if (!maxChoices) maxChoices = options.length;
 
   return (
-    <FormControl component="fieldset">
-      <FormLabel component="legend">{label}</FormLabel>
-      <Controller
-        name={name}
-        control={form.control}
-        defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
-        rules={{
-          validate: value =>
-            value.length > 0 || "You must select at least one option",
-        }}
-        render={({ field }) => {
-          const selectedValues = (field.value || []).map(String);
+    <Grid item xs={12}>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">{label}</FormLabel>
+        {maxChoices && maxChoices > 0 && (
+          <FormHelperText className={classes.helperText}>
+            {t("select_options", {
+              opt: maxChoices,
+              defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`,
+            })}
+          </FormHelperText>
+        )}
+        <Controller
+          name={name}
+          control={form.control}
+          defaultValue={[]} // can leave as empty, RHF will take from form.defaultValues
+          rules={{
+            validate: value =>
+              value.length > 0 || "You must select at least one option",
+          }}
+          render={({ field }) => {
+            const selectedValues = (field.value || []).map(String);
 
-          return (
-            <FormGroup>
-              {Object.entries(options).map(([key, label]) => {
-                const isChecked = selectedValues.includes(key);
-                const disableUnchecked =
-                  maxChoices &&
-                  !isChecked &&
-                  selectedValues.length >= maxChoices;
+            return (
+              <FormGroup>
+                {Object.entries(options).map(([key, label]) => {
+                  const isChecked = selectedValues.includes(key);
+                  const disableUnchecked =
+                    maxChoices &&
+                    !isChecked &&
+                    selectedValues.length >= maxChoices;
 
-                return (
-                  <FormControlLabel
-                    key={key}
-                    className={classes.checkboxLabel}
-                    control={
-                      <Checkbox
-                        className={classes.checkboxRoot}
-                        checked={isChecked}
-                        onChange={e => {
-                          const newValues = e.target.checked
-                            ? [...selectedValues, key]
-                            : selectedValues.filter(item => item !== key);
-                          field.onChange(newValues);
-                        }}
-                        disabled={disableUnchecked}
-                        color="primary"
-                      />
-                    }
-                    label={label}
-                  />
-                );
-              })}
-            </FormGroup>
-          );
-        }}
-      />
-      {children}
-      {/* insane, but EC has zero! */}
-      {maxChoices && maxChoices > 0 && (
-        <FormHelperText className={classes.helperText}>
-          {t("select_options", {
-            opt: maxChoices,
-            defaultValue: `You can select up to ${maxChoices} option${maxChoices > 1 ? "s" : ""}`,
-          })}
-        </FormHelperText>
-      )}
-      {form.formState.errors[name] && (
-        <FormHelperText error>
-          {form.formState.errors[name].message}
-        </FormHelperText>
-      )}
-    </FormControl>
+                  return (
+                    <FormControlLabel
+                      key={key}
+                      className={classes.checkboxLabel}
+                      control={
+                        <Checkbox
+                          className={classes.checkboxRoot}
+                          checked={isChecked}
+                          onChange={e => {
+                            const newValues = e.target.checked
+                              ? [...selectedValues, key]
+                              : selectedValues.filter(item => item !== key);
+                            field.onChange(newValues);
+                          }}
+                          disabled={disableUnchecked}
+                          color="primary"
+                        />
+                      }
+                      label={label}
+                    />
+                  );
+                })}
+              </FormGroup>
+            );
+          }}
+        />
+        {children}
+        {form.formState.errors[name] && (
+          <FormHelperText error>
+            {form.formState.errors[name].message}
+          </FormHelperText>
+        )}
+      </FormControl>
+    </Grid>
   );
 };
 

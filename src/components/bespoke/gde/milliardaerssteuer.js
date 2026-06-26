@@ -12,6 +12,7 @@ const CustomMessage = ({ form, getTargets }) => {
     <>
       <MultiSelectCheckbox
         name="topics"
+        label={t("campaign:topics")}
         form={form}
         maxChoices={3}
         options={component.topics}
