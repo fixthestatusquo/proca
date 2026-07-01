@@ -205,6 +205,13 @@ export default function Register(props) {
 
       actionType = "mail2target";
     }
+    Object.keys(form.control._fields).forEach(fieldName => {
+      const fieldConfig = form.control._fields[fieldName];
+      if (fieldConfig?.beforeSubmit) {
+        formData[fieldName] = fieldConfig.beforeSubmit(formData[fieldName]);
+      }
+    });
+
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
     }

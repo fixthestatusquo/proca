@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Message from "@components/field/AITextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import TextField from "@components/field/TextField";
@@ -8,6 +9,20 @@ const CustomMessage = ({ form, getTargets }) => {
   const { t } = useTranslation();
   const component = useComponentConfig();
   const targets = getTargets();
+  const addFooter = text => {
+    //it's called from the registration
+    const footer = t("campaign:footer");
+    return `${text}\n${footer}`;
+  };
+
+  // Highlighted-Line: Secretly inject your beforeSubmit function into RHF's field registry
+  useEffect(() => {
+    if (form.control?._fields?.message) {
+      form.control._fields.message.beforeSubmit = currentValue =>
+        addFooter(currentValue);
+    }
+  }, [form.control]);
+
   return (
     <>
       <MultiSelectCheckbox
