@@ -9,7 +9,53 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
 import dispatch from "@lib/event";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles({
+  alertStack: {
+    position: "relative",
+    paddingBottom: 40, // Adds space at the bottom so the button doesn't overlap text
+
+    "& .proca-MuiAlert-action": {
+      position: "absolute",
+      bottom: 8,
+      right: 16, // Aligns to the bottom right
+      padding: 0,
+      margin: 0,
+    },
+  },
+});
+
+const AINotice = ({ state, regenerate }) => {
+  const classes = useStyles();
+  const { t } = useTranslation();
+
+  return (
+    state === "loaded" && (
+      <Alert
+        severity="warning"
+        classes={{ root: classes.alertStack }}
+        action={
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            onClick={regenerate}
+            startIcon={
+              <SvgIcon size={20}>
+                <AIIcon />
+              </SvgIcon>
+            }
+          >
+            {t("give_another", "Generate another")}
+          </Button>
+        }
+      >
+        {t("ai_check")}
+      </Alert>
+    )
+  );
+};
 const Comment = ({
   form,
   classField,
@@ -150,37 +196,6 @@ const Comment = ({
   const text = form.watch(name) || "";
   const labelInside = label.length <= 30;
 
-  const helperText = () => {
-    const counter = text.length + "/" + maxLength;
-
-    return (
-      state === "loaded" && (
-        <Alert severity="warning">
-          {t("ai_check")}
-          <Button
-            variant="contained"
-            color="secondary"
-            size="small"
-            onClick={regenerate}
-            startIcon={
-              <SvgIcon size={20}>
-                <AIIcon />
-              </SvgIcon>
-            }
-          >
-            {t("give_another", "Generate another")}
-          </Button>
-        </Alert>
-      )
-    );
-
-    return (
-      counter &&
-      state === "loaded" &&
-      `${t("ai_check", "An AI wrote this message, we encourage you to read and customise it to maximise its impact")}`
-    );
-  };
-
   const fieldError = form.formState.errors[name];
 
   return (
@@ -241,7 +256,7 @@ const Comment = ({
               : t("help_write", "Help me write it")}
           </Button>
         )}
-        {helperText()}
+        <AINotice state={state} regenerate={regenerate} />
       </Grid>
     </>
   );
