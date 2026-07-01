@@ -16,6 +16,7 @@ import {
 import Alert from "@material-ui/lab/Alert";
 
 import EmailAction from "@components/email/Action";
+import NonEngagement from "@components/email/NonEngagment";
 import SkeletonListItem from "@components/layout/SkeletonListItem";
 import ProgressCounter from "@components/ProgressCounter";
 import Filter from "@components/filter/Filter";
@@ -694,6 +695,16 @@ const EmailComponent = props => {
     return filtered;
   };
 
+  const getTargetsSubmit = () => {
+    if (nonEngagement) return [];
+
+    if (config.component.email?.server !== false) {
+      return getTargets();
+    } else {
+      return null;
+    }
+  };
+
   const filterTarget = useCallback(
     (key, value) => {
       //const filterTarget = (key, value) => {
@@ -822,6 +833,8 @@ const EmailComponent = props => {
 
   if (allProfiles.length === 0) return null; // do not render anything before we have profiles
 
+  const nonEngagement = profiles.some(profile => profile.engagement === false);
+
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
@@ -882,6 +895,7 @@ const EmailComponent = props => {
           )}
         </>
       )}
+      {nonEngagement && <NonEngagement />}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense ref={listRef} component="div">
           {profiles.length === 0 &&
@@ -911,9 +925,7 @@ const EmailComponent = props => {
           emailProvider={emailProvider}
           done={props.done}
           buttonText={t(config.component.register?.button || "action.email")}
-          targets={
-            config.component.email?.server !== false ? getTargets() : null
-          }
+          targets={getTargetsSubmit()}
           beforeSubmit={prepareData}
           onClick={onClick}
           extraFields={ExtraFields}

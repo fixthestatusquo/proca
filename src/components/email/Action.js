@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
 import Selectable, { toggleSelection } from "./Selectable";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 // TODO: use it to check tweets' length https://www.npmjs.com/package/twitter-text
 
@@ -32,7 +33,8 @@ const EmailAction = ({
 }) => {
   const classes = useStyles(); // Use the custom styles
 
-  const [disabled, disable] = useState(_disabled);
+  const nonEngagement = profile.engagement === false;
+  const [disabled, disable] = useState(_disabled || nonEngagement);
   const [selected, select] = useState(false);
   const img = () => profile.profile_image_url_https;
   const { t } = useTranslation();
@@ -105,7 +107,7 @@ const EmailAction = ({
         <Avatar src={img()} />
       </ListItemAvatar>
       <ListItemText
-        primary={profile.name}
+        primary={nonEngagement ? <Skeleton animation={false} /> : profile.name}
         secondary={profile.description}
         secondaryTypographyProps={{
           component: "div",
