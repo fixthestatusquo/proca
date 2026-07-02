@@ -58,8 +58,8 @@ const src = props => {
   const urlParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
-    if (window.drupalSettings?.user) {
-      config.test = true;
+    if (window.drupalSettings?.user?.uid) {
+      if (window.drupalSettings.user.uid !== 0) config.test = true;
     }
   }, []);
   const _src = urlParams.get("src");
