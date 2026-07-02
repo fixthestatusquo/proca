@@ -45,8 +45,8 @@
     "takeAction": "Aktiv werden",
     "twitter": "Tweet"
   },
-  "ai_check": "Dieser Text wurde mittels KI erstellt. Bitte kontrollieren Sie die Inhalte auf Richtigkeit und Tonalität",
-  "ai_tip": "Hier können Sie Stichpunkte für die Texterstellung einfügen und auf den Button \"{{button}}\" klicken oder selbst eine Nachricht verfassen",
+  "ai_check": "Dieser Text wurde mittels KI erstellt. Bitte kontrollieren Sie die Inhalte auf Richtigkeit und Tonalität.",
+  "ai_tip": "Hier können Sie Stichpunkte für die Texterstellung einfügen und auf den Button \"{{button}}\" klicken oder selbst eine Nachricht verfassen.",
   "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
