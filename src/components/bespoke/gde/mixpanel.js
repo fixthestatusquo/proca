@@ -74,7 +74,7 @@ const Observer = async (event, data, pii) => {
     }
     if (pii?.email) {
       const hash = await getHash(pii.email);
-      param.user_id = hash;
+      param.user_id = hash.replace(/\//g, "");
     }
     send(param);
     return;
