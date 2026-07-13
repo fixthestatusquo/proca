@@ -31,7 +31,7 @@ const Observer = async (event, data) => {
 console.log("observer");
 Events.subscribe(Observer);
 
-const useGlobalStyles = makeStyles({
+const useGlobalStyles = makeStyles(theme => ({
   "@global": {
     ".count": { display: "flex" },
     ".goal": {
@@ -41,6 +41,7 @@ const useGlobalStyles = makeStyles({
     },
     ".proca-MuiLinearProgress-root": {
       height: "12px",
+      marginBottom: theme.spacing(2),
     },
     ".proca-MuiLinearProgress-colorPrimary": {
       backgroundColor: "#e8e8e8",
@@ -60,11 +61,12 @@ const useGlobalStyles = makeStyles({
     "#proca_submit": {
       //      borderRadius: "0px",
       fontSize: "24px",
+      marginBottom: theme.spacing(1),
       color: "white",
       textTransform: "none",
     },
   },
-});
+}));
 
 const Style = () => {
   //  const config = useCampaignConfig();
