@@ -36,15 +36,26 @@ const useGlobalStyles = makeStyles({
     ".count": { display: "flex" },
     ".goal": {
       marginLeft: "auto",
-      fontSize: "0.8em",
       paddingRight: "8px",
       borderRight: "1px solid lightgrey",
     },
     ".proca-MuiLinearProgress-root": {
       height: "12px",
     },
+    ".proca-MuiLinearProgress-colorPrimary": {
+      backgroundColor: "#e8e8e8",
+    },
     ".proca-MuiLinearProgress-barColorPrimary": {
       backgroundColor: "#4d9fa0",
+    },
+    ".proca-MuiFilledInput-root": {
+      backgroundColor: "#fdfdfd!important",
+    },
+    ".proca-MuiButton-endIcon": {
+      display: "none",
+    },
+    ".proca-MuiInputAdornment-root": {
+      display: "none",
     },
     "#proca_submit": {
       //      borderRadius: "0px",
