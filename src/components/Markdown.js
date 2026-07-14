@@ -25,7 +25,7 @@ const MarkdownPage = props => {
           <Markdown text={text} />
         </div>
       </div>
-      {config.component.markdown.next !== false && (
+      {config.component.markdown?.next !== false && (
         <Button
           endIcon={<SkipNextIcon />}
           fullWidth
