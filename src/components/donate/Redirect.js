@@ -1,3 +1,4 @@
+import { displayUrl } from "@lib/urlparser";
 import ABTest from "@components/ABTest";
 import get from "lodash/get";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -14,7 +15,12 @@ const tokenize = (str, obj, { prefix = "config" } = {}) => {
 
 const DonateRedirect = () => {
   const config = useCampaignConfig();
-  const url = tokenize(config.component.donation?.external?.url, config);
+  let url = tokenize(config.component.donation?.external?.url, config);
+  url = tokenize(
+    url,
+    Object.fromEntries(new URLSearchParams(window.location.search)),
+    { prefix: "get" }
+  );
   if (!config.test) {
     window.location.href = url;
     return "Loading...";
@@ -27,7 +33,7 @@ const DonateRedirect = () => {
       bannerId: {config.component.sync.bannerId}
       <br />
       <a href={url} target="_blank">
-        {url}
+        {displayUrl(url)}
       </a>
     </>
   );
