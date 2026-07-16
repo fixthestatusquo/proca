@@ -22,7 +22,7 @@ const merge = (targets, twitters, options) => {
         description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
         //        followers_count: 0,
-        verified: false,
+        engagement: target.fields.engagement === "false" ? false : undefined,
       };
     } else {
       r.procaid = target.id;
@@ -69,7 +69,7 @@ const merge = (targets, twitters, options) => {
     }
     const disable = target.emails.find(d => d.emailStatus === "INACTIVE");
     if (disable) {
-      return undefined;
+      //      return undefined;
     }
 
     if (options.display) {
