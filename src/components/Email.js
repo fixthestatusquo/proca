@@ -761,7 +761,7 @@ const EmailComponent = props => {
         return d[key] === value;
       });
 
-      if (d.length === 0) {
+      if (d.length === 0 && countryFiltered) {
         setError(key, {
           message: t("target.country.empty", {
             country: value,
@@ -771,7 +771,6 @@ const EmailComponent = props => {
       } else {
         clearErrors(key);
       }
-      console.log("filter profiles", d.length);
       setProfiles(d);
     },
     [allProfiles, profiles, setError]
