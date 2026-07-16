@@ -58,6 +58,11 @@ const EmailComponent = props => {
   const [selection, _setSelection] = useState(
     config.component.email?.selectable ? [] : false
   );
+  const profilesRef = useRef(profiles);
+  useEffect(() => {
+    profilesRef.current = profiles;
+  }, [profiles]);
+
   const groups = useRef(new Set()); //if selection by group, add them here
   let onlySelected = groups.current.size;
 
@@ -721,7 +726,7 @@ const EmailComponent = props => {
           _setSelection(prev => {
             let first = null;
             const selection = new Set(prev);
-            profiles
+            profilesRef.current
               .filter(target => target.description === d.key)
               .forEach(target => {
                 if (d.value) {
@@ -773,7 +778,7 @@ const EmailComponent = props => {
       }
       setProfiles(d);
     },
-    [allProfiles, profiles, setError]
+    [allProfiles, profilesRef, setError]
   );
 
   if (
