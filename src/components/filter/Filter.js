@@ -26,7 +26,6 @@ const Filter = props => {
   if (config.component.email?.filter?.includes("postcode")) {
     Filters.unshift(Postcode);
   }
-
   if (config.component.email?.filter) {
     nbFilters += config.component.email?.filter?.length;
   }
@@ -45,6 +44,7 @@ const Filter = props => {
         <Component
           key={index}
           form={props.form}
+          maxProfiles={props.maxProfiles}
           country={props.country}
           selecting={props.selecting}
           profiles={props.profiles}
