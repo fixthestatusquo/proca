@@ -35,6 +35,7 @@ const help = exitValue => {
         "--salutation(add a salutation column based on the gender and language)",
         "--outdated[=delete,disable,keep] (by default, replace all the contacts and delete those that aren't on the file, option to disable or keep)",
         "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--disable or keep)",
+        "--area=[field] use a field (eg constituency) as the area",
         "--file=file (by default, config/target/source/{campaign name}.json",
       ].join("\n")
     ),
@@ -66,7 +67,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     quiet: false,
     "allow-duplicate": false,
   },
-  string: ["file", "fields", "outdated"],
+  string: ["file", "fields", "outdated", "area"],
   boolean: [
     "help",
     "dry-run",
@@ -291,6 +292,9 @@ const formatTarget = async (campaignName, file) => {
       if (!t.name) continue; //skip empty records
       delete t.id;
 
+      if (t.field.engagement) {
+        delete t.field.engagement; // only keep field.engagement = false
+      }
       if (t.field.locale) {
         t.locale = t.field.locale.toLowerCase();
         delete t.field.locale;
@@ -348,12 +352,20 @@ const formatTarget = async (campaignName, file) => {
           t.field.salutation = (t.field.salutation ?? "") + ",";
         console.log("salutation for", t.name, t.field.salutation);
       }
-      t.fields = JSON.stringify(t.field);
-      delete t.field;
       if (t.emails.length === 0) {
         !argv.quiet && console.log("skipping record without email", t.name);
         continue;
       }
+      if (t.field.first_name.length === 0) {
+        !argv.quiet &&
+          console.log("skipping record without firstname", t.email);
+        continue;
+      }
+      if (argv.area && t.field[argv.area]) {
+        t.area = t.field[argv.area];
+      }
+      t.fields = JSON.stringify(t.field);
+      delete t.field;
       let dupe = false;
       !argv["allow-duplicate"] &&
         t.emails.forEach(d => {
