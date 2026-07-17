@@ -34,6 +34,11 @@ Events.subscribe(Observer);
 const useGlobalStyles = makeStyles(theme => ({
   "@global": {
     ".count": { display: "flex" },
+    ".proca-progress *": {
+      fontSize: "1em!important",
+      fontWeight: "normal!important",
+    },
+
     ".goal": {
       marginLeft: "auto",
       paddingRight: "8px",
