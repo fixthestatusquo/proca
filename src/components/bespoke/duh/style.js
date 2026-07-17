@@ -40,6 +40,7 @@ const useGlobalStyles = makeStyles(theme => ({
     },
 
     ".goal": {
+      paddingBottom: theme.spacing(1),
       marginLeft: "auto",
       paddingRight: "8px",
       borderRight: "1px solid lightgrey",
