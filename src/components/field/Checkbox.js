@@ -57,13 +57,27 @@ const ProcaCheckbox = props => {
             <Controller
               name={props.name}
               control={control}
+              defaultValue={props.values ? props.values.false : undefined}
               render={({ field }) => (
                 <Checkbox
                   {...field}
                   value={field.value || ""}
                   color="primary"
-                  checked={!!field.value}
+                  checked={
+                    props.values
+                      ? field.value === props.values.true
+                      : !!field.value
+                  }
                   disabled={props.disabled}
+                  onChange={e =>
+                    field.onChange(
+                      props.values
+                        ? e.target.checked
+                          ? props.values.true
+                          : props.values.false
+                        : e
+                    )
+                  }
                 />
               )}
             />

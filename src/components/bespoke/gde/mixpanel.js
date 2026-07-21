@@ -52,7 +52,6 @@ const Observer = async (event, data, pii) => {
   if (event.endsWith(":complete")) {
     // the user has submitted {
     const param = getProperties(event, config);
-    console.log("form_submitted", param);
     param.event = "form_submitted";
     if (config.component?.register?.field?.postcode !== false) {
       param.form_contains_address_field = true;
@@ -75,6 +74,13 @@ const Observer = async (event, data, pii) => {
     if (pii?.email) {
       const hash = await getHash(pii.email);
       param.user_id = hash.replace(/\//g, "");
+    }
+    console.log(data);
+    if (data.privacy === "opt-in") {
+      param.newsletter_subscribed = true;
+    }
+    if (data.privacy === "opt-out") {
+      param.newsletter_subscribed = false;
     }
     send(param);
     return;

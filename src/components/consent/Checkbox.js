@@ -18,7 +18,7 @@ const Confirm = props => {
 
   const triggerSubmit = () => {
     console.log(
-      props.form.control._fields?.privacy,
+      props.form.control._fields?.privacy?._f,
       props.form.control._fields?.privacy?._f?.ref?.current,
       props.form.control._fields?.privacy?._f?.ref?.current?.closest("form")
     );
@@ -33,7 +33,8 @@ const Confirm = props => {
   };
 
   const validate = (_value, formValues) => {
-    if (confirmed || formValues.privacy) {
+    console.log(formValues.privacy);
+    if (confirmed || formValues.privacy === "opt-in") {
       return;
     }
     setConfirmed(false);
@@ -107,6 +108,7 @@ const CheckboxConsent = props => {
     ...props,
     ...{
       name: "privacy",
+      values: { true: "opt-in", false: "opt-out" },
       label: t(["consent.checkbox.label", "consent.opt-in"], {
         partner: config.organisation,
       }),
