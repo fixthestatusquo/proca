@@ -1,6 +1,6 @@
 import React from "react";
 import Actions from "@components/layout/ShareButtons";
-import DonateButton from "@components/layout/DonateButton";
+import DonateButton from "@components/donate/External";
 import {
   Container,
   Button,

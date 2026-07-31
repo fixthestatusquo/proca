@@ -22,6 +22,7 @@ async function graphQL(operation, query, options) {
     {
       method: "POST",
       referrerPolicy: "no-referrer-when-downgrade",
+      keepalive: options.keepAlive,
       headers: headers,
       body: JSON.stringify({
         query: query,
@@ -212,6 +213,7 @@ async function addAction(actionPage, actionType, data, test) {
   }
   const response = await graphQL("addAction", query, {
     variables: variables,
+    keepAlive: true,
   });
   return response;
 }
