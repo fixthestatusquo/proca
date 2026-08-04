@@ -99,7 +99,7 @@ const snarkdown = markdown => {
 };
 
 const pushTemplate = async (config, html) => {
-  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String!,$widgetId: Int) {
+  const query = `mutation upsertTemplate ($name: String!, $orgName: String!, $html: String!, $locale: String!, $subject: String!,$id: Int!) {
     template: upsertTemplate (orgName:$orgName, input: {
       html: $html,
       subject: $subject,
@@ -120,6 +120,7 @@ const pushTemplate = async (config, html) => {
     thankYouTemplate
     }
   }`; */
+
   if (!config.filename) {
     console.log("config json invalid, check it first");
     process.exit(1);
@@ -130,7 +131,7 @@ const pushTemplate = async (config, html) => {
     locale: config.lang,
     html: html,
     subject: i18n.t("email." + config.type + ".subject"),
-    widgetId: config.actionpage,
+    id: config.actionpage,
   };
   const data = await api(query, variables, "upsertTemplate");
   console.log("pushing", variables.name, "@" + config.lang);
