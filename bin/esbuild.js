@@ -153,7 +153,7 @@ let procaPlugin = ({ id, config }) => ({
       if (nodeEnv !== "development") {
         const index = fullpath("d/" + config.filename + "/index.js");
         const extension =
-          process.env.PROCA_COMPRESS === "brotli" ? ".bz" : ".gz";
+          process.env.PROCA_COMPRESS === "brotli" ? ".br" : ".gz";
         const compression =
           process.env.PROCA_COMPRESS === "brotli"
             ? zlib.createBrotliCompress()
