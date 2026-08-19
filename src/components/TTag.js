@@ -1,6 +1,7 @@
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const stripScripts = str =>
@@ -19,6 +20,11 @@ export const snarkdown = md => {
 
 // markdown overrides the title color, this is how we fix it
 const useStyles = makeStyles(theme => ({
+  spacing: {
+    padding: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    marginBottom: theme.spacing(2),
+  },
   markdown: {
     color: theme.palette.text.primary,
     "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
@@ -43,9 +49,16 @@ export const Markdown = props => {
     );
   }
   return (
-    <div className={classes.markdown}>
+    <Paper
+      className={
+        props.paper
+          ? `${classes.spacing} ${classes.markdown}`
+          : classes.markdown
+      }
+      elevation={props.paper ? 1 : 0}
+    >
       <Trans t={tbr} i18nKey={props.text} />
-    </div>
+    </Paper>
   );
 };
 

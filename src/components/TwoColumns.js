@@ -3,7 +3,6 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import { portals } from "../actionPage";
 
 import Grid from "@material-ui/core/Grid";
-
 const removeEmpty = dom => {
   if (!dom) return;
   const nodeIterator = document.createNodeIterator(
@@ -27,6 +26,7 @@ const TwoColumns = props => {
   const dom = props.dom;
   let width = Number.parseInt(props.width, 10) || 5;
   const leftContent = config.portal?.filter(d => d.column === "left");
+  const rightContent = config.portal?.filter(d => d.column === "right");
 
   if (!(width <= 12 && width >= 1)) {
     console.log(
@@ -52,6 +52,10 @@ const TwoColumns = props => {
           })}
         </Grid>
         <Grid item xs={12} sm={width}>
+          {rightContent.map((c, i) => {
+            const Component = portals[c.component];
+            return <Component {...c} key={i} />;
+          })}
           {props.children}
         </Grid>
       </Grid>
@@ -59,7 +63,15 @@ const TwoColumns = props => {
   }
   removeEmpty(dom);
   if (!dom || dom.childNodes.length === 0 || props.hidden)
-    return <>{props.children}</>;
+    return (
+      <>
+        {rightContent.map((c, i) => {
+          const Component = portals[c.component];
+          return <Component {...c} key={i} />;
+        })}
+        {props.children}
+      </>
+    );
 
   if (
     dom.childNodes.length < 2 &&
@@ -67,13 +79,24 @@ const TwoColumns = props => {
       dom.childNodes[0].length < 25)
   ) {
     // there isn't any "real" content, no need to set columns
-    return <>{props.children}</>;
+    return (
+      <>
+        {rightContent.map((c, i) => {
+          const Component = portals[c.component];
+          return <Component {...c} key={i} />;
+        })}
+        {props.children}
+      </>
+    );
   }
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12 - width} id={id} />
       <Grid item xs={12} sm={width}>
+        {rightContent.map((c, i) => {
+          const Component = portals[c.component];
+          return <Component {...c} key={i} />;
+        })}
         {props.children}
       </Grid>
     </Grid>
