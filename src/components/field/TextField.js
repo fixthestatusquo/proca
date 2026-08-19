@@ -107,6 +107,7 @@ const TextFieldProca = props => {
           classesname += ` ${classes.warning}`;
         return (
           <TextField
+            id={props.name}
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
             onChange={handleChange}
             value={value || ""}
