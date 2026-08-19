@@ -104,7 +104,7 @@ const EmailAction = ({
       divider={false}
     >
       <ListItemAvatar>
-        <Avatar src={img()} />
+        <Avatar src={img()} alt={profile.name} />
       </ListItemAvatar>
       <ListItemText
         primary={nonEngagement ? <Skeleton animation={false} /> : profile.name}
