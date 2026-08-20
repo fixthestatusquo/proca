@@ -152,6 +152,7 @@ const Country = props => {
         required={props.required}
         select
         name={props.name || "country"}
+        id={props.name || "country"}
         onChange={switchCountry}
         label={props.label || t("Country")}
         form={props.form}

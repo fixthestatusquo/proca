@@ -51,6 +51,7 @@ const EmailField = ({ form, required, compact, classField }) => {
       <input type="hidden" {...form.register("emailProvider")} />
       <TextField
         form={form}
+        id="email"
         name="email"
         validate={validateEmail}
         type="email"
