@@ -69,6 +69,7 @@ const ShareLink = ({ url, onCopy }) => {
               <IconButton
                 onClick={handleCopy}
                 edge="end"
+                aria-label={t("Sharable link")}
                 className={`${classes.copyButton} ${copied ? "copied" : ""}`}
               >
                 <CopyIcon fontSize="small" />
