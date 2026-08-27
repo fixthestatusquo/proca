@@ -360,6 +360,7 @@ export default function ShareAction(props) {
       <IconButton
         {...drillProps}
         id={`proca-share-${medium}`}
+        aria-label={`${medium} (${t("action.share")})`}
         className={classes.action}
         component={props.component}
         url={"url" in props ? props.url : shareUrl(props.component)}
