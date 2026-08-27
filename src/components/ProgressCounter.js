@@ -148,7 +148,8 @@ export default function Progress(props) {
 
   return (
     <Box className="proca-progress">
-      <div className={classes.root} ref={ref}>
+      {/* biome-ignore lint/correctness/useUniqueElementIds: Single global instance, unique ID guaranteed */}
+      <div className={classes.root} ref={ref} id="action-progress-label">
         <span className="count">{countResult.res}</span>
         {countResult.usedKey !== "progress" && (
           <span className="goal">
@@ -158,7 +159,11 @@ export default function Progress(props) {
           </span>
         )}
       </div>
-      <LinearProgress variant="determinate" value={progress} />
+      <LinearProgress
+        variant="determinate"
+        value={progress}
+        aria-labelledby="action-progress-label"
+      />
     </Box>
   );
 }
