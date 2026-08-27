@@ -48,7 +48,10 @@ export default function ProcaStyle(props) {
           },
           secondary: { main: layout.secondaryColor },
           type: layout.theme,
-          text: { secondary: "rgba(0, 0, 0, 0.60)" },
+          text: {
+            secondary: "rgba(0, 0, 0, 0.6)",
+            disabled: "rgba(0, 0, 0, 0.6)",
+          },
         },
         typography: {
           fontFamily: "unset!important",
