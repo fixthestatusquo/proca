@@ -53,7 +53,9 @@ const ShareLink = ({ url, onCopy }) => {
 
   return (
     <Tooltip title={copied ? t("Copied!") : t("Copy to clipboard")}>
+      {/* biome-ignore lint/correctness/useUniqueElementIds: singleton share dialog field */}
       <TextField
+        id="share-link"
         label={t("Shareable link")}
         className={`${classes.copyButton} ${copied ? "copied" : ""}`}
         fullWidth
