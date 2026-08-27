@@ -208,9 +208,13 @@ const getConfig = (id, environment) => {
           to: [fullpath("./")],
         },
       }),
-      esbuildPluginBrowserslist(browserslist("defaults"), {
-        printUnknownTargets: false,
-      }),
+      esbuildPluginBrowserslist(
+        //        browserslist("defaults"),
+        browserslist(null, { env: environment || "production" }),
+        {
+          printUnknownTargets: false,
+        }
+      ),
     ],
     loader: { ".js": "jsx" },
     outdir: fullpath("d/" + config.filename),
