@@ -295,6 +295,10 @@ const formatTarget = async (campaignName, file) => {
       if (t.field.engagement) {
         delete t.field.engagement; // only keep field.engagement = false
       }
+      if (!t.field.locale && t.field.lang) {
+        t.field.locale = t.field.lang.toLowerCase();
+        delete t.field.lang;
+      }
       if (t.field.locale) {
         t.locale = t.field.locale.toLowerCase();
         delete t.field.locale;
@@ -350,7 +354,6 @@ const formatTarget = async (campaignName, file) => {
         }
         if (!t.locale?.startsWith("nb") && !t.field?.lang?.startsWith("nb"))
           t.field.salutation = (t.field.salutation ?? "") + ",";
-        console.log("salutation for", t.name, t.field.salutation);
       }
       if (t.emails.length === 0) {
         !argv.quiet && console.log("skipping record without email", t.name);
