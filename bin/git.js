@@ -122,9 +122,13 @@ const commit = async (file, message, createIfNotExist) => {
   return result;
 };
 
-const push = async () => {
+const push = async (remote, branch) => {
   try {
-    await git.push();
+    if (remote) {
+      await git.push(remote, branch || "main");
+    } else {
+      await git.push();
+    }
   } catch (e) {
     if (e.git) console.error(color.red(e.git));
     else {
