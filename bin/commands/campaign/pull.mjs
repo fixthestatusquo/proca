@@ -1,4 +1,4 @@
-import Command, { Args, Flags } from "../../builderCommand.mjs";
+import Command, { Flags } from "../../builderCommand.mjs";
 import { getCampaign } from "proca/src/commands/campaign/get.mjs";
 
 export default class CampaignPush extends Command {
@@ -8,10 +8,7 @@ export default class CampaignPush extends Command {
 
   static flags = {
     //...super.globalFlags,
-    ...this.flagify({ multiid: true }),
-    name: Flags.string({
-      char: "n",
-    }),
+    ...this.flagify({ multiid: false, name: "campaign" }),
     git: Flags.boolean({
       default: true,
       description: "commit the changes to git",
