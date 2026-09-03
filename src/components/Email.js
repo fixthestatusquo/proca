@@ -7,6 +7,8 @@ import React, {
 } from "react";
 
 import {
+  FormHelperText,
+  Typography,
   Button,
   Collapse,
   List,
@@ -618,14 +620,12 @@ const EmailComponent = props => {
         {config.component.email.field.message !== false ? (
           <Grid item xs={12} className={props.classes.field}>
             {config.component.email.salutation && (
-              <MuiTextField
-                variant={layout.variant}
-                margin={layout.margin}
-                fullWidth={true}
-                placeholder={`${t("email.salutation_placeholder")},`}
-                disabled
-                helperText={t("email.salutation_info")}
-              />
+              <FormHelperText variant={layout.variant}>
+                <Typography variant="body1" color="textPrimary">
+                  {t("email.salutation_placeholder")},
+                </Typography>
+                {t("email.salutation_info")}
+              </FormHelperText>
             )}
             <TextField
               form={props.form}
