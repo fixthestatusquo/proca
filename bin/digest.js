@@ -111,9 +111,10 @@ const subject = (config, key) => {
   for (const lang in locales) {
     try {
       const server = (await i18nTplInit(campaign, lang)) || {};
-      let config = { lang: lang, locales: locales[lang] };
-      let s = subject(config, argv.key || argv.mjml);
+      let config = { lang: lang, locales: locales[lang], campaign: campaign };
+
       if (server) config.locales["server:"] = server;
+let s = subject(config, argv.key || argv.mjml);
       saveConfig(tplName, campaignName, lang, s, campaign);
       configOverride(config);
       render = await i18nRender(tplName, lang, true);
