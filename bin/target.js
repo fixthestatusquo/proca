@@ -327,8 +327,8 @@ const formatTarget = async (campaignName, file) => {
       if (!(t.field.salutation || t.salutation) && argv.salutation) {
         let gender = null;
         if (t.field.gender) {
-          if (t.field.gender === "M") gender = "male";
-          if (t.field.gender === "F") gender = "female";
+          if (t.field.gender.toUpperCase() === "M") gender = "male";
+          if (t.field.gender.toUpperCase() === "F") gender = "female";
         }
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
