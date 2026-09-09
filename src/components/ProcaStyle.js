@@ -141,6 +141,21 @@ export default function ProcaStyle(props) {
             },
           },
           MuiInputBase: {
+            root: {
+              ".Mui-readonly &": {
+                backgroundColor: "rgba(0, 0, 0, 0.05) !important",
+                color: "rgba(0, 0, 0, 0.38) !important",
+                cursor: "not-allowed !important",
+                pointerEvents: "auto !important",
+
+                "&:after, &:before": {
+                  display: "none !important",
+                },
+                "& .MuiInputBase-inputMultiline": {
+                  cursor: "not-allowed !important",
+                },
+              },
+            },
             input: {
               background: "unset!important",
               boxSizing: "initial!important",

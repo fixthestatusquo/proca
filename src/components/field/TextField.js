@@ -77,6 +77,14 @@ const TextFieldProca = props => {
   delete drillProps.onChange;
   delete drillProps.onBlur;
   delete drillProps.form;
+  if (drillProps.disabled) {
+    delete drillProps.disabled;
+    if (drillProps.InputProps) {
+      drillProps.InputProps.readOnly = true;
+    } else {
+      drillProps.InputProps = { readOnly: true };
+    }
+  }
   if (drillProps.helperText && errors && errors[props.name]) {
     // we display the error message instead
     drillProps.helperText = errors[props.name].message;
@@ -105,6 +113,10 @@ const TextFieldProca = props => {
           errors[props.name].type === "warning"
         )
           classesname += ` ${classes.warning}`;
+        if (props.disabled) {
+          classesname += " Mui-readonly";
+        }
+
         return (
           <TextField
             id={props.name}
