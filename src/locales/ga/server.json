@@ -4,8 +4,8 @@
             "share_on": "Roinn ar",
             "consent": "\n          ",
             "greeting": "Haigh {{firstName}},",
-            "thanks": "Go raibh maith agat as páirt a ghlacadh in {{campaign.title}}. Tá bhur dtacaíocht buíoch!",
-            "share": "Cabhraigh linn ár sprioc a bhaint amach tríd an scéal a scaipeadh",
+            "thanks": "Go raibh maith agat as páirt a ghlacadh i {{campaign.title}}. Tá tábhacht ag baint leis an méid atá déanta agat, agus tá difríocht déanta aige cheana féin.",
+            "share": "An féidir leat rud amháin eile a dhéanamh? Is trí dhaoine ar nós tusa is fearr a fhásfaidh an feachtas seo. Roinn é le triúr cairde a bhfuil suim acu ann freisin",
             "follow": "Lean muid ar:",
             "donate": "Déan machnamh le do thoil ar thabhartas a thabhairt chun cabhrú linn ár misean a bhaint amach",
             "closing": "Le do chabhair, táimid céim amháin níos gaire don sprioc atá againn",
@@ -15,7 +15,7 @@
             "thanksPledge": "Go raibh maith agat as gealltanas a thabhairt do {{campaign.title}}. Déanfar do shíniú a athbhreithniú agus taispeánfar é ar ár suíomh Gréasáin má cheadaítear é.",
             "organisation": "{{org.title}}",
             "duplicate": "Go raibh maith agat as do rannpháirtíocht agus do thiomantas dár gcúis! Mar sin féin, inár dtiomantas chun barántúlacht agus creidiúnacht a choinneáil, ní mór dúinn **sínithe dúblacha** a bhaint agus is cosúil nach bhfuil tú féin (nó duine éigin a úsáideann {{email}}) tar éis an gníomh seo a dhéanamh cheana féin. Bígí cinnte, **cuireadh do shíniú tosaigh san áireamh** agus chuir sé lenár bhfeachtas.\nBhí do thacaíocht thar a bheith luachmhar, agus ba mhaith linn tú a spreagadh le céim bhreise a ghlacadh chun do thionchar a mhéadú. Smaoinigh le do thoil ar dhul i dteagmháil le do chairde agus do mhuintir, ag impí orthu beart a dhéanamh freisin, ag baint úsáide as a seoltaí ríomhphoist féin. Ar an mbealach seo, is féidir linn ár ngluaiseacht a mhéadú tuilleadh agus guth comhchoiteann níos láidre fós a chruthú don athrú atá á lorg againn.\nArís eile, ba mhaith linn ár mbuíochas ó chroí a ghabháil as do thacaíocht agus do thiomantas leanúnach don fheachtas seo. Le chéile, is féidir linn tionchar buan a imirt!",
-            "about": "Go dtí seo, ghlac {{campaign.stats.supporterCount}} tacaí an gníomh.",
+            "about": "Tá tú ar dhuine den {{campaign.stats.supporterCount}} duine a ghlac páirt sa bhfeachtas seo go dtí seo. Is é an cineál sin brú comhchoiteann go díreach a thugann ar lucht déanta cinntí éisteacht; agus táimid ag feiceáil cheana féin go bhfuil sé ag obair.",
             "is_it_me": "Mura ndearna tú an gníomh seo, cliceáil [anseo](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) le do thoil chun é a bhaint."
         },
         "button": {
