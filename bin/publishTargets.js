@@ -1,4 +1,5 @@
 const fs = require("fs");
+const zlib = require("zlib");
 require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
@@ -133,7 +134,9 @@ const saveTargets = (campaignName, targets, argv) => {
   if (argv.verbose) console.log(fileName, targets);
   if (argv["dry-run"]) return;
 
-  fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
+  const json = JSON.stringify(targets, null, 2);
+  fs.writeFileSync(fileName, json);
+  fs.writeFileSync(fileName + ".br", zlib.brotliCompressSync(json));
   return fileName;
 };
 
@@ -194,11 +197,11 @@ const publishTarget = async (campaignName, argv) => {
       console.log("saved " + c);
       const msg = "saving " + d.length + " targets";
       if (argv["dry-run"]) return;
-      const r = argv.git && (await commit(c, msg, true));
+      const r = argv.git && (await commit([c, c + ".br"], msg, true));
       if (r?.summary) {
         console.log(r.summary);
         if (argv.git) {
-          await push();
+          await push("prod", "main");
           await deploy();
         }
       }
