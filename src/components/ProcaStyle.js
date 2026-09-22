@@ -38,6 +38,7 @@ const GlobalStyles = () => {
 //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
   const layout = useLayout();
+  const isLight = layout?.theme !== "dark";
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -49,8 +50,12 @@ export default function ProcaStyle(props) {
           secondary: { main: layout.secondaryColor },
           type: layout.theme,
           text: {
-            secondary: "rgba(0, 0, 0, 0.6)",
-            disabled: "rgba(0, 0, 0, 0.6)",
+            secondary: isLight
+              ? "rgba(0, 0, 0, 0.6)"
+              : "rgba(255, 255, 255, 0.7)",
+            disabled: isLight
+              ? "rgba(0, 0, 0, 0.6)"
+              : "rgba(255, 255, 255, 0.7)",
           },
         },
         typography: {
@@ -143,8 +148,12 @@ export default function ProcaStyle(props) {
           MuiInputBase: {
             root: {
               ".Mui-readonly &": {
-                backgroundColor: "rgba(0, 0, 0, 0.05) !important",
-                color: "rgba(0, 0, 0, 0.38) !important",
+                backgroundColor: isLight
+                  ? "rgba(0, 0, 0, 0.05) !important"
+                  : "rgba(255, 255, 255, 0.05)",
+                color: isLight
+                  ? "rgba(0, 0, 0, 0.38) !important"
+                  : "rgba(255, 255, 255, 0.38)",
                 cursor: "not-allowed !important",
                 pointerEvents: "auto !important",
 
@@ -170,7 +179,7 @@ export default function ProcaStyle(props) {
           },
         },
       }),
-    [layout]
+    [layout, isLight]
   );
   // palette.background.default
   for (const d in theme.zIndex) {

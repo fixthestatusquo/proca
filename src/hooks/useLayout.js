@@ -11,7 +11,7 @@ const init = data => {
     margin: "dense",
     primaryColor: "#1976d2",
     secondaryColor: "#ffa726",
-    paletteType: "light",
+    theme: "light",
     backgroundColor: "transparent",
     ...data,
   };
