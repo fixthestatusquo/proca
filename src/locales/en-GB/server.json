@@ -3,7 +3,7 @@
         "common": {
             "privacy": "You can find more information about our privacy policy and the processing of your data",
             "consent": "\n          ",
-            "thanks": "Thank you for participation in {{campaign.title}}. Your support is appreciated!",
+            "thanks": "Thank you for participation in {{campaign.title}}.  Your action matters, and it's already made a difference.",
             "closing": "With your help, we’re one step closer to our goal",
             "greeting": "Hello {{firstName}},",
             "share_on": "Share on",
@@ -11,11 +11,11 @@
             "signature": "Yours sincerely,\n\n{{org.title}}",
             "follow": "Follow us on:",
             "donate": "Please consider making a donation to help us achieve our mission",
-            "share": "Help us reach our goal by spreading the word",
+            "share": "Can you do one more thing? The fastest way to grow this campaign is through people like you. Share it with three friends who care about this too",
             "duplicate": "Thank you for your engagement and dedication to our cause! However, in our commitment to maintain authenticity and credibility, we need to **remove duplicate** signatures and it appears than you (or someone using {{email}}) have already taken this action.  Rest assured, **your initial signature was counted** and contributed to our campaign.\nYour support has been invaluable, and we would like to kindly encourage you to take an additional step to help amplify your impact. Please consider reaching out to your friends and family, urging them to take action too, using their own email addresses. This way, we can further grow our movement and create an even stronger collective voice for the change we seek.\nOnce again, we extend our heartfelt gratitude for your continued support and dedication to this campaign. Together, we can make a lasting impact!",
             "organisation": "{{org.title}}",
             "thanksPledge": "Thank you for pledging for {{campaign.title}}. Your signature will be reviewed and will be displayed on our website if approved.",
-            "about": "So far {{campaign.stats.supporterCount}} supporters took the action.",
+            "about": "You're one of {{campaign.stats.supporterCount}} people who've stepped up on this campaign so far. That kind of collective pressure is exactly what gets decision-makers to listen; and we're already seeing it work.",
             "is_it_me": "If you did not take this action, please click [here](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) to remove it."
         },
         "thankyou": {
