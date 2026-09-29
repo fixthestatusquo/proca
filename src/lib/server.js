@@ -250,6 +250,9 @@ async function addDonateContact(provider, actionPage, data, test) {
 }
 
 async function addActionContact(actionType, actionPage, data, test) {
+  // work on a copy: the keys deleted below (subject, message, targets) are
+  // needed by the caller (Register) to match server errors to form fields
+  data = { ...data };
   var query = `mutation addActionContact(
   $action: ActionInput!,
   $contact:ContactInput!,
