@@ -187,6 +187,23 @@ To put custom counter:
 
 Counter is always shown in test mode!
 
+To have counter at the same page as the widget
+Add to `config.portal`
+`{
+"component": "Counter",
+"selector": ".proca-counter"
+}`
+
+and embed with `<span class="proca-counter">⏳</span>`
+
+To have only counter at the page
+Add to `config.portal`
+`{
+"component": "Counter",
+"selector": ".proca-counter"
+}`
+and put only `Counter` step in the `journey`
+
 ## Markdown
 
 A step with customizable text and button.
@@ -536,3 +553,7 @@ components/donate/Amount.js:144: if (config.component.donation.external?.url) {
 components/donate/Amount.js:163: config.component.donation.external.url + amount + params,
 components/donate/Amount.js:213: {config.component.donation?.monthly !== false && (
 components/donate/Amount.js:245: {!config.component.donation.external && (
+
+```
+
+```
