@@ -59,7 +59,7 @@ ProcaAlert.defaultProps = {
 
 ProcaAlert.propTypes = {
   severity: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.node,
   autoHideDuration: PropTypes.number,
 };
 
