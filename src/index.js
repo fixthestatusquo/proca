@@ -80,6 +80,9 @@ const Widget = args => {
       frag.appendChild(d);
     });
   }
+  // set by the actionpage, not by ?proca_test
+  // needed for 'go live' test pop up link
+  config.testing = !!config.test;
   if (isTest()) config.test = isTest();
 
   // <ProcaWidget config={config} {...config} />,
