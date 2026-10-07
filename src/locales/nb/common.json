@@ -19,7 +19,7 @@
   "Organisation": "Organisasjon",
   "Other": "Annet",
   "Phone": "Telefon",
-  "Postal Code": "P.nr.",
+  "Postal Code": "Postnummer",
   "Salutation": "Hilsen",
   "Shareable link": "Delbar lenke",
   "Sorry, we couldn't save": "Beklager, vi kunne ikke lagre",
@@ -189,7 +189,7 @@
     "pledge": "{{total}} har lovet.",
     "register": "{{total}} har registrert seg.",
     "share": "{{total}} har delt.",
-    "sign": "{{total}} har undertegnet.",
+    "sign": "{{total}}  har skrevet under.",
     "twitter": "{{total}} har twitret."
   },
   "progressGoal": {
