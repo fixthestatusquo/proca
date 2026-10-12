@@ -133,15 +133,14 @@ const Widget = props => {
   initDataState(data, config);
 
   const test = config.test;
-  // actionpage not live yet, add a 'go live' link to the alert
-  const testing = config.testing === true;
   useEffect(() => {
-    if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
+    if (!test) return;
     showAlert({
       title: "TEST MODE",
-      text: testing ? (
+      // test is true if the actionPage is not live yet, "forced" by ?proca_test, or false
+      text: test === true ? (
         <>
-          Experiment freely, this action will not be counted. Take at least one
+          Experiment freely, this action will not be counted. <br/> Take at least one
           test action, then{" "}
           <a
             href={`https://we.fixthestatusquo.org/widget/${config.actionPage}/launch`}
@@ -173,7 +172,7 @@ const Widget = props => {
     const styleSheet = document.createElement("style");
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-  }, [test, testing]);
+  }, [test]);
 
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {

@@ -5,7 +5,7 @@ import { unsubscribeDataLayer, dataLayerObserver } from "@lib/event";
 const getProperties = (_event, config) => {
   //event not used, so far
   const properties = {
-    test: config.test || undefined,
+    test: !!config.test || undefined,
     form_plugin: "Proca",
     form_id: config.actionpage,
     form_title: config.campaign.title || config.filename,
