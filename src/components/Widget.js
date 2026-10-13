@@ -143,7 +143,7 @@ const Widget = props => {
           Experiment freely, this action will not be counted. <br/> Take at least one
           test action, then{" "}
           <a
-            href={`https://we.fixthestatusquo.org/widget/${config.actionPage}/launch`}
+            href={`https://we.fixthestatusquo.org/widget/${config.actionPage}`}
           >
             go live
           </a>
