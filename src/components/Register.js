@@ -512,6 +512,7 @@ export default function Register(props) {
                   privacy_url={config.privacyUrl}
                   intro={props.consentIntro}
                   form={form}
+                  onSubmit={() => handleSubmit(onSubmit)()}
                 />
               )}
               <SubmitButton

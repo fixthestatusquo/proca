@@ -17,15 +17,17 @@ const Confirm = props => {
     "https://proca.app/privacy_policy";
 
   const triggerSubmit = () => {
-    console.log(
-      props.form.control._fields?.privacy?._f,
-      props.form.control._fields?.privacy?._f?.ref?.current,
-      props.form.control._fields?.privacy?._f?.ref?.current?.closest("form")
+    // closing the dialog, then submitting once the new `confirmed` value is applied
+    setConfirmed(true);
+    form.dispatchEvent(
+      new Event("checkbox_submit", { bubbles: true, cancelable: true })
     );
-    props.form.control._fields?.privacy?._f?.ref?.current
-      ?.closest("form")
-      .dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    close();
+    setTimeout(() => {
+      if (props.onSubmit) {
+        props.onSubmit();
+        return;
+      }
+    }, 0);
   };
 
   const close = () => {
@@ -33,7 +35,6 @@ const Confirm = props => {
   };
 
   const validate = (_value, formValues) => {
-    console.log(formValues.privacy);
     if (confirmed || formValues.privacy === "opt-in") {
       return;
     }
@@ -117,7 +118,7 @@ const CheckboxConsent = props => {
 
   return (
     <>
-      {confirm && <Confirm form={props.form} />}
+      {confirm && <Confirm form={props.form} onSubmit={props.onSubmit} />}
       <Checkbox {...props2} />
       <ConsentProcessing i18nKey="consent.preprocessing" large />
     </>
