@@ -111,9 +111,14 @@ To redirect to some URL after submitting:
 
 ## test
 
-if true (or set from the url as a get param ?proca_test
+if true (or set from the url as a get param ?proca_test)
 
-- display a message snackbar "test"
+- `true`: set by the action page itself, while it isn't live yet
+- `"forced"`: set by `?proca_test` on an action page that is already live
+
+Both values behave the same way:
+
+- display a message snackbar "test" (only `true` adds a "go live" link to it)
 - store the actions as "test" instead of the normal "petition" or "register" or "donate"
 - use the test config when relevant (eg for the payment providers)
 
