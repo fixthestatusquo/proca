@@ -19,9 +19,6 @@ const Confirm = props => {
   const triggerSubmit = () => {
     // closing the dialog, then submitting once the new `confirmed` value is applied
     setConfirmed(true);
-    form.dispatchEvent(
-      new Event("checkbox_submit", { bubbles: true, cancelable: true })
-    );
     setTimeout(() => {
       if (props.onSubmit) {
         props.onSubmit();
