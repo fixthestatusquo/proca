@@ -90,7 +90,9 @@ const Observer = async (event, data, pii) => {
 };
 
 const ActObserver = async event => {
+  console.log("act", event);
   if (event.endsWith(":complete")) {
+    console.log("switch to share");
     const events =
       window.getTargetStateEvents?.("#single-sign-up", {
         0: document.querySelector("gpd-engage-form"),
