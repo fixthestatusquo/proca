@@ -43,7 +43,7 @@
     "take": "Fes una foto",
     "take-another": "Agafeu-ne un altre"
   },
-  "closed": "##gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
+  "closed": "##Gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
   "confirm": "Estàs segur?",
   "consent": {
     "actionConfirmed": "Acció confirmada",

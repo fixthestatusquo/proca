@@ -44,7 +44,7 @@
     "take": "Thatha umfanekiso",
     "take-another": "Thatha omnye"
   },
-  "closed": "##siyabulela kubaxhasi abayi-{{total}}!\n\nSikuvalile esi senzo, kodwa umsebenzi wethu awupheli apha, ngoko ke sicela **ushiye i-imeyile yakho ukuze uhlale unolwazi malunga namanyathelo alandelayo**",
+  "closed": "##Siyabulela kubaxhasi abayi-{{total}}!\n\nSikuvalile esi senzo, kodwa umsebenzi wethu awupheli apha, ngoko ke sicela **ushiye i-imeyile yakho ukuze uhlale unolwazi malunga namanyathelo alandelayo**",
   "confirm": "Uqinisekile?",
   "consent": {
     "actionConfirmed": "Isenzo siqinisekisiwe",

@@ -52,7 +52,7 @@
     "take": "写真を撮る",
     "take-another": "もう一枚"
   },
-  "closed": "##thanks to{{total}} supporters!\n\nこのアクションは終了しましたが、私たちの活動はここで終わりませんので、**次のステップについて情報を得るためにメールを残してください**。",
+  "closed": "##Thanks to{{total}} supporters!\n\nこのアクションは終了しましたが、私たちの活動はここで終わりませんので、**次のステップについて情報を得るためにメールを残してください**。",
   "confirm": "本当にいいんですか？",
   "consent": {
     "actionConfirmed": "アクションの確認",

@@ -52,7 +52,7 @@
     "take": "Faceți o fotografie",
     "take-another": "Mai ia una."
   },
-  "closed": "##multumim pentru {{total}} susținători!\n\nAm încheiat această acțiune, dar munca noastră nu se termină aici, așa că vă rugăm să **să vă lăsați adresa de e-mail pentru a fi informați despre următorii pași**.",
+  "closed": "##Multumim pentru {{total}} susținători!\n\nAm încheiat această acțiune, dar munca noastră nu se termină aici, așa că vă rugăm să **să vă lăsați adresa de e-mail pentru a fi informați despre următorii pași**.",
   "confirm": "Ești sigur?",
   "consent": {
     "actionConfirmed": "Acțiune confirmată",

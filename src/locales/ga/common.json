@@ -52,7 +52,7 @@
     "take": "Glac pictiúr",
     "take-another": "Tóg ceann eile"
   },
-  "closed": "##buíochas le {{total}} lucht tacaíochta!\n\nTá an gníomh seo dúnta againn, ach níl deireadh lenár gcuid oibre anseo, mar sin **fág do ríomhphost le do thoil chun fanacht ar an eolas faoi na chéad chéimeanna eile**",
+  "closed": "##Buíochas le {{total}} lucht tacaíochta!\n\nTá an gníomh seo dúnta againn, ach níl deireadh lenár gcuid oibre anseo, mar sin **fág do ríomhphost le do thoil chun fanacht ar an eolas faoi na chéad chéimeanna eile**",
   "confirm": "An bhfuil tú cinnte?",
   "consent": {
     "actionConfirmed": "Gníomh dearbhaithe",

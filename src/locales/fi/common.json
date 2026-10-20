@@ -52,7 +52,7 @@
     "take": "Ota kuva",
     "take-another": "Ota toinen"
   },
-  "closed": "##kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
+  "closed": "##Kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
   "confirm": "Oletko varma?",
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",

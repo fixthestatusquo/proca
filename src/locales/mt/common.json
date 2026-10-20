@@ -43,7 +43,7 @@
     "take": "Ħu stampa",
     "take-another": "Ħu ieħor"
   },
-  "closed": "##grazzi lill-partitarji ta' {{total}}!\n\nGħalaqna din l-azzjoni, iżda x-xogħol tagħna ma jintemmx hawn, għalhekk jekk jogħġbok **ħalli l-email tiegħek biex tibqa’ infurmata dwar il-passi li jmiss**",
+  "closed": "##Grazzi lill-partitarji ta' {{total}}!\n\nGħalaqna din l-azzjoni, iżda x-xogħol tagħna ma jintemmx hawn, għalhekk jekk jogħġbok **ħalli l-email tiegħek biex tibqa’ infurmata dwar il-passi li jmiss**",
   "confirm": "Żgur?",
   "consent": {
     "actionConfirmed": "Azzjoni kkonfermata",

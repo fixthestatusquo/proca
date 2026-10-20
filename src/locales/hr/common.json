@@ -52,7 +52,7 @@
     "take": "Snimi sliku",
     "take-another": "Snimi još jednu sliku"
   },
-  "closed": "##hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
+  "closed": "##Hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
   "confirm": "Sigurno?",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",

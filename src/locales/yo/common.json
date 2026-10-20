@@ -43,7 +43,7 @@
     "take": "Ya aworan",
     "take-another": "Gba ọkan miiran"
   },
-  "closed": "## o ṣeun si awọn alatilẹyin {{total}}!\n\nA ti paade iṣe yii, ṣugbọn iṣẹ wa ko pari nihin, nitorinaa jọwọ fi imeeli rẹ silẹ lati jẹ ki alaye nipa awọn igbesẹ ti n bọ ***",
+  "closed": "## O ṣeun si awọn alatilẹyin {{total}}!\n\nA ti paade iṣe yii, ṣugbọn iṣẹ wa ko pari nihin, nitorinaa jọwọ fi imeeli rẹ silẹ lati jẹ ki alaye nipa awọn igbesẹ ti n bọ ***",
   "confirm": "Ṣe o da ọ loju?",
   "consent": {
     "actionConfirmed": "Action timo",

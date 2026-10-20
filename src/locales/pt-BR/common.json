@@ -52,7 +52,7 @@
     "take": "Tirar foto",
     "take-another": "Pegue outro"
   },
-  "closed": "##agradecemos aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não termina aqui, portanto, **deixe seu e-mail para se manter informado sobre as próximas etapas**",
+  "closed": "##Agradecemos aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não termina aqui, portanto, **deixe seu e-mail para se manter informado sobre as próximas etapas**",
   "confirm": "Tem certeza?",
   "consent": {
     "actionConfirmed": "Ação confirmada",

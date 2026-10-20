@@ -44,7 +44,7 @@
     "take": "Bëni një foto",
     "take-another": "Bëni një tjetër"
   },
-  "closed": "##faleminderit {{total}} mbështetësve!\n\nNe kemi mbyllur këtë veprim, por puna jonë nuk përfundon këtu, prandaj ju lutemi **lini emailin tuaj për të qëndruar të informuar për hapat e ardhshëm**",
+  "closed": "##Faleminderit {{total}} mbështetësve!\n\nNe kemi mbyllur këtë veprim, por puna jonë nuk përfundon këtu, prandaj ju lutemi **lini emailin tuaj për të qëndruar të informuar për hapat e ardhshëm**",
   "confirm": "A jeni i sigurt?",
   "consent": {
     "actionConfirmed": "Veprimi u konfirmua",

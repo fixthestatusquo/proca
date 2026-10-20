@@ -52,7 +52,7 @@
     "take": "Urobte si obrázok",
     "take-another": "Vezmite si ďalšiu"
   },
-  "closed": "##ďakujeme podporovateľom {{total}}!\n\nTúto akciu sme uzavreli, ale naša práca sa tu nekončí, preto vás prosíme, aby ste **zanechali svoj e-mail, aby ste boli informovaní o ďalších krokoch**",
+  "closed": "##Ďakujeme podporovateľom {{total}}!\n\nTúto akciu sme uzavreli, ale naša práca sa tu nekončí, preto vás prosíme, aby ste **zanechali svoj e-mail, aby ste boli informovaní o ďalších krokoch**",
   "confirm": "Ste si istý?",
   "consent": {
     "actionConfirmed": "Akcia potvrdená",

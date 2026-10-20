@@ -52,7 +52,7 @@
     "take": "Fotografirajte",
     "take-another": "Vzemite še enega."
   },
-  "closed": "## zahvaljujemo se podpornikom {{total}}!\n\nTo akcijo smo zaključili, vendar se naše delo tu ne konča, zato vas prosimo, da **opustite svoj e-poštni naslov, da boste obveščeni o naslednjih korakih**.",
+  "closed": "## Zahvaljujemo se podpornikom {{total}}!\n\nTo akcijo smo zaključili, vendar se naše delo tu ne konča, zato vas prosimo, da **opustite svoj e-poštni naslov, da boste obveščeni o naslednjih korakih**.",
   "confirm": "Ste prepričani?",
   "consent": {
     "actionConfirmed": "Potrjen ukrep",

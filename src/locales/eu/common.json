@@ -43,7 +43,7 @@
     "take": "Atera argazkia",
     "take-another": "Hartu beste bat"
   },
-  "closed": "##esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
+  "closed": "##Esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
   "confirm": "Ziur zaude?",
   "consent": {
     "actionConfirmed": "Ekintza berretsi da",

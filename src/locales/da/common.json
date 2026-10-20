@@ -52,7 +52,7 @@
     "take": "Tag et billede",
     "take-another": "Tag en til"
   },
-  "closed": "##tak til {{total}} supportere!\n\nVi har afsluttet denne aktion, men vores arbejde slutter ikke her, så **læs venligst din e-mail for at blive holdt orienteret om de næste skridt**",
+  "closed": "##Tak til {{total}} supportere!\n\nVi har afsluttet denne aktion, men vores arbejde slutter ikke her, så **læs venligst din e-mail for at blive holdt orienteret om de næste skridt**",
   "confirm": "Er du sikker?",
   "consent": {
     "actionConfirmed": "Aktion bekræftet",

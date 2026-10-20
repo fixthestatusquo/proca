@@ -52,7 +52,7 @@
     "take": "Fényképezzen",
     "take-another": "Vegyél még egyet"
   },
-  "closed": "##köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
+  "closed": "##Köszönjük a {{total}} támogatóinak!\n\nAz akciót lezártuk, de a munkánk itt még nem ér véget, ezért kérjük **hagyja meg az e-mail címét, hogy értesüljön a következő lépésekről**.",
   "confirm": "Biztos vagy benne?",
   "consent": {
     "actionConfirmed": "Megerősített intézkedés",

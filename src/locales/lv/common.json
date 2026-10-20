@@ -52,7 +52,7 @@
     "take": "Uzņemiet attēlu",
     "take-another": "Paņemiet vēl vienu"
   },
-  "closed": "##pateicība {{total}} atbalstītājiem!\n\nMēs esam noslēguši šo akciju, bet mūsu darbs ar to nebeidzas, tāpēc, lūdzu, **atstājiet savu e-pastu, lai saņemtu informāciju par nākamajiem soļiem**.",
+  "closed": "##Pateicība {{total}} atbalstītājiem!\n\nMēs esam noslēguši šo akciju, bet mūsu darbs ar to nebeidzas, tāpēc, lūdzu, **atstājiet savu e-pastu, lai saņemtu informāciju par nākamajiem soļiem**.",
   "confirm": "Vai esat pārliecināts?",
   "consent": {
     "actionConfirmed": "Rīcība apstiprināta",
