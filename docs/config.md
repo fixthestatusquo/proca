@@ -190,6 +190,9 @@ The counter will automatically calculate next goals so that goal always escapes 
 To put custom counter:
 `config.component.counter.url: some_url_on_static`
 
+To use a fixed number instead of fetching the count (eg. final total of a closed campaign):
+`config.component.counter.total: 1254722`
+
 Counter is always shown in test mode!
 
 To have counter at the same page as the widget
@@ -299,6 +302,7 @@ if the consent is set to "implicit" on campaign level, to put back radio buttons
 - `"portal": ["layout/ClosedNotice"]`
 - `component.register.disabled: true`
 - `component.widget.closed: true`
+- `component.counter.total: 1254722` (optional) freeze the counter at this final number
 
 ## Donate
 
