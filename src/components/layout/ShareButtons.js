@@ -277,7 +277,12 @@ export default function ShareAction(props) {
           {config.component?.share?.bluesky !== false && (
             <ActionIcon
               icon={BlueskyIcon}
-              title={shareText("share-twitter", twitters.join(" "))}
+              title={shareText(
+                i18n.exists("campaign:share.bluesky")
+                  ? "share-bluesky"
+                  : "share-twitter",
+                twitters.join(" ")
+              )}
               component={BlueskyShareButton}
             />
           )}
