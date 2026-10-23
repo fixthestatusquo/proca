@@ -1,33 +1,46 @@
-import { useEffect } from "react";
+import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import { sample } from "@lib/array";
-import { useTranslation } from "react-i18next";
+import get from "lodash/get";
+import { useEffect } from "react";
 
 const Snowflake = () => {
-  // if translation is missing, nothing will be loaded
-  const { t } = useTranslation();
-  const [, setData] = useData();
+  const config = useCampaignConfig();
+  const campaign = config.campaign.name;
+  const { url: loaderUrl, key, path } = config.component.loader || {};
+  const lang = config.locale;
 
+  const [, setData] = useData();
   useEffect(() => {
-    const randomize = () => {
-      const subjects = t("letter:subject", "");
-      const subject = sample(subjects.split("- ").filter(m => m.length > 0));
-      const letter = [];
-      let i = 1;
-      while (t(`letter:part-${i}`, "%%end%%") !== "%%end%%") {
-        const message = t(`letter:part-${i}`);
-        letter.push(sample(message.split("- ").filter(m => m.length > 0)));
-        i += 1;
-      }
-      return {
-        subject: subject,
-        message: letter.join("\n\n").replace("\n\n", ""),
-      };
+    if (!campaign) return;
+
+    const controller = new AbortController();
+    const fetchUrl = async url => {
+      const d = await fetch(url, { signal: controller.signal });
+      if (!d.ok) throw new Error(`${d.status} ${d.statusText} ${url}`);
+      return d;
     };
-    const { subject, message } = randomize();
-    setData("message", message);
-    setData("subject", subject);
-  }, [setData, t]);
+
+    // single json message, optionally stored under key
+    const loadJson = async () => {
+      if (loaderUrl === false) return;
+      const url = loaderUrl
+        ? `${loaderUrl.replace(/\/$/, "")}/${lang}`
+        : `https://snowflake.proca.app/${campaign}/${lang}`;
+      const d = await fetchUrl(url);
+      const json = await d.json();
+      if (controller.signal.aborted) return;
+      if (key) setData(key, get(json, path));
+      else setData(json);
+    };
+
+    loadJson().catch(e => {
+      // we need to guess the field to display the error message, message is the most common one
+      if (!controller.signal.aborted) setData("message", e.message);
+    });
+
+    return () => controller.abort();
+  }, [loaderUrl, key, path, lang, setData, campaign]);
+
   return null;
 };
 
