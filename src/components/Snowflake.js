@@ -23,8 +23,9 @@ const Snowflake = () => {
     // single json message, optionally stored under key
     const loadJson = async () => {
       if (loaderUrl === false) return;
-      const base = loaderUrl || `https://snowflake.proca.app/${campaign}/`;
-      const url = base.endsWith("/") ? base + lang : `${base}/${lang}`;
+      const url = loaderUrl
+        ? `${loaderUrl.replace(/\/$/, "")}/${lang}`
+        : `https://snowflake.proca.app/${campaign}/${lang}`;
       const d = await fetchUrl(url);
       const json = await d.json();
       if (controller.signal.aborted) return;
