@@ -38,7 +38,7 @@ const mkdirp = pathToFile => {
 };
 const file = id => {
   if (!process.env.PROCA_CONFIG_FOLDER) {
-    console.warn("missing PROCA_CONFIG_FOLDER env");
+    //console.warn("missing PROCA_CONFIG_FOLDER env");
     return path.resolve(__dirname, tmp + checked(id) + ".json");
   }
   //  console.debug(process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json");
