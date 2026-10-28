@@ -6,12 +6,12 @@ import { useEffect } from "react";
 const Snowflake = () => {
   const config = useCampaignConfig();
   const campaign = config.campaign.name;
-  const loaders = config.component.loader || {};
+  const { url: loaderUrl, key, path } = config.component.loader || {};
   const lang = config.locale;
 
   const [, setData] = useData();
   useEffect(() => {
-    if (loaders === false || !campaign) return;
+    if (!campaign) return;
 
     const controller = new AbortController();
     const fetchUrl = async url => {
@@ -20,15 +20,16 @@ const Snowflake = () => {
       return d;
     };
 
-    // single json message, optionally stored under loaders.key
+    // single json message, optionally stored under key
     const loadJson = async () => {
-      if (loaders.url === false) return;
-      const url =
-        loaders.url || `https://snowflake.proca.app/${campaign}/${lang}`;
+      if (loaderUrl === false) return;
+      const url = loaderUrl
+        ? `${loaderUrl.replace(/\/$/, "")}/${lang}`
+        : `https://snowflake.proca.app/${campaign}/${lang}`;
       const d = await fetchUrl(url);
       const json = await d.json();
       if (controller.signal.aborted) return;
-      if (loaders.key) setData(loaders.key, get(json, loaders.path));
+      if (key) setData(key, get(json, path));
       else setData(json);
     };
 
@@ -38,7 +39,7 @@ const Snowflake = () => {
     });
 
     return () => controller.abort();
-  }, [loaders, lang, setData, campaign]);
+  }, [loaderUrl, key, path, lang, setData, campaign]);
 
   return null;
 };
