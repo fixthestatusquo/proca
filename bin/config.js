@@ -66,7 +66,7 @@ const save = (config, suffix = "") => {
 };
 
 const api = async (query, variables, name = "query", anonymous = false) => {
-  let headers = anonymous ? {} : authHeader();
+  const headers = anonymous ? {} : authHeader();
   headers["Content-Type"] = "application/json";
 
   try {
