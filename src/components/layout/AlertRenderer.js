@@ -11,7 +11,7 @@ export const AlertRenderer = () => {
 
   const handleExited = () => {
     if (currentAlert) {
-      //      removeAlert(currentAlert.id);
+      removeAlert(currentAlert.id);
     }
   };
   return (
