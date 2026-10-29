@@ -1,43 +1,36 @@
+import React from "react";
 import Select from "@components/field/Select";
 import { useSetCampaignConfig } from "@hooks/useConfig";
+import { useTargets } from "@hooks/useTargets";
+import { byLocale } from "@lib/targets";
 import { useEffect } from "react";
 
-const FilterLanguage = props => {
-  const { watch } = props.form;
-  //  const config = useCampaignConfig();
+const FilterLanguage = ({ form }) => {
   const setConfig = useSetCampaignConfig();
-  const language = watch("language");
+  const { all, setFilter } = useTargets();
+  const language = form.watch("language");
+  const base = language?.length > 2 ? language.slice(0, 2) : language;
 
-  const selectLanguage = event => {
-    console.log(event.target);
-    const language = event.target.value;
-    let select = props.profiles
-      .filter(d => d.lang === language)
-      .map(d => d.procaid);
-    if (select.length === 0 && language.length > 2) {
-      // we deal with fr_BE or de_AT...
-      const lang = language.slice(0, 2);
-      select = props.profiles.filter(d => d.lang === lang).map(d => d.procaid);
-    }
-    if (select.length > 0) {
-      setConfig(current => {
-        // we are forcing to reload the letter
-        const next = { ...current };
-        next.locale = language;
-        return next;
-      });
-    }
-    props.selecting(() => select);
-  };
+  useEffect(() => {
+    setFilter("language", base ? { qualify: byLocale(base) } : null);
+  }, [base, setFilter]);
+
+  useEffect(() => {
+    if (!language || all.length === 0) return;
+    const matches = all.filter(byLocale(base));
+    if (matches.length === 0) return;
+    setConfig(current =>
+      current.locale === language ? current : { ...current, locale: language }
+    );
+  }, [language, base, all, setConfig]);
 
   return (
     <Select
-      form={props.form}
+      form={form}
       name="language"
       label="Language"
       options="campaign:languages"
       select="key"
-      onChange={selectLanguage}
     />
   );
 };

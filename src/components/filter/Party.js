@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { useTheme } from "@material-ui/core/styles";
-import FormHelperText from "@material-ui/core/FormHelperText";
+import React from "react";
+import { useTargets } from "@hooks/useTargets";
 import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
 import Badge from "@material-ui/core/Badge";
+import Chip from "@material-ui/core/Chip";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveIcon from "@material-ui/icons/RemoveCircle";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
@@ -34,14 +35,17 @@ const useStyles = makeStyles(theme => ({
 
 const PartyFilter = props => {
   const classes = useStyles();
-  const [parties, _setParties] = useState({});
+  const { visible, selected, select } = useTargets();
+  const [parties, setParties] = useState({});
   const [allParties, setAllParties] = useState({});
-  const getKey = props.getKey || (d => d.description);
-  const country = props.country?.toLowerCase();
-  const filterCountry = props.filterCountry || (d => d.country === country);
-  const theme = useTheme();
+  const getKey = useMemo(
+    () => props.getKey || (d => d.description),
+    [props.getKey]
+  );
+  const country = (
+    props.country || props.form?.watch("country")
+  )?.toLowerCase();
   const { t } = useTranslation();
-  const url = "https://widget.proca.app/t/ep-parties.json";
 
   useEffect(() => {
     const fetchData = async url => {
@@ -49,29 +53,26 @@ const PartyFilter = props => {
       if (!res.ok) throw res.statusText;
 
       const d = await res.json();
-      const allParties = d.reduce((map, obj) => {
+      const list = d.reduce((map, obj) => {
         const key = `${obj.country.toUpperCase()}:${obj.party}`;
         map[key] = obj;
         return map;
       }, {});
-      setAllParties(allParties);
+      setAllParties(list);
     };
-    fetchData(url);
-  }, [url, setAllParties]);
+    fetchData("https://widget.proca.app/t/ep-parties.json");
+  }, []);
 
-  const setParties = fullList => {
-    if (!fullList || !fullList.length) return;
+  useEffect(() => {
+    if (!country || !visible.length) return;
     const count = {};
-    let list = fullList;
-    if (props.country) {
-      list = fullList.filter(filterCountry);
-    }
+    const list = visible.filter(d => !country || d.country === country);
     for (const item of list) {
       const key = getKey(item);
       if (count[key]) {
         count[key].count++;
       } else {
-        count[key] = { count: 1, selected: false, eugroup: item.eugroup };
+        count[key] = { count: 1, eugroup: item.eugroup };
       }
     }
 
@@ -87,91 +88,75 @@ const PartyFilter = props => {
       "NA",
     ];
 
-    //list.foreach
     const sortedObject = Object.fromEntries(
       [...Object.entries(count)].sort(([a, ae], [b, be]) => {
         if (ae.eugroup === be.eugroup) return a.localeCompare(b);
         return groupOrder.indexOf(ae.eugroup) > groupOrder.indexOf(be.eugroup);
       })
     );
-    _setParties(sortedObject);
-    //return list[0];
+    setParties(sortedObject);
+  }, [visible, country, getKey]);
+
+  const idsOf = name =>
+    visible.filter(target => getKey(target) === name).map(t => t.procaid);
+
+  const isSelected = name => {
+    const ids = idsOf(name);
+    return ids.length > 0 && ids.every(id => selected.includes(id));
   };
 
   const toggle = name => {
-    _setParties(prevParties => ({
-      ...prevParties,
-      [name]: {
-        ...prevParties[name],
-        selected: !prevParties[name].selected,
-      },
-    }));
-    props.selecting(() => ({
-      filter: "description",
-      key: name,
-      value: !parties[name].selected,
-      reset: false,
-    }));
+    const ids = idsOf(name);
+    const next = new Set(selected);
+    const remove = isSelected(name);
+    ids.forEach(id => {
+      if (remove) next.delete(id);
+      else next.add(id);
+    });
+    select([...next]);
   };
 
-  /*  useEffect(() => {
-    if (!parties) return;
-    console.log("filtering", Object.keys(parties).length);
-    props.selecting(filter);
-  }, [parties]);
-*/
-
-  useEffect(() => {
-    if (!props.country) return;
-    setParties(props.profiles);
-    //props.selecting(setParties); // we're not selecting, just using that to get the parties from the contacts
-  }, [props.selecting, props.country, props.profiles]);
-
-  //avatar={<Avatar>{party.count}</Avatar>}
-
-  if (parties) {
-    return (
-      <>
-        <div className={classes.root}>
-          {Object.entries(parties).map(([name, party]) => {
-            const record = allParties[`${props.country}:${name}`] || {
-              name: name,
-            };
-            const AvatarParty = record.picture && (
-              <Avatar alt={name} src={record.picture} />
-            );
-            return (
-              <Badge
-                key={name}
-                badgeContent={party.count}
-                color="default"
-                overlap="rectangular"
-                className={classes.badge}
-                invisible={party.count < 2}
-              >
-                <Chip
-                  title={name}
-                  label={record.acronym || name}
-                  clickable
-                  avatar={AvatarParty}
-                  color={party.selected ? "primary" : "default"}
-                  onClick={() => toggle(name)}
-                  onDelete={() => toggle(name)}
-                  deleteIcon={party.selected ? <RemoveIcon /> : <AddIcon />}
-                />
-              </Badge>
-            );
-          })}
-        </div>
-        {Object.entries(parties).length > 0 && (
-          <FormHelperText component="div" style={{ margin: 3 }}>
-            {t("party_helper")}
-          </FormHelperText>
-        )}
-      </>
-    );
-  }
-  return null;
+  return (
+    <>
+      <div className={classes.root}>
+        {Object.entries(parties).map(([name, party]) => {
+          const record = allParties[`${country?.toUpperCase()}:${name}`] || {
+            name: name,
+          };
+          const AvatarParty = record.picture && (
+            <Avatar alt={name} src={record.picture} />
+          );
+          const checked = isSelected(name);
+          return (
+            <Badge
+              key={name}
+              badgeContent={party.count}
+              color="default"
+              overlap="rectangular"
+              className={classes.badge}
+              invisible={party.count < 2}
+            >
+              <Chip
+                title={name}
+                label={record.acronym || name}
+                clickable
+                avatar={AvatarParty}
+                color={checked ? "primary" : "default"}
+                onClick={() => toggle(name)}
+                onDelete={() => toggle(name)}
+                deleteIcon={checked ? <RemoveIcon /> : <AddIcon />}
+              />
+            </Badge>
+          );
+        })}
+      </div>
+      {Object.entries(parties).length > 0 && (
+        <FormHelperText component="div" style={{ margin: 3 }}>
+          {t("party_helper")}
+        </FormHelperText>
+      )}
+    </>
+  );
 };
 
 export default PartyFilter;

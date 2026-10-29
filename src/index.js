@@ -1,24 +1,19 @@
 import React from "react";
 import "./polyfill";
 import ReactDOM from "react-dom";
-import {
-  goStep,
-  hook,
-  setConfig,
-  setGlobalState,
-  configStore,
-} from "./hooks/useConfig";
+import { configStore, goStep, hook, setGlobalState } from "./hooks/useConfig";
 import "./lib/i18n";
-import { get as getPath } from "./lib/object";
-import { isTest } from "./lib/urlparser";
-import { scrollTo } from "./lib/scroll";
-
+import { addAlert } from "@hooks/useAlert.js";
+import { config as Config } from "./actionPage";
 //import ProcaAlert from "./components/Alert.js";
 import Portals from "./components/Portals.js";
 import ProcaWidget from "./components/Widget.js";
-import { addAlert } from "@hooks/useAlert.js";
-
-import { config as Config } from "./actionPage";
+import { targetStore } from "./hooks/useTargets";
+import { dispatch } from "./lib/event";
+import { get as getPath } from "./lib/object";
+import { scrollTo } from "./lib/scroll";
+import { ruleToFilter } from "./lib/targets";
+import { isTest } from "./lib/urlparser";
 
 let config = {
   selector: ".proca-widget", // +, "[href='#proca_widget']"
@@ -168,6 +163,43 @@ const autoRender = () => {
   }
 };
 
+const setFilter = (id, filter) => {
+  if (!id || typeof id !== "string") {
+    console.error("setFilter needs a string id", id);
+    return;
+  }
+  const next = filter?.rule ? ruleToFilter(filter.rule) : filter;
+  targetStore.getState().setFilter(id, next || null);
+};
+
+const removeFilter = id => targetStore.getState().setFilter(id, null);
+
+const select = procaids => targetStore.getState().select(procaids || []);
+
+const selectAll = () => targetStore.getState().selectAll();
+
+const getTargets = () => {
+  const { all, visible, selected } = targetStore.getState();
+  return { all, visible, selected };
+};
+
+let previousTargets = targetStore.getState();
+targetStore.subscribe(state => {
+  if (state.all !== previousTargets.all) {
+    dispatch("targets:loaded", { all: state.all });
+  }
+  if (
+    state.visible !== previousTargets.visible ||
+    state.selected !== previousTargets.selected
+  ) {
+    dispatch("targets:update", {
+      visible: state.visible.map(target => target.procaid),
+      selected: state.selected,
+    });
+  }
+  previousTargets = state;
+});
+
 autoRender();
 
 const addEventListener = (type, listener) => {
@@ -186,6 +218,11 @@ export {
   ReactDOM,
   get,
   set,
+  setFilter,
+  removeFilter,
+  select,
+  selectAll,
+  getTargets,
   Widget,
   getJourney,
 };
