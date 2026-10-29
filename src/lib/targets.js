@@ -14,19 +14,29 @@ export const distance = ([lat1, lng1], [lat2, lng2]) => {
 
 export const geoOf = target => target.fields?.geo || target.geo;
 
+const EARTH_RADIUS_KM = 6371;
+
+export const distanceKm = (from, to) => distance(from, to) * EARTH_RADIUS_KM;
+
+export const rankByDistance = (targets, geo) =>
+  targets
+    .map(target => ({ target, distance: geoOf(target) ? distanceKm(geo, geoOf(target)) : Infinity }))
+    .filter(({ distance }) => Number.isFinite(distance))
+    .sort((a, b) => a.distance - b.distance);
+
 export const nearest = (targets, geo) => {
-  let best = null;
-  let min = Infinity;
-  for (const target of targets) {
-    const t = geoOf(target);
-    if (!t) continue;
-    const d = distance(geo, t);
-    if (d < min) {
-      min = d;
-      best = target;
-    }
-  }
-  return best ? [best] : [];
+  const [best] = rankByDistance(targets, geo);
+  return best ? [best.target] : [];
+};
+
+export const nearestWithin = (targets, geo, { percent = 0, km = 0 } = {}) => {
+  const ranked = rankByDistance(targets, geo);
+  if (!ranked.length) return [];
+  const d0 = ranked[0].distance;
+  const window = Math.max(km || 0, (d0 * (percent || 0)) / 100);
+  return ranked
+    .filter(({ distance }) => distance <= d0 + window)
+    .map(({ target }) => target);
 };
 
 export const languagesOf = (targets, field = "locale") =>
