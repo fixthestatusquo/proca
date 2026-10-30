@@ -1,46 +1,33 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
-
-import {
-  FormHelperText,
-  Typography,
-  Button,
-  Collapse,
-  List,
-  TextField as MuiTextField,
-} from "@material-ui/core";
-
-import Alert from "@material-ui/lab/Alert";
-
+import React from "react";
 import EmailAction from "@components/email/Action";
 import NonEngagement from "@components/email/NonEngagment";
-import SkeletonListItem from "@components/layout/SkeletonListItem";
-import ProgressCounter from "@components/ProgressCounter";
-import Filter from "@components/filter/Filter";
-import useData from "@hooks/useData";
-import useToken, { extractTokens } from "@hooks/useToken";
-import { useIsMobile } from "@hooks/useDevice";
-import { sample } from "@lib/array";
-import Register from "@components/Register";
-import { useTranslation } from "react-i18next";
-import {
-  useCampaignConfig,
-  useSetCampaignConfig,
-  useSetActionType,
-} from "@hooks/useConfig";
-import { useLayout } from "@hooks/useLayout";
-import { useForm } from "react-hook-form";
-import { Grid, Container } from "@material-ui/core";
 import TextField from "@components/field/TextField";
-import { makeStyles } from "@material-ui/core/styles";
-import { mainLanguage } from "@lib/i18n";
+import Filter from "@components/filter/Filter";
+import ProgressCounter from "@components/ProgressCounter";
+import Register from "@components/Register";
+import { useCampaignConfig, useSetActionType } from "@hooks/useConfig";
+import useData from "@hooks/useData";
+import { useIsMobile } from "@hooks/useDevice";
+import { useLayout } from "@hooks/useLayout";
+import { useTargetSource, useTargets } from "@hooks/useTargets";
+import useToken, { extractTokens } from "@hooks/useToken";
 import { getCountryName } from "@lib/i18n";
+import { submitted } from "@lib/targets";
 import { pickOne } from "@lib/text";
+import {
+  Button,
+  Collapse,
+  Container,
+  FormHelperText,
+  Grid,
+  List,
+  Typography,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   list: {
@@ -54,36 +41,12 @@ const EmailComponent = props => {
   const classes = useStyles();
   const layout = useLayout();
   const config = useCampaignConfig();
-  const setConfig = useSetCampaignConfig();
   useSetActionType("mail2target");
-  const [profiles, setProfiles] = useState(props.targets || []);
-  const [selection, _setSelection] = useState(
-    config.component.email?.selectable ? [] : false
-  );
-  const profilesRef = useRef(profiles);
-  useEffect(() => {
-    profilesRef.current = profiles;
-  }, [profiles]);
-
-  const groups = useRef(new Set()); //if selection by group, add them here
-  let onlySelected = groups.current.size;
+  const [data, setData] = useData();
+  const { all, visible, selected, filters, select } = useTargets();
+  const selectable = !!config.component.email?.selectable;
 
   const listRef = useRef(null);
-
-  const setSelection = selection => {
-    _setSelection(selection);
-  };
-  const selectAll = () => {
-    const r = profiles
-      .filter(target => !target.disabled)
-      .map(target => target.procaid);
-    _setSelection(r);
-  };
-
-  const [data, setData] = useData();
-  //  const [filter, setFilter] = useState({country:null});
-  const [allProfiles, setAllProfiles] = useState(props.targets || []);
-  const [languages, setLanguages] = useState([]);
 
   // need cleanup, alswaysUpdate and blockUpdate seems to be handling the same issue (decide if the subject/message needs to be loaded or not)
   const [alwaysUpdate, setAlwaysUpdate] = useState(
@@ -106,19 +69,6 @@ const EmailComponent = props => {
   const mttProcessing =
     config.component.email?.server !== false &&
     config.component.email?.server?.processing !== false;
-  const fallbackRandom = config.component.email?.fallbackRandom;
-  const fallbackArea = config.component.email?.fallbackArea;
-  const countryFiltered = config.component.email?.filter?.includes("country");
-  const postcodeFiltered = config.component.email?.filter?.includes("postcode");
-  const localeFiltered =
-    config.component.email?.filter?.includes("multilingual");
-  const sampleSize = config.component.email?.sample || 1;
-  const locale = config.locale;
-  useEffect(() => {
-    if (!props.targets) return;
-    setProfiles(props.targets);
-    console.log("targets from props.targets", props.targets.length);
-  }, [props.targets]);
 
   useEffect(() => {
     if (!data.subject && (paramEmail.subject || paramEmail.message)) {
@@ -138,21 +88,29 @@ const EmailComponent = props => {
     watch,
     getValues,
     setValue,
-    setError,
-    clearErrors,
     formState: { errors },
   } = form;
 
   const fields = getValues(["subject", "message"]);
-  const [country, constituency, postcode, area, gender] = watch([
-    "country",
-    "constituency",
-    "postcode",
-    "area",
-    "gender",
-  ]);
+  const gender = watch("gender");
 
-  const tokenKeys = extractTokens(data["message"] || paramEmail.message);
+  useTargetSource({ targets: props.targets, config });
+
+  const shown = useMemo(
+    () =>
+      visible.filter(target =>
+        Object.values(filters).every(
+          filter => !filter.display || filter.display(target)
+        )
+      ),
+    [visible, filters, selected]
+  );
+
+  useEffect(() => {
+    setData("targets", shown);
+  }, [shown, setData]);
+
+  const tokenKeys = extractTokens(data.message || paramEmail.message);
   const tokens = watch(tokenKeys);
   useEffect(() => {
     if (!alwaysUpdate) {
@@ -171,7 +129,7 @@ const EmailComponent = props => {
     setValue("message", text);
   };
 
-  if (tokenKeys.includes("targets")) tokens.targets = profiles;
+  if (tokenKeys.includes("targets")) tokens.targets = shown;
 
   const getDataWithToken = key => {
     // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
@@ -210,7 +168,7 @@ const EmailComponent = props => {
           empty.locality = defaultValue.locality || "";
           empty.signature = empty.name;
           if (empty.locality)
-            empty.signature = empty.name + `\n${empty.locality}`;
+            empty.signature = `${empty.name}\n${empty.locality}`;
           form.setValue(k, t(getDataWithToken(k), empty));
         } else {
           form.setValue(k, getDataWithToken(k));
@@ -232,268 +190,6 @@ const EmailComponent = props => {
     alwaysUpdate,
     blockUpdate,
   ]);
-  // todo: clean the dependency
-  //
-  useEffect(() => {
-    const fetchData = async url => {
-      await fetch(url)
-        .then(res => {
-          if (!res.ok) {
-            throw res.statusText || res.status + " error";
-          }
-          return res.json();
-        })
-        .then(d => {
-          const languages = [];
-          if (config.hook && typeof config.hook["target:load"] === "function") {
-            d = config.hook["target:load"](d);
-          }
-          d.forEach(c => {
-            if (c.locale && !languages.includes(c.locale)) {
-              languages.push(c.locale);
-            }
-            if (c.country) c.country = c.country.toLowerCase();
-          });
-          setAllProfiles(d);
-          setLanguages(languages);
-          if (postcodeFiltered) {
-            // overwritten?
-            setProfiles([]);
-          }
-          if (config.component.email?.filter?.includes("random")) {
-            if (!config.component.email.sample) {
-              const i = d[Math.floor(Math.random() * d.length)];
-              setProfiles([i]);
-            } else {
-              const shuffled = d.sort(() => 0.5 - Math.random()); // biased, but good enough
-              setProfiles(shuffled.slice(0, config.component.email.sample));
-            }
-          }
-        })
-        .catch(error => {
-          const placeholder = {
-            name: error.toString(),
-            description: "Please check your internet connection and try later",
-            constituency: "",
-            disabled: true,
-          };
-          setProfiles([placeholder]);
-          setAllProfiles([placeholder]);
-        });
-    };
-    if (!config.component.email?.to) {
-      const url =
-        typeof config.component.email?.listUrl === "string"
-          ? config.component.email.listUrl
-          : `https://widget.proca.app/t/${config.campaign.name}.json`;
-
-      fetchData(url);
-    } else {
-      const emails =
-        typeof config.component.email?.to === "string"
-          ? config.component.email.to?.split(",")
-          : [];
-      const to = [];
-      emails.forEach(d => {
-        return to.push({ email: d.trim() });
-      });
-      if (to.length == 0) return;
-      setAllProfiles(to);
-      setProfiles(to);
-    }
-  }, [config.component, config.hook, setAllProfiles]);
-
-  const filterLocale = useCallback(
-    locale => {
-      if (!locale) {
-        return [];
-      }
-      const d = allProfiles.filter(d => {
-        //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
-        return d.locale === locale;
-      });
-      setProfiles(d);
-      setData("targets", d);
-      /*      setConfig(current => {
-        console.log("set lang in filterLocale", locale);
-        const next = { ...current };
-        next.lang = locale;
-        return next;
-      });
-*/
-      return d;
-    },
-    [allProfiles, setConfig, setData]
-  );
-
-  const filterArea = useCallback(
-    area => {
-      if (!area) {
-        return [];
-      }
-      let d = allProfiles.filter(d => {
-        //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
-        //return d.area === area && d.constituency === -1;
-        return d.area === area;
-      });
-      if (sampleSize) {
-        d = sample(d, sampleSize);
-      }
-      if (d.length === 0) {
-        d = sample(allProfiles, sampleSize || fallbackRandom);
-      }
-      return d;
-    },
-    [sampleSize, fallbackRandom, allProfiles]
-  );
-
-  const filterProfiles = useCallback(
-    // TODO: move the filtering of profiles from here to the filter/XXX ones
-    (country, constituency, area) => {
-      if (constituency || area) {
-        country = country || "?";
-      }
-      if (!country || typeof country !== "string") return;
-      if (allProfiles.length === 0) return; //profiles aren't loaded yet
-      country = country.toLowerCase();
-
-      let lang = undefined;
-      let d = allProfiles.filter(d => {
-        if (constituency || postcodeFiltered) {
-          if (typeof constituency === "object") {
-            return constituency.includes(d.constituency);
-          }
-          return d.constituency?.toString() === constituency.toString();
-        }
-
-        if (d.lang && d.country === country) {
-          if (lang === undefined) {
-            lang = d.lang;
-          } else {
-            if (d.lang !== lang) {
-              // do not change the language when multi-lingual countries (BE)
-              lang = false;
-            }
-          }
-        }
-        return (
-          d.country === country ||
-          d.country === "" ||
-          d.constituency?.country === country
-        );
-      });
-
-      if (!lang && localeFiltered) {
-        // more than one lang in the country
-        const _locale = locale.split("_")[0];
-        if (languages.includes(_locale)) {
-          lang = [_locale];
-        } else {
-          lang = mainLanguage(country, false);
-        }
-        d = allProfiles.filter(
-          d =>
-            (d.locale ? lang.includes(d.locale) : true) && d.country === country
-        );
-        console.log("not lang", `${lang}?`, locale, country);
-      }
-      if (d.length === 0 && fallbackArea) {
-        if (area) {
-          d = filterArea(area);
-        } else {
-          d = allProfiles.filter(d => {
-            //      console.log(d.area === area && d.constituency === -1,d.area,d.constituency,area);
-            //return d.area === area && d.constituency === -1;
-            const fallbackCountry = fallbackArea.toLowerCase();
-            return d.country === fallbackCountry;
-          });
-        }
-      }
-      if (d.length === 0 && fallbackRandom && !fallbackArea) {
-        d = sample(allProfiles, sampleSize || fallbackRandom);
-      }
-      if (d.length === 0 && constituency) {
-        d = allProfiles.filter(d => {
-          return d.fallback === true;
-        });
-      }
-      if (d.length === 0 && postcodeFiltered && (!!constituency || !!area)) {
-        setError("postcode", {
-          message: t("target.postcode.empty", {
-            defaultValue: "there is no-one to contact in {{area}}",
-            area: area || postcode,
-          }),
-          type: "no_empty",
-        });
-      }
-
-      if (d.length === 0 && countryFiltered) {
-        setError("country", {
-          message: t("target.country.empty", {
-            country: getCountryName(country),
-          }),
-          type: "warning",
-        });
-      }
-      if (d.length > 0) {
-        clearErrors("country");
-        clearErrors("postcode");
-      }
-
-      if (lang && typeof lang === "string") {
-        // change language of the letter
-        setConfig(current => {
-          const next = { ...current };
-          //next.lang = lang || "en";
-          if (lang.length === 2) lang = lang + "_" + country.toUpperCase();
-          next.locale = lang || "en";
-          return next;
-        });
-      }
-      setProfiles(d);
-      setData("targets", d);
-      if (countryFiltered) {
-        setData("country", country);
-      }
-    },
-    [
-      allProfiles,
-      setProfiles,
-      setError,
-      clearErrors,
-      t,
-      setData,
-      fallbackRandom,
-      fallbackArea,
-      filterArea,
-      sampleSize,
-      setConfig,
-      localeFiltered,
-      countryFiltered,
-      postcodeFiltered,
-      postcode,
-      languages,
-      locale,
-    ]
-  );
-
-  useEffect(() => {
-    // todo: move into filter/Country
-    if (!countryFiltered) return;
-    filterProfiles(country);
-  }, [country, filterProfiles, countryFiltered]);
-
-  useEffect(() => {
-    //todo: move into filter/Postcode
-    if (!postcodeFiltered) return;
-    filterProfiles(country, constituency, area);
-  }, [country, constituency, area, filterProfiles, postcodeFiltered]);
-
-  useEffect(() => {
-    if (!localeFiltered) return;
-    filterLocale(locale);
-  }, [filterLocale, localeFiltered, locale]);
-
   const send = data => {
     const hrefGmail = message => {
       return `https://mail.google.com/mail/?view=cm&fs=1&to=${message.to}&su=${message.subject}${message.cc ? `&cc=${message.cc}` : ""}${message.bcc ? `&bcc=${message.bcc}` : ""}&body=${message.body}`;
@@ -558,8 +254,12 @@ const EmailComponent = props => {
       console.warn("no target, skip sending");
       return false;
     }
+    if (!/^(mailto:|https:\/\/mail\.google\.com\/)/.test(url)) {
+      console.error("unexpected redirect url", url);
+      return false;
+    }
     //var win = window.open(url, "_blank");
-    window.location.href = url;
+    window.location.assign(url);
 
     /*
   //TODO: display fallback using  Clipboard.writeText()
@@ -690,183 +390,58 @@ const EmailComponent = props => {
     return data;
   };
 
-  const getTargets = () => {
-    if (!selection) return profiles;
-    const filtered = profiles.filter(d => selection.includes(d.procaid));
-    if (filtered.length === 0 && selection.length > 0) {
-      // edge case: the postcode changed without properly resetting the selection
-      setSelection([]);
-    }
-    return filtered;
-  };
+  const nonEngagement = shown.some(profile => profile.engagement === false);
+
+  const getTargets = () => submitted(shown, selected, selectable);
 
   const getTargetsSubmit = () => {
     if (nonEngagement) return [];
-
     if (config.component.email?.server !== false) {
       return getTargets();
-    } else {
-      return null;
     }
+    return null;
   };
 
-  const filterTarget = useCallback(
-    (key, value) => {
-      //const filterTarget = (key, value) => {
-      if (typeof key === "function") {
-        // filter done from the filter component, eg. filter/Profile
-        const d = key(allProfiles);
-        if (typeof d === "object" && d.filter === "description") {
-          if (d.value) {
-            groups.current.add(d.key);
-          } else {
-            groups.current.delete(d.key);
-          }
-          onlySelected = groups.current.size; // update right away without waiting for a redraw
-          _setSelection(prev => {
-            let first = null;
-            const selection = new Set(prev);
-            profilesRef.current
-              .filter(target => target.description === d.key)
-              .forEach(target => {
-                if (d.value) {
-                  if (!first) first = target.procaid;
-                  // Add the procaid to the selection if the profile matches the filter
-                  selection.add(target.procaid);
-                } else {
-                  // Remove the procaid from the selection if the profile does not match the filter
-                  selection.delete(target.procaid);
-                }
-              });
-            if (first) {
-              scrollToItem(first);
-            } else {
-              scrollToFirst(selection);
-            }
-            return Array.from(selection);
-          });
-        }
-        if (Array.isArray(d)) {
-          console.log("filter from array");
-          //        setProfiles (d);
-          _setSelection(d);
-        }
-        if (d === true) {
-          console.log("select all", allProfiles);
-          setProfiles(allProfiles);
-          return;
-        }
-        if (d === false) {
-          setProfiles([]);
-          return;
-        }
-        return;
-      }
-      const d = allProfiles.filter(d => {
-        return d[key] === value;
-      });
-
-      if (d.length === 0 && countryFiltered) {
-        setError(key, {
-          message: t("target.country.empty", {
-            country: value,
-          }),
-          type: "no_empty",
-        });
-      } else {
-        clearErrors(key);
-      }
-      setProfiles(d);
-    },
-    [allProfiles, profilesRef, setError]
-  );
-
-  if (
-    selection.length === 0 &&
-    profiles.length === 1 &&
-    !profiles[0].disabled
-  ) {
-    // if only one, select it. needs to be put in an useEffect?
-    selectAll();
-  }
+  useEffect(() => {
+    if (!selectable) return;
+    if (selected.length === 0 && shown.length === 1 && !shown[0].disabled) {
+      select([shown[0].procaid]);
+    }
+  }, [selectable, selected, shown, select]);
 
   let selectAllEnabled = true;
   if (
     config.import &&
     (config.import.find(d => d.startsWith("filter")) ||
       config.component.email?.filter?.includes("postcode")) &&
-    profiles.length > 30
+    shown.length > 30
   ) {
     selectAllEnabled = false;
   }
 
-  const scrollToItem = key => {
-    if (onlySelected) return;
-    if (!listRef.current) return;
-    const itemElement = listRef.current.querySelector(`[data-key="${key}"]`);
-    if (!itemElement) return;
+  const displayed = profile => profile.display !== false;
 
-    const listRect = listRef.current.getBoundingClientRect();
-    const itemRect = itemElement.getBoundingClientRect();
-    const scrollTop = itemRect.top - listRect.top + listRef.current.scrollTop;
-
-    // Use smoothscroll to scroll the list element
-    listRef.current.scrollTo({
-      top: scrollTop,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToFirst = selection => {
-    const first = profiles.find(d => {
-      return selection.has(d.procaid);
-    });
-    if (first) {
-      scrollToItem(first.procaid);
-    } else {
-      scrollToItem(profiles[0]?.procaid);
-    }
-  };
-
-  const displayed = profile => {
-    if (profile.display === false) return false;
-    return onlySelected
-      ? selection && selection.includes(profile.procaid)
-      : true;
-  };
-
-  if (allProfiles.length === 0) return null; // do not render anything before we have profiles
-
-  const nonEngagement = profiles.some(profile => profile.engagement === false);
+  if (all.length === 0) return null;
 
   return (
     <Container maxWidth="sm">
       {config.component.email?.counter && (
         <ProgressCounter actionPage={props.actionPage} />
       )}
-      <Filter
-        profiles={profiles}
-        maxProfiles={allProfiles.length}
-        form={form}
-        selecting={filterTarget}
-        country={country}
-        constituency={constituency}
-        languages={languages}
-        filterLocale={filterLocale}
-      />
-      {selection && (
+      <Filter form={form} />
+      {selectable && (
         <>
           <input
             type="hidden"
             {...form.register("selection", {
               validate: () => {
-                selection.length > 0 && setValue("selection", selection.length);
-                return selection !== 0;
+                selected.length > 0 && setValue("selection", selected.length);
+                return selected !== 0;
               },
             })}
           />
 
-          {selection.length === 0 && profiles.length > 0 ? (
+          {selected.length === 0 && shown.length > 0 ? (
             <Alert
               severity={errors?.selection ? "error" : "info"}
               action={
@@ -875,7 +450,13 @@ const EmailComponent = props => {
                     color="primary"
                     size="small"
                     variant="contained"
-                    onClick={() => selectAll()}
+                    onClick={() =>
+                      select(
+                        shown
+                          .filter(target => !target.disabled)
+                          .map(target => target.procaid)
+                      )
+                    }
                   >
                     {t("select_all", { defaultValue: "Select all" })}
                   </Button>
@@ -884,15 +465,15 @@ const EmailComponent = props => {
             >
               {t("target.missing", {
                 defaultValue: "Select at least one out of {{total}}",
-                total: profiles.length,
+                total: shown.length,
               })}
             </Alert>
           ) : (
-            selection.length >= 1 && (
+            selected.length >= 1 && (
               <Alert severity="success">
                 {t("target.selected", {
                   defaultValue: "{{total}} selected",
-                  total: selection.length,
+                  total: selected.length,
                 })}
               </Alert>
             )
@@ -902,10 +483,7 @@ const EmailComponent = props => {
       {nonEngagement && <NonEngagement />}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense ref={listRef} component="div">
-          {profiles.length === 0 &&
-            !config.component.email?.filter?.includes("postcode") &&
-            !constituency && <SkeletonListItem />}
-          {profiles.map((d, i) => (
+          {shown.map((d, i) => (
             <EmailAction
               key={d.procaid || d.id || i}
               actionPage={config.actionPage}
@@ -915,14 +493,14 @@ const EmailComponent = props => {
               actionUrl={props.actionUrl || data.actionUrl}
               actionText={t(["campaign:share.twitter", "campaign:share"])}
               profile={d}
-              selection={selection}
-              setSelection={setSelection}
+              selection={selectable ? selected : false}
+              setSelection={select}
             />
           ))}
         </List>
       )}
       <Collapse
-        in={profiles.length > 0 || config.component.email?.server !== false}
+        in={shown.length > 0 || config.component.email?.server !== false}
       >
         <Register
           form={form}

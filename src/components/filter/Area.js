@@ -1,31 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Postcode from "@components/field/Postcode";
+import { useTargets } from "@hooks/useTargets";
+import { byArea } from "@lib/targets";
 import Alert from "@material-ui/lab/Alert";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-const FilterArea = props => {
+const FilterArea = ({ form }) => {
   const { t } = useTranslation();
-  const { watch } = props.form;
-  const area = watch("area");
-  useEffect(() => {
-    if (!area)
-      return props.selecting(() => ({
-        filter: "area",
-        key: "area",
-        value: false,
-        reset: false,
-      }));
+  const { setFilter } = useTargets();
+  const area = form.watch("area");
 
-    props.selecting(
-      "constituency",
-      area > 9 ? area.toString() : `0${area.toString()}`
-    );
-  }, [area]);
+  useEffect(() => {
+    setFilter("area", area ? { qualify: byArea(area) } : null);
+  }, [area, setFilter]);
 
   return (
     <>
-      <Postcode form={props.form} width={12} search={true} />
-      {!props.form.getValues("postcode") && (
+      <Postcode form={form} width={12} search={true} />
+      {!form.getValues("postcode") && (
         <Alert severity="info">{t("target.postcode.undefined")}</Alert>
       )}
     </>

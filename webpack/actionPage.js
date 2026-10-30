@@ -7,6 +7,14 @@ const { getConfigOverride } = require("./config");
 
 // TODO: add lazy load and /* webpackChunkName: "steps" */ './StepComponent'
 
+const filterComponent = {
+  country: "filter/Country",
+  postcode: "filter/Postcode",
+  random: "filter/Random",
+  multilingual: "filter/Multilingual",
+  fallback: "filter/Fallback",
+};
+
 const stepComponent = {
   petition: "Petition",
   share: "Share",
@@ -74,6 +82,33 @@ function createCode(config) {
       components.add(c);
     });
   }
+
+  const email = config.component?.email || {};
+  const emailFilters = Array.isArray(email.filter) ? email.filter : [];
+  const autoFilters = [];
+  if (
+    emailFilters.includes("country") &&
+    typeof config.component?.country !== "string"
+  ) {
+    autoFilters.push(filterComponent.country);
+  }
+  if (emailFilters.includes("postcode")) {
+    autoFilters.push(filterComponent.postcode);
+  }
+  ["random", "multilingual"].forEach(name => {
+    if (emailFilters.includes(name)) autoFilters.push(filterComponent[name]);
+  });
+  if (
+    email.fallbackArea ||
+    email.fallbackRandom ||
+    emailFilters.includes("fallback") ||
+    emailFilters.includes("postcode") ||
+    emailFilters.includes("country")
+  ) {
+    autoFilters.push(filterComponent.fallback);
+  }
+  imports.unshift(...autoFilters);
+  autoFilters.forEach(filter => components.add(filter));
 
   for (const x of steps) {
     components.add(x);

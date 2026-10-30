@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const { pathConfig } = require("./config");
-const simpleGit = require("simple-git");
+const { simpleGit } = require("simple-git");
 const { isDirectCli } = require("./dotenv.js");
 const color = require("cli-color");
 const actions = [
@@ -67,9 +67,9 @@ const help = () => {
 let git = {};
 try {
   git = simpleGit({ baseDir: pathConfig() });
-} catch {
+} catch (e) {
   console.error(
-    color.red("can't find config folder ", pathConfig()),
+    color.red("can't use git in config folder ", pathConfig(), e.message),
     "create or check proca config init"
   );
   process.exit(1);
