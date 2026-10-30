@@ -7,7 +7,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RemoveIcon from "@material-ui/icons/RemoveCircle";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
@@ -104,6 +104,24 @@ const PartyFilter = props => {
     },
     [setFilter]
   );
+
+  // Unselect parties when the country changes
+  const previousCountry = useRef(country);
+  useEffect(() => {
+    const previous = previousCountry.current;
+    if (previous === country) return;
+    previousCountry.current = country;
+    if (groups.size === 0) return;
+
+    const ids = allowed
+      .filter(
+        target => target.country === previous && groups.has(getKey(target))
+      )
+      .map(target => target.procaid);
+    setGroups(new Set());
+    setFilter("party", null);
+    select(selected => selected.filter(id => !ids.includes(id)));
+  }, [country, groups, allowed, getKey, setFilter, select]);
 
   const toggle = name => {
     const next = new Set(groups);
