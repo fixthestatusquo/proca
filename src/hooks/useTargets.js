@@ -50,6 +50,7 @@ export const useTargets = () =>
       allowed: state.allowed,
       visible: state.visible,
       selected: state.selected,
+      filters: state.filters,
       setAll: state.setAll,
       setFilter: state.setFilter,
       select: state.select,

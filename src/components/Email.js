@@ -43,7 +43,7 @@ const EmailComponent = props => {
   const config = useCampaignConfig();
   useSetActionType("mail2target");
   const [data, setData] = useData();
-  const { all, visible, selected, select, selectAll } = useTargets();
+  const { all, visible, selected, filters, select } = useTargets();
   const selectable = !!config.component.email?.selectable;
 
   const listRef = useRef(null);
@@ -96,9 +96,19 @@ const EmailComponent = props => {
 
   useTargetSource({ targets: props.targets, config });
 
+  const shown = useMemo(
+    () =>
+      visible.filter(target =>
+        Object.values(filters).every(
+          filter => !filter.display || filter.display(target)
+        )
+      ),
+    [visible, filters, selected]
+  );
+
   useEffect(() => {
-    setData("targets", visible);
-  }, [visible, setData]);
+    setData("targets", shown);
+  }, [shown, setData]);
 
   const tokenKeys = extractTokens(data.message || paramEmail.message);
   const tokens = watch(tokenKeys);
@@ -119,7 +129,7 @@ const EmailComponent = props => {
     setValue("message", text);
   };
 
-  if (tokenKeys.includes("targets")) tokens.targets = visible;
+  if (tokenKeys.includes("targets")) tokens.targets = shown;
 
   const getDataWithToken = key => {
     // get the data (subject or message) with the gender if set and existing, for instance if the message is different for a male or female supporter, like in french or german
@@ -380,9 +390,9 @@ const EmailComponent = props => {
     return data;
   };
 
-  const nonEngagement = visible.some(profile => profile.engagement === false);
+  const nonEngagement = shown.some(profile => profile.engagement === false);
 
-  const getTargets = () => submitted(visible, selected, selectable);
+  const getTargets = () => submitted(shown, selected, selectable);
 
   const getTargetsSubmit = () => {
     if (nonEngagement) return [];
@@ -394,17 +404,17 @@ const EmailComponent = props => {
 
   useEffect(() => {
     if (!selectable) return;
-    if (selected.length === 0 && visible.length === 1 && !visible[0].disabled) {
-      selectAll();
+    if (selected.length === 0 && shown.length === 1 && !shown[0].disabled) {
+      select([shown[0].procaid]);
     }
-  }, [selectable, selected, visible, selectAll]);
+  }, [selectable, selected, shown, select]);
 
   let selectAllEnabled = true;
   if (
     config.import &&
     (config.import.find(d => d.startsWith("filter")) ||
       config.component.email?.filter?.includes("postcode")) &&
-    visible.length > 30
+    shown.length > 30
   ) {
     selectAllEnabled = false;
   }
@@ -431,7 +441,7 @@ const EmailComponent = props => {
             })}
           />
 
-          {selected.length === 0 && visible.length > 0 ? (
+          {selected.length === 0 && shown.length > 0 ? (
             <Alert
               severity={errors?.selection ? "error" : "info"}
               action={
@@ -440,7 +450,13 @@ const EmailComponent = props => {
                     color="primary"
                     size="small"
                     variant="contained"
-                    onClick={() => selectAll()}
+                    onClick={() =>
+                      select(
+                        shown
+                          .filter(target => !target.disabled)
+                          .map(target => target.procaid)
+                      )
+                    }
                   >
                     {t("select_all", { defaultValue: "Select all" })}
                   </Button>
@@ -449,7 +465,7 @@ const EmailComponent = props => {
             >
               {t("target.missing", {
                 defaultValue: "Select at least one out of {{total}}",
-                total: visible.length,
+                total: shown.length,
               })}
             </Alert>
           ) : (
@@ -467,7 +483,7 @@ const EmailComponent = props => {
       {nonEngagement && <NonEngagement />}
       {config.component.email?.showTo !== false && (
         <List className={classes.list} dense ref={listRef} component="div">
-          {visible.map((d, i) => (
+          {shown.map((d, i) => (
             <EmailAction
               key={d.procaid || d.id || i}
               actionPage={config.actionPage}
@@ -484,7 +500,7 @@ const EmailComponent = props => {
         </List>
       )}
       <Collapse
-        in={visible.length > 0 || config.component.email?.server !== false}
+        in={shown.length > 0 || config.component.email?.server !== false}
       >
         <Register
           form={form}

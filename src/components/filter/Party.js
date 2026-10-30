@@ -1,5 +1,5 @@
 import React from "react";
-import { useTargets } from "@hooks/useTargets";
+import { targetStore, useTargets } from "@hooks/useTargets";
 import Avatar from "@material-ui/core/Avatar";
 import Badge from "@material-ui/core/Badge";
 import Chip from "@material-ui/core/Chip";
@@ -35,7 +35,8 @@ const useStyles = makeStyles(theme => ({
 
 const PartyFilter = props => {
   const classes = useStyles();
-  const { visible, selected, select } = useTargets();
+  const { allowed, select, setFilter } = useTargets();
+  const [groups, setGroups] = useState(() => new Set());
   const [parties, setParties] = useState({});
   const [allParties, setAllParties] = useState({});
   const getKey = useMemo(
@@ -64,9 +65,9 @@ const PartyFilter = props => {
   }, []);
 
   useEffect(() => {
-    if (!country || !visible.length) return;
+    if (!country || !allowed.length) return;
     const count = {};
-    const list = visible.filter(d => !country || d.country === country);
+    const list = allowed.filter(d => !country || d.country === country);
     for (const item of list) {
       const key = getKey(item);
       if (count[key]) {
@@ -95,25 +96,45 @@ const PartyFilter = props => {
       })
     );
     setParties(sortedObject);
-  }, [visible, country, getKey]);
+  }, [allowed, country, getKey]);
 
-  const idsOf = name =>
-    visible.filter(target => getKey(target) === name).map(t => t.procaid);
-
-  const isSelected = name => {
-    const ids = idsOf(name);
-    return ids.length > 0 && ids.every(id => selected.includes(id));
-  };
+  useEffect(
+    () => () => {
+      setFilter("party", null);
+    },
+    [setFilter]
+  );
 
   const toggle = name => {
-    const ids = idsOf(name);
-    const next = new Set(selected);
-    const remove = isSelected(name);
-    ids.forEach(id => {
-      if (remove) next.delete(id);
-      else next.add(id);
+    const next = new Set(groups);
+    if (next.has(name)) next.delete(name);
+    else next.add(name);
+    setGroups(next);
+
+    const ids = allowed
+      .filter(target => getKey(target) === name)
+      .map(target => target.procaid);
+
+    if (next.size === 0) {
+      // no party selected: show everything, but keep manual checks
+      setFilter("party", null);
+      select(previous => previous.filter(id => !ids.includes(id)));
+      return;
+    }
+
+    setFilter("party", {
+      display: target =>
+        next.has(getKey(target)) ||
+        targetStore.getState().selected.includes(target.procaid),
     });
-    select([...next]);
+
+    if (next.has(name)) {
+      // checking: select the party's targets, keep existing checks
+      select(previous => [...new Set([...previous, ...ids])]);
+    } else {
+      // unchecking: hide and uncheck this party's targets
+      select(previous => previous.filter(id => !ids.includes(id)));
+    }
   };
 
   return (
@@ -126,7 +147,7 @@ const PartyFilter = props => {
           const AvatarParty = record.picture && (
             <Avatar alt={name} src={record.picture} />
           );
-          const checked = isSelected(name);
+          const checked = groups.has(name);
           return (
             <Badge
               key={name}
