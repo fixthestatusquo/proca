@@ -12,7 +12,7 @@ const jsxInJs = {
     if (!id.endsWith(".js") || id.includes("node_modules")) return null;
     return transformWithOxc(code, id, {
       lang: "jsx",
-      jsx: { runtime: "classic" },
+      jsx: { runtime: "automatic" },
     });
   },
 };
