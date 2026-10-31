@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useData from "@hooks/useData";
 import { addAction } from "@lib/server";
 import { utm } from "@lib/urlparser";
@@ -48,7 +48,22 @@ const ExternalPayment = props => {
       .replace("{country}", formData.country || "")
       .replace("{amount}", formData.amount || "")
       .replace("{amountcent}", formData.amount ? formData.amount * 100 : "");
-    window.open(url, "_blank");
+    let target;
+    try {
+      target = new URL(url, window.location.href);
+    } catch {
+      console.error("invalid donation url", url);
+      return;
+    }
+    if (target.protocol !== "https:" && target.protocol !== "http:") {
+      console.error("invalid donation protocol", target.protocol);
+      return;
+    }
+    const link = document.createElement("a");
+    link.href = target.toString();
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.click();
   };
 
   return (

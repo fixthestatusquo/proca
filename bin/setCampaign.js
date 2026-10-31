@@ -68,7 +68,7 @@ if (argv.help) {
 }
 
 const id = argv._[0];
-const current = read("campaign/" + id);
+const current = read(`campaign/${id}`);
 if (!current) {
   console.error("can't read campaign ", id);
   process.exit(1);
@@ -85,19 +85,18 @@ const update = (id, change) => {
     try {
       const campaign = await pullCampaign(id);
       saveCampaign(campaign);
-      console.log("pulled " + id);
+      console.log(`pulled ${id}`);
     } catch (error) {
       console.error(error);
     }
   }
 
   if (argv.lang) {
-    let arr = [];
-    argv.lang.indexOf(",") > -1
-      ? (arr = argv.lang.split(","))
-      : arr.push(argv.lang);
-    let locales = {};
-    arr.map(lang => {
+    const arr = argv.lang.includes(",")
+      ? argv.lang.split(",")
+      : [argv.lang];
+    const locales = {};
+    arr.forEach(lang => {
       if (languages.includes(lang)) {
         locales[lang] = {};
       } else {
@@ -123,7 +122,7 @@ const update = (id, change) => {
     } catch (errors) {
       console.log(errors);
       Array.isArray(errors) &&
-        errors.map(e => {
+        errors.forEach(e => {
           console.error("\x1b[31m", e.message);
         });
     }

@@ -1,8 +1,8 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 //import useCount from "@hooks/useCount.js";
 import { CountUp } from "countup.js";
 import { useCampaignConfig } from "@hooks/useConfig.js";
-import { Typography, Card, CardHeader, CardContent } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 function getThousandsSeparator(locale = navigator.language) {

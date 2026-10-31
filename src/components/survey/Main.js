@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Grid, LinearProgress } from "@material-ui/core";
 import useQuestions from "@components/survey/useQuestions";

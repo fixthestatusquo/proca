@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useComponentConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
 
@@ -31,11 +31,9 @@ const iRaiserFrame = () => {
   const href = `${component.donation.iraiser.url}/b?cid=${component.donation.iraiser.cid}#iraiser_native`;
 
   return (
-    <>
-      <a id="iraiser_frame" href={href}>
+    <a id="iraiser_frame" href={href}>
         donate
       </a>
-    </>
   );
 };
 

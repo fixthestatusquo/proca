@@ -12,7 +12,7 @@ const DispatchPublicComment = () => {
   const supabase = useSupabase();
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  let uuid = undefined;
+  let uuid ;
 
   useEffect(() => {
     const saveComment = async data => {

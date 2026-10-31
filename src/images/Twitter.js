@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const SvgComponent = () => (
   <svg viewBox="0 0 64 64">
     <title>Twitter</title>

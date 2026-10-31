@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { checkMail, getDomain, prefetchDNS } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";

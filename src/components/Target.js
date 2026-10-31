@@ -23,8 +23,7 @@ export default function Target(props) {
   };
 
   return (
-    <>
-      <Paper square>
+    <Paper square>
         <AppBar position="static" color="default">
           <Tabs
             variant="fullWidth"
@@ -59,6 +58,5 @@ export default function Target(props) {
           )}
         </Box>
       </Paper>
-    </>
   );
 }

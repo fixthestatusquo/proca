@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
 import { Snackbar } from "@material-ui/core";
@@ -141,8 +141,7 @@ export default function Register(props) {
       data
     );
     console.log("props ", props);
-    props.done &&
-      props.done({
+    props.done?.({
         errors: result.errors,
         uuid: result.contactRef,
         firstname: data.firstname,

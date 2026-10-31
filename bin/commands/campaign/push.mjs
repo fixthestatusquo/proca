@@ -1,4 +1,4 @@
-import Command, { Args, Flags } from "../../builderCommand.mjs";
+import Command, { Flags } from "../../builderCommand.mjs";
 
 export default class CampaignPush extends Command {
   static description = "push the campaign from the config file to the server";

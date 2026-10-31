@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -29,8 +29,7 @@ export default function Target(props) {
   };
 
   return (
-    <>
-      <Paper square>
+    <Paper square>
         <AppBar position="static" color="default">
           <Tabs
             variant="fullWidth"
@@ -51,6 +50,5 @@ export default function Target(props) {
           {value === "share" && <Share done={props.done} />}
         </Box>
       </Paper>
-    </>
   );
 }

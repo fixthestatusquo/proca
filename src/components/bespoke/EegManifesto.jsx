@@ -1,4 +1,4 @@
-import React from "react";
+
 import Checkbox from "@components/field/Checkbox";
 import { Grid } from "@material-ui/core";
 import Orcid from "@components/field/Orcid";
@@ -16,7 +16,7 @@ const EggManifesto = ({ form }) => {
   ]);
   const { t } = useTranslation();
 
-  let label =
+  const label =
     t("sign1", "Sign on the behalf of ") +
     (organisation ||
       t("sign2", "your organisation or a research group/department"));

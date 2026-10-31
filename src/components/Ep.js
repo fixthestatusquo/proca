@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, Fragment } from "react";
+import { useState, useEffect, useCallback, Fragment } from "react";
 
 import List from "@material-ui/core/List";
 import MepAction from "@components/MepAction";

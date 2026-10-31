@@ -1,4 +1,4 @@
-import * as React from "react";
+
 
 const AISymbol = () => (
   <svg focusable="false" aria-hidden="true" viewBox="0 0 24 24">

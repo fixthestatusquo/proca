@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Typography, Grid } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import { shuffle } from "@lib/array";
@@ -152,7 +152,7 @@ const CreateMeme = props => {
   };
 
   useEffect(() => {
-    if (document && document.fonts) {
+    if (document?.fonts) {
       setTimeout(() => {
         document.fonts.load("20px Anton").then(() => {
           selectOne(0);
@@ -186,9 +186,8 @@ const CreateMeme = props => {
 
     ctx.textBaseline = "top";
 
-    param.topText &&
-      param.topText
-        .toUpperCase()
+    param.topText
+        ?.toUpperCase()
         .split("\n")
         .forEach((t, i) => {
           ctx.fillText(
@@ -206,9 +205,8 @@ const CreateMeme = props => {
         });
 
     ctx.textBaseline = "bottom";
-    param.bottomText &&
-      param.bottomText
-        .toUpperCase()
+    param.bottomText
+        ?.toUpperCase()
         .split("\n")
         .reverse()
         .forEach((t, i) => {
@@ -288,7 +286,7 @@ const CreateMeme = props => {
     return true;
   };
 
-  const item = (items[current] && items[current].original) || "";
+  const item = (items[current]?.original) || "";
   useEffect(() => {
     const base_image = new Image();
     base_image.setAttribute("crossOrigin", "anonymous");
@@ -299,9 +297,8 @@ const CreateMeme = props => {
         const lineLength = (
           text // returns the max line Length if multiline text
         ) =>
-          text &&
           text
-            .split("\n")
+            ?.split("\n")
             .reduce((max, d) => (d.length > max ? d.length : max), 0);
         const autoSplit = (
           text // split if not split already

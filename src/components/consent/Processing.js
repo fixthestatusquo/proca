@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, Grid } from "@material-ui/core";
 import { useTranslation, Trans } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";

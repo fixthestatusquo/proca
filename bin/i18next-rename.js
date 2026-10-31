@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const minimist = require("minimist");
 
 // --- Args ---
@@ -32,7 +32,10 @@ function getNestedValue(obj, keyPath) {
 function setNestedValue(obj, keyPath, value) {
   const keys = keyPath.split(".");
   const last = keys.pop();
-  const target = keys.reduce((acc, k) => (acc[k] ??= {}), obj);
+  const target = keys.reduce((acc, k) => {
+    if (acc[k] == null) acc[k] = {};
+    return acc[k];
+  }, obj);
   target[last] = value;
 }
 
@@ -90,7 +93,7 @@ langs.forEach(lang => {
   deleteNestedKey(data, from);
 
   if (!dryRun) {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n");
+    fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`);
   }
   console.log(`  ${dryRun ? "~" : "✓"} ${lang}/common.json`);
   updatedCount++;

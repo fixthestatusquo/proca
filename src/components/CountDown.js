@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import simplyCountdown from "simplycountdown.js";
 import { useComponentConfig } from "@hooks/useConfig.js";
@@ -96,18 +96,18 @@ const Countdown = () => {
       inline: false,
       words: {
         // Custom labels, with lambda for plurals
-        days: { root: "day", lambda: (root, n) => (n > 1 ? root + "s" : root) },
+        days: { root: "day", lambda: (root, n) => (n > 1 ? `${root}s` : root) },
         hours: {
           root: "hour",
-          lambda: (root, n) => (n > 1 ? root + "s" : root),
+          lambda: (root, n) => (n > 1 ? `${root}s` : root),
         },
         minutes: {
           root: "minute",
-          lambda: (root, n) => (n > 1 ? root + "s" : root),
+          lambda: (root, n) => (n > 1 ? `${root}s` : root),
         },
         seconds: {
           root: "second",
-          lambda: (root, n) => (n > 1 ? root + "s" : root),
+          lambda: (root, n) => (n > 1 ? `${root}s` : root),
         },
       },
       inlineClass: "countdown-inline",

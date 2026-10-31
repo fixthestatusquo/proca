@@ -1,4 +1,3 @@
-import React from "react";
 import Select from "@components/field/Select";
 import { useSetCampaignConfig } from "@hooks/useConfig";
 import { useTargets } from "@hooks/useTargets";

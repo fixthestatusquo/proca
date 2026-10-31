@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Box, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { ListItemSecondaryAction, Checkbox } from "@material-ui/core";
 
 export const toggleSelection = (key, setSelection) => {

@@ -126,7 +126,7 @@ export default function Register(props) {
           return res.json();
         })
         .then(res => {
-          if (res && res.name) {
+          if (res?.name) {
             setLocality(res.name);
             setRegion(res.code1);
             setValue("locality", res.name);
@@ -305,7 +305,7 @@ export default function Register(props) {
 
   return (
     <React.Fragment>
-      <ProgressCounter actionPage={null} count={c && c.total} />
+      <ProgressCounter actionPage={null} count={c?.total} />
       <form
         className={classes.container}
         onSubmit={handleSubmit(onSubmit)}
@@ -371,7 +371,7 @@ export default function Register(props) {
                 autoComplete="postal-code"
                 error={!!errors.postcode}
                 helperText={
-                  errors && errors.postcode && errors.postcode.message
+                  errors?.postcode?.message
                 }
                 {...register("postcode")}
                 className={classes.textField}

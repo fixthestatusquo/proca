@@ -19,11 +19,11 @@ const configFolder = () =>
 function readConfigOverride(id) {
   //  console.log(id);console.trace("Here I am!")
 
-  let apId = id || process.env[envVar] || process.argv[2];
+  const apId = id || process.env[envVar] || process.argv[2];
 
   if (apId) {
-    const configFile = apId + ".json";
-    const fn = path.resolve(__dirname, configFolder() + "/" + configFile);
+    const configFile = `${apId}.json`;
+    const fn = path.resolve(__dirname, `${configFolder()}/${configFile}`);
     try {
       const config = parseConfig(fs.readFileSync(fn));
       let campaignConfig = {};
@@ -32,7 +32,7 @@ function readConfigOverride(id) {
           fs.readFileSync(
             path.resolve(
               __dirname,
-              configFolder() + "/campaign/" + config.campaign.name + ".json"
+              `${configFolder()}/campaign/${config.campaign.name}.json`
             )
           )
         );
@@ -71,8 +71,7 @@ function readConfigOverride(id) {
           );
         }
         if (
-          campaignConfig.config.locales &&
-          campaignConfig.config.locales[config.lang] &&
+          campaignConfig.config.locales?.[config.lang] &&
           campaignConfig.config.locales[config.lang]["common:"]
         ) {
           config.locales = merge(
@@ -82,10 +81,9 @@ function readConfigOverride(id) {
           delete campaignConfig.config.locales[config.lang]["common:"];
         }
         if (
-          campaignConfig.config.locales &&
-          campaignConfig.config.locales[config.lang]
+          campaignConfig.config.locales?.[config.lang]
         ) {
-          let campaigns = merge(
+          const campaigns = merge(
             campaignConfig.config.locales[config.lang]["campaign:"],
             config.locales["campaign:"]
           );
@@ -110,8 +108,7 @@ function readConfigOverride(id) {
             });
           config.locales["campaign:"] = campaigns;
           if (
-            config.locales["campaign:"] &&
-            config.locales["campaign:"].title
+            config.locales["campaign:"]?.title
           ) {
             config.campaign.title = config.locales["campaign:"].title;
           }

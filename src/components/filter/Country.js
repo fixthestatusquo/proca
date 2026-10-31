@@ -1,4 +1,3 @@
-import React from "react";
 import Country from "@components/field/Country";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";

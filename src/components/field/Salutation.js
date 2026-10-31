@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
@@ -42,8 +42,7 @@ const Salutation = props => {
   };
 
   return (
-    <>
-      <Grid item xs={width()} sm={width()} className={classField}>
+    <Grid item xs={width()} sm={width()} className={classField}>
         <TextField
           hidden={open}
           select={!open}
@@ -65,10 +64,9 @@ const Salutation = props => {
           })}
         </TextField>
         {open && ( // open
-          <>
-            <TextField
+          <TextField
               name="salutation-other"
-              label={options["other"]}
+              label={options.other}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -85,10 +83,8 @@ const Salutation = props => {
               autoFocus
               form={props.form}
             />
-          </>
         )}
       </Grid>
-    </>
   );
 };
 

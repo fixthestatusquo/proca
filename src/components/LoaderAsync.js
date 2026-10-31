@@ -57,7 +57,7 @@ const LoaderAsync = () => {
       })();
     } else {
       Object.entries(loaders).map(([k, v]) => {
-        (async function () {
+        (async () => {
           let url = v.url;
           if (!url) return null;
           if (v.appendLocale === true) url += lang;

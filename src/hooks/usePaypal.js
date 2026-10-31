@@ -157,7 +157,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
       // https://github.com/paypal/paypal-checkout-components/issues/1506
 
       try {
-        if (buttons && buttons.close) {
+        if (buttons?.close) {
           buttons.close();
         }
       } catch (e) {
@@ -296,7 +296,7 @@ const usePaypal = ({ completed, failed, amount, campaign, dom, formData }) => {
       // https://github.com/paypal/paypal-checkout-components/issues/1506
 
       try {
-        if (buttons && buttons.close) {
+        if (buttons?.close) {
           buttons.close();
         }
       } catch (e) {

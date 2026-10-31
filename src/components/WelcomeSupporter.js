@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useData from "@hooks/useData";
 import { setCookie } from "@lib/cookie";
 import { useTranslation } from "react-i18next";

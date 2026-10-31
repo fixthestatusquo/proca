@@ -1,4 +1,4 @@
-import React from "react";
+
 import Postcode from "@components/field/Postcode";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useTargets } from "@hooks/useTargets";

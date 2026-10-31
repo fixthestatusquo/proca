@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -111,13 +111,13 @@ const Signatories = () => {
               >
                 <ListItemAvatar>
                   <Avatar
-                    alt={d.first_name + " " + d.last_name}
+                    alt={`${d.first_name} ${d.last_name}`}
                     src={d.picture}
                   />
                 </ListItemAvatar>
                 <ListItemText
-                  primary={d.first_name + " " + d.last_name}
-                  secondary={d.region ? d.party + ", " + d.region : d.party}
+                  primary={`${d.first_name} ${d.last_name}`}
+                  secondary={d.region ? `${d.party}, ${d.region}` : d.party}
                 />
               </ListItem>
             ))}

@@ -1,5 +1,4 @@
 import { useData } from "../../../hooks/useData";
-import React from "react";
 import { Button, Grid, Typography, withStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "../../../hooks/useConfig";

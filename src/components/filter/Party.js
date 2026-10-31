@@ -1,4 +1,3 @@
-import React from "react";
 import { targetStore, useTargets } from "@hooks/useTargets";
 import Avatar from "@material-ui/core/Avatar";
 import Badge from "@material-ui/core/Badge";

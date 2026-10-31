@@ -1,4 +1,4 @@
-import React, { useState, useRef, createRef, useCallback } from "react";
+import { useState, useRef, createRef, useCallback } from "react";
 
 import { scrollTo } from "@lib/scroll";
 
@@ -116,8 +116,7 @@ export default function ImageStickerComplete(props) {
           </Step>
         </Stepper>
         {config.component.picture?.upload !== false && (
-          <>
-            <div hidden={activeStep !== 0} className={classes.dialog}>
+          <div hidden={activeStep !== 0} className={classes.dialog}>
               {t("image.options", "Would you like to")}
               <Accordion
                 TransitionProps={{ unmountOnExit: true }}
@@ -159,12 +158,9 @@ export default function ImageStickerComplete(props) {
                 </AccordionDetails>
               </Accordion>
             </div>
-          </>
         )}
         {config.component.picture?.upload == false && (
-          <>
-            <SelectPicture setCanvas={uploadedCanvas} />
-          </>
+          <SelectPicture setCanvas={uploadedCanvas} />
         )}
         <div hidden={activeStep !== 1} className={classes.dialog}>
           <ImageStickerKonva
@@ -196,7 +192,7 @@ const ImageStickerKonva = props => {
     "anonymous",
     "origin"
   );
-  let image = undefined;
+  let image ;
   const [images, setImages] = useState([]);
   const canvasRef = useRef();
   const data = props.form?.getValues();

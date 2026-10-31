@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, } from "react";
 import TextField from "@components/field/TextField";
 import { useComponentConfig } from "@hooks/useConfig";
 import { useTranslation } from "react-i18next";
@@ -104,11 +104,11 @@ const Organisation = ({ form, classField, enforceRequired }) => {
           return res.json();
         })
         .then(res => {
-          if (res && res.error) {
+          if (res?.error) {
             setState("nok");
             setError(field, {
               type: "metapi_error",
-              message: "Can't load the site. " + res.error,
+              message: `Can't load the site. ${res.error}`,
             });
             return;
           }

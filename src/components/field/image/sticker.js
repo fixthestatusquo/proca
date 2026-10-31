@@ -1,5 +1,5 @@
 import useImage from "use-image";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Circle, Image as KonvaImage, Group } from "react-konva";
 import { useHoverDirty, useLongPress } from "react-use";
 

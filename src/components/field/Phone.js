@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useCampaignConfig } from "@hooks/useConfig";
 import { checkPhone, prefetchDNS } from "@lib/checkPhone";
 //import useData from "@hooks/useData";

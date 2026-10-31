@@ -1,4 +1,4 @@
-import React from "react";
+
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { Button, Grid } from "@material-ui/core";
@@ -33,8 +33,7 @@ const PublicMessage = props => {
     if (sendMessage) {
       setData({ ...data, ...formData });
     }
-    props.done &&
-      props.done({
+    props.done?.({
         firstname: formData.firstname,
         country: formData.country,
         privacy: formData.privacy,

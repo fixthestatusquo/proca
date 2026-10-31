@@ -108,7 +108,7 @@ const AffiliationInput = ({ form }) => {
             ? t("no_org", "No organisation found")
             : t("org", "Type to search your organisation")
         }
-        loadingText={"Searching " + inputValue + "..."}
+        loadingText={`Searching ${inputValue}...`}
         autoSelect
         autoHighlight
         renderOption={option => (

@@ -1,4 +1,4 @@
-import React from "react";
+
 import Register from "@components/Register";
 import { Container, CardHeader } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";

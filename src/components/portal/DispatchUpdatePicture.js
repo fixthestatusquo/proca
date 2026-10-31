@@ -11,21 +11,21 @@ const DispatchUpdateImage = () => {
   const supabase = useSupabase();
   const { t } = useTranslation();
   const config = useCampaignConfig();
-  let uuid = undefined;
+  let uuid ;
 
   console.log("dispatch update image", data);
   alert("do not use, this isn't possible to update pictures as anonymous");
 
   useEffect(() => {
     const updatePicture = async data => {
-      let d = {
+      const d = {
         uuid: getuuid(),
       };
       if (data.country) d.area = data.country;
       if (data.firstname) {
         d.creator = data.firstname.trim();
         if (data.lastname) {
-          d.creator += " " + data.lastname.charAt(0).toUpperCase().trim();
+          d.creator += ` ${data.lastname.charAt(0).toUpperCase().trim()}`;
         }
         if (data.locality) {
           d.creator = t("supporterHint", {

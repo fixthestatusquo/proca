@@ -1,4 +1,3 @@
-import React from "react";
 import { imports } from "../../actionPage";
 
 const Filter = ({ form }) => {

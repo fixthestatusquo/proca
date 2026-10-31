@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Url from "@lib/urlparser";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
@@ -121,7 +121,7 @@ const RemindMeLater = props => {
         <Alert
           style={{ width: "100%" }}
           onClose={() => {
-            props.done && props.done(false);
+            props.done?.(false);
           }}
           severity="success"
           icon={<MailIcon />}

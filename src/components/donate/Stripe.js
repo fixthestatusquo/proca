@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField as LayoutTextField,
@@ -207,9 +207,9 @@ const PaymentForm = props => {
                 className={classes.textField}
                 label={t("Postal Code")}
                 autoComplete="postal-code"
-                error={!!(errors && errors["postcode"])}
+                error={!!(errors?.postcode)}
                 helperText={
-                  errors && errors["postcode"] && errors["postcode"].message
+                  errors?.postcode?.message
                 }
                 variant={layout.variant}
                 margin={layout.margin}

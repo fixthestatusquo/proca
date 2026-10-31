@@ -1,4 +1,4 @@
-var path = require("path");
+var path = require("node:path");
 
 module.exports = webpack => {
   webpack.module.rules.push({

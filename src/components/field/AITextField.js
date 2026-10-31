@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -133,10 +133,10 @@ const Comment = ({
         const d = data.response;
         form.setValue(name, d);
         if (d.length > maxLength) {
-          console.log(d.length + "/" + maxLength);
+          console.log(`${d.length}/${maxLength}`);
           form.setError(name, {
             type: "length",
-            message: d.length + "/" + maxLength,
+            message: `${d.length}/${maxLength}`,
           });
         }
         setState("loaded");
@@ -173,10 +173,10 @@ const Comment = ({
             }
             form.setValue(name, aggregatedResponse);
             if (aggregatedResponse.length > maxLength) {
-              console.log(aggregatedResponse.length + "/" + maxLength);
+              console.log(`${aggregatedResponse.length}/${maxLength}`);
               form.setError(name, {
                 type: "length",
-                message: aggregatedResponse.length + "/" + maxLength,
+                message: `${aggregatedResponse.length}/${maxLength}`,
               });
             }
           } catch (e) {

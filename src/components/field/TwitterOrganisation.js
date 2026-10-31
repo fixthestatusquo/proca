@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
@@ -48,7 +48,7 @@ const Organisation = props => {
   //variant={options.variant}
   //margin={options.margin}
   const handleBlur = e => {
-    props.form.handleBlur && props.form.handleBlur(e);
+    props.form.handleBlur?.(e);
     fetchTwitter(e.target.value);
   };
 
@@ -69,7 +69,7 @@ const Organisation = props => {
           return res.json();
         })
         .then(res => {
-          if (res && res.error) {
+          if (res?.error) {
             setProfile({ name: "?", url: "", description: "" });
             setError(field, "api", res.message.errors[0].message);
             return;
@@ -152,15 +152,13 @@ const Organisation = props => {
         </List>
       </Grid>
       {profile.id ? (
-        <>
-          <Grid item xs={12} sm={compact ? 12 : 12}>
+        <Grid item xs={12} sm={compact ? 12 : 12}>
             <TextField name="organisation" required form={props.form} />
             <input type="hidden" {...register("comment")} />
             <input type="hidden" {...register("picture")} />
             <input type="hidden" {...register("url")} />
             <input type="hidden" {...register("followers_count")} />
           </Grid>
-        </>
       ) : null}
     </>
   );

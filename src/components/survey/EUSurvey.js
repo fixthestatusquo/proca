@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useData from "@hooks/useData";
 import Register from "@components/Register";
 import { useCampaignConfig, useSetActionType } from "@hooks/useConfig";
@@ -125,7 +125,7 @@ const Consultation = props => {
             form={form}
             handleNext={handleNext}
             questions={questions}
-            ids={qids["citizen"]?.questions}
+            ids={qids.citizen?.questions}
           />
         </>
       )}

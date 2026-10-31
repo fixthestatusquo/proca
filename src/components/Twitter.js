@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, Fragment } from "react";
+import { useState, useEffect, useCallback, Fragment } from "react";
 
 import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
@@ -38,8 +38,7 @@ const Intro = props => {
   const config = useCampaignConfig();
   console.log(config.component.twitter);
   if (
-    config.component.twitter &&
-    config.component.twitter.filter &&
+    config.component.twitter?.filter &&
     !config.component.twitter.filter.includes("random")
   )
     return null;

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 require("dotenv").config();
 const { commit, add } = require("./git");
 const color = require("cli-color");
@@ -55,16 +55,19 @@ const help = () => {
 };
 
 const readOrg = orgName => {
-  const fileName = file("org/" + orgName);
-  const org = JSON.parse(fs.readFileSync(fileName));
-  return org;
+  const fileName = file(`org/${orgName}`);
+  try {
+    return JSON.parse(fs.readFileSync(fileName));
+  } catch (e) {
+    throw new Error(`can't read org ${orgName}: ${e.message}`);
+  }
 };
 
 const saveOrg = async (orgName, org) => {
-  const fileName = file("org/" + orgName);
-  const exists = fileExists("org/" + orgName);
+  const fileName = file(`org/${orgName}`);
+  const exists = fileExists(`org/${orgName}`);
   fs.writeFileSync(fileName, JSON.stringify(org, null, 2));
-  console.log(color.green.bold("wrote " + fileName));
+  console.log(color.green.bold(`wrote ${fileName}`));
   let r = null;
   const msg =
     "#" +
@@ -89,10 +92,10 @@ const saveOrg = async (orgName, org) => {
 
 const getTwitter = async org => {
   const orgName =
-    (org.config.twitter && org.config.twitter.screen_name) || org.name;
+    (org.config.twitter?.screen_name) || org.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + orgName
+      `https://twitter.proca.app/?screen_name=${orgName}`
     );
 
     if (res.status >= 400) {
@@ -154,14 +157,20 @@ query GetOrg($name: String!) {
 `;
 
   const data = await api(query, { name }, "GetOrg");
-  if (!data.org) throw new Error("can't find org " + name);
+  if (!data.org) throw new Error(`can't find org ${name}`);
 
-  if (data.org.config) data.org.config = JSON.parse(data.org.config);
+  if (data.org.config) {
+    try {
+      data.org.config = JSON.parse(data.org.config);
+    } catch (e) {
+      throw new Error(`can't parse org ${name} config: ${e.message}`);
+    }
+  }
   return data.org;
 };
 
 const pullOrg = async name => {
-  let org = undefined;
+  let org;
   try {
     if (!argv.push || argv.pull) org = await getOrg(name);
     else org = readOrg(name);

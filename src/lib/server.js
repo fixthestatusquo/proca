@@ -49,7 +49,7 @@ async function graphQL(operation, query, options) {
 
         response.errors.fields = [];
         response.errors.forEach(error => {
-          const field = error.path && error.path.slice(-1)[0];
+          const field = error.path?.slice(-1)[0];
           if (!field) return;
           let msg = error.message.split(":");
           if (msg.length === 2) {

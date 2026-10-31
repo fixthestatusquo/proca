@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 require("dotenv").config();
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
@@ -106,7 +106,7 @@ if (argv._.length !== 1) {
 
 const parseEmail = text => {
   const emails =
-    text && text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+    text?.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
   if (!emails) {
     !argv.quiet && console.log("failed to parse as an email", text);
     return [];
@@ -131,7 +131,7 @@ query GetCampaignTargets($name: String!) {
 `;
 
   const data = await api(query, { name }, "GetCampaignTargets");
-  if (!data.campaign) throw new Error("can't find campaign " + name);
+  if (!data.campaign) throw new Error(`can't find campaign ${name}`);
   if (!data.campaign.targets || data.campaign.targets.length === 0)
     throw new Error("No targets.");
   data.campaign.targets = data.campaign.targets.map(t => {
@@ -162,7 +162,7 @@ const pullTarget = async name => {
   }
   if (argv["dry-run"]) return console.log(JSON.stringify(targets, null, 2));
   if (argv.source) {
-    const sources = read("target/source/" + name); // the list of targets from the source
+    const sources = read(`target/source/${name}`); // the list of targets from the source
     const c = targets.filter(
       t => -1 !== sources.findIndex(d => d.externalId === t.externalId)
     );
@@ -181,21 +181,21 @@ const pullTarget = async name => {
 };
 
 const readTarget = targetName => {
-  const fileName = file("target/" + targetName);
+  const fileName = file(`target/${targetName}`);
   const target = JSON.parse(fs.readFileSync(fileName));
   return target;
 };
 
 const saveDigest = async (targetName, targets) => {
   mkdirp("target/digest");
-  const fileName = file("target/digest/" + targetName);
-  const exists = fileExists("target/digest/" + targetName);
+  const fileName = file(`target/digest/${targetName}`);
+  const exists = fileExists(`target/digest/${targetName}`);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("saving " + targets.length + " targets into", fileName)
+    color.green.bold(`saving ${targets.length} targets into`, fileName)
   );
   let r = null;
-  const msg = "saving " + targets.length + " targets";
+  const msg = `saving ${targets.length} targets`;
   if (argv.git) {
     if (!exists) {
       r = await add(fileName);
@@ -208,14 +208,14 @@ const saveDigest = async (targetName, targets) => {
 };
 
 const saveTargets = async (targetName, targets) => {
-  const fileName = file("target/server/" + targetName);
-  const exists = fileExists("target/server/" + targetName);
+  const fileName = file(`target/server/${targetName}`);
+  const exists = fileExists(`target/server/${targetName}`);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("pulled " + targets.length + " targets into", fileName)
+    color.green.bold(`pulled ${targets.length} targets into`, fileName)
   );
   let r = null;
-  const msg = "saving " + targets.length + " targets";
+  const msg = `saving ${targets.length} targets`;
   if (argv.git) {
     if (!exists) {
       r = await add(fileName);
@@ -229,10 +229,10 @@ const saveTargets = async (targetName, targets) => {
 
 const getTwitter = async target => {
   const targetName =
-    (target.config.twitter && target.config.twitter.screen_name) || target.name;
+    (target.config.twitter?.screen_name) || target.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + targetName
+      `https://twitter.proca.app/?screen_name=${targetName}`
     );
 
     if (res.status >= 400) {
@@ -253,11 +253,11 @@ const getTwitter = async target => {
 };
 
 const summary = campaign => {
-  const source = read("target/source/" + campaign);
-  const server = read("target/server/" + campaign);
-  const publict = read("target/public/" + campaign);
+  const source = read(`target/source/${campaign}`);
+  const server = read(`target/server/${campaign}`);
+  const publict = read(`target/public/${campaign}`);
   if (argv.file) {
-    const source = read("target/source/" + argv.file);
+    const source = read(`target/source/${argv.file}`);
     console.log(argv.file, " :", source.length);
   } else {
     console.log("source :", source.length);
@@ -267,7 +267,7 @@ const summary = campaign => {
 };
 
 const formatTarget = async (campaignName, file) => {
-  const campaign = read("campaign/" + campaignName);
+  const campaign = read(`campaign/${campaignName}`);
   const salutations = {};
   if (argv.salutation) {
     Object.keys(campaign.config.locales).forEach(lang => {
@@ -278,7 +278,7 @@ const formatTarget = async (campaignName, file) => {
         salutations[lang] = campaign.config.locales.en["common:"].salutation; //WORKAROUND to default to en
     });
   }
-  let targets = read("target/source/" + file);
+  const targets = read(`target/source/${file}`);
   if (targets === null) {
     console.error(color.red("No targets found"));
     process.exit(1);
@@ -337,7 +337,7 @@ const formatTarget = async (campaignName, file) => {
             first_name: t.field.first_name,
           });
         } else {
-          let language = t.locale ? t.locale.replace("_", "-") : "en";
+          const language = t.locale ? t.locale.replace("_", "-") : "en";
           await i18n.loadLanguages(t.locale || "en", err => {
             if (!err) return;
             console.warn(color.red("missing language", language));
@@ -353,7 +353,7 @@ const formatTarget = async (campaignName, file) => {
           });
         }
         if (!t.locale?.startsWith("nb") && !t.field?.lang?.startsWith("nb"))
-          t.field.salutation = (t.field.salutation ?? "") + ",";
+          t.field.salutation = `${t.field.salutation ?? ""},`;
       }
       if (t.emails.length === 0) {
         !argv.quiet && console.log("skipping record without email", t.name);
@@ -398,7 +398,7 @@ const formatTarget = async (campaignName, file) => {
 
     process.exit(1);
   }
-  if (argv["verbose"]) {
+  if (argv.verbose) {
     console.log(JSON.stringify(formattedTargets, null, 2));
   }
   if (argv["dry-run"]) {
@@ -425,7 +425,7 @@ const digestTarget = async (campaignName, file) => {
 };
 
 const pushTarget = async (campaignName, file) => {
-  const campaign = read("campaign/" + campaignName);
+  const campaign = read(`campaign/${campaignName}`);
   const formattedTargets = await formatTarget(campaignName, file);
   console.log("targets", formattedTargets.length);
 
@@ -498,7 +498,7 @@ query GetTarget($name: String!) {
 `;
 
   const data = await api(query, { name }, "GetTarget");
-  if (!data.target) throw new Error("can't find target " + name);
+  if (!data.target) throw new Error(`can't find target ${name}`);
 
   if (data.target.config) data.target.config = JSON.parse(data.target.config);
   return data.target;

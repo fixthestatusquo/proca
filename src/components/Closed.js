@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useTranslation } from "react-i18next";
 import useCount from "@hooks/useCount";
 import { Container, Box } from "@material-ui/core";

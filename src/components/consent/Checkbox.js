@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Checkbox from "@components/field/Checkbox";
 import Hidden from "@components/field/Hidden";
 import ConsentProcessing from "@components/consent/Processing";

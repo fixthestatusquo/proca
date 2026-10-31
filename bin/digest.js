@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const color = require("cli-color");
 require("./dotenv.js");
 const argv = require("minimist")(process.argv.slice(2), {
@@ -13,7 +13,7 @@ const { i18nRender, i18nTplInit } = require("./template.js");
 const configOverride = require("./lang").configOverride;
 
 const tmp = process.env.PROCA_CONFIG_FOLDER
-  ? "../" + process.env.PROCA_CONFIG_FOLDER + "/"
+  ? `../${process.env.PROCA_CONFIG_FOLDER}/`
   : "../config/";
 
 const help = () => {
@@ -39,10 +39,10 @@ const saveConfig = (templateName, campaignName, lang, subject, campaign) => {
   campaignName && console.warn("unused param", campaignName);
   const jsonFile = path.resolve(
     __dirname,
-    tmp + "email/digest/" + templateName + "/" + lang + ".json"
+    `${tmp}email/digest/${templateName}/${lang}.json`
   );
   const type = "digest";
-  let json = {
+  const json = {
     meta: {
       type: type,
       config: campaign.config.component.digest,
@@ -58,7 +58,7 @@ const saveTemplate = (render, templateName, campaignName, lang) => {
   campaignName && console.warn("unused param", campaignName);
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/digest/" + templateName + "/" + lang + ".html"
+    `${tmp}email/digest/${templateName}/${lang}.html`
   );
   if (argv.verbose) {
     console.log(JSON.stringify(render.errors, null, 2));
@@ -83,7 +83,7 @@ const subject = (config, key) => {
 
 (async () => {
   const campaignName = argv._[0];
-  const tplName = campaignName + "/" + argv.mjml;
+  const tplName = `${campaignName}/${argv.mjml}`;
   if (!tplName) {
     console.log("missing --mjml=template/to/use");
     process.exit(1);
@@ -91,7 +91,7 @@ const subject = (config, key) => {
   console.log(color.blue("using ", tplName));
   let render = null;
 
-  const campaign = read("campaign/" + campaignName);
+  const campaign = read(`campaign/${campaignName}`);
   if (!campaign) {
     console.error(color.red("campaign ", campaignName, "not found"));
     process.exit(1);
@@ -107,14 +107,14 @@ const subject = (config, key) => {
     locales[argv.lang] = campaign.config.locales[argv.lang];
   }
 
-  mkdirp("email/digest/" + tplName);
+  mkdirp(`email/digest/${tplName}`);
   for (const lang in locales) {
     try {
       const server = (await i18nTplInit(campaign, lang)) || {};
-      let config = { lang: lang, locales: locales[lang], campaign: campaign };
+      const config = { lang: lang, locales: locales[lang], campaign: campaign };
 
       if (server) config.locales["server:"] = server;
-let s = subject(config, argv.key || argv.mjml);
+const s = subject(config, argv.key || argv.mjml);
       saveConfig(tplName, campaignName, lang, s, campaign);
       configOverride(config);
       render = await i18nRender(tplName, lang, true);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { portals } from "../actionPage";
 
@@ -39,7 +39,7 @@ const TwoColumns = props => {
 
   useEffect(() => {
     const content = document.getElementById(id);
-    content && content.appendChild(dom.cloneNode(true));
+    content?.appendChild(dom.cloneNode(true));
   }, [dom]);
 
   if (leftContent && leftContent.length > 0) {

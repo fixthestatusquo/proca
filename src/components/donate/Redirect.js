@@ -4,7 +4,7 @@ import get from "lodash/get";
 //import { useCampaignConfig } from "@hooks/useConfig";
 
 const tokenize = (str, obj, { prefix = "config" } = {}) => {
-  const top = prefix + ".";
+  const top = `${prefix}.`;
   const prefixLength = top.length;
   const result = str.replace(/\{([^}]+)\}/g, (match, path) => {
     if (!path.startsWith(top)) return match;
@@ -24,7 +24,18 @@ const DonateRedirect = () => {
     { prefix: "get" }
   );
   if (!config.test) {
-    window.location.href = url;
+    let target;
+    try {
+      target = new URL(url, window.location.href);
+    } catch {
+      console.error("invalid redirect url", url);
+      return "Invalid redirect";
+    }
+    if (target.protocol !== "https:" && target.protocol !== "http:") {
+      console.error("invalid redirect protocol", target.protocol);
+      return "Invalid redirect";
+    }
+    window.location.assign(target.toString());
     return "Loading...";
   }
 

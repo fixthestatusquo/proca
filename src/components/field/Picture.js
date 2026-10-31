@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 import { scrollTo } from "@lib/scroll";
 
@@ -216,7 +216,7 @@ const PublishPicture = props => {
     console.log("uploaded", r);
     //    r.hash;
     setValue("hash", r.hash);
-    setValue("dimension", "[" + r.width + "," + r.height + "]");
+    setValue("dimension", `[${r.width},${r.height}]`);
 
     props.setImage(props.canvas.toDataURL("image/jpeg", 0.8));
     //    console.log(canvasRef.current.toDataUrl("jpeg",81));

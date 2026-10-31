@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import { useTargets } from "@hooks/useTargets";
 import { byLocale, languagesOf } from "@lib/targets";

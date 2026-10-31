@@ -12,7 +12,7 @@ export const useUpload = (canvasRef, formData = {}) => {
 
   //upload
   return async () => {
-    const canvas = canvasRef && canvasRef.current && getCanvas(canvasRef);
+    const canvas = canvasRef?.current && getCanvas(canvasRef);
     const toBlob = () => {
       return new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 81));
     };
@@ -36,7 +36,7 @@ export const useUpload = (canvasRef, formData = {}) => {
     // hash = base64url of the sha256
     //    console.log(hash,encoder.encode(blob),blob);
 
-    let d = {
+    const d = {
       campaign: config.campaign.name,
       actionpage_id: config.actionPage,
       legend: "",
@@ -50,7 +50,7 @@ export const useUpload = (canvasRef, formData = {}) => {
     if (formData.firstname) {
       d.creator = formData.firstname.trim();
       if (formData.lastname) {
-        d.creator += " " + formData.lastname.charAt(0).toUpperCase().trim();
+        d.creator += ` ${formData.lastname.charAt(0).toUpperCase().trim()}`;
       }
       if (d.locality) {
         d.creator = t("supporterHint", { name: d.creator, area: d.locality });
@@ -77,7 +77,7 @@ export const useUpload = (canvasRef, formData = {}) => {
     const r = await supabase.storage
       //.from(config.campaign.name.replaceAll("_", "-")) seems that "_" works fine as bucket's name
       .from(config.campaign.name)
-      .upload("public/" + hash + ".jpg", blob, {
+      .upload(`public/${hash}.jpg`, blob, {
         //.from("picture")
         //.upload(config.campaign.name + "/" + hash + ".jpg", blob, {
         cacheControl: "31536000",

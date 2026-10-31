@@ -16,11 +16,11 @@ const { addPage, pull } = require("./widget");
     console.error("addWidget {campaign.name} {locale} {organisation_name}");
     return;
   }
-  let name = argv[2] ? argv[2] : argv[0] + "/" + argv[1];
+  let name = argv[2] ? argv[2] : `${argv[0]}/${argv[1]}`;
 
   if (argv[2] && !argv[2].includes("/")) {
     org = argv[2];
-    name = campaign + "/" + org + "/" + locale;
+    name = `${campaign}/${org}/${locale}`;
   }
 
   try {

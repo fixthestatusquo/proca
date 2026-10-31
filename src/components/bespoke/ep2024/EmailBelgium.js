@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Email from "@components/Email";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { useForm } from "react-hook-form";

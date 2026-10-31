@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getLatest } from "@lib/server.js";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -48,8 +48,7 @@ const ListSignature = () => {
   }, [actionPage]);
 
   return (
-    <>
-      <table className={classes.table} id="datatable">
+    <table className={classes.table} id="datatable">
         <tbody>
           {list
             .filter(d => d.organisation)
@@ -88,7 +87,6 @@ const ListSignature = () => {
             ))}
         </tbody>
       </table>
-    </>
   );
 };
 

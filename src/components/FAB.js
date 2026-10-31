@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -108,8 +108,7 @@ const FABAction = (props, ref) => {
   return (
     dom &&
     ReactDOM.createPortal(
-      <>
-        <div className={classes.fab}>
+      <div className={classes.fab}>
           <Slide direction="right" mountOnEnter unmountOnExit in={true}>
             <Badge
               badgeContent={counter}
@@ -129,8 +128,7 @@ const FABAction = (props, ref) => {
               </Fab>
             </Badge>
           </Slide>
-        </div>
-      </>,
+        </div>,
       dom
     )
   );

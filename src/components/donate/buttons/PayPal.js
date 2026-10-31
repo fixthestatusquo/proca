@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 import Url from "@lib/urlparser.js";
 import uuid from "@lib/uuid";

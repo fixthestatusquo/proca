@@ -1,4 +1,4 @@
-import React from "react";
+
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { Button } from "@material-ui/core";

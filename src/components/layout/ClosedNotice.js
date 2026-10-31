@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig, useSetCampaignConfig } from "@hooks/useConfig";
 import useCount from "@hooks/useCount";

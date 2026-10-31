@@ -15,7 +15,7 @@ const useElementSize = selector => {
     const el = document.querySelector(selector);
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
-        if (entry.contentBoxSize && entry.contentBoxSize.length) {
+        if (entry.contentBoxSize?.length) {
           setSize(entry.contentBoxSize[0]);
           return;
         }

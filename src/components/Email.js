@@ -1,4 +1,4 @@
-import React from "react";
+
 import EmailAction from "@components/email/Action";
 import NonEngagement from "@components/email/NonEngagment";
 import TextField from "@components/field/TextField";

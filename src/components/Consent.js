@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useCampaignConfig } from "@hooks/useConfig";
 
 import CheckboxConsent from "@components/consent/Checkbox";

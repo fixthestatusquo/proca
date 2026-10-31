@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -18,9 +18,9 @@ const ReadMore = () => {
     let isCancelled = false;
     if (!open) return;
 
-    (async function () {
-      let url =
-        "https://" + config.campaign.name + ".proca.app/" + config.locale;
+    (async () => {
+      const url =
+        `https://${config.campaign.name}.proca.app/${config.locale}`;
 
       let d = null;
       let json = null;

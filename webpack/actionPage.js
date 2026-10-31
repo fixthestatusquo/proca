@@ -30,7 +30,7 @@ module.exports = id => {
 
   const code = createCode(config);
 
-  if (process.env["DEBUG"] && process.env["DEBUG"] === "CODE") {
+  if (process.env.DEBUG && process.env.DEBUG === "CODE") {
     console.debug(code);
     process.exit(1);
   }

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 const { pathConfig } = require("./config");
 const { simpleGit } = require("simple-git");
 const { isDirectCli } = require("./dotenv.js");
@@ -22,7 +22,7 @@ const argv =
     alias: { v: "verbose" },
   });
 
-if (argv._ && argv._[0] && actions.includes(argv._[0])) {
+if (argv._?.[0] && actions.includes(argv._[0])) {
   argv[argv._[0]] = true;
   argv._.shift();
 }
@@ -33,7 +33,7 @@ const changeDir = () => {
 // changeDir();
 
 const onGit = () => {
-  return fs.existsSync(pathConfig() + "/.git");
+  return fs.existsSync(`${pathConfig()}/.git`);
 };
 
 const help = () => {
@@ -83,7 +83,7 @@ const deploy = async () => {
   const response = await fetch(url, {
     method: "POST",
     headers: {
-      Authorization: "Bearer " + N8N_TOKEN,
+      Authorization: `Bearer ${N8N_TOKEN}`,
     },
   });
   try {
@@ -101,10 +101,10 @@ const commit = async (file, message, createIfNotExist) => {
   const cmd = process.argv.slice(1).join(" ");
   let result = null;
   if (!message) {
-    message = "update by " + process.env.AUTH_USER + " running " + cmd;
+    message = `update by ${process.env.AUTH_USER} running ${cmd}`;
   }
   try {
-    if (file && file.length) {
+    if (file?.length) {
       result = await git.commit(message, file);
     } else {
       result = await git.commit(message);
@@ -155,7 +155,7 @@ const pull = async () => {
 
 const add = async file => {
   try {
-    if (file && file.length) {
+    if (file?.length) {
       await git.add(file);
     } else {
       await git.add(".");
@@ -175,7 +175,7 @@ const newFiles = async () => {
 const parseFiles = () => {
   if (argv._.length === 0) return null;
   const f = argv._.map(file =>
-    /^\d+$/.test(file) ? file + ".json" : file.replace("config/", "")
+    /^\d+$/.test(file) ? `${file}.json` : file.replace("config/", "")
   );
   console.log(f);
   return f;
@@ -194,7 +194,7 @@ const status = async () => {
   "not_added,created,modified,deleted,conflicted".split(",").forEach(type => {
     if (status[type].length) {
       status[type].forEach(file => {
-        console.log(color.red(type), "config/" + file);
+        console.log(color.red(type), `config/${file}`);
       });
     }
   });

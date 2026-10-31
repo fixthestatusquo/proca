@@ -14,7 +14,7 @@ const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
-let nodeEnv ;
+let nodeEnv;
 
 const fullpath = file => path.resolve(__dirname, "../", file);
 
@@ -73,10 +73,7 @@ const save = config => {
     console.log(JSON.stringify(config, null, 2));
   } else {
     runs === 0 &&
-      console.log(
-        "config",
-        `d/${config.filename}/config-${hash}.json`
-      );
+      console.log("config", `d/${config.filename}/config-${hash}.json`);
   }
 };
 

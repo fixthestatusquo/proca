@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Stepper, Step, StepButton } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import EciIcon from "@material-ui/icons/HowToVote";

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  Box,
   TextField,
   IconButton,
   InputAdornment,
@@ -38,7 +37,7 @@ const ShareLink = ({ url, onCopy }) => {
     }
 
     setCopied(true);
-    onCopy && onCopy();
+    onCopy?.();
     setTimeout(() => setCopied(false), 2000);
   };
 

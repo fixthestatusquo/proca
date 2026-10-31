@@ -1,4 +1,4 @@
-import { Command, Args, Flags } from "proca/src/procaCommand.mjs";
+import { Command, Flags } from "proca/src/procaCommand.mjs";
 
 export default class ServeCommand extends Command {
   static description = "view the widget";
@@ -22,7 +22,7 @@ export default class ServeCommand extends Command {
     const url = {
       privacy: config.org.privacyPolicy,
       home: config.org.url,
-      preview: "https://widget.proca.app/d/" + config.filename + "/index.html",
+      preview: `https://widget.proca.app/d/${config.filename}/index.html`,
       live: config.location,
     };
     const open = await import("open");

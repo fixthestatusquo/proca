@@ -1,4 +1,3 @@
-import React from "react";
 import { useAlertStore } from "@hooks/useAlert";
 
 import Alert from "@components/Alert";

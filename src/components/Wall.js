@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Comment from "@components/wall/Comment";
 import Picture from "@components/wall/Picture";
 import ProgressCounter from "@components/ProgressCounter";
@@ -10,7 +10,7 @@ import ImageIcon from "@material-ui/icons/Image";
 const Wall = () => {
   const [value, setValue] = useState("comment");
   const [data] = useData();
-  const country = data.country && data.country.slice(0, 2).toUpperCase();
+  const country = data.country?.slice(0, 2).toUpperCase();
   const handleChange = (_event, newValue) => {
     setValue(newValue);
   };

@@ -3,7 +3,7 @@ import { useCampaignConfig } from "@hooks/useConfig";
 import OrcidIcon from "@images/OrcidLogo";
 import { decode } from "@lib/jwt";
 import { Button, SvgIcon } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 const Orcid = ({ form }) => {
   const config = useCampaignConfig();
   const [user, setUser] = useState(undefined);
@@ -24,7 +24,7 @@ const Orcid = ({ form }) => {
 
       try {
         //        const response = await fetch("https://orcid.org/oauth/userinfo", {
-        const response = await fetch("https://xy.proca.app/orcid/" + jwt.sub, {
+        const response = await fetch(`https://xy.proca.app/orcid/${jwt.sub}`, {
           method: "GET",
           headers: {
             //            Authorization: `Bearer ${accessToken}`,

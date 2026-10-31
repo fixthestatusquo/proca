@@ -1,4 +1,4 @@
-import React from "react";
+
 import ReactDOM from "react-dom";
 import TestBackground from "../images/Test.js";
 

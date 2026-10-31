@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useTranslation } from "react-i18next";
 import ConsentProcessing from "@components/consent/Processing";
 import { useCampaignConfig } from "@hooks/useConfig";

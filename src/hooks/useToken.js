@@ -61,7 +61,7 @@ const useToken = (text, data, handleChange) => {
   useEffect(() => {
     const updated = applyToken(text, token, data, t);
     if (updated !== rendered) {
-      handleChange && handleChange(updated);
+      handleChange?.(updated);
       merge(updated);
     }
   }, [handleChange, text, data, token]);

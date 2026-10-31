@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -233,8 +233,7 @@ console.log("filtered");
                   d.field.mep
                     ? d.field.mep &&
                       `https://www.europarl.europa.eu/mepphoto/${d.field.mep}.jpg`
-                    : d.field.picture &&
-                      d.field.picture?.replace(
+                    : d.field.picture?.replace(
                         "https://pbs.twimg.com/profile_images/",
                         "https://pic.proca.app/twimg/"
                       )

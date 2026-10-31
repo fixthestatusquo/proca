@@ -1,4 +1,4 @@
-import React from "react";
+
 import Actions from "@components/layout/ShareButtons";
 import DonateButton from "@components/donate/External";
 import {

@@ -1,4 +1,4 @@
-import React, {
+import {
   useState,
   useRef,
   useCallback,
@@ -24,7 +24,7 @@ import { initDataState } from "@hooks/useData";
 import { AlertRenderer } from "@components/layout/AlertRenderer";
 import { useAddAlert } from "@hooks/useAlert";
 
-import { steps } from "../actionPage";
+import { steps as generatedSteps } from "../actionPage";
 import Button from "@components/FAB";
 import Alert from "@components/Alert";
 import TwoColumns from "@components/TwoColumns";
@@ -39,7 +39,8 @@ let config = {
 
 let init = false;
 
-const Widget = props => {
+const Widget = ({ steps: providedSteps, ...props }) => {
+  const steps = providedSteps || generatedSteps;
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();

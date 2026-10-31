@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useComponentConfig } from "@hooks/useConfig";
 import Alert from "@material-ui/lab/Alert";
 import { AlertTitle } from "@material-ui/lab";

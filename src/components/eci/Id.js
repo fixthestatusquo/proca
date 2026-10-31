@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 /*import Backdrop from '@material-ui/core/Backdrop';
@@ -31,7 +31,7 @@ export default function Register(props) {
       documentType[`${country.toLowerCase()}.${Object.keys(props.ids)[0]}`];
     if (typeof type === "string" || !type) return type;
     // belgium case with the id type has different names based on the language)
-    return type[i18n.language] ? type[i18n.language] : type["fr"]; //fr is the first language on their list
+    return type[i18n.language] ? type[i18n.language] : type.fr; //fr is the first language on their list
   };
   return (
     <Container component="div" maxWidth="sm">

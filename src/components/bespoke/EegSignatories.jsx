@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -98,7 +98,7 @@ const Signatories = () => {
                   />
                 ) : (
                   <ListItemText
-                    primary={(d.first_name + " " + d.last_name).toUpperCase()}
+                    primary={(`${d.first_name} ${d.last_name}`).toUpperCase()}
                     secondary={d.organisation}
                   />
                 )}

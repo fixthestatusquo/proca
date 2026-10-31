@@ -1,10 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const color = require("cli-color");
 
 const tmp = process.env.PROCA_CONFIG_FOLDER
-  ? process.env.PROCA_CONFIG_FOLDER + "/"
-  : path.resolve(__dirname, "../config") + "/";
+  ? `${process.env.PROCA_CONFIG_FOLDER}/`
+  : `${path.resolve(__dirname, "../config")}/`;
 
 const API_URL =
   process.env.API_URL ||
@@ -33,16 +33,16 @@ const mkdirp = pathToFile => {
     console.log("need a path to folder to create");
     process.exit(1);
   }
-  pathToFile = "config/" + pathToFile;
+  pathToFile = `config/${pathToFile}`;
   fs.mkdirSync(pathToFile, { recursive: true });
 };
 const file = id => {
   if (!process.env.PROCA_CONFIG_FOLDER) {
     //console.warn("missing PROCA_CONFIG_FOLDER env");
-    return path.resolve(__dirname, tmp + checked(id) + ".json");
+    return path.resolve(__dirname, `${tmp + checked(id)}.json`);
   }
   //  console.debug(process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json");
-  return process.env.PROCA_CONFIG_FOLDER + "/" + checked(id) + ".json";
+  return `${process.env.PROCA_CONFIG_FOLDER}/${checked(id)}.json`;
 };
 
 const fileExists = id => {
@@ -53,7 +53,7 @@ const read = id => {
   try {
     return JSON.parse(fs.readFileSync(file(id), "utf8"));
   } catch (e) {
-    console.error("no local copy of " + id, e.message);
+    console.error(`no local copy of ${id}`, e.message);
     return null;
   }
 };
@@ -103,7 +103,7 @@ const api = async (query, variables, name = "query", anonymous = false) => {
     if (resJson.errors) {
       resJson.errors.forEach(e =>
         console.error(
-          `${e.message}: ${e.path && e.path.join("->")} ${
+          `${e.message}: ${e.path?.join("->")} ${
             e.extensions ? JSON.stringify(e.extensions) : ""
           }`
         )
@@ -122,7 +122,7 @@ const authHeader = () => {
   let headers = {};
   if (process.env.PROCA_TOKEN) {
     headers = {
-      authorization: "Bearer " + process.env.PROCA_TOKEN,
+      authorization: `Bearer ${process.env.PROCA_TOKEN}`,
     };
   } else {
     if (!process.env.AUTH_USER || !process.env.AUTH_PASSWORD) {

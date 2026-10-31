@@ -1,7 +1,6 @@
 import { CardHeader, makeStyles } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-import React from "react";
 import { useCampaignConfig } from "../../hooks/useConfig";
 import useData from "../../hooks/useData";
 import { useFormatMoney } from "@hooks/useFormatting.js";

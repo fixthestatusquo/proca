@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const { isDirectCli } = require("./dotenv.js");
 
-const fs = require("fs");
-const path = require("path");
-const http = require("http");
+const fs = require("node:fs");
+const path = require("node:path");
+const http = require("node:http");
 const { read, api } = require("./config");
 const mjmlEngine = require("mjml");
 const htmlparser2 = require("htmlparser2");
@@ -73,7 +73,7 @@ const argv =
   });
 
 const tmp = process.env.PROCA_CONFIG_FOLDER
-  ? "../" + process.env.PROCA_CONFIG_FOLDER + "/"
+  ? `../${process.env.PROCA_CONFIG_FOLDER}/`
   : "../config/";
 
 const keys = {};
@@ -130,22 +130,22 @@ const pushTemplate = async (config, html) => {
     orgName: config.org.name || config.lead.name,
     locale: config.lang,
     html: html,
-    subject: i18n.t("email." + config.type + ".subject"),
+    subject: i18n.t(`email.${config.type}.subject`),
     id: config.actionpage,
   };
   const data = await api(query, variables, "upsertTemplate");
-  console.log("pushing", variables.name, "@" + config.lang);
+  console.log("pushing", variables.name, `@${config.lang}`);
   if (argv.verbose) console.log("data", data);
   return data;
 };
 
 const deepify = keys => {
   // convert an array of keys for the t function to the translation json
-  let trans = {};
-  for (let nskey in keys) {
+  const trans = {};
+  for (const nskey in keys) {
     let key = "";
     if (nskey.includes(":")) key = nskey.replace(":", ".");
-    else key = "server." + nskey;
+    else key = `server.${nskey}`;
     _set(trans, key, keys[nskey]);
   }
   return trans;
@@ -225,7 +225,7 @@ const translateAttributes = dom => {
 const saveTemplate = (render, id) => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".html"
+    `${tmp}email/actionpage/${id}.html`
   );
   if (argv.verbose) {
     console.log(JSON.stringify(render.errors, null, 2));
@@ -243,7 +243,7 @@ const saveTemplate = (render, id) => {
 const readTemplate = id => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + id + ".html"
+    `${tmp}email/actionpage/${id}.html`
   );
   return fs.readFileSync(fileName, "utf8");
 };
@@ -251,12 +251,12 @@ const readTemplate = id => {
 const saveConfig = config => {
   const jsonFile = path.resolve(
     __dirname,
-    tmp + "email/actionpage/" + config.actionpage + ".json"
+    `${tmp}email/actionpage/${config.actionpage}.json`
   );
 
   const json = {
     meta: {
-      subject: i18n.t("email." + config.type + ".subject"),
+      subject: i18n.t(`email.${config.type}.subject`),
       type: config.type,
     },
   };
@@ -270,15 +270,15 @@ const saveConfig = config => {
 const readMjmlTemplate = tplName => {
   const fileName = path.resolve(
     __dirname,
-    tmp + "email/mjml/" + tplName + ".mjml"
+    `${tmp}email/mjml/${tplName}.mjml`
   );
-  let tpl = fs.readFileSync(fileName, "utf8");
+  const tpl = fs.readFileSync(fileName, "utf8");
   const render = mjmlEngine(tpl, {});
   return render;
 };
 
 const i18nRender = async (tplName, lang, markdown) => {
-  let render = readMjmlTemplate(tplName);
+  const render = readMjmlTemplate(tplName);
   if (lang) {
     //only switch if different than current?
     await i18n.changeLanguage(lang);
@@ -305,9 +305,7 @@ const i18nTplInit = async (campaign, lang = "en") => {
     await i18n.addResourceBundle("en", "server", server);
   }
   const server =
-    campaign.config.locales &&
-    campaign.config.locales[lang] &&
-    campaign.config.locales[lang]["server:"]; // only campaign and common namespaces are handled by default
+    campaign.config.locales?.[lang]?.["server:"]; // only campaign and common namespaces are handled by default
   return server;
 };
 
@@ -447,7 +445,7 @@ if (require.main === module) {
       );
       process.exit(1);
     }
-    let mailConfig = read("email/actionpage/" + id);
+    let mailConfig = read(`email/actionpage/${id}`);
     console.log("widget ", config.filename, argv.mjml);
     lang = config.lang;
     if (argv.lang) {
@@ -495,15 +493,15 @@ if (require.main === module) {
     if (argv.serve) {
       const port = 8025;
       http
-        .createServer(function (_req, res) {
+        .createServer((_req, res) => {
           res.setHeader("Content-type", "text/html");
           res.end(html);
           process.exit(0);
         })
         .listen(port);
-      console.log("creating server http://localhost:" + port);
+      console.log(`creating server http://localhost:${port}`);
       const open = await import("open");
-      open.default("http://localhost:" + port);
+      open.default(`http://localhost:${port}`);
     }
   })();
 } else {

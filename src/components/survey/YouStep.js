@@ -1,4 +1,4 @@
-import React from "react";
+
 import useData from "@hooks/useData";
 import { useStyles } from "@components/Register";
 import { useCompactLayout } from "@hooks/useElementWidth";

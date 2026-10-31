@@ -1,7 +1,6 @@
-// TODO: allow to set parameters about what region/bloc to fetch + what to filter out based on the population size
-"use strict";
-const https = require("https");
-const fs = require("fs");
+
+const https = require("node:https");
+const fs = require("node:fs");
 
 const url = "https://restcountries.eu/rest/v2/regionalbloc/eu";
 const file = "./src/data/countries.json";
@@ -13,8 +12,8 @@ https.get(url, res => {
   });
   res.on("end", () => {
     body = JSON.parse(body);
-    let countries = [];
-    body.map(d => {
+    const countries = [];
+    body.forEach(d => {
       if (d.population < 400000) return; // remove dependencies and tiny ones
       //      countries.push({iso:d.alpha2Code,name:d.translations.fr});
       countries.push({ iso: d.alpha2Code, name: d.name });

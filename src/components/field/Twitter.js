@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 //import useConfig from "@hooks/useConfig";
 
@@ -26,7 +26,7 @@ const Twitter = props => {
   //variant={options.variant}
   //margin={options.margin}
   const handleBlur = e => {
-    props.form.handleBlur && props.form.handleBlur(e);
+    props.form.handleBlur?.(e);
     fetchTwitter(e.target.value);
   };
 
@@ -47,7 +47,7 @@ const Twitter = props => {
         }
         const res = await req.json();
         setLoading(false);
-        if (res && res.error) {
+        if (res?.error) {
           setError(field, {
             type: "api",
             message: res.message.errors[0].message,
@@ -133,11 +133,11 @@ const Twitter = props => {
           form={props.form}
         />
       </Grid>
-      <>
+      
         <HiddenField form={props.form} name="picture" />
         <HiddenField form={props.form} name="url" />
         <HiddenField form={props.form} name="followers_count" />
-      </>
+      
     </>
   );
 };

@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { create } from "zustand";
-import { useShallow } from "zustand/react/shallow";
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";

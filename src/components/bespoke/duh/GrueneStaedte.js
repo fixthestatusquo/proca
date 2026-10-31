@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useCampaignConfig } from "@hooks/useConfig";
+import { useEffect } from "react";
 //import useData from "@hooks/useData";
 import TextField from "@components/field/TextField";
 import { Grid } from "@material-ui/core";

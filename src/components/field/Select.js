@@ -1,4 +1,3 @@
-import React from "react";
 import TextField from "@components/field/TextField";
 import { toObject } from "@lib/text";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -21,7 +20,7 @@ const Select = ({
   const locale = config.lang;
   if (!key) {
     console.error(
-      "missing options (locale key), for instance 'common:action'" + key
+      `missing options (locale key), for instance 'common:action'${key}`
     );
     options = [["error_missing", "missing locale props"]];
   }
@@ -38,7 +37,7 @@ const Select = ({
         options = Object.entries(toObject(asString));
       }
     } else {
-      options = [["error_nolocales", "missing locale:" + key]];
+      options = [["error_nolocales", `missing locale:${key}`]];
     }
   } catch {
     if (typeof key === "object") {

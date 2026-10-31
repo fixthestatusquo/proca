@@ -199,7 +199,7 @@ export default function Register(props) {
       if (config.test && props.targets.length > 1) {
         formData.targets = props.targets.slice(0, 1);
         console.warn(
-          "TEST mode, sending only one test email not " + props.targets.length
+          `TEST mode, sending only one test email not ${props.targets.length}`
         );
       }
 
@@ -316,8 +316,7 @@ export default function Register(props) {
     if (!config.component.share?.anonymous) {
       uuid(result.contactRef); // set the global uuid as signature's fingerprint
     }
-    props.done &&
-      props.done({
+    props.done?.({
         errors: result.errors,
         uuid: uuid(),
         firstname: formData.firstname,
@@ -493,8 +492,7 @@ export default function Register(props) {
                   />
                 </Grid>
               )}
-              {props.extraFields &&
-                props.extraFields({ form: form, classes: classes })}
+              {props.extraFields?.({ form: form, classes: classes })}
 
               {config.component.register.custom?.bottom && (
                 <CustomField

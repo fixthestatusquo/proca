@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
 import { makeStyles } from "@material-ui/core/styles";
@@ -108,8 +108,7 @@ const TextFieldProca = props => {
         }
         let classesname = `${classes.textField} proca-${props.name.toLowerCase()}`;
         if (
-          errors &&
-          errors[props.name] &&
+          errors?.[props.name] &&
           errors[props.name].type === "warning"
         )
           classesname += ` ${classes.warning}`;
@@ -125,12 +124,12 @@ const TextFieldProca = props => {
             value={value || ""}
             onBlur={handleBlur}
             className={classesname}
-            error={!!(errors && errors[props.name])}
+            error={!!(errors?.[props.name])}
             variant={layout.variant}
             margin={layout.margin}
             inputRef={refA}
             helperText={
-              errors && errors[props.name] && errors[props.name].message
+              errors?.[props.name] && errors[props.name].message
             }
             {...drillProps}
             required={props.required || false}

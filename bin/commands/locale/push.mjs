@@ -1,4 +1,4 @@
-import Command, { Flags } from "./cache.mjs";
+import Command from "./cache.mjs";
 export default class GitPush extends Command {
   static description = "git push of the config folder to the remote main";
 

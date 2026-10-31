@@ -1,4 +1,4 @@
-import React from "react";
+
 import TextField from "@components/field/TextField";
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -115,7 +115,7 @@ const FilterBelgium = props => {
       bru: "region",
     };
     const vname = toggle2votation[name];
-    let selected = undefined;
+    let selected ;
     setVotations(prevVotation => {
       selected = prevVotation[vname].selected;
       if (

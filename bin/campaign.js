@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 const { isDirectCli } = require("./dotenv.js");
 const {
   authHeader,
@@ -42,10 +42,10 @@ const help = () => {
 const saveCampaign = campaign => {
   //  console.log(color.yellow(file("campaign/" + campaign.name)));
   fs.writeFileSync(
-    file("campaign/" + campaign.name),
+    file(`campaign/${campaign.name}`),
     JSON.stringify(campaign, null, 2)
   );
-  return "campaign/" + checked(campaign.name) + ".json";
+  return `campaign/${checked(campaign.name)}.json`;
 };
 
 const getCampaign = async name => {
@@ -59,19 +59,23 @@ query getCampaign ($name:String!){
 }`;
 
   const data = await api(query, { name: name }, "getCampaign");
-  if (!data.campaign) throw new Error("can't find campaign " + name);
-  data.campaign.config = JSON.parse(data.campaign.config);
+  if (!data.campaign) throw new Error(`can't find campaign ${name}`);
+  try {
+    data.campaign.config = JSON.parse(data.campaign.config);
+  } catch (e) {
+    throw new Error(`can't parse campaign ${name} config: ${e.message}`);
+  }
   return data.campaign;
 };
 
 const pullCampaign = async name => {
-  const fileName = "campaign/" + name + ".json";
+  const fileName = `campaign/${name}.json`;
   const campaign = await getCampaign(name);
   const msg =
-    campaign.id + " for " + campaign.org.name + " (" + campaign.org.title + ")";
+    `${campaign.id} for ${campaign.org.name} (${campaign.org.title})`;
 
   if (!argv["dry-run"]) {
-    const exists = fileExists("campaign/" + name);
+    const exists = fileExists(`campaign/${name}`);
     saveCampaign(campaign, { git: false });
     let r = null;
     if (!exists && argv.git) {
@@ -79,7 +83,7 @@ const pullCampaign = async name => {
       console.log("adding", r);
     }
     console.log(
-      color.green.bold("saved", file("campaign/" + campaign.name)),
+      color.green.bold("saved", file(`campaign/${campaign.name}`)),
       color.blue(campaign.name)
     );
     r = argv.git && (await commit(fileName, msg));
@@ -96,11 +100,11 @@ const pullCampaign = async name => {
 };
 
 const readCampaign = name => {
-  return read("campaign/" + name);
+  return read(`campaign/${name}`);
 };
 
 const pushCampaign = async name => {
-  const campaign = read("campaign/" + name);
+  const campaign = read(`campaign/${name}`);
   const query = `
 mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $externalId: Int) {
   upsertCampaign(orgName: $orgName, input: { externalId: $externalId,
@@ -110,7 +114,7 @@ mutation updateCampaign($orgName: String!, $name: String!, $config: Json!, $exte
   }
 }
 `;
-  let headers = authHeader();
+  const headers = authHeader();
   headers["Content-Type"] = "application/json";
   let data;
 
@@ -174,7 +178,7 @@ if (require.main === module) {
     try {
       const name = argv._[0];
       let campaign = null;
-      let fileName = "campaign/" + name + ".json";
+      const fileName = `campaign/${name}.json`;
 
       console.log(argv, "running");
       if (argv.pull || !argv.push) {

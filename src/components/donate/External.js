@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Button, Box } from "@material-ui/core";
 import { utm } from "@lib/urlparser";
 import dispatch from "@lib/event";
@@ -35,7 +35,18 @@ const DonateButton = () => {
       .replace("{postcode}", formData.postcode || "")
       .replace("{locality}", formData.locality || "")
       .replace("{country}", formData.country || "");
-    window.location.href = url;
+    let target;
+    try {
+      target = new URL(url, window.location.href);
+    } catch {
+      console.error("invalid donation url", url);
+      return;
+    }
+    if (target.protocol !== "https:" && target.protocol !== "http:") {
+      console.error("invalid donation protocol", target.protocol);
+      return;
+    }
+    window.location.assign(target.toString());
   };
 
   return (

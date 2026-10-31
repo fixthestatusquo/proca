@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Dialog from "@components/Dialog";
 import TTag from "@components/TTag";
 import { useTranslation } from "react-i18next";

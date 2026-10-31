@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 require("dotenv").config();
 const { commit, add, onGit } = require("./git");
 const color = require("cli-color");
@@ -31,29 +31,29 @@ const help = () => {
 };
 
 const saveLocale = async (campaign, lang, locale) => {
-  const fileName = file("locale/" + campaign + "/" + lang);
+  const fileName = file(`locale/${campaign}/${lang}`);
   const exists = fileExists(fileName);
   fs.writeFileSync(fileName, JSON.stringify(locale, null, 2));
-  console.log(color.green.bold("wrote " + fileName));
+  console.log(color.green.bold(`wrote ${fileName}`));
   if (argv.git) {
     if (!exists) {
       await add(fileName);
       console.log("adding", fileName);
     }
-    const msg = "extract locale" + lang + " for " + campaign;
+    const msg = `extract locale${lang} for ${campaign}`;
     argv.git && (await commit(fileName, msg));
   }
   return fileName;
 };
 const extract = async name => {
-  const campaign = read("campaign/" + name);
-  mkdirp("locale/" + name);
-  let langs = [];
+  const campaign = read(`campaign/${name}`);
+  mkdirp(`locale/${name}`);
+  const langs = [];
   for (const locale in campaign.config.locales) {
     langs.push(locale);
     await saveLocale(name, locale, campaign.config.locales[locale]);
   }
-  let r = null;
+  const r = null;
   //  const msg = "extract locales" + langs.join(",") + " for " + campaign;
   if (argv.git) {
     console.log(r.summary);

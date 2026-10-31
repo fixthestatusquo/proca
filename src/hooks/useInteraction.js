@@ -16,7 +16,7 @@ export const useFirstInteraction = form => {
     if (isDirty && !hasInteracted) {
       setHasInteracted(true);
       console.log("First interaction with the form!");
-      dispatch(actionType + ":start");
+      dispatch(`${actionType}:start`);
     }
   }, [isDirty, hasInteracted, actionType]);
 

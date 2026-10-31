@@ -104,14 +104,14 @@ if (argv.help) {
 }
 
 function update(id, d) {
-  let current = read(id);
+  const current = read(id);
   const next = merge(current, d);
   save(next);
 }
 
 const isRequired = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map(change => {
+  changes.forEach(change => {
     const field = {};
     field[change] = { required: bool };
     update(id, { component: { register: { field: field } } });
@@ -120,7 +120,7 @@ const isRequired = (id, arg, bool) => {
 
 const showHide = (id, arg, bool) => {
   const changes = arg.split(",");
-  changes.map(change => {
+  changes.forEach(change => {
     const field = {};
     field[change] = bool;
     update(id, { component: { register: { field: field } } });
@@ -129,14 +129,14 @@ const showHide = (id, arg, bool) => {
 
 const args = argv._;
 
-let ids = [];
+const ids = [];
 
-args.map(arg => {
+args.forEach(arg => {
   if (typeof arg !== "number" && arg.match(/^[0-9]+[-][0-9]+$/)) {
     const range = arg.split("-");
-    let i = parseInt(range[0]);
-    while (i <= parseInt(range[1])) {
-      ids.push(parseInt(i));
+    let i = parseInt(range[0], 10);
+    while (i <= parseInt(range[1], 10)) {
+      ids.push(parseInt(i, 10));
       i++;
     }
   } else {
@@ -150,14 +150,14 @@ if (ids.length === 0) {
   process.exit(1);
 }
 
-ids.map(id => {
+ids.forEach(id => {
   (async () => {
     if (argv.pull) {
       try {
         await pull(id);
       } catch (errors) {
         Array.isArray(errors) &&
-          errors.map(e => {
+          errors.forEach(e => {
             console.error("\x1b[31m", e.message);
           });
       }
@@ -250,7 +250,7 @@ ids.map(id => {
     if (argv.goal) {
       let steps = [];
       if (typeof argv.goal === "string" && argv.goal.indexOf(",") > -1) {
-        steps = argv.goal.split(",").map(g => parseInt(g));
+        steps = argv.goal.split(",").map(g => parseInt(g, 10));
       } else if (typeof argv.goal === "number") {
         steps.push(argv.goal);
       } else {
@@ -316,7 +316,7 @@ ids.map(id => {
         await push(id);
       } catch (errors) {
         Array.isArray(errors) &&
-          errors.map(e => {
+          errors.forEach(e => {
             console.error("\x1b[31m", e.message);
           });
       }

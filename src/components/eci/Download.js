@@ -1,4 +1,4 @@
-import React from "react";
+
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -14,9 +14,9 @@ const url = (data, param, config) => {
   let postcardUrl = `https://bffa-pdf.herokuapp.com/?qrcode=${uuid()}:${config.actionPage}:${data.country}&country=${data.country}`;
   if (data.extra_language) postcardUrl += `&lang=${data.extra_language}`;
 
-  if (param && param?.pdfUrl)
+  if (param?.pdfUrl)
     postcardUrl += `&pdf=${encodeURIComponent(param.pdfUrl)}`;
-  if (param && param?.marginTop) postcardUrl += `&top=${param.marginTop}`;
+  if (param?.marginTop) postcardUrl += `&top=${param.marginTop}`;
 
   console.log(postcardUrl);
 
@@ -29,11 +29,23 @@ function Download() {
   const [data] = useData();
 
   const handleDownload = () => {
-    window.open(
-      url(data, {}, config),
-      "pdf",
-      "toolbar=0,status=0,width=548,height=775"
-    );
+    const href = url(data, {}, config);
+    let target;
+    try {
+      target = new URL(href, window.location.href);
+    } catch {
+      console.error("invalid download url", href);
+      return;
+    }
+    if (target.protocol !== "https:" && target.protocol !== "http:") {
+      console.error("invalid download protocol", target.protocol);
+      return;
+    }
+    const link = document.createElement("a");
+    link.href = target.toString();
+    link.target = "pdf";
+    link.rel = "noopener noreferrer";
+    link.click();
     //    next();
   };
 

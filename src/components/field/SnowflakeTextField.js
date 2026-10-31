@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
-import { InputAdornment } from "@material-ui/core";
-import Salutation from "@components/field/Gender";
-import { FormLabel, Grid, Button, CircularProgress } from "@material-ui/core";
+import { FormLabel, Grid, Button, } from "@material-ui/core";
 import TextField from "@components/field/TextField";
 
 const Comment = ({
@@ -54,7 +52,7 @@ const Comment = ({
 
     try {
       let url =
-        loaders.url || "https://" + config.campaign.name + ".proca.app/";
+        loaders.url || `https://${config.campaign.name}.proca.app/`;
       if (loaders.url === false) return null;
       if (loaders.appendLocale === true) url += lang;
 
