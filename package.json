@@ -88,6 +88,10 @@
     "@babel/plugin-transform-react-jsx": "^7.25.9",
     "@babel/preset-env": "^7.27.2",
     "@biomejs/biome": "^2.2.5",
+    "@testing-library/dom": "8.20.1",
+    "@testing-library/jest-dom": "6.0.1",
+    "@testing-library/react": "12.1.5",
+    "@testing-library/user-event": "14.6.1",
     "babel-plugin-i18next-extract": "^0.10.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "cli-color": "^2.0.4",
@@ -95,13 +99,16 @@
     "esbuild": "^0.27.3",
     "esbuild-plugin-copy": "^2.1.1",
     "i18next-fs-backend": "^2.6.6",
+    "jsdom": "27.4.0",
     "lefthook": "^2.0.16",
     "minimist": "^1.2.8",
     "mjml": "^5.0.0",
+    "msw": "2.15.0",
     "open": "^11.0.0",
     "phoenix": "1.7.14",
     "proca": "^2.5.0",
     "simple-git": "^4.0.2",
+    "vitest": "4.1.12",
     "websocket": "^1.0.35"
   },
   "scripts": {
@@ -125,7 +132,9 @@
     "pullTargets": "node bin/pullTargets.js",
     "start:stg": "PROCA_ENV=staging proca widget serve",
     "starts": "HTTPS=true proca widget serve",
-    "postinstall": "if [ -z \"$PROCA_NO_RECURSE\" ]; then PROCA_NO_RECURSE=1 npx proca plugins link .; fi"
+    "postinstall": "if [ -z \"$PROCA_NO_RECURSE\" ]; then PROCA_NO_RECURSE=1 npx proca plugins link .; fi",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "oclif": {
     "commands": "./bin/commands",
@@ -134,11 +143,11 @@
   },
   "browserslist": {
     "production": [
-    "> 0.5%",
-    "last 2 versions",
-    "not dead",
-    "not op_mini all",
-    "not ie 11"
+      "> 0.5%",
+      "last 2 versions",
+      "not dead",
+      "not op_mini all",
+      "not ie 11"
     ],
     "development": [
       "last 1 chrome version",
