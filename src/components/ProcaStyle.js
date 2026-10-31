@@ -1,4 +1,4 @@
-import React from "react";
+import { useMemo } from "react";
 import {
   StylesProvider,
   createGenerateClassName,
@@ -39,7 +39,7 @@ const GlobalStyles = () => {
 export default function ProcaStyle(props) {
   const layout = useLayout();
   const isLight = layout?.theme !== "dark";
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {

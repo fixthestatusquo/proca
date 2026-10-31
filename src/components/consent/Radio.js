@@ -12,7 +12,7 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
-import React from "react";
+import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import ConsentProcessing from "@components/consent/Processing";
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 const RadioConsent = props => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const [value, setValue] = React.useState(false);
+  const [value, setValue] = useState(false);
   const config = useCampaignConfig();
   const {
     formState: { errors },

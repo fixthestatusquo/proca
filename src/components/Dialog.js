@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 //import { Container, Grid } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -16,7 +16,7 @@ import {
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
@@ -65,7 +65,7 @@ function OpenDialog(props) {
   };
 
   const classes = useStyles();
-  //{React.cloneElement(props.children, { setTitle: setTitle, title: title })}
+  //{cloneElement(props.children, { setTitle: setTitle, title: title })}
   return (
     <Dialog
       open={open}

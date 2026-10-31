@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
@@ -97,7 +97,7 @@ export default function Progress(props) {
   const separator = config.component.counter?.separator | " "; //non breaking space
   const min = config.component.counter?.min | 0;
 
-  const [progress, setProgress] = React.useState(1);
+  const [progress, setProgress] = useState(1);
 
   const intersecting = intersection.isIntersecting;
 

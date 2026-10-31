@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import { Container, Grid } from "@material-ui/core";
@@ -304,7 +304,7 @@ export default function Register(props) {
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       <ProgressCounter actionPage={null} count={c?.total} />
       <form
         className={classes.container}
@@ -411,7 +411,7 @@ export default function Register(props) {
           </Grid>
         </Container>
       </form>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

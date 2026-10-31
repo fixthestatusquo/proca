@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -134,7 +134,7 @@ export default function Register(props) {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   const [beforeSubmit, _setBeforeSubmit] = useState(null);
-  const customField = React.useRef({});
+  const customField = useRef({});
   const setBeforeSubmit = fct => {
     if (!beforeSubmit) {
       _setBeforeSubmit(() => fct); // you can't put a function or promise in useState directly, it's taken as a setter instead

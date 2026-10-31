@@ -1,4 +1,4 @@
-import React from "react";
+import { isValidElement } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
 import { Paper } from "@material-ui/core";
@@ -81,7 +81,7 @@ const TTag = props => {
   const values = {};
   Object.keys(props).forEach(key => {
     if (key === "message") return;
-    if (React.isValidElement(props[key])) {
+    if (isValidElement(props[key])) {
       components[key] = props[key];
     } else {
       values[key] = props[key];
