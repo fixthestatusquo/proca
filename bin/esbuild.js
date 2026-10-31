@@ -14,7 +14,7 @@ const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
-let nodeEnv = undefined;
+let nodeEnv;
 
 const fullpath = file => path.resolve(__dirname, "../", file);
 
@@ -87,7 +87,7 @@ const save = config => {
 const resolveCountryList = config => {
   const lang = config.lang;
   let countryList = "i18n-iso-countries/langs/" + lang + ".json";
-  let r = {};
+  const r = {};
   if (!fs.existsSync("node_modules/" + countryList)) {
     console.log("can't find", lang, "default to en");
     countryList = "i18n-iso-countries/langs/en.json";
@@ -99,7 +99,7 @@ const resolveCountryList = config => {
   };
 };
 
-let procaPlugin = ({ id, config }) => ({
+const procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
     build.onResolve(
