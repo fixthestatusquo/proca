@@ -8,7 +8,7 @@ import React, {
 import ProcaRoot from "@components/ProcaRoot";
 import { merge } from "@lib/object";
 import { initConfigState, useComponentConfig } from "@hooks/useConfig";
-import Url, { step as paramStep, get as urlGet } from "@lib/urlparser";
+import Url, { step as paramStep } from "@lib/urlparser";
 import { getCookie } from "@lib/cookie";
 import { getItems } from "@lib/localStorage";
 import { getAllData, getOverwriteLocales } from "@lib/domparser";
@@ -20,8 +20,6 @@ import { dispatch } from "@lib/event";
 import { scrollTo as _scrollTo } from "@lib/scroll";
 
 import { initDataState } from "@hooks/useData";
-
-import Loader from "@components/Loader";
 
 import { AlertRenderer } from "@components/layout/AlertRenderer";
 import { useAddAlert } from "@hooks/useAlert";
@@ -138,20 +136,21 @@ const Widget = props => {
     showAlert({
       title: "TEST MODE",
       // test is true if the actionPage is not live yet, "forced" by ?proca_test, or false
-      text: test === true ? (
-        <>
-          Experiment freely, this action will not be counted. <br/> Take at least one
-          test action, then{" "}
-          <a
-            href={`https://we.fixthestatusquo.org/widget/${config.actionPage}`}
-          >
-            go live
-          </a>
-          .
-        </>
-      ) : (
-        "Experiment freely, this action will not be counted"
-      ),
+      text:
+        test === true ? (
+          <>
+            Experiment freely, this action will not be counted. <br /> Take at
+            least one test action, then{" "}
+            <a
+              href={`https://we.fixthestatusquo.org/widget/${config.actionPage}`}
+            >
+              go live
+            </a>
+            .
+          </>
+        ) : (
+          "Experiment freely, this action will not be counted"
+        ),
       severity: "warning",
       autoHideDuration: 10000000,
     });

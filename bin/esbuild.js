@@ -14,7 +14,7 @@ const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
-let nodeEnv = undefined;
+let nodeEnv ;
 
 const fullpath = file => path.resolve(__dirname, "../", file);
 
@@ -52,21 +52,21 @@ const define = environment => {
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
-    "process.env.NODE_ENV": '"' + (environment || "production") + '"',
+    "process.env.NODE_ENV": `"${environment || "production"}"`,
     "process.env.REACT_APP_CHECK_PHONE_API_URL":
       '"https://check-phone.proca.app"',
   };
 
   Object.keys(process.env)
     .filter(d => d.startsWith("REACT_APP_"))
-    .forEach(d => (defined["process.env." + d] = '"' + process.env[d] + '"'));
+    .forEach(d => (defined[`process.env.${d}`] = `"${process.env[d]}"`));
   return defined;
 };
 
 const save = config => {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   fs.writeFileSync(
-    fullpath("d/" + config.filename + "/config-" + hash + ".json"),
+    fullpath(`d/${config.filename}/config-${hash}.json`),
     JSON.stringify(config, null, 2)
   );
   if (argv.verbose) {
@@ -75,7 +75,7 @@ const save = config => {
     runs === 0 &&
       console.log(
         "config",
-        "d/" + config.filename + "/config-" + hash + ".json"
+        `d/${config.filename}/config-${hash}.json`
       );
   }
 };
@@ -86,27 +86,27 @@ const save = config => {
 
 const resolveCountryList = config => {
   const lang = config.lang;
-  let countryList = "i18n-iso-countries/langs/" + lang + ".json";
-  let r = {};
-  if (!fs.existsSync("node_modules/" + countryList)) {
+  let countryList = `i18n-iso-countries/langs/${lang}.json`;
+  const r = {};
+  if (!fs.existsSync(`node_modules/${countryList}`)) {
     console.log("can't find", lang, "default to en");
     countryList = "i18n-iso-countries/langs/en.json";
-    r.warnings = ["built using lang" + lang];
+    r.warnings = [`built using lang${lang}`];
   }
   return {
-    path: path.resolve(__dirname, "../node_modules/" + countryList),
+    path: path.resolve(__dirname, `../node_modules/${countryList}`),
     sideEffects: false,
   };
 };
 
-let procaPlugin = ({ id, config }) => ({
+const procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
     build.onResolve(
       { filter: /^@(components|lib|hooks|images|data)/ },
       args => {
         const r = path.resolve(__dirname, args.path.replace("@", "../src/"));
-        return { path: r.includes(".") ? r : r + ".js", sideEffects: false };
+        return { path: r.includes(".") ? r : `${r}.js`, sideEffects: false };
       }
     );
     build.onResolve({ filter: /@i18n-iso-countries\/lang/ }, () =>
@@ -116,7 +116,7 @@ let procaPlugin = ({ id, config }) => ({
       return {
         path: path.resolve(
           __dirname,
-          "../src/locales/" + config.lang + "/common.json"
+          `../src/locales/${config.lang}/common.json`
         ),
         sideEffects: false,
       };
@@ -132,11 +132,11 @@ let procaPlugin = ({ id, config }) => ({
         if (!template.endsWith(".html")) {
           template += ".html";
         }
-        file = fullpath("./public/" + template);
+        file = fullpath(`./public/${template}`);
       }
       const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
-        fullpath("d/" + config.filename + "/index.html"),
+        fullpath(`d/${config.filename}/index.html`),
         html
           .replace("<body>", "<body><script src='./index.js'></script>")
           .replaceAll("%PUBLIC_URL%", "/")
@@ -151,7 +151,7 @@ let procaPlugin = ({ id, config }) => ({
       );
 
       if (nodeEnv !== "development") {
-        const index = fullpath("d/" + config.filename + "/index.js");
+        const index = fullpath(`d/${config.filename}/index.js`);
         const extension =
           process.env.PROCA_COMPRESS === "brotli" ? ".br" : ".gz";
         const compression =
@@ -166,7 +166,7 @@ let procaPlugin = ({ id, config }) => ({
         const stats = fs.statSync(index + extension);
         console.log(
           color.bold(index + extension),
-          color.cyan(Math.round(stats.size / 1024) + "kb")
+          color.cyan(`${Math.round(stats.size / 1024)}kb`)
         );
       }
       save(config);
@@ -180,8 +180,8 @@ let procaPlugin = ({ id, config }) => ({
       }
       return {
         watchFiles: [
-          "config/" + config.filename,
-          "config/campaign/" + config.campaign.name + ".json",
+          `config/${config.filename}`,
+          `config/campaign/${config.campaign.name}.json`,
         ],
         contents: actionPage(id),
       };
@@ -217,7 +217,8 @@ const getConfig = (id, environment) => {
       ),
     ],
     loader: { ".js": "jsx" },
-    outdir: fullpath("d/" + config.filename),
+    jsx: "automatic",
+    outdir: fullpath(`d/${config.filename}`),
   };
 };
 
@@ -234,7 +235,7 @@ const serve = async id => {
   await c.watch();
   const r = await c.serve({ servedir: buildConfig.outdir, port: 1984 });
   const open = await import("open");
-  open.default("http://" + r.hosts[0] + ":" + r.port);
+  open.default(`http://${r.hosts[0]}:${r.port}`);
 };
 
 const build = async id => {
