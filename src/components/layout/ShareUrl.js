@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  TextField,
-  IconButton,
-  InputAdornment,
-  Tooltip,
-} from "@material-ui/core";
+import { TextField, IconButton, InputAdornment } from "@material-ui/core";
 import { FileCopy as CopyIcon } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useLayout } from "@hooks/useLayout";
@@ -51,33 +46,31 @@ const ShareLink = ({ url, onCopy }) => {
   };
 
   return (
-    <Tooltip title={copied ? t("Copied!") : t("Copy to clipboard")}>
-      {/* biome-ignore lint/correctness/useUniqueElementIds: singleton share dialog field */}
-      <TextField
-        id="share-link"
-        label={t("Shareable link")}
-        className={`${classes.copyButton} ${copied ? "copied" : ""}`}
-        fullWidth
-        value={currentUrl}
-        variant={layout.variant}
-        margin={layout.margin}
-        InputProps={{
-          readOnly: true,
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                onClick={handleCopy}
-                edge="end"
-                aria-label={t("Sharable link")}
-                className={`${classes.copyButton} ${copied ? "copied" : ""}`}
-              >
-                <CopyIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      />
-    </Tooltip>
+    <TextField
+      // biome-ignore lint/correctness/useUniqueElementIds: singleton share dialog field
+      id="share-link"
+      label={t("Shareable link")}
+      className={`${classes.copyButton} ${copied ? "copied" : ""}`}
+      fullWidth
+      value={currentUrl}
+      variant={layout.variant}
+      margin={layout.margin}
+      InputProps={{
+        readOnly: true,
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton
+              onClick={handleCopy}
+              edge="end"
+              aria-label={t("Sharable link")}
+              className={`${classes.copyButton} ${copied ? "copied" : ""}`}
+            >
+              <CopyIcon fontSize="small" />
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
   );
 };
 

@@ -149,12 +149,12 @@ const procaPlugin = ({ id, config }) => ({
 
       if (nodeEnv !== "development") {
         const index = fullpath(`d/${config.filename}/index.js`);
-        const extension =
-          process.env.PROCA_COMPRESS === "brotli" ? ".br" : ".gz";
-        const compression =
-          process.env.PROCA_COMPRESS === "brotli"
-            ? zlib.createBrotliCompress()
-            : zlib.createGzip({});
+        const useGzip = process.env.PROCA_COMPRESS === "gzip";
+        const extension = useGzip ? ".gz" : ".br";
+        const compression = useGzip
+          ? zlib.createGzip({})
+          : zlib.createBrotliCompress();
+        fs.rmSync(index + (useGzip ? ".br" : ".gz"), { force: true });
         await pipeline(
           fs.createReadStream(index),
           compression,

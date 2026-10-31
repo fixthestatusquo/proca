@@ -9,7 +9,7 @@ regex WIP
 location /d {
 gzip_static on;
 
-# brotli_static on;
+brotli_static on;
 
 # add_header X-uri $uri;
 
