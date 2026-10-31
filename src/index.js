@@ -1,4 +1,3 @@
-import React from "react";
 import "./polyfill";
 import ReactDOM from "react-dom";
 import { configStore, goStep, hook, setGlobalState } from "./hooks/useConfig";
@@ -214,7 +213,6 @@ export {
   go,
   scrollTo,
   hook,
-  React,
   ReactDOM,
   get,
   set,

@@ -6,7 +6,7 @@ everything from the widget is accessible through the global variable "proca".
 
 _tip: all the examples given can be tried from the developer console of your browser_
 
-//Widget, Alert, set, go, hook, React, ReactDOM
+//Widget, Alert, set, go, hook, ReactDOM
 
 ## style & design
 
