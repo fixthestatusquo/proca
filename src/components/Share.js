@@ -9,7 +9,7 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
-import { getMetadata } from "page-metadata-parser";
+import { getMetadata } from "@lib/metadata";
 import { decodeHtmlEntities } from "@lib/text";
 import { useTranslation } from "react-i18next";
 import { useComponentConfig } from "@hooks/useConfig";

@@ -7,7 +7,7 @@ import {
   CardActions,
   Avatar,
 } from "@material-ui/core";
-import { getMetadata } from "page-metadata-parser";
+import { getMetadata } from "@lib/metadata";
 import { decodeHtmlEntities, pickOne, tokenize } from "@lib/text";
 import uuid from "@lib/uuid";
 import { addAction } from "@lib/server";
