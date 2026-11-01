@@ -1,6 +1,5 @@
 
 import Postcode from "@components/field/Postcode";
-import { useCampaignConfig } from "@hooks/useConfig";
 import { useTargets } from "@hooks/useTargets";
 import { byArea, byConstituency } from "@lib/targets";
 import Alert from "@material-ui/lab/Alert";
@@ -9,12 +8,10 @@ import { useTranslation } from "react-i18next";
 
 const FilterPostcode = ({ form }) => {
   const { t } = useTranslation();
-  const config = useCampaignConfig();
   const { all, setFilter } = useTargets();
   const postcode = form.watch("postcode");
   const area = form.watch("area");
   const constituency = form.watch("constituency");
-  const configured = config.component.email?.filter?.includes("postcode");
 
   const match = useMemo(
     () =>
@@ -23,15 +20,9 @@ const FilterPostcode = ({ form }) => {
   );
 
   useEffect(() => {
-    if (match) {
-      setFilter("postcode", { qualify: match });
-    } else if (configured || postcode) {
-      // keep the list empty until the lookup resolves area/constituency
-      setFilter("postcode", { qualify: () => false });
-    } else {
-      setFilter("postcode", null);
-    }
-  }, [match, configured, postcode, setFilter]);
+    // keep the list empty until the lookup resolves area/constituency
+    setFilter("postcode", { qualify: match || (() => false) });
+  }, [match, setFilter]);
 
   useEffect(() => {
     if (!match) {
