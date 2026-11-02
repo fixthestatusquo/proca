@@ -1,6 +1,6 @@
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import get from "lodash/get";
+import { get } from "@lib/object";
 import { useEffect } from "react";
 
 const Snowflake = () => {

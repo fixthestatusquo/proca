@@ -1,6 +1,6 @@
 import { displayUrl } from "@lib/urlparser";
 import { useCampaignConfig } from "@components/ABTest";
-import get from "lodash/get";
+import { get } from "@lib/object";
 //import { useCampaignConfig } from "@hooks/useConfig";
 
 const tokenize = (str, obj, { prefix = "config" } = {}) => {

@@ -1,7 +1,7 @@
 const envVar = "actionpage";
 const fs = require("graceful-fs");
 const path = require("node:path");
-const merge = require("lodash").merge;
+const { merge } = require("es-toolkit/compat");
 
 function getConfigOverride(id) {
   const config = readConfigOverride(id);

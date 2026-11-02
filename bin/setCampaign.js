@@ -3,7 +3,7 @@ const { read, saveCampaign, pullCampaign, pushCampaign } = require("./config");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["pull", "push"],
 });
-const merge = require("lodash.merge");
+const { merge } = require("es-toolkit/compat");
 require("./dotenv.js");
 
 const languages = [

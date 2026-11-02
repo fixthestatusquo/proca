@@ -16,9 +16,7 @@ const org = require("./org");
 const { saveCampaign } = require("./campaign");
 const _snarkdown = require("snarkdown");
 
-const _set = require("lodash/set");
-const _merge = require("lodash/merge");
-const _get = require("lodash/get");
+const { get: _get, merge: _merge, set: _set } = require("es-toolkit/compat");
 
 const help = () => {
   console.log(

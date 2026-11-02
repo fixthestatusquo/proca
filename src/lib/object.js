@@ -25,9 +25,12 @@ export const merge = (...objects) => {
   }, {});
 };
 
-export const get = (object, path) => {
-  if (!object || !path) return undefined;
-  return path.split(".").reduce((current, prop) => current?.[prop], object);
+export const get = (object, path, defaultValue) => {
+  if (!object || !path) return defaultValue;
+  const value = path
+    .split(".")
+    .reduce((current, prop) => current?.[prop], object);
+  return value === undefined ? defaultValue : value;
 };
 
 export const set = (obj, path, value) => {
