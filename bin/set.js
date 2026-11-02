@@ -18,7 +18,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     "phoneshown",
   ],
 });
-const merge = require("lodash.merge");
+const { merge } = require("es-toolkit/compat");
 
 const locales = [
   "ar",
