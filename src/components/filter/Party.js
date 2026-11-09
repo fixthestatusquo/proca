@@ -64,15 +64,19 @@ const PartyFilter = props => {
   }, []);
 
   useEffect(() => {
-    if (!country || !allowed.length) return;
+    // allowed is already narrowed by the other filters (eg. filter/Country)
+    if (!allowed.length) return;
     const count = {};
-    const list = allowed.filter(d => !country || d.country === country);
-    for (const item of list) {
+    for (const item of allowed) {
       const key = getKey(item);
       if (count[key]) {
         count[key].count++;
       } else {
-        count[key] = { count: 1, eugroup: item.eugroup };
+        count[key] = {
+          count: 1,
+          eugroup: item.eugroup,
+          country: item.country,
+        };
       }
     }
 
@@ -95,7 +99,7 @@ const PartyFilter = props => {
       })
     );
     setParties(sortedObject);
-  }, [allowed, country, getKey]);
+  }, [allowed, getKey]);
 
   useEffect(
     () => () => {
@@ -158,7 +162,9 @@ const PartyFilter = props => {
     <>
       <div className={classes.root}>
         {Object.entries(parties).map(([name, party]) => {
-          const record = allParties[`${country?.toUpperCase()}:${name}`] || {
+          const record = allParties[
+            `${party.country?.toUpperCase()}:${name}`
+          ] || {
             name: name,
           };
           const AvatarParty = record.picture && (
