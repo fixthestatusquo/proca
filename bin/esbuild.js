@@ -230,7 +230,16 @@ const serve = async id => {
   };
   const c = await context(buildConfig);
   await c.watch();
-  const r = await c.serve({ servedir: buildConfig.outdir, port: 1984 });
+  let port = Number(process.env.PORT) || 1984;
+  let r; // first free port from PORT or 1984
+  while (!r && port < 2010)
+    r = await c
+      .serve({ servedir: buildConfig.outdir, port: port++ })
+      .catch(e => {
+        if (!/address already in use/.test(e.message)) throw e;
+        return null;
+      });
+  if (!r) throw new Error("no free port between 1984 and 2009");
   const open = await import("open");
   open.default(`http://${r.hosts[0]}:${r.port}`);
 };
