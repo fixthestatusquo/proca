@@ -1,32 +1,24 @@
-import { useEffect, useState } from "react";
 import { useConfig } from "@hooks/useConfig";
 import i18next from "i18next";
+import { useEffect, useState } from "react";
 
-const localizeConfigQuestions = config => {
+// config fields carry the whole question definition, same shape as the remote json
+export const localizeConfigQuestions = config => {
   const { t } = i18next;
-  const questions = config?.component?.consultation.fields;
+  const questions = config?.component?.survey.fields;
   if (!questions) return [];
 
-  return questions.map(q => {
-    const result = {
-      id: q.id,
-      type: q.type,
-      attributeName: q.attributeName || String(q.id),
-      title: t(`campaign:fields.${q.id}.title`, q.title),
-    };
-
-    if (q.possibleAnswers) {
-      result.possibleAnswers = q.possibleAnswers.map(opt => ({
-        id: opt.id,
+  return questions.map(q => ({
+    ...q,
+    attributeName: q.attributeName || String(q.id),
+    title: t(`campaign:fields.${q.id}.title`, q.title),
+    ...(q.possibleAnswers && {
+      possibleAnswers: q.possibleAnswers.map(opt => ({
+        ...opt,
         text: t(`campaign:fields.${q.id}.possibleAnswers.${opt.id}`, opt.text),
-      }));
-    }
-    // overwriting the margin. By default is larger (for fetched fields)
-    if (q.margin) result.margin = q.margin;
-
-    if (q.required) result.required = q.required;
-    return result;
-  });
+      })),
+    }),
+  }));
 };
 
 const useConsultJson = (name, lang = "en") => {
