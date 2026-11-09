@@ -65,7 +65,10 @@ const PartyFilter = props => {
 
   useEffect(() => {
     // allowed is already narrowed by the other filters (eg. filter/Country)
-    if (!allowed.length) return;
+    if (!allowed.length) {
+      setParties({}); // eg. a country without targets: no chips
+      return;
+    }
     const count = {};
     for (const item of allowed) {
       const key = getKey(item);
