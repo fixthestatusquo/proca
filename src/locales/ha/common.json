@@ -6,7 +6,7 @@
   "City": "Garin",
   "Comment": "Sharhi",
   "Copied!": "An kwafa!",
-  "Copy to clipboard": "Kwafi zuwa allon yankewa",
+  "Copy to clipboard": "Kwafi zuwa allon yanka",
   "Country": "Ƙasa",
   "Download": "Saukewa",
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
@@ -30,7 +30,7 @@
   "action": {
     "consultation": "Aika",
     "default": "Dauki mataki",
-    "donate": "Ba da gudummawa",
+    "donate": "Yi gudummawa",
     "eci": "eci",
     "email": "Aika imel",
     "join": "Shiga",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Yi shi kowane wata?",
-        "oneoff": "Ba da gudummawa",
+        "oneoff": "Yi gudummawa",
         "weekly": "Yi wannan gudummawar mako-mako?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Biyan kudi",
     "payment_methods": {
       "card": "Katin",
-      "default": "Ba da gudummawa",
+      "default": "Yi gudummawa",
       "intro": "Ta yaya kuke son bayarwa?",
       "paypal": "PayPal",
       "sepa": "SEPA",
