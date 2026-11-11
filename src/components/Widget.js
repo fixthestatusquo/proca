@@ -1,33 +1,30 @@
+import Alert from "@components/Alert";
+import Button from "@components/FAB";
+import { AlertRenderer } from "@components/layout/AlertRenderer";
+import ProcaRoot from "@components/ProcaRoot";
+import TwoColumns from "@components/TwoColumns";
+import { useAddAlert } from "@hooks/useAlert";
+import { initConfigState, useComponentConfig } from "@hooks/useConfig";
+import { initDataState } from "@hooks/useData";
+import useHash, { getHash } from "@hooks/useHash";
+//import { useTheme } from "@material-ui/core/styles";
+import { useIsMobile } from "@hooks/useLayout";
+import { getCookie } from "@lib/cookie";
+import { getAllData, getOverwriteLocales } from "@lib/domparser";
+import { dispatch } from "@lib/event";
+import { getItems } from "@lib/localStorage";
+import { merge } from "@lib/object";
+import { scrollTo as _scrollTo } from "@lib/scroll";
+import Url, { step as paramStep } from "@lib/urlparser";
 import {
-  useState,
-  useRef,
   useCallback,
   useEffect,
   useLayoutEffect,
+  useRef,
+  useState,
 } from "react";
-import ProcaRoot from "@components/ProcaRoot";
-import { merge } from "@lib/object";
-import { initConfigState, useComponentConfig } from "@hooks/useConfig";
-import Url, { step as paramStep } from "@lib/urlparser";
-import { getCookie } from "@lib/cookie";
-import { getItems } from "@lib/localStorage";
-import { getAllData, getOverwriteLocales } from "@lib/domparser";
-
-//import { useTheme } from "@material-ui/core/styles";
-import { useIsMobile } from "@hooks/useLayout";
-import useHash, { getHash } from "@hooks/useHash";
-import { dispatch } from "@lib/event";
-import { scrollTo as _scrollTo } from "@lib/scroll";
-
-import { initDataState } from "@hooks/useData";
-
-import { AlertRenderer } from "@components/layout/AlertRenderer";
-import { useAddAlert } from "@hooks/useAlert";
-
 import { steps as generatedSteps } from "../actionPage";
-import Button from "@components/FAB";
-import Alert from "@components/Alert";
-import TwoColumns from "@components/TwoColumns";
+
 let config = {
   data: Url.data(),
   utm: Url.utm(),
@@ -104,7 +101,8 @@ const Widget = ({ steps: providedSteps, ...props }) => {
 
   let cookies = {};
 
-  if (!config.component.widget?.cookie === false) {
+  if (config.component.widget?.cookie !== false) {
+    // opt out with component.widget.cookie: false
     cookies = {
       uuid: getCookie("proca_uuid"),
       firstname: getCookie("proca_firstname"),
@@ -112,7 +110,8 @@ const Widget = ({ steps: providedSteps, ...props }) => {
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
   document.querySelectorAll(props.selector).forEach(dom => {
-    data = { ...dom.dataset, ...cookies, ...storage, ...data };
+    // script tag data-* (config.data) are the lowest precedence
+    data = { ...config.data, ...dom.dataset, ...cookies, ...storage, ...data };
   });
 
   config.param = getAllData(config.selector);
@@ -172,7 +171,7 @@ const Widget = ({ steps: providedSteps, ...props }) => {
     const styleSheet = document.createElement("style");
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-  }, [test]);
+  }, [test, showAlert]);
 
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {
@@ -207,7 +206,7 @@ const Widget = ({ steps: providedSteps, ...props }) => {
   }
 
   propsJourney.forEach(d => {
-    if (d instanceof Array) {
+    if (Array.isArray(d)) {
       d.forEach((_e, i) => {
         depths.push(i > 0 ? 2 : 1);
       }); // the first of a multistep is on level 1 (eg dialog, sinon 2)
