@@ -10,7 +10,7 @@
   "Country": "מדינה",
   "Download": "הורד",
   "Download explanation": "המסמך שלך מוכן כעת, אנו שולחים אותו גם אליך",
-  "Email": "אימייל",
+  "Email": "דוא\"ל",
   "First name": "שם פרטי",
   "Language": "שפה",
   "Last name": "שם משפחה",
@@ -30,12 +30,12 @@
   "action": {
     "consultation": "שלח",
     "default": "פעל",
-    "donate": "לִתְרוֹם",
+    "donate": "לתרום",
     "eci": "חתום על ECI",
     "email": "שלח אימייל",
     "join": "לְהִצְטַרֵף",
     "pledge": "התחייב עכשיו!",
-    "register": "הירשם",
+    "register": "הרשמה",
     "remindeSent": "תזכורת נשלחה",
     "reminder": "תזכיר לי אחר כך",
     "reminderEmail": "תזכיר לי במייל",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "האם לעשות זאת כתרומה שבועית?",
-        "oneoff": "לִתְרוֹם",
+        "oneoff": "לתרום",
         "weekly": "לעשות את זה חודשי?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "תשלום",
     "payment_methods": {
       "card": "כַּרְטִיס",
-      "default": "לִתְרוֹם",
+      "default": "לתרום",
       "intro": "איך אתה רוצה לתרום?",
       "paypal": "PayPal",
       "sepa": "SEPA",
