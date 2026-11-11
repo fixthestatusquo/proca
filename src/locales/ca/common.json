@@ -30,12 +30,12 @@
   "action": {
     "consultation": "Enviar",
     "default": "Actua",
-    "donate": "Donar",
+    "donate": "Dona",
     "eci": "eci",
     "email": "Enviar un correu electrònic",
     "join": "Uneix-te",
     "pledge": "Fes el teu compromís ara!",
-    "register": "Registra't",
+    "register": "Registrar-se",
     "remindeSent": "Recordatori enviat",
     "reminder": "Recorda-m'ho més tard",
     "reminderEmail": "Recorda'm per correu electrònic",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Fer-lo mensualment?",
-        "oneoff": "Donar",
+        "oneoff": "Dona",
         "weekly": "Fer-ho una donació setmanal?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Pagament",
     "payment_methods": {
       "card": "Targeta",
-      "default": "Donar",
+      "default": "Dona",
       "intro": "Com vols donar?",
       "paypal": "PayPal",
       "sepa": "SEPA",
