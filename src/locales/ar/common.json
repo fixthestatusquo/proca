@@ -30,12 +30,12 @@
   "action": {
     "consultation": "إرسال",
     "default": "اتخذ إجراءً",
-    "donate": "يتبرع",
+    "donate": "تبرع",
     "eci": "قم بالتوقيع على ECI",
     "email": "أرسل بريدا إلكترونيا",
     "join": "انضم",
     "pledge": "تعهّد الآن!",
-    "register": "يسجل",
+    "register": "التسجيل",
     "remindeSent": "تم إرسال التذكير",
     "reminder": "ذكرني لاحقا",
     "reminderEmail": "ذكرني عن طريق البريد الإلكتروني",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "جعل هذا تبرعا أسبوعيا؟",
-        "oneoff": "يتبرع",
+        "oneoff": "تبرع",
         "weekly": "جعلها شهريا؟"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "الدفع",
     "payment_methods": {
       "card": "بطاقة",
-      "default": "يتبرع",
+      "default": "تبرع",
       "intro": "كيف تريد التبرع؟",
       "paypal": "باي بال",
       "sepa": "SEPA",
