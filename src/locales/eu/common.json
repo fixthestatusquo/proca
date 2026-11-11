@@ -6,7 +6,7 @@
   "City": "Hiria",
   "Comment": "Iruzkina utzi",
   "Copied!": "Kopiatuta!",
-  "Copy to clipboard": "Hautatutakoa kopiatuta",
+  "Copy to clipboard": "Hautatutako testua kopiatuta mozteko buferera",
   "Country": "Herrialdea",
   "Download": "Deskargatu",
   "Download explanation": "Zure dokumentua prest dago. Zuri ere mezu elektroniko bat bidaltzen dizugu.",
@@ -17,7 +17,7 @@
   "Locality": "Herria",
   "Next": "Hurrengoa",
   "Organisation": "Antolaketa",
-  "Other": "Beste bat",
+  "Other": "Besteak",
   "Phone": "Telefonoa",
   "Postal Code": "Posta kodea",
   "Salutation": "Agurra",
@@ -30,12 +30,12 @@
   "action": {
     "consultation": "Bidali",
     "default": "Ekin",
-    "donate": "Dohaintza eman",
+    "donate": "Ekarpen egin",
     "eci": "eci",
     "email": "Bidali mezu elektroniko bat",
     "join": "Sartu",
     "pledge": "Orain konpromisoa hartu!",
-    "register": "Izena eman",
+    "register": "Erregistratu",
     "remindeSent": "Bidali da abisua",
     "reminder": "Gogoratu geroago",
     "reminderEmail": "E-postaz gogorarazi",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Hilero egin?",
-        "oneoff": "Dohaintza eman",
+        "oneoff": "Ekarpen egin",
         "weekly": "Asteroko dohaintza bat egin nahi duzu?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Ordainketa",
     "payment_methods": {
       "card": "Txartela",
-      "default": "Dohaintza eman",
+      "default": "Ekarpen egin",
       "intro": "Nola eman nahi duzu dohaintza?",
       "paypal": "PayPal",
       "sepa": "SEPA",
