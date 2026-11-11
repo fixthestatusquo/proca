@@ -17,7 +17,7 @@
   "Locality": "Lokalitet",
   "Next": "Next",
   "Organisation": "Organisation",
-  "Other": "Andre",
+  "Other": "Andet",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
   "Salutation": "Hilsen",
@@ -30,12 +30,12 @@
   "action": {
     "consultation": "Send",
     "default": "Gør noget ved det",
-    "donate": "Donér",
+    "donate": "Doner",
     "eci": "Skriv under her",
     "email": "Send en e-mail",
     "join": "Tilmeld dig",
     "pledge": "Giv dit tilsagn nu!",
-    "register": "Registrer",
+    "register": "Registrer dig",
     "remindeSent": "Påmindelse sendt",
     "reminder": "Mind mig om det senere",
     "reminderEmail": "Påmind mig via e-mail",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Gør det månedligt?",
-        "oneoff": "Donér",
+        "oneoff": "Doner",
         "weekly": "Gør det til en ugentlig donation?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
-      "default": "Donér",
+      "default": "Doner",
       "intro": "Hvordan ønsker du at donere?",
       "paypal": "PayPal",
       "sepa": "SEPA",
