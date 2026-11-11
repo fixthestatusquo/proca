@@ -47,11 +47,12 @@ const useGlobalStyles = makeStyles({
   },
 });
 
+// data-promocodephone -> promocodephone; the other spellings are historical
+const PHONE_CODE = ["promocodephone", "promocodePhone", "promocode_phone"];
+const phoneCode = v => PHONE_CODE.map(key => v[key]).find(Boolean);
+
 // the phone code is only sent as the werbecode, and only when a phone is given
 const prepareCustomFields = formData => {
-  // data-promocodephone -> promocodephone; the other spellings are historical
-  const PHONE_CODE = ["promocodephone", "promocodePhone", "promocode_phone"];
-  const phoneCode = v => PHONE_CODE.map(key => v[key]).find(Boolean);
   const code = phoneCode(formData);
   for (const key of PHONE_CODE) delete formData[key];
   if (formData.phone && code) formData.promocode = code;
