@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Eine KI hat diese Nachricht verfasst. Wir empfehlen dir, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren",
+  "ai_tip": "Du kannst hier Aufzählungspunkte für deinen Text einfügen und auf die Schaltfläche „{{button}} “ klicken oder selbst eine Nachricht verfassen",
   "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "die Kamera starten",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
+    "button": {
+      "opt-in": "und Informationen erhalten",
+      "opt-out": "und halten mich nicht auf dem Laufenden"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Bist du dir sicher, dass du keine Updates zum Fortschritt dieser und anderer Kampagnen erhalten möchtest?",
+        "opt-in": "Ja, ich möchte Updates zur Kampagne erhalten",
+        "opt-out": "Nein, bitte keine Updates"
+      }
+    },
     "confirm": "<0>Bist Du sicher?</0><1>Wenn Du 'Nein' wählst, wirst Du nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Du \"Ja\" wählst, werden wir Dich über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Du kannst Dich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufe die E-Mail sofort ab und klicke auf den darin enthaltenen Link (überprüfe Deinen Spam-Ordner!).\n Nur dann wird Deine Aktion gezählt! \nDeine Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Deine Bestätigung…",
     "confirmOptIn": "Vergesse nicht, Deine Mailbox zu überprüfen (auch Deinen Spam-Ordner!) und Deine Newsletter Anmeldung zu bestätigen",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Anmeldung bestätigt",
     "processing": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten und Cookies gemäss unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Deine persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklärst Du Dich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "required": "Zustimmung erforderlich zur Teilnahme",
-    "button": {
-      "opt-in": "und Informationen erhalten",
-      "opt-out": "und halten mich nicht auf dem Laufenden"
-    }
+    "required": "Zustimmung erforderlich zur Teilnahme"
   },
   "customize_text": "Wir ermutigen dich, ihn zu lesen und anzupassen, um seine Wirkung zu maximieren",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "Format sollte DD.MM.YYYY sein"
   },
+  "gender": {
+    "female": "Weiblich",
+    "male": "Männlich",
+    "na": "Möchte ich lieber nicht sagen",
+    "trans": "Nicht-binär"
+  },
   "give_another": "Gib mir noch einen",
   "help_write": "Hilf mir, es zu schreiben",
   "image": {
@@ -191,6 +205,10 @@
     "share": "{{total}} geteilt haben.",
     "sign": "{{total}} haben unterzeichnet.",
     "twitter": "{{total}} getwittert haben."
+  },
+  "progressGoal": {
+    "default": "Gehen wir zu {{goal}}",
+    "sign": "Nächstes Ziel: {{goal}}"
   },
   "read more": "mehr lesen",
   "region": "Region",
@@ -248,10 +266,7 @@
     "screenName": "Twitter-Konto"
   },
   "unknown postcode": "unbekannte Postleitzahl",
+  "url": "Website der Organisation",
   "yes": "ja",
-  "you need to be 18 years old": "Du musst 18 Jahre alt sein",
-  "progressGoal": {
-    "default": "Gehen wir zu {{goal}}",
-    "sign": "Nächstes Ziel: {{goal}}"
-  }
+  "you need to be 18 years old": "Du musst 18 Jahre alt sein"
 }
