@@ -372,7 +372,7 @@ body.full_width .grid { display: block !important; }
     >
     <div id="root" class="container">
       <div class="proca-progress"></div>
-      <div class="proca-widget" id="widget-demo">
+      <div class="proca-widget" id="widget-demo" data-promocode="promocode_from_data-" data-bannerid="from_data-bannerid">
         <div class="alert alert-info" role="alert">
           <p class="proca-description">do not forget the promocode!</p>
         </div>
@@ -434,7 +434,7 @@ body.full_width .grid { display: block !important; }
                 This is the most flexible solution, you can have a full width
                 form, or manage your layout exactly the way your want.
                 <pre class="dynamic">
-&lt;script src="https://%widget_path%" data-promocode="hallo" "data-promocodephone="moin">&lt;/script>
+&lt;script src="https://%widget_path%" data-promocode="hallo" data-promocodephone="moin"&gt;&lt;/script&gt;
           </pre
                 >
               </div>
@@ -445,7 +445,7 @@ body.full_width .grid { display: block !important; }
                 put the text you want on the left hand column as the content of
                 the widget
                 <pre class="dynamic">
-&lt;script src="https://%widget_path%"  data-promocode="hallo" "data-promocodephone="moin">&lt;/script>
+&lt;script src="https://%widget_path%" data-promocode="hallo" data-promocodephone="moin"&gt;&lt;/script&gt;
 &lt;div class="proca-widget">
   &lt;div class="proca-description">Loading text...&lt;/div>
 &lt;/div>
@@ -487,6 +487,7 @@ body.full_width .grid { display: block !important; }
     -->
     <script>
       window.dataLayer = [];
+      window.drupalSettings = {user: {uid:1234}};
       let params = {};
       function display() {
         var variants = ["standard", "filled", "outlined"];
@@ -512,12 +513,20 @@ body.full_width .grid { display: block !important; }
         if (urlParams.get("actionPage"))
           params.actionPage = urlParams.get("actionPage");
 
+        // same as data-promocode / data-promocode-phone / data-bannerid on the script tag
+        if (urlParams.get("promocode"))
+          params.promocode = urlParams.get("promocode");
+        if (urlParams.get("promocodephone"))
+          params.promocodePhone = urlParams.get("promocodephone");
+        if (urlParams.get("bannerid")) params.bannerid = urlParams.get("bannerid");
+
         //        params.loader = urlParams.get("proca_loader");
         proca.Widget(params);
       }
 
       if (typeof proca === "object") {
         //not used on dev
+        console.log("not dev mode");
         display();
       } else {
         console.log("DEV MODE");
