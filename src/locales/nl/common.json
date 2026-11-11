@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Een AI schreef dit bericht, we raden je aan het te lezen en aan te passen om de impact ervan te maximaliseren",
+  "ai_tip": "Je kunt hier opsommingstekens invoegen om tekst op te stellen en vervolgens op de knop \"{{button}}\" klikken, of zelf een bericht schrijven",
   "ai_work": "AI aan het werk",
   "camera": {
     "start": "start de camera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Actie bevestigd",
     "actionRejected": "De actie werd met succes geannuleerd",
+    "button": {
+      "opt-in": "en informatie ontvangen",
+      "opt-out": "en houdt me niet op de hoogte"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Weet je zeker dat je geen updates wilt ontvangen over de voortgang van deze en andere campagnes?",
+        "opt-in": "Ja, ik wil graag op de hoogte blijven van de campagne",
+        "opt-out": "Nee, geen updates, alstublieft"
+      }
+    },
     "confirm": "<0>Weet u het zeker? </0><1>Als u 'Nee' selecteert, zult u niet te weten komen of deze campagne succesvol was, of er meer gezamenlijke actie nodig is om deze campagne te winnen. Als u 'Ja' selecteert, houden we u op de hoogte van deze en onze andere dringende oproepen.</1><2>U kunt zich op elk moment uitschrijven.</2>",
     "confirmAction": "Wij hebben een bevestigingslink per e-mail naar het volgende adres gestuurd:\n {{email}}\nGelieve de e-mail nu op te halen en op de link te klikken die erin staat (controleer uw spam-map!).\n Alleen dan telt uw actie!\nUw bevestiging is cruciaal voor het politieke gewicht van de actie. Dit garandeert dat er een echt persoon achter elke inzending staat. We wachten op je bevestiging...",
     "confirmOptIn": "Vergeet niet uw mailbox te controleren (ook uw spam-map!) en uw e-mailabonnement te bevestigen",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonnement bevestigd",
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
-    "required": "Uw toestemming is nodig om deel te nemen",
-    "button": {
-      "opt-in": "en informatie ontvangen",
-      "opt-out": "en houdt me niet op de hoogte"
-    }
+    "required": "Uw toestemming is nodig om deel te nemen"
   },
   "customize_text": "We moedigen je aan om het te lezen en aan te passen om de impact te maximaliseren",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "formaat moet DD.MM.YYYY zijn"
   },
+  "gender": {
+    "female": "Vrouw",
+    "male": "Man",
+    "na": "Ik geef er liever geen antwoord op",
+    "trans": "Niet-binair"
+  },
   "give_another": "Geef me nog een",
   "help_write": "Help me het te schrijven",
   "image": {
@@ -191,6 +205,10 @@
     "share": "{{total}} hebben gedeeld.",
     "sign": "{{total}} mensen getekend.",
     "twitter": "{{total}} hebben getwitterd."
+  },
+  "progressGoal": {
+    "default": "Laten we naar {{goal}}",
+    "sign": "Laten we voor {{goal}} gaan."
   },
   "read more": "lees meer",
   "region": "Regio",
@@ -248,10 +266,7 @@
     "screenName": "Twitter-account"
   },
   "unknown postcode": "onbekende postcode",
+  "url": "Website van de organisatie",
   "yes": "ja",
-  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn",
-  "progressGoal": {
-    "default": "Laten we naar {{goal}}",
-    "sign": "Laten we voor {{goal}} gaan."
-  }
+  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
 }
