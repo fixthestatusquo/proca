@@ -1,6 +1,6 @@
 import TextField from "@components/field/TextField";
-import { toObject } from "@lib/text";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { toObject } from "@lib/text";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -63,11 +63,11 @@ const Select = ({
   const [open, setOpen] = useState(false);
 
   // setValue during render would update the parent form component mid-render
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only the initial default matters
   useEffect(() => {
     if (required && options[0] && !form.getValues(name)) {
       form.setValue(name, select === "value" ? options[0][1] : options[0][0]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const text = (value, label) =>
     !open && current === value && short?.[value] ? short[value] : label;
