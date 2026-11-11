@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
+  "ai_tip": "You can insert bullet points for text creation here and click the button \"{{button}}\" or write a message yourself",
   "ai_work": "AI at work",
   "camera": {
     "start": "start the camera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Action confirmed",
     "actionRejected": "The action was successfully cancelled",
+    "button": {
+      "opt-in": "and receive informations",
+      "opt-out": "and do not keep me informed"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Are you sure you don't want to receive updates on the progress of this and other campaigns?",
+        "opt-in": "Yes, I do want campaign updates",
+        "opt-out": "No, no updates please"
+      }
+    },
     "confirm": "<0>Are you sure?</0><1>By selecting ‘No’, you won’t be able to find out if this campaign is successful, or if there is more action we need to take together to win it. If you select ‘Yes’ we’ll keep you updated about this and our other urgent campaigns.</1><2>You can unsubscribe at any time.</2>",
     "confirmAction": "Please retrieve the email right now and click on the link it contains (check your spam folder!).\n Only then will your action count!\nYour confirmation is crucial for the political weight of the action. This guarantees that there is a real person behind every submission. We’ll await your confirmation...",
     "confirmOptIn": "Don’t forget to check your mailbox (including your spam folder!) and confirm your email subscription",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Subscription confirmed",
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
-    "required": "Your consent is needed to participate",
-    "button": {
-      "opt-in": "and receive informations",
-      "opt-out": "and do not keep me informed"
-    }
+    "required": "Your consent is needed to participate"
   },
   "customize_text": "We encourage you to read and customise it to maximise its impact",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "format should be DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Female",
+    "male": "Male",
+    "na": "Prefer not to say",
+    "trans": "Non-binary"
   },
   "give_another": "Give me another",
   "help_write": "Help me write it",
@@ -252,6 +266,7 @@
     "screenName": "Twitter account"
   },
   "unknown postcode": "unknown postcode",
+  "url": "Organisation Website",
   "yes": "yes",
   "you need to be 18 years old": "you need to be 18 years old"
 }
