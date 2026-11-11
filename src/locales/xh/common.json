@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Lo myalezo ubhalwe yi-AI, siyakukhuthaza ukuba uwufunde uze uwulungise ngendlela oyithandayo ukuze wona umphumo wawo.",
+  "ai_tip": "Ungafaka iibala zokudala umbhalo apha uze ucofe iqhosha elithi \"{{button}}\", okanye uzibhalele umyalezo ngokwakho.",
   "ai_work": "Ubukrelekrele obuyingenzelwano emsebenzini",
   "camera": {
     "start": "qala ikhamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Isenzo siqinisekisiwe",
     "actionRejected": "Isenzo sicinyiwe ngempumelelo",
+    "button": {
+      "opt-in": "kwaye ufumane ulwazi",
+      "opt-out": "kwaye ungangigcini ndinolwazi"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Uqinisekile ukuba awufuni kufumana uhlaziyo malunga nenkqubela yeli phulo kunye namanye?",
+        "opt-in": "Ewe, ndifuna uhlaziyo lwephulo.",
+        "opt-out": "Hayi, andifuni zihlaziyo, nceda."
+      }
+    },
     "confirm": "<0>Uqinisekile?</0><1>Ukuba ukhetha 'Hayi', awuyi kukwazi ukufumanisa ukuba lo mkhankaso uphumelele, okanye ukuba kukho elinye inyathelo esimele silithathe kunye ukuze siphumelele. Ukuba ukhetha 'Ewe' siya kukugcina ulwazi malunga nalo mkhankaso kunye neminye emikhankaso yethu ephuthumayo.</1><2>Ungazikhupha nanini na.</2>",
     "confirmAction": "Nceda ufunge i-imeyile ngoku kwaye ucofe kwikhonkco elikuqulethe (jonga kwifolda yakho ye-spam!).\n Kungoko kuphela xa isenzo sakho siza kubalwa!\nUkuqinisekisa kwakho kubalulekile ukuze esi senzo sibe nobunzima kwezopolitiko. Oku kuqinisekisa ukuba kukho umntu owenyani ngasemva kwezinto zonke ezithunyelweyo. Siza kulinda ukuqinisekisa kwakho...",
     "confirmOptIn": "Ungakulibali ukujonga ibhokisi yakho leposi (kubandakanywa ifolda ye-spam!) kwaye uqinisekise ukubhaliswa kwakho kwe-imeyile",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Ukubhaliswa kuqinisekisiwe",
     "processing": "Ulwazi lwakho lobuqu luya kugcinwa luyimfihlo kwaye luphephile. Ngokuthumela ulwazi uvuma ukusetyenziswa kwedatha kunye nekuki ngokwe-<1>nkqubo yethu yobumfihlo</1>",
     "processing-nocookie": "Ulwazi lwakho lobuqu luya kugcinwa luyimfihlo kwaye luphephile. Ngokuthumela ulwazi uvuma ukusetyenziswa kwedatha ngokwe-<1>nkqubo yethu yobumfihlo</1>",
-    "required": "Imvume yakho iyadingeka ukuze uthathe inxaxheba",
-    "button": {
-      "opt-in": "kwaye ufumane ulwazi",
-      "opt-out": "kwaye ungangigcini ndinolwazi"
-    }
+    "required": "Imvume yakho iyadingeka ukuze uthathe inxaxheba"
   },
   "customize_text": "Siyakukhuthaza ukuba uyifunde kwaye uyilungise ngendlela oyithandayo ukuze yandise impembelelo yayo.",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "ifomathi kufuneka ibe yi-DD.MM.YYYY"
   },
+  "gender": {
+    "female": "Owesifazane",
+    "male": "Indoda",
+    "na": "Kungathandwa ukuthetha",
+    "trans": "Ongeyiyo indoda okanye umfazi"
+  },
   "give_another": "Yenza enye",
   "help_write": "Ndicele ukuba ndikuncede ukuyibhala.",
   "image": {
@@ -194,7 +208,7 @@
   },
   "progressGoal": {
     "default": "Masiqhubeke ku-{{goal}}",
-    "sign": "Masiye e {{goal}}"
+    "sign": "Masiye {{goal}}"
   },
   "read more": "funda ngakumbi",
   "region": "Ummandla",
@@ -255,9 +269,7 @@
     "screenName": "Akhawunti ye-Twitter"
   },
   "unknown postcode": "ikhodi yeposi engaziwayo",
+  "url": "Iwebhusayithi yoMbutho",
   "yes": "ewe",
-  "you need to be 18 years old": "ufanele ukuba neminyaka eli-18 ubudala",
-  "progressGoal": {
-    "default": "Masiqhubeke ku-{{goal}}"
-  }
+  "you need to be 18 years old": "ufanele ukuba neminyaka eli-18 ubudala"
 }
