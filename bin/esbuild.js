@@ -14,7 +14,7 @@ const { build: esbuild, context, analyzeMetafileSync } = require("esbuild");
 const { esbuildPluginBrowserslist } = require("esbuild-plugin-browserslist");
 const { copy } = require("esbuild-plugin-copy");
 let runs = 0;
-let nodeEnv = undefined;
+let nodeEnv;
 
 const fullpath = file => path.resolve(__dirname, "../", file);
 
@@ -52,31 +52,28 @@ const define = environment => {
     "process.env.REACT_APP_CHECKMAIL_API_URL": '"https://check-mail.proca.app"',
     "process.env.REACT_APP_API_URL": '"https://api.proca.app/api"',
     "process.env.REACT_APP_GEOIP_URL": '"https://country.proca.foundation"', // not used yet
-    "process.env.NODE_ENV": '"' + (environment || "production") + '"',
+    "process.env.NODE_ENV": `"${environment || "production"}"`,
     "process.env.REACT_APP_CHECK_PHONE_API_URL":
       '"https://check-phone.proca.app"',
   };
 
   Object.keys(process.env)
     .filter(d => d.startsWith("REACT_APP_"))
-    .forEach(d => (defined["process.env." + d] = '"' + process.env[d] + '"'));
+    .forEach(d => (defined[`process.env.${d}`] = `"${process.env[d]}"`));
   return defined;
 };
 
 const save = config => {
   const hash = cp.execSync("git rev-parse HEAD").toString().trim();
   fs.writeFileSync(
-    fullpath("d/" + config.filename + "/config-" + hash + ".json"),
+    fullpath(`d/${config.filename}/config-${hash}.json`),
     JSON.stringify(config, null, 2)
   );
   if (argv.verbose) {
     console.log(JSON.stringify(config, null, 2));
   } else {
     runs === 0 &&
-      console.log(
-        "config",
-        "d/" + config.filename + "/config-" + hash + ".json"
-      );
+      console.log("config", `d/${config.filename}/config-${hash}.json`);
   }
 };
 
@@ -86,27 +83,27 @@ const save = config => {
 
 const resolveCountryList = config => {
   const lang = config.lang;
-  let countryList = "i18n-iso-countries/langs/" + lang + ".json";
-  let r = {};
-  if (!fs.existsSync("node_modules/" + countryList)) {
+  let countryList = `i18n-iso-countries/langs/${lang}.json`;
+  const r = {};
+  if (!fs.existsSync(`node_modules/${countryList}`)) {
     console.log("can't find", lang, "default to en");
     countryList = "i18n-iso-countries/langs/en.json";
-    r.warnings = ["built using lang" + lang];
+    r.warnings = [`built using lang${lang}`];
   }
   return {
-    path: path.resolve(__dirname, "../node_modules/" + countryList),
+    path: path.resolve(__dirname, `../node_modules/${countryList}`),
     sideEffects: false,
   };
 };
 
-let procaPlugin = ({ id, config }) => ({
+const procaPlugin = ({ id, config }) => ({
   name: "proca",
   setup(build) {
     build.onResolve(
       { filter: /^@(components|lib|hooks|images|data)/ },
       args => {
         const r = path.resolve(__dirname, args.path.replace("@", "../src/"));
-        return { path: r.includes(".") ? r : r + ".js", sideEffects: false };
+        return { path: r.includes(".") ? r : `${r}.js`, sideEffects: false };
       }
     );
     build.onResolve({ filter: /@i18n-iso-countries\/lang/ }, () =>
@@ -116,7 +113,7 @@ let procaPlugin = ({ id, config }) => ({
       return {
         path: path.resolve(
           __dirname,
-          "../src/locales/" + config.lang + "/common.json"
+          `../src/locales/${config.lang}/common.json`
         ),
         sideEffects: false,
       };
@@ -132,11 +129,11 @@ let procaPlugin = ({ id, config }) => ({
         if (!template.endsWith(".html")) {
           template += ".html";
         }
-        file = fullpath("./public/" + template);
+        file = fullpath(`./public/${template}`);
       }
       const html = fs.readFileSync(file, "utf8");
       fs.writeFileSync(
-        fullpath("d/" + config.filename + "/index.html"),
+        fullpath(`d/${config.filename}/index.html`),
         html
           .replace("<body>", "<body><script src='./index.js'></script>")
           .replaceAll("%PUBLIC_URL%", "/")
@@ -151,16 +148,22 @@ let procaPlugin = ({ id, config }) => ({
       );
 
       if (nodeEnv !== "development") {
-        const index = fullpath("d/" + config.filename + "/index.js");
+        const index = fullpath(`d/${config.filename}/index.js`);
+        const useGzip = process.env.PROCA_COMPRESS === "gzip";
+        const extension = useGzip ? ".gz" : ".br";
+        const compression = useGzip
+          ? zlib.createGzip({})
+          : zlib.createBrotliCompress();
+        fs.rmSync(index + (useGzip ? ".br" : ".gz"), { force: true });
         await pipeline(
           fs.createReadStream(index),
-          zlib.createGzip({}),
-          fs.createWriteStream(index + ".gz")
+          compression,
+          fs.createWriteStream(index + extension)
         );
-        const stats = fs.statSync(index + ".gz");
+        const stats = fs.statSync(index + extension);
         console.log(
-          color.bold(index + ".gz"),
-          color.cyan(Math.round(stats.size / 1024) + "kb")
+          color.bold(index + extension),
+          color.cyan(`${Math.round(stats.size / 1024)}kb`)
         );
       }
       save(config);
@@ -174,8 +177,8 @@ let procaPlugin = ({ id, config }) => ({
       }
       return {
         watchFiles: [
-          "config/" + config.filename,
-          "config/campaign/" + config.campaign.name + ".json",
+          `config/${config.filename}`,
+          `config/campaign/${config.campaign.name}.json`,
         ],
         contents: actionPage(id),
       };
@@ -202,12 +205,17 @@ const getConfig = (id, environment) => {
           to: [fullpath("./")],
         },
       }),
-      esbuildPluginBrowserslist(browserslist("defaults"), {
-        printUnknownTargets: false,
-      }),
+      esbuildPluginBrowserslist(
+        //        browserslist("defaults"),
+        browserslist(null, { env: environment || "production" }),
+        {
+          printUnknownTargets: false,
+        }
+      ),
     ],
     loader: { ".js": "jsx" },
-    outdir: fullpath("d/" + config.filename),
+    jsx: "automatic",
+    outdir: fullpath(`d/${config.filename}`),
   };
 };
 
@@ -222,9 +230,18 @@ const serve = async id => {
   };
   const c = await context(buildConfig);
   await c.watch();
-  const r = await c.serve({ servedir: buildConfig.outdir, port: 1984 });
+  let port = Number(process.env.PORT) || 1984;
+  let r; // first free port from PORT or 1984
+  while (!r && port < 2010)
+    r = await c
+      .serve({ servedir: buildConfig.outdir, port: port++ })
+      .catch(e => {
+        if (!/address already in use/.test(e.message)) throw e;
+        return null;
+      });
+  if (!r) throw new Error("no free port between 1984 and 2009");
   const open = await import("open");
-  open.default("http://" + r.hosts[0] + ":" + r.port);
+  open.default(`http://${r.hosts[0]}:${r.port}`);
 };
 
 const build = async id => {

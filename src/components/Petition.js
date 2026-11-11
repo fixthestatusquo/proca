@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 import EmailConfirm from "@components/layout/EmailConfirm";
@@ -16,10 +16,10 @@ export default function SignatureForm(props) {
 
   const buttonLabel = config.component.register?.button || "action.sign";
   return (
-    <React.Fragment>
+    <Fragment>
       <EmailConfirm />
       <ProgressCounter actionPage={props.actionPage} />
       <Register {...props} buttonText={t(buttonLabel)} />
-    </React.Fragment>
+    </Fragment>
   );
 }

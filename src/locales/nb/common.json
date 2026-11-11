@@ -19,7 +19,7 @@
   "Organisation": "Organisasjon",
   "Other": "Annet",
   "Phone": "Telefon",
-  "Postal Code": "P.nr.",
+  "Postal Code": "Postnummer",
   "Salutation": "Hilsen",
   "Shareable link": "Delbar lenke",
   "Sorry, we couldn't save": "Beklager, vi kunne ikke lagre",
@@ -70,7 +70,7 @@
     "processing": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av data og informasjonskapsler i samsvar med vår <1>personvernerklæring</1>.",
     "processing-nocookie": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av opplysningene i samsvar med vår <1>personvernerklæring</1>.",
     "required": "Ditt samtykke er nødvendig for å delta",
-    "subButton": {
+    "button": {
       "opt-in": "og motta informasjon",
       "opt-out": "og ikke holde meg informert"
     }
@@ -189,12 +189,12 @@
     "pledge": "{{total}} har lovet.",
     "register": "{{total}} har registrert seg.",
     "share": "{{total}} har delt.",
-    "sign": "{{total}} har undertegnet.",
+    "sign": "{{total}}  har skrevet under.",
     "twitter": "{{total}} har twitret."
   },
   "progressGoal": {
-    "default": "La oss gå til {{goal}}",
-    "sign": "La oss gå til {{goal}}"
+    "default": "La oss komme opp på {{goal}}",
+    "sign": "La oss komme opp på {{goal}}"
   },
   "read more": "Les mer",
   "region": "Region",

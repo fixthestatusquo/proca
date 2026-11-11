@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
 import { makeStyles } from "@material-ui/core/styles";

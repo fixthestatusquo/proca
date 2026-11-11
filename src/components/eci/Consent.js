@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import { Container, Grid } from "@material-ui/core";
 
@@ -53,7 +53,7 @@ export default function Register(props) {
             <FormLabel
               className={classes.check}
               placement="end"
-              error={!!(errors && errors.certify)}
+              error={!!(errors?.certify)}
             >
               {/* TO DO: CHECK IF IT IS REALY REQUIRED */}
               <Checkbox
@@ -67,7 +67,7 @@ export default function Register(props) {
             <FormLabel
               className={classes.check}
               placement="end"
-              error={!!(errors && errors.privacy)}
+              error={!!(errors?.privacy)}
             >
               <Checkbox
                 {...register("contentPrivacy")}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import { useSupabase } from "@lib/supabase";
 import Dialog from "@components/Dialog";
@@ -118,7 +118,7 @@ const PictureWall = props => {
   useEffect(() => {
     (async () => {
       if (config.component.wall.country !== true) return;
-      let { data, error } = await supabase
+      const { data, error } = await supabase
         .from("picture_by_country")
         .select("area,total")
         .order("total", { ascending: false });
@@ -142,7 +142,7 @@ const PictureWall = props => {
       if (country && country !== "?") {
         query = query.eq("area", country);
       }
-      let { data, error } = await query;
+      const { data, error } = await query;
 
       if (error) {
         console.error(error);

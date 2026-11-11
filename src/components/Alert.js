@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Snackbar from "@material-ui/core/Snackbar";
 import { Alert, AlertTitle } from "@material-ui/lab";
@@ -19,7 +19,7 @@ function Transition(props) {
 }
 const ProcaAlert = props => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleClose = () => {
     setOpen(false);
@@ -32,7 +32,7 @@ const ProcaAlert = props => {
       TransitionComponent={Transition}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={props.autoHideDuration}
-       onExited={props.onExited}
+      TransitionProps={{ onExited: props.onExited }}
     >
       <Alert
         severity={props.severity}
@@ -59,7 +59,7 @@ ProcaAlert.defaultProps = {
 
 ProcaAlert.propTypes = {
   severity: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.node,
   autoHideDuration: PropTypes.number,
 };
 

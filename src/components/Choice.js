@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useTranslation } from "react-i18next";
 import { Button, Box } from "@material-ui/core";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -24,13 +24,14 @@ const Choice = props => {
   const config = useCampaignConfig();
   const { t } = useTranslation();
   const { go } = props;
+  const choice = config.component.choice || {};
 
   const handleYes = () => {
-    go("Message");
+    go(choice.yes || "Message");
   };
 
   const handleNo = () => {
-    go("Share");
+    go(choice.no || "Share");
   };
 
   const text = t(

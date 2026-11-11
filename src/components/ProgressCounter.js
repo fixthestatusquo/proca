@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { LinearProgress, Box } from "@material-ui/core";
@@ -97,7 +97,7 @@ export default function Progress(props) {
   const separator = config.component.counter?.separator | " "; //non breaking space
   const min = config.component.counter?.min | 0;
 
-  const [progress, setProgress] = React.useState(1);
+  const [progress, setProgress] = useState(1);
 
   const intersecting = intersection.isIntersecting;
 
@@ -137,32 +137,33 @@ export default function Progress(props) {
   if (actionName === "signature") actionName = "sign";
 
   const countResult = t(
-  [`progress.${actionName}`, "progress.sign", "progress"],
-  {
-    count: formatNumber(count, separator),
-    total: formatNumber(count, separator),
-    goal: formatNumber(goal, separator),
-    returnDetails: true,
-  }
-);
-
-
+    [`progress.${actionName}`, "progress.sign", "progress"],
+    {
+      count: formatNumber(count, separator),
+      total: formatNumber(count, separator),
+      goal: formatNumber(goal, separator),
+      returnDetails: true,
+    }
+  );
 
   return (
     <Box className="proca-progress">
-      <div className={classes.root} ref={ref}>
-        <span className="count">
-          {countResult.res}
-        </span>
-        {countResult.usedKey !== "progress" &&
-          (<span className="goal">
+      {/* biome-ignore lint/correctness/useUniqueElementIds: Single global instance, unique ID guaranteed */}
+      <div className={classes.root} ref={ref} id="action-progress-label">
+        <span className="count">{countResult.res}</span>
+        {countResult.usedKey !== "progress" && (
+          <span className="goal">
             {t([`progressGoal.${actionName}`, "progressGoal.default"], {
               goal: formatNumber(goal, separator),
             })}
           </span>
-          )}
+        )}
       </div>
-      <LinearProgress variant="determinate" value={progress} />
+      <LinearProgress
+        variant="determinate"
+        value={progress}
+        aria-labelledby="action-progress-label"
+      />
     </Box>
   );
 }

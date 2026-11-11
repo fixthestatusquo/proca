@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { create } from "zustand";
-import { useShallow } from "zustand/react/shallow";
 import useData from "./useData";
 import { init as initLayout, useSetLayout } from "./useLayout";
 import i18next from "@lib/i18n";
@@ -97,7 +96,7 @@ export const setGlobalState = (part, key, value) => {
   if (el) {
     el.dispatchEvent(event);
   } else {
-    setTimeout(setGlobalState, 1, key, value);
+    setTimeout(setGlobalState, 1, part, key, value);
   }
 };
 
@@ -177,7 +176,7 @@ export const ConfigProvider = props => {
             setData(part, key, value);
             break;
           default:
-            console.error("you need to specify a valid part");
+            console.error("you need to specify a valid part", e.detail);
         }
       },
       false

@@ -1,4 +1,5 @@
-const fs = require("fs");
+const fs = require("node:fs");
+const zlib = require("node:zlib");
 require("./dotenv.js");
 const { read, file } = require("./config");
 const { commit, push, deploy } = require("./git");
@@ -8,8 +9,7 @@ const clean = screenName => screenName?.replace("@", "").toLowerCase().trim();
 const merge = (targets, twitters, options) => {
   const merged = targets.map(target => {
     let r =
-      twitters &&
-      twitters.find(
+      twitters?.find(
         d => clean(d.screen_name) === clean(target.fields?.screen_name)
       );
     console.log(twitters[0], target.fields?.screen_name);
@@ -22,7 +22,7 @@ const merge = (targets, twitters, options) => {
         description: target.fields.description || target.fields.party,
         screen_name: target.fields.screen_name,
         //        followers_count: 0,
-        verified: false,
+        engagement: target.fields.engagement === "false" ? false : undefined,
       };
     } else {
       r.procaid = target.id;
@@ -57,6 +57,9 @@ const merge = (targets, twitters, options) => {
     if (target.fields.avatar) {
       r.profile_image_url_https = target.fields.avatar;
     }
+    if (target.fields.fallback) {
+      r.fallback = target.fields.fallback;
+    }
     if (target.fields.ps) {
       r.ps = target.fields.ps;
     }
@@ -66,7 +69,7 @@ const merge = (targets, twitters, options) => {
     }
     const disable = target.emails.find(d => d.emailStatus === "INACTIVE");
     if (disable) {
-      return undefined;
+      //      return undefined;
     }
 
     if (options.display) {
@@ -126,11 +129,13 @@ const merge = (targets, twitters, options) => {
   }
 */
 const saveTargets = (campaignName, targets, argv) => {
-  const fileName = file("target/public/" + campaignName);
+  const fileName = file(`target/public/${campaignName}`);
   if (argv.verbose) console.log(fileName, targets);
   if (argv["dry-run"]) return;
 
-  fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
+  const json = JSON.stringify(targets, null, 2);
+  fs.writeFileSync(fileName, json);
+  fs.writeFileSync(`${fileName}.br`, zlib.brotliCompressSync(json));
   return fileName;
 };
 
@@ -142,10 +147,10 @@ const publishTarget = async (campaignName, argv) => {
   const meps = argv.meps || false;
 */
   try {
-    read("campaign/" + name); // the config file
-    let targets = read("target/server/" + campaignName); // the list of targets from proca server
+    read(`campaign/${name}`); // the config file
+    let targets = read(`target/server/${campaignName}`); // the list of targets from proca server
     if (argv.source) {
-      const sources = read("target/source/" + name); // the list of targets from proca server
+      const sources = read(`target/source/${name}`); // the list of targets from proca server
       const c = targets.filter(
         t => -1 !== sources.findIndex(d => d.externalId === t.externalId)
       );
@@ -157,7 +162,7 @@ const publishTarget = async (campaignName, argv) => {
 
     let twitters = null;
     try {
-      twitters = read("target/twitter/" + name); // the list from twitter
+      twitters = read(`target/twitter/${name}`); // the list from twitter
       console.log("twitters", twitters.length);
     } catch {
       console.log("no twitter list");
@@ -188,14 +193,14 @@ const publishTarget = async (campaignName, argv) => {
       d.sort((a, b) => a[sort].localeCompare(b[sort]));
 
       const c = saveTargets(name, d, argv);
-      console.log("saved " + c);
-      const msg = "saving " + d.length + " targets";
+      console.log(`saved ${c}`);
+      const msg = `saving ${d.length} targets`;
       if (argv["dry-run"]) return;
-      const r = argv.git && (await commit(c, msg, true));
+      const r = argv.git && (await commit([c, `${c}.br`], msg, true));
       if (r?.summary) {
         console.log(r.summary);
         if (argv.git) {
-          await push();
+          await push("prod", "main");
           await deploy();
         }
       }

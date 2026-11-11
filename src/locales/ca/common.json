@@ -52,7 +52,7 @@
     "take": "Fes una foto",
     "take-another": "Agafeu-ne un altre"
   },
-  "closed": "##gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
+  "closed": "##Gràcies als seguidors de {{total}}!\n\nHem tancat aquesta acció, però el nostre treball no acaba aquí, així que si us plau **deixeu el vostre correu electrònic per estar informat sobre els propers passos**",
   "confirm": "Estàs segur?",
   "consent": {
     "actionConfirmed": "Acció confirmada",
@@ -70,7 +70,7 @@
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
     "processing-nocookie": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak gure <1>pribatutasun politikaren</1> arabera erabiltzea onartzen ari zara.",
     "required": "Cal el vostre consentiment per participar",
-    "subButton": {
+    "button": {
       "opt-in": "i rebre informació",
       "opt-out": "i no em mantinguis informat"
     }
@@ -253,5 +253,9 @@
   },
   "unknown postcode": "codi postal desconegut",
   "yes": "sí",
-  "you need to be 18 years old": "Ha de ser major d'edat"
+  "you need to be 18 years old": "Ha de ser major d'edat",
+  "progressGoal": {
+    "default": "Anem a {{goal}}",
+    "sign": "Volem arribar a {{goal}}"
+  }
 }

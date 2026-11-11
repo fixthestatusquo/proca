@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Button,
   IconButton,
@@ -53,12 +53,12 @@ const CameraField = props => {
   };
   const startCamera = useCallback(
     async facingMode => {
-      let video = videoRef.current;
+      const video = videoRef.current;
       video.setAttribute("autoplay", "");
       video.setAttribute("muted", "");
       video.setAttribute("playsinline", "");
       let stream = null;
-      let constraint = {
+      const constraint = {
         audio: false,
         video: {
           width: 640,
@@ -73,7 +73,7 @@ const CameraField = props => {
         setError("image", {
           type: "js",
           message:
-            "camera error, check your permissions\n [" + err.toString() + "[]",
+            `camera error, check your permissions\n [${err.toString()}[]`,
         });
         console.log("can't get camera", err);
         return;
@@ -85,7 +85,7 @@ const CameraField = props => {
       setCameras(videoDevices);
       video.srcObject = stream;
       video.onloadedmetadata = () => {
-        let dim = {
+        const dim = {
           width: video.videoWidth,
           height: video.videoHeight,
         };
@@ -117,8 +117,8 @@ const CameraField = props => {
   }, [cameras.length, startCamera]);
 
   const takePicture = async () => {
-    let video = videoRef.current;
-    let canvas = canvasRef.current;
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
     canvas
       .getContext("2d")
       .drawImage(
@@ -133,7 +133,7 @@ const CameraField = props => {
         canvas.height
       );
 
-    let image_data_url = canvas.toDataURL("image/jpeg");
+    const image_data_url = canvas.toDataURL("image/jpeg");
 
     _takePicture(image_data_url);
     if (props.setCanvas) props.setCanvas(canvas);
@@ -186,8 +186,7 @@ const CameraField = props => {
         </>
       )}
       {!camera && (
-        <>
-          <Button
+        <Button
             fullWidth
             startIcon={<VideocamIcon />}
             variant="contained"
@@ -196,7 +195,6 @@ const CameraField = props => {
           >
             {t("camera.start", "start the camera")}
           </Button>
-        </>
       )}
       <Box
         fullWidth
@@ -267,8 +265,8 @@ const CameraField = props => {
         </Box>
       )}
       <div>
-        <FormHelperText error={!!(errors && errors.image)}>
-          {errors && errors.image && errors.image.message}
+        <FormHelperText error={!!(errors?.image)}>
+          {errors?.image?.message}
         </FormHelperText>
       </div>
     </>

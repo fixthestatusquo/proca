@@ -1,18 +1,20 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
   "files": {
-    "includes": ["**/*.{js,ts,,mjs,jsx,tsx,json}"],
-    "experimentalScannerIgnores": [
-      "build/**",
-      "d/**",
-      "config/**",
-      "src/locales/**"
+    "includes": [
+      "**/*.{js,jsx,mjs,ts,tsx,json}",
+      "!build",
+      "!d",
+      "!config*",
+      "!node_modules",
+      "!src/locales"
     ]
   },
   "formatter": {
     "lineWidth": 80,
     "indentWidth": 2,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "includes": ["bin/**", "src/**", "!src/locales/**", "!config/**"]
   },
   "javascript": {
     "globals": ["global"],
@@ -30,5 +32,11 @@
     "rules": {
       "recommended": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["test/**", "**/*.test.{js,jsx}"],
+      "assist": { "actions": { "source": { "organizeImports": "off" } } }
+    }
+  ]
 }

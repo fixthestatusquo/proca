@@ -1,4 +1,4 @@
-import Command, { Flags } from "./cache.mjs";
+import Command from "./cache.mjs";
 export default class GitStatus extends Command {
   static description = "git status of the config folder";
 

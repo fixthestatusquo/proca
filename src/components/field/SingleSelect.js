@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   FormControl,
   FormLabel,
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(-0.5),
     "& input": {
       height: "auto !important",
-      paddingTop: theme.spacing(0.5) + " !important",
+      paddingTop: `${theme.spacing(0.5)} !important`,
     },
   },
   radioLabel: {

@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { useLayout } from "@hooks/useLayout";
-import { makeStyles } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { useRef } from "react";
 import { Controller } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -77,6 +77,14 @@ const TextFieldProca = props => {
   delete drillProps.onChange;
   delete drillProps.onBlur;
   delete drillProps.form;
+  if (drillProps.disabled) {
+    delete drillProps.disabled;
+    if (drillProps.InputProps) {
+      drillProps.InputProps.readOnly = true;
+    } else {
+      drillProps.InputProps = { readOnly: true };
+    }
+  }
   if (drillProps.helperText && errors && errors[props.name]) {
     // we display the error message instead
     drillProps.helperText = errors[props.name].message;
@@ -89,37 +97,38 @@ const TextFieldProca = props => {
         let handleChange = onChange;
         let handleBlur = onBlur;
         if (props.onBlur) {
-          handleBlur = e => onBlur(e) && props.onBlur(e);
+          handleBlur = e => {
+            onBlur(e);
+            props.onBlur(e);
+          };
         }
 
         if (props.onChange) {
           handleChange = async e => {
-            await onChange(e);
+            onChange(e);
             props.onChange(e);
           };
         }
         let classesname = `${classes.textField} proca-${props.name.toLowerCase()}`;
-        if (
-          errors &&
-          errors[props.name] &&
-          errors &&
-          errors[props.name].type === "warning"
-        )
+        if (errors?.[props.name] && errors[props.name].type === "warning")
           classesname += ` ${classes.warning}`;
+        if (props.disabled) {
+          classesname += " Mui-readonly";
+        }
+
         return (
           <TextField
+            id={props.name}
             InputLabelProps={{ shrink: !!(value && value.length > 0) }}
             onChange={handleChange}
             value={value || ""}
             onBlur={handleBlur}
             className={classesname}
-            error={!!(errors && errors[props.name])}
+            error={!!errors?.[props.name]}
             variant={layout.variant}
             margin={layout.margin}
             inputRef={refA}
-            helperText={
-              errors && errors[props.name] && errors[props.name].message
-            }
+            helperText={errors?.[props.name] && errors[props.name].message}
             {...drillProps}
             required={props.required || false}
           />

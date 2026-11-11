@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import TextField from "@components/field/TextField";
 import Country from "@components/field/Country";
 import { useTranslation } from "react-i18next";
@@ -54,8 +54,7 @@ const GeneratePaper = props => {
     }
     setData(data);
     uuid(result.contactRef); // set the global uuid as signature's fingerprint
-    props.done &&
-      props.done({
+    props.done?.({
         errors: result.errors,
         uuid: uuid(),
         firstname: data.firstname,

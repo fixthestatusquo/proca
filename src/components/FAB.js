@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import ReactDOM from "react-dom";
 import { useCampaignConfig } from "@hooks/useConfig";
 
@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-/*const Transition = React.forwardRef(function Transition(props, ref) {
+/*const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 */
@@ -64,7 +64,6 @@ const FABAction = (props, ref) => {
   useEffect(() => {
     setCompact(false);
     return () => {
-      console.log("widget visible");
       // Clean up resources
     };
   }, [intersection.isIntersecting, setCompact]);
@@ -109,8 +108,7 @@ const FABAction = (props, ref) => {
   return (
     dom &&
     ReactDOM.createPortal(
-      <>
-        <div className={classes.fab}>
+      <div className={classes.fab}>
           <Slide direction="right" mountOnEnter unmountOnExit in={true}>
             <Badge
               badgeContent={counter}
@@ -130,8 +128,7 @@ const FABAction = (props, ref) => {
               </Fab>
             </Badge>
           </Slide>
-        </div>
-      </>,
+        </div>,
       dom
     )
   );

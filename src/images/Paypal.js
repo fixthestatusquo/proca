@@ -1,4 +1,4 @@
-import * as React from "react";
+
 
 const SvgComponent = () => (
   <svg viewBox="0 0 512 512" width="20" height="20">

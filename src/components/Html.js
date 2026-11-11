@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import { Fragment, useLayoutEffect, useState } from "react";
 import Alert from "@components/Alert";
 import useData from "@hooks/useData";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
@@ -34,12 +34,12 @@ function Component(props) {
   }, [props.dom, data]);
 
   return error ? (
-    <React.Fragment>
+    <Fragment>
       <Alert severity="error" text={error} />
       <span role="img" aria-label="error">
         🐛
       </span>
-    </React.Fragment>
+    </Fragment>
   ) : (
     <div>
       <div id="proca-html-root">...</div>

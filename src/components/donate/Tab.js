@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -45,7 +45,7 @@ export default function Target(props) {
     // console.log(d);
 
     if (config?.completed_redirect_url) {
-      window.location = createURL(
+      const url = createURL(
         window.location,
         config.completed_redirect_url,
         {
@@ -54,6 +54,18 @@ export default function Target(props) {
           currency: requestData.currency.code,
         }
       );
+      let target;
+      try {
+        target = new URL(url, window.location.href);
+      } catch {
+        console.error("invalid redirect url", url);
+        return;
+      }
+      if (target.protocol !== "https:" && target.protocol !== "http:") {
+        console.error("invalid redirect protocol", target.protocol);
+        return;
+      }
+      window.location.assign(target.toString());
     }
 
     setSubmitted(true);

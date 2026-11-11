@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import {
   IconButton,
@@ -140,7 +140,7 @@ export default function ShareAction(props) {
       ];
       let msg =
         config.param.locales[key] ||
-        config.param.locales["share"] ||
+        config.param.locales.share ||
         /* i18next-extract-disable-line */ t(i18nKey);
 
       msg = pickOne(msg);
@@ -161,7 +161,7 @@ export default function ShareAction(props) {
     let cardIcons;
 
     const nativeShare = () => {
-      const medium = "native_" + mobileOS();
+      const medium = `native_${mobileOS()}`;
       addShare("share", medium);
       const url = shareUrl(medium);
       shareWebAPI(url);
@@ -182,9 +182,9 @@ export default function ShareAction(props) {
 
       const subject = pickOne(t("campaign:share.email.subject", ""));
       let name = data.firstname;
-      if (data.lastname) name += " " + data.lastname;
+      if (data.lastname) name += ` ${data.lastname}`;
       let signature = name;
-      if (data.locality) signature += "\n" + data.locality;
+      if (data.locality) signature += `\n${data.locality}`;
 
       const body = t("campaign:share.email.body", {
         url: shareUrl("email"),
@@ -277,7 +277,12 @@ export default function ShareAction(props) {
           {config.component?.share?.bluesky !== false && (
             <ActionIcon
               icon={BlueskyIcon}
-              title={shareText("share-twitter", twitters.join(" "))}
+              title={shareText(
+                i18n.exists("campaign:share.bluesky")
+                  ? "share-bluesky"
+                  : "share-twitter",
+                twitters.join(" ")
+              )}
               component={BlueskyShareButton}
             />
           )}
@@ -360,6 +365,7 @@ export default function ShareAction(props) {
       <IconButton
         {...drillProps}
         id={`proca-share-${medium}`}
+        aria-label={`${medium} (${t("action.share")})`}
         className={classes.action}
         component={props.component}
         url={"url" in props ? props.url : shareUrl(props.component)}

@@ -52,7 +52,7 @@
     "take": "Maak een foto",
     "take-another": "Neem er nog een."
   },
-  "closed": "## dank aan {{total}} supporters!\n\nWe hebben deze actie afgesloten, maar ons werk eindigt hier niet, dus laat uw e-mail achter om op de hoogte te blijven van de volgende stappen**.",
+  "closed": "## Dank aan {{total}} supporters!\n\nWe hebben deze actie afgesloten, maar ons werk eindigt hier niet, dus laat uw e-mail achter om op de hoogte te blijven van de volgende stappen**.",
   "confirm": "Weet je het zeker?",
   "consent": {
     "actionConfirmed": "Actie bevestigd",
@@ -70,7 +70,7 @@
     "processing": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens en cookies in overeenstemming met ons <1>privacybeleid</1>",
     "processing-nocookie": "Uw persoonlijke informatie wordt vertrouwelijk behandeld en veilig bewaard. Door het verstrekken van informatie gaat u akkoord met het gebruik van gegevens in overeenstemming met onze <1>privacy policy</1>",
     "required": "Uw toestemming is nodig om deel te nemen",
-    "subButton": {
+    "button": {
       "opt-in": "en informatie ontvangen",
       "opt-out": "en houdt me niet op de hoogte"
     }
@@ -150,7 +150,7 @@
     "salutation_female": "Geachte mevrouw {{target.last_name}}",
     "salutation_info": "(de naam zal voor het verzenden worden gezet)",
     "salutation_male": "Geachte heer {{target.last_name}}",
-    "salutation_placeholder": "Geachte [ontvanger],"
+    "salutation_placeholder": "Geachte [ontvanger]"
   },
   "error": {
     "date": "formaat moet DD.MM.YYYY zijn"
@@ -253,5 +253,9 @@
   },
   "unknown postcode": "onbekende postcode",
   "yes": "ja",
-  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn"
+  "you need to be 18 years old": "je moet minstens 18 jaar oud zijn",
+  "progressGoal": {
+    "default": "Laten we naar {{goal}}",
+    "sign": "Laten we voor {{goal}} gaan."
+  }
 }

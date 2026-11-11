@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 //import parse from 'html-react-parser';
 import { Grid, Box, Button } from "@material-ui/core";
 import TextField from "@components/field/TextField";
@@ -145,12 +145,11 @@ export default function Captcha(props) {
     const utterThis = new SpeechSynthesisUtterance(d);
     utterThis.rate = 0.9;
     utterThis.lang = lang || "en";
-    window.speechSynthesis && window.speechSynthesis.speak(utterThis);
+    window.speechSynthesis?.speak(utterThis);
   };
 
   return (
-    <>
-      <Grid container spacing={1}>
+    <Grid container spacing={1}>
         {audioCaptcha && (
           <Grid item xs={12}>
             <Grid>
@@ -236,6 +235,5 @@ export default function Captcha(props) {
           </>
         )}
       </Grid>
-    </>
   );
 }

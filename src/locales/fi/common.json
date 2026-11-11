@@ -52,7 +52,7 @@
     "take": "Ota kuva",
     "take-another": "Ota toinen"
   },
-  "closed": "##kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
+  "closed": "##Kiitos {{total}} tukijoille!\n\nOlemme lopettaneet tämän toiminnan, mutta työmme ei lopu tähän, joten **jätä sähköpostiosoitteesi, jotta pysyt ajan tasalla seuraavista vaiheista**.",
   "confirm": "Oletko varma?",
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",
@@ -70,7 +70,7 @@
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
     "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
     "required": "Osallistuminen edellyttää suostumustasi",
-    "subButton": {
+    "button": {
       "opt-in": "ja vastaanottaa tietoja",
       "opt-out": "eikä pidä minua ajan tasalla"
     }

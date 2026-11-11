@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, Fragment } from "react";
+import { useState, useEffect, useCallback, Fragment } from "react";
 
 import TwitterList from "@components/twitter/List";
 import { tweet } from "@components/twitter/Action";
@@ -20,7 +20,7 @@ import { SvgIcon } from "@material-ui/core";
 import { sample } from "@lib/array";
 import ReloadIcon from "@material-ui/icons/Cached";
 import { makeStyles } from "@material-ui/core/styles";
-import get from "lodash/get";
+import { get } from "@lib/object";
 import PreviousStepConfirm from "@components/layout/PreviousStepConfirm";
 //TODO should be moved to widget and change logic
 
@@ -38,8 +38,7 @@ const Intro = props => {
   const config = useCampaignConfig();
   console.log(config.component.twitter);
   if (
-    config.component.twitter &&
-    config.component.twitter.filter &&
+    config.component.twitter?.filter &&
     !config.component.twitter.filter.includes("random")
   )
     return null;

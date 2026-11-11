@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-
-import { Grid, InputAdornment, IconButton } from "@material-ui/core";
 
 import TextField from "@components/field/TextField";
-import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
+import { Grid, IconButton, InputAdornment } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Postcode = props => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -18,6 +17,7 @@ const Postcode = props => {
   const classField = props.classField;
   const [postcode, country] = watch(["postcode", "country"]);
   const postcodeLength = {
+    HU: 4,
     US: 5,
     AT: 4,
     BE: 4,
@@ -25,7 +25,7 @@ const Postcode = props => {
     DE: 5,
     FR: 5,
     IT: 5,
-    PL: 5,
+    PL: 6,
     CA: 6,
     DK: 4,
     NL: 4,
@@ -39,18 +39,22 @@ const Postcode = props => {
       return;
     }
     if (!postcode || postcode.length !== postcodeLength[country]) {
-      const [area, constituency, locality] = getValues([
+      const [area, constituency, locality, geo] = getValues([
         "area",
         "constituency",
         "locality",
+        "geo",
       ]);
       if (area) setValue("area", "");
       if (locality) setValue("locality", "");
       if (constituency) setValue("constituency", "");
+      if (geo) setValue("geo", undefined);
       return;
     }
-    config.component?.share?.url
-    const api = config.component.postcode?.url ? `${config.component.postcode.url}/${postcode}`  : `https://${country}.proca.app/${postcode}`;
+    config.component?.share?.url;
+    const api = config.component.postcode?.url
+      ? `${config.component.postcode.url}/${postcode}`
+      : `https://${country}.proca.app/${postcode}`;
 
     async function fetchAPI() {
       await fetch(api)
@@ -59,6 +63,7 @@ const Postcode = props => {
             setValue("locality", "");
             setValue("area", "");
             setValue("constituency", "");
+            setValue("geo", undefined);
 
             if (props.search) {
               props.form.setError("postcode", {
@@ -66,27 +71,28 @@ const Postcode = props => {
                 message: t("postcode.notFound"),
               });
             }
-            throw Error(res.statusText);
+            throw new Error(res.statusText);
           }
           return res.json();
         })
         .then(res => {
-          if (res && res.name) {
+          setValue("geo", res?.geo);
+          if (res?.name) {
             setValue("locality", res.name);
             setValue("constituency", "");
             setValue("area", "");
           }
-          if (res && res.area) {
+          if (res?.area) {
             setValue("area", res.area);
             setValue("constituency", "");
           }
-          if (res && res.constituency) {
+          if (res?.constituency) {
             setValue("constituency", res.constituency);
           }
         })
         .catch(err => {
           // for now, let's not flag as an error if we don't find the postcode
-          console.log(err.toString());
+          console.error(err.toString());
           /* setError("postcode", {
             type: "network",
             message: (err && err.toString()) || "Network error",
@@ -116,35 +122,33 @@ const Postcode = props => {
   };
 
   return (
-    <>
-      <Grid
-        item
-        xs={12}
-        sm={props.width || compact ? 12 : 3}
-        className={classField}
-      >
-        <TextField
-          form={props.form}
-          name="postcode"
-          autoComplete="postal-code"
-          label={t("Postal Code")}
-          customValidity={props.customValidity}
-          required={config.component.register?.field?.postcode?.required}
-          InputProps={{
-            endAdornment: props.search && (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="Fetch postcode details"
-                  onClick={handleSearch}
-                >
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Grid>
-    </>
+    <Grid
+      item
+      xs={12}
+      sm={props.width || compact ? 12 : 3}
+      className={classField}
+    >
+      <TextField
+        form={props.form}
+        name="postcode"
+        autoComplete="postal-code"
+        label={t("Postal Code")}
+        customValidity={props.customValidity}
+        required={config.component.register?.field?.postcode?.required}
+        InputProps={{
+          endAdornment: props.search && (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="Fetch postcode details"
+                onClick={handleSearch}
+              >
+                <SearchIcon />
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+      />
+    </Grid>
   );
 };
 

@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import useData from "../../../hooks/useData";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useCampaignConfig } from "../../../hooks/useConfig";
 import { useForm } from "react-hook-form";
 import OtherAmountInput from "./OtherAmount";

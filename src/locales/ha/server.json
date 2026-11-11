@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Sannu {{firstName}},",
+            "share_on": "Raba a",
+            "consent": "\n          ",
+            "thanks": "Mun gode da halartar ku a {{campaign.title}}. Muna godiya da goyon bayanku!",
+            "about": "Har zuwa yanzu magoya bayan {{campaign.stats.supporterCount}} sun ɗauki mataki.",
+            "share": "Taimaka mana mu cimma burinmu ta hanyar yada labarin.",
+            "follow": "Biyo mu a:",
+            "donate": "Don Allah ku yi la'akari da bayar da gudummawa don taimaka mana cimma burinmu.",
+            "closing": "Da taimakonku, mun yi mataki ɗaya kusa da burinmu.",
+            "privacy": "Za ku iya samun ƙarin bayani game da manufofinmu na sirri da sarrafa bayanan ku.",
+            "unsubscribe": "Idan ba ku son karɓar ƙarin bayani daga gare mu a nan gaba, za ku iya soke rajistar ku a kowane lokaci.",
+            "signature": "Da gaske naka,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Mun gode da haɗin kai da jajircewarku ga burinmu! Duk da haka, a cikin ƙoƙarinmu na kiyaye sahihanci da inganci, muna buƙatar cire sa hannun da aka maimaita, kuma ya bayyana cewa kai (ko wani da ke amfani da {{email}}) ka riga ka ɗauki wannan mataki. Ka tabbata, an ƙididdige sa hannunka na farko kuma ya ba da gudunmawa ga yakin neman mu.\nTallabinku ya kasance mai matuƙar muhimmanci, kuma muna so mu ƙarfafa ku da ɗaukar wani mataki na ƙari don taimakawa wajen ƙara tasirin ku. Don Allah ku yi la'akari da tuntuɓar abokai da iyalanku, ku ƙarfafa su su ɗauki mataki ma, ta amfani da adireshin imel ɗinsu. Ta wannan hanyar, za mu iya ƙara bunƙasa motsinmu da ƙirƙirar murya ta haɗin gwiwa mafi ƙarfi don canjin da muke nema.\nKamar yadda muka saba, muna miƙa godiyarmu ta gaskiya saboda ci gaba da tallabinku da jajircewarku ga wannan kamfen. Tare, za mu iya haifar da tasiri mai ɗorewa!",
+            "thanksPledge": "Na gode da yin alkawari ga {{campaign.title}}. Za a duba sa hannunku, kuma idan an amince da shi, za a nuna shi a shafin yanar gizonmu.",
+            "is_it_me": "Idan ba ku ɗauki wannan mataki ba, da fatan za ku danna [nan](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) don cire shi."
+        },
+        "button": {
+            "confirmAction": "Eh, ni mutum na gaske ne!",
+            "confirmOptin": "Ina so in karɓi labarai daga gare ku",
+            "confirmAlreadyMember": "Na tabbatar da halartata kuma tuni ina karɓar imel ɗinku.",
+            "confirmOptout": "Na tabbatar da halartata amma kada ku ci gaba da tura min sabbin bayanai a nan gaba."
+        },
+        "doi": {
+            "subject": "Ƙari ɗaya: don Allah tabbatar da adireshin imel ɗinka.",
+            "intro": "Don kammala rajistarka da kuma ba mu damar sarrafa adireshin imel ɗinka da bayanan sirri don isar da labarai ko wasiƙun labarai, don Allah ka danna maɓallin tabbatarwa da ke ƙasa. Wannan mataki na atomatik yana tabbatar da amincewarka kuma yana hana rajistar da ba a amince da ita ba.",
+            "extra": "Idan ba ku yi rijistar wannan biyan kuɗi ba, ku ji daɗin watsi da wannan imel ɗin."
+        },
+        "thankyou": {
+            "intro": "Mun gode da halartar ku a \"{{campaign.title}}\". Muna godiya da goyon bayanku!",
+            "subject": "Na gode, ga abin da za ka iya yi kuma"
+        },
+        "doi_thankyou": {
+            "subject": "Na gode da halartar ku{{#privacy.optIn}}, mataki ɗaya ƙari, don Allah ku tabbatar da adireshin imel ɗinku{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Ƙari ɗaya: don Allah tabbatar da adireshin imel ɗinka.",
+            "extra": "Idan ba ku nemi wannan ba, da fatan za ku yi watsi da wannan imel ɗin.",
+            "intro": "Tabbacin ku yana da matuƙar muhimmanci don sarrafa halartarku. Wannan yana tabbatar da cewa kowace gabatarwa ta fito ne daga mutum na gaske kuma yana taimakawa wajen hana gabatarwar bogi ko spam."
+        }
+    },
+    "poweredBy": "An samar da shi ta"
+}

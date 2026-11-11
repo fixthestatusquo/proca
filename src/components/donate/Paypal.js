@@ -1,4 +1,4 @@
-import React from "react";
+
 import useData from "../../hooks/useData";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PayPalButton from "./buttons/PayPal";
@@ -16,8 +16,8 @@ const Paypal = ({ onError, onComplete, disabled }) => {
     currency: donateConfig.currency.code,
   };
   if (frequency !== "oneoff") {
-    providerOptions["intent"] = "subscription";
-    providerOptions["vault"] = "true";
+    providerOptions.intent = "subscription";
+    providerOptions.vault = "true";
   }
 
   return (

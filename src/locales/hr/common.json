@@ -52,7 +52,7 @@
     "take": "Snimi sliku",
     "take-another": "Snimi još jednu sliku"
   },
-  "closed": "##hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
+  "closed": "##Hvala {{total}} podržavateljima!\n\nOvu akciju smo zatvorili, ali naš rad ne završava ovdje, stoga te molimo da **ostaviš svoju e-mail adresu kako bismo te informirali o sljedećim koracima**",
   "confirm": "Sigurno?",
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
@@ -70,7 +70,7 @@
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "required": "Za sudjelovanje je potrebna tvoja suglasnost",
-    "subButton": {
+    "button": {
       "opt-in": "i primaj informacije",
       "opt-out": "i nemoj me obavještavati"
     }
@@ -253,5 +253,8 @@
   },
   "unknown postcode": "nepoznat poštanski broj",
   "yes": "da",
-  "you need to be 18 years old": "moraš imati 18 godina"
+  "you need to be 18 years old": "moraš imati 18 godina",
+  "progressGoal": {
+    "default": "Sljedeći cilj je: {{goal}}"
+  }
 }

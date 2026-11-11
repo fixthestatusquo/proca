@@ -52,7 +52,7 @@
     "take": "Bëni një foto",
     "take-another": "Bëni një tjetër"
   },
-  "closed": "##faleminderit {{total}} mbështetësve!\n\nNe kemi mbyllur këtë veprim, por puna jonë nuk përfundon këtu, prandaj ju lutemi **lini emailin tuaj për të qëndruar të informuar për hapat e ardhshëm**",
+  "closed": "##Faleminderit {{total}} mbështetësve!\n\nNe kemi mbyllur këtë veprim, por puna jonë nuk përfundon këtu, prandaj ju lutemi **lini emailin tuaj për të qëndruar të informuar për hapat e ardhshëm**",
   "confirm": "A jeni i sigurt?",
   "consent": {
     "actionConfirmed": "Veprimi u konfirmua",
@@ -70,7 +70,7 @@
     "processing": "Të dhënat tuaja personale do të ruhen në mënyrë konfidenciale dhe të sigurt. Duke dërguar këtë informacion, ju pranoni përdorimin e të dhënave dhe gjurmëve digjitale sipas <1>politikës sonë të privatësisë</1>.",
     "processing-nocookie": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave në përputhje me <1>politikën tonë të privatësisë</1>",
     "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë",
-    "subButton": {
+    "button": {
       "opt-in": "dhe merrni informacion",
       "opt-out": "dhe mos më mbani të informuar"
     }
@@ -256,5 +256,8 @@
   },
   "unknown postcode": "kod postar i panjohur",
   "yes": "po",
-  "you need to be 18 years old": "duhet të jeni 18 vjeç"
+  "you need to be 18 years old": "duhet të jeni 18 vjeç",
+  "progressGoal": {
+    "default": "Le të arrijmë te {{goal}}"
+  }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
+const fs = require("node:fs");
+const path = require("node:path");
+const crypto = require("node:crypto");
 require("./dotenv.js");
 const argv = require("minimist")(process.argv.slice(2), {
   boolean: ["help", "dry-run"],
@@ -46,7 +46,7 @@ const push = async name => {
 
   const r = await supabase.storage
     .from("together4forests")
-    .upload("template/" + fileName, file, {
+    .upload(`template/${fileName}`, file, {
       contentType: type,
       cacheControl: "3600",
       upsert: argv.upsert,
@@ -60,12 +60,12 @@ const push = async name => {
     }
   }
   console.log(url(fileName));
-  let d = {
+  const d = {
     lang: "",
     image: url(fileName),
     enabled: true,
-    top_text: key + ".top",
-    bottom_text: key + ".bottom",
+    top_text: `${key}.top`,
+    bottom_text: `${key}.bottom`,
   };
   d.hash = hash(d);
   const { error } = await supabase.from("meme_template").insert([d]);
@@ -112,7 +112,7 @@ const hash = obj => {
 };
 
 const pullTemplates = async () => {
-  let { data: templates, error } = await supabase
+  const { data: templates, error } = await supabase
     .from("meme_template")
     .select("hash,image,top_text,bottom_text")
     .order("id", { ascending: false })
@@ -122,7 +122,7 @@ const pullTemplates = async () => {
   const fileName = file("target/public/meme/template");
 
   fs.writeFileSync(fileName, JSON.stringify(templates, null, 2));
-  let labels = {};
+  const labels = {};
   templates.forEach(d => {
     const name = d.top_text.split(".")[0];
     labels[name] = { top_text: "", bottom_text: "" };
@@ -131,7 +131,7 @@ const pullTemplates = async () => {
   return fileName;
 };
 
-(async function () {
+(async () => {
   const name = argv._[0];
   console.log(name);
   if (argv.pull) {

@@ -34,7 +34,7 @@
     "eci": "Unterzeichnen Sie die EBI",
     "email": "Eine E-Mail senden",
     "join": "Beitreten",
-    "pledge": "Verpfänden Sie jetzt!",
+    "pledge": "Jetzt zusagen!",
     "register": "Registrieren",
     "remindeSent": "Erinnerung gesendet",
     "reminder": "Später erinnern",
@@ -45,7 +45,8 @@
     "takeAction": "Aktiv werden",
     "twitter": "Tweet"
   },
-  "ai_check": "Eine KI hat diese Nachricht verfasst. Wir empfehlen Ihnen, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren",
+  "ai_check": "Dieser Text wurde mittels KI erstellt. Bitte kontrollieren Sie die Inhalte auf Richtigkeit und Tonalität.",
+  "ai_tip": "Hier können Sie Stichpunkte für die Texterstellung einfügen und auf den Button \"{{button}}\" klicken oder selbst eine Nachricht verfassen.",
   "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
@@ -70,7 +71,7 @@
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich",
-    "subButton": {
+    "button": {
       "opt-in": "und Informationen erhalten",
       "opt-out": "und keine infos erhalten"
     }
@@ -146,7 +147,7 @@
   },
   "email": {
     "invalid_domain": "{{domain}} kann keine E-Mails empfangen",
-    "salutation": "Sehr geehrte Damen und Herren",
+    "salutation": "Sehr geehrte:r {{target.name}}",
     "salutation_female": "Sehr geehrte Frau {{target.last_name}}",
     "salutation_info": "(Der Name des Empfängers wird vor dem Versand eingefügt)",
     "salutation_male": "Sehr geehrter Herr {{target.last_name}}",
@@ -155,8 +156,8 @@
   "error": {
     "date": "Format sollte DD.MM.YYYY sein"
   },
-  "give_another": "Gib mir noch einen",
-  "help_write": "Helfen Sie mir, es zu schreiben",
+  "give_another": "Nochmal versuchen",
+  "help_write": "Ich will Hilfe beim Schreiben",
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um einen Sticker zum Bild hinzuzufügen",
@@ -251,7 +252,6 @@
   "yes": "ja",
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein",
   "progressGoal": {
-    "default": "Gehen wir zu {{goal}}",
-    "sign": "Erreichen wir {{goal}}"
+    "default": "Schaffen wir {{goal}}?"
   }
 }

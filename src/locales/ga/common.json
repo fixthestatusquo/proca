@@ -52,7 +52,7 @@
     "take": "Glac pictiúr",
     "take-another": "Tóg ceann eile"
   },
-  "closed": "##buíochas le {{total}} lucht tacaíochta!\n\nTá an gníomh seo dúnta againn, ach níl deireadh lenár gcuid oibre anseo, mar sin **fág do ríomhphost le do thoil chun fanacht ar an eolas faoi na chéad chéimeanna eile**",
+  "closed": "##Buíochas le {{total}} lucht tacaíochta!\n\nTá an gníomh seo dúnta againn, ach níl deireadh lenár gcuid oibre anseo, mar sin **fág do ríomhphost le do thoil chun fanacht ar an eolas faoi na chéad chéimeanna eile**",
   "confirm": "An bhfuil tú cinnte?",
   "consent": {
     "actionConfirmed": "Gníomh dearbhaithe",
@@ -70,7 +70,7 @@
     "processing": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí agus fianáin de réir ár mbeartas príobháideachta <1> </1>",
     "processing-nocookie": "Coinneofar d’fhaisnéis phearsanta príobháideach agus coinneofar go slán í. Trí fhaisnéis a chur isteach tá tú ag aontú le húsáid sonraí de réir ár mbeartas príobháideachta <1> </1>",
     "required": "Tá do thoiliú ag teastáil chun páirt a ghlacadh",
-    "subButton": {
+    "button": {
       "opt-in": "agus faisnéis a fháil",
       "opt-out": "agus ná coimeád ar an eolas mé"
     }

@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import { Container, Grid } from "@material-ui/core";
 
@@ -47,7 +47,20 @@ export default function Register(props) {
 
   const handleClick = event => {
     event.preventDefault();
-    window.open(event.target.href, "proca");
+    let targetUrl;
+    try {
+      targetUrl = new URL(event.currentTarget.href);
+    } catch {
+      return;
+    }
+    if (targetUrl.protocol !== "https:" && targetUrl.protocol !== "http:") {
+      return;
+    }
+    const link = document.createElement("a");
+    link.href = targetUrl.toString();
+    link.target = "proca";
+    link.rel = "noopener noreferrer";
+    link.click();
   };
 
   // TODO: replace the OCS dangerous privacy statement with a proper Trans ready syntax
@@ -59,7 +72,7 @@ export default function Register(props) {
             <FormLabel
               className={classes.check}
               placement="end"
-              error={!!(errors && errors.certify)}
+              error={!!(errors?.certify)}
             >
               <Checkbox
                 {...register("certify")}
@@ -72,7 +85,7 @@ export default function Register(props) {
             <FormLabel
               className={classes.check}
               placement="end"
-              error={!!(errors && errors.contentPrivacy)}
+              error={!!(errors?.contentPrivacy)}
             >
               <Checkbox
                 {...register("contentPrivacy")}

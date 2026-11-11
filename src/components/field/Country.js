@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useMemo } from "react";
-import useData from "@hooks/useData";
-import { get } from "@lib/urlparser";
 import TextField from "@components/field/TextField";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
+import { allCountries } from "@lib/i18n";
+import { get } from "@lib/urlparser";
+import Alert from "@material-ui/lab/Alert";
+import { useEffect, useMemo, useState } from "react";
+import { flag, useCountryFlag } from "react-emoji-flag";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
-import { useCampaignConfig } from "@hooks/useConfig";
-import Alert from "@material-ui/lab/Alert";
-import { useCountryFlag, flag } from "react-emoji-flag";
-
-import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
 import countriesJson from "../../data/eu27.json";
 
@@ -20,7 +19,7 @@ export const addMissingCountries = (countries, compare) => {
     return a;
   }, alreadyHave);
 
-  let others = [];
+  const others = [];
   for (const [code, label] of Object.entries(allCountries)) {
     if (!(code in alreadyHave)) {
       others.push({ iso: code, name: label });
@@ -45,7 +44,7 @@ const addAllCountries = () => {
 };*/
 
 const addCountries = list => {
-  let d = [];
+  const d = [];
   list.map(country => {
     country !== "ZZ" &&
       d.push({ iso: country, name: allCountries[country] || "" });
@@ -152,6 +151,7 @@ const Country = props => {
         required={props.required}
         select
         name={props.name || "country"}
+        id={props.name || "country"}
         onChange={switchCountry}
         label={props.label || t("Country")}
         form={props.form}

@@ -123,7 +123,7 @@ export default class CampaignTranslate extends Command {
 
   // Helper to get a nested value from an object based on a path array.
   getValue(obj, keyPath) {
-    return keyPath.reduce((curr, key) => curr && curr[key], obj);
+    return keyPath.reduce((curr, key) => curr?.[key], obj);
   }
 
   // Helper to set a nested value in an object based on a path array.
@@ -167,7 +167,7 @@ export default class CampaignTranslate extends Command {
                 const content = line.trim();
                 if (this.dryRun) {
                   console.log("skip translation ", content);
-                  return "- " + content;
+                  return `- ${content}`;
                 }
                 //                const translatedContent = await this.translate(
                 const translatedContent = await this.translateLLM(
@@ -220,7 +220,7 @@ export default class CampaignTranslate extends Command {
       const fileContent = await readFile(filePath, "utf-8");
       const data = JSON.parse(fileContent);
 
-      let sourceLocaleRoot = data.config?.locales?.[from];
+      const sourceLocaleRoot = data.config?.locales?.[from];
       if (!sourceLocaleRoot) {
         this.error(`Source locale "${from}" not found in ${filePath}`);
       }
@@ -228,7 +228,7 @@ export default class CampaignTranslate extends Command {
       if (!data.config.locales[to]) {
         data.config.locales[to] = {};
       }
-      let targetLocaleRoot = data.config.locales[to];
+      const targetLocaleRoot = data.config.locales[to];
 
       let sourceLocale, targetLocale;
 
@@ -237,7 +237,7 @@ export default class CampaignTranslate extends Command {
       );
 
       if (flags.namespace) {
-        const namespace = flags.namespace + ":";
+        const namespace = `${flags.namespace}:`;
         this.log(`Restricting to namespace: ${namespace}`);
         sourceLocale = this.getValue(sourceLocaleRoot, [namespace]);
         if (!sourceLocale) {

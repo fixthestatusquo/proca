@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Masonry from "react-masonry-component";
 import { useSupabase } from "@lib/supabase";
 import ProgressCounter from "@components/ProgressCounter";

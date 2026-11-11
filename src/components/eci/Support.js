@@ -4,7 +4,7 @@ import dispatch from "@lib/event";
 import { formatDate } from "@lib/date";
 import { ReactComponent as ECLogo } from "@images/logo_eu.svg";
 import { ReactComponent as SecureLogo } from "@images/secure.svg";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   CardHeader,
   Button,
@@ -215,8 +215,7 @@ const Support = props => {
       config
     );
 
-    props.done &&
-      props.done({
+    props.done?.({
         firstname: data.firstname,
       });
 

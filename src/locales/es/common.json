@@ -70,7 +70,7 @@
     "processing": "Tu información personal se mantendrá privada y segura. Al enviar la información, estás de acuerdo con el uso de datos y cookies según nuestra <1> política de privacidad</1>",
     "processing-nocookie": "Su información personal se mantendrá privada y segura. Al enviar información, usted acepta el uso de los datos de acuerdo con nuestra <1>política de privacidad</1>",
     "required": "Su consentimiento es necesario para participar",
-    "subButton": {
+    "button": {
       "opt-in": "y recibir información",
       "opt-out": "y no me mantienes informado"
     }

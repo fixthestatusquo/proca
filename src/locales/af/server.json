@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Hallo {{firstName}},",
+            "share_on": "Deel op",
+            "consent": "\n          ",
+            "thanks": "Dankie dat u deelgeneem het aan {{campaign.title}}. Ons waardeer u ondersteuning!",
+            "thanksPledge": "Dankie dat u ' {{campaign.title}}' ondersteun het. U handtekening sal hersien word en, indien goedgekeur, op ons webwerf vertoon word.",
+            "about": "Tot dusver het {{campaign.stats.supporterCount}} -ondersteuners die aksie geneem.",
+            "share": "Help ons om ons doel te bereik deur die woord te versprei.",
+            "follow": "Volg ons op:",
+            "donate": "Oorweeg asseblief om 'n skenking te maak om ons te help om ons missie te bereik.",
+            "closing": "Met jou hulp is ons een stap nader aan ons doel.",
+            "privacy": "U kan meer inligting vind oor ons privaatheidsbeleid en die verwerking van u data.",
+            "unsubscribe": "As u nie in die toekoms verdere inligting van ons wil ontvang nie, kan u te eniger tyd u registrasie kanselleer.",
+            "signature": "Hoogagtend,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Dankie vir jou betrokkenheid en toewyding aan ons saak! In ons verbintenis om egtheid en geloofwaardigheid te handhaaf, moet ons **duplikaat** handtekeninge verwyder, en dit blyk dat jy (of iemand wat {{email}} gebruik) hierdie aksie reeds geneem het. Wees verseker, **jou aanvanklike handtekening is getel** en het bygedra tot ons veldtog.\nJou ondersteuning was van onskatbare waarde, en ons wil jou graag aanmoedig om 'n addisionele stap te neem om jou impak te help versterk. Oorweeg asseblief om jou vriende en familie te kontak en hulle aan te moedig om ook op te tree deur hul eie e-posadresse te gebruik. Op hierdie manier kan ons ons beweging verder laat groei en 'n selfs sterker kollektiewe stem skep vir die verandering wat ons soek.\nNogmaals, ons betuig ons opregte dank vir jou voortgesette ondersteuning en toewyding aan hierdie veldtog. Saam kan ons 'n blywende impak maak!",
+            "is_it_me": "As u hierdie aksie nie geneem het nie, klik asseblief [hier](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) om dit te verwyder."
+        },
+        "button": {
+            "confirmAction": "Ja, ek is 'n regte persoon!",
+            "confirmOptin": "Ek wil nuus van jou ontvang.",
+            "confirmAlreadyMember": "Ek bevestig my deelname en ontvang reeds e-posse van julle.",
+            "confirmOptout": "Ek bevestig my deelname, maar hou my nie in die toekoms op hoogte nie."
+        },
+        "doi": {
+            "subject": "Nog 'n stap: bevestig asseblief jou e-posadres.",
+            "intro": "Om jou registrasie te voltooi en ons toe te laat om jou e-posadres en persoonlike data te verwerk vir die verskaffing van nuus of nuusbriewe, klik asseblief op die bevestigingsknoppie hieronder. Hierdie geoutomatiseerde stap verseker jou toestemming en voorkom ongemagtigde registrasies.",
+            "extra": "As jy nie vir hierdie intekening ingeskryf het nie, voel vry om hierdie e-pos te ignoreer."
+        },
+        "thankyou": {
+            "intro": "Dankie vir u deelname aan \"{{campaign.title}}\". Ons waardeer u ondersteuning!",
+            "subject": "Dankie, hier is wat jy verder kan doen"
+        },
+        "doi_thankyou": {
+            "subject": "Dankie vir u deelname{{#privacy.optIn}}, nog een stap, bevestig asseblief u e-posadres{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Nog 'n stap: bevestig asseblief jou e-posadres.",
+            "extra": "As jy dit nie versoek het nie, ignoreer asseblief hierdie e-pos.",
+            "intro": "U bevestiging is noodsaaklik vir die verwerking van u deelname. Dit verseker dat elke indiening van 'n werklike persoon afkomstig is en help om vals of strooipos-insendings te voorkom."
+        }
+    },
+    "poweredBy": "Aangedryf deur"
+}

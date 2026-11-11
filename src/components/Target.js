@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -12,7 +12,7 @@ import TwitterIcon from "../images/Twitter.js";
 import Email from "./Email";
 import Twitter from "./Twitter";
 export default function Target(props) {
-  const [value, setValue] = React.useState("email");
+  const [value, setValue] = useState("email");
 
   const handleChange = (_event, newValue) => {
     setValue(newValue);
@@ -23,8 +23,7 @@ export default function Target(props) {
   };
 
   return (
-    <>
-      <Paper square>
+    <Paper square>
         <AppBar position="static" color="default">
           <Tabs
             variant="fullWidth"
@@ -59,6 +58,5 @@ export default function Target(props) {
           )}
         </Box>
       </Paper>
-    </>
   );
 }

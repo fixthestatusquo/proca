@@ -1,168 +1,222 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-//import useConfig from "@hooks/useConfig";
-
-import { Grid, IconButton } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-import InputAdornment from "@material-ui/core/InputAdornment";
-import TwitterIcon from "../../images/Twitter.js";
-import SvgIcon from "@material-ui/core/SvgIcon";
-
+import { useState, } from "react";
 import TextField from "@components/field/TextField";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
+import { useComponentConfig } from "@hooks/useConfig";
+import { useTranslation } from "react-i18next";
+import { Grid, IconButton } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import WebIcon from "@material-ui/icons/Link";
+import WebErrorIcon from "@material-ui/icons/LinkOff";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { useTheme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
-  profile: {
-    backgroundColor: theme.palette.background.paper,
-    padding: "2px",
-  },
-}));
+const StateIcon = ({ state, onClick }) => {
+  const theme = useTheme();
+  const handleMouseDown = event => {
+    event.preventDefault();
+  };
 
-const Organisation = props => {
-  const classes = useStyles();
+  /*  let iconColor = theme.palette.text.secondary;
+    ic   onColor = theme.palette.error.main;
+    iconColor = theme.palette.success.main;
+-                <IconButton
+-                  aria-label="Fetch organisation details"
+-                  onClick={onClick}
+-                  onMouseDown={handleMouseDown}
+-                >
+-                  {loading ? <CircularProgress size={24} /> : <SearchIcon />}
+-                </IconButton>
 
-  const { t } = useTranslation();
-  //  const { config } = useConfig();
-  const [profile, setProfile] = useState({
-    name: t("twitter.organisation", "Your organisation twitter account"),
-  });
-
-  const compact = props.compact;
-  const { setValue, getValues, setError, watch, register } = props.form;
-
-  const array = watch(["organisation", "picture", "comment", "twitter"]);
+   */ //<EmailIcon style={{ color: iconColor }} />
+  switch (state) {
+    case "loading":
+      return (
+        <CircularProgress
+          size={18}
+          style={{ color: theme.palette.text.secondary }}
+        />
+      );
+    case "touched":
+      return (
+        <IconButton
+          aria-label="Fetch organisation details"
+          onClick={onClick}
+          onMouseDown={handleMouseDown}
+        >
+          <SearchIcon />
+        </IconButton>
+      );
+    case "nok":
+      return <WebErrorIcon style={{ color: theme.palette.error.main }} />;
+    case "ok":
+      return <WebIcon style={{ color: theme.palette.success.main }} />;
+    case "empty":
+      return <WebIcon />;
+    default:
+      return <SearchIcon />;
+  }
+};
+const Organisation = ({ form, classField, enforceRequired }) => {
+  const component = useComponentConfig();
+  const [state, setState] = useState("empty");
+  const { setValue, getValues, setError, watch } = form;
+  const organisation = component.register.field.organisation;
+  const array = watch(["organisation", "logo", "description", "url"]);
   const field = {
     organisation: array[0],
-    picture: array[1],
-    comment: array[2],
-    twitter: array[3],
+    logo: array[1],
+    description: array[2],
+    url: array[3],
   };
+  let error = form.formState.errors?.url;
 
-  //variant={options.variant}
-  //margin={options.margin}
-  const handleBlur = e => {
-    props.form.handleBlur && props.form.handleBlur(e);
-    fetchTwitter(e.target.value);
-  };
-
-  const fetchTwitter = screenName => {
-    if (!screenName) {
+  const fetchMeta = async (url, retry) => {
+    if (!url) {
       return;
     }
+    error = form.formState.errors?.url;
 
-    const api = `https://twitter.proca.app?screen_name=${screenName.replace("https://twitter.com/", "")}`;
-    //    const api = "https://twitter.proca.app/?screen_name="+e.target.value;
-    const field = "twitter";
+    if (error) {
+      if (!/^https?:\/\//i.test(url)) {
+        setValue("url", `https://${url}`, { shouldValidate: true });
+        form.clearErrors("url");
+        //await form.trigger("url");
+        if (!retry) fetchMeta(`https://${url}`, true);
+      }
+      return;
+    }
+    const api = `https://metapi.proca.app?url=${url}`;
     async function fetchAPI() {
+      const field = "url";
+      setState("loading");
       await fetch(api)
         .then(res => {
+          setState("nok");
           if (!res.ok) {
-            throw Error(res.statusText);
+            setError(field, {
+              type: "metapi_error",
+              message: "can't load the site",
+            });
+            error = form.formState.errors?.url;
+            console.log(res, error);
           }
           return res.json();
         })
         .then(res => {
-          if (res && res.error) {
-            setProfile({ name: "?", url: "", description: "" });
-            setError(field, "api", res.message.errors[0].message);
+          if (res?.error) {
+            setState("nok");
+            setError(field, {
+              type: "metapi_error",
+              message: `Can't load the site. ${res.error}`,
+            });
             return;
           }
+          setState("ok");
           res.name = res.name
             .replace(
               /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
               ""
             ) // no emoji
             .replace(/#\w\w+\s?/g, ""); // no hashtag
-          setProfile(res);
+          setValue("organisation", res.name);
           if (res.url) {
-            setValue("url", res.url);
+            form.clearErrors("url");
+            setValue(field, res.url);
             const domain = new URL(res.url).hostname;
             domain && setValue("email", `@${domain.replace("www.", "")}`);
           }
-          setValue("followers_count", res.followers_count);
 
           setValue("organisation", res.name);
-          setValue("picture", res.profile_image_url_https);
+          setTimeout(() => {
+            console.log("timeout");
+            form.setFocus("organisation");
+          }, 1000);
+          setValue("logo", res.logo);
           setValue("comment", res.description);
-          setValue("twitter", res.screen_name);
         })
         .catch(err => {
           console.log(err);
-          setProfile({ name: "?", url: "", description: "" });
         });
     }
 
     fetchAPI();
   };
-
   const handleClick = () => {
-    console.log("click", getValues("twitter"));
-    fetchTwitter(getValues("twitter"));
+    console.log("click", getValues("url"));
+    fetchMeta(getValues("url"));
   };
 
-  const handleMouseDown = event => {
-    event.preventDefault();
+  const handleChange = e => {
+    const value = e.target.value.trim();
+    if (value === "") {
+      setState("empty");
+      return;
+    }
+    if (e.target.validity && state !== "touched") {
+      setState("touched");
+      return;
+    }
+    if (
+      value.startsWith("http://") ||
+      value.startsWith("https://") ||
+      "https://".startsWith(value) ||
+      "http://".startsWith(value)
+    ) {
+      console.log("still typing");
+      return;
+    }
+    const corrected = `https://${value}`;
+    setValue("url", corrected);
   };
 
+  const handleBlur = e => {
+    form.handleBlur?.(e);
+    fetchMeta(getValues("url"));
+  };
+
+  const { t } = useTranslation();
   return (
-    <>
-      <Grid item xs={12} sm={compact ? 12 : 6}>
-        <TextField
-          name="twitter"
-          onBlur={handleBlur}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                {field.twitter ? (
-                  <IconButton
-                    aria-label="Fetch details from Twitter"
-                    onClick={handleClick}
-                    onMouseDown={handleMouseDown}
-                  >
-                    <SearchIcon />
-                  </IconButton>
-                ) : (
-                  <SvgIcon>
-                    <TwitterIcon />
-                  </SvgIcon>
-                )}
-              </InputAdornment>
-            ),
-          }}
-          required
-          label={t("twitter.screenName", "twitter Account")}
-          form={props.form}
-        />
-      </Grid>
-      <Grid item xs={12} sm={compact ? 12 : 6}>
-        <List className={classes.profile} dense={true} disablePadding={true}>
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar src={field.picture}>?</Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={field.organisation} />
-          </ListItem>
-        </List>
-      </Grid>
-      {profile.id ? (
-        <>
-          <Grid item xs={12} sm={compact ? 12 : 12}>
-            <TextField name="organisation" required form={props.form} />
-            <input type="hidden" {...register("comment")} />
-            <input type="hidden" {...register("picture")} />
-            <input type="hidden" {...register("url")} />
-            <input type="hidden" {...register("followers_count")} />
-          </Grid>
-        </>
-      ) : null}
-    </>
+    <Grid item xs={12} className={classField}>
+      <TextField
+        name="url"
+        type="url"
+        label={t("url", "Organisation Website")}
+        placeholder="https://"
+        form={form}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <StateIcon state={state} onClick={handleClick} />
+            </InputAdornment>
+          ),
+        }}
+        required={enforceRequired && organisation?.required}
+      />
+      <TextField
+        type="organisation"
+        form={form}
+        hidden={!field.organisation}
+        name="organisation"
+        label={t("Organisation")}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              {field.logo ? (
+                <SvgIcon fontSize="large">
+                  <image href={field.logo} width={24} height={24} />
+                </SvgIcon>
+              ) : (
+                ""
+              )}
+            </InputAdornment>
+          ),
+        }}
+        required={enforceRequired && organisation?.required}
+      />
+    </Grid>
   );
 };
 

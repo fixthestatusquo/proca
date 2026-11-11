@@ -36,7 +36,7 @@ const dataLayerObserver = (event, data, _pii) => {
   //  console.log("GA4 received event:", event, data, pii);
   if (event === "count") return;
   const action = event.split(":");
-  let param = getParam(data);
+  const param = getParam(data);
   "uuid,firstname,lastname,country,comment,subject,message,email,emailProvider,contact"
     .split(",")
     .forEach(attr => {
@@ -54,7 +54,7 @@ const dataLayerObserver = (event, data, _pii) => {
     param.test = true;
     console.log("GA4", param);
   }
-  window.dataLayer && window.dataLayer.push && window.dataLayer.push(param);
+  window.dataLayer?.push?.(param);
 };
 
 const dispatch = (event, data, pii) => {

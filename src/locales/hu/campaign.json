@@ -12,7 +12,7 @@
       "subject": "Segítsen üzenetet küldeni",
       "email": {
         "body": "Szia,\n\nMost küldtem egy e-mailt egy számomra fontos kérdésről, és szeretném tudni, hogy csatlakoznátok-e hozzám, hogy hallassuk a hangunkat.\n\nVan egy előre megírt sablon, amely nagyon megkönnyíti a dolgot - személyre szabhatod, vagy elküldheted úgy, ahogy van. Mindössze néhány percet vesz igénybe:\n\n{url}\n\nMinél többen jelentkeznek, annál nehezebb figyelmen kívül hagyni. Megfontolná, hogy Ön is csatlakozzon?\n\nKöszönöm szépen",
-        "default": "Szia! Most küldtem egy üzenetet ezzel a témával kapcsolatban - megtennéd, hogy hozzászólsz? Szuper gyors: {url}"
+        "default": "Szia! Most küldtem egy üzenetet ezzel a témával kapcsolatban - megtennéd, hogy hozzászólsz? Szuper gyors: "
       }
     }
   },
@@ -21,6 +21,6 @@
       "subject": "Csatlakozzon hozzám, hogy támogassuk ezt az ügyet",
       "body": "Szia,\n\nNemrég tettem valamit, ami fontos nekem, és szerettem volna megosztani veletek. Szerintem téged is érdekelhet a részvétel.\n\nCsak néhány percet vesz igénybe, és úgy gondolom, hogy valódi változást hozhat. Itt a link, ha szeretnél csatlakozni:\n\n{url}\n\nKöszönöm, hogy fontolóra vetted!"
     },
-    "default": "Hé! Épp most tettem valami fontosat - akarsz csatlakozni hozzám? {url}"
+    "default": "Hé! Épp most tettem valami fontosat - akarsz csatlakozni hozzám?"
   }
 }

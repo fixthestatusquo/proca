@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Button } from "@material-ui/core";
 import { resize } from "@lib/image";
 

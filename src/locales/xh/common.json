@@ -52,7 +52,7 @@
     "take": "Thatha umfanekiso",
     "take-another": "Thatha omnye"
   },
-  "closed": "##siyabulela kubaxhasi abayi-{{total}}!\n\nSikuvalile esi senzo, kodwa umsebenzi wethu awupheli apha, ngoko ke sicela **ushiye i-imeyile yakho ukuze uhlale unolwazi malunga namanyathelo alandelayo**",
+  "closed": "##Siyabulela kubaxhasi abayi-{{total}}!\n\nSikuvalile esi senzo, kodwa umsebenzi wethu awupheli apha, ngoko ke sicela **ushiye i-imeyile yakho ukuze uhlale unolwazi malunga namanyathelo alandelayo**",
   "confirm": "Uqinisekile?",
   "consent": {
     "actionConfirmed": "Isenzo siqinisekisiwe",
@@ -70,7 +70,7 @@
     "processing": "Ulwazi lwakho lobuqu luya kugcinwa luyimfihlo kwaye luphephile. Ngokuthumela ulwazi uvuma ukusetyenziswa kwedatha kunye nekuki ngokwe-<1>nkqubo yethu yobumfihlo</1>",
     "processing-nocookie": "Ulwazi lwakho lobuqu luya kugcinwa luyimfihlo kwaye luphephile. Ngokuthumela ulwazi uvuma ukusetyenziswa kwedatha ngokwe-<1>nkqubo yethu yobumfihlo</1>",
     "required": "Imvume yakho iyadingeka ukuze uthathe inxaxheba",
-    "subButton": {
+    "button": {
       "opt-in": "kwaye ufumane ulwazi",
       "opt-out": "kwaye ungangigcini ndinolwazi"
     }
@@ -256,5 +256,8 @@
   },
   "unknown postcode": "ikhodi yeposi engaziwayo",
   "yes": "ewe",
-  "you need to be 18 years old": "ufanele ukuba neminyaka eli-18 ubudala"
+  "you need to be 18 years old": "ufanele ukuba neminyaka eli-18 ubudala",
+  "progressGoal": {
+    "default": "Masiqhubeke ku-{{goal}}"
+  }
 }

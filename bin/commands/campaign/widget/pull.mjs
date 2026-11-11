@@ -17,11 +17,16 @@ export default class CampaignWidgetPull extends Command {
     //    }),
   };
 
-  simplify = (d) => {
-    return {id: d.actionpage, name: d.filename, org: d.org.name, lang:d.lang};
+  simplify = d => {
+    return {
+      id: d.actionpage,
+      name: d.filename,
+      org: d.org.name,
+      lang: d.lang,
+    };
   };
 
-  pull = async (props) => {
+  pull = async props => {
     const wapi = new WidgetList();
     const pullapi = new WidgetPull();
     wapi.flags.config = true; //we need to fetch each widget config
@@ -29,7 +34,7 @@ export default class CampaignWidgetPull extends Command {
     const result = [];
     for (const widget of widgets) {
       // do not process all widgets in parallel but in sequence
-      const r = await pullapi.pull(widget.id, {campaign:false});
+      const r = await pullapi.pull(widget.id, { campaign: false });
       result.push(r[0]);
     }
     return result;

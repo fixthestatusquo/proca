@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useCampaignConfig } from "@hooks/useConfig";
 import useData from "@hooks/useData";
-import get from "lodash/get";
+import { get } from "@lib/object";
 
 const LoaderAsync = () => {
   const config = useCampaignConfig();
@@ -13,9 +13,8 @@ const LoaderAsync = () => {
     let isCancelled = false;
     if (!loaders) return;
     if (loaders.json) {
-      (async function () {
-        let url =
-          loaders.url || "https://" + config.campaign.name + ".proca.app/";
+      (async () => {
+        let url = loaders.url || `https://${config.campaign.name}.proca.app/`;
         if (loaders.url === false) return null;
         if (loaders.appendLocale === true) url += lang;
 
@@ -58,7 +57,7 @@ const LoaderAsync = () => {
       })();
     } else {
       Object.entries(loaders).map(([k, v]) => {
-        (async function () {
+        (async () => {
           let url = v.url;
           if (!url) return null;
           if (v.appendLocale === true) url += lang;

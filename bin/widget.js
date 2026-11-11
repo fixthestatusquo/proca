@@ -149,7 +149,7 @@ const addPage = async (name, campaignName, locale, orgName) => {
   }
 
   if (!campaign) {
-    throw new Error("campaign not found: " + campaignName);
+    throw new Error(`campaign not found: ${campaignName}`);
   }
 
   const r = await api(
@@ -193,12 +193,12 @@ const addPage = async (name, campaignName, locale, orgName) => {
   //  if (!page) throw new Error("actionpage not found:" + name);
   //  await pull(page.id);
   //  console.log(r);
-  console.log("action page " + name + " #" + r?.id);
+  console.log(`action page ${name} #${r?.id}`);
   return r;
 };
 
 const fetchByName = async name => {
-  let data = undefined;
+  let data;
 
   const query = `
 query actionPage ($name:String!) {
@@ -235,10 +235,21 @@ query actionPage ($name:String!) {
   }
 };
 
+const parseJson = (value, label) => {
+  try {
+    return JSON.parse(value);
+  } catch (e) {
+    throw new Error(`can't parse ${label}: ${e.message}`);
+  }
+};
+
 const getConfig = data => {
-  data.actionPage.config = JSON.parse(data.actionPage.config);
-  data.actionPage.org.config = JSON.parse(data.actionPage.org.config);
-  data.actionPage.campaign.config = JSON.parse(data.actionPage.campaign.config);
+  data.actionPage.config = parseJson(data.actionPage.config, "action page config");
+  data.actionPage.org.config = parseJson(data.actionPage.org.config, "org config");
+  data.actionPage.campaign.config = parseJson(
+    data.actionPage.campaign.config,
+    "campaign config"
+  );
   const config = {
     actionpage: data.actionPage.id,
     organisation: data.actionPage.org.title,
@@ -272,7 +283,7 @@ const getConfig = data => {
     config.extraSupporters = data.actionPage.extraSupporters;
 
   if (config.component.consent && data.actionPage.org.processing) {
-    let consentEmail = config.component.consent.email || {};
+    const consentEmail = config.component.consent.email || {};
     if (
       data.actionPage.org.processing.supporterConfirm &&
       (data.actionPage.org.processing.supporterConfirmTemplate ||
@@ -362,7 +373,7 @@ const pull = async (
       config.campaign.title;
     let r = null;
     if (!exists && argv.git) {
-      r = await add(actionPage + ".json");
+      r = await add(`${actionPage}.json`);
       console.log("adding", r);
     }
     console.log(
@@ -370,13 +381,13 @@ const pull = async (
       color.green.bold("saved", fileName),
       color.blue(config.filename)
     );
-    r = argv.git && (await commit(actionPage + ".json", msg));
+    r = argv.git && (await commit(`${actionPage}.json`, msg));
     if (argv.git && !r) {
       // no idea,
       console.warn(color.red("something went wrong, trying to git add"));
-      r = await add(actionPage + ".json");
+      r = await add(`${actionPage}.json`);
       console.log(r);
-      r = await commit(actionPage + ".json");
+      r = await commit(`${actionPage}.json`);
     }
     if (campaign) saveCampaign(campaignData, config.lang);
   }
@@ -416,7 +427,7 @@ mutation updateActionPage($id: Int!, $name:String!,$locale:String,$config: Json!
   if (argv.verbose) {
     console.log(r?.config);
   }
-  console.log("action page " + r?.name + " #" + r?.id);
+  console.log(`action page ${r?.name} #${r?.id}`);
   return r;
 };
 
@@ -436,7 +447,7 @@ if (require.main === module) {
   }
   (async () => {
     const anonymous = true;
-    let ids = argv._;
+    const ids = argv._;
     if (isNaN(argv._[0])) {
       const campaign = argv._[0];
       const widgets = await fetchAll(campaign);
@@ -482,12 +493,12 @@ if (require.main === module) {
           await serve(id);
         }
         if (argv.push && !argv["dry-run"]) {
-          const r = argv.git && (await commit(id + ".json"));
+          const r = argv.git && (await commit(`${id}.json`));
           const result = await push(id);
           console.log(
             color.green.bold("pushed", id),
             color.blue(result.name),
-            "https://widget.proca.app/d/" + result.name + "/index.html"
+            `https://widget.proca.app/d/${result.name}/index.html`
           );
           if (r.summary) console.log(r.summary);
         }

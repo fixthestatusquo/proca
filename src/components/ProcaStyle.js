@@ -1,4 +1,4 @@
-import React from "react";
+import { useMemo } from "react";
 import {
   StylesProvider,
   createGenerateClassName,
@@ -38,7 +38,8 @@ const GlobalStyles = () => {
 //<ScopedCssBaseline>
 export default function ProcaStyle(props) {
   const layout = useLayout();
-  const theme = React.useMemo(
+  const isLight = layout?.theme !== "dark";
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {
@@ -48,13 +49,21 @@ export default function ProcaStyle(props) {
           },
           secondary: { main: layout.secondaryColor },
           type: layout.theme,
+          text: {
+            secondary: isLight
+              ? "rgba(0, 0, 0, 0.6)"
+              : "rgba(255, 255, 255, 0.7)",
+            disabled: isLight
+              ? "rgba(0, 0, 0, 0.6)"
+              : "rgba(255, 255, 255, 0.7)",
+          },
         },
         typography: {
           fontFamily: "unset!important",
           htmlFontSize: Number.parseInt(
             window
               .getComputedStyle(document.getElementsByTagName("html")[0], null)
-              .getPropertyValue("font-size")
+              .getPropertyValue("font-size"), 10
           ), // get the actual font size
           //    fontFamily: `-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,
           //    fontSize: 14,
@@ -62,7 +71,7 @@ export default function ProcaStyle(props) {
         overrides: {
           MuiSnackbar: {
             anchorOriginTopCenter: {
-              top: layout.snackTop && layout.snackTop + "px!important",
+              top: layout.snackTop && `${layout.snackTop}px!important`,
             },
             root: {
               zIndex: 30003,
@@ -137,6 +146,25 @@ export default function ProcaStyle(props) {
             },
           },
           MuiInputBase: {
+            root: {
+              ".Mui-readonly &": {
+                backgroundColor: isLight
+                  ? "rgba(0, 0, 0, 0.05) !important"
+                  : "rgba(255, 255, 255, 0.05)",
+                color: isLight
+                  ? "rgba(0, 0, 0, 0.38) !important"
+                  : "rgba(255, 255, 255, 0.38)",
+                cursor: "not-allowed !important",
+                pointerEvents: "auto !important",
+
+                "&:after, &:before": {
+                  display: "none !important",
+                },
+                "& .MuiInputBase-inputMultiline": {
+                  cursor: "not-allowed !important",
+                },
+              },
+            },
             input: {
               background: "unset!important",
               boxSizing: "initial!important",
@@ -151,7 +179,7 @@ export default function ProcaStyle(props) {
           },
         },
       }),
-    [layout]
+    [layout, isLight]
   );
   // palette.background.default
   for (const d in theme.zIndex) {

@@ -31,6 +31,7 @@
   "select_options": "You can select up to {{opt}}",
   "help_write": "Help me write it",
   "ai_work": "AI at work",
+  "ai_tip": "You can insert bullet points for text creation here and click the button \"{{button}}\" or write a message yourself",
   "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
   "give_another": "Generate another",
   "submit": "Submit",
@@ -58,7 +59,7 @@
     "take": "Take picture",
     "take-another": "Take another one"
   },
-  "closed": "##thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
+  "closed": "##Thanks to {{total}} supporters!\n\nWe have closed this action, but our work does not end here, so please **leave your email to stay informed about the next steps**",
   "confirm": "Are you sure?",
   "consent": {
     "actionConfirmed": "Action confirmed",
@@ -76,9 +77,16 @@
     "processing": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data and cookies in accordance with our <1>privacy policy</1>",
     "processing-nocookie": "Your personal information will be kept private and held securely. By submitting information you are agreeing to the use of data in accordance with our <1>privacy policy</1>",
     "required": "Your consent is needed to participate",
-    "subButton": {
+    "button": {
       "opt-in": "and receive informations",
       "opt-out": "and do not keep me informed"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Are you sure you don't want to receive updates on the progress of this and other campaigns?",
+        "opt-in": "Yes, I do want campaign updates",
+        "opt-out": "No, no updates please"
+      }
     }
   },
   "date": {
@@ -159,6 +167,12 @@
   },
   "error": {
     "date": "format should be DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Female",
+    "male": "Male",
+    "na": "Prefer not to say",
+    "trans": "Non-binary"
   },
   "image": {
     "addSticker": "add stickers",
@@ -251,6 +265,7 @@
     "screenName": "Twitter account"
   },
   "unknown postcode": "unknown postcode",
+  "url": "Organisation Website",
   "yes": "yes",
   "you need to be 18 years old": "you need to be 18 years old",
   "progressGoal": {
@@ -258,4 +273,3 @@
     "default": "Let's get to {{goal}}"
   }
 }
-

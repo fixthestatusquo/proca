@@ -52,7 +52,7 @@
     "take": "Thatha isithombe",
     "take-another": "Thatha esinye"
   },
-  "closed": "##siyabonga kubaxhasi abangu-{{total}}!\n\nSikuvalile lesi senzo, kodwa umsebenzi wethu awupheli lapha, ngakho-ke sicela **ushiye i-imeyili yakho ukuze uhlale unolwazi ngezinyathelo ezilandelayo**",
+  "closed": "##Siyabonga kubaxhasi abangu-{{total}}!\n\nSikuvalile lesi senzo, kodwa umsebenzi wethu awupheli lapha, ngakho-ke sicela **ushiye i-imeyili yakho ukuze uhlale unolwazi ngezinyathelo ezilandelayo**",
   "confirm": "Uqinisekile?",
   "consent": {
     "actionConfirmed": "Isenzo siqinisekisiwe",
@@ -70,7 +70,7 @@
     "processing": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha namakhukhi ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
     "processing-nocookie": "Ulwazi lwakho lomuntu siqu luzogcinwa luyimfihlo futhi luphephe. Ngokuthumela ulwazi uyavuma ukusetshenziswa kwedatha ngokuvumelana ne-<1>inqubomgomo yethu yobumfihlo</1>",
     "required": "Imvume yakho iyadingeka ukuze ubambe iqhaza",
-    "subButton": {
+    "button": {
       "opt-in": "futhi uthole ulwazi",
       "opt-out": "futhi ungangigcini nginolwazi"
     }
@@ -256,5 +256,8 @@
   },
   "unknown postcode": "ikhodi yeposi engaziwa",
   "yes": "yebo",
-  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala"
+  "you need to be 18 years old": "udinga ukuba neminyaka engu-18 ubudala",
+  "progressGoal": {
+    "default": "Asiqhubekele ku-{{goal}}"
+  }
 }

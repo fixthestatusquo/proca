@@ -22,6 +22,7 @@ async function graphQL(operation, query, options) {
     {
       method: "POST",
       referrerPolicy: "no-referrer-when-downgrade",
+      keepalive: options.keepAlive,
       headers: headers,
       body: JSON.stringify({
         query: query,
@@ -48,7 +49,7 @@ async function graphQL(operation, query, options) {
 
         response.errors.fields = [];
         response.errors.forEach(error => {
-          const field = error.path && error.path.slice(-1)[0];
+          const field = error.path?.slice(-1)[0];
           if (!field) return;
           let msg = error.message.split(":");
           if (msg.length === 2) {
@@ -207,12 +208,12 @@ async function addAction(actionPage, actionType, data, test) {
     variables.payload = JSON.stringify(variables.payload);
   }
   if (data.tracking && Object.keys(data.tracking).length) {
-    if (data.tracking.term)
-      delete data.tracking.term;
+    if (data.tracking.term) delete data.tracking.term;
     variables.tracking = data.tracking;
   }
   const response = await graphQL("addAction", query, {
     variables: variables,
+    keepAlive: true,
   });
   return response;
 }
@@ -249,6 +250,9 @@ async function addDonateContact(provider, actionPage, data, test) {
 }
 
 async function addActionContact(actionType, actionPage, data, test) {
+  // work on a copy: the keys deleted below (subject, message, targets) are
+  // needed by the caller (Register) to match server errors to form fields
+  data = { ...data };
   var query = `mutation addActionContact(
   $action: ActionInput!,
   $contact:ContactInput!,
@@ -321,8 +325,7 @@ async function addActionContact(actionType, actionPage, data, test) {
   if (data.birthdate) variables.contact.birthDate = data.birthdate;
 
   if (data.tracking && Object.keys(data.tracking).length) {
-    if (data.tracking.term)
-      delete data.tracking.term;
+    if (data.tracking.term) delete data.tracking.term;
     variables.tracking = data.tracking;
   }
 

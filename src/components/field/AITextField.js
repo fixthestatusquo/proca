@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -7,8 +7,55 @@ import TextField from "@components/field/TextField";
 import AIIcon from "../../images/AI";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { useTheme } from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
+import dispatch from "@lib/event";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles({
+  alertStack: {
+    position: "relative",
+    paddingBottom: 40, // Adds space at the bottom so the button doesn't overlap text
 
+    "& .proca-MuiAlert-action": {
+      position: "absolute",
+      bottom: 8,
+      right: 16, // Aligns to the bottom right
+      padding: 0,
+      margin: 0,
+    },
+  },
+});
+
+const AINotice = ({ state, regenerate }) => {
+  const classes = useStyles();
+  const { t } = useTranslation();
+
+  return (
+    state === "loaded" && (
+      <Alert
+        severity="warning"
+        classes={{ root: classes.alertStack }}
+        action={
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            onClick={regenerate}
+            startIcon={
+              <SvgIcon size={20}>
+                <AIIcon />
+              </SvgIcon>
+            }
+          >
+            {t("give_another", "Generate another")}
+          </Button>
+        }
+      >
+        {t("ai_check")}
+      </Alert>
+    )
+  );
+};
 const Comment = ({
   form,
   classField,
@@ -16,35 +63,25 @@ const Comment = ({
   name,
   label,
   maxLength,
+  fields,
+  recipient,
   help,
 }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const theme = useTheme();
-  const fetchPrompted = false;
+  const fetchPrompted = config.component.message?.prompted || false;
   const [state, setState] = useState("untouched"); //untouched->loading->loaded
   const isLoading = state === "loading";
   const { t } = useTranslation();
 
   if (!name) name = "comment";
   if (!label) label = t(name);
-
-  // useEffect(() => {
-  //   return () => {
-  //     console.log("unload");
-  //     // Cancel any ongoing fetch if component unmounts
-  //     // You might need an AbortController for this
-  //   };
-  // }, []);
-
+  const regenerate = async () => {
+    form.setValue("comment", "");
+    return await fetchData();
+  };
   const fetchData = async () => {
-    /*  isValid = form.getValues("firstname");
-  if (!isValid) {
-    const isValid  = await form.trigger("firstname", { shouldFocus: true}); //display the error
-//    console.log("Field is invalid");
-    return;
-  }
-*/
     setState("loading");
     const formData = form.getValues();
     const data = {
@@ -53,15 +90,21 @@ const Comment = ({
       country: formData.country,
       locality: formData.locality,
       question: fetchPrompted ? label : name,
+      recipient: recipient,
       id: name,
       stream: true,
     };
-    if (formData[name].length < 100) {
+    if (fields) {
+      fields.forEach(d => {
+        data[d] = formData[d];
+      });
+    }
+    if (formData[name].length < 200) {
       data[name] = formData[name];
     } else {
       data[name] = "";
     }
-    console.log("writing...");
+    dispatch("snowflaike", { prompt: data[name].length });
     try {
       const response = await fetch(
         //"https://snowflaike.proca.app/" + config.campaign.name,
@@ -90,10 +133,10 @@ const Comment = ({
         const d = data.response;
         form.setValue(name, d);
         if (d.length > maxLength) {
-          console.log(d.length + "/" + maxLength);
+          console.log(`${d.length}/${maxLength}`);
           form.setError(name, {
             type: "length",
-            message: d.length + "/" + maxLength,
+            message: `${d.length}/${maxLength}`,
           });
         }
         setState("loaded");
@@ -122,13 +165,18 @@ const Comment = ({
             if (jsonStr.trim() === "[DONE]") continue;
 
             const data = JSON.parse(jsonStr);
-            aggregatedResponse += data.response || "";
+            const content = data.choices?.[0]?.delta?.content || "";
+            if (content) {
+              aggregatedResponse += content || "";
+            } else {
+              aggregatedResponse += data.response || "";
+            }
             form.setValue(name, aggregatedResponse);
             if (aggregatedResponse.length > maxLength) {
-              console.log(aggregatedResponse.length + "/" + maxLength);
+              console.log(`${aggregatedResponse.length}/${maxLength}`);
               form.setError(name, {
                 type: "length",
-                message: aggregatedResponse.length + "/" + maxLength,
+                message: `${aggregatedResponse.length}/${maxLength}`,
               });
             }
           } catch (e) {
@@ -148,20 +196,18 @@ const Comment = ({
   const text = form.watch(name) || "";
   const labelInside = label.length <= 30;
 
-  const helperText = () => {
-    const counter = text.length + "/" + maxLength;
-    return (
-      counter &&
-      state === "loaded" &&
-      `. ${t("ai_check", "An AI wrote this message, we encourage you to read and customise it to maximise its impact")}`
-    );
-  };
-
   const fieldError = form.formState.errors[name];
 
   return (
     <>
       <Grid item xs={12} className={classField}>
+        {state !== "loaded" && !isLoading && (
+          <Alert severity="info">
+            {t("ai_tip", {
+              button: t("help_write"),
+            })}
+          </Alert>
+        )}
         {!labelInside && (
           <FormLabel
             component="legend"
@@ -184,9 +230,7 @@ const Comment = ({
           error={!!fieldError || text?.length > maxLength}
           helperText={
             fieldError?.message ||
-            (text?.length > maxLength
-              ? `${text.length}/${maxLength}`
-              : help || helperText())
+            (text?.length > maxLength ? `${text.length}/${maxLength}` : help)
           }
         />
       </Grid>
@@ -212,19 +256,7 @@ const Comment = ({
               : t("help_write", "Help me write it")}
           </Button>
         )}
-        {state === "loaded" && (
-          <Button
-            variant="outlined"
-            onClick={fetchData}
-            startIcon={
-              <SvgIcon size={20}>
-                <AIIcon />
-              </SvgIcon>
-            }
-          >
-            {t("give_another", "Generate another")}
-          </Button>
-        )}
+        <AINotice state={state} regenerate={regenerate} />
       </Grid>
     </>
   );

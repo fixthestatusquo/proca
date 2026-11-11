@@ -52,7 +52,7 @@
     "take": "Atera argazkia",
     "take-another": "Hartu beste bat"
   },
-  "closed": "##esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
+  "closed": "##Esker {{total}} laguntzaileei!\n\nEkintza hau itxi dugu, baina gure lana ez da hemen amaitzen, beraz, mesedez **utzi zure posta elektronikoa hurrengo pausoen berri izateko**",
   "confirm": "Ziur zaude?",
   "consent": {
     "actionConfirmed": "Ekintza berretsi da",
@@ -70,7 +70,7 @@
     "processing": "Zure informazio pertsonalaren pribatutasuna eta segurtasuna mantenduko da. Informazioa bidaltzen duzunean, datuak eta cookieak gure pribatutasun politikaren arabera erabiltzea onartzen ari zara.",
     "processing-nocookie": "Zure informazio pertsonala pribatu eta segurtasunez mantenduko da. Informazioa bidaliz gero, gure <1> pribatutasun politika </1> ren arabera datuak erabiltzea onartzen duzu",
     "required": "Zure baimena behar da parte hartzeko",
-    "subButton": {
+    "button": {
       "opt-in": "eta informazioa jaso",
       "opt-out": "eta ez nazazu informatuta eduki"
     }
@@ -253,5 +253,9 @@
   },
   "unknown postcode": "posta-kode ezezaguna",
   "yes": "bai",
-  "you need to be 18 years old": "18 urte izan behar dituzu"
+  "you need to be 18 years old": "18 urte izan behar dituzu",
+  "progressGoal": {
+    "default": "Goazen {{goal}}",
+    "sign": "Goazen {{goal}} atalera"
+  }
 }

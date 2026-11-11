@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid, InputAdornment, IconButton, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import RegisteredIcon from "@material-ui/icons/HowToReg";
@@ -153,10 +153,9 @@ const Affiliation = props => {
             })}
         </TextField>
         {open && ( // open
-          <>
-            <TextField
+          <TextField
               name="affiliation-other"
-              label={parties["other"]}
+              label={parties.other}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -173,7 +172,6 @@ const Affiliation = props => {
               autoFocus
               form={props.form}
             />
-          </>
         )}
       </Grid>
     </>

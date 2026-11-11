@@ -1,1 +1,26 @@
-{}
+{
+  "description": "Kanpainaren helburua eta eskaera nagusia jarri",
+  "actions": {
+    "petition": {
+      "default": "Kaixo! Petizio hau sinatu berri dut eta pentsatu dut zuk ere babestu nahi zenukeela.",
+      "email": {
+        "subject": "Nirekin sinatuko al duzu petizio hau?",
+        "body": "Kaixo,\n\nBenetan garrantzitsua iruditzen zaidan gai bati buruzko petizio bat sinatu berri dut, eta laguntzeko prest egon daitezkeela uste dudan jendearengana jotzen dut.\n\nSinadura bakoitzak bultzada handitzen laguntzen du eta arduradunei erakusten die jendeari gai honek axola diola. Zure izena gehitzeko minutu bat besterik ez da behar:\n\n{url}\n\nZure babesa eskertuko nizuke. Eskerrik asko kontuan hartzeko denbora hartzeagatik!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Lagundu mezu bat bidaltzen",
+      "email": {
+        "body": "Kaixo,\n\nOrain gutxi mezu elektroniko bat bidali dut niretzat garrantzitsua den gai bati buruz, eta nahi nuen jakin ea nirekin bat egingo zenukeen gure ahotsak entzunarazteko.\n\nAurre-idatzitako txantiloi bat dago, eta horri esker oso erraza da: nahi izanez gero pertsonaliza dezakezu edo zuzenean bidal dezakezu. Minutu pare bat besterik ez du behar:\n\n{url}\n\nZenbat eta jende gehiagok idatzi, orduan eta zailagoa izango da inorentzatzea. Zure ahotsa gehitzeari buruz pentsatuko al duzu?\n\nEskerrik asko",
+        "default": "Kaixo! Arazo honi buruzko mezu bat bidali berri dut – zure ahotsa gehitzeari buruz pentsatuko al zenuke? Oso azkarra da: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Bat egin nirekin kausa hau babesteko",
+      "body": "Kaixo,\n\nDuela gutxi, garrantzitsutzat dudan gai bati buruz ekintza bat abiatu dut eta zurekin partekatu nahi nuen. Uste dut zuri ere parte hartzea interesatuko zaizula.\n\nMinutu gutxi batzuk besterik ez ditu behar, eta benetako aldea ekar dezakeela uste dut. Hona hemen esteka, bat egin nahi baduzu:\n\n{url}\n\nEskerrik asko kontuan hartzeagatik!"
+    },
+    "default": "Ei! Orain zerbait garrantzitsua egin dut - nirekin bat egin nahi duzu?"
+  }
+}

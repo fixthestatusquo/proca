@@ -1,4 +1,3 @@
-import React from "react";
 import ProcaStyle from "@components/ProcaStyle.js";
 import { ConfigProvider } from "@hooks/useConfig";
 

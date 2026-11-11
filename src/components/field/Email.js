@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { checkMail, getDomain, prefetchDNS } from "@lib/checkMail";
 import { useCampaignConfig } from "@hooks/useConfig";
 //import useData from "@hooks/useData";
@@ -40,20 +40,18 @@ const EmailField = ({ form, required, compact, classField }) => {
     iconColor = theme.palette.success.main;
   }
   return (
-              <Grid
-                item
-                xs={12}
-                sm={
-                  compact ||
-                  config.component.register?.field?.lastname !== false
-                    ? 12
-                    : 6
-                }
-                className={classField}
-              >
+    <Grid
+      item
+      xs={12}
+      sm={
+        compact || config.component.register?.field?.lastname !== false ? 12 : 6
+      }
+      className={classField}
+    >
       <input type="hidden" {...form.register("emailProvider")} />
       <TextField
         form={form}
+        id="email"
         name="email"
         validate={validateEmail}
         type="email"

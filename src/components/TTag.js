@@ -1,10 +1,14 @@
-import React from "react";
+import { isValidElement } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import _snarkdown from "snarkdown";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+export const stripScripts = str =>
+  str.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+
 export const snarkdown = md => {
-  const htmls = md
+  const htmls = stripScripts(md)
     .split(/(?:\r?\n){2,}/)
     .map(l =>
       [" ", "\t", "#", "-", "*"].some(ch => l.startsWith(ch))
@@ -15,7 +19,12 @@ export const snarkdown = md => {
 };
 
 // markdown overrides the title color, this is how we fix it
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
+  spacing: {
+    padding: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    marginBottom: theme.spacing(2),
+  },
   markdown: {
     color: theme.palette.text.primary,
     "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
@@ -24,15 +33,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Markdown = (props) => {
+export const Markdown = props => {
   const { t } = useTranslation();
-  const tbr = (key) => snarkdown(t(key, props));
+  const tbr = key => snarkdown(t(key, props));
   const classes = useStyles();
 
+  if (props.dangerouslySet === true) {
+    return (
+      <div
+        className={classes.markdown}
+        dangerouslySetInnerHTML={{
+          __html: snarkdown(t(props.text, props)),
+        }}
+      />
+    );
+  }
   return (
-    <div className={classes.markdown}>
+    <Paper
+      className={
+        props.paper
+          ? `${classes.spacing} ${classes.markdown}`
+          : classes.markdown
+      }
+      elevation={props.paper ? 1 : 0}
+    >
       <Trans t={tbr} i18nKey={props.text} />
-    </div>
+    </Paper>
   );
 };
 
@@ -54,8 +80,8 @@ const TTag = props => {
   const components = {};
   const values = {};
   Object.keys(props).forEach(key => {
-    if (key === 'message') return;
-    if (React.isValidElement(props[key])) {
+    if (key === "message") return;
+    if (isValidElement(props[key])) {
       components[key] = props[key];
     } else {
       values[key] = props[key];

@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Kaixo {{firstName}},",
+            "share_on": "Partekatu",
+            "consent": "\n          ",
+            "thanks": "{{campaign.title}}-en parte hartzeagatik eskerrik asko. Zure laguntza eskertzen dugu!",
+            "about": "Orain arte, {{campaign.stats.supporterCount}} -eko aldekoek ekintza hartu dute.",
+            "share": "Lagundu iezaguzu gure helburua lortzen berri zabalduz.",
+            "follow": "Jarraitu gaitzazu:",
+            "donate": "Mesedez, gure misioa lortzen laguntzeko dohaintza bat ematea kontuan hartu.",
+            "closing": "Zure laguntzarekin, gure helburuaren aldean pauso bat hurbilago gaude.",
+            "privacy": "Gure pribatutasun-politikari eta zure datuen tratamenduari buruzko informazio gehiago aurki dezakezu.",
+            "unsubscribe": "Etorkizunean gure aldetik informazio gehiago jasotzerik nahi ez baduzu, zure izen-ematea edozein unetan bertan behera utzi ahal izango duzu.",
+            "signature": "Zintzoki,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Eskerrik asko gure kausarekiko konpromisoagatik eta dedikazioagatik! Hala ere, egiazkotasuna eta sinesgarritasuna mantentzeko konpromisoan, sinadura bikoiztuak kendu behar ditugu, eta dirudienez zuk (edo {{email}} helbide elektronikoa erabiltzen duen norbaitek) jada ekintza hori egin duzula.  Ziur egon, zure lehen sinadura kontatu zen eta gure kanpainara ekarpen bat egin zuen.\nZure babesa ezinbestekoa izan da, eta zure eragina handitzen laguntzeko beste pauso bat ematera animatu nahi zaitugu. Mesedez, pentsa ezazu zure lagun eta senideengana jotzea, haiek ere beren helbide elektronikoak erabiliz ekiteko eskatuz. Horrela, gure mugimendua hazten jarrai dezakegu eta bilatzen dugun aldaketarako ahots kolektibo sendoago bat sortu.\nBerriro ere, gure eskerrik beroena helarazten dizugu kanpaina honi emandako etengabeko babesa eta dedikazioagatik. Elkarrekin, eragin iraunkor bat sor dezakegu!",
+            "thanksPledge": "{{campaign.title}}-eko aldeko konpromisoa hartu duzula eskerrik asko. Zure sinadura berrikusi egingo da eta onartzen bada gure webgunean agertuko da.",
+            "is_it_me": "Ekintza hau ez bazenu hartu, mesedez, sakatu hemen (https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) kendu ahal izateko."
+        },
+        "button": {
+            "confirmAction": "Bai, pertsona erreal bat naiz!",
+            "confirmOptin": "Zuregandik albisteak jaso nahi ditut",
+            "confirmAlreadyMember": "Nire parte-hartzea berresten dut eta dagoeneko zure mezu elektronikoak jasotzen ari naiz.",
+            "confirmOptout": "Nire parte-hartzea berresten dut, baina ez nazazu etorkizunean eguneratu."
+        },
+        "doi": {
+            "subject": "Oraindik pauso bat gehiago: mesedez, berretsi zure posta elektroniko helbidea.",
+            "intro": "Zure izena ematea osatzeko eta zure helbide elektronikoa eta datu pertsonalak albisteak edo buletinekin bidaltzeko prozesatzeko baimena emateko, mesedez, sakatu beheko baieztapen botoia. Pauso automatiko honek zure baimena bermatzen du eta baimenik gabeko izen-emateak saihesten ditu.",
+            "extra": "Harpidetzarako izena eman ez baduzu, mezu elektroniko hau nahi duzun moduan bazter dezakezu."
+        },
+        "thankyou": {
+            "intro": "{{campaign.title}}-en parte hartzeagatik eskerrik asko. Zure laguntza eskertzen dugu!",
+            "subject": "Eskerrik asko, hemen duzu egin dezakezun bestea."
+        },
+        "doi_thankyou": {
+            "subject": "Eskerrik asko zure parte hartzeagatik{{#privacy.optIn}}, orain beste pausu bat: mesedez, baieztatu zure posta elektroniko helbidea{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Oraindik pauso bat gehiago: mesedez, berretsi zure posta elektroniko helbidea.",
+            "extra": "Hau eskatu ez bazenu, mesedez, baztertu mezu elektroniko hau.",
+            "intro": "Zure baieztapena ezinbestekoa da zure parte-hartzea prozesatzeko. Honek bermatzen du bidalketa bakoitza pertsona benetako batek egin duela eta laguntzen du faltsu edo spam bidalketak saihesten."
+        }
+    },
+    "poweredBy": "HARITUTA"
+}

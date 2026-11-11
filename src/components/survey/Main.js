@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useCampaignConfig } from "@hooks/useConfig";
 import { Grid, LinearProgress } from "@material-ui/core";
 import useQuestions from "@components/survey/useQuestions";
@@ -17,7 +17,9 @@ const Main = props => {
         handleNext={props.handleNext ?? undefined}
         // config.component.consultation?.selection
         // selection of questions to disoplay on register with custom component
-        ids={config.component.consultation?.selection || questions.map(q => q.id)}
+        ids={
+          config.component.consultation?.selection || questions.map(q => q.id)
+        }
         questions={questions}
       />
     </Grid>

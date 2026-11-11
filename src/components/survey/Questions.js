@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Button,
@@ -104,7 +103,6 @@ const Questions = ({ json, form, findQuestionById }) => {
           form={form}
           findQuestionById={findQuestionById}
         />
-
       );
 
     case "Matrix":
@@ -115,10 +113,6 @@ const Questions = ({ json, form, findQuestionById }) => {
           findQuestionById={findQuestionById}
         />
       );
-
-
-
-
 
     case "Upload":
       console.log("Upload question type is not implemented");
@@ -148,9 +142,7 @@ const DependentQuestions = ({ ids, findQuestionById, form }) => {
     </Box>
   );
 };
-const normalize = val => Array.isArray(val) ? val : [val];
-
-
+const normalize = val => (Array.isArray(val) ? val : [val]);
 
 const getDependentIds = (options, selected) => {
   const sel = normalize(selected).map(String);
@@ -161,7 +153,6 @@ const getDependentIds = (options, selected) => {
     )
     .map(Number);
 };
-
 
 const AITextQuestion = ({ json, form }) => {
   const classes = useStyles({ margin: +json.margin });
@@ -351,7 +342,7 @@ const Survey = ({
   handleNext = undefined,
   ids: questionIds,
   questions,
-  selection // { selection: [id, ...] or undefined
+  selection, // { selection: [id, ...] or undefined
 }) => {
   const { t } = useTranslation();
 
@@ -363,7 +354,6 @@ const Survey = ({
     if (!valid) return;
     handleNext?.();
   };
-
 
   if (!questions) return null;
 

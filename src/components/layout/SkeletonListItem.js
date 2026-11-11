@@ -1,4 +1,4 @@
-import React from "react";
+
 import { ListItem, ListItemText, ListItemAvatar } from "@material-ui/core";
 
 import Skeleton from "@material-ui/lab/Skeleton";

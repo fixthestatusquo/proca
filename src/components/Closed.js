@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useTranslation } from "react-i18next";
 import useCount from "@hooks/useCount";
 import { Container, Box } from "@material-ui/core";
@@ -7,10 +7,12 @@ import Register from "@components/Register";
 import TTag from "@components/TTag";
 
 export default function SignatureForm(props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const count = useCount();
 
   if (!count) return null;
+  // do not break legacy
+  const message = i18n.exists("campaign:closed") ? "campaign:closed" : "closed";
 
   return (
     <Container component="div" maxWidth="sm">
@@ -20,10 +22,7 @@ export default function SignatureForm(props) {
         borderRadius="borderRadius"
         p={1}
       >
-        <TTag
-          message="campaign:closed"
-          total={formatNumber(count)}
-        />
+        <TTag message={message} total={formatNumber(count)} />
       </Box>
       <Register {...props} buttonText={t("action.stayInformed")} />
     </Container>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Container, Grid } from "@material-ui/core";
 import useElementWidth from "@hooks/useElementWidth";
@@ -75,7 +75,7 @@ export default function Register(props) {
   const [compact, setCompact] = useState(true);
   if ((compact && width > 450) || (!compact && width <= 450))
     setCompact(width <= 450);
-  const acceptableIds = documents["it"];
+  const acceptableIds = documents.it;
   acceptableIds["driving.licence"] = "it";
   const [status, setStatus] = useState("default");
   const form = useForm({
@@ -159,8 +159,7 @@ export default function Register(props) {
       return;
     }
 
-    props.done &&
-      props.done({
+    props.done?.({
         firstname: data.firstname,
       });
     //    setData (data);

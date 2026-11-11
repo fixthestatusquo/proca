@@ -1,4 +1,4 @@
-import Command, { Args, Flags } from "../../builderCommand.mjs";
+import Command, { Flags } from "../../builderCommand.mjs";
 
 export default class FetchCommand extends Command {
   static description =

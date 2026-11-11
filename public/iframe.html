@@ -19,8 +19,34 @@
     </style>
     <script>
       window.addEventListener("proca", function (e) {
-        console.log("send", e,JSON.parse(JSON.stringify(e.detail)));
-        window.parent && window.parent.postMessage(JSON.parse(JSON.stringify(e.detail)),"*");
+        try {
+          var payload = JSON.parse(JSON.stringify(e.detail));
+          window.parent && window.parent.postMessage(payload, "*");
+        } catch (err) {
+          console.error("can't forward proca event", err);
+        }
+      });
+      window.addEventListener("message", function (e) {
+        if (e.source !== window.parent) return;
+        var allowed = window.procaAllowedOrigins || [];
+        if (allowed.length && !allowed.includes(e.origin)) return;
+        var data = e.data || {};
+        if (!data.proca || !window.proca) return;
+        var proca = window.proca;
+        switch (data.action) {
+          case "setFilter":
+            proca.setFilter(data.id, data.filter || { rule: data.rule });
+            break;
+          case "removeFilter":
+            proca.removeFilter(data.id);
+            break;
+          case "select":
+            proca.select(data.procaids || []);
+            break;
+          case "selectAll":
+            proca.selectAll();
+            break;
+        }
       });
     </script>
   </head>

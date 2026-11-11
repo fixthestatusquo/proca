@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require("fs");
+const fs = require("node:fs");
 require("dotenv").config();
 const i18n = require("./lang").i18next;
 const { commit, add, onGit } = require("./git");
@@ -35,6 +35,7 @@ const help = exitValue => {
         "--salutation(add a salutation column based on the gender and language)",
         "--outdated[=delete,disable,keep] (by default, replace all the contacts and delete those that aren't on the file, option to disable or keep)",
         "--source[=true] (filter the server list to only keep the targets in the source - if the server has more targets than the source/--disable or keep)",
+        "--area=[field] use a field (eg constituency) as the area",
         "--file=file (by default, config/target/source/{campaign name}.json",
       ].join("\n")
     ),
@@ -66,7 +67,7 @@ const argv = require("minimist")(process.argv.slice(2), {
     quiet: false,
     "allow-duplicate": false,
   },
-  string: ["file", "fields", "outdated"],
+  string: ["file", "fields", "outdated", "area"],
   boolean: [
     "help",
     "dry-run",
@@ -105,7 +106,7 @@ if (argv._.length !== 1) {
 
 const parseEmail = text => {
   const emails =
-    text && text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+    text?.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
   if (!emails) {
     !argv.quiet && console.log("failed to parse as an email", text);
     return [];
@@ -130,7 +131,7 @@ query GetCampaignTargets($name: String!) {
 `;
 
   const data = await api(query, { name }, "GetCampaignTargets");
-  if (!data.campaign) throw new Error("can't find campaign " + name);
+  if (!data.campaign) throw new Error(`can't find campaign ${name}`);
   if (!data.campaign.targets || data.campaign.targets.length === 0)
     throw new Error("No targets.");
   data.campaign.targets = data.campaign.targets.map(t => {
@@ -161,7 +162,7 @@ const pullTarget = async name => {
   }
   if (argv["dry-run"]) return console.log(JSON.stringify(targets, null, 2));
   if (argv.source) {
-    const sources = read("target/source/" + name); // the list of targets from the source
+    const sources = read(`target/source/${name}`); // the list of targets from the source
     const c = targets.filter(
       t => -1 !== sources.findIndex(d => d.externalId === t.externalId)
     );
@@ -180,21 +181,21 @@ const pullTarget = async name => {
 };
 
 const readTarget = targetName => {
-  const fileName = file("target/" + targetName);
+  const fileName = file(`target/${targetName}`);
   const target = JSON.parse(fs.readFileSync(fileName));
   return target;
 };
 
 const saveDigest = async (targetName, targets) => {
   mkdirp("target/digest");
-  const fileName = file("target/digest/" + targetName);
-  const exists = fileExists("target/digest/" + targetName);
+  const fileName = file(`target/digest/${targetName}`);
+  const exists = fileExists(`target/digest/${targetName}`);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("saving " + targets.length + " targets into", fileName)
+    color.green.bold(`saving ${targets.length} targets into`, fileName)
   );
   let r = null;
-  const msg = "saving " + targets.length + " targets";
+  const msg = `saving ${targets.length} targets`;
   if (argv.git) {
     if (!exists) {
       r = await add(fileName);
@@ -207,14 +208,14 @@ const saveDigest = async (targetName, targets) => {
 };
 
 const saveTargets = async (targetName, targets) => {
-  const fileName = file("target/server/" + targetName);
-  const exists = fileExists("target/server/" + targetName);
+  const fileName = file(`target/server/${targetName}`);
+  const exists = fileExists(`target/server/${targetName}`);
   fs.writeFileSync(fileName, JSON.stringify(targets, null, 2));
   console.log(
-    color.green.bold("pulled " + targets.length + " targets into", fileName)
+    color.green.bold(`pulled ${targets.length} targets into`, fileName)
   );
   let r = null;
-  const msg = "saving " + targets.length + " targets";
+  const msg = `saving ${targets.length} targets`;
   if (argv.git) {
     if (!exists) {
       r = await add(fileName);
@@ -228,10 +229,10 @@ const saveTargets = async (targetName, targets) => {
 
 const getTwitter = async target => {
   const targetName =
-    (target.config.twitter && target.config.twitter.screen_name) || target.name;
+    (target.config.twitter?.screen_name) || target.name;
   try {
     const res = await fetch(
-      "https://twitter.proca.app/?screen_name=" + targetName
+      `https://twitter.proca.app/?screen_name=${targetName}`
     );
 
     if (res.status >= 400) {
@@ -252,11 +253,11 @@ const getTwitter = async target => {
 };
 
 const summary = campaign => {
-  const source = read("target/source/" + campaign);
-  const server = read("target/server/" + campaign);
-  const publict = read("target/public/" + campaign);
+  const source = read(`target/source/${campaign}`);
+  const server = read(`target/server/${campaign}`);
+  const publict = read(`target/public/${campaign}`);
   if (argv.file) {
-    const source = read("target/source/" + argv.file);
+    const source = read(`target/source/${argv.file}`);
     console.log(argv.file, " :", source.length);
   } else {
     console.log("source :", source.length);
@@ -266,7 +267,7 @@ const summary = campaign => {
 };
 
 const formatTarget = async (campaignName, file) => {
-  const campaign = read("campaign/" + campaignName);
+  const campaign = read(`campaign/${campaignName}`);
   const salutations = {};
   if (argv.salutation) {
     Object.keys(campaign.config.locales).forEach(lang => {
@@ -277,7 +278,7 @@ const formatTarget = async (campaignName, file) => {
         salutations[lang] = campaign.config.locales.en["common:"].salutation; //WORKAROUND to default to en
     });
   }
-  let targets = read("target/source/" + file);
+  const targets = read(`target/source/${file}`);
   if (targets === null) {
     console.error(color.red("No targets found"));
     process.exit(1);
@@ -291,6 +292,13 @@ const formatTarget = async (campaignName, file) => {
       if (!t.name) continue; //skip empty records
       delete t.id;
 
+      if (t.field.engagement) {
+        delete t.field.engagement; // only keep field.engagement = false
+      }
+      if (!t.field.locale && t.field.lang) {
+        t.field.locale = t.field.lang.toLowerCase();
+        delete t.field.lang;
+      }
       if (t.field.locale) {
         t.locale = t.field.locale.toLowerCase();
         delete t.field.locale;
@@ -319,8 +327,8 @@ const formatTarget = async (campaignName, file) => {
       if (!(t.field.salutation || t.salutation) && argv.salutation) {
         let gender = null;
         if (t.field.gender) {
-          if (t.field.gender === "M") gender = "male";
-          if (t.field.gender === "F") gender = "female";
+          if (t.field.gender.toUpperCase() === "M") gender = "male";
+          if (t.field.gender.toUpperCase() === "F") gender = "female";
         }
         if (salutations[t.locale]) {
           t.field.salutation = i18n.t(salutations[t.locale][gender], {
@@ -329,7 +337,7 @@ const formatTarget = async (campaignName, file) => {
             first_name: t.field.first_name,
           });
         } else {
-          let language = t.locale ? t.locale.replace("_", "-") : "en";
+          const language = t.locale ? t.locale.replace("_", "-") : "en";
           await i18n.loadLanguages(t.locale || "en", err => {
             if (!err) return;
             console.warn(color.red("missing language", language));
@@ -344,15 +352,23 @@ const formatTarget = async (campaignName, file) => {
             },
           });
         }
-        if (!t.locale?.startsWith("nb")&& !t.field?.lang?.startsWith("nb")) t.field.salutation = (t.field.salutation ?? "") + ",";
-     console.log("salutation for", t.name, t.field.salutation);
+        if (!t.locale?.startsWith("nb") && !t.field?.lang?.startsWith("nb"))
+          t.field.salutation = `${t.field.salutation ?? ""},`;
       }
-      t.fields = JSON.stringify(t.field);
-      delete t.field;
       if (t.emails.length === 0) {
         !argv.quiet && console.log("skipping record without email", t.name);
         continue;
       }
+      if (t.field.first_name.length === 0) {
+        !argv.quiet &&
+          console.log("skipping record without firstname", t.email);
+        continue;
+      }
+      if (argv.area && t.field[argv.area]) {
+        t.area = t.field[argv.area];
+      }
+      t.fields = JSON.stringify(t.field);
+      delete t.field;
       let dupe = false;
       !argv["allow-duplicate"] &&
         t.emails.forEach(d => {
@@ -382,7 +398,7 @@ const formatTarget = async (campaignName, file) => {
 
     process.exit(1);
   }
-  if (argv["verbose"]) {
+  if (argv.verbose) {
     console.log(JSON.stringify(formattedTargets, null, 2));
   }
   if (argv["dry-run"]) {
@@ -409,7 +425,7 @@ const digestTarget = async (campaignName, file) => {
 };
 
 const pushTarget = async (campaignName, file) => {
-  const campaign = read("campaign/" + campaignName);
+  const campaign = read(`campaign/${campaignName}`);
   const formattedTargets = await formatTarget(campaignName, file);
   console.log("targets", formattedTargets.length);
 
@@ -482,7 +498,7 @@ query GetTarget($name: String!) {
 `;
 
   const data = await api(query, { name }, "GetTarget");
-  if (!data.target) throw new Error("can't find target " + name);
+  if (!data.target) throw new Error(`can't find target ${name}`);
 
   if (data.target.config) data.target.config = JSON.parse(data.target.config);
   return data.target;
@@ -516,7 +532,6 @@ if (require.main === module) {
         await digestTarget(name, argv.file || name);
       }
       if (argv.push) {
-
         if (
           !"keep,delete,disable"
             .split(",")

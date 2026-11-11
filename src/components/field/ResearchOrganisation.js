@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { debounce, makeStyles } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -21,7 +21,7 @@ const AffiliationInput = ({ form }) => {
   const [inputValue, setInputValue] = useState(
     form.getValues("organisation") || ""
   );
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
@@ -106,9 +106,9 @@ const AffiliationInput = ({ form }) => {
         noOptionsText={
           inputValue.length > 2
             ? t("no_org", "No organisation found")
-            : t("org","Type to search your organisation")
+            : t("org", "Type to search your organisation")
         }
-        loadingText={"Searching " + inputValue + "..."}
+        loadingText={`Searching ${inputValue}...`}
         autoSelect
         autoHighlight
         renderOption={option => (
@@ -126,12 +126,12 @@ const AffiliationInput = ({ form }) => {
             InputProps={{
               ...params.InputProps,
               endAdornment: (
-                <React.Fragment>
+                <Fragment>
                   {loading ? (
                     <CircularProgress color="inherit" size={20} />
                   ) : null}
                   {params.InputProps.endAdornment}
-                </React.Fragment>
+                </Fragment>
               ),
             }}
           />

@@ -52,7 +52,7 @@
     "take": "Ɗauki hoto",
     "take-another": "Dauki wani"
   },
-  "closed": "## godiya ga magoya bayan {{total}}!\n\nMun rufe wannan aikin, amma aikinmu bai ƙare a nan ba, don haka don Allah ** bar imel ɗin ku don sanar da ku game da matakai na gaba ***",
+  "closed": "## Godiya ga magoya bayan {{total}}!\n\nMun rufe wannan aikin, amma aikinmu bai ƙare a nan ba, don haka don Allah ** bar imel ɗin ku don sanar da ku game da matakai na gaba ***",
   "confirm": "Ka tabbata?",
   "consent": {
     "actionConfirmed": "An tabbatar da aikin",
@@ -70,7 +70,7 @@
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
     "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
     "required": "Ana buƙatar izinin ku don shiga",
-    "subButton": {
+    "button": {
       "opt-in": "da karɓar bayanai",
       "opt-out": "kuma kar a bani labari"
     }
@@ -253,5 +253,9 @@
   },
   "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
   "yes": "iya",
-  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
+  "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
+  "progressGoal": {
+    "default": "Mu je zuwa {{goal}}",
+    "sign": "Bari mu je {{goal}}"
+  }
 }

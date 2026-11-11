@@ -1,1 +1,26 @@
-{}
+{
+  "description": "Faka injongo yephulo kunye nesimangalo esingundoqo",
+  "actions": {
+    "petition": {
+      "default": "Heyi! Ndisandul' ukuyisayina le petishoni kwaye ndicinge ukuba nawe ungathanda ukuyixhasa.",
+      "email": {
+        "subject": "Ungasayina nale petishoni kunye nam?",
+        "body": "Molo,\n\nNdisandul' ukutyikitya isicelo esingomba endikhathalele kakhulu, kwaye ndifikelela kubantu endicinga ukuba nabo bangathanda ukusixhasa.\n\nIsigunyaziso ngasinye sinceda ekwandiseni inani labasixhasayo kwaye sibonisa abenzi bezigqibo ukuba abantu bayakhathalela lo mba. Kuthatha umzuzu nje ukufaka igama lakho:\n\n{url}\n\nNdingakuxabisa kakhulu ukuxhaswa kwakho koku. Enkosi ngokuthatha ixesha lokuyiqwalasela!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Ndicele undincede ndithumele umyalezo",
+      "email": {
+        "body": "Molo,\n\nNdisandul' ukuthumela i-imeyile malunga nomba endiwukhathaleleyo, kwaye bendifuna ukubona ukuba ungandimanya na ekwenzeni amazwi ethu avakale.\n\nKukho itemplate esele ibhalwe kwangaphambili eyenza le nto ibe lula kakhulu - ungayenza ibe yeyakho okanye uyithumele injalo. Kuthatha imizuzwana nje embalwa:\n\n{url}\n\nOkukhona kuninzi abantu abathetha, kokukhona kuba nzima ukungahoywa. Ungacinga na ngokongeza ilizwi lakho?\n\nEnkosi kakhulu",
+        "default": "Heyi! Ndisandul' ukuthumela umyalezo ngalo mcimbi - ungacinga na ngokongeza ilizwi lakho? Kuthatha umzuzwana nje: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Ndivumelaneni nam ekuxhaseni le njongo.",
+      "body": "Molo,\n\nKutshanje ndithathe amanyathelo ngento endiyikhathaleleyo kwaye bendifuna ukwabelana nawe ngayo. Ndicinga ukuba nawe ungathanda ukuthatha inxaxheba.\n\nKuthatha imizuzwana nje embalwa, kwaye ndikholelwa ukuba kungenza umahluko wokwenene. Nali ikhonkco ukuba ungathanda ukujoyina:\n\n{url}\n\nEnkosi ngokuyiqwalasela!"
+    },
+    "default": "Hey! Ndisandul' ukuthatha amanyathelo ngento ebalulekileyo - uyafuna ukundijoyina?"
+  }
+}

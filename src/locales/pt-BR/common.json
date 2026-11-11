@@ -52,7 +52,7 @@
     "take": "Tirar foto",
     "take-another": "Pegue outro"
   },
-  "closed": "##agradecemos aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não termina aqui, portanto, **deixe seu e-mail para se manter informado sobre as próximas etapas**",
+  "closed": "##Agradecemos aos apoiadores do {{total}}!\n\nEncerramos esta ação, mas nosso trabalho não termina aqui, portanto, **deixe seu e-mail para se manter informado sobre as próximas etapas**",
   "confirm": "Tem certeza?",
   "consent": {
     "actionConfirmed": "Ação confirmada",
@@ -70,7 +70,7 @@
     "processing": "Suas informações pessoais serão mantidas em sigilo e em segurança. Ao enviar informações, você concorda com o uso de dados e cookies de acordo com nossa <1>política de privacidade</1>",
     "processing-nocookie": "Suas informações pessoais serão mantidas em sigilo e em segurança. Ao enviar informações, você concorda com o uso de dados de acordo com nossa <1>política de privacidade</1>",
     "required": "Seu consentimento é necessário para participar",
-    "subButton": {
+    "button": {
       "opt-in": "e receber informações",
       "opt-out": "e não me mantêm informado"
     }

@@ -49,6 +49,7 @@ export default function useCounter(actionPage) {
   const { actionCount, setCount } = useCounterStore();
   const config = useCampaignConfig();
   const apiUrl = config.component.counter?.url || null;
+  const fixedTotal = config.component.counter?.total || null; // eg. final count of a closed campaign
 
   if (!actionPage && actionPage !== false && !config.template)
     actionPage = config.actionPage;
@@ -62,6 +63,11 @@ export default function useCounter(actionPage) {
 
     (async () => {
       if (actionCount !== null) return;
+      if (fixedTotal) {
+        setCount(fixedTotal);
+        dispatch("count", fixedTotal);
+        return;
+      }
       if (!actionPage || config.component.counter?.disabled) return; // disabling the fetch
 
       const c = await getCount(actionPage, { apiUrl });
@@ -74,5 +80,5 @@ export default function useCounter(actionPage) {
     };
   }, [actionPage, actionCount, apiUrl, setCount, config.component.counter]);
 
-  return actionCount || null;
+  return fixedTotal || actionCount || null;
 }

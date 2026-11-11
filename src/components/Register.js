@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /*import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -22,6 +22,7 @@ import NameField from "@components/field/Name";
 import EmailField from "@components/field/Email";
 import PhoneField from "@components/field/Phone";
 import Address from "@components/field/Address";
+import Organisation from "@components/field/Organisation";
 
 import ProcaIcon from "../images/Proca";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -30,8 +31,8 @@ import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Consent, { ConsentProcessing } from "@components/Consent";
-import ImplicitConsent from "@components/ImplicitConsent";
+import Consent from "@components/Consent";
+import ConsentProcessing from "@components/consent/Processing";
 
 import WelcomeSupporter from "@components/WelcomeSupporter";
 import CustomField from "@components/field/CustomField";
@@ -97,53 +98,8 @@ const SubmitButton = props => {
   const { formState, setValue, register } = props.form;
   const { t } = useTranslation();
 
-  const handleClick = (e, privacy) => {
-    setValue("privacy", privacy);
-    return props.handleClick(e);
-  };
-  if (config.component.consent?.buttons) {
-    return (
-      <>
-        <input type="hidden" {...register("privacy", { required: false })} />
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="contained"
-            classes={{ label: classes.withSubText }}
-            fullWidth
-            onClick={e => handleClick(e, "opt-out")}
-            disabled={
-              formState.isSubmitting ||
-              config.component.register?.disabled === true
-            }
-          >
-            {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
-            <span className={classes.subText}>
-              {t("consent.subButton.opt-out")}
-            </span>
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Button
-            color="primary"
-            variant="contained"
-            classes={{ label: classes.withSubText }}
-            fullWidth
-            onClick={e => handleClick(e, "opt-in")}
-            disabled={
-              formState.isSubmitting ||
-              config.component.register?.disabled === true
-            }
-          >
-            {props.buttonText ||
-              t(config.component.register?.button || "action.register")}
-            <span className={classes.subText}>
-              {t("consent.subButton.opt-in")}
-            </span>
-          </Button>
-        </Grid>
-      </>
-    );
+  if (config.component.consent?.button) {
+    return null;
   }
 
   return (
@@ -178,7 +134,7 @@ export default function Register(props) {
   const config = useCampaignConfig();
   const [data, setData] = useData();
   const [beforeSubmit, _setBeforeSubmit] = useState(null);
-  const customField = React.useRef({});
+  const customField = useRef({});
   const setBeforeSubmit = fct => {
     if (!beforeSubmit) {
       _setBeforeSubmit(() => fct); // you can't put a function or promise in useState directly, it's taken as a setter instead
@@ -243,12 +199,19 @@ export default function Register(props) {
       if (config.test && props.targets.length > 1) {
         formData.targets = props.targets.slice(0, 1);
         console.warn(
-          "TEST mode, sending only one test email not " + props.targets.length
+          `TEST mode, sending only one test email not ${props.targets.length}`
         );
       }
 
       actionType = "mail2target";
     }
+    Object.keys(form.control._fields).forEach(fieldName => {
+      const fieldConfig = form.control._fields[fieldName];
+      if (fieldConfig?.beforeSubmit) {
+        formData[fieldName] = fieldConfig.beforeSubmit(formData[fieldName]);
+      }
+    });
+
     if (props.beforeSubmit && typeof props.beforeSubmit === "function") {
       formData = await props.beforeSubmit(formData);
     }
@@ -353,8 +316,7 @@ export default function Register(props) {
     if (!config.component.share?.anonymous) {
       uuid(result.contactRef); // set the global uuid as signature's fingerprint
     }
-    props.done &&
-      props.done({
+    props.done?.({
         errors: result.errors,
         uuid: uuid(),
         firstname: formData.firstname,
@@ -378,6 +340,9 @@ export default function Register(props) {
     }
   };
 
+  const getTargets = () => {
+    return props.targets;
+  };
   /*
   useEffect(() => {
     const inputs = document.querySelectorAll("input, select, textarea");
@@ -423,16 +388,6 @@ export default function Register(props) {
         </Grid>
       </Container>
     );
-  }
-
-  let ConsentBlock = config.component.consent?.implicit
-    ? ImplicitConsent
-    : Consent;
-
-  if (config.component.consent?.buttons) {
-    ConsentBlock = function NoConsent() {
-      return null;
-    };
   }
 
   const isValid = Object.keys(form.formState.errors).length === 0;
@@ -486,18 +441,12 @@ export default function Register(props) {
                 />
               )}
               {config.component.register.field.organisation && (
-                <Grid item xs={12} className={classField}>
-                  <TextField
-                    type="organisation"
-                    form={form}
-                    name="organisation"
-                    label={t("Organisation")}
-                    required={
-                      enforceRequired &&
-                      config.component.register.field.organisation.required
-                    }
-                  />
-                </Grid>
+                <Organisation
+                  form={form}
+                  classField={classField}
+                  compact={compact}
+                  enforceRequired={enforceRequired}
+                />
               )}
               <NameField
                 form={form}
@@ -543,8 +492,7 @@ export default function Register(props) {
                   />
                 </Grid>
               )}
-              {props.extraFields &&
-                props.extraFields({ form: form, classes: classes })}
+              {props.extraFields?.({ form: form, classes: classes })}
 
               {config.component.register.custom?.bottom && (
                 <CustomField
@@ -553,14 +501,16 @@ export default function Register(props) {
                   classes={classes}
                   handleBeforeSubmit={setBeforeSubmit}
                   myref={customField}
+                  getTargets={getTargets}
                 />
               )}
               {!data.uuid && (
-                <ConsentBlock
+                <Consent
                   organisation={props.organisation}
                   privacy_url={config.privacyUrl}
                   intro={props.consentIntro}
                   form={form}
+                  onSubmit={() => handleSubmit(onSubmit)()}
                 />
               )}
               <SubmitButton

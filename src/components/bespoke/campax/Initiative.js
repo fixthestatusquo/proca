@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import { Container, Grid } from "@material-ui/core";
@@ -126,7 +126,7 @@ export default function Register(props) {
           return res.json();
         })
         .then(res => {
-          if (res && res.name) {
+          if (res?.name) {
             setLocality(res.name);
             setRegion(res.code1);
             setValue("locality", res.name);
@@ -304,8 +304,8 @@ export default function Register(props) {
   }
 
   return (
-    <React.Fragment>
-      <ProgressCounter actionPage={null} count={c && c.total} />
+    <Fragment>
+      <ProgressCounter actionPage={null} count={c?.total} />
       <form
         className={classes.container}
         onSubmit={handleSubmit(onSubmit)}
@@ -371,7 +371,7 @@ export default function Register(props) {
                 autoComplete="postal-code"
                 error={!!errors.postcode}
                 helperText={
-                  errors && errors.postcode && errors.postcode.message
+                  errors?.postcode?.message
                 }
                 {...register("postcode")}
                 className={classes.textField}
@@ -411,7 +411,7 @@ export default function Register(props) {
           </Grid>
         </Container>
       </form>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

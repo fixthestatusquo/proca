@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { Typography, Container, Grid } from "@material-ui/core";
 import TextField from "@components/field/TextField";
@@ -45,7 +45,7 @@ export default function Register(props) {
           return res.json();
         })
         .then(res => {
-          if (res && res.name) {
+          if (res?.name) {
             setValue("city", res.name);
           }
         })

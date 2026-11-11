@@ -15,7 +15,7 @@ const useElementSize = selector => {
     const el = document.querySelector(selector);
     const resizeObserver = new ResizeObserver(entries => {
       for (const entry of entries) {
-        if (entry.contentBoxSize && entry.contentBoxSize.length) {
+        if (entry.contentBoxSize?.length) {
           setSize(entry.contentBoxSize[0]);
           return;
         }
@@ -52,13 +52,21 @@ function useElementWidth(selector) {
   return size;
 }
 
+// compact when the container (not the window) is narrow: the widget can sit in a panel or iframe
 function useCompactLayout(selector, _maxWidth) {
-  const [compact, setCompact] = useState(true);
-  const width = useElementWidth(selector || "#proca-register");
+  const [width, setWidth] = useState(0);
   const maxWidth = _maxWidth || 380;
-  if ((compact && width > maxWidth) || (!compact && width <= maxWidth))
-    setCompact(width <= maxWidth);
-  return compact;
+  useLayoutEffect(() => {
+    const el = document.querySelector(selector || "#proca-register");
+    if (!el) return;
+    setWidth(el.getBoundingClientRect().width);
+    const observer = new ResizeObserver(([entry]) =>
+      setWidth(entry.contentRect.width)
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [selector]);
+  return width <= maxWidth; // 0 before the first measure: keep the compact default
 }
 
 export { useElementWidth, useElementSize, useCompactLayout };

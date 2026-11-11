@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Sawubona {{firstName}},",
+            "share_on": "Yabelana ku",
+            "consent": "\n          ",
+            "thanks": "Siyabonga ngokubamba iqhaza ku- {{campaign.title}}. Siyakwazisa ukweseka kwakho!",
+            "thanksPledge": "Siyabonga ngokuzibophezela kwakho ku {{campaign.title}}. Isiginesha sakho sizobuyekezwa futhi, uma sivunyiwe, sizovezwa kuwebhusayithi yethu.",
+            "about": "Kuze kube manje abaxhasi be {{campaign.stats.supporterCount}} bathathe isinyathelo.",
+            "share": "Sisize sifinyelele umgomo wethu ngokusabalalisa ilizwi.",
+            "follow": "Silandele ku:",
+            "donate": "Sicela ucabangele ukwenza umnikelo ukuze usisize sifeze umgomo wethu.",
+            "closing": "Ngosizo lwakho, sesiseduze ngesinyathelo esisodwa nendlela yethu.",
+            "privacy": "Ungathola ulwazi olwengeziwe mayelana nenqubomgomo yethu yobumfihlo nokucubungulwa kwedatha yakho",
+            "unsubscribe": "Uma ungafuni ukuthola olunye ulwazi kithi esikhathini esizayo, uzokwazi ukukhansela ukubhalisa kwakho nganoma yisiphi isikhathi.",
+            "signature": "Ngokwethembeka kwenu,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Siyabonga ngokuzibandakanya kwakho nokuzinikela kwakho esimisweni sethu! Nokho, ekuzibophezeleni kwethu ekugcineni ubuqiniso nokuthembeka, sidinga ukususa iziginesha eziphindaphindiwe, futhi kubonakala sengathi wena (noma umuntu osebenzisa ikheli le-imeyili elingu {{email}}) usuwenzile lesi senzo. Qiniseka ukuthi isiginesha sakho sokuqala sabalwa futhi saba negalelo emkhankasweni wethu.\nUkusekela kwakho kubaluleke kakhulu, futhi singathanda ukukukhuthaza ngokubonisa ukuthi uthathe enye isinyathelo ukuze usize ukwandisa umthelela wakho. Sicela ucabangele ukuxhumana nabangani nomndeni wakho, ubakhuthaze nabo bathathe isinyathelo besebenzisa amakheli abo e-imeyili. Ngale ndlela, singakhulisa umkhankaso wethu futhi sidale izwi eliqinile kakhulu elihlangene lokushintsha esikufunayo.\nFuthi-ke, sifuna ukuveza ukubonga kwethu okujulile ngokusekela kwakho okuqhubekayo nokuzinikela kwakho kulo mkhankaso. Ngokubambisana, singenza umthelela ohlala njalo!",
+            "is_it_me": "Uma ungakayenzi lesi senzo, sicela uchofoze lapha (https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) ukuze ususe."
+        },
+        "button": {
+            "confirmAction": "Yebo, ngingumuntu wangempela!",
+            "confirmOptin": "Ngifuna ukuthola izindaba zakho",
+            "confirmAlreadyMember": "Ngiyakuqinisekisa ukubamba kwami iqhaza futhi sengivele ngithola ama-imeyili kuwe.",
+            "confirmOptout": "Ngiyakuqinisekisa ukuthi ngizobamba iqhaza, kodwa ungisazisi esikhathini esizayo."
+        },
+        "doi": {
+            "subject": "Isinyathelo esisodwa esisele: sicela uqinisekise ikheli lakho le-imeyili",
+            "intro": "Ukuze uqedele ukubhalisa kwakho futhi usivumele ukuthi sicubungule ikheli lakho le-imeyili kanye nemininingwane yakho siqu ukuze sikuthumele izindaba noma izincwajana zezindaba, sicela uchofoze inkinobho yokuqinisekisa engezansi. Lesi sinyathelo esizenzakalelayo siqinisekisa imvume yakho futhi sivimbela ukubhalisa okungagunyaziwe.",
+            "extra": "Uma ungabhalisanga kulesi sibhaliso, zizwe ukhululekile ukunganaki le imeyili."
+        },
+        "thankyou": {
+            "intro": "Siyabonga ngokubamba kwakho iqhaza ku-{{campaign.title}}. Siyakwazisa ukweseka kwakho!",
+            "subject": "Ngiyabonga, nansi okunye ongakwenza"
+        },
+        "doi_thankyou": {
+            "subject": "Siyabonga ngokubamba kwakho iqhaza{{#privacy.optIn}}, isinyathelo esisodwa esisele, sicela uqinisekise ikheli lakho le-imeyili{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Isinyathelo esisodwa esisele: sicela uqinisekise ikheli lakho le-imeyili",
+            "extra": "Uma ungakucelanga lokhu, sicela ungayinaki le imeyili.",
+            "intro": "Ukuqinisekiswa kwakho kubalulekile ukuze kucutshungulwe ukubamba kwakho iqhaza. Lokhu kuqinisekisa ukuthi konke ukufakwa kuvela kumuntu wangempela futhi kusiza ukuvimbela ukufakwa okungamanga noma okungadala isiphamu."
+        }
+    },
+    "poweredBy": "Isekelwe ngu"
+}

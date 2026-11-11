@@ -1,6 +1,5 @@
 // import React from "react";
 
-import React from "react";
 import { Button, CircularProgress } from "@material-ui/core";
 import LockIcon from "@material-ui/icons/Lock";
 

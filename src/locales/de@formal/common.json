@@ -70,7 +70,7 @@
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "required": "Ihre Zustimmung ist für die Teilnahme erforderlich",
-    "subButton": {
+    "button": {
       "opt-in": "und erhalten Informationen",
       "opt-out": "und halten Sie mich nicht auf dem Laufenden"
     }

@@ -1,11 +1,8 @@
-import React from "react";
-
-import { useTranslation } from "react-i18next";
-import { useCampaignConfig } from "@hooks/useConfig";
-import { InputAdornment } from "@material-ui/core";
 import Salutation from "@components/field/Gender";
-import { Grid } from "@material-ui/core";
 import TextField from "@components/field/TextField";
+import { useCampaignConfig } from "@hooks/useConfig";
+import { Grid } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const Name = ({ form, compact, classes, classField, enforceRequired }) => {
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
@@ -13,7 +10,7 @@ const Name = ({ form, compact, classes, classField, enforceRequired }) => {
 
   const { t } = useTranslation();
   const withSalutation = config.component?.register?.field?.gender;
-  const nameWidth = (field) => {
+  const nameWidth = field => {
     if (compact) return 12;
     if (withSalutation && field === "firstname") return 5;
     if (withSalutation) return 5;
@@ -23,7 +20,12 @@ const Name = ({ form, compact, classes, classField, enforceRequired }) => {
   return (
     <>
       {withSalutation && (
-        <Salutation form={form} compact={compact} classes={classes} />
+        <Salutation
+          form={form}
+          compact={compact}
+          classes={classes}
+          required={enforceRequired}
+        />
       )}
       <Grid item xs={12} sm={nameWidth("firstname")} className={classField}>
         <TextField

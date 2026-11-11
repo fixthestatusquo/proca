@@ -1,4 +1,4 @@
-import React from "react";
+
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { useTranslation } from "react-i18next";
 import { Button } from "@material-ui/core";
@@ -25,7 +25,7 @@ const MarkdownPage = props => {
           <Markdown text={text} />
         </div>
       </div>
-      {config.component.markdown.next !== false && (
+      {config.component.markdown?.next !== false && (
         <Button
           endIcon={<SkipNextIcon />}
           fullWidth

@@ -1,35 +1,30 @@
-import React, {
-  useState,
-  useRef,
+import Alert from "@components/Alert";
+import Button from "@components/FAB";
+import { AlertRenderer } from "@components/layout/AlertRenderer";
+import ProcaRoot from "@components/ProcaRoot";
+import TwoColumns from "@components/TwoColumns";
+import { useAddAlert } from "@hooks/useAlert";
+import { initConfigState, useComponentConfig } from "@hooks/useConfig";
+import { initDataState } from "@hooks/useData";
+import useHash, { getHash } from "@hooks/useHash";
+//import { useTheme } from "@material-ui/core/styles";
+import { useIsMobile } from "@hooks/useLayout";
+import { getCookie } from "@lib/cookie";
+import { getAllData, getOverwriteLocales } from "@lib/domparser";
+import { dispatch } from "@lib/event";
+import { getItems } from "@lib/localStorage";
+import { merge } from "@lib/object";
+import { scrollTo as _scrollTo } from "@lib/scroll";
+import Url, { step as paramStep } from "@lib/urlparser";
+import {
   useCallback,
   useEffect,
   useLayoutEffect,
+  useRef,
+  useState,
 } from "react";
-import ProcaRoot from "@components/ProcaRoot";
-import { merge } from "@lib/object";
-import { initConfigState, useComponentConfig } from "@hooks/useConfig";
-import Url, { step as paramStep, get as urlGet } from "@lib/urlparser";
-import { getCookie } from "@lib/cookie";
-import { getItems } from "@lib/localStorage";
-import { getAllData, getOverwriteLocales } from "@lib/domparser";
+import { steps as generatedSteps } from "../actionPage";
 
-//import { useTheme } from "@material-ui/core/styles";
-import { useIsMobile } from "@hooks/useLayout";
-import useHash, { getHash } from "@hooks/useHash";
-import { dispatch } from "@lib/event";
-import { scrollTo as _scrollTo } from "@lib/scroll";
-
-import { initDataState } from "@hooks/useData";
-
-import Loader from "@components/Loader";
-
-import { AlertRenderer } from "@components/layout/AlertRenderer";
-import { useAddAlert } from "@hooks/useAlert";
-
-import { steps } from "../actionPage";
-import Button from "@components/FAB";
-import Alert from "@components/Alert";
-import TwoColumns from "@components/TwoColumns";
 let config = {
   data: Url.data(),
   utm: Url.utm(),
@@ -41,7 +36,8 @@ let config = {
 
 let init = false;
 
-const Widget = props => {
+const Widget = ({ steps: providedSteps, ...props }) => {
+  const steps = providedSteps || generatedSteps;
   const [current, _setCurrent] = useState(null);
   //  const [breadCrumb, setReturnStep] = useState({});  creates extra render
   const intersectionRef = useRef();
@@ -105,16 +101,26 @@ const Widget = props => {
 
   let cookies = {};
 
-  if (!config.component.widget?.cookie === false) {
+  if (config.component.widget?.cookie !== false) {
+    // opt out with component.widget.cookie: false
     cookies = {
       uuid: getCookie("proca_uuid"),
       firstname: getCookie("proca_firstname"),
     };
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
+  // the script tag is renamed id=proca by autoRender; read it here since the page
+  // may call proca.Widget() itself, which skips render(). (not querySelector("script#proca"):
+  // the widget div also carries id=proca, and a duplicate id breaks that selector)
+  const script = [...document.querySelectorAll("script")].find(
+    s => s.id === "proca"
+  );
+  config.data = { ...script?.dataset, ...config.data };
   document.querySelectorAll(props.selector).forEach(dom => {
-    data = { ...dom.dataset, ...cookies, ...storage, ...data };
+    // script tag data-* + .proca-widget data-*, the div winning
+    config.data = { ...config.data, ...dom.dataset };
   });
+  data = { ...config.data, ...cookies, ...storage, ...data };
 
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
@@ -134,10 +140,25 @@ const Widget = props => {
 
   const test = config.test;
   useEffect(() => {
-    if (!test) return; // I'm not sure anymore why it's done that way instead of a normal classes useStyles... but there is a reason
+    if (!test) return;
     showAlert({
       title: "TEST MODE",
-      text: "Experiment freely, this action will not be counted",
+      // test is true if the actionPage is not live yet, "forced" by ?proca_test, or false
+      text:
+        test === true ? (
+          <>
+            Experiment freely, this action will not be counted. <br /> Take at
+            least one test action, then{" "}
+            <a
+              href={`https://we.fixthestatusquo.org/widget/${config.actionPage}`}
+            >
+              go live
+            </a>
+            .
+          </>
+        ) : (
+          "Experiment freely, this action will not be counted"
+        ),
       severity: "warning",
       autoHideDuration: 10000000,
     });
@@ -158,7 +179,7 @@ const Widget = props => {
     const styleSheet = document.createElement("style");
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-  }, [test]);
+  }, [test, showAlert]);
 
   const scrollNeeded = useRef(false);
   useLayoutEffect(() => {
@@ -193,7 +214,7 @@ const Widget = props => {
   }
 
   propsJourney.forEach(d => {
-    if (d instanceof Array) {
+    if (Array.isArray(d)) {
       d.forEach((_e, i) => {
         depths.push(i > 0 ? 2 : 1);
       }); // the first of a multistep is on level 1 (eg dialog, sinon 2)

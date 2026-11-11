@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { InputAdornment } from "@material-ui/core";
@@ -11,8 +11,7 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
   const formatMoneyAmount = useFormatMoney();
 
   return (
-    <>
-      <TextField
+    <TextField
         form={form}
         type="number"
         label={t("Amount")}
@@ -46,7 +45,6 @@ const OtherAmountInput = ({ form, classes, currency, setData }) => {
         }}
         InputLabelProps={{ shrink: true }}
       />
-    </>
   );
 };
 

@@ -1,5 +1,5 @@
-const { join } = require("path");
-const { readdirSync, lstatSync } = require("fs");
+const { join } = require("node:path");
+const { readdirSync, lstatSync } = require("node:fs");
 const i18next = require("i18next");
 const Backend = require("i18next-fs-backend");
 

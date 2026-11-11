@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Grid, Typography } from "@material-ui/core";
 import ImageSelector from "../ImageSelector";
 import { makeStyles } from "@material-ui/core/styles";

@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement } from "react";
 import ReactDOM from "react-dom";
 
 import { portals } from "../actionPage";
@@ -40,9 +40,12 @@ const Portalify = props => {
     found = true;
     r.push(
       ReactDOM.createPortal(
-        <Portal {...props} key={props.selector + i} original={dom.innerHTML} 
-         children={dom.innerHTML}
-/>,
+        <Portal
+          {...props}
+          key={props.selector + i}
+          original={dom.innerHTML}
+          children={dom.innerHTML}
+        />,
         dom
       )
     );
@@ -70,10 +73,9 @@ const Portalify = props => {
 
 const Portals = props => {
   const r = [];
-  props.portals &&
-    props.portals.forEach((p, i) => {
+  props.portals?.forEach((p, i) => {
       if (typeof p === "string") {
-        r.push(React.createElement(portals[p], { name: p, key: `portal${i}` }));
+        r.push(createElement(portals[p], { name: p, key: `portal${i}` }));
       } else r.push(<Portalify {...p} dom={props.dom} key={`portal${i}`} />);
     });
   return r;

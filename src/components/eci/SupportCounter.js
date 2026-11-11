@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 import ProgressCounter from "@components/ProgressCounter";
@@ -9,9 +9,9 @@ export default function SignatureForm(props) {
   const { t } = useTranslation();
   const config = useCampaignConfig();
   return (
-    <React.Fragment>
+    <Fragment>
       <ProgressCounter actionPage={config.component.eci.actionpage} />
       <Support {...props} buttonText={t("action.eci", "Sign the ECI")} />
-    </React.Fragment>
+    </Fragment>
   );
 }

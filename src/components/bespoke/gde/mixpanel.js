@@ -5,10 +5,10 @@ import { unsubscribeDataLayer, dataLayerObserver } from "@lib/event";
 const getProperties = (_event, config) => {
   //event not used, so far
   const properties = {
-    test: config.test || undefined,
-    form_plugin: "proca",
+    test: !!config.test || undefined,
+    form_plugin: "Proca",
     form_id: config.actionpage,
-    form_title: config.filename, // or config.campaign.title? or page title?
+    form_title: config.campaign.title || config.filename,
   };
   return properties;
 };
@@ -33,6 +33,7 @@ const getGoal = actionType => {
 
 const Observer = async (event, data, pii) => {
   const config = window.proca?.get?.();
+  //  console.log("mixpanel event", event, config, pii);
   if (event.endsWith(":start")) {
     // the user has started to interact with the form
     const param = getProperties(event, config);
@@ -50,26 +51,38 @@ const Observer = async (event, data, pii) => {
   }
   if (event.endsWith(":complete")) {
     // the user has submitted {
-    let param = getProperties(event, config);
+    const param = getProperties(event, config);
     param.event = "form_submitted";
-    param.form_plugin = "proca";
     if (config.component?.register?.field?.postcode !== false) {
       param.form_contains_address_field = true;
     }
     param.form_id = config.actionpage;
-    param.form_contains_newsletter_subscription = true;
     param.form_goal = getGoal(config.component.register?.actionType);
-    param.form_contains_newsletter_subscription = true;
+    param.form_contains_newsletter_subscription = true; //TO CHECK
+    if (config.component.sync?.promoCode?.default) {
+      param.werbecode = config.component.sync.promoCode.default;
+    }
     if (config.component?.register?.field?.phone) {
       param.form_contains_phone_field = true;
       param.phone_field_provided = !!pii.phone;
+      if (pii.phone) {
+        param.werbecode = config.component.sync.promoCode.phone;
+      }
     } else {
       param.form_contains_phone_field = false;
     }
     if (pii?.email) {
-      const hash = await getHash();
-      param.user_id = hash;
+      const hash = await getHash(pii.email);
+      param.user_id = hash.replace(/\//g, "");
     }
+    console.log(data);
+    if (data.privacy === "opt-in") {
+      param.newsletter_subscribed = true;
+    }
+    if (data.privacy === "opt-out") {
+      param.newsletter_subscribed = false;
+    }
+    send(param);
     return;
   }
 
@@ -77,10 +90,13 @@ const Observer = async (event, data, pii) => {
 };
 
 const ActObserver = async event => {
+  console.log("act", event);
   if (event.endsWith(":complete")) {
-    const events = window.getTargetStateEvents("#single-sign-up", {
-      0: document.querySelector("gpd-engage-form"),
-    });
+    console.log("switch to share");
+    const events =
+      window.getTargetStateEvents?.("#single-sign-up", {
+        0: document.querySelector("gpd-engage-form"),
+      }) || [];
     events.forEach(event => {
       window.dispatchEvent(event);
     });

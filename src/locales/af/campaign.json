@@ -1,1 +1,26 @@
-{}
+{
+  "description": "sit die doelwit van die veldtog en die kernvereiste",
+  "actions": {
+    "petition": {
+      "default": "Haai! Ek het pas hierdie petisie onderteken en gedink jy wil dit ook dalk ondersteun.",
+      "email": {
+        "subject": "Sal jy hierdie petisie saam met my teken?",
+        "body": "Hallo,\n\nEk het pas 'n petisie onderteken oor iets wat my regtig na aan die hart lê, en ek kontak mense wat ek dink dit dalk ook wil ondersteun.\n\nElke handtekening help om momentum te bou en wys besluitnemers dat mense omgee vir hierdie saak. Dit neem net 'n minuut om jou naam by te voeg:\n\n{url}\n\nEk sal jou ondersteuning hierin regtig waardeer. Dankie dat jy die tyd geneem het om dit te oorweeg!"
+      }
+    },
+    "mailtotarget": {
+      "subject": "Help my om 'n boodskap te stuur",
+      "email": {
+        "body": "Hallo,\n\nEk het pas 'n e-pos gestuur oor 'n saak wat vir my belangrik is, en ek wou graag weet of jy by my wil aansluit om ons stemme te laat hoor.\n\nDaar is 'n voorafgeskrewe sjabloon wat dit baie maklik maak – jy kan dit personaliseer of dit soos dit is stuur. Dit neem net 'n paar minute:\n\n{url}\n\nHoe meer mense wat hul stem laat hoor, hoe moeiliker is dit om ons te ignoreer. Sal jy oorweeg om jou stem by te voeg?\n\nBaie dankie",
+        "default": "Haai! Ek het pas 'n boodskap oor hierdie saak gestuur – sou jy oorweeg om jou stem by te voeg? Dit is super vinnig: "
+      }
+    }
+  },
+  "share": {
+    "email": {
+      "subject": "Sluit by my aan om hierdie saak te ondersteun.",
+      "body": "Hallo,\n\nEk het onlangs opgetree oor iets wat vir my saak maak en wou dit met jou deel. Ek dink jy mag ook belangstel om deel te neem.\n\nDit neem net 'n paar minute, en ek glo dit kan 'n werklike verskil maak. Hier is die skakel as jy wil aansluit:\n\n{url}\n\nDankie dat jy dit oorweeg!"
+    },
+    "default": "Haai! Ek het pas iets belangriks aangespreek – wil jy by my aansluit?"
+  }
+}

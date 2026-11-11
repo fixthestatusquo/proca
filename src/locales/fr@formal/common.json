@@ -70,7 +70,7 @@
     "processing": "Vos informations personnelles sont confidentielles et conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation de données et de cookies conformément à notre <1>politique de confidentialité</1>.",
     "processing-nocookie": "Vos informations personnelles sont confidentielles et conservées en toute sécurité. En soumettant des informations, vous acceptez l'utilisation des données conformément à notre <1>politique de confidentialité</1>.",
     "required": "Votre consentement est nécessaire pour participer",
-    "subButton": {
+    "button": {
       "opt-in": "et recevez des informations",
       "opt-out": "et ne me tenez pas informé"
     }

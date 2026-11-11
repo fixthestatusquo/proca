@@ -100,10 +100,11 @@ const socialiseReferrer = (domain, utm) => {
     utm.medium = "youtube";
     return true;
   }
-  if (domain === "www.linkedin.com" ||
+  if (
+    domain === "www.linkedin.com" ||
     domain === "com.linkedin.android" ||
-	domain === "lnkd.in"
-    ) {
+    domain === "lnkd.in"
+  ) {
     utm.source = "social";
     utm.medium = "linkedin";
     return true;
@@ -170,7 +171,7 @@ const utm = (record = true) => {
   }
   utm.location = document.location.origin + document.location.pathname;
   if (utm.content === undefined) {
-    delete utm.content
+    delete utm.content;
   }
   return utm;
 };
@@ -185,6 +186,12 @@ const create = (base, path, params) => {
   return url;
 };
 
+// make it easier to display a long url with many params to optionally beak (zero width break between params)
+const displayUrl = url => {
+  const target = url || window.location.href;
+  return target.replace(/([?&])/g, "$1\u200B");
+};
+
 const urlParser = { utm: utm, data: data, config: config };
-export { utm, data, step, config, isTest, create, parse };
+export { utm, data, step, config, isTest, create, parse, displayUrl };
 export default urlParser;

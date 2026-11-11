@@ -111,9 +111,14 @@ To redirect to some URL after submitting:
 
 ## test
 
-if true (or set from the url as a get param ?proca_test
+if true (or set from the url as a get param ?proca_test)
 
-- display a message snackbar "test"
+- `true`: set by the action page itself, while it isn't live yet
+- `"forced"`: set by `?proca_test` on an action page that is already live
+
+Both values behave the same way:
+
+- display a message snackbar "test" (only `true` adds a "go live" link to it)
 - store the actions as "test" instead of the normal "petition" or "register" or "donate"
 - use the test config when relevant (eg for the payment providers)
 
@@ -185,7 +190,27 @@ The counter will automatically calculate next goals so that goal always escapes 
 To put custom counter:
 `config.component.counter.url: some_url_on_static`
 
+To use a fixed number instead of fetching the count (eg. final total of a closed campaign):
+`config.component.counter.total: 1254722`
+
 Counter is always shown in test mode!
+
+To have counter at the same page as the widget
+Add to `config.portal`
+`{
+"component": "Counter",
+"selector": ".proca-counter"
+}`
+
+and embed with `<span class="proca-counter">⏳</span>`
+
+To have only counter at the page
+Add to `config.portal`
+`{
+"component": "Counter",
+"selector": ".proca-counter"
+}`
+and put only `Counter` step in the `journey`
 
 ## Markdown
 
@@ -237,12 +262,14 @@ to collect the consent of being contacted
 `config.component.implicit: "opt-in" - adds a line 'Submit this form to receive emails from {{org}}'
 `config.component.consent.confirm === false`- removes "Are you sure" question.`config.component.consent.benefit === false` - removes "Are you sure" when picture not added.
 
+if the consent is set to "implicit" on campaign level, to put back radio buttons on specific widget use `consent.implicit : null` in widget config.
+
 ### Email (config.component.consent.email)
 
 - `config.component.consent.email.confirmOptIn: boolean` If mail confirmation after form opt-in needed, it adds snackbar with "check email" message.
 - `config.component.consent.email.confirmAction: boolean` If mail needs to be verified before action is accepted, it adds snackbar with "check email" message.
 
-- `config.component.consent.email.sample: number` It limits the number of targets displayed. Filter (`config.component.consent.email.filter: array`,) needs to have at least one string element, `["random"]` usually.
+- `config.component.email.sample: number` and `config.component.email.filter` limit the targets displayed, see "Target filters" under "Email".
 
 ## Twitter (config.component.twitter)
 
@@ -275,6 +302,7 @@ to collect the consent of being contacted
 - `"portal": ["layout/ClosedNotice"]`
 - `component.register.disabled: true`
 - `component.widget.closed: true`
+- `component.counter.total: 1254722` (optional) freeze the counter at this final number
 
 ## Donate
 
@@ -303,6 +331,123 @@ or `"gender": "F|Female\nM|Male"`
 config.component.email.replace = {
 "https://example.org/campaign":"https://example.org/campaign?proca_uuid={{target.externalId}}"
 }
+
+### Target filters
+
+Filters decide which targets (from the published target list) the supporter sees and emails. Without any filter, everyone on the list is shown and emailed.
+
+Add a filter by importing it: `config.import: ["filter/Name"]`. Filters can be combined, a target needs to pass all of them. Most filters add their own field (postcode, country, dropdown…) above the list of targets.
+
+Available filters: `Country`, `Postcode`, `Geo`, `Area`, `Constituency`, `Random`, `Fallback`, `Multilingual`, `Language`, `Party`.
+
+`Random` and `Multilingual` still need their name in `config.component.email.filter` as well (eg. `"filter": ["random"]`), otherwise they do nothing.
+
+Related options:
+
+- `config.component.email.selectable: boolean` — the supporter ticks which of the shown targets they want to email (needed for `Party` and to pick between several `Geo` targets). Without it, every shown target is emailed.
+- `config.component.email.sample: number` — how many targets `random` (and `fallbackRandom`) pick.
+- `config.component.email.showTo: boolean` — show the list of targets (default true).
+
+#### Country
+
+`import: ["filter/Country"]`
+
+Shows the targets of the supporter's country (`country` field of the target). The country is taken from the visitor's IP and can be changed in a dropdown.
+
+- with no country selected, all the targets are shown.
+- **fixed country**: with `component.country: "DE"`, the dropdown is hidden and only DE targets are shown.
+- all the country logic is here: the other filters (eg. `Party`) only see the targets of the selected country.
+
+#### Postcode
+
+`import: ["filter/Postcode"]`
+
+Adds a postcode field (with lookup, see "Zip lookup"). The postcode is turned into an area or constituency, and only the targets with that `area` or `constituency` are shown. The list is empty until a postcode is entered. An error is shown if nobody covers that area.
+
+#### Geo (nearest targets)
+
+`import: ["filter/Geo"]`
+
+Adds a postcode field, finds its location and shows the **nearest target**, ticked by default. Use it for anything with a physical location: shops, offices, local representatives…
+
+- `component.geo.toleranceKm: number` — also show the targets that are at most this many km further than the nearest one.
+- `component.geo.tolerancePercent: number` — same, as a % of the distance to the nearest one. The larger of the two is used.
+- with a tolerance, set `email.selectable: true` so the supporter can tick the other nearby targets (only the nearest is ticked).
+- the list is empty until a postcode is entered.
+
+Example (email the nearest shop, or several if they are within 20 km):
+
+```json
+"component": {
+  "geo": { "toleranceKm": 20, "tolerancePercent": 15 },
+  "email": { "selectable": true }
+},
+"import": ["filter/Geo"]
+```
+
+#### Area
+
+`import: ["filter/Area"]`
+
+Adds a postcode field and shows the targets whose `area` matches the area of the postcode. Prefer `Postcode` above, which also handles constituencies.
+
+#### Constituency
+
+`import: ["filter/Constituency"]`
+
+Adds a dropdown with all the constituencies found in the target list (of the selected country, if there is one). The supporter picks one and sees only its targets.
+
+#### Random
+
+`import: ["filter/Random"]` and `email.filter: ["random"]` (both needed)
+
+Picks `email.sample` targets at random (1 by default) among those left by the other filters. Useful to spread the emails over a long list.
+
+```json
+"import": ["filter/Random"],
+"component": { "email": { "filter": ["random"], "sample": 3 } }
+```
+
+#### Fallback
+
+`import: ["filter/Fallback"]`
+
+What to show when the other filters leave nobody. Set one of these options:
+
+- `email.fallbackArea: true` — if nobody matches the constituency, show everyone in the same area.
+- `email.fallbackArea: "FR"` — if nobody matches, show the targets of that country.
+- `email.fallbackRandom: number` — if nobody matches, pick this many targets at random from the whole list.
+- targets with `fallback: true` — if nobody matches the constituency, show those targets.
+
+#### Multilingual
+
+`import: ["filter/Country", "filter/Multilingual"]` and `email.filter: ["multilingual"]` (both needed)
+
+For countries with several languages (BE, CH…). Only shows the targets that speak the language of the widget (their `locale`; targets without a locale are always shown). When the selected country has a single language, the letter switches to it (eg. an English widget switches to `de_AT` when Austria is selected). It doesn't switch if the widget is already in that language: a `de` widget stays `de` for Austria.
+
+#### Language
+
+`import: ["filter/Language"]`
+
+Adds a language dropdown (options from `campaign:languages`). The supporter picks a language: only the targets with that `locale` are shown, and the letter switches to that language.
+
+#### Party
+
+`import: ["filter/Party"]` — needs `email.selectable: true`.
+
+Shows one chip per party (the `description` of the targets). Clicking a chip ticks all its targets and narrows the list to that party (plus any other ticked target); clicking again unticks them.
+
+It only deals with parties, never with the country:
+
+- **with `filter/Country`** (MEPs): the chips are the parties of the selected country. Changing the country switches the chips off.
+- **without it**: one chip per `description` across all the targets.
+
+#### Examples
+
+- **email your MEPs**: `import: ["filter/Country"]`; add `"filter/Party"` and `email.selectable: true` to let supporters pick by party.
+- **email your local representative**: `import: ["filter/Postcode", "filter/Fallback"]`, targets with `area`/`constituency`, and `email.fallbackArea: true`.
+- **email the nearest shop/office**: `import: ["filter/Geo"]`, targets with `geo`.
+- **spread emails over a long list**: `import: ["filter/Random"]`, `email.filter: ["random"]`, `email.sample: 1`.
 
 ### `currency`: dict
 
@@ -534,3 +679,7 @@ components/donate/Amount.js:144: if (config.component.donation.external?.url) {
 components/donate/Amount.js:163: config.component.donation.external.url + amount + params,
 components/donate/Amount.js:213: {config.component.donation?.monthly !== false && (
 components/donate/Amount.js:245: {!config.component.donation.external && (
+
+```
+
+```

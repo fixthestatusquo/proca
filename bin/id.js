@@ -34,7 +34,7 @@ if (require.main === module) {
     try {
       const d = await getId(name);
       if (d.errors) {
-        console.error("path " + name + " not found");
+        console.error(`path ${name} not found`);
         process.exit(1);
       }
       d.dxid = stringify(d.id);

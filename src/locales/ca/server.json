@@ -1,1 +1,46 @@
-{}
+{
+    "email": {
+        "common": {
+            "greeting": "Hola {{firstName}},",
+            "share_on": "Comparteix a",
+            "consent": "\n          ",
+            "thanks": "Gràcies per la vostra participació a l' {{campaign.title}}. Agraïm el vostre suport!",
+            "about": "Fins ara, els partidaris de {{campaign.stats.supporterCount}} han pres mesures.",
+            "share": "Ajuda'ns a assolir el nostre objectiu difonent la notícia.",
+            "follow": "Segueix-nos a:",
+            "donate": "Si us plau, considereu fer una donació per ajudar-nos a assolir la nostra missió.",
+            "closing": "Amb la vostra ajuda, estem un pas més a prop del nostre objectiu.",
+            "privacy": "Podeu trobar més informació sobre la nostra política de privacitat i el tractament de les vostres dades",
+            "unsubscribe": "Si no desitgeu rebre més informació de la nostra part en el futur, podreu cancel·lar el vostre registre en qualsevol moment.",
+            "signature": "Atentament,\n\n{{org.title}}",
+            "organisation": "{{org.title}}",
+            "duplicate": "Gràcies pel vostre compromís i la vostra dedicació a la nostra causa! No obstant això, en el nostre compromís de mantenir l'autenticitat i la credibilitat, hem de **eliminar signatures duplicades** i sembla que vostè (o algú que utilitza {{email}}) ja ha fet aquesta acció.  Tingueu la seguretat que **la vostra signatura inicial s'ha comptat** i ha contribuït a la nostra campanya.\nEl vostre suport ha estat inavaluable, i ens agradaria animar-vos amablement a fer un pas més per ajudar a amplificar el vostre impacte. Si us plau, considereu contactar amb els vostres amics i familiars, animant-los a actuar també, fent servir les seves pròpies adreces de correu electrònic. D'aquesta manera, podrem fer créixer encara més el nostre moviment i crear una veu col·lectiva encara més forta per al canvi que busquem.\nUn cop més, us expressem el nostre més sincer agraïment pel vostre suport continu i la vostra dedicació a aquesta campanya. Junts, podem fer un impacte durador!",
+            "thanksPledge": "Gràcies per comprometre't amb {{campaign.title}}. La teva signatura serà revisada i, si s'aprova, es mostrarà al nostre lloc web.",
+            "is_it_me": "Si no heu pres aquesta acció, feu clic [aquí](https://api.proca.app/link/s/{{actionId}}/reject/{{ref}}) per eliminar-la."
+        },
+        "button": {
+            "confirmAction": "Sí, sóc una persona real!",
+            "confirmOptin": "Vull rebre notícies de tu",
+            "confirmAlreadyMember": "Confirmo la meva participació i ja rebo correus electrònics de vostès.",
+            "confirmOptout": "Confirmo la meva participació, però no em mantinguis informat en el futur."
+        },
+        "doi": {
+            "subject": "Un pas més: si us plau, confirmeu la vostra adreça de correu electrònic.",
+            "intro": "Per completar el vostre registre i permetre'ns processar la vostra adreça de correu electrònic i les vostres dades personals per enviar notícies o butlletins informatius, feu clic al botó de confirmació següent. Aquest pas automatitzat garanteix el vostre consentiment i evita registres no autoritzats.",
+            "extra": "Si no t'has subscrit a aquest servei, pots ignorar aquest correu electrònic."
+        },
+        "thankyou": {
+            "intro": "Gràcies per la vostra participació a \"{{campaign.title}}\". Agraïm el vostre suport!",
+            "subject": "Gràcies, aquí tens què més pots fer"
+        },
+        "doi_thankyou": {
+            "subject": "Gràcies per la vostra participació{{#privacy.optIn}}, un pas més, si us plau confirmeu la vostra adreça de correu electrònic{{/privacy.optIn}}"
+        },
+        "confirm": {
+            "subject": "Un pas més: si us plau, confirmeu la vostra adreça de correu electrònic.",
+            "extra": "Si no ho heu sol·licitat, ignoreu aquest correu electrònic.",
+            "intro": "La vostra confirmació és essencial per processar la vostra participació. Això garanteix que cada enviament prové d'una persona real i ajuda a prevenir enviaments falsos o de correu brossa."
+        }
+    },
+    "poweredBy": "IMPULSAT PER"
+}

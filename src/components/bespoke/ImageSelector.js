@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Button, Card, CardActionArea } from "@material-ui/core";

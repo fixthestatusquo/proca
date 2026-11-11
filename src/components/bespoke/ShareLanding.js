@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Dialog from "@components/Dialog";
 import Url from "@lib/urlparser";
 import { useCampaignConfig } from "@hooks/useConfig";
