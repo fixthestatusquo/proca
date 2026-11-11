@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Une IA a écrit ce message, nous t'encourageons à le lire et à le personnaliser pour maximiser son impact",
+  "ai_tip": "Tu peux insérer ici des puces pour rédiger ton texte, puis cliquer sur le bouton «{{button}} » ou écrire toi-même un message",
   "ai_work": "L'IA au travail",
   "camera": {
     "start": "Démarre la caméra",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Action confirmée",
     "actionRejected": "L'action a été annulée avec succès",
+    "button": {
+      "opt-in": "et recevoir des informations",
+      "opt-out": "et ne me tiens pas au courant"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Tu es sûr de ne pas vouloir recevoir d'infos sur l'avancement de cette campagne et d'autres ?",
+        "opt-in": "Oui, je souhaite recevoir des infos sur la campagne",
+        "opt-out": "Non, pas de mises à jour, s'il te plaît"
+      }
+    },
     "confirm": "<0> Es-tu sûr·e ?</0><1>'En choisissant \"Non\", tu ne sauras pas si cette campagne est un succès ou s'il faut prendre de nouvelles initiatives pour renforcer cette mobilisation. En choisissant \"Oui\", nous te tiendrons informé·e, avec parcimonie, des résutlats de cette campagne et d'initiatives similaires.</1></2> Tu peux te désabonner à tout moment.</2>",
     "confirmAction": "Nous avons envoyé un lien de confirmation par email à l'adresse suivante :\n {{email}}.\nS'il te plaît, récupère l'email dès maintenant et clique sur le lien qu'il contient (vérifie ton dossier spam !).\n Ce n'est qu'alors que ton action comptera !\nTa confirmation est cruciale pour le poids politique de l'action. Cela garantit qu'il y a une vraie personne derrière chaque soumission. Nous attendons ta confirmation...",
     "confirmOptIn": "N'oublie pas de vérifier ta boîte aux lettres (y compris ton dossier de spams !) et de confirmer ton abonnement à l'e-mail.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonnement confirmé",
     "processing": "Tes données sont transmises de manière sécurisée et chiffrée. Avec ta contribution tu acceptes nos règlements de protection des données. Pour plus d’informations sur la <1>protection de la vie privée</1> voir notre politique",
     "processing-nocookie": "Vos informations personnelles seront conservées de manière privée et sécurisée. En soumettant les informations vous acceptez l'utilisation de vos données en accord avec notre <1>politique de confidentialité</1>",
-    "required": "Ton consentement est nécessaire pour participer",
-    "button": {
-      "opt-in": "et recevoir des informations",
-      "opt-out": "et ne me tiens pas au courant"
-    }
+    "required": "Ton consentement est nécessaire pour participer"
   },
   "customize_text": "Nous t'encourageons à le lire et à le personnaliser pour maximiser son impact",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Le format doit être DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Femme",
+    "male": "Homme",
+    "na": "Je préfère ne pas le dire",
+    "trans": "Non binaire"
   },
   "give_another": "Donne-m'en un autre",
   "help_write": "Aide-moi à l'écrire",
@@ -252,6 +266,7 @@
     "screenName": "Compte Twitter"
   },
   "unknown postcode": "code postal inconnu",
+  "url": "Site web de l'organisation",
   "yes": "oui",
   "you need to be 18 years old": "vous devez avoir 18 ans"
 }
