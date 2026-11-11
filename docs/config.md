@@ -356,12 +356,13 @@ Shows the targets of the supporter's country (`country` field of the target). Th
 
 - with no country selected, all the targets are shown.
 - **fixed country**: with `component.country: "DE"`, the dropdown is hidden and only DE targets are shown.
+- all the country logic is here: the other filters (eg. `Party`) only see the targets of the selected country.
 
 #### Postcode
 
 `import: ["filter/Postcode"]`
 
-Adds a postcode field (with lookup, see "Zip lookup"). The postcode is turned into an area or constituency, and only the targets with that `area` or `constituency` are shown. An error is shown if nobody covers that area.
+Adds a postcode field (with lookup, see "Zip lookup"). The postcode is turned into an area or constituency, and only the targets with that `area` or `constituency` are shown. The list is empty until a postcode is entered. An error is shown if nobody covers that area.
 
 #### Geo (nearest targets)
 
@@ -432,9 +433,14 @@ Adds a language dropdown (options from `campaign:languages`). The supporter pick
 
 #### Party
 
-`import: ["filter/Party"]` — needs `email.selectable: true` and a country.
+`import: ["filter/Party"]` — needs `email.selectable: true`.
 
-Shows one chip per party (from the `description` of the targets of the selected country). Clicking a chip ticks all its targets and narrows the list to that party (plus any other ticked target); clicking again unticks them. Changing the country switches the chips off. Made for MEP campaigns.
+Shows one chip per party (the `description` of the targets). Clicking a chip ticks all its targets and narrows the list to that party (plus any other ticked target); clicking again unticks them.
+
+It only deals with parties, never with the country:
+
+- **with `filter/Country`** (MEPs): the chips are the parties of the selected country. Changing the country switches the chips off.
+- **without it**: one chip per `description` across all the targets.
 
 #### Examples
 

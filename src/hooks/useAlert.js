@@ -33,13 +33,14 @@ export function removeAlert(id) {
 // Still export the React hook for components
 export const useAlertStore = alertStore;
 
-export const useAddAlert = () => {
-  const { addAlert } = useAlertStore();
-  return addAlert;
-};
+// select only the (stable) action: subscribing to the whole store would re-render
+// the caller (eg. Widget) on every alert add/remove, remounting the current step
+// and wiping any unsaved form values
+export const useAddAlert = () => useAlertStore(state => state.addAlert);
 
 export const useAlert = () => {
-  const { addAlert, removeAlert } = useAlertStore();
+  const addAlert = useAlertStore(state => state.addAlert);
+  const removeAlert = useAlertStore(state => state.removeAlert);
 
   return {
     showAlert: addAlert,
