@@ -46,6 +46,7 @@
     "twitter": "Twít"
   },
   "ai_check": "Tuto zprávu napsala umělá inteligence, doporučujeme vám, abyste si ji přečetli a přizpůsobili, aby měla co největší dopad.",
+  "ai_tip": "Zde můžete při psaní textu vkládat odrážky a kliknout na tlačítko „{{button}} “ nebo napsat zprávu sami",
   "ai_work": "Umělá inteligence při práci",
   "camera": {
     "start": "spuštění fotoaparátu",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Akce potvrzena",
     "actionRejected": "Akce byla úspěšně zrušena",
+    "button": {
+      "opt-in": "a přijímat informace",
+      "opt-out": "a neinformujte mě"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Opravdu nechcete dostávat informace o průběhu této a dalších kampaní?",
+        "opt-in": "Ano, mám zájem o novinky z kampaně",
+        "opt-out": "Ne, žádné aktualizace, prosím"
+      }
+    },
     "confirm": "<0>Jste si jistí?</0> <1> Zaškrtnete-li možnost “Ne”, dost možná se už nedozvíte, jaký je další vývoj petice a kampaně, kterou podepisujete. Zaškrtnutím možnosti \"Ano\" získáte přehled nejen o této, ale i o dalších souvisejících kampaních.</1> <2> Z odběru e-mailů se můžete kdykoliv odhlásit.</2>",
     "confirmAction": "Vyhledejte si prosím tento e-mail a klikněte na odkaz, který obsahuje (zkontrolujte si složku se spamem!).\n Teprve pak bude vaše akce započítána!\nVaše potvrzení je pro politickou váhu akce klíčové. Tím zaručíte, že za každým podáním stojí skutečná osoba. Budeme čekat na vaše potvrzení...",
     "confirmOptIn": "Nezapomeňte zkontrolovat svou e-mailovou schránku (včetně složky se spamem!) a potvrdit přihlášení k odběru e-mailu",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Předplatné potvrzeno",
     "processing": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytly, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>",
     "processing-nocookie": "Na vašem soukromí nám záleží. Údaje, které jste nám poskytli, budou použity pouze v souladu s našimi <1>zásadami ochrany osobních údajů</1>. Odesláním vašich údajů s těmito zásadami souhlasíte",
-    "required": "K účasti je nutný váš souhlas",
-    "button": {
-      "opt-in": "a přijímat informace",
-      "opt-out": "a neinformujte mě"
-    }
+    "required": "K účasti je nutný váš souhlas"
   },
   "customize_text": "Doporučujeme vám, abyste si ji přečetli a přizpůsobili, abyste maximalizovali její dopad.",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "formát by měl být DD.MM.YYYY"
   },
+  "gender": {
+    "female": "Žena",
+    "male": "Muž",
+    "na": "Raději bych to neříkal",
+    "trans": "Nebinární"
+  },
   "give_another": "Dejte mi další",
   "help_write": "Pomozte mi to napsat",
   "image": {
@@ -191,6 +205,10 @@
     "share": "{{total}} sdíleli.",
     "sign": "{{total}} lidí podepsalo.",
     "twitter": "{{total}} napsali na twitteru."
+  },
+  "progressGoal": {
+    "default": "Pojďme na {{goal}}",
+    "sign": "Pokračujme k {{goal}}"
   },
   "read more": "Přečtěte si více",
   "region": "Region",
@@ -251,10 +269,7 @@
     "screenName": "Účet na X"
   },
   "unknown postcode": "neznámé PSČ",
+  "url": "Webové stránky organizace",
   "yes": "ano",
-  "you need to be 18 years old": "musíte mít 18 let",
-  "progressGoal": {
-    "default": "Pojďme na {{goal}}",
-    "sign": "Pokračujme k {{goal}}"
-  }
+  "you need to be 18 years old": "musíte mít 18 let"
 }

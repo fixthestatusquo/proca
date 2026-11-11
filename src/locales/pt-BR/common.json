@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Uma IA escreveu esta mensagem. Recomendamos que você a leia e a personalize para maximizar seu impacto",
+  "ai_tip": "Você pode inserir marcadores para criar o texto aqui e clicar no botão “{{button}} ” ou escrever uma mensagem por conta própria",
   "ai_work": "IA no trabalho",
   "camera": {
     "start": "iniciar a câmera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Ação confirmada",
     "actionRejected": "A ação foi cancelada com sucesso",
+    "button": {
+      "opt-in": "e receber informações",
+      "opt-out": "e não me mantêm informado"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Tem certeza de que não quer receber atualizações sobre o andamento desta e de outras campanhas?",
+        "opt-in": "Sim, quero receber atualizações sobre a campanha",
+        "opt-out": "Não, por favor, sem atualizações"
+      }
+    },
     "confirm": "<0>Tem certeza? </0><1>Ao selecionar 'No', você não poderá saber se esta campanha foi bem-sucedida ou se há mais ações que precisamos realizar juntos para vencê-la. Se você selecionar 'Yes', nós o manteremos atualizado sobre esta e nossas outras campanhas urgentes.</1><2>Você pode cancelar sua inscrição a qualquer momento.</2>",
     "confirmAction": "Recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Somente assim sua ação será considerada!\nSua confirmação é fundamental para o peso político da ação. Isso garante que há uma pessoa real por trás de cada envio. Aguardamos sua confirmação...",
     "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo a pasta de spam!) e confirmar sua assinatura de e-mail",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Assinatura confirmada",
     "processing": "Suas informações pessoais serão mantidas em sigilo e em segurança. Ao enviar informações, você concorda com o uso de dados e cookies de acordo com nossa <1>política de privacidade</1>",
     "processing-nocookie": "Suas informações pessoais serão mantidas em sigilo e em segurança. Ao enviar informações, você concorda com o uso de dados de acordo com nossa <1>política de privacidade</1>",
-    "required": "Seu consentimento é necessário para participar",
-    "button": {
-      "opt-in": "e receber informações",
-      "opt-out": "e não me mantêm informado"
-    }
+    "required": "Seu consentimento é necessário para participar"
   },
   "customize_text": "Recomendamos que você o leia e personalize para maximizar seu impacto",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "O formato deve ser DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Mulher",
+    "male": "Masculino",
+    "na": "Prefiro não dizer",
+    "trans": "Não binário"
   },
   "give_another": "Dê-me outro",
   "help_write": "Ajude-me a escrevê-lo",
@@ -252,6 +266,7 @@
     "screenName": "Conta no Twitter"
   },
   "unknown postcode": "código postal desconhecido",
+  "url": "Site da organização",
   "yes": "sim",
   "you need to be 18 years old": "você precisa ter 18 anos de idade"
 }

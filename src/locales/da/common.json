@@ -17,7 +17,7 @@
   "Locality": "Lokalitet",
   "Next": "Next",
   "Organisation": "Organisation",
-  "Other": "Andre",
+  "Other": "Andet",
   "Phone": "Telefon",
   "Postal Code": "Postnummer",
   "Salutation": "Hilsen",
@@ -30,12 +30,12 @@
   "action": {
     "consultation": "Send",
     "default": "Gør noget ved det",
-    "donate": "Donér",
+    "donate": "Doner",
     "eci": "Skriv under her",
     "email": "Send en e-mail",
     "join": "Tilmeld dig",
     "pledge": "Giv dit tilsagn nu!",
-    "register": "Registrer",
+    "register": "Registrer dig",
     "remindeSent": "Påmindelse sendt",
     "reminder": "Mind mig om det senere",
     "reminderEmail": "Påmind mig via e-mail",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "En AI skrev denne besked, vi opfordrer dig til at læse og tilpasse den for at maksimere dens effekt.",
+  "ai_tip": "Her kan du indsætte punktopstillinger til at skrive tekst og klikke på knappen »{{button}} « eller selv skrive en besked",
   "ai_work": "AI på arbejde",
   "camera": {
     "start": "starte kameraet",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Aktion bekræftet",
     "actionRejected": "Handlingen blev annulleret med succes",
+    "button": {
+      "opt-in": "og modtage oplysninger",
+      "opt-out": "og ikke holder mig underrettet"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Er du sikker på, at du ikke vil modtage opdateringer om, hvordan det går med denne og andre kampagner?",
+        "opt-in": "Ja, jeg vil gerne modtage opdateringer om kampagnen",
+        "opt-out": "Nej, ingen opdateringer, tak"
+      }
+    },
     "confirm": "<0> Er du sikker? </0> <1> Ved at vælge \"Nej\" kan du ikke finde ud af, om denne kampagne er vellykket, eller om der er flere handlinger, vi skal tage sammen for at vinde den. Hvis du vælger 'Ja', holder vi dig opdateret om dette og vores andre presserende kampagner. </1> <2> Du kan til enhver tid afmelde dig. </2>",
     "confirmAction": "Vi har sendt et bekræftelseslink pr. e-mail til følgende adresse:\n {{email}}\nDu bedes hente e-mailen nu og klikke på linket (tjek din spam-mappe!).\n Først da vil din handling tælle!\nDin bekræftelse er afgørende for aktionens politiske vægt. Det garanterer, at der er en rigtig person bag hver indsendelse. Vi afventer din bekræftelse...",
     "confirmOptIn": "Husk at tjekke din postkasse (herunder din spam-mappe!) og bekræft din tilmelding til e-mail",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonnement bekræftet",
     "processing": "Dine personlige oplysninger vil blive holdt private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
     "processing-nocookie": "Dine personlige oplysninger holdes private og opbevares sikkert. Ved at indsende oplysninger accepterer du brugen af data og cookies i overensstemmelse med vores <1> privatlivspolitik </1>",
-    "required": "Dit samtykke er nødvendigt for at deltage",
-    "button": {
-      "opt-in": "og modtage oplysninger",
-      "opt-out": "og ikke holder mig underrettet"
-    }
+    "required": "Dit samtykke er nødvendigt for at deltage"
   },
   "customize_text": "Vi opfordrer dig til at læse og tilpasse den, så den får størst mulig effekt.",
   "date": {
@@ -113,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Gør det månedligt?",
-        "oneoff": "Donér",
+        "oneoff": "Doner",
         "weekly": "Gør det til en ugentlig donation?"
       },
       "each": {
@@ -135,7 +143,7 @@
     "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
-      "default": "Donér",
+      "default": "Doner",
       "intro": "Hvordan ønsker du at donere?",
       "paypal": "PayPal",
       "sepa": "SEPA",
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "formatet skal være DD.MM.ÅÅÅÅ"
+  },
+  "gender": {
+    "female": "Kvinde",
+    "male": "Mand",
+    "na": "Vil helst ikke sige noget",
+    "trans": "Ikke-binær"
   },
   "give_another": "Giv mig en til",
   "help_write": "Hjælp mig med at skrive den",
@@ -252,6 +266,7 @@
     "screenName": "Twitter-konto"
   },
   "unknown postcode": "ukendt postnummer",
+  "url": "Organisationens hjemmeside",
   "yes": "ja",
   "you need to be 18 years old": "du skal være 18 år gammel"
 }

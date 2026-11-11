@@ -6,7 +6,7 @@
   "City": "Stad",
   "Comment": "Kommentéieren",
   "Copied!": "Kopieéiert!",
-  "Copy to clipboard": "Kopie op d'Zouschneidplack",
+  "Copy to clipboard": "Kopie op d'Ausschnëttstafel",
   "Country": "Land",
   "Download": "Download",
   "Download explanation": "Ärt Dokument ass elo fäerdeg, mir schécken Iech et och per E-Mail",
@@ -17,7 +17,7 @@
   "Locality": "Uertschaft",
   "Next": "Nächst",
   "Organisation": "Organisatioun",
-  "Other": "Aner",
+  "Other": "Aneres",
   "Phone": "Telefon",
   "Postal Code": "Postleitzuel",
   "Salutation": "Salut",
@@ -35,7 +35,7 @@
     "email": "Schéckt eng E-Mail",
     "join": "Maacht mat",
     "pledge": "Verspriech elo!",
-    "register": "Aschreiwen",
+    "register": "Registréieren",
     "remindeSent": "Erënnerung geschéckt",
     "reminder": "Erënnert mech méi spéit",
     "reminderEmail": "Erënnert mech per E-Mail",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Eng KI huet dës Noriicht geschriwwen, mir encouragéieren Iech, se ze liesen an unzepassen, fir hiren Impakt ze maximéieren.",
+  "ai_tip": "Dir kënnt hei Bulletpoints fir d'Textererstellung asetzen an op de Knäppchen \"{{button}}\" klicken oder selwer eng Noriicht schreiwen.",
   "ai_work": "KI bei der Aarbecht",
   "camera": {
     "start": "Start der Kamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Aktioun confirméiert",
     "actionRejected": "D'Aktioun gouf erfollegräich annuléiert",
+    "button": {
+      "opt-in": "a kréien Informatiounen",
+      "opt-out": "an haalt mech net um Laafenden"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Sidd Dir sécher, datt Dir keng Aktualiséierungen iwwer de Fortschrëtt vun dëser an anere Campagnen wëllt kréien?",
+        "opt-in": "Jo, ech wëll Campagne-Updates.",
+        "opt-out": "Nee, keng Aktualisatiounen w.e.g."
+      }
+    },
     "confirm": "<0>Sidd Dir sécher?</0><1> Andeems Dir 'Nee' auswielt, kënnt Dir net erausfannen ob dës Campagne erfollegräich ass, oder ob et méi Aktioune gëtt, déi mir zesumme mussen ënnerhuelen fir ze gewannen. Wann Dir 'Jo' auswielt, halen mir Iech iwwer dës an eis aner dréngend Campagnen um Lafenden.</1><2>Dir kënnt Iech zu all Moment ofmellen.</2>",
     "confirmAction": "Rufft w.e.g. d'E-Mail direkt ob a klickt op de Link deen se enthält (kuckt Äre Spam-Dossier!).\n Nëmmen da wäert Är Aktioun zielen!\nÄr Bestätegung ass entscheedend fir d'politesch Gewiicht vun der Aktioun. Dëst garantéiert datt et eng real Persoun hannert all Soumissioun ass. Mir waarden op Är Bestätegung ...",
     "confirmOptIn": "Vergiesst net Är Mailbox ze kontrolléieren (inklusiv Äre Spam-Dossier!)",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Aschreiwung confirméiert",
     "processing": "Är perséinlech Informatioune ginn privat a sécher gehal. Andeems Dir Informatioun iwwermëttelt, weist Dir Iech averstanen mat der Benotzung vun Daten a Cookien am Aklang mat eiser <1>Privatsphär Politik</1>",
     "processing-nocookie": "Är perséinlech Informatioune ginn privat a sécher gehal. Mat der Iwwermëttlung vun Informatiounen weist Dir Iech averstanen mat der Benotzung vun Daten am Aklang mat eiser <1>Privatsphär Politik</1>",
-    "required": "Är Zoustëmmung ass néideg fir matzemaachen",
-    "button": {
-      "opt-in": "a kréien Informatiounen",
-      "opt-out": "an haalt mech net um Laafenden"
-    }
+    "required": "Är Zoustëmmung ass néideg fir matzemaachen"
   },
   "customize_text": "Mir encouragéieren Iech, et ze liesen an unzepassen, fir säi Impakt ze maximéieren.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Dat Format soll DD.MM.YYYY sinn."
+  },
+  "gender": {
+    "female": "weiblech",
+    "male": "Mann",
+    "na": "Léiw net soen",
+    "trans": "net-binär"
   },
   "give_another": "Generéiert en aneren",
   "help_write": "Hëlleft mir et ze schreiwen.",
@@ -252,10 +266,7 @@
     "screenName": "Twitter-Kont"
   },
   "unknown postcode": "onbekannt Postleitzuel",
+  "url": "Websäit vun der Organisatioun",
   "yes": "Jo",
-  "you need to be 18 years old": "Dir musst 18 Joer al sinn",
-  "progressGoal": {
-    "default": "Loosst eis op {{goal}}",
-    "sign": "Loosst eis {{goal}} erreechen"
-  }
+  "you need to be 18 years old": "Dir musst 18 Joer al sinn"
 }

@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
+  "ai_tip": "Možete ovdje umetnuti markirane točke za izradu teksta i kliknuti gumb \"{{button}}\" ili sami napisati poruku.",
   "ai_work": "UI generira odgovor",
   "camera": {
     "start": "pokreni kameru",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Akcija potvrđena",
     "actionRejected": "Akcija je uspješno otkazana",
+    "button": {
+      "opt-in": "i primaj informacije",
+      "opt-out": "i nemoj me obavještavati"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Jeste li sigurni da ne želite primati obavijesti o napretku ove i drugih kampanja?",
+        "opt-in": "Da, želim obavijesti o kampanji.",
+        "opt-out": "Ne, molim bez ažuriranja."
+      }
+    },
     "confirm": "<0>Sigurno?</0><1>Ako odabereš „Ne”, nećemo te moći obavijestiti o uspjesima kampanje te da li su potrebne daljnje zajedničke akcije kako bismo pobijedili. Ako odabereš „Da”, nastaviti ćemo te obaviještavati o ovoj i o budućim kampanjama.</1><2>Odjaviti se možeš u bilo kojem trenutku.</2>",
     "confirmAction": "Pronađi e-mail i klikni na poveznicu u poruci (provjeri mapu neželjene pošte!).\n Tek tada će se tvoja akcija uračunati!\nTvoja je potvrda ključna za političku težinu akcije. To jamči da iza svakog podneska stoji stvarna osoba. Čekamo na tvoju potvrdu …",
     "confirmOptIn": "Provjeri svoj poštanski sandučić (uključujući mapu neželjene pošte!) i potvrdi pretplatu na e-poštu",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Pretplata potvrđena",
     "processing": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka i kolačića u skladu s našim <1>pravilima o privatnosti</1> podataka",
     "processing-nocookie": "Tvoji osobni podatci biti će privatni i sigurni. Slanjem pristaješ na korištenje podataka u skladu s našim <1>pravilima o privatnosti</1> podataka",
-    "required": "Za sudjelovanje je potrebna tvoja suglasnost",
-    "button": {
-      "opt-in": "i primaj informacije",
-      "opt-out": "i nemoj me obavještavati"
-    }
+    "required": "Za sudjelovanje je potrebna tvoja suglasnost"
   },
   "customize_text": "Pročitaj i prilagodi tekst za maksimiziranje utjecaja poruke",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "format mora biti DD.MM.YYYY"
   },
+  "gender": {
+    "female": "Žensko",
+    "male": "Muški",
+    "na": "Radije ne želim reći",
+    "trans": "Ne-binarno"
+  },
   "give_another": "Generiraj drugi odgovor",
   "help_write": "Želim pomoć u pisanju odgovora",
   "image": {
@@ -194,7 +208,7 @@
   },
   "progressGoal": {
     "default": "Sljedeći cilj je: {{goal}}",
-    "sign": "Dosegnimo {{goal}}"
+    "sign": "Idemo u {{goal}}"
   },
   "read more": "saznaj više",
   "region": "Regija",
@@ -252,9 +266,7 @@
     "screenName": "Twitter račun"
   },
   "unknown postcode": "nepoznat poštanski broj",
+  "url": "Web stranica organizacije",
   "yes": "da",
-  "you need to be 18 years old": "moraš imati 18 godina",
-  "progressGoal": {
-    "default": "Sljedeći cilj je: {{goal}}"
-  }
+  "you need to be 18 years old": "moraš imati 18 godina"
 }

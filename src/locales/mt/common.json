@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Intelliġenza Artifiċjali kitbet dan il-messaġġ, nħeġġuk taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
+  "ai_tip": "Tista' iżżid punti tal-bullet għall-ħolqien tat-test hawnhekk u tikklikkja l-buttuna \"{{button}}\" jew tikteb messaġġ int stess.",
   "ai_work": "Intelliġenza Artifiċjali fil-post tax-xogħol",
   "camera": {
     "start": "ibda l-kamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Azzjoni kkonfermata",
     "actionRejected": "L-azzjoni ġiet ikkanċellata b'suċċess",
+    "button": {
+      "opt-in": "u tirċievi informazzjoni",
+      "opt-out": "u iżżommniex infurmat"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Inti ċert li ma tridx tirċievi aġġornamenti dwar il-progress ta' din u kampanji oħra?",
+        "opt-in": "Iva, nixtieq aġġornamenti tal-kampanja",
+        "opt-out": "Le, le aġġornamenti jekk jogħġbok"
+      }
+    },
     "confirm": "<0> Int ċert? </0> <1> Billi tagħżel 'Le', ma tkunx tista 'ssir taf jekk din il-kampanja tirnexxix, jew jekk hemmx aktar azzjoni li rridu nieħdu flimkien biex nirbħuha. Jekk tagħżel 'Iva' inżommuk aġġornat dwar dan u l-kampanji urġenti l-oħra tagħna. </1> <2> Tista 'tħassar l-abbonament fi kwalunkwe ħin. </2> <3> Iva </3>",
     "confirmAction": "Bgħatna link ta' konferma bl-email fl-indirizz li ġej:\n {{email}}\nJekk jogħġbok irkupra l-email dritt issa u kklikkja fuq il-link li fiha (iċċekkja l-folder tal-ispam tiegħek!).\n Hekk biss se tgħodd l-azzjoni tiegħek!\nIl-konferma tiegħek hija kruċjali għall-piż politiku tal-azzjoni. Dan jiggarantixxi li hemm persuna reali wara kull sottomissjoni. Nistennew il-konferma tiegħek...",
     "confirmOptIn": "Tinsiex tiċċekkja l-kaxxa postali tiegħek (inkluż il-folder tal-ispam tiegħek!) U tikkonferma l-abbonament tal-email tiegħek",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abbonament ikkonfermat",
     "processing": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni int taqbel mal-użu ta ’dejta u cookies skont il-<1> politika ta’ privatezza tagħna </1>",
     "processing-nocookie": "L-informazzjoni personali tiegħek tinżamm privata u tinżamm sikura. Billi tissottometti informazzjoni qed taqbel mal-użu tad-dejta skont il-<1> politika ta ’privatezza </1> tagħna",
-    "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa",
-    "button": {
-      "opt-in": "u tirċievi informazzjoni",
-      "opt-out": "u iżżommniex infurmat"
-    }
+    "required": "Il-kunsens tiegħek huwa meħtieġ biex tipparteċipa"
   },
   "customize_text": "Ninkoraġġuk biex taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Il-format għandu jkun DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Nisa",
+    "male": "Raġel",
+    "na": "Preferi ma ngħidx",
+    "trans": "Mhux binarju"
   },
   "give_another": "Ġenera ieħor",
   "help_write": "Għinni niktebha",
@@ -252,9 +266,7 @@
     "screenName": "Kont ta' Twitter"
   },
   "unknown postcode": "kodiċi postali mhux magħruf",
+  "url": "Websajt tal-Organizzazzjoni",
   "yes": "iva",
-  "you need to be 18 years old": "trid tkun 18-il sena",
-  "progressGoal": {
-    "default": "Ejja mmorru għal {{goal}}"
-  }
+  "you need to be 18 years old": "trid tkun 18-il sena"
 }

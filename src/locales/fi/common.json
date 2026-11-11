@@ -17,13 +17,13 @@
   "Locality": "Sijainti",
   "Next": "Seuraava",
   "Organisation": "Organisaatio",
-  "Other": "Muu",
+  "Other": "Muut",
   "Phone": "Puhelin",
   "Postal Code": "Postinumero",
   "Salutation": "Tervehdys",
   "Shareable link": "Jaettava linkki",
   "Sorry, we couldn't save": "Valitettavasti emme voineet tallentaa",
-  "Street": "Street",
+  "Street": "Kadun nimi",
   "Subject": "Aihe",
   "Thank you": "Kiitos",
   "Your message": "Viestisi",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Tekoäly kirjoitti tämän viestin, kehotamme sinua lukemaan sen ja muokkaamaan sitä sen vaikutuksen maksimoimiseksi.",
+  "ai_tip": "Voit lisätä tähän luettelomerkkejä tekstin luomista varten ja napsauttaa painiketta ”{{button}} ” tai kirjoittaa viestin itse",
   "ai_work": "Tekoäly työssä",
   "camera": {
     "start": "käynnistä kamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Toiminta vahvistettu",
     "actionRejected": "Toimenpide peruutettiin onnistuneesti",
+    "button": {
+      "opt-in": "ja vastaanottaa tietoja",
+      "opt-out": "eikä pidä minua ajan tasalla"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Oletko varma, ettet halua saada päivityksiä tämän ja muiden kampanjoiden etenemisestä?",
+        "opt-in": "Kyllä, haluan saada kampanjauutisia",
+        "opt-out": "Ei, ei päivityksiä, kiitos"
+      }
+    },
     "confirm": "<0> Oletko varma? </0> <1> Valitsemalla Ei, et pysty selvittämään, onko tämä kampanja onnistunut vai onko meidän tehtävä muita toimia yhdessä sen voittamiseksi. Jos valitset Kyllä, pidämme sinut ajan tasalla tästä ja muista kiireellisistä kampanjoistamme. </1> <2> Voit peruuttaa tilauksen milloin tahansa. </2>",
     "confirmAction": "Olemme lähettäneet vahvistuslinkin sähköpostitse seuraavaan osoitteeseen:\n {{email}}\nPyydämme sinua noutamaan sähköpostiviestin heti ja klikkaamaan sen sisältämää linkkiä (tarkista roskapostikansiosi!).\n Vasta sen jälkeen toimintasi lasketaan!\nVahvistuksesi on ratkaisevan tärkeä toiminnan poliittisen painoarvon kannalta. Näin taataan, että jokaisen lähetyksen takana on oikea henkilö. Odotamme vahvistustasi...",
     "confirmOptIn": "Muista tarkistaa postilaatikkosi (myös roskapostikansiosi!) ja vahvistaa sähköpostitilauksesi.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Tilaus vahvistettu",
     "processing": "Henkilötietosi suojataan asianmukaisesti eikä niitä jaeta eteenpäin kolmansille osapuolille. Allekirjoitamalla vetoomuksen hyväksyt tietojesi ja evästeiden käytön <1> tietosuojaselosteemme </1> mukaisesti",
     "processing-nocookie": "Henkilötietosi pidetään yksityisinä ja turvallisesti. Lähettämällä tietoja hyväksyt tietojen ja evästeiden käytön <1> tietosuojakäytäntömme </1> mukaisesti",
-    "required": "Osallistuminen edellyttää suostumustasi",
-    "button": {
-      "opt-in": "ja vastaanottaa tietoja",
-      "opt-out": "eikä pidä minua ajan tasalla"
-    }
+    "required": "Osallistuminen edellyttää suostumustasi"
   },
   "customize_text": "Kannustamme sinua lukemaan ja muokkaamaan sitä, jotta sen vaikutus olisi mahdollisimman suuri.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Muodon pitäisi olla DD.MM.YYYY."
+  },
+  "gender": {
+    "female": "Nainen",
+    "male": "Mies",
+    "na": "En halua sanoa",
+    "trans": "Ei-binäärinen"
   },
   "give_another": "Anna minulle toinen",
   "help_write": "Auta minua kirjoittamaan se",
@@ -252,6 +266,7 @@
     "screenName": "Twitter-tili"
   },
   "unknown postcode": "tuntematon postinumero",
+  "url": "Organisaation verkkosivusto",
   "yes": "kyllä",
   "you need to be 18 years old": "sinun on oltava 18-vuotias"
 }

@@ -46,6 +46,7 @@
     "twitter": "Kirjuta suhtlusvõrgus X"
   },
   "ai_check": "Selle sõnumi on kirjutanud tehisintellektuaal, soovitame teil seda lugeda ja kohandada, et selle mõju oleks võimalikult suur",
+  "ai_tip": "Siia saate teksti koostamiseks lisada loetelupunkte ja klõpsata nuppu „{{button}} “ või kirjutada sõnumi ise",
   "ai_work": "AI tööl",
   "camera": {
     "start": "käivita kaamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Tegevus kinnitatud",
     "actionRejected": "Tegevuse katkestamine õnnestus",
+    "button": {
+      "opt-in": "ja saada teavet",
+      "opt-out": "ja ei teavita mind"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Kas oled kindel, et ei soovi saada teavet selle ja teiste kampaaniate käigu kohta?",
+        "opt-in": "Jah, soovin saada kampaaniaga seotud uudiseid",
+        "opt-out": "Ei, palun mitte ühtegi uuendust"
+      }
+    },
     "confirm": "<0> Kas oled kindel? </0> <1> Valides „Ei“, ei saa sa teada, kas see kampaania on edukas või on selle saavutamiseks vaja veel ühiseid meetmeid. Kui valid „Jah“, teavitame sind sellest ja teistest kiireloomulistest kampaaniatest. </1> <2> Võid tellimuse igal ajal tühistada. </2>",
     "confirmAction": "Palun loe seda e-kirja kohe ja klõpsa selles leiduvale lingile (kui kirja pole saabunud, siis kontrolli oma rämpsposti kausta!).\n Ainult siis sinu tehtud on mõju!\nSinu kinnitus on aktsiooni poliitilise kaalu seisukohalt ülioluline. See tagab, et iga avalduse taga on reaalne inimene. Ootame sinu kinnitust...",
     "confirmOptIn": "Ära unusta kontrollida oma postkasti (sh vajadusel rämpsposti kausta!) ja kinnitada oma e-posti tellimust",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Tellimus kinnitatud",
     "processing": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustute andmete ja küpsiste kasutamisega vastavalt meie <1> privaatsuseeskirjadele </1>",
     "processing-nocookie": "Sinu isikuandmeid hoitakse privaatselt ja turvaliselt. Teabe edastamisega nõustud andmete ja küpsiste kasutamisega vastavalt meie <1>privaatsuseeskirjadele</1>",
-    "required": "Osalemiseks on vaja teie nõusolekut",
-    "button": {
-      "opt-in": "ja saada teavet",
-      "opt-out": "ja ei teavita mind"
-    }
+    "required": "Osalemiseks on vaja teie nõusolekut"
   },
   "customize_text": "Et mõju olem parim võimalik, siis me julgustame sind seda lugema ja kohandama",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "vorming peaks olema DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Naine",
+    "male": "Mees",
+    "na": "Eelistan mitte öelda",
+    "trans": "Mittebinaarne"
   },
   "give_another": "Anna mulle veel üks",
   "help_write": "Aita mul seda kirjutada",
@@ -255,6 +269,7 @@
     "screenName": "Twitteri konto"
   },
   "unknown postcode": "tundmatu postiindeks",
+  "url": "Organisatsiooni veebisait",
   "yes": "jah",
   "you need to be 18 years old": "pead olema 18-aastane"
 }

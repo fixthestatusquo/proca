@@ -23,7 +23,7 @@
   "Salutation": "Üdvözlés",
   "Shareable link": "Megosztható link",
   "Sorry, we couldn't save": "Sajnáljuk, nem sikerült megmenteni",
-  "Street": "Street",
+  "Street": "Utcanév",
   "Subject": "Tárgy:",
   "Thank you": "Köszönjük",
   "Your message": "Az Ön üzenete",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Ezt az üzenetet egy mesterséges intelligencia írta, javasoljuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
+  "ai_tip": "Itt beilleszthet felsorolási pontokat a szöveg megírásához, majd rákattinthat a „{{button}} ” gombra, vagy saját maga is írhat üzenetet",
   "ai_work": "AI munka közben",
   "camera": {
     "start": "indítsa el a kamerát",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Megerősített intézkedés",
     "actionRejected": "A művelet sikeresen törlésre került",
+    "button": {
+      "opt-in": "és információkat kaphat",
+      "opt-out": "és nem tájékoztatnak engem"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Biztosan nem szeretnél értesítéseket kapni ennek és más kampányoknak az előrehaladásáról?",
+        "opt-in": "Igen, szeretnék kampányhíreket kapni",
+        "opt-out": "Nem, kérem, ne küldjenek frissítéseket"
+      }
+    },
     "confirm": "<0>Biztos vagy benne?</0> <1> A „Nem” kiválasztásával nem fogsz értesülni róla, hogy a kampány sikeres-e, vagy lesznek-e egyéb akcióink a témában, amihez csatlakozhatsz. Ha az “Igen” lehetőséget választod, akkor folyamatosan tájékoztatunk majd erről a kampányról, és egyéb, jövőbeni kampányainkról is. </1> <2>Ezekről a levelekről bármikor leiratkozhatsz.</2>",
     "confirmAction": "Küldtünk egy megerősítő linket e-mailben az alábbi címre:\n {{email}}\nKérjük, hogy most azonnal hívja le az e-mailt, és kattintson a benne található linkre (ellenőrizze a spam mappát!).\n Csak akkor számít az akciója!\nAz Ön megerősítése döntő fontosságú az akció politikai súlya szempontjából. Ez garantálja, hogy minden beadvány mögött egy valós személy áll. Várjuk a megerősítésedet...",
     "confirmOptIn": "Ne felejtse el ellenőrizni postafiókját (beleértve a spam mappát is!) és erősítse meg e-mail feliratkozását!",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Előfizetés megerősítve",
     "processing": "Személyes adataidat bizalmasan kezeljük. Az információk megadásával elfogadod adataid és a sütik használatát <1>adatvédelmi irányelveinknek</1> megfelelően",
     "processing-nocookie": "Személyes adatait bizalmasan kezeljük. Az információk benyújtásával Ön elfogadja az adatok és a sütik használatát az <1> adatvédelmi irányelveinknek </1> megfelelően",
-    "required": "A részvételhez az Ön hozzájárulása szükséges",
-    "button": {
-      "opt-in": "és információkat kaphat",
-      "opt-out": "és nem tájékoztatnak engem"
-    }
+    "required": "A részvételhez az Ön hozzájárulása szükséges"
   },
   "customize_text": "Arra bátorítjuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "a formátumnak DD.MM.YYYY-nek kell lennie."
   },
+  "gender": {
+    "female": "Nő",
+    "male": "Férfi",
+    "na": "Inkább nem mondanám meg",
+    "trans": "Nem bináris"
+  },
   "give_another": "Adj még egy",
   "help_write": "Segíts megírni",
   "image": {
@@ -191,6 +205,10 @@
     "share": "{{total}} megosztották.",
     "sign": "{{total}} fő aláírta.",
     "twitter": "{{total}} twitteltek."
+  },
+  "progressGoal": {
+    "default": "Menjünk a {{goal}}",
+    "sign": "Célozzuk meg a(z) {{goal}} aláírást"
   },
   "read more": "tovább",
   "region": "Régió",
@@ -248,10 +266,7 @@
     "screenName": "Twitter fiók"
   },
   "unknown postcode": "ismeretlen irányítószám",
+  "url": "A szervezet honlapja",
   "yes": "igen",
-  "you need to be 18 years old": "18 évesnek kell lenned",
-  "progressGoal": {
-    "default": "Menjünk a {{goal}}",
-    "sign": "Célozzuk meg a(z) {{goal}} aláírást"
-  }
+  "you need to be 18 years old": "18 évesnek kell lenned"
 }

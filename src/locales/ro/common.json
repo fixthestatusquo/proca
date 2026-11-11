@@ -3,7 +3,7 @@
   "Amount": "Sumă",
   "Another": "Un alt",
   "Birthdate": "Data nasterii",
-  "City": "Orașul",
+  "City": "Oras",
   "Comment": "Comentariu",
   "Copied!": "Copiat!",
   "Copy to clipboard": "Copiere în clipboard",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Un AI a scris acest mesaj, vă încurajăm să îl citiți și să îl personalizați pentru a-i maximiza impactul",
+  "ai_tip": "Aici puteți insera puncte pentru crearea textului și puteți face clic pe butonul „{{button}} ” sau puteți scrie un mesaj chiar dumneavoastră",
   "ai_work": "IA la lucru",
   "camera": {
     "start": "porniți camera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Acțiune confirmată",
     "actionRejected": "Acțiunea a fost anulată cu succes",
+    "button": {
+      "opt-in": "și să primească informații",
+      "opt-out": "și nu mă țineți la curent"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Ești sigur că nu vrei să primești noutăți despre evoluția acestei campanii și a altora?",
+        "opt-in": "Da, doresc să primesc noutăți despre campanie",
+        "opt-out": "Nu, vă rog, fără actualizări"
+      }
+    },
     "confirm": "<0> Sunteți sigur? </0> <1> Selectând „Nu”, nu veți putea afla dacă această campanie are succes sau dacă trebuie să luăm mai multe măsuri împreună pentru a o câștiga. Dacă selectați „Da”, vă vom ține la curent cu acest lucru și cu celelalte campanii urgente. </1> <2> Vă puteți dezabona în orice moment. </2>",
     "confirmAction": "Am trimis un link de confirmare prin e-mail la următoarea adresă:\n {{email}}.\nVă rugăm să preluați e-mailul chiar acum și să faceți clic pe link-ul pe care îl conține (verificați dosarul de spam!).\n Doar atunci acțiunea dumneavoastră va conta!\nConfirmarea dvs. este crucială pentru greutatea politică a acțiunii. Acest lucru garantează că în spatele fiecărei propuneri se află o persoană reală. Așteptăm confirmarea dumneavoastră...",
     "confirmOptIn": "Nu uitați să vă verificați căsuța poștală (inclusiv folderul de spam!) și să confirmați abonarea la e-mail.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonament confirmat",
     "processing": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
     "processing-nocookie": "Informațiile dvs. personale vor fi păstrate private și păstrate în siguranță. Prin trimiterea informațiilor, sunteți de acord cu utilizarea datelor și a cookie-urilor în conformitate cu <1> politica noastră de confidențialitate </1>",
-    "required": "Consimțământul dumneavoastră este necesar pentru a participa",
-    "button": {
-      "opt-in": "și să primească informații",
-      "opt-out": "și nu mă țineți la curent"
-    }
+    "required": "Consimțământul dumneavoastră este necesar pentru a participa"
   },
   "customize_text": "Vă încurajăm să citiți mesajul și îl personalizați pentru a-i maximiza impactul",
   "date": {
@@ -155,6 +163,12 @@
   "error": {
     "date": "formatul trebuie să fie DD.MM.AAAA"
   },
+  "gender": {
+    "female": "Femeie",
+    "male": "Bărbat",
+    "na": "Prefer să nu spun",
+    "trans": "Non-binar"
+  },
   "give_another": "Generează alt mesaj",
   "help_write": "Ajută-mă să o scriu",
   "image": {
@@ -191,6 +205,10 @@
     "share": "{{total}} au împărtășit.",
     "sign": "{{total}} au semnat.",
     "twitter": "{{total}} au twittat."
+  },
+  "progressGoal": {
+    "default": "Să mergem la {{goal}}",
+    "sign": "Hai să strângem {{goal}}"
   },
   "read more": "citește mai mult",
   "region": "Regiunea",
@@ -248,10 +266,7 @@
     "screenName": "Cont Twitter"
   },
   "unknown postcode": "cod poștal necunoscut",
+  "url": "Site-ul organizației",
   "yes": "da",
-  "you need to be 18 years old": "trebuie să ai 18 ani",
-  "progressGoal": {
-    "default": "Să mergem la {{goal}}",
-    "sign": "Hai să strângem {{goal}}"
-  }
+  "you need to be 18 years old": "trebuie să ai 18 ani"
 }

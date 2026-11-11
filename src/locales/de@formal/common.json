@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Diese Nachricht wurde von einer KI verfasst. Wir empfehlen Ihnen, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren.",
+  "ai_tip": "Sie können hier Aufzählungspunkte für die Texterstellung einfügen und auf die Schaltfläche „{{button}} “ klicken oder selbst eine Nachricht verfassen",
   "ai_work": "KI bei der Arbeit",
   "camera": {
     "start": "Starten Sie die Kamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
+    "button": {
+      "opt-in": "und erhalten Informationen",
+      "opt-out": "und halten Sie mich nicht auf dem Laufenden"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Sind Sie sicher, dass Sie keine Informationen über den Fortschritt dieser und anderer Kampagnen erhalten möchten?",
+        "opt-in": "Ja, ich möchte über den aktuellen Stand der Kampagne informiert werden",
+        "opt-out": "Nein, bitte keine Updates"
+      }
+    },
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie 'Ja' wählen, werden wir Sie über diese und unsere anderen dringenden Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion gezählt!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. So können Sie sicher sein, dass hinter jeder Einreichung eine echte Person steht. Wir warten auf Ihre Bestätigung...",
     "confirmOptIn": "Vergessen Sie nicht, Ihren Posteingang zu überprüfen (einschließlich Ihres Spam-Ordners!) und Ihr E-Mail-Abonnement zu bestätigen.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonnement bestätigt",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "required": "Ihre Zustimmung ist für die Teilnahme erforderlich",
-    "button": {
-      "opt-in": "und erhalten Informationen",
-      "opt-out": "und halten Sie mich nicht auf dem Laufenden"
-    }
+    "required": "Ihre Zustimmung ist für die Teilnahme erforderlich"
   },
   "customize_text": "Wir ermutigen Sie, ihn zu lesen und anzupassen, um seine Wirkung zu maximieren",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Format sollte DD.MM.YYYY sein"
+  },
+  "gender": {
+    "female": "Weiblich",
+    "male": "Männlich",
+    "na": "Möchte ich lieber nicht sagen",
+    "trans": "Nicht-binär"
   },
   "give_another": "Geben Sie mir noch eine",
   "help_write": "Helfen Sie mir, ihn zu schreiben",
@@ -252,6 +266,7 @@
     "screenName": "Twitter-Konto"
   },
   "unknown postcode": "unbekannte Postleitzahl",
+  "url": "Website der Organisation",
   "yes": "ja",
   "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
 }

@@ -10,7 +10,7 @@
   "Country": "Quốc gia",
   "Download": "Tải xuống",
   "Download explanation": "Tài liệu của bạn hiện đã sẵn sàng, chúng tôi cũng đang gửi nó qua email cho bạn",
-  "Email": "E-mail",
+  "Email": "Email",
   "First name": "Họ",
   "Language": "Ngôn ngữ",
   "Last name": "Họ",
@@ -30,7 +30,7 @@
   "action": {
     "consultation": "Gửi",
     "default": "Hãy hành động",
-    "donate": "Quyên tặng",
+    "donate": "Đóng góp",
     "eci": "Ký ECI",
     "email": "Gửi Email",
     "join": "Tham gia",
@@ -46,6 +46,7 @@
     "twitter": "tiếng riu ríu"
   },
   "ai_check": "Thông điệp này được viết bởi trí tuệ nhân tạo (AI). Chúng tôi khuyến khích bạn đọc và tùy chỉnh nó để tối đa hóa tác động của nó.",
+  "ai_tip": "Bạn có thể chèn các dấu đầu dòng để soạn thảo văn bản tại đây và nhấp vào nút “{{button}} ” hoặc tự viết thông điệp của mình",
   "ai_work": "Trí tuệ nhân tạo trong công việc",
   "camera": {
     "start": "khởi động máy ảnh",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Đã xác nhận hành động",
     "actionRejected": "Hành động đã được hủy thành công",
+    "button": {
+      "opt-in": "và nhận thông tin",
+      "opt-out": "và không thông báo cho tôi"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Bạn có chắc là không muốn nhận thông tin cập nhật về tiến độ của chiến dịch này cũng như các chiến dịch khác không?",
+        "opt-in": "Vâng, tôi muốn nhận thông tin cập nhật về chiến dịch",
+        "opt-out": "Không, xin đừng cập nhật"
+      }
+    },
     "confirm": "<0> Bạn có chắc chắn không? </0> <1> Bằng cách chọn 'Không', bạn sẽ không thể tìm hiểu xem chiến dịch này có thành công hay không hay chúng ta cần phải thực hiện thêm hành động nào để giành chiến thắng. Nếu bạn chọn 'Có', chúng tôi sẽ cập nhật cho bạn về điều này và các chiến dịch khẩn cấp khác của chúng tôi. </1> <2> Bạn có thể hủy đăng ký bất kỳ lúc nào. </2>",
     "confirmAction": "Vui lòng truy xuất email ngay bây giờ và nhấp vào liên kết trong đó (kiểm tra thư mục thư rác của bạn!).\n Chỉ khi đó hành động của bạn mới có giá trị!\nXác nhận của bạn là rất quan trọng đối với sức nặng chính trị của hành động. Điều này đảm bảo rằng có một người thực sự đứng sau mỗi lần gửi. Chúng tôi sẽ chờ xác nhận của bạn ...",
     "confirmOptIn": "Đừng quên kiểm tra hộp thư của bạn (bao gồm cả thư mục spam của bạn!) Và xác nhận đăng ký email của bạn",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Đăng ký đã được xác nhận",
     "processing": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu và cookie theo <1> chính sách bảo mật </1> của chúng tôi",
     "processing-nocookie": "Thông tin cá nhân của bạn sẽ được giữ kín và bảo mật. Bằng cách gửi thông tin, bạn đồng ý với việc sử dụng dữ liệu theo <1> chính sách bảo mật </1> của chúng tôi",
-    "required": "Cần có sự đồng ý của bạn để tham gia",
-    "button": {
-      "opt-in": "và nhận thông tin",
-      "opt-out": "và không thông báo cho tôi"
-    }
+    "required": "Cần có sự đồng ý của bạn để tham gia"
   },
   "customize_text": "Chúng tôi khuyến khích quý vị đọc và tùy chỉnh tài liệu này để tối đa hóa hiệu quả của nó.",
   "date": {
@@ -113,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Thực hiện khoản đóng góp này hàng tuần?",
-        "oneoff": "Quyên tặng",
+        "oneoff": "Đóng góp",
         "weekly": "Thực hiện hàng tháng?"
       },
       "each": {
@@ -135,7 +143,7 @@
     "payment": "Thanh toán",
     "payment_methods": {
       "card": "Thẻ",
-      "default": "Quyên tặng",
+      "default": "Đóng góp",
       "intro": "Bạn muốn tặng như thế nào?",
       "paypal": "PayPal",
       "sepa": "SEPA",
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Định dạng nên là DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Nữ",
+    "male": "Nam",
+    "na": "Không muốn nói",
+    "trans": "Không phân biệt giới tính"
   },
   "give_another": "Tạo thêm một cái khác",
   "help_write": "Giúp tôi viết nó.",
@@ -252,6 +266,7 @@
     "screenName": "Tài khoản Twitter"
   },
   "unknown postcode": "mã bưu điện không xác định",
+  "url": "Trang web của tổ chức",
   "yes": "Đúng",
   "you need to be 18 years old": "bạn cần đủ 18 tuổi"
 }

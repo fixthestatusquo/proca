@@ -10,7 +10,7 @@
   "Country": "País",
   "Download": "Transferências",
   "Download explanation": "O seu documento está agora pronto, estamos a enviar-lhe também por e-mail.",
-  "Email": "E-mail",
+  "Email": "Correio eletrónico",
   "First name": "Nome",
   "Language": "Linguagem",
   "Last name": "Apelido",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Esta mensagem foi escrita por uma IA. Recomendamos que a leia e a personalize para maximizar o seu impacto",
+  "ai_tip": "Pode inserir marcadores para criar texto aqui e clicar no botão «{{button}} » ou escrever uma mensagem por si próprio",
   "ai_work": "A IA no trabalho",
   "camera": {
     "start": "iniciar a câmera",
@@ -53,11 +54,21 @@
     "take-another": "pegue outro"
   },
   "closed": "##Obrigado às {{total}} pessoas que assinaram!\n\nEncerrámos esta petição, mas o nosso trabalho não acaba aqui. **Deixa o teu email para te informarmos sobre os próximos passos**",
-
   "confirm": "Tem certeza?",
   "consent": {
     "actionConfirmed": "Acção confirmada",
     "actionRejected": "A acção foi cancelada com sucesso",
+    "button": {
+      "opt-in": "e receba informações",
+      "opt-out": "e não me mantenha informado"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Tem a certeza de que não quer receber atualizações sobre o andamento desta e de outras campanhas?",
+        "opt-in": "Sim, quero receber atualizações sobre a campanha",
+        "opt-out": "Não, por favor, não me enviem atualizações"
+      }
+    },
     "confirm": "<0>Tem a certeza?</0><<1>Se selecionar 'Não', não conseguirá descobrir se esta campanha tem sucesso ou se há mais ação que precisamos de tomar em conjunto para a ganhar. Se selecionar 'Sim', mantê-lo-emos atualizado sobre esta e as nossas outras campanhas urgentes.</1><<2> Pode cancelar a sua inscrição a qualquer momento.</2>",
     "confirmAction": "Enviamos um link de confirmação por e-mail para o seguinte endereço:\n {{email}}\nPor favor, recupere o e-mail agora mesmo e clique no link que ele contém (verifique sua pasta de spam!).\n Só então a sua acção contará!\nA sua confirmação é crucial para o peso político da acção. Isto garante que há uma pessoa real por trás de cada envio. Nós aguardaremos a sua confirmação...",
     "confirmOptIn": "Não se esqueça de verificar sua caixa de correio (incluindo sua pasta de spam!) e confirmar sua assinatura de e-mail",
@@ -70,11 +81,7 @@
     "optInConfirmed": "Subscrição confirmada",
     "processing": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
     "processing-nocookie": "As suas informações pessoais serão mantidas em sigilo e em segurança. Ao submeter informação está a concordar com o uso de dados e cookies de acordo com a nossa <1> política de privacidade</1>",
-    "required": "O seu consentimento é necessário para participar",
-    "button": {
-      "opt-in": "e receba informações",
-      "opt-out": "e não me mantenha informado"
-    }
+    "required": "O seu consentimento é necessário para participar"
   },
   "customize_text": "Convidamo-lo a ler e a personalizá-lo para maximizar o seu impacto",
   "date": {
@@ -156,6 +163,12 @@
   "error": {
     "date": "O formato deve ser DD.MM.AAAA"
   },
+  "gender": {
+    "female": "Feminino",
+    "male": "Masculino",
+    "na": "Prefiro não dizer",
+    "trans": "Não binário"
+  },
   "give_another": "Dê-me outro",
   "help_write": "Ajuda-me a escrevê-lo",
   "image": {
@@ -192,6 +205,10 @@
     "share": "{{total}} compartilharam.",
     "sign": "{{total}} assinaram.",
     "twitter": "{{total}} tuitou."
+  },
+  "progressGoal": {
+    "default": "Vamos para {{goal}}",
+    "sign": "Vamos até {{goal}}"
   },
   "read more": "consulte Mais informação",
   "region": "Região",
@@ -249,10 +266,7 @@
     "screenName": "Conta no Twitter"
   },
   "unknown postcode": "código postal desconhecido",
+  "url": "Site da organização",
   "yes": "sim",
-  "you need to be 18 years old": "você precisa ter 18 anos de idade",
-  "progressGoal": {
-    "default": "Vamos para {{goal}}",
-    "sign": "Vamos até {{goal}}"
-  }
+  "you need to be 18 years old": "você precisa ter 18 anos de idade"
 }

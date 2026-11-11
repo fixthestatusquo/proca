@@ -58,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Aktion bestätigt",
     "actionRejected": "Die Aktion wurde erfolgreich abgebrochen",
+    "button": {
+      "opt-in": "und Informationen erhalten",
+      "opt-out": "und keine infos erhalten"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Bist du sicher, dass du keine Updates zum Fortschritt dieser und anderer Kampagnen erhalten möchtest?",
+        "opt-in": "Ja, ich möchte über den aktuellen Stand der Kampagne informiert werden",
+        "opt-out": "Nein, bitte keine Updates"
+      }
+    },
     "confirm": "<0>Sind Sie sicher?</0><1>Wenn Sie 'Nein' wählen, werden Sie nicht erfahren, ob diese Kampagne erfolgreich ist oder ob wir gemeinsam weitere Maßnahmen ergreifen müssen, um sie zu gewinnen. Wenn Sie \"Ja\" wählen, werden wir Sie über diese und andere dringende Kampagnen auf dem Laufenden halten.</1><2>Sie können sich jederzeit abmelden.</2>",
     "confirmAction": "Bitte rufen Sie die E-Mail sofort ab und klicken Sie auf den darin enthaltenen Link (überprüfen Sie Ihren Spam-Ordner!).\n Nur dann wird Ihre Aktion zählen!\nIhre Bestätigung ist entscheidend für das politische Gewicht der Aktion. Damit ist gewährleistet, dass hinter jeder Einreichung eine reale Person steht. Wir warten auf Ihre Bestätigung...",
     "confirmOptIn": "Vergessen Sie nicht, Ihre Mailbox zu überprüfen (auch Ihren Spam-Ordner!) und Ihr E-Mail zu bestätigen",
@@ -70,11 +81,7 @@
     "optInConfirmed": "Abonnement bestätigt",
     "processing": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten und Cookies gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
     "processing-nocookie": "Ihre persönlichen Daten werden vertraulich behandelt und sicher aufbewahrt. Mit der Übermittlung von Informationen erklären Sie sich mit der Verwendung von Daten gemäß unserer <1>Datenschutzrichtlinie</1> einverstanden.",
-    "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich",
-    "button": {
-      "opt-in": "und Informationen erhalten",
-      "opt-out": "und keine infos erhalten"
-    }
+    "required": "Für die Teilnahme ist Ihre Zustimmung erforderlich"
   },
   "customize_text": "Wir ermutigen Sie, sie zu lesen und anzupassen, um ihre Wirkung zu maximieren",
   "date": {
@@ -156,6 +163,12 @@
   "error": {
     "date": "Format sollte DD.MM.YYYY sein"
   },
+  "gender": {
+    "female": "Weiblich",
+    "male": "Männlich",
+    "na": "Möchte ich lieber nicht sagen",
+    "trans": "Nicht-binär"
+  },
   "give_another": "Nochmal versuchen",
   "help_write": "Ich will Hilfe beim Schreiben",
   "image": {
@@ -192,6 +205,10 @@
     "share": "{{total}} haben es geteilt.",
     "sign": "{{total}} haben unterzeichnet.",
     "twitter": "{{total}} haben getwittert."
+  },
+  "progressGoal": {
+    "default": "Schaffen wir {{goal}}?",
+    "sign": "Gehen wir zu {{goal}}"
   },
   "read more": "weiterlesen",
   "region": "Region",
@@ -249,9 +266,7 @@
     "screenName": "Twitter-Konto"
   },
   "unknown postcode": "unbekannte Postleitzahl",
+  "url": "Website der Organisation",
   "yes": "ja",
-  "you need to be 18 years old": "Sie müssen 18 Jahre alt sein",
-  "progressGoal": {
-    "default": "Schaffen wir {{goal}}?"
-  }
+  "you need to be 18 years old": "Sie müssen 18 Jahre alt sein"
 }

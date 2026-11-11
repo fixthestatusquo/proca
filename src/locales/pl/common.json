@@ -46,6 +46,7 @@
     "twitter": "Tweetnij"
   },
   "ai_check": "Ta wiadomość została napisana przez sztuczną inteligencję, zachęcamy do jej przeczytania i dostosowania, aby zmaksymalizować jej wpływ",
+  "ai_tip": "W tym miejscu możesz wstawić punktory do tekstu, a następnie kliknąć przycisk „{{button}} ” lub samodzielnie wpisać wiadomość",
   "ai_work": "Sztuczna inteligencja w pracy",
   "camera": {
     "start": "uruchom kamerkę",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Działanie potwierdzone",
     "actionRejected": "Akcja została anulowana pomyślnie",
+    "button": {
+      "opt-in": "i otrzymywać informacje",
+      "opt-out": "i nie informuj mnie na bieżąco"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Czy na pewno nie chcesz otrzymywać informacji o postępach tej i innych kampanii?",
+        "opt-in": "Tak, chcę otrzymywać aktualności dotyczące kampanii",
+        "opt-out": "Nie, proszę o brak aktualizacji"
+      }
+    },
     "confirm": "<0>Czy na pewno? </0><1>Wybierając 'Nie', nie będziesz mógł się dowiedzieć, czy ta kampania jest skuteczna, czy też trzeba podjąć dalsze działania, aby ją wygrać. Jeśli wybierzesz 'Tak', będziemy Cię informować o tej i innych naszych kampaniach.</1><2>W każdej chwili możesz zrezygnować z subskrypcji.</2>.",
     "confirmAction": "Wysłaliśmy link potwierdzający drogą mailową.\nProsimy o natychmiastowe odebranie tego maila i kliknięcie na zawarty w nim link (sprawdź folder spam!). Tylko wtedy Państwa działanie będzie się liczyło!\nTwoje potwierdzenie jest kluczowe dla politycznej wagi akcji. To gwarantuje, że za każdym zgłoszeniem stoi prawdziwa osoba. Czekamy na Twoje potwierdzenie...",
     "confirmOptIn": "Nie zapomnij sprawdzić swojej skrzynki pocztowej (w tym folderu spamu!) i potwierdzić subskrypcji e-maila",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Subskrypcja została potwierdzona",
     "processing": "Twoje dane osobowe będą przechowywane w sposób bezpieczny. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych i plików cookie zgodnie z naszą <1>polityką prywatności</1>",
     "processing-nocookie": "Twoje dane osobowe będą zachowane w tajemnicy i bezpiecznie przechowywane. Przesyłając informacje wyrażasz zgodę na wykorzystanie danych zgodnie z naszą <1>polityką prywatności</1>",
-    "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika",
-    "button": {
-      "opt-in": "i otrzymywać informacje",
-      "opt-out": "i nie informuj mnie na bieżąco"
-    }
+    "required": "Aby wziąć udział w programie, potrzebna jest zgoda użytkownika"
   },
   "customize_text": "Zachęcamy do zapoznania się z nim i dostosowania go, aby zmaksymalizować jego wpływ",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "format powinien być DD.MM.RRRR"
+  },
+  "gender": {
+    "female": "Kobieta",
+    "male": "Mężczyzna",
+    "na": "Wolę nie odpowiadać",
+    "trans": "Niebinarne"
   },
   "give_another": "Daj mi jeszcze jeden",
   "help_write": "Pomóż mi to napisać",
@@ -252,6 +266,7 @@
     "screenName": "Konto na Twitterze"
   },
   "unknown postcode": "nieznany kod pocztowy",
+  "url": "Strona internetowa organizacji",
   "yes": "tak",
   "you need to be 18 years old": "musisz mieć ukończone 18 lat"
 }

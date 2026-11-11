@@ -46,6 +46,7 @@
     "twitter": "Cicëroni"
   },
   "ai_check": "Një inteligjencë artificiale shkroi këtë mesazh, ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
+  "ai_tip": "Ju mund të futni pika për krijimin e tekstit këtu dhe të klikoni butonin \"{{button}}\" ose të shkruani vetë një mesazh.",
   "ai_work": "Inteligjenca artificiale në punë",
   "camera": {
     "start": "nisni kamerën",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Veprimi u konfirmua",
     "actionRejected": "Veprimi u anulua me sukses",
+    "button": {
+      "opt-in": "dhe merrni informacion",
+      "opt-out": "dhe mos më mbani të informuar"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "A jeni të sigurt që nuk dëshironi të merrni përditësime mbi përparimin e kësaj dhe të fushatave të tjera?",
+        "opt-in": "Po, dua përditësime të fushatës.",
+        "opt-out": "Jo, jo përditësime, ju lutem."
+      }
+    },
     "confirm": "<0>A jeni i sigurt?</0><1>Duke zgjedhur 'Jo', nuk do të mund të dini nëse kjo fushatë ka sukses, apo nëse ka më shumë veprime që duhet të ndërmarrim së bashku për ta fituar atë. Nëse zgjidhni 'Po', ne do t'ju mbajmë të informuar për këtë dhe për fushatat tona të tjera urgjente.</1><2>Mund të çregjistroheni në çdo kohë.</2>",
     "confirmAction": "Ju lutemi kontrolloni emailin tuaj tani dhe klikoni në lidhjen që përmban (kontrolloni dosjen e spamit!).\n Vetëm atëherë veprimi juaj do të llogaritet!\nKonfirmimi juaj është thelbësor për peshën politike të veprimit. Kjo garanton që pas çdo dorëzimi ka një person të vërtetë. Ne do të presim konfirmimin tuaj...",
     "confirmOptIn": "Mos harroni të kontrolloni kutinë tuaj postare (përfshirë dosjen e spam-it!) dhe të konfirmoni pajtimin tuaj me email",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Pajtim i konfirmuar",
     "processing": "Të dhënat tuaja personale do të ruhen në mënyrë konfidenciale dhe të sigurt. Duke dërguar këtë informacion, ju pranoni përdorimin e të dhënave dhe gjurmëve digjitale sipas <1>politikës sonë të privatësisë</1>.",
     "processing-nocookie": "Informacioni juaj personal do të mbahet privat dhe i sigurt. Duke dorëzuar informacionin, ju pranoni përdorimin e të dhënave në përputhje me <1>politikën tonë të privatësisë</1>",
-    "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë",
-    "button": {
-      "opt-in": "dhe merrni informacion",
-      "opt-out": "dhe mos më mbani të informuar"
-    }
+    "required": "Pëlqimi juaj është i nevojshëm për të marrë pjesë"
   },
   "customize_text": "Ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "formati duhet të jetë DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Femër",
+    "male": "Mashkull",
+    "na": "Preferoj të mos them",
+    "trans": "Jo-binare"
   },
   "give_another": "Gjeneroni një tjetër",
   "help_write": "Më ndihmo ta shkruaj",
@@ -255,9 +269,7 @@
     "screenName": "Llogaria në Twitter"
   },
   "unknown postcode": "kod postar i panjohur",
+  "url": "Faqja e organizatës",
   "yes": "po",
-  "you need to be 18 years old": "duhet të jeni 18 vjeç",
-  "progressGoal": {
-    "default": "Le të arrijmë te {{goal}}"
-  }
+  "you need to be 18 years old": "duhet të jeni 18 vjeç"
 }

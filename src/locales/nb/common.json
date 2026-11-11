@@ -35,7 +35,7 @@
     "email": "Send e-post",
     "join": "Bli med",
     "pledge": "Gi ditt bidrag nå!",
-    "register": "Registrere",
+    "register": "Registrer deg",
     "remindeSent": "Påminnelse sendt",
     "reminder": "Minn meg på det senere",
     "reminderEmail": "Påminn meg via e-post",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Denne meldingen er skrevet av en AI, og vi oppfordrer deg til å lese og tilpasse den for å maksimere effekten",
+  "ai_tip": "Her kan du legge inn punktlister når du skriver tekst, og deretter klikke på knappen «{{button}} » eller skrive en melding selv",
   "ai_work": "AI på jobb",
   "camera": {
     "start": "start kameraet",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Tiltak bekreftet",
     "actionRejected": "Aksjonen ble kansellert.",
+    "button": {
+      "opt-in": "og motta informasjon",
+      "opt-out": "og ikke holde meg informert"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Er du sikker på at du ikke ønsker å motta oppdateringer om fremdriften i denne og andre kampanjer?",
+        "opt-in": "Ja, jeg ønsker å motta oppdateringer om kampanjen",
+        "opt-out": "Nei, ingen oppdateringer, takk"
+      }
+    },
     "confirm": "<0>Er du sikker?</0><1>Velger du \"Nei\", vil du ikke kunne finne ut om denne kampanjen er vellykket, eller om det er mer vi må gjøre sammen for å vinne den. Hvis du velger \"Ja\", vil vi holde deg oppdatert om denne og andre viktige kampanjer.</1><2>Du kan når som helst avslutte abonnementet.</2> </0><3>Du kan når som helst avslutte abonnementet.",
     "confirmAction": "Hent e-posten nå og klikk på lenken den inneholder (sjekk søppelpostmappen din!).\n Først da vil aksjonen din telle!\nDin bekreftelse er avgjørende for aksjonens politiske tyngde. Dette garanterer at det står en ekte person bak hver innsending. Vi venter på din bekreftelse...",
     "confirmOptIn": "Ikke glem å sjekke postkassen din (inkludert søppelpostmappen!) og bekreft e-postabonnementet ditt.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abonnement bekreftet",
     "processing": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av data og informasjonskapsler i samsvar med vår <1>personvernerklæring</1>.",
     "processing-nocookie": "Personopplysningene dine vil bli holdt private og oppbevart på en sikker måte. Ved å sende inn informasjon godtar du bruken av opplysningene i samsvar med vår <1>personvernerklæring</1>.",
-    "required": "Ditt samtykke er nødvendig for å delta",
-    "button": {
-      "opt-in": "og motta informasjon",
-      "opt-out": "og ikke holde meg informert"
-    }
+    "required": "Ditt samtykke er nødvendig for å delta"
   },
   "customize_text": "Vi oppfordrer deg til å lese og tilpasse den for å maksimere effekten",
   "date": {
@@ -113,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Gjør dette til en ukentlig donasjon?",
-        "oneoff": "Donere",
+        "oneoff": "Gi en gave",
         "weekly": "Gjør det månedlig?"
       },
       "each": {
@@ -135,7 +143,7 @@
     "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
-      "default": "Donere",
+      "default": "Gi en gave",
       "intro": "Hvordan ønsker du å donere?",
       "paypal": "PayPal",
       "sepa": "SEPA",
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Formatet skal være DD.MM.ÅÅÅÅÅ."
+  },
+  "gender": {
+    "female": "Kvinne",
+    "male": "Mann",
+    "na": "Vil helst ikke si noe",
+    "trans": "Ikke-binær"
   },
   "give_another": "Gi meg en til",
   "help_write": "Hjelp meg å skrive det",
@@ -252,6 +266,7 @@
     "screenName": "Twitter-konto"
   },
   "unknown postcode": "ukjent postnummer",
+  "url": "Organisasjonens nettsted",
   "yes": "ja",
   "you need to be 18 years old": "du må være 18 år gammel"
 }

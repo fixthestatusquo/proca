@@ -3,7 +3,7 @@
   "Amount": "Importo",
   "Another": "Un altro",
   "Birthdate": "Data di nascita",
-  "City": "Città",
+  "City": "Comune",
   "Comment": "Commento",
   "Copied!": "Copiato!",
   "Copy to clipboard": "Copia negli appunti",
@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Un'intelligenza artificiale ha scritto questo messaggio, vi invitiamo a leggerlo e a personalizzarlo per massimizzarne l'impatto.",
+  "ai_tip": "Qui puoi inserire elenchi puntati per creare il testo e cliccare sul pulsante \"{{button}}\" oppure scrivere tu stesso un messaggio",
   "ai_work": "L'intelligenza artificiale al lavoro",
   "camera": {
     "start": "avviare la telecamera",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Azione confermata",
     "actionRejected": "L'azione è stata annullata con successo",
+    "button": {
+      "opt-in": "e ricevere informazioni",
+      "opt-out": "e non mi tenete informato"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Sei sicuro di non voler ricevere aggiornamenti sull'andamento di questa e di altre campagne?",
+        "opt-in": "Sì, desidero ricevere aggiornamenti sulla campagna",
+        "opt-out": "No, per favore, niente aggiornamenti"
+      }
+    },
     "confirm": "<0>Sei sicuro/a? </0><1>Selezionando «No», non sarai in grado di scoprire se questa campagna ha successo, o se ci sono altre azioni che dobbiamo intraprendere insieme per vincerla. Se selezioni «Sì» ti terremo aggiornato su questa e sulle altre nostre campagne urgenti.</1><2>Puoi cancellarti in qualsiasi momento.</2>",
     "confirmAction": "Per favore, recupera subito l'e-mail e clicca sul collegamento che contiene (controlla la tua cartella spam!).\n Solo allora la vostra azione conterà!\nLa tua conferma è fondamentale per il peso politico dell'azione. Questo garantisce che c'è una persona reale dietro ogni presentazione. Aspettiamo la tua conferma…",
     "confirmOptIn": "Non dimenticare di controllare la tua casella di posta elettronica (compresa la cartella dello spam!) e confermare la tua iscrizione alle e-mail",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Abbonamento confermato",
     "processing": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando le informazioni si accetta l'uso dei dati e dei cookie in conformità con la nostra <1>politica sulla privacy</1>.",
     "processing-nocookie": "Le tue informazioni personali saranno mantenute private e conservate in modo sicuro. Inviando informazioni si accetta l'uso dei dati in conformità con la nostra <1>politica sulla privacy</1>.",
-    "required": "Per partecipare è necessario il vostro consenso",
-    "button": {
-      "opt-in": "e ricevere informazioni",
-      "opt-out": "e non mi tenete informato"
-    }
+    "required": "Per partecipare è necessario il vostro consenso"
   },
   "customize_text": "Vi invitiamo a leggerlo e a personalizzarlo per massimizzarne l'impatto.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Il formato deve essere GG.MM.AAAA"
+  },
+  "gender": {
+    "female": "Donna",
+    "male": "Maschio",
+    "na": "Preferisco non dirlo",
+    "trans": "Non binario"
   },
   "give_another": "Dammi un altro",
   "help_write": "Aiutami a scriverlo",
@@ -252,6 +266,7 @@
     "screenName": "Account Twitter"
   },
   "unknown postcode": "codice postale sconosciuto",
+  "url": "Sito web dell'organizzazione",
   "yes": "sì",
   "you need to be 18 years old": "devi avere 18 anni"
 }
