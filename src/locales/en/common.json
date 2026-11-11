@@ -168,6 +168,12 @@
   "error": {
     "date": "format should be DD.MM.YYYY"
   },
+  "gender": {
+    "female": "Female",
+    "male": "Male",
+    "na": "Prefer not to say",
+    "trans": "Trans"
+  },
   "image": {
     "addSticker": "add stickers",
     "addStickerTitle": "Click/Tap to add a sticker to the picture",

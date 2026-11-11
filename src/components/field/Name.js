@@ -1,5 +1,3 @@
-
-
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
 import Salutation from "@components/field/Gender";
@@ -22,7 +20,12 @@ const Name = ({ form, compact, classes, classField, enforceRequired }) => {
   return (
     <>
       {withSalutation && (
-        <Salutation form={form} compact={compact} classes={classes} />
+        <Salutation
+          form={form}
+          compact={compact}
+          classes={classes}
+          required={enforceRequired}
+        />
       )}
       <Grid item xs={12} sm={nameWidth("firstname")} className={classField}>
         <TextField
