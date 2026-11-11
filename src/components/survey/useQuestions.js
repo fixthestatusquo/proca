@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // config fields carry the whole question definition, same shape as the remote json
 export const localizeConfigQuestions = config => {
   const { t } = i18next;
-  const questions = config?.component?.survey.fields;
+  const questions = config?.component?.consultation?.fields;
   if (!questions) return [];
 
   return questions.map(q => ({
