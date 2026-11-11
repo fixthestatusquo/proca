@@ -110,9 +110,10 @@ const Widget = ({ steps: providedSteps, ...props }) => {
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
   document.querySelectorAll(props.selector).forEach(dom => {
-    // script tag data-* (config.data) are the lowest precedence
-    data = { ...config.data, ...dom.dataset, ...cookies, ...storage, ...data };
+    // script tag data-* (config.data) + .proca-widget data-*, the div winning
+    config.data = { ...config.data, ...dom.dataset };
   });
+  data = { ...config.data, ...cookies, ...storage, ...data };
 
   config.param = getAllData(config.selector);
   //config.locales = Object.assign(config.locales, getOverwriteLocales());
