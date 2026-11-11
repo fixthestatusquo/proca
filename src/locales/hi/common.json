@@ -143,7 +143,7 @@
     "payment": "भुगतान",
     "payment_methods": {
       "card": "कार्ड",
-      "default": "दान देना",
+      "default": "दान करें",
       "intro": "आप कैसे दान करना चाहते हैं?",
       "paypal": "पेपैल",
       "sepa": "SEPA",
