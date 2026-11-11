@@ -97,7 +97,10 @@ const TextFieldProca = props => {
         let handleChange = onChange;
         let handleBlur = onBlur;
         if (props.onBlur) {
-          handleBlur = e => onBlur(e) && props.onBlur(e);
+          handleBlur = e => {
+            onBlur(e);
+            props.onBlur(e);
+          };
         }
 
         if (props.onChange) {
@@ -107,10 +110,7 @@ const TextFieldProca = props => {
           };
         }
         let classesname = `${classes.textField} proca-${props.name.toLowerCase()}`;
-        if (
-          errors?.[props.name] &&
-          errors[props.name].type === "warning"
-        )
+        if (errors?.[props.name] && errors[props.name].type === "warning")
           classesname += ` ${classes.warning}`;
         if (props.disabled) {
           classesname += " Mui-readonly";
@@ -124,13 +124,11 @@ const TextFieldProca = props => {
             value={value || ""}
             onBlur={handleBlur}
             className={classesname}
-            error={!!(errors?.[props.name])}
+            error={!!errors?.[props.name]}
             variant={layout.variant}
             margin={layout.margin}
             inputRef={refA}
-            helperText={
-              errors?.[props.name] && errors[props.name].message
-            }
+            helperText={errors?.[props.name] && errors[props.name].message}
             {...drillProps}
             required={props.required || false}
           />
