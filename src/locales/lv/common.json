@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Šo ziņu uzrakstīja mākslīgais intelekts, un mēs aicinām jūs to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
+  "ai_tip": "Šeit varat ievietot uzskaitījuma punktus teksta veidošanai un noklikšķināt uz pogas „{{button}} ” vai arī pašrocīgi uzrakstīt ziņu",
   "ai_work": "Mākslīgais intelekts darbā",
   "camera": {
     "start": "palaidiet kameru",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Rīcība apstiprināta",
     "actionRejected": "Darbība tika veiksmīgi atcelta",
+    "button": {
+      "opt-in": "un saņemt informāciju",
+      "opt-out": "un neinformē mani"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Vai tiešām nevēlaties saņemt jaunumus par šīs un citu kampaņu norisi?",
+        "opt-in": "Jā, es vēlos saņemt jaunumus par kampaņu",
+        "opt-out": "Nē, lūdzu, nekādu atjauninājumu"
+      }
+    },
     "confirm": "<0> Vai esat pārliecināts? </0> <1> Izvēloties “Nē”, Jūs nevarēsiet saņemt ziņas par šīs kampaņas rezultātiem. Ja izvēlēsieties “Jā”, mēs informēsim Jūs par šo un citām kampaņām. </1> <2> Jūs varat pārtraukt ziņu saņemšanu jebkurā laikā. </2>",
     "confirmAction": "Mēs esam nosūtījuši apstiprinājuma saiti uz šādu e-pasta adresi:\n {{email}}.\nLūdzu, saņemiet e-pastu tieši tagad un noklikšķiniet uz tajā esošās saites (pārbaudiet savu surogātpasta mapi!).\n Tikai tad jūsu darbība tiks ieskaitīta!\nJūsu apstiprinājumam ir izšķiroša nozīme, lai akcija būtu politiski nozīmīga. Tas garantē, ka aiz katra iesnieguma stāv reāla persona. Mēs gaidīsim jūsu apstiprinājumu...",
     "confirmOptIn": "Neaizmirstiet pārbaudīt savu pastkasti (ieskaitot surogātpasta mapi!) un apstiprināt e-pasta abonēšanu.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Apstiprināta abonēšana",
     "processing": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu un sīkfailu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
     "processing-nocookie": "Jūsu personiskā informācija tiks glabāta kā privāta un droša. Iesniedzot informāciju, jūs piekrītat datu izmantošanai saskaņā ar mūsu <1> konfidencialitātes politiku </1>",
-    "required": "Lai nosūtītu epastu, jāatzīmē viena no izvēlēm.",
-    "button": {
-      "opt-in": "un saņemt informāciju",
-      "opt-out": "un neinformē mani"
-    }
+    "required": "Lai nosūtītu epastu, jāatzīmē viena no izvēlēm."
   },
   "customize_text": "Aicinām to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "formātam jābūt DD.MM.GGGGG."
+  },
+  "gender": {
+    "female": "Sieviete",
+    "male": "Vīrietis",
+    "na": "Vēlos to neatklāt",
+    "trans": "Ne-binārs"
   },
   "give_another": "Dodiet man vēl vienu",
   "help_write": "Palīdziet man to uzrakstīt",
@@ -252,6 +266,7 @@
     "screenName": "Twitter konts"
   },
   "unknown postcode": "nezināms pasta indekss",
+  "url": "Organizācijas tīmekļa vietne",
   "yes": "jā",
   "you need to be 18 years old": "jums jābūt 18 gadus vecam"
 }
