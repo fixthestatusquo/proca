@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Šią žinutę parašė dirbtinis intelektas, raginame ją perskaityti ir pritaikyti, kad ji būtų kuo paveikesnė.",
+  "ai_tip": "Čia galite įterpti punktus, kuriuose bus pateiktas tekstas, ir paspausti mygtuką „{{button}} “ arba patys parašyti pranešimą",
   "ai_work": "Dirbtinis intelektas darbe",
   "camera": {
     "start": "įjungti fotoaparatą",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "Patvirtintas veiksmas",
     "actionRejected": "Veiksmas sėkmingai atšauktas",
+    "button": {
+      "opt-in": "ir gauti informaciją",
+      "opt-out": "ir neinformuokite manęs"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Ar tikrai nenorite gauti naujienų apie šios ir kitų kampanijų eigą?",
+        "opt-in": "Taip, noriu gauti naujienas apie kampaniją",
+        "opt-out": "Ne, prašau, jokių naujienų"
+      }
+    },
     "confirm": "<0> Ar tikrai? </0> <1> Pasirinkę „Ne“, negalėsite sužinoti, ar ši kampanija yra sėkminga, ar reikia imtis daugiau veiksmų, kad ją laimėtume. Jei pasirinksite „Taip“, informuosime jus apie šią ir kitas skubias kampanijas. </1> <2> Galite bet kada atsisakyti prenumeratos. </2>",
     "confirmAction": "Patvirtinimo nuorodą išsiuntėme el. paštu šiuo adresu:\n {{email}}.\nPrašome dabar atsiimti laišką ir spustelėti jame esančią nuorodą (patikrinkite nepageidaujamų laiškų aplanką!).\n Tik tada jūsų veiksmas bus įskaitytas!\nJūsų patvirtinimas yra labai svarbus veiksmo politiniam svoriui. Taip užtikrinama, kad už kiekvieno pateikto dokumento slypi tikras asmuo. Lauksime jūsų patvirtinimo...",
     "confirmOptIn": "Nepamirškite patikrinti savo pašto dėžutės (įskaitant nepageidaujamų laiškų aplanką!) ir patvirtinti el. pašto prenumeratą.",
@@ -69,11 +81,7 @@
     "optInConfirmed": "Prenumerata patvirtinta",
     "processing": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate naudoti duomenis ir slapukus pagal mūsų <1> privatumo politiką </1>",
     "processing-nocookie": "Jūsų asmeninė informacija bus saugoma ir saugoma. Pateikdami informaciją sutinkate, kad duomenys būtų naudojami pagal mūsų <1> privatumo politiką </1>",
-    "required": "Norint dalyvauti, reikia jūsų sutikimo.",
-    "button": {
-      "opt-in": "ir gauti informaciją",
-      "opt-out": "ir neinformuokite manęs"
-    }
+    "required": "Norint dalyvauti, reikia jūsų sutikimo."
   },
   "customize_text": "Raginame jus perskaityti ir pritaikyti ją, kad poveikis būtų kuo didesnis.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "formatas turėtų būti DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Moteris",
+    "male": "Vyras",
+    "na": "Nenorėčiau atsakyti",
+    "trans": "Ne binarinis"
   },
   "give_another": "Duokite man dar vieną",
   "help_write": "Padėkite man jį parašyti",
@@ -252,6 +266,7 @@
     "screenName": "\"Twitter\" paskyra"
   },
   "unknown postcode": "nežinomas pašto indeksas",
+  "url": "Organizacijos svetainė",
   "yes": "taip",
   "you need to be 18 years old": "jums reikia 18 metu"
 }
