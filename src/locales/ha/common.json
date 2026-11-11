@@ -46,6 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Wani AI ne ya rubuta wannan saƙon, muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
+  "ai_tip": "Za ka iya saka alamomin bulo don ƙirƙirar rubutu anan sannan ka danna maɓallin \"{{button}}\" ko kuma ka rubuta saƙo da kanka",
   "ai_work": "AI a aiki",
   "camera": {
     "start": "fara kamara",
@@ -57,6 +58,17 @@
   "consent": {
     "actionConfirmed": "An tabbatar da aikin",
     "actionRejected": "An yi nasarar soke matakin",
+    "button": {
+      "opt-in": "da karɓar bayanai",
+      "opt-out": "kuma kar a bani labari"
+    },
+    "checkbox": {
+      "confirm": {
+        "intro": "Shin kun tabbata ba ku son karɓar sabbin bayanai game da ci gaban wannan da sauran kamfen?",
+        "opt-in": "Eh, ina so in sami sabuntawa kan yakin neman zabe.",
+        "opt-out": "A'a, kada a sabunta, don Allah."
+      }
+    },
     "confirm": "<0> Kun tabbata? </0> <1> Ta zaɓar 'A'a', ba za ku iya gano ko wannan kamfen ɗin ya yi nasara ba, ko kuma akwai ƙarin matakan da muke buƙatar ɗauka tare don cin nasara. Idan kuka zaɓi 'Ee' za mu ci gaba da sabunta ku game da wannan da sauran kamfen ɗin mu na gaggawa. </1> <2> Kuna iya yin rajista a kowane lokaci. </2>",
     "confirmAction": "Mun aika hanyar hanyar tabbatarwa ta imel zuwa adireshin mai zuwa:\n {{email}}\nDa fatan za a dawo da imel ɗin a yanzu kuma danna mahaɗin da ya ƙunshi (duba babban fayil ɗin spam!).\n Sai kawai aikinku zai ƙidaya!\nTabbatar da ku yana da mahimmanci ga nauyin siyasa na aikin. Wannan yana ba da tabbacin cewa akwai mutum na gaske a bayan kowane ƙaddamarwa. Za mu jira tabbacin ku...",
     "confirmOptIn": "Kar ku manta da duba akwatin wasiku (ciki har da babban fayil ɗin spam!) Kuma tabbatar da biyan kuɗin imel ɗin ku",
@@ -69,11 +81,7 @@
     "optInConfirmed": "An tabbatar da biyan kuɗi",
     "processing": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayanai kuna yarda da amfani da bayanai da kukis daidai da <1> manufar keɓancewar mu </1>",
     "processing-nocookie": "Za a kiyaye keɓaɓɓen bayaninka kuma a riƙe shi cikin aminci. Ta hanyar ƙaddamar da bayani kuna yarda da amfani da bayanai daidai da <1> manufar sirrinmu </1>",
-    "required": "Ana buƙatar izinin ku don shiga",
-    "button": {
-      "opt-in": "da karɓar bayanai",
-      "opt-out": "kuma kar a bani labari"
-    }
+    "required": "Ana buƙatar izinin ku don shiga"
   },
   "customize_text": "Muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
   "date": {
@@ -154,6 +162,12 @@
   },
   "error": {
     "date": "Tsarin ya kamata ya kasance DD.MM.YYYY"
+  },
+  "gender": {
+    "female": "Mace",
+    "male": "Namiji",
+    "na": "Ina so kada in faɗa",
+    "trans": "Ba biyu ba"
   },
   "give_another": "Kirkiri wani",
   "help_write": "Taimaka mini in rubuta shi",
@@ -252,10 +266,7 @@
     "screenName": "Asusun Twitter"
   },
   "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
+  "url": "Gidan Yanar Gizo na Kungiya",
   "yes": "iya",
-  "you need to be 18 years old": "kuna buƙatar zama shekaru 18",
-  "progressGoal": {
-    "default": "Mu je zuwa {{goal}}",
-    "sign": "Bari mu je {{goal}}"
-  }
+  "you need to be 18 years old": "kuna buƙatar zama shekaru 18"
 }
