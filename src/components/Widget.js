@@ -109,8 +109,15 @@ const Widget = ({ steps: providedSteps, ...props }) => {
     };
   }
   const storage = getItems(config.component.storage); //to check: is this used anywhere?
+  // the script tag is renamed id=proca by autoRender; read it here since the page
+  // may call proca.Widget() itself, which skips render(). (not querySelector("script#proca"):
+  // the widget div also carries id=proca, and a duplicate id breaks that selector)
+  const script = [...document.querySelectorAll("script")].find(
+    s => s.id === "proca"
+  );
+  config.data = { ...script?.dataset, ...config.data };
   document.querySelectorAll(props.selector).forEach(dom => {
-    // script tag data-* (config.data) + .proca-widget data-*, the div winning
+    // script tag data-* + .proca-widget data-*, the div winning
     config.data = { ...config.data, ...dom.dataset };
   });
   data = { ...config.data, ...cookies, ...storage, ...data };
