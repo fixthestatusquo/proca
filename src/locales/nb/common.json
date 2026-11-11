@@ -35,7 +35,7 @@
     "email": "Send e-post",
     "join": "Bli med",
     "pledge": "Gi ditt bidrag nå!",
-    "register": "Registrere",
+    "register": "Registrer deg",
     "remindeSent": "Påminnelse sendt",
     "reminder": "Minn meg på det senere",
     "reminderEmail": "Påminn meg via e-post",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Gjør dette til en ukentlig donasjon?",
-        "oneoff": "Donere",
+        "oneoff": "Gi en gave",
         "weekly": "Gjør det månedlig?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Betaling",
     "payment_methods": {
       "card": "Kort",
-      "default": "Donere",
+      "default": "Gi en gave",
       "intro": "Hvordan ønsker du å donere?",
       "paypal": "PayPal",
       "sepa": "SEPA",
