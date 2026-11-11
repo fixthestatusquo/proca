@@ -5,6 +5,8 @@
   "Birthdate": "Ranar haifuwa",
   "City": "Garin",
   "Comment": "Sharhi",
+  "Copied!": "An kwafa!",
+  "Copy to clipboard": "Kwafi zuwa allon yankewa",
   "Country": "Ƙasa",
   "Download": "Saukewa",
   "Download explanation": "Takardarku a yanzu ta shirya, mu ma muna aiko muku da imel.",
@@ -14,20 +16,25 @@
   "Last name": "Sunan mahaifa",
   "Locality": "Yanki",
   "Next": "Na gaba",
+  "Organisation": "Kungiya",
   "Other": "Sauran",
   "Phone": "Waya",
   "Postal Code": "Lambar gidan waya",
   "Salutation": "Sallama",
+  "Shareable link": "Mahadin da za a iya raba",
   "Sorry, we couldn't save": "Yi haƙuri, ba za mu iya ajiyewa ba",
   "Street": "Titin",
   "Subject": "Magana",
   "Thank you": "na gode",
   "Your message": "Sakon ku",
   "action": {
+    "consultation": "Aika",
+    "default": "Dauki mataki",
     "donate": "Ba da gudummawa",
     "eci": "eci",
     "email": "Aika imel",
     "join": "Shiga",
+    "pledge": "Yi alkawari yanzu!",
     "register": "Yi rijista",
     "remindeSent": "An aika da tunatarwa",
     "reminder": "Tunatar da ni daga baya",
@@ -38,6 +45,8 @@
     "takeAction": "Dauki Mataki!",
     "twitter": "Tweet"
   },
+  "ai_check": "Wani AI ne ya rubuta wannan saƙon, muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
+  "ai_work": "AI a aiki",
   "camera": {
     "start": "fara kamara",
     "take": "Ɗauki hoto",
@@ -66,6 +75,7 @@
       "opt-out": "kuma kar a bani labari"
     }
   },
+  "customize_text": "Muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
   "date": {
     "error": "kwanan wata. format: DD.MM.YYYY"
   },
@@ -122,6 +132,7 @@
     },
     "iban": "iban",
     "intro": "Ba da gudummawa ga {{campaign}}",
+    "payment": "Biyan kudi",
     "payment_methods": {
       "card": "Katin",
       "default": "Ba da gudummawa",
@@ -141,6 +152,11 @@
     "salutation_male": "Masoyi {{target.name}}",
     "salutation_placeholder": "Masoyi [mai karɓa],"
   },
+  "error": {
+    "date": "Tsarin ya kamata ya kasance DD.MM.YYYY"
+  },
+  "give_another": "Kirkiri wani",
+  "help_write": "Taimaka mini in rubuta shi",
   "image": {
     "addSticker": "ƙara lambobi",
     "addStickerTitle": "Danna/Taɓa don ƙara sitika zuwa hoto",
@@ -153,15 +169,35 @@
     "wanttoadd": "Kuna son ƙara hoto?"
   },
   "no": "a'a",
+  "party": "Biki",
+  "party_helper": "Danna chip ɗin jam'iyya don zaɓar duk membobinta",
+  "phone": {
+    "INVALID_COUNTRY": "Lamba ta ƙasa da ba ta nan ko ba ta da inganci",
+    "INVALID_LENGTH": "Tsawon ba daidai ba",
+    "MISSING": "Filin da ake buƙata",
+    "NOT_A_NUMBER": "Lamba ta waya ba ta da inganci",
+    "TOO_LONG": "Lamba ta yi tsawo",
+    "TOO_SHORT": "Lamba ta yi gajarta"
+  },
+  "postcode": {
+    "notFound": "Wannan lambar gidan waya ba ta bayyana a ƙasarku ba.",
+    "wrongLength": "Tsawon da ake tsammani na {{length}} ga ƙasarku"
+  },
   "progress": {
     "donate": "{{total}} sun ba da gudummawa.",
     "email": "{{total}} sun aika imel.",
+    "pledge": "{{total}} sun yi alkawari",
     "register": "{{total}} sun yi rajista.",
     "share": "{{total}} sun raba.",
     "sign": "{{total}} sun sanya hannu.",
     "twitter": "{{total}} sun yi sharhi."
   },
+  "progressGoal": {
+    "default": "Mu je zuwa {{goal}}",
+    "sign": "Bari mu je {{goal}}"
+  },
   "read more": "kara karantawa",
+  "region": "Yanki",
   "register": "Ƙara sunana",
   "reminder": {
     "intro": "Mun sani, gwamnatin ku tana neman bayanai da yawa. Za mu aiko muku da imel ɗaya don tunatar da ku cika fom daga baya"
@@ -173,6 +209,8 @@
     "m": "Mr.",
     "other": "Sauran"
   },
+  "select_all": "Zaɓi duka",
+  "select_options": "Za ka iya zaɓar har zuwa {{opt}}",
   "share": {
     "intro": "Da kyau, kun sanya hannu 👍. Don ninka tasirin ku, raba nesa da nesa don tabbatar da kowa ya ga wannan roƙon 🙏.",
     "message": "Ya kamata ku sa hannu kan wannan!",
@@ -183,18 +221,23 @@
       "secure": "amintacce"
     }
   },
+  "submit": "Aika",
   "supporter": {
+    "greeting": "Maraba {{firstname}}!",
     "not_you": "ba ka ba?",
     "welcome": "Barka da dawowa {{firstname}}!"
   },
   "supporterHint": "{{name}}, {{area}}",
+  "survey": "Bincike",
   "target": {
     "country": {
-      "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}"
+      "empty": "Zaɓi wata ƙasa, babu wanda za a tuntuɓar a {{country}}",
+      "undefined": "Zaɓi ƙasa"
     },
     "missing": "Zaɓi aƙalla ɗaya daga cikin {{total}}",
     "postcode": {
-      "empty": "babu wanda za a tuntuɓar a {{area}}"
+      "empty": "babu wanda za a tuntuɓar a {{area}}",
+      "undefined": "Shigar da lambar gidan wayarka"
     },
     "random_one": "An zaɓi ɗaya daga cikin mahimman maƙasudin mu {{total}}.",
     "random_other": "Zaɓi {{count}} na {{total}} mafi mahimmancin maƙasudin mu",
@@ -205,7 +248,8 @@
     "again": "Tweet zuwa wani mutum",
     "choice": "Me kuke so ku yi a gaba?",
     "instruction": "Da fatan za a kammala aika tweet a cikin sabuwar taga (a kan twitter.com)",
-    "organisation": "Asusun twitter kungiyar ku"
+    "organisation": "Asusun twitter kungiyar ku",
+    "screenName": "Asusun Twitter"
   },
   "unknown postcode": "lambar gidan waya wanda ba a san shi ba",
   "yes": "iya",

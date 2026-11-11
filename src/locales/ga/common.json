@@ -193,7 +193,8 @@
     "twitter": "Tá {{total}} tar éis tvuíteáil."
   },
   "progressGoal": {
-    "default": "A ligean ar {{goal}} a bhaint amach"
+    "default": "A ligean ar {{goal}} a bhaint amach",
+    "sign": "Téimis go {{goal}}"
   },
   "read more": "Leigh níos mó",
   "region": "Réigiún",
