@@ -58,7 +58,7 @@ const Observer = async (event, data, pii) => {
     }
     param.form_id = config.actionpage;
     param.form_goal = getGoal(config.component.register?.actionType);
-    param.form_contains_newsletter_subscribed = true; //TO CHECK
+    param.form_contains_newsletter_subscription = true; //TO CHECK
     if (config.component.sync?.promoCode?.default) {
       param.werbecode = config.component.sync.promoCode.default;
     }
