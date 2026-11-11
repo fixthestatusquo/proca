@@ -32,5 +32,11 @@
     "rules": {
       "recommended": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["test/**", "**/*.test.{js,jsx}"],
+      "assist": { "actions": { "source": { "organizeImports": "off" } } }
+    }
+  ]
 }
