@@ -1,12 +1,11 @@
-import { useEffect } from "react";
-import useData from "@hooks/useData";
-
 import TextField from "@components/field/TextField";
-import { useTranslation } from "react-i18next";
-import useGeoLocation from "react-ipgeolocation";
 import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
 import { useIsWindows } from "@hooks/useDevice";
 import { Container, Grid } from "@material-ui/core";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import useGeoLocation from "react-ipgeolocation";
 
 const emoji = country => {
   const offset = 127397;

@@ -1,14 +1,13 @@
-import { useEffect, useState, useMemo } from "react";
-import useData from "@hooks/useData";
-import { get } from "@lib/urlparser";
 import TextField from "@components/field/TextField";
+import { useCampaignConfig } from "@hooks/useConfig";
+import useData from "@hooks/useData";
+import { allCountries } from "@lib/i18n";
+import { get } from "@lib/urlparser";
+import Alert from "@material-ui/lab/Alert";
+import { useEffect, useMemo, useState } from "react";
+import { flag, useCountryFlag } from "react-emoji-flag";
 import { useTranslation } from "react-i18next";
 import useGeoLocation from "react-ipgeolocation";
-import { useCampaignConfig } from "@hooks/useConfig";
-import Alert from "@material-ui/lab/Alert";
-import { useCountryFlag, flag } from "react-emoji-flag";
-
-import { allCountries } from "@lib/i18n";
 //import countriesJson from "../data/countries.json";
 import countriesJson from "../../data/eu27.json";
 
