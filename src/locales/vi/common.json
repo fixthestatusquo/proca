@@ -10,7 +10,7 @@
   "Country": "Quốc gia",
   "Download": "Tải xuống",
   "Download explanation": "Tài liệu của bạn hiện đã sẵn sàng, chúng tôi cũng đang gửi nó qua email cho bạn",
-  "Email": "E-mail",
+  "Email": "Email",
   "First name": "Họ",
   "Language": "Ngôn ngữ",
   "Last name": "Họ",
@@ -30,7 +30,7 @@
   "action": {
     "consultation": "Gửi",
     "default": "Hãy hành động",
-    "donate": "Quyên tặng",
+    "donate": "Đóng góp",
     "eci": "Ký ECI",
     "email": "Gửi Email",
     "join": "Tham gia",
@@ -121,7 +121,7 @@
     "frequency": {
       "ask": {
         "monthly": "Thực hiện khoản đóng góp này hàng tuần?",
-        "oneoff": "Quyên tặng",
+        "oneoff": "Đóng góp",
         "weekly": "Thực hiện hàng tháng?"
       },
       "each": {
@@ -143,7 +143,7 @@
     "payment": "Thanh toán",
     "payment_methods": {
       "card": "Thẻ",
-      "default": "Quyên tặng",
+      "default": "Đóng góp",
       "intro": "Bạn muốn tặng như thế nào?",
       "paypal": "PayPal",
       "sepa": "SEPA",
