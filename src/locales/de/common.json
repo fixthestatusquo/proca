@@ -166,8 +166,8 @@
   "gender": {
     "female": "Weiblich",
     "male": "Männlich",
-    "na": "Möchte ich lieber nicht sagen",
-    "trans": "Nicht-binär"
+    "na": "Keine Angabe",
+    "trans": "Divers"
   },
   "give_another": "Nochmal versuchen",
   "help_write": "Ich will Hilfe beim Schreiben",
