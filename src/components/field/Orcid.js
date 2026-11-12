@@ -4,7 +4,10 @@ import OrcidIcon from "@images/OrcidLogo";
 import { decode } from "@lib/jwt";
 import { Button, SvgIcon } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 const Orcid = ({ form }) => {
+  const { t } = useTranslation();
   const config = useCampaignConfig();
   const [user, setUser] = useState(undefined);
   const clientId = config.component?.orcid?.clientId;
@@ -74,7 +77,7 @@ const Orcid = ({ form }) => {
           </SvgIcon>
         }
       >
-        {user?.orcid ? user.orcid : "Connect your ORCID ID"}
+        {user?.orcid ? user.orcid : t("orcid.connect", "Connect your ORCID ID")}
       </Button>
     </>
   );
