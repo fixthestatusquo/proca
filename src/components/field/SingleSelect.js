@@ -1,4 +1,3 @@
-
 import {
   FormControl,
   FormLabel,
@@ -58,6 +57,7 @@ const SingleSelect = ({
   children,
   row = undefined,
   required = false,
+  defaultValue = "",
   helperText = "",
   getOptionLabel = opt => opt.label ?? opt.text ?? opt,
   getOptionValue = opt => opt.value ?? opt.id ?? opt,
@@ -90,7 +90,7 @@ const SingleSelect = ({
       <Controller
         control={control}
         name={name}
-        defaultValue=""
+        defaultValue={defaultValue}
         rules={required ? { required: true } : {}}
         render={({ field }) => (
           <RadioGroup
