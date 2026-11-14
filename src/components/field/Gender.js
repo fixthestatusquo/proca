@@ -21,11 +21,16 @@ const Gender = ({ form, compact, classField, required }) => {
     },
   });
   // key = value submitted, value = symbol + name shown in the list, short = symbol only once selected
+  // display order follows the symbol map (female, male, trans, na), not the locale key order; unknown keys go last
+  const order = Object.keys(short);
+  const rank = k => {
+    const i = order.indexOf(k);
+    return i < 0 ? order.length : i;
+  };
   let genders = Object.fromEntries(
-    Object.entries(typeof names === "object" ? names : {}).map(([k, v]) => [
-      k,
-      short[k] ? `${short[k]} ${v}` : v,
-    ])
+    Object.entries(typeof names === "object" ? names : {})
+      .sort(([a], [b]) => rank(a) - rank(b))
+      .map(([k, v]) => [k, short[k] ? `${short[k]} ${v}` : v])
   );
   // required: Select pre-selects the first entry, so start with an empty one
   if (required) genders = { "": "", ...genders };
