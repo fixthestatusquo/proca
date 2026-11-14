@@ -30,7 +30,7 @@
   "action": {
     "consultation": "Seol",
     "default": "Glac gníomh",
-    "donate": "Síntiúis",
+    "donate": "Tabhair Síntiús",
     "eci": "eci",
     "email": "Seol Ríomhphost",
     "join": "Bígí",
@@ -46,7 +46,7 @@
     "twitter": "Tweet"
   },
   "ai_check": "Scríobh AI an teachtaireacht seo, molaimid duit í a léamh agus a shaincheapadh chun a tionchar a uasmhéadú",
-  "ai_tip": "Is féidir leat buillíní a chur isteach anseo chun téacs a chruthú agus an cnaipe \"{{button}}\" a chliceáil, nó teachtaireacht a scríobh tú féin.",
+  "ai_tip": "Is féidir leat pointí piléar a chur isteach anseo chun téacs a chruthú agus cliceáil ar an gcnaipe \"{{button}}\", nó teachtaireacht a scríobh tú féin",
   "ai_work": "AI ag an obair",
   "camera": {
     "start": "tús a chur leis an gceamara",
@@ -65,8 +65,8 @@
     "checkbox": {
       "confirm": {
         "intro": "An bhfuil tú cinnte nach dteastaíonn uait nuashonruithe a fháil ar dhul chun cinn an fheachtais seo agus feachtais eile?",
-        "opt-in": "Sea, ba mhaith liom nuashonruithe feachtais.",
-        "opt-out": "Ní hea, gan aon nuashonruithe, le do thoil."
+        "opt-in": "Sea, ba mhaith liom nuashonruithe feachtais",
+        "opt-out": "Ní hea, gan nuashonruithe, le do thoil"
       }
     },
     "confirm": "<0>An bhfuil tú cinnte?</0><1>Trí ‘Ní hea’ a roghnú, ní bheidh tú in ann a fháil amach an bhfuil ag éirí leis an bhfeachtas seo, nó an bhfuil tuilleadh beart a chaithfimid a dhéanamh le chéile chun é a bhuachan. Má roghnaíonn tú 'Tá' coinneoimid ar an eolas tú faoi seo agus faoi ár bhfeachtais phráinneacha eile.</1><2>Is féidir leat díliostáil am ar bith.</2>",
