@@ -57,6 +57,36 @@ The widget combines:
 - Merges it with campaign-defined overrides (titles, required flags, margins, translations)
 - Supports disabling remote fetch via `config.component.consultation.remote = false`
 
+### 3. Config-only questions (`survey/Index`)
+
+When the questions live entirely in the campaign config, import `survey/Index` instead of `survey/Main`. It renders `component.consultation.fields` and never fetches, so no `remote` flag is needed.
+
+```json
+{
+  "import": ["survey/Index"],
+  "component": {
+    "consultation": {
+      "fields": [
+        {
+          "id": "why",
+          "type": "MultipleChoiceQuestion",
+          "title": "Why?",
+          "maxChoices": 2,
+          "required": true,
+          "possibleAnswers": [
+            { "id": 1, "text": "Because", "dependentElementsString": "2" }
+          ]
+        },
+        { "id": 2, "type": "FreeTextQuestion", "title": "Tell us more" }
+      ]
+    },
+    "register": { "custom": { "bottom": ["survey_Index"] } }
+  }
+}
+```
+
+Every property of a field is passed through unchanged (same schema as the remote JSON). Only `title` and `possibleAnswers[].text` are looked up in `campaign:fields.<id>`, and `attributeName` defaults to `String(id)`.
+
 ### 4. Steps
 
 - **Step 0 – Survey:** renders dynamic questions via `<SurveyStep />` (citizen questions only)
