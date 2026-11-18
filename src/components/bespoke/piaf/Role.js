@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const roles = [
   "Student",
+  "PhD",
   "Researcher",
   "Head of institution",
   "Engineer",
