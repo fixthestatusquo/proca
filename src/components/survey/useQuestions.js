@@ -45,6 +45,14 @@ const useConsultJson = (name, lang = "en") => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         data.forEach(item => (item.attributeName = String(item.id)));
+        // a RankingQuestion's items are separate RankingItem elements pointing to it with `parent`
+        data
+          .filter(item => item.type === "RankingQuestion")
+          .forEach(ranking => {
+            ranking.items = data.filter(
+              item => item.type === "RankingItem" && item.parent === ranking.id
+            );
+          });
         remoteQuestions = data;
       } catch (err) {
         setError(err);
