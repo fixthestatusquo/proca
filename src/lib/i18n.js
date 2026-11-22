@@ -41,7 +41,14 @@ const languages = {
 const mainLanguage = (countryCode, single = true) => {
   // single: remove countries with multiple languages
   const l = languages[countryCode.toLowerCase()];
-  if (single && Array.isArray(l)) return null;
+  if (single && Array.isArray(l)) {
+    const browserLang = navigator.language.split('-')[0];
+    if (l.indexOf(browserLang) >= 0) {
+      return browserLang;
+    } else {
+      return null;
+    }
+  };
   return l;
 };
 
