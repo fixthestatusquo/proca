@@ -207,8 +207,7 @@
     "twitter": "{{total}} haben getwittert."
   },
   "progressGoal": {
-    "default": "Schaffen wir {{goal}}?",
-    "sign": "Gehen wir zu {{goal}}"
+    "default": "Schaffen wir {{goal}}?"
   },
   "read more": "weiterlesen",
   "region": "Region",
