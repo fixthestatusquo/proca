@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
   },
   markdown: {
+    backgroundColor: "inherit",
     color: theme.palette.text.primary,
     "& h1, & h2, & h3, & h4, & h5, & h6, & p, & strong, & em": {
       color: "inherit !important",
