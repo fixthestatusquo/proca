@@ -8,6 +8,7 @@ import {
 import TextField from "@components/field/TextField";
 import MultiSelectCheckbox from "@components/field/MultiSelect";
 import SingleSelect from "@components/field/SingleSelect";
+import Ranking from "@components/field/Ranking";
 import AITextField from "@components/field/AITextField";
 import SnowflakeTextField from "@components/field/SnowflakeTextField";
 import { useTranslation } from "react-i18next";
@@ -112,6 +113,19 @@ const Questions = ({ json, form, findQuestionById }) => {
           form={form}
           findQuestionById={findQuestionById}
         />
+      );
+
+    case "RankingQuestion":
+      return (
+        <Box className={classes.elementMarginTop} id={json.id}>
+          <Ranking
+            form={form}
+            name={json.attributeName}
+            label={json.title}
+            items={json.items || []}
+            required={json.required || false}
+          />
+        </Box>
       );
 
     case "Upload":
