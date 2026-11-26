@@ -94,6 +94,7 @@ const Comment = ({
       id: name,
       stream: true,
     };
+    if (maxLength) data.maxLength = maxLength;
     if (fields) {
       fields.forEach(d => {
         data[d] = formData[d];

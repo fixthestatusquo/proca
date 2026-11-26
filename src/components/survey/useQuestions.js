@@ -12,7 +12,11 @@ const localizeConfigQuestions = config => {
       id: q.id,
       type: q.type,
       attributeName: q.attributeName || String(q.id),
-      title: t(`campaign:fields.${q.id}.title`, q.title),
+      // undefined if neither config nor translation has a title, so the remote one is kept
+      title:
+        q.title || i18next.exists(`campaign:fields.${q.id}.title`)
+          ? t(`campaign:fields.${q.id}.title`, q.title)
+          : undefined,
     };
 
     if (q.possibleAnswers) {
@@ -25,6 +29,8 @@ const localizeConfigQuestions = config => {
     if (q.margin) result.margin = q.margin;
 
     if (q.required) result.required = q.required;
+    if (q.maxCharacters) result.maxCharacters = q.maxCharacters;
+    if (q.help) result.help = t(`campaign:fields.${q.id}.help`, q.help);
     return result;
   });
 };
@@ -58,7 +64,16 @@ const useConsultJson = (name, lang = "en") => {
         setError(err);
       }
 
-      const configQuestions = localizeConfigQuestions(config);
+      // a config question with the same id as a remote one overrides it,
+      // inheriting the remote properties it doesn't set (eg. maxCharacters, help, required)
+      const configQuestions = localizeConfigQuestions(config).map(q => {
+        const remote = remoteQuestions.find(r => String(r.id) === String(q.id));
+        if (!remote) return q;
+        const defined = Object.fromEntries(
+          Object.entries(q).filter(([, v]) => v !== undefined)
+        );
+        return { ...remote, ...defined };
+      });
       const merged = [...configQuestions, ...remoteQuestions];
 
       setQuestions(merged);
