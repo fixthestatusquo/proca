@@ -45,9 +45,13 @@
     "takeAction": "Thatha isinyathelo",
     "twitter": "Tweet"
   },
-  "ai_check": "I-AI ibhale lo myalezo, sikukhuthaza ukuthi uwufunde futhi uwulungise ukuze uthole umthelela omkhulu.",
-  "ai_tip": "Ungafaka amaphuzu ebullet lapha ekudaleni umbhalo bese uchofoza inkinobho ethi \"{{button}}\" noma ubhale umlayezo ngokwakho",
-  "ai_work": "Ubuhlakani bokufanisa emsebenzini",
+  "ai": {
+    "button": "Ngisize ngiyibhale",
+    "tip": "Ungafaka amaphuzu ebullet lapha ekudaleni umbhalo bese uchofoza inkinobho ethi \"{{button}}\" noma ubhale umlayezo ngokwakho",
+    "loading": "Ubuhlakani bokufanisa emsebenzini",
+    "check": "I-AI ibhale lo myalezo, sikukhuthaza ukuthi uwufunde futhi uwulungise ukuze uthole umthelela omkhulu.",
+    "another": "Khiqiza omunye"
+  },
   "camera": {
     "start": "qala ikhamera",
     "take": "Thatha isithombe",
@@ -169,8 +173,6 @@
     "na": "Kungcono ungakusho",
     "trans": "Okungeyona ibhinari"
   },
-  "give_another": "Khiqiza omunye",
-  "help_write": "Ngisize ngiyibhale",
   "image": {
     "addSticker": "faka izitika",
     "addStickerTitle": "Chofoza/Thepha ukuze ungeze isitifiketi esithombeni",

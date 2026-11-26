@@ -45,9 +45,13 @@
     "takeAction": "Agisci!",
     "twitter": "Tweet"
   },
-  "ai_check": "Un'intelligenza artificiale ha scritto questo messaggio, vi invitiamo a leggerlo e a personalizzarlo per massimizzarne l'impatto.",
-  "ai_tip": "Qui puoi inserire elenchi puntati per creare il testo e cliccare sul pulsante \"{{button}}\" oppure scrivere tu stesso un messaggio",
-  "ai_work": "L'intelligenza artificiale al lavoro",
+  "ai": {
+    "button": "Aiutami a scriverlo",
+    "tip": "Qui puoi inserire elenchi puntati per creare il testo e cliccare sul pulsante \"{{button}}\" oppure scrivere tu stesso un messaggio",
+    "loading": "L'intelligenza artificiale al lavoro",
+    "check": "Un'intelligenza artificiale ha scritto questo messaggio, vi invitiamo a leggerlo e a personalizzarlo per massimizzarne l'impatto.",
+    "another": "Dammi un altro"
+  },
   "camera": {
     "start": "avviare la telecamera",
     "take": "Scattare una foto",
@@ -169,8 +173,6 @@
     "na": "Preferisco non dirlo",
     "trans": "Non binario"
   },
-  "give_another": "Dammi un altro",
-  "help_write": "Aiutami a scriverlo",
   "image": {
     "addSticker": "aggiungere adesivi",
     "addStickerTitle": "Fare clic/toccare per aggiungere un adesivo alla foto",

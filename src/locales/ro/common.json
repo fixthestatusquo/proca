@@ -45,9 +45,13 @@
     "takeAction": "Acționați!",
     "twitter": "Tweet"
   },
-  "ai_check": "Un AI a scris acest mesaj, vă încurajăm să îl citiți și să îl personalizați pentru a-i maximiza impactul",
-  "ai_tip": "Aici puteți insera puncte pentru crearea textului și puteți face clic pe butonul „{{button}} ” sau puteți scrie un mesaj chiar dumneavoastră",
-  "ai_work": "IA la lucru",
+  "ai": {
+    "button": "Ajută-mă să o scriu",
+    "tip": "Aici puteți insera puncte pentru crearea textului și puteți face clic pe butonul „{{button}} ” sau puteți scrie un mesaj chiar dumneavoastră",
+    "loading": "IA la lucru",
+    "check": "Un AI a scris acest mesaj, vă încurajăm să îl citiți și să îl personalizați pentru a-i maximiza impactul",
+    "another": "Generează alt mesaj"
+  },
   "camera": {
     "start": "porniți camera",
     "take": "Faceți o fotografie",
@@ -169,8 +173,6 @@
     "na": "Prefer să nu spun",
     "trans": "Non-binar"
   },
-  "give_another": "Generează alt mesaj",
-  "help_write": "Ajută-mă să o scriu",
   "image": {
     "addSticker": "adăugați autocolante",
     "addStickerTitle": "Faceți clic/Tap pentru a adăuga autocolant la fotografie",

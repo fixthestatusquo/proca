@@ -45,9 +45,13 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
-  "ai_check": "Een AI schreef dit bericht, we raden je aan het te lezen en aan te passen om de impact ervan te maximaliseren",
-  "ai_tip": "Je kunt hier opsommingstekens invoegen om tekst op te stellen en vervolgens op de knop \"{{button}}\" klikken, of zelf een bericht schrijven",
-  "ai_work": "AI aan het werk",
+  "ai": {
+    "button": "Help me het te schrijven",
+    "tip": "Je kunt hier opsommingstekens invoegen om tekst op te stellen en vervolgens op de knop \"{{button}}\" klikken, of zelf een bericht schrijven",
+    "loading": "AI aan het werk",
+    "check": "Een AI schreef dit bericht, we raden je aan het te lezen en aan te passen om de impact ervan te maximaliseren",
+    "another": "Geef me nog een"
+  },
   "camera": {
     "start": "start de camera",
     "take": "Maak een foto",
@@ -169,8 +173,6 @@
     "na": "Ik geef er liever geen antwoord op",
     "trans": "Niet-binair"
   },
-  "give_another": "Geef me nog een",
-  "help_write": "Help me het te schrijven",
   "image": {
     "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",

@@ -45,9 +45,13 @@
     "takeAction": "Passez à l'action !",
     "twitter": "Tweet"
   },
-  "ai_check": "Une IA a écrit ce message, nous vous encourageons à le lire et à le personnaliser pour en maximiser l'impact.",
-  "ai_tip": "Vous pouvez insérer ici des puces pour la rédaction de texte, puis cliquer sur le bouton «{{button}} » ou rédiger vous-même un message.",
-  "ai_work": "L'IA au travail",
+  "ai": {
+    "button": "Aidez-moi à l'écrire",
+    "tip": "Vous pouvez insérer ici des puces pour la rédaction de texte, puis cliquer sur le bouton «{{button}} » ou rédiger vous-même un message.",
+    "loading": "L'IA au travail",
+    "check": "Une IA a écrit ce message, nous vous encourageons à le lire et à le personnaliser pour en maximiser l'impact.",
+    "another": "Donnez-m'en un autre"
+  },
   "camera": {
     "start": "démarrer la caméra",
     "take": "Prenez une photo",
@@ -169,8 +173,6 @@
     "na": "Je préfère ne pas le dire",
     "trans": "Non binaire"
   },
-  "give_another": "Donnez-m'en un autre",
-  "help_write": "Aidez-moi à l'écrire",
   "image": {
     "addSticker": "ajouter des autocollants",
     "addStickerTitle": "Cliquez/tapez pour ajouter un autocollant à la photo",

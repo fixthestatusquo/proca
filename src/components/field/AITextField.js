@@ -47,11 +47,11 @@ const AINotice = ({ state, regenerate }) => {
               </SvgIcon>
             }
           >
-            {t("give_another", "Generate another")}
+            {t("ai.another", "Generate another")}
           </Button>
         }
       >
-        {t("ai_check")}
+        {t("ai.check")}
       </Alert>
     )
   );
@@ -204,8 +204,8 @@ const Comment = ({
       <Grid item xs={12} className={classField}>
         {state !== "loaded" && !isLoading && (
           <Alert severity="info">
-            {t("ai_tip", {
-              button: t("help_write"),
+            {t("ai.tip", {
+              button: t("ai.button"),
             })}
           </Alert>
         )}
@@ -253,8 +253,8 @@ const Comment = ({
             }
           >
             {isLoading
-              ? t("ai_work", "AI at work")
-              : t("help_write", "Help me write it")}
+              ? t("ai.loading", "AI at work")
+              : t("ai.button", "Help me write it")}
           </Button>
         )}
         <AINotice state={state} regenerate={regenerate} />

@@ -45,9 +45,13 @@
     "takeAction": "Asu tegutsema",
     "twitter": "Kirjuta suhtlusvõrgus X"
   },
-  "ai_check": "Selle sõnumi on kirjutanud tehisintellektuaal, soovitame teil seda lugeda ja kohandada, et selle mõju oleks võimalikult suur",
-  "ai_tip": "Siia saate teksti koostamiseks lisada loetelupunkte ja klõpsata nuppu „{{button}} “ või kirjutada sõnumi ise",
-  "ai_work": "AI tööl",
+  "ai": {
+    "button": "Aita mul seda kirjutada",
+    "tip": "Siia saate teksti koostamiseks lisada loetelupunkte ja klõpsata nuppu „{{button}} “ või kirjutada sõnumi ise",
+    "loading": "AI tööl",
+    "check": "Selle sõnumi on kirjutanud tehisintellektuaal, soovitame teil seda lugeda ja kohandada, et selle mõju oleks võimalikult suur",
+    "another": "Anna mulle veel üks"
+  },
   "camera": {
     "start": "käivita kaamera",
     "take": "Pildistage",
@@ -169,8 +173,6 @@
     "na": "Eelistan mitte öelda",
     "trans": "Mittebinaarne"
   },
-  "give_another": "Anna mulle veel üks",
-  "help_write": "Aita mul seda kirjutada",
   "image": {
     "addSticker": "lisada kleebiseid",
     "addStickerTitle": "Klõpsake / koputage fotole kleebise lisamiseks",

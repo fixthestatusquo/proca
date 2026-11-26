@@ -45,9 +45,13 @@
     "takeAction": "Aktiv werden",
     "twitter": "Tweet"
   },
-  "ai_check": "Dieser Text wurde mittels KI erstellt. Bitte kontrollieren Sie die Inhalte auf Richtigkeit und Tonalität.",
-  "ai_tip": "Hier können Sie Stichpunkte für die Texterstellung einfügen und auf den Button \"{{button}}\" klicken oder selbst eine Nachricht verfassen.",
-  "ai_work": "KI bei der Arbeit",
+  "ai": {
+    "button": "Ich will Hilfe beim Schreiben",
+    "tip": "Hier können Sie Stichpunkte für die Texterstellung einfügen und auf den Button \"{{button}}\" klicken oder selbst eine Nachricht verfassen.",
+    "loading": "KI bei der Arbeit",
+    "check": "Dieser Text wurde mittels KI erstellt. Bitte kontrollieren Sie die Inhalte auf Richtigkeit und Tonalität.",
+    "another": "Nochmal versuchen"
+  },
   "camera": {
     "start": "Starten Sie die Kamera",
     "take": "Foto machen",
@@ -169,8 +173,6 @@
     "na": "Keine Angabe",
     "trans": "Divers"
   },
-  "give_another": "Nochmal versuchen",
-  "help_write": "Ich will Hilfe beim Schreiben",
   "image": {
     "addSticker": "Aufkleber hinzufügen",
     "addStickerTitle": "Klicken/Tippen, um einen Sticker zum Bild hinzuzufügen",

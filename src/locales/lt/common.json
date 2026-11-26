@@ -45,9 +45,13 @@
     "takeAction": "Imkitės veiksmų!",
     "twitter": "Tweet"
   },
-  "ai_check": "Šią žinutę parašė dirbtinis intelektas, raginame ją perskaityti ir pritaikyti, kad ji būtų kuo paveikesnė.",
-  "ai_tip": "Čia galite įterpti punktus, kuriuose bus pateiktas tekstas, ir paspausti mygtuką „{{button}} “ arba patys parašyti pranešimą",
-  "ai_work": "Dirbtinis intelektas darbe",
+  "ai": {
+    "button": "Padėkite man jį parašyti",
+    "tip": "Čia galite įterpti punktus, kuriuose bus pateiktas tekstas, ir paspausti mygtuką „{{button}} “ arba patys parašyti pranešimą",
+    "loading": "Dirbtinis intelektas darbe",
+    "check": "Šią žinutę parašė dirbtinis intelektas, raginame ją perskaityti ir pritaikyti, kad ji būtų kuo paveikesnė.",
+    "another": "Duokite man dar vieną"
+  },
   "camera": {
     "start": "įjungti fotoaparatą",
     "take": "Nufotografuokite",
@@ -169,8 +173,6 @@
     "na": "Nenorėčiau atsakyti",
     "trans": "Ne binarinis"
   },
-  "give_another": "Duokite man dar vieną",
-  "help_write": "Padėkite man jį parašyti",
   "image": {
     "addSticker": "pridėti lipdukų",
     "addStickerTitle": "Spustelėkite / bakstelėkite, jei norite pridėti lipduką prie nuotraukos",

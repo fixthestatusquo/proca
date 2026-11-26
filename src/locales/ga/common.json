@@ -45,9 +45,13 @@
     "takeAction": "Déan beart",
     "twitter": "Tweet"
   },
-  "ai_check": "Scríobh AI an teachtaireacht seo, molaimid duit í a léamh agus a shaincheapadh chun a tionchar a uasmhéadú",
-  "ai_tip": "Is féidir leat pointí piléar a chur isteach anseo chun téacs a chruthú agus cliceáil ar an gcnaipe \"{{button}}\", nó teachtaireacht a scríobh tú féin",
-  "ai_work": "AI ag an obair",
+  "ai": {
+    "button": "Cabhraigh liom é a scríobh",
+    "tip": "Is féidir leat pointí piléar a chur isteach anseo chun téacs a chruthú agus cliceáil ar an gcnaipe \"{{button}}\", nó teachtaireacht a scríobh tú féin",
+    "loading": "AI ag an obair",
+    "check": "Scríobh AI an teachtaireacht seo, molaimid duit í a léamh agus a shaincheapadh chun a tionchar a uasmhéadú",
+    "another": "Gin ceann eile"
+  },
   "camera": {
     "start": "tús a chur leis an gceamara",
     "take": "Glac pictiúr",
@@ -169,8 +173,6 @@
     "na": "Ní fearr liom a rá",
     "trans": "Neamh-dhénártha"
   },
-  "give_another": "Gin ceann eile",
-  "help_write": "Cabhraigh liom é a scríobh",
   "image": {
     "addSticker": "greamáin a chur leis",
     "addStickerTitle": "Cliceáil/Tapáil chun an greamán a chur leis an ngrianghraf",

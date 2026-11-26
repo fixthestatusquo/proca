@@ -45,9 +45,13 @@
     "takeAction": "Gidd aktiv",
     "twitter": "Tweet"
   },
-  "ai_check": "Eng KI huet dës Noriicht geschriwwen, mir encouragéieren Iech, se ze liesen an unzepassen, fir hiren Impakt ze maximéieren.",
-  "ai_tip": "Dir kënnt hei Bulletpoints fir d'Textererstellung asetzen an op de Knäppchen \"{{button}}\" klicken oder selwer eng Noriicht schreiwen.",
-  "ai_work": "KI bei der Aarbecht",
+  "ai": {
+    "button": "Hëlleft mir et ze schreiwen.",
+    "tip": "Dir kënnt hei Bulletpoints fir d'Textererstellung asetzen an op de Knäppchen \"{{button}}\" klicken oder selwer eng Noriicht schreiwen.",
+    "loading": "KI bei der Aarbecht",
+    "check": "Eng KI huet dës Noriicht geschriwwen, mir encouragéieren Iech, se ze liesen an unzepassen, fir hiren Impakt ze maximéieren.",
+    "another": "Generéiert en aneren"
+  },
   "camera": {
     "start": "Start der Kamera",
     "take": "Foto maachen",
@@ -169,8 +173,6 @@
     "na": "Léiw net soen",
     "trans": "net-binär"
   },
-  "give_another": "Generéiert en aneren",
-  "help_write": "Hëlleft mir et ze schreiwen.",
   "image": {
     "addSticker": "addéiere Stickeren",
     "addStickerTitle": "Klickt / Tippen fir Sticker op d'Foto ze addéieren",

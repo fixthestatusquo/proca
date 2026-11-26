@@ -45,9 +45,13 @@
     "takeAction": "Thatha inyathelo",
     "twitter": "Tweet"
   },
-  "ai_check": "Lo myalezo ubhalwe yi-AI, siyakukhuthaza ukuba uwufunde uze uwulungise ngendlela oyithandayo ukuze wona umphumo wawo.",
-  "ai_tip": "Ungafaka iibala zokudala umbhalo apha uze ucofe iqhosha elithi \"{{button}}\", okanye uzibhalele umyalezo ngokwakho.",
-  "ai_work": "Ubukrelekrele obuyingenzelwano emsebenzini",
+  "ai": {
+    "button": "Ndicele ukuba ndikuncede ukuyibhala.",
+    "tip": "Ungafaka iibala zokudala umbhalo apha uze ucofe iqhosha elithi \"{{button}}\", okanye uzibhalele umyalezo ngokwakho.",
+    "loading": "Ubukrelekrele obuyingenzelwano emsebenzini",
+    "check": "Lo myalezo ubhalwe yi-AI, siyakukhuthaza ukuba uwufunde uze uwulungise ngendlela oyithandayo ukuze wona umphumo wawo.",
+    "another": "Yenza enye"
+  },
   "camera": {
     "start": "qala ikhamera",
     "take": "Thatha umfanekiso",
@@ -169,8 +173,6 @@
     "na": "Kungathandwa ukuthetha",
     "trans": "Ongeyiyo indoda okanye umfazi"
   },
-  "give_another": "Yenza enye",
-  "help_write": "Ndicele ukuba ndikuncede ukuyibhala.",
   "image": {
     "addSticker": "yongeza izitayile",
     "addStickerTitle": "Cofa/Tapha ukuze wongeze isitayile kumfanekiso",

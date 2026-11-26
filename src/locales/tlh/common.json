@@ -38,8 +38,12 @@
     "stayInformed": "yIQum",
     "takeAction": "ngeH"
   },
-  "ai_check": "AI QIn. vIjatlh 'ej tlhap vItaH",
-  "ai_work": "AI vIghItlh",
+  "ai": {
+    "button": "vIjatlh",
+    "loading": "AI vIghItlh",
+    "check": "AI QIn. vIjatlh 'ej tlhap vItaH",
+    "another": "vIghItlh vIʼ"
+  },
   "camera": {
     "start": "Qong",
     "take": "ghItlh",
@@ -146,8 +150,6 @@
   "error": {
     "date": "format DD.MM.YYYY"
   },
-  "give_another": "vIghItlh vIʼ",
-  "help_write": "vIjatlh",
   "image": {
     "addSticker": "Sticker yIchoH",
     "addStickerTitle": "Sticker yIchoH Daq",

@@ -45,9 +45,13 @@
     "takeAction": "Ħu Azzjoni!",
     "twitter": "Tweet"
   },
-  "ai_check": "Intelliġenza Artifiċjali kitbet dan il-messaġġ, nħeġġuk taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
-  "ai_tip": "Tista' iżżid punti tal-bullet għall-ħolqien tat-test hawnhekk u tikklikkja l-buttuna \"{{button}}\" jew tikteb messaġġ int stess.",
-  "ai_work": "Intelliġenza Artifiċjali fil-post tax-xogħol",
+  "ai": {
+    "button": "Għinni niktebha",
+    "tip": "Tista' iżżid punti tal-bullet għall-ħolqien tat-test hawnhekk u tikklikkja l-buttuna \"{{button}}\" jew tikteb messaġġ int stess.",
+    "loading": "Intelliġenza Artifiċjali fil-post tax-xogħol",
+    "check": "Intelliġenza Artifiċjali kitbet dan il-messaġġ, nħeġġuk taqrah u tippersonalizzah biex timmassimizza l-impatt tiegħu.",
+    "another": "Ġenera ieħor"
+  },
   "camera": {
     "start": "ibda l-kamera",
     "take": "Ħu stampa",
@@ -169,8 +173,6 @@
     "na": "Preferi ma ngħidx",
     "trans": "Mhux binarju"
   },
-  "give_another": "Ġenera ieħor",
-  "help_write": "Għinni niktebha",
   "image": {
     "addSticker": "żid stikers",
     "addStickerTitle": "Ikklikkja/ Tektek biex iżżid stiker mar-ritratt",

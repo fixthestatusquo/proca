@@ -45,9 +45,13 @@
     "takeAction": "Podejmij działanie",
     "twitter": "Tweetnij"
   },
-  "ai_check": "Ta wiadomość została napisana przez sztuczną inteligencję, zachęcamy do jej przeczytania i dostosowania, aby zmaksymalizować jej wpływ",
-  "ai_tip": "W tym miejscu możesz wstawić punktory do tekstu, a następnie kliknąć przycisk „{{button}} ” lub samodzielnie wpisać wiadomość",
-  "ai_work": "Sztuczna inteligencja w pracy",
+  "ai": {
+    "button": "Pomóż mi to napisać",
+    "tip": "W tym miejscu możesz wstawić punktory do tekstu, a następnie kliknąć przycisk „{{button}} ” lub samodzielnie wpisać wiadomość",
+    "loading": "Sztuczna inteligencja w pracy",
+    "check": "Ta wiadomość została napisana przez sztuczną inteligencję, zachęcamy do jej przeczytania i dostosowania, aby zmaksymalizować jej wpływ",
+    "another": "Daj mi jeszcze jeden"
+  },
   "camera": {
     "start": "uruchom kamerkę",
     "take": "Zrób zdjęcie",
@@ -169,8 +173,6 @@
     "na": "Wolę nie odpowiadać",
     "trans": "Niebinarne"
   },
-  "give_another": "Daj mi jeszcze jeden",
-  "help_write": "Pomóż mi to napisać",
   "image": {
     "addSticker": "Dodaj naklejki",
     "addStickerTitle": "Kliknij/stuknij, aby dodać naklejkę do zdjęcia",

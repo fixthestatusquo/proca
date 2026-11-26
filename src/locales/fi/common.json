@@ -45,9 +45,13 @@
     "takeAction": "Ryhdy toimeen!",
     "twitter": "Tweet"
   },
-  "ai_check": "Tekoäly kirjoitti tämän viestin, kehotamme sinua lukemaan sen ja muokkaamaan sitä sen vaikutuksen maksimoimiseksi.",
-  "ai_tip": "Voit lisätä tähän luettelomerkkejä tekstin luomista varten ja napsauttaa painiketta ”{{button}} ” tai kirjoittaa viestin itse",
-  "ai_work": "Tekoäly työssä",
+  "ai": {
+    "button": "Auta minua kirjoittamaan se",
+    "tip": "Voit lisätä tähän luettelomerkkejä tekstin luomista varten ja napsauttaa painiketta ”{{button}} ” tai kirjoittaa viestin itse",
+    "loading": "Tekoäly työssä",
+    "check": "Tekoäly kirjoitti tämän viestin, kehotamme sinua lukemaan sen ja muokkaamaan sitä sen vaikutuksen maksimoimiseksi.",
+    "another": "Anna minulle toinen"
+  },
   "camera": {
     "start": "käynnistä kamera",
     "take": "Ota kuva",
@@ -169,8 +173,6 @@
     "na": "En halua sanoa",
     "trans": "Ei-binäärinen"
   },
-  "give_another": "Anna minulle toinen",
-  "help_write": "Auta minua kirjoittamaan se",
   "image": {
     "addSticker": "lisätä tarroja",
     "addStickerTitle": "Lisää tarra valokuvaan napsauttamalla sitä",

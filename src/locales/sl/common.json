@@ -45,9 +45,13 @@
     "takeAction": "Ukrepajte!",
     "twitter": "Tweet"
   },
-  "ai_check": "To sporočilo je napisala umetna inteligenca, priporočamo vam, da ga preberete in prilagodite, da bo njegov učinek čim večji.",
-  "ai_tip": "Tukaj lahko vstavite seznamske točke za sestavo besedila in kliknete gumb »{{button}} « ali pa sporočilo napišete sami",
-  "ai_work": "Umetna inteligenca pri delu",
+  "ai": {
+    "button": "Pomagajte mi ga napisati",
+    "tip": "Tukaj lahko vstavite seznamske točke za sestavo besedila in kliknete gumb »{{button}} « ali pa sporočilo napišete sami",
+    "loading": "Umetna inteligenca pri delu",
+    "check": "To sporočilo je napisala umetna inteligenca, priporočamo vam, da ga preberete in prilagodite, da bo njegov učinek čim večji.",
+    "another": "Dajte mi še eno"
+  },
   "camera": {
     "start": "zagon fotoaparata",
     "take": "Fotografirajte",
@@ -169,8 +173,6 @@
     "na": "Raje ne bi povedal",
     "trans": "Ne-binaren"
   },
-  "give_another": "Dajte mi še eno",
-  "help_write": "Pomagajte mi ga napisati",
   "image": {
     "addSticker": "dodajanje nalepk",
     "addStickerTitle": "Kliknite/tipnite za dodajanje nalepke na fotografijo",

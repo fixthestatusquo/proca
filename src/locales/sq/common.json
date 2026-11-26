@@ -45,9 +45,13 @@
     "takeAction": "Merrni masë",
     "twitter": "Cicëroni"
   },
-  "ai_check": "Një inteligjencë artificiale shkroi këtë mesazh, ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
-  "ai_tip": "Ju mund të futni pika për krijimin e tekstit këtu dhe të klikoni butonin \"{{button}}\" ose të shkruani vetë një mesazh.",
-  "ai_work": "Inteligjenca artificiale në punë",
+  "ai": {
+    "button": "Më ndihmo ta shkruaj",
+    "tip": "Ju mund të futni pika për krijimin e tekstit këtu dhe të klikoni butonin \"{{button}}\" ose të shkruani vetë një mesazh.",
+    "loading": "Inteligjenca artificiale në punë",
+    "check": "Një inteligjencë artificiale shkroi këtë mesazh, ju inkurajojmë ta lexoni dhe ta personalizoni për të maksimizuar ndikimin e tij.",
+    "another": "Gjeneroni një tjetër"
+  },
   "camera": {
     "start": "nisni kamerën",
     "take": "Bëni një foto",
@@ -169,8 +173,6 @@
     "na": "Preferoj të mos them",
     "trans": "Jo-binare"
   },
-  "give_another": "Gjeneroni një tjetër",
-  "help_write": "Më ndihmo ta shkruaj",
   "image": {
     "addSticker": "shtoni ngjitëse",
     "addStickerTitle": "Kliko/Prek për të shtuar një ngjitëse në foto",

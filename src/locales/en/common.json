@@ -29,11 +29,13 @@
   "Your message": "Your message",
   "customize_text": "We encourage you to read and customise it to maximise its impact",
   "select_options": "You can select up to {{opt}}",
-  "help_write": "Help me write it",
-  "ai_work": "AI at work",
-  "ai_tip": "You can insert bullet points for text creation here and click the button \"{{button}}\" or write a message yourself",
-  "ai_check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
-  "give_another": "Generate another",
+  "ai": {
+    "button": "Help me write it",
+    "tip": "You can insert bullet points for text creation here and click the button \"{{button}}\" or write a message yourself",
+    "loading": "AI at work",
+    "check": "An AI wrote this message, we encourage you to read and customise it to maximise its impact",
+    "another": "Generate another"
+  },
   "submit": "Submit",
   "survey": "Survey",
   "action": {

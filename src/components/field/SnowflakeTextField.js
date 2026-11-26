@@ -108,12 +108,12 @@ const Comment = ({
             onClick={fetchData}
             disabled={isLoading}
           >
-            {t("help_write", "Help me write it")}
+            {t("ai.button", "Help me write it")}
           </Button>
         )}
         {state === "loaded" && (
           <Button variant="outlined" onClick={fetchData}>
-            {t("give_another", "Give me another")}
+            {t("ai.another", "Give me another")}
           </Button>
         )}
       </Grid>

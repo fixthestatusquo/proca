@@ -45,9 +45,13 @@
     "takeAction": "Lépjetek akcióba!",
     "twitter": "Tweet"
   },
-  "ai_check": "Ezt az üzenetet egy mesterséges intelligencia írta, javasoljuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
-  "ai_tip": "Itt beilleszthet felsorolási pontokat a szöveg megírásához, majd rákattinthat a „{{button}} ” gombra, vagy saját maga is írhat üzenetet",
-  "ai_work": "AI munka közben",
+  "ai": {
+    "button": "Segíts megírni",
+    "tip": "Itt beilleszthet felsorolási pontokat a szöveg megírásához, majd rákattinthat a „{{button}} ” gombra, vagy saját maga is írhat üzenetet",
+    "loading": "AI munka közben",
+    "check": "Ezt az üzenetet egy mesterséges intelligencia írta, javasoljuk, hogy olvassa el és szabja testre, hogy maximalizálja a hatását.",
+    "another": "Adj még egy"
+  },
   "camera": {
     "start": "indítsa el a kamerát",
     "take": "Fényképezzen",
@@ -169,8 +173,6 @@
     "na": "Inkább nem mondanám meg",
     "trans": "Nem bináris"
   },
-  "give_another": "Adj még egy",
-  "help_write": "Segíts megírni",
   "image": {
     "addSticker": "matricák hozzáadása",
     "addStickerTitle": "Kattintson a gombra/koppintásra a matrica fotóhoz való hozzáadásához",

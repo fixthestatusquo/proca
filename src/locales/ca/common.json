@@ -45,9 +45,13 @@
     "takeAction": "Actuar!",
     "twitter": "Tuitejar"
   },
-  "ai_check": "Una IA ha escrit aquest missatge, t'animem a llegir-lo i personalitzar-lo per maximitzar-ne l'impacte.",
-  "ai_tip": "Podeu inserir punts de bala per a la creació de text aquí i fer clic al botó \"{{button}}\" o escriure un missatge vosaltres mateixos.",
-  "ai_work": "IA en acció",
+  "ai": {
+    "button": "Ajuda'm a escriure-ho",
+    "tip": "Podeu inserir punts de bala per a la creació de text aquí i fer clic al botó \"{{button}}\" o escriure un missatge vosaltres mateixos.",
+    "loading": "IA en acció",
+    "check": "Una IA ha escrit aquest missatge, t'animem a llegir-lo i personalitzar-lo per maximitzar-ne l'impacte.",
+    "another": "Genera'n un altre"
+  },
   "camera": {
     "start": "engegueu la càmera",
     "take": "Fes una foto",
@@ -169,8 +173,6 @@
     "na": "Preferir no dir-ho",
     "trans": "No binari"
   },
-  "give_another": "Genera'n un altre",
-  "help_write": "Ajuda'm a escriure-ho",
   "image": {
     "addSticker": "afegir adhesius",
     "addStickerTitle": "Feu clic/toqueu per afegir un adhesiu a la foto",

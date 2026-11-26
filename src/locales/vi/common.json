@@ -45,9 +45,13 @@
     "takeAction": "takeAction",
     "twitter": "tiếng riu ríu"
   },
-  "ai_check": "Thông điệp này được viết bởi trí tuệ nhân tạo (AI). Chúng tôi khuyến khích bạn đọc và tùy chỉnh nó để tối đa hóa tác động của nó.",
-  "ai_tip": "Bạn có thể chèn các dấu đầu dòng để soạn thảo văn bản tại đây và nhấp vào nút “{{button}} ” hoặc tự viết thông điệp của mình",
-  "ai_work": "Trí tuệ nhân tạo trong công việc",
+  "ai": {
+    "button": "Giúp tôi viết nó.",
+    "tip": "Bạn có thể chèn các dấu đầu dòng để soạn thảo văn bản tại đây và nhấp vào nút “{{button}} ” hoặc tự viết thông điệp của mình",
+    "loading": "Trí tuệ nhân tạo trong công việc",
+    "check": "Thông điệp này được viết bởi trí tuệ nhân tạo (AI). Chúng tôi khuyến khích bạn đọc và tùy chỉnh nó để tối đa hóa tác động của nó.",
+    "another": "Tạo thêm một cái khác"
+  },
   "camera": {
     "start": "khởi động máy ảnh",
     "take": "Chụp ảnh",
@@ -169,8 +173,6 @@
     "na": "Không muốn nói",
     "trans": "Không phân biệt giới tính"
   },
-  "give_another": "Tạo thêm một cái khác",
-  "help_write": "Giúp tôi viết nó.",
   "image": {
     "addSticker": "thêm nhãn dán",
     "addStickerTitle": "Nhấp/Nhấn để thêm nhãn dán vào ảnh",

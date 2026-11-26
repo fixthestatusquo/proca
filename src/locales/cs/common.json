@@ -45,9 +45,13 @@
     "takeAction": "Podnikněte kroky",
     "twitter": "Twít"
   },
-  "ai_check": "Tuto zprávu napsala umělá inteligence, doporučujeme vám, abyste si ji přečetli a přizpůsobili, aby měla co největší dopad.",
-  "ai_tip": "Zde můžete při psaní textu vkládat odrážky a kliknout na tlačítko „{{button}} “ nebo napsat zprávu sami",
-  "ai_work": "Umělá inteligence při práci",
+  "ai": {
+    "button": "Pomozte mi to napsat",
+    "tip": "Zde můžete při psaní textu vkládat odrážky a kliknout na tlačítko „{{button}} “ nebo napsat zprávu sami",
+    "loading": "Umělá inteligence při práci",
+    "check": "Tuto zprávu napsala umělá inteligence, doporučujeme vám, abyste si ji přečetli a přizpůsobili, aby měla co největší dopad.",
+    "another": "Dejte mi další"
+  },
   "camera": {
     "start": "spuštění fotoaparátu",
     "take": "Vyfotografujte se",
@@ -169,8 +173,6 @@
     "na": "Raději bych to neříkal",
     "trans": "Nebinární"
   },
-  "give_another": "Dejte mi další",
-  "help_write": "Pomozte mi to napsat",
   "image": {
     "addSticker": "přidat samolepky",
     "addStickerTitle": "Kliknutím/poklepáním přidáte nálepku k fotografii",

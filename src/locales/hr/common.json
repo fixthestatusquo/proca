@@ -45,9 +45,13 @@
     "takeAction": "Poduzmi akciju",
     "twitter": "Tweet"
   },
-  "ai_check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
-  "ai_tip": "Možete ovdje umetnuti markirane točke za izradu teksta i kliknuti gumb \"{{button}}\" ili sami napisati poruku.",
-  "ai_work": "UI generira odgovor",
+  "ai": {
+    "button": "Želim pomoć u pisanju odgovora",
+    "tip": "Možete ovdje umetnuti markirane točke za izradu teksta i kliknuti gumb \"{{button}}\" ili sami napisati poruku.",
+    "loading": "UI generira odgovor",
+    "check": "Ovu poruku je napisala umjetna inteligencija. Preporučujemo da je pročitaš i prilagodiš za povečavanje njezinog učinka",
+    "another": "Generiraj drugi odgovor"
+  },
   "camera": {
     "start": "pokreni kameru",
     "take": "Snimi sliku",
@@ -169,8 +173,6 @@
     "na": "Radije ne želim reći",
     "trans": "Ne-binarno"
   },
-  "give_another": "Generiraj drugi odgovor",
-  "help_write": "Želim pomoć u pisanju odgovora",
   "image": {
     "addSticker": "dodaj naljepnice",
     "addStickerTitle": "Klikni/Dodirni za dodavanje naljepnice fotografiji",

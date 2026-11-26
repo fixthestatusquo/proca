@@ -45,9 +45,13 @@
     "takeAction": "Actúa",
     "twitter": "Tweet"
   },
-  "ai_check": "Una IA escribió este mensaje, te animamos a leerlo y personalizarlo para maximizar su impacto",
-  "ai_tip": "Aquí puedes insertar viñetas para crear texto y hacer clic en el botón «{{button}} » o escribir un mensaje tú mismo.",
-  "ai_work": "La IA en el trabajo",
+  "ai": {
+    "button": "Ayúdame a escribirlo",
+    "tip": "Aquí puedes insertar viñetas para crear texto y hacer clic en el botón «{{button}} » o escribir un mensaje tú mismo.",
+    "loading": "La IA en el trabajo",
+    "check": "Una IA escribió este mensaje, te animamos a leerlo y personalizarlo para maximizar su impacto",
+    "another": "Dame otra"
+  },
   "camera": {
     "start": "encender la cámara",
     "take": "Haz una foto",
@@ -169,8 +173,6 @@
     "na": "Prefiero no decirlo",
     "trans": "No binario"
   },
-  "give_another": "Dame otra",
-  "help_write": "Ayúdame a escribirlo",
   "image": {
     "addSticker": "añadir pegatinas",
     "addStickerTitle": "Pulsa para añadir una pegatina a la foto",

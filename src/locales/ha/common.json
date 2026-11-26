@@ -45,9 +45,13 @@
     "takeAction": "Dauki Mataki!",
     "twitter": "Tweet"
   },
-  "ai_check": "Wani AI ne ya rubuta wannan saƙon, muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
-  "ai_tip": "Za ka iya saka alamomin bulo don ƙirƙirar rubutu anan sannan ka danna maɓallin \"{{button}}\" ko kuma ka rubuta saƙo da kanka",
-  "ai_work": "AI a aiki",
+  "ai": {
+    "button": "Taimaka mini in rubuta shi",
+    "tip": "Za ka iya saka alamomin bulo don ƙirƙirar rubutu anan sannan ka danna maɓallin \"{{button}}\" ko kuma ka rubuta saƙo da kanka",
+    "loading": "AI a aiki",
+    "check": "Wani AI ne ya rubuta wannan saƙon, muna ƙarfafa ku ku karanta shi kuma ku daidaita shi don haɓaka tasirinsa.",
+    "another": "Kirkiri wani"
+  },
   "camera": {
     "start": "fara kamara",
     "take": "Ɗauki hoto",
@@ -169,8 +173,6 @@
     "na": "Ina so kada in faɗa",
     "trans": "Ba biyu ba"
   },
-  "give_another": "Kirkiri wani",
-  "help_write": "Taimaka mini in rubuta shi",
   "image": {
     "addSticker": "ƙara lambobi",
     "addStickerTitle": "Danna/Taɓa don ƙara sitika zuwa hoto",

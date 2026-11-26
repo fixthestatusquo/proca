@@ -45,9 +45,13 @@
     "takeAction": "Tome uma atitude",
     "twitter": "Tweet"
   },
-  "ai_check": "Uma IA escreveu esta mensagem. Recomendamos que você a leia e a personalize para maximizar seu impacto",
-  "ai_tip": "Você pode inserir marcadores para criar o texto aqui e clicar no botão “{{button}} ” ou escrever uma mensagem por conta própria",
-  "ai_work": "IA no trabalho",
+  "ai": {
+    "button": "Ajude-me a escrevê-lo",
+    "tip": "Você pode inserir marcadores para criar o texto aqui e clicar no botão “{{button}} ” ou escrever uma mensagem por conta própria",
+    "loading": "IA no trabalho",
+    "check": "Uma IA escreveu esta mensagem. Recomendamos que você a leia e a personalize para maximizar seu impacto",
+    "another": "Dê-me outro"
+  },
   "camera": {
     "start": "iniciar a câmera",
     "take": "Tirar foto",
@@ -169,8 +173,6 @@
     "na": "Prefiro não dizer",
     "trans": "Não binário"
   },
-  "give_another": "Dê-me outro",
-  "help_write": "Ajude-me a escrevê-lo",
   "image": {
     "addSticker": "adicionar adesivos",
     "addStickerTitle": "Clique/Toque para adicionar um adesivo à imagem",

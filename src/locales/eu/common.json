@@ -45,9 +45,13 @@
     "takeAction": "Hartu ekintza!",
     "twitter": "Txio egin"
   },
-  "ai_check": "Adimen Artifizial batek mezu hau idatzi du; haren eragina maximizatzeko, irakurtzea eta pertsonalizatzea gomendatzen dizugu.",
-  "ai_tip": "Hemen testu-sorkuntzarako puntu-markak txerta ditzakezu eta \"{{button}}\" botoia sakatu, edo zuk zeuk mezu bat idatzi dezakezu.",
-  "ai_work": "Adimen artifiziala lanean",
+  "ai": {
+    "button": "Lagundu iezadazu idazten",
+    "tip": "Hemen testu-sorkuntzarako puntu-markak txerta ditzakezu eta \"{{button}}\" botoia sakatu, edo zuk zeuk mezu bat idatzi dezakezu.",
+    "loading": "Adimen artifiziala lanean",
+    "check": "Adimen Artifizial batek mezu hau idatzi du; haren eragina maximizatzeko, irakurtzea eta pertsonalizatzea gomendatzen dizugu.",
+    "another": "Beste bat sortu"
+  },
   "camera": {
     "start": "kamera martxan jarri",
     "take": "Atera argazkia",
@@ -169,8 +173,6 @@
     "na": "Esan nahi ez",
     "trans": "Ez-binarioa"
   },
-  "give_another": "Beste bat sortu",
-  "help_write": "Lagundu iezadazu idazten",
   "image": {
     "addSticker": "eranskailuak gehitu",
     "addStickerTitle": "Egin klik/Sakatu eranskailua argazkiari gehitzeko",

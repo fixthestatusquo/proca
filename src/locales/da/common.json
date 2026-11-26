@@ -45,9 +45,13 @@
     "takeAction": "Gør noget!",
     "twitter": "Tweet"
   },
-  "ai_check": "En AI skrev denne besked, vi opfordrer dig til at læse og tilpasse den for at maksimere dens effekt.",
-  "ai_tip": "Her kan du indsætte punktopstillinger til at skrive tekst og klikke på knappen »{{button}} « eller selv skrive en besked",
-  "ai_work": "AI på arbejde",
+  "ai": {
+    "button": "Hjælp mig med at skrive den",
+    "tip": "Her kan du indsætte punktopstillinger til at skrive tekst og klikke på knappen »{{button}} « eller selv skrive en besked",
+    "loading": "AI på arbejde",
+    "check": "En AI skrev denne besked, vi opfordrer dig til at læse og tilpasse den for at maksimere dens effekt.",
+    "another": "Giv mig en til"
+  },
   "camera": {
     "start": "starte kameraet",
     "take": "Tag et billede",
@@ -169,8 +173,6 @@
     "na": "Vil helst ikke sige noget",
     "trans": "Ikke-binær"
   },
-  "give_another": "Giv mig en til",
-  "help_write": "Hjælp mig med at skrive den",
   "image": {
     "addSticker": "tilføje klistermærker",
     "addStickerTitle": "Klik/tryk for at tilføje et klistermærke til et foto",

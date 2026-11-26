@@ -45,9 +45,13 @@
     "takeAction": "Vidta åtgärder!",
     "twitter": "Tweet"
   },
-  "ai_check": "En AI skrev detta meddelande, vi uppmanar dig att läsa och anpassa det för att maximera dess effekt",
-  "ai_tip": "Här kan du infoga punktlistor när du skriver text och klicka på knappen ”{{button}} ” eller skriva ett meddelande själv",
-  "ai_work": "AI på jobbet",
+  "ai": {
+    "button": "Hjälp mig att skriva det",
+    "tip": "Här kan du infoga punktlistor när du skriver text och klicka på knappen ”{{button}} ” eller skriva ett meddelande själv",
+    "loading": "AI på jobbet",
+    "check": "En AI skrev detta meddelande, vi uppmanar dig att läsa och anpassa det för att maximera dess effekt",
+    "another": "Ge mig en till"
+  },
   "camera": {
     "start": "starta kameran",
     "take": "Ta en bild",
@@ -169,8 +173,6 @@
     "na": "Vill helst inte svara",
     "trans": "Icke-binär"
   },
-  "give_another": "Ge mig en till",
-  "help_write": "Hjälp mig att skriva det",
   "image": {
     "addSticker": "lägga till klistermärken",
     "addStickerTitle": "Klicka/trycka för att lägga till klistermärke i fotot",

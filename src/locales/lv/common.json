@@ -45,9 +45,13 @@
     "takeAction": "Rīkojieties!",
     "twitter": "Tweet"
   },
-  "ai_check": "Šo ziņu uzrakstīja mākslīgais intelekts, un mēs aicinām jūs to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
-  "ai_tip": "Šeit varat ievietot uzskaitījuma punktus teksta veidošanai un noklikšķināt uz pogas „{{button}} ” vai arī pašrocīgi uzrakstīt ziņu",
-  "ai_work": "Mākslīgais intelekts darbā",
+  "ai": {
+    "button": "Palīdziet man to uzrakstīt",
+    "tip": "Šeit varat ievietot uzskaitījuma punktus teksta veidošanai un noklikšķināt uz pogas „{{button}} ” vai arī pašrocīgi uzrakstīt ziņu",
+    "loading": "Mākslīgais intelekts darbā",
+    "check": "Šo ziņu uzrakstīja mākslīgais intelekts, un mēs aicinām jūs to izlasīt un pielāgot, lai maksimāli palielinātu tās ietekmi.",
+    "another": "Dodiet man vēl vienu"
+  },
   "camera": {
     "start": "palaidiet kameru",
     "take": "Uzņemiet attēlu",
@@ -169,8 +173,6 @@
     "na": "Vēlos to neatklāt",
     "trans": "Ne-binārs"
   },
-  "give_another": "Dodiet man vēl vienu",
-  "help_write": "Palīdziet man to uzrakstīt",
   "image": {
     "addSticker": "pievienot uzlīmes",
     "addStickerTitle": "Noklikšķiniet/pieskarieties, lai pievienotu uzlīmi fotoattēlam",

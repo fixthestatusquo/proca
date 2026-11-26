@@ -45,9 +45,13 @@
     "takeAction": "takeAction",
     "twitter": "Tweet"
   },
-  "ai_check": "Denne meldingen er skrevet av en AI, og vi oppfordrer deg til å lese og tilpasse den for å maksimere effekten",
-  "ai_tip": "Her kan du legge inn punktlister når du skriver tekst, og deretter klikke på knappen «{{button}} » eller skrive en melding selv",
-  "ai_work": "AI på jobb",
+  "ai": {
+    "button": "Hjelp meg å skrive det",
+    "tip": "Her kan du legge inn punktlister når du skriver tekst, og deretter klikke på knappen «{{button}} » eller skrive en melding selv",
+    "loading": "AI på jobb",
+    "check": "Denne meldingen er skrevet av en AI, og vi oppfordrer deg til å lese og tilpasse den for å maksimere effekten",
+    "another": "Gi meg en til"
+  },
   "camera": {
     "start": "start kameraet",
     "take": "Ta bilde",
@@ -169,8 +173,6 @@
     "na": "Vil helst ikke si noe",
     "trans": "Ikke-binær"
   },
-  "give_another": "Gi meg en til",
-  "help_write": "Hjelp meg å skrive det",
   "image": {
     "addSticker": "legge til klistremerker",
     "addStickerTitle": "Klikk/Trykk for å legge til et klistremerke på bildet",

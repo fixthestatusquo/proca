@@ -45,9 +45,13 @@
     "takeAction": "Neem actie!",
     "twitter": "Tweet"
   },
-  "ai_check": "'n KI het hierdie boodskap geskryf, ons moedig jou aan om dit te lees en aan te pas om die impak te maksimeer.",
-  "ai_tip": "Jy kan hier koeëlpunte invoeg vir teksgenerering en op die knoppie \"{{button}}\" klik, of self 'n boodskap skryf.",
-  "ai_work": "KI aan die werk",
+  "ai": {
+    "button": "Help my om dit te skryf",
+    "tip": "Jy kan hier koeëlpunte invoeg vir teksgenerering en op die knoppie \"{{button}}\" klik, of self 'n boodskap skryf.",
+    "loading": "KI aan die werk",
+    "check": "'n KI het hierdie boodskap geskryf, ons moedig jou aan om dit te lees en aan te pas om die impak te maksimeer.",
+    "another": "Génereer nog een"
+  },
   "camera": {
     "start": "start de camera",
     "take": "Maak een foto",
@@ -169,8 +173,6 @@
     "na": "Liewer nie sê nie",
     "trans": "Nie-binêr"
   },
-  "give_another": "Génereer nog een",
-  "help_write": "Help my om dit te skryf",
   "image": {
     "addSticker": "stickers toevoegen",
     "addStickerTitle": "Klik/Tik om een sticker aan een foto toe te voegen",
