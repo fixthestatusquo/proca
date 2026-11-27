@@ -219,6 +219,17 @@ const Comment = ({
           maxRows="10"
           onKeyDown={() => setState("modified")}
           maxLength={maxLength}
+          // blocks next/submit: html maxlength doesn't apply to text set by code (defaults, AI)
+          validate={value =>
+            !maxLength ||
+            (value || "").length <= maxLength ||
+            t("ai.too_long", {
+              count: (value || "").length,
+              max: maxLength,
+              defaultValue:
+                "{{count}}/{{max}} characters, please shorten your text",
+            })
+          }
           error={!!fieldError || text?.length > maxLength}
           helperText={
             fieldError?.message ||
