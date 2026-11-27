@@ -1,4 +1,4 @@
-import { useState, } from "react";
+import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useCampaignConfig } from "@hooks/useConfig";
@@ -196,6 +196,11 @@ const Comment = ({
   const labelInside = label.length <= 30;
 
   const fieldError = form.formState.errors[name];
+
+  // we need this to keep track of character number while editing the message
+  useEffect(() => {
+    if (form.formState.errors[name]) form.trigger(name);
+  }, [text]);
 
   return (
     <>
