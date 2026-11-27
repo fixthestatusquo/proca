@@ -70,6 +70,7 @@ const Comment = ({
   //  const setConfig = useCallback((d) => _setConfig(d), [_setConfig]);
   const config = useCampaignConfig();
   const theme = useTheme();
+  const classes = useStyles();
   const fetchPrompted = config.component.message?.prompted || false;
   const [state, setState] = useState("untouched"); //untouched->loading->loaded
   const isLoading = state === "loading";
@@ -202,13 +203,6 @@ const Comment = ({
   return (
     <>
       <Grid item xs={12} className={classField}>
-        {state !== "loaded" && !isLoading && (
-          <Alert severity="info">
-            {t("ai.tip", {
-              button: t("ai.button"),
-            })}
-          </Alert>
-        )}
         {!labelInside && (
           <FormLabel
             component="legend"
@@ -236,26 +230,37 @@ const Comment = ({
         />
       </Grid>
       <Grid item xs={12} className={classField}>
+        {/* before generation: the tip with the button, replaced by AINotice once loaded */}
         {state !== "loaded" && (
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={fetchData}
-            disabled={isLoading}
-            startIcon={
-              isLoading ? (
-                <CircularProgress size={20} />
-              ) : (
-                <SvgIcon size={20}>
-                  <AIIcon />
-                </SvgIcon>
-              )
+          <Alert
+            severity="info"
+            classes={{ root: classes.alertStack }}
+            action={
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={fetchData}
+                disabled={isLoading}
+                startIcon={
+                  isLoading ? (
+                    <CircularProgress size={20} />
+                  ) : (
+                    <SvgIcon size={20}>
+                      <AIIcon />
+                    </SvgIcon>
+                  )
+                }
+              >
+                {isLoading
+                  ? t("ai.loading", "AI at work")
+                  : t("ai.button", "Help me write it")}
+              </Button>
             }
           >
-            {isLoading
-              ? t("ai.loading", "AI at work")
-              : t("ai.button", "Help me write it")}
-          </Button>
+            {t("ai.tip", {
+              button: t("ai.button", "Help me write it"),
+            })}
+          </Alert>
         )}
         <AINotice state={state} regenerate={regenerate} />
       </Grid>
