@@ -92,7 +92,8 @@ const Comment = ({
       id: name,
       stream: true,
     };
-    if (maxLength) data.maxLength = maxLength;
+    // ask the AI for 15% less than the field allows, it often overshoots the length it is given
+    if (maxLength) data.maxLength = Math.floor(maxLength * 0.85);
     if (fields) {
       fields.forEach(d => {
         data[d] = formData[d];
