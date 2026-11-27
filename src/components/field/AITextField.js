@@ -12,16 +12,13 @@ import dispatch from "@lib/event";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  alertStack: {
-    position: "relative",
-    paddingBottom: 40, // Adds space at the bottom so the button doesn't overlap text
-
+    alertStack: {
     "& .proca-MuiAlert-action": {
-      position: "absolute",
-      bottom: 8,
-      right: 16, // Aligns to the bottom right
-      padding: 0,
-      margin: 0,
+      alignItems: "flex-start",
+      paddingTop: 4,
+    },
+    "& .proca-MuiAlert-action .proca-MuiButton-root": {
+      whiteSpace: "nowrap",
     },
   },
 });
